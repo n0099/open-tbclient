@@ -27,33 +27,33 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a dfY;
         final a dfZ;
-        final int dga;
+        final a dga;
+        final int dgb;
 
         private b(a aVar) {
-            this.dfY = aVar.dfY;
             this.dfZ = aVar.dfZ;
             this.dga = aVar.dga;
+            this.dgb = aVar.dgb;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a dfY = null;
             private a dfZ = null;
-            private int dga = -1;
+            private a dga = null;
+            private int dgb = -1;
 
             public a b(a aVar) {
-                this.dfY = aVar;
+                this.dfZ = aVar;
                 return this;
             }
 
             public a lc(int i) {
-                this.dga = i;
+                this.dgb = i;
                 return this;
             }
 
-            public b aHA() {
+            public b aHC() {
                 return new b(this);
             }
         }
@@ -61,54 +61,54 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.aHA();
+            return aVar2.aHC();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
             aVar2.lc(i);
-            return aVar2.aHA();
+            return aVar2.aHC();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        View.OnClickListener dfX;
+        View.OnClickListener dfY;
         String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.mText = str;
-            this.dfX = onClickListener;
+            this.dfY = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int dfV;
-        final ImgType dgb;
+        final int dfW;
+        final ImgType dgc;
         final int mHeight;
         final int mMarginTop;
         final int mWidth;
 
         private c(a aVar) {
-            this.dgb = aVar.dgb;
+            this.dgc = aVar.dgc;
             this.mMarginTop = aVar.mMarginTop;
-            this.dfV = aVar.dfV;
+            this.dfW = aVar.dfW;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType dgb = ImgType.NONE;
+            private ImgType dgc = ImgType.NONE;
             private int mMarginTop = -1;
-            private int dfV = -1;
+            private int dfW = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.dgb = imgType;
+                this.dgc = imgType;
                 return this;
             }
 
@@ -118,7 +118,7 @@ public class NoDataViewFactory {
             }
 
             public a le(int i) {
-                this.dfV = i;
+                this.dfW = i;
                 return this;
             }
 
@@ -132,7 +132,7 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public c aHB() {
+            public c aHD() {
                 return new c(this);
             }
         }
@@ -141,7 +141,7 @@ public class NoDataViewFactory {
             a aVar = new a();
             aVar.b(imgType);
             aVar.ld(i);
-            return aVar.aHB();
+            return aVar.aHD();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
@@ -151,20 +151,20 @@ public class NoDataViewFactory {
             aVar.ld(i2);
             aVar.lf(i3);
             aVar.lg(i4);
-            return aVar.aHB();
+            return aVar.aHD();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.aHB();
+            return aVar.aHD();
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        final String dgc;
-        final int dgd;
+        final String dgd;
+        final int dge;
         final int mDrawableId;
         final String mSubTitle;
         final String mTitle;
@@ -172,8 +172,8 @@ public class NoDataViewFactory {
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
             this.mSubTitle = aVar.mSubTitle;
-            this.dgc = aVar.dgc;
-            this.dgd = aVar.dge;
+            this.dgd = aVar.dgd;
+            this.dge = aVar.dgf;
             this.mDrawableId = aVar.mDrawableId;
         }
 
@@ -181,8 +181,8 @@ public class NoDataViewFactory {
         public static class a {
             private String mTitle = null;
             private String mSubTitle = null;
-            private String dgc = null;
-            private int dge = -1;
+            private String dgd = null;
+            private int dgf = -1;
             private int mDrawableId = 0;
 
             public a tV(String str) {
@@ -196,11 +196,11 @@ public class NoDataViewFactory {
             }
 
             public a li(int i) {
-                this.dge = i;
+                this.dgf = i;
                 return this;
             }
 
-            public d aHC() {
+            public d aHE() {
                 return new d(this);
             }
         }
@@ -209,7 +209,7 @@ public class NoDataViewFactory {
             a aVar = new a();
             aVar.tW(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.li(i2);
-            return aVar.aHC();
+            return aVar.aHE();
         }
 
         public static d lh(int i) {
@@ -223,14 +223,14 @@ public class NoDataViewFactory {
         public static d tU(String str) {
             a aVar = new a();
             aVar.tW(str);
-            return aVar.aHC();
+            return aVar.aHE();
         }
 
         public static d cA(String str, String str2) {
             a aVar = new a();
             aVar.tW(str);
             aVar.tV(str2);
-            return aVar.aHC();
+            return aVar.aHE();
         }
     }
 

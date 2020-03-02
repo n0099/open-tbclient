@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0244a Ni = a.b.Ni();
-                codeCacheSetting.maxCount = Ni.maxCount;
-                codeCacheSetting.sizeLimit = Ni.sizeLimit;
+                a.C0244a Nk = a.b.Nk();
+                codeCacheSetting.maxCount = Nk.maxCount;
+                codeCacheSetting.sizeLimit = Nk.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

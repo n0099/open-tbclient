@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.swan.apps.adaptation.b.d;
 /* loaded from: classes11.dex */
 public interface g<T extends d> extends e<T> {
-    boolean IF();
+    boolean IH();
 
-    void IS();
+    void IU();
 
-    void IT();
+    void IV();
 
     void bX(boolean z);
 

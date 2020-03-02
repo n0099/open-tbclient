@@ -28,9 +28,9 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     private LinearLayout Wo;
     private CustomViewPager Wp;
     private List<com.baidu.live.view.tabhost.a> Wy;
-    private AlaViewPagerAdapter aFT;
-    private a aFU;
-    private b aFV;
+    private AlaViewPagerAdapter aFU;
+    private a aFV;
+    private b aFW;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private int mDividerColor;
@@ -116,8 +116,8 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
         this.Wp = new CustomViewPager(getContext());
         this.Wp.setOnPageChangeListener(this);
         addView(this.Wp);
-        this.aFT = new AlaViewPagerAdapter();
-        this.Wp.setAdapter(this.aFT);
+        this.aFU = new AlaViewPagerAdapter();
+        this.Wp.setAdapter(this.aFU);
         this.mRectPaint = new Paint();
         this.mRectPaint.setAntiAlias(true);
         this.mRectPaint.setStyle(Paint.Style.FILL);
@@ -126,7 +126,7 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     public void setData(List<com.baidu.live.view.tabhost.a> list) {
         this.Wy = list;
         l(list);
-        this.aFT.setData(list);
+        this.aFU.setData(list);
         this.Wp.setCurrentItem(0);
     }
 
@@ -205,8 +205,8 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
             this.mCurrentPositionOffset = f;
             updateTabStyles();
             invalidate();
-            if (this.aFU != null) {
-                this.aFU.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.Wy, this.mCurrentTabIndex));
+            if (this.aFV != null) {
+                this.aFV.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.Wy, this.mCurrentTabIndex));
             }
         }
     }
@@ -217,12 +217,12 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.aFU != null) {
-                this.aFU.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.Wy, this.mCurrentTabIndex));
+            if (this.aFV != null) {
+                this.aFV.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.Wy, this.mCurrentTabIndex));
             }
         }
-        if (this.aFV != null) {
-            this.aFV.onPageSelected(i);
+        if (this.aFW != null) {
+            this.aFW.onPageSelected(i);
         }
     }
 
@@ -235,10 +235,10 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.aFU = aVar;
+        this.aFV = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.aFV = bVar;
+        this.aFW = bVar;
     }
 }

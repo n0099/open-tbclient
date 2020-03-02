@@ -4,14 +4,14 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes9.dex */
 public class h {
-    private boolean fDx;
-    private int iCs;
-    private int iCt;
+    private boolean fDz;
+    private int iCA;
     private int iCu;
-    private List<String> iCv;
-    private String iCw;
-    private boolean iCx;
-    private int iCy;
+    private int iCv;
+    private int iCw;
+    private List<String> iCx;
+    private String iCy;
+    private boolean iCz;
     private int status;
 
     public static h a(ManagerElection managerElection) {
@@ -19,15 +19,15 @@ public class h {
             return null;
         }
         h hVar = new h();
-        hVar.iCt = managerElection.begin_vote_time.intValue();
-        hVar.fDx = managerElection.can_vote.intValue() == 1;
-        hVar.iCs = managerElection.vote_num.intValue();
-        hVar.iCu = managerElection.election_id.intValue();
-        hVar.iCx = managerElection.is_show_distribute.intValue() == 1;
-        hVar.iCy = managerElection.remainder_time.intValue();
+        hVar.iCv = managerElection.begin_vote_time.intValue();
+        hVar.fDz = managerElection.can_vote.intValue() == 1;
+        hVar.iCu = managerElection.vote_num.intValue();
+        hVar.iCw = managerElection.election_id.intValue();
+        hVar.iCz = managerElection.is_show_distribute.intValue() == 1;
+        hVar.iCA = managerElection.remainder_time.intValue();
         hVar.status = managerElection.status.intValue();
-        hVar.iCw = managerElection.tail_text;
-        hVar.iCv = managerElection.vote_condition;
+        hVar.iCy = managerElection.tail_text;
+        hVar.iCx = managerElection.vote_condition;
         return hVar;
     }
 
@@ -35,32 +35,32 @@ public class h {
         return this.status;
     }
 
-    public boolean ckV() {
+    public boolean ckX() {
+        return this.iCz;
+    }
+
+    public int ckY() {
+        return this.iCA;
+    }
+
+    public int ckZ() {
+        return this.iCu;
+    }
+
+    public List<String> cla() {
         return this.iCx;
     }
 
-    public int ckW() {
+    public String clb() {
         return this.iCy;
     }
 
-    public int ckX() {
-        return this.iCs;
-    }
-
-    public List<String> ckY() {
-        return this.iCv;
-    }
-
-    public String ckZ() {
-        return this.iCw;
-    }
-
-    public boolean bud() {
-        return this.fDx;
+    public boolean buf() {
+        return this.fDz;
     }
 
     public void ke(boolean z) {
-        this.fDx = z;
+        this.fDz = z;
     }
 
     public void setStatus(int i) {
@@ -68,6 +68,6 @@ public class h {
     }
 
     public void yB(int i) {
-        this.iCs = i;
+        this.iCu = i;
     }
 }

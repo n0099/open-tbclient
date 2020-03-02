@@ -22,136 +22,136 @@ import com.baidu.tieba.recapp.report.f;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class SplashAdView extends BCAdView {
-    private b ecP;
-    public boolean ecQ;
-    public ScalableVideoView ecR;
+    private b ecQ;
+    public boolean ecR;
+    public ScalableVideoView ecS;
 
     public SplashAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i, int i2, RedirectType redirectType) {
         super(tbPageContext, str, adType, i, i2);
-        this.ecM = redirectType;
-        this.ecL = new c(tbPageContext.getPageActivity());
-        this.ecI = new AdInfo();
+        this.ecN = redirectType;
+        this.ecM = new c(tbPageContext.getPageActivity());
+        this.ecJ = new AdInfo();
     }
 
-    public boolean aZp() {
+    public boolean aZr() {
         loadAd();
-        this.ecI = AdInfo.jsonToObject(this.ecL.aZh());
-        this.ecI.placeId = this.placeId;
-        if (this.ecI.advisible == 0) {
-            com.baidu.tieba.recapp.report.c.cDn().a(f.u(this.ecI.extraParam, 3, this.ecI.placeId));
+        this.ecJ = AdInfo.jsonToObject(this.ecM.aZj());
+        this.ecJ.placeId = this.placeId;
+        if (this.ecJ.advisible == 0) {
+            com.baidu.tieba.recapp.report.c.cDp().a(f.u(this.ecJ.extraParam, 3, this.ecJ.placeId));
         }
-        this.ecP = b.xz(a.aZn());
-        if (this.ecP.isValidate()) {
-            if (this.ecP.aZg()) {
-                this.ecQ = true;
-                String str = this.ecP.videoLocalPath;
+        this.ecQ = b.xz(a.aZp());
+        if (this.ecQ.isValidate()) {
+            if (this.ecQ.aZi()) {
+                this.ecR = true;
+                String str = this.ecQ.videoLocalPath;
                 File file = new File(str);
                 if (file.exists()) {
                     a.K(file);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mWidth, this.mHeight);
-                    this.ecR = new ScalableVideoView(this.mContext);
-                    this.ecR.setScalableType(ScalableType.CENTER_CROP);
+                    this.ecS = new ScalableVideoView(this.mContext);
+                    this.ecS.setScalableType(ScalableType.CENTER_CROP);
                     try {
-                        this.ecR.setDataSource(str);
-                        this.ecR.setVolume(0.0f, 0.0f);
-                        this.ecR.prepareAsync(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.1
+                        this.ecS.setDataSource(str);
+                        this.ecS.setVolume(0.0f, 0.0f);
+                        this.ecS.prepareAsync(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.1
                             @Override // android.media.MediaPlayer.OnPreparedListener
                             public void onPrepared(MediaPlayer mediaPlayer) {
-                                SplashAdView.this.ecR.start();
+                                SplashAdView.this.ecS.start();
                             }
                         });
-                        this.ecR.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.2
+                        this.ecS.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.2
                             @Override // android.media.MediaPlayer.OnErrorListener
                             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                                a.aZm();
-                                SplashAdView.this.ecP.videoLocalPath = "";
-                                a.a(SplashAdView.this.ecP);
+                                a.aZo();
+                                SplashAdView.this.ecQ.videoLocalPath = "";
+                                a.a(SplashAdView.this.ecQ);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://timeout"));
                                 return false;
                             }
                         });
-                        this.ecR.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.3
+                        this.ecS.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.3
                             @Override // android.media.MediaPlayer.OnCompletionListener
                             public void onCompletion(MediaPlayer mediaPlayer) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://timeout"));
                             }
                         });
-                        this.ecR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.4
+                        this.ecS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (!a.isFastDoubleClick()) {
-                                    if (SplashAdView.this.ecI.advisible != 0) {
-                                        com.baidu.tieba.recapp.report.c.cDn().a(f.c(SplashAdView.this.ecI.extraParam, 2, SplashAdView.this.ecI.placeId, "video"));
+                                    if (SplashAdView.this.ecJ.advisible != 0) {
+                                        com.baidu.tieba.recapp.report.c.cDp().a(f.c(SplashAdView.this.ecJ.extraParam, 2, SplashAdView.this.ecJ.placeId, "video"));
                                     }
-                                    if (SplashAdView.this.ecF != null && !TextUtils.isEmpty(SplashAdView.this.ecP.videoJumpUrl)) {
-                                        SplashAdView.this.ecF.xx(SplashAdView.this.ecP.videoJumpUrl);
+                                    if (SplashAdView.this.ecG != null && !TextUtils.isEmpty(SplashAdView.this.ecQ.videoJumpUrl)) {
+                                        SplashAdView.this.ecG.xx(SplashAdView.this.ecQ.videoJumpUrl);
                                     }
                                 }
                             }
                         });
-                        addView(this.ecR, layoutParams);
-                        com.baidu.tieba.recapp.report.c.cDn().a(f.c(this.ecI.extraParam, 3, this.ecI.placeId, "video"));
+                        addView(this.ecS, layoutParams);
+                        com.baidu.tieba.recapp.report.c.cDp().a(f.c(this.ecJ.extraParam, 3, this.ecJ.placeId, "video"));
                         return true;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        a.aZm();
-                        this.ecP.videoLocalPath = "";
-                        a.a(this.ecP);
+                        a.aZo();
+                        this.ecQ.videoLocalPath = "";
+                        a.a(this.ecQ);
                         return false;
                     }
                 }
-                a.aZm();
-                this.ecP.videoLocalPath = "";
-                a.a(this.ecP);
+                a.aZo();
+                this.ecQ.videoLocalPath = "";
+                a.a(this.ecQ);
                 return false;
-            } else if (!TextUtils.isEmpty(this.ecP.adImgUrl)) {
-                if (this.ecH != null) {
-                    this.ecH = null;
+            } else if (!TextUtils.isEmpty(this.ecQ.adImgUrl)) {
+                if (this.ecI != null) {
+                    this.ecI = null;
                 }
-                this.ecH = new TbImageView(this.mContext);
-                this.ecH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.5
+                this.ecI = new TbImageView(this.mContext);
+                this.ecI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (!a.isFastDoubleClick()) {
-                            if (SplashAdView.this.ecI.advisible != 0) {
-                                com.baidu.tieba.recapp.report.c.cDn().a(f.c(SplashAdView.this.ecI.extraParam, 2, SplashAdView.this.ecI.placeId, "image"));
+                            if (SplashAdView.this.ecJ.advisible != 0) {
+                                com.baidu.tieba.recapp.report.c.cDp().a(f.c(SplashAdView.this.ecJ.extraParam, 2, SplashAdView.this.ecJ.placeId, "image"));
                             }
-                            if (SplashAdView.this.ecF != null && !TextUtils.isEmpty(SplashAdView.this.ecP.redirectUrl)) {
-                                SplashAdView.this.ecF.xx(SplashAdView.this.ecP.redirectUrl);
+                            if (SplashAdView.this.ecG != null && !TextUtils.isEmpty(SplashAdView.this.ecQ.redirectUrl)) {
+                                SplashAdView.this.ecG.xx(SplashAdView.this.ecQ.redirectUrl);
                             }
                         }
                     }
                 });
-                this.ecH.startLoad(this.ecI.adImgUrl, 10, false);
-                this.ecH.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                addView(this.ecH, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
-                com.baidu.tieba.recapp.report.c.cDn().a(f.c(this.ecI.extraParam, 3, this.ecI.placeId, "image"));
+                this.ecI.startLoad(this.ecJ.adImgUrl, 10, false);
+                this.ecI.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                addView(this.ecI, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
+                com.baidu.tieba.recapp.report.c.cDp().a(f.c(this.ecJ.extraParam, 3, this.ecJ.placeId, "image"));
                 return true;
             } else {
-                a.aZm();
+                a.aZo();
             }
         } else {
-            a.aZl();
-            a.aZm();
+            a.aZn();
+            a.aZo();
         }
         return false;
     }
 
-    public String aZq() {
-        if (this.ecI == null) {
-            if (this.ecJ == null) {
+    public String aZs() {
+        if (this.ecJ == null) {
+            if (this.ecK == null) {
                 return null;
             }
-            return this.ecJ.displayName;
+            return this.ecK.displayName;
         }
-        return this.ecI.displayName;
+        return this.ecJ.displayName;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.ecR != null) {
-            this.ecR.onDetachedFromWindow();
+        if (this.ecS != null) {
+            this.ecS.onDetachedFromWindow();
         }
     }
 
@@ -162,6 +162,6 @@ public class SplashAdView extends BCAdView {
     }
 
     public b getEntryInfoData() {
-        return this.ecP;
+        return this.ecQ;
     }
 }

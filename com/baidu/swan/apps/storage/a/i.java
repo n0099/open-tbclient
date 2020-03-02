@@ -30,8 +30,8 @@ public class i extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        eVar.acL().afg().remove(optString);
-        com.baidu.swan.apps.ap.e.bXP.update();
+        eVar.acN().afi().remove(optString);
+        com.baidu.swan.apps.ap.e.bXQ.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

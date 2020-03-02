@@ -5,15 +5,15 @@ import com.baidu.swan.pms.model.f;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    public List<C0364a> cBO;
+    public List<C0364a> cBP;
 
     /* renamed from: com.baidu.swan.pms.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0364a {
-        public String cAX;
-        public f cBP;
-        public PMSAppInfo cBQ;
-        public boolean cBR;
+        public String cAY;
+        public f cBQ;
+        public PMSAppInfo cBR;
+        public boolean cBS;
         public int category;
         public int errorCode;
 
@@ -21,24 +21,24 @@ public class a {
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || this.cBP == null || !(obj instanceof C0364a)) {
+            if (obj == null || this.cBQ == null || !(obj instanceof C0364a)) {
                 return false;
             }
-            return this.cBP.equals(((C0364a) obj).cBP);
+            return this.cBQ.equals(((C0364a) obj).cBQ);
         }
 
         public int hashCode() {
-            return this.cBP == null ? super.hashCode() : this.cBP.hashCode();
+            return this.cBQ == null ? super.hashCode() : this.cBQ.hashCode();
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("PMS Item: ").append(this.cAX);
-            if (this.cBP != null) {
-                sb.append(",pkgMain=").append(this.cBP);
-            }
+            sb.append("PMS Item: ").append(this.cAY);
             if (this.cBQ != null) {
-                sb.append(",appInfo=").append(this.cBQ);
+                sb.append(",pkgMain=").append(this.cBQ);
+            }
+            if (this.cBR != null) {
+                sb.append(",appInfo=").append(this.cBR);
             }
             return sb.toString();
         }

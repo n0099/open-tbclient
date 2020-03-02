@@ -6,34 +6,34 @@ import java.util.concurrent.ExecutorService;
 import okhttp3.OkHttpClient;
 /* loaded from: classes.dex */
 public class a {
-    private static a nuD;
+    private static a nuF;
     private OkHttpClient mOkHttpClient;
-    private File nuE;
-    private Map<String, e> nuF;
-    private c nuG;
-    private ExecutorService nuH;
+    private File nuG;
+    private Map<String, e> nuH;
+    private c nuI;
+    private ExecutorService nuJ;
 
-    public static a dIL() {
-        return nuD;
+    public static a dIN() {
+        return nuF;
     }
 
     public void a(final f fVar, final g gVar) {
-        this.nuH.submit(new Runnable() { // from class: common.network.download.a.1
+        this.nuJ.submit(new Runnable() { // from class: common.network.download.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!a.this.nuF.containsKey(fVar.getName())) {
-                    a.this.nuF.put(fVar.getName(), new e(fVar, a.this.nuE, a.this.nuH, a.this.mOkHttpClient, a.this.nuG));
+                if (!a.this.nuH.containsKey(fVar.getName())) {
+                    a.this.nuH.put(fVar.getName(), new e(fVar, a.this.nuG, a.this.nuJ, a.this.mOkHttpClient, a.this.nuI));
                 }
-                ((e) a.this.nuF.get(fVar.getName())).a(gVar);
+                ((e) a.this.nuH.get(fVar.getName())).a(gVar);
             }
         });
     }
 
     public void a(final f fVar) {
-        this.nuH.submit(new Runnable() { // from class: common.network.download.a.2
+        this.nuJ.submit(new Runnable() { // from class: common.network.download.a.2
             @Override // java.lang.Runnable
             public void run() {
-                e eVar = (e) a.this.nuF.get(fVar.getName());
+                e eVar = (e) a.this.nuH.get(fVar.getName());
                 if (eVar != null) {
                     eVar.cancel();
                 }

@@ -9,10 +9,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
     public static void b(JSONObject jSONObject, ResponseCallback responseCallback) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(f.processCommonParams(UP())).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).cookieManager(com.baidu.swan.config.e.aiW().UY()).build().executeAsync(responseCallback);
+        HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(f.processCommonParams(UR())).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).cookieManager(com.baidu.swan.config.e.aiY().Va()).build().executeAsync(responseCallback);
     }
 
-    private static String UP() {
-        return String.format("%s/fetchbasedata", com.baidu.swan.config.e.aiW().Vb());
+    private static String UR() {
+        return String.format("%s/fetchbasedata", com.baidu.swan.config.e.aiY().Vd());
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        ba.aGE().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
+        ba.aGG().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {
@@ -51,16 +51,16 @@ public class c {
     private static void b(Context context, bj bjVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bjVar != null && bjVar.aCm() != null && bjVar.aCF() != null) {
+        } else if (context != null && bjVar != null && bjVar.aCo() != null && bjVar.aCH() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bjVar.aCm().getUserId();
+                String userId = bjVar.aCo().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCF());
+            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCH());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }

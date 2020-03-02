@@ -133,7 +133,7 @@ public class d {
 
     public static void EV(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.ipR + g.a.ipI + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.ipT + g.a.ipK + str));
         }
     }
 }

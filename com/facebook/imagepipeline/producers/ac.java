@@ -26,36 +26,36 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        final am drw = akVar.drw();
+        final am dry = akVar.dry();
         final String id = akVar.getId();
-        final ImageRequest drv = akVar.drv();
-        final aq<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> aqVar = new aq<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>(kVar, drw, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ac.1
+        final ImageRequest drx = akVar.drx();
+        final aq<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> aqVar = new aq<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>(kVar, dry, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ac.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             /* renamed from: m */
             public void onSuccess(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
                 super.onSuccess(aVar);
-                drw.D(id, "VideoThumbnailProducer", aVar != null);
+                dry.D(id, "VideoThumbnailProducer", aVar != null);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onFailure(Exception exc) {
                 super.onFailure(exc);
-                drw.D(id, "VideoThumbnailProducer", false);
+                dry.D(id, "VideoThumbnailProducer", false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: dqg */
+            /* renamed from: dqi */
             public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> getResult() throws Exception {
                 Bitmap n;
-                if (ac.this.m(drv) == null || (n = ac.this.n(drv)) == null) {
+                if (ac.this.m(drx) == null || (n = ac.this.n(drx)) == null) {
                     return null;
                 }
-                return com.facebook.common.references.a.b(new com.facebook.imagepipeline.g.d(n, com.facebook.imagepipeline.b.g.dnO(), com.facebook.imagepipeline.g.g.lTU, 0));
+                return com.facebook.common.references.a.b(new com.facebook.imagepipeline.g.d(n, com.facebook.imagepipeline.b.g.dnQ(), com.facebook.imagepipeline.g.g.lTW, 0));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ac.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnN() {
+            public void dnP() {
                 aqVar.cancel();
             }
         });
@@ -93,21 +93,21 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
     public String m(ImageRequest imageRequest) {
         String[] strArr;
         String str;
-        Uri dso = imageRequest.dso();
-        if (com.facebook.common.util.d.isLocalFileUri(dso)) {
-            return imageRequest.dsw().getPath();
+        Uri dsq = imageRequest.dsq();
+        if (com.facebook.common.util.d.isLocalFileUri(dsq)) {
+            return imageRequest.dsy().getPath();
         }
-        if (com.facebook.common.util.d.isLocalContentUri(dso)) {
-            if (Build.VERSION.SDK_INT < 19 || !"com.android.providers.media.documents".equals(dso.getAuthority())) {
+        if (com.facebook.common.util.d.isLocalContentUri(dsq)) {
+            if (Build.VERSION.SDK_INT < 19 || !"com.android.providers.media.documents".equals(dsq.getAuthority())) {
                 strArr = null;
                 str = null;
             } else {
-                String documentId = DocumentsContract.getDocumentId(dso);
-                dso = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                String documentId = DocumentsContract.getDocumentId(dsq);
+                dsq = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
                 str = "_id=?";
                 strArr = new String[]{documentId.split(":")[1]};
             }
-            Cursor query = this.mContentResolver.query(dso, new String[]{"_data"}, str, strArr, null);
+            Cursor query = this.mContentResolver.query(dsq, new String[]{"_data"}, str, strArr, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -168,10 +168,10 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
     public Bitmap n(ImageRequest imageRequest) {
         int i;
         int i2 = 0;
-        com.facebook.imagepipeline.common.d dsq = imageRequest.dsq();
-        if (dsq != null) {
-            i = dsq.width;
-            i2 = dsq.height;
+        com.facebook.imagepipeline.common.d dss = imageRequest.dss();
+        if (dss != null) {
+            i = dss.width;
+            i2 = dss.height;
         } else {
             i = 0;
         }

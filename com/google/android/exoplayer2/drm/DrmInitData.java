@@ -92,8 +92,8 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(SchemeData schemeData, SchemeData schemeData2) {
-        if (com.google.android.exoplayer2.b.lYd.equals(schemeData.uuid)) {
-            return com.google.android.exoplayer2.b.lYd.equals(schemeData2.uuid) ? 0 : 1;
+        if (com.google.android.exoplayer2.b.lYf.equals(schemeData.uuid)) {
+            return com.google.android.exoplayer2.b.lYf.equals(schemeData2.uuid) ? 0 : 1;
         }
         return schemeData.uuid.compareTo(schemeData2.uuid);
     }
@@ -151,7 +151,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         }
 
         public boolean a(UUID uuid) {
-            return com.google.android.exoplayer2.b.lYd.equals(this.uuid) || uuid.equals(this.uuid);
+            return com.google.android.exoplayer2.b.lYf.equals(this.uuid) || uuid.equals(this.uuid);
         }
 
         public boolean a(SchemeData schemeData) {

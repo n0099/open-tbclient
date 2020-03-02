@@ -6,11 +6,11 @@ public class c {
     public String content;
     public String forumId;
     public String imageUrl;
-    public String kOQ;
-    public String kOR;
     public String kOS;
     public String kOT;
     public String kOU;
+    public String kOV;
+    public String kOW;
     public String linkUrl;
     public String title;
     public String wG;

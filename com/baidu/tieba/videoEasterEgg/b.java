@@ -5,7 +5,7 @@ public interface b {
 
     void Kv(String str);
 
-    void Qs();
+    void Qu();
 
     void eM(String str, String str2);
 

@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
-    private static Map<String, String> igc;
+    private static Map<String, String> ige;
 
     public static void Eq(String str) {
         try {
@@ -16,16 +16,16 @@ public class a {
         }
     }
 
-    public static Map<String, String> cep() {
-        if (igc == null) {
+    public static Map<String, String> cer() {
+        if (ige == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                igc = (Map) declaredField.get(null);
+                ige = (Map) declaredField.get(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return igc;
+        return ige;
     }
 }

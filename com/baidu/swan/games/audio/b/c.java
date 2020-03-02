@@ -9,7 +9,7 @@ public interface c extends com.baidu.swan.games.audio.a {
 
     void a(com.baidu.swan.nalib.audio.c cVar);
 
-    boolean alD();
+    boolean alF();
 
     void ez(boolean z);
 

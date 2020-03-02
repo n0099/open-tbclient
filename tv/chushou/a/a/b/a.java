@@ -17,19 +17,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes5.dex */
 public final class a {
-    private static volatile a nVJ;
+    private static volatile a nVL;
     private final ExecutorService executorService = new b(new C0801a(0, Integer.MAX_VALUE, 30, TimeUnit.SECONDS, new SynchronousQueue(), new tv.chushou.a.a.b.b("DefaultTaskExecutor", 0)));
 
-    public static a dQc() {
-        if (nVJ != null) {
-            return nVJ;
+    public static a dQe() {
+        if (nVL != null) {
+            return nVL;
         }
         synchronized (a.class) {
-            if (nVJ == null) {
-                nVJ = new a();
+            if (nVL == null) {
+                nVL = new a();
             }
         }
-        return nVJ;
+        return nVL;
     }
 
     private a() {
@@ -141,7 +141,7 @@ public final class a {
                 }
             }
             if (th != null) {
-                tv.chushou.a.a.c.a.dQd().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
+                tv.chushou.a.a.c.a.dQf().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
             }
         }
     }

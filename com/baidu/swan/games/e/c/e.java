@@ -25,11 +25,11 @@ public class e implements PermissionProxy {
             return;
         }
         final String oM = oM(str);
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (TextUtils.isEmpty(oM) || acD == null || acD.acz() == null) {
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (TextUtils.isEmpty(oM) || acF == null || acF.acB() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            acD.acN().b(acD.acz(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
+            acF.acP().b(acF.acB(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */

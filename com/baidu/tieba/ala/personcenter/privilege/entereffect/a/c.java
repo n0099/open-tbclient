@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, a> {
     public c(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.fxo);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.fxp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     private void a(a aVar) {
         if (aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            am.setViewTextColor(aVar.fxm, R.color.cp_cont_b, 1, skinType);
-            am.setBackgroundResource(aVar.fxn, R.color.cp_bg_line_c, skinType);
+            am.setViewTextColor(aVar.fxn, R.color.cp_cont_b, 1, skinType);
+            am.setBackgroundResource(aVar.fxo, R.color.cp_bg_line_c, skinType);
         }
     }
 
@@ -36,12 +36,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, a aVar2) {
         if (aVar != null) {
-            aVar2.fxm.setText(aVar.Xq);
+            aVar2.fxn.setText(aVar.Xq);
         }
         if (i == 0) {
-            aVar2.fxn.setVisibility(8);
+            aVar2.fxo.setVisibility(8);
         } else {
-            aVar2.fxn.setVisibility(0);
+            aVar2.fxo.setVisibility(0);
         }
         a(aVar2);
         return aVar2.getView();
@@ -49,13 +49,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public TextView fxm;
-        public View fxn;
+        public TextView fxn;
+        public View fxo;
 
         public a(View view) {
             super(view);
-            this.fxm = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.fxn = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.fxn = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.fxo = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

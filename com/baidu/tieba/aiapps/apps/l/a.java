@@ -40,8 +40,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            String acF = e.acF();
-            if (TextUtils.isEmpty(acF) || TextUtils.isEmpty(acF.trim())) {
+            String acH = e.acH();
+            if (TextUtils.isEmpty(acH) || TextUtils.isEmpty(acH.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -56,12 +56,12 @@ public class a extends ab {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            Request g = g(acF, optParamsAsJo);
+            Request g = g(acH, optParamsAsJo);
             if (g == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.acP().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
+            eVar.acR().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -105,7 +105,7 @@ public class a extends ab {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
-                jSONObject2.put("srcAppPage", bbc());
+                jSONObject2.put("srcAppPage", bbe());
                 jSONObject2.put("params", jSONObject);
                 request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
@@ -128,11 +128,11 @@ public class a extends ab {
         return Uri.parse(str);
     }
 
-    private String bbc() {
-        com.baidu.swan.apps.core.d.e GA = f.WQ().GA();
-        if (GA == null || GA.Om() == null) {
+    private String bbe() {
+        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
+        if (GC == null || GC.Oo() == null) {
             return "";
         }
-        return GA.Om().Oa().getPage() + "?" + GA.Om().Oa().getParams();
+        return GC.Oo().Oc().getPage() + "?" + GC.Oo().Oc().getParams();
     }
 }

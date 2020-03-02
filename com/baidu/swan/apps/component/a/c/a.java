@@ -65,11 +65,11 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     }
 
     private void b(@NonNull V v, @NonNull M m) {
-        if (m.bhT != null) {
+        if (m.bhU != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyle");
             }
-            if (m.bhM) {
+            if (m.bhN) {
                 v.setTextColor(m.textColor);
             }
             float f = (float) m.fontSize;
@@ -79,7 +79,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
             c((a<V, M>) v, (V) m);
             d(v, m);
             e(v, m);
-            String str = m.bhN;
+            String str = m.bhO;
             char c = 65535;
             switch (str.hashCode()) {
                 case -1039745817:
@@ -103,14 +103,14 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
                     v.setSingleLine(true);
                     break;
             }
-            if ("ellipsis".equals(m.bhO)) {
+            if ("ellipsis".equals(m.bhP)) {
                 v.setEllipsize(TextUtils.TruncateAt.END);
             }
         }
     }
 
     protected void c(@NonNull V v, @NonNull M m) {
-        if (m.bhT != null) {
+        if (m.bhU != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleLineSpace");
             }
@@ -129,7 +129,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(@NonNull V v, @NonNull M m, int i) {
         int i2;
-        if (m.bhT != null) {
+        if (m.bhU != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleTextAlign");
             }
@@ -176,7 +176,7 @@ public abstract class a<V extends TextView, M extends b> extends com.baidu.swan.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(@NonNull V v, @NonNull M m) {
-        if (m.bhT != null) {
+        if (m.bhU != null) {
             if (DEBUG) {
                 Log.d("Component-TextView", "renderTextStyleFontWeight");
             }

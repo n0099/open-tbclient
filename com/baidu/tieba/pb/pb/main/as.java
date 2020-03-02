@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.ba;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class as {
-    private static as iPY = null;
+    private static as iQa = null;
 
-    public static as cqz() {
-        if (iPY == null) {
+    public static as cqB() {
+        if (iQa == null) {
             synchronized (as.class) {
-                if (iPY == null) {
-                    iPY = new as();
+                if (iQa == null) {
+                    iQa = new as();
                 }
             }
         }
-        return iPY;
+        return iQa;
     }
 
     public void c(TbPageContext tbPageContext, String str) {
@@ -28,9 +28,9 @@ public class as {
             if (Gi(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
             } else if (Gj(str)) {
-                ba.aGE().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+                ba.aGG().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
-                ba.aGE().b(tbPageContext, new String[]{str});
+                ba.aGG().b(tbPageContext, new String[]{str});
             }
         }
     }

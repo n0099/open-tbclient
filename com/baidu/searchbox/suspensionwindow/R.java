@@ -37,7 +37,7 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class string {
-        public static final int suspension_window_cancel = 0x7f081581;
+        public static final int suspension_window_cancel = 0x7f081582;
     }
 
     /* loaded from: classes5.dex */

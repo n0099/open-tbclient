@@ -21,12 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    public static final Set<String> beF = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> bGc;
+    public static final Set<String> beG = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> bGd;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.bGc = new ConcurrentHashMap<>();
+        this.bGd = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -40,7 +40,7 @@ public class a extends ab {
             return 0L;
         }
         try {
-            j = this.bGc.get(str).longValue();
+            j = this.bGd.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
@@ -48,8 +48,8 @@ public class a extends ab {
     }
 
     public final void jG(String str) {
-        if (this.bGc != null && !TextUtils.isEmpty(str)) {
-            this.bGc.remove(str);
+        if (this.bGd != null && !TextUtils.isEmpty(str)) {
+            this.bGd.remove(str);
         }
     }
 
@@ -61,7 +61,7 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !beF.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !beG.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -78,7 +78,7 @@ public class a extends ab {
             if (at == null) {
                 at = new HashMap<>();
             }
-            at.put("Referer", com.baidu.swan.apps.api.module.g.c.JR());
+            at.put("Referer", com.baidu.swan.apps.api.module.g.c.JT());
         }
         return at;
     }
@@ -161,8 +161,8 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String YT() {
-        return com.baidu.swan.apps.w.a.Us().Is().getCookie(".baidu.com");
+    public String YV() {
+        return com.baidu.swan.apps.w.a.Uu().Iu().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

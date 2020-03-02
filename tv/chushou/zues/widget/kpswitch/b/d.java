@@ -12,9 +12,9 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class d {
-    private static int nZz = 0;
-    private static int nZA = 0;
     private static int nZB = 0;
+    private static int nZC = 0;
+    private static int nZD = 0;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -50,16 +50,16 @@ public class d {
         if (i < 0) {
             return false;
         }
-        nZz = i;
+        nZB = i;
         tv.chushou.zues.utils.e.k("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.j(context, i);
     }
 
     public static int ho(Context context) {
-        if (nZz == 0) {
-            nZz = b.k(context, a(context.getResources()));
+        if (nZB == 0) {
+            nZB = b.k(context, a(context.getResources()));
         }
-        return nZz;
+        return nZB;
     }
 
     public static int bl(Context context) {
@@ -67,17 +67,17 @@ public class d {
     }
 
     public static int b(Resources resources) {
-        if (nZA == 0) {
-            nZA = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (nZC == 0) {
+            nZC = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return nZA;
+        return nZC;
     }
 
     public static int a(Resources resources) {
-        if (nZB == 0) {
-            nZB = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (nZD == 0) {
+            nZD = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return nZB;
+        return nZD;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.nZn = null;
+        tv.chushou.zues.widget.kpswitch.b.a.nZp = null;
     }
 }

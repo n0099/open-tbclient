@@ -14,31 +14,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private static String ity = "native_crash_log.log";
-    private static List<String> itz = new ArrayList();
+    private static String itA = "native_crash_log.log";
+    private static List<String> itB = new ArrayList();
     private static BroadcastReceiver xj = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra("package_name");
                 if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                    b.aFB().putInt("native_crash_count_" + stringExtra, 0);
+                    b.aFD().putInt("native_crash_count_" + stringExtra, 0);
                 }
             }
         }
     };
-    private static BdNativeCrash.a itA = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a itC = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void chU() {
-        if (BdNativeCrash.itx) {
-            BdNativeCrash.chT().ea(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.chT().a(itA);
-            chV();
+    public static void chW() {
+        if (BdNativeCrash.itz) {
+            BdNativeCrash.chV().ea(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.chV().a(itC);
+            chX();
         }
     }
 
-    private static void chV() {
+    private static void chX() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

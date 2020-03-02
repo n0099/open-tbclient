@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0650a {
-        private static Object nkr;
-        private static Class<?> nks;
-        private static Method nkt;
-        private static Method nku;
+        private static Object nkt;
+        private static Class<?> nku;
         private static Method nkv;
         private static Method nkw;
+        private static Method nkx;
+        private static Method nky;
 
         static {
-            nkt = null;
-            nku = null;
             nkv = null;
             nkw = null;
+            nkx = null;
+            nky = null;
             try {
-                nks = Class.forName("com.android.id.impl.IdProviderImpl");
-                nkr = nks.newInstance();
-                nkt = nks.getMethod("getUDID", Context.class);
-                nku = nks.getMethod("getOAID", Context.class);
-                nkv = nks.getMethod("getVAID", Context.class);
-                nkw = nks.getMethod("getAAID", Context.class);
+                nku = Class.forName("com.android.id.impl.IdProviderImpl");
+                nkt = nku.newInstance();
+                nkv = nku.getMethod("getUDID", Context.class);
+                nkw = nku.getMethod("getOAID", Context.class);
+                nkx = nku.getMethod("getVAID", Context.class);
+                nky = nku.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (nks == null || nkr == null) ? false : true;
+            return (nku == null || nkt == null) ? false : true;
         }
 
         public static String gv(Context context) {
-            return a(context, nku);
+            return a(context, nkw);
         }
 
         private static String a(Context context, Method method) {
-            if (nkr != null && method != null) {
+            if (nkt != null && method != null) {
                 try {
-                    Object invoke = method.invoke(nkr, context);
+                    Object invoke = method.invoke(nkt, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

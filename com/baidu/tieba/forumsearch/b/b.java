@@ -4,24 +4,24 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gmM = BdUniqueId.gen();
-    private String gmI;
-    private String gmJ;
+    public static final BdUniqueId gmO = BdUniqueId.gen();
     private String gmK;
-    private boolean gmL;
-    private String gmn;
+    private String gmL;
+    private String gmM;
+    private boolean gmN;
+    private String gmp;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.gmn = str;
+        this.gmp = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gmM;
+        return gmO;
     }
 
     public void a(SearchForum searchForum) {
@@ -29,11 +29,11 @@ public class b extends com.baidu.tieba.card.data.b {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
             this.mAvatar = searchForum.avatar;
-            this.gmI = searchForum.post_num;
-            this.gmJ = searchForum.concern_num;
-            this.gmK = searchForum.slogan;
+            this.gmK = searchForum.post_num;
+            this.gmL = searchForum.concern_num;
+            this.gmM = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.gmL = searchForum.has_concerned.intValue() != 0;
+            this.gmN = searchForum.has_concerned.intValue() != 0;
         }
     }
 
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mAvatar;
     }
 
-    public String bCO() {
-        return this.gmJ;
+    public String bCQ() {
+        return this.gmL;
     }
 
-    public String bCP() {
-        return this.gmI;
+    public String bCR() {
+        return this.gmK;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String bCQ() {
-        return this.gmn;
+    public String bCS() {
+        return this.gmp;
     }
 }

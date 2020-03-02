@@ -14,11 +14,11 @@ import kascend.core.utils.KSUtils;
 public class c extends a {
     private File mFile;
     private String mPath;
-    private final String nBv;
+    private final String nBx;
 
     public c(Context context) {
         super(context);
-        this.nBv = "ksdevice";
+        this.nBx = "ksdevice";
         this.mPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/kascend/.kas";
         this.mFile = new File(this.mPath);
         File parentFile = this.mFile.getParentFile();

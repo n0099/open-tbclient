@@ -14,7 +14,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 /* loaded from: classes11.dex */
 public abstract class b extends ab {
-    protected String bRv;
+    protected String bRw;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -24,7 +24,7 @@ public abstract class b extends ab {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.bRv = null;
+        this.bRw = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -57,7 +57,7 @@ public abstract class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         } else {
-            eVar.acN().b(context, "mapp_favorite", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            eVar.acP().b(context, "mapp_favorite", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */

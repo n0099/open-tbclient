@@ -22,10 +22,10 @@ import com.baidu.tieba.ala.data.o;
 /* loaded from: classes3.dex */
 public class a {
     private Activity activity;
-    private b exZ;
+    private b eya;
     private String liveId;
     private String roomId;
-    private HttpMessageListener eya = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.b.a.1
+    private HttpMessageListener eyb = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                com.baidu.live.l.a.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAn, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAo, "send_redpacket");
+                com.baidu.live.l.a.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAo, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAp, "send_redpacket");
                 a.this.activity.finish();
                 return;
             }
@@ -46,8 +46,8 @@ public class a {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 UtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (a.this.exZ != null) {
-                a.this.exZ.io(true);
+            if (a.this.eya != null) {
+                a.this.eya.io(true);
             }
         }
     };
@@ -69,7 +69,7 @@ public class a {
     public a(Activity activity) {
         this.activity = activity;
         initView();
-        bec();
+        bee();
     }
 
     private void initView() {
@@ -78,10 +78,10 @@ public class a {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.exZ = new b(this.activity, this);
+        this.eya = new b(this.activity, this);
     }
 
-    private static void beb() {
+    private static void bed() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -91,21 +91,21 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bec() {
-        beb();
-        MessageManager.getInstance().registerListener(this.eya);
+    private void bee() {
+        bed();
+        MessageManager.getInstance().registerListener(this.eyb);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1021159);
-        MessageManager.getInstance().unRegisterListener(this.eya);
+        MessageManager.getInstance().unRegisterListener(this.eyb);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.exZ != null) {
-            return this.exZ.getView();
+        if (this.eya != null) {
+            return this.eya.getView();
         }
         return null;
     }
@@ -116,21 +116,21 @@ public class a {
             oVar.dP(this.roomId);
             oVar.setParams();
             MessageManager.getInstance().sendMessage(oVar);
-            if (this.exZ != null) {
-                this.exZ.io(false);
+            if (this.eya != null) {
+                this.eya.io(false);
             }
         }
     }
 
     public void ta() {
-        if (this.exZ != null) {
-            this.exZ.ta();
+        if (this.eya != null) {
+            this.eya.ta();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.exZ != null) {
-            this.exZ.onKeyboardVisibilityChanged(z);
+        if (this.eya != null) {
+            this.eya.onKeyboardVisibilityChanged(z);
         }
     }
 }

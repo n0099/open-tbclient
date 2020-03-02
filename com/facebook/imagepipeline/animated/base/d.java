@@ -6,24 +6,24 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d {
-    private final b lPG;
-    private final int lPH;
+    private final b lPI;
+    private final int lPJ;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> lPI;
+    private com.facebook.common.references.a<Bitmap> lPK;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> lPJ;
+    private List<com.facebook.common.references.a<Bitmap>> lPL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.lPG = (b) g.checkNotNull(eVar.dnF());
-        this.lPH = eVar.dnH();
-        this.lPI = eVar.dnG();
-        this.lPJ = eVar.dnI();
+        this.lPI = (b) g.checkNotNull(eVar.dnH());
+        this.lPJ = eVar.dnJ();
+        this.lPK = eVar.dnI();
+        this.lPL = eVar.dnK();
     }
 
     private d(b bVar) {
-        this.lPG = (b) g.checkNotNull(bVar);
-        this.lPH = 0;
+        this.lPI = (b) g.checkNotNull(bVar);
+        this.lPJ = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b dnF() {
-        return this.lPG;
+    public b dnH() {
+        return this.lPI;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.lPI);
-        this.lPI = null;
-        com.facebook.common.references.a.a(this.lPJ);
-        this.lPJ = null;
+        com.facebook.common.references.a.c(this.lPK);
+        this.lPK = null;
+        com.facebook.common.references.a.a(this.lPL);
+        this.lPL = null;
     }
 }

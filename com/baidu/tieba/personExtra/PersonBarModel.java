@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String ebK = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, ebK);
-    private int jjQ;
+    private static final String ebL = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, ebL);
+    private int jjS;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean bXs() {
+    public boolean bXu() {
         return this.mIsHost;
     }
 
     public void setCurrentPageIndex(int i) {
-        this.jjQ = i;
+        this.jjS = i;
     }
 
-    public b cvY() {
+    public b cwa() {
         return this.mData;
     }
 
-    public void cvW() {
+    public void cvY() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!bXs()) {
+        if (!bXu()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -82,14 +82,14 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void GM(String str) {
-        if (this.jjQ == 1 && this.mIsHost) {
+        if (this.jjS == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> sQ = com.baidu.tbadk.core.c.a.aEz().sQ("tb.my_pages");
+                    l<String> sQ = com.baidu.tbadk.core.c.a.aEB().sQ("tb.my_pages");
                     if (sQ != null) {
                         sQ.set(str2, str, 604800000L);
                     }

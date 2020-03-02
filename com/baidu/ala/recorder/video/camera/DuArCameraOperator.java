@@ -448,8 +448,8 @@ public class DuArCameraOperator implements SurfaceTexture.OnFrameAvailableListen
             isSetupConfig = true;
             DuArConfig instance = DuArConfig.instance();
             b.a(this.mActivityReference.get().getApplicationContext(), instance.appId, instance.apiKey, instance.secretKey, new c(instance.getDuArSourcePath()));
-            if (b.DO() != null) {
-                b.DO();
+            if (b.DQ() != null) {
+                b.DQ();
                 FILTER_DEFAULT = c.getFilterYuanTuPath();
             }
         }

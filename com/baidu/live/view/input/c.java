@@ -8,9 +8,9 @@ public interface c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bv();
+        void Bx();
 
-        void Bw();
+        void By();
 
         boolean ws();
 

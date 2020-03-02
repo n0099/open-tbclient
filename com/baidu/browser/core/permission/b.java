@@ -16,7 +16,7 @@ public class b {
             return com.baidu.k.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.k.a.Ev();
+            return !com.baidu.k.a.Ex();
         }
     }
 

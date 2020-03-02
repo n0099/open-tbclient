@@ -7,5 +7,5 @@ public interface a {
 
     InputStream Kz(String str);
 
-    c cSF();
+    c cSH();
 }

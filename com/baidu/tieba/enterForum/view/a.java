@@ -23,12 +23,12 @@ import com.baidu.tieba.enterForum.data.k;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends PopupWindow {
-    private ViewGroup aDx;
-    private View.OnClickListener ecb;
-    private InterfaceC0496a fYZ;
-    private View fZa;
-    private TextView fZb;
-    private TextView fZc;
+    private ViewGroup aDy;
+    private View.OnClickListener ecc;
+    private InterfaceC0496a fZb;
+    private View fZc;
+    private TextView fZd;
+    private TextView fZe;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -42,23 +42,23 @@ public class a extends PopupWindow {
 
     public a(Context context) {
         super(context);
-        this.ecb = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.ecc = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.fZb) {
-                    if (a.this.fYZ != null) {
-                        a.this.fYZ.onItemClick(1);
+                if (view == a.this.fZd) {
+                    if (a.this.fZb != null) {
+                        a.this.fZb.onItemClick(1);
                     }
-                } else if (view == a.this.fZc && a.this.fYZ != null) {
-                    a.this.fYZ.onItemClick(2);
+                } else if (view == a.this.fZe && a.this.fZb != null) {
+                    a.this.fZb.onItemClick(2);
                 }
-                a.this.AR();
+                a.this.AT();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.AR();
+                a.this.AT();
             }
         };
         this.mContext = context;
@@ -71,58 +71,58 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View bzn() {
-        bzo();
+    private View bzp() {
+        bzq();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.aDx = frameLayout2;
+        this.aDy = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.fZa);
-        this.aDx.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.fZc);
+        this.aDy.setOnClickListener(this.mOnClickListener);
         am.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.f.a.aGX().kR(R.color.cp_btn_a).kM(l.getDimens(this.mContext, R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kO(l.getDimens(this.mContext, R.dimen.tbds21)).kP(0).kQ(l.getDimens(this.mContext, R.dimen.tbds5)).aQ(this.fZa);
+        com.baidu.tbadk.core.util.f.a.aGZ().kR(R.color.cp_btn_a).kM(l.getDimens(this.mContext, R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kO(l.getDimens(this.mContext, R.dimen.tbds21)).kP(0).kQ(l.getDimens(this.mContext, R.dimen.tbds5)).aQ(this.fZc);
         return frameLayout;
     }
 
-    private void bzo() {
-        this.fZa = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
-        this.fZb = (TextView) this.fZa.findViewById(R.id.sort_type_level_text);
-        this.mLine = this.fZa.findViewById(R.id.sort_select_line);
-        this.fZc = (TextView) this.fZa.findViewById(R.id.sort_type_update_text);
-        this.fZb.setOnClickListener(this.ecb);
-        this.fZc.setOnClickListener(this.ecb);
+    private void bzq() {
+        this.fZc = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+        this.fZd = (TextView) this.fZc.findViewById(R.id.sort_type_level_text);
+        this.mLine = this.fZc.findViewById(R.id.sort_select_line);
+        this.fZe = (TextView) this.fZc.findViewById(R.id.sort_type_update_text);
+        this.fZd.setOnClickListener(this.ecc);
+        this.fZe.setOnClickListener(this.ecc);
     }
 
     public void setData(List<k> list, int i) {
         if (list != null) {
-            View bzn = bzn();
+            View bzp = bzp();
             for (k kVar : list) {
                 if (kVar.sortType == 1) {
-                    this.fZb.setText(kVar.fUr);
+                    this.fZd.setText(kVar.fUt);
                 } else {
-                    this.fZc.setText(kVar.fUr);
+                    this.fZe.setText(kVar.fUt);
                 }
                 if (i == 1) {
-                    am.setViewTextColor(this.fZb, (int) R.color.cp_link_tip_a);
-                    am.setViewTextColor(this.fZc, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.fZd, (int) R.color.cp_link_tip_a);
+                    am.setViewTextColor(this.fZe, (int) R.color.cp_cont_j);
                 } else {
-                    am.setViewTextColor(this.fZc, (int) R.color.cp_link_tip_a);
-                    am.setViewTextColor(this.fZb, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.fZe, (int) R.color.cp_link_tip_a);
+                    am.setViewTextColor(this.fZd, (int) R.color.cp_cont_j);
                 }
             }
-            setContentView(bzn);
+            setContentView(bzp);
         }
     }
 
     public void a(InterfaceC0496a interfaceC0496a) {
-        this.fYZ = interfaceC0496a;
+        this.fZb = interfaceC0496a;
     }
 
     public void R(View view) {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
-                    AT();
+                    AV();
                     return;
                 }
                 return;
@@ -130,7 +130,7 @@ public class a extends PopupWindow {
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
-                AT();
+                AV();
             }
         }
     }
@@ -141,30 +141,30 @@ public class a extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        AR();
+        AT();
     }
 
-    public void AR() {
-        AU();
+    public void AT() {
+        AW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AS() {
+    public void AU() {
         super.dismiss();
     }
 
-    private void AT() {
+    private void AV() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.fZa.startAnimation(translateAnimation);
-        this.aDx.startAnimation(alphaAnimation);
+        this.fZc.startAnimation(translateAnimation);
+        this.aDy.startAnimation(alphaAnimation);
     }
 
-    private void AU() {
+    private void AW() {
         if (!com.baidu.tbadk.util.k.isFastDoubleClick()) {
             TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
             translateAnimation.setDuration(350L);
@@ -184,18 +184,18 @@ public class a extends PopupWindow {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.AS();
+                    a.this.AU();
                 }
             });
-            this.fZa.startAnimation(translateAnimation);
-            this.aDx.startAnimation(alphaAnimation);
+            this.fZc.startAnimation(translateAnimation);
+            this.aDy.startAnimation(alphaAnimation);
         }
     }
 
     public void onChangeSkinType() {
         am.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.fZb, (int) R.color.cp_link_tip_a);
-        am.setViewTextColor(this.fZc, (int) R.color.cp_cont_j);
-        com.baidu.tbadk.core.util.f.a.aGX().kR(R.color.cp_btn_a).kM(l.getDimens(this.mContext, R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kO(l.getDimens(this.mContext, R.dimen.tbds21)).kP(0).kQ(l.getDimens(this.mContext, R.dimen.tbds5)).aQ(this.fZa);
+        am.setViewTextColor(this.fZd, (int) R.color.cp_link_tip_a);
+        am.setViewTextColor(this.fZe, (int) R.color.cp_cont_j);
+        com.baidu.tbadk.core.util.f.a.aGZ().kR(R.color.cp_btn_a).kM(l.getDimens(this.mContext, R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kO(l.getDimens(this.mContext, R.dimen.tbds21)).kP(0).kQ(l.getDimens(this.mContext, R.dimen.tbds5)).aQ(this.fZc);
     }
 }

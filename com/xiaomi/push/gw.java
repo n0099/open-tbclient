@@ -11,7 +11,7 @@ final class gw {
         fb a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f436a;
+        String f435a;
 
         a() {
         }
@@ -43,7 +43,7 @@ final class gw {
             aVar.a = fb.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == fb.GSLB_TCP_ERR_OTHER) {
-            aVar.f436a = str;
+            aVar.f435a = str;
         }
         return aVar;
     }
@@ -84,7 +84,7 @@ final class gw {
             aVar.a = fb.CONN_XMPP_ERR;
         }
         if (aVar.a == fb.CONN_TCP_ERR_OTHER || aVar.a == fb.CONN_XMPP_ERR || aVar.a == fb.CONN_BOSH_ERR) {
-            aVar.f436a = str;
+            aVar.f435a = str;
         }
         return aVar;
     }
@@ -132,7 +132,7 @@ final class gw {
                 break;
         }
         if (aVar.a == fb.BIND_TCP_ERR || aVar.a == fb.BIND_XMPP_ERR || aVar.a == fb.BIND_BOSH_ERR) {
-            aVar.f436a = str;
+            aVar.f435a = str;
         }
         return aVar;
     }
@@ -177,7 +177,7 @@ final class gw {
                 break;
         }
         if (aVar.a == fb.CHANNEL_TCP_ERR || aVar.a == fb.CHANNEL_XMPPEXCEPTION || aVar.a == fb.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f436a = str;
+            aVar.f435a = str;
         }
         return aVar;
     }

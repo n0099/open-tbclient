@@ -5,47 +5,47 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class e {
     @Nullable
-    private final String lKg;
+    private final String lKi;
     @Nullable
-    private final Object lKi;
+    private final Object lKk;
     @Nullable
-    private final ImageRequest lKj;
+    private final ImageRequest lKl;
     @Nullable
-    private final com.facebook.imagepipeline.g.f lKk;
-    private final long lKl;
-    private final long lKm;
+    private final com.facebook.imagepipeline.g.f lKm;
     private final long lKn;
     private final long lKo;
     private final long lKp;
     private final long lKq;
     private final long lKr;
-    private final int lKs;
-    private final boolean lKt;
+    private final long lKs;
+    private final long lKt;
     private final int lKu;
-    private final int lKv;
+    private final boolean lKv;
+    private final int lKw;
+    private final int lKx;
     private final boolean mIsCanceled;
     @Nullable
     private final String mRequestId;
     private final boolean zA;
 
     public e(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable com.facebook.imagepipeline.g.f fVar, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i, boolean z, boolean z2, boolean z3, int i2, int i3) {
-        this.lKg = str;
+        this.lKi = str;
         this.mRequestId = str2;
-        this.lKj = imageRequest;
-        this.lKi = obj;
-        this.lKk = fVar;
-        this.lKl = j;
-        this.lKm = j2;
-        this.lKn = j3;
-        this.lKo = j4;
-        this.lKp = j5;
-        this.lKq = j6;
-        this.lKr = j7;
-        this.lKs = i;
+        this.lKl = imageRequest;
+        this.lKk = obj;
+        this.lKm = fVar;
+        this.lKn = j;
+        this.lKo = j2;
+        this.lKp = j3;
+        this.lKq = j4;
+        this.lKr = j5;
+        this.lKs = j6;
+        this.lKt = j7;
+        this.lKu = i;
         this.mIsCanceled = z;
         this.zA = z2;
-        this.lKt = z3;
-        this.lKu = i2;
-        this.lKv = i3;
+        this.lKv = z3;
+        this.lKw = i2;
+        this.lKx = i3;
     }
 }

@@ -8,7 +8,7 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public final class a extends kotlin.random.a {
     @Override // kotlin.random.a
-    public Random dKx() {
+    public Random dKz() {
         ThreadLocalRandom current = ThreadLocalRandom.current();
         q.i(current, "ThreadLocalRandom.current()");
         return current;

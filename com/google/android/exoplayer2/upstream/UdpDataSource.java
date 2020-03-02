@@ -10,16 +10,16 @@ import java.net.MulticastSocket;
 import java.net.SocketException;
 /* loaded from: classes6.dex */
 public final class UdpDataSource implements e {
-    private final q<? super UdpDataSource> mFH;
-    private boolean mFI;
-    private final int mGQ;
-    private final byte[] mGR;
-    private final DatagramPacket mGS;
-    private DatagramSocket mGT;
-    private MulticastSocket mGU;
-    private InetAddress mGV;
-    private InetSocketAddress mGW;
-    private int mGX;
+    private final q<? super UdpDataSource> mFJ;
+    private boolean mFK;
+    private final int mGS;
+    private final byte[] mGT;
+    private final DatagramPacket mGU;
+    private DatagramSocket mGV;
+    private MulticastSocket mGW;
+    private InetAddress mGX;
+    private InetSocketAddress mGY;
+    private int mGZ;
     private Uri uri;
 
     /* loaded from: classes6.dex */
@@ -35,20 +35,20 @@ public final class UdpDataSource implements e {
         String host = this.uri.getHost();
         int port = this.uri.getPort();
         try {
-            this.mGV = InetAddress.getByName(host);
-            this.mGW = new InetSocketAddress(this.mGV, port);
-            if (this.mGV.isMulticastAddress()) {
-                this.mGU = new MulticastSocket(this.mGW);
-                this.mGU.joinGroup(this.mGV);
-                this.mGT = this.mGU;
+            this.mGX = InetAddress.getByName(host);
+            this.mGY = new InetSocketAddress(this.mGX, port);
+            if (this.mGX.isMulticastAddress()) {
+                this.mGW = new MulticastSocket(this.mGY);
+                this.mGW.joinGroup(this.mGX);
+                this.mGV = this.mGW;
             } else {
-                this.mGT = new DatagramSocket(this.mGW);
+                this.mGV = new DatagramSocket(this.mGY);
             }
             try {
-                this.mGT.setSoTimeout(this.mGQ);
-                this.mFI = true;
-                if (this.mFH != null) {
-                    this.mFH.a(this, gVar);
+                this.mGV.setSoTimeout(this.mGS);
+                this.mFK = true;
+                if (this.mFJ != null) {
+                    this.mFJ.a(this, gVar);
                     return -1L;
                 }
                 return -1L;
@@ -65,21 +65,21 @@ public final class UdpDataSource implements e {
         if (i2 == 0) {
             return 0;
         }
-        if (this.mGX == 0) {
+        if (this.mGZ == 0) {
             try {
-                this.mGT.receive(this.mGS);
-                this.mGX = this.mGS.getLength();
-                if (this.mFH != null) {
-                    this.mFH.h(this, this.mGX);
+                this.mGV.receive(this.mGU);
+                this.mGZ = this.mGU.getLength();
+                if (this.mFJ != null) {
+                    this.mFJ.h(this, this.mGZ);
                 }
             } catch (IOException e) {
                 throw new UdpDataSourceException(e);
             }
         }
-        int length = this.mGS.getLength() - this.mGX;
-        int min = Math.min(this.mGX, i2);
-        System.arraycopy(this.mGR, length, bArr, i, min);
-        this.mGX -= min;
+        int length = this.mGU.getLength() - this.mGZ;
+        int min = Math.min(this.mGZ, i2);
+        System.arraycopy(this.mGT, length, bArr, i, min);
+        this.mGZ -= min;
         return min;
     }
 
@@ -91,24 +91,24 @@ public final class UdpDataSource implements e {
     @Override // com.google.android.exoplayer2.upstream.e
     public void close() {
         this.uri = null;
-        if (this.mGU != null) {
+        if (this.mGW != null) {
             try {
-                this.mGU.leaveGroup(this.mGV);
+                this.mGW.leaveGroup(this.mGX);
             } catch (IOException e) {
             }
-            this.mGU = null;
+            this.mGW = null;
         }
-        if (this.mGT != null) {
-            this.mGT.close();
-            this.mGT = null;
+        if (this.mGV != null) {
+            this.mGV.close();
+            this.mGV = null;
         }
-        this.mGV = null;
-        this.mGW = null;
-        this.mGX = 0;
-        if (this.mFI) {
-            this.mFI = false;
-            if (this.mFH != null) {
-                this.mFH.bB(this);
+        this.mGX = null;
+        this.mGY = null;
+        this.mGZ = 0;
+        if (this.mFK) {
+            this.mFK = false;
+            if (this.mFJ != null) {
+                this.mFJ.bB(this);
             }
         }
     }

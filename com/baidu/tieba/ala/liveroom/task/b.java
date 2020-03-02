@@ -33,23 +33,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.x.c {
-    private static volatile b fkB = null;
+    private static volatile b fkC = null;
     private Dialog apB;
     private long currLiveId;
-    private boolean fkC = false;
     private boolean fkD = false;
+    private boolean fkE = false;
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b bqv() {
-        if (fkB == null) {
+    public static b bqx() {
+        if (fkC == null) {
             synchronized (b.class) {
-                if (fkB == null) {
-                    fkB = new b();
+                if (fkC == null) {
+                    fkC = new b();
                 }
             }
         }
-        return fkB;
+        return fkC;
     }
 
     @Override // com.baidu.live.x.c
@@ -79,8 +79,8 @@ public class b implements com.baidu.live.x.c {
     public void b(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.fkC = false;
             this.fkD = false;
+            this.fkE = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -91,7 +91,7 @@ public class b implements com.baidu.live.x.c {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.fkD = true;
+            this.fkE = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -116,8 +116,8 @@ public class b implements com.baidu.live.x.c {
     @Override // com.baidu.live.x.c
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.fkD && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.fkC || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.fkE && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.fkD || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
@@ -218,7 +218,7 @@ public class b implements com.baidu.live.x.c {
         try {
             dialog.show();
             this.apB = dialog;
-            this.fkD = false;
+            this.fkE = false;
             com.baidu.live.c.pr().putInt("showtimes_flower_task_dialog", com.baidu.live.c.pr().getInt("showtimes_flower_task_dialog", 0) + 1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -243,7 +243,7 @@ public class b implements com.baidu.live.x.c {
         ay ayVar;
         ba baVar;
         boolean isDebug = isDebug();
-        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (apVar = com.baidu.live.v.a.zj().axB) == null || (ayVar = apVar.acS) == null || (baVar = ayVar.adO) == null) {
+        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (apVar = com.baidu.live.v.a.zl().axC) == null || (ayVar = apVar.acS) == null || (baVar = ayVar.adO) == null) {
             return false;
         }
         if (!(baVar.isShow == 1)) {
@@ -275,12 +275,12 @@ public class b implements com.baidu.live.x.c {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.fkC = true;
+                    this.fkD = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.fkC = true;
+                this.fkD = true;
             }
             return true;
         }
@@ -289,8 +289,8 @@ public class b implements com.baidu.live.x.c {
     @Override // com.baidu.live.x.c
     public void release() {
         this.currLiveId = 0L;
-        this.fkC = false;
         this.fkD = false;
+        this.fkE = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
         sN();

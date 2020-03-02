@@ -36,7 +36,7 @@ public class b {
         return m.renameTo(str, m.getFilePath(str2, 1, true));
     }
 
-    public static synchronized void aIH() {
+    public static synchronized void aIJ() {
         synchronized (b.class) {
             File file = new File(m.getCacheDir() + "voice");
             if (file.exists() && file.isDirectory()) {

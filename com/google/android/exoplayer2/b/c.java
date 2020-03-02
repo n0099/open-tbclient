@@ -14,45 +14,45 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class c extends e {
-    private static final int[] mCF = new int[0];
-    private final f.a mCG;
-    private final AtomicReference<C0672c> mCH;
+    private static final int[] mCH = new int[0];
+    private final f.a mCI;
+    private final AtomicReference<C0672c> mCJ;
 
     /* renamed from: com.google.android.exoplayer2.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static final class C0672c {
-        public final String mCM;
-        public final String mCN;
-        public final int mCO;
-        public final int mCP;
+        public final String mCO;
+        public final String mCP;
         public final int mCQ;
-        public final boolean mCR;
+        public final int mCR;
         public final int mCS;
-        public final int mCT;
-        public final boolean mCU;
-        public final boolean mCV;
+        public final boolean mCT;
+        public final int mCU;
+        public final int mCV;
         public final boolean mCW;
         public final boolean mCX;
         public final boolean mCY;
+        public final boolean mCZ;
+        public final boolean mDa;
 
         public C0672c() {
             this(null, null, false, false, true, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, true, true, Integer.MAX_VALUE, Integer.MAX_VALUE, true);
         }
 
         public C0672c(String str, String str2, boolean z, boolean z2, boolean z3, int i, int i2, int i3, boolean z4, boolean z5, int i4, int i5, boolean z6) {
-            this.mCM = str;
-            this.mCN = str2;
-            this.mCV = z;
-            this.mCW = z2;
-            this.mCX = z3;
-            this.mCO = i;
-            this.mCP = i2;
-            this.mCQ = i3;
-            this.mCR = z4;
-            this.mCY = z5;
-            this.mCS = i4;
-            this.mCT = i5;
-            this.mCU = z6;
+            this.mCO = str;
+            this.mCP = str2;
+            this.mCX = z;
+            this.mCY = z2;
+            this.mCZ = z3;
+            this.mCQ = i;
+            this.mCR = i2;
+            this.mCS = i3;
+            this.mCT = z4;
+            this.mDa = z5;
+            this.mCU = i4;
+            this.mCV = i5;
+            this.mCW = z6;
         }
 
         public boolean equals(Object obj) {
@@ -63,11 +63,11 @@ public class c extends e {
                 return false;
             }
             C0672c c0672c = (C0672c) obj;
-            return this.mCV == c0672c.mCV && this.mCW == c0672c.mCW && this.mCX == c0672c.mCX && this.mCO == c0672c.mCO && this.mCP == c0672c.mCP && this.mCR == c0672c.mCR && this.mCY == c0672c.mCY && this.mCU == c0672c.mCU && this.mCS == c0672c.mCS && this.mCT == c0672c.mCT && this.mCQ == c0672c.mCQ && TextUtils.equals(this.mCM, c0672c.mCM) && TextUtils.equals(this.mCN, c0672c.mCN);
+            return this.mCX == c0672c.mCX && this.mCY == c0672c.mCY && this.mCZ == c0672c.mCZ && this.mCQ == c0672c.mCQ && this.mCR == c0672c.mCR && this.mCT == c0672c.mCT && this.mDa == c0672c.mDa && this.mCW == c0672c.mCW && this.mCU == c0672c.mCU && this.mCV == c0672c.mCV && this.mCS == c0672c.mCS && TextUtils.equals(this.mCO, c0672c.mCO) && TextUtils.equals(this.mCP, c0672c.mCP);
         }
 
         public int hashCode() {
-            return (((((((this.mCY ? 1 : 0) + (((this.mCR ? 1 : 0) + (((((((((this.mCX ? 1 : 0) + (((this.mCW ? 1 : 0) + (((this.mCV ? 1 : 0) + (((this.mCM.hashCode() * 31) + this.mCN.hashCode()) * 31)) * 31)) * 31)) * 31) + this.mCO) * 31) + this.mCP) * 31) + this.mCQ) * 31)) * 31)) * 31) + (this.mCU ? 1 : 0)) * 31) + this.mCS) * 31) + this.mCT;
+            return (((((((this.mDa ? 1 : 0) + (((this.mCT ? 1 : 0) + (((((((((this.mCZ ? 1 : 0) + (((this.mCY ? 1 : 0) + (((this.mCX ? 1 : 0) + (((this.mCO.hashCode() * 31) + this.mCP.hashCode()) * 31)) * 31)) * 31)) * 31) + this.mCQ) * 31) + this.mCR) * 31) + this.mCS) * 31)) * 31)) * 31) + (this.mCW ? 1 : 0)) * 31) + this.mCU) * 31) + this.mCV;
         }
     }
 
@@ -76,8 +76,8 @@ public class c extends e {
     }
 
     public c(f.a aVar) {
-        this.mCG = aVar;
-        this.mCH = new AtomicReference<>(new C0672c());
+        this.mCI = aVar;
+        this.mCJ = new AtomicReference<>(new C0672c());
     }
 
     @Override // com.google.android.exoplayer2.b.e
@@ -87,14 +87,14 @@ public class c extends e {
         boolean z3;
         int length = tVarArr.length;
         f[] fVarArr = new f[length];
-        C0672c c0672c = this.mCH.get();
+        C0672c c0672c = this.mCJ.get();
         boolean z4 = false;
         int i = 0;
         boolean z5 = false;
         while (i < length) {
             if (2 == tVarArr[i].getTrackType()) {
                 if (!z5) {
-                    fVarArr[i] = a(tVarArr[i], uVarArr[i], iArr[i], c0672c, this.mCG);
+                    fVarArr[i] = a(tVarArr[i], uVarArr[i], iArr[i], c0672c, this.mCI);
                     z5 = fVarArr[i] != null;
                 }
                 z3 = (uVarArr[i].length > 0) | z4;
@@ -111,7 +111,7 @@ public class c extends e {
             switch (tVarArr[i2].getTrackType()) {
                 case 1:
                     if (!z6) {
-                        fVarArr[i2] = a(uVarArr[i2], iArr[i2], c0672c, z4 ? null : this.mCG);
+                        fVarArr[i2] = a(uVarArr[i2], iArr[i2], c0672c, z4 ? null : this.mCI);
                         boolean z8 = z7;
                         z2 = fVarArr[i2] != null;
                         z = z8;
@@ -154,7 +154,7 @@ public class c extends e {
 
     protected f a(t tVar, u uVar, int[][] iArr, C0672c c0672c, f.a aVar) throws ExoPlaybackException {
         f fVar = null;
-        if (!c0672c.mCV && aVar != null) {
+        if (!c0672c.mCX && aVar != null) {
             fVar = b(tVar, uVar, iArr, c0672c, aVar);
         }
         if (fVar == null) {
@@ -165,13 +165,13 @@ public class c extends e {
 
     private static f b(t tVar, u uVar, int[][] iArr, C0672c c0672c, f.a aVar) throws ExoPlaybackException {
         int i = 0;
-        int i2 = c0672c.mCX ? 24 : 16;
-        boolean z = c0672c.mCW && (tVar.dsL() & i2) != 0;
+        int i2 = c0672c.mCZ ? 24 : 16;
+        boolean z = c0672c.mCY && (tVar.dsN() & i2) != 0;
         while (true) {
             int i3 = i;
             if (i3 < uVar.length) {
                 com.google.android.exoplayer2.source.t KR = uVar.KR(i3);
-                int[] a2 = a(KR, iArr[i3], z, i2, c0672c.mCO, c0672c.mCP, c0672c.mCQ, c0672c.mCS, c0672c.mCT, c0672c.mCU);
+                int[] a2 = a(KR, iArr[i3], z, i2, c0672c.mCQ, c0672c.mCR, c0672c.mCS, c0672c.mCU, c0672c.mCV, c0672c.mCW);
                 if (a2.length <= 0) {
                     i = i3 + 1;
                 } else {
@@ -187,11 +187,11 @@ public class c extends e {
         String str;
         int i7;
         if (tVar.length < 2) {
-            return mCF;
+            return mCH;
         }
         List<Integer> a2 = a(tVar, i5, i6, z2);
         if (a2.size() < 2) {
-            return mCF;
+            return mCH;
         }
         String str2 = null;
         if (z) {
@@ -213,7 +213,7 @@ public class c extends e {
             str = str2;
         }
         b(tVar, iArr, i, str, i2, i3, i4, a2);
-        return a2.size() < 2 ? mCF : v.fl(a2);
+        return a2.size() < 2 ? mCH : v.fl(a2);
     }
 
     private static int a(com.google.android.exoplayer2.source.t tVar, int[] iArr, int i, String str, int i2, int i3, int i4, List<Integer> list) {
@@ -268,14 +268,14 @@ public class c extends e {
         int i5 = 0;
         for (int i6 = 0; i6 < uVar.length; i6++) {
             com.google.android.exoplayer2.source.t KR = uVar.KR(i6);
-            List<Integer> a2 = a(KR, c0672c.mCS, c0672c.mCT, c0672c.mCU);
+            List<Integer> a2 = a(KR, c0672c.mCU, c0672c.mCV, c0672c.mCW);
             int[] iArr2 = iArr[i6];
             int i7 = 0;
             while (i7 < KR.length) {
-                if (af(iArr2[i7], c0672c.mCY)) {
+                if (af(iArr2[i7], c0672c.mDa)) {
                     Format KQ = KR.KQ(i7);
-                    boolean z = a2.contains(Integer.valueOf(i7)) && (KQ.width == -1 || KQ.width <= c0672c.mCO) && ((KQ.height == -1 || KQ.height <= c0672c.mCP) && (KQ.bitrate == -1 || KQ.bitrate <= c0672c.mCQ));
-                    if (z || c0672c.mCR) {
+                    boolean z = a2.contains(Integer.valueOf(i7)) && (KQ.width == -1 || KQ.width <= c0672c.mCQ) && ((KQ.height == -1 || KQ.height <= c0672c.mCR) && (KQ.bitrate == -1 || KQ.bitrate <= c0672c.mCS));
+                    if (z || c0672c.mCT) {
                         int i8 = z ? 2 : 1;
                         boolean af = af(iArr2[i7], false);
                         if (af) {
@@ -283,12 +283,12 @@ public class c extends e {
                         }
                         boolean z2 = i8 > i5;
                         if (i8 == i5) {
-                            if (c0672c.mCV) {
+                            if (c0672c.mCX) {
                                 z2 = dT(KQ.bitrate, i4) < 0;
                             } else {
-                                int dtw = KQ.dtw();
-                                if (dtw != i3) {
-                                    dT = dT(dtw, i3);
+                                int dty = KQ.dty();
+                                if (dty != i3) {
+                                    dT = dT(dty, i3);
                                 } else {
                                     dT = dT(KQ.bitrate, i4);
                                 }
@@ -301,7 +301,7 @@ public class c extends e {
                         }
                         if (z2) {
                             i4 = KQ.bitrate;
-                            i3 = KQ.dtw();
+                            i3 = KQ.dty();
                             i5 = i8;
                             tVar = KR;
                             i = i7;
@@ -348,7 +348,7 @@ public class c extends e {
             int[] iArr2 = iArr[i5];
             int i6 = 0;
             while (i6 < KR.length) {
-                if (af(iArr2[i6], c0672c.mCY)) {
+                if (af(iArr2[i6], c0672c.mDa)) {
                     b bVar2 = new b(KR.KQ(i6), c0672c, iArr2[i6]);
                     if (bVar == null || bVar2.compareTo(bVar) > 0) {
                         bVar = bVar2;
@@ -370,8 +370,8 @@ public class c extends e {
             return null;
         }
         com.google.android.exoplayer2.source.t KR2 = uVar.KR(i4);
-        if (!c0672c.mCV && aVar != null) {
-            int[] a2 = a(KR2, iArr[i4], c0672c.mCW);
+        if (!c0672c.mCX && aVar != null) {
+            int[] a2 = a(KR2, iArr[i4], c0672c.mCY);
             if (a2.length > 0) {
                 return aVar.b(KR2, a2);
             }
@@ -410,7 +410,7 @@ public class c extends e {
             }
             return iArr2;
         }
-        return mCF;
+        return mCH;
     }
 
     private static int a(com.google.android.exoplayer2.source.t tVar, int[] iArr, a aVar) {
@@ -442,11 +442,11 @@ public class c extends e {
             int[] iArr2 = iArr[i5];
             int i6 = 0;
             while (i6 < KR.length) {
-                if (af(iArr2[i6], c0672c.mCY)) {
+                if (af(iArr2[i6], c0672c.mDa)) {
                     Format KQ = KR.KQ(i6);
                     boolean z = (KQ.selectionFlags & 1) != 0;
                     boolean z2 = (KQ.selectionFlags & 2) != 0;
-                    if (a(KQ, c0672c.mCN)) {
+                    if (a(KQ, c0672c.mCP)) {
                         if (z) {
                             i2 = 6;
                         } else if (!z2) {
@@ -457,7 +457,7 @@ public class c extends e {
                     } else if (z) {
                         i2 = 3;
                     } else if (z2) {
-                        if (a(KQ, c0672c.mCM)) {
+                        if (a(KQ, c0672c.mCO)) {
                             i2 = 2;
                         } else {
                             i2 = 1;
@@ -505,7 +505,7 @@ public class c extends e {
             int[] iArr2 = iArr[i7];
             int i8 = 0;
             while (i8 < KR.length) {
-                if (af(iArr2[i8], c0672c.mCY)) {
+                if (af(iArr2[i8], c0672c.mDa)) {
                     i2 = (KR.KQ(i8).selectionFlags & 1) != 0 ? 2 : 1;
                     if (af(iArr2[i8], false)) {
                         i2 += 1000;
@@ -571,8 +571,8 @@ public class c extends e {
         }
         if (i6 != Integer.MAX_VALUE) {
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                int dtw = tVar.KQ(((Integer) arrayList.get(size)).intValue()).dtw();
-                if (dtw == -1 || dtw > i6) {
+                int dty = tVar.KQ(((Integer) arrayList.get(size)).intValue()).dty();
+                if (dty == -1 || dty > i6) {
                     arrayList.remove(size);
                 }
             }
@@ -598,17 +598,17 @@ public class c extends e {
     public static final class b implements Comparable<b> {
         private final int bitrate;
         private final int channelCount;
-        private final C0672c mCI;
-        private final int mCJ;
-        private final int mCK;
+        private final C0672c mCK;
         private final int mCL;
+        private final int mCM;
+        private final int mCN;
         private final int sampleRate;
 
         public b(Format format, C0672c c0672c, int i) {
-            this.mCI = c0672c;
-            this.mCJ = c.af(i, false) ? 1 : 0;
-            this.mCK = c.a(format, c0672c.mCM) ? 1 : 0;
-            this.mCL = (format.selectionFlags & 1) == 0 ? 0 : 1;
+            this.mCK = c0672c;
+            this.mCL = c.af(i, false) ? 1 : 0;
+            this.mCM = c.a(format, c0672c.mCO) ? 1 : 0;
+            this.mCN = (format.selectionFlags & 1) == 0 ? 0 : 1;
             this.channelCount = format.channelCount;
             this.sampleRate = format.sampleRate;
             this.bitrate = format.bitrate;
@@ -618,19 +618,19 @@ public class c extends e {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            if (this.mCJ != bVar.mCJ) {
-                return c.dU(this.mCJ, bVar.mCJ);
-            }
-            if (this.mCK != bVar.mCK) {
-                return c.dU(this.mCK, bVar.mCK);
-            }
             if (this.mCL != bVar.mCL) {
                 return c.dU(this.mCL, bVar.mCL);
             }
-            if (this.mCI.mCV) {
+            if (this.mCM != bVar.mCM) {
+                return c.dU(this.mCM, bVar.mCM);
+            }
+            if (this.mCN != bVar.mCN) {
+                return c.dU(this.mCN, bVar.mCN);
+            }
+            if (this.mCK.mCX) {
                 return c.dU(bVar.bitrate, this.bitrate);
             }
-            int i = this.mCJ != 1 ? -1 : 1;
+            int i = this.mCL != 1 ? -1 : 1;
             if (this.channelCount != bVar.channelCount) {
                 return i * c.dU(this.channelCount, bVar.channelCount);
             }
@@ -645,11 +645,11 @@ public class c extends e {
                 return false;
             }
             b bVar = (b) obj;
-            return this.mCJ == bVar.mCJ && this.mCK == bVar.mCK && this.mCL == bVar.mCL && this.channelCount == bVar.channelCount && this.sampleRate == bVar.sampleRate && this.bitrate == bVar.bitrate;
+            return this.mCL == bVar.mCL && this.mCM == bVar.mCM && this.mCN == bVar.mCN && this.channelCount == bVar.channelCount && this.sampleRate == bVar.sampleRate && this.bitrate == bVar.bitrate;
         }
 
         public int hashCode() {
-            return (((((((((this.mCJ * 31) + this.mCK) * 31) + this.mCL) * 31) + this.channelCount) * 31) + this.sampleRate) * 31) + this.bitrate;
+            return (((((((((this.mCL * 31) + this.mCM) * 31) + this.mCN) * 31) + this.channelCount) * 31) + this.sampleRate) * 31) + this.bitrate;
         }
     }
 

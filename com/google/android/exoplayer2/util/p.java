@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
 public class p {
-    private static final Comparator<a> mHy = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.1
+    private static final Comparator<a> mHA = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -13,7 +13,7 @@ public class p {
             return aVar.index - aVar2.index;
         }
     };
-    private static final Comparator<a> mHz = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.2
+    private static final Comparator<a> mHB = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -24,83 +24,83 @@ public class p {
             return aVar2.value < aVar.value ? 1 : 0;
         }
     };
-    private final int mHA;
-    private int mHE;
-    private int mHF;
+    private final int mHC;
     private int mHG;
-    private final a[] mHC = new a[5];
-    private final ArrayList<a> mHB = new ArrayList<>();
-    private int mHD = -1;
+    private int mHH;
+    private int mHI;
+    private final a[] mHE = new a[5];
+    private final ArrayList<a> mHD = new ArrayList<>();
+    private int mHF = -1;
 
     public p(int i) {
-        this.mHA = i;
+        this.mHC = i;
     }
 
     public void r(int i, float f) {
         a aVar;
-        dzL();
-        if (this.mHG > 0) {
-            a[] aVarArr = this.mHC;
-            int i2 = this.mHG - 1;
-            this.mHG = i2;
+        dzN();
+        if (this.mHI > 0) {
+            a[] aVarArr = this.mHE;
+            int i2 = this.mHI - 1;
+            this.mHI = i2;
             aVar = aVarArr[i2];
         } else {
             aVar = new a();
         }
-        int i3 = this.mHE;
-        this.mHE = i3 + 1;
+        int i3 = this.mHG;
+        this.mHG = i3 + 1;
         aVar.index = i3;
         aVar.weight = i;
         aVar.value = f;
-        this.mHB.add(aVar);
-        this.mHF += i;
-        while (this.mHF > this.mHA) {
-            int i4 = this.mHF - this.mHA;
-            a aVar2 = this.mHB.get(0);
+        this.mHD.add(aVar);
+        this.mHH += i;
+        while (this.mHH > this.mHC) {
+            int i4 = this.mHH - this.mHC;
+            a aVar2 = this.mHD.get(0);
             if (aVar2.weight <= i4) {
-                this.mHF -= aVar2.weight;
-                this.mHB.remove(0);
-                if (this.mHG < 5) {
-                    a[] aVarArr2 = this.mHC;
-                    int i5 = this.mHG;
-                    this.mHG = i5 + 1;
+                this.mHH -= aVar2.weight;
+                this.mHD.remove(0);
+                if (this.mHI < 5) {
+                    a[] aVarArr2 = this.mHE;
+                    int i5 = this.mHI;
+                    this.mHI = i5 + 1;
                     aVarArr2[i5] = aVar2;
                 }
             } else {
                 aVar2.weight -= i4;
-                this.mHF -= i4;
+                this.mHH -= i4;
             }
         }
     }
 
     public float bD(float f) {
-        dzM();
-        float f2 = f * this.mHF;
+        dzO();
+        float f2 = f * this.mHH;
         int i = 0;
-        for (int i2 = 0; i2 < this.mHB.size(); i2++) {
-            a aVar = this.mHB.get(i2);
+        for (int i2 = 0; i2 < this.mHD.size(); i2++) {
+            a aVar = this.mHD.get(i2);
             i += aVar.weight;
             if (i >= f2) {
                 return aVar.value;
             }
         }
-        if (this.mHB.isEmpty()) {
+        if (this.mHD.isEmpty()) {
             return Float.NaN;
         }
-        return this.mHB.get(this.mHB.size() - 1).value;
+        return this.mHD.get(this.mHD.size() - 1).value;
     }
 
-    private void dzL() {
-        if (this.mHD != 1) {
-            Collections.sort(this.mHB, mHy);
-            this.mHD = 1;
+    private void dzN() {
+        if (this.mHF != 1) {
+            Collections.sort(this.mHD, mHA);
+            this.mHF = 1;
         }
     }
 
-    private void dzM() {
-        if (this.mHD != 0) {
-            Collections.sort(this.mHB, mHz);
-            this.mHD = 0;
+    private void dzO() {
+        if (this.mHF != 0) {
+            Collections.sort(this.mHD, mHB);
+            this.mHF = 0;
         }
     }
 

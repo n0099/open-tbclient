@@ -29,7 +29,7 @@ public final class f {
             q.i(string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.dKt();
+            q.dKv();
             return str;
         } else {
             return str;

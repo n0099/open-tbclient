@@ -19,8 +19,8 @@ import com.baidu.tieba.card.z;
 public class d extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     private z<k> JZ;
     private r OR;
-    private BdUniqueId dBj;
-    private int ddo;
+    private BdUniqueId dBk;
+    private int ddp;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,7 +52,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad a = aVar.a(false, viewGroup, this.OR);
         a.aQ(18);
         af<k> afVar = new af<>(a);
-        afVar.setPageId(this.dBj);
+        afVar.setPageId(this.dBk);
         a(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -75,7 +75,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRe == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
@@ -87,10 +87,10 @@ public class d extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBj = bdUniqueId;
+        this.dBk = bdUniqueId;
     }
 
     public void vl(int i) {
-        this.ddo = i;
+        this.ddp = i;
     }
 }

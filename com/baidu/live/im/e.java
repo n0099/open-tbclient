@@ -102,13 +102,13 @@ public class e implements com.baidu.live.liveroom.d.d {
                             ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)).showToast(a.i.sdk_unfollow_success_toast);
                             return;
                         } else {
-                            com.baidu.live.view.a.Bh().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
+                            com.baidu.live.view.a.Bj().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
                             return;
                         }
                     }
                     boolean z2 = updateAttentionMessage.getData().isAttention;
                     if (equals) {
-                        if (com.baidu.live.view.a.Bh().a(updateAttentionMessage.getData(), (TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), false)) {
+                        if (com.baidu.live.view.a.Bj().a(updateAttentionMessage.getData(), (TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), false)) {
                             e.this.arE = !e.this.arE;
                             e.this.aR(e.this.arE);
                             e.this.aS(e.this.arE);
@@ -235,7 +235,7 @@ public class e implements com.baidu.live.liveroom.d.d {
     private void wb() {
         View view;
         CustomResponsedMessage runTask;
-        if (com.baidu.live.v.a.zj().awA.qy()) {
+        if (com.baidu.live.v.a.zl().awB.qy()) {
             if (this.ars == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.x.b.class, this.mContext)) != null && runTask.getData() != null) {
                 this.ars = (com.baidu.live.x.b) runTask.getData();
             }
@@ -273,7 +273,7 @@ public class e implements com.baidu.live.liveroom.d.d {
         aR(this.arE);
         aS(this.arE);
         String valueOf = String.valueOf(this.ald.XQ.userId);
-        com.baidu.live.view.a.Bh().a(valueOf, new com.baidu.live.data.b(this.ald.XQ.portrait, valueOf, "1", this.arE, aro));
+        com.baidu.live.view.a.Bj().a(valueOf, new com.baidu.live.data.b(this.ald.XQ.portrait, valueOf, "1", this.arE, aro));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

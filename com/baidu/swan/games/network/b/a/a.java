@@ -14,28 +14,28 @@ import okhttp3.Request;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e cqv;
+    private e cqw;
 
     public a(com.baidu.swan.games.e.b bVar, c cVar) {
         super(bVar, cVar);
-        this.cqv = new e(this);
+        this.cqw = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.cqv.aoS();
+        this.cqw.aoU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b
     public void a(Request request, String str, String str2, com.baidu.swan.games.network.b bVar, d dVar) {
-        if (this.cqe != null && !ps(str)) {
-            String optString = this.cqe.optString("url");
+        if (this.cqf != null && !ps(str)) {
+            String optString = this.cqf.optString("url");
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
-            com.baidu.swan.games.network.b.d.aoR().a(optString, this);
+            com.baidu.swan.games.network.b.d.aoT().a(optString, this);
             super.a(request, str, str2, bVar, dVar);
         }
     }
@@ -44,7 +44,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     @Nullable
     protected String pr(@NonNull String str) {
         File parentFile;
-        String mi = f.WQ().Wx().mi(str);
+        String mi = f.WS().Wz().mi(str);
         if (mi == null || mi.endsWith(File.separator) || (parentFile = new File(mi).getParentFile()) == null) {
             return null;
         }
@@ -57,18 +57,18 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.cqv.onSuccess(obj);
+        this.cqw.onSuccess(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b, com.baidu.swan.games.network.a
     public void i(String str, int i, String str2) {
-        this.cqv.i(str, i, str2);
+        this.cqw.i(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.cqv.b(jSEvent);
+        return this.cqw.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a
@@ -95,7 +95,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     }
 
     private boolean ps(String str) {
-        String mi = f.WQ().Wx().mi(str);
+        String mi = f.WS().Wz().mi(str);
         if (TextUtils.isEmpty(mi)) {
             return false;
         }

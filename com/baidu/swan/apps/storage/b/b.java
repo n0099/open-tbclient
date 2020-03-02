@@ -6,32 +6,32 @@ import com.baidu.swan.apps.runtime.e;
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
     public String mg(String str) {
-        e acD = e.acD();
-        return acD == null ? str : com.baidu.swan.apps.storage.b.d(str, acD);
+        e acF = e.acF();
+        return acF == null ? str : com.baidu.swan.apps.storage.b.d(str, acF);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String mh(String str) {
-        e acD = e.acD();
-        if (acD == null) {
+        e acF = e.acF();
+        if (acF == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.a(str, acD, acD.getVersion());
+        return com.baidu.swan.apps.storage.b.a(str, acF, acF.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String mi(String str) {
-        e acD = e.acD();
-        if (acD == null) {
+        e acF = e.acF();
+        if (acF == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.bp(str, acD.id);
+        return com.baidu.swan.apps.storage.b.bp(str, acF.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String mj(String str) {
-        e acD = e.acD();
-        return acD == null ? str : com.baidu.swan.apps.storage.b.br(str, acD.id);
+        e acF = e.acF();
+        return acF == null ? str : com.baidu.swan.apps.storage.b.br(str, acF.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -42,14 +42,14 @@ public class b implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String ml(String str) {
-        e acD = e.acD();
-        return acD == null ? "" : com.baidu.swan.apps.storage.b.H(acD.id, str, null);
+        e acF = e.acF();
+        return acF == null ? "" : com.baidu.swan.apps.storage.b.H(acF.id, str, null);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afn() {
-        e acD = e.acD();
-        return acD == null ? "" : com.baidu.swan.apps.storage.b.lY(acD.id);
+    public String afp() {
+        e acF = e.acF();
+        return acF == null ? "" : com.baidu.swan.apps.storage.b.lY(acF.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c

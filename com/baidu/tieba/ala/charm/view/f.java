@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.live.data.g> cVQ = new ArrayList<>();
-    private View.OnClickListener ewT;
+    private ArrayList<com.baidu.live.data.g> cVR = new ArrayList<>();
+    private View.OnClickListener ewU;
     private TbPageContext mPageContext;
 
     public f(TbPageContext tbPageContext, int i) {
@@ -19,33 +19,33 @@ public class f extends BaseAdapter {
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.ewT = onClickListener;
+        this.ewU = onClickListener;
     }
 
     public void setData(List<com.baidu.live.data.g> list) {
         if (list != null) {
-            this.cVQ.clear();
-            this.cVQ.addAll(list);
+            this.cVR.clear();
+            this.cVR.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return 0;
         }
-        return this.cVQ.size();
+        return this.cVR.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: pc */
     public com.baidu.live.data.g getItem(int i) {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return null;
         }
-        return this.cVQ.get(i);
+        return this.cVR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class f extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.online_item_layout, (ViewGroup) null);
             gVar = new g(view);
-            gVar.p(this.ewT);
+            gVar.p(this.ewU);
             view.setTag(gVar);
         } else {
             gVar = (g) view.getTag();

@@ -16,23 +16,23 @@ public enum EventThread {
     public static v getScheduler(EventThread eventThread) {
         switch (eventThread) {
             case MAIN_THREAD:
-                return a.dJg();
+                return a.dJi();
             case NEW_THREAD:
-                return io.reactivex.f.a.dJM();
+                return io.reactivex.f.a.dJO();
             case IO:
-                return io.reactivex.f.a.dJK();
+                return io.reactivex.f.a.dJM();
             case COMPUTATION:
-                return io.reactivex.f.a.dJJ();
-            case TRAMPOLINE:
                 return io.reactivex.f.a.dJL();
-            case SINGLE:
+            case TRAMPOLINE:
                 return io.reactivex.f.a.dJN();
+            case SINGLE:
+                return io.reactivex.f.a.dJP();
             case EXECUTOR:
                 return io.reactivex.f.a.a(ThreadHandler.DEFAULT.getExecutor());
             case HANDLER:
                 return a.a(ThreadHandler.DEFAULT.getHandler().getLooper());
             default:
-                return a.dJg();
+                return a.dJi();
         }
     }
 }

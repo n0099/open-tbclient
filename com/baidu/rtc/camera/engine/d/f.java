@@ -9,25 +9,25 @@ import android.view.Surface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback {
-    private com.baidu.rtc.camera.engine.a.b aWH;
-    private d aWI;
-    private final Object aWK;
-    private final Object aWR;
+    private com.baidu.rtc.camera.engine.a.b aWI;
+    private d aWJ;
+    private final Object aWL;
     private final Object aWS;
-    private boolean aWT;
+    private final Object aWT;
     private boolean aWU;
     private boolean aWV;
     private boolean aWW;
-    private com.baidu.rtc.camera.filter.a.c aWX;
-    private int aWY;
+    private boolean aWX;
+    private com.baidu.rtc.camera.filter.a.c aWY;
     private int aWZ;
-    private com.baidu.rtc.camera.filter.a.a aWb;
-    private int aWl;
+    private com.baidu.rtc.camera.filter.a.a aWc;
     private int aWm;
-    private final float[] aXa;
-    private a aXb;
-    private e aXc;
-    private com.baidu.rtc.camera.a.a aXd;
+    private int aWn;
+    private int aXa;
+    private final float[] aXb;
+    private a aXc;
+    private e aXd;
+    private com.baidu.rtc.camera.a.a aXe;
     private Context mContext;
     private int mFrameNum;
     private SurfaceTexture mSurfaceTexture;
@@ -35,24 +35,24 @@ public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableL
 
     public f(Context context, String str) {
         super(str);
-        this.aWK = new Object();
-        this.aWR = new Object();
+        this.aWL = new Object();
         this.aWS = new Object();
-        this.aWT = false;
+        this.aWT = new Object();
         this.aWU = false;
         this.aWV = false;
         this.aWW = false;
-        this.aXa = new float[16];
+        this.aWX = false;
+        this.aXb = new float[16];
         this.mFrameNum = 0;
         this.time = 0L;
         this.mContext = context;
-        this.aWH = com.baidu.rtc.camera.engine.a.b.Fl();
-        this.aXc = e.Fu();
-        this.aXb = new a();
+        this.aWI = com.baidu.rtc.camera.engine.a.b.Fn();
+        this.aXd = e.Fw();
+        this.aXc = new a();
     }
 
     public void a(d dVar) {
-        this.aWI = dVar;
+        this.aWJ = dVar;
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -61,143 +61,102 @@ public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableL
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        synchronized (this.aWK) {
-            if (this.aWT || this.aWU) {
-                this.aWI.sendMessage(this.aWI.obtainMessage(17, bArr));
+        synchronized (this.aWL) {
+            if (this.aWU || this.aWV) {
+                this.aWJ.sendMessage(this.aWJ.obtainMessage(17, bArr));
             }
         }
-        if (this.aWI != null && this.aWH.aWt) {
-            this.aWI.sendEmptyMessage(19);
+        if (this.aWJ != null && this.aWI.aWu) {
+            this.aWJ.sendEmptyMessage(19);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void t(byte[] bArr) {
-        if (this.aWH.aWC != null) {
-            this.aWH.aWC.t(bArr);
+        if (this.aWI.aWD != null) {
+            this.aWI.aWD.t(bArr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(Surface surface) {
-        this.aWb = new com.baidu.rtc.camera.filter.a.a(null, 1);
-        this.aWX = new com.baidu.rtc.camera.filter.a.c(this.aWb, surface, false);
-        this.aWX.makeCurrent();
+        this.aWc = new com.baidu.rtc.camera.filter.a.a(null, 1);
+        this.aWY = new com.baidu.rtc.camera.filter.a.c(this.aWc, surface, false);
+        this.aWY.makeCurrent();
         GLES30.glDisable(2929);
         GLES30.glDisable(2884);
-        this.aXc.init(this.mContext);
-        if (this.aXd == null) {
-            this.aXd = new com.baidu.rtc.camera.a.a(this.mContext, this.aWb);
+        this.aXd.init(this.mContext);
+        if (this.aXe == null) {
+            this.aXe = new com.baidu.rtc.camera.a.a(this.mContext, this.aWc);
         }
-        this.aWY = com.baidu.rtc.camera.filter.glfilter.utils.a.FK();
-        this.mSurfaceTexture = new SurfaceTexture(this.aWY);
+        this.aWZ = com.baidu.rtc.camera.filter.glfilter.utils.a.FM();
+        this.mSurfaceTexture = new SurfaceTexture(this.aWZ);
         this.mSurfaceTexture.setOnFrameAvailableListener(this);
-        FD();
+        FF();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceCreated(SurfaceTexture surfaceTexture) {
-        this.aWb = new com.baidu.rtc.camera.filter.a.a(null, 1);
-        this.aWX = new com.baidu.rtc.camera.filter.a.c(this.aWb, surfaceTexture);
-        this.aWX.makeCurrent();
+        this.aWc = new com.baidu.rtc.camera.filter.a.a(null, 1);
+        this.aWY = new com.baidu.rtc.camera.filter.a.c(this.aWc, surfaceTexture);
+        this.aWY.makeCurrent();
         GLES30.glDisable(2929);
         GLES30.glDisable(2884);
-        this.aXc.init(this.mContext);
-        if (this.aXd == null) {
-            this.aXd = new com.baidu.rtc.camera.a.a(this.mContext, this.aWb);
+        this.aXd.init(this.mContext);
+        if (this.aXe == null) {
+            this.aXe = new com.baidu.rtc.camera.a.a(this.mContext, this.aWc);
         }
-        this.aWY = com.baidu.rtc.camera.filter.glfilter.utils.a.FK();
-        this.mSurfaceTexture = new SurfaceTexture(this.aWY);
+        this.aWZ = com.baidu.rtc.camera.filter.glfilter.utils.a.FM();
+        this.mSurfaceTexture = new SurfaceTexture(this.aWZ);
         this.mSurfaceTexture.setOnFrameAvailableListener(this);
-        FD();
+        FF();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceChanged(int i, int i2) {
-        this.aXc.M(i, i2);
+        this.aXd.M(i, i2);
         startPreview();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceDestroyed() {
-        this.aWX.makeCurrent();
-        this.aXc.release();
-        if (this.aXd != null) {
-            this.aXd.release();
-            this.aXd = null;
+        this.aWY.makeCurrent();
+        this.aXd.release();
+        if (this.aXe != null) {
+            this.aXe.release();
+            this.aXe = null;
         }
         releaseCamera();
         if (this.mSurfaceTexture != null) {
             this.mSurfaceTexture.release();
             this.mSurfaceTexture = null;
         }
-        if (this.aWX != null) {
-            this.aWX.release();
-            this.aWX = null;
+        if (this.aWY != null) {
+            this.aWY.release();
+            this.aWY = null;
         }
-        if (this.aWb != null) {
-            this.aWb.release();
-            this.aWb = null;
+        if (this.aWc != null) {
+            this.aWc.release();
+            this.aWc = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void FA() {
-        if (this.mSurfaceTexture != null && this.aWX != null) {
+    public void FC() {
+        if (this.mSurfaceTexture != null && this.aWY != null) {
             while (this.mFrameNum > 0) {
-                this.aWX.makeCurrent();
+                this.aWY.makeCurrent();
                 this.mSurfaceTexture.updateTexImage();
-                this.mSurfaceTexture.getTransformMatrix(this.aXa);
+                this.mSurfaceTexture.getTransformMatrix(this.aXb);
                 this.mFrameNum--;
-                this.aWZ = this.aXc.h(this.aWY, this.aXa);
-                this.aWX.swapBuffers();
-                if (this.aWU && !this.aWV && this.aXd != null) {
-                    if (this.aWW) {
-                        this.aXd.Fh();
-                        this.aWW = false;
+                this.aXa = this.aXd.h(this.aWZ, this.aXb);
+                this.aWY.swapBuffers();
+                if (this.aWV && !this.aWW && this.aXe != null) {
+                    if (this.aWX) {
+                        this.aXe.Fj();
+                        this.aWX = false;
                     }
-                    this.aXd.e(this.aWZ, System.nanoTime());
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void FB() {
-        if (this.aWH.aWD != null) {
-            this.aXb.Fp();
-            this.aWH.aWD.O(this.aXb.Fq());
-        }
-    }
-
-    private void FC() {
-        if (this.aWH.orientation == 90 || this.aWH.orientation == 270) {
-            this.aWl = this.aWH.previewHeight;
-            this.aWm = this.aWH.previewWidth;
-        } else {
-            this.aWl = this.aWH.previewWidth;
-            this.aWm = this.aWH.previewHeight;
-        }
-        this.aXc.L(this.aWl, this.aWm);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void Db() {
-        this.aWU = true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void stopRecording() {
-        this.aWW = true;
-        this.aWU = false;
-    }
-
-    public void requestRender() {
-        synchronized (this.aWR) {
-            if (this.aWT) {
-                this.mFrameNum++;
-                if (this.aWI != null) {
-                    this.aWI.sendMessage(this.aWI.obtainMessage(4));
+                    this.aXe.e(this.aXa, System.nanoTime());
                 }
             }
         }
@@ -205,36 +164,77 @@ public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableL
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void FD() {
+        if (this.aWI.aWE != null) {
+            this.aXc.Fr();
+            this.aWI.aWE.O(this.aXc.Fs());
+        }
+    }
+
+    private void FE() {
+        if (this.aWI.orientation == 90 || this.aWI.orientation == 270) {
+            this.aWm = this.aWI.previewHeight;
+            this.aWn = this.aWI.previewWidth;
+        } else {
+            this.aWm = this.aWI.previewWidth;
+            this.aWn = this.aWI.previewHeight;
+        }
+        this.aXd.L(this.aWm, this.aWn);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void Dd() {
+        this.aWV = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void stopRecording() {
+        this.aWX = true;
+        this.aWV = false;
+    }
+
+    public void requestRender() {
+        synchronized (this.aWS) {
+            if (this.aWU) {
+                this.mFrameNum++;
+                if (this.aWJ != null) {
+                    this.aWJ.sendMessage(this.aWJ.obtainMessage(4));
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void FF() {
         releaseCamera();
-        com.baidu.rtc.camera.engine.a.a.Fk().aY(this.mContext);
-        com.baidu.rtc.camera.engine.a.a.Fk().c(this.mSurfaceTexture);
-        FC();
-        com.baidu.rtc.camera.engine.a.a.Fk().setPreviewCallback(this);
-        if (this.aWH.aWC != null) {
-            this.aWH.aWC.Fm();
+        com.baidu.rtc.camera.engine.a.a.Fm().aY(this.mContext);
+        com.baidu.rtc.camera.engine.a.a.Fm().c(this.mSurfaceTexture);
+        FE();
+        com.baidu.rtc.camera.engine.a.a.Fm().setPreviewCallback(this);
+        if (this.aWI.aWD != null) {
+            this.aWI.aWD.Fo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void switchCamera() {
-        this.aWH.aWA = !this.aWH.aWA;
-        if (this.aWH.aWA) {
-            this.aWH.cameraId = 0;
+        this.aWI.aWB = !this.aWI.aWB;
+        if (this.aWI.aWB) {
+            this.aWI.cameraId = 0;
         } else {
-            this.aWH.cameraId = 1;
+            this.aWI.cameraId = 1;
         }
-        FD();
+        FF();
         startPreview();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void startPreview() {
-        com.baidu.rtc.camera.engine.a.a.Fk().startPreview();
-        this.aWT = true;
+        com.baidu.rtc.camera.engine.a.a.Fm().startPreview();
+        this.aWU = true;
     }
 
     private void releaseCamera() {
-        this.aWT = false;
-        com.baidu.rtc.camera.engine.a.a.Fk().releaseCamera();
+        this.aWU = false;
+        com.baidu.rtc.camera.engine.a.a.Fm().releaseCamera();
     }
 }

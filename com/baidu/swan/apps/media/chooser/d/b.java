@@ -18,13 +18,13 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b extends a {
     private static final String[] IMG_TYPES = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
-    private String bCp;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bDi = new ArrayList<>();
-    private ArrayList<MediaModel> bCc = new ArrayList<>();
+    private String bCq;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bDj = new ArrayList<>();
+    private ArrayList<MediaModel> bCd = new ArrayList<>();
 
     public b(String str, d dVar) {
-        this.bDg = this.bDi;
-        this.bCp = str;
+        this.bDh = this.bDj;
+        this.bCq = str;
         a(dVar);
     }
 
@@ -32,16 +32,16 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public Boolean doInBackground(Void... voidArr) {
-        XL();
-        XM();
-        p(this.bDi);
+        XN();
+        XO();
+        p(this.bDj);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.jj(com.baidu.swan.apps.media.chooser.b.d.am(AppRuntime.getAppContext(), this.bCp));
-        aVar.bDe = this.bCc;
-        this.bDi.add(0, aVar);
-        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.bDi.iterator();
+        aVar.jj(com.baidu.swan.apps.media.chooser.b.d.am(AppRuntime.getAppContext(), this.bCq));
+        aVar.bDf = this.bCd;
+        this.bDj.add(0, aVar);
+        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.bDj.iterator();
         while (it.hasNext()) {
-            Collections.sort(it.next().XE());
+            Collections.sort(it.next().XG());
         }
         return true;
     }
@@ -51,9 +51,9 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    private void XL() {
+    private void XN() {
         Cursor cursor;
-        if (!TextUtils.equals(this.bCp, "video")) {
+        if (!TextUtils.equals(this.bCq, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
             StringBuilder sb = new StringBuilder();
@@ -61,7 +61,7 @@ public class b extends a {
             sb.append(" or ");
             sb.append("mime_type").append("=?");
             String[] strArr = {IMG_TYPES[0], IMG_TYPES[1]};
-            if (c.bCQ) {
+            if (c.bCR) {
                 sb.append(" or ");
                 sb.append("mime_type").append("=?");
                 strArr = IMG_TYPES;
@@ -76,7 +76,7 @@ public class b extends a {
                                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                                 File file = new File(string);
-                                if (file.exists() && (c.bCQ || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
+                                if (file.exists() && (c.bCR || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
                                     ImageModel imageModel = new ImageModel(string);
                                     imageModel.ao(j);
                                     imageModel.setSize(j2);
@@ -118,11 +118,11 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
-    private void XM() {
+    private void XO() {
         Cursor cursor;
         ?? r1 = "Image";
         try {
-            if (!TextUtils.equals(this.bCp, "Image")) {
+            if (!TextUtils.equals(this.bCq, "Image")) {
                 try {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                     if (cursor != null) {
@@ -185,14 +185,14 @@ public class b extends a {
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
         aVar.jj(name);
         aVar.jk(path);
-        int indexOf = this.bDi.indexOf(aVar);
+        int indexOf = this.bDj.indexOf(aVar);
         if (indexOf >= 0) {
-            this.bDi.get(indexOf).h(mediaModel);
+            this.bDj.get(indexOf).h(mediaModel);
         } else {
             aVar.h(mediaModel);
-            this.bDi.add(aVar);
+            this.bDj.add(aVar);
         }
-        this.bCc.add(mediaModel);
+        this.bCd.add(mediaModel);
     }
 
     private void p(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {

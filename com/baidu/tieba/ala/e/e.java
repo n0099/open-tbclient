@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaLootRedPacketResultResponseMessage;
 /* loaded from: classes3.dex */
 public class e extends BdBaseModel {
-    private k eij;
-    private HttpMessageListener fpu;
+    private k eik;
+    private HttpMessageListener fpv;
 
     public e(BdPageContext<?> bdPageContext, k kVar) {
         super(bdPageContext);
-        this.fpu = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.e.e.1
+        this.fpv = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.e.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021162 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (e.this.eij != null) {
+                    if (e.this.eik != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            e.this.eij.ad(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            e.this.eik.ad(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            e.this.eij.b(alaLootRedPacketResultResponseMessage.brz());
+                            e.this.eik.b(alaLootRedPacketResultResponseMessage.brB());
                         }
                     }
                 }
             }
         };
-        this.eij = kVar;
+        this.eik = kVar;
         initTasks();
-        registerListener(this.fpu);
+        registerListener(this.fpv);
     }
 
     private void initTasks() {
@@ -67,7 +67,7 @@ public class e extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fpu);
+        MessageManager.getInstance().unRegisterListener(this.fpv);
         MessageManager.getInstance().unRegisterTask(1021162);
     }
 }

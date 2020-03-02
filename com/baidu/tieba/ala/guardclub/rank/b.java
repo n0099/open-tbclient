@@ -12,19 +12,19 @@ import com.baidu.tieba.ala.guardclub.model.k;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements c {
-    private String awn;
-    private boolean eHj;
-    private i eHl;
-    private a eHu;
-    private InterfaceC0436b eHx;
-    private m eHy;
-    private int eHz;
+    private String awo;
+    private int eHA;
+    private boolean eHk;
+    private i eHm;
+    private a eHv;
+    private InterfaceC0436b eHy;
+    private m eHz;
     private Context mContext;
     private int mType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bfC();
+        void bfE();
 
         void c(k kVar);
 
@@ -42,7 +42,7 @@ public class b implements c {
 
         void a(BaseAdapter baseAdapter);
 
-        void bfF();
+        void bfH();
 
         void bx(List<k> list);
 
@@ -55,26 +55,26 @@ public class b implements c {
 
     public void i(int i, String str, boolean z) {
         this.mType = i;
-        this.awn = str;
-        this.eHj = z;
+        this.awo = str;
+        this.eHk = z;
     }
 
     public void a(InterfaceC0436b interfaceC0436b) {
-        this.eHx = interfaceC0436b;
+        this.eHy = interfaceC0436b;
     }
 
     public void a(a aVar) {
-        this.eHu = aVar;
+        this.eHv = aVar;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public void bfJ() {
-        if (this.eHl == null) {
-            this.eHl = new i();
-            this.eHl.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
+    public void bfL() {
+        if (this.eHm == null) {
+            this.eHm = new i();
+            this.eHm.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
                 @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.m.a
                 public void a(int i, com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i2, boolean z, boolean z2) {
                     super.a(i, aVar, list, fVar, i2, z, z2);
@@ -84,53 +84,53 @@ public class b implements c {
                 }
             });
         }
-        this.eHl.b(this.awn, this.eHz, 20, this.mType);
+        this.eHm.b(this.awo, this.eHA, 20, this.mType);
     }
 
     public void pu(int i) {
-        if (this.eHu != null) {
-            this.eHu.pr(i);
+        if (this.eHv != null) {
+            this.eHv.pr(i);
         }
     }
 
-    public void bfK() {
-        if (this.eHy != null) {
-            this.eHy.notifyDataSetChanged();
+    public void bfM() {
+        if (this.eHz != null) {
+            this.eHz.notifyDataSetChanged();
         }
     }
 
     public void w(String str, long j) {
         List<k> datas;
-        if (this.eHy != null && (datas = this.eHy.getDatas()) != null && !datas.isEmpty()) {
+        if (this.eHz != null && (datas = this.eHz.getDatas()) != null && !datas.isEmpty()) {
             for (k kVar : datas) {
                 if (kVar.id.equals(str)) {
-                    kVar.eHg = true;
+                    kVar.eHh = true;
                     if (j > 0) {
                         kVar.score = String.valueOf(j);
                     }
                 }
             }
-            this.eHy.notifyDataSetChanged();
+            this.eHz.notifyDataSetChanged();
         }
     }
 
     public void f(k kVar) {
-        if (this.eHu != null) {
-            this.eHu.c(kVar);
+        if (this.eHv != null) {
+            this.eHv.c(kVar);
         }
     }
 
-    public void bfC() {
-        if (this.eHu != null) {
-            this.eHu.bfC();
+    public void bfE() {
+        if (this.eHv != null) {
+            this.eHv.bfE();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
     public void onInitial() {
-        this.eHz = 1;
+        this.eHA = 1;
+        bfN();
         bfL();
-        bfJ();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
@@ -151,69 +151,69 @@ public class b implements c {
 
     @Override // com.baidu.tieba.ala.guardclub.rank.c
     public void onDestroy() {
-        this.eHx = null;
-        this.eHu = null;
+        this.eHy = null;
+        this.eHv = null;
     }
 
-    private void bfL() {
-        this.eHy = new m(this.mContext);
+    private void bfN() {
+        this.eHz = new m(this.mContext);
         switch (this.mType) {
             case 1:
-                this.eHy.setType(1);
+                this.eHz.setType(1);
                 break;
             case 2:
-                this.eHy.setType(0);
+                this.eHz.setType(0);
                 break;
         }
-        this.eHy.yv(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
-        this.eHy.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
+        this.eHz.yv(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+        this.eHz.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
             @Override // com.baidu.tieba.ala.guardclub.m.a
             public void a(k kVar) {
-                if (b.this.eHu != null) {
-                    b.this.eHu.c(kVar);
+                if (b.this.eHv != null) {
+                    b.this.eHv.c(kVar);
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.m.a
             public void b(k kVar) {
-                if (b.this.eHu != null) {
-                    b.this.eHu.d(kVar);
+                if (b.this.eHv != null) {
+                    b.this.eHv.d(kVar);
                 }
             }
         });
-        if (this.eHx != null) {
-            this.eHx.a(this.eHy);
+        if (this.eHy != null) {
+            this.eHy.a(this.eHz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i, boolean z, boolean z2) {
-        if (this.eHu != null) {
-            this.eHu.iF(z2 && aVar != null && aVar.liveStatus == 1);
+        if (this.eHv != null) {
+            this.eHv.iF(z2 && aVar != null && aVar.liveStatus == 1);
         }
         if (list != null && !list.isEmpty()) {
-            this.eHz = i + 1;
-            if (this.eHy != null) {
+            this.eHA = i + 1;
+            if (this.eHz != null) {
                 if (i == 1) {
-                    if (this.eHx != null) {
-                        this.eHx.bx(list.subList(0, list.size() >= 3 ? 3 : list.size()));
+                    if (this.eHy != null) {
+                        this.eHy.bx(list.subList(0, list.size() >= 3 ? 3 : list.size()));
                     }
                     if (list.size() > 3) {
-                        this.eHy.setData(list.subList(3, list.size()));
+                        this.eHz.setData(list.subList(3, list.size()));
                     }
                 } else {
-                    this.eHy.bw(list);
+                    this.eHz.bw(list);
                 }
             }
-        } else if (this.eHz == 1) {
-            if (this.eHx != null) {
-                this.eHx.bfF();
+        } else if (this.eHA == 1) {
+            if (this.eHy != null) {
+                this.eHy.bfH();
                 return;
             }
             return;
         }
-        if (this.eHx != null) {
-            this.eHx.B(z, i == 1);
+        if (this.eHy != null) {
+            this.eHy.B(z, i == 1);
         }
         if (aVar != null) {
             if (z2 || (fVar != null && !TextUtils.isEmpty(fVar.aqn))) {
@@ -235,8 +235,8 @@ public class b implements c {
                 if (str2 == null) {
                     str2 = "";
                 }
-                if (this.eHx != null) {
-                    this.eHx.c(str, aVar.apS, aVar.apL, str2, aVar.liveStatus == 1 && !this.eHj);
+                if (this.eHy != null) {
+                    this.eHy.c(str, aVar.apS, aVar.apL, str2, aVar.liveStatus == 1 && !this.eHk);
                 }
             }
         }

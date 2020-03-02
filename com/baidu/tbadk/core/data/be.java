@@ -5,39 +5,39 @@ import java.util.List;
 import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class be {
-    private aj cQG;
-    private List<h> cQH;
-    private String cQI;
-    private List<i> cQJ;
-    private String cQK;
-    private List<ai> cQL;
+    private aj cQH;
+    private List<h> cQI;
+    private String cQJ;
+    private List<i> cQK;
+    private String cQL;
+    private List<ai> cQM;
 
     public void a(SeniorLottery seniorLottery) {
         if (seniorLottery != null) {
-            this.cQG = new aj();
-            this.cQG.a(seniorLottery.theme);
-            this.cQH = new ArrayList();
+            this.cQH = new aj();
+            this.cQH.a(seniorLottery.theme);
+            this.cQI = new ArrayList();
             int size = seniorLottery.award_info.size();
             for (int i = 0; i < size; i++) {
                 h hVar = new h();
                 hVar.a(seniorLottery.award_info.get(i));
-                this.cQH.add(hVar);
+                this.cQI.add(hVar);
             }
-            this.cQI = seniorLottery.myaward;
-            this.cQJ = new ArrayList();
+            this.cQJ = seniorLottery.myaward;
+            this.cQK = new ArrayList();
             int size2 = seniorLottery.luck_users.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 i iVar = new i();
                 iVar.a(seniorLottery.luck_users.get(i2));
-                this.cQJ.add(iVar);
+                this.cQK.add(iVar);
             }
-            this.cQK = seniorLottery.act_desc;
-            this.cQL = new ArrayList();
+            this.cQL = seniorLottery.act_desc;
+            this.cQM = new ArrayList();
             int size3 = seniorLottery.act_regular.size();
             for (int i3 = 0; i3 < size3; i3++) {
                 ai aiVar = new ai();
                 aiVar.a(seniorLottery.act_regular.get(i3));
-                this.cQL.add(aiVar);
+                this.cQM.add(aiVar);
             }
         }
     }

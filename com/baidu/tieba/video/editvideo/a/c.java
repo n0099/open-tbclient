@@ -19,19 +19,19 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class c extends BaseAdapter {
-    private e cVC;
-    public int kwD;
-    public String kwE;
+    private e cVD;
+    public int kwF;
+    public String kwG;
     private List<MusicData> mList;
 
     public c(e eVar) {
-        this.cVC = eVar;
+        this.cVD = eVar;
     }
 
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            JY(this.kwE);
+            JY(this.kwG);
             notifyDataSetChanged();
         }
     }
@@ -61,19 +61,19 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.cVC.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.cVD.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.kvO = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.kvR = (TextView) view.findViewById(R.id.music_title);
-            aVar.kvQ = view.findViewById(R.id.music_loading);
-            aVar.kvO.setDrawerType(1);
-            aVar.kvO.setIsRound(true);
-            aVar.kvO.setDefaultBgResource(R.color.transparent);
-            aVar.kvO.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            aVar.kvO.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.kvO.setBorderWidth(l.getDimens(this.cVC.getPageActivity(), R.dimen.ds4));
-            aVar.kvO.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.kvO.setConrers(15);
+            aVar.kvQ = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.kvT = (TextView) view.findViewById(R.id.music_title);
+            aVar.kvS = view.findViewById(R.id.music_loading);
+            aVar.kvQ.setDrawerType(1);
+            aVar.kvQ.setIsRound(true);
+            aVar.kvQ.setDefaultBgResource(R.color.transparent);
+            aVar.kvQ.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            aVar.kvQ.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.kvQ.setBorderWidth(l.getDimens(this.cVD.getPageActivity(), R.dimen.ds4));
+            aVar.kvQ.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.kvQ.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -82,49 +82,49 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.kvO.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
+                    aVar.kvQ.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.kvO.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.kvQ.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.kvO.startLoad(musicData.img, 10, false);
+                    aVar.kvQ.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.kvQ.setVisibility(4);
-            aVar.kvR.setTextColor(am.getColor(R.color.cp_cont_j));
-            aVar.kvR.setText(musicData.name);
-            b(aVar.kvR, l.getDimens(this.cVC.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.kwD) {
-                aVar.kvO.setDrawBorder(true);
+            aVar.kvS.setVisibility(4);
+            aVar.kvT.setTextColor(am.getColor(R.color.cp_cont_j));
+            aVar.kvT.setText(musicData.name);
+            b(aVar.kvT, l.getDimens(this.cVD.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.kwF) {
+                aVar.kvQ.setDrawBorder(true);
             } else {
-                aVar.kvO.setDrawBorder(false);
+                aVar.kvQ.setDrawBorder(false);
             }
             if (i == 0) {
-                view.setPadding(l.getDimens(this.cVC.getPageActivity(), R.dimen.ds34), l.getDimens(this.cVC.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.cVD.getPageActivity(), R.dimen.ds34), l.getDimens(this.cVD.getPageActivity(), R.dimen.ds44), 0, 0);
             } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.getDimens(this.cVC.getPageActivity(), R.dimen.ds34), l.getDimens(this.cVC.getPageActivity(), R.dimen.ds44), l.getDimens(this.cVC.getPageActivity(), R.dimen.ds34), 0);
+                view.setPadding(l.getDimens(this.cVD.getPageActivity(), R.dimen.ds34), l.getDimens(this.cVD.getPageActivity(), R.dimen.ds44), l.getDimens(this.cVD.getPageActivity(), R.dimen.ds34), 0);
             } else {
-                view.setPadding(l.getDimens(this.cVC.getPageActivity(), R.dimen.ds28), l.getDimens(this.cVC.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.cVD.getPageActivity(), R.dimen.ds28), l.getDimens(this.cVD.getPageActivity(), R.dimen.ds44), 0, 0);
             }
-            if (this.cVC.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.cVC.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.cVC.getPageActivity()).getLayoutMode().onModeChanged(view);
-            } else if (this.cVC.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.cVC.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.cVC.getPageActivity()).getLayoutMode().onModeChanged(view);
+            if (this.cVD.getPageActivity() instanceof BaseActivity) {
+                ((BaseActivity) this.cVD.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseActivity) this.cVD.getPageActivity()).getLayoutMode().onModeChanged(view);
+            } else if (this.cVD.getPageActivity() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) this.cVD.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseFragmentActivity) this.cVD.getPageActivity()).getLayoutMode().onModeChanged(view);
             }
         }
         return view;
     }
 
     public void Dy(int i) {
-        this.kwD = i;
+        this.kwF = i;
         notifyDataSetChanged();
     }
 
     public void JY(String str) {
-        this.kwE = str;
+        this.kwG = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -135,17 +135,17 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.kwD = i;
+            this.kwF = i;
         }
     }
 
-    public int cPI() {
-        return this.kwD;
+    public int cPK() {
+        return this.kwF;
     }
 
     public void b(TextView textView, int i, String str) {
         if (i > 0) {
-            float dimens = l.getDimens(this.cVC.getPageActivity(), R.dimen.fontsize24);
+            float dimens = l.getDimens(this.cVD.getPageActivity(), R.dimen.fontsize24);
             TextPaint textPaint = new TextPaint();
             textPaint.setTextSize(dimens);
             while (textPaint.measureText(str) > i) {
@@ -158,9 +158,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes10.dex */
     public class a {
-        public TbImageView kvO;
-        public View kvQ;
-        public TextView kvR;
+        public TbImageView kvQ;
+        public View kvS;
+        public TextView kvT;
 
         public a() {
         }

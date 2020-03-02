@@ -8,21 +8,21 @@ import android.graphics.drawable.Drawable;
 import com.facebook.drawee.drawable.p;
 /* loaded from: classes13.dex */
 public class o extends g {
-    p.b lLC;
-    Object lMJ;
-    PointF lMK;
-    int lMe;
-    int lMf;
+    p.b lLE;
+    Object lML;
+    PointF lMM;
+    int lMg;
+    int lMh;
     Matrix mDrawMatrix;
     private Matrix mTempMatrix;
 
     public o(Drawable drawable, p.b bVar) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.lMK = null;
-        this.lMe = 0;
-        this.lMf = 0;
+        this.lMM = null;
+        this.lMg = 0;
+        this.lMh = 0;
         this.mTempMatrix = new Matrix();
-        this.lLC = bVar;
+        this.lLE = bVar;
     }
 
     @Override // com.facebook.drawee.drawable.g
@@ -32,25 +32,25 @@ public class o extends g {
         return current;
     }
 
-    public p.b dmB() {
-        return this.lLC;
+    public p.b dmD() {
+        return this.lLE;
     }
 
     public void a(p.b bVar) {
-        if (!com.facebook.common.internal.f.equal(this.lLC, bVar)) {
-            this.lLC = bVar;
-            this.lMJ = null;
+        if (!com.facebook.common.internal.f.equal(this.lLE, bVar)) {
+            this.lLE = bVar;
+            this.lML = null;
             configureBounds();
             invalidateSelf();
         }
     }
 
     public void d(PointF pointF) {
-        if (!com.facebook.common.internal.f.equal(this.lMK, pointF)) {
-            if (this.lMK == null) {
-                this.lMK = new PointF();
+        if (!com.facebook.common.internal.f.equal(this.lMM, pointF)) {
+            if (this.lMM == null) {
+                this.lMM = new PointF();
             }
-            this.lMK.set(pointF);
+            this.lMM.set(pointF);
             configureBounds();
             invalidateSelf();
         }
@@ -58,7 +58,7 @@ public class o extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        dmx();
+        dmz();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -75,17 +75,17 @@ public class o extends g {
         configureBounds();
     }
 
-    private void dmx() {
+    private void dmz() {
         boolean z;
         boolean z2 = false;
-        if (this.lLC instanceof p.l) {
-            Object state = ((p.l) this.lLC).getState();
-            z = state == null || !state.equals(this.lMJ);
-            this.lMJ = state;
+        if (this.lLE instanceof p.l) {
+            Object state = ((p.l) this.lLE).getState();
+            z = state == null || !state.equals(this.lML);
+            this.lML = state;
         } else {
             z = false;
         }
-        if (this.lMe != getCurrent().getIntrinsicWidth() || this.lMf != getCurrent().getIntrinsicHeight()) {
+        if (this.lMg != getCurrent().getIntrinsicWidth() || this.lMh != getCurrent().getIntrinsicHeight()) {
             z2 = true;
         }
         if (z2 || z) {
@@ -99,21 +99,21 @@ public class o extends g {
         int width = bounds.width();
         int height = bounds.height();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.lMe = intrinsicWidth;
+        this.lMg = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.lMf = intrinsicHeight;
+        this.lMh = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else if (intrinsicWidth == width && intrinsicHeight == height) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
-        } else if (this.lLC == p.b.lML) {
+        } else if (this.lLE == p.b.lMN) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else {
             current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-            this.lLC.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.lMK != null ? this.lMK.x : 0.5f, this.lMK != null ? this.lMK.y : 0.5f);
+            this.lLE.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.lMM != null ? this.lMM.x : 0.5f, this.lMM != null ? this.lMM.y : 0.5f);
             this.mDrawMatrix = this.mTempMatrix;
         }
     }
@@ -121,7 +121,7 @@ public class o extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
     public void getTransform(Matrix matrix) {
         getParentTransform(matrix);
-        dmx();
+        dmz();
         if (this.mDrawMatrix != null) {
             matrix.preConcat(this.mDrawMatrix);
         }

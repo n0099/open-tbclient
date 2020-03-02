@@ -7,10 +7,10 @@ import com.baidubce.http.Headers;
 /* loaded from: classes13.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean lLV = false;
+    private boolean lLX = false;
     private ColorFilter mColorFilter = null;
-    private int lLW = -1;
-    private int lLX = -1;
+    private int lLY = -1;
+    private int lLZ = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -18,15 +18,15 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.lLV = true;
+        this.lLX = true;
     }
 
     public void setDither(boolean z) {
-        this.lLW = z ? 1 : 0;
+        this.lLY = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.lLX = z ? 1 : 0;
+        this.lLZ = z ? 1 : 0;
     }
 
     @SuppressLint({Headers.RANGE})
@@ -35,14 +35,14 @@ public class d {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.lLV) {
+            if (this.lLX) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.lLW != -1) {
-                drawable.setDither(this.lLW != 0);
+            if (this.lLY != -1) {
+                drawable.setDither(this.lLY != 0);
             }
-            if (this.lLX != -1) {
-                drawable.setFilterBitmap(this.lLX != 0);
+            if (this.lLZ != -1) {
+                drawable.setFilterBitmap(this.lLZ != 0);
             }
         }
     }

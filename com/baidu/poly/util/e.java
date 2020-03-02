@@ -8,8 +8,8 @@ import android.text.TextUtils;
 public class e {
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context EI = f.EI();
-        if (EI != null && (connectivityManager = (ConnectivityManager) EI.getSystemService("connectivity")) != null) {
+        Context EK = f.EK();
+        if (EK != null && (connectivityManager = (ConnectivityManager) EK.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;

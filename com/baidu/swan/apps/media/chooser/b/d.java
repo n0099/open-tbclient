@@ -28,33 +28,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public static boolean bBt;
-    private static ArrayList<MediaModel> bCR;
-    public static String bCS;
-    public static int bCT;
-    public static String bCU;
-    public static String bCp = "album";
+    public static boolean bBu;
+    private static ArrayList<MediaModel> bCS;
+    public static String bCT;
+    public static int bCU;
+    public static String bCV;
+    public static String bCq = "album";
     public static int mMaxSelected = 9;
     public static String mMode = "single";
     public static boolean mIsShowCamera = true;
     public static boolean mIsFrontCamera = false;
 
     public static void o(ArrayList<MediaModel> arrayList) {
-        if (bCR == null) {
-            bCR = new ArrayList<>();
+        if (bCS == null) {
+            bCS = new ArrayList<>();
         }
-        bCR.clear();
-        bCR.addAll(arrayList);
+        bCS.clear();
+        bCS.addAll(arrayList);
     }
 
-    public static ArrayList<MediaModel> XG() {
-        return bCR;
+    public static ArrayList<MediaModel> XI() {
+        return bCS;
     }
 
     public static void clear() {
-        if (bCR != null) {
-            bCR.clear();
-            bCR = null;
+        if (bCS != null) {
+            bCS.clear();
+            bCS = null;
         }
     }
 
@@ -73,7 +73,7 @@ public class d {
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.media.chooser.b.d.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
-                com.baidu.swan.apps.y.f.WQ().Ws();
+                com.baidu.swan.apps.y.f.WS().Wu();
                 if (i == -1) {
                     if (intent2 == null) {
                         com.baidu.swan.apps.media.chooser.c.c.this.jd("choose: Selected data is null");
@@ -89,7 +89,7 @@ public class d {
                 }
             }
         });
-        com.baidu.swan.apps.y.f.WQ().Wr();
+        com.baidu.swan.apps.y.f.WS().Wt();
         resultDispatcher.startActivityForResult(intent);
         ((Activity) context).overridePendingTransition(a.C0197a.swanapp_album_slide_bottom_in, 0);
     }
@@ -102,11 +102,11 @@ public class d {
             JSONArray jSONArray2 = new JSONArray();
             for (MediaModel mediaModel : list) {
                 if (mediaModel != null) {
-                    String rh = com.baidu.swan.d.c.rh(mediaModel.XK());
-                    if (eVar.acU()) {
-                        str2 = l.pe(mediaModel.XK());
+                    String rh = com.baidu.swan.d.c.rh(mediaModel.XM());
+                    if (eVar.acW()) {
+                        str2 = l.pe(mediaModel.XM());
                     } else {
-                        str2 = com.baidu.swan.apps.storage.b.br(mediaModel.XK(), eVar.id) + "." + rh;
+                        str2 = com.baidu.swan.apps.storage.b.br(mediaModel.XM(), eVar.id) + "." + rh;
                     }
                     jSONArray.put(str2);
                     JSONObject jSONObject2 = new JSONObject();
@@ -143,11 +143,11 @@ public class d {
             return null;
         }
         VideoModel videoModel = (VideoModel) list.get(0);
-        String rh = com.baidu.swan.d.c.rh(videoModel.XK());
-        if (eVar.acU()) {
-            str = l.pe(videoModel.XK());
+        String rh = com.baidu.swan.d.c.rh(videoModel.XM());
+        if (eVar.acW()) {
+            str = l.pe(videoModel.XM());
         } else {
-            str = com.baidu.swan.apps.storage.b.br(videoModel.XK(), eVar.id) + "." + rh;
+            str = com.baidu.swan.apps.storage.b.br(videoModel.XM(), eVar.id) + "." + rh;
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -179,7 +179,7 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.w.a.Ul().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
+            com.baidu.swan.apps.w.a.Un().a(activity, bundle, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.swan.apps.media.chooser.b.d.2
                 @Override // com.baidu.swan.apps.media.chooser.c.d
                 public void onResult(boolean z, String str, Object obj) {
                     if (z && (obj instanceof ArrayList)) {
@@ -187,7 +187,7 @@ public class d {
                         if (c.DEBUG) {
                             Iterator<? extends Parcelable> it = arrayList.iterator();
                             while (it.hasNext()) {
-                                Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XK());
+                                Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XM());
                             }
                         }
                         Intent intent = new Intent();
@@ -205,13 +205,13 @@ public class d {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.getSelectedCount() > 0) {
-            com.baidu.swan.apps.w.a.Ul().a(activity, bundle, dVar);
+            com.baidu.swan.apps.w.a.Un().a(activity, bundle, dVar);
         }
     }
 
     public static boolean a(String str, MediaModel mediaModel) {
         if (e.getSelectedCount() < mMaxSelected || e.c(mediaModel)) {
-            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.XI(), mediaModel.getType());
+            return TextUtils.equals(str, "single") && e.getSelectedCount() > 0 && !TextUtils.equals(e.XK(), mediaModel.getType());
         }
         return true;
     }
@@ -221,7 +221,7 @@ public class d {
             Context appContext = AppRuntime.getAppContext();
             String string = appContext.getString(a.h.swanapp_album_selected_max_files, Integer.valueOf(mMaxSelected));
             if (TextUtils.equals(str, "single")) {
-                if (e.XH().get(0) instanceof ImageModel) {
+                if (e.XJ().get(0) instanceof ImageModel) {
                     string = appContext.getString(a.h.swanapp_album_selected_max_photos, Integer.valueOf(mMaxSelected));
                 } else {
                     string = appContext.getString(a.h.swanapp_album_selected_max_videos, Integer.valueOf(mMaxSelected));

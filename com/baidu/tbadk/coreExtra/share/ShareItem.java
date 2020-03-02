@@ -24,20 +24,20 @@ import java.lang.ref.WeakReference;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class ShareItem {
-    public static final String dqx = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int cUA;
+    public static final String dqy = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int cUB;
     public Bundle diskPicOperate;
-    public String dqb;
     public String dqc;
-    public int dqi;
-    public String dqj;
+    public String dqd;
+    public int dqj;
     public String dqk;
-    public OriginalThreadInfo.ShareInfo dql;
-    public ForwardInfo dqm;
-    public String dqs;
-    public String dqu;
-    public int dqv;
-    public String dqw;
+    public String dql;
+    public OriginalThreadInfo.ShareInfo dqm;
+    public ForwardInfo dqn;
+    public String dqt;
+    public String dqv;
+    public int dqw;
+    public String dqx;
     public String fName;
     public String fid;
     public String imageUrl;
@@ -47,7 +47,6 @@ public class ShareItem {
     public String topic;
     public int typeShareToSmallApp;
     public String uid;
-    public boolean dpM = false;
     public boolean dpN = false;
     public boolean dpO = false;
     public boolean dpP = false;
@@ -59,32 +58,33 @@ public class ShareItem {
     public boolean dpV = false;
     public boolean dpW = false;
     public boolean dpX = false;
-    public String dpY = "";
-    public int dqd = 0;
-    public int dqe = 3;
-    public int dqf = 0;
+    public boolean dpY = false;
+    public String dpZ = "";
+    public int dqe = 0;
+    public int dqf = 3;
     public int dqg = 0;
     public int dqh = 0;
+    public int dqi = 0;
     public long readCount = -1;
     public int shareType = 0;
-    public boolean dqo = true;
     public boolean dqp = true;
     public boolean dqq = true;
-    public int dqr = 0;
+    public boolean dqr = true;
+    public int dqs = 0;
     public boolean canShareBySmartApp = true;
-    public boolean dqt = false;
+    public boolean dqu = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String dpZ = null;
+    public String dqa = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> dqn = null;
-    public String dqa = null;
+    private WeakReference<Bitmap> dqo = null;
+    public String dqb = null;
     public String extData = null;
     public String localFile = null;
 
-    public Bundle aMp() {
+    public Bundle aMr() {
         return this.stats;
     }
 
@@ -97,22 +97,22 @@ public class ShareItem {
         this.typeShareToSmallApp = 0;
     }
 
-    public Bitmap aMq() {
+    public Bitmap aMs() {
         Bitmap bitmap;
-        if (this.dqn == null || (bitmap = this.dqn.get()) == null || bitmap.isRecycled()) {
+        if (this.dqo == null || (bitmap = this.dqo.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void p(Bitmap bitmap) {
-        this.dqn = new WeakReference<>(bitmap);
+        this.dqo = new WeakReference<>(bitmap);
     }
 
-    public byte[] aMr() {
+    public byte[] aMt() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.dqn == null || (bitmap = this.dqn.get()) == null || bitmap.isRecycled()) {
+        if (this.dqo == null || (bitmap = this.dqo.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -130,16 +130,16 @@ public class ShareItem {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [292=4, 293=4, 295=4, 296=4] */
-    public void aMs() {
+    public void aMu() {
         FileOutputStream fileOutputStream = null;
-        if (this.dqn == null) {
+        if (this.dqo == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (m.checkSD()) {
-                    File file = new File(dqx);
+                    File file = new File(dqy);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -147,14 +147,14 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] aMr = aMr();
-                    if (aMr != null) {
+                    byte[] aMt = aMt();
+                    if (aMt != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(aMr);
+                            fileOutputStream3.write(aMt);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.dqn = null;
+                            this.dqo = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();
@@ -257,35 +257,35 @@ public class ShareItem {
             }
             ForwardInfo forwardInfo = new ForwardInfo();
             forwardInfo.isShareType = false;
-            if (bjVar.isShareThread && bjVar.cTP != null) {
+            if (bjVar.isShareThread && bjVar.cTQ != null) {
                 forwardInfo.isShareType = true;
             }
             if (forwardInfo.isShareType) {
-                if (bjVar.cTP.oriUgcInfo != null && !TextUtils.isEmpty(bjVar.cTP.oriUgcInfo.oriUgcNid)) {
+                if (bjVar.cTQ.oriUgcInfo != null && !TextUtils.isEmpty(bjVar.cTQ.oriUgcInfo.oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                forwardInfo.showText = bjVar.cTP.aBa();
-                forwardInfo.showPicUrl = bjVar.cTP.showPicUrl;
-                forwardInfo.showType = bjVar.cTP.showType;
-                forwardInfo.originalBaijiahaoData = bjVar.cTP.oriUgcInfo;
-                forwardInfo.originalTid = bjVar.cTP.threadId;
+                forwardInfo.showText = bjVar.cTQ.aBc();
+                forwardInfo.showPicUrl = bjVar.cTQ.showPicUrl;
+                forwardInfo.showType = bjVar.cTQ.showType;
+                forwardInfo.originalBaijiahaoData = bjVar.cTQ.oriUgcInfo;
+                forwardInfo.originalTid = bjVar.cTQ.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.cLa() != null) {
-                        str = postData.cLa().toString();
+                    if (postData != null && postData.cLc() != null) {
+                        str = postData.cLc().toString();
                     } else if (bjVar.getAbstract() != null) {
-                        str = bjVar.aBO().toString();
+                        str = bjVar.aBQ().toString();
                     }
-                } else if (bjVar.aDf() != null) {
-                    str = bjVar.aDf().toString();
+                } else if (bjVar.aDh() != null) {
+                    str = bjVar.aDh().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
                 }
-                if (bjVar.aCm() != null && !TextUtils.isEmpty(bjVar.aCm().getName_show())) {
-                    forwardInfo.transmitThreadAuthorNameShow = bjVar.aCm().getName_show();
+                if (bjVar.aCo() != null && !TextUtils.isEmpty(bjVar.aCo().getName_show())) {
+                    forwardInfo.transmitThreadAuthorNameShow = bjVar.aCo().getName_show();
                 }
-                if (i == 1 && postData != null && aq.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.aCm() != null) {
-                    forwardInfo.transmitThreadAuthorNameShow = postData.aCm().getName_show();
+                if (i == 1 && postData != null && aq.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.aCo() != null) {
+                    forwardInfo.transmitThreadAuthorNameShow = postData.aCo().getName_show();
                 }
                 if (i == 2 && aq.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                     forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
@@ -296,20 +296,20 @@ public class ShareItem {
                 }
                 OriginalThreadInfo r = OriginalThreadInfo.r(bjVar);
                 if (r != null) {
-                    forwardInfo.showText = r.aBa();
+                    forwardInfo.showText = r.aBc();
                     forwardInfo.showPicUrl = r.showPicUrl;
                     forwardInfo.showType = r.showType;
                 }
                 forwardInfo.originalTid = bjVar.getTid();
             }
             if (i == 1) {
-                if (bjVar.cTP != null && bjVar.cTP.oriUgcInfo != null) {
+                if (bjVar.cTQ != null && bjVar.cTQ.oriUgcInfo != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
-                    forwardInfo.baijiahaoData.oriUgcNid = bjVar.cTP.oriUgcInfo.oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = bjVar.cTP.oriUgcInfo.oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = bjVar.cTP.oriUgcInfo.oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = bjVar.cTP.oriUgcInfo.oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = bjVar.cTP.oriUgcInfo.forwardUrl;
+                    forwardInfo.baijiahaoData.oriUgcNid = bjVar.cTQ.oriUgcInfo.oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = bjVar.cTQ.oriUgcInfo.oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = bjVar.cTQ.oriUgcInfo.oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = bjVar.cTQ.oriUgcInfo.oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = bjVar.cTQ.oriUgcInfo.forwardUrl;
                 } else if (bjVar.getBaijiahaoData() != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
                     forwardInfo.baijiahaoData.oriUgcNid = bjVar.getBaijiahaoData().oriUgcNid;
@@ -328,14 +328,14 @@ public class ShareItem {
             }
             if (bjVar.getBaijiahaoData() != null) {
                 if (bjVar.getBaijiahaoData().oriUgcType == 2) {
-                    if (bjVar.aCD() != null) {
-                        forwardInfo.video_duration = String.valueOf(bjVar.aCD().video_duration);
+                    if (bjVar.aCF() != null) {
+                        forwardInfo.video_duration = String.valueOf(bjVar.aCF().video_duration);
                     }
-                } else if ((bjVar.getBaijiahaoData().oriUgcType == 3 || bjVar.getBaijiahaoData().oriUgcType == 4) && bjVar.aCm() != null && !TextUtils.isEmpty(bjVar.aCm().getPortrait())) {
-                    if (bjVar.aCm().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                        forwardInfo.avatar = bjVar.aCm().getPortrait();
+                } else if ((bjVar.getBaijiahaoData().oriUgcType == 3 || bjVar.getBaijiahaoData().oriUgcType == 4) && bjVar.aCo() != null && !TextUtils.isEmpty(bjVar.aCo().getPortrait())) {
+                    if (bjVar.aCo().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                        forwardInfo.avatar = bjVar.aCo().getPortrait();
                     } else {
-                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bjVar.aCm().getPortrait() + ".jpg";
+                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bjVar.aCo().getPortrait() + ".jpg";
                     }
                 }
             }

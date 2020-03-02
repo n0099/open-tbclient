@@ -15,20 +15,20 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
     private int MC;
-    private TextView dBk;
-    private boolean eTv;
-    private ObjectAnimator ffW;
-    private int ffX;
+    private TextView dBl;
+    private boolean eTw;
+    private ObjectAnimator ffX;
+    private int ffY;
     private Context mContext;
     private View mRootView;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext);
-        this.ffX = 4000;
-        this.eTv = true;
+        this.ffY = 4000;
+        this.eTw = true;
         this.mContext = tbPageContext.getPageActivity();
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_liveroom_translate_view, (ViewGroup) null);
-        this.dBk = (TextView) this.mRootView.findViewById(a.g.translate_content);
+        this.dBl = (TextView) this.mRootView.findViewById(a.g.translate_content);
         ak(viewGroup);
     }
 
@@ -43,33 +43,33 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     public void at(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             if (i > 0) {
-                this.ffX = i;
+                this.ffY = i;
             }
-            if (this.eTv) {
+            if (this.eTw) {
                 this.mRootView.setVisibility(0);
             }
-            this.dBk.setText(str);
+            this.dBl.setText(str);
             enterAnimation();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.ffW != null) {
-            this.ffW.cancel();
-            this.ffW = null;
+        if (this.ffX != null) {
+            this.ffX.cancel();
+            this.ffX = null;
         }
     }
 
     private void enterAnimation() {
         this.MC = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        this.ffW = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.MC, -this.MC);
-        this.ffW.setDuration(this.ffX);
-        this.ffW.start();
+        this.ffX = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.MC, -this.MC);
+        this.ffX.setDuration(this.ffY);
+        this.ffX.start();
     }
 
     public void setCanVisible(boolean z) {
-        this.eTv = z;
+        this.eTw = z;
     }
 
     public void setVisible(int i) {

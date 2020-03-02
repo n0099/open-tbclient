@@ -69,7 +69,7 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            eVar.acN().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
+            eVar.acP().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -96,16 +96,16 @@ public class b extends ab {
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).c(rx.a.b.a.dOb()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
+        }).c(rx.a.b.a.dOd()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: e */
             public void call(Boolean bool) {
-                e acD;
-                com.baidu.swan.apps.process.messaging.client.a acw;
+                e acF;
+                com.baidu.swan.apps.process.messaging.client.a acy;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (acD = e.acD()) != null && (acw = acD.acw()) != null) {
-                        acw.a(8, new SwanAppDeleteInfo(str));
+                    if (!TextUtils.isEmpty(str) && (acF = e.acF()) != null && (acy = acF.acy()) != null) {
+                        acy.a(8, new SwanAppDeleteInfo(str));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

@@ -32,7 +32,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afn() {
+    public String afp() {
         return null;
     }
 

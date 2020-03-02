@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean fQF;
+    boolean fQH;
 
     public c(boolean z) {
-        this.fQF = z;
+        this.fQH = z;
         setPriority(4);
     }
 
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb2;
         l<String> a = BdCacheService.fz().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.fQF) {
+        if (this.fQH) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -60,7 +60,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String bwH = new a().bwH();
+            String bwJ = new a().bwJ();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -68,7 +68,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + bwH + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + bwJ + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.fX().setUrl(str4);
@@ -118,7 +118,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.bwJ().h(hashSet);
+                    b.bwL().h(hashSet);
                     publishProgress(hashMap3);
                     a.setForever("dnsproxycachedata", str);
                     sb2 = sb5;

@@ -41,10 +41,10 @@ public class ac extends d implements m<bj> {
     }
 
     public void b(bj bjVar) {
-        MetaData aCm;
-        if (bjVar != null && this.Ln != null && (aCm = bjVar.aCm()) != null) {
-            final ThemeCardInUserData themeCard = aCm.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bjVar.cUl) {
+        MetaData aCo;
+        if (bjVar != null && this.Ln != null && (aCo = bjVar.aCo()) != null) {
+            final ThemeCardInUserData themeCard = aCo.getThemeCard();
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bjVar.cUm) {
                 this.Ln.setVisibility(8);
                 return;
             }

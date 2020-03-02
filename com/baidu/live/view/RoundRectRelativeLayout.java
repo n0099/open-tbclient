@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class RoundRectRelativeLayout extends RelativeLayout {
-    private float[] aFs;
-    private boolean aFt;
+    private float[] aFt;
     private boolean aFu;
+    private boolean aFv;
     private Paint mPaint;
     private Path mPath;
     private RectF mRectF;
@@ -33,27 +33,27 @@ public class RoundRectRelativeLayout extends RelativeLayout {
     }
 
     public void setCornerRadius(float f) {
-        if (this.aFs == null) {
-            this.aFs = new float[8];
+        if (this.aFt == null) {
+            this.aFt = new float[8];
         }
-        for (int i = 0; i < this.aFs.length; i++) {
-            this.aFs[i] = f;
+        for (int i = 0; i < this.aFt.length; i++) {
+            this.aFt[i] = f;
         }
         postInvalidate();
     }
 
     public void setCornerRadius(float f, float f2, float f3, float f4) {
-        if (this.aFs == null) {
-            this.aFs = new float[8];
+        if (this.aFt == null) {
+            this.aFt = new float[8];
         }
-        this.aFs[0] = f;
-        this.aFs[1] = f;
-        this.aFs[2] = f2;
-        this.aFs[3] = f2;
-        this.aFs[4] = f3;
-        this.aFs[5] = f3;
-        this.aFs[6] = f4;
-        this.aFs[7] = f4;
+        this.aFt[0] = f;
+        this.aFt[1] = f;
+        this.aFt[2] = f2;
+        this.aFt[3] = f2;
+        this.aFt[4] = f3;
+        this.aFt[5] = f3;
+        this.aFt[6] = f4;
+        this.aFt[7] = f4;
         postInvalidate();
     }
 
@@ -65,7 +65,7 @@ public class RoundRectRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.aFu) {
+        if (this.aFv) {
             h(canvas);
         } else {
             i(canvas);
@@ -74,8 +74,8 @@ public class RoundRectRelativeLayout extends RelativeLayout {
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (this.aFt) {
-            if (this.aFu) {
+        if (this.aFu) {
+            if (this.aFv) {
                 j(canvas);
                 return;
             } else {
@@ -96,41 +96,41 @@ public class RoundRectRelativeLayout extends RelativeLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.mPath = new Path();
         this.mRectF = new RectF();
-        this.aFs = new float[8];
-        this.aFt = true;
-        this.aFu = Build.VERSION.SDK_INT >= 28;
+        this.aFt = new float[8];
+        this.aFu = true;
+        this.aFv = Build.VERSION.SDK_INT >= 28;
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_RoundRectRelativeLayout);
-            this.aFt = obtainStyledAttributes.getBoolean(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_clip_background, true);
+            this.aFu = obtainStyledAttributes.getBoolean(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_clip_background, true);
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius, 0);
             int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_top_left, dimensionPixelOffset);
             int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_top_right, dimensionPixelOffset);
             int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_bottom_left, dimensionPixelOffset);
             int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_bottom_right, dimensionPixelOffset);
             obtainStyledAttributes.recycle();
-            this.aFs[0] = dimensionPixelOffset2;
-            this.aFs[1] = dimensionPixelOffset2;
-            this.aFs[2] = dimensionPixelOffset3;
-            this.aFs[3] = dimensionPixelOffset3;
-            this.aFs[4] = dimensionPixelOffset5;
-            this.aFs[5] = dimensionPixelOffset5;
-            this.aFs[6] = dimensionPixelOffset4;
-            this.aFs[7] = dimensionPixelOffset4;
+            this.aFt[0] = dimensionPixelOffset2;
+            this.aFt[1] = dimensionPixelOffset2;
+            this.aFt[2] = dimensionPixelOffset3;
+            this.aFt[3] = dimensionPixelOffset3;
+            this.aFt[4] = dimensionPixelOffset5;
+            this.aFt[5] = dimensionPixelOffset5;
+            this.aFt[6] = dimensionPixelOffset4;
+            this.aFt[7] = dimensionPixelOffset4;
         }
     }
 
-    private Path Bp() {
+    private Path Br() {
         this.mPath.reset();
-        this.mPath.addRoundRect(this.mRectF, this.aFs, Path.Direction.CW);
+        this.mPath.addRoundRect(this.mRectF, this.aFt, Path.Direction.CW);
         return this.mPath;
     }
 
     private void h(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Bp());
+        canvas.clipPath(Br());
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -138,13 +138,13 @@ public class RoundRectRelativeLayout extends RelativeLayout {
     private void i(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.dispatchDraw(canvas);
-        canvas.drawPath(Bp(), this.mPaint);
+        canvas.drawPath(Br(), this.mPaint);
         canvas.restore();
     }
 
     private void j(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Bp());
+        canvas.clipPath(Br());
         super.draw(canvas);
         canvas.restore();
     }
@@ -152,7 +152,7 @@ public class RoundRectRelativeLayout extends RelativeLayout {
     private void k(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.draw(canvas);
-        canvas.drawPath(Bp(), this.mPaint);
+        canvas.drawPath(Br(), this.mPaint);
         canvas.restore();
     }
 }

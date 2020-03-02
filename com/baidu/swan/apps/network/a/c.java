@@ -12,7 +12,7 @@ public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String mU = ai.mU(d.Qu().QR());
+        String mU = ai.mU(d.Qw().QT());
         if (TextUtils.isEmpty(mU)) {
             mU = "";
         }

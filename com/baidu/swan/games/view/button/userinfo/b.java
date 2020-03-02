@@ -10,22 +10,22 @@ public class b extends com.baidu.swan.games.view.button.base.b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.userinfo.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.games.view.c.aqp() != null) {
-                    b.this.ctd = new UserInfoButton(com.baidu.swan.games.view.c.aqp(), b.this);
-                    b.this.ctd.setType(b.this.type);
-                    b.this.ctd.setButtonText(b.this.text);
-                    b.this.ctd.setImageUrl(b.this.image);
-                    b.this.ctd.setApiButtonStyle(b.this.style);
-                    b.this.aqJ();
-                    b.this.aqN();
+                if (com.baidu.swan.games.view.c.aqr() != null) {
+                    b.this.cte = new UserInfoButton(com.baidu.swan.games.view.c.aqr(), b.this);
+                    b.this.cte.setType(b.this.type);
+                    b.this.cte.setButtonText(b.this.text);
+                    b.this.cte.setImageUrl(b.this.image);
+                    b.this.cte.setApiButtonStyle(b.this.style);
+                    b.this.aqL();
+                    b.this.aqP();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqN() {
-        if (!d.apD()) {
+    public void aqP() {
+        if (!d.apF()) {
             com.baidu.swan.games.u.c.pC("Button shows early.");
         }
     }

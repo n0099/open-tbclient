@@ -6,18 +6,18 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String ckf;
-    private HashMap<String, c> cke = new HashMap<>();
+    private String ckg;
+    private HashMap<String, c> ckf = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b ckg = com.baidu.swan.games.network.b.aoP();
+    private com.baidu.swan.games.network.b ckh = com.baidu.swan.games.network.b.aoR();
 
     public b(String str) {
-        this.ckf = str;
+        this.ckg = str;
     }
 
     private boolean oq(String str) {
-        return this.cke.containsKey(str);
+        return this.ckf.containsKey(str);
     }
 
     public void a(String str, a aVar) {
@@ -38,8 +38,8 @@ public class b implements a {
         if (DEBUG) {
             Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.ckg, this.ckf, str, this);
-        this.cke.put(str, cVar);
+        c cVar = new c(this.ckh, this.ckg, str, this);
+        this.ckf.put(str, cVar);
         cVar.load();
     }
 
@@ -65,7 +65,7 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cke.remove(str);
+                this.ckf.remove(str);
             }
         }
     }
@@ -79,7 +79,7 @@ public class b implements a {
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).G(i, str);
                 }
-                this.cke.remove(str);
+                this.ckf.remove(str);
             }
         }
     }

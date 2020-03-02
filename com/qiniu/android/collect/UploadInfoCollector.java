@@ -18,40 +18,40 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 /* loaded from: classes5.dex */
 public final class UploadInfoCollector {
-    private static UploadInfoCollector nmx;
-    private File nmA = null;
-    private long nmB;
-    private final String nmy;
-    private final String nmz;
-    private static ExecutorService nmw = null;
+    private static UploadInfoCollector nmz;
+    private final String nmA;
+    private final String nmB;
+    private File nmC = null;
+    private long nmD;
+    private static ExecutorService nmy = null;
     private static OkHttpClient httpClient = null;
 
     /* loaded from: classes5.dex */
     public static abstract class RecordMsg {
-        public abstract String dFL();
+        public abstract String dFN();
     }
 
     private UploadInfoCollector(String str, String str2) {
-        this.nmz = str;
-        this.nmy = str2;
+        this.nmB = str;
+        this.nmA = str2;
         try {
-            dFK();
+            dFM();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static UploadInfoCollector dFJ() {
-        if (nmx == null) {
-            nmx = new UploadInfoCollector("_qiniu_record_file_hs5z9lo7anx03", "https://uplog.qbox.me/log/3");
+    private static UploadInfoCollector dFL() {
+        if (nmz == null) {
+            nmz = new UploadInfoCollector("_qiniu_record_file_hs5z9lo7anx03", "https://uplog.qbox.me/log/3");
         }
-        return nmx;
+        return nmz;
     }
 
     public static void a(UpToken upToken, RecordMsg recordMsg) {
         try {
-            if (Config.nms) {
-                dFJ().c(upToken, recordMsg);
+            if (Config.nmu) {
+                dFL().c(upToken, recordMsg);
             }
         } catch (Throwable th) {
         }
@@ -124,7 +124,7 @@ public final class UploadInfoCollector {
         }
     }
 
-    private static OkHttpClient YU() {
+    private static OkHttpClient YW() {
         if (httpClient == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.connectTimeout(10L, TimeUnit.SECONDS);
@@ -135,16 +135,16 @@ public final class UploadInfoCollector {
         return httpClient;
     }
 
-    private void dFK() throws IOException {
-        if (Config.nms) {
-            am(Ri(Config.nmt));
+    private void dFM() throws IOException {
+        if (Config.nmu) {
+            am(Ri(Config.nmv));
         }
-        if (!Config.nms && nmw != null) {
-            nmw.shutdown();
+        if (!Config.nmu && nmy != null) {
+            nmy.shutdown();
         }
-        if (Config.nms) {
-            if (nmw == null || nmw.isShutdown()) {
-                nmw = Executors.newSingleThreadExecutor();
+        if (Config.nmu) {
+            if (nmy == null || nmy.isShutdown()) {
+                nmy = Executors.newSingleThreadExecutor();
             }
         }
     }
@@ -164,30 +164,30 @@ public final class UploadInfoCollector {
         } else if (!file.isDirectory()) {
             throw new IOException(file.getAbsolutePath() + " is not a dir");
         } else {
-            this.nmA = new File(file, this.nmz);
+            this.nmC = new File(file, this.nmB);
         }
     }
 
     private void c(final UpToken upToken, final RecordMsg recordMsg) {
-        if (nmw != null && !nmw.isShutdown()) {
-            nmw.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.1
+        if (nmy != null && !nmy.isShutdown()) {
+            nmy.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (Config.nms) {
+                    if (Config.nmu) {
                         try {
-                            UploadInfoCollector.this.p(recordMsg.dFL(), UploadInfoCollector.this.nmA);
+                            UploadInfoCollector.this.p(recordMsg.dFN(), UploadInfoCollector.this.nmC);
                         } catch (Throwable th) {
                         }
                     }
                 }
             });
-            if (Config.isUpload && upToken != UpToken.noj) {
-                nmw.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.2
+            if (Config.isUpload && upToken != UpToken.nol) {
+                nmy.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (Config.nms && Config.isUpload) {
+                        if (Config.nmu && Config.isUpload) {
                             try {
-                                UploadInfoCollector.this.a(upToken, UploadInfoCollector.this.nmA);
+                                UploadInfoCollector.this.a(upToken, UploadInfoCollector.this.nmC);
                             } catch (Throwable th) {
                             }
                         }
@@ -199,17 +199,17 @@ public final class UploadInfoCollector {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(String str, File file) {
-        if (Config.nms && file.length() < Config.nmu) {
+        if (Config.nmu && file.length() < Config.nmw) {
             b(file, str + "\n", true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpToken upToken, File file) {
-        if (Config.isUpload && file.length() > Config.nmv) {
+        if (Config.isUpload && file.length() > Config.nmx) {
             long time = new Date().getTime();
-            if (time > this.nmB + (Config.acx * 60 * 1000)) {
-                this.nmB = time;
+            if (time > this.nmD + (Config.acx * 60 * 1000)) {
+                this.nmD = time;
                 if (b(upToken, file)) {
                     b(file, "", false);
                     b(file, "", false);
@@ -220,7 +220,7 @@ public final class UploadInfoCollector {
 
     private boolean b(UpToken upToken, File file) {
         try {
-            Response execute = YU().newCall(new Request.Builder().url(this.nmy).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dFT().Rp(upToken.nmM)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
+            Response execute = YW().newCall(new Request.Builder().url(this.nmA).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dFV().Rp(upToken.nmO)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
             boolean d = d(execute);
             try {
                 execute.body().close();

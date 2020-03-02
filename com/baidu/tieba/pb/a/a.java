@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0568a iCU;
+    private InterfaceC0568a iCW;
     private int count = 0;
-    private long iCS = 0;
-    private long iCT = 0;
-    private long iCV = 500;
+    private long iCU = 0;
+    private long iCV = 0;
+    private long iCX = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.iCS = 0L;
-                a.this.iCT = 0L;
+                a.this.iCU = 0L;
+                a.this.iCV = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.iCU != null) {
-                    a.this.iCU.clk();
+                if (a.this.iCW != null) {
+                    a.this.iCW.clm();
                 }
                 a.this.count = 0;
-                a.this.iCS = 0L;
-                a.this.iCT = 0L;
+                a.this.iCU = 0L;
+                a.this.iCV = 0L;
             }
         }
     };
@@ -32,30 +32,30 @@ public class a implements View.OnTouchListener {
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0568a {
-        void clj();
+        void cll();
 
-        void clk();
+        void clm();
     }
 
     public a(InterfaceC0568a interfaceC0568a) {
-        this.iCU = interfaceC0568a;
+        this.iCW = interfaceC0568a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.iCU == null) {
+            if (this.iCW == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.iCS = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.iCV);
+                this.iCU = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.iCX);
                 return true;
             } else if (this.count == 2) {
-                this.iCT = System.currentTimeMillis();
-                if (this.iCT - this.iCS < this.iCV) {
-                    this.iCU.clj();
+                this.iCV = System.currentTimeMillis();
+                if (this.iCV - this.iCU < this.iCX) {
+                    this.iCW.cll();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

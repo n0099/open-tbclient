@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public final class a implements b {
-    private static final a nVN = new a();
-    private volatile boolean kVC = false;
-    private volatile boolean nVO = false;
+    private static final a nVP = new a();
+    private volatile boolean kVE = false;
+    private volatile boolean nVQ = false;
 
-    public static b dQd() {
-        return nVN;
+    public static b dQf() {
+        return nVP;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dQe() {
-        return this.kVC;
+    public boolean dQg() {
+        return this.kVE;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void xc(boolean z) {
-        this.kVC = z;
+        this.kVE = z;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void xd(boolean z) {
-        this.nVO = z;
+        this.nVQ = z;
     }
 
-    public String dQf() {
+    public String dQh() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.v(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.d(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.i(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.w(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.e(SL(str), SM(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.kVC) {
+        if (this.kVE) {
             Log.e(SL(str), SM(str2), th);
         }
     }
 
     private String SL(String str) {
-        return TextUtils.isEmpty(str) ? dQf() : str;
+        return TextUtils.isEmpty(str) ? dQh() : str;
     }
 
     private String SM(String str) {
-        if (this.nVO) {
+        if (this.nVQ) {
             return str + b(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

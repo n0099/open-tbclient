@@ -11,30 +11,30 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile h cnP;
-    private ArrayList<g> cnN = new ArrayList<>();
-    private f cnO = new f();
+    private static volatile h cnQ;
+    private ArrayList<g> cnO = new ArrayList<>();
+    private f cnP = new f();
 
     private h() {
     }
 
-    public static h anO() {
-        if (cnP == null) {
+    public static h anQ() {
+        if (cnQ == null) {
             synchronized (h.class) {
-                if (cnP == null) {
-                    cnP = new h();
+                if (cnQ == null) {
+                    cnQ = new h();
                 }
             }
         }
-        return cnP;
+        return cnQ;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         g gVar = new g(this, runnable, str, strArr);
-        ArrayList<g> x = this.cnO.x(strArr);
-        this.cnO.a(gVar, strArr);
+        ArrayList<g> x = this.cnP.x(strArr);
+        this.cnP.a(gVar, strArr);
         if (x == null || x.size() == 0) {
-            gVar.anJ();
+            gVar.anL();
         } else {
             a(gVar, x);
         }
@@ -42,17 +42,17 @@ public class h {
 
     public synchronized void c(g gVar) {
         if (gVar != null) {
-            this.cnO.b(gVar, gVar.anK());
-            if (gVar.anL()) {
+            this.cnP.b(gVar, gVar.anM());
+            if (gVar.anN()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cnN.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cnO.size());
                 }
-                for (int size = this.cnN.size() - 1; size >= 0; size--) {
-                    g gVar2 = this.cnN.get(size);
+                for (int size = this.cnO.size() - 1; size >= 0; size--) {
+                    g gVar2 = this.cnO.get(size);
                     gVar2.b(gVar);
-                    if (gVar2.anN()) {
-                        this.cnN.remove(size);
-                        gVar2.anJ();
+                    if (gVar2.anP()) {
+                        this.cnO.remove(size);
+                        gVar2.anL();
                     }
                 }
             }
@@ -60,22 +60,22 @@ public class h {
     }
 
     private synchronized void onDestroy() {
-        this.cnO.anH();
-        Iterator<g> it = this.cnN.iterator();
+        this.cnP.anJ();
+        Iterator<g> it = this.cnO.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (d(next)) {
-                next.anI();
+                next.anK();
             }
         }
-        this.cnN.clear();
+        this.cnO.clear();
     }
 
     public static synchronized void release() {
         synchronized (h.class) {
-            if (cnP != null) {
-                cnP.onDestroy();
-                cnP = null;
+            if (cnQ != null) {
+                cnQ.onDestroy();
+                cnQ = null;
             }
         }
     }
@@ -92,7 +92,7 @@ public class h {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<g> x = this.cnO.x(strArr);
+        ArrayList<g> x = this.cnP.x(strArr);
         if (x == null || x.size() == 0) {
             z = false;
         } else {
@@ -104,15 +104,15 @@ public class h {
 
     private void a(@NonNull g gVar, @NonNull ArrayList<g> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cnN.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cnO.size());
         }
         Iterator<g> it = arrayList.iterator();
         while (it.hasNext()) {
             g next = it.next();
-            next.anM();
+            next.anO();
             gVar.a(next);
         }
-        this.cnN.add(gVar);
+        this.cnO.add(gVar);
     }
 
     private void a(Semaphore semaphore) {

@@ -11,11 +11,11 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    public static final String eTX = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.ala_challenge/";
+    public static final String eTY = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.ala_challenge/";
 
-    public static void bkb() {
-        String str = com.baidu.live.v.a.zj().awA.aam;
-        String str2 = com.baidu.live.v.a.zj().awA.aal;
+    public static void bkd() {
+        String str = com.baidu.live.v.a.zl().awB.aam;
+        String str2 = com.baidu.live.v.a.zl().awB.aal;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             d("ala_live_challenge_res_id_android", str, "challenge_res", str2, true);
         }
@@ -38,7 +38,7 @@ public class d {
         if (StringUtils.isNull(str3) || StringUtils.isNull(str2) || StringUtils.isNull(str4)) {
             return false;
         }
-        String str5 = eTX + str3;
+        String str5 = eTY + str3;
         String str6 = "ala_live_challenge_res_md5_" + str3;
         if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.cZ(str6)) || yQ(str)) {
             return false;

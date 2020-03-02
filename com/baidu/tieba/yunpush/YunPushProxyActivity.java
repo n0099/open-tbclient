@@ -62,7 +62,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 mainTabActivityConfig.setTargetScheme(str2);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                             } else {
-                                ba.aGE().b(getPageContext(), new String[]{str2, "yun_push_tag"});
+                                ba.aGG().b(getPageContext(), new String[]{str2, "yun_push_tag"});
                             }
                         }
                     }

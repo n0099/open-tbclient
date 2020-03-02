@@ -9,7 +9,7 @@ import com.baidu.spswitch.b;
 import com.baidu.spswitch.b.g;
 /* loaded from: classes13.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
-    private a bav;
+    private a baw;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -25,7 +25,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     }
 
     private void init() {
-        this.bav = new a(this);
+        this.baw = new a(this);
     }
 
     @Override // com.baidu.spswitch.b
@@ -35,6 +35,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
 
     @Override // com.baidu.spswitch.b
     public void onSoftInputShowing(boolean z) {
-        this.bav.onSoftInputShowing(z);
+        this.baw.onSoftInputShowing(z);
     }
 }

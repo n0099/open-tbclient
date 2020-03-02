@@ -14,43 +14,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private Animation ggU;
-    private View gyu;
-    private TbImageView gyv;
-    private boolean gyw;
+    private Animation ggW;
+    private View gyw;
+    private TbImageView gyx;
+    private boolean gyy;
     private int mIconId;
     private int mSkinType;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ggU = null;
+        this.ggW = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.gyw = false;
+        this.gyy = false;
         i(context, null);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.ggU = null;
+        this.ggW = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.gyw = false;
+        this.gyy = false;
         i(context, attributeSet);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.ggU = null;
+        this.ggW = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.gyw = false;
+        this.gyy = false;
         i(context, attributeSet);
     }
 
     public void setIconResource(int i) {
         this.mIconId = i;
-        am.setImageResource(this.gyv, this.mIconId);
+        am.setImageResource(this.gyx, this.mIconId);
     }
 
     public void i(Context context, AttributeSet attributeSet) {
@@ -58,51 +58,51 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.EntelechyPullUpRefreshView);
                 this.mIconId = obtainStyledAttributes.getResourceId(0, R.drawable.icon_frs_reload);
-                this.gyw = obtainStyledAttributes.getBoolean(1, false);
+                this.gyy = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
             am.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-            if (this.gyw) {
-                this.gyu = new View(context);
-                this.gyu.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
-                am.setBackgroundResource(this.gyu, R.color.cp_bg_line_c);
-                addView(this.gyu);
+            if (this.gyy) {
+                this.gyw = new View(context);
+                this.gyw.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
+                am.setBackgroundResource(this.gyw, R.color.cp_bg_line_c);
+                addView(this.gyw);
             }
-            this.gyv = new TbImageView(context);
+            this.gyx = new TbImageView(context);
             int dimens = l.getDimens(getContext(), R.dimen.ds48);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
             layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds20);
-            this.gyv.setLayoutParams(layoutParams);
-            am.setImageResource(this.gyv, this.mIconId);
-            addView(this.gyv);
+            this.gyx.setLayoutParams(layoutParams);
+            am.setImageResource(this.gyx, this.mIconId);
+            addView(this.gyx);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.gyu, R.color.cp_bg_line_c);
-            am.setImageResource(this.gyv, this.mIconId);
+            am.setBackgroundResource(this.gyw, R.color.cp_bg_line_c);
+            am.setImageResource(this.gyx, this.mIconId);
             am.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
             this.mSkinType = i;
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.ggU == null) {
-            this.ggU = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
-            this.ggU.setInterpolator(new LinearInterpolator());
-            this.ggU.setFillAfter(true);
+        if (this.ggW == null) {
+            this.ggW = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
+            this.ggW.setInterpolator(new LinearInterpolator());
+            this.ggW.setFillAfter(true);
         }
-        return this.ggU;
+        return this.ggW;
     }
 
-    public void bBG() {
-        this.gyv.startAnimation(getClickRotateAnimation());
+    public void bBI() {
+        this.gyx.startAnimation(getClickRotateAnimation());
     }
 
-    public void bBH() {
-        this.gyv.clearAnimation();
+    public void bBJ() {
+        this.gyx.clearAnimation();
     }
 }

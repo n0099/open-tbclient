@@ -18,7 +18,7 @@ public class e implements b {
     @Nullable
 
     /* renamed from: io  reason: collision with root package name */
-    private final com.airbnb.lottie.model.a.b f971io;
+    private final com.airbnb.lottie.model.a.b f970io;
     private final String name;
 
     public e(String str, GradientType gradientType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.airbnb.lottie.model.a.b> list, @Nullable com.airbnb.lottie.model.a.b bVar2) {
@@ -33,7 +33,7 @@ public class e implements b {
         this.ik = lineJoinType;
         this.il = f;
         this.im = list;
-        this.f971io = bVar2;
+        this.f970io = bVar2;
     }
 
     public String getName() {
@@ -78,7 +78,7 @@ public class e implements b {
 
     @Nullable
     public com.airbnb.lottie.model.a.b cI() {
-        return this.f971io;
+        return this.f970io;
     }
 
     public float cJ() {

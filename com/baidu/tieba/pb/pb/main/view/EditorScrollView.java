@@ -9,39 +9,39 @@ import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class EditorScrollView extends ScrollView {
     public View contentView;
-    private boolean iTA;
-    private boolean iTB;
-    private int iTx;
-    private ViewTreeObserver.OnScrollChangedListener iTy;
-    private a iTz;
+    private ViewTreeObserver.OnScrollChangedListener iTA;
+    private a iTB;
+    private boolean iTC;
+    private boolean iTD;
+    private int iTz;
     private boolean mIsTouching;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(EditorScrollView editorScrollView, int i, int i2, int i3, int i4);
 
-        void cqS();
+        void cqU();
 
-        void cqT();
+        void cqV();
     }
 
     public EditorScrollView(Context context) {
         super(context);
-        this.iTx = 50;
+        this.iTz = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iTx = 50;
+        this.iTz = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iTx = 50;
+        this.iTz = 50;
     }
 
-    public boolean aMC() {
-        return this.iTA;
+    public boolean aME() {
+        return this.iTC;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -62,17 +62,17 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.iTz != null) {
-            this.iTz.a(this, i, i2, i3, i4);
+        if (this.iTB != null) {
+            this.iTB.a(this, i, i2, i3, i4);
         }
-        if (getHeight() + i2 >= this.contentView.getHeight() && this.iTz != null) {
-            this.iTz.cqT();
+        if (getHeight() + i2 >= this.contentView.getHeight() && this.iTB != null) {
+            this.iTB.cqV();
         }
-        if ((i2 == 0 || getHeight() + i2 > this.contentView.getHeight()) && this.iTz != null) {
-            this.iTz.cqS();
+        if ((i2 == 0 || getHeight() + i2 > this.contentView.getHeight()) && this.iTB != null) {
+            this.iTB.cqU();
         }
-        if (this.iTy != null && this.mIsTouching && Math.abs(i3 - i2) >= this.iTx) {
-            this.iTy.onScrollChanged();
+        if (this.iTA != null && this.mIsTouching && Math.abs(i3 - i2) >= this.iTz) {
+            this.iTA.onScrollChanged();
         }
     }
 
@@ -80,12 +80,12 @@ public class EditorScrollView extends ScrollView {
     protected void onOverScrolled(int i, int i2, boolean z, boolean z2) {
         super.onOverScrolled(i, i2, z, z2);
         if (i2 == 0) {
-            this.iTA = z2;
-            this.iTB = false;
+            this.iTC = z2;
+            this.iTD = false;
             return;
         }
-        this.iTA = false;
-        this.iTB = z2;
+        this.iTC = false;
+        this.iTD = z2;
     }
 
     @Override // android.view.View
@@ -97,10 +97,10 @@ public class EditorScrollView extends ScrollView {
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.iTy = onScrollChangedListener;
+        this.iTA = onScrollChangedListener;
     }
 
     public void setOnScrollChangedListener(a aVar) {
-        this.iTz = aVar;
+        this.iTB = aVar;
     }
 }

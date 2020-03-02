@@ -18,7 +18,7 @@ public class a {
             rtcConfig.pushUrl = jSONObject.optString("pushUrl");
             rtcConfig.identity = jSONObject.optInt("identity");
             rtcConfig.devicePosition = jSONObject.optString("devicePosition");
-            rtcConfig.cuid = com.baidu.swan.apps.w.a.TZ().br(context);
+            rtcConfig.cuid = com.baidu.swan.apps.w.a.Ub().br(context);
             if (rtcConfig.lineId < 1 || rtcConfig.lineId > 9) {
                 return null;
             }

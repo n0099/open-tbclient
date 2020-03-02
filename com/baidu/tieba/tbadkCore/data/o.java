@@ -5,9 +5,9 @@ import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
     private String asD;
-    private String dYo;
-    private String khC;
-    private List<String> khD;
+    private String dYp;
+    private String khE;
+    private List<String> khF;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -16,9 +16,9 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
-            this.dYo = redpacketRain.jump_url;
-            this.khC = redpacketRain.float_url;
-            this.khD = redpacketRain.dynamic_img;
+            this.dYp = redpacketRain.jump_url;
+            this.khE = redpacketRain.float_url;
+            this.khF = redpacketRain.dynamic_img;
             this.asD = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
@@ -32,16 +32,16 @@ public class o {
         return this.mEndTime;
     }
 
-    public String aXR() {
-        return this.dYo;
+    public String aXT() {
+        return this.dYp;
     }
 
-    public String cLm() {
-        return this.khC;
+    public String cLo() {
+        return this.khE;
     }
 
-    public List<String> cLn() {
-        return this.khD;
+    public List<String> cLp() {
+        return this.khF;
     }
 
     public String gL() {
@@ -57,15 +57,15 @@ public class o {
     }
 
     public void Jc(String str) {
-        this.dYo = str;
+        this.dYp = str;
     }
 
     public void Jd(String str) {
-        this.khC = str;
+        this.khE = str;
     }
 
     public void ee(List<String> list) {
-        this.khD = list;
+        this.khF = list;
     }
 
     public void aC(String str) {

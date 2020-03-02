@@ -15,15 +15,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class CompletableUsing<R> extends a {
     final g<? super R> disposer;
     final boolean eager;
-    final Callable<R> nwp;
-    final h<? super R, ? extends e> nwq;
+    final Callable<R> nwr;
+    final h<? super R, ? extends e> nws;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         try {
-            R call = this.nwp.call();
+            R call = this.nwr.call();
             try {
-                ((e) io.reactivex.internal.functions.a.h(this.nwq.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
+                ((e) io.reactivex.internal.functions.a.h(this.nws.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.H(th);
                 if (this.eager) {

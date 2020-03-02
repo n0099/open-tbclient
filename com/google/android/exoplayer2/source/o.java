@@ -9,21 +9,21 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public final class o implements com.google.android.exoplayer2.extractor.m {
-    private final com.google.android.exoplayer2.upstream.b mrs;
-    private final int msE;
-    private a msH;
-    private a msI;
+    private final com.google.android.exoplayer2.upstream.b mru;
+    private final int msG;
     private a msJ;
-    private Format msK;
-    private boolean msL;
+    private a msK;
+    private a msL;
     private Format msM;
-    private long msN;
-    private boolean msO;
-    private b msP;
+    private boolean msN;
+    private Format msO;
+    private long msP;
+    private boolean msQ;
+    private b msR;
     private long totalBytesWritten;
-    private final n msF = new n();
-    private final n.a msG = new n.a();
-    private final com.google.android.exoplayer2.util.l mex = new com.google.android.exoplayer2.util.l(32);
+    private final n msH = new n();
+    private final n.a msI = new n.a();
+    private final com.google.android.exoplayer2.util.l mez = new com.google.android.exoplayer2.util.l(32);
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -31,11 +31,11 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
     }
 
     public o(com.google.android.exoplayer2.upstream.b bVar) {
-        this.mrs = bVar;
-        this.msE = bVar.dyR();
-        this.msH = new a(0L, this.msE);
-        this.msI = this.msH;
-        this.msJ = this.msH;
+        this.mru = bVar;
+        this.msG = bVar.dyT();
+        this.msJ = new a(0L, this.msG);
+        this.msK = this.msJ;
+        this.msL = this.msJ;
     }
 
     public void reset() {
@@ -43,109 +43,109 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
     }
 
     public void reset(boolean z) {
-        this.msF.reset(z);
-        a(this.msH);
-        this.msH = new a(0L, this.msE);
-        this.msI = this.msH;
-        this.msJ = this.msH;
+        this.msH.reset(z);
+        a(this.msJ);
+        this.msJ = new a(0L, this.msG);
+        this.msK = this.msJ;
+        this.msL = this.msJ;
         this.totalBytesWritten = 0L;
-        this.mrs.trim();
+        this.mru.trim();
     }
 
     public void KH(int i) {
-        this.msF.KH(i);
-    }
-
-    public void dwB() {
-        this.msO = true;
-    }
-
-    public int dwt() {
-        return this.msF.dwt();
-    }
-
-    public void KL(int i) {
-        this.totalBytesWritten = this.msF.KG(i);
-        if (this.totalBytesWritten == 0 || this.totalBytesWritten == this.msH.startPosition) {
-            a(this.msH);
-            this.msH = new a(this.totalBytesWritten, this.msE);
-            this.msI = this.msH;
-            this.msJ = this.msH;
-            return;
-        }
-        a aVar = this.msH;
-        while (this.totalBytesWritten > aVar.endPosition) {
-            aVar = aVar.msS;
-        }
-        a aVar2 = aVar.msS;
-        a(aVar2);
-        aVar.msS = new a(aVar.endPosition, this.msE);
-        this.msJ = this.totalBytesWritten == aVar.endPosition ? aVar.msS : aVar;
-        if (this.msI == aVar2) {
-            this.msI = aVar.msS;
-        }
-    }
-
-    public boolean dww() {
-        return this.msF.dww();
-    }
-
-    public int dwu() {
-        return this.msF.dwu();
-    }
-
-    public int dwv() {
-        return this.msF.dwv();
-    }
-
-    public Format dwx() {
-        return this.msF.dwx();
-    }
-
-    public long dwp() {
-        return this.msF.dwp();
-    }
-
-    public void rewind() {
-        this.msF.rewind();
-        this.msI = this.msH;
-    }
-
-    public void c(long j, boolean z, boolean z2) {
-        gj(this.msF.b(j, z, z2));
-    }
-
-    public void dwC() {
-        gj(this.msF.dwz());
+        this.msH.KH(i);
     }
 
     public void dwD() {
-        gj(this.msF.dwA());
+        this.msQ = true;
     }
 
-    public int dwy() {
-        return this.msF.dwy();
+    public int dwv() {
+        return this.msH.dwv();
+    }
+
+    public void KL(int i) {
+        this.totalBytesWritten = this.msH.KG(i);
+        if (this.totalBytesWritten == 0 || this.totalBytesWritten == this.msJ.startPosition) {
+            a(this.msJ);
+            this.msJ = new a(this.totalBytesWritten, this.msG);
+            this.msK = this.msJ;
+            this.msL = this.msJ;
+            return;
+        }
+        a aVar = this.msJ;
+        while (this.totalBytesWritten > aVar.endPosition) {
+            aVar = aVar.msU;
+        }
+        a aVar2 = aVar.msU;
+        a(aVar2);
+        aVar.msU = new a(aVar.endPosition, this.msG);
+        this.msL = this.totalBytesWritten == aVar.endPosition ? aVar.msU : aVar;
+        if (this.msK == aVar2) {
+            this.msK = aVar.msU;
+        }
+    }
+
+    public boolean dwy() {
+        return this.msH.dwy();
+    }
+
+    public int dww() {
+        return this.msH.dww();
+    }
+
+    public int dwx() {
+        return this.msH.dwx();
+    }
+
+    public Format dwz() {
+        return this.msH.dwz();
+    }
+
+    public long dwr() {
+        return this.msH.dwr();
+    }
+
+    public void rewind() {
+        this.msH.rewind();
+        this.msK = this.msJ;
+    }
+
+    public void c(long j, boolean z, boolean z2) {
+        gj(this.msH.b(j, z, z2));
+    }
+
+    public void dwE() {
+        gj(this.msH.dwB());
+    }
+
+    public void dwF() {
+        gj(this.msH.dwC());
+    }
+
+    public int dwA() {
+        return this.msH.dwA();
     }
 
     public int a(long j, boolean z, boolean z2) {
-        return this.msF.a(j, z, z2);
+        return this.msH.a(j, z, z2);
     }
 
     public int a(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z, boolean z2, long j) {
-        switch (this.msF.a(mVar, eVar, z, z2, this.msK, this.msG)) {
+        switch (this.msH.a(mVar, eVar, z, z2, this.msM, this.msI)) {
             case -5:
-                this.msK = mVar.lZw;
+                this.msM = mVar.lZy;
                 return -5;
             case -4:
-                if (!eVar.dus()) {
-                    if (eVar.mdB < j) {
+                if (!eVar.duu()) {
+                    if (eVar.mdD < j) {
                         eVar.aK(Integer.MIN_VALUE);
                     }
-                    if (eVar.duC()) {
-                        a(eVar, this.msG);
+                    if (eVar.duE()) {
+                        a(eVar, this.msI);
                     }
-                    eVar.Jo(this.msG.size);
-                    a(this.msG.offset, eVar.data, this.msG.size);
+                    eVar.Jo(this.msI.size);
+                    a(this.msI.offset, eVar.data, this.msI.size);
                 }
                 return -4;
             case -3:
@@ -160,42 +160,42 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
         long j2;
         int i = 1;
         long j3 = aVar.offset;
-        this.mex.reset(1);
-        a(j3, this.mex.data, 1);
+        this.mez.reset(1);
+        a(j3, this.mez.data, 1);
         long j4 = j3 + 1;
-        byte b2 = this.mex.data[0];
+        byte b2 = this.mez.data[0];
         boolean z = (b2 & 128) != 0;
         int i2 = b2 & Byte.MAX_VALUE;
-        if (eVar.mdA.iv == null) {
-            eVar.mdA.iv = new byte[16];
+        if (eVar.mdC.iv == null) {
+            eVar.mdC.iv = new byte[16];
         }
-        a(j4, eVar.mdA.iv, i2);
+        a(j4, eVar.mdC.iv, i2);
         long j5 = j4 + i2;
         if (z) {
-            this.mex.reset(2);
-            a(j5, this.mex.data, 2);
-            i = this.mex.readUnsignedShort();
+            this.mez.reset(2);
+            a(j5, this.mez.data, 2);
+            i = this.mez.readUnsignedShort();
             j = j5 + 2;
         } else {
             j = j5;
         }
-        int[] iArr = eVar.mdA.mdj;
+        int[] iArr = eVar.mdC.mdl;
         if (iArr == null || iArr.length < i) {
             iArr = new int[i];
         }
-        int[] iArr2 = eVar.mdA.mdk;
+        int[] iArr2 = eVar.mdC.mdm;
         if (iArr2 == null || iArr2.length < i) {
             iArr2 = new int[i];
         }
         if (z) {
             int i3 = i * 6;
-            this.mex.reset(i3);
-            a(j, this.mex.data, i3);
+            this.mez.reset(i3);
+            a(j, this.mez.data, i3);
             long j6 = j + i3;
-            this.mex.setPosition(0);
+            this.mez.setPosition(0);
             for (int i4 = 0; i4 < i; i4++) {
-                iArr[i4] = this.mex.readUnsignedShort();
-                iArr2[i4] = this.mex.dzC();
+                iArr[i4] = this.mez.readUnsignedShort();
+                iArr2[i4] = this.mez.dzE();
             }
             j2 = j6;
         } else {
@@ -203,8 +203,8 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
             iArr2[0] = aVar.size - ((int) (j - aVar.offset));
             j2 = j;
         }
-        m.a aVar2 = aVar.mfZ;
-        eVar.mdA.a(i, iArr, iArr2, aVar2.meq, eVar.mdA.iv, aVar2.mep, aVar2.mdm, aVar2.mdn);
+        m.a aVar2 = aVar.mgb;
+        eVar.mdC.a(i, iArr, iArr2, aVar2.mes, eVar.mdC.iv, aVar2.mer, aVar2.mdo, aVar2.mdp);
         int i5 = (int) (j2 - aVar.offset);
         aVar.offset += i5;
         aVar.size -= i5;
@@ -213,12 +213,12 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
     private void a(long j, ByteBuffer byteBuffer, int i) {
         gi(j);
         while (i > 0) {
-            int min = Math.min(i, (int) (this.msI.endPosition - j));
-            byteBuffer.put(this.msI.msR.data, this.msI.gl(j), min);
+            int min = Math.min(i, (int) (this.msK.endPosition - j));
+            byteBuffer.put(this.msK.msT.data, this.msK.gl(j), min);
             i -= min;
             j += min;
-            if (j == this.msI.endPosition) {
-                this.msI = this.msI.msS;
+            if (j == this.msK.endPosition) {
+                this.msK = this.msK.msU;
             }
         }
     }
@@ -227,59 +227,59 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
         gi(j);
         int i2 = i;
         while (i2 > 0) {
-            int min = Math.min(i2, (int) (this.msI.endPosition - j));
-            System.arraycopy(this.msI.msR.data, this.msI.gl(j), bArr, i - i2, min);
+            int min = Math.min(i2, (int) (this.msK.endPosition - j));
+            System.arraycopy(this.msK.msT.data, this.msK.gl(j), bArr, i - i2, min);
             i2 -= min;
             j += min;
-            if (j == this.msI.endPosition) {
-                this.msI = this.msI.msS;
+            if (j == this.msK.endPosition) {
+                this.msK = this.msK.msU;
             }
         }
     }
 
     private void gi(long j) {
-        while (j >= this.msI.endPosition) {
-            this.msI = this.msI.msS;
+        while (j >= this.msK.endPosition) {
+            this.msK = this.msK.msU;
         }
     }
 
     private void gj(long j) {
         if (j != -1) {
-            while (j >= this.msH.endPosition) {
-                this.mrs.a(this.msH.msR);
-                this.msH = this.msH.dwE();
+            while (j >= this.msJ.endPosition) {
+                this.mru.a(this.msJ.msT);
+                this.msJ = this.msJ.dwG();
             }
-            if (this.msI.startPosition < this.msH.startPosition) {
-                this.msI = this.msH;
+            if (this.msK.startPosition < this.msJ.startPosition) {
+                this.msK = this.msJ;
             }
         }
     }
 
     public void a(b bVar) {
-        this.msP = bVar;
+        this.msR = bVar;
     }
 
     public void gk(long j) {
-        if (this.msN != j) {
-            this.msN = j;
-            this.msL = true;
+        if (this.msP != j) {
+            this.msP = j;
+            this.msN = true;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.m
     public void h(Format format) {
-        Format a2 = a(format, this.msN);
-        boolean l = this.msF.l(a2);
-        this.msM = format;
-        this.msL = false;
-        if (this.msP != null && l) {
-            this.msP.k(a2);
+        Format a2 = a(format, this.msP);
+        boolean l = this.msH.l(a2);
+        this.msO = format;
+        this.msN = false;
+        if (this.msR != null && l) {
+            this.msR.k(a2);
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.m
     public int a(com.google.android.exoplayer2.extractor.f fVar, int i, boolean z) throws IOException, InterruptedException {
-        int read = fVar.read(this.msJ.msR.data, this.msJ.gl(this.totalBytesWritten), KM(i));
+        int read = fVar.read(this.msL.msT.data, this.msL.gl(this.totalBytesWritten), KM(i));
         if (read == -1) {
             if (z) {
                 return -1;
@@ -294,7 +294,7 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
     public void a(com.google.android.exoplayer2.util.l lVar, int i) {
         while (i > 0) {
             int KM = KM(i);
-            lVar.G(this.msJ.msR.data, this.msJ.gl(this.totalBytesWritten), KM);
+            lVar.G(this.msL.msT.data, this.msL.gl(this.totalBytesWritten), KM);
             i -= KM;
             KN(KM);
         }
@@ -302,41 +302,41 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
 
     @Override // com.google.android.exoplayer2.extractor.m
     public void a(long j, int i, int i2, int i3, m.a aVar) {
-        if (this.msL) {
-            h(this.msM);
+        if (this.msN) {
+            h(this.msO);
         }
-        if (this.msO) {
-            if ((i & 1) != 0 && this.msF.gh(j)) {
-                this.msO = false;
+        if (this.msQ) {
+            if ((i & 1) != 0 && this.msH.gh(j)) {
+                this.msQ = false;
             } else {
                 return;
             }
         }
-        this.msF.a(j + this.msN, i, (this.totalBytesWritten - i2) - i3, i2, aVar);
+        this.msH.a(j + this.msP, i, (this.totalBytesWritten - i2) - i3, i2, aVar);
     }
 
     private void a(a aVar) {
-        if (aVar.msQ) {
-            com.google.android.exoplayer2.upstream.a[] aVarArr = new com.google.android.exoplayer2.upstream.a[(this.msJ.msQ ? 1 : 0) + (((int) (this.msJ.startPosition - aVar.startPosition)) / this.msE)];
+        if (aVar.msS) {
+            com.google.android.exoplayer2.upstream.a[] aVarArr = new com.google.android.exoplayer2.upstream.a[(this.msL.msS ? 1 : 0) + (((int) (this.msL.startPosition - aVar.startPosition)) / this.msG)];
             for (int i = 0; i < aVarArr.length; i++) {
-                aVarArr[i] = aVar.msR;
-                aVar = aVar.dwE();
+                aVarArr[i] = aVar.msT;
+                aVar = aVar.dwG();
             }
-            this.mrs.a(aVarArr);
+            this.mru.a(aVarArr);
         }
     }
 
     private int KM(int i) {
-        if (!this.msJ.msQ) {
-            this.msJ.a(this.mrs.dyQ(), new a(this.msJ.endPosition, this.msE));
+        if (!this.msL.msS) {
+            this.msL.a(this.mru.dyS(), new a(this.msL.endPosition, this.msG));
         }
-        return Math.min(i, (int) (this.msJ.endPosition - this.totalBytesWritten));
+        return Math.min(i, (int) (this.msL.endPosition - this.totalBytesWritten));
     }
 
     private void KN(int i) {
         this.totalBytesWritten += i;
-        if (this.totalBytesWritten == this.msJ.endPosition) {
-            this.msJ = this.msJ.msS;
+        if (this.totalBytesWritten == this.msL.endPosition) {
+            this.msL = this.msL.msU;
         }
     }
 
@@ -354,11 +354,11 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
     /* loaded from: classes6.dex */
     public static final class a {
         public final long endPosition;
-        public boolean msQ;
+        public boolean msS;
         @Nullable
-        public com.google.android.exoplayer2.upstream.a msR;
+        public com.google.android.exoplayer2.upstream.a msT;
         @Nullable
-        public a msS;
+        public a msU;
         public final long startPosition;
 
         public a(long j, int i) {
@@ -367,19 +367,19 @@ public final class o implements com.google.android.exoplayer2.extractor.m {
         }
 
         public void a(com.google.android.exoplayer2.upstream.a aVar, a aVar2) {
-            this.msR = aVar;
-            this.msS = aVar2;
-            this.msQ = true;
+            this.msT = aVar;
+            this.msU = aVar2;
+            this.msS = true;
         }
 
         public int gl(long j) {
-            return ((int) (j - this.startPosition)) + this.msR.offset;
+            return ((int) (j - this.startPosition)) + this.msT.offset;
         }
 
-        public a dwE() {
-            this.msR = null;
-            a aVar = this.msS;
-            this.msS = null;
+        public a dwG() {
+            this.msT = null;
+            a aVar = this.msU;
+            this.msU = null;
             return aVar;
         }
     }

@@ -53,7 +53,7 @@ public class e extends ab {
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10002, "network_error").toString(), str);
             return;
         }
-        com.baidu.swan.apps.runtime.d.acA().acC().GT().HQ().G((Activity) context).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.runtime.d.acC().acE().GV().HS().G((Activity) context).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -67,6 +67,6 @@ public class e extends ab {
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
             }
-        }).aeg();
+        }).aei();
     }
 }

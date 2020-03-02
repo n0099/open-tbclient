@@ -4,23 +4,23 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 /* loaded from: classes6.dex */
 public final class b {
-    private com.baidu.rtc.camera.engine.a.b aWH;
-    private d aWI;
-    private f aWJ;
-    private final Object aWK;
+    private com.baidu.rtc.camera.engine.a.b aWI;
+    private d aWJ;
+    private f aWK;
+    private final Object aWL;
 
     private b() {
-        this.aWK = new Object();
-        this.aWH = com.baidu.rtc.camera.engine.a.b.Fl();
+        this.aWL = new Object();
+        this.aWI = com.baidu.rtc.camera.engine.a.b.Fn();
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static b aWL = new b();
+        private static b aWM = new b();
     }
 
-    public static b Fr() {
-        return a.aWL;
+    public static b Ft() {
+        return a.aWM;
     }
 
     public c a(com.baidu.rtc.camera.engine.b.a aVar) {
@@ -29,66 +29,66 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aZ(Context context) {
-        synchronized (this.aWK) {
-            this.aWJ = new f(context, "RenderThread");
-            this.aWJ.start();
-            this.aWI = new d(this.aWJ);
-            this.aWJ.a(this.aWI);
+        synchronized (this.aWL) {
+            this.aWK = new f(context, "RenderThread");
+            this.aWK.start();
+            this.aWJ = new d(this.aWK);
+            this.aWK.a(this.aWJ);
         }
     }
 
     public void d(SurfaceTexture surfaceTexture) {
-        if (this.aWI != null) {
-            this.aWI.sendMessage(this.aWI.obtainMessage(1, surfaceTexture));
+        if (this.aWJ != null) {
+            this.aWJ.sendMessage(this.aWJ.obtainMessage(1, surfaceTexture));
         }
     }
 
     public void K(int i, int i2) {
-        if (this.aWI != null) {
-            this.aWI.sendMessage(this.aWI.obtainMessage(2, i, i2));
+        if (this.aWJ != null) {
+            this.aWJ.sendMessage(this.aWJ.obtainMessage(2, i, i2));
         }
     }
 
-    public void Fs() {
-        if (this.aWI != null) {
-            this.aWI.sendMessage(this.aWI.obtainMessage(3));
+    public void Fu() {
+        if (this.aWJ != null) {
+            this.aWJ.sendMessage(this.aWJ.obtainMessage(3));
         }
     }
 
     public void requestRender() {
-        if (this.aWJ != null) {
-            this.aWJ.requestRender();
+        if (this.aWK != null) {
+            this.aWK.requestRender();
         }
     }
 
-    public void Db() {
-        if (this.aWI != null) {
-            synchronized (this.aWK) {
-                this.aWI.sendMessage(this.aWI.obtainMessage(6));
+    public void Dd() {
+        if (this.aWJ != null) {
+            synchronized (this.aWL) {
+                this.aWJ.sendMessage(this.aWJ.obtainMessage(6));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.aWI != null) {
-            synchronized (this.aWK) {
-                this.aWI.sendEmptyMessage(8);
+        if (this.aWJ != null) {
+            synchronized (this.aWL) {
+                this.aWJ.sendEmptyMessage(8);
             }
         }
     }
 
     public void switchCamera() {
-        if (this.aWI != null) {
-            synchronized (this.aWK) {
-                this.aWI.sendEmptyMessage(16);
+        if (this.aWJ != null) {
+            synchronized (this.aWL) {
+                this.aWJ.sendEmptyMessage(16);
             }
         }
     }
 
-    public void Fo() {
-        if (this.aWI != null) {
-            synchronized (this.aWK) {
-                this.aWI.sendEmptyMessage(9);
+    public void Fq() {
+        if (this.aWJ != null) {
+            synchronized (this.aWL) {
+                this.aWJ.sendEmptyMessage(9);
             }
         }
     }

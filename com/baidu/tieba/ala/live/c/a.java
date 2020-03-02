@@ -16,12 +16,12 @@ import com.baidu.tieba.ala.live.b.a;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a {
-    private BaseActivity aGd;
-    private com.baidu.tieba.ala.live.b.a eKs;
-    private IPayChannel eKt;
-    private IPayCallback eKu;
-    private int eKv;
-    private InterfaceC0448a eKw;
+    private BaseActivity aGe;
+    private com.baidu.tieba.ala.live.b.a eKt;
+    private IPayChannel eKu;
+    private IPayCallback eKv;
+    private int eKw;
+    private InterfaceC0448a eKx;
     private PayConfig mCurPayConfig;
     private PayChannelType mPayChannelType;
     private final int SEND_GETINFO_MSG = 1;
@@ -33,14 +33,14 @@ public abstract class a {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    a.this.bgp();
+                    a.this.bgr();
                     return;
                 default:
                     return;
             }
         }
     };
-    private a.InterfaceC0447a eKx = new a.InterfaceC0447a() { // from class: com.baidu.tieba.ala.live.c.a.2
+    private a.InterfaceC0447a eKy = new a.InterfaceC0447a() { // from class: com.baidu.tieba.ala.live.c.a.2
         @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0447a
         public void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
             a.this.a(i, str, hashMap, str2, z);
@@ -63,27 +63,27 @@ public abstract class a {
     protected abstract com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0447a interfaceC0447a);
 
     public a(BaseActivity baseActivity, PayChannelType payChannelType) {
-        this.aGd = baseActivity;
+        this.aGe = baseActivity;
         this.mPayChannelType = payChannelType;
-        this.eKs = a(payChannelType, this.eKx);
-        this.eKt = buildPayChannel(payChannelType);
+        this.eKt = a(payChannelType, this.eKy);
+        this.eKu = buildPayChannel(payChannelType);
     }
 
     public void d(PayConfig payConfig) {
-        if (this.eKs != null) {
-            this.aGd.showLoadingDialog(this.aGd.getString(a.i.sdk_pay_loading));
+        if (this.eKt != null) {
+            this.aGe.showLoadingDialog(this.aGe.getString(a.i.sdk_pay_loading));
             this.mCurPayConfig = payConfig;
-            this.eKs.a(payConfig);
+            this.eKt.a(payConfig);
         }
     }
 
-    private void bge() {
-        this.eKu = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
+    private void bgg() {
+        this.eKv = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayCallback
             public void onPayResult(int i, String str) {
                 switch (i) {
                     case 0:
-                        a.this.bgp();
+                        a.this.bgr();
                         break;
                     case 1:
                         break;
@@ -92,26 +92,26 @@ public abstract class a {
                         a.this.iH(false);
                         break;
                     default:
-                        a.this.aGd.showToast(a.i.sdk_pay_fail);
+                        a.this.aGe.showToast(a.i.sdk_pay_fail);
                         a.this.mPayStatus = 5;
                         a.this.iH(false);
                         break;
                 }
-                a.this.eKt.release();
-                a.this.eKu = null;
+                a.this.eKu.release();
+                a.this.eKv = null;
             }
         };
     }
 
     public void yG(String str) {
-        if (this.eKs != null) {
-            this.eKs.yF(str);
+        if (this.eKt != null) {
+            this.eKt.yF(str);
         }
-        bgr();
+        bgt();
     }
 
     public void a(InterfaceC0448a interfaceC0448a) {
-        this.eKw = interfaceC0448a;
+        this.eKx = interfaceC0448a;
     }
 
     protected IPayChannel buildPayChannel(PayChannelType payChannelType) {
@@ -120,49 +120,49 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TbPageContext getPageContext() {
-        return this.aGd.getPageContext();
+        return this.aGe.getPageContext();
     }
 
     protected void a(int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
-        this.aGd.closeLoadingDialog();
+        this.aGe.closeLoadingDialog();
         if (i == 0) {
             if (hashMap == null || hashMap.isEmpty()) {
-                this.aGd.showToast(a.i.sdk_pay_fail);
+                this.aGe.showToast(a.i.sdk_pay_fail);
                 this.mPayStatus = 3;
                 iH(false);
                 return;
-            } else if (!TextUtils.isEmpty(str2) && !z && this.eKw != null) {
-                this.eKw.yE(str2);
+            } else if (!TextUtils.isEmpty(str2) && !z && this.eKx != null) {
+                this.eKx.yE(str2);
                 return;
             } else {
-                bgr();
+                bgt();
                 return;
             }
         }
-        this.aGd.showToast(str);
+        this.aGe.showToast(str);
         this.mPayStatus = 3;
         iH(false);
     }
 
     protected void f(int i, String str, int i2) {
         if (i != 0) {
-            this.aGd.showToast(str);
+            this.aGe.showToast(str);
             iI(false);
             return;
         }
-        this.eKv = i2;
-        if (this.eKv == 2) {
+        this.eKw = i2;
+        if (this.eKw == 2) {
             if (this.hasResendGetMsg) {
                 iI(true);
                 return;
             }
             this.hasResendGetMsg = true;
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 5000L);
-        } else if (this.eKv == 0) {
+        } else if (this.eKw == 0) {
             iI(true);
-        } else if (this.eKv == 1) {
+        } else if (this.eKw == 1) {
             iI(false);
-        } else if (this.eKv == 3) {
+        } else if (this.eKw == 3) {
             iI(false);
         } else {
             iI(false);
@@ -170,49 +170,49 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgp() {
-        if (this.eKs != null) {
-            this.aGd.showLoadingDialog(this.aGd.getString(a.i.sdk_pay_loading));
-            this.eKs.bgp();
+    public void bgr() {
+        if (this.eKt != null) {
+            this.aGe.showLoadingDialog(this.aGe.getString(a.i.sdk_pay_loading));
+            this.eKt.bgr();
         }
     }
 
-    private void bgr() {
-        if (this.eKt != null && this.eKs != null && this.eKs.bgn() != null && !this.eKs.bgn().isEmpty()) {
-            if (this.eKu == null) {
-                bge();
+    private void bgt() {
+        if (this.eKu != null && this.eKt != null && this.eKt.bgp() != null && !this.eKt.bgp().isEmpty()) {
+            if (this.eKv == null) {
+                bgg();
             }
-            this.eKt.pay(this.eKs.bgn(), this.eKu);
+            this.eKu.pay(this.eKt.bgp(), this.eKv);
         }
     }
 
-    public Intent bgs() {
+    public Intent bgu() {
         Intent intent = new Intent();
-        if (this.eKs != null && this.mCurPayConfig != null) {
+        if (this.eKt != null && this.mCurPayConfig != null) {
             intent.putExtra("result_code", this.mPayStatus);
-            intent.putExtra("result_payinfo_status", this.eKv);
+            intent.putExtra("result_payinfo_status", this.eKw);
             intent.putExtra("result_tbean_num", this.mCurPayConfig.getTBeanNum());
-            intent.putExtra("result_order_id", this.eKs.bgq());
+            intent.putExtra("result_order_id", this.eKt.bgs());
             intent.putExtra("pay_channel_type_name", this.mPayChannelType.name());
         }
         return intent;
     }
 
-    public int bgt() {
+    public int bgv() {
         return this.mPayStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void iH(boolean z) {
-        Intent bgs = bgs();
-        this.aGd.setResult(-1, bgs);
-        if (this.eKw != null) {
-            this.eKw.a(z, bgs);
+        Intent bgu = bgu();
+        this.aGe.setResult(-1, bgu);
+        if (this.eKx != null) {
+            this.eKx.a(z, bgu);
         }
     }
 
     private void iI(boolean z) {
-        this.aGd.closeLoadingDialog();
+        this.aGe.closeLoadingDialog();
         this.mPayStatus = z ? 0 : 4;
         iH(z);
     }

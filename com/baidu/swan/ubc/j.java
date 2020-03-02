@@ -8,11 +8,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class j {
     private long Fp;
-    private int cEL;
-    private JSONObject cEM;
-    private String cEN;
-    private boolean cEO = false;
-    private JSONArray cEQ;
+    private int cEM;
+    private JSONObject cEN;
+    private String cEO;
+    private boolean cEP = false;
+    private JSONArray cER;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -26,7 +26,7 @@ public class j {
 
     public j(String str, int i, String str2, int i2, boolean z) {
         this.mId = str;
-        this.cEL = i;
+        this.cEM = i;
         this.mContent = str2;
         this.mOption = i2;
         this.mIsSampled = z;
@@ -36,19 +36,19 @@ public class j {
         return this.mId;
     }
 
-    public int avt() {
-        return this.cEL;
+    public int avv() {
+        return this.cEM;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject avv() {
-        return this.cEM;
+    public JSONObject avx() {
+        return this.cEN;
     }
 
-    public long avA() {
+    public long avC() {
         return this.Fp;
     }
 
@@ -56,7 +56,7 @@ public class j {
         return this.mEndTime;
     }
 
-    public String avB() {
+    public String avD() {
         return this.mState;
     }
 
@@ -64,8 +64,8 @@ public class j {
         return this.mOption;
     }
 
-    public String avu() {
-        return this.cEN;
+    public String avw() {
+        return this.cEO;
     }
 
     public void setId(String str) {
@@ -73,7 +73,7 @@ public class j {
     }
 
     public void iY(int i) {
-        this.cEL = i;
+        this.cEM = i;
     }
 
     public void setContent(String str) {
@@ -93,12 +93,12 @@ public class j {
     }
 
     public void qY(String str) {
-        this.cEN = str;
+        this.cEO = str;
     }
 
-    public void avx() {
-        if (d.avg().qQ(this.mId)) {
-            this.cEN = s.avR().Zo();
+    public void avz() {
+        if (d.avi().qQ(this.mId)) {
+            this.cEO = s.avT().Zq();
         }
     }
 
@@ -111,28 +111,28 @@ public class j {
     }
 
     public void fe(boolean z) {
-        this.cEO = z;
+        this.cEP = z;
     }
 
-    public boolean avr() {
-        return this.cEO;
+    public boolean avt() {
+        return this.cEP;
     }
 
     public void qZ(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.cEQ = new JSONArray(str);
+                this.cER = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray avC() {
-        return this.cEQ;
+    public JSONArray avE() {
+        return this.cER;
     }
 
-    public boolean avz() {
+    public boolean avB() {
         return this.mIsSampled;
     }
 }

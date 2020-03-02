@@ -9,89 +9,89 @@ import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class e {
-    private com.baidu.tieba.person.e cLg;
-    private TbPageContext cVg;
-    private ai gjA;
-    private d gjB;
-    private com.baidu.tieba.view.a gjC;
-    private a gjD;
+    private com.baidu.tieba.person.e cLh;
+    private TbPageContext cVh;
+    private ai gjC;
+    private d gjD;
+    private com.baidu.tieba.view.a gjE;
+    private a gjF;
 
     /* loaded from: classes10.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void bCg();
+        void bCi();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.cVg = tbPageContext;
-        this.gjB = new d(tbPageContext, bdUniqueId);
-        this.gjB.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
+        this.cVh = tbPageContext;
+        this.gjD = new d(tbPageContext, bdUniqueId);
+        this.gjD.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
             @Override // com.baidu.tieba.forbidden.fans.d.a
             public void j(int i, String str, boolean z) {
-                if (e.this.gjD != null) {
-                    e.this.gjD.a(i, str, z, 0, 0L);
+                if (e.this.gjF != null) {
+                    e.this.gjF.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.gjA = new ai(tbPageContext, bdUniqueId);
-        this.gjA.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
+        this.gjC = new ai(tbPageContext, bdUniqueId);
+        this.gjC.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
             @Override // com.baidu.tbadk.core.util.ai.a
             public void a(int i, String str, long j, boolean z) {
-                if (e.this.gjD != null) {
-                    e.this.gjD.a(i, str, z, 1, j);
+                if (e.this.gjF != null) {
+                    e.this.gjF.a(i, str, z, 1, j);
                 }
             }
         });
     }
 
     public void removeAll() {
-        azD();
+        azF();
     }
 
     public void ds(long j) {
-        this.gjA.bz(j);
+        this.gjC.bz(j);
     }
 
-    private void azD() {
-        if (this.cLg == null) {
-            this.gjC = new com.baidu.tieba.view.a(this.cVg.getContext());
-            this.gjC.setTitleText(this.cVg.getString(R.string.confirm_remove_all_forbidden_fans));
+    private void azF() {
+        if (this.cLh == null) {
+            this.gjE = new com.baidu.tieba.view.a(this.cVh.getContext());
+            this.gjE.setTitleText(this.cVh.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0629a c0629a = new a.C0629a(this.cVg.getString(R.string.confirm), this.gjC);
+            a.C0629a c0629a = new a.C0629a(this.cVh.getString(R.string.confirm), this.gjE);
             c0629a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.cLg.dismiss();
-                    if (e.this.gjD != null) {
-                        e.this.gjD.bCg();
+                    e.this.cLh.dismiss();
+                    if (e.this.gjF != null) {
+                        e.this.gjF.bCi();
                     }
-                    e.this.gjB.bCk();
+                    e.this.gjD.bCm();
                 }
             });
             arrayList.add(c0629a);
-            this.gjC.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
+            this.gjE.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.cLg != null) {
-                        e.this.cLg.dismiss();
+                    if (e.this.cLh != null) {
+                        e.this.cLh.dismiss();
                     }
                 }
             });
-            this.gjC.az(arrayList);
-            this.cLg = new com.baidu.tieba.person.e(this.cVg.getPageActivity(), this.gjC.aEP());
-            this.cLg.ae(0.7f);
+            this.gjE.az(arrayList);
+            this.cLh = new com.baidu.tieba.person.e(this.cVh.getPageActivity(), this.gjE.aER());
+            this.cLh.ae(0.7f);
         }
-        this.cLg.show();
+        this.cLh.show();
     }
 
     public void onChangeSkinType() {
-        if (this.gjC != null) {
-            this.gjC.onChangeSkinType();
+        if (this.gjE != null) {
+            this.gjE.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.gjD = aVar;
+        this.gjF = aVar;
     }
 }

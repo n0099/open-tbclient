@@ -6,16 +6,16 @@ import java.util.BitSet;
 public class hy implements ir<hy, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f580a;
+    public int f579a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f581a = new BitSet(2);
+    private BitSet f580a = new BitSet(2);
 
     /* renamed from: b  reason: collision with other field name */
-    public int f582b;
+    public int f581b;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f579a = new jh("XmPushActionCheckClientInfo");
+    private static final jh f578a = new jh("XmPushActionCheckClientInfo");
     private static final iz a = new iz("", (byte) 8, 1);
     private static final iz b = new iz("", (byte) 8, 2);
 
@@ -28,10 +28,10 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
         if (getClass().equals(hyVar.getClass())) {
             int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(hyVar.m385a()));
             if (compareTo == 0) {
-                if (!m385a() || (a3 = is.a(this.f580a, hyVar.f580a)) == 0) {
+                if (!m385a() || (a3 = is.a(this.f579a, hyVar.f579a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hyVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a2 = is.a(this.f582b, hyVar.f582b)) == 0) {
+                        if (!b() || (a2 = is.a(this.f581b, hyVar.f581b)) == 0) {
                             return 0;
                         }
                         return a2;
@@ -46,7 +46,7 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public hy a(int i) {
-        this.f580a = i;
+        this.f579a = i;
         a(true);
         return this;
     }
@@ -70,13 +70,13 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a != 8) {
                         jf.a(jcVar, m468a.a);
                         break;
                     } else {
-                        this.f580a = jcVar.m466a();
+                        this.f579a = jcVar.m466a();
                         a(true);
                         break;
                     }
@@ -85,7 +85,7 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
                         jf.a(jcVar, m468a.a);
                         break;
                     } else {
-                        this.f582b = jcVar.m466a();
+                        this.f581b = jcVar.m466a();
                         b(true);
                         break;
                     }
@@ -98,21 +98,21 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f581a.set(0, z);
+        this.f580a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m385a() {
-        return this.f581a.get(0);
+        return this.f580a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m386a(hy hyVar) {
-        return hyVar != null && this.f580a == hyVar.f580a && this.f582b == hyVar.f582b;
+        return hyVar != null && this.f579a == hyVar.f579a && this.f581b == hyVar.f581b;
     }
 
     public hy b(int i) {
-        this.f582b = i;
+        this.f581b = i;
         b(true);
         return this;
     }
@@ -120,23 +120,23 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f579a);
+        jcVar.a(f578a);
         jcVar.a(a);
-        jcVar.a(this.f580a);
+        jcVar.a(this.f579a);
         jcVar.b();
         jcVar.a(b);
-        jcVar.a(this.f582b);
+        jcVar.a(this.f581b);
         jcVar.b();
         jcVar.c();
         jcVar.m476a();
     }
 
     public void b(boolean z) {
-        this.f581a.set(1, z);
+        this.f580a.set(1, z);
     }
 
     public boolean b() {
-        return this.f581a.get(1);
+        return this.f580a.get(1);
     }
 
     public boolean equals(Object obj) {
@@ -151,6 +151,6 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     public String toString() {
-        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f580a + ", pluginConfigVersion:" + this.f582b + ")";
+        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f579a + ", pluginConfigVersion:" + this.f581b + ")";
     }
 }

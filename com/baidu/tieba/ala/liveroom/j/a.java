@@ -22,14 +22,14 @@ import com.baidu.live.x.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private com.baidu.live.liveroom.a.a eTx;
-    private ViewGroup ewd;
-    private b fbN;
+    private com.baidu.live.liveroom.a.a eTy;
+    private ViewGroup ewe;
+    private b fbO;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.eTx = aVar;
+        this.eTy = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
@@ -40,12 +40,12 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void d(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.v.a.zj().awA.qy()) {
-            if (this.fbN == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.fbN = (b) runTask.getData();
+        if (com.baidu.live.v.a.zl().awB.qy()) {
+            if (this.fbO == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.fbO = (b) runTask.getData();
             }
-            if (this.fbN != null) {
-                this.fbN.zu();
+            if (this.fbO != null) {
+                this.fbO.zw();
             }
             e(viewGroup, layoutParams);
         }
@@ -54,8 +54,8 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private void e(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         View view;
         if (viewGroup != null) {
-            this.ewd = viewGroup;
-            if (this.fbN != null && (view = this.fbN.getView()) != null) {
+            this.ewe = viewGroup;
+            if (this.fbO != null && (view = this.fbO.getView()) != null) {
                 view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -67,10 +67,10 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
                         if (TbadkCoreApplication.isLogin()) {
-                            if (a.this.eTx != null) {
-                                a.this.eTx.cc(8);
+                            if (a.this.eTy != null) {
+                                a.this.eTy.cc(8);
                             }
-                            a.this.bmd();
+                            a.this.bmf();
                             return;
                         }
                         ViewHelper.skipToLoginActivity(a.this.getPageContext().getPageActivity());
@@ -78,7 +78,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
                 if (viewGroup.indexOfChild(view) < 0) {
                     if (layoutParams == null) {
-                        layoutParams = bmc();
+                        layoutParams = bme();
                     }
                     if (viewGroup instanceof PriorityVerticalLinearLayout) {
                         view.setTag(a.g.sdk_pvl_layout_priority_tag_key, 2);
@@ -89,7 +89,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private ViewGroup.LayoutParams bmc() {
+    private ViewGroup.LayoutParams bme() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
@@ -100,55 +100,55 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void pK() {
         super.pK();
-        if (this.fbN != null) {
-            View view = this.fbN.getView();
+        if (this.fbO != null) {
+            View view = this.fbO.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.fbN.zv();
+            this.fbO.zx();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fbN != null) {
-            View view = this.fbN.getView();
+        if (this.fbO != null) {
+            View view = this.fbO.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.fbN.onDestroy();
+            this.fbO.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmd() {
+    public void bmf() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new f(getPageContext().getPageActivity())));
     }
 
     public void u(JSONObject jSONObject) {
-        if (this.fbN != null) {
-            this.fbN.v(jSONObject);
+        if (this.fbO != null) {
+            this.fbO.v(jSONObject);
         }
     }
 
     public void t(m mVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            bme();
+            bmg();
         }
-        if (this.fbN != null && this.fbN.getView() != null && mVar != null && mVar.Yn != null) {
-            this.fbN.a(mVar.Yn);
+        if (this.fbO != null && this.fbO.getView() != null && mVar != null && mVar.Yn != null) {
+            this.fbO.a(mVar.Yn);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.fbN != null) {
-            this.fbN.setCanVisible(z);
+        if (this.fbO != null) {
+            this.fbO.setCanVisible(z);
         }
     }
 
-    public void bme() {
-        if (this.fbN != null && this.fbN.getView() != null) {
-            this.fbN.getView().setVisibility(8);
+    public void bmg() {
+        if (this.fbO != null && this.fbO.getView() != null) {
+            this.fbO.getView().setVisibility(8);
         }
     }
 

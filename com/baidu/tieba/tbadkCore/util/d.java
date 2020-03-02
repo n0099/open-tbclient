@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int dcV;
-    protected volatile HashMap<Long, Integer> kjq = new HashMap<>();
+    protected volatile int dcW;
+    protected volatile HashMap<Long, Integer> kjs = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.dcV = i;
+        this.dcW = i;
     }
 
     public void Jn(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.kjq.size() >= this.dcV) {
-                    cLX();
+                if (this.kjs.size() >= this.dcW) {
+                    cLZ();
                 }
                 this.mWeight++;
-                this.kjq.put(valueOf, Integer.valueOf(this.mWeight));
+                this.kjs.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void cLX() {
+    public void cLZ() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.kjq.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.kjs.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.kjq.remove(l2);
+                this.kjs.remove(l2);
             } else {
-                this.kjq.clear();
+                this.kjs.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.kjq.get(valueOf) != null;
+                z = this.kjs.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class d {
 
     public boolean Jp(String str) {
         try {
-            return this.kjq.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.kjs.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void cLW() {
+    public void cLY() {
         synchronized (this) {
-            this.kjq.clear();
+            this.kjs.clear();
         }
     }
 }

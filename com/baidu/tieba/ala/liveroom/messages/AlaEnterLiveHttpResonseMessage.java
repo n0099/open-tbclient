@@ -13,7 +13,7 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         super(1021005);
     }
 
-    public m yN() {
+    public m yO() {
         return this.ald;
     }
 

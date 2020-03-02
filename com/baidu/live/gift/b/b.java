@@ -163,7 +163,7 @@ public class b extends t {
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = com.baidu.live.c.pr().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0;
         if (AlaLiveSwitchData.isHotLive == 0) {
-            this.amU.i(q.Be(), z);
+            this.amU.i(q.Bg(), z);
         }
     }
 
@@ -173,7 +173,7 @@ public class b extends t {
 
     @Override // com.baidu.live.gift.t
     public String sD() {
-        return q.Be();
+        return q.Bg();
     }
 
     public void e(String str, ArrayList<i> arrayList) {
@@ -413,7 +413,7 @@ public class b extends t {
             cVar.aN(z3);
             cVar.XX = str12;
             cVar.XY = str13;
-            if (com.baidu.live.v.a.zj().awA.Zz && !TextUtils.isEmpty(str11)) {
+            if (com.baidu.live.v.a.zl().awB.Zz && !TextUtils.isEmpty(str11)) {
                 l lVar = new l();
                 if (lVar.di(str11)) {
                     cVar.alw.ags = lVar;
@@ -479,7 +479,7 @@ public class b extends t {
                 cVar.aN(true);
                 cVar.XX = str10;
                 cVar.XY = str11;
-                if (com.baidu.live.v.a.zj().awA.Zz && !TextUtils.isEmpty(str9)) {
+                if (com.baidu.live.v.a.zl().awB.Zz && !TextUtils.isEmpty(str9)) {
                     l lVar = new l();
                     if (lVar.di(str9)) {
                         cVar.alw.ags = lVar;
@@ -526,7 +526,7 @@ public class b extends t {
 
     private void a(String str, long j, String str2, String str3, String str4) {
         if (mo19do(str) && !dq(str)) {
-            if (BdNetTypeUtil.isWifiNet() || !k.AY()) {
+            if (BdNetTypeUtil.isWifiNet() || !k.Ba()) {
                 if (this.amR == null) {
                     this.amR = new ArrayList<>();
                 }

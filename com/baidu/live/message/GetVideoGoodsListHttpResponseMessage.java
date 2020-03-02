@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public List<ag> awM;
+    public List<ag> awN;
     public int count;
     public long liveId;
 
@@ -20,7 +20,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awM = new ArrayList();
+            this.awN = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("result");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("good_list");
@@ -29,7 +29,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         ag agVar = new ag();
                         agVar.parseJson(jSONObject2);
-                        this.awM.add(agVar);
+                        this.awN.add(agVar);
                     }
                 }
                 this.count = optJSONObject.optInt("count");

@@ -13,22 +13,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class i {
-    public static final int nzA;
-    static final AtomicReference<ScheduledExecutorService> nzB = new AtomicReference<>();
-    static final Map<ScheduledThreadPoolExecutor, Object> nzC = new ConcurrentHashMap();
-    public static final boolean nzz;
+    public static final boolean nzB;
+    public static final int nzC;
+    static final AtomicReference<ScheduledExecutorService> nzD = new AtomicReference<>();
+    static final Map<ScheduledThreadPoolExecutor, Object> nzE = new ConcurrentHashMap();
 
     static {
         Properties properties = System.getProperties();
         a aVar = new a();
         aVar.a(properties);
-        nzz = aVar.nzD;
-        nzA = aVar.nzE;
+        nzB = aVar.nzF;
+        nzC = aVar.nzG;
         start();
     }
 
     public static void start() {
-        wF(nzz);
+        wF(nzB);
     }
 
     static void wF(boolean z) {
@@ -36,11 +36,11 @@ public final class i {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = nzB.get();
+            ScheduledExecutorService scheduledExecutorService = nzD.get();
             if (scheduledExecutorService == null) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge"));
-                if (nzB.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
-                    newScheduledThreadPool.scheduleAtFixedRate(new b(), nzA, nzA, TimeUnit.SECONDS);
+                if (nzD.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
+                    newScheduledThreadPool.scheduleAtFixedRate(new b(), nzC, nzC, TimeUnit.SECONDS);
                     return;
                 }
                 newScheduledThreadPool.shutdownNow();
@@ -52,40 +52,40 @@ public final class i {
 
     /* loaded from: classes7.dex */
     static final class a {
-        boolean nzD;
-        int nzE;
+        boolean nzF;
+        int nzG;
 
         a() {
         }
 
         void a(Properties properties) {
             if (properties.containsKey("rx2.purge-enabled")) {
-                this.nzD = Boolean.parseBoolean(properties.getProperty("rx2.purge-enabled"));
+                this.nzF = Boolean.parseBoolean(properties.getProperty("rx2.purge-enabled"));
             } else {
-                this.nzD = true;
+                this.nzF = true;
             }
-            if (this.nzD && properties.containsKey("rx2.purge-period-seconds")) {
+            if (this.nzF && properties.containsKey("rx2.purge-period-seconds")) {
                 try {
-                    this.nzE = Integer.parseInt(properties.getProperty("rx2.purge-period-seconds"));
+                    this.nzG = Integer.parseInt(properties.getProperty("rx2.purge-period-seconds"));
                     return;
                 } catch (NumberFormatException e) {
-                    this.nzE = 1;
+                    this.nzG = 1;
                     return;
                 }
             }
-            this.nzE = 1;
+            this.nzG = 1;
         }
     }
 
     public static ScheduledExecutorService a(ThreadFactory threadFactory) {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        a(nzz, newScheduledThreadPool);
+        a(nzB, newScheduledThreadPool);
         return newScheduledThreadPool;
     }
 
     static void a(boolean z, ScheduledExecutorService scheduledExecutorService) {
         if (z && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
-            nzC.put((ScheduledThreadPoolExecutor) scheduledExecutorService, scheduledExecutorService);
+            nzE.put((ScheduledThreadPoolExecutor) scheduledExecutorService, scheduledExecutorService);
         }
     }
 
@@ -97,11 +97,11 @@ public final class i {
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = new ArrayList(i.nzC.keySet()).iterator();
+            Iterator it = new ArrayList(i.nzE.keySet()).iterator();
             while (it.hasNext()) {
                 ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
                 if (scheduledThreadPoolExecutor.isShutdown()) {
-                    i.nzC.remove(scheduledThreadPoolExecutor);
+                    i.nzE.remove(scheduledThreadPoolExecutor);
                 } else {
                     scheduledThreadPoolExecutor.purge();
                 }

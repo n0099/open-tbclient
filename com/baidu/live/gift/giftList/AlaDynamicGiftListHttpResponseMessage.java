@@ -62,7 +62,7 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
     }
 
     private void up() {
-        if (!BdNetTypeUtil.isMobileNet() || !k.AY()) {
+        if (!BdNetTypeUtil.isMobileNet() || !k.Ba()) {
             for (int i = 0; i < this.amF.size(); i++) {
                 com.baidu.live.gift.b bVar = this.amF.get(i);
                 if (bVar.afJ != null && bVar.afJ.rh()) {

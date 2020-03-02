@@ -19,7 +19,7 @@ public class a extends ActivityDelegation {
                     if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                         Iterator<? extends Parcelable> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XK());
+                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XM());
                         }
                     }
                     a.this.mResult.putParcelableArrayList("mediaModels", arrayList);

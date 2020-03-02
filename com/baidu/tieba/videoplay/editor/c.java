@@ -5,18 +5,18 @@ import android.widget.EditText;
 import com.baidu.tbadk.editortools.l;
 /* loaded from: classes11.dex */
 public class c extends l {
-    private EditText dyC;
+    private EditText dyD;
 
     public c(Context context) {
         super(context, (String) null, 28);
-        this.dxr = false;
-        this.dxq = 3;
-        this.dwz = new VideoPlayInputContainer(context);
-        this.dyC = ((VideoPlayInputContainer) this.dwz).getInputView();
-        this.dxs = new int[]{4, 24, 3, 9, 6};
+        this.dxs = false;
+        this.dxr = 3;
+        this.dwA = new VideoPlayInputContainer(context);
+        this.dyD = ((VideoPlayInputContainer) this.dwA).getInputView();
+        this.dxt = new int[]{4, 24, 3, 9, 6};
     }
 
     public EditText getInputView() {
-        return this.dyC;
+        return this.dyD;
     }
 }

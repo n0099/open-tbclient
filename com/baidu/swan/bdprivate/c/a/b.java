@@ -46,13 +46,13 @@ public class b extends com.baidu.swan.apps.network.a {
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
             return false;
-        } else if (!eVar.acO().isLogin(context)) {
+        } else if (!eVar.acQ().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not login");
             return false;
         } else {
             final String fI = com.baidu.swan.apps.api.module.g.c.fI(eVar.id);
             JSONObject fK = fK(fI);
-            eVar.acN().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.aO(optParamsAsJo), new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.b.1
+            eVar.acP().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.aO(optParamsAsJo), new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -75,7 +75,7 @@ public class b extends com.baidu.swan.apps.network.a {
         if (ni == null) {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, "illegal request").toString());
         } else {
-            com.baidu.swan.apps.setting.oauth.c.YU().newCall(ni).enqueue(new Callback() { // from class: com.baidu.swan.bdprivate.c.a.b.2
+            com.baidu.swan.apps.setting.oauth.c.YW().newCall(ni).enqueue(new Callback() { // from class: com.baidu.swan.bdprivate.c.a.b.2
                 @Override // okhttp3.Callback
                 public void onFailure(@Nullable Call call, @Nullable IOException iOException) {
                     b.this.b(iOException == null ? "" : iOException.getMessage(), str2, callbackHandler);
@@ -173,12 +173,12 @@ public class b extends com.baidu.swan.apps.network.a {
 
     @Nullable
     private Request ni(@Nullable String str) {
-        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bjD);
+        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bjE);
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.KZ().bjC.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.Lb().bjD.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

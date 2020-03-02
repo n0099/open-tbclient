@@ -6,13 +6,13 @@ import android.text.TextUtils;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 /* loaded from: classes8.dex */
 public class c {
-    private final String dZw;
+    private final String dZx;
     private final String mExtra;
     private final String mPage;
 
     public c(@NonNull String str, @NonNull String str2, String str3) {
         this.mPage = str;
-        this.dZw = str2;
+        this.dZx = str2;
         this.mExtra = str3;
     }
 
@@ -27,7 +27,7 @@ public class c {
             str = this.mPage;
         }
         bVar.Ii(str);
-        bVar.Ij(this.dZw);
+        bVar.Ij(this.dZx);
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
@@ -36,6 +36,6 @@ public class c {
         if (!TextUtils.isEmpty(this.mExtra)) {
             bVar.Ia(this.mExtra);
         }
-        com.baidu.tieba.recapp.report.c.cDn().a(bVar);
+        com.baidu.tieba.recapp.report.c.cDp().a(bVar);
     }
 }

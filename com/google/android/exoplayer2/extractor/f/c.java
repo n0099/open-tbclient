@@ -5,26 +5,26 @@ import com.google.android.exoplayer2.extractor.l;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class c implements com.google.android.exoplayer2.extractor.e {
-    public static final com.google.android.exoplayer2.extractor.h mev = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.f.c.1
+    public static final com.google.android.exoplayer2.extractor.h mex = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.f.c.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public com.google.android.exoplayer2.extractor.e[] duR() {
+        public com.google.android.exoplayer2.extractor.e[] duT() {
             return new com.google.android.exoplayer2.extractor.e[]{new c()};
         }
     };
-    private static final int mmp = com.google.android.exoplayer2.util.v.QE("ID3");
-    private final d mmA;
-    private final com.google.android.exoplayer2.util.l mmB;
-    private final long mmq;
-    private boolean mmt;
+    private static final int mmr = com.google.android.exoplayer2.util.v.QE("ID3");
+    private final d mmC;
+    private final com.google.android.exoplayer2.util.l mmD;
+    private final long mms;
+    private boolean mmv;
 
     public c() {
         this(0L);
     }
 
     public c(long j) {
-        this.mmq = j;
-        this.mmA = new d(true);
-        this.mmB = new com.google.android.exoplayer2.util.l(200);
+        this.mms = j;
+        this.mmC = new d(true);
+        this.mmD = new com.google.android.exoplayer2.util.l(200);
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -35,15 +35,15 @@ public final class c implements com.google.android.exoplayer2.extractor.e {
         while (true) {
             fVar.s(lVar.data, 0, 10);
             lVar.setPosition(0);
-            if (lVar.dzv() != mmp) {
+            if (lVar.dzx() != mmr) {
                 break;
             }
             lVar.skipBytes(3);
-            int dzB = lVar.dzB();
-            i += dzB + 10;
-            fVar.Jw(dzB);
+            int dzD = lVar.dzD();
+            i += dzD + 10;
+            fVar.Jw(dzD);
         }
-        fVar.duP();
+        fVar.duR();
         fVar.Jw(i);
         int i2 = 0;
         int i3 = 0;
@@ -52,7 +52,7 @@ public final class c implements com.google.android.exoplayer2.extractor.e {
             fVar.s(lVar.data, 0, 2);
             lVar.setPosition(0);
             if ((lVar.readUnsignedShort() & 65526) != 65520) {
-                fVar.duP();
+                fVar.duR();
                 i4++;
                 if (i4 - i >= 8192) {
                     return false;
@@ -79,15 +79,15 @@ public final class c implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(com.google.android.exoplayer2.extractor.g gVar) {
-        this.mmA.a(gVar, new w.d(0, 1));
-        gVar.duS();
+        this.mmC.a(gVar, new w.d(0, 1));
+        gVar.duU();
         gVar.a(new l.a(-9223372036854775807L));
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        this.mmt = false;
-        this.mmA.czb();
+        this.mmv = false;
+        this.mmC.czd();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -96,17 +96,17 @@ public final class c implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(com.google.android.exoplayer2.extractor.f fVar, com.google.android.exoplayer2.extractor.k kVar) throws IOException, InterruptedException {
-        int read = fVar.read(this.mmB.data, 0, 200);
+        int read = fVar.read(this.mmD.data, 0, 200);
         if (read == -1) {
             return -1;
         }
-        this.mmB.setPosition(0);
-        this.mmB.setLimit(read);
-        if (!this.mmt) {
-            this.mmA.o(this.mmq, true);
-            this.mmt = true;
+        this.mmD.setPosition(0);
+        this.mmD.setLimit(read);
+        if (!this.mmv) {
+            this.mmC.o(this.mms, true);
+            this.mmv = true;
         }
-        this.mmA.I(this.mmB);
+        this.mmC.I(this.mmD);
         return 0;
     }
 }

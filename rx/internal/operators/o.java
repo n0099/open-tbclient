@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class o<T> implements d.b<T, T> {
-    final rx.functions.g<? super T, ? super Integer, Boolean> nQz;
+    final rx.functions.g<? super T, ? super Integer, Boolean> nQB;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -22,20 +22,20 @@ public final class o<T> implements d.b<T, T> {
     }
 
     public o(rx.functions.g<? super T, ? super Integer, Boolean> gVar) {
-        this.nQz = gVar;
+        this.nQB = gVar;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         rx.j jVar2 = (rx.j<T>) new rx.j<T>(jVar, false) { // from class: rx.internal.operators.o.2
             private boolean done;
-            private int nDp;
+            private int nDr;
 
             @Override // rx.e
             public void onNext(T t) {
                 try {
-                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = o.this.nQz;
-                    int i = this.nDp;
-                    this.nDp = i + 1;
+                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = o.this.nQB;
+                    int i = this.nDr;
+                    this.nDr = i + 1;
                     if (gVar.n(t, Integer.valueOf(i)).booleanValue()) {
                         jVar.onNext(t);
                         return;

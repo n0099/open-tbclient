@@ -120,12 +120,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     */
     private boolean z(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         JSONObject jSONObject;
-        final e acD = e.acD();
-        if (acD == null) {
+        final e acF = e.acF();
+        if (acF == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(acD.id)) {
+        } else if (TextUtils.isEmpty(acF.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -142,7 +142,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.m.a rq = com.baidu.m.d.a.awP().rq(optString);
+            com.baidu.m.a rq = com.baidu.m.d.a.awR().rq(optString);
             if (rq != null) {
                 c.e(TAG, "AudioRTC is already created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -186,7 +186,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                acD.acN().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.m.e.a.1
+                acF.acP().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.m.e.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
@@ -211,7 +211,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                             }
                             return;
                         }
-                        a.this.a(context, unitedSchemeEntity, callbackHandler, m, aVar, acD.id, optString);
+                        a.this.a(context, unitedSchemeEntity, callbackHandler, m, aVar, acF.id, optString);
                     }
                 });
                 return true;
@@ -223,12 +223,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean A(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e acD = e.acD();
-        if (acD == null) {
+        e acF = e.acF();
+        if (acF == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(acD.id)) {
+        } else if (TextUtils.isEmpty(acF.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -245,26 +245,26 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.m.a rq = com.baidu.m.d.a.awP().rq(optString);
+            com.baidu.m.a rq = com.baidu.m.d.a.awR().rq(optString);
             if (rq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
             rq.stop();
-            com.baidu.m.d.a.awP().rp(optString);
+            com.baidu.m.d.a.awR().rp(optString);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private boolean B(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e acD = e.acD();
-        if (acD == null) {
+        e acF = e.acF();
+        if (acF == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(acD.id)) {
+        } else if (TextUtils.isEmpty(acF.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -281,7 +281,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.m.a rq = com.baidu.m.d.a.awP().rq(optString);
+            com.baidu.m.a rq = com.baidu.m.d.a.awR().rq(optString);
             if (rq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -294,12 +294,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean C(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e acD = e.acD();
-        if (acD == null) {
+        e acF = e.acF();
+        if (acF == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(acD.id)) {
+        } else if (TextUtils.isEmpty(acF.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -316,7 +316,7 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.m.a rq = com.baidu.m.d.a.awP().rq(optString);
+            com.baidu.m.a rq = com.baidu.m.d.a.awR().rq(optString);
             if (rq == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -337,7 +337,7 @@ public class a extends UnitedSchemeBaseDispatcher {
             a(context, unitedSchemeEntity, callbackHandler, rtcConfig, aVar, str2);
             return;
         }
-        f.WQ().a(2, new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.m.e.a.2
+        f.WS().a(2, new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.m.e.a.2
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i != 2 || iArr.length <= 0) {
@@ -412,7 +412,7 @@ public class a extends UnitedSchemeBaseDispatcher {
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         com.baidu.m.a aVar2 = new com.baidu.m.a(context, rtcConfig, str);
         aVar2.a(aVar);
-        com.baidu.m.d.a.awP().a(aVar2, str);
+        com.baidu.m.d.a.awR().a(aVar2, str);
         aVar2.start();
     }
 }

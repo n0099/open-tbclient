@@ -1,32 +1,20 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes12.dex */
 public class t implements n {
-    private static t lRq = null;
+    private static t lRs = null;
 
     private t() {
     }
 
-    public static synchronized t dog() {
+    public static synchronized t doi() {
         t tVar;
         synchronized (t.class) {
-            if (lRq == null) {
-                lRq = new t();
+            if (lRs == null) {
+                lRs = new t();
             }
-            tVar = lRq;
+            tVar = lRs;
         }
         return tVar;
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dnY() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void p(com.facebook.cache.common.b bVar) {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dnZ() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -34,7 +22,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void q(com.facebook.cache.common.b bVar) {
+    public void p(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -42,15 +30,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void r(com.facebook.cache.common.b bVar) {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
     public void doc() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
+    public void q(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
     public void dod() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void r(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -59,6 +51,14 @@ public class t implements n {
 
     @Override // com.facebook.imagepipeline.c.n
     public void dof() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dog() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void doh() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

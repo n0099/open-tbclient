@@ -41,7 +41,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.getCount(list) > 0 && v.getCount(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.kfT) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.kfV) {
                 m mVar = (m) v.getItem(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
                     fVar.cJ(i, indexOf);

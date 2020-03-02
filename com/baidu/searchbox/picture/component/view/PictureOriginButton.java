@@ -169,7 +169,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                 case 103:
                     if (this.mOriginLoadDataSource != null) {
                         this.isDownLoading = false;
-                        this.mOriginLoadDataSource.OB();
+                        this.mOriginLoadDataSource.OD();
                         this.mLoadOriginTV.setText(this.mStrLoadOriginInit);
                         this.mLoadOriginCancelImg.setVisibility(8);
                     }
@@ -197,7 +197,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
 
     private void loadOriginImage(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mOriginLoadDataSource = c.dly().e(ImageRequestBuilder.Y(Uri.parse(str)).dsA(), getContext().getApplicationContext());
+            this.mOriginLoadDataSource = c.dlA().e(ImageRequestBuilder.Y(Uri.parse(str)).dsC(), getContext().getApplicationContext());
             this.mOriginLoadDataSource.a(new a<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>>() { // from class: com.baidu.searchbox.picture.component.view.PictureOriginButton.4
                 @Override // com.facebook.datasource.a
                 protected void onNewResultImpl(b<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>> bVar) {
@@ -206,8 +206,8 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                         com.facebook.common.references.a<com.facebook.imagepipeline.g.b> result = bVar.getResult();
                         try {
                             if (result != null) {
-                                Bitmap dqp = result.get().dqp();
-                                if (dqp != null && !dqp.isRecycled() && PictureOriginButton.this.mImageListener != null) {
+                                Bitmap dqr = result.get().dqr();
+                                if (dqr != null && !dqr.isRecycled() && PictureOriginButton.this.mImageListener != null) {
                                     PictureOriginButton.this.mSuccess = true;
                                     PictureOriginButton.this.mImageListener.success(str);
                                 }
@@ -239,7 +239,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                     obtainMessage.obj = bundle;
                     PictureOriginButton.this.handlerHolder.sendMessage(obtainMessage);
                 }
-            }, i.dkD());
+            }, i.dkF());
         }
     }
 

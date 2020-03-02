@@ -4,10 +4,6 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface a {
-    String UQ();
-
-    String UR();
-
     String US();
 
     String UT();
@@ -20,9 +16,13 @@ public interface a {
 
     String UX();
 
-    CookieManager UY();
+    String UY();
 
-    String Vb();
+    String UZ();
+
+    CookieManager Va();
+
+    String Vd();
 
     void aj(JSONObject jSONObject);
 

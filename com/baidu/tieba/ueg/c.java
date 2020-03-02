@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String kul;
-    private a kum;
+    private String kun;
+    private a kuo;
 
     /* loaded from: classes.dex */
     public interface a {
-        void caK();
-
-        void caL();
-
         void caM();
+
+        void caN();
+
+        void caO();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.kul = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.kum = aVar;
+        this.kun = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.kuo = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.kul);
-            xVar.aGe().aGF().mIsNeedAddCommenParam = false;
-            xVar.aGe().aGF().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.kun);
+            xVar.aGg().aGH().mIsNeedAddCommenParam = false;
+            xVar.aGg().aGH().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.kum != null && num != null) {
+        if (this.kuo != null && num != null) {
             if (num.intValue() == -1) {
-                this.kum.onError(null);
+                this.kuo.onError(null);
             } else if (num.intValue() == 1) {
-                this.kum.caK();
+                this.kuo.caM();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.kum.caL();
+                this.kuo.caN();
             } else {
-                this.kum.caM();
+                this.kuo.caO();
             }
         }
     }

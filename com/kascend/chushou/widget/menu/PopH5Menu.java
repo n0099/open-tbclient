@@ -22,8 +22,8 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
     private boolean b;
     private Animation d;
     private boolean f;
-    private com.kascend.chushou.view.h5.a nkd;
-    private a nke;
+    private com.kascend.chushou.view.h5.a nkf;
+    private a nkg;
 
     public PopH5Menu(@NonNull Context context) {
         this(context, null, 0);
@@ -51,13 +51,13 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
 
     public void a(FragmentManager fragmentManager, H5Options h5Options, Animation animation, Animation animation2) {
         this.d = animation2;
-        if (this.nkd != null) {
-            if (this.nkd.isAdded()) {
-                fragmentManager.beginTransaction().remove(this.nkd).commitAllowingStateLoss();
+        if (this.nkf != null) {
+            if (this.nkf.isAdded()) {
+                fragmentManager.beginTransaction().remove(this.nkf).commitAllowingStateLoss();
             }
-            this.nkd = null;
+            this.nkf = null;
         }
-        this.nkd = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.1
+        this.nkf = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.1
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 if (ViewCompat.isAttachedToWindow(PopH5Menu.this)) {
@@ -69,11 +69,11 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
             public void a(String str) {
             }
         }));
-        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.nkd).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.nkf).commitAllowingStateLoss();
         setVisibility(0);
         if (!this.b) {
-            if (this.nke != null) {
-                this.nke.a();
+            if (this.nkg != null) {
+                this.nkg.a();
             }
             animation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.2
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -89,8 +89,8 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
     public boolean a() {
         if (this.b && !this.f) {
             this.f = true;
-            if (this.nke != null) {
-                this.nke.b();
+            if (this.nkg != null) {
+                this.nkg.b();
             }
             this.d.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.3
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -112,7 +112,7 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
         if (!this.b) {
             return false;
         }
-        if (this.nkd == null || !this.nkd.a(i, keyEvent)) {
+        if (this.nkf == null || !this.nkf.a(i, keyEvent)) {
             a();
             return true;
         }
@@ -124,6 +124,6 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
     }
 
     public void setVisibilityListener(a aVar) {
-        this.nke = aVar;
+        this.nkg = aVar;
     }
 }

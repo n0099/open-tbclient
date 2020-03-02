@@ -70,7 +70,7 @@ public class a extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(1021089);
         httpMessage.addParam("need_dynamic_gift", "1");
         httpMessage.addParam("need_sticker_gift", "0");
-        httpMessage.addParam("scene_from", q.Be());
+        httpMessage.addParam("scene_from", q.Bg());
         sendMessage(httpMessage);
         return false;
     }

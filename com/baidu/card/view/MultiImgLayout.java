@@ -105,32 +105,32 @@ public class MultiImgLayout extends LinearLayout implements m<com.baidu.tbadk.co
     }
 
     private void setVoiceData(bj bjVar) {
-        ArrayList<VoiceData.VoiceModel> aCA = bjVar.aCA();
-        if (v.isEmpty(aCA)) {
+        ArrayList<VoiceData.VoiceModel> aCC = bjVar.aCC();
+        if (v.isEmpty(aCC)) {
             this.NY.setVisibility(8);
             this.Ob = false;
             return;
         }
         this.NY.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aCA.get(0);
+        VoiceData.VoiceModel voiceModel = aCC.get(0);
         this.NY.setVoiceModel(voiceModel);
         this.NY.setTag(voiceModel);
-        this.NY.bHq();
+        this.NY.bHs();
         if (voiceModel != null) {
             this.NY.wW(voiceModel.voice_status.intValue());
         }
-        this.NY.cMf();
+        this.NY.cMh();
         this.Ob = true;
     }
 
     private void setImageData(bj bjVar) {
         this.NZ.setFromCDN(this.NJ);
         this.NZ.setSinglePicUseStyleV10(true);
-        ArrayList<MediaData> aCw = bjVar.aCw();
-        if (i.azM().isShowImages() && v.getCount(aCw) != 0) {
+        ArrayList<MediaData> aCy = bjVar.aCy();
+        if (i.azO().isShowImages() && v.getCount(aCy) != 0) {
             final LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aCw.size(); i++) {
-                MediaData mediaData = (MediaData) v.getItem(aCw, i);
+            for (int i = 0; i < aCy.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aCy, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -150,14 +150,14 @@ public class MultiImgLayout extends LinearLayout implements m<com.baidu.tbadk.co
                                 subClickListener.a(view, MultiImgLayout.this.Kc);
                                 MultiImgLayout.this.Kc.objType = 1;
                             }
-                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dlW) {
-                                au.a(view, MultiImgLayout.this.NJ, linkedList, i2, MultiImgLayout.this.Kc.aAe(), MultiImgLayout.this.mFrom);
+                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dlX) {
+                                au.a(view, MultiImgLayout.this.NJ, linkedList, i2, MultiImgLayout.this.Kc.aAg(), MultiImgLayout.this.mFrom);
                             } else if ("frs".equals(MultiImgLayout.this.mFrom)) {
                                 au.a(MultiImgLayout.this.Kc, view.getContext(), 3, false);
                             } else if ("index".equals(MultiImgLayout.this.mFrom)) {
                                 au.a(MultiImgLayout.this.Kc, view.getContext(), 2, false);
                             } else {
-                                au.a(view, MultiImgLayout.this.NJ, linkedList, i2, MultiImgLayout.this.Kc.aAe(), MultiImgLayout.this.mFrom);
+                                au.a(view, MultiImgLayout.this.NJ, linkedList, i2, MultiImgLayout.this.Kc.aAg(), MultiImgLayout.this.mFrom);
                             }
                         }
                     }
@@ -188,11 +188,11 @@ public class MultiImgLayout extends LinearLayout implements m<com.baidu.tbadk.co
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        au.a(this.mTitle, aAe);
-        au.a(this.KA, this.mTitle, aAe, Ky);
-        setImageData(aAe);
-        setVoiceData(aAe);
+        bj aAg = aVar.aAg();
+        au.a(this.mTitle, aAg);
+        au.a(this.KA, this.mTitle, aAg, Ky);
+        setImageData(aAg);
+        setVoiceData(aAg);
         nn();
     }
 

@@ -42,13 +42,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.fXb = R.dimen.tbds1;
-                        cVar.hhJ = R.color.cp_bg_line_b;
+                        cVar.fXd = R.dimen.tbds1;
+                        cVar.hhL = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).fXb = 0;
+                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).fXd = 0;
             }
         }
     }

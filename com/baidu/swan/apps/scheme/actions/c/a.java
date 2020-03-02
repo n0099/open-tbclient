@@ -18,8 +18,8 @@ import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    public static final String bRy = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    public static final String bRz = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String bRz = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String bRA = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -58,7 +58,7 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            eVar.acN().b(context, "mapp_i_get_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
+            eVar.acP().b(context, "mapp_i_get_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */

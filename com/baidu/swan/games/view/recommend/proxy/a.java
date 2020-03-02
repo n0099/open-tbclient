@@ -9,19 +9,19 @@ import com.baidu.swan.games.view.recommend.a.b;
 import com.baidu.swan.games.view.recommend.a.d;
 /* loaded from: classes11.dex */
 public class a implements b {
-    private b cuL;
+    private b cuM;
 
     public a(final int i, @NonNull final d dVar, final a.InterfaceC0350a interfaceC0350a) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
-                Context aqp = c.aqp();
-                if (aqp == null) {
+                Context aqr = c.aqr();
+                if (aqr == null) {
                     com.baidu.swan.apps.console.c.e("RecommendButton", "context is null.");
                     return;
                 }
-                a.this.cuL = com.baidu.swan.games.view.recommend.a.a.a(i, aqp, dVar);
-                a.this.cuL.a(interfaceC0350a);
+                a.this.cuM = com.baidu.swan.games.view.recommend.a.a.a(i, aqr, dVar);
+                a.this.cuM.a(interfaceC0350a);
             }
         });
     }
@@ -31,8 +31,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.a(aVar);
+                if (a.this.cuM != null) {
+                    a.this.cuM.a(aVar);
                 }
             }
         });
@@ -43,8 +43,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.a(interfaceC0350a);
+                if (a.this.cuM != null) {
+                    a.this.cuM.a(interfaceC0350a);
                 }
             }
         });
@@ -55,8 +55,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.cS(z);
+                if (a.this.cuM != null) {
+                    a.this.cuM.cS(z);
                 }
             }
         });
@@ -67,8 +67,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.show();
+                if (a.this.cuM != null) {
+                    a.this.cuM.show();
                 }
             }
         });
@@ -79,8 +79,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.hide();
+                if (a.this.cuM != null) {
+                    a.this.cuM.hide();
                 }
             }
         });
@@ -91,8 +91,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.destroy();
+                if (a.this.cuM != null) {
+                    a.this.cuM.destroy();
                 }
             }
         });
@@ -103,8 +103,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuL != null) {
-                    a.this.cuL.update();
+                if (a.this.cuM != null) {
+                    a.this.cuM.update();
                 }
             }
         });

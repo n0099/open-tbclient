@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes12.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.a dFS;
-    private SwanAppBdActionBar edb;
+    private com.baidu.tbadk.core.view.a dFT;
+    private SwanAppBdActionBar edc;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,14 +24,14 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.edb = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.edc = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        aZB();
+        aZD();
         super.setContentView(inflate);
     }
 
@@ -47,25 +47,25 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dFS = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.dFS.setTipString("加载中...");
-        this.dFS.setCancelable(true);
+        this.dFT = new com.baidu.tbadk.core.view.a(getPageContext());
+        this.dFT.setTipString("加载中...");
+        this.dFT.setCancelable(true);
     }
 
-    private void aZB() {
-        if (this.edb != null) {
-            this.edb.setLeftTitleInvalidate(true);
-            this.edb.setRightTxtZone1Visibility(8);
-            this.edb.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
+    private void aZD() {
+        if (this.edc != null) {
+            this.edc.setLeftTitleInvalidate(true);
+            this.edc.setRightTxtZone1Visibility(8);
+            this.edc.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.onActionBarBackPressed();
                 }
             });
-            this.edb.setRightExitViewVisibility(false);
-            this.edb.setRightMenuVisibility(false);
-            this.edb.setLeftZoneImageSrcMinWidth(af.dip2px(this, 38.0f));
-            this.edb.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
+            this.edc.setRightExitViewVisibility(false);
+            this.edc.setRightMenuVisibility(false);
+            this.edc.setLeftZoneImageSrcMinWidth(af.dip2px(this, 38.0f));
+            this.edc.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.onActionBarBackPressed();

@@ -35,7 +35,7 @@ public class PbFullScreenEditorInputView extends EditText {
 
     public void b(com.baidu.tbadk.coreExtra.data.q qVar) {
         if (com.baidu.tieba.face.a.Ar(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.aFJ().showToast(R.string.too_many_face);
+            com.baidu.tbadk.core.util.e.aFL().showToast(R.string.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), qVar, this);
         }

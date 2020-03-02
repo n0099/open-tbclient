@@ -47,7 +47,7 @@ public class j {
         }
     }
 
-    public static void aFN() {
+    public static void aFP() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {

@@ -7,20 +7,20 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final Set<String> bVI;
+    public final Set<String> bVJ;
 
     public a(String str) {
         super(str);
-        this.bVI = new HashSet();
+        this.bVJ = new HashSet();
     }
 
     public boolean mm(String str) {
-        return this.bVI.contains(str);
+        return this.bVJ.contains(str);
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (afo()) {
+        if (afq()) {
             super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -29,7 +29,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (afo()) {
+        if (afq()) {
             super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -38,7 +38,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putString(String str, String str2) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putString(str, str2);
         } else {
             log();
@@ -47,7 +47,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putStringSet(String str, Set<String> set) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putStringSet(str, set);
         } else {
             log();
@@ -56,7 +56,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putInt(String str, int i) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putInt(str, i);
         } else {
             log();
@@ -65,7 +65,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putLong(String str, long j) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putLong(str, j);
         } else {
             log();
@@ -74,7 +74,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putFloat(String str, float f) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putFloat(str, f);
         } else {
             log();
@@ -83,7 +83,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putBoolean(String str, boolean z) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.putBoolean(str, z);
         } else {
             log();
@@ -92,7 +92,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void remove(String str) {
-        if (afo() || mm(str)) {
+        if (afq() || mm(str)) {
             super.remove(str);
         } else {
             log();

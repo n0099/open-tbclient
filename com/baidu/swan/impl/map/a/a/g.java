@@ -11,20 +11,20 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.f> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = g.class.getSimpleName();
 
-    public static g arK() {
+    public static g arM() {
         return new g();
     }
 
     private boolean a(Context context, com.baidu.swan.apps.z.a.f fVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WQ().hv(fVar.bil);
+        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WS().hv(fVar.bim);
         if (!(hv instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arz().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(fVar.bik);
+        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arB().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(fVar.bil);
         if (qa == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bik);
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bil);
             return false;
         }
         return a(fVar, qa, bVar);
@@ -34,8 +34,8 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.f> {
         if (!fVar.isValid()) {
             return false;
         }
-        LatLng latLng = new LatLng(fVar.bzK.latitude, fVar.bzK.longitude);
-        List<com.baidu.swan.impl.map.item.b> qb = cVar.qb(fVar.bAd);
+        LatLng latLng = new LatLng(fVar.bzL.latitude, fVar.bzL.longitude);
+        List<com.baidu.swan.impl.map.item.b> qb = cVar.qb(fVar.bAe);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
         if (qb != null) {
             for (com.baidu.swan.impl.map.item.b bVar2 : qb) {

@@ -88,12 +88,12 @@ public class e extends Dialog implements x {
         this.alh = (TextView) findViewById(a.g.quick_gift_desc);
         this.ali = (ImageView) findViewById(a.g.quick_gift_amount_icon);
         this.alj = (TextView) findViewById(a.g.quick_gift_amount_count);
-        if (com.baidu.live.v.c.zo().axL != null) {
-            this.alg.startLoad(com.baidu.live.v.c.zo().axL.sw(), 10, false);
-            if (com.baidu.live.v.c.zo().axL.su() != null) {
-                this.mName.setText(com.baidu.live.v.c.zo().axL.su().ry());
-                this.alh.setText(com.baidu.live.v.c.zo().axL.su().rz());
-                this.alj.setText(com.baidu.live.v.c.zo().axL.su().getPrice());
+        if (com.baidu.live.v.c.zq().axM != null) {
+            this.alg.startLoad(com.baidu.live.v.c.zq().axM.sw(), 10, false);
+            if (com.baidu.live.v.c.zq().axM.su() != null) {
+                this.mName.setText(com.baidu.live.v.c.zq().axM.su().ry());
+                this.alh.setText(com.baidu.live.v.c.zq().axM.su().rz());
+                this.alj.setText(com.baidu.live.v.c.zq().axM.su().getPrice());
             }
         }
         this.alf = (TextView) findViewById(a.g.quick_gift_send);

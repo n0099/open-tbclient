@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public boolean air() {
+    public boolean ait() {
         return this.UB.size() > 0;
     }
 

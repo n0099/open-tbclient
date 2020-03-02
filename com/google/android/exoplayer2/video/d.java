@@ -15,17 +15,17 @@ import com.google.android.exoplayer2.util.v;
 @TargetApi(16)
 /* loaded from: classes6.dex */
 public final class d {
-    private final b mIL;
-    private final a mIM;
-    private long mIN;
-    private long mIO;
+    private final b mIN;
+    private final a mIO;
     private long mIP;
     private long mIQ;
     private long mIR;
-    private boolean mIS;
+    private long mIS;
     private long mIT;
-    private long mIU;
+    private boolean mIU;
     private long mIV;
+    private long mIW;
+    private long mIX;
     private final WindowManager windowManager;
 
     public d() {
@@ -35,33 +35,33 @@ public final class d {
     public d(@Nullable Context context) {
         this.windowManager = context == null ? null : (WindowManager) context.getSystemService("window");
         if (this.windowManager != null) {
-            this.mIM = v.SDK_INT >= 17 ? gt(context) : null;
-            this.mIL = b.dAd();
+            this.mIO = v.SDK_INT >= 17 ? gt(context) : null;
+            this.mIN = b.dAf();
         } else {
-            this.mIM = null;
-            this.mIL = null;
+            this.mIO = null;
+            this.mIN = null;
         }
-        this.mIN = -9223372036854775807L;
-        this.mIO = -9223372036854775807L;
+        this.mIP = -9223372036854775807L;
+        this.mIQ = -9223372036854775807L;
     }
 
     public void enable() {
-        this.mIS = false;
+        this.mIU = false;
         if (this.windowManager != null) {
-            this.mIL.dAe();
-            if (this.mIM != null) {
-                this.mIM.register();
+            this.mIN.dAg();
+            if (this.mIO != null) {
+                this.mIO.register();
             }
-            dAc();
+            dAe();
         }
     }
 
     public void disable() {
         if (this.windowManager != null) {
-            if (this.mIM != null) {
-                this.mIM.unregister();
+            if (this.mIO != null) {
+                this.mIO.unregister();
             }
-            this.mIL.dAf();
+            this.mIN.dAh();
         }
     }
 
@@ -73,43 +73,43 @@ public final class d {
         long j3;
         long j4;
         long j5 = j * 1000;
-        if (this.mIS) {
-            if (j != this.mIP) {
-                this.mIV++;
-                this.mIQ = this.mIR;
+        if (this.mIU) {
+            if (j != this.mIR) {
+                this.mIX++;
+                this.mIS = this.mIT;
             }
-            if (this.mIV >= 6) {
-                j4 = this.mIQ + ((j5 - this.mIU) / this.mIV);
+            if (this.mIX >= 6) {
+                j4 = this.mIS + ((j5 - this.mIW) / this.mIX);
                 if (aa(j4, j2)) {
-                    this.mIS = false;
+                    this.mIU = false;
                     j3 = j2;
                     j4 = j5;
                 } else {
-                    j3 = (this.mIT + j4) - this.mIU;
+                    j3 = (this.mIV + j4) - this.mIW;
                 }
-                if (!this.mIS) {
-                    this.mIU = j5;
-                    this.mIT = j2;
-                    this.mIV = 0L;
-                    this.mIS = true;
+                if (!this.mIU) {
+                    this.mIW = j5;
+                    this.mIV = j2;
+                    this.mIX = 0L;
+                    this.mIU = true;
                 }
-                this.mIP = j;
-                this.mIR = j4;
-                if (this.mIL == null && this.mIN != -9223372036854775807L) {
-                    long j6 = this.mIL.mIY;
-                    return j6 != -9223372036854775807L ? j(j3, j6, this.mIN) - this.mIO : j3;
+                this.mIR = j;
+                this.mIT = j4;
+                if (this.mIN == null && this.mIP != -9223372036854775807L) {
+                    long j6 = this.mIN.mJa;
+                    return j6 != -9223372036854775807L ? j(j3, j6, this.mIP) - this.mIQ : j3;
                 }
             } else if (aa(j5, j2)) {
-                this.mIS = false;
+                this.mIU = false;
             }
         }
         j3 = j2;
         j4 = j5;
-        if (!this.mIS) {
+        if (!this.mIU) {
         }
-        this.mIP = j;
-        this.mIR = j4;
-        return this.mIL == null ? j3 : j3;
+        this.mIR = j;
+        this.mIT = j4;
+        return this.mIN == null ? j3 : j3;
     }
 
     @TargetApi(17)
@@ -122,16 +122,16 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAc() {
+    public void dAe() {
         Display defaultDisplay = this.windowManager.getDefaultDisplay();
         if (defaultDisplay != null) {
-            this.mIN = (long) (1.0E9d / defaultDisplay.getRefreshRate());
-            this.mIO = (this.mIN * 80) / 100;
+            this.mIP = (long) (1.0E9d / defaultDisplay.getRefreshRate());
+            this.mIQ = (this.mIP * 80) / 100;
         }
     }
 
     private boolean aa(long j, long j2) {
-        return Math.abs((j2 - this.mIT) - (j - this.mIU)) > 20000000;
+        return Math.abs((j2 - this.mIV) - (j - this.mIW)) > 20000000;
     }
 
     private static long j(long j, long j2, long j3) {
@@ -150,18 +150,18 @@ public final class d {
     @TargetApi(17)
     /* loaded from: classes6.dex */
     public final class a implements DisplayManager.DisplayListener {
-        private final DisplayManager mIW;
+        private final DisplayManager mIY;
 
         public a(DisplayManager displayManager) {
-            this.mIW = displayManager;
+            this.mIY = displayManager;
         }
 
         public void register() {
-            this.mIW.registerDisplayListener(this, null);
+            this.mIY.registerDisplayListener(this, null);
         }
 
         public void unregister() {
-            this.mIW.unregisterDisplayListener(this);
+            this.mIY.unregisterDisplayListener(this);
         }
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
@@ -175,77 +175,77 @@ public final class d {
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayChanged(int i) {
             if (i == 0) {
-                d.this.dAc();
+                d.this.dAe();
             }
         }
     }
 
     /* loaded from: classes6.dex */
     private static final class b implements Handler.Callback, Choreographer.FrameCallback {
-        private static final b mIZ = new b();
+        private static final b mJb = new b();
         private final Handler handler;
-        public volatile long mIY = -9223372036854775807L;
-        private final HandlerThread mJa = new HandlerThread("ChoreographerOwner:Handler");
-        private Choreographer mJb;
-        private int mJc;
+        public volatile long mJa = -9223372036854775807L;
+        private final HandlerThread mJc = new HandlerThread("ChoreographerOwner:Handler");
+        private Choreographer mJd;
+        private int mJe;
 
-        public static b dAd() {
-            return mIZ;
+        public static b dAf() {
+            return mJb;
         }
 
         private b() {
-            this.mJa.start();
-            this.handler = new Handler(this.mJa.getLooper(), this);
+            this.mJc.start();
+            this.handler = new Handler(this.mJc.getLooper(), this);
             this.handler.sendEmptyMessage(0);
         }
 
-        public void dAe() {
+        public void dAg() {
             this.handler.sendEmptyMessage(1);
         }
 
-        public void dAf() {
+        public void dAh() {
             this.handler.sendEmptyMessage(2);
         }
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
-            this.mIY = j;
-            this.mJb.postFrameCallbackDelayed(this, 500L);
+            this.mJa = j;
+            this.mJd.postFrameCallbackDelayed(this, 500L);
         }
 
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    dAg();
+                    dAi();
                     return true;
                 case 1:
-                    dAh();
+                    dAj();
                     return true;
                 case 2:
-                    dAi();
+                    dAk();
                     return true;
                 default:
                     return false;
             }
         }
 
-        private void dAg() {
-            this.mJb = Choreographer.getInstance();
+        private void dAi() {
+            this.mJd = Choreographer.getInstance();
         }
 
-        private void dAh() {
-            this.mJc++;
-            if (this.mJc == 1) {
-                this.mJb.postFrameCallback(this);
+        private void dAj() {
+            this.mJe++;
+            if (this.mJe == 1) {
+                this.mJd.postFrameCallback(this);
             }
         }
 
-        private void dAi() {
-            this.mJc--;
-            if (this.mJc == 0) {
-                this.mJb.removeFrameCallback(this);
-                this.mIY = -9223372036854775807L;
+        private void dAk() {
+            this.mJe--;
+            if (this.mJe == 0) {
+                this.mJd.removeFrameCallback(this);
+                this.mJa = -9223372036854775807L;
             }
         }
     }

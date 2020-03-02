@@ -20,6 +20,6 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.n.a.b("live", hashMap));
+        com.baidu.swan.apps.y.f.WS().a(new com.baidu.swan.apps.n.a.b("live", hashMap));
     }
 }

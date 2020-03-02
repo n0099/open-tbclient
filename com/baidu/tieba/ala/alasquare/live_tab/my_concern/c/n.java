@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a eou;
+    private a eov;
 
     public n(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.eou = new a(this);
+        this.eov = new a(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundColor(this.eou.cue, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.eou.mTitle, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.eov.cuf, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.eov.mTitle, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -33,8 +33,8 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.eru) && this.eou != null) {
-            this.eou.mTitle.setText(gVar.eru);
+        if (gVar != null && !StringUtils.isNull(gVar.erv) && this.eov != null) {
+            this.eov.mTitle.setText(gVar.erv);
         }
     }
 
@@ -44,15 +44,15 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public View cue;
-        public n eov;
+        public View cuf;
+        public n eow;
         public TextView mTitle;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.eov = nVar;
-            this.cue = nVar.getView();
-            this.mTitle = (TextView) this.cue.findViewById(R.id.tab_sub_rec_title_tv);
+            this.eow = nVar;
+            this.cuf = nVar.getView();
+            this.mTitle = (TextView) this.cuf.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 }

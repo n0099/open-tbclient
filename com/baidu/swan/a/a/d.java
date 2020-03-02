@@ -5,8 +5,7 @@ import com.baidu.swan.a.e;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.a.a<c> {
-    private e<c> cfy;
-    private com.baidu.swan.pms.a.c<c> cfz = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
+    private com.baidu.swan.pms.a.c<c> cfA = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
@@ -36,8 +35,8 @@ public class d extends com.baidu.swan.a.a<c> {
         /* renamed from: e */
         public void H(c cVar) {
             super.H(cVar);
-            if (d.this.cfy != null) {
-                d.this.cfy.n(cVar.currentSize, cVar.size);
+            if (d.this.cfz != null) {
+                d.this.cfz.n(cVar.currentSize, cVar.size);
             }
         }
 
@@ -45,8 +44,8 @@ public class d extends com.baidu.swan.a.a<c> {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         public void a(c cVar, com.baidu.swan.pms.model.a aVar) {
             super.a((AnonymousClass1) cVar, aVar);
-            if (d.this.cfy != null) {
-                d.this.cfy.E(aVar.errorNo, aVar.errorMsg);
+            if (d.this.cfz != null) {
+                d.this.cfz.E(aVar.errorNo, aVar.errorMsg);
             }
             com.baidu.swan.d.c.rg(cVar.filePath);
         }
@@ -56,31 +55,32 @@ public class d extends com.baidu.swan.a.a<c> {
         /* renamed from: f */
         public void G(c cVar) {
             super.G(cVar);
-            if (d.this.cfy != null) {
-                d.this.cfy.P(cVar);
+            if (d.this.cfz != null) {
+                d.this.cfz.P(cVar);
             }
         }
     };
+    private e<c> cfz;
 
     public d(e<c> eVar) {
-        this.cfy = eVar;
+        this.cfz = eVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pk() {
-        super.Pk();
+    public void Pm() {
+        super.Pm();
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.model.a aVar) {
         super.a(aVar);
-        if (this.cfy != null) {
-            this.cfy.E(aVar.errorNo, aVar.errorMsg);
+        if (this.cfz != null) {
+            this.cfz.E(aVar.errorNo, aVar.errorMsg);
         }
     }
 
     @Override // com.baidu.swan.a.a
-    public com.baidu.swan.pms.a.c<c> ajh() {
-        return this.cfz;
+    public com.baidu.swan.pms.a.c<c> ajj() {
+        return this.cfA;
     }
 }

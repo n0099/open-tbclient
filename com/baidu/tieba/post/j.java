@@ -6,16 +6,16 @@ import java.util.UUID;
 /* loaded from: classes10.dex */
 public class j implements com.baidu.tieba.k.h {
     private HashMap<String, com.baidu.tieba.k.f> cR;
-    private String ipS;
+    private String ipU;
     private String mUuid;
 
     /* loaded from: classes10.dex */
     private static class a {
-        private static final com.baidu.tieba.k.h jAy = new j();
+        private static final com.baidu.tieba.k.h jAA = new j();
     }
 
-    public static com.baidu.tieba.k.h cAg() {
-        return a.jAy;
+    public static com.baidu.tieba.k.h cAi() {
+        return a.jAA;
     }
 
     private j() {
@@ -23,69 +23,69 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cgy() {
+    public void cgA() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.k.h
     public void aP(int i, String str) {
-        cAh().q(this.mUuid, i, str);
+        cAj().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void aQ(int i, String str) {
-        cAh().r(this.mUuid, i, str);
+        cAj().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void aR(int i, String str) {
-        cAh().s(this.mUuid, i, str);
+        cAj().s(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cgz() {
-        cAh().EW(this.mUuid);
+    public void cgB() {
+        cAj().EW(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
     public void l(int i, int i2, String str) {
-        cAh().e(this.mUuid, i, i2, str);
+        cAj().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cgA() {
-        cAh().EX(this.mUuid);
+    public void cgC() {
+        cAj().EX(this.mUuid);
         eU(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
     public void aS(int i, String str) {
-        cAh().t(this.mUuid, i, str);
+        cAj().t(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void Fa(String str) {
-        if (!StringUtils.isNull(this.ipS)) {
-            if (EY(this.ipS) || EZ(this.ipS)) {
-                eU(this.ipS);
+        if (!StringUtils.isNull(this.ipU)) {
+            if (EY(this.ipU) || EZ(this.ipU)) {
+                eU(this.ipU);
             } else {
-                com.baidu.tieba.k.d.EV(this.ipS);
+                com.baidu.tieba.k.d.EV(this.ipU);
                 this.cR.remove(this.mUuid);
             }
-            cgy();
-            cAh().dV(this.ipS, str);
-            this.ipS = null;
+            cgA();
+            cAj().dV(this.ipU, str);
+            this.ipU = null;
         }
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cgB() {
-        this.ipS = this.mUuid;
+    public void cgD() {
+        this.ipU = this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.h
     public void Fb(String str) {
-        cAh().dW(this.mUuid, str);
+        cAj().dW(this.mUuid, str);
         if (EY(this.mUuid) || EZ(this.mUuid)) {
             eU(this.mUuid);
         } else {
@@ -96,11 +96,11 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     public boolean EY(String str) {
-        return cAh().EY(str);
+        return cAj().EY(str);
     }
 
     public boolean EZ(String str) {
-        return cAh().EZ(str);
+        return cAj().EZ(str);
     }
 
     public void eU(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.k.h {
         }
     }
 
-    private com.baidu.tieba.k.f cAh() {
+    private com.baidu.tieba.k.f cAj() {
         com.baidu.tieba.k.f fVar = this.cR.get(this.mUuid);
         if (fVar == null) {
-            return cAi();
+            return cAk();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.k.f cAi() {
+    private com.baidu.tieba.k.f cAk() {
         i iVar = new i(this.mUuid);
         this.cR.put(this.mUuid, iVar);
         return iVar;

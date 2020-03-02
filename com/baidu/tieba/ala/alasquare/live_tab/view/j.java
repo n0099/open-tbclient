@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l epw;
     private l epx;
+    private l epy;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.epw = new l(tbPageContext, i);
         this.epx = new l(tbPageContext, i);
+        this.epy = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.epw.getView());
-        this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
         this.rootView.addView(this.epx.getView());
+        this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.rootView.addView(this.epy.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.epw.onChangeSkinType(tbPageContext, i);
         this.epx.onChangeSkinType(tbPageContext, i);
+        this.epy.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -40,8 +40,8 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.epw.a(eVar.elI);
             this.epx.a(eVar.elJ);
+            this.epy.a(eVar.elK);
         }
     }
 

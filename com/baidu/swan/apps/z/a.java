@@ -116,7 +116,7 @@ public class a extends ab {
             case 0:
                 com.baidu.swan.apps.z.a.c a3 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a3, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, a3, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, a3, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -125,7 +125,7 @@ public class a extends ab {
             case 1:
                 com.baidu.swan.apps.z.a.c a4 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a4, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().b(context, a4, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().b(context, a4, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -134,7 +134,7 @@ public class a extends ab {
             case 2:
                 com.baidu.swan.apps.z.a.c a5 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a5, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().c(context, a5, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().c(context, a5, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -143,7 +143,7 @@ public class a extends ab {
             case 3:
                 f fVar = (f) a(unitedSchemeEntity, f.class);
                 if (!a(fVar, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, fVar, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, fVar, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -152,7 +152,7 @@ public class a extends ab {
             case 4:
                 com.baidu.swan.apps.z.a.e eVar2 = (com.baidu.swan.apps.z.a.e) a(unitedSchemeEntity, com.baidu.swan.apps.z.a.e.class);
                 if (!a(eVar2, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, eVar2, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, eVar2, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -161,7 +161,7 @@ public class a extends ab {
             case 5:
                 com.baidu.swan.apps.z.a.c a6 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a6, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().d(context, a6, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().d(context, a6, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -170,7 +170,7 @@ public class a extends ab {
             case 6:
                 com.baidu.swan.apps.z.a.b bVar = (com.baidu.swan.apps.z.a.b) a(unitedSchemeEntity, com.baidu.swan.apps.z.a.b.class);
                 if (!a(bVar, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, bVar, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, bVar, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -179,7 +179,7 @@ public class a extends ab {
             case 7:
                 com.baidu.swan.apps.z.a.c a7 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a7, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().e(context, a7, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().e(context, a7, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -188,7 +188,7 @@ public class a extends ab {
             case '\b':
                 com.baidu.swan.apps.z.a.c a8 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a8, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().f(context, a8, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().f(context, a8, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -197,7 +197,7 @@ public class a extends ab {
             case '\t':
                 com.baidu.swan.apps.z.a.c a9 = a(unitedSchemeEntity, com.baidu.swan.apps.z.a.c.class);
                 if (!a(a9, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().g(context, a9, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().g(context, a9, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -206,7 +206,7 @@ public class a extends ab {
             case '\n':
                 com.baidu.swan.apps.z.a.a aVar = (com.baidu.swan.apps.z.a.a) a(unitedSchemeEntity, com.baidu.swan.apps.z.a.a.class);
                 if (!a(aVar, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, aVar, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, aVar, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -215,7 +215,7 @@ public class a extends ab {
             case 11:
                 g gVar = (g) a(unitedSchemeEntity, g.class);
                 if (!a(gVar, a2)) {
-                    a = com.baidu.swan.apps.w.a.Uf().a(context, gVar, a2, eVar);
+                    a = com.baidu.swan.apps.w.a.Uh().a(context, gVar, a2, eVar);
                     break;
                 } else {
                     a = false;
@@ -269,16 +269,16 @@ public class a extends ab {
             bVar.onError(202);
             return true;
         }
-        if (TextUtils.isEmpty(cVar.bil)) {
-            String ahe = ai.ahe();
-            if (!TextUtils.isEmpty(ahe)) {
-                cVar.bil = ahe;
+        if (TextUtils.isEmpty(cVar.bim)) {
+            String ahg = ai.ahg();
+            if (!TextUtils.isEmpty(ahg)) {
+                cVar.bim = ahg;
             }
             c.w("map", "webView id is empty, use current webView");
         }
-        if (ai.iT(cVar.bil) == null) {
+        if (ai.iT(cVar.bim) == null) {
             bVar.onError(202);
-            c.e("map", "can not find weiView by id " + cVar.bil);
+            c.e("map", "can not find weiView by id " + cVar.bim);
             return true;
         }
         return false;

@@ -19,36 +19,36 @@ import java.util.TimeZone;
 /* loaded from: classes11.dex */
 public class c implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0238a bll;
-    private LocalServerSocket blm;
-    private String bln;
+    private a.InterfaceC0238a blm;
+    private LocalServerSocket bln;
+    private String blo;
     private boolean mRunning;
 
     /* loaded from: classes11.dex */
     public static class a {
-        String blo;
-        boolean blp;
+        String blp;
+        boolean blq;
         Map<String, String> headers = new HashMap();
         String method;
         String uri;
     }
 
     public c(String str, a.InterfaceC0238a interfaceC0238a) {
-        this.bln = str;
-        this.bll = interfaceC0238a;
+        this.blo = str;
+        this.blm = interfaceC0238a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         if (!this.mRunning) {
             try {
-                this.blm = new LocalServerSocket(this.bln);
+                this.bln = new LocalServerSocket(this.blo);
                 this.mRunning = true;
                 int i = 0;
                 while (this.mRunning) {
-                    LocalSocket accept = this.blm.accept();
+                    LocalSocket accept = this.bln.accept();
                     com.baidu.swan.apps.console.v8inspector.a.a aVar = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
-                    aVar.b(this.bll);
+                    aVar.b(this.blm);
                     ExecutorUtilsExt.postOnSerial(aVar, "V8InspectorServer");
                     i++;
                     if (i > 10) {
@@ -67,14 +67,14 @@ public class c implements a.b {
 
     /* loaded from: classes11.dex */
     public static abstract class b {
-        a blq;
+        a blr;
 
-        abstract Map<String, String> Mi();
+        abstract Map<String, String> Mk();
 
-        abstract String Mj();
+        abstract String Ml();
 
         public b(a aVar) {
-            this.blq = aVar;
+            this.blr = aVar;
         }
 
         protected String getContent() {
@@ -85,12 +85,12 @@ public class c implements a.b {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) Mj()).append(" \r\n");
+            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) Ml()).append(" \r\n");
             a(printWriter, "Date", simpleDateFormat.format(new Date()));
             printWriter.print("Content-Length: " + getContent().getBytes().length + "\r\n");
-            Map<String, String> Mi = Mi();
-            if (Mi != null && Mi.size() > 0) {
-                for (Map.Entry<String, String> entry : Mi().entrySet()) {
+            Map<String, String> Mk = Mk();
+            if (Mk != null && Mk.size() > 0) {
+                for (Map.Entry<String, String> entry : Mk().entrySet()) {
                     a(printWriter, entry.getKey(), entry.getValue());
                 }
             }

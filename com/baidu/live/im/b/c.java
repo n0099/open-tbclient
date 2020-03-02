@@ -354,7 +354,7 @@ public class c implements j {
                         this.mMessages = new ArrayList();
                     }
                     boolean n = n(aVar);
-                    if (n || this.mMessages.size() <= com.baidu.live.v.a.zj().awA.aaL) {
+                    if (n || this.mMessages.size() <= com.baidu.live.v.a.zl().awB.aaL) {
                         if (n && !this.mMessages.isEmpty()) {
                             while (i < this.mMessages.size()) {
                                 if (!n(this.mMessages.get(i))) {
@@ -493,11 +493,11 @@ public class c implements j {
         JSONObject optJSONObject2;
         int i = 255;
         boolean z = false;
-        if (strArr == null || strArr.length <= 1 || com.baidu.live.v.a.zj().axB == null) {
+        if (strArr == null || strArr.length <= 1 || com.baidu.live.v.a.zl().axC == null) {
             return null;
         }
         z zVar = new z();
-        aj ajVar = com.baidu.live.v.a.zj().axB.acU;
+        aj ajVar = com.baidu.live.v.a.zl().axC.acU;
         if (ajVar != null && ajVar.acu != null && !TextUtils.isEmpty(strArr[0]) && (optJSONObject2 = ajVar.acu.optJSONObject(strArr[0])) != null) {
             int optInt = optJSONObject2.optInt("transparency");
             if (optInt >= 0 && optInt <= 100) {

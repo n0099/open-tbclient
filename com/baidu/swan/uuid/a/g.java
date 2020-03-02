@@ -22,13 +22,13 @@ public class g implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: agH */
+    /* renamed from: agJ */
     public String get() {
-        return awn();
+        return awp();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean awh() {
+    public boolean awj() {
         return TextUtils.isEmpty(get());
     }
 
@@ -41,7 +41,7 @@ public class g implements b<String> {
         }
     }
 
-    private String awn() {
+    private String awp() {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 return Settings.System.getString(this.mContext.getContentResolver(), "com.baidu.uuid");

@@ -13,19 +13,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes10.dex */
 public class d {
     private BdUniqueId MO;
-    private HttpMessageListener cZT = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.d.1
+    private HttpMessageListener cZU = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == d.this.MO;
-                if (d.this.gjy != null) {
-                    d.this.gjy.j(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+                if (d.this.gjA != null) {
+                    d.this.gjA.j(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
                 }
             }
         }
     };
-    private a gjy;
+    private a gjA;
     private TbPageContext mPageContext;
 
     /* loaded from: classes10.dex */
@@ -36,8 +36,8 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.MO = bdUniqueId;
-        this.cZT.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.cZT);
+        this.cZU.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.cZU);
         te();
     }
 
@@ -50,13 +50,13 @@ public class d {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bCk() {
+    public void bCm() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
         httpMessage.setTag(this.MO);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.gjy = aVar;
+        this.gjA = aVar;
     }
 }

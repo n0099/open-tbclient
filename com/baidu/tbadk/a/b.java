@@ -13,32 +13,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b cJI;
+    private static b cJJ;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> ayu = ayu();
+        HashMap<String, a> ayw = ayw();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(ayu);
+        this.mSwitchs.putAll(ayw);
     }
 
-    public static b ays() {
-        if (cJI == null) {
+    public static b ayu() {
+        if (cJJ == null) {
             synchronized (b.class) {
-                if (cJI == null) {
-                    cJI = new b();
+                if (cJJ == null) {
+                    cJJ = new b();
                 }
             }
         }
-        return cJI;
+        return cJJ;
     }
 
-    private static String ayt() {
+    private static String ayv() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(ayt(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(ayv(), 0);
     }
 
     public synchronized a rG(String str) {
@@ -47,8 +47,8 @@ public class b {
 
     private String cm(String str, String str2) {
         a rG = rG(str);
-        if (rG != null && !TextUtils.isEmpty(rG.cJH)) {
-            return rG.cJH;
+        if (rG != null && !TextUtils.isEmpty(rG.cJI)) {
+            return rG.cJI;
         }
         return str2;
     }
@@ -97,7 +97,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> ayu() {
+    private HashMap<String, a> ayw() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -115,6 +115,6 @@ public class b {
     }
 
     public static boolean rH(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(ays().cm(str, ""));
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(ayu().cm(str, ""));
     }
 }

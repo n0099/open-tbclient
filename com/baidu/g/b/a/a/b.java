@@ -8,32 +8,32 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.g.a.b.a.b {
-    private d aIR;
+    private d aIS;
     private Context mContext;
-    private boolean aIQ = false;
-    private final Map<String, a> aIS = new ConcurrentHashMap();
+    private boolean aIR = false;
+    private final Map<String, a> aIT = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.aIR = dVar;
+        this.aIS = dVar;
     }
 
     private a f(String str, String str2, boolean z) {
-        if (this.aIS.get(str) != null) {
-            this.aIS.get(str).eu(str);
-            this.aIS.remove(str);
+        if (this.aIT.get(str) != null) {
+            this.aIT.get(str).eu(str);
+            this.aIT.remove(str);
         }
-        a aVar = new a(this.aIR.l(this.mContext, str, str2));
-        this.aIS.put(str, aVar);
+        a aVar = new a(this.aIS.l(this.mContext, str, str2));
+        this.aIT.put(str, aVar);
         return aVar;
     }
 
     public a ev(String str) {
-        return this.aIS.get(str);
+        return this.aIT.get(str);
     }
 
     public com.baidu.g.a.b.c ew(String str) {
-        return this.aIS.get(str).BT();
+        return this.aIT.get(str).BV();
     }
 
     @Override // com.baidu.g.a.b.a.b
@@ -53,18 +53,18 @@ public class b implements com.baidu.g.a.b.a.b {
     @Override // com.baidu.g.a.b.a.b
     public synchronized void wl() {
         try {
-            for (Map.Entry<String, a> entry : this.aIS.entrySet()) {
+            for (Map.Entry<String, a> entry : this.aIT.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.aIS.get(key);
+                a aVar = this.aIT.get(key);
                 if (aVar != null) {
-                    if (aVar.BU()) {
+                    if (aVar.BW()) {
                         aVar.wl();
                     }
-                    this.aIS.remove(key);
+                    this.aIT.remove(key);
                 }
             }
-            this.aIR.unregisterConnectListener();
-            this.aIQ = false;
+            this.aIS.unregisterConnectListener();
+            this.aIR = false;
         } catch (Exception e) {
         }
     }
@@ -86,27 +86,27 @@ public class b implements com.baidu.g.a.b.a.b {
     }
 
     private void register() {
-        if (!this.aIQ) {
-            this.aIR.unregisterConnectListener();
-            this.aIR.a(new com.baidu.g.a.b.a() { // from class: com.baidu.g.b.a.a.b.1
+        if (!this.aIR) {
+            this.aIS.unregisterConnectListener();
+            this.aIS.a(new com.baidu.g.a.b.a() { // from class: com.baidu.g.b.a.a.b.1
                 @Override // com.baidu.g.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.aIR.BI();
+                        b.this.aIS.BK();
                     }
                 }
             });
-            this.aIQ = true;
+            this.aIR = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.aIS.entrySet()) {
-                a aVar = this.aIS.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.aIT.entrySet()) {
+                a aVar = this.aIT.get(entry.getKey());
                 if (aVar != null) {
                     aVar.yi();
                 }

@@ -31,12 +31,12 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d {
-    private FrameLayout csX;
-    private NoNetworkView elh;
-    private BdTypeListView guK;
-    private PbListView guL;
-    private f guM;
-    private i guN;
+    private FrameLayout csY;
+    private NoNetworkView eli;
+    private BdTypeListView guM;
+    private PbListView guN;
+    private f guO;
+    private i guP;
     private boolean isFullScreen;
     private String mFrom;
     private String mId;
@@ -46,26 +46,26 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     private String st_type;
     private String yuelaou_locate;
     private List<g> mListData = null;
-    private CustomMessageListener cLx = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.5
+    private CustomMessageListener cLy = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable()) {
                 if (VideoAggregationFragment.this.mNoDataView != null) {
-                    VideoAggregationFragment.this.guN.bGs();
-                } else if (j.isMobileNet() && VideoAggregationFragment.this.guM != null && VideoAggregationFragment.this.guM.kR()) {
+                    VideoAggregationFragment.this.guP.bGu();
+                } else if (j.isMobileNet() && VideoAggregationFragment.this.guO != null && VideoAggregationFragment.this.guO.kR()) {
                     VideoAggregationFragment.this.getPageContext().showToast((int) R.string.video_mobile_play_tips);
                 }
             }
         }
     };
-    private CustomMessageListener dae = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.6
+    private CustomMessageListener daf = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.guM != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isSucc) {
-                VideoAggregationFragment.this.guM.al(data.toUid, data.isAttention);
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.guO != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isSucc) {
+                VideoAggregationFragment.this.guO.al(data.toUid, data.isAttention);
             }
         }
     };
@@ -91,14 +91,14 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.st_type = arguments.getString("st_type");
             this.yuelaou_locate = arguments.getString("yuelaou_locate");
         }
-        this.guN = new i(getPageContext(), this);
-        this.guN.setId(this.mId);
-        this.guN.setFrom(this.mFrom);
-        this.guN.Bk(this.st_type);
-        this.guN.setLocation(this.yuelaou_locate);
-        this.guN.bGs();
-        registerListener(this.cLx);
-        registerListener(this.dae);
+        this.guP = new i(getPageContext(), this);
+        this.guP.setId(this.mId);
+        this.guP.setFrom(this.mFrom);
+        this.guP.Bk(this.st_type);
+        this.guP.setLocation(this.yuelaou_locate);
+        this.guP.bGu();
+        registerListener(this.cLy);
+        registerListener(this.daf);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -109,48 +109,48 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.csX = (FrameLayout) view.findViewById(R.id.container);
+        this.csY = (FrameLayout) view.findViewById(R.id.container);
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.navigation_bar);
-        bcH();
-        this.elh = (NoNetworkView) view.findViewById(R.id.no_network_view);
+        bcJ();
+        this.eli = (NoNetworkView) view.findViewById(R.id.no_network_view);
         if (!j.isNetWorkAvailable()) {
-            this.elh.setVisibility(0);
+            this.eli.setVisibility(0);
         }
-        this.guK = (BdTypeListView) view.findViewById(R.id.listView);
+        this.guM = (BdTypeListView) view.findViewById(R.id.listView);
         this.mPullView = new com.baidu.tbadk.core.view.h(getPageContext());
         this.mPullView.createView();
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.1
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                VideoAggregationFragment.this.guN.bGs();
+                VideoAggregationFragment.this.guP.bGu();
             }
         });
         this.mPullView.setTag(getUniqueId());
-        this.guK.setPullRefresh(this.mPullView);
-        this.guL = new PbListView(getPageContext().getPageActivity());
-        this.guL.createView();
-        this.guL.setLineVisible();
-        this.guL.setText(getResources().getString(R.string.list_has_no_more));
-        this.guL.startLoadData();
-        this.guK.setNextPage(this.guL);
-        this.guK.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.2
+        this.guM.setPullRefresh(this.mPullView);
+        this.guN = new PbListView(getPageContext().getPageActivity());
+        this.guN.createView();
+        this.guN.setLineVisible();
+        this.guN.setText(getResources().getString(R.string.list_has_no_more));
+        this.guN.startLoadData();
+        this.guM.setNextPage(this.guN);
+        this.guM.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    VideoAggregationFragment.this.guN.bGu();
+                    VideoAggregationFragment.this.guP.bGw();
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (VideoAggregationFragment.this.guM != null) {
-                    if (i > VideoAggregationFragment.this.guM.bGp() || i + i2 < VideoAggregationFragment.this.guM.bGp()) {
-                        VideoAggregationFragment.this.guM.bGq();
+                if (VideoAggregationFragment.this.guO != null) {
+                    if (i > VideoAggregationFragment.this.guO.bGr() || i + i2 < VideoAggregationFragment.this.guO.bGr()) {
+                        VideoAggregationFragment.this.guO.bGs();
                     }
                 }
             }
         });
-        this.guM = new f(getPageContext(), this.guK, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
+        this.guO = new f(getPageContext(), this.guM, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
         showLoadingView();
     }
 
@@ -161,27 +161,27 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         VideoAggregationFragment.this.hideNoDataView();
-                        VideoAggregationFragment.this.guN.bGs();
+                        VideoAggregationFragment.this.guP.bGu();
                     }
                 })));
             } else {
-                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.csX, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(getActivity(), R.dimen.ds220)), NoDataViewFactory.d.lh(R.string.video_no_data), null);
+                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.csY, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(getActivity(), R.dimen.ds220)), NoDataViewFactory.d.lh(R.string.video_no_data), null);
             }
         }
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.guK.setVisibility(8);
+        this.guM.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
         if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
             this.mNoDataView.setVisibility(8);
-            this.guK.setVisibility(0);
+            this.guM.setVisibility(0);
         }
     }
 
-    private void bcH() {
+    private void bcJ() {
         if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.mFrom)) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.video_aggregation_title));
         } else {
@@ -198,12 +198,12 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void tg(int i) {
-        if (this.guK != null && this.guM != null) {
-            if (i == 1 && this.guM.kR()) {
-                this.guM.kP();
+        if (this.guM != null && this.guO != null) {
+            if (i == 1 && this.guO.kR()) {
+                this.guO.kP();
             }
             if (i == 2) {
-                this.guM.kQ();
+                this.guO.kQ();
             }
         }
     }
@@ -212,8 +212,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.elh.onChangeSkinType(getPageContext(), i);
-        am.setBackgroundColor(this.csX, R.color.cp_cont_g);
+        this.eli.onChangeSkinType(getPageContext(), i);
+        am.setBackgroundColor(this.csY, R.color.cp_cont_g);
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
@@ -226,8 +226,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.isFullScreen = false;
             this.mNavigationBar.setVisibility(0);
         }
-        if (this.guM != null) {
-            this.guM.onConfigurationChanged(configuration);
+        if (this.guO != null) {
+            this.guO.onConfigurationChanged(configuration);
         }
     }
 
@@ -246,25 +246,25 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.guN != null) {
-            this.guN.bGt();
+        if (this.guP != null) {
+            this.guP.bGv();
         }
-        if (this.guM != null) {
-            this.guM.onDestroy();
+        if (this.guO != null) {
+            this.guO.onDestroy();
         }
     }
 
     public void showLoadingView() {
-        if (getPageContext() != null && this.csX != null) {
-            showLoadingView(this.csX, false, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds360));
+        if (getPageContext() != null && this.csY != null) {
+            showLoadingView(this.csY, false, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds360));
         }
     }
 
     @Override // com.baidu.tieba.frs.aggregation.d
     public void hideLoadingView() {
-        if (this.csX != null) {
-            this.guK.completePullRefreshPostDelayed(0L);
-            hideLoadingView(this.csX);
+        if (this.csY != null) {
+            this.guM.completePullRefreshPostDelayed(0L);
+            hideLoadingView(this.csY);
         }
     }
 
@@ -273,9 +273,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     @Override // com.baidu.tieba.frs.aggregation.d
-    public void Si() {
+    public void Sk() {
         if (v.isEmpty(this.mListData)) {
-            h(this.csX, true);
+            h(this.csY, true);
         }
     }
 
@@ -288,25 +288,25 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.mListData.addAll(list);
             }
             if (z && list.size() == 0) {
-                h(this.csX, false);
+                h(this.csY, false);
                 return;
             }
-            this.guM.setData(list, z);
+            this.guO.setData(list, z);
             if (!z2) {
-                this.guL.endLoadData();
+                this.guN.endLoadData();
             }
             hideNoDataView();
             if (this.mNoDataView != null) {
-                this.csX.removeView(this.mNoDataView);
+                this.csY.removeView(this.mNoDataView);
                 this.mNoDataView = null;
             }
         }
     }
 
     public boolean tf(int i) {
-        if (this.guM == null) {
+        if (this.guO == null) {
             return false;
         }
-        return this.guM.tf(i);
+        return this.guO.tf(i);
     }
 }

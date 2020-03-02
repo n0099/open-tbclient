@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String nrZ = "";
-    private String from = "";
-    private String nsa = "";
     private String nsb = "";
+    private String from = "";
     private String nsc = "";
     private String nsd = "";
+    private String nse = "";
+    private String nsf = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String RC(String str) {
@@ -47,19 +47,19 @@ public class b implements Cloneable {
     }
 
     public String wx(boolean z) {
-        return z ? RC(this.nsc) : this.nsc;
+        return z ? RC(this.nse) : this.nse;
     }
 
     public String wy(boolean z) {
-        return z ? RC(this.nsa) : this.nsa;
+        return z ? RC(this.nsc) : this.nsc;
     }
 
     public void RD(String str) {
-        this.nsa = str;
+        this.nsc = str;
     }
 
     public String wz(boolean z) {
-        return z ? RC(this.nsb) : this.nsb;
+        return z ? RC(this.nsd) : this.nsd;
     }
 
     public String wA(boolean z) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String wC(boolean z) {
-        return z ? RC(this.nrZ) : this.nrZ;
+        return z ? RC(this.nsb) : this.nsb;
     }
 
-    public boolean dHU() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nsa)) ? false : true;
+    public boolean dHW() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nsc)) ? false : true;
     }
 
     public Object clone() {

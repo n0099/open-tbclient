@@ -21,21 +21,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private WrapLineLayout gmS;
-    private List<a> gmT;
+    private WrapLineLayout gmU;
+    private List<a> gmV;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gmT = new ArrayList();
+        this.gmV = new ArrayList();
         this.mSkinType = 3;
-        this.gmS = (WrapLineLayout) getView();
+        this.gmU = (WrapLineLayout) getView();
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            for (a aVar : this.gmT) {
+            for (a aVar : this.gmV) {
                 if (aVar != null) {
                     aVar.onChangeSkinType();
                 }
@@ -52,14 +52,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
-        if (aVar != null && !v.isEmpty(aVar.bCN())) {
-            sy(aVar.bCN().size());
-            int size = this.gmT.size();
+        if (aVar != null && !v.isEmpty(aVar.bCP())) {
+            sy(aVar.bCP().size());
+            int size = this.gmV.size();
             for (int i = 0; i < size; i++) {
-                a aVar2 = this.gmT.get(i);
+                a aVar2 = this.gmV.get(i);
                 if (aVar2 != null) {
                     aVar2.la(false);
-                    aVar2.mTextView.setText(aVar.bCN().get(i));
+                    aVar2.mTextView.setText(aVar.bCP().get(i));
                 }
             }
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -67,51 +67,51 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     }
 
     private void sy(int i) {
-        int size = this.gmT.size();
+        int size = this.gmV.size();
         if (size != i) {
             if (size < i) {
                 int i2 = i - size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    a bCS = bCS();
+                    a bCU = bCU();
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                     marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds2);
                     marginLayoutParams.leftMargin = marginLayoutParams.topMargin;
-                    this.gmS.addView(bCS.getView(), marginLayoutParams);
-                    this.gmT.add(bCS);
+                    this.gmU.addView(bCU.getView(), marginLayoutParams);
+                    this.gmV.add(bCU);
                 }
             } else if (i == 0) {
-                this.gmS.removeAllViews();
-                this.gmT.clear();
+                this.gmU.removeAllViews();
+                this.gmV.clear();
             } else if (size > i) {
                 int i4 = size - i;
                 for (int i5 = 0; i5 < i4; i5++) {
-                    this.gmS.removeView(this.gmT.get(i5).getView());
-                    this.gmT.remove(i5);
+                    this.gmU.removeView(this.gmV.get(i5).getView());
+                    this.gmV.remove(i5);
                 }
             }
         }
     }
 
-    private a bCS() {
+    private a bCU() {
         return new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a {
-        private ImageView fCP;
+        private ImageView fCR;
         private View mRootView;
         private TextView mTextView;
 
         public a() {
             this.mRootView = LayoutInflater.from(b.this.getTbPageContext().getPageActivity()).inflate(R.layout.forum_search_history_info_item, (ViewGroup) null);
             this.mTextView = (TextView) this.mRootView.findViewById(R.id.content);
-            this.fCP = (ImageView) this.mRootView.findViewById(R.id.delete);
+            this.fCR = (ImageView) this.mRootView.findViewById(R.id.delete);
             onChangeSkinType();
             this.mTextView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    for (a aVar : b.this.gmT) {
+                    for (a aVar : b.this.gmV) {
                         if (aVar != null && aVar.getView() != view) {
                             aVar.la(false);
                         }
@@ -128,7 +128,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                     }
                 }
             });
-            this.fCP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.3
+            this.fCR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.mTextView.getText() != null) {
@@ -145,17 +145,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
         public void la(boolean z) {
             if (z) {
-                this.fCP.setVisibility(0);
-                am.setImageResource(this.fCP, R.drawable.del_search_btn);
+                this.fCR.setVisibility(0);
+                am.setImageResource(this.fCR, R.drawable.del_search_btn);
                 return;
             }
-            this.fCP.setVisibility(4);
+            this.fCR.setVisibility(4);
         }
 
         public void onChangeSkinType() {
             am.setViewTextColor(this.mTextView, (int) R.color.cp_cont_b);
             am.setBackgroundResource(this.mTextView, R.drawable.search_history_item_bg);
-            am.setImageResource(this.fCP, R.drawable.del_search_btn);
+            am.setImageResource(this.fCR, R.drawable.del_search_btn);
         }
     }
 

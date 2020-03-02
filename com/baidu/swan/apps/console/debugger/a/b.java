@@ -24,12 +24,12 @@ public class b extends ab {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!e.LN()) {
+        if (!e.LP()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity acz = com.baidu.swan.apps.runtime.d.acA().acz();
+        SwanAppActivity acB = com.baidu.swan.apps.runtime.d.acC().acB();
         char c = 65535;
         switch (str.hashCode()) {
             case -279631955:
@@ -48,19 +48,19 @@ public class b extends ab {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (acz != null) {
-                    Intent intent = acz.getIntent();
-                    e.LP();
-                    com.baidu.swan.apps.runtime.d.acA().v(new String[0]);
-                    com.baidu.swan.apps.runtime.d.acA().c(intent.getExtras(), "update_tag_by_remote_debug");
+                if (acB != null) {
+                    Intent intent = acB.getIntent();
+                    e.LR();
+                    com.baidu.swan.apps.runtime.d.acC().v(new String[0]);
+                    com.baidu.swan.apps.runtime.d.acC().c(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             case 1:
-                if (acz != null) {
+                if (acB != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        acz.finishAndRemoveTask();
+                        acB.finishAndRemoveTask();
                     } else {
-                        acz.finish();
+                        acB.finish();
                     }
                     System.exit(0);
                 }

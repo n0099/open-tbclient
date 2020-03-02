@@ -11,14 +11,14 @@ public class e implements Closeable {
     private ScheduledFuture<?> dd;
 
     /* renamed from: de  reason: collision with root package name */
-    private boolean f970de;
+    private boolean f969de;
     private final Object lock;
 
     public boolean aS() {
         boolean z;
         synchronized (this.lock) {
             aT();
-            z = this.f970de;
+            z = this.f969de;
         }
         return z;
     }

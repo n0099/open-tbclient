@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c kon;
-    private a koo = cND();
+    private static c kop;
+    private a koq = cNF();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,51 +19,51 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean cNC() {
-        return com.baidu.tbadk.core.sharedPref.b.aFB().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    private boolean cNE() {
+        return com.baidu.tbadk.core.sharedPref.b.aFD().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a cND() {
+    private a cNF() {
         CustomResponsedMessage runTask;
-        if (!cNC() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!cNE() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c cNE() {
-        if (kon == null) {
+    public static c cNG() {
+        if (kop == null) {
             synchronized (c.class) {
-                if (kon == null) {
-                    kon = new c();
+                if (kop == null) {
+                    kop = new c();
                 }
             }
         }
-        return kon;
+        return kop;
     }
 
     public void autoTrace(Context context) {
-        if (!aWc() && this.koo != null) {
-            this.koo.autoTrace(context);
+        if (!aWe() && this.koq != null) {
+            this.koq.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (!aWc() && this.koo != null) {
-            this.koo.setAppChannel(context, str, z);
+        if (!aWe() && this.koq != null) {
+            this.koq.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (!aWc() && this.koo != null) {
-            this.koo.trackWebView(context, webView, webChromeClient);
+        if (!aWe() && this.koq != null) {
+            this.koq.trackWebView(context, webView, webChromeClient);
         }
     }
 
-    private static boolean aWc() {
-        return !com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean("key_secret_is_show", false);
+    private static boolean aWe() {
+        return !com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean("key_secret_is_show", false);
     }
 }

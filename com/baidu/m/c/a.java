@@ -7,12 +7,12 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public JSONObject bBp;
-    private CallbackHandler bzH;
+    public JSONObject bBq;
+    private CallbackHandler bzI;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.bzH = callbackHandler;
-        this.bBp = jSONObject;
+        this.bzI = callbackHandler;
+        this.bBq = jSONObject;
     }
 
     public void jc(String str) {
@@ -20,9 +20,9 @@ public class a {
     }
 
     public void d(String str, JSONObject jSONObject) {
-        if (this.bBp != null && this.bzH != null) {
+        if (this.bBq != null && this.bzI != null) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            this.bzH.handleSchemeDispatchCallback(this.bBp.optString(str), wrapCallbackParams.toString());
+            this.bzI.handleSchemeDispatchCallback(this.bBq.optString(str), wrapCallbackParams.toString());
             if (DEBUG) {
                 Log.d("AudioRTCEventCallback", "AudioRTC callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }

@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bXW;
+    private static String bXX;
 
-    public static String ago() {
+    public static String agq() {
         return mB("swan");
     }
 
-    public static String Ru() {
+    public static String Rw() {
         return mB("swangame");
     }
 
     private static String mB(String str) {
-        String hostName = com.baidu.swan.apps.w.a.UF().getHostName();
+        String hostName = com.baidu.swan.apps.w.a.UH().getHostName();
         a aVar = new a();
         aVar.mC(str).mD(c.getVersion()).mE(hostName).mF(getVersionName()).mG(getOSVersion());
-        return aVar.agp();
+        return aVar.agr();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.w.a.TU();
+        return com.baidu.swan.apps.w.a.TW();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(bXW)) {
-            return bXW;
+        if (!TextUtils.isEmpty(bXX)) {
+            return bXX;
         }
         try {
-            bXW = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return bXW;
+            bXX = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return bXX;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,33 +56,33 @@ public class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private static String bYb = "%s/%s";
-        private static String bYc = "%s-%s/%s";
-        private static String bYd = "(Baidu; P1 %s)";
-        private static String bYe = "%s/%s";
+        private static String bYc = "%s/%s";
+        private static String bYd = "%s-%s/%s";
+        private static String bYe = "(Baidu; P1 %s)";
+        private static String bYf = "%s/%s";
         private String QF;
-        private String bXX;
         private String bXY;
         private String bXZ;
         private String bYa;
+        private String bYb;
 
         public a mC(String str) {
-            this.bXX = str;
-            return this;
-        }
-
-        public a mD(String str) {
             this.bXY = str;
             return this;
         }
 
-        public a mE(String str) {
+        public a mD(String str) {
             this.bXZ = str;
             return this;
         }
 
-        public a mF(String str) {
+        public a mE(String str) {
             this.bYa = str;
+            return this;
+        }
+
+        public a mF(String str) {
+            this.bYb = str;
             return this;
         }
 
@@ -91,19 +91,19 @@ public class b {
             return this;
         }
 
-        public String agp() {
-            String format = String.format(bYb, this.bXX, this.bXY);
-            String format2 = String.format(bYc, this.bXX, this.bXZ, this.bYa);
-            String format3 = String.format(bYe, this.bXZ, this.bYa);
-            String format4 = String.format(bYd, this.QF);
-            if (agq()) {
+        public String agr() {
+            String format = String.format(bYc, this.bXY, this.bXZ);
+            String format2 = String.format(bYd, this.bXY, this.bYa, this.bYb);
+            String format3 = String.format(bYf, this.bYa, this.bYb);
+            String format4 = String.format(bYe, this.QF);
+            if (ags()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean agq() {
-            return TextUtils.equals("baiduboxapp", this.bXZ);
+        private boolean ags() {
+            return TextUtils.equals("baiduboxapp", this.bYa);
         }
     }
 }

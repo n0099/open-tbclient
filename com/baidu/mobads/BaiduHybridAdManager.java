@@ -7,26 +7,26 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* loaded from: classes10.dex */
 public class BaiduHybridAdManager {
-    private com.baidu.mobads.production.d.a aOF;
-    private WebView aOG;
-    private BaiduHybridAdViewListener aOE = new d(this);
+    private com.baidu.mobads.production.d.a aOG;
+    private WebView aOH;
+    private BaiduHybridAdViewListener aOF = new d(this);
     private boolean e = false;
-    IOAdEventListener aOy = new e(this);
+    IOAdEventListener aOz = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.aOE = baiduHybridAdViewListener;
+        this.aOF = baiduHybridAdViewListener;
     }
 
     public void injectJavaScriptBridge(WebView webView) {
         if (!this.e) {
-            this.aOG = webView;
-            this.aOF = new com.baidu.mobads.production.d.a(this.aOG);
-            this.aOF.addEventListener(IXAdEvent.AD_LOADED, this.aOy);
-            this.aOF.addEventListener(IXAdEvent.AD_ERROR, this.aOy);
-            this.aOF.addEventListener(IXAdEvent.AD_STARTED, this.aOy);
-            this.aOF.addEventListener("AdUserClick", this.aOy);
-            this.aOF.addEventListener(IXAdEvent.AD_USER_CLOSE, this.aOy);
-            this.aOF.request();
+            this.aOH = webView;
+            this.aOG = new com.baidu.mobads.production.d.a(this.aOH);
+            this.aOG.addEventListener(IXAdEvent.AD_LOADED, this.aOz);
+            this.aOG.addEventListener(IXAdEvent.AD_ERROR, this.aOz);
+            this.aOG.addEventListener(IXAdEvent.AD_STARTED, this.aOz);
+            this.aOG.addEventListener("AdUserClick", this.aOz);
+            this.aOG.addEventListener(IXAdEvent.AD_USER_CLOSE, this.aOz);
+            this.aOG.request();
         }
     }
 
@@ -35,8 +35,8 @@ public class BaiduHybridAdManager {
     }
 
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!this.e && this.aOF != null) {
-            this.aOF.a(webView, str);
+        if (!this.e && this.aOG != null) {
+            this.aOG.a(webView, str);
         }
         try {
         } catch (Exception e) {

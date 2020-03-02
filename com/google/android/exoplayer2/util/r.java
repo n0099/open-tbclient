@@ -4,7 +4,7 @@ import android.os.SystemClock;
 /* loaded from: classes6.dex */
 final class r implements b {
     @Override // com.google.android.exoplayer2.util.b
-    public long dzj() {
+    public long dzl() {
         return SystemClock.elapsedRealtime();
     }
 }

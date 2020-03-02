@@ -27,14 +27,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes11.dex */
 public class b {
-    private static b cfM;
+    private static b cfN;
     private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b ajz() {
-        if (cfM == null) {
-            cfM = new b();
+    public static b ajB() {
+        if (cfN == null) {
+            cfN = new b();
         }
-        return cfM;
+        return cfN;
     }
 
     private b() {

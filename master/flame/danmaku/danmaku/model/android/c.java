@@ -8,54 +8,54 @@ import master.flame.danmaku.danmaku.model.p;
 import master.flame.danmaku.danmaku.model.q;
 /* loaded from: classes5.dex */
 public class c {
-    public master.flame.danmaku.danmaku.model.g nHH;
-    public master.flame.danmaku.danmaku.model.g nHI;
     public master.flame.danmaku.danmaku.model.g nHJ;
-    public m nHL;
-    private DanmakuContext nHM;
-    public int nHC = 0;
-    public int nHD = 0;
-    private float nHE = 1.0f;
-    public long nHF = 10000;
-    public long nHG = 4000;
-    public l nHK = new d();
+    public master.flame.danmaku.danmaku.model.g nHK;
+    public master.flame.danmaku.danmaku.model.g nHL;
+    public m nHN;
+    private DanmakuContext nHO;
+    public int nHE = 0;
+    public int nHF = 0;
+    private float nHG = 1.0f;
+    public long nHH = 10000;
+    public long nHI = 4000;
+    public l nHM = new d();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c dMu() {
+    public static c dMw() {
         return new c();
     }
 
     protected c() {
     }
 
-    public void dMv() {
-        this.nHL = null;
-        this.nHD = 0;
-        this.nHC = 0;
-        this.nHK.clear();
-        this.nHH = null;
-        this.nHI = null;
+    public void dMx() {
+        this.nHN = null;
+        this.nHF = 0;
+        this.nHE = 0;
+        this.nHM.clear();
         this.nHJ = null;
-        this.nHG = 4000L;
+        this.nHK = null;
+        this.nHL = null;
+        this.nHI = 4000L;
     }
 
     public void b(DanmakuContext danmakuContext) {
-        this.nHM = danmakuContext;
-        this.nHL = danmakuContext.dMo();
+        this.nHO = danmakuContext;
+        this.nHN = danmakuContext.dMq();
         a(1, danmakuContext);
     }
 
     public master.flame.danmaku.danmaku.model.d NM(int i) {
-        return a(i, this.nHM);
+        return a(i, this.nHO);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, DanmakuContext danmakuContext) {
         if (danmakuContext == null) {
             return null;
         }
-        this.nHM = danmakuContext;
-        this.nHL = danmakuContext.dMo();
-        return a(i, this.nHL.getWidth(), this.nHL.getHeight(), this.nHE, danmakuContext.nHk);
+        this.nHO = danmakuContext;
+        this.nHN = danmakuContext.dMq();
+        return a(i, this.nHN.getWidth(), this.nHN.getHeight(), this.nHG, danmakuContext.nHm);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, int i2, int i3, float f, float f2) {
@@ -65,20 +65,20 @@ public class c {
     public master.flame.danmaku.danmaku.model.d b(int i, float f, float f2, float f3, float f4) {
         float f5;
         float f6 = 1.0f;
-        int i2 = this.nHC;
-        int i3 = this.nHD;
+        int i2 = this.nHE;
+        int i3 = this.nHF;
         boolean i4 = i(f, f2, f3);
-        if (this.nHH == null) {
-            this.nHH = new master.flame.danmaku.danmaku.model.g(this.nHF);
-            this.nHH.bF(f4);
+        if (this.nHJ == null) {
+            this.nHJ = new master.flame.danmaku.danmaku.model.g(this.nHH);
+            this.nHJ.bF(f4);
         } else if (i4) {
-            this.nHH.setValue(this.nHF);
+            this.nHJ.setValue(this.nHH);
         }
-        if (this.nHI == null) {
-            this.nHI = new master.flame.danmaku.danmaku.model.g(10000L);
+        if (this.nHK == null) {
+            this.nHK = new master.flame.danmaku.danmaku.model.g(10000L);
         }
         if (i4 && f > 0.0f) {
-            dMw();
+            dMy();
             if (i2 <= 0 || i3 <= 0) {
                 f5 = 1.0f;
             } else {
@@ -91,52 +91,52 @@ public class c {
         }
         switch (i) {
             case 1:
-                return new p(this.nHH);
+                return new p(this.nHJ);
             case 2:
             case 3:
             default:
                 return null;
             case 4:
-                return new master.flame.danmaku.danmaku.model.h(this.nHI);
+                return new master.flame.danmaku.danmaku.model.h(this.nHK);
             case 5:
-                return new master.flame.danmaku.danmaku.model.i(this.nHI);
+                return new master.flame.danmaku.danmaku.model.i(this.nHK);
             case 6:
-                return new o(this.nHH);
+                return new o(this.nHJ);
             case 7:
                 q qVar = new q();
-                this.nHK.k(qVar);
+                this.nHM.k(qVar);
                 return qVar;
         }
     }
 
     public boolean i(float f, float f2, float f3) {
-        if (this.nHC == ((int) f) && this.nHD == ((int) f2) && this.nHE == f3) {
+        if (this.nHE == ((int) f) && this.nHF == ((int) f2) && this.nHG == f3) {
             return false;
         }
-        this.nHF = 10000.0f * ((f3 * f) / 682.0f);
-        this.nHF = Math.min(9000L, this.nHF);
-        this.nHF = Math.max(4000L, this.nHF);
-        this.nHC = (int) f;
-        this.nHD = (int) f2;
-        this.nHE = f3;
+        this.nHH = 10000.0f * ((f3 * f) / 682.0f);
+        this.nHH = Math.min(9000L, this.nHH);
+        this.nHH = Math.max(4000L, this.nHH);
+        this.nHE = (int) f;
+        this.nHF = (int) f2;
+        this.nHG = f3;
         return true;
     }
 
     private void F(final float f, final float f2) {
-        this.nHK.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
+        this.nHM.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
             public int bV(master.flame.danmaku.danmaku.model.d dVar) {
                 q qVar = (q) dVar;
-                c.this.a(qVar, qVar.nGh, qVar.nGi, qVar.iJR, qVar.iJS, qVar.nGj, qVar.nGk, f, f2);
-                q.a[] aVarArr = qVar.nGr;
+                c.this.a(qVar, qVar.nGj, qVar.nGk, qVar.iJT, qVar.iJU, qVar.nGl, qVar.nGm, f, f2);
+                q.a[] aVarArr = qVar.nGt;
                 if (aVarArr != null && aVarArr.length > 0) {
                     int length = aVarArr.length;
                     float[][] fArr = (float[][]) Array.newInstance(Float.TYPE, length + 1, 2);
                     for (int i = 0; i < length; i++) {
-                        fArr[i] = aVarArr[i].dMk();
-                        fArr[i + 1] = aVarArr[i].dMl();
+                        fArr[i] = aVarArr[i].dMm();
+                        fArr[i + 1] = aVarArr[i].dMn();
                     }
                     c.a(qVar, fArr, f, f2);
                 }
@@ -145,14 +145,14 @@ public class c {
         });
     }
 
-    public void dMw() {
-        long j = this.nHH == null ? 0L : this.nHH.value;
-        long j2 = this.nHI == null ? 0L : this.nHI.value;
-        long j3 = this.nHJ != null ? this.nHJ.value : 0L;
-        this.nHG = Math.max(j, j2);
-        this.nHG = Math.max(this.nHG, j3);
-        this.nHG = Math.max(10000L, this.nHG);
-        this.nHG = Math.max(this.nHF, this.nHG);
+    public void dMy() {
+        long j = this.nHJ == null ? 0L : this.nHJ.value;
+        long j2 = this.nHK == null ? 0L : this.nHK.value;
+        long j3 = this.nHL != null ? this.nHL.value : 0L;
+        this.nHI = Math.max(j, j2);
+        this.nHI = Math.max(this.nHI, j3);
+        this.nHI = Math.max(10000L, this.nHI);
+        this.nHI = Math.max(this.nHH, this.nHI);
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, float f, float f2, float f3, float f4, long j, long j2, float f5, float f6) {
@@ -175,9 +175,9 @@ public class c {
     }
 
     private void u(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.nHJ == null || (dVar.nFC != null && dVar.nFC.value > this.nHJ.value)) {
-            this.nHJ = dVar.nFC;
-            dMw();
+        if (this.nHL == null || (dVar.nFE != null && dVar.nFE.value > this.nHL.value)) {
+            this.nHL = dVar.nFE;
+            dMy();
         }
     }
 }

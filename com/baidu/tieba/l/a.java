@@ -15,19 +15,19 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class a {
-    private static final int iqy = V(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int iqz = V(new byte[]{106, 117, 110, 107});
-    private static final int iqA = V(new byte[]{109, 100, 97, 116});
-    private static final int iqB = V(new byte[]{109, 111, 111, 118});
-    private static final int iqC = V(new byte[]{112, 110, 111, 116});
-    private static final int iqD = V(new byte[]{115, 107, 105, 112});
-    private static final int iqE = V(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int iqF = V(new byte[]{80, 73, 67, 84});
-    private static final int iqG = V(new byte[]{102, 116, 121, 112});
-    private static final int iqH = V(new byte[]{117, 117, 105, 100});
-    private static final int iqI = V(new byte[]{99, 109, 111, 118});
-    private static final int iqJ = V(new byte[]{115, 116, 99, 111});
-    private static final int iqK = V(new byte[]{99, 111, 54, 52});
+    private static final int iqA = V(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int iqB = V(new byte[]{106, 117, 110, 107});
+    private static final int iqC = V(new byte[]{109, 100, 97, 116});
+    private static final int iqD = V(new byte[]{109, 111, 111, 118});
+    private static final int iqE = V(new byte[]{112, 110, 111, 116});
+    private static final int iqF = V(new byte[]{115, 107, 105, 112});
+    private static final int iqG = V(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int iqH = V(new byte[]{80, 73, 67, 84});
+    private static final int iqI = V(new byte[]{102, 116, 121, 112});
+    private static final int iqJ = V(new byte[]{117, 117, 105, 100});
+    private static final int iqK = V(new byte[]{99, 109, 111, 118});
+    private static final int iqL = V(new byte[]{115, 116, 99, 111});
+    private static final int iqM = V(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -142,14 +142,14 @@ public class a {
             }
             long yk = yk(order.getInt());
             i = order.getInt();
-            if (i == iqG) {
+            if (i == iqI) {
                 int ek = ek(yk);
                 ByteBuffer order2 = ByteBuffer.allocate(ek).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= ek - 8) {
                     order2.flip();
-                    if ((i == iqy && i != iqz && i != iqA && i != iqB && i != iqC && i != iqD && i != iqE && i != iqF && i != iqH && i != iqG) || yk < 8) {
+                    if ((i == iqA && i != iqB && i != iqC && i != iqD && i != iqE && i != iqF && i != iqG && i != iqH && i != iqJ && i != iqI) || yk < 8) {
                         break;
                     }
                     i2 = i;
@@ -167,12 +167,12 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + yk) - 8);
                 }
-                if (i == iqy) {
+                if (i == iqA) {
                 }
                 i2 = i;
             }
         }
-        return i != iqB ? 0 : 1;
+        return i != iqD ? 0 : 1;
     }
 
     public static void a(String str, String str2, final InterfaceC0545a interfaceC0545a) {
@@ -269,7 +269,7 @@ public class a {
             }
             j2 = yk(order.getInt());
             i2 = order.getInt();
-            if (i2 == iqG) {
+            if (i2 == iqI) {
                 int ek = ek(j2);
                 byteBuffer2 = ByteBuffer.allocate(ek).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -283,7 +283,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == iqy && i2 != iqz && i2 != iqA && i2 != iqB && i2 != iqC && i2 != iqD && i2 != iqE && i2 != iqF && i2 != iqH && i2 != iqG) {
+                if (i2 == iqA && i2 != iqB && i2 != iqC && i2 != iqD && i2 != iqE && i2 != iqF && i2 != iqG && i2 != iqH && i2 != iqJ && i2 != iqI) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -311,13 +311,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == iqy) {
+                if (i2 == iqA) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != iqB) {
+        if (i != iqD) {
             return false;
         }
         int ek2 = ek(j2);
@@ -326,13 +326,13 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == iqI) {
+        if (order2.getInt(12) == iqK) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != iqJ && i3 != iqK) {
+            if (i3 != iqL && i3 != iqM) {
                 order2.position(order2.position() + 1);
             } else if (yk(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -342,7 +342,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int ek3 = ek(order2.getInt());
-                if (i3 == iqJ) {
+                if (i3 == iqL) {
                     if (order2.remaining() < ek3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -355,7 +355,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != iqK) {
+                } else if (i3 != iqM) {
                     continue;
                 } else if (order2.remaining() < ek3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

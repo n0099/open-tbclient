@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean kjs = new AtomicBoolean(false);
-    private static List<Integer> kjt = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean kju = new AtomicBoolean(false);
+    private static List<Integer> kjv = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!kjt.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!kjv.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!kjt.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!kjv.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -32,10 +32,11 @@ public class f {
 
     private static boolean b(int i, String str, a aVar) {
         i uh;
-        if (kjs.compareAndSet(false, true)) {
+        if (kju.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
-                final i aJk = i.aJk();
+                final i aJm = i.aJm();
+                aJm.a(aVar);
                 if (aVar != null) {
                     aVar.onFail();
                 }
@@ -46,7 +47,7 @@ public class f {
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                             com.baidu.tbadk.core.dialog.a.this.dismiss();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, aJk));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, aJm));
                         }
                     });
                     aVar2.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.2
@@ -57,14 +58,14 @@ public class f {
                     });
                     if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof com.baidu.adp.base.f) {
                         aVar2.b(((com.baidu.adp.base.f) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        aVar2.aEA();
+                        aVar2.aEC();
                     }
                 }
             } else {
                 if (i == 3250017) {
-                    uh = i.aJl();
+                    uh = i.aJn();
                 } else if (i == 3250023) {
-                    uh = i.aJm();
+                    uh = i.aJo();
                 } else if (i == 3250024) {
                     uh = new i(4, null);
                 } else {
@@ -73,7 +74,7 @@ public class f {
                 uh.a(aVar);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, uh));
             }
-            kjs.set(false);
+            kju.set(false);
             return true;
         }
         return false;
@@ -85,7 +86,7 @@ public class f {
 
         public abstract void An(String str);
 
-        public abstract void bxE();
+        public abstract void bxG();
 
         public void b(i.c cVar) {
             if (cVar != null && cVar.isSuccess) {
@@ -96,7 +97,7 @@ public class f {
                     An(((i.b) cVar).callbackKey);
                     return;
                 } else {
-                    bxE();
+                    bxG();
                     return;
                 }
             }

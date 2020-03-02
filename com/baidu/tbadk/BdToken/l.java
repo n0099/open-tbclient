@@ -1,19 +1,19 @@
 package com.baidu.tbadk.BdToken;
 /* loaded from: classes.dex */
 public class l extends h {
-    private volatile long cIE;
+    private volatile long cIF;
 
     public l(b bVar) {
         super(bVar);
-        this.cIE = System.currentTimeMillis();
+        this.cIF = System.currentTimeMillis();
     }
 
-    public synchronized long axU() {
-        this.cIE = System.currentTimeMillis() + 60000;
-        return this.cIE;
+    public synchronized long axW() {
+        this.cIF = System.currentTimeMillis() + 60000;
+        return this.cIF;
     }
 
     public boolean isTimeout() {
-        return System.currentTimeMillis() - this.cIE >= 60000;
+        return System.currentTimeMillis() - this.cIF >= 60000;
     }
 }

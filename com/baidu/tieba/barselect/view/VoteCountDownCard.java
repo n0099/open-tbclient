@@ -15,14 +15,14 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.VoteCountDownView;
 /* loaded from: classes8.dex */
 public class VoteCountDownCard extends LinearLayout {
-    private a fCH;
-    private f fCf;
-    private e fDy;
-    private VoteCountDownView fGI;
-    private TextView fGJ;
-    private TextView fGK;
+    private a fCJ;
+    private f fCh;
+    private e fDA;
+    private VoteCountDownView fGK;
     private TextView fGL;
-    private VoteCountDownView.a fGM;
+    private TextView fGM;
+    private TextView fGN;
+    private VoteCountDownView.a fGO;
     private Context mContext;
 
     /* loaded from: classes8.dex */
@@ -36,12 +36,12 @@ public class VoteCountDownCard extends LinearLayout {
 
     public VoteCountDownCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fGM = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
+        this.fGO = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
             @Override // com.baidu.tieba.view.VoteCountDownView.a
             public void onFinished() {
-                VoteCountDownCard.this.buD();
-                if (VoteCountDownCard.this.fCH != null) {
-                    VoteCountDownCard.this.fCH.onRefresh();
+                VoteCountDownCard.this.buF();
+                if (VoteCountDownCard.this.fCJ != null) {
+                    VoteCountDownCard.this.fCJ.onRefresh();
                 }
             }
         };
@@ -61,54 +61,54 @@ public class VoteCountDownCard extends LinearLayout {
     }
 
     private void ns() {
-        this.fGL = (TextView) findViewById(R.id.count_down_view_title);
-        this.fGI = (VoteCountDownView) findViewById(R.id.count_down_view);
-        this.fGJ = (TextView) findViewById(R.id.candidate_num);
-        this.fGK = (TextView) findViewById(R.id.totel_vote_num);
+        this.fGN = (TextView) findViewById(R.id.count_down_view_title);
+        this.fGK = (VoteCountDownView) findViewById(R.id.count_down_view);
+        this.fGL = (TextView) findViewById(R.id.candidate_num);
+        this.fGM = (TextView) findViewById(R.id.totel_vote_num);
     }
 
     public void setData(f fVar) {
-        this.fCf = fVar;
-        if (this.fCf == null || this.fCf.bug() == null) {
+        this.fCh = fVar;
+        if (this.fCh == null || this.fCh.bui() == null) {
             setVisibility(8);
             return;
         }
-        this.fDy = this.fCf.bug();
-        if (this.fDy.getStatus() != d.fGi) {
+        this.fDA = this.fCh.bui();
+        if (this.fDA.getStatus() != d.fGk) {
             setVisibility(8);
             return;
         }
-        long bub = this.fDy.bub();
-        if (this.fGM != null) {
-            this.fGI.setOnCountDownFinished(this.fGM);
+        long bud = this.fDA.bud();
+        if (this.fGO != null) {
+            this.fGK.setOnCountDownFinished(this.fGO);
         }
-        this.fGI.setData(bub * 1000);
-        this.fGJ.setText("候选人" + this.fDy.btX());
-        this.fGK.setText("投票数" + this.fDy.btY() + "");
+        this.fGK.setData(bud * 1000);
+        this.fGL.setText("候选人" + this.fDA.btZ());
+        this.fGM.setText("投票数" + this.fDA.bua() + "");
     }
 
     public void pk(int i) {
+        am.setViewTextColor(this.fGN, R.color.cp_cont_b, 1, i);
         am.setViewTextColor(this.fGL, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fGJ, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fGK, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.fGM, R.color.cp_cont_b, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.fGI != null) {
-            this.fGI.pk(i);
+        if (this.fGK != null) {
+            this.fGK.pk(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buD() {
-        this.fGL.setText(getResources().getString(R.string.vote_finished_tip));
+    public void buF() {
+        this.fGN.setText(getResources().getString(R.string.vote_finished_tip));
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.fCH = aVar;
+        this.fCJ = aVar;
     }
 
     public void onDestroy() {
-        if (this.fGI != null) {
-            this.fGI.onDestroy();
+        if (this.fGK != null) {
+            this.fGK.onDestroy();
         }
     }
 }

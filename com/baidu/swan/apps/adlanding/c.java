@@ -29,12 +29,12 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final com.baidu.swan.apps.core.d.e GA = f.WQ().GA();
-        if (GA == null) {
+        final com.baidu.swan.apps.core.d.e GC = f.WS().GC();
+        if (GC == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.acN().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
+        eVar.acP().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -43,7 +43,7 @@ public class c extends ab {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                     return;
                 }
-                c.this.a(com.baidu.swan.apps.model.b.aX(a, a), GA);
+                c.this.a(com.baidu.swan.apps.model.b.aX(a, a), GC);
                 com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             }
@@ -54,6 +54,6 @@ public class c extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, com.baidu.swan.apps.core.d.e eVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        eVar.hb("adLanding").Y(com.baidu.swan.apps.core.d.e.boe, com.baidu.swan.apps.core.d.e.bog).a("adLanding", bVar).Ox();
+        eVar.hb("adLanding").Y(com.baidu.swan.apps.core.d.e.bof, com.baidu.swan.apps.core.d.e.boh).a("adLanding", bVar).Oz();
     }
 }

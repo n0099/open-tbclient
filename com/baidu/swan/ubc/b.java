@@ -43,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.avv() != null) {
-                jSONObject.put("content", hVar.avv().toString());
+            } else if (hVar.avx() != null) {
+                jSONObject.put("content", hVar.avx().toString());
             }
-            if (!TextUtils.isEmpty(hVar.avu())) {
-                jSONObject.put("abtest", hVar.avu());
+            if (!TextUtils.isEmpty(hVar.avw())) {
+                jSONObject.put("abtest", hVar.avw());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.avr()) {
+            if (hVar.avt()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.avg().qV(hVar.getId()));
+            jSONObject.put("idtype", d.avi().qV(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

@@ -9,11 +9,11 @@ import com.baidu.tieba.ala.alasquare.live_tab.view.h;
 import com.baidu.tieba.ala.alasquare.live_tab.view.i;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, i> {
-    private h elC;
+    private h elD;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.elH);
+        super(tbPageContext.getPageActivity(), e.elI);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,19 +22,19 @@ public class c extends com.baidu.adp.widget.ListView.a<e, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: z */
     public i b(ViewGroup viewGroup) {
-        this.elC = new h(this.mPageContext, viewGroup);
-        return new i(this.elC);
+        this.elD = new h(this.mPageContext, viewGroup);
+        return new i(this.elD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, e eVar, i iVar) {
-        if (iVar == null || iVar.elC == null) {
+        if (iVar == null || iVar.elD == null) {
             return null;
         }
-        iVar.elC.a(eVar);
-        iVar.elC.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        iVar.elD.a(eVar);
+        iVar.elD.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return iVar.getView();
     }
 }

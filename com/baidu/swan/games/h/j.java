@@ -11,24 +11,24 @@ import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class j {
-    public static void anP() {
-        if (com.baidu.swan.apps.storage.c.h.afp().getBoolean("swan_game_data_migration", true)) {
-            com.baidu.swan.apps.storage.c.h.afp().putBoolean("swan_game_data_migration", false);
+    public static void anR() {
+        if (com.baidu.swan.apps.storage.c.h.afr().getBoolean("swan_game_data_migration", true)) {
+            com.baidu.swan.apps.storage.c.h.afr().putBoolean("swan_game_data_migration", false);
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
-            anQ();
+            anS();
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
-            anR();
+            anT();
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }
     }
 
-    private static void anQ() {
+    private static void anS() {
         File[] listFiles;
         String dv = l.dv(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(dv)) {
@@ -51,9 +51,9 @@ public class j {
         }
     }
 
-    private static void anR() {
+    private static void anT() {
         String absolutePath;
-        File[] listFiles = com.baidu.swan.games.v.b.apJ().listFiles();
+        File[] listFiles = com.baidu.swan.games.v.b.apL().listFiles();
         if (listFiles != null) {
             ArrayList arrayList = new ArrayList();
             for (File file : listFiles) {

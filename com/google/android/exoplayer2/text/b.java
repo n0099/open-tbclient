@@ -6,16 +6,16 @@ import android.text.Layout;
 /* loaded from: classes6.dex */
 public class b {
     public final Bitmap bitmap;
-    public final int myA;
-    public final int myB;
-    public final float myC;
+    public final Layout.Alignment myA;
+    public final float myB;
+    public final int myC;
     public final int myD;
     public final float myE;
-    public final float myF;
-    public final boolean myG;
-    public final int myv;
-    public final Layout.Alignment myy;
-    public final float myz;
+    public final int myF;
+    public final float myG;
+    public final float myH;
+    public final boolean myI;
+    public final int myx;
     public final CharSequence text;
 
     public b(Bitmap bitmap, float f, int i, float f2, int i2, float f3, float f4) {
@@ -36,16 +36,16 @@ public class b {
 
     private b(CharSequence charSequence, Layout.Alignment alignment, Bitmap bitmap, float f, int i, int i2, float f2, int i3, float f3, float f4, boolean z, int i4) {
         this.text = charSequence;
-        this.myy = alignment;
+        this.myA = alignment;
         this.bitmap = bitmap;
-        this.myz = f;
-        this.myA = i;
-        this.myB = i2;
-        this.myC = f2;
-        this.myD = i3;
-        this.myE = f3;
-        this.myF = f4;
-        this.myG = z;
-        this.myv = i4;
+        this.myB = f;
+        this.myC = i;
+        this.myD = i2;
+        this.myE = f2;
+        this.myF = i3;
+        this.myG = f3;
+        this.myH = f4;
+        this.myI = z;
+        this.myx = i4;
     }
 }

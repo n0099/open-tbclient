@@ -47,15 +47,15 @@ public class h extends UnitedSchemeBaseDispatcher {
             }
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
-            com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-            if (acD == null) {
+            com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+            if (acF == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (acD.acz() == null) {
+            } else if (acF.acB() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.ae.b bVar = new com.baidu.swan.apps.ae.b(acD, unitedSchemeEntity, callbackHandler, optString2, acD.getAppKey());
+                com.baidu.swan.apps.ae.b bVar = new com.baidu.swan.apps.ae.b(acF, unitedSchemeEntity, callbackHandler, optString2, acF.getAppKey());
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start PAYMENT");
                     return bVar.jK(optString);
@@ -67,7 +67,7 @@ public class h extends UnitedSchemeBaseDispatcher {
                     return bVar.e(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start WECHAT HTML5 PAYMENT");
-                    return bVar.Zv();
+                    return bVar.Zx();
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

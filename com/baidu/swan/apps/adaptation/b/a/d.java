@@ -3,6 +3,6 @@ package com.baidu.swan.apps.adaptation.b.a;
 public class d {
     public long bbA;
     public long bbB;
-    public String bbC = "1";
-    public long bbz;
+    public long bbC;
+    public String bbD = "1";
 }

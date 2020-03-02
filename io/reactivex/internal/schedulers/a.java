@@ -8,18 +8,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class a extends v implements h {
-    static final b nyQ;
-    static final RxThreadFactory nyR;
-    static final int nyS = em(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
-    static final c nyT = new c(new RxThreadFactory("RxComputationShutdown"));
-    final ThreadFactory aRV;
-    final AtomicReference<b> nyU;
+    static final b nyS;
+    static final RxThreadFactory nyT;
+    static final int nyU = em(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
+    static final c nyV = new c(new RxThreadFactory("RxComputationShutdown"));
+    final ThreadFactory aRW;
+    final AtomicReference<b> nyW;
 
     static {
-        nyT.dispose();
-        nyR = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
-        nyQ = new b(0, nyR);
-        nyQ.shutdown();
+        nyV.dispose();
+        nyT = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
+        nyS = new b(0, nyT);
+        nyS.shutdown();
     }
 
     static int em(int i, int i2) {
@@ -30,46 +30,46 @@ public final class a extends v implements h {
     /* loaded from: classes7.dex */
     public static final class b implements h {
         long n;
-        final int nyZ;
-        final c[] nza;
+        final int nzb;
+        final c[] nzc;
 
         b(int i, ThreadFactory threadFactory) {
-            this.nyZ = i;
-            this.nza = new c[i];
+            this.nzb = i;
+            this.nzc = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.nza[i2] = new c(threadFactory);
+                this.nzc[i2] = new c(threadFactory);
             }
         }
 
-        public c dJx() {
-            int i = this.nyZ;
+        public c dJz() {
+            int i = this.nzb;
             if (i == 0) {
-                return a.nyT;
+                return a.nyV;
             }
-            c[] cVarArr = this.nza;
+            c[] cVarArr = this.nzc;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.nza) {
+            for (c cVar : this.nzc) {
                 cVar.dispose();
             }
         }
 
         @Override // io.reactivex.internal.schedulers.h
         public void a(int i, h.a aVar) {
-            int i2 = this.nyZ;
+            int i2 = this.nzb;
             if (i2 == 0) {
                 for (int i3 = 0; i3 < i; i3++) {
-                    aVar.a(i3, a.nyT);
+                    aVar.a(i3, a.nyV);
                 }
                 return;
             }
             int i4 = ((int) this.n) % i2;
             for (int i5 = 0; i5 < i; i5++) {
-                aVar.a(i5, new C0766a(this.nza[i4]));
+                aVar.a(i5, new C0766a(this.nzc[i4]));
                 i4++;
                 if (i4 == i2) {
                     i4 = 0;
@@ -80,40 +80,40 @@ public final class a extends v implements h {
     }
 
     public a() {
-        this(nyR);
+        this(nyT);
     }
 
     public a(ThreadFactory threadFactory) {
-        this.aRV = threadFactory;
-        this.nyU = new AtomicReference<>(nyQ);
+        this.aRW = threadFactory;
+        this.nyW = new AtomicReference<>(nyS);
         start();
     }
 
     @Override // io.reactivex.v
-    public v.c dJf() {
-        return new C0766a(this.nyU.get().dJx());
+    public v.c dJh() {
+        return new C0766a(this.nyW.get().dJz());
     }
 
     @Override // io.reactivex.internal.schedulers.h
     public void a(int i, h.a aVar) {
         io.reactivex.internal.functions.a.bj(i, "number > 0 required");
-        this.nyU.get().a(i, aVar);
+        this.nyW.get().a(i, aVar);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        return this.nyU.get().dJx().b(runnable, j, timeUnit);
+        return this.nyW.get().dJz().b(runnable, j, timeUnit);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        return this.nyU.get().dJx().a(runnable, j, j2, timeUnit);
+        return this.nyW.get().dJz().a(runnable, j, j2, timeUnit);
     }
 
     @Override // io.reactivex.v
     public void start() {
-        b bVar = new b(nyS, this.aRV);
-        if (!this.nyU.compareAndSet(nyQ, bVar)) {
+        b bVar = new b(nyU, this.aRW);
+        if (!this.nyW.compareAndSet(nyS, bVar)) {
             bVar.shutdown();
         }
     }
@@ -123,22 +123,22 @@ public final class a extends v implements h {
     /* loaded from: classes7.dex */
     public static final class C0766a extends v.c {
         volatile boolean disposed;
-        private final io.reactivex.internal.disposables.b nyV = new io.reactivex.internal.disposables.b();
-        private final io.reactivex.disposables.a nyW = new io.reactivex.disposables.a();
         private final io.reactivex.internal.disposables.b nyX = new io.reactivex.internal.disposables.b();
-        private final c nyY;
+        private final io.reactivex.disposables.a nyY = new io.reactivex.disposables.a();
+        private final io.reactivex.internal.disposables.b nyZ = new io.reactivex.internal.disposables.b();
+        private final c nza;
 
         C0766a(c cVar) {
-            this.nyY = cVar;
-            this.nyX.a(this.nyV);
-            this.nyX.a(this.nyW);
+            this.nza = cVar;
+            this.nyZ.a(this.nyX);
+            this.nyZ.a(this.nyY);
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nyX.dispose();
+                this.nyZ.dispose();
             }
         }
 
@@ -149,12 +149,12 @@ public final class a extends v implements h {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b D(Runnable runnable) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.nyY.a(runnable, 0L, TimeUnit.MILLISECONDS, this.nyV);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.nza.a(runnable, 0L, TimeUnit.MILLISECONDS, this.nyX);
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.nyY.a(runnable, j, timeUnit, this.nyW);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.nza.a(runnable, j, timeUnit, this.nyY);
         }
     }
 

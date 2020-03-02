@@ -15,10 +15,10 @@ import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a jqi;
-    private User jqk;
-    private b jqr;
-    private com.baidu.tieba.personPolymeric.c.a jqs;
+    private com.baidu.tieba.personPolymeric.tab.view.a jqk;
+    private User jqm;
+    private b jqt;
+    private com.baidu.tieba.personPolymeric.c.a jqu;
     private long mUserId;
 
     public static PersonCenterMainTabFragment j(long j, boolean z) {
@@ -40,9 +40,9 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.jqi = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.jqr = new b(getPageContext(), this.isHost);
-        this.jqi.addHeaderView(this.jqr.getView());
+        this.jqk = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.jqt = new b(getPageContext(), this.isHost);
+        this.jqk.addHeaderView(this.jqt.getView());
         return inflate;
     }
 
@@ -60,10 +60,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.jqi != null && isAdded()) {
+        if (aVar != null && this.jqk != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.jqs = aVar;
+            this.jqu = aVar;
         }
     }
 
@@ -83,24 +83,24 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void scrollToTop() {
-        if (this.jqi != null && isAdded()) {
-            this.jqi.scrollToTop();
+        if (this.jqk != null && isAdded()) {
+            this.jqk.scrollToTop();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void b(User user) {
-        this.jqk = user;
+        this.jqm = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jqi != null) {
-            this.jqi.onChangeSkinType(i);
+        if (this.jqk != null) {
+            this.jqk.onChangeSkinType(i);
         }
-        if (this.jqr != null) {
-            this.jqr.onChangeSkinType(i);
+        if (this.jqt != null) {
+            this.jqt.onChangeSkinType(i);
         }
     }
 
@@ -114,21 +114,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.jqi != null && this.jqr != null && this.jqs != null) {
-            f(this.jqs);
-            this.jqs = null;
+        if (this.jqk != null && this.jqt != null && this.jqu != null) {
+            f(this.jqu);
+            this.jqu = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.jqi != null && this.jqr != null && aVar != null) {
+        if (this.jqk != null && this.jqt != null && aVar != null) {
             List<m> dU = com.baidu.tieba.personPolymeric.tab.b.a.dU(aVar.getNewestThreadList());
             if (!v.isEmpty(dU)) {
-                this.jqi.Ad(R.string.person_center_tab_main_footer_text);
+                this.jqk.Ad(R.string.person_center_tab_main_footer_text);
             }
-            this.jqi.dV(dU);
-            this.jqr.b(aVar);
-            this.jqr.ai(v.isEmpty(dU), isHost());
+            this.jqk.dV(dU);
+            this.jqt.b(aVar);
+            this.jqt.ai(v.isEmpty(dU), isHost());
         }
     }
 }

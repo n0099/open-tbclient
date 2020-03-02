@@ -52,8 +52,8 @@ public class XiaoyingUtil {
     public static void startXiaoying(Context context, boolean z, String str, String str2, String str3) {
         boolean z2 = false;
         if (context != null) {
-            com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean("localvideo_open", false)) ? true : true, str, str2, str3)));
+            com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean("localvideo_open", false)) ? true : true, str, str2, str3)));
         }
     }
 
@@ -64,9 +64,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(R.string.plugin_xiaoying_install_fail)).aEF();
+                BdToast.b(context, context.getString(R.string.plugin_xiaoying_install_fail)).aEH();
             } else if (z && !j.isNetWorkAvailable()) {
-                BdToast.b(context, context.getString(R.string.neterror)).aEF();
+                BdToast.b(context, context.getString(R.string.neterror)).aEH();
             } else if (z) {
                 if (j.isWifiNet()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
@@ -97,7 +97,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(ab).aEA();
+            aVar.b(ab).aEC();
         }
     }
 
@@ -124,7 +124,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).aEA();
+            aVar.b(tbPageContext).aEC();
         }
     }
 }

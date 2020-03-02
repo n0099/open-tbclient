@@ -18,15 +18,15 @@ public abstract class a {
 
     public abstract void a(InterfaceC0374a interfaceC0374a);
 
-    public abstract String ayI();
+    public abstract String ayK();
 
-    public abstract boolean ayJ();
+    public abstract boolean ayL();
 
-    public abstract void ayK();
+    public abstract void ayM();
 
-    public abstract void ayL();
+    public abstract void ayN();
 
-    public abstract MarkData ayM();
+    public abstract MarkData ayO();
 
     public abstract void fm(boolean z);
 

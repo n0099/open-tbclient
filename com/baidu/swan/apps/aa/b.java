@@ -44,33 +44,33 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        f WQ = f.WQ();
-        if (WQ == null) {
+        f WS = f.WS();
+        if (WS == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e GA = WQ.GA();
-        if (GA == null) {
+        com.baidu.swan.apps.core.d.e GC = WS.GC();
+        if (GC == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Ol = GA.Ol();
-        if (Ol == null) {
+        com.baidu.swan.apps.core.d.b On = GC.On();
+        if (On == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final SwanAppActionBar NB = Ol.NB();
-        if (NB == null) {
+        final SwanAppActionBar ND = On.ND();
+        if (ND == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.acN().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
+        eVar.acP().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
             public void D(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    if (b.this.a(NB, optParamsAsJo, str)) {
+                    if (b.this.a(ND, optParamsAsJo, str)) {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     } else {

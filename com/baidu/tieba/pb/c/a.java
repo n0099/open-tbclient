@@ -24,7 +24,7 @@ public class a {
         if (bdUniqueId != null && eVar != null) {
             an anVar = new an("common_exp");
             a(anVar, eVar, postData, i, i2, false, str);
-            c.cJY().a(bdUniqueId, str2, anVar);
+            c.cKa().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -72,9 +72,9 @@ public class a {
         if (postData != null) {
             anVar.cy("pid", postData.getId() + "");
         }
-        if (eVar.cks() != null) {
-            anVar.X("thread_type", eVar.cks().threadType);
-            BaijiahaoData baijiahaoData = eVar.cks().getBaijiahaoData();
+        if (eVar.cku() != null) {
+            anVar.X("thread_type", eVar.cku().threadType);
+            BaijiahaoData baijiahaoData = eVar.cku().getBaijiahaoData();
             if (baijiahaoData != null) {
                 anVar.cy("ugc_nid", baijiahaoData.oriUgcNid);
                 anVar.cy("ugc_vid", baijiahaoData.oriUgcVid);
@@ -82,7 +82,7 @@ public class a {
             }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cy(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dlX);
+            anVar.cy(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dlY);
         }
         return anVar;
     }

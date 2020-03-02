@@ -8,39 +8,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends g<C0294a> {
-    protected final boolean bTO;
-    private final String bTP;
+    protected final boolean bTP;
+    private final String bTQ;
     protected final Activity mActivity;
     protected final String mScope;
 
     public a(Activity activity, boolean z, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.bTO = z;
-        this.bTP = str2;
+        this.bTP = z;
+        this.bTQ = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aee() {
+    protected boolean aeg() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", acZ().id);
+            jSONObject.put("ma_id", adb().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", acZ().getAppKey());
+            jSONObject2.put("app_key", adb().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String Ia = com.baidu.swan.apps.w.a.Ug().Ia();
-            if (!TextUtils.isEmpty(Ia)) {
-                jSONObject2.put("host_api_key", Ia);
+            String Ic = com.baidu.swan.apps.w.a.Ui().Ic();
+            if (!TextUtils.isEmpty(Ic)) {
+                jSONObject2.put("host_api_key", Ic);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.bTO));
+            jSONObject3.put("permit", Boolean.toString(this.bTP));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
-            if (!TextUtils.isEmpty(this.bTP)) {
-                jSONObject.put("provider_appkey", this.bTP);
+            if (!TextUtils.isEmpty(this.bTQ)) {
+                jSONObject.put("provider_appkey", this.bTQ);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class a extends g<C0294a> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Ug().e(this.mActivity, gVar.aez());
+        return com.baidu.swan.apps.w.a.Ui().e(this.mActivity, gVar.aeB());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,31 +74,31 @@ public class a extends g<C0294a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0294a(this.bTO, str, jSONObject2);
+        return new C0294a(this.bTP, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public void aew() {
-        super.aew();
-        com.baidu.swan.apps.network.c.b.a.Zk();
+    public void aey() {
+        super.aey();
+        com.baidu.swan.apps.network.c.b.a.Zm();
     }
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0294a {
-        public final JSONObject bTQ;
-        public final boolean bTl;
+        public final JSONObject bTR;
+        public final boolean bTm;
         public final String code;
 
         private C0294a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.bTl = z;
-            this.bTQ = jSONObject;
+            this.bTm = z;
+            this.bTR = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.bTl), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.bTm), this.code);
         }
     }
 }

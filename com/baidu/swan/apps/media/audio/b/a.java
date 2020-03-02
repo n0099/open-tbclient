@@ -10,12 +10,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public JSONObject bBp;
-    private CallbackHandler bzH;
+    public JSONObject bBq;
+    private CallbackHandler bzI;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.bzH = callbackHandler;
-        this.bBp = jSONObject;
+        this.bzI = callbackHandler;
+        this.bBq = jSONObject;
     }
 
     public void jb(String str) {
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.bBp = new JSONObject(str);
+            this.bBq = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -40,16 +40,16 @@ public class a {
     }
 
     public void d(String str, JSONObject jSONObject) {
-        if (this.bBp != null) {
+        if (this.bBq != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.bzH.handleSchemeDispatchCallback(this.bBp.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.bzI.handleSchemeDispatchCallback(this.bBq.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean Xo() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.bzH);
+    public boolean Xq() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.bzI);
     }
 }

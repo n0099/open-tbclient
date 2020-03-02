@@ -17,9 +17,9 @@ public interface h {
 
     void cgB();
 
-    void cgy();
+    void cgC();
 
-    void cgz();
+    void cgD();
 
     void l(int i, int i2, String str);
 }

@@ -11,7 +11,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     private String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1020common;
+    private CommonReq f1019common;
     private long topicId;
 
     public RequestGetTopicDetailMessage() {
@@ -19,7 +19,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1020common = commonReq;
+        this.f1019common = commonReq;
     }
 
     public void setTopicId(long j) {
@@ -33,7 +33,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1197common = this.f1020common;
+        builder.f1196common = this.f1019common;
         builder.topic_id = Long.valueOf(this.topicId);
         builder.call_from = this.callFrom;
         if (z) {

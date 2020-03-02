@@ -4,8 +4,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class e {
-    public a etf;
-    private int etg = -1;
+    public a etg;
+    private int eth = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.etg = -1;
-            this.etf = new b(this.mTbPageContext);
+            this.eth = -1;
+            this.etg = new b(this.mTbPageContext);
         } else if (z) {
-            this.etg = aVar.erm;
-            switch (aVar.erm) {
+            this.eth = aVar.ern;
+            switch (aVar.ern) {
                 case 1:
-                    this.etf = new d(this.mTbPageContext);
+                    this.etg = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.etf = new f(this.mTbPageContext);
+                    this.etg = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.etf = new c(this.mTbPageContext);
+                    this.etg = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.etf = new b(this.mTbPageContext);
+                    this.etg = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.etf.b(aVar)) {
+        if (this.etg.b(aVar)) {
             if (z) {
-                this.etf.init();
+                this.etg.init();
             }
-            this.etf.a(aVar);
+            this.etg.a(aVar);
             return;
         }
-        this.etg = -1;
-        this.etf = new b(this.mTbPageContext);
+        this.eth = -1;
+        this.etg = new b(this.mTbPageContext);
         if (z) {
-            this.etf.init();
+            this.etg.init();
         }
-        this.etf.a(aVar);
+        this.etg.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.etg != aVar.erm;
+        return aVar == null || this.eth != aVar.ern;
     }
 
     public void pause() {
-        if (this.etf != null) {
-            this.etf.pause();
+        if (this.etg != null) {
+            this.etg.pause();
         }
     }
 
     public void resume() {
-        if (this.etf != null) {
-            this.etf.resume();
+        if (this.etg != null) {
+            this.etg.resume();
         }
     }
 
     public void hR(boolean z) {
-        if (this.etf != null) {
-            this.etf.hR(z);
+        if (this.etg != null) {
+            this.etg.hR(z);
         }
     }
 
     public void N(ViewGroup viewGroup) {
-        if (this.etf != null) {
-            this.etf.N(viewGroup);
+        if (this.etg != null) {
+            this.etg.N(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.etf != null) {
-            this.etf.onChangeSkinType(i);
+        if (this.etg != null) {
+            this.etg.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.etf != null) {
-            this.etf.startPlay();
+        if (this.etg != null) {
+            this.etg.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.etf != null) {
-            this.etf.stopPlay();
+        if (this.etg != null) {
+            this.etg.stopPlay();
         }
     }
 
-    public void bdt() {
-        if (this.etf != null) {
-            this.etf.bdt();
+    public void bdv() {
+        if (this.etg != null) {
+            this.etg.bdv();
         }
     }
 
     public void onDestroy() {
-        if (this.etf != null) {
-            this.etf.onDestroy();
+        if (this.etg != null) {
+            this.etg.onDestroy();
         }
     }
 }

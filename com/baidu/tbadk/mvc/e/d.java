@@ -24,10 +24,10 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aQJ();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aQL();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> cq = com.baidu.tbadk.core.c.a.aEz().cq(this.tableName, str);
+                l<byte[]> cq = com.baidu.tbadk.core.c.a.aEB().cq(this.tableName, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
@@ -45,7 +45,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> cr = com.baidu.tbadk.core.c.a.aEz().cr(this.tableName, str);
+                l<String> cr = com.baidu.tbadk.core.c.a.aEB().cr(this.tableName, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String aQh = ((f) dVar5).aQh();
-                    if (aQh != null) {
-                        cr.setForever(dVar5.getCacheKey(), aQh);
+                    String aQj = ((f) dVar5).aQj();
+                    if (aQj != null) {
+                        cr.setForever(dVar5.getCacheKey(), aQj);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

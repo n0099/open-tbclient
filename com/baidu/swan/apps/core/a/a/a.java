@@ -13,9 +13,9 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0243a {
-        void Nb();
+        void Nd();
 
-        void Nc();
+        void Ne();
 
         void eq(int i);
     }
@@ -26,9 +26,9 @@ public final class a {
         }
         if (TextUtils.isEmpty(str)) {
             if (interfaceC0243a != null) {
-                interfaceC0243a.Nb();
+                interfaceC0243a.Nd();
             }
-        } else if (!gO(h.afp().getString("predownload_network_switch", "1"))) {
+        } else if (!gO(h.afr().getString("predownload_network_switch", "1"))) {
             if (interfaceC0243a != null) {
                 interfaceC0243a.eq(6);
             }
@@ -38,20 +38,20 @@ public final class a {
             cVar.qD(str2);
             com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0243a) { // from class: com.baidu.swan.apps.core.a.a.a.1
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void MZ() {
-                    this.bqd = str2;
+                public void Nb() {
+                    this.bqe = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int Na() {
+                protected int Nc() {
                     return i;
                 }
 
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void aw(String str4, String str5) {
                     super.aw(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqc != null) {
-                        this.bqc.add(new UbcFlowEvent(str5));
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqd != null) {
+                        this.bqd.add(new UbcFlowEvent(str5));
                     }
                 }
             });

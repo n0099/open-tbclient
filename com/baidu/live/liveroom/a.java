@@ -29,8 +29,8 @@ public class a {
             z = false;
         }
         if (z) {
-            if (com.baidu.live.r.a.zf().zg() != null) {
-                return com.baidu.live.r.a.zf().zg().zi();
+            if (com.baidu.live.r.a.zh().zi() != null) {
+                return com.baidu.live.r.a.zh().zi().zk();
             }
             return false;
         }

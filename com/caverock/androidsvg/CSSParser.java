@@ -11,8 +11,8 @@ import java.util.Locale;
 import org.xml.sax.SAXException;
 /* loaded from: classes12.dex */
 public class CSSParser {
-    private MediaType lCP;
-    private boolean lCQ = false;
+    private MediaType lCR;
+    private boolean lCS = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
@@ -47,7 +47,7 @@ public class CSSParser {
 
     /* loaded from: classes12.dex */
     public static class a {
-        public AttribOp lCS;
+        public AttribOp lCU;
         public String name;
         public String value;
 
@@ -55,7 +55,7 @@ public class CSSParser {
             this.name = null;
             this.value = null;
             this.name = str;
-            this.lCS = attribOp;
+            this.lCU = attribOp;
             this.value = str2;
         }
     }
@@ -63,44 +63,44 @@ public class CSSParser {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public static class f {
-        public Combinator lCY;
-        public List<a> lCZ = null;
-        public List<String> lDa = null;
+        public Combinator lDa;
+        public List<a> lDb = null;
+        public List<String> lDc = null;
         public String tag;
 
         public f(Combinator combinator, String str) {
-            this.lCY = null;
+            this.lDa = null;
             this.tag = null;
-            this.lCY = combinator == null ? Combinator.DESCENDANT : combinator;
+            this.lDa = combinator == null ? Combinator.DESCENDANT : combinator;
             this.tag = str;
         }
 
         public void a(String str, AttribOp attribOp, String str2) {
-            if (this.lCZ == null) {
-                this.lCZ = new ArrayList();
+            if (this.lDb == null) {
+                this.lDb = new ArrayList();
             }
-            this.lCZ.add(new a(str, attribOp, str2));
+            this.lDb.add(new a(str, attribOp, str2));
         }
 
         public void NO(String str) {
-            if (this.lDa == null) {
-                this.lDa = new ArrayList();
+            if (this.lDc == null) {
+                this.lDc = new ArrayList();
             }
-            this.lDa.add(str);
+            this.lDc.add(str);
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            if (this.lCY == Combinator.CHILD) {
+            if (this.lDa == Combinator.CHILD) {
                 sb.append("> ");
-            } else if (this.lCY == Combinator.FOLLOWS) {
+            } else if (this.lDa == Combinator.FOLLOWS) {
                 sb.append("+ ");
             }
             sb.append(this.tag == null ? "*" : this.tag);
-            if (this.lCZ != null) {
-                for (a aVar : this.lCZ) {
+            if (this.lDb != null) {
+                for (a aVar : this.lDb) {
                     sb.append('[').append(aVar.name);
-                    switch (aVar.lCS) {
+                    switch (aVar.lCU) {
                         case EQUALS:
                             sb.append('=').append(aVar.value);
                             break;
@@ -114,8 +114,8 @@ public class CSSParser {
                     sb.append(']');
                 }
             }
-            if (this.lDa != null) {
-                for (String str : this.lDa) {
+            if (this.lDc != null) {
+                for (String str : this.lDc) {
                     sb.append(':').append(str);
                 }
             }
@@ -125,54 +125,54 @@ public class CSSParser {
 
     /* loaded from: classes12.dex */
     public static class d {
-        private List<c> lCV = null;
+        private List<c> lCX = null;
 
         public void a(c cVar) {
-            if (this.lCV == null) {
-                this.lCV = new ArrayList();
+            if (this.lCX == null) {
+                this.lCX = new ArrayList();
             }
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.lCV.size()) {
-                    if (this.lCV.get(i2).lCT.lCX <= cVar.lCT.lCX) {
+                if (i2 < this.lCX.size()) {
+                    if (this.lCX.get(i2).lCV.lCZ <= cVar.lCV.lCZ) {
                         i = i2 + 1;
                     } else {
-                        this.lCV.add(i2, cVar);
+                        this.lCX.add(i2, cVar);
                         return;
                     }
                 } else {
-                    this.lCV.add(cVar);
+                    this.lCX.add(cVar);
                     return;
                 }
             }
         }
 
         public void a(d dVar) {
-            if (dVar.lCV != null) {
-                if (this.lCV == null) {
-                    this.lCV = new ArrayList(dVar.lCV.size());
+            if (dVar.lCX != null) {
+                if (this.lCX == null) {
+                    this.lCX = new ArrayList(dVar.lCX.size());
                 }
-                for (c cVar : dVar.lCV) {
-                    this.lCV.add(cVar);
+                for (c cVar : dVar.lCX) {
+                    this.lCX.add(cVar);
                 }
             }
         }
 
-        public List<c> dij() {
-            return this.lCV;
+        public List<c> dil() {
+            return this.lCX;
         }
 
         public boolean isEmpty() {
-            return this.lCV == null || this.lCV.isEmpty();
+            return this.lCX == null || this.lCX.isEmpty();
         }
 
         public String toString() {
-            if (this.lCV == null) {
+            if (this.lCX == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (c cVar : this.lCV) {
+            for (c cVar : this.lCX) {
                 sb.append(cVar.toString()).append('\n');
             }
             return sb.toString();
@@ -181,75 +181,75 @@ public class CSSParser {
 
     /* loaded from: classes12.dex */
     public static class c {
-        public e lCT;
-        public SVG.Style lCU;
+        public e lCV;
+        public SVG.Style lCW;
 
         public c(e eVar, SVG.Style style) {
-            this.lCT = null;
-            this.lCU = null;
-            this.lCT = eVar;
-            this.lCU = style;
+            this.lCV = null;
+            this.lCW = null;
+            this.lCV = eVar;
+            this.lCW = style;
         }
 
         public String toString() {
-            return this.lCT + " {}";
+            return this.lCV + " {}";
         }
     }
 
     /* loaded from: classes12.dex */
     public static class e {
-        public List<f> lCW = null;
-        public int lCX = 0;
+        public List<f> lCY = null;
+        public int lCZ = 0;
 
         public void a(f fVar) {
-            if (this.lCW == null) {
-                this.lCW = new ArrayList();
+            if (this.lCY == null) {
+                this.lCY = new ArrayList();
             }
-            this.lCW.add(fVar);
+            this.lCY.add(fVar);
         }
 
         public int size() {
-            if (this.lCW == null) {
+            if (this.lCY == null) {
                 return 0;
             }
-            return this.lCW.size();
+            return this.lCY.size();
         }
 
         public f Hg(int i) {
-            return this.lCW.get(i);
+            return this.lCY.get(i);
         }
 
         public boolean isEmpty() {
-            if (this.lCW == null) {
+            if (this.lCY == null) {
                 return true;
             }
-            return this.lCW.isEmpty();
-        }
-
-        public void dik() {
-            this.lCX += 10000;
-        }
-
-        public void dil() {
-            this.lCX += 100;
+            return this.lCY.isEmpty();
         }
 
         public void dim() {
-            this.lCX++;
+            this.lCZ += 10000;
+        }
+
+        public void din() {
+            this.lCZ += 100;
+        }
+
+        public void dio() {
+            this.lCZ++;
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            for (f fVar : this.lCW) {
+            for (f fVar : this.lCY) {
                 sb.append(fVar).append(' ');
             }
-            return sb.append('(').append(this.lCX).append(')').toString();
+            return sb.append('(').append(this.lCZ).append(')').toString();
         }
     }
 
     public CSSParser(MediaType mediaType) {
-        this.lCP = null;
-        this.lCP = mediaType;
+        this.lCR = null;
+        this.lCR = mediaType;
     }
 
     public d NM(String str) throws SAXException {
@@ -262,7 +262,7 @@ public class CSSParser {
         b bVar = new b(str);
         bVar.skipWhitespace();
         List<MediaType> a2 = a(bVar);
-        if (!bVar.djc()) {
+        if (!bVar.dje()) {
             throw new SAXException("Invalid @media type list");
         }
         return a(a2, mediaType);
@@ -279,33 +279,33 @@ public class CSSParser {
             super(str.replaceAll("(?s)/\\*.*?\\*/", ""));
         }
 
-        public String dif() {
-            int dig = dig();
-            if (dig == this.position) {
+        public String dih() {
+            int dii = dii();
+            if (dii == this.position) {
                 return null;
             }
-            String substring = this.lGo.substring(this.position, dig);
-            this.position = dig;
+            String substring = this.lGq.substring(this.position, dii);
+            this.position = dii;
             return substring;
         }
 
-        private int dig() {
-            if (djc()) {
+        private int dii() {
+            if (dje()) {
                 return this.position;
             }
             int i = this.position;
             int i2 = this.position;
-            int charAt = this.lGo.charAt(this.position);
+            int charAt = this.lGq.charAt(this.position);
             if (charAt == 45) {
-                charAt = dji();
+                charAt = djk();
             }
             if ((charAt >= 65 && charAt <= 90) || ((charAt >= 97 && charAt <= 122) || charAt == 95)) {
-                int dji = dji();
+                int djk = djk();
                 while (true) {
-                    if ((dji < 65 || dji > 90) && ((dji < 97 || dji > 122) && !((dji >= 48 && dji <= 57) || dji == 45 || dji == 95))) {
+                    if ((djk < 65 || djk > 90) && ((djk < 97 || djk > 122) && !((djk >= 48 && djk <= 57) || djk == 45 || djk == 95))) {
                         break;
                     }
-                    dji = dji();
+                    djk = djk();
                 }
                 i2 = this.position;
             }
@@ -340,7 +340,7 @@ public class CSSParser {
             f fVar;
             AttribOp attribOp;
             String str;
-            if (djc()) {
+            if (dje()) {
                 return false;
             }
             int i = this.position;
@@ -355,44 +355,44 @@ public class CSSParser {
                 if (!g('*')) {
                     fVar = new f(combinator, null);
                 } else {
-                    String dif = dif();
-                    if (dif != null) {
-                        fVar = new f(combinator, dif);
-                        eVar.dim();
+                    String dih = dih();
+                    if (dih != null) {
+                        fVar = new f(combinator, dih);
+                        eVar.dio();
                     } else {
                         fVar = null;
                     }
                 }
                 while (true) {
-                    if (!djc()) {
+                    if (!dje()) {
                         if (g('.')) {
                             if (fVar == null) {
                                 fVar = new f(combinator, null);
                             }
-                            String dif2 = dif();
-                            if (dif2 == null) {
+                            String dih2 = dih();
+                            if (dih2 == null) {
                                 throw new SAXException("Invalid \".class\" selector in <style> element");
                             }
-                            fVar.a(DealIntentService.KEY_CLASS, AttribOp.EQUALS, dif2);
-                            eVar.dil();
+                            fVar.a(DealIntentService.KEY_CLASS, AttribOp.EQUALS, dih2);
+                            eVar.din();
                         } else {
                             if (g('#')) {
                                 if (fVar == null) {
                                     fVar = new f(combinator, null);
                                 }
-                                String dif3 = dif();
-                                if (dif3 == null) {
+                                String dih3 = dih();
+                                if (dih3 == null) {
                                     throw new SAXException("Invalid \"#id\" selector in <style> element");
                                 }
-                                fVar.a("id", AttribOp.EQUALS, dif3);
-                                eVar.dik();
+                                fVar.a("id", AttribOp.EQUALS, dih3);
+                                eVar.dim();
                             }
                             if (fVar == null) {
                                 break;
                             } else if (g('[')) {
                                 skipWhitespace();
-                                String dif4 = dif();
-                                if (dif4 == null) {
+                                String dih4 = dih();
+                                if (dih4 == null) {
                                     throw new SAXException("Invalid attribute selector in <style> element");
                                 }
                                 skipWhitespace();
@@ -405,7 +405,7 @@ public class CSSParser {
                                 }
                                 if (attribOp != null) {
                                     skipWhitespace();
-                                    str = dih();
+                                    str = dij();
                                     if (str == null) {
                                         throw new SAXException("Invalid attribute selector in <style> element");
                                     }
@@ -419,22 +419,22 @@ public class CSSParser {
                                 if (attribOp == null) {
                                     attribOp = AttribOp.EXISTS;
                                 }
-                                fVar.a(dif4, attribOp, str);
-                                eVar.dil();
+                                fVar.a(dih4, attribOp, str);
+                                eVar.din();
                             } else if (g(':')) {
                                 int i2 = this.position;
-                                if (dif() != null) {
+                                if (dih() != null) {
                                     if (g('(')) {
                                         skipWhitespace();
-                                        if (dif() != null) {
+                                        if (dih() != null) {
                                             skipWhitespace();
                                             if (!g(')')) {
                                                 this.position = i2 - 1;
                                             }
                                         }
                                     }
-                                    fVar.NO(this.lGo.substring(i2, this.position));
-                                    eVar.dil();
+                                    fVar.NO(this.lGq.substring(i2, this.position));
+                                    eVar.din();
                                 }
                             }
                         }
@@ -447,35 +447,35 @@ public class CSSParser {
             if (!g('*')) {
             }
             while (true) {
-                if (!djc()) {
+                if (!dje()) {
                 }
             }
         }
 
-        private String dih() {
-            if (djc()) {
+        private String dij() {
+            if (dje()) {
                 return null;
             }
-            String djn = djn();
-            return djn == null ? dif() : djn;
+            String djp = djp();
+            return djp == null ? dih() : djp;
         }
 
-        public String dii() {
-            if (djc()) {
+        public String dik() {
+            if (dje()) {
                 return null;
             }
             int i = this.position;
             int i2 = this.position;
             int i3 = i2;
-            int charAt = this.lGo.charAt(this.position);
+            int charAt = this.lGq.charAt(this.position);
             while (charAt != -1 && charAt != 59 && charAt != 125 && charAt != 33 && !Hj(charAt)) {
                 if (!Hi(charAt)) {
                     i3 = this.position + 1;
                 }
-                charAt = dji();
+                charAt = djk();
             }
             if (this.position > i) {
-                return this.lGo.substring(i, i3);
+                return this.lGq.substring(i, i3);
             }
             this.position = i;
             return null;
@@ -495,10 +495,10 @@ public class CSSParser {
 
     private static List<MediaType> a(b bVar) throws SAXException {
         ArrayList arrayList = new ArrayList();
-        while (!bVar.djc()) {
+        while (!bVar.dje()) {
             try {
                 arrayList.add(MediaType.valueOf(bVar.h(',')));
-                if (!bVar.djd()) {
+                if (!bVar.djf()) {
                     break;
                 }
             } catch (IllegalArgumentException e2) {
@@ -509,21 +509,21 @@ public class CSSParser {
     }
 
     private void a(d dVar, b bVar) throws SAXException {
-        String dif = bVar.dif();
+        String dih = bVar.dih();
         bVar.skipWhitespace();
-        if (dif == null) {
+        if (dih == null) {
             throw new SAXException("Invalid '@' rule in <style> element");
         }
-        if (!this.lCQ && dif.equals("media")) {
+        if (!this.lCS && dih.equals("media")) {
             List<MediaType> a2 = a(bVar);
             if (!bVar.g('{')) {
                 throw new SAXException("Invalid @media rule: missing rule set");
             }
             bVar.skipWhitespace();
-            if (a(a2, this.lCP)) {
-                this.lCQ = true;
+            if (a(a2, this.lCR)) {
+                this.lCS = true;
                 dVar.a(c(bVar));
-                this.lCQ = false;
+                this.lCS = false;
             } else {
                 c(bVar);
             }
@@ -531,7 +531,7 @@ public class CSSParser {
                 throw new SAXException("Invalid @media rule: expected '}' at end of rule set");
             }
         } else {
-            j("Ignoring @%s rule", dif);
+            j("Ignoring @%s rule", dih);
             b(bVar);
         }
         bVar.skipWhitespace();
@@ -539,8 +539,8 @@ public class CSSParser {
 
     private void b(b bVar) {
         int i = 0;
-        while (!bVar.djc()) {
-            int intValue = bVar.djf().intValue();
+        while (!bVar.dje()) {
+            int intValue = bVar.djh().intValue();
             if (intValue != 59 || i != 0) {
                 if (intValue == 123) {
                     i++;
@@ -555,7 +555,7 @@ public class CSSParser {
 
     private d c(b bVar) throws SAXException {
         d dVar = new d();
-        while (!bVar.djc()) {
+        while (!bVar.dje()) {
             if (!bVar.OC("<!--") && !bVar.OC("-->")) {
                 if (bVar.g('@')) {
                     a(dVar, bVar);
@@ -585,13 +585,13 @@ public class CSSParser {
     }
 
     private List<e> d(b bVar) throws SAXException {
-        if (bVar.djc()) {
+        if (bVar.dje()) {
             return null;
         }
         ArrayList arrayList = new ArrayList(1);
         e eVar = new e();
-        while (!bVar.djc() && bVar.a(eVar)) {
-            if (bVar.djd()) {
+        while (!bVar.dje() && bVar.a(eVar)) {
+            if (bVar.djf()) {
                 arrayList.add(eVar);
                 eVar = new e();
             }
@@ -605,14 +605,14 @@ public class CSSParser {
     private SVG.Style e(b bVar) throws SAXException {
         SVG.Style style = new SVG.Style();
         do {
-            String dif = bVar.dif();
+            String dih = bVar.dih();
             bVar.skipWhitespace();
             if (!bVar.g(':')) {
                 break;
             }
             bVar.skipWhitespace();
-            String dii = bVar.dii();
-            if (dii == null) {
+            String dik = bVar.dik();
+            if (dik == null) {
                 break;
             }
             bVar.skipWhitespace();
@@ -624,12 +624,12 @@ public class CSSParser {
                 bVar.skipWhitespace();
             }
             bVar.g(';');
-            SVGParser.a(style, dif, dii);
+            SVGParser.a(style, dih, dik);
             bVar.skipWhitespace();
             if (bVar.g('}')) {
                 return style;
             }
-        } while (!bVar.djc());
+        } while (!bVar.dje());
         throw new SAXException("Malformed rule set in <style> element");
     }
 
@@ -637,15 +637,15 @@ public class CSSParser {
     public static List<String> NN(String str) throws SAXException {
         b bVar = new b(str);
         ArrayList arrayList = null;
-        while (!bVar.djc()) {
-            String dif = bVar.dif();
-            if (dif == null) {
+        while (!bVar.dje()) {
+            String dih = bVar.dih();
+            if (dih == null) {
                 throw new SAXException("Invalid value for \"class\" attribute: " + str);
             }
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
-            arrayList.add(dif);
+            arrayList.add(dih);
             bVar.skipWhitespace();
         }
         return arrayList;
@@ -654,7 +654,7 @@ public class CSSParser {
     /* JADX INFO: Access modifiers changed from: protected */
     public static boolean a(e eVar, SVG.ai aiVar) {
         ArrayList arrayList = new ArrayList();
-        for (SVG.ag agVar = aiVar.lFm; agVar != null; agVar = ((SVG.ak) agVar).lFm) {
+        for (SVG.ag agVar = aiVar.lFo; agVar != null; agVar = ((SVG.ak) agVar).lFo) {
             arrayList.add(0, agVar);
         }
         int size = arrayList.size() - 1;
@@ -664,7 +664,7 @@ public class CSSParser {
     private static boolean a(e eVar, int i, List<SVG.ag> list, int i2, SVG.ai aiVar) {
         f Hg = eVar.Hg(i);
         if (a(Hg, list, i2, aiVar)) {
-            if (Hg.lCY == Combinator.DESCENDANT) {
+            if (Hg.lDa == Combinator.DESCENDANT) {
                 if (i == 0) {
                     return true;
                 }
@@ -675,12 +675,12 @@ public class CSSParser {
                     i2--;
                 }
                 return false;
-            } else if (Hg.lCY == Combinator.CHILD) {
+            } else if (Hg.lDa == Combinator.CHILD) {
                 return a(eVar, i - 1, list, i2);
             } else {
                 int a2 = a(list, i2, aiVar);
                 if (a2 > 0) {
-                    return a(eVar, i - 1, list, i2, (SVG.ai) aiVar.lFm.getChildren().get(a2 - 1));
+                    return a(eVar, i - 1, list, i2, (SVG.ai) aiVar.lFo.getChildren().get(a2 - 1));
                 }
                 return false;
             }
@@ -692,7 +692,7 @@ public class CSSParser {
         f Hg = eVar.Hg(i);
         SVG.ai aiVar = (SVG.ai) list.get(i2);
         if (a(Hg, list, i2, aiVar)) {
-            if (Hg.lCY == Combinator.DESCENDANT) {
+            if (Hg.lDa == Combinator.DESCENDANT) {
                 if (i == 0) {
                     return true;
                 }
@@ -703,23 +703,23 @@ public class CSSParser {
                     }
                 }
                 return false;
-            } else if (Hg.lCY == Combinator.CHILD) {
+            } else if (Hg.lDa == Combinator.CHILD) {
                 return a(eVar, i - 1, list, i2 - 1);
             } else {
                 int a2 = a(list, i2, aiVar);
                 if (a2 <= 0) {
                     return false;
                 }
-                return a(eVar, i - 1, list, i2, (SVG.ai) aiVar.lFm.getChildren().get(a2 - 1));
+                return a(eVar, i - 1, list, i2, (SVG.ai) aiVar.lFo.getChildren().get(a2 - 1));
             }
         }
         return false;
     }
 
     private static int a(List<SVG.ag> list, int i, SVG.ai aiVar) {
-        if (i >= 0 && list.get(i) == aiVar.lFm) {
+        if (i >= 0 && list.get(i) == aiVar.lFo) {
             int i2 = 0;
-            Iterator<SVG.ak> it = aiVar.lFm.getChildren().iterator();
+            Iterator<SVG.ak> it = aiVar.lFo.getChildren().iterator();
             while (true) {
                 int i3 = i2;
                 if (!it.hasNext()) {
@@ -745,21 +745,21 @@ public class CSSParser {
                 return false;
             }
         }
-        if (fVar.lCZ != null) {
-            for (a aVar : fVar.lCZ) {
+        if (fVar.lDb != null) {
+            for (a aVar : fVar.lDb) {
                 if (aVar.name == "id") {
                     if (!aVar.value.equals(aiVar.id)) {
                         return false;
                     }
                 } else {
-                    if (aVar.name == DealIntentService.KEY_CLASS && aiVar.lFk != null && aiVar.lFk.contains(aVar.value)) {
+                    if (aVar.name == DealIntentService.KEY_CLASS && aiVar.lFm != null && aiVar.lFm.contains(aVar.value)) {
                     }
                     return false;
                 }
             }
         }
-        if (fVar.lDa != null) {
-            for (String str : fVar.lDa) {
+        if (fVar.lDc != null) {
+            for (String str : fVar.lDc) {
                 if (!str.equals("first-child")) {
                     return false;
                 }

@@ -6,10 +6,10 @@ public class gf extends gd {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private a f412a;
+    private a f411a;
 
     /* renamed from: a  reason: collision with other field name */
-    private b f413a;
+    private b f412a;
     private String b;
 
     /* loaded from: classes8.dex */
@@ -35,12 +35,12 @@ public class gf extends gd {
 
     public gf(Bundle bundle) {
         super(bundle);
-        this.f413a = b.available;
+        this.f412a = b.available;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f412a = null;
+        this.f411a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f413a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f412a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
             this.b = bundle.getString("ext_pres_status");
@@ -49,23 +49,23 @@ public class gf extends gd {
             this.a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f412a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f411a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
     public gf(b bVar) {
-        this.f413a = b.available;
+        this.f412a = b.available;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f412a = null;
+        this.f411a = null;
         a(bVar);
     }
 
     @Override // com.xiaomi.push.gd
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f413a != null) {
-            a2.putString("ext_pres_type", this.f413a.toString());
+        if (this.f412a != null) {
+            a2.putString("ext_pres_type", this.f412a.toString());
         }
         if (this.b != null) {
             a2.putString("ext_pres_status", this.b);
@@ -73,8 +73,8 @@ public class gf extends gd {
         if (this.a != Integer.MIN_VALUE) {
             a2.putInt("ext_pres_prio", this.a);
         }
-        if (this.f412a != null && this.f412a != a.available) {
-            a2.putString("ext_pres_mode", this.f412a.toString());
+        if (this.f411a != null && this.f411a != a.available) {
+            a2.putString("ext_pres_mode", this.f411a.toString());
         }
         return a2;
     }
@@ -98,8 +98,8 @@ public class gf extends gd {
         if (k() != null) {
             sb.append(" chid=\"").append(go.a(k())).append("\"");
         }
-        if (this.f413a != null) {
-            sb.append(" type=\"").append(this.f413a).append("\"");
+        if (this.f412a != null) {
+            sb.append(" type=\"").append(this.f412a).append("\"");
         }
         sb.append(">");
         if (this.b != null) {
@@ -108,8 +108,8 @@ public class gf extends gd {
         if (this.a != Integer.MIN_VALUE) {
             sb.append("<priority>").append(this.a).append("</priority>");
         }
-        if (this.f412a != null && this.f412a != a.available) {
-            sb.append("<show>").append(this.f412a).append("</show>");
+        if (this.f411a != null && this.f411a != a.available) {
+            sb.append("<show>").append(this.f411a).append("</show>");
         }
         sb.append(o());
         gh a2 = a();
@@ -128,14 +128,14 @@ public class gf extends gd {
     }
 
     public void a(a aVar) {
-        this.f412a = aVar;
+        this.f411a = aVar;
     }
 
     public void a(b bVar) {
         if (bVar == null) {
             throw new NullPointerException("Type cannot be null");
         }
-        this.f413a = bVar;
+        this.f412a = bVar;
     }
 
     @Override // com.xiaomi.push.gd

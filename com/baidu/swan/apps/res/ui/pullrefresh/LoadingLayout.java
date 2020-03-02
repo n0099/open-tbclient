@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes11.dex */
 public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
-    private View bLI;
-    private ILoadingLayout.State bLJ;
+    private View bLJ;
     private ILoadingLayout.State bLK;
+    private ILoadingLayout.State bLL;
 
     protected abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
 
@@ -27,27 +27,27 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bLJ = ILoadingLayout.State.NONE;
         this.bLK = ILoadingLayout.State.NONE;
+        this.bLL = ILoadingLayout.State.NONE;
         init(context, attributeSet);
     }
 
     protected void init(Context context, AttributeSet attributeSet) {
-        this.bLI = a(context, this, attributeSet);
-        if (this.bLI == null) {
+        this.bLJ = a(context, this, attributeSet);
+        if (this.bLJ == null) {
             throw new NullPointerException("Loading view can not be null.");
         }
         int i = -2;
-        ViewGroup.LayoutParams layoutParams = this.bLI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bLJ.getLayoutParams();
         if (layoutParams != null) {
             i = layoutParams.height;
         }
-        addView(this.bLI, new FrameLayout.LayoutParams(-1, i));
+        addView(this.bLJ, new FrameLayout.LayoutParams(-1, i));
     }
 
     public void show(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z != (getVisibility() == 0) && (layoutParams = this.bLI.getLayoutParams()) != null) {
+        if (z != (getVisibility() == 0) && (layoutParams = this.bLJ.getLayoutParams()) != null) {
             if (z) {
                 layoutParams.height = -2;
             } else {
@@ -74,34 +74,34 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     public void setHeaderBackgroundColor(int i) {
-        if (this.bLI != null) {
-            this.bLI.setBackgroundColor(i);
+        if (this.bLJ != null) {
+            this.bLJ.setBackgroundColor(i);
         }
     }
 
     public void setHeaderBackgroundResource(int i) {
-        if (this.bLI != null) {
-            this.bLI.setBackgroundColor(getResources().getColor(i));
+        if (this.bLJ != null) {
+            this.bLJ.setBackgroundColor(getResources().getColor(i));
         }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.bLI != null) {
-            this.bLI.setBackgroundColor(i);
+        if (this.bLJ != null) {
+            this.bLJ.setBackgroundColor(i);
         }
     }
 
     public void setState(ILoadingLayout.State state) {
-        if (this.bLJ != state) {
-            this.bLK = this.bLJ;
-            this.bLJ = state;
-            a(state, this.bLK);
+        if (this.bLK != state) {
+            this.bLL = this.bLK;
+            this.bLK = state;
+            a(state, this.bLL);
         }
     }
 
     public ILoadingLayout.State getState() {
-        return this.bLJ;
+        return this.bLK;
     }
 
     public void onPull(float f) {
@@ -109,7 +109,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ILoadingLayout.State getPreState() {
-        return this.bLK;
+        return this.bLL;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -131,7 +131,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
                 onNoMoreData();
                 return;
             case RELEASE_TO_LONG_REFRESH:
-                abK();
+                abM();
                 return;
             default:
                 return;
@@ -145,7 +145,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abK() {
+    public void abM() {
     }
 
     protected void onReleaseToRefresh() {

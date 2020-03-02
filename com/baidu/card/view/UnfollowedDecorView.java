@@ -33,7 +33,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         this.OX = new f(r((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGC().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     @Override // android.view.View.OnClickListener
@@ -46,7 +46,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public void q(bj bjVar) {
         this.OX.q(bjVar);
-        if (!au.u(bjVar) && bjVar.aDZ()) {
+        if (!au.u(bjVar) && bjVar.aEb()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -54,7 +54,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.aGA().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGC().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private TbPageContext r(Activity activity) {

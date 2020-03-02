@@ -11,7 +11,7 @@ public class a implements g {
     public void Ej(String str) {
         Activity currentActivity;
         if (!StringUtils.isNull(str) && (currentActivity = com.baidu.adp.base.a.eH().currentActivity()) != null) {
-            ba.aGE().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
+            ba.aGG().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
         }
     }
 

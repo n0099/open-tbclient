@@ -15,10 +15,10 @@ public class g {
     public static void a(b.a aVar, String str) {
         f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_ok"));
         if (aVar != null) {
-            if (aVar.brJ != null) {
-                aVar.brJ.fb(str);
+            if (aVar.brK != null) {
+                aVar.brK.fb(str);
             }
-            f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").au(aVar.brM)).f(new UbcFlowEvent("na_pre_load_slave_end").au(aVar.brN));
+            f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").au(aVar.brN)).f(new UbcFlowEvent("na_pre_load_slave_end").au(aVar.brO));
         }
     }
 
@@ -39,14 +39,14 @@ public class g {
     }
 
     public static void kc(String str) {
-        b.a GC;
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (acD != null && (GC = acD.GC()) != null) {
-            f.aY("route", str).bb("appid", GC.getAppId()).bb("launchid", GC.Wa()).k("from", "swan").bb("web_widget_state", "0").Zy();
+        b.a GE;
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (acF != null && (GE = acF.GE()) != null) {
+            f.aY("route", str).bb("appid", GE.getAppId()).bb("launchid", GE.Wc()).k("from", "swan").bb("web_widget_state", "0").ZA();
         }
     }
 
     public static void kd(String str) {
-        f.aY("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).bb("web_widget_state", "1").ZB();
+        f.aY("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).bb("web_widget_state", "1").ZD();
     }
 }

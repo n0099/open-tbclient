@@ -41,8 +41,8 @@ public class d extends ab {
                 return false;
             }
         }
-        com.baidu.swan.apps.core.d.e GA = com.baidu.swan.apps.y.f.WQ().GA();
-        if (GA == null) {
+        com.baidu.swan.apps.core.d.e GC = com.baidu.swan.apps.y.f.WS().GC();
+        if (GC == null) {
             com.baidu.swan.apps.console.c.e("navigateBack", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -50,24 +50,24 @@ public class d extends ab {
         if (DEBUG) {
             Log.d("NavigateBackAction", "back delta: " + optInt);
         }
-        if (optInt >= GA.Oo()) {
-            optInt = GA.Oo() - 1;
+        if (optInt >= GC.Oq()) {
+            optInt = GC.Oq() - 1;
         }
         if (DEBUG) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
-        com.baidu.swan.apps.as.d.b(GA, context);
-        GA.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.bog, com.baidu.swan.apps.core.d.e.bof).ey(optInt).commit();
+        com.baidu.swan.apps.as.d.b(GC, context);
+        GC.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boh, com.baidu.swan.apps.core.d.e.bog).ey(optInt).commit();
         com.baidu.swan.apps.performance.f.aY("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
         com.baidu.swan.apps.performance.g.A(1, uuid);
         com.baidu.swan.apps.performance.g.kc(uuid);
-        if (!(GA.Ol() instanceof com.baidu.swan.apps.core.d.d)) {
+        if (!(GC.On() instanceof com.baidu.swan.apps.core.d.d)) {
             com.baidu.swan.apps.console.c.e("navigateBack", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) GA.Ol();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lt(dVar != null ? dVar.NX() : ""), 0));
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) GC.On();
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lt(dVar != null ? dVar.NZ() : ""), 0));
         return true;
     }
 }

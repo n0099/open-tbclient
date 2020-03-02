@@ -21,57 +21,57 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class a {
-    private static a aZj;
-    private Thread aZk;
-    private Handler aZl;
-    private ExecutorService aZm;
-    private LinkedList<Runnable> aZn;
-    private LruCache<String, Bitmap> aZo;
-    private Semaphore aZp = new Semaphore(0);
-    private Semaphore aZq;
+    private static a aZk;
+    private Thread aZl;
+    private Handler aZm;
+    private ExecutorService aZn;
+    private LinkedList<Runnable> aZo;
+    private LruCache<String, Bitmap> aZp;
+    private Semaphore aZq = new Semaphore(0);
+    private Semaphore aZr;
 
     private a(int i) {
         init(i);
     }
 
-    public static a Gh() {
-        if (aZj == null) {
+    public static a Gj() {
+        if (aZk == null) {
             synchronized (a.class) {
-                if (aZj == null) {
-                    aZj = new a(3);
+                if (aZk == null) {
+                    aZk = new a(3);
                 }
             }
         }
-        return aZj;
+        return aZk;
     }
 
     private void init(int i) {
-        this.aZk = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
+        this.aZl = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 super.run();
                 Looper.prepare();
-                a.this.aZl = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
+                a.this.aZm = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
                     @Override // android.os.Handler
                     public void handleMessage(Message message) {
-                        a.this.aZm.execute(a.this.Gi());
-                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.aZn.size());
+                        a.this.aZn.execute(a.this.Gk());
+                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.aZo.size());
                         try {
-                            a.this.aZq.acquire();
+                            a.this.aZr.acquire();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                a.this.aZp.release();
+                a.this.aZq.release();
                 Looper.loop();
             }
         };
-        this.aZk.start();
-        this.aZq = new Semaphore(i);
-        this.aZm = Executors.newFixedThreadPool(i);
-        this.aZn = new LinkedList<>();
-        this.aZo = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
+        this.aZl.start();
+        this.aZr = new Semaphore(i);
+        this.aZn = Executors.newFixedThreadPool(i);
+        this.aZo = new LinkedList<>();
+        this.aZp = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.util.LruCache
@@ -120,20 +120,20 @@ public class a {
     }
 
     private Bitmap eX(String str) {
-        if (this.aZo != null) {
-            return this.aZo.get(str);
+        if (this.aZp != null) {
+            return this.aZp.get(str);
         }
         return null;
     }
 
     private void f(String str, Bitmap bitmap) {
         if (eX(str) == null && bitmap != null) {
-            this.aZo.put(str, bitmap);
+            this.aZp.put(str, bitmap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Runnable Gi() {
-        return this.aZn.removeLast();
+    public Runnable Gk() {
+        return this.aZo.removeLast();
     }
 }

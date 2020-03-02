@@ -5,20 +5,20 @@ import com.baidu.android.util.time.DateTimeUtil;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.n.a.b {
-    private String clX;
+    private String clY;
     private String data;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.clX = str2;
+        this.clY = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.n.a.b, com.baidu.swan.apps.n.a.a
     public String hJ(String str) {
-        String str2 = this.clX;
+        String str2 = this.clY;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:

@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nqH;
-    private final m<PointF, PointF> nqI;
-    private final g nqJ;
-    private final b nqK;
-    private final d nqL;
-    @Nullable
+    private final e nqJ;
+    private final m<PointF, PointF> nqK;
+    private final g nqL;
     private final b nqM;
+    private final d nqN;
     @Nullable
-    private final b nqN;
+    private final b nqO;
+    @Nullable
+    private final b nqP;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nqH = eVar;
-        this.nqI = mVar;
-        this.nqJ = gVar;
-        this.nqK = bVar;
-        this.nqL = dVar;
-        this.nqM = bVar2;
-        this.nqN = bVar3;
+        this.nqJ = eVar;
+        this.nqK = mVar;
+        this.nqL = gVar;
+        this.nqM = bVar;
+        this.nqN = dVar;
+        this.nqO = bVar2;
+        this.nqP = bVar3;
     }
 
-    public e dGP() {
-        return this.nqH;
-    }
-
-    public m<PointF, PointF> dGQ() {
-        return this.nqI;
-    }
-
-    public g dGR() {
+    public e dGR() {
         return this.nqJ;
     }
 
-    public b dGS() {
+    public m<PointF, PointF> dGS() {
         return this.nqK;
     }
 
-    public d dGT() {
+    public g dGT() {
         return this.nqL;
     }
 
-    @Nullable
     public b dGU() {
         return this.nqM;
     }
 
-    @Nullable
-    public b dGV() {
+    public d dGV() {
         return this.nqN;
     }
 
-    public o dGW() {
+    @Nullable
+    public b dGW() {
+        return this.nqO;
+    }
+
+    @Nullable
+    public b dGX() {
+        return this.nqP;
+    }
+
+    public o dGY() {
         return new o(this);
     }
 

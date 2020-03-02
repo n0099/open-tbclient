@@ -10,7 +10,7 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.nBM;
+        E[] eArr = this.nBO;
         long j = this.producerIndex;
         long ht = ht(j);
         if (b(eArr, ht) != null) {
@@ -25,7 +25,7 @@ public final class q<E> extends v<E> {
     public E poll() {
         long j = this.consumerIndex;
         long ht = ht(j);
-        E[] eArr = this.nBM;
+        E[] eArr = this.nBO;
         E b = b(eArr, ht);
         if (b == null) {
             return null;
@@ -42,35 +42,35 @@ public final class q<E> extends v<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dJu = dJu();
+        long dJw = dJw();
         while (true) {
-            long dJt = dJt();
-            long dJu2 = dJu();
-            if (dJu == dJu2) {
-                return (int) (dJt - dJu2);
+            long dJv = dJv();
+            long dJw2 = dJw();
+            if (dJw == dJw2) {
+                return (int) (dJv - dJw2);
             }
-            dJu = dJu2;
+            dJw = dJw2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dJt() == dJu();
+        return dJv() == dJw();
     }
 
     private void soProducerIndex(long j) {
-        ae.nSR.a(this, nSL, j);
+        ae.nST.a(this, nSN, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.nSR.a(this, nSK, j);
+        ae.nST.a(this, nSM, j);
     }
 
-    private long dJt() {
-        return ae.nSR.d(this, nSL);
+    private long dJv() {
+        return ae.nST.d(this, nSN);
     }
 
-    private long dJu() {
-        return ae.nSR.d(this, nSK);
+    private long dJw() {
+        return ae.nST.d(this, nSM);
     }
 }

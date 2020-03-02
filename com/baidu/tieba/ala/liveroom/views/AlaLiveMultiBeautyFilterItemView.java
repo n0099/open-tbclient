@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView fmp;
-    private TextView fmq;
+    private HeadImageView fmq;
+    private TextView fmr;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -21,28 +21,28 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.fmp = (HeadImageView) inflate.findViewById(a.g.item_icon);
-        this.fmp.setIsRound(true);
-        this.fmp.setAutoChangeStyle(false);
-        this.fmp.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fmq = (TextView) inflate.findViewById(a.g.item_text);
+        this.fmq = (HeadImageView) inflate.findViewById(a.g.item_icon);
+        this.fmq.setIsRound(true);
+        this.fmq.setAutoChangeStyle(false);
+        this.fmq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fmr = (TextView) inflate.findViewById(a.g.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.fmp.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
-        this.fmq.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
+        this.fmq.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
+        this.fmr.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.fmq.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.fmp.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
+        this.fmr.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.fmq.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.fmp.setImageDrawable(getResources().getDrawable(i));
+        this.fmq.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.fmq.setText(str);
+        this.fmr.setText(str);
     }
 }

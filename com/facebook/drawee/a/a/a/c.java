@@ -3,23 +3,23 @@ package com.facebook.drawee.a.a.a;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private String lKg;
+    private String lKi;
     @Nullable
-    private final b lKh;
+    private final b lKj;
 
     public c(String str, @Nullable b bVar) {
-        this.lKh = bVar;
+        this.lKj = bVar;
         init(str);
     }
 
     public void init(String str) {
-        this.lKg = str;
+        this.lKi = str;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.producers.am
     public void D(String str, String str2, boolean z) {
-        if (this.lKh != null) {
-            this.lKh.h(this.lKg, d.OW(str2), z);
+        if (this.lKj != null) {
+            this.lKj.h(this.lKi, d.OW(str2), z);
         }
     }
 }

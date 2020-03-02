@@ -15,7 +15,7 @@ class cl {
     public static int a(String str, String str2, ch chVar) {
         HttpPost httpPost;
         LinkedList linkedList = new LinkedList();
-        linkedList.add(new BasicNameValuePair("logValue", chVar.f183a));
+        linkedList.add(new BasicNameValuePair("logValue", chVar.f182a));
         linkedList.add(new BasicNameValuePair("appId", str));
         linkedList.add(new BasicNameValuePair("showType", chVar.a + ""));
         linkedList.add(new BasicNameValuePair("s", cm.a(linkedList, str2)));

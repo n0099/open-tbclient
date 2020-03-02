@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 final class a {
-    private static final a kVU = new a();
+    private static final a kVW = new a();
     private boolean ac;
-    private final Set<InterfaceC0642a> kVV = new LinkedHashSet();
+    private final Set<InterfaceC0642a> kVX = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cXq() {
-        return kVU;
+    public static a cXs() {
+        return kVW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0642a> cXr() {
-        return this.kVV;
+    public final Set<InterfaceC0642a> cXt() {
+        return this.kVX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(InterfaceC0642a interfaceC0642a) {
-        synchronized (this.kVV) {
-            this.kVV.add(interfaceC0642a);
+        synchronized (this.kVX) {
+            this.kVX.add(interfaceC0642a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void cXs() {
-        synchronized (this.kVV) {
-            this.kVV.clear();
+    public final void cXu() {
+        synchronized (this.kVX) {
+            this.kVX.clear();
         }
     }
 

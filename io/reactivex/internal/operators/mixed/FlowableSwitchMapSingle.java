@@ -19,11 +19,11 @@ import org.a.d;
 public final class FlowableSwitchMapSingle<T, R> extends g<R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final g<T> nwr;
+    final g<T> nwt;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.nwr.a((j) new SwitchMapSingleSubscriber(cVar, this.mapper, this.delayErrors));
+        this.nwt.a((j) new SwitchMapSingleSubscriber(cVar, this.mapper, this.delayErrors));
     }
 
     /* loaded from: classes7.dex */

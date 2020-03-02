@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class m extends h<n, o> {
-    private final int gqX;
+    private final int gqZ;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gqX = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
+        this.gqZ = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class m extends h<n, o> {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.gqX;
+        generateLayoutParamsByParent.height = this.gqZ;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new o(inflate, viewGroup);
     }
@@ -34,13 +34,13 @@ public class m extends h<n, o> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, o oVar) {
         super.a(i, view, viewGroup, (ViewGroup) nVar, (n) oVar);
-        if (nVar.bFo() == 6) {
-            oVar.grb.setText(R.string.attention_no_post_tip);
+        if (nVar.bFq() == 6) {
+            oVar.grd.setText(R.string.attention_no_post_tip);
         } else {
-            oVar.grb.setText(R.string.no_data_common_txt);
+            oVar.grd.setText(R.string.no_data_common_txt);
         }
-        com.baidu.tbadk.core.util.am.setViewTextColor(oVar.grb, R.color.cp_cont_j, 1);
-        com.baidu.tbadk.core.util.am.setImageResource(oVar.grc, R.drawable.new_pic_emotion_06);
+        com.baidu.tbadk.core.util.am.setViewTextColor(oVar.grd, R.color.cp_cont_j, 1);
+        com.baidu.tbadk.core.util.am.setImageResource(oVar.gre, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

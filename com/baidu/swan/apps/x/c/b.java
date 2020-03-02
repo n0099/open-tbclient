@@ -7,35 +7,35 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bzb;
-    public com.baidu.swan.apps.as.d.b<b> bzd;
-    private final List<String> bzc = new ArrayList();
-    private final List<a> bze = new ArrayList();
-    private String bzf = b.class.getPackage().getName();
+    private String bzc;
+    public com.baidu.swan.apps.as.d.b<b> bze;
+    private final List<String> bzd = new ArrayList();
+    private final List<a> bzf = new ArrayList();
+    private String bzg = b.class.getPackage().getName();
 
     public b iO(String str) {
-        this.bzb = str;
+        this.bzc = str;
         return this;
     }
 
-    public String Wl() {
-        return this.bzb;
+    public String Wn() {
+        return this.bzc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> Wm() {
-        return new ArrayList(this.bze);
+    public synchronized List<a> Wo() {
+        return new ArrayList(this.bzf);
     }
 
-    public synchronized a Wh() {
+    public synchronized a Wj() {
         a aVar;
         aVar = new a();
-        this.bze.add(aVar);
+        this.bzf.add(aVar);
         return aVar;
     }
 
     public synchronized a iN(String str) {
-        return Wh().iQ(str);
+        return Wj().iQ(str);
     }
 
     public synchronized a aT(String str, String str2) {
@@ -43,12 +43,12 @@ public final class b {
     }
 
     public b b(com.baidu.swan.apps.as.d.b<b> bVar) {
-        this.bzd = bVar;
+        this.bze = bVar;
         return this;
     }
 
-    public synchronized b Wn() {
-        return c(this.bzd);
+    public synchronized b Wp() {
+        return c(this.bze);
     }
 
     public synchronized b c(com.baidu.swan.apps.as.d.b<b> bVar) {
@@ -61,23 +61,23 @@ public final class b {
 
     /* loaded from: classes11.dex */
     public class a {
-        final List<String> bzc;
-        private final List<StackTraceElement> bzg;
-        final /* synthetic */ b bzh;
+        final List<String> bzd;
+        private final List<StackTraceElement> bzh;
+        final /* synthetic */ b bzi;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.bzh = bVar;
+            this.bzi = bVar;
             this.msgs = new ArrayList();
-            this.bzc = new ArrayList();
-            this.bzg = new ArrayList();
+            this.bzd = new ArrayList();
+            this.bzh = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bzf)) {
-                    this.bzg.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bzg)) {
+                    this.bzh.add(stackTraceElement);
                 }
             }
         }
@@ -96,22 +96,22 @@ public final class b {
             return this;
         }
 
-        public synchronized a Wo() {
-            return fm(this.bzg.size());
+        public synchronized a Wq() {
+            return fm(this.bzh.size());
         }
 
         public synchronized a fm(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.bzg.size() ? this.bzg.size() : i2;
+                int size = i2 > this.bzh.size() ? this.bzh.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.bzh.iN("[Trace]==> " + this.bzg.get(i3).toString());
+                    this.bzi.iN("[Trace]==> " + this.bzh.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a Wp() {
+        public synchronized a Wr() {
             return fm(1);
         }
     }
@@ -128,10 +128,10 @@ public final class b {
         /* renamed from: a */
         public void D(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.bze) {
+                for (a aVar : bVar.bzf) {
                     for (String str : aVar.msgs) {
-                        String Wl = bVar.Wl();
-                        z(TextUtils.isEmpty(aVar.tag) ? Wl : aVar.tag, Wl + " >>> " + str);
+                        String Wn = bVar.Wn();
+                        z(TextUtils.isEmpty(aVar.tag) ? Wn : aVar.tag, Wn + " >>> " + str);
                     }
                 }
             }

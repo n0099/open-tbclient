@@ -16,63 +16,63 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.y.e;
 /* loaded from: classes11.dex */
 public interface d extends e.b {
-    com.baidu.swan.apps.core.d.e GA();
+    com.baidu.swan.apps.core.d.e GC();
 
-    void GD();
+    void GF();
 
-    void Iw();
+    void Iy();
 
-    void Ix();
+    void Iz();
 
     void J(Intent intent);
 
-    String NX();
+    String NZ();
 
     FullScreenFloatView O(Activity activity);
 
-    com.baidu.swan.games.view.d OM();
+    com.baidu.swan.apps.runtime.e OA();
 
-    com.baidu.swan.games.view.d ON();
+    com.baidu.swan.games.view.d OO();
 
-    com.baidu.swan.apps.core.d.d Om();
+    com.baidu.swan.games.view.d OP();
 
-    com.baidu.swan.apps.runtime.e Oy();
+    com.baidu.swan.apps.core.d.d Oo();
 
     SwanAppPropertyWindow P(Activity activity);
 
     String WA();
 
-    SwanAppActivity WB();
+    String WB();
 
-    com.baidu.swan.apps.adaptation.b.d WC();
+    String WC();
+
+    SwanAppActivity WD();
+
+    com.baidu.swan.apps.adaptation.b.d WE();
 
     @NonNull
-    Pair<Integer, Integer> WD();
+    Pair<Integer, Integer> WF();
 
     @NonNull
-    Pair<Integer, Integer> WE();
+    Pair<Integer, Integer> WG();
 
-    com.baidu.swan.games.p.a WF();
+    com.baidu.swan.games.p.a WH();
 
-    void Wr();
+    void Wt();
 
-    void Ws();
+    void Wu();
 
-    SwanCoreVersion Wt();
+    SwanCoreVersion Wv();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a Wu();
+    com.baidu.swan.apps.adaptation.b.a Ww();
 
-    boolean Wv();
+    boolean Wx();
 
-    SwanAppConfigData Ww();
+    SwanAppConfigData Wy();
 
     @NonNull
-    com.baidu.swan.apps.storage.b.c Wx();
-
-    String Wy();
-
-    String Wz();
+    com.baidu.swan.apps.storage.b.c Wz();
 
     void a(int i, @NonNull String[] strArr, c.a aVar);
 

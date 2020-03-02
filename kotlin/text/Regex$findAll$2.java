@@ -30,6 +30,6 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
         kotlin.jvm.internal.q.j(iVar, "p1");
-        return iVar.dKP();
+        return iVar.dKR();
     }
 }

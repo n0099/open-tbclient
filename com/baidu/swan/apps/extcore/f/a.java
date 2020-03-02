@@ -18,26 +18,26 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         super(t);
     }
 
-    public long RZ() {
-        return h.afp().getLong(this.buC.RU(), 0L);
+    public long Sb() {
+        return h.afr().getLong(this.buD.RW(), 0L);
     }
 
     public void ag(long j) {
-        h.afp().putLong(this.buC.RU(), j);
+        h.afr().putLong(this.buD.RW(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File RL() {
-        return new File(super.RL(), "remote");
+    public File RN() {
+        return new File(super.RN(), "remote");
     }
 
     @NonNull
-    public ExtensionCore Sa() {
+    public ExtensionCore Sc() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long RZ = RZ();
-        extensionCore.extensionCoreVersionCode = RZ;
-        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.g.a.ah(RZ);
-        extensionCore.extensionCorePath = af(RZ).getPath();
+        long Sb = Sb();
+        extensionCore.extensionCoreVersionCode = Sb;
+        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.g.a.ah(Sb);
+        extensionCore.extensionCorePath = af(Sb).getPath();
         extensionCore.extensionCoreType = 1;
         return extensionCore;
     }
@@ -47,17 +47,17 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.bvg)) {
+        if (TextUtils.isEmpty(aVar.bvh)) {
             if (DEBUG) {
                 Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             }
             return false;
         }
-        C0260a t = t(aVar.versionName, aVar.bvg, aVar.sign);
+        C0260a t = t(aVar.versionName, aVar.bvh, aVar.sign);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + t);
         }
-        hO(aVar.bvg);
+        hO(aVar.bvh);
         return t.isOk();
     }
 
@@ -76,12 +76,12 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (!c.unzipFile(str2, af(hQ).getPath())) {
             return C0260a.hP("unzip bundle failed.");
         }
-        com.baidu.swan.apps.extcore.g.a.a(RL(), RZ(), hQ);
+        com.baidu.swan.apps.extcore.g.a.a(RN(), Sb(), hQ);
         ag(hQ);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + hQ);
         }
-        return C0260a.Sb();
+        return C0260a.Sd();
     }
 
     private void hO(String str) {
@@ -100,7 +100,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return this.statusCode == 0;
         }
 
-        public static C0260a Sb() {
+        public static C0260a Sd() {
             return y(0, "");
         }
 

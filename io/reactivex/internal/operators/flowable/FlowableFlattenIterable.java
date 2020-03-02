@@ -20,9 +20,9 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.nwr instanceof Callable) {
+        if (this.nwt instanceof Callable) {
             try {
-                Object call = ((Callable) this.nwr).call();
+                Object call = ((Callable) this.nwt).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -41,7 +41,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 return;
             }
         }
-        this.nwr.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.nwt.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
     /* loaded from: classes7.dex */

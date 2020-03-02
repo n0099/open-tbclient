@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class i {
-    private long dGm;
     private long dGn;
     private long dGo;
     private long dGp;
     private long dGq;
-    private a dGr;
+    private long dGr;
+    private a dGs;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
     private boolean Ao = false;
-    private Runnable dGs = new Runnable() { // from class: com.baidu.tbadk.util.i.1
+    private Runnable dGt = new Runnable() { // from class: com.baidu.tbadk.util.i.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (i.this.dGq > i.this.dGp) {
-                i.this.dGp = currentTimeMillis - i.this.dGo;
-                i.this.dGq = i.this.dGp;
+            if (i.this.dGr > i.this.dGq) {
+                i.this.dGq = currentTimeMillis - i.this.dGp;
+                i.this.dGr = i.this.dGq;
             }
-            long j = currentTimeMillis - i.this.dGp;
-            i.this.dGn += i.this.dGo;
-            if (i.this.dGn < i.this.dGm) {
-                i.this.handler.postDelayed(i.this.dGs, (2 * i.this.dGo) - j);
-                if (i.this.dGr != null) {
-                    i.this.dGr.b(i.this.dGm, i.this.dGm - i.this.dGn);
+            long j = currentTimeMillis - i.this.dGq;
+            i.this.dGo += i.this.dGp;
+            if (i.this.dGo < i.this.dGn) {
+                i.this.handler.postDelayed(i.this.dGt, (2 * i.this.dGp) - j);
+                if (i.this.dGs != null) {
+                    i.this.dGs.b(i.this.dGn, i.this.dGn - i.this.dGo);
                 }
             } else {
-                i.this.dGn = i.this.dGm;
+                i.this.dGo = i.this.dGn;
                 i.this.finish();
             }
-            i.this.dGp = currentTimeMillis;
+            i.this.dGq = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class i {
     }
 
     public i(long j, long j2) {
-        this.dGm = j;
-        this.dGo = j2;
+        this.dGn = j;
+        this.dGp = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.dGp = this.startTime;
-        if (this.dGr != null) {
-            this.dGr.b(this.dGm, this.dGm - this.dGn);
+        this.dGq = this.startTime;
+        if (this.dGs != null) {
+            this.dGs.b(this.dGn, this.dGn - this.dGo);
         }
-        this.handler.postDelayed(this.dGs, this.dGo);
+        this.handler.postDelayed(this.dGt, this.dGp);
     }
 
     public void pause() {
         if (!this.Ao) {
             this.Ao = true;
-            this.dGq = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.dGs);
+            this.dGr = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.dGt);
         }
     }
 
     public void resume() {
         if (this.Ao) {
             this.Ao = false;
-            this.handler.postDelayed(this.dGs, this.dGo - (this.dGq - this.dGp));
+            this.handler.postDelayed(this.dGt, this.dGp - (this.dGr - this.dGq));
         }
     }
 
     public void stop() {
         this.Ao = false;
-        this.dGp = this.startTime;
-        this.dGq = this.dGp;
-        this.handler.removeCallbacks(this.dGs);
+        this.dGq = this.startTime;
+        this.dGr = this.dGq;
+        this.handler.removeCallbacks(this.dGt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.dGr != null) {
-            this.dGr.r(this.dGm);
+        if (this.dGs != null) {
+            this.dGs.r(this.dGn);
         }
     }
 
     public void a(a aVar) {
-        this.dGr = aVar;
+        this.dGs = aVar;
     }
 
-    public long aRV() {
-        return this.dGn;
+    public long aRX() {
+        return this.dGo;
     }
 }

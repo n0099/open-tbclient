@@ -16,9 +16,9 @@ public class e implements eo {
         Cif cif = new Cif();
         cif.b(ek.a(context).m258a());
         cif.d(ek.a(context).b());
-        cif.c(hq.AwakeAppResponse.f490a);
+        cif.c(hq.AwakeAppResponse.f489a);
         cif.a(com.xiaomi.push.service.aj.a());
-        cif.f630a = hashMap;
+        cif.f629a = hashMap;
         ay.a(context).a((ay) cif, hg.Notification, true, (ht) null, true);
         com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo：\u3000send data in app layer");
     }

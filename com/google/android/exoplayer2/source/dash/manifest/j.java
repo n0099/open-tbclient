@@ -3,10 +3,10 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class j {
-    private final String[] mvt;
-    private final int[] mvu;
     private final String[] mvv;
-    private final int mvw;
+    private final int[] mvw;
+    private final String[] mvx;
+    private final int mvy;
 
     public static j PI(String str) {
         String[] strArr = new String[5];
@@ -16,27 +16,27 @@ public final class j {
     }
 
     private j(String[] strArr, int[] iArr, String[] strArr2, int i) {
-        this.mvt = strArr;
-        this.mvu = iArr;
-        this.mvv = strArr2;
-        this.mvw = i;
+        this.mvv = strArr;
+        this.mvw = iArr;
+        this.mvx = strArr2;
+        this.mvy = i;
     }
 
     public String a(String str, int i, int i2, long j) {
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < this.mvw; i3++) {
-            sb.append(this.mvt[i3]);
-            if (this.mvu[i3] == 1) {
+        for (int i3 = 0; i3 < this.mvy; i3++) {
+            sb.append(this.mvv[i3]);
+            if (this.mvw[i3] == 1) {
                 sb.append(str);
-            } else if (this.mvu[i3] == 2) {
-                sb.append(String.format(Locale.US, this.mvv[i3], Integer.valueOf(i)));
-            } else if (this.mvu[i3] == 3) {
-                sb.append(String.format(Locale.US, this.mvv[i3], Integer.valueOf(i2)));
-            } else if (this.mvu[i3] == 4) {
-                sb.append(String.format(Locale.US, this.mvv[i3], Long.valueOf(j)));
+            } else if (this.mvw[i3] == 2) {
+                sb.append(String.format(Locale.US, this.mvx[i3], Integer.valueOf(i)));
+            } else if (this.mvw[i3] == 3) {
+                sb.append(String.format(Locale.US, this.mvx[i3], Integer.valueOf(i2)));
+            } else if (this.mvw[i3] == 4) {
+                sb.append(String.format(Locale.US, this.mvx[i3], Long.valueOf(j)));
             }
         }
-        sb.append(this.mvt[this.mvw]);
+        sb.append(this.mvv[this.mvy]);
         return sb.toString();
     }
 

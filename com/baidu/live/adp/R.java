@@ -81,7 +81,7 @@ public final class R {
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f988common = 0x7f0f01b8;
+        public static final int f987common = 0x7f0f01b8;
         public static final int pull_content = 0x7f0f1d3a;
         public static final int pull_image = 0x7f0f0ae9;
         public static final int pull_root = 0x7f0f1d38;
@@ -97,27 +97,27 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int sdk_Waiting = 0x7f081235;
-        public static final int sdk_adp_label_name = 0x7f081237;
-        public static final int sdk_adp_loading = 0x7f081238;
-        public static final int sdk_adp_pull_to_refresh = 0x7f081239;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f08123a;
-        public static final int sdk_adp_release_to_refresh = 0x7f08123b;
-        public static final int sdk_dialog_cancel = 0x7f08125c;
-        public static final int sdk_dialog_ok = 0x7f08125d;
-        public static final int sdk_error_unkown_try_again = 0x7f081267;
-        public static final int sdk_im_error_codec = 0x7f081279;
-        public static final int sdk_im_error_default = 0x7f08127a;
-        public static final int sdk_load_res_failed = 0x7f08129f;
-        public static final int sdk_location_all_offline = 0x7f0812a3;
-        public static final int sdk_location_gps_offline = 0x7f0812a5;
-        public static final int sdk_location_net_offline = 0x7f0812a6;
-        public static final int sdk_location_out_time = 0x7f0812a7;
-        public static final int sdk_neterror = 0x7f0812ae;
-        public static final int sdk_prompt = 0x7f081311;
-        public static final int sdk_send_error = 0x7f081328;
-        public static final int sdk_share_to = 0x7f08132e;
-        public static final int sdk_voice_err_other = 0x7f08137a;
+        public static final int sdk_Waiting = 0x7f081236;
+        public static final int sdk_adp_label_name = 0x7f081238;
+        public static final int sdk_adp_loading = 0x7f081239;
+        public static final int sdk_adp_pull_to_refresh = 0x7f08123a;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f08123b;
+        public static final int sdk_adp_release_to_refresh = 0x7f08123c;
+        public static final int sdk_dialog_cancel = 0x7f08125d;
+        public static final int sdk_dialog_ok = 0x7f08125e;
+        public static final int sdk_error_unkown_try_again = 0x7f081268;
+        public static final int sdk_im_error_codec = 0x7f08127a;
+        public static final int sdk_im_error_default = 0x7f08127b;
+        public static final int sdk_load_res_failed = 0x7f0812a0;
+        public static final int sdk_location_all_offline = 0x7f0812a4;
+        public static final int sdk_location_gps_offline = 0x7f0812a6;
+        public static final int sdk_location_net_offline = 0x7f0812a7;
+        public static final int sdk_location_out_time = 0x7f0812a8;
+        public static final int sdk_neterror = 0x7f0812af;
+        public static final int sdk_prompt = 0x7f081312;
+        public static final int sdk_send_error = 0x7f081329;
+        public static final int sdk_share_to = 0x7f08132f;
+        public static final int sdk_voice_err_other = 0x7f08137b;
     }
 
     /* loaded from: classes2.dex */

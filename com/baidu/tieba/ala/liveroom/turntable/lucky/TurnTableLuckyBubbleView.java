@@ -13,7 +13,7 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
     private TextView atX;
-    private String fla;
+    private String flb;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -26,10 +26,10 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.fla) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.fla.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.flb) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.flb.equals(str2)) {
             this.mName = str;
-            this.fla = str2;
-            this.atX.setText(!TextUtils.isEmpty(this.fla) ? this.mName + Config.EVENT_HEAT_X + this.fla : this.mName);
+            this.flb = str2;
+            this.atX.setText(!TextUtils.isEmpty(this.flb) ? this.mName + Config.EVENT_HEAT_X + this.flb : this.mName);
         }
     }
 

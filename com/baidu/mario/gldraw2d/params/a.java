@@ -3,11 +3,11 @@ package com.baidu.mario.gldraw2d.params;
 public class a implements Cloneable {
     private float mTranslateX = 0.0f;
     private float mTranslateY = 0.0f;
-    private MirrorType aJl = MirrorType.NO_MIRROR;
-    private int aJm = 0;
-    private ScaleType aJn = ScaleType.FIT_XY;
-    private float aJo = 1.0f;
-    private int aJp = -90;
+    private MirrorType aJm = MirrorType.NO_MIRROR;
+    private int aJn = 0;
+    private ScaleType aJo = ScaleType.FIT_XY;
+    private float aJp = 1.0f;
+    private int aJq = -90;
 
     public float getTranslateX() {
         return this.mTranslateX;
@@ -17,36 +17,36 @@ public class a implements Cloneable {
         return this.mTranslateY;
     }
 
-    public MirrorType Ch() {
-        return this.aJl;
-    }
-
-    public void a(MirrorType mirrorType) {
-        this.aJl = mirrorType;
-    }
-
-    public ScaleType Ci() {
-        return this.aJn;
-    }
-
-    public float Cj() {
-        return this.aJo;
-    }
-
-    public int Ck() {
+    public MirrorType Cj() {
         return this.aJm;
     }
 
-    public void dc(int i) {
-        this.aJm = i;
+    public void a(MirrorType mirrorType) {
+        this.aJm = mirrorType;
     }
 
-    public int Cl() {
+    public ScaleType Ck() {
+        return this.aJo;
+    }
+
+    public float Cl() {
         return this.aJp;
     }
 
+    public int Cm() {
+        return this.aJn;
+    }
+
+    public void dc(int i) {
+        this.aJn = i;
+    }
+
+    public int Cn() {
+        return this.aJq;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Cm */
+    /* renamed from: Co */
     public a clone() {
         try {
             return (a) super.clone();

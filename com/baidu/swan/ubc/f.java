@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes11.dex */
 class f {
-    private String cED;
     private String cEE;
-    private int cEF;
-    private String cEG;
-    private int cEH;
+    private String cEF;
+    private int cEG;
+    private String cEH;
     private int cEI;
-    private String cEJ;
+    private int cEJ;
+    private String cEK;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cED = str2;
-        this.cEE = str3;
-        this.cEF = i;
+        this.cEE = str2;
+        this.cEF = str3;
+        this.cEG = i;
         this.mType = str4;
-        this.cEG = str5;
+        this.cEH = str5;
     }
 
     public void iU(int i) {
@@ -31,38 +31,38 @@ class f {
     }
 
     public void iV(int i) {
-        this.cEH = i;
+        this.cEI = i;
     }
 
     public void iW(int i) {
-        this.cEI = i;
+        this.cEJ = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String avk() {
-        return this.cED;
-    }
-
-    public String avl() {
+    public String avm() {
         return this.cEE;
     }
 
-    public int getTimeout() {
+    public String avn() {
         return this.cEF;
+    }
+
+    public int getTimeout() {
+        return this.cEG;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String avm() {
-        return this.cEG;
+    public String avo() {
+        return this.cEH;
     }
 
-    public int avn() {
+    public int avp() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int avo() {
-        return this.cEH;
-    }
-
-    public int avp() {
+    public int avq() {
         return this.cEI;
     }
 
-    public void qW(String str) {
-        this.cEJ = str;
+    public int avr() {
+        return this.cEJ;
     }
 
-    public String avq() {
-        return this.cEJ;
+    public void qW(String str) {
+        this.cEK = str;
+    }
+
+    public String avs() {
+        return this.cEK;
     }
 }

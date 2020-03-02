@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public abstract class i {
-    static final String lGH = System.getProperty("line.separator");
+    static final String lGJ = System.getProperty("line.separator");
 
     public static h eU(long j) {
         return new h(j);

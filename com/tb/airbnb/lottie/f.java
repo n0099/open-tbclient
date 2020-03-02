@@ -35,19 +35,19 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     private boolean eB;
     private boolean ez;
     @Nullable
-    private com.tb.airbnb.lottie.b.b npo;
+    private com.tb.airbnb.lottie.b.b npq;
     @Nullable
-    private b npp;
+    private b npr;
     @Nullable
-    private com.tb.airbnb.lottie.b.a npq;
+    private com.tb.airbnb.lottie.b.a nps;
     @Nullable
-    com.tb.airbnb.lottie.a npr;
+    com.tb.airbnb.lottie.a npt;
     @Nullable
-    p nps;
+    p npu;
     @Nullable
-    private com.tb.airbnb.lottie.model.layer.b npt;
+    private com.tb.airbnb.lottie.model.layer.b npv;
     private final Matrix matrix = new Matrix();
-    private final com.tb.airbnb.lottie.d.c npn = new com.tb.airbnb.lottie.d.c();
+    private final com.tb.airbnb.lottie.d.c npp = new com.tb.airbnb.lottie.d.c();
     private float scale = 1.0f;
     private final Set<Object> ep = new HashSet();
     private final ArrayList<a> er = new ArrayList<>();
@@ -60,22 +60,22 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public f() {
-        this.npn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.tb.airbnb.lottie.f.1
+        this.npp.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.tb.airbnb.lottie.f.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (f.this.npt != null) {
-                    f.this.npt.setProgress(f.this.npn.dF());
+                if (f.this.npv != null) {
+                    f.this.npv.setProgress(f.this.npp.dF());
                 }
             }
         });
     }
 
     public boolean hasMasks() {
-        return this.npt != null && this.npt.hasMasks();
+        return this.npv != null && this.npv.hasMasks();
     }
 
     public boolean hasMatte() {
-        return this.npt != null && this.npt.hasMatte();
+        return this.npv != null && this.npv.hasMatte();
     }
 
     public boolean bq() {
@@ -109,8 +109,8 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void recycleBitmaps() {
-        if (this.npo != null) {
-            this.npo.recycleBitmaps();
+        if (this.npq != null) {
+            this.npq.recycleBitmaps();
         }
     }
 
@@ -121,8 +121,8 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
         clearComposition();
         this.composition = dVar;
         br();
-        this.npn.setComposition(dVar);
-        setProgress(this.npn.getAnimatedFraction());
+        this.npp.setComposition(dVar);
+        setProgress(this.npp.getAnimatedFraction());
         setScale(this.scale);
         bu();
         Iterator it = new ArrayList(this.er).iterator();
@@ -151,18 +151,18 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     private void br() {
-        this.npt = new com.tb.airbnb.lottie.model.layer.b(this, s.d(this.composition), this.composition.bk(), this.composition);
+        this.npv = new com.tb.airbnb.lottie.model.layer.b(this, s.d(this.composition), this.composition.bk(), this.composition);
     }
 
     public void clearComposition() {
         recycleBitmaps();
-        if (this.npn.isRunning()) {
-            this.npn.cancel();
+        if (this.npp.isRunning()) {
+            this.npp.cancel();
         }
         this.composition = null;
-        this.npt = null;
-        this.npo = null;
-        this.npn.clearComposition();
+        this.npv = null;
+        this.npq = null;
+        this.npp.clearComposition();
         invalidateSelf();
     }
 
@@ -198,7 +198,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     public void draw(@NonNull Canvas canvas) {
         float f;
         c.beginSection("Drawable#draw");
-        if (this.npt != null) {
+        if (this.npv != null) {
             float f2 = this.scale;
             float d = d(canvas);
             if (f2 > d) {
@@ -218,7 +218,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             }
             this.matrix.reset();
             this.matrix.preScale(d, d);
-            this.npt.a(canvas, this.matrix, this.alpha);
+            this.npv.a(canvas, this.matrix, this.alpha);
             c.F("Drawable#draw");
             if (f > 1.0f) {
                 canvas.restore();
@@ -245,7 +245,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @MainThread
     public void playAnimation() {
-        if (this.npt == null) {
+        if (this.npv == null) {
             this.er.add(new a() { // from class: com.tb.airbnb.lottie.f.5
                 @Override // com.tb.airbnb.lottie.f.a
                 public void b(d dVar) {
@@ -253,19 +253,19 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.playAnimation();
+            this.npp.playAnimation();
         }
     }
 
     @MainThread
     public void endAnimation() {
         this.er.clear();
-        this.npn.endAnimation();
+        this.npp.endAnimation();
     }
 
     @MainThread
     public void resumeAnimation() {
-        if (this.npt == null) {
+        if (this.npv == null) {
             this.er.add(new a() { // from class: com.tb.airbnb.lottie.f.6
                 @Override // com.tb.airbnb.lottie.f.a
                 public void b(d dVar) {
@@ -273,7 +273,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.resumeAnimation();
+            this.npp.resumeAnimation();
         }
     }
 
@@ -286,12 +286,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.setMinFrame(i);
+            this.npp.setMinFrame(i);
         }
     }
 
     public float getMinFrame() {
-        return this.npn.getMinFrame();
+        return this.npp.getMinFrame();
     }
 
     public void setMinProgress(final float f) {
@@ -316,12 +316,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.setMaxFrame(i);
+            this.npp.setMaxFrame(i);
         }
     }
 
     public float getMaxFrame() {
-        return this.npn.getMaxFrame();
+        return this.npp.getMaxFrame();
     }
 
     public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) final float f) {
@@ -346,7 +346,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.f(i, i2);
+            this.npp.f(i, i2);
         }
     }
 
@@ -364,39 +364,39 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void reverseAnimationSpeed() {
-        this.npn.reverseAnimationSpeed();
+        this.npp.reverseAnimationSpeed();
     }
 
     public void setSpeed(float f) {
-        this.npn.setSpeed(f);
+        this.npp.setSpeed(f);
     }
 
     public float getSpeed() {
-        return this.npn.getSpeed();
+        return this.npp.getSpeed();
     }
 
     public void addAnimatorUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.npn.addUpdateListener(animatorUpdateListener);
+        this.npp.addUpdateListener(animatorUpdateListener);
     }
 
     public void a(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.npn.removeUpdateListener(animatorUpdateListener);
+        this.npp.removeUpdateListener(animatorUpdateListener);
     }
 
     public void removeAllUpdateListeners() {
-        this.npn.removeAllUpdateListeners();
+        this.npp.removeAllUpdateListeners();
     }
 
     public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.npn.addListener(animatorListener);
+        this.npp.addListener(animatorListener);
     }
 
     public void removeAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.npn.removeListener(animatorListener);
+        this.npp.removeListener(animatorListener);
     }
 
     public void removeAllAnimatorListeners() {
-        this.npn.removeAllListeners();
+        this.npp.removeAllListeners();
     }
 
     public void setFrame(final int i) {
@@ -408,12 +408,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.npn.setFrame(i);
+            this.npp.setFrame(i);
         }
     }
 
     public int getFrame() {
-        return (int) this.npn.dG();
+        return (int) this.npp.dG();
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) final float f) {
@@ -430,23 +430,23 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void setRepeatMode(int i) {
-        this.npn.setRepeatMode(i);
+        this.npp.setRepeatMode(i);
     }
 
     public int getRepeatMode() {
-        return this.npn.getRepeatMode();
+        return this.npp.getRepeatMode();
     }
 
     public void setRepeatCount(int i) {
-        this.npn.setRepeatCount(i);
+        this.npp.setRepeatCount(i);
     }
 
     public int getRepeatCount() {
-        return this.npn.getRepeatCount();
+        return this.npp.getRepeatCount();
     }
 
     public boolean isAnimating() {
-        return this.npn.isRunning();
+        return this.npp.isRunning();
     }
 
     public void setScale(float f) {
@@ -455,30 +455,30 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void setImageAssetDelegate(b bVar) {
-        this.npp = bVar;
-        if (this.npo != null) {
-            this.npo.a(bVar);
+        this.npr = bVar;
+        if (this.npq != null) {
+            this.npq.a(bVar);
         }
     }
 
     public void setFontAssetDelegate(com.tb.airbnb.lottie.a aVar) {
-        this.npr = aVar;
-        if (this.npq != null) {
-            this.npq.a(aVar);
+        this.npt = aVar;
+        if (this.nps != null) {
+            this.nps.a(aVar);
         }
     }
 
     public void setTextDelegate(p pVar) {
-        this.nps = pVar;
+        this.npu = pVar;
     }
 
     @Nullable
-    public p dGA() {
-        return this.nps;
+    public p dGC() {
+        return this.npu;
     }
 
     public boolean bt() {
-        return this.nps == null && this.composition.bl().size() > 0;
+        return this.npu == null && this.composition.bl().size() > 0;
     }
 
     public float getScale() {
@@ -498,17 +498,17 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     public void cancelAnimation() {
         this.er.clear();
-        this.npn.cancel();
+        this.npp.cancel();
     }
 
     public void pauseAnimation() {
         this.er.clear();
-        this.npn.pauseAnimation();
+        this.npp.pauseAnimation();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.npn.dF();
+        return this.npp.dF();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -528,18 +528,18 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public List<com.tb.airbnb.lottie.model.e> resolveKeyPath(com.tb.airbnb.lottie.model.e eVar) {
-        if (this.npt == null) {
+        if (this.npv == null) {
             Log.w("LOTTIE", "Cannot resolve KeyPath. Composition is not set yet.");
             return Collections.emptyList();
         }
         ArrayList arrayList = new ArrayList();
-        this.npt.a(eVar, 0, arrayList, new com.tb.airbnb.lottie.model.e(new String[0]));
+        this.npv.a(eVar, 0, arrayList, new com.tb.airbnb.lottie.model.e(new String[0]));
         return arrayList;
     }
 
     public <T> void addValueCallback(final com.tb.airbnb.lottie.model.e eVar, final T t, final com.tb.airbnb.lottie.e.c<T> cVar) {
         boolean z = true;
-        if (this.npt == null) {
+        if (this.npv == null) {
             this.er.add(new a() { // from class: com.tb.airbnb.lottie.f.4
                 @Override // com.tb.airbnb.lottie.f.a
                 public void b(d dVar) {
@@ -548,12 +548,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             });
             return;
         }
-        if (eVar.dGL() != null) {
-            eVar.dGL().a(t, cVar);
+        if (eVar.dGN() != null) {
+            eVar.dGN().a(t, cVar);
         } else {
             List<com.tb.airbnb.lottie.model.e> resolveKeyPath = resolveKeyPath(eVar);
             for (int i = 0; i < resolveKeyPath.size(); i++) {
-                resolveKeyPath.get(i).dGL().a(t, cVar);
+                resolveKeyPath.get(i).dGN().a(t, cVar);
             }
             z = resolveKeyPath.isEmpty() ? false : true;
         }
@@ -567,56 +567,56 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
-        com.tb.airbnb.lottie.b.b dGB = dGB();
-        if (dGB == null) {
+        com.tb.airbnb.lottie.b.b dGD = dGD();
+        if (dGD == null) {
             Log.w("LOTTIE", "Cannot update bitmap. Most likely the drawable is not added to a View which prevents Lottie from getting a Context.");
             return null;
         }
-        Bitmap updateBitmap = dGB.updateBitmap(str, bitmap);
+        Bitmap updateBitmap = dGD.updateBitmap(str, bitmap);
         invalidateSelf();
         return updateBitmap;
     }
 
     @Nullable
     public Bitmap J(String str) {
-        com.tb.airbnb.lottie.b.b dGB = dGB();
-        if (dGB != null) {
-            return dGB.N(str);
+        com.tb.airbnb.lottie.b.b dGD = dGD();
+        if (dGD != null) {
+            return dGD.N(str);
         }
         return null;
     }
 
-    private com.tb.airbnb.lottie.b.b dGB() {
+    private com.tb.airbnb.lottie.b.b dGD() {
         if (getCallback() == null) {
             return null;
         }
-        if (this.npo != null && !this.npo.Q(getContext())) {
-            this.npo.recycleBitmaps();
-            this.npo = null;
+        if (this.npq != null && !this.npq.Q(getContext())) {
+            this.npq.recycleBitmaps();
+            this.npq = null;
         }
-        if (this.npo == null) {
-            this.npo = new com.tb.airbnb.lottie.b.b(getCallback(), this.dT, this.npp, this.composition.bn());
+        if (this.npq == null) {
+            this.npq = new com.tb.airbnb.lottie.b.b(getCallback(), this.dT, this.npr, this.composition.bn());
         }
-        return this.npo;
+        return this.npq;
     }
 
     @Nullable
     public Typeface j(String str, String str2) {
-        com.tb.airbnb.lottie.b.a dGC = dGC();
-        if (dGC != null) {
-            return dGC.j(str, str2);
+        com.tb.airbnb.lottie.b.a dGE = dGE();
+        if (dGE != null) {
+            return dGE.j(str, str2);
         }
         return null;
     }
 
-    private com.tb.airbnb.lottie.b.a dGC() {
+    private com.tb.airbnb.lottie.b.a dGE() {
         if (getCallback() == null) {
             return null;
         }
-        if (this.npq == null) {
-            this.npq = new com.tb.airbnb.lottie.b.a(getCallback(), this.npr);
+        if (this.nps == null) {
+            this.nps = new com.tb.airbnb.lottie.b.a(getCallback(), this.npt);
         }
-        return this.npq;
+        return this.nps;
     }
 
     @Nullable

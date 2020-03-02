@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a kwG;
-    private b kwH;
-    b.a kwI;
+    private com.baidu.tieba.video.editvideo.data.a kwI;
+    private b kwJ;
+    b.a kwK;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.kwG = aVar;
+        this.kwI = aVar;
     }
 
-    public boolean cPJ() {
-        return (this.kwG == null || "normal".equalsIgnoreCase(this.kwG.value)) ? false : true;
+    public boolean cPL() {
+        return (this.kwI == null || "normal".equalsIgnoreCase(this.kwI.value)) ? false : true;
     }
 
     public void JZ(String str) {
-        if ((this.kwH == null || !this.kwH.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cPL = cPL();
+        if ((this.kwJ == null || !this.kwJ.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cPN = cPN();
             String str2 = "normal";
-            if (this.kwG != null) {
-                str2 = this.kwG.value;
-            }
-            this.kwH = new b(this.mContext, str, cPL, str2);
             if (this.kwI != null) {
-                this.kwH.a(this.kwI);
+                str2 = this.kwI.value;
             }
-            this.kwH.cPM();
+            this.kwJ = new b(this.mContext, str, cPN, str2);
+            if (this.kwK != null) {
+                this.kwJ.a(this.kwK);
+            }
+            this.kwJ.cPO();
         }
     }
 
-    public boolean cPK() {
-        if (this.kwH != null) {
-            return this.kwH.isRunning();
+    public boolean cPM() {
+        if (this.kwJ != null) {
+            return this.kwJ.isRunning();
         }
         return false;
     }
 
     public void interruptProcess() {
-        if (this.kwH != null) {
-            this.kwH.cPN();
+        if (this.kwJ != null) {
+            this.kwJ.cPP();
         }
     }
 
     public void a(b.a aVar) {
-        this.kwI = aVar;
-        if (this.kwH != null) {
-            this.kwH.a(this.kwI);
+        this.kwK = aVar;
+        if (this.kwJ != null) {
+            this.kwJ.a(this.kwK);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cPL() {
-        return com.baidu.tieba.video.c.kuL + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cPN() {
+        return com.baidu.tieba.video.c.kuN + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

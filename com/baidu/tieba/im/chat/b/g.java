@@ -15,18 +15,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g hvG;
+    private static g hvI;
 
     private g() {
     }
 
-    public static synchronized g bSH() {
+    public static synchronized g bSJ() {
         g gVar;
         synchronized (g.class) {
-            if (hvG == null) {
-                hvG = new g();
+            if (hvI == null) {
+                hvI = new g();
             }
-            gVar = hvG;
+            gVar = hvI;
         }
         return gVar;
     }

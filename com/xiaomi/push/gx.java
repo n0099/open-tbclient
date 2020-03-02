@@ -11,30 +11,30 @@ public class gx implements fp {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    fm f438a;
+    fm f437a;
 
     /* renamed from: a  reason: collision with other field name */
-    XMPushService f439a;
+    XMPushService f438a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Exception f440a;
+    private Exception f439a;
     private long e;
     private long f;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f437a = 0;
+    private long f436a = 0;
     private long b = 0;
     private long c = 0;
     private long d = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f441a = "";
+    private String f440a = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gx(XMPushService xMPushService) {
         this.e = 0L;
         this.f = 0L;
-        this.f439a = xMPushService;
+        this.f438a = xMPushService;
         b();
         int myUid = Process.myUid();
         this.f = TrafficStats.getUidRxBytes(myUid);
@@ -44,23 +44,23 @@ public class gx implements fp {
     private void b() {
         this.b = 0L;
         this.d = 0L;
-        this.f437a = 0L;
+        this.f436a = 0L;
         this.c = 0L;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (as.b(this.f439a)) {
-            this.f437a = elapsedRealtime;
+        if (as.b(this.f438a)) {
+            this.f436a = elapsedRealtime;
         }
-        if (this.f439a.m506c()) {
+        if (this.f438a.m506c()) {
             this.c = elapsedRealtime;
         }
     }
 
     private synchronized void c() {
-        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f441a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
+        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f440a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
         fc fcVar = new fc();
-        fcVar.f337a = (byte) 0;
+        fcVar.f336a = (byte) 0;
         fcVar.a(fb.CHANNEL_ONLINE_RATE.a());
-        fcVar.a(this.f441a);
+        fcVar.a(this.f440a);
         fcVar.d((int) (System.currentTimeMillis() / 1000));
         fcVar.b((int) (this.b / 1000));
         fcVar.c((int) (this.d / 1000));
@@ -70,32 +70,32 @@ public class gx implements fp {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception a() {
-        return this.f440a;
+        return this.f439a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized void m322a() {
-        if (this.f439a != null) {
-            String m132a = as.m132a((Context) this.f439a);
-            boolean b = as.b(this.f439a);
+        if (this.f438a != null) {
+            String m132a = as.m132a((Context) this.f438a);
+            boolean b = as.b(this.f438a);
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (this.f437a > 0) {
-                this.b += elapsedRealtime - this.f437a;
-                this.f437a = 0L;
+            if (this.f436a > 0) {
+                this.b += elapsedRealtime - this.f436a;
+                this.f436a = 0L;
             }
             if (this.c != 0) {
                 this.d += elapsedRealtime - this.c;
                 this.c = 0L;
             }
             if (b) {
-                if ((!TextUtils.equals(this.f441a, m132a) && this.b > 30000) || this.b > 5400000) {
+                if ((!TextUtils.equals(this.f440a, m132a) && this.b > 30000) || this.b > 5400000) {
                     c();
                 }
-                this.f441a = m132a;
-                if (this.f437a == 0) {
-                    this.f437a = elapsedRealtime;
+                this.f440a = m132a;
+                if (this.f436a == 0) {
+                    this.f436a = elapsedRealtime;
                 }
-                if (this.f439a.m506c()) {
+                if (this.f438a.m506c()) {
                     this.c = elapsedRealtime;
                 }
             }
@@ -111,9 +111,9 @@ public class gx implements fp {
 
     @Override // com.xiaomi.push.fp
     public void a(fm fmVar, int i, Exception exc) {
-        if (this.a == 0 && this.f440a == null) {
+        if (this.a == 0 && this.f439a == null) {
             this.a = i;
-            this.f440a = exc;
+            this.f439a = exc;
             ha.b(fmVar.m283a(), exc);
         }
         if (i == 22 && this.c != 0) {
@@ -135,16 +135,16 @@ public class gx implements fp {
 
     @Override // com.xiaomi.push.fp
     public void a(fm fmVar, Exception exc) {
-        ha.a(0, fb.CHANNEL_CON_FAIL.a(), 1, fmVar.m283a(), as.b(this.f439a) ? 1 : 0);
+        ha.a(0, fb.CHANNEL_CON_FAIL.a(), 1, fmVar.m283a(), as.b(this.f438a) ? 1 : 0);
         m322a();
     }
 
     @Override // com.xiaomi.push.fp
     public void b(fm fmVar) {
         this.a = 0;
-        this.f440a = null;
-        this.f438a = fmVar;
-        this.f441a = as.m132a((Context) this.f439a);
+        this.f439a = null;
+        this.f437a = fmVar;
+        this.f440a = as.m132a((Context) this.f438a);
         ha.a(0, fb.CONN_SUCCESS.a());
     }
 }

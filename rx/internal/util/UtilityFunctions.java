@@ -1,11 +1,11 @@
 package rx.internal.util;
 /* loaded from: classes6.dex */
 public final class UtilityFunctions {
-    public static <T> rx.functions.f<? super T, Boolean> dOG() {
+    public static <T> rx.functions.f<? super T, Boolean> dOI() {
         return AlwaysTrue.INSTANCE;
     }
 
-    public static <T> rx.functions.f<T, T> dOH() {
+    public static <T> rx.functions.f<T, T> dOJ() {
         return Identity.INSTANCE;
     }
 

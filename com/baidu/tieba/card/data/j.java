@@ -13,7 +13,7 @@ public class j extends k {
     }
 
     public j(bj bjVar) {
-        this.cRe = bjVar;
+        this.cRf = bjVar;
     }
 
     public static boolean aa(bj bjVar) {
@@ -29,7 +29,7 @@ public class j extends k {
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bj aAe() {
-        return this.cRe;
+    public bj aAg() {
+        return this.cRf;
     }
 }

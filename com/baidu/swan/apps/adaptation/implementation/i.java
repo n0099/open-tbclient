@@ -19,12 +19,12 @@ import org.json.JSONObject;
 public class i implements ac {
     private static final String TAG = i.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bbr = 0;
-    private static int bbs = 1;
+    private static int bbs = 0;
+    private static int bbt = 1;
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(@NonNull String str, @NonNull String str2, @NonNull final a.InterfaceC0269a interfaceC0269a) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(HG()).addUrlParam("appkey", str).addUrlParam("template_id", str2).build().executeAsyncOnUIBack(new a(new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.adaptation.implementation.i.1
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(HI()).addUrlParam("appkey", str).addUrlParam("template_id", str2).build().executeAsyncOnUIBack(new a(new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.adaptation.implementation.i.1
             @Override // com.baidu.swan.apps.ai.a
             public void K(JSONObject jSONObject) {
                 String str3;
@@ -52,8 +52,8 @@ public class i implements ac {
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(@NonNull String str, @Nullable String str2, @Nullable String str3, com.baidu.swan.apps.o.b bVar) {
-        String dU = dU(bbr);
-        PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(dU)).cookieManager(com.baidu.swan.apps.w.a.Us().Is())).addParam("appkey", str);
+        String dU = dU(bbs);
+        PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(dU)).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu())).addParam("appkey", str);
         if (str2 != null) {
             addParam.addParam("template_id", str2);
         }
@@ -65,7 +65,7 @@ public class i implements ac {
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(String str, com.baidu.swan.apps.ae.a.a aVar) {
-        a(dU(bbs), str, aVar);
+        a(dU(bbt), str, aVar);
     }
 
     private String dU(int i) {
@@ -74,13 +74,13 @@ public class i implements ac {
         String str;
         String str2;
         String str3 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        if (i == bbr) {
-            sb = new StringBuilder(HE());
-            str = "rasign=" + com.baidu.swan.apps.h.b.KZ().ac(seconds);
+        if (i == bbs) {
+            sb = new StringBuilder(HG());
+            str = "rasign=" + com.baidu.swan.apps.h.b.Lb().ac(seconds);
             str2 = "delta=smartapp_formid";
         } else {
-            sb = new StringBuilder(HF());
-            str = "rasign=" + com.baidu.swan.apps.h.b.KZ().ad(seconds);
+            sb = new StringBuilder(HH());
+            str = "rasign=" + com.baidu.swan.apps.h.b.Lb().ad(seconds);
             str2 = "delta=payid";
         }
         sb.append("?");
@@ -91,17 +91,17 @@ public class i implements ac {
     }
 
     private void a(String str, String str2, com.baidu.swan.apps.ai.a aVar) {
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.w.a.Us().Is())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a extends ResponseCallback<JSONObject> {
         @Nullable
-        private final com.baidu.swan.apps.ai.a bbv;
+        private final com.baidu.swan.apps.ai.a bbw;
 
         a(@Nullable com.baidu.swan.apps.ai.a aVar) {
-            this.bbv = aVar;
+            this.bbw = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,11 +124,11 @@ public class i implements ac {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (this.bbv != null) {
+            if (this.bbw != null) {
                 if (jSONObject == null) {
-                    this.bbv.onFail("request fail");
+                    this.bbw.onFail("request fail");
                 } else {
-                    this.bbv.K(jSONObject);
+                    this.bbw.K(jSONObject);
                 }
             }
         }
@@ -138,21 +138,21 @@ public class i implements ac {
             if (i.DEBUG) {
                 Log.e(i.TAG, "SimpleResponseCallback", exc);
             }
-            if (this.bbv != null) {
-                this.bbv.onFail(exc.toString());
+            if (this.bbw != null) {
+                this.bbw.onFail(exc.toString());
             }
         }
     }
 
-    public static String HE() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/new", com.baidu.swan.apps.h.c.bjD));
-    }
-
-    public static String HF() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/payid/new", com.baidu.swan.apps.h.c.bjD));
-    }
-
     public static String HG() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/msgtpl", com.baidu.swan.apps.h.c.bjD));
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/new", com.baidu.swan.apps.h.c.bjE));
+    }
+
+    public static String HH() {
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/payid/new", com.baidu.swan.apps.h.c.bjE));
+    }
+
+    public static String HI() {
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/msgtpl", com.baidu.swan.apps.h.c.bjE));
     }
 }

@@ -24,75 +24,75 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     private CustomMessageListener att;
-    private long awr;
-    private boolean fcA;
-    private b fcB;
-    private c fcE;
-    private d fcF;
-    private InterfaceC0461a fcy;
-    private String fcz;
+    private long aws;
+    private String fcA;
+    private boolean fcB;
+    private b fcC;
+    private c fcF;
+    private d fcG;
+    private InterfaceC0461a fcz;
     private String mOtherParams;
     private TbPageContext mPageContext;
     private boolean mPopShow;
     private String mVid;
     private long mUid = -1;
-    private boolean fcC = true;
-    private boolean fcD = false;
+    private boolean fcD = true;
+    private boolean fcE = false;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0461a {
-        boolean bjI();
+        boolean bjK();
 
         void onClose();
     }
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bmB();
+        bmD();
     }
 
     public void a(InterfaceC0461a interfaceC0461a) {
-        this.fcy = interfaceC0461a;
+        this.fcz = interfaceC0461a;
     }
 
     public void c(m mVar, String str) {
         AlaLiveInfoData alaLiveInfoData;
         AlaLiveUserInfoData alaLiveUserInfoData;
         if (mVar != null && (alaLiveInfoData = mVar.mLiveInfo) != null && (alaLiveUserInfoData = mVar.XQ) != null) {
-            this.awr = alaLiveInfoData.live_id;
+            this.aws = alaLiveInfoData.live_id;
             this.mUid = alaLiveUserInfoData.userId;
-            this.fcz = alaLiveUserInfoData.portrait;
+            this.fcA = alaLiveUserInfoData.portrait;
             this.mVid = alaLiveInfoData.feed_id;
             this.mOtherParams = str;
-            this.fcA = false;
+            this.fcB = false;
             this.mPopShow = false;
-            bmC();
-            xj();
-            bmD();
             bmE();
+            xj();
+            bmF();
+            bmG();
         }
     }
 
     public void js(boolean z) {
-        this.fcC = z;
-    }
-
-    public void jt(boolean z) {
         this.fcD = z;
     }
 
-    public boolean bmz() {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.mPopShow && TbadkCoreApplication.isLogin() && this.fcy != null && !this.fcy.bjI()) {
-            bmJ();
+    public void jt(boolean z) {
+        this.fcE = z;
+    }
+
+    public boolean bmB() {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.mPopShow && TbadkCoreApplication.isLogin() && this.fcz != null && !this.fcz.bjK()) {
+            bmL();
             return true;
         }
         return false;
     }
 
-    private void bmA() {
+    private void bmC() {
         this.mUid = -1L;
-        this.fcA = false;
+        this.fcB = false;
         this.mPopShow = false;
         sN();
         LiveTimerManager.getInstance().removeLiveTimerTask("guide_follow_float", true);
@@ -101,11 +101,11 @@ public class a {
     }
 
     public void onDestroy() {
-        bmA();
+        bmC();
     }
 
-    private void bmB() {
-        this.fcB = new b();
+    private void bmD() {
+        this.fcC = new b();
         String string = com.baidu.live.c.pr().getString("guide_follow_float_times_date", "");
         if (!TextUtils.isEmpty(string)) {
             try {
@@ -113,10 +113,10 @@ public class a {
                 String optString = jSONObject.optString("date");
                 String b = j.b(new Date());
                 if (optString.equals(b)) {
-                    this.fcB.fcH = jSONObject.optBoolean("hasShowMax");
-                    if (!this.fcB.fcH) {
-                        this.fcB.date = b;
-                        this.fcB.eGH = jSONObject.optInt("times");
+                    this.fcC.fcI = jSONObject.optBoolean("hasShowMax");
+                    if (!this.fcC.fcI) {
+                        this.fcC.date = b;
+                        this.fcC.eGI = jSONObject.optInt("times");
                     }
                 }
             } catch (JSONException e) {
@@ -125,14 +125,14 @@ public class a {
         }
     }
 
-    private void bmC() {
-        if (this.fcB == null) {
-            this.fcB = new b();
+    private void bmE() {
+        if (this.fcC == null) {
+            this.fcC = new b();
         }
-        String str = this.fcB.date;
+        String str = this.fcC.date;
         if (!TextUtils.isEmpty(str) && !str.equals(j.b(new Date()))) {
-            this.fcB.fcH = false;
-            this.fcB.eGH = 0;
+            this.fcC.fcI = false;
+            this.fcC.eGI = 0;
         }
     }
 
@@ -161,12 +161,12 @@ public class a {
         }
     }
 
-    private void bmD() {
+    private void bmF() {
         t tVar;
         int i;
-        if (!this.fcA && !this.fcB.fcH && (tVar = com.baidu.live.v.a.zj().awA) != null) {
-            if ((!j.b(new Date()).equals(this.fcB.date) || this.fcB.eGH < tVar.aaF) && (i = tVar.aaE) > 0) {
-                LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_float", this.awr, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.2
+        if (!this.fcB && !this.fcC.fcI && (tVar = com.baidu.live.v.a.zl().awB) != null) {
+            if ((!j.b(new Date()).equals(this.fcC.date) || this.fcC.eGI < tVar.aaF) && (i = tVar.aaE) > 0) {
+                LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_float", this.aws, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.2
                     @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                     public void onComplete(boolean z) {
                         a.this.ju(z);
@@ -180,14 +180,14 @@ public class a {
         }
     }
 
-    private void bmE() {
+    private void bmG() {
         int i;
-        t tVar = com.baidu.live.v.a.zj().awA;
+        t tVar = com.baidu.live.v.a.zl().awB;
         if (tVar != null && (i = tVar.aaG) > 0) {
-            LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_pop", this.awr, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.3
+            LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_pop", this.aws, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.3
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z) {
-                    a.this.bmI();
+                    a.this.bmK();
                 }
 
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
@@ -199,60 +199,60 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ju(boolean z) {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.fcC && !this.fcD && !this.fcB.fcH && this.fcy != null && !this.fcy.bjI()) {
-            bmF();
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.fcD && !this.fcE && !this.fcC.fcI && this.fcz != null && !this.fcz.bjK()) {
+            bmH();
         }
     }
 
-    private void bmF() {
-        this.fcA = true;
-        bmG();
-        bmH();
+    private void bmH() {
+        this.fcB = true;
+        bmI();
+        bmJ();
     }
 
-    private void bmG() {
-        if (this.fcE == null) {
-            this.fcE = new c(this.mPageContext.getPageActivity());
-            this.fcE.a(new c.a() { // from class: com.baidu.tieba.ala.liveroom.k.a.4
+    private void bmI() {
+        if (this.fcF == null) {
+            this.fcF = new c(this.mPageContext.getPageActivity());
+            this.fcF.a(new c.a() { // from class: com.baidu.tieba.ala.liveroom.k.a.4
                 @Override // com.baidu.tieba.ala.liveroom.k.c.a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(a.this.mVid, String.valueOf(a.this.awr), a.this.fcE.bmK(), a.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(a.this.mVid, String.valueOf(a.this.aws), a.this.fcF.bmM(), a.this.mOtherParams);
                     a.this.jv(false);
                 }
             });
         }
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.fcE.show(this.fcz);
+            this.fcF.show(this.fcA);
             LogManager.getCommonLogger().doDisplayGuideFollowFloatLog(this.mVid, this.mOtherParams);
         }
     }
 
-    private void bmH() {
+    private void bmJ() {
         String b = j.b(new Date());
-        if (b.equals(this.fcB.date)) {
-            this.fcB.eGH++;
+        if (b.equals(this.fcC.date)) {
+            this.fcC.eGI++;
         } else {
-            this.fcB.date = b;
-            this.fcB.eGH = 1;
+            this.fcC.date = b;
+            this.fcC.eGI = 1;
         }
-        if (this.fcB.eGH >= com.baidu.live.v.a.zj().awA.aaF) {
-            this.fcB.fcH = true;
+        if (this.fcC.eGI >= com.baidu.live.v.a.zl().awB.aaF) {
+            this.fcC.fcI = true;
         }
-        com.baidu.live.c.pr().putString("guide_follow_float_times_date", this.fcB.toJsonString());
+        com.baidu.live.c.pr().putString("guide_follow_float_times_date", this.fcC.toJsonString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmI() {
+    public void bmK() {
         this.mPopShow = true;
     }
 
-    private void bmJ() {
-        if (this.fcF == null) {
-            this.fcF = new d(this.mPageContext.getPageActivity());
-            this.fcF.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.k.a.5
+    private void bmL() {
+        if (this.fcG == null) {
+            this.fcG = new d(this.mPageContext.getPageActivity());
+            this.fcG.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.k.a.5
                 @Override // com.baidu.tieba.ala.liveroom.k.d.a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(a.this.mVid, String.valueOf(a.this.awr), a.this.fcF.bmK(), a.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(a.this.mVid, String.valueOf(a.this.aws), a.this.fcG.bmM(), a.this.mOtherParams);
                     a.this.jv(true);
                 }
 
@@ -264,7 +264,7 @@ public class a {
             });
         }
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.fcF.show(this.fcz);
+            this.fcG.show(this.fcA);
             LogManager.getCommonLogger().doDisplayGuideFollowPopLog(this.mVid, this.mOtherParams);
         }
     }
@@ -282,16 +282,16 @@ public class a {
         if (BdUtilHelper.isNetOk()) {
             com.baidu.live.data.b bVar = new com.baidu.live.data.b();
             bVar.setUserId(String.valueOf(this.mUid));
-            bVar.setPortrait(this.fcz);
+            bVar.setPortrait(this.fcA);
             bVar.setPageId(this.mPageContext.getUniqueId());
             bVar.setIsAttention(true);
             bVar.setInLive("1");
-            com.baidu.live.view.a.Bh().a(String.valueOf(this.mUid), bVar);
+            com.baidu.live.view.a.Bj().a(String.valueOf(this.mUid), bVar);
         } else {
             BdUtilHelper.showToast(this.mPageContext.getPageActivity(), "网络不好，关注失败");
         }
-        if (z && this.fcy != null) {
-            this.fcy.onClose();
+        if (z && this.fcz != null) {
+            this.fcz.onClose();
         }
     }
 
@@ -299,30 +299,30 @@ public class a {
     public void close() {
         this.mPopShow = false;
         sN();
-        if (this.fcy != null) {
-            this.fcy.onClose();
+        if (this.fcz != null) {
+            this.fcz.onClose();
         }
     }
 
     public void sN() {
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            if (this.fcE != null) {
-                this.fcE.dismiss();
-                this.fcE = null;
-            }
             if (this.fcF != null) {
                 this.fcF.dismiss();
                 this.fcF = null;
             }
+            if (this.fcG != null) {
+                this.fcG.dismiss();
+                this.fcG = null;
+            }
         }
     }
 
-    public void aza() {
-        if (this.fcE != null && this.fcE.isShowing()) {
-            this.fcE.bmL();
-        }
+    public void azc() {
         if (this.fcF != null && this.fcF.isShowing()) {
-            this.fcF.bmL();
+            this.fcF.bmN();
+        }
+        if (this.fcG != null && this.fcG.isShowing()) {
+            this.fcG.bmN();
         }
     }
 }

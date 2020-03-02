@@ -11,19 +11,19 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public class e {
     public static void a(int i, @NonNull ResponseCallback responseCallback) {
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (acD == null) {
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (acF == null) {
             responseCallback.onFail(new Exception("framework error: swan app is null."));
             return;
         }
-        acD.acQ().getRequest().cookieManager(com.baidu.swan.apps.w.a.Us().Is()).url(com.baidu.swan.apps.w.a.Ug().Ij()).addUrlParam("app_key", acD.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
+        acF.acS().getRequest().cookieManager(com.baidu.swan.apps.w.a.Uu().Iu()).url(com.baidu.swan.apps.w.a.Ui().Il()).addUrlParam("app_key", acF.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
     }
 
     public static void L(int i, String str) {
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (acD != null) {
-            String Ik = com.baidu.swan.apps.w.a.Ug().Ik();
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) acD.acQ().postFormRequest().cookieManager(com.baidu.swan.apps.w.a.Us().Is())).url(Ik)).addParams(a(acD, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (acF != null) {
+            String Im = com.baidu.swan.apps.w.a.Ui().Im();
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) acF.acS().postFormRequest().cookieManager(com.baidu.swan.apps.w.a.Uu().Iu())).url(Im)).addParams(a(acF, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str2, int i2) {
@@ -41,7 +41,7 @@ public class e {
         treeMap.put("app_key", eVar.getAppKey());
         treeMap.put("to_app_key", str);
         treeMap.put("source", String.valueOf(i));
-        treeMap.put("timestamp", arb());
+        treeMap.put("timestamp", ard());
         StringBuilder sb = new StringBuilder();
         for (String str2 : treeMap.keySet()) {
             sb.append(str2);
@@ -54,7 +54,7 @@ public class e {
         return treeMap;
     }
 
-    private static String arb() {
+    private static String ard() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 }

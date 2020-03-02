@@ -1,15 +1,15 @@
 package com.baidu.swan.facade.requred.a.a;
 /* loaded from: classes7.dex */
 public class b {
-    private static volatile a cfK;
+    private static volatile a cfL;
 
-    public static synchronized a ajx() {
+    public static synchronized a ajz() {
         a aVar;
         synchronized (b.class) {
-            if (cfK == null) {
-                cfK = new a();
+            if (cfL == null) {
+                cfL = new a();
             }
-            aVar = cfK;
+            aVar = cfL;
         }
         return aVar;
     }

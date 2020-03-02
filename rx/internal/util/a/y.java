@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class y<E> extends aa<E> {
-    private static final long nSH;
-    private static final int nSI;
-    private static final long nSK;
-    private static final long nSL;
-    static final int nyJ = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object nyP = new Object();
+    private static final long nSJ;
+    private static final int nSK;
+    private static final long nSM;
+    private static final long nSN;
+    static final int nyL = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object nyR = new Object();
 
     static {
-        int Q = ae.nSR.Q(Object[].class);
+        int Q = ae.nST.Q(Object[].class);
         if (4 == Q) {
-            nSI = 2;
+            nSK = 2;
         } else if (8 == Q) {
-            nSI = 3;
+            nSK = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        nSH = ae.nSR.R(Object[].class);
+        nSJ = ae.nST.R(Object[].class);
         try {
-            nSL = ae.nSR.b(ad.class.getDeclaredField("producerIndex"));
+            nSN = ae.nST.b(ad.class.getDeclaredField("producerIndex"));
             try {
-                nSK = ae.nSR.b(aa.class.getDeclaredField("consumerIndex"));
+                nSM = ae.nST.b(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -40,11 +40,11 @@ public class y<E> extends aa<E> {
         int NA = h.NA(i);
         long j = NA - 1;
         E[] eArr = (E[]) new Object[NA + 1];
+        this.nSS = eArr;
+        this.nSR = j;
+        Nx(NA);
         this.nSQ = eArr;
         this.nSP = j;
-        Nx(NA);
-        this.nSO = eArr;
-        this.nSN = j;
         this.producerLookAhead = j - 1;
         soProducerIndex(0L);
     }
@@ -59,14 +59,14 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nSQ;
+        E[] eArr = this.nSS;
         long j = this.producerIndex;
-        long j2 = this.nSP;
+        long j2 = this.nSR;
         long an = an(j, j2);
         if (j < this.producerLookAhead) {
             return a(eArr, e, j, an);
         }
-        int i = this.nyK;
+        int i = this.nyM;
         if (b(eArr, an(i + j, j2)) == null) {
             this.producerLookAhead = (i + j) - 1;
             return a(eArr, e, j, an);
@@ -86,11 +86,11 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.nSQ = eArr2;
+        this.nSS = eArr2;
         this.producerLookAhead = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, nyP);
+        b(eArr, j2, nyR);
         soProducerIndex(j + 1);
     }
 
@@ -104,12 +104,12 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.nSO;
+        E[] eArr = this.nSQ;
         long j = this.consumerIndex;
-        long j2 = this.nSN;
+        long j2 = this.nSP;
         long an = an(j, j2);
         E e = (E) b(eArr, an);
-        boolean z = e == nyP;
+        boolean z = e == nyR;
         if (e != null && !z) {
             b(eArr, an, (Object) null);
             soConsumerIndex(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.nSO = eArr;
+        this.nSQ = eArr;
         long an = an(j, j2);
         E e = (E) b(eArr, an);
         if (e == null) {
@@ -135,52 +135,52 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.nSO;
+        E[] eArr = this.nSQ;
         long j = this.consumerIndex;
-        long j2 = this.nSN;
+        long j2 = this.nSP;
         E e = (E) b(eArr, an(j, j2));
-        if (e == nyP) {
+        if (e == nyR) {
             return b(R(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.nSO = eArr;
+        this.nSQ = eArr;
         return (E) b(eArr, an(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long dJu = dJu();
+        long dJw = dJw();
         while (true) {
-            long dJt = dJt();
-            long dJu2 = dJu();
-            if (dJu == dJu2) {
-                return (int) (dJt - dJu2);
+            long dJv = dJv();
+            long dJw2 = dJw();
+            if (dJw == dJw2) {
+                return (int) (dJv - dJw2);
             }
-            dJu = dJu2;
+            dJw = dJw2;
         }
     }
 
     private void Nx(int i) {
-        this.nyK = Math.min(i / 4, nyJ);
+        this.nyM = Math.min(i / 4, nyL);
     }
 
-    private long dJt() {
-        return ae.nSR.d(this, nSL);
+    private long dJv() {
+        return ae.nST.d(this, nSN);
     }
 
-    private long dJu() {
-        return ae.nSR.d(this, nSK);
+    private long dJw() {
+        return ae.nST.d(this, nSM);
     }
 
     private void soProducerIndex(long j) {
-        ae.nSR.a(this, nSL, j);
+        ae.nST.a(this, nSN, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.nSR.a(this, nSK, j);
+        ae.nST.a(this, nSM, j);
     }
 
     private static long an(long j, long j2) {
@@ -188,14 +188,14 @@ public class y<E> extends aa<E> {
     }
 
     private static long hx(long j) {
-        return nSH + (j << nSI);
+        return nSJ + (j << nSK);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.nSR.b(objArr, j, obj);
+        ae.nST.b(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.nSR.c(eArr, j);
+        return ae.nST.c(eArr, j);
     }
 }

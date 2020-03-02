@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.c.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a bbF;
+    private a bbG;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void V(String str) {
-        c aki = aki();
-        aki.mSrc = str;
-        this.bbF.d(aki);
-        this.bbF.cK(false);
+        c akk = akk();
+        akk.mSrc = str;
+        this.bbG.d(akk);
+        this.bbG.cK(false);
     }
 
     public void cJ(boolean z) {
-        if (this.bbF != null) {
+        if (this.bbG != null) {
             this.mIsMute = z;
-            this.bbF.cJ(z);
+            this.bbG.cJ(z);
         }
     }
 
@@ -48,18 +48,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bbF;
+        return this.bbG;
     }
 
     private void initPlayer() {
-        e acD = e.acD();
-        if (acD != null) {
-            this.bbF = new a(acD.acz(), aki());
+        e acF = e.acF();
+        if (acF != null) {
+            this.bbG = new a(acF.acB(), akk());
             this.mIsMute = true;
-            this.bbF.cJ(this.mIsMute);
+            this.bbG.cJ(this.mIsMute);
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bbF.b(frameLayout);
+            this.bbG.b(frameLayout);
         }
     }
 
@@ -69,14 +69,14 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aki() {
+    private c akk() {
         c cVar = new c();
-        cVar.bAy = "SwanAdPlayer";
-        cVar.bik = "SwanAdPlayer";
-        cVar.bAG = true;
-        cVar.bEg = this.mIsMute;
-        cVar.bEp = false;
-        cVar.bEy = false;
+        cVar.bAz = "SwanAdPlayer";
+        cVar.bil = "SwanAdPlayer";
+        cVar.bAH = true;
+        cVar.bEh = this.mIsMute;
+        cVar.bEq = false;
+        cVar.bEz = false;
         return cVar;
     }
 }

@@ -4,46 +4,46 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
 class h {
-    static h nKm = new h();
-    static h nKn;
-    static h nKo;
-    boolean nKd = true;
-    boolean nKe = true;
-    boolean nKf = false;
-    boolean nKg = false;
+    static h nKo = new h();
+    static h nKp;
+    static h nKq;
+    boolean nKf = true;
+    boolean nKg = true;
     boolean nKh = false;
-    boolean nKi = true;
-    boolean nKj = true;
+    boolean nKi = false;
+    boolean nKj = false;
     boolean nKk = true;
-    int nKl;
+    boolean nKl = true;
+    boolean nKm = true;
+    int nKn;
 
     h() {
     }
 
     static {
-        nKm.nKd = true;
-        nKm.nKe = false;
-        nKm.nKf = false;
-        nKm.nKg = false;
-        nKm.nKh = true;
-        nKm.nKi = false;
-        nKm.nKj = false;
-        nKm.nKl = 0;
-        nKn = new h();
-        nKn.nKd = true;
-        nKn.nKe = true;
-        nKn.nKf = false;
-        nKn.nKg = false;
-        nKn.nKh = false;
-        nKm.nKl = 1;
-        nKo = new h();
-        nKo.nKd = false;
-        nKo.nKe = true;
-        nKo.nKf = false;
-        nKo.nKg = true;
+        nKo.nKf = true;
+        nKo.nKg = false;
         nKo.nKh = false;
+        nKo.nKi = false;
+        nKo.nKj = true;
         nKo.nKk = false;
-        nKo.nKl = 2;
+        nKo.nKl = false;
+        nKo.nKn = 0;
+        nKp = new h();
+        nKp.nKf = true;
+        nKp.nKg = true;
+        nKp.nKh = false;
+        nKp.nKi = false;
+        nKp.nKj = false;
+        nKo.nKn = 1;
+        nKq = new h();
+        nKq.nKf = false;
+        nKq.nKg = true;
+        nKq.nKh = false;
+        nKq.nKi = true;
+        nKq.nKj = false;
+        nKq.nKm = false;
+        nKq.nKn = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,7 +54,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String NU(int i) {
-        if (this.nKg) {
+        if (this.nKi) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(HanziToPinyin.Token.SEPARATOR).toString();
         }
@@ -81,11 +81,11 @@ class h {
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.nKd);
+        return b(cls, cls.getName(), this.nKf);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nKh);
+        return b(cls, str, this.nKj);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -99,7 +99,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nKe) {
+            if (!this.nKg) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -115,7 +115,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nKf && clsArr != null && clsArr.length != 0) {
+        if (this.nKh && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

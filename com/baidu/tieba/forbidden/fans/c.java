@@ -12,29 +12,29 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class c {
-    private ap gjt;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> gju;
-    private a gjv;
-    private HttpMessageListener gjw = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private ap gjv;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> gjw;
+    private a gjx;
+    private HttpMessageListener gjy = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.gjt = getForbiddenFansResponse.getPageData();
-                if (c.this.gju == null) {
-                    c.this.gju = new ArrayList();
-                }
-                if (c.this.gjt != null) {
-                    if (c.this.gjt.aBg() == 1) {
-                        c.this.gju.clear();
-                    }
-                    if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.gju.addAll(getForbiddenFansResponse.getFansList());
-                    }
+                c.this.gjv = getForbiddenFansResponse.getPageData();
+                if (c.this.gjw == null) {
+                    c.this.gjw = new ArrayList();
                 }
                 if (c.this.gjv != null) {
-                    c.this.gjv.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.gju);
+                    if (c.this.gjv.aBi() == 1) {
+                        c.this.gjw.clear();
+                    }
+                    if (getForbiddenFansResponse.getFansList() != null) {
+                        c.this.gjw.addAll(getForbiddenFansResponse.getFansList());
+                    }
+                }
+                if (c.this.gjx != null) {
+                    c.this.gjx.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.gjw);
                 }
             }
         }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gjw);
+        MessageManager.getInstance().registerListener(this.gjy);
     }
 
-    public void bCi() {
+    public void bCk() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void bCj() {
-        if (this.gjt == null || this.gjt.aBi() == 1) {
-            int aBg = this.gjt != null ? this.gjt.aBg() + 1 : 1;
+    public void bCl() {
+        if (this.gjv == null || this.gjv.aBk() == 1) {
+            int aBi = this.gjv != null ? this.gjv.aBi() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, aBg);
+            httpMessage.addParam(Config.PACKAGE_NAME, aBi);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.gjt != null && this.gjt.aBi() == 1;
+        return this.gjv != null && this.gjv.aBk() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gjw);
+        MessageManager.getInstance().unRegisterListener(this.gjy);
     }
 
     public void a(a aVar) {
-        this.gjv = aVar;
+        this.gjx = aVar;
     }
 }

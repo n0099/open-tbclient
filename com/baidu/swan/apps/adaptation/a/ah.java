@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public interface ah {
-    ExecutorService HM();
+    ExecutorService HO();
 
     void a(String str, int i, JSONArray jSONArray);
 

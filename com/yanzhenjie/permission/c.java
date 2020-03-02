@@ -6,15 +6,15 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 class c implements h {
-    private static final com.yanzhenjie.permission.a.a nsf = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a nsh = new com.yanzhenjie.permission.a.b();
     private String[] IL;
-    private com.yanzhenjie.permission.b.b nsg;
-    private a nsh;
-    private a nsi;
+    private com.yanzhenjie.permission.b.b nsi;
+    private a nsj;
+    private a nsk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.yanzhenjie.permission.b.b bVar) {
-        this.nsg = bVar;
+        this.nsi = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
@@ -33,50 +33,50 @@ class c implements h {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nsh = aVar;
+        this.nsj = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nsi = aVar;
+        this.nsk = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(this.nsg, this.IL);
+        List<String> a = a(this.nsi, this.IL);
         if (a.isEmpty()) {
-            dHV();
+            dHX();
         } else {
             fs(a);
         }
     }
 
-    private void dHV() {
-        if (this.nsh != null) {
+    private void dHX() {
+        if (this.nsj != null) {
             List<String> asList = Arrays.asList(this.IL);
             try {
-                this.nsh.onAction(asList);
+                this.nsj.onAction(asList);
             } catch (Exception e) {
-                if (this.nsi != null) {
-                    this.nsi.onAction(asList);
+                if (this.nsk != null) {
+                    this.nsk.onAction(asList);
                 }
             }
         }
     }
 
     private void fs(@NonNull List<String> list) {
-        if (this.nsi != null) {
-            this.nsi.onAction(list);
+        if (this.nsk != null) {
+            this.nsk.onAction(list);
         }
     }
 
     private static List<String> a(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (!nsf.e(bVar.getContext(), str)) {
+            if (!nsh.e(bVar.getContext(), str)) {
                 arrayList.add(str);
             }
         }

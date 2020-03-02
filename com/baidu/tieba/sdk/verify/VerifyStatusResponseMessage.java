@@ -19,7 +19,7 @@ public class VerifyStatusResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public boolean cEH() {
+    public boolean cEJ() {
         return this.verifyStatus == 1;
     }
 }

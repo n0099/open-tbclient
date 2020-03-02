@@ -23,14 +23,14 @@ import java.net.URLEncoder;
 /* loaded from: classes11.dex */
 public class BearLayout extends LinearLayout {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private TextView bZb;
-    private SimpleDraweeView bZc;
-    private BdBaseImageView bZd;
-    private FrameLayout bZe;
-    private TextView bZf;
-    private BdBaseImageView bZg;
-    private boolean bZh;
-    private a bZi;
+    private TextView bZc;
+    private SimpleDraweeView bZd;
+    private BdBaseImageView bZe;
+    private FrameLayout bZf;
+    private TextView bZg;
+    private BdBaseImageView bZh;
+    private boolean bZi;
+    private a bZj;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,12 +43,12 @@ public class BearLayout extends LinearLayout {
 
     public BearLayout(Context context) {
         super(context);
-        this.bZh = false;
+        this.bZi = false;
     }
 
     public BearLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bZh = false;
+        this.bZi = false;
     }
 
     public void a(@NonNull final Context context, @NonNull final SwanAppBearInfo swanAppBearInfo, final com.baidu.swan.apps.view.a aVar) {
@@ -60,59 +60,59 @@ public class BearLayout extends LinearLayout {
                 BearLayout.this.mY(swanAppBearInfo.bearHomeUrl);
             }
         });
-        this.bZb = (TextView) linearLayout.findViewById(a.f.bear_account_name);
-        this.bZb.setText(swanAppBearInfo.bearName);
-        this.bZc = (SimpleDraweeView) linearLayout.findViewById(a.f.bear_account_logo);
-        this.bZc.setImageURI(swanAppBearInfo.bearLogo);
-        this.bZd = (BdBaseImageView) linearLayout.findViewById(a.f.bear_account_vip_logo);
+        this.bZc = (TextView) linearLayout.findViewById(a.f.bear_account_name);
+        this.bZc.setText(swanAppBearInfo.bearName);
+        this.bZd = (SimpleDraweeView) linearLayout.findViewById(a.f.bear_account_logo);
+        this.bZd.setImageURI(swanAppBearInfo.bearLogo);
+        this.bZe = (BdBaseImageView) linearLayout.findViewById(a.f.bear_account_vip_logo);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.bZe = (FrameLayout) linearLayout.findViewById(a.f.bear_account_follow_background);
-        this.bZf = (TextView) linearLayout.findViewById(a.f.bear_account_follow_btn);
-        this.bZf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.BearLayout.2
+        this.bZf = (FrameLayout) linearLayout.findViewById(a.f.bear_account_follow_background);
+        this.bZg = (TextView) linearLayout.findViewById(a.f.bear_account_follow_btn);
+        this.bZg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.BearLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!BearLayout.this.bZh) {
-                    BearLayout.this.ahn();
-                    aVar.aho();
+                if (!BearLayout.this.bZi) {
+                    BearLayout.this.ahp();
+                    aVar.ahq();
                     return;
                 }
                 BearLayout.this.mY(swanAppBearInfo.bearHomeUrl);
             }
         });
-        this.bZg = (BdBaseImageView) linearLayout.findViewById(a.f.bear_account_loading_progress);
-        this.bZg.setVisibility(8);
-        this.bZi = new a() { // from class: com.baidu.swan.apps.view.BearLayout.3
+        this.bZh = (BdBaseImageView) linearLayout.findViewById(a.f.bear_account_loading_progress);
+        this.bZh.setVisibility(8);
+        this.bZj = new a() { // from class: com.baidu.swan.apps.view.BearLayout.3
             @Override // com.baidu.swan.apps.view.BearLayout.a
             public void mZ(String str) {
                 if (BearLayout.DEBUG) {
                     Log.d("BearLayout", str);
                 }
-                if (BearLayout.this.bZg != null && BearLayout.this.bZf != null) {
-                    BearLayout.this.bZg.clearAnimation();
-                    BearLayout.this.bZg.setVisibility(4);
-                    BearLayout.this.bZf.setVisibility(0);
+                if (BearLayout.this.bZh != null && BearLayout.this.bZg != null) {
+                    BearLayout.this.bZh.clearAnimation();
+                    BearLayout.this.bZh.setVisibility(4);
+                    BearLayout.this.bZg.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.swan.apps.view.BearLayout.a
             public void ec(boolean z) {
-                BearLayout.this.bZh = z;
-                if (BearLayout.this.bZg != null && BearLayout.this.bZf != null) {
-                    BearLayout.this.bZg.clearAnimation();
-                    BearLayout.this.bZg.setVisibility(4);
-                    BearLayout.this.bZf.setVisibility(0);
-                    BearLayout.this.bZf.setText(z ? BearLayout.this.mContext.getText(a.h.aiapps_bear_btn_navigate) : BearLayout.this.mContext.getText(a.h.aiapps_bear_btn_follow));
-                    BearLayout.this.bZf.setTextColor(z ? context.getResources().getColor(a.c.aiapps_black_text) : context.getResources().getColor(a.c.aiapps_white_text));
-                    BearLayout.this.bZe.setBackgroundResource(z ? a.e.aiapps_bear_paw_enter_btn : a.e.aiapps_bear_paw_follow_btn);
+                BearLayout.this.bZi = z;
+                if (BearLayout.this.bZh != null && BearLayout.this.bZg != null) {
+                    BearLayout.this.bZh.clearAnimation();
+                    BearLayout.this.bZh.setVisibility(4);
+                    BearLayout.this.bZg.setVisibility(0);
+                    BearLayout.this.bZg.setText(z ? BearLayout.this.mContext.getText(a.h.aiapps_bear_btn_navigate) : BearLayout.this.mContext.getText(a.h.aiapps_bear_btn_follow));
+                    BearLayout.this.bZg.setTextColor(z ? context.getResources().getColor(a.c.aiapps_black_text) : context.getResources().getColor(a.c.aiapps_white_text));
+                    BearLayout.this.bZf.setBackgroundResource(z ? a.e.aiapps_bear_paw_enter_btn : a.e.aiapps_bear_paw_follow_btn);
                 }
             }
         };
     }
 
     private void setVipLogo(String str) {
-        if (this.bZd != null) {
+        if (this.bZe != null) {
             if (TextUtils.isEmpty(str)) {
-                this.bZd.setVisibility(8);
+                this.bZe.setVisibility(8);
                 return;
             }
             int i = a.e.aiapps_follow_vip_golden;
@@ -154,27 +154,27 @@ public class BearLayout extends LinearLayout {
                     i = a.e.aiapps_follow_vip_authentication;
                     break;
             }
-            this.bZd.setVisibility(0);
-            this.bZd.setImageDrawable(this.mContext.getResources().getDrawable(i));
+            this.bZe.setVisibility(0);
+            this.bZe.setImageDrawable(this.mContext.getResources().getDrawable(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahn() {
-        if (this.bZg != null && this.bZf != null) {
-            this.bZf.setVisibility(4);
-            this.bZg.setVisibility(0);
+    public void ahp() {
+        if (this.bZh != null && this.bZg != null) {
+            this.bZg.setVisibility(4);
+            this.bZh.setVisibility(0);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
             rotateAnimation.setRepeatCount(-1);
             rotateAnimation.setDuration(1000L);
             rotateAnimation.setFillAfter(true);
             rotateAnimation.setInterpolator(new LinearInterpolator());
-            this.bZg.startAnimation(rotateAnimation);
+            this.bZh.startAnimation(rotateAnimation);
         }
     }
 
     public a getCallback() {
-        return this.bZi;
+        return this.bZj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

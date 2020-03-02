@@ -5,19 +5,19 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
     public final String id;
-    public final long muZ;
-    public final List<a> mva;
+    public final long mvb;
+    public final List<a> mvc;
 
     public e(String str, long j, List<a> list) {
         this.id = str;
-        this.muZ = j;
-        this.mva = Collections.unmodifiableList(list);
+        this.mvb = j;
+        this.mvc = Collections.unmodifiableList(list);
     }
 
     public int Lc(int i) {
-        int size = this.mva.size();
+        int size = this.mvc.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.mva.get(i2).type == i) {
+            if (this.mvc.get(i2).type == i) {
                 return i2;
             }
         }

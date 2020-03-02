@@ -13,7 +13,7 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean ik(@Nullable String str) {
-        if (!com.baidu.swan.apps.w.a.TX().Hn()) {
+        if (!com.baidu.swan.apps.w.a.TZ().Hp()) {
             if (DEBUG) {
                 Log.d("LaunchError", "isExecuteSwanNewYearH5Downgrade false => 新年小程序错误兜底h5降级ab开关为关闭 swan_new_year_h5_downgrade false");
             }
@@ -24,14 +24,14 @@ public class b {
             }
             return false;
         } else {
-            List<String> Vp = Vp();
-            if (Vp == null) {
+            List<String> Vr = Vr();
+            if (Vr == null) {
                 if (DEBUG) {
                     Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade false =》 illegal newYearAppIds");
                 }
                 return false;
             }
-            for (String str2 : Vp) {
+            for (String str2 : Vr) {
                 if (TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade =》 illegal newYearAppId");
@@ -53,21 +53,21 @@ public class b {
     }
 
     @NonNull
-    public static String Vo() {
-        String Ho = Ho();
+    public static String Vq() {
+        String Hq = Hq();
         if (DEBUG) {
-            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + Ho);
+            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + Hq);
         }
         String str = null;
         try {
-            str = URLEncoder.encode(Ho, "UTF-8");
+            str = URLEncoder.encode(Hq, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);
             }
         }
         if (TextUtils.isEmpty(str)) {
-            str = Ho;
+            str = Hq;
         }
         if (DEBUG) {
             Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => encodedUrl: " + str);
@@ -80,15 +80,15 @@ public class b {
     }
 
     @NonNull
-    private static String Ho() {
-        String Ho = com.baidu.swan.apps.w.a.TX().Ho();
-        if (TextUtils.isEmpty(Ho)) {
+    private static String Hq() {
+        String Hq = com.baidu.swan.apps.w.a.TZ().Hq();
+        if (TextUtils.isEmpty(Hq)) {
             return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
         }
-        return Ho;
+        return Hq;
     }
 
-    private static List<String> Vp() {
+    private static List<String> Vr() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("i2UoL6iWVUjaSpHLA4ftCxO2SNCdkTf0");
         arrayList.add("uSTqbBp5u8egzErCpTiPrAOumDjAXWMU");

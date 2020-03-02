@@ -46,7 +46,7 @@ public class a {
     private boolean aqm = false;
     private String mPortrait = "";
     private String otherParams = "";
-    private AlaLiveAudienceEndView.a eAs = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.ala.endliveroom.a.1
+    private AlaLiveAudienceEndView.a eAt = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.ala.endliveroom.a.1
         @Override // com.baidu.tieba.ala.endliveroom.AlaLiveAudienceEndView.a
         public void yF() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
@@ -104,7 +104,7 @@ public class a {
                 bVar.setPortrait(a.this.mPortrait);
                 bVar.setPageId(a.this.mId);
                 bVar.setIsAttention(z ? false : true);
-                com.baidu.live.view.a.Bh().a(valueOf, bVar);
+                com.baidu.live.view.a.Bj().a(valueOf, bVar);
                 if (!z && TbadkCoreApplication.getInst().isHaokan()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                     if (a.this.mLiveInfo != null) {
@@ -129,7 +129,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener evy = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.endliveroom.a.2
+    private CustomMessageListener evz = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.endliveroom.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -157,7 +157,7 @@ public class a {
                 }
                 a.this.aqm = updateAttentionMessage.getData().isAttention ? false : true;
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Bh().a(updateAttentionMessage.getData(), a.this.mTbPageContext, false)) {
+                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Bj().a(updateAttentionMessage.getData(), a.this.mTbPageContext, false)) {
                     a.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
                 }
             }
@@ -192,7 +192,7 @@ public class a {
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            beB();
+            beD();
             TiebaInitialize.log(new StatisticItem("c11888"));
             this.mView = view;
             if (this.mView == null) {
@@ -200,7 +200,7 @@ public class a {
             }
             this.mView.setId(a.g.ala_liveroom_audience_end_view);
             if (this.mView instanceof AlaLiveAudienceEndView) {
-                ((AlaLiveAudienceEndView) this.mView).setCallback(this.eAs);
+                ((AlaLiveAudienceEndView) this.mView).setCallback(this.eAt);
                 ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, mVar, z, this.aqm, this.mPortrait, xx());
                 ((AlaLiveAudienceEndView) this.mView).U(arrayList);
             }
@@ -217,19 +217,19 @@ public class a {
         }
     }
 
-    public void beB() {
+    public void beD() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean beC() {
+    public boolean beE() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 
     private void initListener() {
-        this.evy.setTag(this.mId);
-        MessageManager.getInstance().registerListener(this.evy);
+        this.evz.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.evz);
     }
 
     public void bg(int i, int i2) {
@@ -246,7 +246,7 @@ public class a {
         MessageManager.getInstance().unRegisterTask(1021010);
         MessageManager.getInstance().unRegisterTask(1021026);
         MessageManager.getInstance().removeMessage(this.mId);
-        MessageManager.getInstance().unRegisterListener(this.evy);
+        MessageManager.getInstance().unRegisterListener(this.evz);
         if (this.mView instanceof AlaLiveAudienceEndView) {
             ((AlaLiveAudienceEndView) this.mView).onDestory();
         }

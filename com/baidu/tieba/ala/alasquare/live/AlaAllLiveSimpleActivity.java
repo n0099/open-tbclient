@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
-    private AlaSquareLiveFragment ejL;
+    private AlaSquareLiveFragment ejM;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -19,9 +19,9 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.all_live_act_title);
         if (bundle == null) {
-            this.ejL = new AlaSquareLiveFragment(true);
-            this.ejL.setPrimary(true);
-            getSupportFragmentManager().beginTransaction().add(R.id.container, this.ejL).commitAllowingStateLoss();
+            this.ejM = new AlaSquareLiveFragment(true);
+            this.ejM.setPrimary(true);
+            getSupportFragmentManager().beginTransaction().add(R.id.container, this.ejM).commitAllowingStateLoss();
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -29,8 +29,8 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        if (this.ejL != null) {
-            this.ejL.changeSkinType(i);
+        if (this.ejM != null) {
+            this.ejM.changeSkinType(i);
         }
     }
 }

@@ -33,7 +33,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.aPO().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.aPQ().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.rotateType == 0 || this.rotateType == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.rotateType);
         }

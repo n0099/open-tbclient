@@ -16,72 +16,72 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class HybridUbcFlow {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final SubmitStrategy bHC = SubmitStrategy.HYBRID;
-    private String bHp;
+    public static final SubmitStrategy bHD = SubmitStrategy.HYBRID;
+    private String bHq;
     public final String name;
-    private final JSONObject bHq = new JSONObject();
-    private final Map<String, String> bHr = new HashMap();
-    public final List<String> bHs = new ArrayList();
-    private final Map<String, UbcFlowEvent> bHt = new HashMap();
-    public final List<UbcFlowEvent> bHu = new ArrayList();
-    private boolean bHv = false;
+    private final JSONObject bHr = new JSONObject();
+    private final Map<String, String> bHs = new HashMap();
+    public final List<String> bHt = new ArrayList();
+    private final Map<String, UbcFlowEvent> bHu = new HashMap();
+    public final List<UbcFlowEvent> bHv = new ArrayList();
     private boolean bHw = false;
     private boolean bHx = false;
     private boolean bHy = false;
     private boolean bHz = false;
     private boolean bHA = false;
-    private volatile boolean bHB = false;
-    private SubmitStrategy bHD = bHC;
-    private final Map<String, List<a>> bHE = new HashMap();
+    private boolean bHB = false;
+    private volatile boolean bHC = false;
+    private SubmitStrategy bHE = bHD;
+    private final Map<String, List<a>> bHF = new HashMap();
 
     /* loaded from: classes11.dex */
     public enum SubmitStrategy {
         HYBRID { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.1
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG() && hybridUbcFlow.ZF() && hybridUbcFlow.ZH();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI() && hybridUbcFlow.ZH() && hybridUbcFlow.ZJ();
             }
         },
         HYBRID_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.2
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG() && hybridUbcFlow.ZF() && hybridUbcFlow.ZI();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI() && hybridUbcFlow.ZH() && hybridUbcFlow.ZK();
             }
         },
         RELAUNCH { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.3
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG() && hybridUbcFlow.ZH();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI() && hybridUbcFlow.ZJ();
             }
         },
         RELAUNCH_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.4
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG() && hybridUbcFlow.ZI();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI() && hybridUbcFlow.ZK();
             }
         },
         NA_ONLY { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.5
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE();
+                return hybridUbcFlow.ZG();
             }
         },
         ROUTE { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.6
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI();
             }
         },
         ROUTE_NA { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.7
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE();
+                return hybridUbcFlow.ZG();
             }
         },
         ROUTE_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.8
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.ZE() && hybridUbcFlow.ZG() && hybridUbcFlow.ZJ();
+                return hybridUbcFlow.ZG() && hybridUbcFlow.ZI() && hybridUbcFlow.ZL();
             }
         };
 
@@ -94,36 +94,36 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow jS(String str) {
-        this.bHp = str;
+        this.bHq = str;
         return this;
     }
 
-    public String Zw() {
-        return this.bHp;
+    public String Zy() {
+        return this.bHq;
     }
 
     private void a(UbcFlowEvent ubcFlowEvent) {
-        this.bHs.remove(ubcFlowEvent.id);
-        this.bHs.add(ubcFlowEvent.id);
-        this.bHt.put(ubcFlowEvent.id, ubcFlowEvent);
+        this.bHt.remove(ubcFlowEvent.id);
+        this.bHt.add(ubcFlowEvent.id);
+        this.bHu.put(ubcFlowEvent.id, ubcFlowEvent);
     }
 
     private void b(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.bHt.get(ubcFlowEvent.id);
-        if (!e(ubcFlowEvent2) || ubcFlowEvent.ZU() > ubcFlowEvent2.ZU()) {
+        UbcFlowEvent ubcFlowEvent2 = this.bHu.get(ubcFlowEvent.id);
+        if (!e(ubcFlowEvent2) || ubcFlowEvent.ZW() > ubcFlowEvent2.ZW()) {
             a(ubcFlowEvent);
         }
     }
 
     private void c(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.bHt.get(ubcFlowEvent.id);
-        if (!e(ubcFlowEvent2) || ubcFlowEvent.ZU() < ubcFlowEvent2.ZU()) {
+        UbcFlowEvent ubcFlowEvent2 = this.bHu.get(ubcFlowEvent.id);
+        if (!e(ubcFlowEvent2) || ubcFlowEvent.ZW() < ubcFlowEvent2.ZW()) {
             a(ubcFlowEvent);
         }
     }
 
     private void d(UbcFlowEvent ubcFlowEvent) {
-        if (!e(this.bHt.get(ubcFlowEvent.id))) {
+        if (!e(this.bHu.get(ubcFlowEvent.id))) {
             a(ubcFlowEvent);
         }
     }
@@ -137,8 +137,8 @@ public final class HybridUbcFlow {
             Log.i("HybridUbcFlow", "record " + ubcFlowEvent);
         }
         if (e(ubcFlowEvent)) {
-            synchronized (this.bHs) {
-                switch (ubcFlowEvent.ZX()) {
+            synchronized (this.bHt) {
+                switch (ubcFlowEvent.ZZ()) {
                     case UPDATE:
                         a(ubcFlowEvent);
                         break;
@@ -161,7 +161,7 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "record events size = " + list.size());
         }
-        synchronized (this.bHs) {
+        synchronized (this.bHt) {
             for (UbcFlowEvent ubcFlowEvent : list) {
                 f(ubcFlowEvent);
             }
@@ -170,19 +170,19 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow bb(String str, String str2) {
-        this.bHr.put(str, str2);
+        this.bHs.put(str, str2);
         return this;
     }
 
     public String jT(String str) {
-        return this.bHr.get(str);
+        return this.bHs.get(str);
     }
 
     public HybridUbcFlow c(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
-            hybridUbcFlow.ZK();
-            Z(hybridUbcFlow.bHu);
-            this.bHr.putAll(hybridUbcFlow.bHr);
+            hybridUbcFlow.ZM();
+            Z(hybridUbcFlow.bHv);
+            this.bHs.putAll(hybridUbcFlow.bHs);
         }
         return this;
     }
@@ -190,7 +190,7 @@ public final class HybridUbcFlow {
     public HybridUbcFlow k(String str, Object obj) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.bHq.put(str, obj);
+                this.bHr.put(str, obj);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -200,169 +200,169 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public JSONObject Zx() {
-        return this.bHq;
-    }
-
-    public HybridUbcFlow Zy() {
-        if (DEBUG) {
-            Log.i("HybridUbcFlow", "naFlowDone");
-        }
-        this.bHv = true;
-        ZO();
-        return this;
-    }
-
-    public HybridUbcFlow Zz() {
-        if (DEBUG) {
-            Log.i("HybridUbcFlow", "naAnimFlowDone");
-        }
-        this.bHw = true;
-        ZO();
-        return this;
+    public JSONObject Zz() {
+        return this.bHr;
     }
 
     public HybridUbcFlow ZA() {
         if (DEBUG) {
-            Log.i("HybridUbcFlow", "h5FlowDone");
+            Log.i("HybridUbcFlow", "naFlowDone");
         }
-        this.bHx = true;
-        ZO();
+        this.bHw = true;
+        ZQ();
         return this;
     }
 
     public HybridUbcFlow ZB() {
         if (DEBUG) {
-            Log.i("HybridUbcFlow", "webViewWidgetDone");
+            Log.i("HybridUbcFlow", "naAnimFlowDone");
         }
-        this.bHA = true;
-        ZO();
+        this.bHx = true;
+        ZQ();
         return this;
     }
 
     public HybridUbcFlow ZC() {
         if (DEBUG) {
-            Log.i("HybridUbcFlow", "naPaintFlowDone");
+            Log.i("HybridUbcFlow", "h5FlowDone");
         }
         this.bHy = true;
-        ZO();
+        ZQ();
         return this;
     }
 
     public HybridUbcFlow ZD() {
         if (DEBUG) {
-            Log.i("HybridUbcFlow", "webwidgetPaintDone");
+            Log.i("HybridUbcFlow", "webViewWidgetDone");
         }
-        this.bHz = true;
-        ZO();
+        this.bHB = true;
+        ZQ();
         return this;
     }
 
-    public boolean ZE() {
-        return this.bHv;
+    public HybridUbcFlow ZE() {
+        if (DEBUG) {
+            Log.i("HybridUbcFlow", "naPaintFlowDone");
+        }
+        this.bHz = true;
+        ZQ();
+        return this;
     }
 
-    public boolean ZF() {
-        return this.bHw;
+    public HybridUbcFlow ZF() {
+        if (DEBUG) {
+            Log.i("HybridUbcFlow", "webwidgetPaintDone");
+        }
+        this.bHA = true;
+        ZQ();
+        return this;
     }
 
     public boolean ZG() {
-        return this.bHx;
+        return this.bHw;
     }
 
     public boolean ZH() {
-        return this.bHy;
+        return this.bHx;
     }
 
     public boolean ZI() {
-        return this.bHz;
+        return this.bHy;
     }
 
     public boolean ZJ() {
+        return this.bHz;
+    }
+
+    public boolean ZK() {
         return this.bHA;
+    }
+
+    public boolean ZL() {
+        return this.bHB;
     }
 
     private boolean isEmpty() {
         boolean isEmpty;
-        synchronized (this.bHs) {
-            isEmpty = this.bHs.isEmpty();
+        synchronized (this.bHt) {
+            isEmpty = this.bHt.isEmpty();
         }
         return isEmpty;
     }
 
-    public void ZK() {
+    public void ZM() {
         UbcFlowEvent ubcFlowEvent;
-        synchronized (this.bHs) {
-            this.bHu.clear();
-            for (String str : this.bHs) {
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.bHt.get(str)) != null && ubcFlowEvent.ZU() > 0) {
-                    this.bHu.add(ubcFlowEvent);
+        synchronized (this.bHt) {
+            this.bHv.clear();
+            for (String str : this.bHt) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.bHu.get(str)) != null && ubcFlowEvent.ZW() > 0) {
+                    this.bHv.add(ubcFlowEvent);
                 }
             }
-            ZL();
+            ZN();
         }
     }
 
-    private void ZL() {
-        Collections.sort(this.bHu, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
+    private void ZN() {
+        Collections.sort(this.bHv, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-                return Long.compare(ubcFlowEvent.ZU(), ubcFlowEvent2.ZU());
+                return Long.compare(ubcFlowEvent.ZW(), ubcFlowEvent2.ZW());
             }
         });
     }
 
     public HybridUbcFlow a(SubmitStrategy submitStrategy) {
         if (submitStrategy != null) {
-            this.bHD = submitStrategy;
+            this.bHE = submitStrategy;
         }
         return this;
     }
 
-    public SubmitStrategy ZM() {
-        return this.bHD;
+    public SubmitStrategy ZO() {
+        return this.bHE;
     }
 
-    private boolean ZN() {
-        return (this.bHD == null ? bHC : this.bHD).submitAllowed(this);
+    private boolean ZP() {
+        return (this.bHE == null ? bHD : this.bHE).submitAllowed(this);
     }
 
-    private void ZO() {
-        if (ZN()) {
-            ZP();
+    private void ZQ() {
+        if (ZP()) {
+            ZR();
         }
     }
 
-    private synchronized void ZP() {
-        if (!this.bHB) {
-            this.bHB = true;
+    private synchronized void ZR() {
+        if (!this.bHC) {
+            this.bHC = true;
             jU("callback_on_submit");
             m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    HybridUbcFlow.this.ZQ();
+                    HybridUbcFlow.this.ZS();
                 }
             }, "HybridUbcFlow");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZQ() {
-        ZK();
+    public void ZS() {
+        ZM();
         jU("component_reporter");
-        if (!TextUtils.isEmpty(this.bHp)) {
-            Flow rb = s.rb(this.bHp);
-            for (UbcFlowEvent ubcFlowEvent : this.bHu) {
-                if (!ubcFlowEvent.ZW()) {
-                    rb.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.ZU());
+        if (!TextUtils.isEmpty(this.bHq)) {
+            Flow rb = s.rb(this.bHq);
+            for (UbcFlowEvent ubcFlowEvent : this.bHv) {
+                if (!ubcFlowEvent.ZY()) {
+                    rb.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.ZW());
                 }
             }
             if (!isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.bHr.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.bHs.entrySet()) {
                         String key = entry.getKey();
                         if (!TextUtils.isEmpty(key)) {
                             String value = entry.getValue();
@@ -378,18 +378,18 @@ public final class HybridUbcFlow {
                         e.printStackTrace();
                     }
                 }
-                rb.setValueWithDuration(this.bHq.toString());
+                rb.setValueWithDuration(this.bHr.toString());
                 rb.end();
             }
         }
     }
 
     private void jU(String str) {
-        List<a> list = this.bHE.get(str);
+        List<a> list = this.bHF.get(str);
         if (list != null && !list.isEmpty()) {
             for (a aVar : list) {
-                if (aVar != null && aVar.bHH != null) {
-                    aVar.bHH.D(this);
+                if (aVar != null && aVar.bHI != null) {
+                    aVar.bHI.D(this);
                 }
             }
         }
@@ -397,12 +397,12 @@ public final class HybridUbcFlow {
 
     public HybridUbcFlow c(String str, com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar) {
         a aVar = new a(str, bVar);
-        if (aVar.ZR()) {
-            synchronized (this.bHE) {
-                List<a> list = this.bHE.get(str);
+        if (aVar.ZT()) {
+            synchronized (this.bHF) {
+                List<a> list = this.bHF.get(str);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.bHE.put(str, list);
+                    this.bHF.put(str, list);
                 }
                 list.add(aVar);
             }
@@ -417,16 +417,16 @@ public final class HybridUbcFlow {
         if (r0 == null) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0039, code lost:
-        if (r1.ZU() < 1) goto L27;
+        if (r1.ZW() < 1) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0041, code lost:
-        if (r0.ZU() >= 1) goto L25;
+        if (r0.ZW() >= 1) goto L25;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:?, code lost:
         return -1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:?, code lost:
-        return r1.ZU() - r0.ZU();
+        return r1.ZW() - r0.ZW();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -441,12 +441,12 @@ public final class HybridUbcFlow {
                 ubcFlowEvent = null;
                 break;
             }
-            ubcFlowEvent = this.bHt.get(strArr[i]);
+            ubcFlowEvent = this.bHu.get(strArr[i]);
             if (ubcFlowEvent2 == null) {
-                if (ubcFlowEvent == null || ubcFlowEvent.ZU() < 1) {
+                if (ubcFlowEvent == null || ubcFlowEvent.ZW() < 1) {
                     break;
                 }
-            } else if (ubcFlowEvent != null && ubcFlowEvent.ZU() > 0) {
+            } else if (ubcFlowEvent != null && ubcFlowEvent.ZW() > 0) {
                 break;
             } else {
                 ubcFlowEvent = ubcFlowEvent2;
@@ -460,16 +460,16 @@ public final class HybridUbcFlow {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a {
-        final com.baidu.swan.apps.as.d.b<HybridUbcFlow> bHH;
+        final com.baidu.swan.apps.as.d.b<HybridUbcFlow> bHI;
         final String type;
 
         private a(String str, com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar) {
             this.type = str;
-            this.bHH = bVar;
+            this.bHI = bVar;
         }
 
-        boolean ZR() {
-            return (this.bHH == null || TextUtils.isEmpty(this.type)) ? false : true;
+        boolean ZT() {
+            return (this.bHI == null || TextUtils.isEmpty(this.type)) ? false : true;
         }
     }
 }

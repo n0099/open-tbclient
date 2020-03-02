@@ -30,7 +30,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject ac = com.baidu.swan.apps.w.a.UD().ac(context, str);
+        final JSONObject ac = com.baidu.swan.apps.w.a.UF().ac(context, str);
         if (ac != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
                 @Override // java.lang.Runnable
@@ -61,7 +61,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final h hVar, String str) {
-        JSONObject ac = com.baidu.swan.apps.w.a.UD().ac(context, str);
+        JSONObject ac = com.baidu.swan.apps.w.a.UF().ac(context, str);
         if (ac != null && hVar != null) {
             aq(ac);
             final JSONArray optJSONArray = ac.optJSONArray("un_read_list");
@@ -77,7 +77,7 @@ public class a {
                                 a.ar(optJSONObject);
                             }
                         }
-                        hVar.asL();
+                        hVar.asN();
                     }
                 }
             });
@@ -85,18 +85,18 @@ public class a {
     }
 
     public static boolean cZ(boolean z) {
-        if (e.acE() == null) {
+        if (e.acG() == null) {
             return false;
         }
-        e acE = e.acE();
-        PMSAppInfo VX = e.acE().acG().VX();
-        if (acE.acU() || VX == null || TextUtils.isEmpty(VX.paNumber)) {
+        e acG = e.acG();
+        PMSAppInfo VZ = e.acG().acI().VZ();
+        if (acG.acW() || VZ == null || TextUtils.isEmpty(VZ.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return acE.acT().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return acG.acV().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +116,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ai.ahh() && (optInt == 27 || optInt == 17)) {
+            if (ai.ahj() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -129,16 +129,16 @@ public class a {
                 }
             }
         }
-        if (e.acE() != null) {
-            e.acE().acT().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.acG() != null) {
+            e.acG().acV().a("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void Ys() {
-        if (e.acE() != null) {
-            e.acE().acT().a("key_unread_counts_message", (Integer) 0);
+    public static void Yu() {
+        if (e.acG() != null) {
+            e.acG().acV().a("key_unread_counts_message", (Integer) 0);
         }
     }
 

@@ -6,24 +6,24 @@ import com.baidu.swan.d.h;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class e {
-    public static String atJ() {
-        return String.format("%s/getpkg", atN());
-    }
-
-    public static String atK() {
-        return String.format("%s/updatecore", atN());
-    }
-
     public static String atL() {
-        return String.format("%s/fetchpkglist", atN());
+        return String.format("%s/getpkg", atP());
     }
 
     public static String atM() {
-        return String.format("%s/getplugin", atN());
+        return String.format("%s/updatecore", atP());
     }
 
     public static String atN() {
-        return com.baidu.swan.pms.d.atn().UP();
+        return String.format("%s/fetchpkglist", atP());
+    }
+
+    public static String atO() {
+        return String.format("%s/getplugin", atP());
+    }
+
+    public static String atP() {
+        return com.baidu.swan.pms.d.atp().UR();
     }
 
     public static String g(String str, Map<String, String> map) {
@@ -42,14 +42,14 @@ public class e {
     }
 
     private static String qt(String str) {
-        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.atn().UQ()), "uuid", com.baidu.swan.pms.d.atn().getUUID()), j.c, h.rk(com.baidu.swan.pms.d.atn().US())), "host_app", com.baidu.swan.pms.d.atn().UR()), "host_app_ver", com.baidu.swan.pms.d.atn().US()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.atn().UT());
-        String atm = com.baidu.swan.pms.d.ato().atm();
-        if (!TextUtils.isEmpty(atm)) {
-            addParam = h.addParam(addParam, "extension_rule", atm);
+        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.atp().US()), "uuid", com.baidu.swan.pms.d.atp().getUUID()), j.c, h.rk(com.baidu.swan.pms.d.atp().UU())), "host_app", com.baidu.swan.pms.d.atp().UT()), "host_app_ver", com.baidu.swan.pms.d.atp().UU()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.atp().UV());
+        String ato = com.baidu.swan.pms.d.atq().ato();
+        if (!TextUtils.isEmpty(ato)) {
+            addParam = h.addParam(addParam, "extension_rule", ato);
         }
-        String UZ = com.baidu.swan.pms.d.atn().UZ();
-        if (!TextUtils.isEmpty(UZ)) {
-            return h.addParam(addParam, "sid", UZ);
+        String Vb = com.baidu.swan.pms.d.atp().Vb();
+        if (!TextUtils.isEmpty(Vb)) {
+            return h.addParam(addParam, "sid", Vb);
         }
         return addParam;
     }

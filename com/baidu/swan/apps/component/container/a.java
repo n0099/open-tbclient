@@ -17,7 +17,7 @@ public class a {
             return null;
         }
         String name = bVar.getName();
-        String str = bVar.bil;
+        String str = bVar.bim;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : slaveId is empty");
             return null;
@@ -27,10 +27,10 @@ public class a {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : null component context");
             return null;
         }
-        String str2 = bVar.bik;
+        String str2 = bVar.bil;
         if (TextUtils.isEmpty(str2)) {
             com.baidu.swan.apps.console.c.w("Component-Finder", "find " + name + " with a empty componentId");
-            List<com.baidu.swan.apps.component.b.a> list = gv.KU().bjv.get(bVar.bij);
+            List<com.baidu.swan.apps.component.b.a> list = gv.KW().bjw.get(bVar.bik);
             if (list == null) {
                 com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " with a empty componentId: fallbackComponents are null ");
                 return null;
@@ -42,7 +42,7 @@ public class a {
                 c = (C) list.get(0);
             }
         } else {
-            c = (C) gv.KU().bju.get(str2);
+            c = (C) gv.KW().bjv.get(str2);
         }
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : not exist");
@@ -61,7 +61,7 @@ public class a {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : null component context");
             return null;
         }
-        C c = (C) gv.KU().bju.get(str2);
+        C c = (C) gv.KW().bjv.get(str2);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : not exist");
             return null;
@@ -75,7 +75,7 @@ public class a {
             com.baidu.swan.apps.component.e.a.au("Component-Finder", "find component context with a null model");
             return null;
         }
-        return gv(bVar.bil);
+        return gv(bVar.bim);
     }
 
     @Nullable
@@ -84,9 +84,9 @@ public class a {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find component context with a null slave id");
             return null;
         }
-        e hv = f.WQ().hv(str);
+        e hv = f.WS().hv(str);
         if (hv instanceof com.baidu.swan.apps.adaptation.b.c) {
-            return ((com.baidu.swan.apps.adaptation.b.c) hv).IK();
+            return ((com.baidu.swan.apps.adaptation.b.c) hv).IM();
         }
         return null;
     }

@@ -3,8 +3,8 @@ package com.facebook.imagepipeline.animated.base;
 public class AnimatedDrawableFrameInfo {
     public final int frameNumber;
     public final int height;
-    public final BlendOperation lPE;
-    public final DisposalMethod lPF;
+    public final BlendOperation lPG;
+    public final DisposalMethod lPH;
     public final int width;
     public final int xOffset;
     public final int yOffset;
@@ -28,7 +28,7 @@ public class AnimatedDrawableFrameInfo {
         this.yOffset = i3;
         this.width = i4;
         this.height = i5;
-        this.lPE = blendOperation;
-        this.lPF = disposalMethod;
+        this.lPG = blendOperation;
+        this.lPH = disposalMethod;
     }
 }

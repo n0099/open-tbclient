@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b bts;
+    private volatile b btt;
 
-    private b Rn() {
-        if (this.bts == null) {
+    private b Rp() {
+        if (this.btt == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.bts == null) {
-                    this.bts = new b();
+                if (this.btt == null) {
+                    this.btt = new b();
                 }
             }
         }
-        return this.bts;
+        return this.btt;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return Rn().query(uri, strArr, str, strArr2, str2);
+        return Rp().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return Rn().getType(uri);
+        return Rp().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return Rn().insert(uri, contentValues);
+        return Rp().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return Rn().delete(uri, str, strArr);
+        return Rp().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return Rn().update(uri, contentValues, str, strArr);
+        return Rp().update(uri, contentValues, str, strArr);
     }
 }

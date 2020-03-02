@@ -30,8 +30,8 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private boolean i;
     private String j;
     private int k;
-    private NoClickRecyclerView ncS;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ncT;
+    private NoClickRecyclerView ncU;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ncV;
 
     public MicStatusView(Context context) {
         super(context);
@@ -64,9 +64,9 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.b = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.view_mic_status, (ViewGroup) this, true);
         this.a = (TextView) inflate.findViewById(a.f.mic_txt);
-        this.ncS = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
-        this.ncS.setLayoutManager(new b(this.b, 0, false));
-        this.ncT = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
+        this.ncU = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
+        this.ncU.setLayoutManager(new b(this.b, 0, false));
+        this.ncV = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.a());
@@ -78,7 +78,7 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
                 view$OnLongClickListenerC0813a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.medium, b.a.medium);
             }
         };
-        this.ncS.setAdapter(this.ncT);
+        this.ncU.setAdapter(this.ncV);
     }
 
     @Override // android.view.View
@@ -109,10 +109,10 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         if (this.a != null) {
             this.a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
-        if (this.ncT != null && !h.isEmpty(list)) {
+        if (this.ncV != null && !h.isEmpty(list)) {
             this.e.clear();
             this.e.addAll(list);
-            this.ncT.notifyDataSetChanged();
+            this.ncV.notifyDataSetChanged();
         }
     }
 

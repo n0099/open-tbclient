@@ -36,13 +36,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c jEw;
-    private long jEy;
-    private String jEz;
+    private static c jEy;
+    private long jEA;
+    private String jEB;
     private static final String TAG = c.class.getSimpleName() + " TestActivity";
     private static final String DOWNLOAD_DIR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-    private String jEx = null;
-    private com.baidu.adp.framework.listener.a iTG = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
+    private String jEz = null;
+    private com.baidu.adp.framework.listener.a iTI = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -75,31 +75,31 @@ public class c {
         }
     };
 
-    public static c cBS() {
-        if (jEw == null) {
+    public static c cBU() {
+        if (jEy == null) {
             synchronized (c.class) {
-                if (jEw == null) {
-                    jEw = new c();
+                if (jEy == null) {
+                    jEy = new c();
                 }
             }
         }
-        return jEw;
+        return jEy;
     }
 
     private c() {
     }
 
-    public String cBT() {
-        return this.jEx;
-    }
-
-    public String getCacheDir() {
+    public String cBV() {
         return this.jEz;
     }
 
+    public String getCacheDir() {
+        return this.jEB;
+    }
+
     public void init() {
-        this.jEy = System.currentTimeMillis();
-        MessageManager.getInstance().registerListener(this.iTG);
+        this.jEA = System.currentTimeMillis();
+        MessageManager.getInstance().registerListener(this.iTI);
         a aVar = new a();
         aVar.setPriority(4);
         aVar.execute(new Void[0]);
@@ -108,9 +108,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        String jEB;
-        HashMap<String, com.baidu.tieba.quickWebView.data.a> jEC;
         String jED;
+        HashMap<String, com.baidu.tieba.quickWebView.data.a> jEE;
+        String jEF;
 
         private b() {
         }
@@ -127,10 +127,10 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public b doInBackground(Void... voidArr) {
-            b cBU = c.this.cBU();
-            if (cBU != null && !TextUtils.isEmpty(cBU.jEB) && cBU.jEC != null && cBU.jEC.size() != 0) {
-                c.HF(cBU.jED);
-                return cBU;
+            b cBW = c.this.cBW();
+            if (cBW != null && !TextUtils.isEmpty(cBW.jED) && cBW.jEE != null && cBW.jEE.size() != 0) {
+                c.HF(cBW.jEF);
+                return cBW;
             }
             return null;
         }
@@ -141,21 +141,21 @@ public class c {
         /* renamed from: a */
         public void onPostExecute(b bVar) {
             String str;
-            if (bVar == null || StringUtils.isNull(bVar.jED)) {
+            if (bVar == null || StringUtils.isNull(bVar.jEF)) {
                 str = "0.0.0.0";
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             } else {
-                c.this.jEz = bVar.jEB;
-                d.cBX().r(bVar.jEC);
-                str = bVar.jED;
+                c.this.jEB = bVar.jED;
+                d.cBZ().r(bVar.jEE);
+                str = bVar.jEF;
             }
-            c.this.jEx = str;
+            c.this.jEz = str;
             MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg(str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b cBU() {
+    public b cBW() {
         String str;
         FileInputStream fileInputStream;
         String[] list;
@@ -179,8 +179,8 @@ public class c {
         }
         b bVar = new b();
         File file2 = new File(file, str);
-        bVar.jEB = file2.getAbsolutePath();
-        bVar.jED = str;
+        bVar.jED = file2.getAbsolutePath();
+        bVar.jEF = str;
         File file3 = new File(file2, "router.json");
         if (file3.exists()) {
             try {
@@ -193,7 +193,7 @@ public class c {
                 th = th;
             }
             try {
-                bVar.jEC = m(fileInputStream);
+                bVar.jEE = m(fileInputStream);
                 n.close((InputStream) fileInputStream);
             } catch (FileNotFoundException e2) {
                 e = e2;
@@ -266,8 +266,8 @@ public class c {
                                 }
                                 int optInt = jSONObject2.has("offline") ? jSONObject2.optInt("offline") : 0;
                                 com.baidu.tieba.quickWebView.data.a aVar = new com.baidu.tieba.quickWebView.data.a();
-                                aVar.jEG = arrayList;
-                                aVar.jEH = optInt == 1;
+                                aVar.jEI = arrayList;
+                                aVar.jEJ = optInt == 1;
                                 hashMap.put(next, aVar);
                             }
                             n.close(reader);
@@ -362,7 +362,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cBV() {
+    public static void cBX() {
         m.deleteFileOrDir(new File(DOWNLOAD_DIR + "bdtbWCacheTemp"));
     }
 
@@ -370,7 +370,7 @@ public class c {
     /* renamed from: com.baidu.tieba.quickWebView.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0594c extends BdAsyncTask {
-        private x cLD;
+        private x cLE;
         private final String mMd5;
         private final String mUrl;
         private final String mVersion;
@@ -392,12 +392,12 @@ public class c {
             FileInputStream fileInputStream;
             String str;
             String md5;
-            c.cBV();
-            this.cLD = new x();
-            this.cLD.setUrl(this.mUrl);
+            c.cBX();
+            this.cLE = new x();
+            this.cLE.setUrl(this.mUrl);
             new File(c.DOWNLOAD_DIR + "bdtbWCacheTemp").mkdirs();
             String str2 = c.DOWNLOAD_DIR + "bdtbWCacheTemp/bdtbWCache.zip";
-            if (this.cLD.downloadFile(str2, null, 0, 3, 0, true)) {
+            if (this.cLE.downloadFile(str2, null, 0, 3, 0, true)) {
                 TiebaStatic.log(new an("c13435").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_type", "1"));
                 try {
                     fileInputStream = new FileInputStream(str2);
@@ -411,7 +411,7 @@ public class c {
                             str = c.DOWNLOAD_DIR + "bdtbWCacheTemp/" + this.mVersion;
                             if (r.unZipFiles(str2, str)) {
                             }
-                            c.cBV();
+                            c.cBX();
                             return null;
                         }
                     } catch (Throwable th) {
@@ -430,7 +430,7 @@ public class c {
                 }
                 if (StringUtils.isNull(md5) || !md5.toLowerCase().equals(this.mMd5.toLowerCase())) {
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "md5 error", new Object[0]);
-                    c.cBV();
+                    c.cBX();
                     n.close((InputStream) fileInputStream);
                     return null;
                 }
@@ -445,7 +445,7 @@ public class c {
                 TiebaStatic.log(new an("c13435").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_type", "2"));
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "download error", new Object[0]);
             }
-            c.cBV();
+            c.cBX();
             return null;
         }
     }

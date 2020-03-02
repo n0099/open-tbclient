@@ -7,29 +7,29 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class h {
     public static f<com.baidu.swan.pms.model.d> b(com.baidu.swan.pms.model.d dVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(dVar, gVar.Pq())) {
-            return new f<>(new e(dVar), dVar, new c(gVar.Pq()));
+        if (gVar != null && a(dVar, gVar.Ps())) {
+            return new f<>(new e(dVar), dVar, new c(gVar.Ps()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.f> a(com.baidu.swan.pms.model.f fVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(fVar, gVar.Po())) {
-            return new f<>(new e(fVar), fVar, new c(gVar.Po()));
+        if (gVar != null && a(fVar, gVar.Pq())) {
+            return new f<>(new e(fVar), fVar, new c(gVar.Pq()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.b> b(com.baidu.swan.pms.model.b bVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(bVar, gVar.Pr())) {
-            return new f<>(new e(bVar), bVar, new c(gVar.Pr()));
+        if (gVar != null && a(bVar, gVar.Pt())) {
+            return new f<>(new e(bVar), bVar, new c(gVar.Pt()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.h> a(com.baidu.swan.pms.model.h hVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(hVar, gVar.aab())) {
-            return new f<>(new e(hVar), hVar, new c(gVar.aab()));
+        if (gVar != null && a(hVar, gVar.aad())) {
+            return new f<>(new e(hVar), hVar, new c(gVar.aad()));
         }
         return null;
     }
@@ -41,9 +41,9 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (a.C0364a c0364a : list) {
-                com.baidu.swan.pms.model.f fVar = c0364a.cBP;
-                if (fVar != null && a(c0364a, gVar.Pl())) {
-                    arrayList.add(new f(new e(fVar), c0364a, new c(gVar.Pl())));
+                com.baidu.swan.pms.model.f fVar = c0364a.cBQ;
+                if (fVar != null && a(c0364a, gVar.Pn())) {
+                    arrayList.add(new f(new e(fVar), c0364a, new c(gVar.Pn())));
                 }
             }
         }
@@ -57,8 +57,8 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (com.baidu.swan.pms.model.g gVar2 : list) {
-                if (a(gVar2, gVar.Pp())) {
-                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.Pp())));
+                if (a(gVar2, gVar.Pr())) {
+                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.Pr())));
                 }
             }
         }
@@ -73,7 +73,7 @@ public class h {
             com.baidu.swan.pms.model.e eVar = (com.baidu.swan.pms.model.e) t;
             return a(cVar, t, eVar.md5, eVar.downloadUrl);
         } else if (t instanceof a.C0364a) {
-            com.baidu.swan.pms.model.f fVar = ((a.C0364a) t).cBP;
+            com.baidu.swan.pms.model.f fVar = ((a.C0364a) t).cBQ;
             return a(cVar, t, fVar.md5, fVar.downloadUrl);
         } else {
             return false;

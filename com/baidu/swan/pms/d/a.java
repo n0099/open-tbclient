@@ -5,7 +5,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.atn().a(iL(i), str, str2, i2, jSONObject);
+        d.atp().a(iL(i), str, str2, i2, jSONObject);
     }
 
     private static String iL(int i) {

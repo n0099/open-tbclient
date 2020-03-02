@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes10.dex */
 public abstract class c {
-    String kAc;
-    a kAd;
+    String kAe;
+    a kAf;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -12,14 +12,14 @@ public abstract class c {
     /* loaded from: classes10.dex */
     public static class b {
         public int channel;
-        public String kAe;
-        public int kAf;
+        public String kAg;
+        public int kAh;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.kAc = str;
+        this.kAe = str;
     }
 }

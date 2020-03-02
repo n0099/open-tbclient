@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class x extends a {
     private boolean NJ;
-    private boolean dbR;
+    private boolean dbS;
     private int procType;
 
     public x(boolean z, int i) {
@@ -19,10 +19,10 @@ public class x extends a {
     public x(boolean z, int i, boolean z2) {
         this.NJ = true;
         this.procType = 0;
-        this.dbR = true;
+        this.dbS = true;
         this.NJ = z;
         this.procType = i;
-        this.dbR = z2;
+        this.dbS = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -41,17 +41,17 @@ public class x extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGQ() {
+    public boolean aGS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aGR() {
+    public boolean aGT() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int aGS() {
+    public int aGU() {
         return this.procType;
     }
 
@@ -61,7 +61,7 @@ public class x extends a {
         if (o(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
             aVar2.setNeedCache(z2);
-            if (z2 && !iVar.dbs) {
+            if (z2 && !iVar.dbt) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
@@ -69,7 +69,7 @@ public class x extends a {
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(z);
-                cVar.C(this.dbR);
+                cVar.C(this.dbS);
                 com.baidu.adp.lib.Disk.d.fk().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();

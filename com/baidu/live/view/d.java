@@ -20,11 +20,11 @@ import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d implements View.OnClickListener {
-    private a aEE;
-    private ImageView aEF;
-    private TextView aEG;
+    private a aEF;
+    private ImageView aEG;
     private TextView aEH;
-    private AnimatorSet aEI;
+    private TextView aEI;
+    private AnimatorSet aEJ;
     private TextView atX;
     private Context mContext;
     private Dialog mDialog;
@@ -33,9 +33,9 @@ public class d implements View.OnClickListener {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bl();
+        void Bn();
 
-        void Bm();
+        void Bo();
     }
 
     public d(Context context) {
@@ -44,7 +44,7 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.aEE = aVar;
+        this.aEF = aVar;
     }
 
     public void setCancelable(boolean z) {
@@ -57,16 +57,16 @@ public class d implements View.OnClickListener {
     }
 
     public void by(boolean z) {
-        if (this.aEF != null) {
-            this.aEF.setVisibility(z ? 0 : 8);
+        if (this.aEG != null) {
+            this.aEG.setVisibility(z ? 0 : 8);
         }
     }
 
     public void n(String str, String str2, String str3, String str4) {
         this.mTitleTextView.setText(str);
         this.atX.setText(str2);
-        this.aEG.setText(str3);
-        this.aEH.setText(str4);
+        this.aEH.setText(str3);
+        this.aEI.setText(str4);
     }
 
     public void show() {
@@ -89,14 +89,14 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.aEF || view == this.aEG || view == this.aEH) {
+        if (view == this.mRootView || view == this.aEG || view == this.aEH || view == this.aEI) {
             dismiss();
         }
-        if (this.aEE != null) {
-            if (view == this.aEG) {
-                this.aEE.Bl();
-            } else if (view == this.aEH) {
-                this.aEE.Bm();
+        if (this.aEF != null) {
+            if (view == this.aEH) {
+                this.aEF.Bn();
+            } else if (view == this.aEI) {
+                this.aEF.Bo();
             }
         }
     }
@@ -132,37 +132,37 @@ public class d implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.h.sdk_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.aEF = (ImageView) this.mRootView.findViewById(a.g.iv_close);
+        this.aEG = (ImageView) this.mRootView.findViewById(a.g.iv_close);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.g.tv_title);
         this.atX = (TextView) this.mRootView.findViewById(a.g.tv_content);
-        this.aEG = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
-        this.aEH = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
+        this.aEH = (TextView) this.mRootView.findViewById(a.g.tv_confirm);
+        this.aEI = (TextView) this.mRootView.findViewById(a.g.tv_cancel);
         this.mRootView.setOnClickListener(this);
-        this.aEF.setOnClickListener(this);
         this.aEG.setOnClickListener(this);
         this.aEH.setOnClickListener(this);
+        this.aEI.setOnClickListener(this);
     }
 
     private void sf() {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.view.d.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (d.this.aEI != null) {
-                    d.this.aEI.cancel();
+                if (d.this.aEJ != null) {
+                    d.this.aEJ.cancel();
                 }
             }
         });
     }
 
     private void xG() {
-        if (this.aEI == null) {
+        if (this.aEJ == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mRootView, "ScaleX", 0.5f, 1.2f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mRootView, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.aEI = new AnimatorSet();
-            this.aEI.playTogether(ofFloat, ofFloat2);
-            this.aEI.setDuration(300L);
-            this.aEI.setInterpolator(new LinearInterpolator());
+            this.aEJ = new AnimatorSet();
+            this.aEJ.playTogether(ofFloat, ofFloat2);
+            this.aEJ.setDuration(300L);
+            this.aEJ.setInterpolator(new LinearInterpolator());
         }
-        this.aEI.start();
+        this.aEJ.start();
     }
 }

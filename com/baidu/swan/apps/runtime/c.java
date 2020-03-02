@@ -6,10 +6,10 @@ import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 /* loaded from: classes11.dex */
 public final class c extends d {
-    public final e bOL = new e(this, "");
+    public final e bOM = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo abf() {
+    public SwanAppProcessInfo abh() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,33 +19,33 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean abh() {
+    public boolean abj() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean abg() {
+    public boolean abi() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores abi() {
+    public SwanAppCores abk() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int Gs() {
+    public int Gu() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a acw() {
+    public com.baidu.swan.apps.process.messaging.client.a acy() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e acx() {
-        return this.bOL;
+    public e acz() {
+        return this.bOM;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,7 +58,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void acy() {
+    public void acA() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,7 +70,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity acz() {
+    public SwanAppActivity acB() {
         return null;
     }
 }

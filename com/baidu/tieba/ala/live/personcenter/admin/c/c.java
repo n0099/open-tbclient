@@ -15,50 +15,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private CommonEmptyView aCW;
+    private CommonEmptyView aCX;
     private BdTypeListView asG;
-    private com.baidu.tieba.ala.live.personcenter.admin.a.a eKS;
-    private com.baidu.tieba.ala.live.personcenter.admin.d.a eKT;
-    private PbListView evT;
-    private LoadingView ewD;
-    private TbListViewPullView ewy;
+    private com.baidu.tieba.ala.live.personcenter.admin.a.a eKT;
+    private com.baidu.tieba.ala.live.personcenter.admin.d.a eKU;
+    private PbListView evU;
+    private LoadingView ewE;
+    private TbListViewPullView ewz;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public c(TbPageContext tbPageContext, View view) {
         this.asG = null;
-        this.eKS = null;
         this.eKT = null;
+        this.eKU = null;
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.eKS = new com.baidu.tieba.ala.live.personcenter.admin.a.a(this.mPageContext.getPageActivity(), tbPageContext.getUniqueId());
+        this.eKT = new com.baidu.tieba.ala.live.personcenter.admin.a.a(this.mPageContext.getPageActivity(), tbPageContext.getUniqueId());
         this.asG = (BdTypeListView) view.findViewById(a.g.ala_person_adminlist_listview);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.eKS);
+        arrayList.add(this.eKT);
         this.asG.addAdapters(arrayList);
-        this.eKT = new com.baidu.tieba.ala.live.personcenter.admin.d.a(tbPageContext);
-        this.asG.addHeaderView(this.eKT.aqq());
-        this.ewD = new LoadingView(tbPageContext.getPageActivity());
-        this.ewy = new TbListViewPullView(this.mPageContext);
-        this.ewy.setTag(this.mPageContext.getUniqueId());
-        this.asG.setPullRefresh(this.ewy);
-        this.evT = new PbListView(this.mPageContext.getPageActivity());
-        this.evT.createView();
+        this.eKU = new com.baidu.tieba.ala.live.personcenter.admin.d.a(tbPageContext);
+        this.asG.addHeaderView(this.eKU.aqs());
+        this.ewE = new LoadingView(tbPageContext.getPageActivity());
+        this.ewz = new TbListViewPullView(this.mPageContext);
+        this.ewz.setTag(this.mPageContext.getUniqueId());
+        this.asG.setPullRefresh(this.ewz);
+        this.evU = new PbListView(this.mPageContext.getPageActivity());
+        this.evU.createView();
     }
 
     public void by(List<IAdapterData> list) {
-        this.eKT.pw(list.size());
+        this.eKU.pw(list.size());
         this.asG.setData(list);
     }
 
     public void onChangeSkinType(int i) {
         this.mPageContext.getLayoutMode().onModeChanged(this.asG);
         this.asG.setDivider(null);
-        if (this.eKS != null) {
-            this.eKS.notifyDataSetChanged();
-        }
         if (this.eKT != null) {
-            this.eKT.onChangeSkinType(i);
+            this.eKT.notifyDataSetChanged();
+        }
+        if (this.eKU != null) {
+            this.eKU.onChangeSkinType(i);
         }
     }
 
@@ -68,51 +68,51 @@ public class c {
         }
     }
 
-    public void beO() {
-        if (this.evT != null) {
-            if (this.evT.getView().getParent() == null) {
-                this.asG.setNextPage(this.evT);
+    public void beQ() {
+        if (this.evU != null) {
+            if (this.evU.getView().getParent() == null) {
+                this.asG.setNextPage(this.evU);
             }
-            this.evT.setText(this.mPageContext.getResources().getString(a.i.sdk_load_more));
-            this.evT.endLoadData();
+            this.evU.setText(this.mPageContext.getResources().getString(a.i.sdk_load_more));
+            this.evU.endLoadData();
         }
     }
 
-    public void bfj() {
+    public void bfl() {
         this.asG.setNextPage(null);
     }
 
     public void setListPullRefreshListener(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        this.ewy.setListPullRefreshListener(listPullRefreshListener);
+        this.ewz.setListPullRefreshListener(listPullRefreshListener);
     }
 
     public void a(int i, View.OnClickListener onClickListener) {
         if (this.mPageContext != null && this.mPageContext.getContext() != null && (this.mRootView instanceof RelativeLayout)) {
-            if (this.aCW == null) {
-                this.aCW = new CommonEmptyView(this.mPageContext.getPageActivity());
-                this.aCW.addToParent((RelativeLayout) this.mRootView);
+            if (this.aCX == null) {
+                this.aCX = new CommonEmptyView(this.mPageContext.getPageActivity());
+                this.aCX.addToParent((RelativeLayout) this.mRootView);
             }
-            this.aCW.reset();
-            this.aCW.setTitle(i);
-            this.aCW.setRefreshButton(a.i.sdk_click_refresh_net_text, onClickListener);
-            this.aCW.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
-            this.aCW.setVisibility(0);
+            this.aCX.reset();
+            this.aCX.setTitle(i);
+            this.aCX.setRefreshButton(a.i.sdk_click_refresh_net_text, onClickListener);
+            this.aCX.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+            this.aCX.setVisibility(0);
         }
     }
 
-    public void bcv() {
-        if (this.aCW != null) {
-            this.aCW.setVisibility(8);
+    public void bcx() {
+        if (this.aCX != null) {
+            this.aCX.setVisibility(8);
         }
     }
 
-    public void bgw() {
+    public void bgy() {
         if (this.asG != null) {
             this.asG.setVisibility(0);
         }
     }
 
-    public void bgx() {
+    public void bgz() {
         if (this.asG != null) {
             this.asG.setVisibility(4);
         }
@@ -120,20 +120,20 @@ public class c {
 
     public void showNoDataView() {
         if (this.mRootView instanceof RelativeLayout) {
-            if (this.aCW == null) {
-                this.aCW = new CommonEmptyView(this.mPageContext.getPageActivity());
-                this.aCW.addToParent((RelativeLayout) this.mRootView);
+            if (this.aCX == null) {
+                this.aCX = new CommonEmptyView(this.mPageContext.getPageActivity());
+                this.aCX.addToParent((RelativeLayout) this.mRootView);
             }
-            this.aCW.reset();
-            this.aCW.setTitle(a.i.sdk_prc_person_adminlist_empty);
-            this.aCW.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
-            this.aCW.setVisibility(0);
+            this.aCX.reset();
+            this.aCX.setTitle(a.i.sdk_prc_person_adminlist_empty);
+            this.aCX.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
+            this.aCX.setVisibility(0);
         }
     }
 
     public void hideNoDataView() {
-        if (this.aCW != null) {
-            this.aCW.setVisibility(8);
+        if (this.aCX != null) {
+            this.aCX.setVisibility(8);
         }
     }
 }

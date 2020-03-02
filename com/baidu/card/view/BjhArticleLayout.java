@@ -51,16 +51,16 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        if (aAe.isShareThread && aAe.cTP != null) {
-            if (aAe.cTP.cOJ) {
+        bj aAg = aVar.aAg();
+        if (aAg.isShareThread && aAg.cTQ != null) {
+            if (aAg.cTQ.cOK) {
                 setVisibility(8);
                 return;
             }
-            aAe = aAe.cTP.aAU();
+            aAg = aAg.cTQ.aAW();
         }
-        this.mTitle.setText(aAe.getTitle());
-        if (StringUtils.isNull(aAe.aEi())) {
+        this.mTitle.setText(aAg.getTitle());
+        if (StringUtils.isNull(aAg.aEk())) {
             this.MV.setVisibility(8);
             this.MW.setVisibility(8);
             this.MX.setVisibility(8);
@@ -68,9 +68,9 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
             this.MV.setVisibility(0);
             this.MW.setVisibility(0);
             this.MX.setVisibility(0);
-            this.MW.startLoad(aAe.aEi(), 10, false);
+            this.MW.startLoad(aAg.aEk(), 10, false);
         }
-        com.baidu.tieba.card.l.a(this.mTitle, aAe.getId(), this.MW.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        com.baidu.tieba.card.l.a(this.mTitle, aAg.getId(), this.MW.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
     }
 
     private void initUI() {
@@ -132,11 +132,11 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.Kc != null && this.Kc.aAe() != null) {
-            com.baidu.tieba.card.l.a(this.mTitle, this.Kc.aAe().getId(), this.MW.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        if (this.Kc != null && this.Kc.aAg() != null) {
+            com.baidu.tieba.card.l.a(this.mTitle, this.Kc.aAg().getId(), this.MW.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
         am.setViewTextColor(this.MV, (int) R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.f.a.aGY().kB(0).kD(R.color.cp_mask_b_alpha42).af(this.MY).aQ(this.MV);
-        com.baidu.tbadk.core.util.f.a.aGY().kB(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).aj(l.getDimens(getContext(), R.dimen.tbds10)).ai(l.getDimens(getContext(), R.dimen.tbds10)).kJ(128).aQ(this.MX);
+        com.baidu.tbadk.core.util.f.a.aHa().kB(0).kD(R.color.cp_mask_b_alpha42).af(this.MY).aQ(this.MV);
+        com.baidu.tbadk.core.util.f.a.aHa().kB(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).aj(l.getDimens(getContext(), R.dimen.tbds10)).ai(l.getDimens(getContext(), R.dimen.tbds10)).kJ(128).aQ(this.MX);
     }
 }

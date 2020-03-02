@@ -2,8 +2,8 @@ package com.baidu.swan.apps.view.a;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int bZv;
-    public boolean bZw;
+    public boolean bZA;
+    public int bZw;
     public boolean bZx;
     public boolean bZy;
     public boolean bZz;
@@ -11,7 +11,7 @@ public class a {
     public int statusBarColor;
 
     private a() {
-        this.bZz = true;
+        this.bZA = true;
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
@@ -22,10 +22,10 @@ public class a {
         private boolean isShowNavBar = true;
         private boolean useLightStatBar = true;
         private boolean isShowStatBar = true;
-        private boolean bZy = false;
-        private boolean bZz = true;
+        private boolean bZz = false;
+        private boolean bZA = true;
 
-        public static C0304a ahq() {
+        public static C0304a ahs() {
             return new C0304a();
         }
 
@@ -55,24 +55,24 @@ public class a {
         }
 
         public C0304a eg(boolean z) {
-            this.bZy = z;
-            return this;
-        }
-
-        public C0304a eh(boolean z) {
             this.bZz = z;
             return this;
         }
 
-        public a ahr() {
+        public C0304a eh(boolean z) {
+            this.bZA = z;
+            return this;
+        }
+
+        public a aht() {
             a aVar = new a();
-            aVar.bZv = this.customStatBarViewBg;
+            aVar.bZw = this.customStatBarViewBg;
             aVar.isShowNavBar = this.isShowNavBar;
-            aVar.bZx = this.isShowStatBar;
-            aVar.bZw = this.useLightStatBar;
+            aVar.bZy = this.isShowStatBar;
+            aVar.bZx = this.useLightStatBar;
             aVar.statusBarColor = this.statusBarColor;
-            aVar.bZy = this.bZy;
             aVar.bZz = this.bZz;
+            aVar.bZA = this.bZA;
             return aVar;
         }
     }

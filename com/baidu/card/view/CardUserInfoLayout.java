@@ -108,15 +108,15 @@ public class CardUserInfoLayout extends LinearLayout implements n {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String url;
-                if (bc.checkUpIsLogin(CardUserInfoLayout.this.mContext) && CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCm() != null && CardUserInfoLayout.this.KJ.aCm().getTShowInfoNew() != null && v.getItem(CardUserInfoLayout.this.KJ.aCm().getTShowInfoNew(), 0) != null && (url = CardUserInfoLayout.this.KJ.aCm().getTShowInfoNew().get(0).getUrl()) != null && (i.ab(CardUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    ba.aGE().b((TbPageContext) i.ab(CardUserInfoLayout.this.mContext), new String[]{url});
+                if (bc.checkUpIsLogin(CardUserInfoLayout.this.mContext) && CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCo() != null && CardUserInfoLayout.this.KJ.aCo().getTShowInfoNew() != null && v.getItem(CardUserInfoLayout.this.KJ.aCo().getTShowInfoNew(), 0) != null && (url = CardUserInfoLayout.this.KJ.aCo().getTShowInfoNew().get(0).getUrl()) != null && (i.ab(CardUserInfoLayout.this.mContext) instanceof TbPageContext)) {
+                    ba.aGG().b((TbPageContext) i.ab(CardUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
         this.NG = new View.OnClickListener() { // from class: com.baidu.card.view.CardUserInfoLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCm() != null && !StringUtils.isNull(CardUserInfoLayout.this.KJ.aCm().getName_show()) && !StringUtils.isNull(CardUserInfoLayout.this.KJ.aCm().getUserId()) && CardUserInfoLayout.this.KJ.aCr() != null) {
+                if (CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCo() != null && !StringUtils.isNull(CardUserInfoLayout.this.KJ.aCo().getName_show()) && !StringUtils.isNull(CardUserInfoLayout.this.KJ.aCo().getUserId()) && CardUserInfoLayout.this.KJ.aCt() != null) {
                     if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(R.id.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && bc.checkUpIsLogin(CardUserInfoLayout.this.getContext())) {
@@ -124,7 +124,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
                             return;
                         }
                     }
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(CardUserInfoLayout.this.mContext, CardUserInfoLayout.this.KJ.aCm().getUserId(), CardUserInfoLayout.this.KJ.aCm().getName_show(), CardUserInfoLayout.this.KJ.aCr(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(CardUserInfoLayout.this.mContext, CardUserInfoLayout.this.KJ.aCo().getUserId(), CardUserInfoLayout.this.KJ.aCo().getName_show(), CardUserInfoLayout.this.KJ.aCt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
                     personInfoActivityConfig.setSourceTid(CardUserInfoLayout.this.KJ.getTid());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
                     if (CardUserInfoLayout.this.Nw != null) {
@@ -136,8 +136,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         this.NH = new View.OnClickListener() { // from class: com.baidu.card.view.CardUserInfoLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCm() != null) {
-                    com.baidu.tbadk.browser.a.startWebActivity(CardUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), d.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + CardUserInfoLayout.this.KJ.aCm().getUserId(), true, true, true);
+                if (CardUserInfoLayout.this.KJ != null && CardUserInfoLayout.this.KJ.aCo() != null) {
+                    com.baidu.tbadk.browser.a.startWebActivity(CardUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), d.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + CardUserInfoLayout.this.KJ.aCo().getUserId(), true, true, true);
                     if (CardUserInfoLayout.this.Nx != null) {
                         CardUserInfoLayout.this.Nw.onClick(view);
                     }
@@ -265,13 +265,13 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void c(bj bjVar) {
-        if (this.Nj != null && bjVar != null && this.KJ.aCm() != null) {
+        if (this.Nj != null && bjVar != null && this.KJ.aCo() != null) {
             this.Nj.setBigVDimenSize(R.dimen.tbds32);
-            if (!UtilHelper.showHeadBjhBigVIcon(this.Nj, this.KJ.aCm(), 0)) {
-                if (this.KJ.cTN > 0 && this.KJ.cTO == 0) {
+            if (!UtilHelper.showHeadBjhBigVIcon(this.Nj, this.KJ.aCo(), 0)) {
+                if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
                     this.Nj.fQ(false);
                 } else {
-                    this.Nj.a(this.KJ.aCm(), 0);
+                    this.Nj.a(this.KJ.aCo(), 0);
                 }
             }
         }
@@ -296,14 +296,14 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         nu();
         d(bjVar);
         setVisibility(0);
-        if (isShow(128) && !bjVar.cUq && !bjVar.aDZ()) {
+        if (isShow(128) && !bjVar.cUr && !bjVar.aEb()) {
             this.Ny.post(this.ND);
         }
     }
 
     private void d(bj bjVar) {
         if (isShow(4096) && bjVar != null && this.Nt != null) {
-            if (bjVar.cUl) {
+            if (bjVar.cUm) {
                 this.Nt.setVisibility(0);
             } else {
                 this.Nt.setVisibility(8);
@@ -312,24 +312,24 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void e(bj bjVar) {
-        if (bjVar != null && bjVar.aCm() != null) {
-            String userId = bjVar.aCm().getUserId();
+        if (bjVar != null && bjVar.aCo() != null) {
+            String userId = bjVar.aCo().getUserId();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if ((bjVar.aEd() || bjVar.aBb() || bjVar.aBc()) && bjVar.cUq && !TextUtils.equals(userId, currentAccount)) {
+            if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUr && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
-            } else if ((bjVar.aEd() || bjVar.aBb() || bjVar.aBc()) && bjVar.cUr && !bjVar.aCm().hadConcerned() && !TextUtils.equals(userId, currentAccount)) {
+            } else if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUs && !bjVar.aCo().hadConcerned() && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
-            } else if (bjVar.aCF() != null && j.aa(bjVar) && bjVar.cUq && !TextUtils.equals(userId, currentAccount)) {
+            } else if (bjVar.aCH() != null && j.aa(bjVar) && bjVar.cUr && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
             } else {
                 this.NC &= -2049;
             }
-            if (bjVar.aEa()) {
+            if (bjVar.aEc()) {
                 this.NC |= 4096;
             } else {
                 this.NC &= -4097;
             }
-            if (bjVar.cUq && !bjVar.aEg()) {
+            if (bjVar.cUr && !bjVar.aEi()) {
                 this.NC &= -129;
             } else {
                 this.NC |= 128;
@@ -339,13 +339,13 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void f(bj bjVar) {
-        if (bjVar.aCm() == null) {
+        if (bjVar.aCo() == null) {
             this.Nj.setVisibility(8);
             return;
         }
-        MetaData aCm = bjVar.aCm();
+        MetaData aCo = bjVar.aCo();
         if (!isShow(256)) {
-            aCm.setPendantData(null);
+            aCo.setPendantData(null);
         }
         this.Nj.setData(bjVar);
     }
@@ -357,8 +357,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
                 this.Nk.cancelAnimation();
             }
             this.Nj.setIsclearmode(false);
-        } else if (bjVar != null && bjVar.aCm() != null && bjVar.aCm().getAlaUserData() != null) {
-            if (bjVar.aCm().getAlaUserData().live_status != 1) {
+        } else if (bjVar != null && bjVar.aCo() != null && bjVar.aCo().getAlaUserData() != null) {
+            if (bjVar.aCo().getAlaUserData().live_status != 1) {
                 this.Nk.setVisibility(8);
                 this.Nk.cancelAnimation();
                 this.Nj.setIsclearmode(false);
@@ -385,7 +385,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void h(bj bjVar) {
         if (this.Nl != null && bjVar != null) {
-            if (bjVar.cUq || bjVar.aDZ()) {
+            if (bjVar.cUr || bjVar.aEb()) {
                 ViewGroup.LayoutParams layoutParams = this.Ny.getLayoutParams();
                 layoutParams.width = this.tbds580;
                 this.Ny.setLayoutParams(layoutParams);
@@ -396,13 +396,13 @@ public class CardUserInfoLayout extends LinearLayout implements n {
                 layoutParams3.width = -1;
                 this.Nl.setLayoutParams(layoutParams3);
                 this.Nl.setEllipsize(TextUtils.TruncateAt.END);
-                if (bjVar.aCm() != null && !StringUtils.isNull(bjVar.aCm().getName_show())) {
-                    this.Nl.setText(bjVar.aCm().getName_show());
+                if (bjVar.aCo() != null && !StringUtils.isNull(bjVar.aCo().getName_show())) {
+                    this.Nl.setText(bjVar.aCo().getName_show());
                 } else {
                     this.Nl.setText(R.string.user_name_default_txt);
                 }
-            } else if (!StringUtils.isNull(this.KJ.aBK())) {
-                this.Nl.setText(this.KJ.aBK());
+            } else if (!StringUtils.isNull(this.KJ.aBM())) {
+                this.Nl.setText(this.KJ.aBM());
             } else {
                 this.Nl.setText(R.string.user_name_default_txt);
             }
@@ -414,12 +414,12 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (this.Nq != null) {
             if (bjVar == null || (!isShow(8) && !isShow(512))) {
                 this.Nq.setVisibility(8);
-            } else if (this.KJ.getType() == bj.cTc) {
+            } else if (this.KJ.getType() == bj.cTd) {
                 this.Nq.setVisibility(0);
                 this.Nq.getPaint().setFakeBoldText(true);
                 am.setViewTextColor(this.Nq, (int) R.color.cp_cont_b);
             } else if (isShow(8)) {
-                if (StringUtils.isNull(bjVar.aAf())) {
+                if (StringUtils.isNull(bjVar.aAh())) {
                     this.Nq.setVisibility(8);
                     return;
                 }
@@ -428,13 +428,13 @@ public class CardUserInfoLayout extends LinearLayout implements n {
                     layoutParams.bottomMargin = 0;
                     this.Nq.setLayoutParams(layoutParams);
                 }
-                this.Nq.setText(bjVar.aAf());
+                this.Nq.setText(bjVar.aAh());
                 this.Nq.setVisibility(0);
-            } else if (StringUtils.isNull(this.KJ.aBM())) {
+            } else if (StringUtils.isNull(this.KJ.aBO())) {
                 this.Nq.setVisibility(8);
             } else {
                 this.Nq.setVisibility(0);
-                this.Nq.setText(this.KJ.aBM());
+                this.Nq.setText(this.KJ.aBO());
             }
         }
     }
@@ -443,10 +443,10 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (this.Nn != null) {
             if (!isShow(32)) {
                 this.Nn.setVisibility(8);
-            } else if (bjVar == null || bjVar.aCm() == null || (bjVar.cTN > 0 && bjVar.cTO == 0)) {
+            } else if (bjVar == null || bjVar.aCo() == null || (bjVar.cTO > 0 && bjVar.cTP == 0)) {
                 this.Nn.setVisibility(8);
             } else {
-                ArrayList<IconData> iconInfo = bjVar.aCm().getIconInfo();
+                ArrayList<IconData> iconInfo = bjVar.aCo().getIconInfo();
                 if (v.getCount(iconInfo) != 0) {
                     this.Nn.setVisibility(0);
                     this.Nn.a(iconInfo, 4, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
@@ -462,10 +462,10 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void nt() {
-        if (this.KJ != null && this.KJ.aCm() != null) {
-            if (this.KJ.cTN > 0 && this.KJ.cTO == 0) {
+        if (this.KJ != null && this.KJ.aCo() != null) {
+            if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_f);
-            } else if (!v.isEmpty(this.KJ.aCm().getTShowInfoNew()) || this.KJ.aCm().isBigV()) {
+            } else if (!v.isEmpty(this.KJ.aCo().getTShowInfoNew()) || this.KJ.aCo().isBigV()) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_h);
             } else {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_f);
@@ -474,8 +474,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void k(bj bjVar) {
-        if (this.No != null && bjVar != null && bjVar.aCm() != null && isShow(1)) {
-            ArrayList<IconData> tShowInfoNew = bjVar.aCm().getTShowInfoNew();
+        if (this.No != null && bjVar != null && bjVar.aCo() != null && isShow(1)) {
+            ArrayList<IconData> tShowInfoNew = bjVar.aCo().getTShowInfoNew();
             if (v.getCount(tShowInfoNew) != 0) {
                 this.No.setVisibility(0);
                 this.No.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds48), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds48), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds8), true);
@@ -486,38 +486,38 @@ public class CardUserInfoLayout extends LinearLayout implements n {
     }
 
     private void l(bj bjVar) {
-        if (this.Nm != null && bjVar != null && bjVar.aCm() != null && isShow(16)) {
-            MetaData aCm = bjVar.aCm();
+        if (this.Nm != null && bjVar != null && bjVar.aCo() != null && isShow(16)) {
+            MetaData aCo = bjVar.aCo();
             if (this.Nm.getLayoutParams() != null) {
                 this.Nm.getLayoutParams().width = -2;
             }
             this.Nm.setOnClickListener(null);
-            if (aCm.getIs_bawu() == 1) {
+            if (aCo.getIs_bawu() == 1) {
                 am.setBackgroundResource(this.Nm, R.drawable.brand_official_btn);
                 am.setViewTextColor(this.Nm, (int) R.color.cp_cont_a);
-                if (bjVar.cUa) {
+                if (bjVar.cUb) {
                     this.Nm.setVisibility(0);
                     this.Nm.setText(R.string.brand_Official);
-                } else if (Config.BAWU_TYPE_MANAGER.equals(aCm.getBawu_type())) {
+                } else if (Config.BAWU_TYPE_MANAGER.equals(aCo.getBawu_type())) {
                     this.Nm.setBackgroundDrawable(this.Nu);
                     this.Nm.setVisibility(0);
                     this.Nm.setText(R.string.bawu_member_bazhu_tip);
-                } else if (Config.BAWU_TYPE_ASSIST.equals(aCm.getBawu_type())) {
+                } else if (Config.BAWU_TYPE_ASSIST.equals(aCo.getBawu_type())) {
                     this.Nm.setBackgroundDrawable(this.Nv);
                     this.Nm.setText(R.string.bawu_member_xbazhu_tip);
                     this.Nm.setVisibility(0);
-                } else if ("pri_content_assist".equals(aCm.getBawu_type())) {
+                } else if ("pri_content_assist".equals(aCo.getBawu_type())) {
                     this.Nm.setText(R.string.bawu_content_assist_tip);
                     this.Nm.setVisibility(0);
-                } else if ("pri_manage_assist".equals(aCm.getBawu_type())) {
+                } else if ("pri_manage_assist".equals(aCo.getBawu_type())) {
                     this.Nm.setText(R.string.bawu_manage_assist_tip);
                     this.Nm.setVisibility(0);
-                } else if (aCm.getIs_biggie()) {
+                } else if (aCo.getIs_biggie()) {
                     m(bjVar);
                 } else {
                     this.Nm.setVisibility(8);
                 }
-            } else if (aCm.getIs_biggie()) {
+            } else if (aCo.getIs_biggie()) {
                 m(bjVar);
             } else {
                 this.Nm.setVisibility(8);
@@ -537,7 +537,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         am.setBackgroundResource(this.Nm, R.drawable.brand_official_btn);
         am.setViewTextColor(this.Nm, (int) R.color.cp_cont_a);
         this.Nm.setText(R.string.video_mcn);
-        if (bjVar.aDq()) {
+        if (bjVar.aDs()) {
             this.Nn.setVisibility(8);
         }
         this.Nm.setVisibility(0);
@@ -560,11 +560,11 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void n(bj bjVar) {
         if (this.Np != null) {
-            if (bjVar == null || TextUtils.isEmpty(bjVar.aBL())) {
+            if (bjVar == null || TextUtils.isEmpty(bjVar.aBN())) {
                 this.Np.setVisibility(8);
                 return;
             }
-            if (bjVar.aCm() != null && bjVar.aCm().isBaijiahaoUser()) {
+            if (bjVar.aCo() != null && bjVar.aCo().isBaijiahaoUser()) {
                 this.Np.setLines(1);
                 this.Np.setEllipsize(TextUtils.TruncateAt.END);
             } else {
@@ -572,22 +572,22 @@ public class CardUserInfoLayout extends LinearLayout implements n {
                 this.Np.setEllipsize(null);
             }
             am.setViewTextColor(this.Np, (int) R.color.cp_cont_d);
-            this.Np.setText(bjVar.aBL());
+            this.Np.setText(bjVar.aBN());
             this.Np.setVisibility(isShow(128) ? 0 : 8);
         }
     }
 
     private void nu() {
-        if (isShow(2048) && this.KJ != null && this.KJ.aCm() != null && this.mPageContext != null && this.Ns != null) {
+        if (isShow(2048) && this.KJ != null && this.KJ.aCo() != null && this.mPageContext != null && this.Ns != null) {
             if (this.NB == null) {
                 this.NB = new c(this.mPageContext, this.Ns);
                 this.NB.j(this.mBdUniqueId);
             }
-            this.NB.a(this.KJ.aCm());
+            this.NB.a(this.KJ.aCo());
             this.Ns.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.card.view.CardUserInfoLayout.7
                 @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                 public void G(View view) {
-                    TiebaStatic.log(new an("c13570").cy("obj_id", CardUserInfoLayout.this.KJ.aCm().getUserId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).cy("tid", CardUserInfoLayout.this.KJ.getId()));
+                    TiebaStatic.log(new an("c13570").cy("obj_id", CardUserInfoLayout.this.KJ.aCo().getUserId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).cy("tid", CardUserInfoLayout.this.KJ.getId()));
                 }
             });
         }
@@ -604,8 +604,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         TextPaint paint = this.Nl.getPaint();
         int i = l.getScreenDimensions(this.mContext)[0];
         if (i > 0 && (width = (getWidth() - ((i * 31) / 108)) - l.getDimens(this.mContext, R.dimen.tbds107)) > 0) {
-            int textWidth = l.getTextWidth(paint, o(this.KJ.aCm().getName_show(), 12)) + this.Nl.getPaddingLeft() + this.Nl.getPaddingRight();
-            int textWidth2 = l.getTextWidth(paint, o(this.KJ.aCm().getName_show(), 10)) + this.Nl.getPaddingLeft() + this.Nl.getPaddingRight();
+            int textWidth = l.getTextWidth(paint, o(this.KJ.aCo().getName_show(), 12)) + this.Nl.getPaddingLeft() + this.Nl.getPaddingRight();
+            int textWidth2 = l.getTextWidth(paint, o(this.KJ.aCo().getName_show(), 10)) + this.Nl.getPaddingLeft() + this.Nl.getPaddingRight();
             int measuredWidth = this.No.getMeasuredWidth();
             int measuredWidth2 = this.Nl.getMeasuredWidth();
             int measuredWidth3 = this.Nq.getMeasuredWidth();
@@ -634,7 +634,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
             int i2 = Integer.MAX_VALUE;
             if (isShow(2048)) {
                 i2 = ((i - this.tbds164) - this.tbds156) - this.tbds148;
-            } else if (this.KJ != null && this.KJ.aCm() != null && this.KJ.aCm().isBaijiahaoUser()) {
+            } else if (this.KJ != null && this.KJ.aCo() != null && this.KJ.aCo().isBaijiahaoUser()) {
                 i2 = (i - this.tbds164) - this.tbds118;
             }
             this.Np.setMaxWidth(i2);
@@ -643,8 +643,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void nw() {
         this.tbds6 = l.getDimens(this.mContext, R.dimen.tbds6);
-        this.Nu = new LayerDrawable(new Drawable[]{b.aGZ().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHb(), b.aGZ().kB(0).af(this.tbds6).tM("#4D000000").aHb()});
-        this.Nv = new LayerDrawable(new Drawable[]{b.aGZ().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHb(), b.aGZ().kB(0).af(this.tbds6).tM("#4D000000").aHb()});
+        this.Nu = new LayerDrawable(new Drawable[]{b.aHb().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHd(), b.aHb().kB(0).af(this.tbds6).tM("#4D000000").aHd()});
+        this.Nv = new LayerDrawable(new Drawable[]{b.aHb().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHd(), b.aHb().kB(0).af(this.tbds6).tM("#4D000000").aHd()});
     }
 
     public RelativeLayout getSuffixContainer() {

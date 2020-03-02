@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaStartDirectChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a eUm;
+    private com.baidu.live.challenge.a eUn;
 
     public AlaStartDirectChallengeResponseMessage() {
         super(1021106);
@@ -15,12 +15,12 @@ public class AlaStartDirectChallengeResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eUm = new com.baidu.live.challenge.a();
-            this.eUm.parseJson(optJSONObject.optJSONObject("match_info"));
+            this.eUn = new com.baidu.live.challenge.a();
+            this.eUn.parseJson(optJSONObject.optJSONObject("match_info"));
         }
     }
 
-    public com.baidu.live.challenge.a bkl() {
-        return this.eUm;
+    public com.baidu.live.challenge.a bkn() {
+        return this.eUn;
     }
 }

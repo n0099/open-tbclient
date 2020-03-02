@@ -5,7 +5,7 @@ import android.content.Context;
 public interface a {
     C0391a aA(Context context, String str);
 
-    int aOE();
+    int aOG();
 
     int vb(String str);
 

@@ -26,9 +26,9 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        kp.bIP = bundle;
-        kp.bIQ = i;
-        kp.bIR = str2;
+        kp.bIQ = bundle;
+        kp.bIR = i;
+        kp.bIS = str2;
         kp.y(bundle);
     }
 

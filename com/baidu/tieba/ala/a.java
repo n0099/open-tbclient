@@ -15,20 +15,20 @@ import com.baidu.tbadk.TbPageContext;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject ehB;
-    private HttpMessageListener ehC;
-    private BdUniqueId ehD = BdUniqueId.gen();
+    private JSONObject ehC;
+    private HttpMessageListener ehD;
     private BdUniqueId ehE = BdUniqueId.gen();
-    private CustomMessageListener dTT = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
+    private BdUniqueId ehF = BdUniqueId.gen();
+    private CustomMessageListener dTU = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.ehB != null) {
-                a.this.a(a.this.ehB, a.this.ehE);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.ehC != null) {
+                a.this.a(a.this.ehC, a.this.ehF);
             }
         }
     };
-    private CustomMessageListener ehF = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener ehG = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,38 +39,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.ehC == null) {
-            this.ehC = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
+        if (this.ehD == null) {
+            this.ehD = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.ehB = null;
+                        a.this.ehC = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ehC);
-        MessageManager.getInstance().registerListener(this.dTT);
-        this.ehF.setTag(tbPageContext.getUniqueId());
-        this.ehF.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.ehF);
+        MessageManager.getInstance().registerListener(this.ehD);
+        MessageManager.getInstance().registerListener(this.dTU);
+        this.ehG.setTag(tbPageContext.getUniqueId());
+        this.ehG.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.ehG);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ehC);
-        MessageManager.getInstance().unRegisterListener(this.dTT);
-        MessageManager.getInstance().unRegisterListener(this.ehF);
-        this.ehB = null;
+        MessageManager.getInstance().unRegisterListener(this.ehD);
+        MessageManager.getInstance().unRegisterListener(this.dTU);
+        MessageManager.getInstance().unRegisterListener(this.ehG);
+        this.ehC = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cu(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.isNetworkAvailableForImmediately()) {
-                a(jSONObject, this.ehD);
+                a(jSONObject, this.ehE);
             } else {
-                this.ehB = jSONObject;
+                this.ehC = jSONObject;
             }
         }
     }

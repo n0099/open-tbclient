@@ -13,32 +13,32 @@ import com.baidu.tieba.setting.more.MsgSettingItemView;
 import java.util.ArrayList;
 /* loaded from: classes13.dex */
 public class a extends BaseAdapter implements BdSwitchView.a {
-    private ArrayList<OfficialAccountPushInfo> cVQ;
-    private TbPageContext cVg;
-    private BdSwitchView.a jUT;
+    private ArrayList<OfficialAccountPushInfo> cVR;
+    private TbPageContext cVh;
+    private BdSwitchView.a jUV;
 
     public a(TbPageContext tbPageContext) {
-        this.cVg = tbPageContext;
+        this.cVh = tbPageContext;
     }
 
     public void setData(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.cVQ = arrayList;
+        this.cVR = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return 0;
         }
-        return this.cVQ.size();
+        return this.cVR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cVQ == null || i < 0 || i >= this.cVQ.size()) {
+        if (this.cVR == null || i < 0 || i >= this.cVR.size()) {
             return null;
         }
-        return this.cVQ.get(i);
+        return this.cVR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,47 +53,47 @@ public class a extends BaseAdapter implements BdSwitchView.a {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0602a c0602a;
         if (view == null) {
-            view = LayoutInflater.from(this.cVg.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+            view = LayoutInflater.from(this.cVh.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
             c0602a = new C0602a();
-            c0602a.jUU = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            c0602a.jUW = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
             view.setTag(c0602a);
         } else {
             c0602a = (C0602a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (aq.isEmpty(officialAccountPushInfo.name)) {
-            c0602a.jUU.setVisibility(8);
+            c0602a.jUW.setVisibility(8);
         } else {
-            c0602a.jUU.setVisibility(0);
-            c0602a.jUU.setText(officialAccountPushInfo.name);
+            c0602a.jUW.setVisibility(0);
+            c0602a.jUW.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c0602a.jUU.getSwitchView().turnOnNoCallback();
+                c0602a.jUW.getSwitchView().turnOnNoCallback();
             } else {
-                c0602a.jUU.getSwitchView().turnOffNoCallback();
+                c0602a.jUW.getSwitchView().turnOffNoCallback();
             }
-            c0602a.jUU.setLineVisibility(true);
-            c0602a.jUU.onChangeSkinType(this.cVg, TbadkCoreApplication.getInst().getSkinType());
-            c0602a.jUU.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0602a.jUU.getSwitchView().setTag(officialAccountPushInfo);
+            c0602a.jUW.setLineVisibility(true);
+            c0602a.jUW.onChangeSkinType(this.cVh, TbadkCoreApplication.getInst().getSkinType());
+            c0602a.jUW.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0602a.jUW.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.jUT = aVar;
+        this.jUV = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.jUT != null) {
-            this.jUT.a(view, switchState);
+        if (this.jUV != null) {
+            this.jUV.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public class C0602a {
-        MsgSettingItemView jUU;
+        MsgSettingItemView jUW;
 
         public C0602a() {
         }

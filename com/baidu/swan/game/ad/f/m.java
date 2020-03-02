@@ -13,14 +13,14 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 public class m extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @V8JavascriptField
     public String adUnitId;
-    private String chE;
-    private i ciR;
-    private g ciX;
+    private String chF;
+    private i ciS;
+    private g ciY;
 
     public m(com.baidu.swan.games.e.b bVar, JsObject jsObject) {
         super(bVar);
         this.adUnitId = "";
-        this.ciR = new i() { // from class: com.baidu.swan.game.ad.f.m.1
+        this.ciS = new i() { // from class: com.baidu.swan.game.ad.f.m.1
             @Override // com.baidu.swan.game.ad.f.i
             public void onLoad() {
                 m.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -43,14 +43,14 @@ public class m extends EventTargetImpl implements com.baidu.swan.games.a.c {
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (c != null) {
             this.adUnitId = c.optString("adUnitId");
-            this.chE = c.optString("appSid");
+            this.chF = c.optString("appSid");
         }
-        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.chE)) {
+        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.chF)) {
             bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
             return;
         }
-        this.ciX = new g(this.chE, this.adUnitId);
-        this.ciX.a(this.ciR);
+        this.ciY = new g(this.chF, this.adUnitId);
+        this.ciY.a(this.ciS);
         loadAd(null);
     }
 
@@ -58,8 +58,8 @@ public class m extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @JavascriptInterface
     public synchronized void loadAd(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (this.ciX != null) {
-            this.ciX.b(c);
+        if (this.ciY != null) {
+            this.ciY.b(c);
         }
     }
 
@@ -68,8 +68,8 @@ public class m extends EventTargetImpl implements com.baidu.swan.games.a.c {
     public synchronized void showAd(JsObject jsObject) {
         com.baidu.swan.games.view.a.b.pS("video");
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (this.ciX != null) {
-            this.ciX.c(c);
+        if (this.ciY != null) {
+            this.ciY.c(c);
         }
     }
 }

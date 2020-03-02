@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes12.dex */
 public class p {
-    private final com.facebook.common.memory.c lSn;
+    private final com.facebook.common.memory.c lSp;
     private final r lUA;
-    private final r lUB;
-    private final s lUC;
+    private final s lUB;
+    private final r lUC;
     private final r lUD;
     private final s lUE;
-    private final r lUy;
-    private final s lUz;
+    private final r lUF;
+    private final s lUG;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.lUy == null) {
-            rVar = e.dqU();
-        } else {
-            rVar = aVar.lUy;
-        }
-        this.lUy = rVar;
-        if (aVar.lUz == null) {
-            sVar = n.dqZ();
-        } else {
-            sVar = aVar.lUz;
-        }
-        this.lUz = sVar;
         if (aVar.lUA == null) {
-            rVar2 = g.dqU();
+            rVar = e.dqW();
         } else {
-            rVar2 = aVar.lUA;
+            rVar = aVar.lUA;
         }
-        this.lUA = rVar2;
-        if (aVar.lSn == null) {
-            cVar = com.facebook.common.memory.d.dkK();
-        } else {
-            cVar = aVar.lSn;
-        }
-        this.lSn = cVar;
+        this.lUA = rVar;
         if (aVar.lUB == null) {
-            rVar3 = h.dqU();
+            sVar = n.drb();
         } else {
-            rVar3 = aVar.lUB;
+            sVar = aVar.lUB;
         }
-        this.lUB = rVar3;
+        this.lUB = sVar;
         if (aVar.lUC == null) {
-            sVar2 = n.dqZ();
+            rVar2 = g.dqW();
         } else {
-            sVar2 = aVar.lUC;
+            rVar2 = aVar.lUC;
         }
-        this.lUC = sVar2;
+        this.lUC = rVar2;
+        if (aVar.lSp == null) {
+            cVar = com.facebook.common.memory.d.dkM();
+        } else {
+            cVar = aVar.lSp;
+        }
+        this.lSp = cVar;
         if (aVar.lUD == null) {
-            rVar4 = f.dqU();
+            rVar3 = h.dqW();
         } else {
-            rVar4 = aVar.lUD;
+            rVar3 = aVar.lUD;
         }
-        this.lUD = rVar4;
+        this.lUD = rVar3;
         if (aVar.lUE == null) {
-            sVar3 = n.dqZ();
+            sVar2 = n.drb();
         } else {
-            sVar3 = aVar.lUE;
+            sVar2 = aVar.lUE;
         }
-        this.lUE = sVar3;
-    }
-
-    public r drc() {
-        return this.lUy;
-    }
-
-    public s drd() {
-        return this.lUz;
-    }
-
-    public com.facebook.common.memory.c doW() {
-        return this.lSn;
+        this.lUE = sVar2;
+        if (aVar.lUF == null) {
+            rVar4 = f.dqW();
+        } else {
+            rVar4 = aVar.lUF;
+        }
+        this.lUF = rVar4;
+        if (aVar.lUG == null) {
+            sVar3 = n.drb();
+        } else {
+            sVar3 = aVar.lUG;
+        }
+        this.lUG = sVar3;
     }
 
     public r dre() {
-        return this.lUB;
-    }
-
-    public s drf() {
-        return this.lUC;
-    }
-
-    public r drg() {
         return this.lUA;
     }
 
-    public r drh() {
+    public s drf() {
+        return this.lUB;
+    }
+
+    public com.facebook.common.memory.c doY() {
+        return this.lSp;
+    }
+
+    public r drg() {
         return this.lUD;
     }
 
-    public s dri() {
+    public s drh() {
         return this.lUE;
     }
 
-    public static a drj() {
+    public r dri() {
+        return this.lUC;
+    }
+
+    public r drj() {
+        return this.lUF;
+    }
+
+    public s drk() {
+        return this.lUG;
+    }
+
+    public static a drl() {
         return new a();
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private com.facebook.common.memory.c lSn;
+        private com.facebook.common.memory.c lSp;
         private r lUA;
-        private r lUB;
-        private s lUC;
+        private s lUB;
+        private r lUC;
         private r lUD;
         private s lUE;
-        private r lUy;
-        private s lUz;
+        private r lUF;
+        private s lUG;
 
         private a() {
         }
 
-        public p drk() {
+        public p drm() {
             return new p(this);
         }
     }

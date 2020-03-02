@@ -9,17 +9,17 @@ import java.io.IOException;
 /* loaded from: classes12.dex */
 public class l extends z {
     public l(com.facebook.common.memory.g gVar) {
-        super(com.facebook.common.b.a.dky(), gVar);
+        super(com.facebook.common.b.a.dkA(), gVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        byte[] Pe = Pe(imageRequest.dso().toString());
+        byte[] Pe = Pe(imageRequest.dsq().toString());
         return e(new ByteArrayInputStream(Pe), Pe.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String drF() {
+    protected String drH() {
         return "DataFetchProducer";
     }
 

@@ -20,22 +20,22 @@ import com.baidu.tieba.ala.charm.model.a;
 public class a implements d {
     private boolean asR;
     private String asS;
-    private String evC;
-    private com.baidu.tieba.ala.charm.model.a evH;
-    private b ews;
+    private String evD;
+    private com.baidu.tieba.ala.charm.model.a evI;
+    private b ewt;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
     private String mUid;
-    private boolean ewt = true;
-    a.InterfaceC0428a evL = new a.InterfaceC0428a() { // from class: com.baidu.tieba.ala.charm.a.a.1
+    private boolean ewu = true;
+    a.InterfaceC0428a evM = new a.InterfaceC0428a() { // from class: com.baidu.tieba.ala.charm.a.a.1
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0428a
         public void a(ALaCharmDataList aLaCharmDataList) {
-            a.this.ews.hideLoadingView();
-            a.this.ews.completePullRefresh();
-            a.this.ews.S(aLaCharmDataList.data);
-            a.this.ewt = false;
+            a.this.ewt.hideLoadingView();
+            a.this.ewt.completePullRefresh();
+            a.this.ewt.S(aLaCharmDataList.data);
+            a.this.ewu = false;
         }
 
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0428a
@@ -43,17 +43,17 @@ public class a implements d {
             if (str != null) {
                 CustomToast.newInstance().showToast(str);
             }
-            a.this.ews.completePullRefresh();
-            a.this.ews.hideLoadingView();
-            a.this.ews.bdV();
-            a.this.ewt = true;
+            a.this.ewt.completePullRefresh();
+            a.this.ewt.hideLoadingView();
+            a.this.ewt.bdX();
+            a.this.ewu = true;
         }
     };
-    private TbListCommonPullView.ListPullRefreshListener ewu = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
+    private TbListCommonPullView.ListPullRefreshListener ewv = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.evH != null) {
-                a.this.evH.bf(1, 10);
+            if (a.this.evI != null) {
+                a.this.evI.bf(1, 10);
             }
         }
     };
@@ -64,11 +64,11 @@ public class a implements d {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (a.this.ews != null) {
-                        a.this.ews.X(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (a.this.ewt != null) {
+                        a.this.ewt.X(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Bh().a(updateAttentionMessage.getData(), a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
+                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Bj().a(updateAttentionMessage.getData(), a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                         a.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
@@ -76,11 +76,11 @@ public class a implements d {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 == null || message2.getTag() == null || !message2.getTag().equals(a.this.mPageId)) {
-                    if (a.this.ews != null) {
-                        a.this.ews.X(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
+                    if (a.this.ewt != null) {
+                        a.this.ewt.X(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                 } else if (updateAttentionMessage.getData().isAttention) {
-                    com.baidu.live.view.a.Bh().a(a.this.mPageContext, true);
+                    com.baidu.live.view.a.Bj().a(a.this.mPageContext, true);
                 }
             }
         }
@@ -93,15 +93,15 @@ public class a implements d {
     }
 
     public void createView() {
-        if (this.ews == null) {
-            this.ews = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.asR, this.asS);
-            this.ews.yd(this.evC);
-            this.ews.a(this.ewu);
+        if (this.ewt == null) {
+            this.ewt = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.asR, this.asS);
+            this.ewt.yd(this.evD);
+            this.ewt.a(this.ewv);
         }
-        this.evH = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.evL);
+        this.evI = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.evM);
         if (!StringUtils.isNull(this.mUid) && !this.mUid.equals("0")) {
-            this.ews.showLoadingView();
-            this.evH.bf(1, 10);
+            this.ewt.showLoadingView();
+            this.evI.bf(1, 10);
         }
     }
 
@@ -121,19 +121,19 @@ public class a implements d {
     }
 
     public a yc(String str) {
-        this.evC = str;
+        this.evD = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View we() {
-        if (this.ews == null) {
+        if (this.ewt == null) {
             createView();
         }
-        if (this.ews == null) {
+        if (this.ewt == null) {
             return null;
         }
-        return this.ews.getView();
+        return this.ewt.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -162,18 +162,18 @@ public class a implements d {
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.arK);
-        if (this.evH != null) {
-            this.evH.onDestroy();
+        if (this.evI != null) {
+            this.evI.onDestroy();
         }
-        if (this.ews != null) {
-            this.ews.hideLoadingView();
+        if (this.ewt != null) {
+            this.ewt.hideLoadingView();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.ews != null) {
-            this.ews.onSkinTypeChanged(i);
+        if (this.ewt != null) {
+            this.ewt.onSkinTypeChanged(i);
         }
     }
 }

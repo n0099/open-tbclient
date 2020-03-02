@@ -13,15 +13,15 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> bJt = new ArrayDeque();
+    private final Deque<Message> bJu = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aaM() {
-        a aaT = a.aaT();
-        while (aaT.aaX() && !this.bJt.isEmpty()) {
-            Message peek = this.bJt.peek();
+    public void aaO() {
+        a aaV = a.aaV();
+        while (aaV.aaZ() && !this.bJu.isEmpty()) {
+            Message peek = this.bJu.peek();
             if (peek == null || z(peek)) {
-                this.bJt.poll();
+                this.bJu.poll();
             }
         }
     }
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aaN = cVar.aaN();
-        aaN.arg1 = SwanAppProcessInfo.current().index;
-        if (d.acA().abh() && (aaN.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aaN.obj;
+        Message aaP = cVar.aaP();
+        aaP.arg1 = SwanAppProcessInfo.current().index;
+        if (d.acC().abj() && (aaP.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aaP.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.acA().getAppId());
+                bundle.putString("ai_apps_id", d.acC().getAppId());
             }
         }
-        if (!z(aaN) && cVar.isSticky()) {
-            this.bJt.offer(aaN);
-            a.aaT().aaV();
+        if (!z(aaP) && cVar.isSticky()) {
+            this.bJu.offer(aaP);
+            a.aaV().aaX();
         }
     }
 
     private boolean z(Message message) {
-        a aaT = a.aaT();
-        if (message != null && aaT.aaX()) {
+        a aaV = a.aaV();
+        if (message != null && aaV.aaZ()) {
             try {
-                aaT.aaU().send(message);
+                aaV.aaW().send(message);
                 return true;
             } catch (RemoteException e) {
-                aaT.aaY();
+                aaV.aba();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

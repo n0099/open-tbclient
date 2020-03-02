@@ -9,17 +9,17 @@ import java.util.List;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 class d implements PermissionActivity.a, h, i {
-    private static final com.yanzhenjie.permission.a.a nsf = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a nsh = new com.yanzhenjie.permission.a.b();
     private String[] IL;
-    private com.yanzhenjie.permission.b.b nsg;
-    private a nsh;
-    private a nsi;
-    private g nsj;
-    private String[] nsk;
+    private com.yanzhenjie.permission.b.b nsi;
+    private a nsj;
+    private a nsk;
+    private g nsl;
+    private String[] nsm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.yanzhenjie.permission.b.b bVar) {
-        this.nsg = bVar;
+        this.nsi = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
@@ -32,78 +32,78 @@ class d implements PermissionActivity.a, h, i {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(g gVar) {
-        this.nsj = gVar;
+        this.nsl = gVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nsh = aVar;
+        this.nsj = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nsi = aVar;
+        this.nsk = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(nsf, this.nsg, this.IL);
-        this.nsk = (String[]) a.toArray(new String[a.size()]);
-        if (this.nsk.length > 0) {
-            List<String> b = b(this.nsg, this.nsk);
-            if (b.size() > 0 && this.nsj != null) {
-                this.nsj.showRationale(this.nsg.getContext(), b, this);
+        List<String> a = a(nsh, this.nsi, this.IL);
+        this.nsm = (String[]) a.toArray(new String[a.size()]);
+        if (this.nsm.length > 0) {
+            List<String> b = b(this.nsi, this.nsm);
+            if (b.size() > 0 && this.nsl != null) {
+                this.nsl.showRationale(this.nsi.getContext(), b, this);
                 return;
             } else {
                 execute();
                 return;
             }
         }
-        dHV();
+        dHX();
     }
 
     @Override // com.yanzhenjie.permission.i
     @RequiresApi(api = 23)
     public void execute() {
-        PermissionActivity.a(this.nsg.getContext(), this.nsk, this);
+        PermissionActivity.a(this.nsi.getContext(), this.nsm, this);
     }
 
     @Override // com.yanzhenjie.permission.i
     public void cancel() {
-        X(this.nsk);
+        X(this.nsm);
     }
 
     @Override // com.yanzhenjie.permission.PermissionActivity.a
     public void X(@NonNull String[] strArr) {
-        List<String> a = a(nsf, this.nsg, strArr);
+        List<String> a = a(nsh, this.nsi, strArr);
         if (a.isEmpty()) {
-            dHV();
+            dHX();
         } else {
             fs(a);
         }
     }
 
-    private void dHV() {
-        if (this.nsh != null) {
+    private void dHX() {
+        if (this.nsj != null) {
             List<String> asList = Arrays.asList(this.IL);
             try {
-                this.nsh.onAction(asList);
+                this.nsj.onAction(asList);
             } catch (Exception e) {
-                if (this.nsi != null) {
-                    this.nsi.onAction(asList);
+                if (this.nsk != null) {
+                    this.nsk.onAction(asList);
                 }
             }
         }
     }
 
     private void fs(@NonNull List<String> list) {
-        if (this.nsi != null) {
-            this.nsi.onAction(list);
+        if (this.nsk != null) {
+            this.nsk.onAction(list);
         }
     }
 

@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private final h cmW;
-    private AtomicBoolean cnL = new AtomicBoolean(false);
-    private List<g> cnM = Collections.synchronizedList(new ArrayList());
+    private final h cmX;
+    private AtomicBoolean cnM = new AtomicBoolean(false);
+    private List<g> cnN = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.cmW = hVar;
+        this.cmX = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            anI();
+            anK();
         } finally {
-            this.cmW.c(this);
+            this.cmX.c(this);
         }
     }
 
-    public void anI() {
+    public void anK() {
         this.mRunnable.run();
     }
 
-    public void anJ() {
+    public void anL() {
         m.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class g implements Runnable {
         return this.mTag;
     }
 
-    public String[] anK() {
+    public String[] anM() {
         return this.mPaths;
     }
 
-    public boolean anL() {
-        return this.cnL.get();
+    public boolean anN() {
+        return this.cnM.get();
     }
 
-    public void anM() {
-        this.cnL.set(true);
+    public void anO() {
+        this.cnM.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cnM.contains(gVar)) {
-            this.cnM.add(gVar);
+        if (!this.cnN.contains(gVar)) {
+            this.cnN.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cnM.remove(gVar);
+        this.cnN.remove(gVar);
     }
 
-    public boolean anN() {
-        return this.cnM.isEmpty();
+    public boolean anP() {
+        return this.cnN.isEmpty();
     }
 }

@@ -8,19 +8,19 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class JobScheduler {
-    private final a lVL;
-    private final int lVO;
+    private final a lVN;
+    private final int lVQ;
     private final Executor mExecutor;
-    private final Runnable lVM = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final Runnable lVO = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.drQ();
+            JobScheduler.this.drS();
         }
     };
-    private final Runnable lVN = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable lVP = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.drP();
+            JobScheduler.this.drR();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState lVP = JobState.IDLE;
+    JobState lVR = JobState.IDLE;
     @GuardedBy("this")
-    long lVQ = 0;
+    long lVS = 0;
     @GuardedBy("this")
-    long lVR = 0;
+    long lVT = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
     public static class b {
-        private static ScheduledExecutorService lVU;
+        private static ScheduledExecutorService lVW;
 
-        static ScheduledExecutorService drT() {
-            if (lVU == null) {
-                lVU = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService drV() {
+            if (lVW == null) {
+                lVW = Executors.newSingleThreadScheduledExecutor();
             }
-            return lVU;
+            return lVW;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.lVL = aVar;
-        this.lVO = i;
+        this.lVN = aVar;
+        this.lVQ = i;
     }
 
-    public void drN() {
+    public void drP() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean drO() {
+    public boolean drQ() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.lVP) {
+                switch (this.lVR) {
                     case IDLE:
-                        j = Math.max(this.lVR + this.lVO, uptimeMillis);
-                        this.lVQ = uptimeMillis;
-                        this.lVP = JobState.QUEUED;
+                        j = Math.max(this.lVT + this.lVQ, uptimeMillis);
+                        this.lVS = uptimeMillis;
+                        this.lVR = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.lVP = JobState.RUNNING_AND_PENDING;
+                        this.lVR = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void fk(long j) {
         if (j > 0) {
-            b.drT().schedule(this.lVN, j, TimeUnit.MILLISECONDS);
+            b.drV().schedule(this.lVP, j, TimeUnit.MILLISECONDS);
         } else {
-            this.lVN.run();
+            this.lVP.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void drP() {
-        this.mExecutor.execute(this.lVM);
+    public void drR() {
+        this.mExecutor.execute(this.lVO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void drQ() {
+    public void drS() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.lVP = JobState.RUNNING;
-            this.lVR = uptimeMillis;
+            this.lVR = JobState.RUNNING;
+            this.lVT = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.lVL.d(eVar, i);
+                this.lVN.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            drR();
+            drT();
         }
     }
 
-    private void drR() {
+    private void drT() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.lVP == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.lVR + this.lVO, uptimeMillis);
+            if (this.lVR == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.lVT + this.lVQ, uptimeMillis);
                 z = true;
-                this.lVQ = uptimeMillis;
-                this.lVP = JobState.QUEUED;
+                this.lVS = uptimeMillis;
+                this.lVR = JobState.QUEUED;
             } else {
-                this.lVP = JobState.IDLE;
+                this.lVR = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.IJ(i) || com.facebook.imagepipeline.producers.b.dA(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long drS() {
-        return this.lVR - this.lVQ;
+    public synchronized long drU() {
+        return this.lVT - this.lVS;
     }
 }

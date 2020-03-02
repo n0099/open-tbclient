@@ -10,17 +10,17 @@ public class c extends f {
         a(listItem, this.j);
         this.e.setVisibility(8);
         if (b()) {
-            this.mXz.setVisibility(8);
+            this.mXB.setVisibility(8);
             this.j.setVisibility(0);
             c();
             return;
         }
-        this.mXz.setVisibility(0);
+        this.mXB.setVisibility(0);
         this.j.setVisibility(8);
-        this.mXz.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.c.1
+        this.mXB.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.nbv.b(c.this.m, c.this.n, c.this.o, c.this.p);
+                c.this.nbx.b(c.this.m, c.this.n, c.this.o, c.this.p);
             }
         });
     }

@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes9.dex */
 public class am {
-    private static TextView dGR;
-    private static final int[] iNF = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private static TextView dGS;
+    private static final int[] iNH = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
 
     public static Intent aS(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -33,8 +33,8 @@ public class am {
         return intent;
     }
 
-    public static int coZ() {
-        return iNF[new Random().nextInt(iNF.length)];
+    public static int cpb() {
+        return iNH[new Random().nextInt(iNH.length)];
     }
 
     public static String Gb(String str) {
@@ -46,9 +46,9 @@ public class am {
             return null;
         }
         String str = "";
-        if (bjVar.aEh() == 1) {
+        if (bjVar.aEj() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bjVar.aEh() == 2) {
+        } else if (bjVar.aEj() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -64,10 +64,10 @@ public class am {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (dGR == null) {
-                dGR = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (dGS == null) {
+                dGS = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = dGR;
+            TextView textView = dGS;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -83,11 +83,11 @@ public class am {
         }
     }
 
-    public static int cpa() {
+    public static int cpc() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cpb() {
+    public static int cpd() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 }

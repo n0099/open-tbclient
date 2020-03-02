@@ -73,21 +73,21 @@ public class MutiImgTextLayout extends LinearLayout implements m<com.baidu.tbadk
     }
 
     private void setVoiceData(bj bjVar) {
-        ArrayList<VoiceData.VoiceModel> aCA = bjVar.aCA();
-        if (v.isEmpty(aCA)) {
+        ArrayList<VoiceData.VoiceModel> aCC = bjVar.aCC();
+        if (v.isEmpty(aCC)) {
             this.NY.setVisibility(8);
             this.Ob = false;
             return;
         }
         this.NY.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aCA.get(0);
+        VoiceData.VoiceModel voiceModel = aCC.get(0);
         this.NY.setVoiceModel(voiceModel);
         this.NY.setTag(voiceModel);
-        this.NY.bHq();
+        this.NY.bHs();
         if (voiceModel != null) {
             this.NY.wW(voiceModel.voice_status.intValue());
         }
-        this.NY.cMf();
+        this.NY.cMh();
         this.Ob = true;
     }
 
@@ -103,10 +103,10 @@ public class MutiImgTextLayout extends LinearLayout implements m<com.baidu.tbadk
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        au.a(this.mTitle, aAe);
-        au.a(this.KA, this.mTitle, aAe, Ky);
-        setVoiceData(aAe);
+        bj aAg = aVar.aAg();
+        au.a(this.mTitle, aAg);
+        au.a(this.KA, this.mTitle, aAg, Ky);
+        setVoiceData(aAg);
         nn();
     }
 

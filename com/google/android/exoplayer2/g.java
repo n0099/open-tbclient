@@ -15,14 +15,14 @@ public interface g extends r {
 
     /* loaded from: classes6.dex */
     public static final class b {
-        public final a lYs;
-        public final Object lYt;
+        public final a lYu;
+        public final Object lYv;
         public final int messageType;
 
         public b(a aVar, int i, Object obj) {
-            this.lYs = aVar;
+            this.lYu = aVar;
             this.messageType = i;
-            this.lYt = obj;
+            this.lYv = obj;
         }
     }
 }

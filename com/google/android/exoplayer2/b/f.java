@@ -16,17 +16,17 @@ public interface f {
 
     int LG(int i);
 
-    t dxd();
+    t dxf();
 
-    int dxh();
+    int dxj();
 
-    int dxi();
+    int dxk();
 
-    Object dxj();
+    Object dxl();
 
-    Format dyv();
+    Format dyx();
 
-    int dyw();
+    int dyy();
 
     void g(long j, long j2, long j3);
 

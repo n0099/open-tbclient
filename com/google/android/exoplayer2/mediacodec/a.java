@@ -11,10 +11,10 @@ import com.google.android.exoplayer2.util.v;
 @TargetApi(16)
 /* loaded from: classes6.dex */
 public final class a {
-    public final boolean mbY;
+    public final boolean mca;
     private final String mimeType;
-    public final boolean mpm;
-    private final MediaCodecInfo.CodecCapabilities mpn;
+    public final boolean mpo;
+    private final MediaCodecInfo.CodecCapabilities mpp;
     public final String name;
     public final boolean secure;
 
@@ -30,21 +30,21 @@ public final class a {
         boolean z3 = false;
         this.name = (String) com.google.android.exoplayer2.util.a.checkNotNull(str);
         this.mimeType = str2;
-        this.mpn = codecCapabilities;
-        this.mpm = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
-        this.mbY = codecCapabilities != null && c(codecCapabilities);
+        this.mpp = codecCapabilities;
+        this.mpo = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
+        this.mca = codecCapabilities != null && c(codecCapabilities);
         if (z2 || (codecCapabilities != null && e(codecCapabilities))) {
             z3 = true;
         }
         this.secure = z3;
     }
 
-    public MediaCodecInfo.CodecProfileLevel[] dvL() {
-        return (this.mpn == null || this.mpn.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.mpn.profileLevels;
+    public MediaCodecInfo.CodecProfileLevel[] dvN() {
+        return (this.mpp == null || this.mpp.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.mpp.profileLevels;
     }
 
     public boolean Ps(String str) {
-        MediaCodecInfo.CodecProfileLevel[] dvL;
+        MediaCodecInfo.CodecProfileLevel[] dvN;
         if (str == null || this.mimeType == null) {
             return true;
         }
@@ -60,7 +60,7 @@ public final class a {
         if (PC == null) {
             return true;
         }
-        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : dvL()) {
+        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : dvN()) {
             if (codecProfileLevel.profile == ((Integer) PC.first).intValue() && codecProfileLevel.level >= ((Integer) PC.second).intValue()) {
                 return true;
             }
@@ -71,11 +71,11 @@ public final class a {
 
     @TargetApi(21)
     public boolean a(int i, int i2, double d) {
-        if (this.mpn == null) {
+        if (this.mpp == null) {
             Pv("sizeAndRate.caps");
             return false;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpn.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpp.getVideoCapabilities();
         if (videoCapabilities == null) {
             Pv("sizeAndRate.vCaps");
             return false;
@@ -92,11 +92,11 @@ public final class a {
 
     @TargetApi(21)
     public Point dN(int i, int i2) {
-        if (this.mpn == null) {
+        if (this.mpp == null) {
             Pv("align.caps");
             return null;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpn.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mpp.getVideoCapabilities();
         if (videoCapabilities == null) {
             Pv("align.vCaps");
             return null;
@@ -108,11 +108,11 @@ public final class a {
 
     @TargetApi(21)
     public boolean Kb(int i) {
-        if (this.mpn == null) {
+        if (this.mpp == null) {
             Pv("sampleRate.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpn.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpp.getAudioCapabilities();
         if (audioCapabilities == null) {
             Pv("sampleRate.aCaps");
             return false;
@@ -126,11 +126,11 @@ public final class a {
 
     @TargetApi(21)
     public boolean Kc(int i) {
-        if (this.mpn == null) {
+        if (this.mpp == null) {
             Pv("channelCount.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpn.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mpp.getAudioCapabilities();
         if (audioCapabilities == null) {
             Pv("channelCount.aCaps");
             return false;
@@ -143,11 +143,11 @@ public final class a {
     }
 
     private void Pv(String str) {
-        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHM + "]");
+        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHO + "]");
     }
 
     private void Pw(String str) {
-        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHM + "]");
+        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHO + "]");
     }
 
     private static int w(String str, String str2, int i) {

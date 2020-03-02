@@ -9,10 +9,10 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.c.c;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0475a frW;
-    private com.baidu.live.m.a frX;
-    private c frY;
+    private InterfaceC0475a frX;
+    private com.baidu.live.m.a frY;
     private c frZ;
+    private c fsa;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
@@ -29,13 +29,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.frY = new c(tbPageContext);
         this.frZ = new c(tbPageContext);
-        this.frY.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.fsa = new c(tbPageContext);
+        this.frZ.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.frW != null) {
-                    a.this.frW.a(dVar);
+                if (dVar != null && a.this.frX != null) {
+                    a.this.frX.a(dVar);
                 }
             }
 
@@ -43,11 +43,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.frZ.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.fsa.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.frW != null) {
-                    a.this.frW.b(dVar);
+                if (dVar != null && a.this.frX != null) {
+                    a.this.frX.b(dVar);
                 }
             }
 
@@ -59,50 +59,50 @@ public class a {
 
     public void h(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.frW != null) {
-                this.frW.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
+            if (this.frX != null) {
+                this.frX.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
         }
-        this.frX = new com.baidu.live.m.a(new com.baidu.live.m.c() { // from class: com.baidu.tieba.ala.person.c.a.3
+        this.frY = new com.baidu.live.m.a(new com.baidu.live.m.c() { // from class: com.baidu.tieba.ala.person.c.a.3
             @Override // com.baidu.live.m.c
             public void a(PersonUserData personUserData) {
-                if (a.this.frW != null) {
-                    a.this.frW.c(personUserData);
+                if (a.this.frX != null) {
+                    a.this.frX.c(personUserData);
                 }
             }
 
             @Override // com.baidu.live.m.c
             public void p(int i, String str6) {
-                if (a.this.frW != null) {
-                    a.this.frW.onFail(str6);
+                if (a.this.frX != null) {
+                    a.this.frX.onFail(str6);
                 }
             }
         });
-        this.frX.execute(str, str2, str3, str4, str5);
+        this.frY.execute(str, str2, str3, str4, str5);
         cW(str, str4);
     }
 
     public void cW(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.frY.setPn(-1);
-            this.frY.g(0, str, str2);
             this.frZ.setPn(-1);
-            this.frZ.g(1, str, str2);
+            this.frZ.g(0, str, str2);
+            this.fsa.setPn(-1);
+            this.fsa.g(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.frX != null && !this.frX.isCancelled()) {
-            this.frX.cancel();
+        if (this.frY != null && !this.frY.isCancelled()) {
+            this.frY.cancel();
         }
-        if (this.frW != null) {
-            this.frW.onFail(null);
+        if (this.frX != null) {
+            this.frX.onFail(null);
         }
     }
 
     public void a(InterfaceC0475a interfaceC0475a) {
-        this.frW = interfaceC0475a;
+        this.frX = interfaceC0475a;
     }
 }

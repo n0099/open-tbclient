@@ -44,27 +44,27 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAe() != null) {
-            bj aAe = aVar.aAe();
-            OriginalThreadInfo originalThreadInfo = aAe.cTP;
+        if (aVar != null && aVar.aAg() != null) {
+            bj aAg = aVar.aAg();
+            OriginalThreadInfo originalThreadInfo = aAg.cTQ;
             if (originalThreadInfo != null && this.OC) {
                 this.mTitle.setVisibility(8);
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
-                if (originalThreadInfo.cOJ) {
-                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAe, this.OA, this.OC);
+                if (originalThreadInfo.cOK) {
+                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAg, this.OA, this.OC);
                     am.setViewTextColor(this.KA, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.KA, this.mTitle, originalThreadInfo.cPK, aAe, this.OA, this.OC);
+                    au.a(this.KA, this.mTitle, originalThreadInfo.cPL, aAg, this.OA, this.OC);
                 }
             } else {
-                au.a(this.mTitle, aAe);
+                au.a(this.mTitle, aAg);
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
-                au.a(this.KA, this.mTitle, aAe.aBO(), aAe, this.OA, this.OC);
+                au.a(this.KA, this.mTitle, aAg.aBQ(), aAg, this.OA, this.OC);
             }
             if (!this.OC) {
                 this.KA.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.cOJ) {
+            } else if (originalThreadInfo != null && originalThreadInfo.cOK) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {

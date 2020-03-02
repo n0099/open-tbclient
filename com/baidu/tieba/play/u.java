@@ -9,9 +9,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bj cRe;
+    private bj cRf;
     private int duration;
-    private String jwe;
+    private String jwg;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.jwe = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.jwg = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.jwe = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.jwg = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -69,8 +69,8 @@ public class u {
     }
 
     public void aj(bj bjVar) {
-        h(bjVar.aCD());
-        this.cRe = bjVar;
+        h(bjVar.aCF());
+        this.cRf = bjVar;
     }
 
     public void b(AlaInfoData alaInfoData) {
@@ -79,8 +79,8 @@ public class u {
         }
     }
 
-    public bj aAe() {
-        return this.cRe;
+    public bj aAg() {
+        return this.cRf;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long czj() {
+    public long czl() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String czk() {
-        return this.jwe;
+    public String czm() {
+        return this.jwg;
     }
 }

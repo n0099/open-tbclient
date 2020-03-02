@@ -8,7 +8,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.game.ad.a.b {
-    private boolean civ;
+    private boolean ciw;
     private Context mContext;
 
     public b(Context context) {
@@ -17,9 +17,9 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.civ = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.civ) {
-            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Us().Is()).build().executeAsync(responseCallback);
+        this.ciw = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ciw) {
+            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.mContext).getRequest().url(str).build().executeAsync(responseCallback);
@@ -47,9 +47,9 @@ public class b implements com.baidu.swan.game.ad.a.b {
             public void onFail(Exception exc) {
             }
         };
-        this.civ = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.civ) {
-            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Us().Is()).build().executeAsync(responseCallback);
+        this.ciw = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ciw) {
+            HttpManager.getDefault(this.mContext).getRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.mContext).getRequest().url(str).build().executeAsync(responseCallback);

@@ -67,7 +67,7 @@ public class ak extends h {
             this.mLastScreenWidth = equipmentWidth;
         }
         this.Kc = aVar;
-        if (this.Kc == null || this.Kc.aAe() == null || this.Kc.aAe().cTP == null || this.Kc.aAe().cTP.cOJ) {
+        if (this.Kc == null || this.Kc.aAg() == null || this.Kc.aAg().cTQ == null || this.Kc.aAg().cTQ.cOK) {
             this.MH.setVisibility(8);
             return;
         }
@@ -99,8 +99,8 @@ public class ak extends h {
             if (mT() == null) {
             }
         }
-        if (this.Kc.aAe().cTP.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.Kc.aAe().cTP.videoInfo;
+        if (this.Kc.aAg().cTQ.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.Kc.aAg().cTQ.videoInfo;
             if (videoInfo != null) {
                 int i3 = (MF / 9) * 16;
                 int i4 = MG;

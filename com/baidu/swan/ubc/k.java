@@ -6,19 +6,19 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public interface k {
-    int Gs();
+    int Gu();
 
-    ExecutorService HM();
+    ExecutorService HO();
 
-    l Iz();
+    l IB();
 
-    String UU();
+    String UW();
 
-    String Zo();
+    String Zq();
 
-    boolean Zp();
+    boolean Zr();
 
-    boolean Zq();
+    boolean Zs();
 
     void a(String str, int i, JSONArray jSONArray);
 

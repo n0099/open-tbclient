@@ -19,7 +19,7 @@ public class ah {
                 i = 1;
                 break;
         }
-        return agVar.f847a.getInt(a, i);
+        return agVar.f846a.getInt(a, i);
     }
 
     private static String a(hm hmVar) {
@@ -36,7 +36,7 @@ public class ah {
             int a = hrVar.a();
             hn a2 = hn.a(hrVar.b());
             if (a2 != null) {
-                if (z && hrVar.f496a) {
+                if (z && hrVar.f495a) {
                     arrayList.add(new Pair(Integer.valueOf(a), null));
                 } else {
                     switch (a2) {
@@ -64,7 +64,7 @@ public class ah {
     }
 
     public static void a(ag agVar, hm hmVar, int i) {
-        agVar.f847a.edit().putInt(a(hmVar), i).commit();
+        agVar.f846a.edit().putInt(a(hmVar), i).commit();
     }
 
     public static void a(ag agVar, id idVar) {
@@ -76,7 +76,7 @@ public class ah {
         for (hp hpVar : ieVar.a()) {
             if (hpVar.a() > a(agVar, hpVar.m347a())) {
                 a(agVar, hpVar.m347a(), hpVar.a());
-                agVar.a(a(hpVar.f488a, false));
+                agVar.a(a(hpVar.f487a, false));
             }
         }
         agVar.b();

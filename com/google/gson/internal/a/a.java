@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory mLe = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory mLg = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class a<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> mLf;
+    private final TypeAdapter<E> mLh;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.mLf = new m(gson, typeAdapter, cls);
+        this.mLh = new m(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dAR() == JsonToken.NULL) {
-            aVar.dAW();
+        if (aVar.dAT() == JsonToken.NULL) {
+            aVar.dAY();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dAP();
+        aVar.dAR();
         while (aVar.hasNext()) {
-            arrayList.add(this.mLf.read(aVar));
+            arrayList.add(this.mLh.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dBg();
+            bVar.dBi();
             return;
         }
-        bVar.dBc();
+        bVar.dBe();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.mLf.write(bVar, Array.get(obj, i));
+            this.mLh.write(bVar, Array.get(obj, i));
         }
-        bVar.dBd();
+        bVar.dBf();
     }
 }

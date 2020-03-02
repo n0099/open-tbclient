@@ -264,7 +264,7 @@ public class a {
 
     private void sT() {
         if (this.anE != null) {
-            int i = com.baidu.live.v.a.zj().awA != null ? com.baidu.live.v.a.zj().awA.aaP : 0;
+            int i = com.baidu.live.v.a.zl().awB != null ? com.baidu.live.v.a.zl().awB.aaP : 0;
             if (i > 0 && this.anE.size() >= i) {
                 Collections.sort(this.anE, new c.a());
                 ArrayList arrayList = new ArrayList(this.anE.subList(0, Math.max((int) (i * 0.7f), 1)));

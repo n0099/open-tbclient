@@ -5,19 +5,19 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes11.dex */
 public class d {
-    private c clW;
+    private c clX;
 
     public d(@NonNull com.baidu.swan.games.e.a aVar) {
-        this.clW = new c(aVar);
+        this.clX = new c(aVar);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        this.clW.removeUserCloudStorage(jsObject);
+        this.clX.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        this.clW.setUserCloudStorage(jsObject);
+        this.clX.setUserCloudStorage(jsObject);
     }
 }

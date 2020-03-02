@@ -20,9 +20,9 @@ import com.baidu.live.view.input.b;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class AlaLiveInputEditView extends LinearLayout implements b {
-    private b.a aFO;
-    private GradientDrawable aFP;
-    private String aFQ;
+    private b.a aFP;
+    private GradientDrawable aFQ;
+    private String aFR;
     private EditText aun;
     private View.OnClickListener auv;
     private TextView mSendView;
@@ -33,8 +33,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
         this.auv = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.aFO != null) {
-                    AlaLiveInputEditView.this.aFO.dx(AlaLiveInputEditView.this.aun.getText().toString());
+                if (AlaLiveInputEditView.this.aFP != null) {
+                    AlaLiveInputEditView.this.aFP.dx(AlaLiveInputEditView.this.aun.getText().toString());
                 }
                 AlaLiveInputEditView.this.xS();
             }
@@ -49,8 +49,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
                 if (AlaLiveInputEditView.this.mSendView != null) {
                     AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.aun.getText()));
                 }
-                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFQ.length()) {
-                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFQ);
+                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFR.length()) {
+                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFR);
                     AlaLiveInputEditView.this.aun.setSelection(AlaLiveInputEditView.this.aun.getText().length());
                 }
             }
@@ -67,8 +67,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
         this.auv = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.aFO != null) {
-                    AlaLiveInputEditView.this.aFO.dx(AlaLiveInputEditView.this.aun.getText().toString());
+                if (AlaLiveInputEditView.this.aFP != null) {
+                    AlaLiveInputEditView.this.aFP.dx(AlaLiveInputEditView.this.aun.getText().toString());
                 }
                 AlaLiveInputEditView.this.xS();
             }
@@ -83,8 +83,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
                 if (AlaLiveInputEditView.this.mSendView != null) {
                     AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.aun.getText()));
                 }
-                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFQ.length()) {
-                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFQ);
+                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFR.length()) {
+                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFR);
                     AlaLiveInputEditView.this.aun.setSelection(AlaLiveInputEditView.this.aun.getText().length());
                 }
             }
@@ -101,8 +101,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
         this.auv = new View.OnClickListener() { // from class: com.baidu.live.view.input.AlaLiveInputEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveInputEditView.this.aFO != null) {
-                    AlaLiveInputEditView.this.aFO.dx(AlaLiveInputEditView.this.aun.getText().toString());
+                if (AlaLiveInputEditView.this.aFP != null) {
+                    AlaLiveInputEditView.this.aFP.dx(AlaLiveInputEditView.this.aun.getText().toString());
                 }
                 AlaLiveInputEditView.this.xS();
             }
@@ -117,8 +117,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
                 if (AlaLiveInputEditView.this.mSendView != null) {
                     AlaLiveInputEditView.this.setSendEnabled(!TextUtils.isEmpty(AlaLiveInputEditView.this.aun.getText()));
                 }
-                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFQ.length()) {
-                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFQ);
+                if (AlaLiveInputEditView.this.aun.getText().length() > AlaLiveInputEditView.this.aFR.length()) {
+                    AlaLiveInputEditView.this.aun.setText(AlaLiveInputEditView.this.aFR);
                     AlaLiveInputEditView.this.aun.setSelection(AlaLiveInputEditView.this.aun.getText().length());
                 }
             }
@@ -152,8 +152,8 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 4) {
-                    if (AlaLiveInputEditView.this.aFO != null && !TextUtils.isEmpty(AlaLiveInputEditView.this.aun.getText())) {
-                        AlaLiveInputEditView.this.aFO.dx(AlaLiveInputEditView.this.aun.getText().toString());
+                    if (AlaLiveInputEditView.this.aFP != null && !TextUtils.isEmpty(AlaLiveInputEditView.this.aun.getText())) {
+                        AlaLiveInputEditView.this.aFP.dx(AlaLiveInputEditView.this.aun.getText().toString());
                     }
                     return true;
                 }
@@ -173,7 +173,7 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
     }
 
     public void setEditViewConfirmCallBack(b.a aVar) {
-        this.aFO = aVar;
+        this.aFP = aVar;
     }
 
     public void xS() {
@@ -192,7 +192,7 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
     }
 
     public void setMaxText(String str) {
-        this.aFQ = str;
+        this.aFR = str;
     }
 
     public void setInputEditType(int i) {
@@ -223,24 +223,24 @@ public class AlaLiveInputEditView extends LinearLayout implements b {
     }
 
     public void setSendEnabled(boolean z) {
-        if (this.aFP == null) {
-            this.aFP = new GradientDrawable();
-            this.aFP.setShape(0);
-            this.aFP.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds32));
-            this.aFP.setGradientType(0);
+        if (this.aFQ == null) {
+            this.aFQ = new GradientDrawable();
+            this.aFQ.setShape(0);
+            this.aFQ.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds32));
+            this.aFQ.setGradientType(0);
             if (Build.VERSION.SDK_INT >= 16) {
-                this.aFP.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                this.aFP.setColors(new int[]{-57754, -39399});
+                this.aFQ.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+                this.aFQ.setColors(new int[]{-57754, -39399});
             }
         }
         if (z) {
-            this.aFP.clearColorFilter();
+            this.aFQ.clearColorFilter();
             this.mSendView.setTextColor(-1);
         } else {
-            this.aFP.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+            this.aFQ.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
             this.mSendView.setTextColor(-2130706433);
         }
-        this.mSendView.setBackgroundDrawable(this.aFP);
+        this.mSendView.setBackgroundDrawable(this.aFQ);
         this.mSendView.setEnabled(z);
     }
 }

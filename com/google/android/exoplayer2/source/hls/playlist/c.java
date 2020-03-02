@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class c {
-    public final String mwY;
+    public final String mxa;
     public final List<String> tags;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(String str, List<String> list) {
-        this.mwY = str;
+        this.mxa = str;
         this.tags = Collections.unmodifiableList(list);
     }
 }

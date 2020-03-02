@@ -35,31 +35,31 @@ import com.baidu.live.u.a;
 import com.baidu.live.view.ALALevelView;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.a> {
-    private static final BdUniqueId frl = BdUniqueId.gen();
+    private static final BdUniqueId frm = BdUniqueId.gen();
     private AlaLiveUserInfoData XQ;
     private AlaLocationData XR;
     private AlaRelationData XS;
     private boolean arE;
     private int arF;
-    private TextView cbJ;
-    private CustomMessageListener evy;
-    private HeadImageView fbb;
-    private com.baidu.live.z.a fej;
-    private m fqJ;
-    private ImageView fqY;
-    private ALALevelView fqZ;
-    private TextView fra;
+    private TextView cbK;
+    private CustomMessageListener evz;
+    private HeadImageView fbc;
+    private com.baidu.live.z.a fek;
+    private m fqK;
+    private ImageView fqZ;
+    private ALALevelView fra;
     private TextView frb;
     private TextView frc;
-    private LinearLayout frd;
+    private TextView frd;
     private LinearLayout fre;
-    private TextView frf;
-    private TbImageView frg;
-    private TextView frh;
+    private LinearLayout frf;
+    private TextView frg;
+    private TbImageView frh;
     private TextView fri;
-    private DrawableTextView frj;
-    private View frk;
-    private boolean frm;
+    private TextView frj;
+    private DrawableTextView frk;
+    private View frl;
+    private boolean frn;
     private int liveType;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -69,17 +69,17 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         super(tbPageContext);
         this.mUserId = -1L;
         this.arE = false;
-        this.frm = false;
+        this.frn = false;
         this.liveType = 2;
-        this.evy = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.b.1
+        this.evz = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().toUid.equals(String.valueOf(b.this.XQ.userId)) && updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag() != null) {
-                        boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(b.frl);
-                        b.this.frm = true;
+                        boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(b.frm);
+                        b.this.frn = true;
                         if (updateAttentionMessage.getData().isSucc) {
                             boolean z = updateAttentionMessage.getData().isAttention;
                             if (!equals) {
@@ -87,7 +87,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                                 b.this.aS(z);
                                 return;
                             } else if (z) {
-                                com.baidu.live.view.a.Bh().a(b.this.mPageContext, true);
+                                com.baidu.live.view.a.Bj().a(b.this.mPageContext, true);
                                 return;
                             } else {
                                 b.this.mPageContext.showToast(b.this.mPageContext.getResources().getString(a.i.sdk_unfollow_success_toast));
@@ -96,7 +96,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                         }
                         boolean z2 = updateAttentionMessage.getData().isAttention;
                         if (equals) {
-                            if (com.baidu.live.view.a.Bh().a(updateAttentionMessage.getData(), b.this.mPageContext, false)) {
+                            if (com.baidu.live.view.a.Bj().a(updateAttentionMessage.getData(), b.this.mPageContext, false)) {
                                 b.this.arE = !b.this.arE;
                                 b.this.aS(b.this.arE);
                                 b.this.aR(b.this.arE);
@@ -115,35 +115,35 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         };
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.fbb = (HeadImageView) this.mRootView.findViewById(a.g.user_icon);
-        this.fbb.setIsRound(true);
-        this.fbb.setAutoChangeStyle(false);
-        this.cbJ = (TextView) this.mRootView.findViewById(a.g.user_name);
-        this.fqY = (ImageView) this.mRootView.findViewById(a.g.user_sex);
-        this.fqZ = (ALALevelView) this.mRootView.findViewById(a.g.user_grade);
-        this.fra = (TextView) this.mRootView.findViewById(a.g.user_attention_count);
-        this.frb = (TextView) this.mRootView.findViewById(a.g.user_fans_count);
-        this.frc = (TextView) this.mRootView.findViewById(a.g.user_location);
-        this.frd = (LinearLayout) this.mRootView.findViewById(a.g.profile_container);
-        this.fre = (LinearLayout) this.mRootView.findViewById(a.g.combat_authen_container);
-        this.frg = (TbImageView) this.mRootView.findViewById(a.g.anthen_icon);
-        this.frf = (TextView) this.mRootView.findViewById(a.g.combat_authen);
-        this.frh = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_go_to_authen);
-        this.frh.getPaint().setFlags(8);
-        this.frh.getPaint().setAntiAlias(true);
-        this.fri = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_reply_user);
-        this.frj = (DrawableTextView) this.mRootView.findViewById(a.g.ala_host_tab_attention_btn);
-        this.frk = this.mRootView.findViewById(a.g.divider_behind_fans_count);
-        this.frd.setOnClickListener(this);
-        this.frh.setOnClickListener(this);
+        this.fbc = (HeadImageView) this.mRootView.findViewById(a.g.user_icon);
+        this.fbc.setIsRound(true);
+        this.fbc.setAutoChangeStyle(false);
+        this.cbK = (TextView) this.mRootView.findViewById(a.g.user_name);
+        this.fqZ = (ImageView) this.mRootView.findViewById(a.g.user_sex);
+        this.fra = (ALALevelView) this.mRootView.findViewById(a.g.user_grade);
+        this.frb = (TextView) this.mRootView.findViewById(a.g.user_attention_count);
+        this.frc = (TextView) this.mRootView.findViewById(a.g.user_fans_count);
+        this.frd = (TextView) this.mRootView.findViewById(a.g.user_location);
+        this.fre = (LinearLayout) this.mRootView.findViewById(a.g.profile_container);
+        this.frf = (LinearLayout) this.mRootView.findViewById(a.g.combat_authen_container);
+        this.frh = (TbImageView) this.mRootView.findViewById(a.g.anthen_icon);
+        this.frg = (TextView) this.mRootView.findViewById(a.g.combat_authen);
+        this.fri = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_go_to_authen);
+        this.fri.getPaint().setFlags(8);
+        this.fri.getPaint().setAntiAlias(true);
+        this.frj = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_reply_user);
+        this.frk = (DrawableTextView) this.mRootView.findViewById(a.g.ala_host_tab_attention_btn);
+        this.frl = this.mRootView.findViewById(a.g.divider_behind_fans_count);
+        this.fre.setOnClickListener(this);
         this.fri.setOnClickListener(this);
         this.frj.setOnClickListener(this);
-        this.fra.setOnClickListener(this);
+        this.frk.setOnClickListener(this);
         this.frb.setOnClickListener(this);
-        MessageManager.getInstance().registerListener(this.evy);
+        this.frc.setOnClickListener(this);
+        MessageManager.getInstance().registerListener(this.evz);
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913049, com.baidu.live.z.a.class, this.mPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.fej = (com.baidu.live.z.a) runTask.getData();
+            this.fek = (com.baidu.live.z.a) runTask.getData();
         }
     }
 
@@ -157,49 +157,49 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.ala.person.hosttabpanel.b.a aVar) {
         String str;
-        if (aVar != null && aVar.fqJ != null) {
-            this.fqJ = aVar.fqJ;
-            this.XQ = aVar.fqJ.XQ;
-            this.XS = aVar.fqJ.XS;
-            this.XR = aVar.fqJ.XR;
-            if (this.fqJ.mLiveInfo != null) {
-                this.liveType = this.fqJ.mLiveInfo.live_type;
+        if (aVar != null && aVar.fqK != null) {
+            this.fqK = aVar.fqK;
+            this.XQ = aVar.fqK.XQ;
+            this.XS = aVar.fqK.XS;
+            this.XR = aVar.fqK.XR;
+            if (this.fqK.mLiveInfo != null) {
+                this.liveType = this.fqK.mLiveInfo.live_type;
             }
             if (this.XQ != null && this.XS != null && this.XR != null) {
                 long j = this.XQ.userId;
                 if (this.XQ.portrait != null && !this.XQ.portrait.equals("")) {
-                    this.fbb.startLoad(this.XQ.portrait, 12, false);
+                    this.fbc.startLoad(this.XQ.portrait, 12, false);
                 }
-                this.cbJ.setText(this.XQ.userName);
+                this.cbK.setText(this.XQ.userName);
                 if (j == 0) {
-                    this.fqY.setVisibility(8);
+                    this.fqZ.setVisibility(8);
                 } else {
-                    this.fqY.setVisibility(0);
-                    this.fqY.setImageResource(this.XQ.sex == 1 ? a.f.sdk_icon_mine_boy : a.f.sdk_icon_mine_girl);
+                    this.fqZ.setVisibility(0);
+                    this.fqZ.setImageResource(this.XQ.sex == 1 ? a.f.sdk_icon_mine_boy : a.f.sdk_icon_mine_girl);
                 }
-                this.fqZ.setupLevelIcon(this.XQ.levelId);
+                this.fra.setupLevelIcon(this.XQ.levelId);
                 if (this.liveType == 2) {
                     if (!StringUtils.isNull(this.XQ.greatAnchorIcon)) {
-                        this.frg.startLoad(this.XQ.greatAnchorIcon, 10, false);
+                        this.frh.startLoad(this.XQ.greatAnchorIcon, 10, false);
                     } else {
-                        this.frg.setVisibility(8);
+                        this.frh.setVisibility(8);
                     }
                     if (!StringUtils.isNull(this.XQ.greatAnchorDescRole) && !StringUtils.isNull(this.XQ.greatAnchorDescGrade)) {
-                        this.frf.setText(this.XQ.greatAnchorDescGrade + this.XQ.greatAnchorDescRole);
+                        this.frg.setText(this.XQ.greatAnchorDescGrade + this.XQ.greatAnchorDescRole);
                     } else {
-                        this.fre.setVisibility(8);
+                        this.frf.setVisibility(8);
                     }
                 } else {
-                    this.fre.setVisibility(8);
+                    this.frf.setVisibility(8);
                 }
-                this.fra.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_attention_count, StringHelper.numberUniformFormat(this.XQ.followCount)));
-                if (!this.frm || this.mUserId != this.XQ.userId) {
-                    this.frm = false;
+                this.frb.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_attention_count, StringHelper.numberUniformFormat(this.XQ.followCount)));
+                if (!this.frn || this.mUserId != this.XQ.userId) {
+                    this.frn = false;
                     this.arF = this.XQ.fansCount;
                     this.arE = this.XS.follow_status != 0;
                     this.mUserId = this.XQ.userId;
                 }
-                this.frb.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_fans_count, StringHelper.numberUniformFormat(this.arF)));
+                this.frc.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_fans_count, StringHelper.numberUniformFormat(this.arF)));
                 aR(this.arE);
                 if (!StringUtils.isNull(this.XQ.location)) {
                     str = this.XQ.location;
@@ -207,40 +207,40 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                     str = this.XR.location;
                 }
                 if (this.liveType != 2 && !TextUtils.isEmpty(str)) {
-                    this.frc.setVisibility(0);
-                    this.frk.setVisibility(0);
-                    this.frc.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_location, str));
+                    this.frd.setVisibility(0);
+                    this.frl.setVisibility(0);
+                    this.frd.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_location, str));
                     return;
                 }
-                this.frc.setVisibility(4);
-                this.frk.setVisibility(4);
+                this.frd.setVisibility(4);
+                this.frl.setVisibility(4);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.frd) {
-            brW();
-        } else if (view == this.frh) {
-            if (this.fej != null && this.fqJ != null && this.fqJ.Ye != null) {
-                this.fej.a(this.fqJ.Ye, "from_host_tab_panel");
-            }
-        } else if (view == this.fri) {
+        if (view == this.fre) {
             brY();
+        } else if (view == this.fri) {
+            if (this.fek != null && this.fqK != null && this.fqK.Ye != null) {
+                this.fek.a(this.fqK.Ye, "from_host_tab_panel");
+            }
         } else if (view == this.frj) {
-            brX();
-        } else if (view == this.fra) {
-            qI(2);
+            bsa();
+        } else if (view == this.frk) {
+            brZ();
         } else if (view == this.frb) {
+            qI(2);
+        } else if (view == this.frc) {
             qI(1);
         }
     }
 
     private void qI(int i) {
-        if (this.fqJ != null && this.fqJ.mLiveInfo != null && this.fqJ.XQ != null) {
-            AlaLiveUserInfoData alaLiveUserInfoData = this.fqJ.XQ;
-            String valueOf = String.valueOf(this.fqJ.mLiveInfo.group_id);
+        if (this.fqK != null && this.fqK.mLiveInfo != null && this.fqK.XQ != null) {
+            AlaLiveUserInfoData alaLiveUserInfoData = this.fqK.XQ;
+            String valueOf = String.valueOf(this.fqK.mLiveInfo.group_id);
             o oVar = new o();
             oVar.groupId = valueOf;
             oVar.Yr = false;
@@ -256,23 +256,23 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         }
     }
 
-    private void brW() {
+    private void brY() {
     }
 
-    private void brX() {
+    private void brZ() {
         if (this.XQ != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
                 return;
             }
-            this.frm = true;
+            this.frn = true;
             this.arE = this.arE ? false : true;
             if (this.arE) {
                 TiebaInitialize.log("c12558");
             }
             aR(this.arE);
             aS(this.arE);
-            com.baidu.live.view.a.Bh().a(String.valueOf(this.XQ.userId), new com.baidu.live.data.b(this.XQ.portrait, String.valueOf(this.XQ.userId), "1", this.arE, frl));
+            com.baidu.live.view.a.Bj().a(String.valueOf(this.XQ.userId), new com.baidu.live.data.b(this.XQ.portrait, String.valueOf(this.XQ.userId), "1", this.arE, frm));
         }
     }
 
@@ -280,25 +280,25 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     public void aR(boolean z) {
         this.arE = z;
         if (z) {
-            this.frj.setEnabled(false);
-            this.frj.setText(this.mRootView.getContext().getString(a.i.ala_person_has_attention));
-            this.frj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.frj.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10109));
-            this.frj.setGravity(17);
+            this.frk.setEnabled(false);
+            this.frk.setText(this.mRootView.getContext().getString(a.i.ala_person_has_attention));
+            this.frk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.frk.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10109));
+            this.frk.setGravity(17);
             return;
         }
-        this.frj.setEnabled(true);
-        this.frj.setText(this.mPageContext.getString(a.i.ala_person_attention));
-        this.frj.setCompoundDrawablesWithIntrinsicBounds(this.mPageContext.getResources().getDrawable(a.f.sdk_icon_add_live_n), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.frj.setCompoundDrawablePadding(this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds8));
-        this.frj.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_other_b));
-        this.frj.setGravity(19);
+        this.frk.setEnabled(true);
+        this.frk.setText(this.mPageContext.getString(a.i.ala_person_attention));
+        this.frk.setCompoundDrawablesWithIntrinsicBounds(this.mPageContext.getResources().getDrawable(a.f.sdk_icon_add_live_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.frk.setCompoundDrawablePadding(this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds8));
+        this.frk.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_other_b));
+        this.frk.setGravity(19);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aS(boolean z) {
         if (z) {
-            TextView textView = this.frb;
+            TextView textView = this.frc;
             Resources resources = this.mPageContext.getResources();
             int i = a.i.ala_host_tab_fans_count;
             int i2 = this.arF + 1;
@@ -306,7 +306,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
             textView.setText(resources.getString(i, StringHelper.numberUniformFormat(i2)));
             return;
         }
-        TextView textView2 = this.frb;
+        TextView textView2 = this.frc;
         Resources resources2 = this.mPageContext.getResources();
         int i3 = a.i.ala_host_tab_fans_count;
         int i4 = this.arF - 1;
@@ -314,7 +314,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         textView2.setText(resources2.getString(i3, StringHelper.numberUniformFormat(i4)));
     }
 
-    private void brY() {
+    private void bsa() {
         if (this.XQ != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
@@ -374,9 +374,9 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // com.baidu.live.tieba.b.a
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.evy);
-        if (this.fej != null) {
-            this.fej.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.evz);
+        if (this.fek != null) {
+            this.fek.onDestroy();
         }
     }
 
@@ -386,11 +386,11 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes3.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public b fqG;
+        public b fqH;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.fqG = bVar;
+            this.fqH = bVar;
         }
     }
 }

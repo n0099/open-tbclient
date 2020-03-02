@@ -44,15 +44,15 @@ public class ShareSmartAppLayout extends LinearLayout implements m<com.baidu.tba
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.aAe() == null || aVar.aAe().aCY() == null) {
+        if (aVar == null || aVar.aAg() == null || aVar.aAg().aDa() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.Kc = aVar;
-        bj aAe = aVar.aAe();
-        this.OO.setData(aAe.aCY());
-        this.OO.setForumId(String.valueOf(aAe.getFid()));
+        bj aAg = aVar.aAg();
+        this.OO.setData(aAg.aDa());
+        this.OO.setForumId(String.valueOf(aAg.getFid()));
         AppletsCellView appletsCellView = this.OO;
         AppletsCellView appletsCellView2 = this.OO;
         appletsCellView.setFrom("frs_card");

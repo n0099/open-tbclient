@@ -66,13 +66,13 @@ public class an {
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public an aGw() {
+    public an aGy() {
         an anVar = new an(getKey());
         anVar.aB(getParams());
         return anVar;
     }
 
-    public void aGx() {
+    public void aGz() {
         TiebaStatic.log(this);
     }
 

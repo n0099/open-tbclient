@@ -16,20 +16,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONArray dTP;
-    private HttpMessageListener dTQ;
-    private BdUniqueId dTR = BdUniqueId.gen();
+    private JSONArray dTQ;
+    private HttpMessageListener dTR;
     private BdUniqueId dTS = BdUniqueId.gen();
-    private CustomMessageListener dTT = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private BdUniqueId dTT = BdUniqueId.gen();
+    private CustomMessageListener dTU = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.dTP != null) {
-                a.this.a(a.this.dTP, a.this.dTS);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.dTQ != null) {
+                a.this.a(a.this.dTQ, a.this.dTT);
             }
         }
     };
-    private CustomMessageListener dTU = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener dTV = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,30 +42,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.dTQ == null) {
-            this.dTQ = new HttpMessageListener(1003184) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.dTR == null) {
+            this.dTR = new HttpMessageListener(1003184) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.dTP = null;
+                        a.this.dTQ = null;
                     }
                 }
             };
         }
-        this.dTQ.setTag(this.dTS);
-        MessageManager.getInstance().registerListener(this.dTQ);
-        MessageManager.getInstance().registerListener(this.dTT);
-        this.dTU.setTag(tbPageContext.getUniqueId());
-        this.dTU.setSelfListener(true);
+        this.dTR.setTag(this.dTT);
+        MessageManager.getInstance().registerListener(this.dTR);
         MessageManager.getInstance().registerListener(this.dTU);
+        this.dTV.setTag(tbPageContext.getUniqueId());
+        this.dTV.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.dTV);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dTQ);
-        MessageManager.getInstance().unRegisterListener(this.dTT);
+        MessageManager.getInstance().unRegisterListener(this.dTR);
         MessageManager.getInstance().unRegisterListener(this.dTU);
-        this.dTP = null;
+        MessageManager.getInstance().unRegisterListener(this.dTV);
+        this.dTQ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,14 +74,14 @@ public class a {
             if (j.isNetworkAvailableForImmediately()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.dTR);
+                a(jSONArray, this.dTS);
                 return;
             }
-            if (this.dTP == null) {
-                this.dTP = new JSONArray();
+            if (this.dTQ == null) {
+                this.dTQ = new JSONArray();
             }
-            if (this.dTP.length() <= 100) {
-                this.dTP.put(jSONObject);
+            if (this.dTQ.length() <= 100) {
+                this.dTQ.put(jSONObject);
             }
         }
     }

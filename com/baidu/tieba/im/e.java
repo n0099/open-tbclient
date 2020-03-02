@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class e {
     public static ImMessageCenterPojo e(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.bWG().bWN());
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.bWI().bWP());
     }
 
     private static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -34,11 +34,11 @@ public class e {
         boolean z2 = true;
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
             if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
-                if (!com.baidu.tieba.im.settingcache.e.bYa().dG(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (!com.baidu.tieba.im.settingcache.e.bYc().dG(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                     z = z2;
                 } else {
-                    f.bYb().setAcceptNotify(true);
+                    f.bYd().setAcceptNotify(true);
                     z = false;
                 }
                 z2 = z;
@@ -46,7 +46,7 @@ public class e {
         }
         if (z2) {
             imMessageCenterPojo2.setUnread_count(1);
-            f.bYb().setAcceptNotify(false);
+            f.bYd().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

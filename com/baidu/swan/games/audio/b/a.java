@@ -14,16 +14,16 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a ckj;
-    private HashMap<String, ArrayList<InterfaceC0330a>> ckk = new HashMap<>();
-    final ExecutorService ckl = Executors.newCachedThreadPool();
+    private static volatile a ckk;
+    private HashMap<String, ArrayList<InterfaceC0330a>> ckl = new HashMap<>();
+    final ExecutorService ckm = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String ckm = f.alt() + f.alu();
+    private String ckn = f.alv() + f.alw();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0330a {
-        void alx();
+        void alz();
 
         void success(String str);
     }
@@ -31,19 +31,19 @@ public class a {
     private a() {
     }
 
-    public static a aly() {
-        if (ckj == null) {
+    public static a alA() {
+        if (ckk == null) {
             synchronized (a.class) {
-                if (ckj == null) {
-                    ckj = new a();
+                if (ckk == null) {
+                    ckk = new a();
                 }
             }
         }
-        return ckj;
+        return ckk;
     }
 
     public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0330a interfaceC0330a) {
-        this.ckl.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+        this.ckm.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 String C = a.this.C(jsArrayBuffer.buffer());
@@ -55,7 +55,7 @@ public class a {
                 } else if (!file.isDirectory()) {
                     interfaceC0330a.success(C);
                 } else {
-                    interfaceC0330a.alx();
+                    interfaceC0330a.alz();
                 }
             }
         });
@@ -69,7 +69,7 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
     public void g(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.ckm);
+        File file = new File(this.ckn);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -130,13 +130,13 @@ public class a {
         ArrayList<InterfaceC0330a> arrayList;
         boolean z;
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0330a> arrayList2 = this.ckk.get(str);
+            ArrayList<InterfaceC0330a> arrayList2 = this.ckl.get(str);
             if (arrayList2 != null) {
                 arrayList = arrayList2;
                 z = true;
             } else {
                 arrayList = new ArrayList<>();
-                this.ckk.put(str, arrayList);
+                this.ckl.put(str, arrayList);
                 z = false;
             }
             arrayList.add(interfaceC0330a);
@@ -146,7 +146,7 @@ public class a {
 
     private void mW(String str) {
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0330a> arrayList = this.ckk.get(str);
+            ArrayList<InterfaceC0330a> arrayList = this.ckl.get(str);
             if (arrayList != null) {
                 boolean isEmpty = TextUtils.isEmpty(str);
                 Iterator<InterfaceC0330a> it = arrayList.iterator();
@@ -158,10 +158,10 @@ public class a {
                         }
                         next.success(str);
                     } else {
-                        next.alx();
+                        next.alz();
                     }
                 }
-                this.ckk.remove(str);
+                this.ckl.remove(str);
             }
         }
     }
@@ -169,7 +169,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public String C(byte[] bArr) {
         String B = f.B(bArr);
-        StringBuilder append = new StringBuilder().append(this.ckm).append(bArr.length);
+        StringBuilder append = new StringBuilder().append(this.ckn).append(bArr.length);
         if (TextUtils.isEmpty(B)) {
             B = "";
         }

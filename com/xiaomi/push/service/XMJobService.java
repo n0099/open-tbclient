@@ -16,7 +16,7 @@ public class XMJobService extends Service {
     static Service a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private IBinder f808a = null;
+    private IBinder f807a = null;
 
     @TargetApi(21)
     /* loaded from: classes8.dex */
@@ -24,7 +24,7 @@ public class XMJobService extends Service {
         Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        private Handler f809a;
+        private Handler f808a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
@@ -67,10 +67,10 @@ public class XMJobService extends Service {
             intent.setAction("com.xiaomi.push.timer");
             intent.setPackage(getPackageName());
             startService(intent);
-            if (this.f809a == null) {
-                this.f809a = new HandlerC0754a(this);
+            if (this.f808a == null) {
+                this.f808a = new HandlerC0754a(this);
             }
-            this.f809a.sendMessage(Message.obtain(this.f809a, 1, jobParameters));
+            this.f808a.sendMessage(Message.obtain(this.f808a, 1, jobParameters));
             return true;
         }
 
@@ -88,14 +88,14 @@ public class XMJobService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f808a != null ? this.f808a : new Binder();
+        return this.f807a != null ? this.f807a : new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f808a = new a(this).a;
+            this.f807a = new a(this).a;
         }
         a = this;
     }

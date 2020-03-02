@@ -3,14 +3,14 @@ package com.baidu.pyramid.runtime.service;
 import android.support.annotation.NonNull;
 /* loaded from: classes13.dex */
 public final class d {
-    private final String aVY;
+    private final String aVZ;
     private final String mName;
 
     public d(@NonNull String str, @NonNull String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("namespace & name can not be null");
         }
-        this.aVY = str;
+        this.aVZ = str;
         this.mName = str2;
     }
 
@@ -22,17 +22,17 @@ public final class d {
             return false;
         }
         d dVar = (d) obj;
-        if (this.aVY.equals(dVar.aVY)) {
+        if (this.aVZ.equals(dVar.aVZ)) {
             return this.mName.equals(dVar.mName);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.aVY.hashCode() * 31) + this.mName.hashCode();
+        return (this.aVZ.hashCode() * 31) + this.mName.hashCode();
     }
 
     public String toString() {
-        return "ServiceReference{mNameSpace='" + this.aVY + "', mName='" + this.mName + "'}";
+        return "ServiceReference{mNameSpace='" + this.aVZ + "', mName='" + this.mName + "'}";
     }
 }

@@ -19,11 +19,11 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b hXC = new b();
+        private static final b hXE = new b();
     }
 
-    public static b cbH() {
-        return a.hXC;
+    public static b cbJ() {
+        return a.hXE;
     }
 
     public synchronized void a(e eVar) {
@@ -31,7 +31,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cbI() {
+    protected void cbK() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -111,6 +111,6 @@ public class b extends e {
     }
 
     public static ICardInfo cV(JSONObject jSONObject) throws CardParseException {
-        return cbH().d(jSONObject, jSONObject.optInt("card_type"));
+        return cbJ().d(jSONObject, jSONObject.optInt("card_type"));
     }
 }

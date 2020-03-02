@@ -8,12 +8,12 @@ import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private f aKh;
-    private volatile boolean aLh = false;
+    private f aKi;
+    private volatile boolean aLi = false;
     private MediaMuxer mMediaMuxer;
 
-    public boolean DA() {
-        return this.aLh;
+    public boolean DC() {
+        return this.aLi;
     }
 
     public boolean a(String str, int i, f fVar) {
@@ -22,8 +22,8 @@ public class e {
         }
         try {
             this.mMediaMuxer = new MediaMuxer(str, i);
-            this.aKh = fVar;
-            this.aLh = false;
+            this.aKi = fVar;
+            this.aLi = false;
             return true;
         } catch (Exception e) {
             Log.e(TAG, "initMovieMuxer init error!!!");
@@ -51,18 +51,18 @@ public class e {
         return i;
     }
 
-    public synchronized void DB() {
+    public synchronized void DD() {
         boolean z = true;
         synchronized (this) {
             try {
                 this.mMediaMuxer.start();
-                this.aLh = true;
+                this.aLi = true;
             } catch (Exception e) {
                 Log.e(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.aKh != null) {
-                this.aKh.bG(z);
+            if (this.aKi != null) {
+                this.aKi.bG(z);
             }
         }
     }
@@ -79,24 +79,24 @@ public class e {
         return false;
     }
 
-    public synchronized void DC() {
+    public synchronized void DE() {
         boolean z = false;
         synchronized (this) {
             try {
                 this.mMediaMuxer.stop();
-                this.aLh = false;
+                this.aLi = false;
                 z = true;
             } catch (Exception e) {
                 Log.e(TAG, "stopMuxer error!!!");
             }
-            if (this.aKh != null) {
-                this.aKh.bH(z);
+            if (this.aKi != null) {
+                this.aKi.bH(z);
             }
         }
     }
 
-    public void DD() {
-        if (!this.aLh) {
+    public void DF() {
+        if (!this.aLi) {
             this.mMediaMuxer.release();
             this.mMediaMuxer = null;
         }

@@ -8,42 +8,42 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b {
-    private ArrayList<a> csW = new ArrayList<>();
+    private ArrayList<a> csX = new ArrayList<>();
 
     /* loaded from: classes11.dex */
     public interface a {
-        void JH();
+        void JJ();
 
         void dZ(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.csW.contains(aVar)) {
-            this.csW.add(aVar);
+        if (!this.csX.contains(aVar)) {
+            this.csX.add(aVar);
         }
     }
 
     public synchronized void hY(int i) {
-        Iterator<a> it = this.csW.iterator();
+        Iterator<a> it = this.csX.iterator();
         while (it.hasNext()) {
             it.next().dZ(i);
         }
     }
 
-    public synchronized void JH() {
-        Iterator<a> it = this.csW.iterator();
+    public synchronized void JJ() {
+        Iterator<a> it = this.csX.iterator();
         while (it.hasNext()) {
-            it.next().JH();
+            it.next().JJ();
         }
-        this.csW.clear();
+        this.csX.clear();
     }
 
     @Nullable
-    public static b aqo() {
+    public static b aqq() {
         i iVar;
-        e GA = f.WQ().GA();
-        if (GA != null && (iVar = (i) GA.p(i.class)) != null) {
-            return iVar.OL();
+        e GC = f.WS().GC();
+        if (GC != null && (iVar = (i) GC.p(i.class)) != null) {
+            return iVar.ON();
         }
         return null;
     }

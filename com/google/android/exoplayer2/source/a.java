@@ -4,8 +4,8 @@ import android.util.Pair;
 import com.google.android.exoplayer2.x;
 /* loaded from: classes6.dex */
 abstract class a extends x {
-    private final int mqA;
-    private final r mqB;
+    private final int mqC;
+    private final r mqD;
 
     protected abstract x KA(int i);
 
@@ -22,8 +22,8 @@ abstract class a extends x {
     protected abstract int by(Object obj);
 
     public a(r rVar) {
-        this.mqB = rVar;
-        this.mqA = rVar.bSY();
+        this.mqD = rVar;
+        this.mqC = rVar.bTa();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -70,32 +70,32 @@ abstract class a extends x {
 
     @Override // com.google.android.exoplayer2.x
     public int vD(boolean z) {
-        if (this.mqA == 0) {
+        if (this.mqC == 0) {
             return -1;
         }
-        int dwF = z ? this.mqB.dwF() : this.mqA - 1;
-        while (KA(dwF).isEmpty()) {
-            dwF = ac(dwF, z);
-            if (dwF == -1) {
+        int dwH = z ? this.mqD.dwH() : this.mqC - 1;
+        while (KA(dwH).isEmpty()) {
+            dwH = ac(dwH, z);
+            if (dwH == -1) {
                 return -1;
             }
         }
-        return KA(dwF).vD(z) + KC(dwF);
+        return KA(dwH).vD(z) + KC(dwH);
     }
 
     @Override // com.google.android.exoplayer2.x
     public int vE(boolean z) {
-        if (this.mqA == 0) {
+        if (this.mqC == 0) {
             return -1;
         }
-        int dwG = z ? this.mqB.dwG() : 0;
-        while (KA(dwG).isEmpty()) {
-            dwG = ab(dwG, z);
-            if (dwG == -1) {
+        int dwI = z ? this.mqD.dwI() : 0;
+        while (KA(dwI).isEmpty()) {
+            dwI = ab(dwI, z);
+            if (dwI == -1) {
                 return -1;
             }
         }
-        return KA(dwG).vE(z) + KC(dwG);
+        return KA(dwI).vE(z) + KC(dwI);
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -104,8 +104,8 @@ abstract class a extends x {
         int KC = KC(Kz);
         int KB = KB(Kz);
         KA(Kz).a(i - KC, bVar, z, j);
-        bVar.mar += KB;
-        bVar.mas += KB;
+        bVar.mat += KB;
+        bVar.mau += KB;
         return bVar;
     }
 
@@ -116,7 +116,7 @@ abstract class a extends x {
         KA(Ky).a(i - KB(Ky), aVar, z);
         aVar.windowIndex = KC + aVar.windowIndex;
         if (z) {
-            aVar.lZh = Pair.create(KD(Ky), aVar.lZh);
+            aVar.lZj = Pair.create(KD(Ky), aVar.lZj);
         }
         return aVar;
     }
@@ -139,9 +139,9 @@ abstract class a extends x {
 
     private int ab(int i, boolean z) {
         if (z) {
-            return this.mqB.KO(i);
+            return this.mqD.KO(i);
         }
-        if (i < this.mqA - 1) {
+        if (i < this.mqC - 1) {
             return i + 1;
         }
         return -1;
@@ -149,7 +149,7 @@ abstract class a extends x {
 
     private int ac(int i, boolean z) {
         if (z) {
-            return this.mqB.KP(i);
+            return this.mqD.KP(i);
         }
         if (i > 0) {
             return i - 1;

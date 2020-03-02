@@ -30,8 +30,8 @@ import tv.chushou.basis.http.HttpConsts;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean HT() {
-        return com.baidu.swan.apps.w.a.Ug().HT();
+    public static boolean HV() {
+        return com.baidu.swan.apps.w.a.Ui().HV();
     }
 
     public static void d(File file, File file2) throws IOException {
@@ -237,7 +237,7 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0297a(10006).lF(jSONObject2).lE(e.acF()).Wk();
+        new a.C0297a(10006).lF(jSONObject2).lE(e.acH()).Wm();
     }
 
     public static void r(String str, String str2, String str3) {
@@ -257,7 +257,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0297a(10008).lF(jSONObject2).lE(e.acF()).Wk();
+            new a.C0297a(10008).lF(jSONObject2).lE(e.acH()).Wm();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

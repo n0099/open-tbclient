@@ -23,29 +23,29 @@ import com.baidu.tieba.im.message.ResponseGetGroupActivityMessage;
 import com.baidu.tieba.im.util.DialogUtil;
 /* loaded from: classes10.dex */
 public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> implements View.OnClickListener, k.c {
-    private b hCh;
-    private GroupActivityModel hCi;
+    private b hCj;
+    private GroupActivityModel hCk;
     private CustomMessageListener mCustomListener = new CustomMessageListener(CmdConfigCustom.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL) { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!(customResponsedMessage instanceof ResponseGetGroupActivityLocalMessage)) {
-                GroupActivityActivity.this.hCi.sendMessage(GroupActivityActivity.this.hCi.bVH());
+                GroupActivityActivity.this.hCk.sendMessage(GroupActivityActivity.this.hCk.bVJ());
                 return;
             }
             ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = (ResponseGetGroupActivityLocalMessage) customResponsedMessage;
-            if (GroupActivityActivity.this.hCi.getLocalSendMsg() == responseGetGroupActivityLocalMessage.getOrginalMessage()) {
+            if (GroupActivityActivity.this.hCk.getLocalSendMsg() == responseGetGroupActivityLocalMessage.getOrginalMessage()) {
                 if (responseGetGroupActivityLocalMessage.getError() != 0) {
-                    GroupActivityActivity.this.hCi.sendMessage(GroupActivityActivity.this.hCi.bVH());
+                    GroupActivityActivity.this.hCk.sendMessage(GroupActivityActivity.this.hCk.bVJ());
                     return;
                 }
-                GroupActivityActivity.this.hCh.a(responseGetGroupActivityLocalMessage.getActivityData(), true);
-                GroupActivityActivity.this.hCi.a(responseGetGroupActivityLocalMessage.getActivityData());
-                GroupActivityActivity.this.hCi.sendMessage(GroupActivityActivity.this.hCi.bVH());
+                GroupActivityActivity.this.hCj.a(responseGetGroupActivityLocalMessage.getActivityData(), true);
+                GroupActivityActivity.this.hCk.a(responseGetGroupActivityLocalMessage.getActivityData());
+                GroupActivityActivity.this.hCk.sendMessage(GroupActivityActivity.this.hCk.bVJ());
             }
         }
     };
-    private c hry = new c(0) { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.3
+    private c hrA = new c(0) { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -59,13 +59,13 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
                     return;
                 }
                 ResponseGetGroupActivityMessage responseGetGroupActivityMessage = (ResponseGetGroupActivityMessage) socketResponsedMessage;
-                if (GroupActivityActivity.this.hCi.getSendMsg() == responseGetGroupActivityMessage.getOrginalMessage()) {
+                if (GroupActivityActivity.this.hCk.getSendMsg() == responseGetGroupActivityMessage.getOrginalMessage()) {
                     if (responseGetGroupActivityMessage.getError() == 2230504) {
                         GroupActivityActivity.this.showToast(StringUtils.isNull(responseGetGroupActivityMessage.getErrorString()) ? GroupActivityActivity.this.getResources().getString(R.string.neterror) : responseGetGroupActivityMessage.getErrorString(), false);
                         GroupActivityActivity.this.finish();
                     } else if (responseGetGroupActivityMessage.getError() == 0) {
-                        GroupActivityActivity.this.hCi.a(responseGetGroupActivityMessage.getActivityData());
-                        GroupActivityActivity.this.hCh.a(responseGetGroupActivityMessage.getActivityData(), false);
+                        GroupActivityActivity.this.hCk.a(responseGetGroupActivityMessage.getActivityData());
+                        GroupActivityActivity.this.hCj.a(responseGetGroupActivityMessage.getActivityData(), false);
                     } else {
                         GroupActivityActivity.this.showToast(R.string.neterror);
                     }
@@ -77,7 +77,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
                     return;
                 }
                 ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
-                if (GroupActivityActivity.this.hCi.bVJ() == responseDelGroupActivityMessage.getOrginalMessage()) {
+                if (GroupActivityActivity.this.hCk.bVL() == responseDelGroupActivityMessage.getOrginalMessage()) {
                     if (responseDelGroupActivityMessage.getError() != 0) {
                         GroupActivityActivity.this.showToast(StringUtils.isNull(responseDelGroupActivityMessage.getErrorString()) ? GroupActivityActivity.this.getResources().getString(R.string.neterror) : responseDelGroupActivityMessage.getErrorString());
                         return;
@@ -94,18 +94,18 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initListener();
-        if (this.hCi == null) {
-            this.hCi = new GroupActivityModel(this);
-            this.hCi.setUniqueId(getUniqueId());
+        if (this.hCk == null) {
+            this.hCk = new GroupActivityModel(this);
+            this.hCk.setUniqueId(getUniqueId());
         }
         if (bundle != null) {
-            this.hCi.wy(bundle.getInt("activity_id", 0));
-            this.hCi.dQ(bundle.getLong("group_id", 0L));
-            this.hCi.wx(bundle.getInt("from", 0));
+            this.hCk.wy(bundle.getInt("activity_id", 0));
+            this.hCk.dQ(bundle.getLong("group_id", 0L));
+            this.hCk.wx(bundle.getInt("from", 0));
         } else if (getIntent() != null) {
-            this.hCi.wy(getIntent().getIntExtra("activity_id", 0));
-            this.hCi.dQ(getIntent().getLongExtra("group_id", 0L));
-            this.hCi.wx(getIntent().getIntExtra("from", 0));
+            this.hCk.wy(getIntent().getIntExtra("activity_id", 0));
+            this.hCk.dQ(getIntent().getLongExtra("group_id", 0L));
+            this.hCk.wx(getIntent().getIntExtra("from", 0));
         }
         initUI();
         startLoading();
@@ -116,33 +116,33 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
         super.onNewIntent(intent);
         initListener();
         initUI();
-        if (this.hCi == null) {
-            this.hCi = new GroupActivityModel(this);
+        if (this.hCk == null) {
+            this.hCk = new GroupActivityModel(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
         if (intent != null) {
-            this.hCi.wy(intent.getIntExtra("activity_id", 0));
-            this.hCi.dQ(intent.getLongExtra("group_id", 0L));
-            this.hCi.wx(intent.getIntExtra("from", 0));
+            this.hCk.wy(intent.getIntExtra("activity_id", 0));
+            this.hCk.dQ(intent.getLongExtra("group_id", 0L));
+            this.hCk.wx(intent.getIntExtra("from", 0));
         }
         startLoading();
     }
 
     private void initListener() {
-        registerListener(CmdConfigSocket.CMD_GET_GROUP_ACTIVITY, this.hry);
+        registerListener(CmdConfigSocket.CMD_GET_GROUP_ACTIVITY, this.hrA);
         registerListener(this.mCustomListener);
-        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.hry);
+        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.hrA);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.hCi != null) {
-            bundle.putInt("activity_id", this.hCi.bVH());
-            bundle.putLong("group_id", this.hCi.bVI());
-            bundle.putInt("from", this.hCi.bVG());
+        if (this.hCk != null) {
+            bundle.putInt("activity_id", this.hCk.bVJ());
+            bundle.putLong("group_id", this.hCk.bVK());
+            bundle.putInt("from", this.hCk.bVI());
         }
     }
 
@@ -156,43 +156,43 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hCi.cancelMessage();
-        if (this.hCh != null) {
-            this.hCh.onDestory();
+        this.hCk.cancelMessage();
+        if (this.hCj != null) {
+            this.hCj.onDestory();
         }
     }
 
     private void initUI() {
-        if (this.hCh == null) {
-            this.hCh = new b(this);
+        if (this.hCj == null) {
+            this.hCj = new b(this);
         }
     }
 
     private void startLoading() {
         showProgressBar();
-        this.hCi.wB(this.hCi.bVH());
+        this.hCk.wB(this.hCk.bVJ());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hCh != null) {
-            this.hCh.changeSkinType(i);
+        if (this.hCj != null) {
+            this.hCj.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hCh.bVL()) {
+        if (view == this.hCj.bVN()) {
             closeActivity();
-        } else if (view == this.hCh.bVM()) {
+        } else if (view == this.hCj.bVO()) {
             DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     GroupActivityActivity.this.showProgressBar();
-                    GroupActivityActivity.this.hCi.r(GroupActivityActivity.this.hCi.bVI(), GroupActivityActivity.this.hCi.bVH());
+                    GroupActivityActivity.this.hCk.r(GroupActivityActivity.this.hCk.bVK(), GroupActivityActivity.this.hCk.bVJ());
                 }
             });
         }
@@ -221,16 +221,16 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     @Override // com.baidu.tbadk.core.dialog.k.c
     public void a(k kVar, int i, View view) {
-        if (kVar != null && this.hCh != null && this.hCh.bVN() != null && kVar.getRootView() == this.hCh.bVN().getContentView()) {
-            this.hCh.bVN().dismiss();
+        if (kVar != null && this.hCj != null && this.hCj.bVP() != null && kVar.getRootView() == this.hCj.bVP().getContentView()) {
+            this.hCj.bVP().dismiss();
             if (i == 0) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.hCi.bVI(), this.hCi.bVK(), RequestResponseCode.REQUEST_EDIT_GROUP_ACTIVITY_CODE)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.hCk.bVK(), this.hCk.bVM(), RequestResponseCode.REQUEST_EDIT_GROUP_ACTIVITY_CODE)));
             } else if (i == 1) {
                 DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.4
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         GroupActivityActivity.this.showProgressBar();
-                        GroupActivityActivity.this.hCi.r(GroupActivityActivity.this.hCi.bVI(), GroupActivityActivity.this.hCi.bVH());
+                        GroupActivityActivity.this.hCk.r(GroupActivityActivity.this.hCk.bVK(), GroupActivityActivity.this.hCk.bVJ());
                     }
                 });
             }

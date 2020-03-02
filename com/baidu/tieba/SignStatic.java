@@ -37,7 +37,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aWK();
+        aWM();
         te();
     }
 
@@ -67,11 +67,11 @@ public class SignStatic {
                         xVar.addPostData("sign_from", data.getFromPage());
                     }
                     SignStatic.a(xVar);
-                    xVar.aGe().aGF().mIsNeedTbs = true;
+                    xVar.aGg().aGH().mIsNeedTbs = true;
                     xVar.fK(true);
                     String postNetData = xVar.postNetData();
                     if (xVar.isNetSuccess()) {
-                        if (xVar.aGe().aGG().isRequestSuccess()) {
+                        if (xVar.aGg().aGI().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -119,8 +119,8 @@ public class SignStatic {
         }
     }
 
-    private static void aWK() {
-        ba.aGE().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void aWM() {
+        ba.aGG().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

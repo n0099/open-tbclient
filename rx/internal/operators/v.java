@@ -4,11 +4,11 @@ import rx.g;
 import rx.h;
 /* loaded from: classes6.dex */
 public final class v<T> implements h.a<T> {
-    final h.a<T> nQW;
+    final h.a<T> nQY;
     final rx.g scheduler;
 
     public v(h.a<T> aVar, rx.g gVar) {
-        this.nQW = aVar;
+        this.nQY = aVar;
         this.scheduler = gVar;
     }
 
@@ -20,7 +20,7 @@ public final class v<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.nQW.call(aVar);
+        this.nQY.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,24 +28,24 @@ public final class v<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a nQX;
+        final g.a nQZ;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar) {
             this.actual = iVar;
-            this.nQX = aVar;
+            this.nQZ = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.nQX.c(this);
+            this.nQZ.c(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.nQX.c(this);
+            this.nQZ.c(this);
         }
 
         @Override // rx.functions.a
@@ -61,7 +61,7 @@ public final class v<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.nQX.unsubscribe();
+                this.nQZ.unsubscribe();
             }
         }
     }

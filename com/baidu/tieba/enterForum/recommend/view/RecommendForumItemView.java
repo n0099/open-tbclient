@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class RecommendForumItemView extends LinearLayout implements View.OnClickListener {
-    private LinearLayout fYm;
-    private View fYn;
-    private View fYo;
-    private BarImageView fYp;
-    private TextView fYq;
-    private TextView fYr;
+    private LinearLayout fYo;
+    private View fYp;
+    private View fYq;
+    private BarImageView fYr;
     private TextView fYs;
     private TextView fYt;
-    private TBSpecificationBtn fYu;
-    private a fYv;
-    private com.baidu.tieba.enterForum.recommend.b.b fYw;
+    private TextView fYu;
+    private TextView fYv;
+    private TBSpecificationBtn fYw;
+    private a fYx;
+    private com.baidu.tieba.enterForum.recommend.b.b fYy;
 
     /* loaded from: classes9.dex */
     interface a {
@@ -49,74 +49,74 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.recommend_forum_item_layout, this);
         View rootView = getRootView();
-        this.fYm = (LinearLayout) rootView.findViewById(R.id.forum_item_container);
-        this.fYn = rootView.findViewById(R.id.view_top);
-        this.fYo = rootView.findViewById(R.id.view_bottom);
-        this.fYp = (BarImageView) rootView.findViewById(R.id.forum_image);
-        this.fYq = (TextView) rootView.findViewById(R.id.forum_name);
-        this.fYr = (TextView) rootView.findViewById(R.id.forum_attention);
-        this.fYs = (TextView) rootView.findViewById(R.id.forum_thread);
-        this.fYt = (TextView) rootView.findViewById(R.id.forum_introduce);
-        this.fYu = (TBSpecificationBtn) rootView.findViewById(R.id.forum_like_button);
+        this.fYo = (LinearLayout) rootView.findViewById(R.id.forum_item_container);
+        this.fYp = rootView.findViewById(R.id.view_top);
+        this.fYq = rootView.findViewById(R.id.view_bottom);
+        this.fYr = (BarImageView) rootView.findViewById(R.id.forum_image);
+        this.fYs = (TextView) rootView.findViewById(R.id.forum_name);
+        this.fYt = (TextView) rootView.findViewById(R.id.forum_attention);
+        this.fYu = (TextView) rootView.findViewById(R.id.forum_thread);
+        this.fYv = (TextView) rootView.findViewById(R.id.forum_introduce);
+        this.fYw = (TBSpecificationBtn) rootView.findViewById(R.id.forum_like_button);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar.ls(R.color.cp_link_tip_a);
-        this.fYu.setConfig(cVar);
-        this.fYu.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-        this.fYp.setPlaceHolder(2);
-        this.fYp.setOnClickListener(this);
-        this.fYu.setOnClickListener(this);
+        this.fYw.setConfig(cVar);
+        this.fYw.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+        this.fYr.setPlaceHolder(2);
+        this.fYr.setOnClickListener(this);
+        this.fYw.setOnClickListener(this);
         rootView.setOnClickListener(this);
     }
 
     public void setForumItemClickListener(a aVar) {
         if (aVar != null) {
-            this.fYv = aVar;
+            this.fYx = aVar;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fYu) {
-            if (this.fYw.cQM) {
-                this.fYv.e(this.fYw);
+        if (view == this.fYw) {
+            if (this.fYy.cQN) {
+                this.fYx.e(this.fYy);
                 return;
             } else {
-                this.fYv.d(this.fYw);
+                this.fYx.d(this.fYy);
                 return;
             }
         }
-        this.fYv.e(this.fYw);
+        this.fYx.e(this.fYy);
     }
 
     public void onChangeSkinType() {
-        am.setViewTextColor(this.fYq, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.fYr, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.fYs, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.fYt, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.fYs, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.fYt, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.fYu, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.fYv, (int) R.color.cp_cont_j);
     }
 
     public void f(com.baidu.tieba.enterForum.recommend.b.b bVar) {
         if (bVar != null) {
-            this.fYw = bVar;
-            this.fYp.startLoad(bVar.avatar, 15, false);
-            this.fYp.setStrokeColorResId(R.color.cp_bg_line_d);
-            this.fYp.setStrokeWith(3);
-            this.fYp.setShowOval(true);
+            this.fYy = bVar;
+            this.fYr.startLoad(bVar.avatar, 15, false);
+            this.fYr.setStrokeColorResId(R.color.cp_bg_line_d);
+            this.fYr.setStrokeWith(3);
+            this.fYr.setShowOval(true);
             String str = bVar.forumName;
             if (aq.isEmpty(str)) {
                 str = "";
             }
-            this.fYq.setText(str);
-            this.fYr.setText("关注 " + aq.numFormatOverWan(bVar.memberCount));
-            this.fYs.setText("贴子 " + aq.numFormatOverWan(bVar.threadCount));
-            if (!aq.isEmpty(bVar.fWO)) {
-                this.fYt.setText(bVar.fWO);
+            this.fYs.setText(str);
+            this.fYt.setText("关注 " + aq.numFormatOverWan(bVar.memberCount));
+            this.fYu.setText("贴子 " + aq.numFormatOverWan(bVar.threadCount));
+            if (!aq.isEmpty(bVar.fWQ)) {
+                this.fYv.setText(bVar.fWQ);
             } else {
-                this.fYt.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
+                this.fYv.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
             }
-            kL(bVar.cQM);
-            com.baidu.tbadk.core.util.f.a.b.aGZ().ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).kC(R.color.cp_btn_a).aQ(this.fYn);
-            com.baidu.tbadk.core.util.f.a.aGX().kR(R.color.cp_btn_a).kM(l.getDimens(getContext(), R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kL(4353).kO(l.getDimens(getContext(), R.dimen.tbds10)).kP(0).kQ(l.getDimens(getContext(), R.dimen.tbds5)).aQ(this.fYo);
+            kL(bVar.cQN);
+            com.baidu.tbadk.core.util.f.a.b.aHb().ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).kC(R.color.cp_btn_a).aQ(this.fYp);
+            com.baidu.tbadk.core.util.f.a.aGZ().kR(R.color.cp_btn_a).kM(l.getDimens(getContext(), R.dimen.tbds10)).kN(R.color.cp_shadow_a_alpha16).kL(4353).kO(l.getDimens(getContext(), R.dimen.tbds10)).kP(0).kQ(l.getDimens(getContext(), R.dimen.tbds5)).aQ(this.fYq);
             g(bVar);
         }
     }
@@ -125,23 +125,23 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar.lu(R.color.cp_cont_d);
-            this.fYu.setConfig(cVar);
-            this.fYu.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-            this.fYu.setClickState(false);
+            this.fYw.setConfig(cVar);
+            this.fYw.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+            this.fYw.setClickState(false);
         } else {
             com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar2.ls(R.color.cp_link_tip_a);
-            this.fYu.setConfig(cVar2);
-            this.fYu.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-            this.fYu.setClickState(true);
+            this.fYw.setConfig(cVar2);
+            this.fYw.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+            this.fYw.setClickState(true);
         }
-        this.fYw.cQM = z;
+        this.fYy.cQN = z;
     }
 
     private void g(com.baidu.tieba.enterForum.recommend.b.b bVar) {
         if (bVar != null) {
             an anVar = new an("c13374");
-            anVar.cy("obj_type", String.valueOf(bVar.fWS));
+            anVar.cy("obj_type", String.valueOf(bVar.fWU));
             anVar.s("fid", bVar.forumId);
             anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
             TiebaStatic.log(anVar);

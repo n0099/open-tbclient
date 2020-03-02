@@ -14,99 +14,99 @@ import java.nio.charset.Charset;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class a extends c {
-    private static final int mBF = v.QE("styl");
-    private static final int mBG = v.QE("tbox");
-    private final l mBH;
-    private boolean mBI;
-    private int mBJ;
-    private int mBK;
-    private String mBL;
-    private float mBM;
-    private int mBN;
+    private static final int mBH = v.QE("styl");
+    private static final int mBI = v.QE("tbox");
+    private final l mBJ;
+    private boolean mBK;
+    private int mBL;
+    private int mBM;
+    private String mBN;
+    private float mBO;
+    private int mBP;
 
     public a(List<byte[]> list) {
         super("Tx3gDecoder");
-        this.mBH = new l();
+        this.mBJ = new l();
         fk(list);
     }
 
     private void fk(List<byte[]> list) {
         if (list != null && list.size() == 1 && (list.get(0).length == 48 || list.get(0).length == 53)) {
             byte[] bArr = list.get(0);
-            this.mBJ = bArr[24];
-            this.mBK = ((bArr[26] & 255) << 24) | ((bArr[27] & 255) << 16) | ((bArr[28] & 255) << 8) | (bArr[29] & 255);
-            this.mBL = "Serif".equals(new String(bArr, 43, bArr.length + (-43))) ? "serif" : "sans-serif";
-            this.mBN = bArr[25] * 20;
-            this.mBI = (bArr[0] & 32) != 0;
-            if (this.mBI) {
-                this.mBM = ((bArr[11] & 255) | ((bArr[10] & 255) << 8)) / this.mBN;
-                this.mBM = v.g(this.mBM, 0.0f, 0.95f);
+            this.mBL = bArr[24];
+            this.mBM = ((bArr[26] & 255) << 24) | ((bArr[27] & 255) << 16) | ((bArr[28] & 255) << 8) | (bArr[29] & 255);
+            this.mBN = "Serif".equals(new String(bArr, 43, bArr.length + (-43))) ? "serif" : "sans-serif";
+            this.mBP = bArr[25] * 20;
+            this.mBK = (bArr[0] & 32) != 0;
+            if (this.mBK) {
+                this.mBO = ((bArr[11] & 255) | ((bArr[10] & 255) << 8)) / this.mBP;
+                this.mBO = v.g(this.mBO, 0.0f, 0.95f);
                 return;
             }
-            this.mBM = 0.85f;
+            this.mBO = 0.85f;
             return;
         }
-        this.mBJ = 0;
-        this.mBK = -1;
-        this.mBL = "sans-serif";
-        this.mBI = false;
-        this.mBM = 0.85f;
+        this.mBL = 0;
+        this.mBM = -1;
+        this.mBN = "sans-serif";
+        this.mBK = false;
+        this.mBO = 0.85f;
     }
 
     @Override // com.google.android.exoplayer2.text.c
     protected e b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        this.mBH.I(bArr, i);
-        String V = V(this.mBH);
+        this.mBJ.I(bArr, i);
+        String V = V(this.mBJ);
         if (V.isEmpty()) {
-            return b.mBO;
+            return b.mBQ;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(V);
-        a(spannableStringBuilder, this.mBJ, 0, 0, spannableStringBuilder.length(), 16711680);
-        b(spannableStringBuilder, this.mBK, -1, 0, spannableStringBuilder.length(), 16711680);
-        a(spannableStringBuilder, this.mBL, "sans-serif", 0, spannableStringBuilder.length(), 16711680);
-        float f = this.mBM;
-        while (this.mBH.dzr() >= 8) {
-            int position = this.mBH.getPosition();
-            int readInt = this.mBH.readInt();
-            int readInt2 = this.mBH.readInt();
-            if (readInt2 == mBF) {
-                vO(this.mBH.dzr() >= 2);
-                int readUnsignedShort = this.mBH.readUnsignedShort();
+        a(spannableStringBuilder, this.mBL, 0, 0, spannableStringBuilder.length(), 16711680);
+        b(spannableStringBuilder, this.mBM, -1, 0, spannableStringBuilder.length(), 16711680);
+        a(spannableStringBuilder, this.mBN, "sans-serif", 0, spannableStringBuilder.length(), 16711680);
+        float f = this.mBO;
+        while (this.mBJ.dzt() >= 8) {
+            int position = this.mBJ.getPosition();
+            int readInt = this.mBJ.readInt();
+            int readInt2 = this.mBJ.readInt();
+            if (readInt2 == mBH) {
+                vO(this.mBJ.dzt() >= 2);
+                int readUnsignedShort = this.mBJ.readUnsignedShort();
                 for (int i2 = 0; i2 < readUnsignedShort; i2++) {
-                    a(this.mBH, spannableStringBuilder);
+                    a(this.mBJ, spannableStringBuilder);
                 }
-            } else if (readInt2 == mBG && this.mBI) {
-                vO(this.mBH.dzr() >= 2);
-                f = v.g(this.mBH.readUnsignedShort() / this.mBN, 0.0f, 0.95f);
+            } else if (readInt2 == mBI && this.mBK) {
+                vO(this.mBJ.dzt() >= 2);
+                f = v.g(this.mBJ.readUnsignedShort() / this.mBP, 0.0f, 0.95f);
             }
-            this.mBH.setPosition(position + readInt);
+            this.mBJ.setPosition(position + readInt);
         }
         return new b(new com.google.android.exoplayer2.text.b(spannableStringBuilder, null, f, 0, 0, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE));
     }
 
     private static String V(l lVar) throws SubtitleDecoderException {
-        char dzt;
-        vO(lVar.dzr() >= 2);
+        char dzv;
+        vO(lVar.dzt() >= 2);
         int readUnsignedShort = lVar.readUnsignedShort();
         if (readUnsignedShort == 0) {
             return "";
         }
-        if (lVar.dzr() >= 2 && ((dzt = lVar.dzt()) == 65279 || dzt == 65534)) {
+        if (lVar.dzt() >= 2 && ((dzv = lVar.dzv()) == 65279 || dzv == 65534)) {
             return lVar.a(readUnsignedShort, Charset.forName("UTF-16"));
         }
         return lVar.a(readUnsignedShort, Charset.forName("UTF-8"));
     }
 
     private void a(l lVar, SpannableStringBuilder spannableStringBuilder) throws SubtitleDecoderException {
-        vO(lVar.dzr() >= 12);
+        vO(lVar.dzt() >= 12);
         int readUnsignedShort = lVar.readUnsignedShort();
         int readUnsignedShort2 = lVar.readUnsignedShort();
         lVar.skipBytes(2);
         int readUnsignedByte = lVar.readUnsignedByte();
         lVar.skipBytes(1);
         int readInt = lVar.readInt();
-        a(spannableStringBuilder, readUnsignedByte, this.mBJ, readUnsignedShort, readUnsignedShort2, 0);
-        b(spannableStringBuilder, readInt, this.mBK, readUnsignedShort, readUnsignedShort2, 0);
+        a(spannableStringBuilder, readUnsignedByte, this.mBL, readUnsignedShort, readUnsignedShort2, 0);
+        b(spannableStringBuilder, readInt, this.mBM, readUnsignedShort, readUnsignedShort2, 0);
     }
 
     private static void a(SpannableStringBuilder spannableStringBuilder, int i, int i2, int i3, int i4, int i5) {

@@ -25,10 +25,10 @@ import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 /* loaded from: classes3.dex */
 public class AlaSquareLiveModel extends BdBaseModel {
-    private a ejW;
-    private List<m> ekA;
-    private boolean ekC;
-    private List<Long> ekD;
+    private a ejX;
+    private List<m> ekB;
+    private boolean ekD;
+    private List<Long> ekE;
     private LinkedList<FunctionListInfo> functionList;
     private HeadLiveInfo headLiveInfo;
     private boolean isLoadMore;
@@ -38,20 +38,20 @@ public class AlaSquareLiveModel extends BdBaseModel {
     private List<m> mThreadList;
     private int mPn = 1;
     private boolean mHasMore = false;
-    private boolean ekB = false;
-    private com.baidu.adp.framework.listener.a cHV = new com.baidu.adp.framework.listener.a(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE) { // from class: com.baidu.tieba.ala.alasquare.live.model.AlaSquareLiveModel.1
+    private boolean ekC = false;
+    private com.baidu.adp.framework.listener.a cHW = new com.baidu.adp.framework.listener.a(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE) { // from class: com.baidu.tieba.ala.alasquare.live.model.AlaSquareLiveModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             LinkedList<com.baidu.tieba.ala.alasquare.live.b.a> linkedList;
             boolean z;
-            AlaSquareLiveModel.this.ekC = false;
+            AlaSquareLiveModel.this.ekD = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (AlaSquareLiveModel.this.ekB) {
-                        AlaSquareLiveModel.this.ekB = false;
+                    if (AlaSquareLiveModel.this.ekC) {
+                        AlaSquareLiveModel.this.ekC = false;
                     }
-                    if (AlaSquareLiveModel.this.ejW != null) {
-                        AlaSquareLiveModel.this.ejW.ag(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (AlaSquareLiveModel.this.ejX != null) {
+                        AlaSquareLiveModel.this.ejX.ag(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -82,17 +82,17 @@ public class AlaSquareLiveModel extends BdBaseModel {
                     AlaSquareLiveModel.this.headLiveInfo = alaSquareLiveHttpResponseMessage.getHeadLiveInfo();
                     AlaSquareLiveModel.this.isSmallFollow = alaSquareLiveHttpResponseMessage.getIsSmallFollow();
                 }
-                boolean z2 = AlaSquareLiveModel.this.ekB;
-                if (AlaSquareLiveModel.this.ekB) {
-                    AlaSquareLiveModel.this.ekB = false;
-                    b.a(AlaSquareLiveModel.this.mDatas, linkedList, AlaSquareLiveModel.this.ekD);
+                boolean z2 = AlaSquareLiveModel.this.ekC;
+                if (AlaSquareLiveModel.this.ekC) {
+                    AlaSquareLiveModel.this.ekC = false;
+                    b.a(AlaSquareLiveModel.this.mDatas, linkedList, AlaSquareLiveModel.this.ekE);
                 } else {
                     AlaSquareLiveModel.this.mDatas = b.a(AlaSquareLiveModel.this.mDatas, linkedList, AlaSquareLiveModel.this.isLoadMore);
                     AlaSquareLiveModel.this.mHasMore = z;
                 }
-                AlaSquareLiveModel.this.bcf();
-                if (AlaSquareLiveModel.this.ejW != null) {
-                    AlaSquareLiveModel.this.ejW.g(z, false, z2);
+                AlaSquareLiveModel.this.bch();
+                if (AlaSquareLiveModel.this.ejX != null) {
+                    AlaSquareLiveModel.this.ejX.g(z, false, z2);
                 }
             }
         }
@@ -108,14 +108,14 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public AlaSquareLiveModel(e eVar, BdUniqueId bdUniqueId, a aVar) {
         this.mBdPageContext = eVar;
         this.unique_id = bdUniqueId;
-        this.ejW = aVar;
-        registerListener(this.cHV);
-        bcb();
+        this.ejX = aVar;
+        registerListener(this.cHW);
+        bcd();
         this.mDatas = new ArrayList();
         this.functionList = new LinkedList<>();
     }
 
-    private static void bcb() {
+    private static void bcd() {
         com.baidu.tieba.tbadkCore.a.a.a(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, com.baidu.tieba.tbadkCore.a.a.bu(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -136,8 +136,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
         return false;
     }
 
-    public void bcc() {
-        this.ekB = true;
+    public void bce() {
+        this.ekC = true;
         sendMessage(new AlaSquareLiveRequestMessage(1, false));
     }
 
@@ -145,22 +145,22 @@ public class AlaSquareLiveModel extends BdBaseModel {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.ekA != null) {
-            this.ekA.clear();
+        if (this.ekB != null) {
+            this.ekB.clear();
         }
         if (this.mThreadList != null) {
             this.mThreadList.clear();
         }
-        this.ekC = true;
-        this.ekB = false;
+        this.ekD = true;
+        this.ekC = false;
         this.isLoadMore = false;
         this.mPn = 1;
         sendMessage(new AlaSquareLiveRequestMessage(this.mPn, false));
     }
 
-    public void bcd() {
+    public void bcf() {
         if (hasMore()) {
-            this.ekB = false;
+            this.ekC = false;
             this.isLoadMore = true;
             this.mPn++;
             sendMessage(new AlaSquareLiveRequestMessage(this.mPn, false));
@@ -168,7 +168,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     }
 
     public boolean isRefreshing() {
-        return this.ekC;
+        return this.ekD;
     }
 
     public boolean hasMore() {
@@ -183,8 +183,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
         for (m mVar : this.mThreadList) {
             if (mVar instanceof c) {
                 c cVar = (c) mVar;
-                if (cVar.ejI != null && cVar.ejI.aCF() != null) {
-                    linkedList.add(Long.valueOf(cVar.ejI.aCF().live_id));
+                if (cVar.ejJ != null && cVar.ejJ.aCH() != null) {
+                    linkedList.add(Long.valueOf(cVar.ejJ.aCH().live_id));
                 }
             }
         }
@@ -196,14 +196,14 @@ public class AlaSquareLiveModel extends BdBaseModel {
     }
 
     public void bg(List<Long> list) {
-        if (!v.isEmpty(list) && !this.ekB) {
-            this.ekD = list;
-            bcc();
+        if (!v.isEmpty(list) && !this.ekC) {
+            this.ekE = list;
+            bce();
         }
     }
 
-    public List<m> bce() {
-        return this.ekA;
+    public List<m> bcg() {
+        return this.ekB;
     }
 
     public HeadLiveInfo getHeadLiveInfo() {
@@ -214,10 +214,10 @@ public class AlaSquareLiveModel extends BdBaseModel {
         return this.functionList;
     }
 
-    public void bcf() {
+    public void bch() {
         Pair<List<m>, List<m>> e = b.e(this.mBdPageContext.getString(R.string.square_live_category_title_hotest), this.mDatas);
         if (e != null) {
-            this.ekA = (List) e.first;
+            this.ekB = (List) e.first;
             this.mThreadList = (List) e.second;
         }
     }
@@ -234,9 +234,9 @@ public class AlaSquareLiveModel extends BdBaseModel {
             this.mDatas.clear();
             this.mDatas = null;
         }
-        if (this.ekA != null) {
-            this.ekA.clear();
-            this.ekA = null;
+        if (this.ekB != null) {
+            this.ekB.clear();
+            this.ekB = null;
         }
         if (this.mThreadList != null) {
             this.mThreadList.clear();

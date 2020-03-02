@@ -4,7 +4,7 @@ class ch {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f183a;
+    public String f182a;
     public String b;
 
     public ch() {
@@ -12,7 +12,7 @@ class ch {
 
     public ch(int i, String str, String str2) {
         this.a = i;
-        this.f183a = str;
+        this.f182a = str;
         this.b = str2;
     }
 }

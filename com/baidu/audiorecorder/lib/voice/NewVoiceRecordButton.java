@@ -94,7 +94,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.ab(getContext()));
         }
-        this.FR.aEA();
+        this.FR.aEC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

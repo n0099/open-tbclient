@@ -6,11 +6,11 @@ public abstract class a {
     public abstract void bT(boolean z);
 
     public void setNightModeSwitcherState(boolean z) {
-        com.baidu.swan.apps.storage.c.h.afp().putBoolean("PREFS_NIGHT_MODE", z);
+        com.baidu.swan.apps.storage.c.h.afr().putBoolean("PREFS_NIGHT_MODE", z);
     }
 
     public boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.storage.c.h.afp().getBoolean("PREFS_NIGHT_MODE", false);
+        return com.baidu.swan.apps.storage.c.h.afr().getBoolean("PREFS_NIGHT_MODE", false);
     }
 
     public void a(Object obj, com.baidu.swan.apps.am.a aVar) {

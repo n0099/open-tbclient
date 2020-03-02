@@ -47,11 +47,11 @@ public class a extends ab {
     }
 
     private void N(JSONObject jSONObject) {
-        d.Jx().L(jSONObject);
+        d.Jz().L(jSONObject);
         ai.l(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.OB();
+                c.OD();
             }
         });
     }

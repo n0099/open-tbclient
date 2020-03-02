@@ -1,20 +1,20 @@
 package com.facebook.imagepipeline.nativecode;
 /* loaded from: classes13.dex */
 public class d {
-    private static c lUQ;
-    public static boolean lUR;
+    private static c lUS;
+    public static boolean lUT;
 
     static {
-        lUR = false;
+        lUT = false;
         try {
-            lUQ = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
-            lUR = true;
+            lUS = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
+            lUT = true;
         } catch (Throwable th) {
-            lUR = false;
+            lUT = false;
         }
     }
 
-    public static c drs() {
-        return lUQ;
+    public static c dru() {
+        return lUS;
     }
 }

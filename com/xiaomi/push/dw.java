@@ -47,7 +47,7 @@ public class dw extends dx {
     public String mo157a() {
         String str = "";
         if (!TextUtils.isEmpty(a)) {
-            str = "" + a(dq.f244a, a);
+            str = "" + a(dq.f243a, a);
             a = "";
         }
         if (TextUtils.isEmpty(b)) {

@@ -12,21 +12,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cAB = new a();
+    private a cAC = new a();
 
     public void M(int i, @Nullable String str) {
-        this.cAB.record(i, str);
+        this.cAC.record(i, str);
     }
 
     public void m(@NonNull String str, int i, @Nullable String str2) {
-        this.cAB.l(str, i, str2);
+        this.cAC.l(str, i, str2);
     }
 
     public void f(@NonNull final String str, @Nullable final Map<String, String> map) {
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONArray qk = b.this.cAB.qk(str);
+                JSONArray qk = b.this.cAC.qk(str);
                 if (qk != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {

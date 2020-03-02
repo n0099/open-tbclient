@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.e;
 /* loaded from: classes9.dex */
 public class PbThreadPostView extends LinearLayout {
-    private e iEZ;
-    public View iUb;
-    public TextView iUc;
-    public TextView iUd;
+    private e iFb;
+    public View iUd;
+    public TextView iUe;
+    public TextView iUf;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void ns() {
-        this.iUb = findViewById(R.id.pb_thread_post_container);
-        this.iUc = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.iUd = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.iUd = findViewById(R.id.pb_thread_post_container);
+        this.iUe = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.iUf = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(e eVar) {
-        this.iEZ = eVar;
+        this.iFb = eVar;
         pk(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.iUd.setOnClickListener(this.mOnClickListener);
+            this.iUf.setOnClickListener(this.mOnClickListener);
         }
     }
 
     public void pk(int i) {
-        am.setBackgroundColor(this.iUb, R.color.cp_bg_line_e, i);
-        am.setViewTextColor(this.iUc, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.iUd, (int) R.color.cp_link_tip_a);
+        am.setBackgroundColor(this.iUd, R.color.cp_bg_line_e, i);
+        am.setViewTextColor(this.iUe, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.iUf, (int) R.color.cp_link_tip_a);
     }
 }

@@ -17,10 +17,6 @@ public interface i {
 
     void a(b bVar);
 
-    void cgC();
-
-    void cgD();
-
     void cgE();
 
     void cgF();
@@ -29,9 +25,13 @@ public interface i {
 
     void cgH();
 
-    String cgI();
+    void cgI();
 
-    String cgJ();
+    void cgJ();
+
+    String cgK();
+
+    String cgL();
 
     void e(long j, long j2, long j3);
 

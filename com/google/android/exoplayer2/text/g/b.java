@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes6.dex */
 public final class b extends com.google.android.exoplayer2.text.c {
-    private static final int mBS = v.QE("payl");
-    private static final int mBT = v.QE("sttg");
-    private static final int mBU = v.QE("vttc");
-    private final e.a mBV;
-    private final l mms;
+    private static final int mBU = v.QE("payl");
+    private static final int mBV = v.QE("sttg");
+    private static final int mBW = v.QE("vttc");
+    private final e.a mBX;
+    private final l mmu;
 
     public b() {
         super("Mp4WebvttDecoder");
-        this.mms = new l();
-        this.mBV = new e.a();
+        this.mmu = new l();
+        this.mBX = new e.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ public final class b extends com.google.android.exoplayer2.text.c {
     @Override // com.google.android.exoplayer2.text.c
     /* renamed from: g */
     public c b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        this.mms.I(bArr, i);
+        this.mmu.I(bArr, i);
         ArrayList arrayList = new ArrayList();
-        while (this.mms.dzr() > 0) {
-            if (this.mms.dzr() < 8) {
+        while (this.mmu.dzt() > 0) {
+            if (this.mmu.dzt() < 8) {
                 throw new SubtitleDecoderException("Incomplete Mp4Webvtt Top Level box header found.");
             }
-            int readInt = this.mms.readInt();
-            if (this.mms.readInt() == mBU) {
-                arrayList.add(a(this.mms, this.mBV, readInt - 8));
+            int readInt = this.mmu.readInt();
+            if (this.mmu.readInt() == mBW) {
+                arrayList.add(a(this.mmu, this.mBX, readInt - 8));
             } else {
-                this.mms.skipBytes(readInt - 8);
+                this.mmu.skipBytes(readInt - 8);
             }
         }
         return new c(arrayList);
@@ -53,12 +53,12 @@ public final class b extends com.google.android.exoplayer2.text.c {
             String str = new String(lVar.data, lVar.getPosition(), i2);
             lVar.skipBytes(i2);
             i = (i - 8) - i2;
-            if (readInt2 == mBT) {
+            if (readInt2 == mBV) {
                 f.a(str, aVar);
-            } else if (readInt2 == mBS) {
+            } else if (readInt2 == mBU) {
                 f.a((String) null, str.trim(), aVar, Collections.emptyList());
             }
         }
-        return aVar.dys();
+        return aVar.dyu();
     }
 }

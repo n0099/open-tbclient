@@ -23,10 +23,10 @@ import com.baidu.tieba.ala.guardthrone.f.a;
 /* loaded from: classes3.dex */
 public class GuardThroneActivity extends BaseFragmentActivity {
     private String aaT;
-    private String awn;
-    private a eIJ;
+    private String awo;
     private a eIK;
-    private boolean eIL;
+    private a eIL;
+    private boolean eIM;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
@@ -48,18 +48,18 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         if (str != null && str.contains("Flyme")) {
             getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
         }
-        bfX();
+        bfZ();
         initView();
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            setContentView(this.eIK.getRootView());
+            setContentView(this.eIL.getRootView());
         } else {
-            setContentView(this.eIJ.getRootView());
+            setContentView(this.eIK.getRootView());
         }
         initListener();
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            h.S(this.eIK.getRootView());
+            h.S(this.eIL.getRootView());
         } else {
-            h.T(this.eIJ.getRootView());
+            h.T(this.eIK.getRootView());
         }
     }
 
@@ -68,41 +68,41 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         super.onConfigurationChanged(configuration);
         if (!this.isFinish) {
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                this.eIJ.getRootView().setVisibility(8);
+                this.eIK.getRootView().setVisibility(8);
+                this.eIL.getRootView().setVisibility(0);
+                setContentView(this.eIL.getRootView());
+                h.S(this.eIL.getRootView());
+            } else {
+                this.eIL.getRootView().setVisibility(8);
                 this.eIK.getRootView().setVisibility(0);
                 setContentView(this.eIK.getRootView());
-                h.S(this.eIK.getRootView());
-            } else {
-                this.eIK.getRootView().setVisibility(8);
-                this.eIJ.getRootView().setVisibility(0);
-                setContentView(this.eIJ.getRootView());
-                h.T(this.eIJ.getRootView());
+                h.T(this.eIK.getRootView());
             }
-            this.eIJ.aza();
-            this.eIK.aza();
+            this.eIK.azc();
+            this.eIL.azc();
         }
     }
 
-    private void bfX() {
+    private void bfZ() {
         this.mLiveId = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_LIVE_ID);
-        this.awn = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
+        this.awo = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
         this.aaT = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
         this.mTabId = getIntent().getIntExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_TAB_ID, 1);
         this.mIsHost = getIntent().getBooleanExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_IS_HOST, false);
     }
 
     private void initView() {
-        this.eIJ = new com.baidu.tieba.ala.guardthrone.f.a(this, false, this.mIsHost);
-        this.eIJ.e(this.mLiveId, this.awn, this.aaT, this.mTabId);
-        this.eIK = new com.baidu.tieba.ala.guardthrone.f.a(this, true, this.mIsHost);
-        this.eIK.e(this.mLiveId, this.awn, this.aaT, this.mTabId);
+        this.eIK = new com.baidu.tieba.ala.guardthrone.f.a(this, false, this.mIsHost);
+        this.eIK.e(this.mLiveId, this.awo, this.aaT, this.mTabId);
+        this.eIL = new com.baidu.tieba.ala.guardthrone.f.a(this, true, this.mIsHost);
+        this.eIL.e(this.mLiveId, this.awo, this.aaT, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.eIJ.getRootView().setVisibility(8);
-            this.eIK.getRootView().setVisibility(0);
+            this.eIK.getRootView().setVisibility(8);
+            this.eIL.getRootView().setVisibility(0);
             return;
         }
-        this.eIK.getRootView().setVisibility(8);
-        this.eIJ.getRootView().setVisibility(0);
+        this.eIL.getRootView().setVisibility(8);
+        this.eIK.getRootView().setVisibility(0);
     }
 
     private void initListener() {
@@ -113,18 +113,18 @@ public class GuardThroneActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eIL = true;
+        this.eIM = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.eIL) {
-            this.eIJ.onResume();
+        if (!this.eIM) {
             this.eIK.onResume();
+            this.eIL.onResume();
         }
-        this.eIL = false;
+        this.eIM = false;
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -147,25 +147,25 @@ public class GuardThroneActivity extends BaseFragmentActivity {
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.agU);
-        if (this.eIJ != null) {
-            this.eIJ.onDestroy();
-        }
         if (this.eIK != null) {
             this.eIK.onDestroy();
+        }
+        if (this.eIL != null) {
+            this.eIL.onDestroy();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Animation bgl;
+        Animation bgn;
         if (!this.isFinish) {
             this.isFinish = true;
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                bgl = this.eIK.bgl();
+                bgn = this.eIL.bgn();
             } else {
-                bgl = this.eIJ.bgl();
+                bgn = this.eIK.bgn();
             }
-            bgl.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.2
+            bgn.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
@@ -187,7 +187,7 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         }
     }
 
-    public void bfY() {
+    public void bga() {
         super.finish();
     }
 

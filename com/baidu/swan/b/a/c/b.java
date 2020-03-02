@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends ActivityDelegation {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private JSONObject cje;
-    private c cjq = new c();
-    private com.baidu.swan.b.a.c.c cjr;
+    private JSONObject cjf;
+    private c cjr = new c();
+    private com.baidu.swan.b.a.c.c cjs;
     private String mPackageName;
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -19,18 +19,18 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
         }
-        this.cje = s.parseString(this.mParams.getString("ubc_params", ""));
+        this.cjf = s.parseString(this.mParams.getString("ubc_params", ""));
         JSONObject parseString = s.parseString(this.mParams.getString("data", ""));
         this.mPackageName = parseString.optString("packageName");
         this.mResult.putString("packageName", this.mPackageName);
-        this.cjr = new com.baidu.swan.b.a.c.c(this.cjq);
-        com.baidu.swan.b.a.a.a.sExecutorService.execute(new RunnableC0313b(parseString, this.cje, this.cjr));
+        this.cjs = new com.baidu.swan.b.a.c.c(this.cjr);
+        com.baidu.swan.b.a.a.a.sExecutorService.execute(new RunnableC0313b(parseString, this.cjf, this.cjs));
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.b.a.d.a aVar) {
-        com.baidu.swan.b.a.a.akQ().a(jSONObject.optString("url"), aVar);
+        com.baidu.swan.b.a.a.akS().a(jSONObject.optString("url"), aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -39,10 +39,10 @@ public class b extends ActivityDelegation {
             this.mResult.putString("functionType", bVar.getFunctionType());
             this.mResult.putString("resultData", bVar.getResult());
             this.mResult.putInt("resultStatus", bVar.getStatus());
-            if (bVar.ald()) {
-                com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", "success", null, new com.baidu.swan.b.a.f.a(this.cje));
+            if (bVar.alf()) {
+                com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", "success", null, new com.baidu.swan.b.a.f.a(this.cjf));
             } else {
-                com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", LivenessStat.TYPE_FACE_MATCH_FAIL, String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cje));
+                com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", LivenessStat.TYPE_FACE_MATCH_FAIL, String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cjf));
             }
         }
         release();
@@ -62,16 +62,16 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.mPackageName);
         }
-        com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", LivenessStat.TYPE_FACE_MATCH_FAIL, String.valueOf(31003), new com.baidu.swan.b.a.f.a(this.cje));
+        com.baidu.swan.b.a.f.c.a(this.mPackageName, "installApp", LivenessStat.TYPE_FACE_MATCH_FAIL, String.valueOf(31003), new com.baidu.swan.b.a.f.a(this.cjf));
         release();
     }
 
     private void release() {
-        if (this.cjr != null) {
-            com.baidu.swan.b.a.a.akQ().e(this.mPackageName, this.cjr);
-            this.cjr = null;
+        if (this.cjs != null) {
+            com.baidu.swan.b.a.a.akS().e(this.mPackageName, this.cjs);
+            this.cjs = null;
         }
-        this.cjq = null;
+        this.cjr = null;
     }
 
     /* loaded from: classes11.dex */
@@ -105,21 +105,21 @@ public class b extends ActivityDelegation {
     /* renamed from: com.baidu.swan.b.a.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class RunnableC0313b implements Runnable {
-        private JSONObject cje;
-        private JSONObject cjs;
-        private com.baidu.swan.b.a.d.a cjt;
+        private JSONObject cjf;
+        private JSONObject cjt;
+        private com.baidu.swan.b.a.d.a cju;
 
         private RunnableC0313b(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull com.baidu.swan.b.a.d.a aVar) {
-            this.cjs = jSONObject;
-            this.cje = jSONObject2;
-            this.cjt = aVar;
+            this.cjt = jSONObject;
+            this.cjf = jSONObject2;
+            this.cju = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.b.a.a.akQ().bq(this.cje);
-            com.baidu.swan.b.a.f.c.a(this.cjs.optString("packageName"), "installApp", null, null, new com.baidu.swan.b.a.f.a(this.cje));
-            b.a(this.cjs, this.cjt);
+            com.baidu.swan.b.a.a.akS().bq(this.cjf);
+            com.baidu.swan.b.a.f.c.a(this.cjt.optString("packageName"), "installApp", null, null, new com.baidu.swan.b.a.f.a(this.cjf));
+            b.a(this.cjt, this.cju);
         }
     }
 
@@ -133,8 +133,8 @@ public class b extends ActivityDelegation {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.b.a.a.akQ().nY(this.mFilePath);
-            com.baidu.swan.b.a.a.akQ().akS();
+            com.baidu.swan.b.a.a.akS().nY(this.mFilePath);
+            com.baidu.swan.b.a.a.akS().akU();
         }
     }
 }

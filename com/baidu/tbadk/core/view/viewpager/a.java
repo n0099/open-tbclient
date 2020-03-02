@@ -10,26 +10,26 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends v.a {
     public int Ni;
-    public RelativeLayout dkq;
-    public TextView dkr;
-    public IndicatorView dks;
-    public View dkt;
-    public BdBaseViewPager dku;
+    public RelativeLayout dkr;
+    public TextView dks;
+    public IndicatorView dkt;
+    public View dku;
+    public BdBaseViewPager dkv;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
         this.Ni = 3;
         this.title = null;
-        this.dkr = null;
         this.dks = null;
         this.dkt = null;
         this.dku = null;
-        this.dkq = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.dkv = null;
+        this.dkr = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.dkr = (TextView) view.findViewById(R.id.more_textview);
-        this.dks = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.dkt = view.findViewById(R.id.bottom_divider_line);
-        this.dku = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.dks = (TextView) view.findViewById(R.id.more_textview);
+        this.dkt = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.dku = view.findViewById(R.id.bottom_divider_line);
+        this.dkv = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

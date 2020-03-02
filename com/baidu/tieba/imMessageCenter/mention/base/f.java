@@ -14,29 +14,29 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f {
-    private View hQG;
-    private LinearLayout hQH;
-    private ImageView hQI;
-    private HeadImageView htD;
-    private TextView htE;
-    private MessageRedDotView htH;
+    private View hQI;
+    private LinearLayout hQJ;
+    private ImageView hQK;
+    private HeadImageView htF;
+    private TextView htG;
+    private MessageRedDotView htJ;
     private int mIcon;
 
     public f(TbPageContext tbPageContext) {
-        this.hQG = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
-        this.hQH = (LinearLayout) this.hQG.findViewById(R.id.reply_and_at_item);
-        this.hQI = (ImageView) this.hQG.findViewById(R.id.arrow_view);
-        this.htD = (HeadImageView) this.hQG.findViewById(R.id.reply_and_at_head);
-        this.htD.setIsRound(true);
-        this.htD.setDrawBorder(false);
-        this.htH = (MessageRedDotView) this.hQG.findViewById(R.id.new_message);
-        this.htE = (TextView) this.hQG.findViewById(R.id.desc_view);
+        this.hQI = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
+        this.hQJ = (LinearLayout) this.hQI.findViewById(R.id.reply_and_at_item);
+        this.hQK = (ImageView) this.hQI.findViewById(R.id.arrow_view);
+        this.htF = (HeadImageView) this.hQI.findViewById(R.id.reply_and_at_head);
+        this.htF.setIsRound(true);
+        this.htF.setDrawBorder(false);
+        this.htJ = (MessageRedDotView) this.hQI.findViewById(R.id.new_message);
+        this.htG = (TextView) this.hQI.findViewById(R.id.desc_view);
     }
 
     public void ba(String str, int i) {
-        this.htE.setText(str);
+        this.htG.setText(str);
         this.mIcon = i;
-        bHq();
+        bHs();
     }
 
     public void L(int i, boolean z) {
@@ -44,24 +44,24 @@ public class f {
             if (z) {
                 i = 0;
             }
-            this.htH.refresh(i);
-            this.htH.setVisibility(0);
+            this.htJ.refresh(i);
+            this.htJ.setVisibility(0);
             return;
         }
-        this.htH.setVisibility(8);
+        this.htJ.setVisibility(8);
     }
 
-    public void bHq() {
-        am.setViewTextColor(this.htE, R.color.cp_cont_b, 1);
-        this.hQG.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
-        SvgManager.aGA().a(this.hQI, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setImageResource(this.htD, this.mIcon);
-        if (this.htH != null) {
-            this.htH.onChangeSkinType();
+    public void bHs() {
+        am.setViewTextColor(this.htG, R.color.cp_cont_b, 1);
+        this.hQI.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
+        SvgManager.aGC().a(this.hQK, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        am.setImageResource(this.htF, this.mIcon);
+        if (this.htJ != null) {
+            this.htJ.onChangeSkinType();
         }
     }
 
     public View getView() {
-        return this.hQG;
+        return this.hQI;
     }
 }

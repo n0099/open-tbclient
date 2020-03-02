@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes13.dex */
 public interface h {
-    int dqC();
+    int dqE();
 
-    boolean dqD();
+    boolean dqF();
 
-    boolean dqE();
+    boolean dqG();
 }

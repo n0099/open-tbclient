@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes12.dex */
 public class i {
-    private final boolean lSC;
-    private final b.a lSD;
     private final boolean lSE;
-    private final com.facebook.common.g.b lSF;
+    private final b.a lSF;
     private final boolean lSG;
-    private final boolean lSH;
-    private final int lSI;
-    private final int lSJ;
-    private boolean lSK;
-    private final boolean lSL;
-    private final c lSM;
-    private final com.facebook.common.internal.j<Boolean> lSc;
+    private final com.facebook.common.g.b lSH;
+    private final boolean lSI;
+    private final boolean lSJ;
+    private final int lSK;
+    private final int lSL;
+    private boolean lSM;
+    private final boolean lSN;
+    private final c lSO;
+    private final com.facebook.common.internal.j<Boolean> lSe;
 
     /* loaded from: classes12.dex */
     public interface c {
@@ -26,8 +26,6 @@ public class i {
     }
 
     private i(a aVar) {
-        this.lSC = aVar.lSC;
-        this.lSD = aVar.lSD;
         this.lSE = aVar.lSE;
         this.lSF = aVar.lSF;
         this.lSG = aVar.lSG;
@@ -36,83 +34,85 @@ public class i {
         this.lSJ = aVar.lSJ;
         this.lSK = aVar.lSK;
         this.lSL = aVar.lSL;
-        if (aVar.lSM == null) {
-            this.lSM = new b();
+        this.lSM = aVar.lSM;
+        this.lSN = aVar.lSN;
+        if (aVar.lSO == null) {
+            this.lSO = new b();
         } else {
-            this.lSM = aVar.lSM;
+            this.lSO = aVar.lSO;
         }
-        this.lSc = aVar.lSc;
-    }
-
-    public boolean dph() {
-        return this.lSG;
-    }
-
-    public boolean dpi() {
-        return this.lSC;
+        this.lSe = aVar.lSe;
     }
 
     public boolean dpj() {
-        return this.lSE;
-    }
-
-    public b.a dpk() {
-        return this.lSD;
-    }
-
-    public com.facebook.common.g.b dpl() {
-        return this.lSF;
-    }
-
-    public boolean dpm() {
-        return this.lSH;
-    }
-
-    public int dpn() {
         return this.lSI;
     }
 
-    public int dpo() {
+    public boolean dpk() {
+        return this.lSE;
+    }
+
+    public boolean dpl() {
+        return this.lSG;
+    }
+
+    public b.a dpm() {
+        return this.lSF;
+    }
+
+    public com.facebook.common.g.b dpn() {
+        return this.lSH;
+    }
+
+    public boolean dpo() {
         return this.lSJ;
     }
 
-    public boolean dpp() {
-        return this.lSL;
-    }
-
-    public c dpq() {
-        return this.lSM;
-    }
-
-    public boolean dpr() {
+    public int dpp() {
         return this.lSK;
     }
 
-    public com.facebook.common.internal.j<Boolean> dps() {
-        return this.lSc;
+    public int dpq() {
+        return this.lSL;
+    }
+
+    public boolean dpr() {
+        return this.lSN;
+    }
+
+    public c dps() {
+        return this.lSO;
+    }
+
+    public boolean dpt() {
+        return this.lSM;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dpu() {
+        return this.lSe;
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private b.a lSD;
-        private com.facebook.common.g.b lSF;
-        private c lSM;
-        private final h.a lSN;
-        public com.facebook.common.internal.j<Boolean> lSc;
-        private boolean lSC = false;
+        private b.a lSF;
+        private com.facebook.common.g.b lSH;
+        private c lSO;
+        private final h.a lSP;
+        public com.facebook.common.internal.j<Boolean> lSe;
         private boolean lSE = false;
         private boolean lSG = false;
-        private boolean lSH = false;
-        private int lSI = 0;
-        private int lSJ = 0;
-        public boolean lSK = false;
-        private boolean lSL = false;
+        private boolean lSI = false;
+        private boolean lSJ = false;
+        private int lSK = 0;
+        private int lSL = 0;
+        public boolean lSM = false;
+        private boolean lSN = false;
 
         public a(h.a aVar) {
-            this.lSN = aVar;
+            this.lSP = aVar;
         }
 
-        public i dpt() {
+        public i dpv() {
             return new i(this);
         }
     }

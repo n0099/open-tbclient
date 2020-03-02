@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.liveroom.challenge.panel;
 /* loaded from: classes3.dex */
 public interface k {
-    void bkJ();
-
-    void bkK();
-
     void bkL();
 
     void bkM();
 
     void bkN();
+
+    void bkO();
+
+    void bkP();
 
     void bl(int i);
 

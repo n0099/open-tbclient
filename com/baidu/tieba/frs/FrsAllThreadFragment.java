@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ah {
-    private BdSwipeRefreshLayout ens;
+    private BdSwipeRefreshLayout ent;
     private String forumId;
-    private RecyclerView gnA;
-    private View gnz;
+    private View gnB;
+    private RecyclerView gnC;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,36 +28,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ah {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        bDu();
-        return this.gnz;
+        bDw();
+        return this.gnB;
     }
 
     public void setView(View view) {
-        this.gnz = view;
-        this.gnA = (RecyclerView) this.gnz.findViewById(R.id.frs_lv_thread);
-        this.ens = (BdSwipeRefreshLayout) this.gnz.findViewById(R.id.frs_pull_refresh_layout);
-        bDu();
+        this.gnB = view;
+        this.gnC = (RecyclerView) this.gnB.findViewById(R.id.frs_lv_thread);
+        this.ent = (BdSwipeRefreshLayout) this.gnB.findViewById(R.id.frs_pull_refresh_layout);
+        bDw();
     }
 
-    private void bDu() {
-        if (this.gnz != null && (this.gnz.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gnz.getParent()).removeView(this.gnz);
-            this.gnz.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bDw() {
+        if (this.gnB != null && (this.gnB.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gnB.getParent()).removeView(this.gnB);
+            this.gnB.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void scrollToTop() {
-        if (this.gnA != null) {
-            this.gnA.scrollToPosition(0);
+        if (this.gnC != null) {
+            this.gnC.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void bdo() {
-        if (this.ens != null) {
+    public void bdq() {
+        if (this.ent != null) {
             scrollToTop();
-            this.ens.setRefreshing(true);
+            this.ent.setRefreshing(true);
         }
     }
 

@@ -36,15 +36,15 @@ public class RxExecutor {
                 }
                 if (!(th instanceof SocketException) && !(th instanceof SocketTimeoutException) && !(th instanceof IOException) && !(th instanceof InterruptedException)) {
                     if ((th instanceof NullPointerException) || (th instanceof IllegalArgumentException)) {
-                        if (tv.chushou.a.a.c.a.dQd().dQe()) {
+                        if (tv.chushou.a.a.c.a.dQf().dQg()) {
                             Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), th);
                         }
                     } else if (th instanceof IllegalStateException) {
-                        if (tv.chushou.a.a.c.a.dQd().dQe()) {
+                        if (tv.chushou.a.a.c.a.dQf().dQg()) {
                             Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), th);
                         }
                     } else {
-                        tv.chushou.a.a.c.a.dQd().e("RxJava UnHandled Exceptions", "Default Error Handler:", th);
+                        tv.chushou.a.a.c.a.dQf().e("RxJava UnHandled Exceptions", "Default Error Handler:", th);
                     }
                 }
             }
@@ -95,9 +95,9 @@ public class RxExecutor {
         if (aVar != null && aVar.isDisposed()) {
             return EMPTY;
         }
-        v.c dJf = vVar.dJf();
-        DisposeTask disposeTask = new DisposeTask(a.F(runnable), dJf, aVar);
-        dJf.c(disposeTask, j, timeUnit);
+        v.c dJh = vVar.dJh();
+        DisposeTask disposeTask = new DisposeTask(a.F(runnable), dJh, aVar);
+        dJh.c(disposeTask, j, timeUnit);
         return disposeTask;
     }
 

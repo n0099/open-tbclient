@@ -17,7 +17,7 @@ public class a {
     /* renamed from: com.baidu.rtc.camera.engine.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     private static class C0171a {
-        public static a aWs = new a(null);
+        public static a aWt = new a(null);
     }
 
     /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -27,17 +27,17 @@ public class a {
     private a() {
     }
 
-    public static a Fk() {
-        return C0171a.aWs;
+    public static a Fm() {
+        return C0171a.aWt;
     }
 
     public void aY(Context context) {
-        i(context, com.baidu.rtc.camera.engine.a.b.Fl().aWw);
+        i(context, com.baidu.rtc.camera.engine.a.b.Fn().aWx);
     }
 
     public void i(Context context, int i) {
         try {
-            a(context, com.baidu.rtc.camera.engine.a.b.Fl().cameraId, i, com.baidu.rtc.camera.engine.a.b.Fl().aWy, com.baidu.rtc.camera.engine.a.b.Fl().aWz);
+            a(context, com.baidu.rtc.camera.engine.a.b.Fn().cameraId, i, com.baidu.rtc.camera.engine.a.b.Fn().aWz, com.baidu.rtc.camera.engine.a.b.Fn().aWA);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,12 +51,12 @@ public class a {
         if (this.mCamera == null) {
             throw new RuntimeException("Unable to open camera");
         }
-        com.baidu.rtc.camera.engine.a.b Fl = com.baidu.rtc.camera.engine.a.b.Fl();
-        Fl.cameraId = i;
+        com.baidu.rtc.camera.engine.a.b Fn = com.baidu.rtc.camera.engine.a.b.Fn();
+        Fn.cameraId = i;
         this.mCamera.cancelAutoFocus();
         Camera.Parameters parameters = this.mCamera.getParameters();
-        Fl.aWB = b(parameters);
-        Fl.aWx = a(parameters, i2 * 1000);
+        Fn.aWC = b(parameters);
+        Fn.aWy = a(parameters, i2 * 1000);
         parameters.setRecordingHint(true);
         if (parameters.getSupportedFocusModes().contains("continuous-video")) {
             parameters.setFocusMode("continuous-video");
@@ -65,7 +65,7 @@ public class a {
         a(this.mCamera, i3, i4);
         b(this.mCamera, i3, i4);
         C((Activity) context);
-        this.mCamera.setDisplayOrientation(Fl.orientation);
+        this.mCamera.setDisplayOrientation(Fn.orientation);
     }
 
     public void c(SurfaceTexture surfaceTexture) {
@@ -95,7 +95,7 @@ public class a {
             this.mCamera.release();
             this.mCamera = null;
         }
-        com.baidu.rtc.camera.engine.a.b.Fl().aWB = false;
+        com.baidu.rtc.camera.engine.a.b.Fn().aWC = false;
     }
 
     public void setPreviewCallback(Camera.PreviewCallback previewCallback) {
@@ -108,8 +108,8 @@ public class a {
         Camera.Parameters parameters = camera.getParameters();
         Camera.Size a = a(parameters.getSupportedPreviewSizes(), i, i2, CalculateType.Lower);
         parameters.setPreviewSize(a.width, a.height);
-        com.baidu.rtc.camera.engine.a.b.Fl().previewWidth = a.width;
-        com.baidu.rtc.camera.engine.a.b.Fl().previewHeight = a.height;
+        com.baidu.rtc.camera.engine.a.b.Fn().previewWidth = a.width;
+        com.baidu.rtc.camera.engine.a.b.Fn().previewHeight = a.height;
         camera.setParameters(parameters);
     }
 
@@ -124,7 +124,7 @@ public class a {
         int i;
         int i2 = 0;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-        Camera.getCameraInfo(com.baidu.rtc.camera.engine.a.b.Fl().cameraId, cameraInfo);
+        Camera.getCameraInfo(com.baidu.rtc.camera.engine.a.b.Fn().cameraId, cameraInfo);
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 1:
                 i2 = 90;
@@ -141,7 +141,7 @@ public class a {
         } else {
             i = ((cameraInfo.orientation - i2) + 360) % 360;
         }
-        com.baidu.rtc.camera.engine.a.b.Fl().orientation = i;
+        com.baidu.rtc.camera.engine.a.b.Fn().orientation = i;
         return i;
     }
 
@@ -149,12 +149,12 @@ public class a {
     /* renamed from: com.baidu.rtc.camera.engine.a.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public class AnonymousClass1 implements Camera.AutoFocusCallback {
-        final /* synthetic */ String aWq;
+        final /* synthetic */ String aWr;
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setFocusMode(this.aWq);
+            parameters.setFocusMode(this.aWr);
             camera.setParameters(parameters);
         }
     }
@@ -266,18 +266,18 @@ public class a {
             boolean z2 = false;
             Camera.Size size7 = list.get(0);
             for (Camera.Size size8 : list) {
-                if (size8.width != i || size8.height != i2 || size8.height / size8.width != com.baidu.rtc.camera.engine.a.b.Fl().aWv) {
+                if (size8.width != i || size8.height != i2 || size8.height / size8.width != com.baidu.rtc.camera.engine.a.b.Fn().aWw) {
                     if (size8.width == i) {
                         z2 = true;
-                        if (Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fl().aWv) {
+                        if (Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fn().aWw) {
                             return size8;
                         }
                     } else if (size8.height == i2) {
                         z2 = true;
-                        if (Math.abs(size7.width - i) > Math.abs(size8.width - i) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fl().aWv) {
+                        if (Math.abs(size7.width - i) > Math.abs(size8.width - i) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fn().aWw) {
                             return size8;
                         }
-                    } else if (!z2 && Math.abs(size7.width - i) > Math.abs(size8.width - i) && Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fl().aWv) {
+                    } else if (!z2 && Math.abs(size7.width - i) > Math.abs(size8.width - i) && Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Fn().aWw) {
                         boolean z3 = z2;
                         size2 = size8;
                         z = z3;

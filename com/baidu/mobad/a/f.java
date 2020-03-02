@@ -21,7 +21,7 @@ public class f {
         return this.a.get(str);
     }
 
-    public IXLinearAdSlot Ec() {
+    public IXLinearAdSlot Ee() {
         return (IXLinearAdSlot) a(IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL);
     }
 

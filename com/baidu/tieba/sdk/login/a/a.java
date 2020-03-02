@@ -14,9 +14,9 @@ public class a extends HttpResponsedRule {
     /* renamed from: a */
     public HttpResponsedMessage process(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            com.baidu.tieba.sdk.login.a cEu = com.baidu.tieba.sdk.login.a.cEu();
+            com.baidu.tieba.sdk.login.a cEw = com.baidu.tieba.sdk.login.a.cEw();
             if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                cEu.cdC();
+                cEw.cdE();
                 return null;
             }
             return httpResponsedMessage;

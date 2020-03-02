@@ -17,7 +17,7 @@ public class e extends RecyclerView.ViewHolder {
     private View d;
     private String e;
     private String f;
-    private ConvenientBanner<ListItem> neX;
+    private ConvenientBanner<ListItem> neZ;
 
     public e(View view, String str, String str2) {
         super(view);
@@ -26,8 +26,8 @@ public class e extends RecyclerView.ViewHolder {
         this.d = view;
         this.e = str;
         this.f = str2;
-        this.neX = (ConvenientBanner) view.findViewById(a.f.recycler_view);
-        this.neX.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.e.1
+        this.neZ = (ConvenientBanner) view.findViewById(a.f.recycler_view);
+        this.neZ.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.e.1
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
             public int getLayoutId() {
                 return a.h.recycleitem_sliding_small_poster;
@@ -38,24 +38,24 @@ public class e extends RecyclerView.ViewHolder {
                 return new a(view2, null);
             }
         }, this.a);
-        this.neX.p(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
-        this.neX.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 14.0f));
+        this.neZ.p(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
+        this.neZ.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 14.0f));
     }
 
     public void a(PannelItem pannelItem, int[] iArr) {
         this.a.clear();
         this.a.addAll(pannelItem.mNavItemList);
-        this.neX.notifyDataSetChanged();
+        this.neZ.notifyDataSetChanged();
         this.d.setPadding(0, tv.chushou.zues.utils.a.dip2px(this.b, iArr[0]), 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
     }
 
     /* loaded from: classes5.dex */
     private class a extends com.kascend.chushou.widget.convenientbanner.c.b<ListItem> {
-        private FoodView naT;
+        private FoodView naV;
 
         a(View view, com.kascend.chushou.widget.convenientbanner.d.b<ListItem> bVar) {
             super(view, bVar);
-            this.naT = (FoodView) view.findViewById(a.f.iv_ad);
+            this.naV = (FoodView) view.findViewById(a.f.iv_ad);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class e extends RecyclerView.ViewHolder {
         public void bH(ListItem listItem) {
             super.bH(listItem);
             if ("32".equals(e.this.f)) {
-                this.naT.b(listItem, (FoodView.a) null, true, e.this.e);
+                this.naV.b(listItem, (FoodView.a) null, true, e.this.e);
             } else {
-                this.naT.a(listItem, (FoodView.a) null, true, e.this.e);
+                this.naV.a(listItem, (FoodView.a) null, true, e.this.e);
             }
         }
     }

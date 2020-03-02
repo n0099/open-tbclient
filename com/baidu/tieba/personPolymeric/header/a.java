@@ -26,9 +26,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes11.dex */
 public class a {
-    private View cyG;
-    private TbImageView jpa;
-    private int jpb;
+    private View cyH;
+    private TbImageView jpc;
+    private int jpd;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -45,7 +45,7 @@ public class a {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.jpa.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.jpc.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -55,10 +55,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpa.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpc.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpa.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpc.getContext(), i, i2)));
                 }
             }
         }
@@ -69,11 +69,11 @@ public class a {
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.jpa = tbImageView;
+        this.jpc = tbImageView;
         this.mIsHost = z;
-        this.jpa.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.cyG = view;
-        this.cyG.setOnClickListener(this.mClickListener);
+        this.jpc.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.cyH = view;
+        this.cyH.setOnClickListener(this.mClickListener);
     }
 
     public void e(UserData userData) {
@@ -88,7 +88,7 @@ public class a {
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.jpa);
+                            aVar.drawImageTo(a.this.jpc);
                         }
                     }
 
@@ -109,33 +109,33 @@ public class a {
     }
 
     public void Aa(int i) {
-        this.jpb = i;
-        ViewGroup.LayoutParams layoutParams = this.jpa.getLayoutParams();
+        this.jpd = i;
+        ViewGroup.LayoutParams layoutParams = this.jpc.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.jpb;
-            this.jpa.setLayoutParams(layoutParams);
+            layoutParams.height = this.jpd;
+            this.jpc.setLayoutParams(layoutParams);
         }
     }
 
     public void k(double d) {
-        int i = (int) (this.jpb + (PullRefreshFrameLayout.jtb * d));
-        ViewGroup.LayoutParams layoutParams = this.jpa.getLayoutParams();
+        int i = (int) (this.jpd + (PullRefreshFrameLayout.jtd * d));
+        ViewGroup.LayoutParams layoutParams = this.jpc.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.jpa.setLayoutParams(layoutParams);
+            this.jpc.setLayoutParams(layoutParams);
         }
     }
 
     public void Ab(int i) {
-        ViewGroup.LayoutParams layoutParams = this.jpa.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.jpc.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.jpa.setLayoutParams(layoutParams);
+            this.jpc.setLayoutParams(layoutParams);
         }
     }
 
-    public int cxf() {
-        ViewGroup.LayoutParams layoutParams = this.jpa.getLayoutParams();
+    public int cxh() {
+        ViewGroup.LayoutParams layoutParams = this.jpc.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }

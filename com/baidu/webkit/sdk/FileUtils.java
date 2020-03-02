@@ -6,8 +6,9 @@ import android.content.pm.PackageManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FilenameFilter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-class FileUtils {
+public class FileUtils {
     static final String TAG = "FileUtils";
     private static String sFileRwErrorDetail;
 

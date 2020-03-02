@@ -30,7 +30,7 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onError(th);
                 } finally {
-                    dOl();
+                    dOn();
                 }
             }
 
@@ -39,11 +39,11 @@ public final class k<T> implements d.b<T, T> {
                 try {
                     jVar.onCompleted();
                 } finally {
-                    dOl();
+                    dOn();
                 }
             }
 
-            void dOl() {
+            void dOn() {
                 try {
                     k.this.action.call();
                 } catch (Throwable th) {

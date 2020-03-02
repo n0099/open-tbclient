@@ -27,7 +27,7 @@ public class a implements c {
     @Override // com.baidu.live.gift.c.c
     public void uN() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
-        httpMessage.addParam("scene_from", q.Be());
+        httpMessage.addParam("scene_from", q.Bg());
         httpMessage.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -35,7 +35,7 @@ public class a implements c {
     @Override // com.baidu.live.gift.c.c
     public void c(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         HttpMessage httpMessage = new HttpMessage(1021151);
-        httpMessage.addParam("scene_from", q.Be());
+        httpMessage.addParam("scene_from", q.Bg());
         httpMessage.addParam(LegoListActivityConfig.ITEM_ID, str);
         httpMessage.addParam("item_type", str2);
         httpMessage.addParam("platform", "2");

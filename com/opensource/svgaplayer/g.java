@@ -5,5 +5,5 @@ import kotlin.h;
 @h
 /* loaded from: classes.dex */
 public final class g {
-    private static final BitmapFactory.Options nly = new BitmapFactory.Options();
+    private static final BitmapFactory.Options nlA = new BitmapFactory.Options();
 }

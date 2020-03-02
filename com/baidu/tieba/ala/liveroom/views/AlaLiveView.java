@@ -14,14 +14,14 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes3.dex */
 public class AlaLiveView extends RelativeLayout implements com.baidu.live.liveroom.g.a {
     private boolean auD;
-    private int fmX;
-    private boolean fmY;
+    private int fmY;
     private boolean fmZ;
     private boolean fna;
-    public boolean fnb;
-    private com.baidu.live.liveroom.g.c fnc;
-    private com.baidu.live.liveroom.g.b fnd;
-    private int fne;
+    private boolean fnb;
+    public boolean fnc;
+    private com.baidu.live.liveroom.g.c fnd;
+    private com.baidu.live.liveroom.g.b fne;
+    private int fnf;
     public boolean isDestroy;
     private int mActivePointerId;
     private float mDownX;
@@ -43,10 +43,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.fmY = true;
         this.fmZ = true;
-        this.fna = false;
-        this.fnb = true;
+        this.fna = true;
+        this.fnb = false;
+        this.fnc = true;
         this.auD = false;
         init(context);
     }
@@ -56,10 +56,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.fmY = true;
         this.fmZ = true;
-        this.fna = false;
-        this.fnb = true;
+        this.fna = true;
+        this.fnb = false;
+        this.fnc = true;
         this.auD = false;
         init(context);
     }
@@ -69,10 +69,10 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mIsSilding = false;
         this.mIsScrolling = false;
         this.mActivePointerId = -1;
-        this.fmY = true;
         this.fmZ = true;
-        this.fna = false;
-        this.fnb = true;
+        this.fna = true;
+        this.fnb = false;
+        this.fnc = true;
         this.auD = false;
         init(context);
     }
@@ -83,7 +83,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
         this.mFlingDistance = BdUtilHelper.getEquipmentWidth(context) / 4;
-        this.fmX = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
+        this.fmY = Math.max(ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2, 50);
     }
 
     public ViewGroup getView() {
@@ -91,13 +91,13 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void setSwipeClearEnable(boolean z) {
-        this.fmZ = z;
+        this.fna = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.fne = (int) motionEvent.getX();
+            this.fnf = (int) motionEvent.getX();
             completeScroll();
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
             this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
@@ -110,7 +110,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
             this.mDownY = MotionEventCompat.getY(motionEvent, actionIndex);
             return super.onInterceptTouchEvent(motionEvent);
         } else if (motionEvent.getAction() == 2) {
-            return Math.abs(((int) motionEvent.getX()) - this.fne) > this.fmX;
+            return Math.abs(((int) motionEvent.getX()) - this.fnf) > this.fmY;
         } else {
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -118,20 +118,20 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.fnd != null) {
-            this.fnd.dispatchTouchEvent(motionEvent);
+        if (this.fne != null) {
+            this.fne.dispatchTouchEvent(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.fnb ? z(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.fnc ? z(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     public boolean z(MotionEvent motionEvent) {
-        if (!this.fmZ || this.mIsScrolling) {
-            if (this.fna) {
+        if (!this.fna || this.mIsScrolling) {
+            if (this.fnb) {
                 return true;
             }
             return super.onTouchEvent(motionEvent);
@@ -306,13 +306,13 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         return (int) (MotionEventCompat.getY(motionEvent, pointerIndex) - this.mDownY);
     }
 
-    public void bqY() {
-        if (!this.fmY) {
-            bra();
+    public void bra() {
+        if (!this.fmZ) {
+            brc();
         }
     }
 
-    public void bqZ() {
+    public void brb() {
         if (this.mScroller != null) {
             this.mScroller.forceFinished(true);
         }
@@ -327,23 +327,23 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     private void scrollRight() {
-        if (this.fnc != null) {
-            this.fnc.yL();
+        if (this.fnd != null) {
+            this.fnd.yM();
         }
-        this.fmY = false;
+        this.fmZ = false;
         this.mIsScrolling = true;
         int scrollX = getScrollX() - getWidth();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, scrollX - 1, 0);
         }
-        if (this.fnc != null) {
-            this.fnc.bg(this.fmY);
+        if (this.fnd != null) {
+            this.fnd.bg(this.fmZ);
         }
         BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
         postInvalidate();
     }
 
-    public void bra() {
+    public void brc() {
         qF(1);
     }
 
@@ -352,17 +352,17 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void qF(int i) {
-        if (this.fnc != null) {
-            this.fnc.yL();
+        if (this.fnd != null) {
+            this.fnd.yM();
         }
-        this.fmY = true;
+        this.fmZ = true;
         this.mIsScrolling = true;
         int scrollX = getScrollX();
         if (this.mScroller != null) {
             this.mScroller.startScroll(getScrollX(), 0, -scrollX, 0, i);
         }
-        if (this.fnc != null) {
-            this.fnc.bg(this.fmY);
+        if (this.fnd != null) {
+            this.fnd.bg(this.fmZ);
         }
         postInvalidate();
     }
@@ -394,14 +394,14 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
     }
 
     public void setOnLiveViewScrollListener(com.baidu.live.liveroom.g.c cVar) {
-        this.fnc = cVar;
+        this.fnd = cVar;
     }
 
     public void setLiveViewOnDispatchTouchEventListener(com.baidu.live.liveroom.g.b bVar) {
-        this.fnd = bVar;
+        this.fne = bVar;
     }
 
     public void setIsForceHandledTouch(boolean z) {
-        this.fna = z;
+        this.fnb = z;
     }
 }

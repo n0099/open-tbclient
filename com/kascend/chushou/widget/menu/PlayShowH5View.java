@@ -24,8 +24,8 @@ public class PlayShowH5View extends FrameLayout {
     private View b;
     private boolean c;
     private Animation e;
-    private com.kascend.chushou.view.h5.a nka;
-    private a nkb;
+    private com.kascend.chushou.view.h5.a nkc;
+    private a nkd;
 
     public PlayShowH5View(@NonNull Context context) {
         this(context, null);
@@ -52,7 +52,7 @@ public class PlayShowH5View extends FrameLayout {
         if (!this.c) {
             return false;
         }
-        if (this.nka == null || !this.nka.a(i, keyEvent)) {
+        if (this.nkc == null || !this.nkc.a(i, keyEvent)) {
             a();
             return true;
         }
@@ -69,13 +69,13 @@ public class PlayShowH5View extends FrameLayout {
             this.b.setVisibility(0);
             this.a.setText(str);
         }
-        if (this.nka != null) {
-            if (this.nka.isAdded()) {
-                fragmentManager.beginTransaction().remove(this.nka).commitAllowingStateLoss();
+        if (this.nkc != null) {
+            if (this.nkc.isAdded()) {
+                fragmentManager.beginTransaction().remove(this.nkc).commitAllowingStateLoss();
             }
-            this.nka = null;
+            this.nkc = null;
         }
-        this.nka = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.1
+        this.nkc = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.1
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 if (ViewCompat.isAttachedToWindow(PlayShowH5View.this)) {
@@ -87,11 +87,11 @@ public class PlayShowH5View extends FrameLayout {
             public void a(String str2) {
             }
         }));
-        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.nka).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.nkc).commitAllowingStateLoss();
         setVisibility(0);
         if (!this.c) {
-            if (this.nkb != null) {
-                this.nkb.a();
+            if (this.nkd != null) {
+                this.nkd.a();
             }
             animation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.2
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -102,7 +102,7 @@ public class PlayShowH5View extends FrameLayout {
             });
             startAnimation(animation);
         }
-        this.nka.a(new a.InterfaceC0718a() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.3
+        this.nkc.a(new a.InterfaceC0718a() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.3
             @Override // com.kascend.chushou.view.h5.a.InterfaceC0718a
             public void a(String str2) {
                 if (!h.isEmpty(str2) && PlayShowH5View.this.a != null) {
@@ -116,8 +116,8 @@ public class PlayShowH5View extends FrameLayout {
         if (!this.c) {
             return false;
         }
-        if (this.nkb != null) {
-            this.nkb.b();
+        if (this.nkd != null) {
+            this.nkd.b();
         }
         this.e.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PlayShowH5View.4
             @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -136,6 +136,6 @@ public class PlayShowH5View extends FrameLayout {
     }
 
     public void setVisibilityListener(a aVar) {
-        this.nkb = aVar;
+        this.nkd = aVar;
     }
 }

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.an;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c kdP;
-    private SparseArray<HashSet<String>> kdS;
-    private a kdT;
+    private static c kdR;
+    private SparseArray<HashSet<String>> kdU;
+    private a kdV;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.s.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -29,7 +29,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.gJw = false;
+                        aVar.gJy = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -40,84 +40,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener cLF = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
+    private CustomMessageListener cLG = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.kdS != null) {
-                    c.this.kdS.clear();
+                if (c.this.kdU != null) {
+                    c.this.kdU.clear();
                 }
-                c.this.kdQ.cJX();
+                c.this.kdS.cJZ();
             }
         }
     };
-    private int kdR = com.baidu.tbadk.core.sharedPref.b.aFB().getInt("card_show_statistic_max_count", 200);
-    private final b kdQ = new b();
+    private int kdT = com.baidu.tbadk.core.sharedPref.b.aFD().getInt("card_show_statistic_max_count", 200);
+    private final b kdS = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.cLF);
+        MessageManager.getInstance().registerListener(this.cLG);
     }
 
-    public static c cJY() {
-        if (kdP == null) {
+    public static c cKa() {
+        if (kdR == null) {
             synchronized (c.class) {
-                if (kdP == null) {
-                    kdP = new c();
+                if (kdR == null) {
+                    kdR = new c();
                 }
             }
         }
-        return kdP;
+        return kdR;
     }
 
     public void w(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.kdQ.w(bdUniqueId);
+            this.kdS.w(bdUniqueId);
         }
     }
 
     public void x(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.kdQ.x(bdUniqueId);
+            this.kdS.x(bdUniqueId);
             z(bdUniqueId);
         }
     }
 
     public void z(BdUniqueId bdUniqueId) {
-        if (this.kdS != null) {
-            this.kdS.remove(bdUniqueId.getId());
+        if (this.kdU != null) {
+            this.kdU.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, an anVar) {
-        this.kdQ.a(bdUniqueId, true);
+        this.kdS.a(bdUniqueId, true);
         TiebaStatic.log(anVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, an anVar) {
         if (bdUniqueId != null && anVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.kdQ.y(bdUniqueId)) {
+            if (!this.kdS.y(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + anVar.getKey());
             }
-            if (this.kdS == null) {
-                this.kdS = new SparseArray<>();
+            if (this.kdU == null) {
+                this.kdU = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.kdS.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.kdU.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.kdS.put(bdUniqueId.getId(), hashSet);
+                this.kdU.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = anVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !bJI()) {
+            if (!hashSet.contains(str2) && !bJK()) {
                 hashSet.add(str2);
-                this.kdQ.a(bdUniqueId, anVar);
+                this.kdS.a(bdUniqueId, anVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,29 +125,29 @@ public class c {
         }
     }
 
-    private boolean bJI() {
-        if (this.kdT == null) {
-            this.kdT = new a();
+    private boolean bJK() {
+        if (this.kdV == null) {
+            this.kdV = new a();
         }
-        if (this.kdT.gJw) {
+        if (this.kdV.gJy) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.kdT.isRunning) {
-            this.kdT.count++;
-            if (currentTimeMillis - this.kdT.gJv < 120000) {
-                if (this.kdT.count >= this.kdR) {
-                    this.kdT.gJw = true;
-                    a(this.kdT);
+        if (this.kdV.isRunning) {
+            this.kdV.count++;
+            if (currentTimeMillis - this.kdV.gJx < 120000) {
+                if (this.kdV.count >= this.kdT) {
+                    this.kdV.gJy = true;
+                    a(this.kdV);
                     return true;
                 }
             } else {
-                this.kdT.isRunning = false;
-                this.kdT.count = 0;
+                this.kdV.isRunning = false;
+                this.kdV.count = 0;
             }
         } else {
-            this.kdT.isRunning = true;
-            this.kdT.gJv = currentTimeMillis;
+            this.kdV.isRunning = true;
+            this.kdV.gJx = currentTimeMillis;
         }
         return false;
     }
@@ -164,22 +164,22 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.kdQ.a(bdUniqueId, z);
+        this.kdS.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
         public int count;
-        public long gJv;
-        public boolean gJw;
+        public long gJx;
+        public boolean gJy;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.gJv = 0L;
-            this.gJw = false;
+            this.gJx = 0L;
+            this.gJy = false;
         }
     }
 }

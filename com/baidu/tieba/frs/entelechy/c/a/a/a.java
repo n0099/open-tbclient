@@ -11,14 +11,14 @@ import java.util.List;
 public class a extends b {
     private List<w> mDatas;
 
-    public List<w> bHr() {
+    public List<w> bHt() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b aEB() {
+    public b aED() {
         View itemView;
-        super.aEB();
+        super.aED();
         if (this.mDatas != null && (itemView = getItemView(this.mDatas.size())) != null && (itemView.findViewById(R.id.dialog_item_btn) instanceof TextView)) {
             am.setViewTextColor((TextView) itemView.findViewById(R.id.dialog_item_btn), (int) R.color.cp_link_tip_a);
         }

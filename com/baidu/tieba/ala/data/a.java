@@ -5,23 +5,23 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public C0429a eyX;
-    public b eyY;
+    public C0429a eyY;
     public b eyZ;
+    public b eza;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (jSONObject.optJSONObject("pk_info") != null) {
-                this.eyX = new C0429a();
-                this.eyX.parseJson(jSONObject.optJSONObject("pk_info"));
+                this.eyY = new C0429a();
+                this.eyY.parseJson(jSONObject.optJSONObject("pk_info"));
             }
             if (jSONObject.optJSONObject("user_info") != null) {
-                this.eyY = new b();
-                this.eyY.parseJson(jSONObject.optJSONObject("user_info"));
+                this.eyZ = new b();
+                this.eyZ.parseJson(jSONObject.optJSONObject("user_info"));
             }
             if (jSONObject.optJSONObject("rival_info") != null) {
-                this.eyZ = new b();
-                this.eyZ.parseJson(jSONObject.optJSONObject("rival_info"));
+                this.eza = new b();
+                this.eza.parseJson(jSONObject.optJSONObject("rival_info"));
             }
         }
     }
@@ -29,31 +29,31 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0429a {
-        public String eza;
         public String ezb;
         public String ezc;
-        public long ezd;
+        public String ezd;
         public long eze;
-        public String ezf;
+        public long ezf;
         public String ezg;
+        public String ezh;
 
         public C0429a() {
         }
 
         public void parseJson(JSONObject jSONObject) {
-            this.eza = jSONObject.optString("pk_id");
-            this.ezb = jSONObject.optString("pk_ret");
-            this.ezc = jSONObject.optString("pk_ret_type");
-            this.ezd = jSONObject.optLong("anchor_score", 0L);
-            this.eze = jSONObject.optLong("rival_score", 0L);
-            this.ezf = jSONObject.optString("continue_status");
-            this.ezg = jSONObject.optString("continue_number");
+            this.ezb = jSONObject.optString("pk_id");
+            this.ezc = jSONObject.optString("pk_ret");
+            this.ezd = jSONObject.optString("pk_ret_type");
+            this.eze = jSONObject.optLong("anchor_score", 0L);
+            this.ezf = jSONObject.optLong("rival_score", 0L);
+            this.ezg = jSONObject.optString("continue_status");
+            this.ezh = jSONObject.optString("continue_number");
         }
     }
 
     /* loaded from: classes3.dex */
     public class b {
-        public String ezi;
+        public String ezj;
         public String pass_name;
         public String portrait;
         public String sex;
@@ -67,7 +67,7 @@ public class a {
             this.user_id = jSONObject.optString("user_id");
             this.user_name = jSONObject.optString("user_name");
             this.pass_name = jSONObject.optString("pass_name");
-            this.ezi = jSONObject.optString("user_status");
+            this.ezj = jSONObject.optString("user_status");
             this.sex = jSONObject.optString("sex");
             this.portrait = jSONObject.optString("bd_portrait");
             if (StringUtils.isNull(this.portrait)) {

@@ -11,12 +11,12 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class a {
-    private final String bpb;
-    private g bpc;
-    private TextView bpd;
+    private final String bpc;
+    private g bpd;
     private TextView bpe;
-    private b bpf;
-    private InterfaceC0247a bpg;
+    private TextView bpf;
+    private b bpg;
+    private InterfaceC0247a bph;
     private final Context mContext;
     private final String mHost;
 
@@ -34,75 +34,75 @@ public class a {
     public a(Context context, String str, String str2) {
         this.mContext = context;
         this.mHost = str;
-        this.bpb = str2;
-        OW();
+        this.bpc = str2;
+        OY();
     }
 
     private String getUsername() {
-        return this.bpd.getText().toString();
-    }
-
-    private String getPassword() {
         return this.bpe.getText().toString();
     }
 
+    private String getPassword() {
+        return this.bpf.getText().toString();
+    }
+
     public void a(b bVar) {
-        this.bpf = bVar;
+        this.bpg = bVar;
     }
 
     public void a(InterfaceC0247a interfaceC0247a) {
-        this.bpg = interfaceC0247a;
+        this.bph = interfaceC0247a;
     }
 
     public void show() {
-        this.bpc.show();
-        this.bpd.requestFocus();
+        this.bpd.show();
+        this.bpe.requestFocus();
     }
 
-    private void OW() {
+    private void OY() {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_browser_http_authentication, (ViewGroup) null);
-        this.bpd = (TextView) inflate.findViewById(a.f.username_edit);
-        this.bpe = (TextView) inflate.findViewById(a.f.password_edit);
-        this.bpe.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
+        this.bpe = (TextView) inflate.findViewById(a.f.username_edit);
+        this.bpf = (TextView) inflate.findViewById(a.f.password_edit);
+        this.bpf.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6 || i == 0) {
                     if (i == 0 && keyEvent != null && keyEvent.getAction() == 1) {
                         return true;
                     }
-                    a.this.OX();
+                    a.this.OZ();
                     return true;
                 }
                 return false;
             }
         });
-        this.bpc = new g.a(this.mContext).e(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.bpb)).fV(17301543).an(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
+        this.bpd = new g.a(this.mContext).e(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.bpc)).fV(17301543).an(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                a.this.OX();
+                a.this.OZ();
             }
         }).d(a.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (a.this.bpg != null) {
-                    a.this.bpg.onCancel();
+                if (a.this.bph != null) {
+                    a.this.bph.onCancel();
                 }
             }
         }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.a.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (a.this.bpg != null) {
-                    a.this.bpg.onCancel();
+                if (a.this.bph != null) {
+                    a.this.bph.onCancel();
                 }
             }
-        }).Pa();
-        this.bpc.getWindow().setSoftInputMode(4);
+        }).Pc();
+        this.bpd.getWindow().setSoftInputMode(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OX() {
-        if (this.bpf != null) {
-            this.bpf.p(this.mHost, this.bpb, getUsername(), getPassword());
+    public void OZ() {
+        if (this.bpg != null) {
+            this.bpg.p(this.mHost, this.bpc, getUsername(), getPassword());
         }
     }
 }

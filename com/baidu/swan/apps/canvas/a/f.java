@@ -27,18 +27,18 @@ public class f extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.core.d.d Om;
+        com.baidu.swan.apps.core.d.d Oo;
         final com.baidu.swan.apps.canvas.b.e d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData action parse model is null");
             unitedSchemeEntity.result = eb(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.bil) && (Om = com.baidu.swan.apps.y.f.WQ().Om()) != null) {
-            d.bil = Om.NX();
+        if (TextUtils.isEmpty(d.bim) && (Oo = com.baidu.swan.apps.y.f.WS().Oo()) != null) {
+            d.bim = Oo.NZ();
         }
-        if (TextUtils.isEmpty(d.bil) || TextUtils.isEmpty(d.bik)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + d.bil + " ; canvas id = " + d.bik);
+        if (TextUtils.isEmpty(d.bim) || TextUtils.isEmpty(d.bil)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + d.bim + " ; canvas id = " + d.bil);
             unitedSchemeEntity.result = eb(201);
             return false;
         }
@@ -52,9 +52,9 @@ public class f extends a {
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject wrapCallbackParams;
-                if (d.Kr()) {
+                if (d.Kt()) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    a.g(d.Ks(), d.Kt());
+                    a.g(d.Ku(), d.Kv());
                     a.postInvalidate();
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "error draw on canvas");

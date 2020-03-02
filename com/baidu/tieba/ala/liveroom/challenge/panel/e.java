@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public abstract class e {
-    private static final int eVt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected k eVu;
+    private static final int eVu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
+    protected k eVv;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class e {
 
     public e(Context context, k kVar) {
         this.mContext = context;
-        this.eVu = kVar;
+        this.eVv = kVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bkD() {
-        return eVt;
+    public int bkF() {
+        return eVu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,7 +47,7 @@ public abstract class e {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bkD());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bkF());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
@@ -70,8 +70,8 @@ public abstract class e {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != bkD()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, bkD());
+            } else if (i != bkF()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bkF());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -113,7 +113,7 @@ public abstract class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bkP() {
+    public void bkR() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

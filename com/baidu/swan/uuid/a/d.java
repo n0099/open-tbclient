@@ -24,17 +24,17 @@ public class d implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: agH */
+    /* renamed from: agJ */
     public String get() {
-        return awj();
+        return awl();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean awh() {
+    public boolean awj() {
         return false;
     }
 
-    private String awj() {
+    private String awl() {
         String str = null;
         List<ResolveInfo> queryBroadcastReceivers = this.mContext.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
         if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {

@@ -3,9 +3,9 @@ package com.google.android.exoplayer2.extractor.a;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 final class f {
-    private static final long[] mgx = {128, 64, 32, 16, 8, 4, 2, 1};
+    private static final long[] mgz = {128, 64, 32, 16, 8, 4, 2, 1};
     private int length;
-    private final byte[] meN = new byte[8];
+    private final byte[] meP = new byte[8];
     private int state;
 
     public void reset() {
@@ -15,10 +15,10 @@ final class f {
 
     public long a(com.google.android.exoplayer2.extractor.f fVar, boolean z, boolean z2, int i) throws IOException, InterruptedException {
         if (this.state == 0) {
-            if (!fVar.d(this.meN, 0, 1, z)) {
+            if (!fVar.d(this.meP, 0, 1, z)) {
                 return -1L;
             }
-            this.length = JG(this.meN[0] & 255);
+            this.length = JG(this.meP[0] & 255);
             if (this.length == -1) {
                 throw new IllegalStateException("No valid varint length mask found");
             }
@@ -29,19 +29,19 @@ final class f {
             return -2L;
         }
         if (this.length != 1) {
-            fVar.readFully(this.meN, 1, this.length - 1);
+            fVar.readFully(this.meP, 1, this.length - 1);
         }
         this.state = 0;
-        return a(this.meN, this.length, z2);
+        return a(this.meP, this.length, z2);
     }
 
-    public int duZ() {
+    public int dvb() {
         return this.length;
     }
 
     public static int JG(int i) {
-        for (int i2 = 0; i2 < mgx.length; i2++) {
-            if ((mgx[i2] & i) != 0) {
+        for (int i2 = 0; i2 < mgz.length; i2++) {
+            if ((mgz[i2] & i) != 0) {
                 return i2 + 1;
             }
         }
@@ -51,7 +51,7 @@ final class f {
     public static long a(byte[] bArr, int i, boolean z) {
         long j = bArr[0] & 255;
         if (z) {
-            j &= mgx[i - 1] ^ (-1);
+            j &= mgz[i - 1] ^ (-1);
         }
         long j2 = j;
         for (int i2 = 1; i2 < i; i2++) {

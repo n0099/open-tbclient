@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private as eKm;
+    private as eKn;
 
     public GetOrderHttpResponsedMessage() {
         super(1003029);
@@ -15,12 +15,12 @@ public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.eKm = new as();
-            this.eKm.parserJson(jSONObject);
+            this.eKn = new as();
+            this.eKn.parserJson(jSONObject);
         }
     }
 
-    public as bgo() {
-        return this.eKm;
+    public as bgq() {
+        return this.eKn;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes12.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
     private float BF;
-    private h cwI;
-    private boolean cwQ;
+    private h cwJ;
+    private boolean cwR;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.cwI = hVar;
+        this.cwJ = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.cwQ || this.cwI == null) {
+        if (this.cwR || this.cwJ == null) {
             this.BF = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.BF;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.cwI.isFlipped() && ad(rawY)) {
-                    this.cwI.eQ(true);
+                if (z && !this.cwJ.isFlipped() && ad(rawY)) {
+                    this.cwJ.eQ(true);
                     return true;
-                } else if (!z && asf() && this.cwI.isFlipped() && ad(rawY)) {
-                    this.cwI.eQ(false);
+                } else if (!z && ash() && this.cwJ.isFlipped() && ad(rawY)) {
+                    this.cwJ.eQ(false);
                     return true;
                 }
                 break;
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean asf() {
+    private boolean ash() {
         if (getChildCount() <= 0) {
             return true;
         }
@@ -75,11 +75,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void eO(boolean z) {
-        this.cwQ = false;
+        this.cwR = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void eP(boolean z) {
-        this.cwQ = true;
+        this.cwR = true;
     }
 }

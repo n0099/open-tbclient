@@ -3,19 +3,19 @@ package com.baidu.tieba.p;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class b {
-    public SparseArray<a> jON;
+    public SparseArray<a> jOP;
 
     public b(SparseArray<a> sparseArray) {
-        this.jON = sparseArray;
+        this.jOP = sparseArray;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean dGg;
+        public boolean dGh;
         public int mNum;
 
         public a(boolean z, int i) {
-            this.dGg = z;
+            this.dGh = z;
             this.mNum = i;
         }
     }

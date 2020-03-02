@@ -7,27 +7,27 @@ public class e extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
         Bundle bundle = new Bundle();
-        b mn = h.mn(cVar.bVS);
+        b mn = h.mn(cVar.bVT);
         if (mn == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
         } else {
-            switch (cVar.bVT) {
+            switch (cVar.bVU) {
                 case 1:
-                    bundle.putInt("result_value", mn.getInt(cVar.bVU, Integer.parseInt(cVar.bVV)));
+                    bundle.putInt("result_value", mn.getInt(cVar.bVV, Integer.parseInt(cVar.bVW)));
                     break;
                 case 2:
-                    bundle.putLong("result_value", mn.getLong(cVar.bVU, Long.parseLong(cVar.bVV)));
+                    bundle.putLong("result_value", mn.getLong(cVar.bVV, Long.parseLong(cVar.bVW)));
                     break;
                 case 3:
-                    bundle.putBoolean("result_value", mn.getBoolean(cVar.bVU, Boolean.parseBoolean(cVar.bVV)));
+                    bundle.putBoolean("result_value", mn.getBoolean(cVar.bVV, Boolean.parseBoolean(cVar.bVW)));
                     break;
                 case 4:
-                    bundle.putString("result_value", mn.getString(cVar.bVU, cVar.bVV));
+                    bundle.putString("result_value", mn.getString(cVar.bVV, cVar.bVW));
                     break;
                 case 5:
-                    bundle.putFloat("result_value", mn.getFloat(cVar.bVU, Float.parseFloat(cVar.bVV)));
+                    bundle.putFloat("result_value", mn.getFloat(cVar.bVV, Float.parseFloat(cVar.bVW)));
                     break;
                 default:
                     if (DEBUG) {

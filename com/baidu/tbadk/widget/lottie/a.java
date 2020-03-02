@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m dML;
+    private m dMM;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
@@ -23,10 +23,10 @@ public class a implements c {
         String str = this.mPath + hVar.bx().replace("/", "") + "/" + hVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.gr().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.dML == null) {
-                this.dML = new m();
+            if (this.dMM == null) {
+                this.dMM = new m();
             }
-            aVar = this.dML.n(str, 0, 0);
+            aVar = this.dMM.n(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();

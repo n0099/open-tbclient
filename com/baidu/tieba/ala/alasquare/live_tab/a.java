@@ -11,9 +11,9 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView BK;
     private List<com.baidu.adp.widget.ListView.a> asE;
-    private d elm;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b eln;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a elo;
+    private d eln;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b elo;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a elp;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -28,12 +28,12 @@ public class a {
 
     private void wM() {
         this.asE = new ArrayList();
-        this.elm = new d(this.mPageContext, this.tabType);
-        this.eln = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.elo = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.asE.add(this.elm);
+        this.eln = new d(this.mPageContext, this.tabType);
+        this.elo = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.elp = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
         this.asE.add(this.eln);
         this.asE.add(this.elo);
+        this.asE.add(this.elp);
         this.BK.addAdapters(this.asE);
     }
 

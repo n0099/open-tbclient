@@ -20,18 +20,18 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes6.dex */
 public final class a extends com.google.android.exoplayer2.text.c {
-    private static final Pattern mBh = Pattern.compile("^([0-9][0-9]+):([0-9][0-9]):([0-9][0-9])(?:(\\.[0-9]+)|:([0-9][0-9])(?:\\.([0-9]+))?)?$");
-    private static final Pattern mBi = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
-    private static final Pattern mBj = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
-    private static final Pattern mBk = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
-    private static final C0687a mBl = new C0687a(30.0f, 1, 1);
-    private final XmlPullParserFactory muU;
+    private static final Pattern mBj = Pattern.compile("^([0-9][0-9]+):([0-9][0-9]):([0-9][0-9])(?:(\\.[0-9]+)|:([0-9][0-9])(?:\\.([0-9]+))?)?$");
+    private static final Pattern mBk = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
+    private static final Pattern mBl = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
+    private static final Pattern mBm = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
+    private static final C0687a mBn = new C0687a(30.0f, 1, 1);
+    private final XmlPullParserFactory muW;
 
     public a() {
         super("TtmlDecoder");
         try {
-            this.muU = XmlPullParserFactory.newInstance();
-            this.muU.setNamespaceAware(true);
+            this.muW = XmlPullParserFactory.newInstance();
+            this.muW.setNamespaceAware(true);
         } catch (XmlPullParserException e) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e);
         }
@@ -46,7 +46,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
         int i2;
         f fVar;
         try {
-            XmlPullParser newPullParser = this.muU.newPullParser();
+            XmlPullParser newPullParser = this.muW.newPullParser();
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
             hashMap2.put("", new c(null));
@@ -55,7 +55,7 @@ public final class a extends com.google.android.exoplayer2.text.c {
             LinkedList linkedList = new LinkedList();
             int i3 = 0;
             int eventType = newPullParser.getEventType();
-            C0687a c0687a2 = mBl;
+            C0687a c0687a2 = mBn;
             for (int i4 = eventType; i4 != 1; i4 = newPullParser.getEventType()) {
                 b bVar = (b) linkedList.peekLast();
                 if (i3 == 0) {
@@ -143,12 +143,12 @@ public final class a extends com.google.android.exoplayer2.text.c {
             }
             f = Integer.parseInt(split[0]) / Integer.parseInt(split[1]);
         }
-        int i2 = mBl.mBn;
+        int i2 = mBn.mBp;
         String attributeValue3 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "subFrameRate");
         if (attributeValue3 != null) {
             i2 = Integer.parseInt(attributeValue3);
         }
-        int i3 = mBl.mBo;
+        int i3 = mBn.mBq;
         String attributeValue4 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "tickRate");
         if (attributeValue4 != null) {
             i3 = Integer.parseInt(attributeValue4);
@@ -186,14 +186,14 @@ public final class a extends com.google.android.exoplayer2.text.c {
         }
         String i3 = w.i(xmlPullParser, "origin");
         if (i3 != null) {
-            Matcher matcher = mBk.matcher(i3);
+            Matcher matcher = mBm.matcher(i3);
             if (matcher.matches()) {
                 try {
                     float parseFloat = Float.parseFloat(matcher.group(1)) / 100.0f;
                     float parseFloat2 = Float.parseFloat(matcher.group(2)) / 100.0f;
                     String i4 = w.i(xmlPullParser, "extent");
                     if (i4 != null) {
-                        Matcher matcher2 = mBk.matcher(i4);
+                        Matcher matcher2 = mBm.matcher(i4);
                         if (matcher2.matches()) {
                             try {
                                 float parseFloat3 = Float.parseFloat(matcher2.group(1)) / 100.0f;
@@ -614,19 +614,19 @@ public final class a extends com.google.android.exoplayer2.text.c {
             j7 = j4;
             j8 = j3;
         }
-        if (bVar != null && bVar.mti != -9223372036854775807L) {
+        if (bVar != null && bVar.mtk != -9223372036854775807L) {
             if (j7 != -9223372036854775807L) {
-                j7 += bVar.mti;
+                j7 += bVar.mtk;
             }
             if (j8 != -9223372036854775807L) {
-                long j10 = j8 + bVar.mti;
+                long j10 = j8 + bVar.mtk;
                 j = j7;
                 j2 = j10;
                 if (j2 == -9223372036854775807L) {
                     if (j6 != -9223372036854775807L) {
                         j2 = j + j6;
-                    } else if (bVar != null && bVar.mtj != -9223372036854775807L) {
-                        j2 = bVar.mtj;
+                    } else if (bVar != null && bVar.mtl != -9223372036854775807L) {
+                        j2 = bVar.mtl;
                     }
                 }
                 return b.a(xmlPullParser.getName(), j, j2, a, strArr, str);
@@ -648,9 +648,9 @@ public final class a extends com.google.android.exoplayer2.text.c {
         Matcher matcher;
         String[] split = str.split("\\s+");
         if (split.length == 1) {
-            matcher = mBj.matcher(str);
+            matcher = mBl.matcher(str);
         } else if (split.length == 2) {
-            matcher = mBj.matcher(split[1]);
+            matcher = mBl.matcher(split[1]);
             Log.w("TtmlDecoder", "Multiple values in fontSize attribute. Picking the second value for vertical font size and ignoring the first.");
         } else {
             throw new SubtitleDecoderException("Invalid number of entries for fontSize: " + split.length + ".");
@@ -700,13 +700,13 @@ public final class a extends com.google.android.exoplayer2.text.c {
     private static long a(String str, C0687a c0687a) throws SubtitleDecoderException {
         String group;
         String group2;
-        Matcher matcher = mBh.matcher(str);
+        Matcher matcher = mBj.matcher(str);
         if (matcher.matches()) {
             double parseLong = Long.parseLong(matcher.group(3)) + (Long.parseLong(matcher.group(1)) * 3600) + (Long.parseLong(matcher.group(2)) * 60);
             String group3 = matcher.group(4);
-            return (long) (((matcher.group(5) != null ? ((float) Long.parseLong(group)) / c0687a.mBm : 0.0d) + parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c0687a.mBn) / c0687a.mBm : 0.0d)) * 1000000.0d);
+            return (long) (((matcher.group(5) != null ? ((float) Long.parseLong(group)) / c0687a.mBo : 0.0d) + parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c0687a.mBp) / c0687a.mBo : 0.0d)) * 1000000.0d);
         }
-        Matcher matcher2 = mBi.matcher(str);
+        Matcher matcher2 = mBk.matcher(str);
         if (matcher2.matches()) {
             double parseDouble = Double.parseDouble(matcher2.group(1));
             String group4 = matcher2.group(2);
@@ -760,10 +760,10 @@ public final class a extends com.google.android.exoplayer2.text.c {
                     parseDouble /= 1000.0d;
                     break;
                 case 4:
-                    parseDouble /= c0687a.mBm;
+                    parseDouble /= c0687a.mBo;
                     break;
                 case 5:
-                    parseDouble /= c0687a.mBo;
+                    parseDouble /= c0687a.mBq;
                     break;
             }
             return (long) (parseDouble * 1000000.0d);
@@ -775,14 +775,14 @@ public final class a extends com.google.android.exoplayer2.text.c {
     /* renamed from: com.google.android.exoplayer2.text.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static final class C0687a {
-        final float mBm;
-        final int mBn;
-        final int mBo;
+        final float mBo;
+        final int mBp;
+        final int mBq;
 
         C0687a(float f, int i, int i2) {
-            this.mBm = f;
-            this.mBn = i;
-            this.mBo = i2;
+            this.mBo = f;
+            this.mBp = i;
+            this.mBq = i2;
         }
     }
 }

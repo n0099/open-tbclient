@@ -88,7 +88,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageRequest(ImageRequest imageRequest) {
-        setController(this.mControllerBuilder.bg(imageRequest).c(getController()).dmn());
+        setController(this.mControllerBuilder.bg(imageRequest).c(getController()).dmp());
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -101,7 +101,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.mControllerBuilder.bi(obj).K(uri).c(getController()).dmn());
+        setController(this.mControllerBuilder.bi(obj).K(uri).c(getController()).dmp());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -122,7 +122,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map, @Nullable Object obj) {
-        setController(getControllerBuilder().c(uri, map).bi(obj).c(getController()).dmn());
+        setController(getControllerBuilder().c(uri, map).bi(obj).c(getController()).dmp());
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map) {

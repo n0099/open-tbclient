@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.util.an;
 /* loaded from: classes11.dex */
 public class a {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.aAe() != null && !StringUtils.isNull(aVar.aAe().getTid())) {
+        if (view != null && aVar != null && aVar.aAg() != null && !StringUtils.isNull(aVar.aAg().getTid())) {
             an anVar = new an("c13564");
             anVar.X("obj_source", 3);
-            bj aAe = aVar.aAe();
-            if (aAe.aBb()) {
+            bj aAg = aVar.aAg();
+            if (aAg.aBd()) {
                 anVar.X("obj_type", 1);
-            } else if (aAe.aBc()) {
+            } else if (aAg.aBe()) {
                 anVar.X("obj_type", 2);
-            } else if (aAe.aEe()) {
+            } else if (aAg.aEg()) {
                 anVar.X("obj_type", 3);
-            } else if (aAe.aEf()) {
+            } else if (aAg.aEh()) {
                 anVar.X("obj_type", 4);
-            } else if (aAe.threadType == 0) {
+            } else if (aAg.threadType == 0) {
                 anVar.X("obj_type", 5);
-            } else if (aAe.aAZ()) {
+            } else if (aAg.aBb()) {
                 anVar.X("obj_type", 6);
             }
             anVar.X("obj_locate", i);
@@ -32,26 +32,26 @@ public class a {
 
     public static void e(com.baidu.tbadk.core.data.a aVar) {
         an anVar = new an("c13578");
-        bj aAe = aVar.aAe();
-        if (aAe.aBb()) {
+        bj aAg = aVar.aAg();
+        if (aAg.aBd()) {
             anVar.X("obj_type", 1);
-        } else if (aAe.aBc()) {
+        } else if (aAg.aBe()) {
             anVar.X("obj_type", 2);
-        } else if (aAe.aEe()) {
+        } else if (aAg.aEg()) {
             anVar.X("obj_type", 3);
-        } else if (aAe.aEf()) {
+        } else if (aAg.aEh()) {
             anVar.X("obj_type", 4);
-        } else if (aAe.threadType == 0) {
+        } else if (aAg.threadType == 0) {
             anVar.X("obj_type", 5);
-        } else if (aAe.aAZ()) {
+        } else if (aAg.aBb()) {
             anVar.X("obj_type", 6);
         }
-        if (aAe.getBaijiahaoData() != null) {
-            anVar.cy("obj_id", aAe.getBaijiahaoData().oriUgcNid);
+        if (aAg.getBaijiahaoData() != null) {
+            anVar.cy("obj_id", aAg.getBaijiahaoData().oriUgcNid);
         } else {
-            anVar.cy("obj_id", aAe.getTid());
+            anVar.cy("obj_id", aAg.getTid());
         }
-        anVar.cy("uid", aAe.aCm().getUserId());
+        anVar.cy("uid", aAg.aCo().getUserId());
         TiebaStatic.log(anVar);
     }
 }

@@ -12,20 +12,20 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.b> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
 
-    public static d arH() {
+    public static d arJ() {
         return new d();
     }
 
     private boolean a(Context context, com.baidu.swan.apps.z.a.b bVar, com.baidu.swan.apps.z.b bVar2, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction start");
-        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WQ().hv(bVar.bil);
+        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WS().hv(bVar.bim);
         if (!(hv instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arz().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(bVar.bik);
+        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arB().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(bVar.bil);
         if (qa == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.bik);
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.bil);
             return false;
         }
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction end");
@@ -36,14 +36,14 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.b> {
         if (bVar == null || !bVar.isValid()) {
             return false;
         }
-        BaiduMap map = cVar.cwr.getMap();
+        BaiduMap map = cVar.cws.getMap();
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        Iterator<com.baidu.swan.apps.z.a.a.c> it = bVar.bzI.iterator();
+        Iterator<com.baidu.swan.apps.z.a.a.c> it = bVar.bzJ.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.z.a.a.c next = it.next();
             builder.include(new LatLng(next.latitude, next.longitude));
         }
-        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.bzJ[3], bVar.bzJ[0], bVar.bzJ[1], bVar.bzJ[2]));
+        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.bzK[3], bVar.bzK[0], bVar.bzK[1], bVar.bzK[2]));
         return true;
     }
 

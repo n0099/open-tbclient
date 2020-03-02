@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaViewPagerAdapter extends PagerAdapter {
-    private a aFS;
+    private a aFT;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
     private final List<a> VU = new ArrayList();
@@ -51,12 +51,12 @@ public class AlaViewPagerAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.aFS != viewGroup) {
-                    if (this.aFS != null) {
-                        this.aFS.enterBackground();
+                if (this.aFT != viewGroup) {
+                    if (this.aFT != null) {
+                        this.aFT.enterBackground();
                     }
                     aVar.enterForeground();
-                    this.aFS = aVar;
+                    this.aFT = aVar;
                 }
             }
         }

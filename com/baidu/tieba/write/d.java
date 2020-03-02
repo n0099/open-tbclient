@@ -6,68 +6,39 @@ import android.content.Context;
 import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class d extends g {
-    private ValueAnimator gKm;
-    private ValueAnimator gKn;
-    private boolean kLC;
-    private boolean kLD;
+    private ValueAnimator gKo;
+    private ValueAnimator gKp;
     private boolean kLE;
-    private ValueAnimator kLF;
-    private ValueAnimator kLG;
-    private a.C0630a kLH;
-    private ValueAnimator.AnimatorUpdateListener kLI;
-    private Animator.AnimatorListener kLJ;
+    private boolean kLF;
+    private boolean kLG;
+    private ValueAnimator kLH;
+    private ValueAnimator kLI;
+    private a.C0630a kLJ;
     private ValueAnimator.AnimatorUpdateListener kLK;
     private Animator.AnimatorListener kLL;
+    private ValueAnimator.AnimatorUpdateListener kLM;
+    private Animator.AnimatorListener kLN;
 
     public d(Context context, a.C0630a c0630a) {
         super(context, c0630a);
-        this.kLC = false;
-        this.kLD = false;
         this.kLE = false;
-        this.kLI = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.1
+        this.kLF = false;
+        this.kLG = false;
+        this.kLK = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                if (d.this.kLC || animatedFraction < 0.6923f || !d.this.kLH.kKW.isAnimating()) {
-                    if (!d.this.kLE && animatedFraction >= 0.38461f && d.this.kLH.kKW.isAnimating()) {
-                        d.this.kLE = true;
+                if (d.this.kLE || animatedFraction < 0.6923f || !d.this.kLJ.kKY.isAnimating()) {
+                    if (!d.this.kLG && animatedFraction >= 0.38461f && d.this.kLJ.kKY.isAnimating()) {
+                        d.this.kLG = true;
                         return;
                     }
                     return;
                 }
-                d.this.kLC = true;
+                d.this.kLE = true;
             }
         };
-        this.kLJ = new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.6
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                d.this.cUf();
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                onAnimationEnd(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        };
-        this.kLK = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.7
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                if (!d.this.kLD && animatedFraction >= 0.57142f && d.this.kLH.kKW.isAnimating()) {
-                    d.this.kLD = true;
-                    d.this.cUg();
-                }
-            }
-        };
-        this.kLL = new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.8
+        this.kLL = new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.6
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -86,29 +57,58 @@ public class d extends g {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.kLH = c0630a;
+        this.kLM = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.7
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                if (!d.this.kLF && animatedFraction >= 0.57142f && d.this.kLJ.kKY.isAnimating()) {
+                    d.this.kLF = true;
+                    d.this.cUi();
+                }
+            }
+        };
+        this.kLN = new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.8
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                d.this.cUj();
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                onAnimationEnd(animator);
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+            }
+        };
+        this.kLJ = c0630a;
         init();
     }
 
     private void init() {
-        this.gKm = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.gKm.setDuration(451L);
-        this.gKm.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.9
+        this.gKo = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.gKo.setDuration(451L);
+        this.gKo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.9
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    d.this.kLH.cuy.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    d.this.kLJ.cuz.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.gKm.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.10
+        this.gKo.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.10
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                d.this.kLH.cuy.setAlpha(1.0f);
+                d.this.kLJ.cuz.setAlpha(1.0f);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -120,24 +120,24 @@ public class d extends g {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gKn = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.gKn.setDuration(485L);
-        this.gKn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.11
+        this.gKp = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.gKp.setDuration(485L);
+        this.gKp.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.11
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    d.this.kLH.cuy.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    d.this.kLJ.cuz.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.gKn.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.12
+        this.gKp.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.12
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                d.this.kLH.cuy.setAlpha(0.0f);
+                d.this.kLJ.cuz.setAlpha(0.0f);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -149,9 +149,9 @@ public class d extends g {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.kLF = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.kLF.setDuration(104L);
-        this.kLF.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.13
+        this.kLH = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.kLH.setDuration(104L);
+        this.kLH.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.13
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning() && d.this.mAnchorView != null) {
@@ -159,7 +159,7 @@ public class d extends g {
                 }
             }
         });
-        this.kLF.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.2
+        this.kLH.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -180,9 +180,9 @@ public class d extends g {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.kLG = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.kLG.setDuration(208L);
-        this.kLG.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.3
+        this.kLI = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.kLI.setDuration(208L);
+        this.kLI.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.d.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning() && d.this.mAnchorView != null) {
@@ -190,7 +190,7 @@ public class d extends g {
                 }
             }
         });
-        this.kLG.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.4
+        this.kLI.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.d.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -214,28 +214,28 @@ public class d extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUf() {
-        this.kLH.kKW.setVisibility(0);
-        this.kLH.tF(true);
+    public void cUh() {
+        this.kLJ.kKY.setVisibility(0);
+        this.kLJ.tF(true);
         this.mState = 2;
-        if (this.kMb != null) {
-            this.kMb.CO(this.mState);
+        if (this.kMd != null) {
+            this.kMd.CO(this.mState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUg() {
-        this.kLF.start();
+    public void cUi() {
+        this.kLH.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUh() {
-        this.kLC = false;
+    public void cUj() {
         this.kLE = false;
-        this.kLD = false;
-        this.kLH.tF(false);
-        if (this.cYw != null) {
-            this.cYw.setVisibility(0);
+        this.kLG = false;
+        this.kLF = false;
+        this.kLJ.tF(false);
+        if (this.cYx != null) {
+            this.cYx.setVisibility(0);
         }
         if (this.mAnchorView != null) {
             this.mAnchorView.setAlpha(1.0f);
@@ -244,30 +244,30 @@ public class d extends g {
         clearAnimation();
         Eb(8);
         this.mState = 4;
-        if (this.kMb != null) {
-            this.kMb.CO(this.mState);
+        if (this.kMd != null) {
+            this.kMd.CO(this.mState);
         }
     }
 
     @Override // com.baidu.tieba.write.g
-    public void cUi() {
+    public void cUk() {
         if (this.mState == 4) {
             this.mState = 1;
-            if (this.kMb != null) {
-                this.kMb.CO(this.mState);
+            if (this.kMd != null) {
+                this.kMd.CO(this.mState);
             }
             clearAnimation();
             Eb(0);
-            this.kLH.kKW.setVisibility(0);
-            this.gKm.start();
-            this.kLG.start();
-            this.kLH.kKW.removeAnimatorListener(this.kLL);
-            this.kLH.kKW.removeUpdateListener(this.kLK);
-            this.kLH.kKW.addAnimatorUpdateListener(this.kLI);
-            this.kLH.kKW.addAnimatorListener(this.kLJ);
-            this.kLH.kKW.setMinAndMaxProgress(0.0f, 0.54f);
-            this.kLH.kKW.setProgress(0.0f);
-            this.kLH.kKW.playAnimation();
+            this.kLJ.kKY.setVisibility(0);
+            this.gKo.start();
+            this.kLI.start();
+            this.kLJ.kKY.removeAnimatorListener(this.kLN);
+            this.kLJ.kKY.removeUpdateListener(this.kLM);
+            this.kLJ.kKY.addAnimatorUpdateListener(this.kLK);
+            this.kLJ.kKY.addAnimatorListener(this.kLL);
+            this.kLJ.kKY.setMinAndMaxProgress(0.0f, 0.54f);
+            this.kLJ.kKY.setProgress(0.0f);
+            this.kLJ.kKY.playAnimation();
         }
     }
 
@@ -275,48 +275,48 @@ public class d extends g {
     public void startHideAnimation() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.kMb != null) {
-                this.kMb.CO(this.mState);
+            if (this.kMd != null) {
+                this.kMd.CO(this.mState);
             }
-            this.kLH.kKW.setVisibility(0);
+            this.kLJ.kKY.setVisibility(0);
             com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.d.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.gKn.start();
+                    d.this.gKp.start();
                 }
             }, 300L);
-            this.kLH.tF(false);
-            this.kLH.kKW.removeAnimatorListener(this.kLJ);
-            this.kLH.kKW.removeUpdateListener(this.kLI);
-            this.kLH.kKW.addAnimatorUpdateListener(this.kLK);
-            this.kLH.kKW.addAnimatorListener(this.kLL);
-            this.kLH.kKW.setMinAndMaxProgress(0.54f, 1.0f);
-            this.kLH.kKW.setProgress(0.0f);
-            this.kLH.kKW.playAnimation();
+            this.kLJ.tF(false);
+            this.kLJ.kKY.removeAnimatorListener(this.kLL);
+            this.kLJ.kKY.removeUpdateListener(this.kLK);
+            this.kLJ.kKY.addAnimatorUpdateListener(this.kLM);
+            this.kLJ.kKY.addAnimatorListener(this.kLN);
+            this.kLJ.kKY.setMinAndMaxProgress(0.54f, 1.0f);
+            this.kLJ.kKY.setProgress(0.0f);
+            this.kLJ.kKY.playAnimation();
         }
     }
 
     @Override // com.baidu.tieba.write.g
-    public void cUj() {
-        cUh();
+    public void cUl() {
+        cUj();
     }
 
     @Override // com.baidu.tieba.write.g
     public void onDestroy() {
         clearAnimation();
-        this.kLH.kKW.cancelAnimation();
+        this.kLJ.kKY.cancelAnimation();
     }
 
     private void clearAnimation() {
-        this.gKm.cancel();
-        this.gKn.cancel();
-        this.kLF.cancel();
-        this.kLG.cancel();
+        this.gKo.cancel();
+        this.gKp.cancel();
+        this.kLH.cancel();
+        this.kLI.cancel();
     }
 
     private void Eb(int i) {
-        this.kLH.kKV.setVisibility(i);
-        this.kLH.cuy.setVisibility(i);
-        this.kLH.kKX.setVerticalGravity(i);
+        this.kLJ.kKX.setVisibility(i);
+        this.kLJ.cuz.setVisibility(i);
+        this.kLJ.kKZ.setVerticalGravity(i);
     }
 }

@@ -7,100 +7,100 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes8.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a dQu = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a dQv = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.dQu.context = context;
-        this.dQu.dQv = eVar;
+        this.dQv.context = context;
+        this.dQv.dQw = eVar;
     }
 
     public a a(boolean[] zArr) {
-        this.dQu.dQC = zArr;
+        this.dQv.dQD = zArr;
         return this;
     }
 
     public a ho(boolean z) {
-        this.dQu.dRj = z;
+        this.dQv.dRk = z;
         return this;
     }
 
     public a v(ViewGroup viewGroup) {
-        this.dQu.decorView = viewGroup;
+        this.dQv.decorView = viewGroup;
         return this;
     }
 
     public a nA(int i) {
-        this.dQu.dRe = i;
+        this.dQv.dRf = i;
         return this;
     }
 
     public a nB(int i) {
-        this.dQu.dRi = i;
+        this.dQv.dRj = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.dQu.dQD = calendar;
+        this.dQv.dQE = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.dQu.dQW = i;
-        this.dQu.dQx = aVar;
+        this.dQv.dQX = i;
+        this.dQv.dQy = aVar;
         return this;
     }
 
     public a au(float f) {
-        this.dQu.lineSpacingMultiplier = f;
+        this.dQv.lineSpacingMultiplier = f;
         return this;
     }
 
     public a nC(int i) {
-        this.dQu.dividerColor = i;
+        this.dQv.dividerColor = i;
         return this;
     }
 
     public a nD(int i) {
-        this.dQu.backgroundId = i;
+        this.dQv.backgroundId = i;
         return this;
     }
 
     public a nE(int i) {
-        this.dQu.textColorCenter = i;
+        this.dQv.textColorCenter = i;
         return this;
     }
 
     public a nF(int i) {
-        this.dQu.textColorOut = i;
+        this.dQv.textColorOut = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.dQu.dQK = str;
-        this.dQu.dQL = str2;
-        this.dQu.dQM = str3;
-        this.dQu.dQN = str4;
-        this.dQu.dQO = str5;
-        this.dQu.dQP = str6;
+        this.dQv.dQL = str;
+        this.dQv.dQM = str2;
+        this.dQv.dQN = str3;
+        this.dQv.dQO = str4;
+        this.dQv.dQP = str5;
+        this.dQv.dQQ = str6;
         return this;
     }
 
     public a g(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.dQu.dQQ = i;
-        this.dQu.dQR = i2;
-        this.dQu.dQS = i3;
-        this.dQu.dQT = i4;
-        this.dQu.dQU = i5;
-        this.dQu.dQV = i6;
+        this.dQv.dQR = i;
+        this.dQv.dQS = i2;
+        this.dQv.dQT = i3;
+        this.dQv.dQU = i4;
+        this.dQv.dQV = i5;
+        this.dQv.dQW = i6;
         return this;
     }
 
     public a hp(boolean z) {
-        this.dQu.isCenterLabel = z;
+        this.dQv.isCenterLabel = z;
         return this;
     }
 
-    public b aUP() {
-        return new b(this.dQu);
+    public b aUR() {
+        return new b(this.dQv);
     }
 }

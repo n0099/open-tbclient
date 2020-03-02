@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes11.dex */
 public class e {
-    private static final String jYt = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private x cLD = null;
+    private static final String jYv = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private x cLE = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String cIQ() {
-        this.cLD = new x(jYt);
-        this.cLD.addPostData("authsid", this.mAuthSid);
-        this.cLD.aGe().aGF().mNeedBackgroundLogin = true;
-        this.cLD.aGe().aGF().mIsNeedTbs = true;
-        this.cLD.fK(true);
-        return this.cLD.postNetData();
+    public String cIS() {
+        this.cLE = new x(jYv);
+        this.cLE.addPostData("authsid", this.mAuthSid);
+        this.cLE.aGg().aGH().mNeedBackgroundLogin = true;
+        this.cLE.aGg().aGH().mIsNeedTbs = true;
+        this.cLE.fK(true);
+        return this.cLE.postNetData();
     }
 
     public String IH(String str) {
@@ -30,32 +30,32 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.cLD = new x(jYt);
-        this.cLD.addPostData("user_id", str2);
-        this.cLD.addPostData("forum_ids", str);
-        this.cLD.addPostData("authsid", this.mAuthSid);
-        this.cLD.aGe().aGF().mNeedBackgroundLogin = true;
-        this.cLD.aGe().aGF().mIsNeedTbs = true;
-        this.cLD.fK(true);
-        return this.cLD.postNetData();
+        this.cLE = new x(jYv);
+        this.cLE.addPostData("user_id", str2);
+        this.cLE.addPostData("forum_ids", str);
+        this.cLE.addPostData("authsid", this.mAuthSid);
+        this.cLE.aGg().aGH().mNeedBackgroundLogin = true;
+        this.cLE.aGg().aGH().mIsNeedTbs = true;
+        this.cLE.fK(true);
+        return this.cLE.postNetData();
     }
 
     public void cancel() {
-        if (this.cLD != null) {
-            this.cLD.cancelNetConnect();
+        if (this.cLE != null) {
+            this.cLE.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.cLD != null) {
-            return this.cLD.aGe().aGG().isRequestSuccess();
+        if (this.cLE != null) {
+            return this.cLE.aGg().aGI().isRequestSuccess();
         }
         return false;
     }
 
-    public String azK() {
-        if (this.cLD != null) {
-            return this.cLD.getErrorString();
+    public String azM() {
+        if (this.cLE != null) {
+            return this.cLE.getErrorString();
         }
         return null;
     }

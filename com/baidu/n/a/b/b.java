@@ -6,18 +6,18 @@ import com.baidu.n.a.a.d;
 public class b extends d {
     public b(Context context) {
         super(context);
-        this.lCd = "";
-        this.lCb = false;
-        this.lCE = false;
+        this.lCf = "";
+        this.lCd = false;
+        this.lCG = false;
         this.mStatusCode = -100;
     }
 
-    public com.baidu.n.a.a.c dic() {
+    public com.baidu.n.a.a.c die() {
         return this;
     }
 
     @Override // com.baidu.n.a.a.c
-    public com.baidu.n.a.a.c dhY() {
-        return dic();
+    public com.baidu.n.a.a.c dia() {
+        return die();
     }
 }

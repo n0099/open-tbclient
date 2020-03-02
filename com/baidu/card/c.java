@@ -47,9 +47,9 @@ public class c extends b<com.baidu.tbadk.core.data.a> {
         a(1, new a.b() { // from class: com.baidu.card.c.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
-                if (c.this.Kc != null && c.this.Kc.aAe() != null) {
-                    com.baidu.tieba.card.l.zS(c.this.Kc.aAe().getId());
-                    com.baidu.tieba.card.l.a(c.this.Kb.getTitle(), c.this.Kc.aAe().getId(), (int) R.color.cp_cont_a, (int) R.color.cp_cont_d);
+                if (c.this.Kc != null && c.this.Kc.aAg() != null) {
+                    com.baidu.tieba.card.l.zS(c.this.Kc.aAg().getId());
+                    com.baidu.tieba.card.l.a(c.this.Kb.getTitle(), c.this.Kc.aAg().getId(), (int) R.color.cp_cont_a, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -69,7 +69,7 @@ public class c extends b<com.baidu.tbadk.core.data.a> {
             if (mVar instanceof com.baidu.tieba.card.data.e) {
                 com.baidu.tieba.card.data.e eVar = (com.baidu.tieba.card.data.e) this.Kc;
                 eVar.objType = 1;
-                au.a((com.baidu.tbadk.core.data.a) eVar, view.getContext(), eVar.cRe.cUq ? 2 : 1, false);
+                au.a((com.baidu.tbadk.core.data.a) eVar, view.getContext(), eVar.cRf.cUr ? 2 : 1, false);
                 afVar.nk().b(new a.C0052a(1));
             } else if (mVar instanceof bj) {
                 bj bjVar = (bj) this.Kc;

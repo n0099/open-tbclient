@@ -3,7 +3,7 @@ package com.baidu.mobads;
 import android.content.Context;
 /* loaded from: classes10.dex */
 public class BaiduNativeH5AdViewManager {
-    private static BaiduNativeH5AdViewManager aOM;
+    private static BaiduNativeH5AdViewManager aON;
 
     private BaiduNativeH5AdViewManager() {
     }
@@ -11,22 +11,22 @@ public class BaiduNativeH5AdViewManager {
     public static synchronized BaiduNativeH5AdViewManager getInstance() {
         BaiduNativeH5AdViewManager baiduNativeH5AdViewManager;
         synchronized (BaiduNativeH5AdViewManager.class) {
-            if (aOM == null) {
-                aOM = new BaiduNativeH5AdViewManager();
+            if (aON == null) {
+                aON = new BaiduNativeH5AdViewManager();
             }
-            baiduNativeH5AdViewManager = aOM;
+            baiduNativeH5AdViewManager = aON;
         }
         return baiduNativeH5AdViewManager;
     }
 
     public BaiduNativeH5AdView getBaiduNativeH5AdView(Context context, BaiduNativeAdPlacement baiduNativeAdPlacement, int i) {
-        BaiduNativeH5AdView Ee = baiduNativeAdPlacement.Ee();
-        if (baiduNativeAdPlacement.Ee() == null) {
+        BaiduNativeH5AdView Eg = baiduNativeAdPlacement.Eg();
+        if (baiduNativeAdPlacement.Eg() == null) {
             BaiduNativeH5AdView baiduNativeH5AdView = new BaiduNativeH5AdView(context, i);
             baiduNativeH5AdView.setAdPlacement(baiduNativeAdPlacement);
             baiduNativeAdPlacement.a(baiduNativeH5AdView);
             return baiduNativeH5AdView;
         }
-        return Ee;
+        return Eg;
     }
 }

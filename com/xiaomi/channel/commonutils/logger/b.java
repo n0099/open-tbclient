@@ -7,17 +7,17 @@ public abstract class b {
     private static int a = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static LoggerInterface f5a = new a();
+    private static LoggerInterface f4a = new a();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final HashMap<Integer, Long> f7a = new HashMap<>();
+    private static final HashMap<Integer, Long> f6a = new HashMap<>();
     private static final HashMap<Integer, String> b = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Integer f6a = -1;
+    private static final Integer f5a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static AtomicInteger f8a = new AtomicInteger(1);
+    private static AtomicInteger f7a = new AtomicInteger(1);
 
     public static int a() {
         return a;
@@ -25,13 +25,13 @@ public abstract class b {
 
     public static Integer a(String str) {
         if (a <= 1) {
-            Integer valueOf = Integer.valueOf(f8a.incrementAndGet());
-            f7a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+            Integer valueOf = Integer.valueOf(f7a.incrementAndGet());
+            f6a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
             b.put(valueOf, str);
-            f5a.log(str + " starts");
+            f4a.log(str + " starts");
             return valueOf;
         }
-        return f6a;
+        return f5a;
     }
 
     public static void a(int i) {
@@ -43,32 +43,32 @@ public abstract class b {
 
     public static void a(int i, String str) {
         if (i >= a) {
-            f5a.log(str);
+            f4a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
         if (i >= a) {
-            f5a.log(str, th);
+            f4a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
         if (i >= a) {
-            f5a.log("", th);
+            f4a.log("", th);
         }
     }
 
     public static void a(LoggerInterface loggerInterface) {
-        f5a = loggerInterface;
+        f4a = loggerInterface;
     }
 
     public static void a(Integer num) {
-        if (a > 1 || !f7a.containsKey(num)) {
+        if (a > 1 || !f6a.containsKey(num)) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - f7a.remove(num).longValue();
-        f5a.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
+        long currentTimeMillis = System.currentTimeMillis() - f6a.remove(num).longValue();
+        f4a.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
     /* renamed from: a  reason: collision with other method in class */

@@ -29,7 +29,7 @@ public class a extends c {
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (JD()) {
+        if (JF()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.b.b(1001, "Api-Base does not supported when app is invisible.");
         }
@@ -44,7 +44,7 @@ public class a extends c {
         }
         JSONObject jSONObject = (JSONObject) ar.second;
         String optString = jSONObject.optString("filePath");
-        String bp = com.baidu.swan.apps.storage.b.bp(optString, e.acF());
+        String bp = com.baidu.swan.apps.storage.b.bp(optString, e.acH());
         if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.ma(optString) != PathType.BD_FILE || TextUtils.isEmpty(bp)) {
             com.baidu.swan.apps.console.c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.b.b(202, "a valid filePath is required");
@@ -59,15 +59,15 @@ public class a extends c {
             com.baidu.swan.apps.console.c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.b.b(1001, "file not exists");
         }
-        SwanAppActivity WB = f.WQ().WB();
-        if (WB == null) {
+        SwanAppActivity WD = f.WS().WD();
+        if (WD == null) {
             com.baidu.swan.apps.console.c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.b.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = WB.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = WD.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.as.a.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(WB, WB.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(WD, WD.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);

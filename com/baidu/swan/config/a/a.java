@@ -7,14 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.config.core.a.a {
     @Override // com.baidu.swan.config.core.a.c
-    public JSONObject ajb() {
+    public JSONObject ajd() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put(SharedPrefConfig.VERSION_NAME, e.aiW().UV());
+            jSONObject2.put(SharedPrefConfig.VERSION_NAME, e.aiY().UX());
             jSONObject.put("swan_ext", jSONObject2);
-            jSONObject3.put(SharedPrefConfig.VERSION_NAME, e.aiW().UX());
+            jSONObject3.put(SharedPrefConfig.VERSION_NAME, e.aiY().UZ());
             jSONObject.put("game_ext", jSONObject3);
         } catch (JSONException e) {
             if (e.DEBUG) {

@@ -20,7 +20,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private String LC;
     private boolean NJ;
     private com.baidu.adp.widget.ListView.r OR;
-    public BdUniqueId dBj;
+    public BdUniqueId dBk;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -30,7 +30,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.aAe() != null && !StringUtils.isNull(kVar.aAe().getTid())) {
+                if (view != null && kVar != null && kVar.aAg() != null && !StringUtils.isNull(kVar.aAg().getTid())) {
                     d.this.b(view, kVar);
                 }
             }
@@ -66,7 +66,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad a = aVar.a(false, viewGroup, this.OR);
         a.aQ(1);
         af afVar = new af(a);
-        afVar.setPageId(this.dBj);
+        afVar.setPageId(this.dBk);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.concern.a.d.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -89,11 +89,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, af<com.baidu.tieba.card.data.k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRe == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
-        com.baidu.tieba.card.r.bve().d(kVar.zY("c12351"));
+        com.baidu.tieba.card.r.bvg().d(kVar.zY("c12351"));
         afVar.nk().setPosition(i);
         if (afVar.nk() instanceof com.baidu.tieba.a.e) {
             afVar.nk().setPage(this.LC);

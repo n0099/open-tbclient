@@ -11,8 +11,8 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class ArrowView extends View {
-    private static int jEh = 20;
-    private static int jEi = 13;
+    private static int jEj = 20;
+    private static int jEk = 13;
     private int height;
     private Paint paint;
     private Path path;
@@ -29,8 +29,8 @@ public class ArrowView extends View {
     }
 
     private void init(Context context) {
-        jEh = l.getDimens(context, R.dimen.tbds20);
-        jEi = l.getDimens(context, R.dimen.tbds13);
+        jEj = l.getDimens(context, R.dimen.tbds20);
+        jEk = l.getDimens(context, R.dimen.tbds13);
         this.paint = new Paint();
         this.paint.setColor(context.getResources().getColor(R.color.cp_bg_line_d));
         this.paint.setAntiAlias(true);
@@ -45,11 +45,11 @@ public class ArrowView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(jEh, jEi);
+            setMeasuredDimension(jEj, jEk);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(jEh, size2);
+            setMeasuredDimension(jEj, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, jEi);
+            setMeasuredDimension(size, jEk);
         }
     }
 

@@ -20,42 +20,42 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g duF = null;
-    private int duG;
+    private static g duG = null;
+    private int duH;
     private int currentIndex = 0;
-    private boolean duH = false;
     private boolean duI = false;
-    private List<String> dul = null;
     private boolean duJ = false;
-    private final Object duK = new Object();
-    private List<String> duL = new ArrayList();
-    private boolean duM = false;
-    private BDHttpDnsResult duN = null;
-    private final g.a duO = new g.a() { // from class: com.baidu.tbadk.coreExtra.d.g.1
+    private List<String> dum = null;
+    private boolean duK = false;
+    private final Object duL = new Object();
+    private List<String> duM = new ArrayList();
+    private boolean duN = false;
+    private BDHttpDnsResult duO = null;
+    private final g.a duP = new g.a() { // from class: com.baidu.tbadk.coreExtra.d.g.1
         @Override // com.baidu.adp.lib.webSocket.g.a
         public void onOpen(Map<String, String> map) {
             if (UseHttpdnsSdkSwitch.isOn()) {
-                if (g.this.duG > 0) {
-                    g.this.duM = false;
+                if (g.this.duH > 0) {
+                    g.this.duN = false;
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("URL_");
                     stringBuffer.append(com.baidu.adp.framework.client.socket.h.getUrl());
-                    if (g.this.duN != null) {
+                    if (g.this.duO != null) {
                         stringBuffer.append("-dnsResolveIp_");
-                        stringBuffer.append(g.this.duN.mg());
+                        stringBuffer.append(g.this.duO.mg());
                         stringBuffer.append("-dnsResolveType_");
-                        stringBuffer.append(g.this.duN.me());
+                        stringBuffer.append(g.this.duO.me());
                         stringBuffer.append("-dnsResolveStatus_");
-                        stringBuffer.append(g.this.duN.mf());
+                        stringBuffer.append(g.this.duO.mf());
                     }
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
                 }
-            } else if (g.this.duG >= 5) {
+            } else if (g.this.duH >= 5) {
                 com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.aNg().uI(com.baidu.adp.framework.client.socket.h.getUrl());
-                a.aNg().aNj();
+                a.aNi().uI(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.aNi().aNl();
             }
-            g.this.duG = 0;
+            g.this.duH = 0;
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
@@ -63,30 +63,30 @@ public class g {
             if ((i == 2 || i == 9) && j.isNetWorkAvailable()) {
                 g.c(g.this);
                 if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (g.this.duL == null || g.this.duL.isEmpty()) {
-                        g.this.aNw();
+                    if (g.this.duM == null || g.this.duM.isEmpty()) {
+                        g.this.aNy();
                     } else {
-                        g.this.aNv();
+                        g.this.aNx();
                     }
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("retryiplist_");
                     stringBuffer.append(com.baidu.adp.framework.client.socket.h.getUrl());
-                    if (g.this.duN != null) {
+                    if (g.this.duO != null) {
                         stringBuffer.append("-dnsResolveIp_");
-                        stringBuffer.append(g.this.duN.mg());
+                        stringBuffer.append(g.this.duO.mg());
                         stringBuffer.append("-dnsResolveType_");
-                        stringBuffer.append(g.this.duN.me());
+                        stringBuffer.append(g.this.duO.me());
                         stringBuffer.append("-dnsResolveStatus_");
-                        stringBuffer.append(g.this.duN.mf());
+                        stringBuffer.append(g.this.duO.mf());
                     }
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                    if (g.this.duG >= 5) {
+                    if (g.this.duH >= 5) {
                         BdSocketLinkService.setAvailable(false);
-                        g.this.aNx();
+                        g.this.aNz();
                     }
-                } else if (g.this.duG >= 5) {
+                } else if (g.this.duH >= 5) {
                     com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + com.baidu.adp.framework.client.socket.h.getUrl());
-                    g.this.aNA();
+                    g.this.aNC();
                 }
             }
         }
@@ -125,35 +125,35 @@ public class g {
     };
 
     static /* synthetic */ int c(g gVar) {
-        int i = gVar.duG;
-        gVar.duG = i + 1;
+        int i = gVar.duH;
+        gVar.duH = i + 1;
         return i;
     }
 
-    public static synchronized g aNu() {
+    public static synchronized g aNw() {
         g gVar;
         synchronized (g.class) {
-            if (duF == null) {
+            if (duG == null) {
                 synchronized (g.class) {
-                    if (duF == null) {
-                        duF = new g();
+                    if (duG == null) {
+                        duG = new g();
                     }
                 }
             }
-            gVar = duF;
+            gVar = duG;
         }
         return gVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.ia().a(this.duO);
+        com.baidu.adp.lib.webSocket.h.ia().a(this.duP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNv() {
-        synchronized (this.duK) {
-            if (this.duL != null && !this.duL.isEmpty()) {
-                String remove = this.duL.remove(0);
+    public void aNx() {
+        synchronized (this.duL) {
+            if (this.duM != null && !this.duM.isEmpty()) {
+                String remove = this.duM.remove(0);
                 if (!TextUtils.isEmpty(remove)) {
                     com.baidu.adp.framework.client.socket.h.setUrl("ws://" + remove + ":" + uO(TiebaIMConfig.url));
                     BdSocketLinkService.init();
@@ -163,25 +163,25 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNw() {
-        if (!this.duM) {
+    public void aNy() {
+        if (!this.duN) {
             try {
                 String uN = uN(TiebaIMConfig.url);
                 if (aq.isEmpty(uN)) {
-                    aNx();
+                    aNz();
                 } else {
-                    this.duM = true;
+                    this.duN = true;
                     BDHttpDns.ag(BdBaseApplication.getInst().getApplicationContext()).a(uN, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
                         @Override // com.baidu.bdhttpdns.BDHttpDns.a
                         public void a(BDHttpDnsResult bDHttpDnsResult) {
                             ArrayList<String> mg;
-                            g.this.duM = false;
-                            g.this.duN = bDHttpDnsResult;
+                            g.this.duN = false;
+                            g.this.duO = bDHttpDnsResult;
                             if (bDHttpDnsResult != null && (mg = bDHttpDnsResult.mg()) != null && !mg.isEmpty()) {
-                                synchronized (g.this.duK) {
-                                    g.this.duL = mg;
+                                synchronized (g.this.duL) {
+                                    g.this.duM = mg;
                                 }
-                                g.this.aNv();
+                                g.this.aNx();
                             }
                         }
                     });
@@ -193,10 +193,10 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNx() {
+    public void aNz() {
         NoNetworkView.updateUI();
         this.currentIndex = 0;
-        this.duM = false;
+        this.duN = false;
     }
 
     public static String uN(String str) {
@@ -223,96 +223,96 @@ public class g {
         return null;
     }
 
-    private String aNy() {
-        if (this.dul == null || this.currentIndex <= -1 || this.currentIndex >= this.dul.size()) {
+    private String aNA() {
+        if (this.dum == null || this.currentIndex <= -1 || this.currentIndex >= this.dum.size()) {
             return null;
         }
-        return a.aNg().getIpList().get(this.currentIndex);
+        return a.aNi().getIpList().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uP(final String str) {
-        String aNy = aNy();
-        if (aNy == null) {
-            if (!a.aNg().aNk()) {
-                a.aNg().a(new a.InterfaceC0382a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
+        String aNA = aNA();
+        if (aNA == null) {
+            if (!a.aNi().aNm()) {
+                a.aNi().a(new a.InterfaceC0382a() { // from class: com.baidu.tbadk.coreExtra.d.g.3
                     @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0382a
-                    public void aNl() {
+                    public void aNn() {
                         g.this.currentIndex = 0;
-                        g.this.dul = a.aNg().getIpList();
-                        if (g.this.dul != null) {
+                        g.this.dum = a.aNi().getIpList();
+                        if (g.this.dum != null) {
                             g.this.uP(str);
                         } else {
-                            g.this.duJ = false;
+                            g.this.duK = false;
                         }
                     }
                 });
             }
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            aNz();
-        } else if (uN(aNy) == null) {
-            aNz();
+            aNB();
+        } else if (uN(aNA) == null) {
+            aNB();
         } else {
-            this.duJ = false;
+            this.duK = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.h.setUrl(aNy);
+            com.baidu.adp.framework.client.socket.h.setUrl(aNA);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.duH = true;
+            this.duI = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNz() {
+    public void aNB() {
         NoNetworkView.updateUI();
-        this.duI = false;
-        this.currentIndex = 0;
         this.duJ = false;
-        this.duH = false;
+        this.currentIndex = 0;
+        this.duK = false;
+        this.duI = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNA() {
-        if (!this.duJ) {
-            this.duJ = true;
-            if (this.duH) {
-                this.duH = false;
-                b.aNn().uK(TiebaIMConfig.url);
+    public void aNC() {
+        if (!this.duK) {
+            this.duK = true;
+            if (this.duI) {
+                this.duI = false;
+                b.aNp().uK(TiebaIMConfig.url);
             }
-            b.aNn().aNo();
-            if (!this.duI) {
+            b.aNp().aNq();
+            if (!this.duJ) {
                 new d("www.baidu.com", new d.b() { // from class: com.baidu.tbadk.coreExtra.d.g.4
                     @Override // com.baidu.tbadk.coreExtra.d.d.b
                     public void gs(boolean z) {
-                        b.aNn().mf(z ? 2 : 1);
+                        b.aNp().mf(z ? 2 : 1);
                         if (z) {
-                            g.this.dul = a.aNg().getIpList();
-                            if (g.this.dul != null) {
+                            g.this.dum = a.aNi().getIpList();
+                            if (g.this.dum != null) {
                                 g.this.uP("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
-                                a.aNg().a(new a.InterfaceC0382a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
+                                a.aNi().a(new a.InterfaceC0382a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
                                     @Override // com.baidu.tbadk.coreExtra.d.a.InterfaceC0382a
-                                    public void aNl() {
+                                    public void aNn() {
                                         g.this.currentIndex = 0;
-                                        g.this.dul = a.aNg().getIpList();
-                                        if (g.this.dul != null) {
+                                        g.this.dum = a.aNi().getIpList();
+                                        if (g.this.dum != null) {
                                             g.this.uP("change ip to reconnect with DNS' failed.");
                                         } else {
-                                            g.this.duJ = false;
+                                            g.this.duK = false;
                                         }
                                     }
                                 });
                                 return;
                             }
                         }
-                        g.this.duJ = false;
-                        g.this.aNz();
+                        g.this.duK = false;
+                        g.this.aNB();
                     }
                 });
-                this.duI = true;
+                this.duJ = true;
                 return;
             }
             uP("change ip to reconnect with DNS' failed.");

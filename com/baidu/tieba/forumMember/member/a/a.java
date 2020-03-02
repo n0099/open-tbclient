@@ -18,36 +18,36 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private BdTypeListView eka;
-    private o glA;
-    private r glB;
+    private BdTypeListView ekb;
+    private o glC;
+    private r glD;
 
-    public List<com.baidu.adp.widget.ListView.a> bcC() {
+    public List<com.baidu.adp.widget.ListView.a> bcE() {
         return this.asE;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.eka = bdTypeListView;
-        this.asE.add(new i(baseActivity.getPageContext(), j.gkM));
-        this.asE.add(new l(baseActivity.getPageContext(), m.gkY));
-        this.asE.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.j.gnT));
-        this.asE.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.gko));
-        this.asE.add(new d(baseActivity.getPageContext(), e.gkr));
+        this.ekb = bdTypeListView;
+        this.asE.add(new i(baseActivity.getPageContext(), j.gkO));
+        this.asE.add(new l(baseActivity.getPageContext(), m.gla));
+        this.asE.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.j.gnV));
+        this.asE.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.gkq));
+        this.asE.add(new d(baseActivity.getPageContext(), e.gkt));
         this.asE.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.glA = new o(baseActivity.getPageContext(), p.glo);
-        this.asE.add(this.glA);
-        this.glB = new r(baseActivity.getPageContext(), s.gly);
-        this.asE.add(this.glB);
+        this.glC = new o(baseActivity.getPageContext(), p.glq);
+        this.asE.add(this.glC);
+        this.glD = new r(baseActivity.getPageContext(), s.glA);
+        this.asE.add(this.glD);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eka != null && (this.eka.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.eka.getAdapter().notifyDataSetChanged();
+        if (this.ekb != null && (this.ekb.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.ekb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.glA.onDestroy();
-        this.glB.onDestroy();
+        this.glC.onDestroy();
+        this.glD.onDestroy();
     }
 }

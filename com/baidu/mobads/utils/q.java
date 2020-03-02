@@ -3,8 +3,9 @@ package com.baidu.mobads.utils;
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.os.Build;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
-class q implements Runnable {
+public class q implements Runnable {
     final /* synthetic */ SharedPreferences a;
     final /* synthetic */ String b;
     final /* synthetic */ p c;

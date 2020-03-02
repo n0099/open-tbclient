@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> azB = new ArrayList<>(5);
-    public int azF;
+    private static ArrayList<a> azC = new ArrayList<>(5);
     public int azG;
-    int azH;
+    public int azH;
+    int azI;
     public int type;
 
     private void resetState() {
-        this.azF = 0;
         this.azG = 0;
         this.azH = 0;
+        this.azI = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long zO() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azF, this.azG) : ExpandableListView.getPackedPositionForGroup(this.azF);
+    public long zQ() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azG, this.azH) : ExpandableListView.getPackedPositionForGroup(this.azG);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,19 +32,19 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a A(int i, int i2, int i3, int i4) {
-        a bPJ = bPJ();
-        bPJ.type = i;
-        bPJ.azF = i2;
-        bPJ.azG = i3;
-        bPJ.azH = i4;
-        return bPJ;
+        a bPL = bPL();
+        bPL.type = i;
+        bPL.azG = i2;
+        bPL.azH = i3;
+        bPL.azI = i4;
+        return bPL;
     }
 
-    private static a bPJ() {
+    private static a bPL() {
         a aVar;
-        synchronized (azB) {
-            if (azB.size() > 0) {
-                aVar = azB.remove(0);
+        synchronized (azC) {
+            if (azC.size() > 0) {
+                aVar = azC.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (azB) {
-            if (azB.size() < 5) {
-                azB.add(this);
+        synchronized (azC) {
+            if (azC.size() < 5) {
+                azC.add(this);
             }
         }
     }

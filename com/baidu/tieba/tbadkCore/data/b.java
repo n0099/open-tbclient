@@ -3,14 +3,14 @@ package com.baidu.tieba.tbadkCore.data;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class b {
-    private String kfK;
+    private String kfM;
     private String mDescription;
     private String mType;
 
     public void a(LinkInfo linkInfo) {
         if (linkInfo != null) {
             this.mDescription = linkInfo.desc;
-            this.kfK = linkInfo.link;
+            this.kfM = linkInfo.link;
             this.mType = linkInfo.type;
         }
     }

@@ -14,7 +14,7 @@ public class bm {
         return this.title;
     }
 
-    public String aEq() {
+    public String aEs() {
         return this.title_link;
     }
 

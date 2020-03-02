@@ -14,10 +14,10 @@ import com.baidu.live.tieba.model.a;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class c {
-    private BlueCircleProgressDialog aCZ;
-    private com.baidu.live.tieba.model.a fke;
-    private m fkf;
-    private a.InterfaceC0099a fkg = new a.InterfaceC0099a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
+    private BlueCircleProgressDialog aDa;
+    private com.baidu.live.tieba.model.a fkf;
+    private m fkg;
+    private a.InterfaceC0099a fkh = new a.InterfaceC0099a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
     };
     private TbPageContext mPageContext;
 
@@ -29,37 +29,37 @@ public class c {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.i.sdk_neterror);
         } else if (mVar != null && mVar.XQ != null && mVar.mLiveInfo != null) {
-            this.fkf = mVar;
+            this.fkg = mVar;
             LogManager.getMigrateFromTiebaLogger().doClickShareLog(mVar.XQ.userId + "", mVar.mLiveInfo.live_id + "");
             if (TbadkCoreApplication.IS_SDK) {
                 n nVar = new n();
                 if (this.mPageContext != null) {
                     nVar.activity = this.mPageContext.getPageActivity();
                 }
-                nVar.Yq = this.fkf;
+                nVar.Yq = this.fkg;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913077, nVar));
             }
         }
     }
 
-    private void bqp() {
-        if (this.aCZ != null) {
-            this.aCZ.setDialogVisiable(false);
+    private void bqr() {
+        if (this.aDa != null) {
+            this.aDa.setDialogVisiable(false);
         }
     }
 
     public void pK() {
-        bqp();
-        if (this.fke != null) {
-            this.fke.zV();
+        bqr();
+        if (this.fkf != null) {
+            this.fkf.zX();
         }
     }
 
     public void onDestroy() {
-        bqp();
-        if (this.fke != null) {
-            this.fke.zV();
-            this.fke.onDestroy();
+        bqr();
+        if (this.fkf != null) {
+            this.fkf.zX();
+            this.fkf.onDestroy();
         }
     }
 }

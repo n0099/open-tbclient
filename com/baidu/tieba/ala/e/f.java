@@ -13,9 +13,9 @@ import com.baidu.tieba.ala.message.AlaGetRedPacketInfoResponseMessage;
 import com.baidu.tieba.ala.message.AlaSnatchRedPacketResponseMessage;
 /* loaded from: classes3.dex */
 public class f extends BdBaseModel {
-    private a eiR;
-    private HttpMessageListener fpw;
+    private a eiS;
     private HttpMessageListener fpx;
+    private HttpMessageListener fpy;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -30,43 +30,43 @@ public class f extends BdBaseModel {
 
     public f(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.fpw = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.e.f.1
+        this.fpx = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.e.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021160 && (httpResponsedMessage instanceof AlaGetRedPacketInfoResponseMessage)) {
                     AlaGetRedPacketInfoResponseMessage alaGetRedPacketInfoResponseMessage = (AlaGetRedPacketInfoResponseMessage) httpResponsedMessage;
-                    if (f.this.eiR != null) {
+                    if (f.this.eiS != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            f.this.eiR.ae(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            f.this.eiS.ae(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            f.this.eiR.b(alaGetRedPacketInfoResponseMessage.bry());
+                            f.this.eiS.b(alaGetRedPacketInfoResponseMessage.brA());
                         }
                     }
                 }
             }
         };
-        this.fpx = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.e.f.2
+        this.fpy = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.e.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021161 && (httpResponsedMessage instanceof AlaSnatchRedPacketResponseMessage)) {
                     AlaSnatchRedPacketResponseMessage alaSnatchRedPacketResponseMessage = (AlaSnatchRedPacketResponseMessage) httpResponsedMessage;
-                    if (f.this.eiR != null) {
-                        com.baidu.tieba.ala.data.i brA = alaSnatchRedPacketResponseMessage.brA();
+                    if (f.this.eiS != null) {
+                        com.baidu.tieba.ala.data.i brC = alaSnatchRedPacketResponseMessage.brC();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            f.this.eiR.af(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            f.this.eiS.af(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            f.this.eiR.b(brA);
+                            f.this.eiS.b(brC);
                         }
                     }
                 }
             }
         };
-        this.eiR = aVar;
+        this.eiS = aVar;
         initTasks();
-        registerListener(this.fpw);
         registerListener(this.fpx);
+        registerListener(this.fpy);
     }
 
     private void initTasks() {
@@ -113,8 +113,8 @@ public class f extends BdBaseModel {
     }
 
     public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.fpy);
         MessageManager.getInstance().unRegisterListener(this.fpx);
-        MessageManager.getInstance().unRegisterListener(this.fpw);
         MessageManager.getInstance().unRegisterTask(1021161);
         MessageManager.getInstance().unRegisterTask(1021160);
     }

@@ -31,7 +31,7 @@ public class b implements com.baidu.live.liveroom.d.e {
     @Override // com.baidu.live.liveroom.d.d
     public String wf() {
         if (this.Yx == 1) {
-            return com.baidu.live.v.a.zj().awA.ZJ;
+            return com.baidu.live.v.a.zl().awB.ZJ;
         }
         return null;
     }

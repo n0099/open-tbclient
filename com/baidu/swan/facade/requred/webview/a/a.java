@@ -47,7 +47,7 @@ public class a implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final c cVar) {
-        com.baidu.swan.e.c.awz().a(new com.baidu.swan.e.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.e.c.awB().a(new com.baidu.swan.e.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             @Override // com.baidu.swan.e.a
             public void onSuccess() {
                 a.this.hideLoading();
@@ -65,17 +65,17 @@ public class a implements b.a {
                 cVar.onProgress(j, j2);
                 a.this.o(j, j2);
             }
-        }).awA();
+        }).awC();
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.ahw().fP(a.e.aiapps_t7_download_tip_title).fQ(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.ahy().fP(a.e.aiapps_t7_download_tip_title).fQ(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         int i = 0;
-        if (com.baidu.swan.apps.w.a.UG().IC()) {
+        if (com.baidu.swan.apps.w.a.UI().IE()) {
             i = 100;
         }
         Context appContext = AppRuntime.getAppContext();
@@ -91,12 +91,12 @@ public class a implements b.a {
         Bundle bundle = new Bundle();
         bundle.putLong("current", j);
         bundle.putLong("sum", j2);
-        d.acA().d("t7_loading", bundle);
+        d.acC().d("t7_loading", bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoading() {
-        d.acA().kL("loading_hide");
+        d.acC().kL("loading_hide");
         this.mIsLoading = false;
     }
 }

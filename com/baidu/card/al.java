@@ -59,14 +59,14 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
                 if (c0052a.getActionType() == 1) {
-                    com.baidu.tieba.card.l.a(al.this.mTitle, al.this.Kc.aAe().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(al.this.mTitle, al.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 } else if (c0052a.getActionType() == 2) {
                     if (al.this.MN != null) {
-                        al.this.MN.bfG();
+                        al.this.MN.bfI();
                     }
                 } else if (c0052a.getActionType() == 3) {
                     if (al.this.MN != null) {
-                        al.this.MN.ctT();
+                        al.this.MN.ctV();
                     }
                 } else if (c0052a.getActionType() == 6) {
                     if (al.this.MN != null) {
@@ -103,7 +103,7 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.MK = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.MN = mZ();
-            this.MN.cyp().setBackgroundResource(R.color.transparent);
+            this.MN.cyr().setBackgroundResource(R.color.transparent);
             this.MN.setUniqueId(this.MO);
             this.MN.setFrom(this.mFrom);
         }
@@ -143,8 +143,8 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mLastScreenWidth = equipmentWidth;
         }
         this.Kc = aVar;
-        if (this.Kc != null && this.Kc.aAe() != null && this.Kc.aAe().aCD() != null) {
-            this.MN.setData(aVar.aAe());
+        if (this.Kc != null && this.Kc.aAg() != null && this.Kc.aAg().aCF() != null) {
+            this.MN.setData(aVar.aAg());
             ViewGroup.LayoutParams layoutParams = this.MK.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
@@ -156,20 +156,20 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                 }
                 if (z2) {
                 }
-                if (!this.Kc.aAe().aEf()) {
+                if (!this.Kc.aAg().aEh()) {
                 }
                 if (this.Ka != null) {
                 }
                 if (mT() == null) {
                 }
             } else {
-                if (this.Kc.aAe().aCD().is_vertical.intValue() == 1) {
-                    com.baidu.tieba.play.u cyX = this.MN.cyX();
-                    if (cyX != null) {
+                if (this.Kc.aAg().aCF().is_vertical.intValue() == 1) {
+                    com.baidu.tieba.play.u cyZ = this.MN.cyZ();
+                    if (cyZ != null) {
                         int i3 = (MF / 9) * 16;
                         int i4 = MG;
-                        int videoWidth = cyX.getVideoWidth();
-                        int videoHeight = cyX.getVideoHeight();
+                        int videoWidth = cyZ.getVideoWidth();
+                        int videoHeight = cyZ.getVideoHeight();
                         layoutParams.width = MF;
                         boolean z3 = i != layoutParams.width;
                         if (videoWidth == 0 || videoHeight == 0) {
@@ -205,12 +205,12 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                 if (z2) {
                     this.MK.setLayoutParams(layoutParams);
                 }
-                if (!this.Kc.aAe().aEf()) {
+                if (!this.Kc.aAg().aEh()) {
                     this.mTitle.setMaxLines(5);
-                    au.a(this.mTitle, this.Kc.aAe(), ME);
+                    au.a(this.mTitle, this.Kc.aAg(), ME);
                 } else {
                     this.mTitle.setMaxLines(2);
-                    au.a(this.mTitle, this.Kc.aAe());
+                    au.a(this.mTitle, this.Kc.aAg());
                 }
                 if (this.Ka != null) {
                     this.MN.Z(this.MP);
@@ -228,8 +228,8 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.Kc != null && this.Kc.aAe() != null) {
-            com.baidu.tieba.card.l.a(this.mTitle, this.Kc.aAe().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        if (this.Kc != null && this.Kc.aAg() != null) {
+            com.baidu.tieba.card.l.a(this.mTitle, this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             this.MK.onChangeSkinType(i);
             this.MK.setBackgroundColor(am.getColor(R.color.cp_bg_line_j));
         }
@@ -282,10 +282,10 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.Kc == null || this.Kc.aAe() == null) {
+        if (this.Kc == null || this.Kc.aAg() == null) {
             return null;
         }
-        return this.Kc.aAe().getVideoUrl();
+        return this.Kc.aAg().getVideoUrl();
     }
 
     public void setFrom(String str) {

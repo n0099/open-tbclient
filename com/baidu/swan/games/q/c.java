@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends a {
-    private com.baidu.swan.games.e.b cqF;
+    private com.baidu.swan.games.e.b cqG;
 
     public c(@NonNull com.baidu.swan.games.e.b bVar) {
-        this.cqF = bVar;
+        this.cqG = bVar;
     }
 
     @JavascriptInterface
@@ -42,7 +42,7 @@ public class c extends a {
             g(jsObject);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acF());
+                jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acH());
                 jSONObject.put("swanid_list", jSONArray);
             } catch (JSONException e2) {
                 if (DEBUG) {
@@ -88,7 +88,7 @@ public class c extends a {
                     if (a.DEBUG) {
                         Log.d("OpenDataApi", "on success");
                     }
-                    c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.1.1
+                    c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             com.baidu.swan.games.utils.b.a(c, true, jSONObject2);
@@ -106,7 +106,7 @@ public class c extends a {
                         cVar.errNo = "100";
                         cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", exc.getMessage());
                     }
-                    c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.1.2
+                    c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             com.baidu.swan.games.utils.b.a(c, false, cVar);
@@ -167,7 +167,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success ");
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.2.1
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.2.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, true, cVar2);
@@ -185,7 +185,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.2.2
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.2.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, false, cVar);
@@ -257,7 +257,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success");
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.3.1
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.3.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, true, jSONObject);
@@ -274,7 +274,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", exc.getMessage());
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.3.2
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.3.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, false, cVar);
@@ -348,7 +348,7 @@ public class c extends a {
                             if (a.DEBUG) {
                                 Log.d("OpenDataApi", "on success");
                             }
-                            c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.4.1
+                            c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.4.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     com.baidu.swan.games.utils.b.a(c, true, cVar2);
@@ -365,7 +365,7 @@ public class c extends a {
                                 cVar.errNo = "100";
                                 cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", exc.getMessage());
                             }
-                            c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.4.2
+                            c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.4.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     com.baidu.swan.games.utils.b.a(c, false, cVar);
@@ -387,17 +387,17 @@ public class c extends a {
     }
 
     private boolean isLogin() {
-        com.baidu.swan.apps.runtime.e acD = com.baidu.swan.apps.runtime.e.acD();
-        if (acD == null) {
+        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        if (acF == null) {
             return false;
         }
-        return acD.acO().isLogin(AppRuntime.getAppContext());
+        return acF.acQ().isLogin(AppRuntime.getAppContext());
     }
 
     private JSONObject a(com.baidu.swan.games.q.a.b[] bVarArr) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acF());
+            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acH());
             JSONArray jSONArray = new JSONArray();
             for (com.baidu.swan.games.q.a.b bVar : bVarArr) {
                 JSONObject jSONObject2 = new JSONObject();
@@ -436,11 +436,11 @@ public class c extends a {
                 bVarArr[i] = new com.baidu.swan.games.q.a.b();
                 bVarArr[i].key = c.optString("key");
                 bVarArr[i].value = c.optString("value");
-                if (!bVarArr[i].apc()) {
+                if (!bVarArr[i].ape()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.b.bV("setUserCloudStorage", "fail some keys in list meet length exceed");
                     com.baidu.swan.games.utils.b.a(cVar, false, cVar2);
                     return null;
-                } else if (!bVarArr[i].apd()) {
+                } else if (!bVarArr[i].apf()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.b.bV("setUserCloudStorage", "fail some key-value in list meet length exceed");
                     com.baidu.swan.games.utils.b.a(cVar, false, cVar2);
                     return null;
@@ -510,7 +510,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success");
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.5.1
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.5.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, true, jSONObject);
@@ -528,7 +528,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", r3, exc.getMessage());
                         }
-                        c.this.cqF.m(new Runnable() { // from class: com.baidu.swan.games.q.c.5.2
+                        c.this.cqG.m(new Runnable() { // from class: com.baidu.swan.games.q.c.5.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, false, cVar);
@@ -557,7 +557,7 @@ public class c extends a {
             }
         }
         try {
-            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acF());
+            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.acH());
             jSONObject.put("key_list", jSONArray);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -568,31 +568,31 @@ public class c extends a {
     }
 
     private String hU(int i) {
-        String If;
+        String Ih;
         switch (i) {
             case 1:
-                If = com.baidu.swan.apps.w.a.Ug().Ie();
+                Ih = com.baidu.swan.apps.w.a.Ui().Ig();
                 break;
             case 2:
-                If = com.baidu.swan.apps.w.a.Ug().If();
+                Ih = com.baidu.swan.apps.w.a.Ui().Ih();
                 break;
             case 3:
-                If = com.baidu.swan.apps.w.a.Ug().Ig();
+                Ih = com.baidu.swan.apps.w.a.Ui().Ii();
                 break;
             case 4:
-                If = com.baidu.swan.apps.w.a.Ug().Ih();
+                Ih = com.baidu.swan.apps.w.a.Ui().Ij();
                 break;
             case 5:
-                If = com.baidu.swan.apps.w.a.Ug().Ii();
+                Ih = com.baidu.swan.apps.w.a.Ui().Ik();
                 break;
             default:
-                If = "";
+                Ih = "";
                 break;
         }
-        if (TextUtils.isEmpty(If) && DEBUG) {
+        if (TextUtils.isEmpty(Ih) && DEBUG) {
             Log.e("OpenDataApi", "getUrlByType（）meet empty url !");
         }
-        return If;
+        return Ih;
     }
 
     private void g(JsObject jsObject) {

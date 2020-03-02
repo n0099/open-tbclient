@@ -10,10 +10,10 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId gYb = BdUniqueId.gen();
-    public static final Integer gYc = 6;
-    private boolean gYd;
-    private List<MetaData> gYe = new ArrayList();
+    public static final BdUniqueId gYd = BdUniqueId.gen();
+    public static final Integer gYe = 6;
+    private boolean gYf;
+    private List<MetaData> gYg = new ArrayList();
 
     public void bK(List<User> list) {
         if (list != null) {
@@ -21,7 +21,7 @@ public class b extends com.baidu.tbadk.core.data.a {
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.gYe.add(metaData);
+                this.gYg.add(metaData);
             }
         }
     }
@@ -30,33 +30,33 @@ public class b extends com.baidu.tbadk.core.data.a {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(gYc);
+        return concernData.recom_type.equals(gYe);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gYb;
+        return gYd;
     }
 
-    public List<MetaData> bNl() {
-        return this.gYe;
+    public List<MetaData> bNn() {
+        return this.gYg;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj aAe() {
+    public bj aAg() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al aAg() {
+    public al aAi() {
         return new al();
     }
 
-    public boolean bNm() {
-        return this.gYd;
+    public boolean bNo() {
+        return this.gYf;
     }
 
     public void my(boolean z) {
-        this.gYd = z;
+        this.gYf = z;
     }
 }

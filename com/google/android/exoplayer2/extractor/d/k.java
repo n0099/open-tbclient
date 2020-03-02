@@ -17,24 +17,24 @@ final class k {
 
     public static d G(l lVar) throws ParserException {
         a(1, lVar, false);
-        long dzx = lVar.dzx();
+        long dzz = lVar.dzz();
         int readUnsignedByte = lVar.readUnsignedByte();
-        long dzx2 = lVar.dzx();
-        int dzy = lVar.dzy();
-        int dzy2 = lVar.dzy();
-        int dzy3 = lVar.dzy();
+        long dzz2 = lVar.dzz();
+        int dzA = lVar.dzA();
+        int dzA2 = lVar.dzA();
+        int dzA3 = lVar.dzA();
         int readUnsignedByte2 = lVar.readUnsignedByte();
-        return new d(dzx, readUnsignedByte, dzx2, dzy, dzy2, dzy3, (int) Math.pow(2.0d, readUnsignedByte2 & 15), (int) Math.pow(2.0d, (readUnsignedByte2 & 240) >> 4), (lVar.readUnsignedByte() & 1) > 0, Arrays.copyOf(lVar.data, lVar.dzs()));
+        return new d(dzz, readUnsignedByte, dzz2, dzA, dzA2, dzA3, (int) Math.pow(2.0d, readUnsignedByte2 & 15), (int) Math.pow(2.0d, (readUnsignedByte2 & 240) >> 4), (lVar.readUnsignedByte() & 1) > 0, Arrays.copyOf(lVar.data, lVar.dzu()));
     }
 
     public static b H(l lVar) throws ParserException {
         a(3, lVar, false);
-        String LU = lVar.LU((int) lVar.dzx());
-        long dzx = lVar.dzx();
-        String[] strArr = new String[(int) dzx];
+        String LU = lVar.LU((int) lVar.dzz());
+        long dzz = lVar.dzz();
+        String[] strArr = new String[(int) dzz];
         int length = LU.length() + 11 + 4;
-        for (int i = 0; i < dzx; i++) {
-            strArr[i] = lVar.LU((int) lVar.dzx());
+        for (int i = 0; i < dzz; i++) {
+            strArr[i] = lVar.LU((int) lVar.dzz());
             length = length + 4 + strArr[i].length();
         }
         if ((lVar.readUnsignedByte() & 1) == 0) {
@@ -44,11 +44,11 @@ final class k {
     }
 
     public static boolean a(int i, l lVar, boolean z) throws ParserException {
-        if (lVar.dzr() < 7) {
+        if (lVar.dzt() < 7) {
             if (z) {
                 return false;
             }
-            throw new ParserException("too short header: " + lVar.dzr());
+            throw new ParserException("too short header: " + lVar.dzt());
         } else if (lVar.readUnsignedByte() != i) {
             if (z) {
                 return false;
@@ -82,7 +82,7 @@ final class k {
         b(iVar);
         a(i, iVar);
         c[] a2 = a(iVar);
-        if (!iVar.dvl()) {
+        if (!iVar.dvn()) {
             throw new ParserException("framing bit after modes not set as expected");
         }
         return a2;
@@ -92,7 +92,7 @@ final class k {
         int readBits = iVar.readBits(6) + 1;
         c[] cVarArr = new c[readBits];
         for (int i = 0; i < readBits; i++) {
-            cVarArr[i] = new c(iVar.dvl(), iVar.readBits(16), iVar.readBits(16), iVar.readBits(8));
+            cVarArr[i] = new c(iVar.dvn(), iVar.readBits(16), iVar.readBits(16), iVar.readBits(8));
         }
         return cVarArr;
     }
@@ -103,8 +103,8 @@ final class k {
             int readBits2 = iVar.readBits(16);
             switch (readBits2) {
                 case 0:
-                    int readBits3 = iVar.dvl() ? iVar.readBits(4) + 1 : 1;
-                    if (iVar.dvl()) {
+                    int readBits3 = iVar.dvn() ? iVar.readBits(4) + 1 : 1;
+                    if (iVar.dvn()) {
                         int readBits4 = iVar.readBits(8) + 1;
                         for (int i3 = 0; i3 < readBits4; i3++) {
                             iVar.JU(JV(i - 1));
@@ -145,7 +145,7 @@ final class k {
             iVar.JU(8);
             int[] iArr = new int[readBits2];
             for (int i2 = 0; i2 < readBits2; i2++) {
-                iArr[i2] = ((iVar.dvl() ? iVar.readBits(5) : 0) * 8) + iVar.readBits(3);
+                iArr[i2] = ((iVar.dvn() ? iVar.readBits(5) : 0) * 8) + iVar.readBits(3);
             }
             for (int i3 = 0; i3 < readBits2; i3++) {
                 for (int i4 = 0; i4 < 8; i4++) {
@@ -220,12 +220,12 @@ final class k {
         int readBits = iVar.readBits(16);
         int readBits2 = iVar.readBits(24);
         long[] jArr = new long[readBits2];
-        boolean dvl = iVar.dvl();
-        if (!dvl) {
-            boolean dvl2 = iVar.dvl();
+        boolean dvn = iVar.dvn();
+        if (!dvn) {
+            boolean dvn2 = iVar.dvn();
             for (int i = 0; i < jArr.length; i++) {
-                if (dvl2) {
-                    if (iVar.dvl()) {
+                if (dvn2) {
+                    if (iVar.dvn()) {
                         jArr[i] = iVar.readBits(5) + 1;
                     } else {
                         jArr[i] = 0;
@@ -268,7 +268,7 @@ final class k {
             }
             iVar.JU((int) (j * readBits6));
         }
-        return new a(readBits, readBits2, jArr, readBits5, dvl);
+        return new a(readBits, readBits2, jArr, readBits5, dvn);
     }
 
     private static long O(long j, long j2) {
@@ -279,15 +279,15 @@ final class k {
     public static final class a {
         public final int dimensions;
         public final boolean isOrdered;
-        public final int mlX;
-        public final long[] mlY;
         public final int mlZ;
+        public final long[] mma;
+        public final int mmb;
 
         public a(int i, int i2, long[] jArr, int i3, boolean z) {
             this.dimensions = i;
-            this.mlX = i2;
-            this.mlY = jArr;
-            this.mlZ = i3;
+            this.mlZ = i2;
+            this.mma = jArr;
+            this.mmb = i3;
             this.isOrdered = z;
         }
     }
@@ -295,12 +295,12 @@ final class k {
     /* loaded from: classes6.dex */
     public static final class b {
         public final int length;
-        public final String[] mma;
+        public final String[] mmc;
         public final String vendor;
 
         public b(String str, String[] strArr, int i) {
             this.vendor = str;
-            this.mma = strArr;
+            this.mmc = strArr;
             this.length = i;
         }
     }
@@ -309,12 +309,12 @@ final class k {
     public static final class d {
         public final int channels;
         public final byte[] data;
-        public final int mmf;
-        public final int mmg;
         public final int mmh;
         public final int mmi;
         public final int mmj;
-        public final boolean mmk;
+        public final int mmk;
+        public final int mml;
+        public final boolean mmm;
         public final long sampleRate;
         public final long version;
 
@@ -322,28 +322,28 @@ final class k {
             this.version = j;
             this.channels = i;
             this.sampleRate = j2;
-            this.mmf = i2;
-            this.mmg = i3;
-            this.mmh = i4;
-            this.mmi = i5;
-            this.mmj = i6;
-            this.mmk = z;
+            this.mmh = i2;
+            this.mmi = i3;
+            this.mmj = i4;
+            this.mmk = i5;
+            this.mml = i6;
+            this.mmm = z;
             this.data = bArr;
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class c {
-        public final boolean mmb;
-        public final int mmc;
-        public final int mmd;
+        public final boolean mmd;
         public final int mme;
+        public final int mmf;
+        public final int mmg;
 
         public c(boolean z, int i, int i2, int i3) {
-            this.mmb = z;
-            this.mmc = i;
-            this.mmd = i2;
-            this.mme = i3;
+            this.mmd = z;
+            this.mme = i;
+            this.mmf = i2;
+            this.mmg = i3;
         }
     }
 }

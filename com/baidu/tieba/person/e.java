@@ -11,20 +11,20 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private float cVD;
+    private float cVE;
     private Context context;
     private View mContentView;
     private LinearLayout mRootView;
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.cVD = 0.3f;
+        this.cVE = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
     public void ae(float f) {
-        this.cVD = f;
+        this.cVE = f;
     }
 
     @Override // android.app.Dialog
@@ -54,7 +54,7 @@ public class e extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.cVD);
+        getWindow().setDimAmount(this.cVE);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(R.style.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);

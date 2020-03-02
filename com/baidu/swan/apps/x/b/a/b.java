@@ -4,7 +4,7 @@ import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public abstract class b<ValueT> {
-    private final ValueT byV;
+    private final ValueT byW;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -15,18 +15,18 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.byV = valuet;
+        this.byW = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.byV);
+        return a(cVar, str, (String) this.byW);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.We(), str, (String) valuet);
+        return a(cVar.Wg(), str, (String) valuet);
     }
 
     public void b(c cVar, String str, ValueT valuet) {
-        b(cVar.We(), str, (String) valuet);
+        b(cVar.Wg(), str, (String) valuet);
     }
 }

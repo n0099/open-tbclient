@@ -18,21 +18,21 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
-    private String[] dTY;
-    private LinearLayout dTZ;
-    private CompoundButton.OnCheckedChangeListener dUa;
-    private HashMap<NEGFeedBackReasonCheckBox, Boolean> dUc;
+    private String[] dTZ;
+    private LinearLayout dUa;
+    private CompoundButton.OnCheckedChangeListener dUb;
+    private HashMap<NEGFeedBackReasonCheckBox, Boolean> dUd;
     private int mMarginBottom;
     private TbPageContext mPageContext;
-    private boolean dTW = false;
-    private SparseArray<String> dTX = null;
-    private boolean dUd = false;
-    private CompoundButton.OnCheckedChangeListener dUb = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.b.1
+    private boolean dTX = false;
+    private SparseArray<String> dTY = null;
+    private boolean dUe = false;
+    private CompoundButton.OnCheckedChangeListener dUc = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.b.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (compoundButton != null && b.this.dUc != null && !b.this.dUc.isEmpty()) {
-                if (z && b.this.dUd) {
-                    for (Map.Entry entry : b.this.dUc.entrySet()) {
+            if (compoundButton != null && b.this.dUd != null && !b.this.dUd.isEmpty()) {
+                if (z && b.this.dUe) {
+                    for (Map.Entry entry : b.this.dUd.entrySet()) {
                         if (entry != null) {
                             if (entry.getKey() == compoundButton) {
                                 ((NEGFeedBackReasonCheckBox) entry.getKey()).setChecked(true);
@@ -44,8 +44,8 @@ public class b {
                         }
                     }
                 }
-                if (b.this.dUa != null) {
-                    b.this.dUa.onCheckedChanged(compoundButton, z);
+                if (b.this.dUb != null) {
+                    b.this.dUb.onCheckedChanged(compoundButton, z);
                 }
             }
         }
@@ -58,61 +58,61 @@ public class b {
 
     public void setData(al alVar) {
         if (alVar != null) {
-            this.dTX = alVar.getFeedBackReasonMap();
+            this.dTY = alVar.getFeedBackReasonMap();
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.dTY = strArr;
+        this.dTZ = strArr;
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.dTW = z;
+        this.dTX = z;
     }
 
     public void a(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.dUa = onCheckedChangeListener;
+        this.dUb = onCheckedChangeListener;
     }
 
     public View getView() {
-        if (this.dTZ == null) {
-            this.dTZ = new LinearLayout(this.mPageContext.getPageActivity());
-            this.dTZ.setOrientation(1);
+        if (this.dUa == null) {
+            this.dUa = new LinearLayout(this.mPageContext.getPageActivity());
+            this.dUa.setOrientation(1);
         }
-        List<List<a>> aWh = aWh();
-        if (v.isEmpty(aWh)) {
+        List<List<a>> aWj = aWj();
+        if (v.isEmpty(aWj)) {
             return null;
         }
-        int size = aWh.size();
-        if (this.dUc == null) {
-            this.dUc = new HashMap<>();
+        int size = aWj.size();
+        if (this.dUd == null) {
+            this.dUd = new HashMap<>();
         } else {
-            this.dUc.clear();
+            this.dUd.clear();
         }
         int i = 0;
         while (i < size) {
-            View a2 = a(aWh.get(i), i == size + (-1), this.dTZ.getChildAt(i));
+            View a2 = a(aWj.get(i), i == size + (-1), this.dUa.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
-                this.dTZ.addView(a2);
+                this.dUa.addView(a2);
             }
             i++;
         }
-        if (this.dTZ.getChildCount() > size) {
-            this.dTZ.removeViews(size, this.dTZ.getChildCount() - size);
+        if (this.dUa.getChildCount() > size) {
+            this.dUa.removeViews(size, this.dUa.getChildCount() - size);
         }
-        return this.dTZ;
+        return this.dUa;
     }
 
-    private List<List<a>> aWh() {
+    private List<List<a>> aWj() {
         int i;
         int i2;
         int i3 = -1;
-        if (this.dTX == null || this.dTX.size() == 0) {
-            return aWi();
+        if (this.dTY == null || this.dTY.size() == 0) {
+            return aWk();
         }
-        int size = this.dTX.size();
-        int i4 = this.dTW ? 0 : -1;
-        int i5 = this.dTW ? size - 1 : size;
+        int size = this.dTY.size();
+        int i4 = this.dTX ? 0 : -1;
+        int i5 = this.dTX ? size - 1 : size;
         if (i5 > 1 && i5 % 2 == 1) {
             i3 = i4 + 1;
         }
@@ -127,9 +127,9 @@ public class b {
                 i = i6 + 1;
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new a(i6, this.dTX.keyAt(i6), this.dTX.valueAt(i6)));
+            arrayList2.add(new a(i6, this.dTY.keyAt(i6), this.dTY.valueAt(i6)));
             if (i > i6 && i < size) {
-                arrayList2.add(new a(i, this.dTX.keyAt(i), this.dTX.valueAt(i)));
+                arrayList2.add(new a(i, this.dTY.keyAt(i), this.dTY.valueAt(i)));
             }
             arrayList.add(arrayList2);
             i6 = i2;
@@ -137,18 +137,18 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> aWi() {
-        if (this.dTY == null || this.dTY.length <= 0) {
+    private List<List<a>> aWk() {
+        if (this.dTZ == null || this.dTZ.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.dTY.length; i += 2) {
+        for (int i = 0; i < this.dTZ.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.dTY[i])) {
-                arrayList2.add(new a(i, 0, this.dTY[i]));
+            if (!StringUtils.isNull(this.dTZ[i])) {
+                arrayList2.add(new a(i, 0, this.dTZ[i]));
             }
-            if (i + 1 < this.dTY.length && !StringUtils.isNull(this.dTY[i + 1])) {
-                arrayList2.add(new a(i + 1, 0, this.dTY[i + 1]));
+            if (i + 1 < this.dTZ.length && !StringUtils.isNull(this.dTZ[i + 1])) {
+                arrayList2.add(new a(i + 1, 0, this.dTZ[i + 1]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -165,16 +165,16 @@ public class b {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.dTZ, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.dUa, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.aHL();
-        nEGFeedBackReasonCheckBox2.aHL();
+        nEGFeedBackReasonCheckBox.aHN();
+        nEGFeedBackReasonCheckBox2.aHN();
         nEGFeedBackReasonCheckBox.setChecked(false);
         nEGFeedBackReasonCheckBox2.setChecked(false);
-        this.dUc.put(nEGFeedBackReasonCheckBox, false);
-        this.dUc.put(nEGFeedBackReasonCheckBox2, false);
+        this.dUd.put(nEGFeedBackReasonCheckBox, false);
+        this.dUd.put(nEGFeedBackReasonCheckBox2, false);
         a aVar = list.get(0);
         if (aVar != null) {
             nEGFeedBackReasonCheckBox.setText(aVar.reason);
@@ -188,8 +188,8 @@ public class b {
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(8);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.dUb);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.dUb);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.dUc);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.dUc);
         int i = z ? 0 : this.mMarginBottom;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
@@ -228,16 +228,16 @@ public class b {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.dTZ, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.dUa, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.aHL();
-        nEGFeedBackReasonCheckBox2.aHL();
+        nEGFeedBackReasonCheckBox.aHN();
+        nEGFeedBackReasonCheckBox2.aHN();
         nEGFeedBackReasonCheckBox.setChecked(false);
         nEGFeedBackReasonCheckBox2.setChecked(false);
-        this.dUc.put(nEGFeedBackReasonCheckBox, false);
-        this.dUc.put(nEGFeedBackReasonCheckBox2, false);
+        this.dUd.put(nEGFeedBackReasonCheckBox, false);
+        this.dUd.put(nEGFeedBackReasonCheckBox2, false);
         a aVar = list.get(0);
         if (aVar != null) {
             nEGFeedBackReasonCheckBox.setText(aVar.reason);
@@ -251,8 +251,8 @@ public class b {
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(4);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.dUb);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.dUb);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.dUc);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.dUc);
         int i = z ? 0 : this.mMarginBottom;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
@@ -262,46 +262,46 @@ public class b {
     }
 
     public View getRootView() {
-        if (this.dTZ == null) {
-            this.dTZ = new LinearLayout(this.mPageContext.getPageActivity());
-            this.dTZ.setOrientation(1);
+        if (this.dUa == null) {
+            this.dUa = new LinearLayout(this.mPageContext.getPageActivity());
+            this.dUa.setOrientation(1);
         }
-        List<List<a>> aWk = aWk();
-        if (v.isEmpty(aWk)) {
+        List<List<a>> aWm = aWm();
+        if (v.isEmpty(aWm)) {
             return null;
         }
-        int size = aWk.size();
-        if (this.dUc == null) {
-            this.dUc = new HashMap<>();
+        int size = aWm.size();
+        if (this.dUd == null) {
+            this.dUd = new HashMap<>();
         } else {
-            this.dUc.clear();
+            this.dUd.clear();
         }
         int i = 0;
         while (i < size) {
-            View b = b(aWk.get(i), i == size + (-1), this.dTZ.getChildAt(i));
+            View b = b(aWm.get(i), i == size + (-1), this.dUa.getChildAt(i));
             if (b != null && b.getParent() == null) {
-                this.dTZ.addView(b);
+                this.dUa.addView(b);
             }
             i++;
         }
-        if (this.dTZ.getChildCount() > size) {
-            this.dTZ.removeViews(size, this.dTZ.getChildCount() - size);
+        if (this.dUa.getChildCount() > size) {
+            this.dUa.removeViews(size, this.dUa.getChildCount() - size);
         }
-        return this.dTZ;
+        return this.dUa;
     }
 
-    private List<List<a>> aWj() {
-        if (this.dTY == null || this.dTY.length <= 0) {
+    private List<List<a>> aWl() {
+        if (this.dTZ == null || this.dTZ.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.dTY.length; i += 2) {
+        for (int i = 0; i < this.dTZ.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.dTY[i])) {
-                arrayList2.add(new a(i, i + 1, this.dTY[i]));
+            if (!StringUtils.isNull(this.dTZ[i])) {
+                arrayList2.add(new a(i, i + 1, this.dTZ[i]));
             }
-            if (i + 1 < this.dTY.length && !StringUtils.isNull(this.dTY[i + 1])) {
-                arrayList2.add(new a(i + 1, i + 2, this.dTY[i + 1]));
+            if (i + 1 < this.dTZ.length && !StringUtils.isNull(this.dTZ[i + 1])) {
+                arrayList2.add(new a(i + 1, i + 2, this.dTZ[i + 1]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -310,20 +310,20 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> aWk() {
-        if (this.dTX == null || this.dTX.size() == 0) {
-            return aWj();
+    private List<List<a>> aWm() {
+        if (this.dTY == null || this.dTY.size() == 0) {
+            return aWl();
         }
-        int size = this.dTX.size();
+        int size = this.dTY.size();
         ArrayList arrayList = new ArrayList();
         int i = 0;
         while (i < size) {
             int i2 = i + 1;
             int i3 = i + 2;
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new a(i, this.dTX.keyAt(i), this.dTX.valueAt(i)));
+            arrayList2.add(new a(i, this.dTY.keyAt(i), this.dTY.valueAt(i)));
             if (i2 > i && i2 < size) {
-                arrayList2.add(new a(i2, this.dTX.keyAt(i2), this.dTX.valueAt(i2)));
+                arrayList2.add(new a(i2, this.dTY.keyAt(i2), this.dTY.valueAt(i2)));
             }
             arrayList.add(arrayList2);
             i = i3;
@@ -332,6 +332,6 @@ public class b {
     }
 
     public void hw(boolean z) {
-        this.dUd = z;
+        this.dUe = z;
     }
 }

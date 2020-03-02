@@ -21,28 +21,28 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class c extends BaseAdapter {
-    private boolean eLE;
-    private boolean jiS;
-    private String jiT;
-    private PersonBarActivity jkg;
-    private boolean jki;
-    private View.OnClickListener jkj;
+    private boolean eLF;
+    private boolean jiU;
+    private String jiV;
+    private PersonBarActivity jki;
+    private boolean jkk;
+    private View.OnClickListener jkl;
     private b mData;
     private ArrayList<ForumData> mForumList = null;
-    private boolean dXW = false;
-    private View.OnClickListener jkh = null;
-    private boolean eLC = false;
+    private boolean dXX = false;
+    private View.OnClickListener jkj = null;
+    private boolean eLD = false;
 
     public c(PersonBarActivity personBarActivity, b bVar, boolean z, boolean z2) {
         this.mData = null;
-        this.eLE = true;
-        this.jiS = false;
-        this.jki = true;
-        this.jkg = personBarActivity;
+        this.eLF = true;
+        this.jiU = false;
+        this.jkk = true;
+        this.jki = personBarActivity;
         this.mData = bVar;
-        this.eLE = z;
-        this.jiS = z2;
-        this.jki = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
+        this.eLF = z;
+        this.jiU = z2;
+        this.jkk = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
     }
 
     public void setForumList(ArrayList<ForumData> arrayList) {
@@ -50,17 +50,17 @@ public class c extends BaseAdapter {
     }
 
     public void hC(boolean z) {
-        this.dXW = z;
+        this.dXX = z;
         notifyDataSetChanged();
     }
 
-    public boolean aXL() {
-        return this.dXW;
+    public boolean aXN() {
+        return this.dXX;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eLC) {
+        if (this.eLD) {
             return 1;
         }
         if (this.mForumList != null) {
@@ -69,15 +69,15 @@ public class c extends BaseAdapter {
         return 0;
     }
 
-    public void bgH() {
-        this.eLC = false;
+    public void bgJ() {
+        this.eLD = false;
         if (this.mForumList == null || this.mForumList.size() == 0) {
-            this.eLC = true;
+            this.eLD = true;
         }
     }
 
-    public boolean cvX() {
-        return this.eLC;
+    public boolean cvZ() {
+        return this.eLD;
     }
 
     @Override // android.widget.Adapter
@@ -102,27 +102,27 @@ public class c extends BaseAdapter {
         ForumData forumData;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.jkg.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.jki.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 try {
                     aVar = new a();
-                    aVar.ieI = (BarImageView) view3.findViewById(R.id.forum_avatar);
-                    aVar.ieI.setGifIconSupport(false);
-                    aVar.ieI.setRadius(l.getDimens(this.jkg, R.dimen.tbds10));
-                    aVar.ieI.setConrers(15);
-                    aVar.ieI.setPlaceHolder(2);
+                    aVar.ieK = (BarImageView) view3.findViewById(R.id.forum_avatar);
+                    aVar.ieK.setGifIconSupport(false);
+                    aVar.ieK.setRadius(l.getDimens(this.jki, R.dimen.tbds10));
+                    aVar.ieK.setConrers(15);
+                    aVar.ieK.setPlaceHolder(2);
                     aVar.mName = (TextView) view3.findViewById(R.id.name);
-                    aVar.jkk = new StringBuffer(10);
-                    aVar.jkl = (TextView) view3.findViewById(R.id.degree);
-                    aVar.jkm = (TextView) view3.findViewById(R.id.degree_text);
-                    aVar.jkq = (TextView) view3.findViewById(R.id.experience);
-                    aVar.jko = (TextView) view3.findViewById(R.id.experience_title);
-                    aVar.jkr = (Button) view3.findViewById(R.id.item_delete);
-                    aVar.jkn = (ImageView) view3.findViewById(R.id.degree_text_ta);
-                    aVar.jkp = (TextView) view3.findViewById(R.id.intro_ta);
-                    aVar.jks = (ImageView) view3.findViewById(R.id.item_talk);
-                    aVar.hHN = (ImageView) view3.findViewById(R.id.diver_buttom_px);
-                    aVar.hHN.setVisibility(0);
-                    aVar.jkt = (ImageView) view3.findViewById(R.id.item_selected);
+                    aVar.jkm = new StringBuffer(10);
+                    aVar.jkn = (TextView) view3.findViewById(R.id.degree);
+                    aVar.jko = (TextView) view3.findViewById(R.id.degree_text);
+                    aVar.jks = (TextView) view3.findViewById(R.id.experience);
+                    aVar.jkq = (TextView) view3.findViewById(R.id.experience_title);
+                    aVar.jkt = (Button) view3.findViewById(R.id.item_delete);
+                    aVar.jkp = (ImageView) view3.findViewById(R.id.degree_text_ta);
+                    aVar.jkr = (TextView) view3.findViewById(R.id.intro_ta);
+                    aVar.jku = (ImageView) view3.findViewById(R.id.item_talk);
+                    aVar.hHP = (ImageView) view3.findViewById(R.id.diver_buttom_px);
+                    aVar.hHP.setVisibility(0);
+                    aVar.jkv = (ImageView) view3.findViewById(R.id.item_selected);
                     view3.setTag(aVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -135,90 +135,90 @@ public class c extends BaseAdapter {
                 aVar = (a) view.getTag();
                 view3 = view;
             }
-            if (this.eLC) {
-                aVar.jkl.setVisibility(8);
-                aVar.jkr.setVisibility(8);
-                aVar.mName.setVisibility(8);
-                aVar.ieI.setVisibility(8);
-                aVar.jkm.setVisibility(8);
-                aVar.jkq.setVisibility(8);
-                aVar.jko.setVisibility(8);
+            if (this.eLD) {
                 aVar.jkn.setVisibility(8);
-                aVar.jkp.setVisibility(8);
+                aVar.jkt.setVisibility(8);
+                aVar.mName.setVisibility(8);
+                aVar.ieK.setVisibility(8);
+                aVar.jko.setVisibility(8);
                 aVar.jks.setVisibility(8);
-                aVar.hHN.setVisibility(8);
+                aVar.jkq.setVisibility(8);
+                aVar.jkp.setVisibility(8);
+                aVar.jkr.setVisibility(8);
+                aVar.jku.setVisibility(8);
+                aVar.hHP.setVisibility(8);
             } else {
                 aVar.mName.setVisibility(0);
-                aVar.ieI.setVisibility(0);
-                if (this.eLE) {
-                    aVar.jkl.setVisibility(8);
-                    aVar.jkm.setVisibility(8);
-                    aVar.jkq.setVisibility(0);
-                    aVar.jko.setVisibility(0);
-                    aVar.jkn.setVisibility(0);
-                    aVar.jkp.setVisibility(8);
-                    aVar.hHN.setVisibility(0);
-                } else {
-                    aVar.jkl.setVisibility(8);
-                    aVar.jkm.setVisibility(8);
-                    aVar.jkq.setVisibility(8);
+                aVar.ieK.setVisibility(0);
+                if (this.eLF) {
+                    aVar.jkn.setVisibility(8);
                     aVar.jko.setVisibility(8);
-                    aVar.jkn.setVisibility(0);
+                    aVar.jks.setVisibility(0);
+                    aVar.jkq.setVisibility(0);
                     aVar.jkp.setVisibility(0);
-                    aVar.hHN.setVisibility(0);
+                    aVar.jkr.setVisibility(8);
+                    aVar.hHP.setVisibility(0);
+                } else {
+                    aVar.jkn.setVisibility(8);
+                    aVar.jko.setVisibility(8);
+                    aVar.jks.setVisibility(8);
+                    aVar.jkq.setVisibility(8);
+                    aVar.jkp.setVisibility(0);
+                    aVar.jkr.setVisibility(0);
+                    aVar.hHP.setVisibility(0);
                 }
             }
             if (this.mForumList != null && i >= 0 && i < this.mForumList.size() && (forumData = this.mForumList.get(i)) != null) {
                 String image_url = forumData.getImage_url();
-                aVar.ieI.setTag(image_url);
-                aVar.ieI.setImageDrawable(null);
-                aVar.ieI.startLoad(image_url, 10, false);
-                aVar.jkk.delete(0, aVar.jkk.length());
-                aVar.jkk.append(forumData.getName());
-                aVar.jkk.append(this.jkg.getPageContext().getString(R.string.forum));
-                aVar.mName.setText(aVar.jkk);
-                if (this.eLE) {
-                    am.setImageResource(aVar.jkn, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                    aVar.jkq.setText(String.format(this.jkg.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
-                    aVar.jkr.setOnClickListener(this.jkh);
-                    aVar.jkr.setTag(Integer.valueOf(i));
-                    if (i < this.mData.cvM()) {
+                aVar.ieK.setTag(image_url);
+                aVar.ieK.setImageDrawable(null);
+                aVar.ieK.startLoad(image_url, 10, false);
+                aVar.jkm.delete(0, aVar.jkm.length());
+                aVar.jkm.append(forumData.getName());
+                aVar.jkm.append(this.jki.getPageContext().getString(R.string.forum));
+                aVar.mName.setText(aVar.jkm);
+                if (this.eLF) {
+                    am.setImageResource(aVar.jkp, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                    aVar.jks.setText(String.format(this.jki.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                    aVar.jkt.setOnClickListener(this.jkj);
+                    aVar.jkt.setTag(Integer.valueOf(i));
+                    if (i < this.mData.cvO()) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_v), (Drawable) null);
-                        if (!this.jiS && this.jki) {
-                            aVar.jks.setVisibility(0);
-                            aVar.jks.setTag(Integer.valueOf(i));
+                        if (!this.jiU && this.jkk) {
+                            aVar.jku.setVisibility(0);
+                            aVar.jku.setTag(Integer.valueOf(i));
                         }
                     } else {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                        aVar.jks.setVisibility(8);
+                        aVar.jku.setVisibility(8);
                     }
-                    aVar.jks.setOnClickListener(this.jkj);
-                    aVar.jkt.setVisibility(8);
-                    if (this.jiS && this.jkg.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.jiT)) {
-                        aVar.jkt.setVisibility(0);
+                    aVar.jku.setOnClickListener(this.jkl);
+                    aVar.jkv.setVisibility(8);
+                    if (this.jiU && this.jki.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.jiV)) {
+                        aVar.jkv.setVisibility(0);
                     }
                 } else {
-                    if ((this.jkg.bXq() == 0 && i < this.mData.cvM()) || (this.jkg.bXq() == 1 && i < this.mData.cvN())) {
+                    if ((this.jki.bXs() == 0 && i < this.mData.cvO()) || (this.jki.bXs() == 1 && i < this.mData.cvP())) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_v), (Drawable) null);
                     } else {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.jkg.bXq() == 1) {
-                        aVar.jkn.setVisibility(8);
+                    if (this.jki.bXs() == 1) {
+                        aVar.jkp.setVisibility(8);
                     }
-                    aVar.jks.setVisibility(8);
-                    am.setImageResource(aVar.jkn, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                    aVar.jkp.setText(forumData.getSlogan());
+                    aVar.jku.setVisibility(8);
+                    am.setImageResource(aVar.jkp, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                    aVar.jkr.setText(forumData.getSlogan());
                 }
-                if (this.dXW) {
-                    aVar.jkr.setVisibility(0);
-                    aVar.jks.setVisibility(8);
+                if (this.dXX) {
+                    aVar.jkt.setVisibility(0);
+                    aVar.jku.setVisibility(8);
                 } else {
-                    aVar.jkr.setVisibility(8);
-                    if (i < this.mData.cvM() && this.eLE && !this.jiS && this.jki) {
-                        aVar.jks.setVisibility(0);
+                    aVar.jkt.setVisibility(8);
+                    if (i < this.mData.cvO() && this.eLF && !this.jiU && this.jkk) {
+                        aVar.jku.setVisibility(0);
                     } else {
-                        aVar.jks.setVisibility(8);
+                        aVar.jku.setVisibility(8);
                     }
                 }
             }
@@ -232,44 +232,44 @@ public class c extends BaseAdapter {
     }
 
     private void bX(View view) {
-        this.jkg.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.jkg.getLayoutMode().onModeChanged(view);
+        this.jki.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.jki.getLayoutMode().onModeChanged(view);
     }
 
     public void J(View.OnClickListener onClickListener) {
-        this.jkh = onClickListener;
+        this.jkj = onClickListener;
     }
 
     public void U(View.OnClickListener onClickListener) {
-        this.jkj = onClickListener;
+        this.jkl = onClickListener;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.eLC) {
+        if (this.eLD) {
             return false;
         }
         return super.isEnabled(i);
     }
 
     public void GL(String str) {
-        this.jiT = str;
+        this.jiV = str;
     }
 
     /* loaded from: classes11.dex */
     private class a {
-        ImageView hHN;
-        BarImageView ieI;
-        StringBuffer jkk;
-        TextView jkl;
-        TextView jkm;
-        ImageView jkn;
+        ImageView hHP;
+        BarImageView ieK;
+        StringBuffer jkm;
+        TextView jkn;
         TextView jko;
-        TextView jkp;
+        ImageView jkp;
         TextView jkq;
-        Button jkr;
-        ImageView jks;
-        ImageView jkt;
+        TextView jkr;
+        TextView jks;
+        Button jkt;
+        ImageView jku;
+        ImageView jkv;
         TextView mName;
 
         private a() {

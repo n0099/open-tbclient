@@ -28,16 +28,16 @@ import java.util.Set;
 public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     private int animationResId;
     private e composition;
-    private View dBn;
     private View dBo;
-    private TBLottieAnimationView dBp;
+    private View dBp;
     private TBLottieAnimationView dBq;
-    private int dBr;
+    private TBLottieAnimationView dBr;
     private int dBs;
-    public boolean dBt;
+    private int dBt;
     public boolean dBu;
-    public int dBv;
-    private int djz;
+    public boolean dBv;
+    public int dBw;
+    private int djA;
     private int mSkinType;
     private TextView mTextView;
     private int mTipPosType;
@@ -50,9 +50,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.mSkinType = 3;
         this.mTips = new HashMap<>();
         this.composition = null;
-        this.dBt = false;
-        this.dBu = true;
-        this.dBv = 1;
+        this.dBu = false;
+        this.dBv = true;
+        this.dBw = 1;
         init();
     }
 
@@ -62,9 +62,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.mSkinType = 3;
         this.mTips = new HashMap<>();
         this.composition = null;
-        this.dBt = false;
-        this.dBu = true;
-        this.dBv = 1;
+        this.dBu = false;
+        this.dBv = true;
+        this.dBw = 1;
         init();
     }
 
@@ -74,27 +74,27 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.mSkinType = 3;
         this.mTips = new HashMap<>();
         this.composition = null;
-        this.dBt = false;
-        this.dBu = true;
-        this.dBv = 1;
+        this.dBu = false;
+        this.dBv = true;
+        this.dBw = 1;
         init();
     }
 
     private void init() {
-        this.dBn = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.dBo = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.dBn.setLayoutParams(layoutParams);
-        this.dBo = this.dBn.findViewById(R.id.container_common_item);
-        this.dBp = (TBLottieAnimationView) this.dBn.findViewById(R.id.view_bottom_icon);
-        this.dBp.setSpeed(1.1f);
-        this.dBp.aTG();
-        this.mTextView = (TextView) this.dBn.findViewById(R.id.view_bottom_text);
-        this.dBq = (TBLottieAnimationView) this.dBn.findViewById(R.id.animation_view);
-        this.dBq.setFirstLoadInternal(true);
-        addView(this.dBn);
-        this.dBr = l.getDimens(getContext(), R.dimen.tbds18);
-        this.dBs = l.getDimens(getContext(), R.dimen.tbds10);
+        this.dBo.setLayoutParams(layoutParams);
+        this.dBp = this.dBo.findViewById(R.id.container_common_item);
+        this.dBq = (TBLottieAnimationView) this.dBo.findViewById(R.id.view_bottom_icon);
+        this.dBq.setSpeed(1.1f);
+        this.dBq.aTI();
+        this.mTextView = (TextView) this.dBo.findViewById(R.id.view_bottom_text);
+        this.dBr = (TBLottieAnimationView) this.dBo.findViewById(R.id.animation_view);
+        this.dBr.setFirstLoadInternal(true);
+        addView(this.dBo);
+        this.dBs = l.getDimens(getContext(), R.dimen.tbds18);
+        this.dBt = l.getDimens(getContext(), R.dimen.tbds10);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -127,19 +127,19 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.onLayout(z, i, i2, i3, i4);
         Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.mTips.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
-            while (it.hasNext() && this.mTextView != null && this.dBp != null) {
+            while (it.hasNext() && this.mTextView != null && this.dBq != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 if (value != null) {
                     int measuredWidth = value.view.getMeasuredWidth();
                     int measuredHeight3 = value.view.getMeasuredHeight();
                     if (value.isRight) {
-                        left = this.mTextView.getRight() - this.dBr;
+                        left = this.mTextView.getRight() - this.dBs;
                     } else {
                         left = (this.mTextView.getLeft() + ((int) (this.mTextView.getMeasuredWidth() * 0.14d))) - measuredWidth;
                     }
                     if (this.mTipPosType == 1) {
-                        measuredHeight = this.dBp.getTop();
-                        measuredHeight2 = this.dBs;
+                        measuredHeight = this.dBq.getTop();
+                        measuredHeight2 = this.dBt;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
                         measuredHeight2 = value.view.getMeasuredHeight() / 2;
@@ -184,7 +184,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextColorResId(int i) {
-        this.djz = i;
+        this.djA = i;
     }
 
     public void setShowIconType(int i) {
@@ -192,70 +192,70 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     }
 
     public void setWriteIconView() {
-        this.dBo.setVisibility(8);
+        this.dBp.setVisibility(8);
     }
 
     public TBLottieAnimationView getAnimationView() {
-        return this.dBq;
+        return this.dBr;
     }
 
-    public void aMG() {
-        if (this.dBq != null && this.dBq.getVisibility() == 0) {
+    public void aMI() {
+        if (this.dBr != null && this.dBr.getVisibility() == 0) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f, 1, 0.5f, 1, 0.5f);
             scaleAnimation.setDuration(300L);
-            this.dBq.startAnimation(scaleAnimation);
-            this.dBq.setVisibility(4);
-            this.dBp.setVisibility(0);
-            com.baidu.tbadk.core.sharedPref.b.aFB().putInt("key_lottie_show_count", 4);
+            this.dBr.startAnimation(scaleAnimation);
+            this.dBr.setVisibility(4);
+            this.dBq.setVisibility(0);
+            com.baidu.tbadk.core.sharedPref.b.aFD().putInt("key_lottie_show_count", 4);
         }
     }
 
-    private void aPW() {
-        if (System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFB().getLong("key_lottie_show_expired_time", 0L)) {
-            com.baidu.tbadk.core.sharedPref.b.aFB().putInt("key_lottie_show_count", 0);
+    private void aPY() {
+        if (System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFD().getLong("key_lottie_show_expired_time", 0L)) {
+            com.baidu.tbadk.core.sharedPref.b.aFD().putInt("key_lottie_show_count", 0);
         }
     }
 
-    private void aPX() {
-        com.baidu.tbadk.core.sharedPref.b.aFB().putInt("key_lottie_show_count", com.baidu.tbadk.core.sharedPref.b.aFB().getInt("key_lottie_show_count", 0) + 1);
+    private void aPZ() {
+        com.baidu.tbadk.core.sharedPref.b.aFD().putInt("key_lottie_show_count", com.baidu.tbadk.core.sharedPref.b.aFD().getInt("key_lottie_show_count", 0) + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPY() {
-        int i = com.baidu.tbadk.core.sharedPref.b.aFB().getInt("key_lottie_show_count", 0);
-        com.baidu.tbadk.core.sharedPref.b.aFB().putLong("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
-        this.dBq.setFrame(this.dBq.getFrame());
+    public void aQa() {
+        int i = com.baidu.tbadk.core.sharedPref.b.aFD().getInt("key_lottie_show_count", 0);
+        com.baidu.tbadk.core.sharedPref.b.aFD().putLong("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
+        this.dBr.setFrame(this.dBr.getFrame());
         if (i >= 3) {
-            aMG();
+            aMI();
         }
     }
 
     public void onDestory() {
-        if (this.dBq != null) {
-            this.dBq.cancelAnimation();
+        if (this.dBr != null) {
+            this.dBr.cancelAnimation();
         }
     }
 
     public void setLottieView(boolean z) {
-        if (this.dBq != null) {
-            String string = com.baidu.tbadk.core.sharedPref.b.aFB().getString("sync_send_maintab_my_tab_lottie_url", "");
+        if (this.dBr != null) {
+            String string = com.baidu.tbadk.core.sharedPref.b.aFD().getString("sync_send_maintab_my_tab_lottie_url", "");
             if (!aq.isEmpty(string) || !z) {
-                aPW();
-                if (az.s(com.baidu.tbadk.core.sharedPref.b.aFB().getLong("sync_send_maintab_my_tab_lottie_start_time", 0L), com.baidu.tbadk.core.sharedPref.b.aFB().getLong("sync_send_maintab_my_tab_lottie_end_time", 0L)) && com.baidu.tbadk.core.sharedPref.b.aFB().getInt("key_lottie_show_count", 0) < 3) {
-                    this.dBq.playAnimation();
-                    this.dBq.setAnimationUrl(string);
-                    aPX();
+                aPY();
+                if (az.s(com.baidu.tbadk.core.sharedPref.b.aFD().getLong("sync_send_maintab_my_tab_lottie_start_time", 0L), com.baidu.tbadk.core.sharedPref.b.aFD().getLong("sync_send_maintab_my_tab_lottie_end_time", 0L)) && com.baidu.tbadk.core.sharedPref.b.aFD().getInt("key_lottie_show_count", 0) < 3) {
+                    this.dBr.playAnimation();
+                    this.dBr.setAnimationUrl(string);
+                    aPZ();
                     TiebaStatic.log(new an("c13248").cy("uid", TbadkCoreApplication.getCurrentAccount()));
-                    this.dBq.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
+                    this.dBr.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
-                            MaintabBottomIndicator.this.dBp.setVisibility(8);
-                            MaintabBottomIndicator.this.dBq.setVisibility(0);
+                            MaintabBottomIndicator.this.dBq.setVisibility(8);
+                            MaintabBottomIndicator.this.dBr.setVisibility(0);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            MaintabBottomIndicator.this.aPY();
+                            MaintabBottomIndicator.this.aQa();
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -274,50 +274,50 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setAnimationResId(int i) {
         this.animationResId = i;
-        am.a(this.dBp, this.animationResId);
-    }
-
-    public void aPZ() {
-        am.a(this.dBp, R.raw.icon_refresh1);
-        setText(R.string.refresh);
-        this.dBp.loop(false);
-        playAnimation();
-    }
-
-    public void aQa() {
-        am.a(this.dBp, R.raw.icon_refresh2);
-        setText(R.string.refresh);
-        this.dBp.loop(true);
-        playAnimation();
+        am.a(this.dBq, this.animationResId);
     }
 
     public void aQb() {
-        am.a(this.dBp, R.raw.icon_refresh3);
+        am.a(this.dBq, R.raw.icon_refresh1);
+        setText(R.string.refresh);
+        this.dBq.loop(false);
+        playAnimation();
+    }
+
+    public void aQc() {
+        am.a(this.dBq, R.raw.icon_refresh2);
+        setText(R.string.refresh);
+        this.dBq.loop(true);
+        playAnimation();
+    }
+
+    public void aQd() {
+        am.a(this.dBq, R.raw.icon_refresh3);
         setText(R.string.home_recommend);
-        this.dBp.loop(false);
+        this.dBq.loop(false);
         playAnimation();
     }
 
     public void playAnimation() {
-        if (this.dBp != null) {
-            this.dBp.playAnimation();
+        if (this.dBq != null) {
+            this.dBq.playAnimation();
         }
     }
 
     public boolean isAnimating() {
-        return this.dBp.isAnimating();
+        return this.dBq.isAnimating();
     }
 
     public void gL(boolean z) {
         setAnimationResId(this.animationResId);
-        this.dBp.loop(false);
+        this.dBq.loop(false);
         setText(R.string.home_recommend);
         if (z) {
-            this.dBp.playAnimation();
+            this.dBq.playAnimation();
             return;
         }
-        this.dBp.cancelAnimation();
-        this.dBp.setFrame(0);
+        this.dBq.cancelAnimation();
+        this.dBq.setFrame(0);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -340,22 +340,22 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.djz != 0) {
-                am.setViewTextColor(this.mTextView, this.djz);
+            if (this.djA != 0) {
+                am.setViewTextColor(this.mTextView, this.djA);
             } else {
                 am.setViewTextColor(this.mTextView, (int) R.color.cp_cont_f);
             }
             if (this.animationResId != 0) {
                 try {
-                    am.a(this.dBp, this.animationResId);
+                    am.a(this.dBq, this.animationResId);
                     if (this.mSkinType == 1) {
-                        this.dBp.setAlpha(0.66f);
+                        this.dBq.setAlpha(0.66f);
                     } else if (this.mSkinType == 4) {
-                        this.dBp.setAlpha(0.83f);
+                        this.dBq.setAlpha(0.83f);
                     } else {
-                        this.dBp.setAlpha(1.0f);
+                        this.dBq.setAlpha(1.0f);
                     }
-                    aQc();
+                    aQe();
                 } catch (Exception e) {
                 }
             }
@@ -367,11 +367,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.onTabSelected(z);
         if (this.animationResId != 0) {
             if (z) {
-                this.dBp.playAnimation();
+                this.dBq.playAnimation();
                 return;
             }
-            this.dBp.cancelAnimation();
-            this.dBp.setFrame(0);
+            this.dBq.cancelAnimation();
+            this.dBq.setFrame(0);
         }
     }
 
@@ -379,7 +379,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            this.dBp.setProgress(1.0f);
+            this.dBq.setProgress(1.0f);
         }
     }
 
@@ -388,12 +388,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         return this.mTextView;
     }
 
-    private void aQc() {
-        if (this.dBt && TbadkCoreApplication.getInst().getHomeBarShowType() == 1 && this.dBu) {
-            if (this.dBv == 1) {
-                gL(this.dBu);
-            } else if (this.dBv == 2) {
-                aPZ();
+    private void aQe() {
+        if (this.dBu && TbadkCoreApplication.getInst().getHomeBarShowType() == 1 && this.dBv) {
+            if (this.dBw == 1) {
+                gL(this.dBv);
+            } else if (this.dBw == 2) {
+                aQb();
             }
         }
     }

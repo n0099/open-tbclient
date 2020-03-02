@@ -7,10 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.live.view.web.a {
-    private SchemeCallback aGw;
+    private SchemeCallback aGx;
 
     public j(SchemeCallback schemeCallback) {
-        this.aGw = schemeCallback;
+        this.aGx = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -22,10 +22,10 @@ public class j extends com.baidu.live.view.web.a {
     public void ek(String str) {
         JSONObject jSONObject;
         JSONException e;
-        if (this.aGw != null) {
+        if (this.aGx != null) {
             String baiduzid = ExtraParamsManager.getBaiduzid();
             if (TextUtils.isEmpty(baiduzid)) {
-                this.aGw.doJsCallback(0, "", null, str);
+                this.aGx.doJsCallback(0, "", null, str);
                 return;
             }
             if (TextUtils.isEmpty(baiduzid)) {
@@ -42,10 +42,10 @@ public class j extends com.baidu.live.view.web.a {
                 } catch (JSONException e3) {
                     e = e3;
                     e.printStackTrace();
-                    this.aGw.doJsCallback(1, "", jSONObject, str);
+                    this.aGx.doJsCallback(1, "", jSONObject, str);
                 }
             }
-            this.aGw.doJsCallback(1, "", jSONObject, str);
+            this.aGx.doJsCallback(1, "", jSONObject, str);
         }
     }
 }

@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void bGt();
+        void bGv();
 
-        void cPq();
+        void cPs();
     }
 
     /* loaded from: classes10.dex */

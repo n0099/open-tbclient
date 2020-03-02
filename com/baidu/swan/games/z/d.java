@@ -8,26 +8,26 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class d {
-    private b csK;
+    private b csL;
 
     public d(JsObject jsObject) {
-        this.csK = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
-        a.apQ().a(this);
+        this.csL = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
+        a.apS().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity WB = f.WQ().WB();
-        if (WB == null) {
+        final SwanAppActivity WD = f.WS().WD();
+        if (WD == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (WB.isDestroyed() || WB.getIntent() == null) {
+        } else if (WD.isDestroyed() || WD.getIntent() == null) {
             return false;
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.z.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.m(WB);
+                    com.baidu.swan.games.utils.a.m(WD);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.csK != null && JSEvent.isValid(cVar)) {
+        if (this.csL != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.csK.b(cVar);
+                    this.csL.b(cVar);
                     return;
                 case true:
-                    this.csK.apS();
+                    this.csL.apU();
                     return;
                 case true:
-                    this.csK.PC();
+                    this.csL.PE();
                     return;
                 default:
                     return;

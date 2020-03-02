@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.dGp();
+            return cVar.dGr();
         }
     };
 
@@ -596,11 +596,11 @@ public abstract class ProtoAdapter<E> {
 
     /* loaded from: classes.dex */
     private static final class b<K, V> extends ProtoAdapter<Map<K, V>> {
-        private final a<K, V> npe;
+        private final a<K, V> npg;
 
         b(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.npe = new a<>(protoAdapter, protoAdapter2);
+            this.npg = new a<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -619,7 +619,7 @@ public abstract class ProtoAdapter<E> {
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
-                    i2 = this.npe.encodedSizeWithTag(i, it.next()) + i3;
+                    i2 = this.npg.encodedSizeWithTag(i, it.next()) + i3;
                 } else {
                     return i3;
                 }
@@ -638,7 +638,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: a */
         public void encodeWithTag(d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.npe.encodeWithTag(dVar, i, entry);
+                this.npg.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,21 +647,21 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long dGm = cVar.dGm();
+            long dGo = cVar.dGo();
             K k = null;
             while (true) {
-                int dGn = cVar.dGn();
-                if (dGn != -1) {
-                    switch (dGn) {
+                int dGp = cVar.dGp();
+                if (dGp != -1) {
+                    switch (dGp) {
                         case 1:
-                            k = this.npe.npa.decode(cVar);
+                            k = this.npg.npc.decode(cVar);
                             break;
                         case 2:
-                            v = this.npe.npd.decode(cVar);
+                            v = this.npg.npf.decode(cVar);
                             break;
                     }
                 } else {
-                    cVar.gZ(dGm);
+                    cVar.gZ(dGo);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }
@@ -684,28 +684,28 @@ public abstract class ProtoAdapter<E> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
-        final ProtoAdapter<K> npa;
-        final ProtoAdapter<V> npd;
+        final ProtoAdapter<K> npc;
+        final ProtoAdapter<V> npf;
 
         a(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.npa = protoAdapter;
-            this.npd = protoAdapter2;
+            this.npc = protoAdapter;
+            this.npf = protoAdapter2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.npa.encodedSizeWithTag(1, entry.getKey()) + this.npd.encodedSizeWithTag(2, entry.getValue());
+            return this.npc.encodedSizeWithTag(1, entry.getKey()) + this.npf.encodedSizeWithTag(2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public void encode(d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.npa.encodeWithTag(dVar, 1, entry.getKey());
-            this.npd.encodeWithTag(dVar, 2, entry.getValue());
+            this.npc.encodeWithTag(dVar, 1, entry.getKey());
+            this.npf.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

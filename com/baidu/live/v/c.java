@@ -10,44 +10,44 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c axK;
-    private HttpMessageListener axI = new HttpMessageListener(1021124) { // from class: com.baidu.live.v.c.1
+    private static volatile c axL;
+    private HttpMessageListener axJ = new HttpMessageListener(1021124) { // from class: com.baidu.live.v.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021124 && (httpResponsedMessage instanceof GetQuickGiftHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetQuickGiftHttpResponseMessage getQuickGiftHttpResponseMessage = (GetQuickGiftHttpResponseMessage) httpResponsedMessage;
-                    if (getQuickGiftHttpResponseMessage.yV() != null) {
-                        c.this.axL = getQuickGiftHttpResponseMessage.yV();
+                    if (getQuickGiftHttpResponseMessage.yW() != null) {
+                        c.this.axM = getQuickGiftHttpResponseMessage.yW();
                     }
                 }
             }
         }
     };
-    public o axL;
+    public o axM;
 
-    public static c zo() {
-        if (axK == null) {
+    public static c zq() {
+        if (axL == null) {
             synchronized (c.class) {
-                if (axK == null) {
-                    axK = new c();
+                if (axL == null) {
+                    axL = new c();
                 }
             }
         }
-        return axK;
+        return axL;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.axI);
-        this.axL = new o();
+        MessageManager.getInstance().registerListener(this.axJ);
+        this.axM = new o();
     }
 
-    public void zp() {
+    public void zr() {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isQuickGiftUnabled()) {
             HttpMessage httpMessage = new HttpMessage(1021124);
             int i = 0;
-            String Be = q.Be();
+            String Bg = q.Bg();
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 i = 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
@@ -58,7 +58,7 @@ public class c {
                 i = 4;
             }
             httpMessage.addParam("from", i);
-            httpMessage.addParam("scene_from", Be);
+            httpMessage.addParam("scene_from", Bg);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

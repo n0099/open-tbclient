@@ -5,17 +5,17 @@ import com.google.android.exoplayer2.Format;
 /* loaded from: classes6.dex */
 public final class j {
     public final int id;
-    public final long lZB;
-    public final Format lZw;
-    public final int meM;
+    public final long lZD;
+    public final Format lZy;
+    public final int meO;
+    public final int mkA;
     @Nullable
-    public final long[] mkA;
+    public final long[] mkB;
     @Nullable
-    private final k[] mkB;
-    public final long mkx;
-    public final int mky;
+    public final long[] mkC;
     @Nullable
-    public final long[] mkz;
+    private final k[] mkD;
+    public final long mkz;
     public final long timescale;
     public final int type;
 
@@ -23,20 +23,20 @@ public final class j {
         this.id = i;
         this.type = i2;
         this.timescale = j;
-        this.mkx = j2;
-        this.lZB = j3;
-        this.lZw = format;
-        this.mky = i3;
-        this.mkB = kVarArr;
-        this.meM = i4;
-        this.mkz = jArr;
-        this.mkA = jArr2;
+        this.mkz = j2;
+        this.lZD = j3;
+        this.lZy = format;
+        this.mkA = i3;
+        this.mkD = kVarArr;
+        this.meO = i4;
+        this.mkB = jArr;
+        this.mkC = jArr2;
     }
 
     public k JQ(int i) {
-        if (this.mkB == null) {
+        if (this.mkD == null) {
             return null;
         }
-        return this.mkB[i];
+        return this.mkD[i];
     }
 }

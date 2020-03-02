@@ -5,64 +5,64 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes8.dex */
 public class m {
-    private int keS = 0;
-    private int dvd = 0;
-    private String keT = null;
-    private String keU = null;
-    private int keV = 0;
-    private int keW = 0;
+    private int keU = 0;
+    private int dve = 0;
+    private String keV = null;
+    private String keW = null;
     private int keX = 0;
     private int keY = 0;
     private int keZ = 0;
     private int kfa = 0;
-    private long kfb = 0;
-    private long kfc = 0;
-    private boolean kfd = false;
+    private int kfb = 0;
+    private int kfc = 0;
+    private long kfd = 0;
     private long kfe = 0;
-    private String kff = null;
-    private String kfg = null;
+    private boolean kff = false;
+    private long kfg = 0;
+    private String kfh = null;
+    private String kfi = null;
 
-    public int cKm() {
-        return this.keS;
+    public int cKo() {
+        return this.keU;
     }
 
-    public String cKn() {
-        return this.kfg;
+    public String cKp() {
+        return this.kfi;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.keS = starInfo.has_frs_star.intValue();
-            if (this.keS == 1) {
-                this.keT = starInfo.f1102top;
-                this.keU = starInfo.head;
+            this.keU = starInfo.has_frs_star.intValue();
+            if (this.keU == 1) {
+                this.keV = starInfo.f1101top;
+                this.keW = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.keV = fans.is_get.intValue();
-                    this.keW = fans.num.intValue();
-                    this.dvd = fans.open.intValue();
-                    this.kfb = fans.left_time.intValue();
+                    this.keX = fans.is_get.intValue();
+                    this.keY = fans.num.intValue();
+                    this.dve = fans.open.intValue();
+                    this.kfd = fans.left_time.intValue();
                 }
-                this.kfc = this.kfb;
+                this.kfe = this.kfd;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.keX = size.width.intValue();
-                    this.keY = size.height.intValue();
+                    this.keZ = size.width.intValue();
+                    this.kfa = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.keZ = size2.width.intValue();
-                    this.kfa = size2.height.intValue();
+                    this.kfb = size2.width.intValue();
+                    this.kfc = size2.height.intValue();
                 }
             }
-            this.kfd = starInfo.trade != null;
-            if (this.kfd) {
+            this.kff = starInfo.trade != null;
+            if (this.kff) {
                 if (starInfo.trade.time != null) {
-                    this.kfe = starInfo.trade.time.intValue();
+                    this.kfg = starInfo.trade.time.intValue();
                 }
-                this.kff = starInfo.trade.url;
+                this.kfh = starInfo.trade.url;
             }
-            this.kfg = starInfo.star_forum_headimg;
+            this.kfi = starInfo.star_forum_headimg;
         }
     }
 }

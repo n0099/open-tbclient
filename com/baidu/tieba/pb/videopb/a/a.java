@@ -24,65 +24,65 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView gsO;
-    private e iEZ;
-    private DetailInfoFragment iZD;
-    private List<m> iZE;
-    private c iZF;
-    private com.baidu.tieba.pb.pb.main.adapter.c iZG;
-    private b iZH;
-    private g iZI;
+    private BdTypeRecyclerView gsQ;
+    private e iFb;
+    private DetailInfoFragment iZF;
+    private List<m> iZG;
+    private c iZH;
+    private com.baidu.tieba.pb.pb.main.adapter.c iZI;
+    private b iZJ;
+    private g iZK;
     private final List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private View.OnClickListener iZJ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
+    private View.OnClickListener iZL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.thread_info_commont_container) {
-                if (a.this.iEZ == null || a.this.iEZ.cks() == null || a.this.iEZ.cks().aCd() == 0) {
-                    a.this.iZD.cnf().cmx();
-                    a.this.iZD.cnf().qR(false);
+                if (a.this.iFb == null || a.this.iFb.cku() == null || a.this.iFb.cku().aCf() == 0) {
+                    a.this.iZF.cnh().cmz();
+                    a.this.iZF.cnh().qR(false);
                 } else {
-                    ((com.baidu.tieba.pb.videopb.e) y.b(a.this.iZD.cng()).l(com.baidu.tieba.pb.videopb.e.class)).setCurrentTab(VideoPbFragment.iYk);
+                    ((com.baidu.tieba.pb.videopb.e) y.b(a.this.iZF.cni()).l(com.baidu.tieba.pb.videopb.e.class)).setCurrentTab(VideoPbFragment.iYm);
                 }
                 String str = "";
-                if (a.this.iEZ != null) {
-                    str = a.this.iEZ.getThreadId();
+                if (a.this.iFb != null) {
+                    str = a.this.iFb.getThreadId();
                 }
                 TiebaStatic.log(new an("c12942").X("obj_type", 1).X("obj_locate", 4).cy("tid", str));
             } else if (view.getId() == R.id.share_num_container) {
-                a.this.iZD.cnf().qQ(false);
+                a.this.iZF.cnh().qQ(false);
             }
         }
     };
 
     public a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iZD = detailInfoFragment;
-        this.gsO = bdTypeRecyclerView;
+        this.iZF = detailInfoFragment;
+        this.gsQ = bdTypeRecyclerView;
         a(detailInfoFragment, bdTypeRecyclerView);
     }
 
     private void a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iZF = new c(detailInfoFragment.cnf(), PostData.kgq);
-        this.iZG = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.cnf(), k.iCH);
-        this.iZG.setOnClickListener(this.iZJ);
-        this.iZH = new b(detailInfoFragment.getContext(), o.TYPE);
-        this.iZI = new g(detailInfoFragment.cnf(), l.cNT);
-        this.iZI.pG(true);
-        this.asE.add(this.iZF);
-        this.asE.add(this.iZG);
+        this.iZH = new c(detailInfoFragment.cnh(), PostData.kgs);
+        this.iZI = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.cnh(), k.iCJ);
+        this.iZI.setOnClickListener(this.iZL);
+        this.iZJ = new b(detailInfoFragment.getContext(), o.TYPE);
+        this.iZK = new g(detailInfoFragment.cnh(), l.cNU);
+        this.iZK.pG(true);
         this.asE.add(this.iZH);
         this.asE.add(this.iZI);
+        this.asE.add(this.iZJ);
+        this.asE.add(this.iZK);
         bdTypeRecyclerView.addAdapters(this.asE);
     }
 
     public void setData(e eVar) {
         if (eVar != null) {
-            this.iEZ = eVar;
-            if (this.gsO != null) {
-                this.gsO.setVisibility(0);
+            this.iFb = eVar;
+            if (this.gsQ != null) {
+                this.gsQ.setVisibility(0);
             }
-            this.iZF.setPbData(eVar);
-            this.iZI.setPbData(eVar);
-            this.gsO.setData(J(eVar));
+            this.iZH.setPbData(eVar);
+            this.iZK.setPbData(eVar);
+            this.gsQ.setData(J(eVar));
         }
     }
 
@@ -91,30 +91,30 @@ public class a {
         if (eVar == null) {
             return null;
         }
-        this.iZE = new ArrayList();
-        Iterator<PostData> it = eVar.cku().iterator();
+        this.iZG = new ArrayList();
+        Iterator<PostData> it = eVar.ckw().iterator();
         while (true) {
             if (!it.hasNext()) {
                 postData = null;
                 break;
             }
             PostData next = it.next();
-            if ((next instanceof PostData) && next.cKY() == 1) {
+            if ((next instanceof PostData) && next.cLa() == 1) {
                 postData = next;
                 break;
             }
         }
-        if (postData == null && eVar.ckz() != null) {
-            postData = eVar.ckz();
+        if (postData == null && eVar.ckB() != null) {
+            postData = eVar.ckB();
         }
         if (postData != null) {
-            this.iZE.add(postData);
+            this.iZG.add(postData);
         }
-        k kVar = new k(eVar.cks(), eVar.getAnti());
+        k kVar = new k(eVar.cku(), eVar.getAnti());
         kVar.pv(true);
-        kVar.iCJ = true;
-        this.iZE.add(kVar);
-        if (eVar.getForum() != null && !StringUtils.isNull(eVar.getForum().getName()) && (!TextUtils.equals(eVar.getForum().getName(), this.iZD.clz().clq()) || !this.iZD.clz().cny())) {
+        kVar.iCL = true;
+        this.iZG.add(kVar);
+        if (eVar.getForum() != null && !StringUtils.isNull(eVar.getForum().getName()) && (!TextUtils.equals(eVar.getForum().getName(), this.iZF.clB().cls()) || !this.iZF.clB().cnA())) {
             o oVar = new o();
             bj bjVar = new bj();
             bjVar.tid = eVar.getThreadId();
@@ -126,28 +126,28 @@ public class a {
             bfVar.postNum = eVar.getForum().getPost_num();
             bfVar.forumId = eVar.getForumId();
             bjVar.a(bfVar);
-            oVar.cRe = bjVar;
-            this.iZE.add(oVar);
+            oVar.cRf = bjVar;
+            this.iZG.add(oVar);
             kVar.pv(false);
-            kVar.iCJ = false;
+            kVar.iCL = false;
         }
-        if (eVar.ckP() != null) {
-            for (l lVar : eVar.ckP()) {
-                this.iZE.add(lVar);
+        if (eVar.ckR() != null) {
+            for (l lVar : eVar.ckR()) {
+                this.iZG.add(lVar);
             }
         }
-        return this.iZE;
+        return this.iZG;
     }
 
     public void notifyDataSetChanged() {
-        if (this.gsO != null && this.gsO.getAdapter() != null) {
-            this.gsO.getListAdapter().notifyDataSetChanged();
+        if (this.gsQ != null && this.gsQ.getAdapter() != null) {
+            this.gsQ.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void cts() {
-        if (this.iZF != null) {
-            this.iZF.notifyDataSetChanged();
+    public void ctu() {
+        if (this.iZH != null) {
+            this.iZH.notifyDataSetChanged();
         }
     }
 }

@@ -8,30 +8,30 @@ import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes11.dex */
 public class g implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile g bzE;
+    private static volatile g bzF;
     private int mActivityCount;
     private boolean mIsForeground = false;
 
-    public static g WV() {
-        if (bzE == null) {
+    public static g WX() {
+        if (bzF == null) {
             synchronized (g.class) {
-                if (bzE == null) {
-                    bzE = new g();
+                if (bzF == null) {
+                    bzF = new g();
                 }
             }
         }
-        return bzE;
+        return bzF;
     }
 
     private g() {
     }
 
-    public void WW() {
-        com.baidu.swan.apps.w.a.TU().registerActivityLifecycleCallbacks(this);
+    public void WY() {
+        com.baidu.swan.apps.w.a.TW().registerActivityLifecycleCallbacks(this);
     }
 
-    public void WX() {
-        com.baidu.swan.apps.w.a.TU().unregisterActivityLifecycleCallbacks(this);
+    public void WZ() {
+        com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this);
     }
 
     private void onBackgroundToForeground(Activity activity) {

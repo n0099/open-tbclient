@@ -11,60 +11,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g kvj;
-    private VideoHolyCardModel.a ipG = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g kvl;
+    private VideoHolyCardModel.a ipI = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            g.this.kvl = z;
+            g.this.kvn = z;
         }
     };
-    private VideoHolyCardModel kvk;
-    private boolean kvl;
-    private boolean kvm;
+    private VideoHolyCardModel kvm;
+    private boolean kvn;
+    private boolean kvo;
 
-    public static g cPf() {
-        if (kvj == null) {
+    public static g cPh() {
+        if (kvl == null) {
             synchronized (g.class) {
-                if (kvj == null) {
-                    kvj = new g();
+                if (kvl == null) {
+                    kvl = new g();
                 }
             }
         }
-        return kvj;
+        return kvl;
     }
 
-    public boolean cPg() {
-        return this.kvl;
+    public boolean cPi() {
+        return this.kvn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPh() {
-        if (this.kvk == null) {
-            this.kvk = new VideoHolyCardModel();
-            this.kvk.a(this.ipG);
+    public void cPj() {
+        if (this.kvm == null) {
+            this.kvm = new VideoHolyCardModel();
+            this.kvm.a(this.ipI);
         }
-        this.kvk.cgu();
+        this.kvm.cgw();
     }
 
     public void fy(Context context) {
-        if (this.kvl && !this.kvm) {
+        if (this.kvn && !this.kvo) {
             l.showToast(context, (int) R.string.free_data_tips);
-            this.kvm = true;
+            this.kvo = true;
         }
     }
 
     private g() {
-        cPi();
-        cPh();
+        cPk();
+        cPj();
     }
 
-    private void cPi() {
+    private void cPk() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    g.this.cPh();
+                    g.this.cPj();
                 }
             }
         });

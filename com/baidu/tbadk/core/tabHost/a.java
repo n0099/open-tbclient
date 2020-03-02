@@ -17,14 +17,14 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> cYy = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> cYz = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.aFG();
+                a.this.aFI();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -60,13 +60,13 @@ public class a {
             } else if (!TextUtils.isEmpty(str)) {
                 te(str);
             } else {
-                aFG();
+                aFI();
             }
         }
     }
 
     private void te(String str) {
-        c.gr().a(str, 10, this.cYy, getBdUniqueId());
+        c.gr().a(str, 10, this.cYz, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
@@ -78,7 +78,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFG() {
+    public void aFI() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
             am.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);

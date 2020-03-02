@@ -7,20 +7,20 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private ImageView aQw;
-    private Handler aQx;
-    private int aQy;
+    private int aQA;
+    private ImageView aQx;
+    private Handler aQy;
     private int aQz;
     private Context context;
     private String url;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aQx = handler;
+        this.aQy = handler;
         this.url = str;
-        this.aQw = imageView;
-        this.aQy = i;
-        this.aQz = i2;
+        this.aQx = imageView;
+        this.aQz = i;
+        this.aQA = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
@@ -45,7 +45,7 @@ public class g implements Runnable {
             e = e2;
         }
         if (bitmap2 != null) {
-            a.EA().e(str, bitmap2);
+            a.EC().e(str, bitmap2);
             return bitmap2;
         }
         a.aX(this.context).e(str);
@@ -58,9 +58,9 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap j = j(this.url, this.aQy, this.aQz);
-        if (this.aQx != null) {
-            this.aQx.obtainMessage(1, new f(this.aQw, this.url, j)).sendToTarget();
+        Bitmap j = j(this.url, this.aQz, this.aQA);
+        if (this.aQy != null) {
+            this.aQy.obtainMessage(1, new f(this.aQx, this.url, j)).sendToTarget();
         }
     }
 }

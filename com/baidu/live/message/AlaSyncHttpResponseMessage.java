@@ -6,10 +6,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
-    private t awA;
+    private t awB;
 
-    public t yR() {
-        return this.awA;
+    public t yS() {
+        return this.awB;
     }
 
     public AlaSyncHttpResponseMessage() {
@@ -20,8 +20,8 @@ public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awA = new t(false);
-            this.awA.parserJson(jSONObject);
+            this.awB = new t(false);
+            this.awB.parserJson(jSONObject);
         }
     }
 }

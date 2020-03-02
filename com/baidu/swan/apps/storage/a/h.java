@@ -16,7 +16,7 @@ public class h extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.acL() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.acN() == null) {
             com.baidu.swan.apps.console.c.e("removeSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -27,7 +27,7 @@ public class h extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String bp = com.baidu.swan.apps.storage.b.bp(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.acF());
+        String bp = com.baidu.swan.apps.storage.b.bp(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.acH());
         if (DEBUG) {
             Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
             Log.d("SaveFileAction", "——> handle: filePath " + bp);
@@ -40,7 +40,7 @@ public class h extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int mc = eVar.acL().mc(bp);
+        int mc = eVar.acN().mc(bp);
         if (DEBUG) {
             Log.d("RemoveSavedFileAction", "——> handle: statusCode " + mc);
         }

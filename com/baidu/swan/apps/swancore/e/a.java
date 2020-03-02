@@ -35,7 +35,7 @@ public class a {
         if (DEBUG) {
             String md5 = d.toMd5(new File(str2), false);
             if (!TextUtils.isEmpty(md5)) {
-                h.afp().putString(com.baidu.swan.apps.swancore.a.gt(i), md5);
+                h.afr().putString(com.baidu.swan.apps.swancore.a.gt(i), md5);
             }
         }
         com.baidu.swan.apps.swancore.b.b(gS(i), l(gQ(i), mp));
@@ -43,23 +43,23 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + mp);
         }
-        return C0300a.afC();
+        return C0300a.afE();
     }
 
     private static ArrayList<Long> l(long j, long j2) {
-        SwanCoreVersion QO;
+        SwanCoreVersion QQ;
         ArrayList<Long> arrayList = new ArrayList<>();
         if (j != 0) {
             arrayList.add(Long.valueOf(j));
         }
         arrayList.add(Long.valueOf(j2));
-        for (com.baidu.swan.apps.process.messaging.service.c cVar : e.abs().abu()) {
-            SwanAppCores abi = cVar.abi();
-            if (cVar.abj() && abi != null && (QO = abi.QO()) != null && !arrayList.contains(Long.valueOf(QO.swanCoreVersion))) {
-                arrayList.add(Long.valueOf(QO.swanCoreVersion));
+        for (com.baidu.swan.apps.process.messaging.service.c cVar : e.abu().abw()) {
+            SwanAppCores abk = cVar.abk();
+            if (cVar.abl() && abk != null && (QQ = abk.QQ()) != null && !arrayList.contains(Long.valueOf(QQ.swanCoreVersion))) {
+                arrayList.add(Long.valueOf(QQ.swanCoreVersion));
             }
         }
-        arrayList.addAll(com.baidu.swan.mini.a.atc());
+        arrayList.addAll(com.baidu.swan.mini.a.ate());
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
@@ -75,7 +75,7 @@ public class a {
     }
 
     public static long gQ(int i) {
-        return h.afp().getLong(gR(i), 0L);
+        return h.afr().getLong(gR(i), 0L);
     }
 
     private static String gR(int i) {
@@ -83,12 +83,12 @@ public class a {
     }
 
     private static void f(final long j, final int i) {
-        h.afp().putLong(gR(i), j);
+        h.afr().putLong(gR(i), j);
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.swancore.e.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.swan.apps.swancore.a.afq().c(j, i);
+                    com.baidu.swan.apps.swancore.a.afs().c(j, i);
                 } catch (Exception e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
@@ -116,7 +116,7 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0300a afC() {
+        public static C0300a afE() {
             return C(0, "");
         }
 

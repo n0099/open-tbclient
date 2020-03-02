@@ -12,36 +12,36 @@ import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
 import com.google.android.exoplayer2.util.v;
 /* loaded from: classes6.dex */
 final class f {
-    private static final int mjN = v.QE("nam");
-    private static final int mjO = v.QE("trk");
-    private static final int mjP = v.QE("cmt");
-    private static final int mjQ = v.QE("day");
-    private static final int mjR = v.QE("ART");
-    private static final int mjS = v.QE("too");
-    private static final int mjT = v.QE("alb");
-    private static final int mjU = v.QE("com");
-    private static final int mjV = v.QE("wrt");
-    private static final int mjW = v.QE("lyr");
-    private static final int mjX = v.QE("gen");
-    private static final int mjY = v.QE("covr");
-    private static final int mjZ = v.QE(GenreBox.TYPE);
-    private static final int mka = v.QE("grp");
-    private static final int mkb = v.QE("disk");
-    private static final int mkc = v.QE("trkn");
-    private static final int mkd = v.QE("tmpo");
-    private static final int mke = v.QE("cpil");
-    private static final int mkf = v.QE("aART");
-    private static final int mkg = v.QE("sonm");
-    private static final int mkh = v.QE("soal");
-    private static final int mki = v.QE("soar");
-    private static final int mkj = v.QE("soaa");
-    private static final int mkk = v.QE("soco");
-    private static final int mkl = v.QE(RatingBox.TYPE);
-    private static final int mkm = v.QE("pgap");
-    private static final int mkn = v.QE("sosn");
-    private static final int mko = v.QE("tvsh");
-    private static final int mkp = v.QE("----");
-    private static final String[] mkq = {"Blues", "Classic Rock", "Country", "Dance", "Disco", "Funk", "Grunge", "Hip-Hop", "Jazz", "Metal", "New Age", "Oldies", "Other", "Pop", "R&B", "Rap", "Reggae", "Rock", "Techno", "Industrial", "Alternative", "Ska", "Death Metal", "Pranks", "Soundtrack", "Euro-Techno", "Ambient", "Trip-Hop", "Vocal", "Jazz+Funk", "Fusion", "Trance", "Classical", "Instrumental", "Acid", "House", "Game", "Sound Clip", "Gospel", "Noise", "AlternRock", "Bass", "Soul", "Punk", "Space", "Meditative", "Instrumental Pop", "Instrumental Rock", "Ethnic", "Gothic", "Darkwave", "Techno-Industrial", "Electronic", "Pop-Folk", "Eurodance", "Dream", "Southern Rock", "Comedy", "Cult", "Gangsta", "Top 40", "Christian Rap", "Pop/Funk", "Jungle", "Native American", "Cabaret", "New Wave", "Psychadelic", "Rave", "Showtunes", "Trailer", "Lo-Fi", "Tribal", "Acid Punk", "Acid Jazz", "Polka", "Retro", "Musical", "Rock & Roll", "Hard Rock", "Folk", "Folk-Rock", "National Folk", "Swing", "Fast Fusion", "Bebob", "Latin", "Revival", "Celtic", "Bluegrass", "Avantgarde", "Gothic Rock", "Progressive Rock", "Psychedelic Rock", "Symphonic Rock", "Slow Rock", "Big Band", "Chorus", "Easy Listening", "Acoustic", "Humour", "Speech", "Chanson", "Opera", "Chamber Music", "Sonata", "Symphony", "Booty Bass", "Primus", "Porn Groove", "Satire", "Slow Jam", "Club", "Tango", "Samba", "Folklore", "Ballad", "Power Ballad", "Rhythmic Soul", "Freestyle", "Duet", "Punk Rock", "Drum Solo", "A capella", "Euro-House", "Dance Hall", "Goa", "Drum & Bass", "Club-House", "Hardcore", "Terror", "Indie", "BritPop", "Negerpunk", "Polsk Punk", "Beat", "Christian Gangsta Rap", "Heavy Metal", "Black Metal", "Crossover", "Contemporary Christian", "Christian Rock", "Merengue", "Salsa", "Thrash Metal", "Anime", "Jpop", "Synthpop"};
+    private static final int mjP = v.QE("nam");
+    private static final int mjQ = v.QE("trk");
+    private static final int mjR = v.QE("cmt");
+    private static final int mjS = v.QE("day");
+    private static final int mjT = v.QE("ART");
+    private static final int mjU = v.QE("too");
+    private static final int mjV = v.QE("alb");
+    private static final int mjW = v.QE("com");
+    private static final int mjX = v.QE("wrt");
+    private static final int mjY = v.QE("lyr");
+    private static final int mjZ = v.QE("gen");
+    private static final int mka = v.QE("covr");
+    private static final int mkb = v.QE(GenreBox.TYPE);
+    private static final int mkc = v.QE("grp");
+    private static final int mkd = v.QE("disk");
+    private static final int mke = v.QE("trkn");
+    private static final int mkf = v.QE("tmpo");
+    private static final int mkg = v.QE("cpil");
+    private static final int mkh = v.QE("aART");
+    private static final int mki = v.QE("sonm");
+    private static final int mkj = v.QE("soal");
+    private static final int mkk = v.QE("soar");
+    private static final int mkl = v.QE("soaa");
+    private static final int mkm = v.QE("soco");
+    private static final int mkn = v.QE(RatingBox.TYPE);
+    private static final int mko = v.QE("pgap");
+    private static final int mkp = v.QE("sosn");
+    private static final int mkq = v.QE("tvsh");
+    private static final int mkr = v.QE("----");
+    private static final String[] mks = {"Blues", "Classic Rock", "Country", "Dance", "Disco", "Funk", "Grunge", "Hip-Hop", "Jazz", "Metal", "New Age", "Oldies", "Other", "Pop", "R&B", "Rap", "Reggae", "Rock", "Techno", "Industrial", "Alternative", "Ska", "Death Metal", "Pranks", "Soundtrack", "Euro-Techno", "Ambient", "Trip-Hop", "Vocal", "Jazz+Funk", "Fusion", "Trance", "Classical", "Instrumental", "Acid", "House", "Game", "Sound Clip", "Gospel", "Noise", "AlternRock", "Bass", "Soul", "Punk", "Space", "Meditative", "Instrumental Pop", "Instrumental Rock", "Ethnic", "Gothic", "Darkwave", "Techno-Industrial", "Electronic", "Pop-Folk", "Eurodance", "Dream", "Southern Rock", "Comedy", "Cult", "Gangsta", "Top 40", "Christian Rap", "Pop/Funk", "Jungle", "Native American", "Cabaret", "New Wave", "Psychadelic", "Rave", "Showtunes", "Trailer", "Lo-Fi", "Tribal", "Acid Punk", "Acid Jazz", "Polka", "Retro", "Musical", "Rock & Roll", "Hard Rock", "Folk", "Folk-Rock", "National Folk", "Swing", "Fast Fusion", "Bebob", "Latin", "Revival", "Celtic", "Bluegrass", "Avantgarde", "Gothic Rock", "Progressive Rock", "Psychedelic Rock", "Symphonic Rock", "Slow Rock", "Big Band", "Chorus", "Easy Listening", "Acoustic", "Humour", "Speech", "Chanson", "Opera", "Chamber Music", "Sonata", "Symphony", "Booty Bass", "Primus", "Porn Groove", "Satire", "Slow Jam", "Club", "Tango", "Samba", "Folklore", "Ballad", "Power Ballad", "Rhythmic Soul", "Freestyle", "Duet", "Punk Rock", "Drum Solo", "A capella", "Euro-House", "Dance Hall", "Goa", "Drum & Bass", "Club-House", "Hardcore", "Terror", "Indie", "BritPop", "Negerpunk", "Polsk Punk", "Beat", "Christian Gangsta Rap", "Heavy Metal", "Black Metal", "Crossover", "Contemporary Christian", "Christian Rock", "Merengue", "Salsa", "Thrash Metal", "Anime", "Jpop", "Synthpop"};
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [180=28] */
     public static Metadata.Entry u(com.google.android.exoplayer2.util.l lVar) {
@@ -51,87 +51,87 @@ final class f {
         try {
             if (i == 169 || i == 65533) {
                 int i2 = 16777215 & readInt2;
-                if (i2 == mjP) {
+                if (i2 == mjR) {
                     CommentFrame a = a(readInt2, lVar);
                     lVar.setPosition(readInt);
                     return a;
-                } else if (i2 == mjN || i2 == mjO) {
+                } else if (i2 == mjP || i2 == mjQ) {
                     return a(readInt2, "TIT2", lVar);
                 } else {
-                    if (i2 == mjU || i2 == mjV) {
+                    if (i2 == mjW || i2 == mjX) {
                         return a(readInt2, "TCOM", lVar);
                     }
-                    if (i2 == mjQ) {
+                    if (i2 == mjS) {
                         return a(readInt2, "TDRC", lVar);
                     }
-                    if (i2 == mjR) {
+                    if (i2 == mjT) {
                         return a(readInt2, "TPE1", lVar);
                     }
-                    if (i2 == mjS) {
+                    if (i2 == mjU) {
                         return a(readInt2, "TSSE", lVar);
                     }
-                    if (i2 == mjT) {
+                    if (i2 == mjV) {
                         return a(readInt2, "TALB", lVar);
                     }
-                    if (i2 == mjW) {
+                    if (i2 == mjY) {
                         return a(readInt2, "USLT", lVar);
                     }
-                    if (i2 == mjX) {
+                    if (i2 == mjZ) {
                         return a(readInt2, "TCON", lVar);
                     }
-                    if (i2 == mka) {
+                    if (i2 == mkc) {
                         return a(readInt2, "TIT1", lVar);
                     }
                 }
-            } else if (readInt2 == mjZ) {
+            } else if (readInt2 == mkb) {
                 return v(lVar);
             } else {
-                if (readInt2 == mkb) {
+                if (readInt2 == mkd) {
                     return b(readInt2, "TPOS", lVar);
                 }
-                if (readInt2 == mkc) {
+                if (readInt2 == mke) {
                     return b(readInt2, "TRCK", lVar);
                 }
-                if (readInt2 == mkd) {
+                if (readInt2 == mkf) {
                     return a(readInt2, "TBPM", lVar, true, false);
                 }
-                if (readInt2 == mke) {
+                if (readInt2 == mkg) {
                     return a(readInt2, "TCMP", lVar, true, true);
                 }
-                if (readInt2 == mjY) {
+                if (readInt2 == mka) {
                     return w(lVar);
                 }
-                if (readInt2 == mkf) {
+                if (readInt2 == mkh) {
                     return a(readInt2, "TPE2", lVar);
                 }
-                if (readInt2 == mkg) {
+                if (readInt2 == mki) {
                     return a(readInt2, "TSOT", lVar);
                 }
-                if (readInt2 == mkh) {
+                if (readInt2 == mkj) {
                     return a(readInt2, "TSO2", lVar);
                 }
-                if (readInt2 == mki) {
+                if (readInt2 == mkk) {
                     return a(readInt2, "TSOA", lVar);
                 }
-                if (readInt2 == mkj) {
+                if (readInt2 == mkl) {
                     return a(readInt2, "TSOP", lVar);
                 }
-                if (readInt2 == mkk) {
+                if (readInt2 == mkm) {
                     return a(readInt2, "TSOC", lVar);
                 }
-                if (readInt2 == mkl) {
+                if (readInt2 == mkn) {
                     return a(readInt2, "ITUNESADVISORY", lVar, false, false);
                 }
-                if (readInt2 == mkm) {
+                if (readInt2 == mko) {
                     return a(readInt2, "ITUNESGAPLESS", lVar, false, true);
                 }
-                if (readInt2 == mkn) {
+                if (readInt2 == mkp) {
                     return a(readInt2, "TVSHOWSORT", lVar);
                 }
-                if (readInt2 == mko) {
+                if (readInt2 == mkq) {
                     return a(readInt2, "TVSHOW", lVar);
                 }
-                if (readInt2 == mkp) {
+                if (readInt2 == mkr) {
                     return h(lVar, readInt);
                 }
             }
@@ -144,7 +144,7 @@ final class f {
 
     private static TextInformationFrame a(int i, String str, com.google.android.exoplayer2.util.l lVar) {
         int readInt = lVar.readInt();
-        if (lVar.readInt() == a.mix) {
+        if (lVar.readInt() == a.miz) {
             lVar.skipBytes(8);
             return new TextInformationFrame(str, null, lVar.LV(readInt - 16));
         }
@@ -154,7 +154,7 @@ final class f {
 
     private static CommentFrame a(int i, com.google.android.exoplayer2.util.l lVar) {
         int readInt = lVar.readInt();
-        if (lVar.readInt() == a.mix) {
+        if (lVar.readInt() == a.miz) {
             lVar.skipBytes(8);
             String LV = lVar.LV(readInt - 16);
             return new CommentFrame("und", LV, LV);
@@ -175,7 +175,7 @@ final class f {
 
     private static TextInformationFrame b(int i, String str, com.google.android.exoplayer2.util.l lVar) {
         int readInt = lVar.readInt();
-        if (lVar.readInt() == a.mix && readInt >= 22) {
+        if (lVar.readInt() == a.miz && readInt >= 22) {
             lVar.skipBytes(10);
             int readUnsignedShort = lVar.readUnsignedShort();
             if (readUnsignedShort > 0) {
@@ -193,7 +193,7 @@ final class f {
 
     private static TextInformationFrame v(com.google.android.exoplayer2.util.l lVar) {
         int x = x(lVar);
-        String str = (x <= 0 || x > mkq.length) ? null : mkq[x - 1];
+        String str = (x <= 0 || x > mks.length) ? null : mks[x - 1];
         if (str != null) {
             return new TextInformationFrame("TCON", null, str);
         }
@@ -204,7 +204,7 @@ final class f {
     private static ApicFrame w(com.google.android.exoplayer2.util.l lVar) {
         String str;
         int readInt = lVar.readInt();
-        if (lVar.readInt() == a.mix) {
+        if (lVar.readInt() == a.miz) {
             int JJ = a.JJ(lVar.readInt());
             if (JJ == 13) {
                 str = MimeType.Image.JPEG;
@@ -234,12 +234,12 @@ final class f {
             int readInt = lVar.readInt();
             int readInt2 = lVar.readInt();
             lVar.skipBytes(4);
-            if (readInt2 == a.miv) {
+            if (readInt2 == a.mix) {
                 str2 = lVar.LV(readInt - 12);
-            } else if (readInt2 == a.miw) {
+            } else if (readInt2 == a.miy) {
                 str = lVar.LV(readInt - 12);
             } else {
-                if (readInt2 == a.mix) {
+                if (readInt2 == a.miz) {
                     i2 = readInt;
                     i3 = position;
                 }
@@ -256,7 +256,7 @@ final class f {
 
     private static int x(com.google.android.exoplayer2.util.l lVar) {
         lVar.skipBytes(4);
-        if (lVar.readInt() == a.mix) {
+        if (lVar.readInt() == a.miz) {
             lVar.skipBytes(8);
             return lVar.readUnsignedByte();
         }

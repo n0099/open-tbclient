@@ -13,19 +13,19 @@ import com.baidu.tbadk.util.af;
 import com.baidu.tieba.ala.alasquare.live.b.c;
 /* loaded from: classes3.dex */
 public class a {
-    private TbPageContext<?> cVg;
-    private b ekQ;
-    private c ekR;
-    private final int ekP = 1000;
+    private TbPageContext<?> cVh;
+    private b ekR;
+    private c ekS;
+    private final int ekQ = 1000;
     private boolean mIsBackground = false;
     private CustomMessageListener yE = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bcj();
+            a.this.bcl();
         }
     };
-    private Runnable ekS = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable ekT = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -33,29 +33,29 @@ public class a {
     };
 
     public a(TbPageContext<?> tbPageContext) {
-        this.cVg = null;
-        this.cVg = tbPageContext;
-        this.ekQ = new b(this.cVg);
+        this.cVh = null;
+        this.cVh = tbPageContext;
+        this.ekR = new b(this.cVh);
         MessageManager.getInstance().registerListener(this.yE);
     }
 
     public View getView() {
-        return this.ekQ.getView();
+        return this.ekR.getView();
     }
 
     public void onChangeSkinType() {
-        this.ekQ.onChangeSkinType();
+        this.ekR.onChangeSkinType();
     }
 
     public void a(c cVar) {
         if (cVar != null && cVar.NQ != null) {
-            this.ekR = cVar;
-            if (this.ekQ != null) {
-                this.ekQ.a(this.ekR);
+            this.ekS = cVar;
+            if (this.ekR != null) {
+                this.ekR.a(this.ekS);
                 an anVar = new an("c12644");
-                if (cVar.eki == 0) {
+                if (cVar.ekj == 0) {
                     anVar.X("obj_type", 1);
-                } else if (cVar.eki == 1) {
+                } else if (cVar.ekj == 1) {
                     anVar.X("obj_type", 2);
                 }
                 anVar.cy("tid", cVar.NQ.getTid());
@@ -64,29 +64,29 @@ public class a {
         }
     }
 
-    public void bcj() {
+    public void bcl() {
         if (!this.mIsBackground) {
             if (af.mT(1)) {
-                e.gx().removeCallbacks(this.ekS);
-                e.gx().postDelayed(this.ekS, 1000L);
-            } else if (this.ekQ != null) {
-                this.ekQ.bcm();
+                e.gx().removeCallbacks(this.ekT);
+                e.gx().postDelayed(this.ekT, 1000L);
+            } else if (this.ekR != null) {
+                this.ekR.bco();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.ekR != null && this.ekR.NQ != null && this.ekR.NQ.aCF() != null && this.ekQ != null) {
-            this.ekQ.startPlay(this.ekR.NQ.aCF().hls_url);
+        if (this.ekS != null && this.ekS.NQ != null && this.ekS.NQ.aCH() != null && this.ekR != null) {
+            this.ekR.startPlay(this.ekS.NQ.aCH().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.ekQ != null) {
-            this.ekQ.bcm();
+        if (this.ekR != null) {
+            this.ekR.bco();
         }
-        e.gx().removeCallbacks(this.ekS);
+        e.gx().removeCallbacks(this.ekT);
     }
 
     public void hR(boolean z) {
@@ -95,13 +95,13 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.yE);
-        e.gx().removeCallbacks(this.ekS);
-        if (this.ekQ != null) {
-            this.ekQ.onDestroy();
+        e.gx().removeCallbacks(this.ekT);
+        if (this.ekR != null) {
+            this.ekR.onDestroy();
         }
     }
 
-    public c bck() {
-        return this.ekR;
+    public c bcm() {
+        return this.ekS;
     }
 }

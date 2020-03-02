@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage A(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.djP();
+        com.facebook.imagepipeline.nativecode.b.djR();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -100,7 +100,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean djQ() {
+    public boolean djS() {
         return true;
     }
 

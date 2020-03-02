@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int jcC;
+    private int jcE;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -31,7 +31,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jcC = 3;
+        this.jcE = 3;
         setOrientation(0);
     }
 
@@ -40,10 +40,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.jcC) {
+        if (childCount > this.jcE) {
             while (true) {
                 childCount--;
-                if (childCount <= this.jcC) {
+                if (childCount <= this.jcE) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -112,7 +112,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.jcC = i;
+        this.jcE = i;
     }
 
     @Override // android.view.View.OnClickListener

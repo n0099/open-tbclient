@@ -48,26 +48,26 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.EP()) {
-            q.avN();
-            m.avD().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.ER()) {
+            q.avP();
+            m.avF().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dlz()) {
+        if (!c.dlB()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.dp(application).ajo();
+            a.dp(application).ajq();
             asyncUpdateSwanConfig();
             com.baidu.swan.apps.ar.a.af(0, 1);
         }
     }
 
     private static void asyncUpdateSwanConfig() {
-        d.aiV();
+        d.aiX();
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -87,8 +87,8 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UG().IB(), false);
-        if (com.baidu.swan.apps.w.a.UG().IC()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UI().ID(), false);
+        if (com.baidu.swan.apps.w.a.UI().IE()) {
             doWebViewInit(context);
         }
     }
@@ -96,7 +96,7 @@ public class SwanAppInitHelper {
     private static void doWebViewInit(Context context) {
         b.bY(context).cy(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.RB().p(null);
+            com.baidu.swan.apps.env.e.RD().p(null);
         }
     }
 

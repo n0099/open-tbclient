@@ -13,16 +13,16 @@ public interface a {
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0546a {
-        public String hXI;
-        public Rect hXJ;
+        public String hXK;
+        public Rect hXL;
         public String picUrl;
         public Rect rect;
 
         public C0546a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.hXI = "";
-            this.hXJ = new Rect(0, 0, 0, 0);
+            this.hXK = "";
+            this.hXL = new Rect(0, 0, 0, 0);
         }
 
         private C0546a(JSONObject jSONObject) {
@@ -34,8 +34,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean cbM() {
-            return (TextUtils.isEmpty(this.hXI) || this.hXJ.isEmpty()) ? false : true;
+        public boolean cbO() {
+            return (TextUtils.isEmpty(this.hXK) || this.hXL.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.hXI = jSONObject.optString("pic_url");
-                                this.hXJ = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.hXK = jSONObject.optString("pic_url");
+                                this.hXL = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

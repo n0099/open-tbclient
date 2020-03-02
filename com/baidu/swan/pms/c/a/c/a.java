@@ -7,7 +7,7 @@ import java.util.List;
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T atP() {
+    public synchronized T atR() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;

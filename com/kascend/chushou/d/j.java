@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class j {
-    private static j mPb = null;
-    private final LruCache<String, VideoPlayInfo> mPa = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j mPd = null;
+    private final LruCache<String, VideoPlayInfo> mPc = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -30,39 +30,39 @@ public class j {
         }
     };
 
-    public static j dBX() {
-        if (mPb == null) {
+    public static j dBZ() {
+        if (mPd == null) {
             synchronized (j.class) {
-                if (mPb == null) {
-                    mPb = new j();
+                if (mPd == null) {
+                    mPd = new j();
                 }
             }
         }
-        return mPb;
+        return mPd;
     }
 
     private j() {
     }
 
     public VideoPlayInfo N(String str, long j) {
-        return a(this.mPa, str, j);
+        return a(this.mPc, str, j);
     }
 
     public void a(String str) {
-        this.mPa.remove(str);
+        this.mPc.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.mPa, str, list);
+        a(this.mPc, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (O(str, KeepJobService.JOB_CHECK_PERIODIC) == null) {
-            com.kascend.chushou.player.c.a.dCI().a(str, str2, new a.InterfaceC0695a() { // from class: com.kascend.chushou.d.j.3
+            com.kascend.chushou.player.c.a.dCK().a(str, str2, new a.InterfaceC0695a() { // from class: com.kascend.chushou.d.j.3
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0695a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dBX().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dBZ().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

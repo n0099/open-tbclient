@@ -5,20 +5,20 @@ import android.util.Log;
 import com.google.android.exoplayer2.extractor.m;
 /* loaded from: classes6.dex */
 public final class k {
-    public final m.a mfZ;
-    public final boolean mkC;
-    public final int mkD;
-    public final byte[] mkE;
+    public final m.a mgb;
+    public final boolean mkE;
+    public final int mkF;
+    public final byte[] mkG;
     @Nullable
     public final String schemeType;
 
     public k(boolean z, @Nullable String str, int i, byte[] bArr, int i2, int i3, @Nullable byte[] bArr2) {
         com.google.android.exoplayer2.util.a.checkArgument((bArr2 == null) ^ (i == 0));
-        this.mkC = z;
+        this.mkE = z;
         this.schemeType = str;
-        this.mkD = i;
-        this.mkE = bArr2;
-        this.mfZ = new m.a(Pt(str), bArr, i2, i3);
+        this.mkF = i;
+        this.mkG = bArr2;
+        this.mgb = new m.a(Pt(str), bArr, i2, i3);
     }
 
     private static int Pt(@Nullable String str) {

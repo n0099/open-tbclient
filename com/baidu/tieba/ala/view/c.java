@@ -14,14 +14,14 @@ import com.baidu.tieba.ala.AlaRankListPKStatusActivity;
 /* loaded from: classes3.dex */
 public class c {
     private int Yx;
-    private String ehM;
-    private boolean ehN;
-    private TextView fAO;
-    private TextView fAP;
-    private TextView fAk;
-    private FrameLayout fAl;
-    private HeadImageView fAm;
-    private TextView fAn;
+    private String ehN;
+    private boolean ehO;
+    private TextView fAQ;
+    private TextView fAR;
+    private TextView fAm;
+    private FrameLayout fAn;
+    private HeadImageView fAo;
+    private TextView fAp;
     private Context mContext;
     private String mPortrait;
     private long mUserId;
@@ -29,8 +29,8 @@ public class c {
 
     public c(Context context, String str, boolean z, long j, int i, String str2) {
         this.mContext = context;
-        this.ehM = str;
-        this.ehN = z;
+        this.ehN = str;
+        this.ehO = z;
         this.mUserId = j;
         this.Yx = i;
         this.mPortrait = str2;
@@ -39,39 +39,39 @@ public class c {
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_pk_bottom_view, (ViewGroup) null);
-        this.fAk = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
-        this.fAl = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
-        this.fAm = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
-        this.fAn = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
-        this.fAO = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
-        this.fAP = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
-        this.fAO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.1
+        this.fAm = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
+        this.fAn = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
+        this.fAo = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
+        this.fAp = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
+        this.fAQ = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
+        this.fAR = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
+        this.fAQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(c.this.mContext, AlaRankListPKStatusActivity.class);
                 intent.putExtra("live_type", c.this.Yx);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, c.this.mUserId);
                 intent.putExtra("rank_list_type", "guard");
-                intent.putExtra("rank_list_from", c.this.ehN);
+                intent.putExtra("rank_list_from", c.this.ehO);
                 intent.putExtra("portrait", c.this.mPortrait);
                 c.this.mContext.startActivity(intent);
             }
         });
-        this.fAP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.2
+        this.fAR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(c.this.mContext, AlaRankListPKStatusActivity.class);
                 intent.putExtra("live_type", c.this.Yx);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, c.this.mUserId);
                 intent.putExtra("rank_list_type", "challenge_history");
-                intent.putExtra("rank_list_from", c.this.ehN);
+                intent.putExtra("rank_list_from", c.this.ehO);
                 intent.putExtra("portrait", c.this.mPortrait);
                 c.this.mContext.startActivity(intent);
             }
         });
-        if (this.fAm != null) {
-            this.fAm.setIsRound(true);
-            this.fAm.setAutoChangeStyle(false);
+        if (this.fAo != null) {
+            this.fAo.setIsRound(true);
+            this.fAo.setAutoChangeStyle(false);
         }
     }
 

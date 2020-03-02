@@ -9,13 +9,13 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d fRO;
-    private HashMap<String, String> fRP;
-    private Gson fRQ;
+    private com.baidu.tieba.easterEgg.d fRQ;
+    private HashMap<String, String> fRR;
+    private Gson fRS;
 
     public a(int i) {
         super(i);
-        this.fRQ = new Gson();
+        this.fRS = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,18 +24,18 @@ public class a extends d {
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String Ah = Ah(httpMessageTask.getUrl());
-        if (Ah != null && this.fRO != null) {
+        if (Ah != null && this.fRQ != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.fRQ.toJson(netMessage.getSocketMessage().getData());
+                    json = this.fRS.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.fRQ.toJson(httpMessage.getParams());
+                json = this.fRS.toJson(httpMessage.getParams());
             }
-            this.fRO.ak(httpMessageTask.getUrl(), this.fRQ.toJson(Ah), this.fRQ.toJson(json));
+            this.fRQ.ak(httpMessageTask.getUrl(), this.fRS.toJson(Ah), this.fRS.toJson(json));
         }
         return httpMessage;
     }
@@ -45,17 +45,17 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.fRP != null) {
-            return this.fRP.get(replace);
+        if (this.fRR != null) {
+            return this.fRR.get(replace);
         }
         return null;
     }
 
     public void q(HashMap<String, String> hashMap) {
-        this.fRP = hashMap;
+        this.fRR = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.fRO = dVar;
+        this.fRQ = dVar;
     }
 }

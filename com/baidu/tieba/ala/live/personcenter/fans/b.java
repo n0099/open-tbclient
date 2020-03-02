@@ -4,13 +4,13 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<a> cVQ = null;
-    boolean eLC = false;
+    protected ArrayList<a> cVR = null;
+    boolean eLD = false;
 
-    public void bgH() {
-        this.eLC = false;
-        if (this.cVQ != null && this.cVQ.size() == 0) {
-            this.eLC = true;
+    public void bgJ() {
+        this.eLD = false;
+        if (this.cVR != null && this.cVR.size() == 0) {
+            this.eLD = true;
         }
     }
 }

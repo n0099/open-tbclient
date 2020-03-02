@@ -10,14 +10,14 @@ public class a {
     public static void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         f fVar = new f();
         fVar.mData = c(str, str2, str3, str4, jSONObject);
-        com.baidu.swan.apps.y.f.WQ().a(str, fVar);
+        com.baidu.swan.apps.y.f.WS().a(str, fVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         f fVar = new f();
         fVar.mData = c(str, str2, str3, str4, jSONObject);
-        com.baidu.swan.apps.y.f.WQ().a(fVar);
+        com.baidu.swan.apps.y.f.WS().a(fVar);
     }
 
     public static JSONObject c(String str, String str2, String str3, String str4, JSONObject jSONObject) {

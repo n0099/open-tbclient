@@ -6,21 +6,21 @@ public class az implements Runnable {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.clientreport.data.a f136a;
+    private com.xiaomi.clientreport.data.a f135a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.clientreport.processor.d f137a;
+    private com.xiaomi.clientreport.processor.d f136a;
 
     public az(Context context, com.xiaomi.clientreport.data.a aVar, com.xiaomi.clientreport.processor.d dVar) {
         this.a = context;
-        this.f136a = aVar;
-        this.f137a = dVar;
+        this.f135a = aVar;
+        this.f136a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f137a != null) {
-            this.f137a.mo52a(this.f136a);
+        if (this.f136a != null) {
+            this.f136a.mo52a(this.f135a);
         }
     }
 }

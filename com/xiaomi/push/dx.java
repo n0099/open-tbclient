@@ -14,11 +14,11 @@ public abstract class dx extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f246a;
+    protected Context f245a;
 
     public dx(Context context, int i) {
         this.a = i;
-        this.f246a = context;
+        this.f245a = context;
     }
 
     public static void a(Context context, ho hoVar) {
@@ -144,7 +144,7 @@ public abstract class dx extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo157a() {
-        return ag.a(this.f246a, String.valueOf(mo157a()), this.a);
+        return ag.a(this.f245a, String.valueOf(mo157a()), this.a);
     }
 
     protected boolean b() {
@@ -167,7 +167,7 @@ public abstract class dx extends ai.a {
             hoVar.a(mo157a);
             hoVar.a(System.currentTimeMillis());
             hoVar.a(mo157a());
-            a(this.f246a, hoVar, a);
+            a(this.f245a, hoVar, a);
         }
     }
 }

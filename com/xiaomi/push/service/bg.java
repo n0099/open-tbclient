@@ -12,12 +12,12 @@ public final class bg implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hk f898a;
+    final /* synthetic */ hk f897a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(Context context, hk hkVar) {
         this.a = context;
-        this.f898a = hkVar;
+        this.f897a = hkVar;
     }
 
     @Override // java.lang.Runnable
@@ -35,7 +35,7 @@ public final class bg implements Runnable {
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
-                    bf.c(this.a, this.f898a);
+                    bf.c(this.a, this.f897a);
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();

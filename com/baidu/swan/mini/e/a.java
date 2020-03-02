@@ -20,7 +20,7 @@ public class a {
 
     @NonNull
     public static String a(@NonNull com.baidu.swan.mini.b.a aVar, @NonNull String str) {
-        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + b.qm(aVar.atk().getAppId()) + "', '" + b.qm(aVar.atk().getBundleId()) + "', " + str + ");";
+        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + b.qm(aVar.atm().getAppId()) + "', '" + b.qm(aVar.atm().getBundleId()) + "', " + str + ");";
     }
 
     @NonNull

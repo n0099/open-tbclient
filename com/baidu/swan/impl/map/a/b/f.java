@@ -37,7 +37,7 @@ public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(final Context context, @NonNull com.baidu.swan.apps.z.a.c cVar, @NonNull final com.baidu.swan.impl.map.item.c cVar2) {
-        List<com.baidu.swan.apps.z.a.a.d> list = cVar.bzM;
+        List<com.baidu.swan.apps.z.a.a.d> list = cVar.bzN;
         if (list != null && list.size() != 0) {
             final ArrayList arrayList = new ArrayList();
             final ArrayList arrayList2 = new ArrayList();
@@ -46,12 +46,12 @@ public class f {
             final AtomicInteger atomicInteger = new AtomicInteger(0);
             for (final com.baidu.swan.apps.z.a.a.d dVar : list) {
                 final com.baidu.swan.impl.map.item.b bVar = new com.baidu.swan.impl.map.item.b();
-                if (dVar.bAo == null) {
-                    dVar.bAo = new d.a();
+                if (dVar.bAp == null) {
+                    dVar.bAp = new d.a();
                 }
                 String str = dVar.iconPath;
                 if (TextUtils.isEmpty(str)) {
-                    str = ImageRequestBuilder.IQ(R.drawable.pin_red).dsA().dso().toString();
+                    str = ImageRequestBuilder.IQ(R.drawable.pin_red).dsC().dsq().toString();
                 }
                 p.a(str, new p.a() { // from class: com.baidu.swan.impl.map.a.b.f.1
                     @Override // com.baidu.swan.apps.as.p.a
@@ -60,12 +60,12 @@ public class f {
                             Log.d("MarkerViewCreateHelper", "url=" + str2);
                         }
                         if (bitmap == null) {
-                            bitmap = f.arL();
+                            bitmap = f.arN();
                         }
                         Bitmap a = f.a(bitmap, com.baidu.swan.apps.z.a.a.d.this);
-                        LatLng latLng = new LatLng(com.baidu.swan.apps.z.a.a.d.this.bzK.latitude, com.baidu.swan.apps.z.a.a.d.this.bzK.longitude);
-                        MarkerOptions anchor = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(a)).alpha((float) com.baidu.swan.apps.z.a.a.d.this.bAl).title(com.baidu.swan.apps.z.a.a.d.this.title).rotate((float) com.baidu.swan.apps.z.a.a.d.this.bAf).zIndex(88).anchor((float) com.baidu.swan.apps.z.a.a.d.this.bAo.x, (float) com.baidu.swan.apps.z.a.a.d.this.bAo.y);
-                        bVar.cwb = com.baidu.swan.apps.z.a.a.d.this;
+                        LatLng latLng = new LatLng(com.baidu.swan.apps.z.a.a.d.this.bzL.latitude, com.baidu.swan.apps.z.a.a.d.this.bzL.longitude);
+                        MarkerOptions anchor = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(a)).alpha((float) com.baidu.swan.apps.z.a.a.d.this.bAm).title(com.baidu.swan.apps.z.a.a.d.this.title).rotate((float) com.baidu.swan.apps.z.a.a.d.this.bAg).zIndex(88).anchor((float) com.baidu.swan.apps.z.a.a.d.this.bAp.x, (float) com.baidu.swan.apps.z.a.a.d.this.bAp.y);
+                        bVar.cwc = com.baidu.swan.apps.z.a.a.d.this;
                         arrayList.add(anchor);
                         LinearLayout linearLayout = new LinearLayout(context);
                         linearLayout.setOrientation(1);
@@ -75,14 +75,14 @@ public class f {
                         view.setLayoutParams(new ViewGroup.LayoutParams(a.getWidth(), a.getHeight()));
                         view.setVisibility(4);
                         linearLayout.addView(view);
-                        bVar.cwg = linearLayout;
-                        if (com.baidu.swan.impl.map.item.b.cwf.booleanValue()) {
-                            if (com.baidu.swan.apps.z.a.a.d.this.bAm != null && com.baidu.swan.apps.z.a.a.d.this.bAm.isValid() && TextUtils.equals(com.baidu.swan.apps.z.a.a.d.this.bAm.Tw, "ALWAYS")) {
+                        bVar.cwh = linearLayout;
+                        if (com.baidu.swan.impl.map.item.b.cwg.booleanValue()) {
+                            if (com.baidu.swan.apps.z.a.a.d.this.bAn != null && com.baidu.swan.apps.z.a.a.d.this.bAn.isValid() && TextUtils.equals(com.baidu.swan.apps.z.a.a.d.this.bAn.Tw, "ALWAYS")) {
                                 View a2 = a.a(cVar2, com.baidu.swan.apps.z.a.a.d.this);
                                 linearLayout.addView(a2, 0);
-                                bVar.cwe = a2;
+                                bVar.cwf = a2;
                             }
-                            if (com.baidu.swan.apps.z.a.a.d.this.bAn != null && com.baidu.swan.apps.z.a.a.d.this.bAn.isValid()) {
+                            if (com.baidu.swan.apps.z.a.a.d.this.bAo != null && com.baidu.swan.apps.z.a.a.d.this.bAo.isValid()) {
                                 arrayList2.add(c.a(cVar2, bVar));
                             }
                         }
@@ -90,30 +90,30 @@ public class f {
                         MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                         builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                         builder.position(latLng);
-                        builder.yOffset((int) ((a.getHeight() * (1.0d - com.baidu.swan.apps.z.a.a.d.this.bAo.y)) + 0.0d));
-                        cVar2.cwr.addView(linearLayout, builder.build());
+                        builder.yOffset((int) ((a.getHeight() * (1.0d - com.baidu.swan.apps.z.a.a.d.this.bAp.y)) + 0.0d));
+                        cVar2.cws.addView(linearLayout, builder.build());
                         linearLayout.setAlpha(0.0f);
                         BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(linearLayout);
                         if (fromView != null) {
                             Bitmap bitmap2 = fromView.getBitmap();
-                            arrayList3.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - a.getWidth()) / 2.0f) + (com.baidu.swan.apps.z.a.a.d.this.bAo.x * a.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - a.getHeight())) + (com.baidu.swan.apps.z.a.a.d.this.bAo.y * a.getHeight()))) / bitmap2.getHeight()).zIndex(66));
+                            arrayList3.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - a.getWidth()) / 2.0f) + (com.baidu.swan.apps.z.a.a.d.this.bAp.x * a.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - a.getHeight())) + (com.baidu.swan.apps.z.a.a.d.this.bAp.y * a.getHeight()))) / bitmap2.getHeight()).zIndex(66));
                             atomicInteger.getAndIncrement();
-                            cVar2.bzM.add(bVar);
+                            cVar2.bzN.add(bVar);
                             if (size == atomicInteger.get()) {
-                                List<Overlay> addOverlays = cVar2.cwr.getMap().addOverlays(arrayList2);
+                                List<Overlay> addOverlays = cVar2.cws.getMap().addOverlays(arrayList2);
                                 int size2 = addOverlays.size();
                                 for (int i = 0; i < size2; i++) {
-                                    cVar2.bzM.get(i).cwd = (Marker) addOverlays.get(i);
+                                    cVar2.bzN.get(i).cwe = (Marker) addOverlays.get(i);
                                 }
-                                List<Overlay> addOverlays2 = cVar2.cwr.getMap().addOverlays(arrayList);
+                                List<Overlay> addOverlays2 = cVar2.cws.getMap().addOverlays(arrayList);
                                 int size3 = addOverlays2.size();
                                 for (int i2 = 0; i2 < size3; i2++) {
-                                    cVar2.bzM.get(i2).cwc = (Marker) addOverlays2.get(i2);
+                                    cVar2.bzN.get(i2).cwd = (Marker) addOverlays2.get(i2);
                                 }
-                                List<Overlay> addOverlays3 = cVar2.cwr.getMap().addOverlays(arrayList3);
+                                List<Overlay> addOverlays3 = cVar2.cws.getMap().addOverlays(arrayList3);
                                 int size4 = addOverlays3.size();
                                 for (int i3 = 0; i3 < size4; i3++) {
-                                    cVar2.bzM.get(i3).cwh = (Marker) addOverlays3.get(i3);
+                                    cVar2.bzN.get(i3).cwi = (Marker) addOverlays3.get(i3);
                                 }
                             }
                         }
@@ -124,20 +124,20 @@ public class f {
     }
 
     public static void a(@NonNull com.baidu.swan.apps.z.a.c cVar, @NonNull com.baidu.swan.impl.map.item.c cVar2, com.baidu.swan.impl.map.b.b bVar) {
-        if (cVar.bzP != null && cVar.bzP.size() > 0) {
-            for (com.baidu.swan.apps.z.a.a.b bVar2 : cVar.bzP) {
+        if (cVar.bzQ != null && cVar.bzQ.size() > 0) {
+            for (com.baidu.swan.apps.z.a.a.b bVar2 : cVar.bzQ) {
                 b.a(cVar2, bVar2, bVar);
                 com.baidu.swan.apps.console.c.i("map", "initMapView createControl id " + bVar2.id);
             }
         }
         ArrayList arrayList = new ArrayList();
-        if (cVar.bzN != null && cVar.bzN.size() > 0) {
-            for (com.baidu.swan.apps.z.a.a.f fVar : cVar.bzN) {
+        if (cVar.bzO != null && cVar.bzO.size() > 0) {
+            for (com.baidu.swan.apps.z.a.a.f fVar : cVar.bzO) {
                 if (!fVar.isValid()) {
                     com.baidu.swan.apps.console.c.e("map", "polyline is invalid");
                 } else {
-                    ArrayList arrayList2 = new ArrayList(fVar.bAt.size());
-                    Iterator<com.baidu.swan.apps.z.a.a.c> it = fVar.bAt.iterator();
+                    ArrayList arrayList2 = new ArrayList(fVar.bAu.size());
+                    Iterator<com.baidu.swan.apps.z.a.a.c> it = fVar.bAu.iterator();
                     while (it.hasNext()) {
                         com.baidu.swan.apps.z.a.a.c next = it.next();
                         arrayList2.add(new LatLng(next.latitude, next.longitude));
@@ -145,19 +145,19 @@ public class f {
                     if (arrayList2.size() < 2 || arrayList2.contains(null)) {
                         com.baidu.swan.apps.console.c.e("map", "polyline count can't less than 2 or your polyline points contains null");
                     } else {
-                        arrayList.add(new PolylineOptions().points(arrayList2).color(fVar.color).width((int) fVar.width).dottedLine(fVar.bAu));
+                        arrayList.add(new PolylineOptions().points(arrayList2).color(fVar.color).width((int) fVar.width).dottedLine(fVar.bAv));
                         com.baidu.swan.apps.console.c.i("map", "initMapView createPoly");
                     }
                 }
             }
         }
-        if (cVar.bzR != null && !cVar.bzR.isEmpty()) {
-            for (com.baidu.swan.apps.z.a.a.e eVar : cVar.bzR) {
+        if (cVar.bzS != null && !cVar.bzS.isEmpty()) {
+            for (com.baidu.swan.apps.z.a.a.e eVar : cVar.bzS) {
                 if (!eVar.isValid()) {
                     com.baidu.swan.apps.console.c.e("map", "polygon is invalid");
                 } else {
-                    ArrayList arrayList3 = new ArrayList(eVar.bAt.size());
-                    Iterator<com.baidu.swan.apps.z.a.a.c> it2 = eVar.bAt.iterator();
+                    ArrayList arrayList3 = new ArrayList(eVar.bAu.size());
+                    Iterator<com.baidu.swan.apps.z.a.a.c> it2 = eVar.bAu.iterator();
                     while (it2.hasNext()) {
                         com.baidu.swan.apps.z.a.a.c next2 = it2.next();
                         arrayList3.add(new LatLng(next2.latitude, next2.longitude));
@@ -165,30 +165,30 @@ public class f {
                     if (arrayList3.size() < 3 || arrayList3.contains(null)) {
                         com.baidu.swan.apps.console.c.e("map", "polygons count can't less than 3 or your polygons points contains null");
                     } else {
-                        arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(eVar.strokeWidth, eVar.hx)).fillColor(eVar.bAj).zIndex(eVar.bAp));
+                        arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(eVar.strokeWidth, eVar.hx)).fillColor(eVar.bAk).zIndex(eVar.bAq));
                         com.baidu.swan.apps.console.c.i("map", "initMapView createPolygons");
                     }
                 }
             }
         }
-        if (cVar.bzQ != null && cVar.bzQ.size() > 0) {
+        if (cVar.bzR != null && cVar.bzR.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (com.baidu.swan.apps.z.a.a.c cVar3 : cVar.bzQ) {
+            for (com.baidu.swan.apps.z.a.a.c cVar3 : cVar.bzR) {
                 builder.include(new LatLng(cVar3.latitude, cVar3.longitude));
             }
-            cVar2.cwr.getMap().setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            cVar2.cws.getMap().setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
             com.baidu.swan.apps.console.c.i("map", "initMapView includePoints");
         }
-        if (cVar.bzO != null && cVar.bzO.size() > 0) {
-            for (com.baidu.swan.apps.z.a.a.a aVar : cVar.bzO) {
+        if (cVar.bzP != null && cVar.bzP.size() > 0) {
+            for (com.baidu.swan.apps.z.a.a.a aVar : cVar.bzP) {
                 if (aVar.isValid()) {
-                    arrayList.add(new CircleOptions().center(new LatLng(aVar.bzK.latitude, aVar.bzK.longitude)).stroke(new Stroke((int) aVar.strokeWidth, aVar.color)).fillColor(aVar.bAj).radius(aVar.radius));
+                    arrayList.add(new CircleOptions().center(new LatLng(aVar.bzL.latitude, aVar.bzL.longitude)).stroke(new Stroke((int) aVar.strokeWidth, aVar.color)).fillColor(aVar.bAk).radius(aVar.radius));
                     com.baidu.swan.apps.console.c.i("map", "initMapView createCircle");
                 }
             }
         }
         if (arrayList != null) {
-            cVar2.cwr.getMap().addOverlays(arrayList);
+            cVar2.cws.getMap().addOverlays(arrayList);
         }
     }
 
@@ -199,7 +199,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Bitmap arL() {
+    public static Bitmap arN() {
         return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.pin_red);
     }
 }

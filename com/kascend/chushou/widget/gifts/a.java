@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0724a njH;
+    private InterfaceC0724a njJ;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.njH != null) {
-                this.njH.a(parseInt);
+            if (this.njJ != null) {
+                this.njJ.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.njH != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.njH.b(parseInt);
+        if (this.njJ != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.njJ.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.njH != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.njH.b(parseInt);
+        if (this.njJ != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.njJ.b(parseInt);
         }
     }
 
     public void a(InterfaceC0724a interfaceC0724a) {
-        this.njH = interfaceC0724a;
+        this.njJ = interfaceC0724a;
     }
 }

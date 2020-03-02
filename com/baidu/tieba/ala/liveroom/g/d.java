@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c eZY;
+    private com.baidu.tieba.ala.liveroom.views.c eZZ;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,18 +17,18 @@ public class d {
     }
 
     private void init() {
-        this.eZY = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.mRootView = this.eZY.getView();
+        this.eZZ = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.mRootView = this.eZZ.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.eZY != null) {
-            this.eZY.a(iShareCallback);
+        if (this.eZZ != null) {
+            this.eZZ.a(iShareCallback);
         }
     }
 
-    private void blz() {
-        this.eZY.blz();
+    private void blB() {
+        this.eZZ.blB();
     }
 
     public View getView() {
@@ -36,40 +36,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.eZY.a(alaLiveRecorder);
-        blz();
-    }
-
-    public boolean blA() {
-        return this.eZY.blA();
-    }
-
-    public boolean blB() {
-        return this.eZY.blB();
-    }
-
-    public String getLiveTitle() {
-        return this.eZY.getLiveTitle();
+        this.eZZ.a(alaLiveRecorder);
+        blB();
     }
 
     public boolean blC() {
-        return this.eZY.blC();
+        return this.eZZ.blC();
     }
 
     public boolean blD() {
-        return this.eZY.blD();
+        return this.eZZ.blD();
+    }
+
+    public String getLiveTitle() {
+        return this.eZZ.getLiveTitle();
+    }
+
+    public boolean blE() {
+        return this.eZZ.blE();
+    }
+
+    public boolean blF() {
+        return this.eZZ.blF();
     }
 
     public void jm(boolean z) {
-        this.eZY.jm(z);
+        this.eZZ.jm(z);
     }
 
-    public void blE() {
-        this.eZY.flD = false;
+    public void blG() {
+        this.eZZ.flE = false;
     }
 
-    public String blF() {
-        return this.eZY.blF();
+    public String blH() {
+        return this.eZZ.blH();
     }
 
     public void setVisibility(int i) {
@@ -81,56 +81,56 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.eZY.a(bVar);
+        this.eZZ.a(bVar);
     }
 
     public void E(boolean z, boolean z2) {
         if (z) {
-            this.eZY.onKeyboardVisibilityChanged(false);
+            this.eZZ.onKeyboardVisibilityChanged(false);
         } else {
-            this.eZY.onKeyboardVisibilityChanged(z2);
+            this.eZZ.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.eZY.a(aVar);
+        this.eZZ.a(aVar);
     }
 
     public void yU(String str) {
-        this.eZY.yU(str);
+        this.eZZ.yU(str);
     }
 
     public void onResume() {
-        this.eZY.onResume();
+        this.eZZ.onResume();
     }
 
     public void onRefresh() {
-        this.eZY.onRefresh();
+        this.eZZ.onRefresh();
     }
 
-    public boolean blG() {
-        return this.eZY.blG();
+    public boolean blI() {
+        return this.eZZ.blI();
     }
 
-    public void blH() {
-        this.eZY.blH();
+    public void blJ() {
+        this.eZZ.blJ();
     }
 
     public void release() {
-        this.eZY.release();
+        this.eZZ.release();
     }
 
     public void destroy() {
-        this.eZY.destroy();
+        this.eZZ.destroy();
     }
 
     public void jn(boolean z) {
-        this.eZY.jn(z);
+        this.eZZ.jn(z);
     }
 
-    public void blI() {
-        if (this.eZY != null) {
-            this.eZY.blI();
+    public void blK() {
+        if (this.eZZ != null) {
+            this.eZZ.blK();
         }
     }
 }

@@ -7,10 +7,10 @@ public class o extends p {
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.nFa != null) {
-            long j = this.nFa.nFR;
-            long dLQ = j - dLQ();
-            if (dLQ > 0 && dLQ < this.nFC.value) {
+        if (this.nFc != null) {
+            long j = this.nFc.nFT;
+            long dLS = j - dLS();
+            if (dLS > 0 && dLS < this.nFE.value) {
                 this.x = b(mVar, j);
                 if (!isShown()) {
                     this.y = f2;
@@ -26,47 +26,47 @@ public class o extends p {
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!dLF()) {
+        if (!dLH()) {
             return null;
         }
         float b = b(mVar, j);
-        if (this.nFU == null) {
-            this.nFU = new float[4];
+        if (this.nFW == null) {
+            this.nFW = new float[4];
         }
-        this.nFU[0] = b;
-        this.nFU[1] = this.y;
-        this.nFU[2] = b + this.nFA;
-        this.nFU[3] = this.y + this.nFB;
-        return this.nFU;
+        this.nFW[0] = b;
+        this.nFW[1] = this.y;
+        this.nFW[2] = b + this.nFC;
+        this.nFW[3] = this.y + this.nFD;
+        return this.nFW;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p
     protected float b(m mVar, long j) {
-        long dLQ = j - dLQ();
-        if (dLQ >= this.nFC.value) {
+        long dLS = j - dLS();
+        if (dLS >= this.nFE.value) {
             return mVar.getWidth();
         }
-        return (((float) dLQ) * this.nGg) - this.nFA;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dLL() {
-        return this.x;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
-    public float dLM() {
-        return this.y;
+        return (((float) dLS) * this.nGi) - this.nFC;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public float dLN() {
-        return this.x + this.nFA;
+        return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
     public float dLO() {
-        return this.y + this.nFB;
+        return this.y;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
+    public float dLP() {
+        return this.x + this.nFC;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d
+    public float dLQ() {
+        return this.y + this.nFD;
     }
 
     @Override // master.flame.danmaku.danmaku.model.p, master.flame.danmaku.danmaku.model.d

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes9.dex */
 public class a {
-    private static final String izU = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String izW = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -26,10 +26,10 @@ public class a {
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     private static class C0570a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String dpC;
-        private String dpG;
-        private String izV;
-        private WeakReference<b> izW;
+        private String dpD;
+        private String dpH;
+        private String izX;
+        private WeakReference<b> izY;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -42,12 +42,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.izV = str6;
-            this.dpG = str8;
-            this.dpC = str9;
+            this.izX = str6;
+            this.dpH = str8;
+            this.dpD = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.izW = new WeakReference<>(bVar);
+            this.izY = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -56,8 +56,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: L */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.izU);
-            xVar.addPostData("day", this.izV);
+            x xVar = new x(a.izW);
+            xVar.addPostData("day", this.izX);
             xVar.addPostData("un", this.mUserName);
             xVar.addPostData("fid", this.mForumId);
             xVar.addPostData("word", this.mForumName);
@@ -65,11 +65,11 @@ public class a {
             xVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
             xVar.addPostData("ntn", "banid");
             xVar.addPostData("post_id", this.mPostId);
-            xVar.addPostData("nick_name", this.dpG);
-            xVar.addPostData("portrait", this.dpC);
-            xVar.aGe().aGF().mIsNeedTbs = true;
+            xVar.addPostData("nick_name", this.dpH);
+            xVar.addPostData("portrait", this.dpD);
+            xVar.aGg().aGH().mIsNeedTbs = true;
             String postNetData = xVar.postNetData();
-            if (xVar.aGe().aGG().isRequestSuccess()) {
+            if (xVar.aGg().aGI().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -91,7 +91,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.izW.get();
+            b bVar = this.izY.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && aq.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

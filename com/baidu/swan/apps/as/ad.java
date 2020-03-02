@@ -8,8 +8,8 @@ public class ad {
     }
 
     public static boolean aL(long j) {
-        SwanCoreVersion QO = com.baidu.swan.apps.core.k.d.Qu().QO();
-        long j2 = QO != null ? QO.swanCoreVersion : 0L;
+        SwanCoreVersion QQ = com.baidu.swan.apps.core.k.d.Qw().QQ();
+        long j2 = QQ != null ? QQ.swanCoreVersion : 0L;
         com.baidu.swan.apps.console.c.d("SwanAppSwanCoreUtils", "targetSwanVersionCode =" + j + ";curSwanVersionCode: " + j2);
         return j2 < j;
     }

@@ -6,8 +6,8 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import com.baidu.swan.apps.console.v8inspector.a.c;
 /* loaded from: classes11.dex */
 public class a {
-    private InterfaceC0238a bkS;
-    private b bkT;
+    private InterfaceC0238a bkT;
+    private b bkU;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a$a  reason: collision with other inner class name */
@@ -29,17 +29,17 @@ public class a {
         ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.apps.console.debugger.b.Ly()) {
-                    a.this.bkT = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.bkS);
-                } else if (com.baidu.swan.apps.console.debugger.b.Lz()) {
-                    a.this.bkT = new com.baidu.swan.apps.console.v8inspector.a.b(d.LW(), a.this.bkS);
+                if (com.baidu.swan.apps.console.debugger.b.LA()) {
+                    a.this.bkU = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.bkT);
+                } else if (com.baidu.swan.apps.console.debugger.b.LB()) {
+                    a.this.bkU = new com.baidu.swan.apps.console.v8inspector.a.b(d.LY(), a.this.bkT);
                 }
-                a.this.bkT.start();
+                a.this.bkU.start();
             }
         }, "V8Inspector");
     }
 
     public void a(InterfaceC0238a interfaceC0238a) {
-        this.bkS = interfaceC0238a;
+        this.bkT = interfaceC0238a;
     }
 }

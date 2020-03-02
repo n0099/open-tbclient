@@ -39,6 +39,6 @@ public class c {
     }
 
     public static void aj(Context context, String str) {
-        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kJ(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).acn();
+        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kJ(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).acp();
     }
 }

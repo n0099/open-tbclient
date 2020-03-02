@@ -8,18 +8,18 @@ import android.hardware.SensorManager;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a bWF;
-    private SensorManager aBi;
-    private SensorEventListener bWG;
-    private Sensor bWH;
-    private InterfaceC0207a bWK;
-    private SensorEventListener bWp;
-    private Sensor bWq;
+    private static volatile a bWG;
+    private SensorManager aBj;
+    private SensorEventListener bWH;
+    private Sensor bWI;
+    private InterfaceC0207a bWL;
+    private SensorEventListener bWq;
+    private Sensor bWr;
     private Context mContext;
-    private float[] bWI = new float[3];
     private float[] bWJ = new float[3];
-    private boolean bWt = false;
-    private long bWu = 0;
+    private float[] bWK = new float[3];
+    private boolean bWu = false;
+    private long bWv = 0;
 
     /* renamed from: com.baidu.swan.apps.ao.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -30,15 +30,15 @@ public class a {
     private a() {
     }
 
-    public static a afM() {
-        if (bWF == null) {
+    public static a afO() {
+        if (bWG == null) {
             synchronized (a.class) {
-                if (bWF == null) {
-                    bWF = new a();
+                if (bWG == null) {
+                    bWG = new a();
                 }
             }
         }
-        return bWF;
+        return bWG;
     }
 
     public void init(Context context) {
@@ -46,22 +46,22 @@ public class a {
     }
 
     public void a(InterfaceC0207a interfaceC0207a) {
-        this.bWK = interfaceC0207a;
+        this.bWL = interfaceC0207a;
     }
 
-    public void afN() {
+    public void afP() {
         if (this.mContext == null) {
             c.e("compass", "start error, none context");
-        } else if (this.bWt) {
+        } else if (this.bWu) {
             c.w("compass", "has already start");
         } else {
-            this.aBi = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aBi != null) {
-                this.bWq = this.aBi.getDefaultSensor(1);
-                this.bWH = this.aBi.getDefaultSensor(2);
-                this.aBi.registerListener(afI(), this.bWq, 1);
-                this.aBi.registerListener(afP(), this.bWH, 1);
-                this.bWt = true;
+            this.aBj = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aBj != null) {
+                this.bWr = this.aBj.getDefaultSensor(1);
+                this.bWI = this.aBj.getDefaultSensor(2);
+                this.aBj.registerListener(afK(), this.bWr, 1);
+                this.aBj.registerListener(afR(), this.bWI, 1);
+                this.bWu = true;
                 c.i("compass", "start listen");
                 return;
             }
@@ -69,59 +69,59 @@ public class a {
         }
     }
 
-    public void afO() {
-        if (!this.bWt) {
+    public void afQ() {
+        if (!this.bWu) {
             c.w("compass", "has already stop");
             return;
         }
         c.i("compass", "stop listen");
-        if (this.bWp != null && this.aBi != null) {
-            this.aBi.unregisterListener(this.bWp);
-            this.bWp = null;
+        if (this.bWq != null && this.aBj != null) {
+            this.aBj.unregisterListener(this.bWq);
+            this.bWq = null;
         }
-        if (this.bWG != null && this.aBi != null) {
-            this.aBi.unregisterListener(this.bWG);
-            this.bWG = null;
+        if (this.bWH != null && this.aBj != null) {
+            this.aBj.unregisterListener(this.bWH);
+            this.bWH = null;
         }
-        this.aBi = null;
-        this.bWH = null;
-        this.bWq = null;
-        this.bWt = false;
+        this.aBj = null;
+        this.bWI = null;
+        this.bWr = null;
+        this.bWu = false;
     }
 
     public static void release() {
-        if (bWF != null) {
-            bWF.PP();
+        if (bWG != null) {
+            bWG.PR();
         }
     }
 
-    private void PP() {
+    private void PR() {
         c.i("compass", "release");
-        if (this.bWt) {
-            afO();
+        if (this.bWu) {
+            afQ();
         }
-        this.aBi = null;
-        this.bWH = null;
+        this.aBj = null;
+        this.bWI = null;
+        this.bWr = null;
         this.bWq = null;
-        this.bWp = null;
-        this.bWG = null;
-        this.bWK = null;
+        this.bWH = null;
+        this.bWL = null;
         this.mContext = null;
-        bWF = null;
+        bWG = null;
     }
 
-    private SensorEventListener afI() {
+    private SensorEventListener afK() {
         c.i("compass", "get Accelerometer listener");
-        if (this.bWp != null) {
-            return this.bWp;
+        if (this.bWq != null) {
+            return this.bWq;
         }
-        this.bWp = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.1
+        this.bWq = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.bWI = sensorEvent.values;
+                    a.this.bWJ = sensorEvent.values;
                     c.i("compass", "accelerometer changed");
-                    a.this.afR();
+                    a.this.afT();
                     return;
                 }
                 c.w("compass", "illegal accelerometer event");
@@ -131,21 +131,21 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.bWp;
+        return this.bWq;
     }
 
-    private SensorEventListener afP() {
+    private SensorEventListener afR() {
         c.i("compass", "get MagneticFiled listener");
-        if (this.bWG != null) {
-            return this.bWG;
+        if (this.bWH != null) {
+            return this.bWH;
         }
-        this.bWG = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.2
+        this.bWH = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.bWJ = sensorEvent.values;
+                    a.this.bWK = sensorEvent.values;
                     c.i("compass", "magneticFiled changed");
-                    a.this.afR();
+                    a.this.afT();
                     return;
                 }
                 c.w("compass", "illegal magnetic filed event");
@@ -155,24 +155,24 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.bWG;
+        return this.bWH;
     }
 
-    private float afQ() {
+    private float afS() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.bWI, this.bWJ);
+        SensorManager.getRotationMatrix(fArr2, null, this.bWJ, this.bWK);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afR() {
-        if (this.bWK != null && System.currentTimeMillis() - this.bWu > 200) {
-            float afQ = afQ();
-            c.i("compass", "orientation changed, orientation : " + afQ);
-            this.bWK.R(afQ);
-            this.bWu = System.currentTimeMillis();
+    public void afT() {
+        if (this.bWL != null && System.currentTimeMillis() - this.bWv > 200) {
+            float afS = afS();
+            c.i("compass", "orientation changed, orientation : " + afS);
+            this.bWL.R(afS);
+            this.bWv = System.currentTimeMillis();
         }
     }
 }

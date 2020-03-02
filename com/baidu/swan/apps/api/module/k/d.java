@@ -17,7 +17,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
         if (DEBUG) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
-        if (JD()) {
+        if (JF()) {
             com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.b.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");
         }

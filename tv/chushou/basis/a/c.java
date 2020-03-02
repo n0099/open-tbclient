@@ -8,27 +8,27 @@ import dalvik.system.DexClassLoader;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class c {
-    private static c nUD;
+    private static c nUF;
     private Context mContext;
-    private final HashMap<String, d> nUE = new HashMap<>();
-    private String nUF;
-    private String nUG;
+    private final HashMap<String, d> nUG = new HashMap<>();
+    private String nUH;
+    private String nUI;
 
     private c(Context context) {
-        this.nUF = null;
+        this.nUH = null;
         this.mContext = context.getApplicationContext();
-        this.nUF = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.nUH = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
     public static c ha(Context context) {
-        if (nUD == null) {
+        if (nUF == null) {
             synchronized (c.class) {
-                if (nUD == null) {
-                    nUD = new c(context);
+                if (nUF == null) {
+                    nUF = new c(context);
                 }
             }
         }
-        return nUD;
+        return nUF;
     }
 
     public d aV(String str, boolean z) {
@@ -45,21 +45,21 @@ public class c {
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.nUE.get(packageInfo.packageName);
+        d dVar = this.nUG.get(packageInfo.packageName);
         if (dVar == null) {
             d dVar2 = new d(SD(str), a(SE(str)), packageInfo);
-            this.nUE.put(packageInfo.packageName, dVar2);
+            this.nUG.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
     private DexClassLoader SD(String str) {
-        this.nUG = dPE();
-        return new DexClassLoader(str, this.nUG, this.nUF, this.mContext.getClassLoader());
+        this.nUI = dPG();
+        return new DexClassLoader(str, this.nUI, this.nUH, this.mContext.getClassLoader());
     }
 
-    public String dPE() {
+    public String dPG() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
@@ -75,7 +75,7 @@ public class c {
     }
 
     public d SF(String str) {
-        return this.nUE.get(str);
+        return this.nUG.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -84,6 +84,6 @@ public class c {
     }
 
     private void SG(String str) {
-        e.dPG().x(this.mContext, str, this.nUF);
+        e.dPI().x(this.mContext, str, this.nUH);
     }
 }

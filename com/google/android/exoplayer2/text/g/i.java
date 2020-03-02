@@ -8,27 +8,27 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class i implements com.google.android.exoplayer2.text.e {
-    private final long[] mBd;
-    private final int mCp;
-    private final long[] mCq;
-    private final List<e> mze;
+    private final long[] mBf;
+    private final int mCr;
+    private final long[] mCs;
+    private final List<e> mzg;
 
     public i(List<e> list) {
-        this.mze = list;
-        this.mCp = list.size();
-        this.mBd = new long[this.mCp * 2];
+        this.mzg = list;
+        this.mCr = list.size();
+        this.mBf = new long[this.mCr * 2];
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mCp) {
+            if (i2 < this.mCr) {
                 e eVar = list.get(i2);
                 int i3 = i2 * 2;
-                this.mBd[i3] = eVar.startTime;
-                this.mBd[i3 + 1] = eVar.endTime;
+                this.mBf[i3] = eVar.startTime;
+                this.mBf[i3 + 1] = eVar.endTime;
                 i = i2 + 1;
             } else {
-                this.mCq = Arrays.copyOf(this.mBd, this.mBd.length);
-                Arrays.sort(this.mCq);
+                this.mCs = Arrays.copyOf(this.mBf, this.mBf.length);
+                Arrays.sort(this.mCs);
                 return;
             }
         }
@@ -36,23 +36,23 @@ final class i implements com.google.android.exoplayer2.text.e {
 
     @Override // com.google.android.exoplayer2.text.e
     public int gw(long j) {
-        int b = v.b(this.mCq, j, false, false);
-        if (b < this.mCq.length) {
+        int b = v.b(this.mCs, j, false, false);
+        if (b < this.mCs.length) {
             return b;
         }
         return -1;
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dxI() {
-        return this.mCq.length;
+    public int dxK() {
+        return this.mCs.length;
     }
 
     @Override // com.google.android.exoplayer2.text.e
     public long Lk(int i) {
         com.google.android.exoplayer2.util.a.checkArgument(i >= 0);
-        com.google.android.exoplayer2.util.a.checkArgument(i < this.mCq.length);
-        return this.mCq[i];
+        com.google.android.exoplayer2.util.a.checkArgument(i < this.mCs.length);
+        return this.mCs[i];
     }
 
     @Override // com.google.android.exoplayer2.text.e
@@ -64,16 +64,16 @@ final class i implements com.google.android.exoplayer2.text.e {
         int i = 0;
         e eVar2 = null;
         ArrayList arrayList2 = null;
-        while (i < this.mCp) {
-            if (this.mBd[i * 2] > j || j >= this.mBd[(i * 2) + 1]) {
+        while (i < this.mCr) {
+            if (this.mBf[i * 2] > j || j >= this.mBf[(i * 2) + 1]) {
                 SpannableStringBuilder spannableStringBuilder3 = spannableStringBuilder2;
                 eVar = eVar2;
                 arrayList = arrayList2;
                 spannableStringBuilder = spannableStringBuilder3;
             } else {
                 ArrayList arrayList3 = arrayList2 == null ? new ArrayList() : arrayList2;
-                e eVar3 = this.mze.get(i);
-                if (eVar3.dyr()) {
+                e eVar3 = this.mzg.get(i);
+                if (eVar3.dyt()) {
                     if (eVar2 == null) {
                         arrayList = arrayList3;
                         spannableStringBuilder = spannableStringBuilder2;

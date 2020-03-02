@@ -14,30 +14,30 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class v implements com.google.android.exoplayer2.extractor.e {
-    public static final com.google.android.exoplayer2.extractor.h mev = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.f.v.1
+    public static final com.google.android.exoplayer2.extractor.h mex = new com.google.android.exoplayer2.extractor.h() { // from class: com.google.android.exoplayer2.extractor.f.v.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public com.google.android.exoplayer2.extractor.e[] duR() {
+        public com.google.android.exoplayer2.extractor.e[] duT() {
             return new com.google.android.exoplayer2.extractor.e[]{new v()};
         }
     };
-    private static final long moH = com.google.android.exoplayer2.util.v.QE("AC-3");
-    private static final long moI = com.google.android.exoplayer2.util.v.QE("EAC3");
-    private static final long moJ = com.google.android.exoplayer2.util.v.QE("HEVC");
-    private com.google.android.exoplayer2.extractor.g mln;
-    private final List<com.google.android.exoplayer2.util.s> moK;
-    private final com.google.android.exoplayer2.util.l moL;
-    private final SparseIntArray moM;
-    private final w.c moN;
-    private final SparseArray<w> moO;
-    private final SparseBooleanArray moP;
-    private int moQ;
-    private boolean moR;
-    private w moS;
+    private static final long moJ = com.google.android.exoplayer2.util.v.QE("AC-3");
+    private static final long moK = com.google.android.exoplayer2.util.v.QE("EAC3");
+    private static final long moL = com.google.android.exoplayer2.util.v.QE("HEVC");
+    private com.google.android.exoplayer2.extractor.g mlp;
+    private final List<com.google.android.exoplayer2.util.s> moM;
+    private final com.google.android.exoplayer2.util.l moN;
+    private final SparseIntArray moO;
+    private final w.c moP;
+    private final SparseArray<w> moQ;
+    private final SparseBooleanArray moR;
+    private int moS;
+    private boolean moT;
+    private w moU;
     private final int mode;
 
     static /* synthetic */ int b(v vVar) {
-        int i = vVar.moQ;
-        vVar.moQ = i + 1;
+        int i = vVar.moS;
+        vVar.moS = i + 1;
         return i;
     }
 
@@ -54,19 +54,19 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
     }
 
     public v(int i, com.google.android.exoplayer2.util.s sVar, w.c cVar) {
-        this.moN = (w.c) com.google.android.exoplayer2.util.a.checkNotNull(cVar);
+        this.moP = (w.c) com.google.android.exoplayer2.util.a.checkNotNull(cVar);
         this.mode = i;
         if (i == 1 || i == 2) {
-            this.moK = Collections.singletonList(sVar);
+            this.moM = Collections.singletonList(sVar);
         } else {
-            this.moK = new ArrayList();
-            this.moK.add(sVar);
+            this.moM = new ArrayList();
+            this.moM.add(sVar);
         }
-        this.moL = new com.google.android.exoplayer2.util.l(9400);
-        this.moP = new SparseBooleanArray();
-        this.moO = new SparseArray<>();
-        this.moM = new SparseIntArray();
-        dvz();
+        this.moN = new com.google.android.exoplayer2.util.l(9400);
+        this.moR = new SparseBooleanArray();
+        this.moQ = new SparseArray<>();
+        this.moO = new SparseIntArray();
+        dvB();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0021, code lost:
@@ -77,7 +77,7 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-        byte[] bArr = this.moL.data;
+        byte[] bArr = this.moN.data;
         fVar.s(bArr, 0, CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE);
         int i = 0;
         while (i < 188) {
@@ -94,19 +94,19 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(com.google.android.exoplayer2.extractor.g gVar) {
-        this.mln = gVar;
+        this.mlp = gVar;
         gVar.a(new l.a(-9223372036854775807L));
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        int size = this.moK.size();
+        int size = this.moM.size();
         for (int i = 0; i < size; i++) {
-            this.moK.get(i).reset();
+            this.moM.get(i).reset();
         }
-        this.moL.reset();
-        this.moM.clear();
-        dvz();
+        this.moN.reset();
+        this.moO.clear();
+        dvB();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -115,82 +115,82 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(com.google.android.exoplayer2.extractor.f fVar, com.google.android.exoplayer2.extractor.k kVar) throws IOException, InterruptedException {
-        byte[] bArr = this.moL.data;
-        if (9400 - this.moL.getPosition() < 188) {
-            int dzr = this.moL.dzr();
-            if (dzr > 0) {
-                System.arraycopy(bArr, this.moL.getPosition(), bArr, 0, dzr);
+        byte[] bArr = this.moN.data;
+        if (9400 - this.moN.getPosition() < 188) {
+            int dzt = this.moN.dzt();
+            if (dzt > 0) {
+                System.arraycopy(bArr, this.moN.getPosition(), bArr, 0, dzt);
             }
-            this.moL.I(bArr, dzr);
+            this.moN.I(bArr, dzt);
         }
-        while (this.moL.dzr() < 188) {
-            int dzs = this.moL.dzs();
-            int read = fVar.read(bArr, dzs, 9400 - dzs);
+        while (this.moN.dzt() < 188) {
+            int dzu = this.moN.dzu();
+            int read = fVar.read(bArr, dzu, 9400 - dzu);
             if (read == -1) {
                 return -1;
             }
-            this.moL.setLimit(dzs + read);
+            this.moN.setLimit(dzu + read);
         }
-        int dzs2 = this.moL.dzs();
-        int position = this.moL.getPosition();
-        while (position < dzs2 && bArr[position] != 71) {
+        int dzu2 = this.moN.dzu();
+        int position = this.moN.getPosition();
+        while (position < dzu2 && bArr[position] != 71) {
             position++;
         }
-        this.moL.setPosition(position);
+        this.moN.setPosition(position);
         int i = position + Opcodes.NEWARRAY;
-        if (i > dzs2) {
+        if (i > dzu2) {
             return 0;
         }
-        int readInt = this.moL.readInt();
+        int readInt = this.moN.readInt();
         if ((8388608 & readInt) != 0) {
-            this.moL.setPosition(i);
+            this.moN.setPosition(i);
             return 0;
         }
         boolean z = (4194304 & readInt) != 0;
         int i2 = (2096896 & readInt) >> 8;
         boolean z2 = (readInt & 32) != 0;
-        w wVar = (readInt & 16) != 0 ? this.moO.get(i2) : null;
+        w wVar = (readInt & 16) != 0 ? this.moQ.get(i2) : null;
         if (wVar == null) {
-            this.moL.setPosition(i);
+            this.moN.setPosition(i);
             return 0;
         }
         if (this.mode != 2) {
             int i3 = readInt & 15;
-            int i4 = this.moM.get(i2, i3 - 1);
-            this.moM.put(i2, i3);
+            int i4 = this.moO.get(i2, i3 - 1);
+            this.moO.put(i2, i3);
             if (i4 == i3) {
-                this.moL.setPosition(i);
+                this.moN.setPosition(i);
                 return 0;
             } else if (i3 != ((i4 + 1) & 15)) {
-                wVar.czb();
+                wVar.czd();
             }
         }
         if (z2) {
-            this.moL.skipBytes(this.moL.readUnsignedByte());
+            this.moN.skipBytes(this.moN.readUnsignedByte());
         }
-        this.moL.setLimit(i);
-        wVar.a(this.moL, z);
-        this.moL.setLimit(dzs2);
-        this.moL.setPosition(i);
+        this.moN.setLimit(i);
+        wVar.a(this.moN, z);
+        this.moN.setLimit(dzu2);
+        this.moN.setPosition(i);
         return 0;
     }
 
-    private void dvz() {
-        this.moP.clear();
-        this.moO.clear();
-        SparseArray<w> dvu = this.moN.dvu();
-        int size = dvu.size();
+    private void dvB() {
+        this.moR.clear();
+        this.moQ.clear();
+        SparseArray<w> dvw = this.moP.dvw();
+        int size = dvw.size();
         for (int i = 0; i < size; i++) {
-            this.moO.put(dvu.keyAt(i), dvu.valueAt(i));
+            this.moQ.put(dvw.keyAt(i), dvw.valueAt(i));
         }
-        this.moO.put(0, new s(new a()));
-        this.moS = null;
+        this.moQ.put(0, new s(new a()));
+        this.moU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a implements r {
-        private final com.google.android.exoplayer2.util.k moT = new com.google.android.exoplayer2.util.k(new byte[4]);
+        private final com.google.android.exoplayer2.util.k moV = new com.google.android.exoplayer2.util.k(new byte[4]);
 
         public a() {
         }
@@ -203,21 +203,21 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
         public void I(com.google.android.exoplayer2.util.l lVar) {
             if (lVar.readUnsignedByte() == 0) {
                 lVar.skipBytes(7);
-                int dzr = lVar.dzr() / 4;
-                for (int i = 0; i < dzr; i++) {
-                    lVar.e(this.moT, 4);
-                    int readBits = this.moT.readBits(16);
-                    this.moT.JU(3);
+                int dzt = lVar.dzt() / 4;
+                for (int i = 0; i < dzt; i++) {
+                    lVar.e(this.moV, 4);
+                    int readBits = this.moV.readBits(16);
+                    this.moV.JU(3);
                     if (readBits == 0) {
-                        this.moT.JU(13);
+                        this.moV.JU(13);
                     } else {
-                        int readBits2 = this.moT.readBits(13);
-                        v.this.moO.put(readBits2, new s(new b(readBits2)));
+                        int readBits2 = this.moV.readBits(13);
+                        v.this.moQ.put(readBits2, new s(new b(readBits2)));
                         v.b(v.this);
                     }
                 }
                 if (v.this.mode != 2) {
-                    v.this.moO.remove(0);
+                    v.this.moQ.remove(0);
                 }
             }
         }
@@ -225,9 +225,9 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
 
     /* loaded from: classes6.dex */
     private class b implements r {
-        private final com.google.android.exoplayer2.util.k moV = new com.google.android.exoplayer2.util.k(new byte[5]);
-        private final SparseArray<w> moW = new SparseArray<>();
-        private final SparseIntArray moX = new SparseIntArray();
+        private final com.google.android.exoplayer2.util.k moX = new com.google.android.exoplayer2.util.k(new byte[5]);
+        private final SparseArray<w> moY = new SparseArray<>();
+        private final SparseIntArray moZ = new SparseIntArray();
         private final int pid;
 
         public b(int i) {
@@ -242,75 +242,75 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
         public void I(com.google.android.exoplayer2.util.l lVar) {
             com.google.android.exoplayer2.util.s sVar;
             if (lVar.readUnsignedByte() == 2) {
-                if (v.this.mode == 1 || v.this.mode == 2 || v.this.moQ == 1) {
-                    sVar = (com.google.android.exoplayer2.util.s) v.this.moK.get(0);
+                if (v.this.mode == 1 || v.this.mode == 2 || v.this.moS == 1) {
+                    sVar = (com.google.android.exoplayer2.util.s) v.this.moM.get(0);
                 } else {
-                    sVar = new com.google.android.exoplayer2.util.s(((com.google.android.exoplayer2.util.s) v.this.moK.get(0)).dzN());
-                    v.this.moK.add(sVar);
+                    sVar = new com.google.android.exoplayer2.util.s(((com.google.android.exoplayer2.util.s) v.this.moM.get(0)).dzP());
+                    v.this.moM.add(sVar);
                 }
                 lVar.skipBytes(2);
                 int readUnsignedShort = lVar.readUnsignedShort();
                 lVar.skipBytes(5);
-                lVar.e(this.moV, 2);
-                this.moV.JU(4);
-                lVar.skipBytes(this.moV.readBits(12));
-                if (v.this.mode == 2 && v.this.moS == null) {
-                    v.this.moS = v.this.moN.a(21, new w.b(21, null, null, new byte[0]));
-                    v.this.moS.a(sVar, v.this.mln, new w.d(readUnsignedShort, 21, 8192));
+                lVar.e(this.moX, 2);
+                this.moX.JU(4);
+                lVar.skipBytes(this.moX.readBits(12));
+                if (v.this.mode == 2 && v.this.moU == null) {
+                    v.this.moU = v.this.moP.a(21, new w.b(21, null, null, new byte[0]));
+                    v.this.moU.a(sVar, v.this.mlp, new w.d(readUnsignedShort, 21, 8192));
                 }
-                this.moW.clear();
-                this.moX.clear();
-                int dzr = lVar.dzr();
-                while (dzr > 0) {
-                    lVar.e(this.moV, 5);
-                    int readBits = this.moV.readBits(8);
-                    this.moV.JU(3);
-                    int readBits2 = this.moV.readBits(13);
-                    this.moV.JU(4);
-                    int readBits3 = this.moV.readBits(12);
+                this.moY.clear();
+                this.moZ.clear();
+                int dzt = lVar.dzt();
+                while (dzt > 0) {
+                    lVar.e(this.moX, 5);
+                    int readBits = this.moX.readBits(8);
+                    this.moX.JU(3);
+                    int readBits2 = this.moX.readBits(13);
+                    this.moX.JU(4);
+                    int readBits3 = this.moX.readBits(12);
                     w.b k = k(lVar, readBits3);
                     if (readBits == 6) {
                         readBits = k.streamType;
                     }
-                    int i = dzr - (readBits3 + 5);
+                    int i = dzt - (readBits3 + 5);
                     int i2 = v.this.mode == 2 ? readBits : readBits2;
-                    if (v.this.moP.get(i2)) {
-                        dzr = i;
+                    if (v.this.moR.get(i2)) {
+                        dzt = i;
                     } else {
-                        w a = (v.this.mode == 2 && readBits == 21) ? v.this.moS : v.this.moN.a(readBits, k);
-                        if (v.this.mode != 2 || readBits2 < this.moX.get(i2, 8192)) {
-                            this.moX.put(i2, readBits2);
-                            this.moW.put(i2, a);
+                        w a = (v.this.mode == 2 && readBits == 21) ? v.this.moU : v.this.moP.a(readBits, k);
+                        if (v.this.mode != 2 || readBits2 < this.moZ.get(i2, 8192)) {
+                            this.moZ.put(i2, readBits2);
+                            this.moY.put(i2, a);
                         }
-                        dzr = i;
+                        dzt = i;
                     }
                 }
-                int size = this.moX.size();
+                int size = this.moZ.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    int keyAt = this.moX.keyAt(i3);
-                    v.this.moP.put(keyAt, true);
-                    w valueAt = this.moW.valueAt(i3);
+                    int keyAt = this.moZ.keyAt(i3);
+                    v.this.moR.put(keyAt, true);
+                    w valueAt = this.moY.valueAt(i3);
                     if (valueAt != null) {
-                        if (valueAt != v.this.moS) {
-                            valueAt.a(sVar, v.this.mln, new w.d(readUnsignedShort, keyAt, 8192));
+                        if (valueAt != v.this.moU) {
+                            valueAt.a(sVar, v.this.mlp, new w.d(readUnsignedShort, keyAt, 8192));
                         }
-                        v.this.moO.put(this.moX.valueAt(i3), valueAt);
+                        v.this.moQ.put(this.moZ.valueAt(i3), valueAt);
                     }
                 }
                 if (v.this.mode == 2) {
-                    if (!v.this.moR) {
-                        v.this.mln.duS();
-                        v.this.moQ = 0;
-                        v.this.moR = true;
+                    if (!v.this.moT) {
+                        v.this.mlp.duU();
+                        v.this.moS = 0;
+                        v.this.moT = true;
                         return;
                     }
                     return;
                 }
-                v.this.moO.remove(this.pid);
-                v.this.moQ = v.this.mode == 1 ? 0 : v.this.moQ - 1;
-                if (v.this.moQ == 0) {
-                    v.this.mln.duS();
-                    v.this.moR = true;
+                v.this.moQ.remove(this.pid);
+                v.this.moS = v.this.mode == 1 ? 0 : v.this.moS - 1;
+                if (v.this.moS == 0) {
+                    v.this.mlp.duU();
+                    v.this.moT = true;
                 }
             }
         }
@@ -326,9 +326,9 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
                 int readUnsignedByte2 = lVar.readUnsignedByte() + lVar.getPosition();
                 if (readUnsignedByte == 5) {
                     long readUnsignedInt = lVar.readUnsignedInt();
-                    if (readUnsignedInt != v.moH) {
-                        if (readUnsignedInt != v.moI) {
-                            if (readUnsignedInt == v.moJ) {
+                    if (readUnsignedInt != v.moJ) {
+                        if (readUnsignedInt != v.moK) {
+                            if (readUnsignedInt == v.moL) {
                                 i3 = 36;
                             }
                         } else {

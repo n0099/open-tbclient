@@ -30,13 +30,13 @@ public class f {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (RD()) {
-            m.agJ().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
+        } else if (RF()) {
+            m.agL().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
                     List<String> list;
                     List<String> S;
-                    h.afp().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    h.afr().putLong("clean_disk_check_time", System.currentTimeMillis());
                     Map ae = f.this.ae(0L);
                     if (ae.isEmpty()) {
                         if (f.DEBUG) {
@@ -100,7 +100,7 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + S2);
                     }
-                    com.baidu.swan.apps.env.e.RB().RC().b(S2, false, false);
+                    com.baidu.swan.apps.env.e.RD().RE().b(S2, false, false);
                 }
             }, "cleanDiskSpace");
         }
@@ -112,8 +112,8 @@ public class f {
         return j2 <= 0 ? j : j2;
     }
 
-    private boolean RD() {
-        long j = h.afp().getLong("clean_disk_check_time", 0L);
+    private boolean RF() {
+        long j = h.afr().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());
@@ -125,11 +125,11 @@ public class f {
     @WorkerThread
     @NonNull
     public Map<String, Long> ae(long j) {
-        Map<String, PMSAppInfo> atv = com.baidu.swan.pms.database.a.att().atv();
-        if (atv == null || atv.isEmpty()) {
+        Map<String, PMSAppInfo> atx = com.baidu.swan.pms.database.a.atv().atx();
+        if (atx == null || atx.isEmpty()) {
             return Collections.emptyMap();
         }
-        ArrayList<PMSAppInfo> arrayList = new ArrayList(atv.values());
+        ArrayList<PMSAppInfo> arrayList = new ArrayList(atx.values());
         Collections.sort(arrayList, new a());
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (PMSAppInfo pMSAppInfo : arrayList) {

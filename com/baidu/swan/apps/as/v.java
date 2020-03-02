@@ -36,14 +36,14 @@ public class v {
             } else if (TextUtils.equals(lowerCase, "meizu")) {
                 cD(context);
             } else {
-                Map<String, ComponentName> agN = agN();
-                if (agN.containsKey(lowerCase)) {
-                    a(context, agN.get(lowerCase));
+                Map<String, ComponentName> agP = agP();
+                if (agP.containsKey(lowerCase)) {
+                    a(context, agP.get(lowerCase));
                     return;
                 }
-                Map<String, String> agO = agO();
-                if (agO.containsKey(lowerCase)) {
-                    ap(context, agO.get(lowerCase));
+                Map<String, String> agQ = agQ();
+                if (agQ.containsKey(lowerCase)) {
+                    ap(context, agQ.get(lowerCase));
                 } else {
                     cE(context);
                 }
@@ -51,7 +51,7 @@ public class v {
         }
     }
 
-    private static Map<String, ComponentName> agN() {
+    private static Map<String, ComponentName> agP() {
         HashMap hashMap = new HashMap();
         hashMap.put("huawei", new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -60,7 +60,7 @@ public class v {
         return hashMap;
     }
 
-    private static Map<String, String> agO() {
+    private static Map<String, String> agQ() {
         HashMap hashMap = new HashMap();
         hashMap.put("oppo", "com.coloros.safecenter");
         hashMap.put("vivo", "com.bairenkeji.icaller");
@@ -69,17 +69,17 @@ public class v {
     }
 
     private static void cC(Context context) {
-        String agP = agP();
+        String agR = agR();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + agP);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + agR);
         }
         Intent intent = new Intent();
-        if ("V10".equals(agP) || "V9".equals(agP) || "V8".equals(agP)) {
+        if ("V10".equals(agR) || "V9".equals(agR) || "V8".equals(agR)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(agP) || "V6".equals(agP)) {
+        } else if ("V7".equals(agR) || "V6".equals(agR)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
@@ -89,7 +89,7 @@ public class v {
         }
     }
 
-    private static String agP() {
+    private static String agR() {
         Throwable th;
         BufferedReader bufferedReader;
         String str = null;

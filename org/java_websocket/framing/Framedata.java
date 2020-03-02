@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean Mn();
+    boolean Mp();
 
-    boolean dNA();
+    ByteBuffer dNA();
 
     boolean dNB();
 
-    Opcode dNC();
+    boolean dNC();
 
-    ByteBuffer dNy();
+    boolean dND();
 
-    boolean dNz();
+    Opcode dNE();
 }

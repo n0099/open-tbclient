@@ -28,9 +28,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.g Is = com.baidu.swan.apps.w.a.Us().Is();
+                com.baidu.swan.apps.setting.oauth.g Iu = com.baidu.swan.apps.w.a.Uu().Iu();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.w.a.Ug().HU())).addParam("data", jSONObject.toString()).cookieManager(Is)).build().executeAsyncOnUIBack(Rv());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.w.a.Ui().HW())).addParam("data", jSONObject.toString()).cookieManager(Iu)).build().executeAsyncOnUIBack(Rx());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -69,16 +69,16 @@ public abstract class a {
     }
 
     public void hF(String str) {
-        com.baidu.swan.pms.database.a.att().qp(str);
-        com.baidu.swan.pms.database.a.att().b(com.baidu.swan.pms.model.f.class, str);
+        com.baidu.swan.pms.database.a.atv().qp(str);
+        com.baidu.swan.pms.database.a.atv().b(com.baidu.swan.pms.model.f.class, str);
     }
 
     public void hG(String str) {
-        com.baidu.swan.pms.database.a.att().qq(str);
+        com.baidu.swan.pms.database.a.atv().qq(str);
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> Rv() {
+    private ResponseCallback<JSONObject> Rx() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback

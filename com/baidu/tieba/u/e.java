@@ -12,52 +12,52 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
-    private String kuv;
-    private List<String> kuw;
-    private List<String> kux;
+    private String kux;
+    private List<String> kuy;
+    private List<String> kuz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final e kuz = new e();
+        private static final e kuB = new e();
     }
 
     private e() {
-        this.kuw = new ArrayList();
-        this.kux = new ArrayList();
+        this.kuy = new ArrayList();
+        this.kuz = new ArrayList();
         if (f.checkSD()) {
-            cOL();
+            cON();
         }
     }
 
-    private void cOL() {
+    private void cON() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.k.d.ET(c.a.dXa);
-                com.baidu.tieba.k.d.ET(c.a.ipJ);
-                com.baidu.tieba.k.d.ET(c.a.ipK);
+                com.baidu.tieba.k.d.ET(c.a.dXb);
+                com.baidu.tieba.k.d.ET(c.a.ipL);
                 com.baidu.tieba.k.d.ET(c.a.ipM);
-                com.baidu.tieba.k.d.ET(c.a.ipN);
+                com.baidu.tieba.k.d.ET(c.a.ipO);
+                com.baidu.tieba.k.d.ET(c.a.ipP);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e cOM() {
-        return a.kuz;
+    public static e cOO() {
+        return a.kuB;
     }
 
-    public void cOH() {
+    public void cOJ() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List JN = e.JN(c.a.ipL);
+                    List JN = e.JN(c.a.ipN);
                     if (JN != null) {
                         int size = JN.size();
                         for (int i = 0; i < size; i++) {
@@ -104,28 +104,28 @@ public class e {
 
     public synchronized void e(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.kuw.add(jSONObject.toString());
-            String cgX = cgX();
+            this.kuy.add(jSONObject.toString());
+            String cgZ = cgZ();
             if (f.checkSD()) {
-                q(jSONObject, cgX);
+                q(jSONObject, cgZ);
             }
-            if (this.kuw.size() >= com.baidu.tbadk.coreExtra.model.f.aLW() || z) {
-                a(new d(this.kuw, cgX));
-                this.kuw.clear();
-                this.kuv = null;
+            if (this.kuy.size() >= com.baidu.tbadk.coreExtra.model.f.aLY() || z) {
+                a(new d(this.kuy, cgZ));
+                this.kuy.clear();
+                this.kux = null;
             }
         }
     }
 
-    private String cgX() {
-        if (StringUtils.isNull(this.kuv)) {
+    private String cgZ() {
+        if (StringUtils.isNull(this.kux)) {
             if (f.checkSD()) {
-                this.kuv = String.valueOf(System.currentTimeMillis());
+                this.kux = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.ipL + this.kuv;
+        return c.a.ipN + this.kux;
     }
 
     private void q(JSONObject jSONObject, String str) {
@@ -147,7 +147,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean eH(String str, String str2) {
         boolean e;
-        if (this.kux.contains(str)) {
+        if (this.kuz.contains(str)) {
             e = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.f(c.en(dVar.kut), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.kuu)) {
-                m.deleteFile(new File(dVar.kuu));
-                this.kux.add(dVar.kuu);
+            if (c.f(c.en(dVar.kuv), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.kuw)) {
+                m.deleteFile(new File(dVar.kuw));
+                this.kuz.add(dVar.kuw);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -10,7 +10,7 @@ public interface AudioSink {
     public interface a {
         void EU(int i);
 
-        void dtU();
+        void dtW();
 
         void i(int i, long j, long j2);
     }
@@ -27,19 +27,19 @@ public interface AudioSink {
 
     boolean a(ByteBuffer byteBuffer, long j) throws InitializationException, WriteException;
 
-    boolean avP();
+    boolean avR();
 
     q d(q qVar);
 
-    q dsT();
+    q dsV();
 
-    void dtQ();
+    void dtS();
 
-    void dtR() throws WriteException;
+    void dtT() throws WriteException;
 
-    boolean dtS();
+    boolean dtU();
 
-    void dtT();
+    void dtV();
 
     void pause();
 

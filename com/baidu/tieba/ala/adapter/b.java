@@ -11,50 +11,50 @@ import com.baidu.tieba.ala.view.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private long ehK;
-    private String ehM;
-    private boolean ehN;
-    private ArrayList<g> ejA;
+    private long ehL;
+    private String ehN;
+    private boolean ehO;
+    private ArrayList<g> ejB;
     private Context mContext;
 
     public b(Context context, String str, long j, boolean z) {
         this.mContext = context;
-        this.ehM = str;
-        this.ehK = j;
-        this.ehN = z;
+        this.ehN = str;
+        this.ehL = j;
+        this.ehO = z;
     }
 
     public void setData(ArrayList<g> arrayList) {
-        if (this.ejA == null) {
-            this.ejA = new ArrayList<>();
+        if (this.ejB == null) {
+            this.ejB = new ArrayList<>();
         } else {
-            this.ejA.clear();
+            this.ejB.clear();
         }
         if (arrayList != null) {
-            this.ejA.addAll(arrayList);
+            this.ejB.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ejA == null) {
+        if (this.ejB == null) {
             return 0;
         }
-        return this.ejA.size();
+        return this.ejB.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.ejA == null) {
+        if (this.ejB == null) {
             return null;
         }
-        return this.ejA.get(i);
+        return this.ejB.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.ejA == null || this.ejA.size() == 0;
+        return this.ejB == null || this.ejB.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -68,14 +68,14 @@ public class b extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_item_view, (ViewGroup) null);
-            e eVar2 = new e(this.mContext, view2, this.ehM, this.ehK, this.ehN);
+            e eVar2 = new e(this.mContext, view2, this.ehN, this.ehL, this.ehO);
             view2.setTag(eVar2);
             eVar = eVar2;
         } else {
             eVar = (e) view.getTag();
             view2 = view;
         }
-        eVar.a(this.ejA.get(i), i);
+        eVar.a(this.ejB.get(i), i);
         return view2;
     }
 }

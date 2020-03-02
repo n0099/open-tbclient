@@ -8,25 +8,25 @@ import java.util.List;
 public class hp implements ir<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f485a;
+    public int f484a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hm f486a;
+    public hm f485a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f487a = new BitSet(1);
+    private BitSet f486a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hr> f488a;
+    public List<hr> f487a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f484a = new jh("NormalConfig");
+    private static final jh f483a = new jh("NormalConfig");
     private static final iz a = new iz("", (byte) 8, 1);
     private static final iz b = new iz("", (byte) 15, 2);
     private static final iz c = new iz("", (byte) 8, 3);
 
     public int a() {
-        return this.f485a;
+        return this.f484a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,13 +39,13 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
         if (getClass().equals(hpVar.getClass())) {
             int compareTo = Boolean.valueOf(m349a()).compareTo(Boolean.valueOf(hpVar.m349a()));
             if (compareTo == 0) {
-                if (!m349a() || (a4 = is.a(this.f485a, hpVar.f485a)) == 0) {
+                if (!m349a() || (a4 = is.a(this.f484a, hpVar.f484a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hpVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = is.a(this.f488a, hpVar.f488a)) == 0) {
+                        if (!b() || (a3 = is.a(this.f487a, hpVar.f487a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hpVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = is.a(this.f486a, hpVar.f486a)) == 0) {
+                                if (!c() || (a2 = is.a(this.f485a, hpVar.f485a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -65,12 +65,12 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public hm m347a() {
-        return this.f486a;
+        return this.f485a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m348a() {
-        if (this.f488a == null) {
+        if (this.f487a == null) {
             throw new jd("Required field 'configItems' was not present! Struct: " + toString());
         }
     }
@@ -88,10 +88,10 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
                 m348a();
                 return;
             }
-            switch (m468a.f789a) {
+            switch (m468a.f788a) {
                 case 1:
                     if (m468a.a == 8) {
-                        this.f485a = jcVar.m466a();
+                        this.f484a = jcVar.m466a();
                         a(true);
                         break;
                     } else {
@@ -101,11 +101,11 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
                 case 2:
                     if (m468a.a == 15) {
                         ja m469a = jcVar.m469a();
-                        this.f488a = new ArrayList(m469a.f792a);
-                        for (int i = 0; i < m469a.f792a; i++) {
+                        this.f487a = new ArrayList(m469a.f791a);
+                        for (int i = 0; i < m469a.f791a; i++) {
                             hr hrVar = new hr();
                             hrVar.a(jcVar);
-                            this.f488a.add(hrVar);
+                            this.f487a.add(hrVar);
                         }
                         jcVar.i();
                         break;
@@ -115,7 +115,7 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
                     }
                 case 3:
                     if (m468a.a == 8) {
-                        this.f486a = hm.a(jcVar.m466a());
+                        this.f485a = hm.a(jcVar.m466a());
                         break;
                     } else {
                         jf.a(jcVar, m468a.a);
@@ -130,25 +130,25 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f487a.set(0, z);
+        this.f486a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m349a() {
-        return this.f487a.get(0);
+        return this.f486a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m350a(hp hpVar) {
-        if (hpVar != null && this.f485a == hpVar.f485a) {
+        if (hpVar != null && this.f484a == hpVar.f484a) {
             boolean b2 = b();
             boolean b3 = hpVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f488a.equals(hpVar.f488a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f487a.equals(hpVar.f487a))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = hpVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f486a.equals(hpVar.f486a));
+            return !(c2 || c3) || (c2 && c3 && this.f485a.equals(hpVar.f485a));
         }
         return false;
     }
@@ -156,22 +156,22 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         m348a();
-        jcVar.a(f484a);
+        jcVar.a(f483a);
         jcVar.a(a);
-        jcVar.a(this.f485a);
+        jcVar.a(this.f484a);
         jcVar.b();
-        if (this.f488a != null) {
+        if (this.f487a != null) {
             jcVar.a(b);
-            jcVar.a(new ja((byte) 12, this.f488a.size()));
-            for (hr hrVar : this.f488a) {
+            jcVar.a(new ja((byte) 12, this.f487a.size()));
+            for (hr hrVar : this.f487a) {
                 hrVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
-        if (this.f486a != null && c()) {
+        if (this.f485a != null && c()) {
             jcVar.a(c);
-            jcVar.a(this.f486a.a());
+            jcVar.a(this.f485a.a());
             jcVar.b();
         }
         jcVar.c();
@@ -179,11 +179,11 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
     }
 
     public boolean b() {
-        return this.f488a != null;
+        return this.f487a != null;
     }
 
     public boolean c() {
-        return this.f486a != null;
+        return this.f485a != null;
     }
 
     public boolean equals(Object obj) {
@@ -200,21 +200,21 @@ public class hp implements ir<hp, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("NormalConfig(");
         sb.append("version:");
-        sb.append(this.f485a);
+        sb.append(this.f484a);
         sb.append(", ");
         sb.append("configItems:");
-        if (this.f488a == null) {
+        if (this.f487a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f488a);
+            sb.append(this.f487a);
         }
         if (c()) {
             sb.append(", ");
             sb.append("type:");
-            if (this.f486a == null) {
+            if (this.f485a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f486a);
+                sb.append(this.f485a);
             }
         }
         sb.append(")");

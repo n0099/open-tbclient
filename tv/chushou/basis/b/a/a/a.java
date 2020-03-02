@@ -20,12 +20,12 @@ import tv.chushou.basis.d.a.b.d;
 /* loaded from: classes5.dex */
 public class a implements d {
     private ActivityManager activityManager;
-    private final HashMap<String, String> nUR = new HashMap<>();
-    private KSDevice nUS = null;
+    private final HashMap<String, String> nUT = new HashMap<>();
+    private KSDevice nUU = null;
     private String imei = null;
-    private String nUT = null;
-    private String nUU = null;
-    private volatile String nUV = null;
+    private String nUV = null;
+    private String nUW = null;
+    private volatile String nUX = null;
     private String identifier = null;
 
     static {
@@ -33,55 +33,55 @@ public class a implements d {
     }
 
     public a() {
-        this.nUR.put("device_board", Build.BOARD);
-        this.nUR.put("device_brand", Build.BRAND);
+        this.nUT.put("device_board", Build.BOARD);
+        this.nUT.put("device_brand", Build.BRAND);
         if (Build.VERSION.SDK_INT >= 21) {
-            this.nUR.put("device_cpuabi", Build.SUPPORTED_ABIS[0]);
-            this.nUR.put("device_cpuabi2", Build.SUPPORTED_ABIS[1]);
+            this.nUT.put("device_cpuabi", Build.SUPPORTED_ABIS[0]);
+            this.nUT.put("device_cpuabi2", Build.SUPPORTED_ABIS[1]);
         } else {
-            this.nUR.put("device_cpuabi", Build.CPU_ABI);
-            this.nUR.put("device_cpuabi2", Build.CPU_ABI2);
+            this.nUT.put("device_cpuabi", Build.CPU_ABI);
+            this.nUT.put("device_cpuabi2", Build.CPU_ABI2);
         }
-        this.nUR.put("device_devicename", Build.DEVICE);
-        this.nUR.put("device_display", Build.DISPLAY);
-        this.nUR.put("device_finger", Build.FINGERPRINT);
-        this.nUR.put("device_hardware", Build.HARDWARE);
-        this.nUR.put("device_versionid", Build.ID);
-        this.nUR.put("device_model", Build.MODEL);
-        this.nUR.put("device_manufacturer", Build.MANUFACTURER);
-        this.nUR.put("device_product", Build.PRODUCT);
-        this.nUR.put("device_tags", Build.TAGS);
-        this.nUR.put("device_type", Build.TYPE);
-        this.nUR.put("device_user", Build.USER);
-        this.nUR.put("device_release", Build.VERSION.RELEASE);
-        this.nUR.put("device_codename", Build.VERSION.CODENAME);
-        this.nUR.put("device_incremental", Build.VERSION.INCREMENTAL);
-        this.nUR.put("device_api_int", Build.VERSION.SDK_INT + "");
-        this.nUR.put("device_serial", Build.SERIAL);
-        this.nUR.put("device_host", Build.HOST);
+        this.nUT.put("device_devicename", Build.DEVICE);
+        this.nUT.put("device_display", Build.DISPLAY);
+        this.nUT.put("device_finger", Build.FINGERPRINT);
+        this.nUT.put("device_hardware", Build.HARDWARE);
+        this.nUT.put("device_versionid", Build.ID);
+        this.nUT.put("device_model", Build.MODEL);
+        this.nUT.put("device_manufacturer", Build.MANUFACTURER);
+        this.nUT.put("device_product", Build.PRODUCT);
+        this.nUT.put("device_tags", Build.TAGS);
+        this.nUT.put("device_type", Build.TYPE);
+        this.nUT.put("device_user", Build.USER);
+        this.nUT.put("device_release", Build.VERSION.RELEASE);
+        this.nUT.put("device_codename", Build.VERSION.CODENAME);
+        this.nUT.put("device_incremental", Build.VERSION.INCREMENTAL);
+        this.nUT.put("device_api_int", Build.VERSION.SDK_INT + "");
+        this.nUT.put("device_serial", Build.SERIAL);
+        this.nUT.put("device_host", Build.HOST);
     }
 
     @Override // tv.chushou.basis.d.a
     public synchronized void init(Application application) {
         SharedPreferences sharedPreferences = application.getSharedPreferences("com_kascend_chushou_prefs", 0);
         this.identifier = sharedPreferences.getString("identifier", null);
-        this.nUU = sharedPreferences.getString("deviceds", null);
-        ahf();
+        this.nUW = sharedPreferences.getString("deviceds", null);
+        ahh();
         getIdentifier();
-        dPI();
-        dPJ();
-        this.nUV = "";
+        dPK();
+        dPL();
+        this.nUX = "";
         this.activityManager = (ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public String ahf() {
+    public String ahh() {
         if (this.imei != null) {
             return this.imei;
         }
-        Application dPR = tv.chushou.basis.d.b.dPR();
-        if (dPR.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == 0) {
-            this.imei = ((TelephonyManager) dPR.getSystemService("phone")).getDeviceId();
+        Application dPT = tv.chushou.basis.d.b.dPT();
+        if (dPT.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == 0) {
+            this.imei = ((TelephonyManager) dPT.getSystemService("phone")).getDeviceId();
         }
         if (this.imei == null) {
             this.imei = "";
@@ -92,62 +92,62 @@ public class a implements d {
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public synchronized String dPI() {
-        if (TextUtils.isEmpty(this.nUT)) {
+    public synchronized String dPK() {
+        if (TextUtils.isEmpty(this.nUV)) {
             try {
-                if (this.nUS == null) {
-                    Application dPR = tv.chushou.basis.d.b.dPR();
-                    this.nUR.put(Constants.KEY_DEVICE_ID, Settings.Secure.getString(dPR.getContentResolver(), "android_id"));
-                    this.nUR.put("device_mac", getLocalMacAddress(dPR));
-                    this.nUS = new KSDevice();
-                    this.nUS.setDevice(tv.chushou.basis.d.b.dPR(), this.nUR);
+                if (this.nUU == null) {
+                    Application dPT = tv.chushou.basis.d.b.dPT();
+                    this.nUT.put(Constants.KEY_DEVICE_ID, Settings.Secure.getString(dPT.getContentResolver(), "android_id"));
+                    this.nUT.put("device_mac", getLocalMacAddress(dPT));
+                    this.nUU = new KSDevice();
+                    this.nUU.setDevice(tv.chushou.basis.d.b.dPT(), this.nUT);
                 }
-                this.nUT = this.nUS.getDeviceId();
+                this.nUV = this.nUU.getDeviceId();
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dPS().e("Router", "device getDeviceCS failed", e);
+                tv.chushou.basis.d.b.dPU().e("Router", "device getDeviceCS failed", e);
             }
         }
-        return this.nUT;
+        return this.nUV;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public synchronized String dPJ() {
-        if (TextUtils.isEmpty(this.nUU)) {
+    public synchronized String dPL() {
+        if (TextUtils.isEmpty(this.nUW)) {
             try {
-                SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dPR().getSharedPreferences("com_kascend_chushou_prefs", 0);
-                this.nUU = sharedPreferences.getString("deviceds", null);
-                if (TextUtils.isEmpty(this.nUU)) {
-                    if (this.nUS == null) {
-                        Application dPR = tv.chushou.basis.d.b.dPR();
-                        this.nUR.put(Constants.KEY_DEVICE_ID, Settings.Secure.getString(dPR.getContentResolver(), "android_id"));
-                        this.nUR.put("device_mac", getLocalMacAddress(dPR));
-                        this.nUS = new KSDevice();
-                        this.nUS.setDevice(tv.chushou.basis.d.b.dPR(), this.nUR);
+                SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dPT().getSharedPreferences("com_kascend_chushou_prefs", 0);
+                this.nUW = sharedPreferences.getString("deviceds", null);
+                if (TextUtils.isEmpty(this.nUW)) {
+                    if (this.nUU == null) {
+                        Application dPT = tv.chushou.basis.d.b.dPT();
+                        this.nUT.put(Constants.KEY_DEVICE_ID, Settings.Secure.getString(dPT.getContentResolver(), "android_id"));
+                        this.nUT.put("device_mac", getLocalMacAddress(dPT));
+                        this.nUU = new KSDevice();
+                        this.nUU.setDevice(tv.chushou.basis.d.b.dPT(), this.nUT);
                     }
-                    this.nUU = this.nUS.getDS();
+                    this.nUW = this.nUU.getDS();
                     SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putString("deviceds", this.nUU);
+                    edit.putString("deviceds", this.nUW);
                     edit.apply();
                 }
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dPS().e("Router", "device getDeviceDS failed", e);
+                tv.chushou.basis.d.b.dPU().e("Router", "device getDeviceDS failed", e);
             }
         }
-        return this.nUU;
+        return this.nUW;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public Map<String, String> dPK() {
-        return this.nUR;
+    public Map<String, String> dPM() {
+        return this.nUT;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
     public synchronized String getIdentifier() {
         if (TextUtils.isEmpty(this.identifier)) {
-            SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dPR().getSharedPreferences("com_kascend_chushou_prefs", 0);
+            SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dPT().getSharedPreferences("com_kascend_chushou_prefs", 0);
             this.identifier = sharedPreferences.getString("identifier", null);
             if (TextUtils.isEmpty(this.identifier)) {
-                this.identifier = dPL();
+                this.identifier = dPN();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString("identifier", this.identifier);
                 edit.apply();
@@ -160,12 +160,12 @@ public class a implements d {
         return b.getMacAddress(context);
     }
 
-    private String dPL() {
-        String ahf = ahf();
-        String decrypt = !TextUtils.isEmpty(ahf) ? tv.chushou.basis.b.a.a.a.b.decrypt(ahf) : ahf;
-        String str = this.nUR.get("device_mac");
+    private String dPN() {
+        String ahh = ahh();
+        String decrypt = !TextUtils.isEmpty(ahh) ? tv.chushou.basis.b.a.a.a.b.decrypt(ahh) : ahh;
+        String str = this.nUT.get("device_mac");
         if (TextUtils.isEmpty(str)) {
-            str = getLocalMacAddress(tv.chushou.basis.d.b.dPR());
+            str = getLocalMacAddress(tv.chushou.basis.d.b.dPT());
         }
         long currentTimeMillis = System.currentTimeMillis();
         String str2 = !TextUtils.isEmpty(decrypt) ? "" + decrypt : "";

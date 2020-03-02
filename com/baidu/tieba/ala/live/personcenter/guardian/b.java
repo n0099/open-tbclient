@@ -17,41 +17,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> cVQ;
-    private AlaGuardianListActivity eME;
-    private View.OnClickListener eMF = null;
-    private View.OnClickListener ewR = null;
+    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> cVR;
+    private AlaGuardianListActivity eMF;
+    private View.OnClickListener eMG = null;
+    private View.OnClickListener ewS = null;
 
     public b(AlaGuardianListActivity alaGuardianListActivity) {
-        this.cVQ = null;
-        this.eME = null;
-        this.eME = alaGuardianListActivity;
-        this.cVQ = new ArrayList<>();
+        this.cVR = null;
+        this.eMF = null;
+        this.eMF = alaGuardianListActivity;
+        this.cVR = new ArrayList<>();
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.ewR = onClickListener;
+        this.ewS = onClickListener;
     }
 
     public void c(c cVar) {
-        this.cVQ.clear();
-        this.cVQ.addAll(cVar.bgP());
+        this.cVR.clear();
+        this.cVR.addAll(cVar.bgR());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return 0;
         }
-        return this.cVQ.size();
+        return this.cVR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cVQ == null || i >= this.cVQ.size()) {
+        if (this.cVR == null || i >= this.cVR.size()) {
             return null;
         }
-        return this.cVQ.get(i);
+        return this.cVR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,91 +63,91 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eME.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eMF.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.py(i);
-        this.eME.getLayoutMode().onModeChanged(view);
+        this.eMF.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes3.dex */
     class a {
-        ImageView eMG;
-        TextView eMH;
-        LinearLayout eMI;
-        TextView eMJ;
-        ViewGroup exh;
-        HeadImageView exk;
-        TextView exl;
+        ImageView eMH;
+        TextView eMI;
+        LinearLayout eMJ;
+        TextView eMK;
+        ViewGroup exi;
+        HeadImageView exl;
+        TextView exm;
         TextView mName;
 
         public a(View view) {
-            this.eMG = (ImageView) view.findViewById(a.g.imgGradeRound);
-            this.eMH = (TextView) view.findViewById(a.g.tvGradeNum);
-            this.exh = (ViewGroup) view.findViewById(a.g.item_view);
-            this.exh.setOnClickListener(b.this.eMF);
-            this.exk = (HeadImageView) view.findViewById(a.g.photo);
-            this.exk.setRadius(BdUtilHelper.getDimens(b.this.eME.getPageContext().getPageActivity(), a.e.sdk_ds90));
-            this.exk.setAutoChangeStyle(true);
-            this.exk.setClickable(false);
-            this.eMI = (LinearLayout) view.findViewById(a.g.info);
+            this.eMH = (ImageView) view.findViewById(a.g.imgGradeRound);
+            this.eMI = (TextView) view.findViewById(a.g.tvGradeNum);
+            this.exi = (ViewGroup) view.findViewById(a.g.item_view);
+            this.exi.setOnClickListener(b.this.eMG);
+            this.exl = (HeadImageView) view.findViewById(a.g.photo);
+            this.exl.setRadius(BdUtilHelper.getDimens(b.this.eMF.getPageContext().getPageActivity(), a.e.sdk_ds90));
+            this.exl.setAutoChangeStyle(true);
+            this.exl.setClickable(false);
+            this.eMJ = (LinearLayout) view.findViewById(a.g.info);
             this.mName = (TextView) view.findViewById(a.g.ala_name);
-            this.exl = (TextView) view.findViewById(a.g.ala_intro);
-            this.eMJ = (TextView) view.findViewById(a.g.attention_btn);
-            this.eMJ.setOnClickListener(b.this.ewR);
+            this.exm = (TextView) view.findViewById(a.g.ala_intro);
+            this.eMK = (TextView) view.findViewById(a.g.attention_btn);
+            this.eMK.setOnClickListener(b.this.ewS);
         }
 
         public void py(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) b.this.getItem(i);
             if (aVar != null) {
-                this.exh.setTag(Integer.valueOf(i));
-                this.eMJ.setTag(Integer.valueOf(i));
+                this.exi.setTag(Integer.valueOf(i));
+                this.eMK.setTag(Integer.valueOf(i));
                 pa(i);
-                k.a(this.exk, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                k.a(this.exl, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.exl.setText(b.this.eME.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.eMx));
+                this.exm.setText(b.this.eMF.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.eMy));
                 il(aVar.followStatus != 0);
             }
         }
 
         private void il(boolean z) {
-            if (this.eMJ != null) {
-                this.eMJ.setVisibility(8);
+            if (this.eMK != null) {
+                this.eMK.setVisibility(8);
             }
         }
 
         public void pa(int i) {
-            this.eMG.setVisibility(8);
             this.eMH.setVisibility(8);
+            this.eMI.setVisibility(8);
             if (i == 0) {
-                this.eMG.setVisibility(0);
-                SkinManager.setImageResource(this.eMG, a.f.sdk_prc_icon_grade_round_no1);
-            } else if (i == 1) {
-                this.eMG.setVisibility(0);
-                SkinManager.setImageResource(this.eMG, a.f.sdk_prc_icon_grade_round_no2);
-            } else if (i == 2) {
-                this.eMG.setVisibility(0);
-                SkinManager.setImageResource(this.eMG, a.f.sdk_prc_icon_grade_round_no3);
-            } else {
                 this.eMH.setVisibility(0);
-                this.eMH.setText(String.valueOf(i + 1));
+                SkinManager.setImageResource(this.eMH, a.f.sdk_prc_icon_grade_round_no1);
+            } else if (i == 1) {
+                this.eMH.setVisibility(0);
+                SkinManager.setImageResource(this.eMH, a.f.sdk_prc_icon_grade_round_no2);
+            } else if (i == 2) {
+                this.eMH.setVisibility(0);
+                SkinManager.setImageResource(this.eMH, a.f.sdk_prc_icon_grade_round_no3);
+            } else {
+                this.eMI.setVisibility(0);
+                this.eMI.setText(String.valueOf(i + 1));
             }
         }
     }
 
     public void X(String str, boolean z) {
-        if (this.cVQ != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.cVQ.iterator();
+        if (this.cVR != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.cVR.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.eMs)) {
+                if (str.equals(next.eMt)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

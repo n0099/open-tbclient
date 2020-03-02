@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes11.dex */
 public class a implements Cloneable {
-    protected boolean bFm = false;
     protected boolean bFn = false;
-    private boolean bFo = false;
-    private boolean bFp;
+    protected boolean bFo = false;
+    private boolean bFp = false;
+    private boolean bFq;
     protected int height;
     protected int left;
 
     /* renamed from: top  reason: collision with root package name */
-    protected int f1007top;
+    protected int f1006top;
     protected int width;
 
     public a() {
@@ -17,12 +17,12 @@ public class a implements Cloneable {
 
     public a(int i, int i2, int i3, int i4) {
         this.left = i;
-        this.f1007top = i2;
+        this.f1006top = i2;
         this.width = i3;
         this.height = i4;
     }
 
-    public static a Yu() {
+    public static a Yw() {
         a aVar = new a();
         aVar.db(true);
         aVar.dc(true);
@@ -36,19 +36,19 @@ public class a implements Cloneable {
     }
 
     public void db(boolean z) {
-        this.bFm = z;
-    }
-
-    public void dc(boolean z) {
         this.bFn = z;
     }
 
+    public void dc(boolean z) {
+        this.bFo = z;
+    }
+
     public boolean isFixed() {
-        return this.bFp;
+        return this.bFq;
     }
 
     public void dd(boolean z) {
-        this.bFp = z;
+        this.bFq = z;
     }
 
     public int getLeft() {
@@ -60,11 +60,11 @@ public class a implements Cloneable {
     }
 
     public int getTop() {
-        return this.f1007top;
+        return this.f1006top;
     }
 
     public void fz(int i) {
-        this.f1007top = i;
+        this.f1006top = i;
     }
 
     public int getWidth() {
@@ -85,8 +85,8 @@ public class a implements Cloneable {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.bFm || this.width >= 0;
-        if (this.bFn || this.height >= 0) {
+        boolean z2 = this.bFn || this.width >= 0;
+        if (this.bFo || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -98,16 +98,16 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.left == aVar.left && this.f1007top == aVar.f1007top && this.height == aVar.height && this.width == aVar.width && this.bFp == aVar.bFp;
+            return this.left == aVar.left && this.f1006top == aVar.f1006top && this.height == aVar.height && this.width == aVar.width && this.bFq == aVar.bFq;
         }
         return false;
     }
 
     public boolean a(a aVar) {
-        return !equals(aVar) || this.bFo;
+        return !equals(aVar) || this.bFp;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.f1007top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFm + ", HAuto=" + this.bFn + ", fixed=" + this.bFp + '}';
+        return "Position{l=" + this.left + ", t=" + this.f1006top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFn + ", HAuto=" + this.bFo + ", fixed=" + this.bFq + '}';
     }
 }

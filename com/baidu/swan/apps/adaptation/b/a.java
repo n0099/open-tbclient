@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.swan.apps.adaptation.b.d;
 /* loaded from: classes11.dex */
 public interface a<T extends d> extends e<T> {
-    void ID();
+    void IF();
 
-    void IE();
+    void IG();
 
     void ad(View view);
 

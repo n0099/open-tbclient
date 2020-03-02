@@ -6,26 +6,26 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class aa extends a {
-    private Paint.Cap bha;
+    private Paint.Cap bhb;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
             String optString = jSONArray.optString(0);
             if (TextUtils.equals(optString, "butt")) {
-                this.bha = Paint.Cap.BUTT;
+                this.bhb = Paint.Cap.BUTT;
             } else if (TextUtils.equals(optString, "round")) {
-                this.bha = Paint.Cap.ROUND;
+                this.bhb = Paint.Cap.ROUND;
             } else if (TextUtils.equals(optString, "square")) {
-                this.bha = Paint.Cap.SQUARE;
+                this.bhb = Paint.Cap.SQUARE;
             }
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bha != null) {
-            bVar.mStrokePaint.setStrokeCap(this.bha);
+        if (this.bhb != null) {
+            bVar.mStrokePaint.setStrokeCap(this.bhb);
         }
     }
 }

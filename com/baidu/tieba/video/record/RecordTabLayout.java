@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class RecordTabLayout extends LinearLayout {
-    private LinearLayout kCh;
-    private View kCi;
-    private boolean kCj;
-    private a kCk;
+    private LinearLayout kCj;
+    private View kCk;
+    private boolean kCl;
+    private a kCm;
     private int mCurrentTab;
 
     /* loaded from: classes10.dex */
@@ -24,33 +24,33 @@ public class RecordTabLayout extends LinearLayout {
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.kCj = true;
+        this.kCl = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kCj = true;
+        this.kCl = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kCj = true;
+        this.kCl = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.kCh = new LinearLayout(getContext());
-        this.kCh.setOrientation(0);
-        this.kCh.setGravity(17);
-        addView(this.kCh, new ViewGroup.LayoutParams(-1, -2));
-        this.kCi = new View(getContext());
-        this.kCi.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
+        this.kCj = new LinearLayout(getContext());
+        this.kCj.setOrientation(0);
+        this.kCj.setGravity(17);
+        addView(this.kCj, new ViewGroup.LayoutParams(-1, -2));
+        this.kCk = new View(getContext());
+        this.kCk.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.kCi, layoutParams);
+        addView(this.kCk, layoutParams);
     }
 
     public void bf(final int i, String str) {
@@ -64,17 +64,17 @@ public class RecordTabLayout extends LinearLayout {
             public void onClick(View view) {
                 if (RecordTabLayout.this.mCurrentTab != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.kCk != null) {
-                        RecordTabLayout.this.kCk.onTabChoosed(i, true);
+                    if (RecordTabLayout.this.kCm != null) {
+                        RecordTabLayout.this.kCm.onTabChoosed(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.kCh.getChildCount() != 0) {
+        if (this.kCj.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
         }
-        this.kCh.addView(textView, layoutParams);
+        this.kCj.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
@@ -83,8 +83,8 @@ public class RecordTabLayout extends LinearLayout {
             this.mCurrentTab = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.kCh.getChildCount()) {
-                View childAt = this.kCh.getChildAt(i2);
+            while (i2 < this.kCj.getChildCount()) {
+                View childAt = this.kCj.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.kCj) {
+            if (this.kCl) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.kCi.getWidth()) / 2)) - RecordTabLayout.this.kCi.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.kCk.getWidth()) / 2)) - RecordTabLayout.this.kCk.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.kCi, "translationX", RecordTabLayout.this.kCi.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.kCk, "translationX", RecordTabLayout.this.kCk.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.kCi.setTranslationX(x);
+                        RecordTabLayout.this.kCk.setTranslationX(x);
                     }
                 });
             }
@@ -124,13 +124,13 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public void setListener(a aVar) {
-        this.kCk = aVar;
+        this.kCm = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.kCj = z;
-        if (!this.kCj) {
-            this.kCi.setVisibility(4);
+        this.kCl = z;
+        if (!this.kCl) {
+            this.kCk.setVisibility(4);
         }
     }
 }

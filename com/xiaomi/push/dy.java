@@ -64,6 +64,6 @@ public class dy extends dx {
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
     public String mo157a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f246a);
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f245a);
     }
 }

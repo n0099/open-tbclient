@@ -25,7 +25,7 @@ public class aq extends ba.a implements cu.a {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f870a;
+    private XMPushService f869a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
@@ -78,7 +78,7 @@ public class aq extends ba.a implements cu.a {
     }
 
     aq(XMPushService xMPushService) {
-        this.f870a = xMPushService;
+        this.f869a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -109,7 +109,7 @@ public class aq extends ba.a implements cu.a {
             cu a2 = cu.a();
             a2.m209a();
             a2.m212b();
-            fm m499a = this.f870a.m499a();
+            fm m499a = this.f869a.m499a();
             if (m499a == null || (b2 = a2.b(m499a.m282a().c())) == null) {
                 return;
             }
@@ -128,8 +128,8 @@ public class aq extends ba.a implements cu.a {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m47a("bucket changed, force reconnect");
-            this.f870a.a(0, (Exception) null);
-            this.f870a.a(false);
+            this.f869a.a(0, (Exception) null);
+            this.f869a.a(false);
         }
     }
 }

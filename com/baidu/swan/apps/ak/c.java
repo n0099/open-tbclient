@@ -29,32 +29,32 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    public static long bSm;
-    private static ContentObserver bSn;
-    private static PackageManager bSo;
-    private static boolean bSp;
-    private static Runnable bSq;
+    public static long bSn;
+    private static ContentObserver bSo;
+    private static PackageManager bSp;
+    private static boolean bSq;
+    private static Runnable bSr;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ak.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
 
-    static /* synthetic */ int adS() {
+    static /* synthetic */ int adU() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean adR() {
+    private static boolean adT() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
     public static void cu(Context context) {
-        bSo = context.getPackageManager();
+        bSp = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        bSn = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
+        bSo = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -65,7 +65,7 @@ public class c {
             }
         };
         if (cv(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSn);
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSo);
         }
     }
 
@@ -74,8 +74,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.bSs + ".*")) {
-            if (adR() && bSp) {
+        if (uri.toString().matches(a.bSt + ".*")) {
+            if (adT() && bSq) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -97,12 +97,12 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
                                 if (a.ly(string) && a.k(valueOf2.longValue(), valueOf.longValue())) {
-                                    bSp = true;
+                                    bSq = true;
                                     final b bVar = new b(string, valueOf);
-                                    bSq = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
+                                    bSr = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
-                                            c.adS();
+                                            c.adU();
                                             if (c.DEBUG) {
                                                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                             }
@@ -117,17 +117,17 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.bSq, 100L);
+                                            handler.postDelayed(c.bSr, 100L);
                                         }
                                     };
-                                    handler.post(bSq);
+                                    handler.post(bSr);
                                 } else {
-                                    bSp = false;
+                                    bSq = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (bSo != null) {
-                                List<ProviderInfo> queryContentProviders = bSo.queryContentProviders(null, 0, 131072);
+                            if (bSp != null) {
+                                List<ProviderInfo> queryContentProviders = bSp.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -157,7 +157,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean aA(long j) {
-        return g.WV().isForeground() && System.currentTimeMillis() - bSm > j;
+        return g.WX().isForeground() && System.currentTimeMillis() - bSn > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -205,12 +205,12 @@ public class c {
 
     /* loaded from: classes11.dex */
     public static class b {
-        public Long bSt;
+        public Long bSu;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.bSt = l;
+            this.bSu = l;
         }
     }
 
@@ -218,12 +218,12 @@ public class c {
     /* loaded from: classes11.dex */
     public static class a {
         public static String[] PROJECTION;
-        public static String bSs;
+        public static String bSt;
 
         static {
-            bSs = null;
+            bSt = null;
             PROJECTION = null;
-            bSs = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            bSt = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
             PROJECTION = new String[]{"_display_name", "_data", "date_added"};
         }
 

@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes.dex */
 public interface a {
-    void Gp();
+    void Gr();
 
     void b(int i, double d);
 

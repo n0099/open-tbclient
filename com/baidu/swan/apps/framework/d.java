@@ -6,38 +6,38 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class d implements b {
-    private List<b> bvK = new CopyOnWriteArrayList();
+    private List<b> bvL = new CopyOnWriteArrayList();
 
     public void c(@NonNull b bVar) {
-        this.bvK.add(bVar);
+        this.bvL.add(bVar);
     }
 
     public void d(@NonNull b bVar) {
-        this.bvK.remove(bVar);
+        this.bvL.remove(bVar);
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void So() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
-                bVar.So();
+    public void Sq() {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
+                bVar.Sq();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void Sp() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
-                bVar.Sp();
+    public void Sr() {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
+                bVar.Sr();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
     public void onActivityResumed() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
                 bVar.onActivityResumed();
             }
         }
@@ -45,49 +45,49 @@ public class d implements b {
 
     @Override // com.baidu.swan.apps.framework.b
     public void onActivityPaused() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
                 bVar.onActivityPaused();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void Sq() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
-                bVar.Sq();
+    public void Ss() {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
+                bVar.Ss();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void JI() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
-                bVar.JI();
+    public void JK() {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
+                bVar.JK();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.bvK == null || this.bvK.size() <= 0) {
+        if (this.bvL == null || this.bvL.size() <= 0) {
             return false;
         }
         boolean z = false;
-        for (b bVar : this.bvK) {
+        for (b bVar : this.bvL) {
             z = z || bVar.onKeyDown(i, keyEvent);
         }
         return z;
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void JJ() {
-        if (this.bvK != null && this.bvK.size() > 0) {
-            for (b bVar : this.bvK) {
+    public void JL() {
+        if (this.bvL != null && this.bvL.size() > 0) {
+            for (b bVar : this.bvL) {
                 if (bVar != null) {
-                    bVar.JJ();
+                    bVar.JL();
                 }
             }
         }

@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        aXf();
+        aXh();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,7 +66,7 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void aXf() {
+    private synchronized void aXh() {
         File file;
         long ww;
         File[] fileArr;
@@ -76,12 +76,12 @@ public class g implements Runnable {
         long j2;
         j.z(TAG, "merge ...");
         String wC = m.wC(this.mVideoUrl);
-        if (wC != null && !wC.isEmpty() && ((file = new File(i.dXe + wC + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.dXe + wC + "/completed.temp");
+        if (wC != null && !wC.isEmpty() && ((file = new File(i.dXf + wC + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.dXf + wC + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.dXe + wC + "/segments");
+            File file3 = new File(i.dXf + wC + "/segments");
             if (file3 != null && file3.exists()) {
                 ww = ww(wC);
                 File[] listFiles = file3.listFiles();
@@ -249,7 +249,7 @@ public class g implements Runnable {
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.dXe + str + "/content_length");
+        File file = new File(i.dXf + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

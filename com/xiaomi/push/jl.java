@@ -4,7 +4,7 @@ public final class jl extends jm {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f797a;
+    private byte[] f796a;
     private int b;
 
     @Override // com.xiaomi.push.jm
@@ -19,7 +19,7 @@ public final class jl extends jm {
             i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f797a, this.a, bArr, i, i2);
+            System.arraycopy(this.f796a, this.a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -41,7 +41,7 @@ public final class jl extends jm {
 
     @Override // com.xiaomi.push.jm
     public byte[] a() {
-        return this.f797a;
+        return this.f796a;
     }
 
     @Override // com.xiaomi.push.jm
@@ -51,7 +51,7 @@ public final class jl extends jm {
 
     @Override // com.xiaomi.push.jm
     public void b(byte[] bArr, int i, int i2) {
-        this.f797a = bArr;
+        this.f796a = bArr;
         this.a = i;
         this.b = i + i2;
     }

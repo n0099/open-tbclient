@@ -11,23 +11,23 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class e {
-    private static e dCX = null;
+    private static e dCY = null;
     private int maxCost;
     private boolean isSmallFlowOpen = false;
-    private boolean dCY = false;
+    private boolean dCZ = false;
 
     private e() {
     }
 
-    public static e aQV() {
-        if (dCX == null) {
+    public static e aQX() {
+        if (dCY == null) {
             synchronized (e.class) {
-                if (dCX == null) {
-                    dCX = new e();
+                if (dCY == null) {
+                    dCY = new e();
                 }
             }
         }
-        return dCX;
+        return dCY;
     }
 
     public void a(Context context, d dVar, b bVar) {
@@ -92,38 +92,38 @@ public class e {
                 if (!StringUtils.isNull(dVar.isVertical)) {
                     anVar2.cy("is_vertical", dVar.isVertical);
                 }
-                if (!StringUtils.isNull(dVar.dCW)) {
-                    anVar2.cy("is_dynamic", dVar.dCW);
+                if (!StringUtils.isNull(dVar.dCX)) {
+                    anVar2.cy("is_dynamic", dVar.dCX);
                 }
                 if (!aq.isEmpty(dVar.getTaskId())) {
                     anVar2.cy("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!aq.isEmpty(dVar.aQT())) {
-                    anVar2.cy(TiebaInitialize.Params.AB_TAG, dVar.aQT());
+                if (!aq.isEmpty(dVar.aQV())) {
+                    anVar2.cy(TiebaInitialize.Params.AB_TAG, dVar.aQV());
                 }
-                if (aQW()) {
+                if (aQY()) {
                     if (!StringUtils.isNull(dVar.objID)) {
                         anVar2.cy("obj_id", dVar.objID);
                     }
-                    if (!StringUtils.isNull(dVar.dCU)) {
-                        anVar2.cy("obj_name", dVar.dCU);
+                    if (!StringUtils.isNull(dVar.dCV)) {
+                        anVar2.cy("obj_name", dVar.dCV);
                     }
                     anVar2.cy("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.aQU())) {
-                    anVar2.cy("obj_location", dVar.aQU());
+                if (!StringUtils.isNull(dVar.aQW())) {
+                    anVar2.cy("obj_location", dVar.aQW());
                 }
                 TiebaStatic.log(anVar2);
             }
         }
     }
 
-    public boolean aQW() {
-        return this.dCY;
+    public boolean aQY() {
+        return this.dCZ;
     }
 
     public void gS(boolean z) {
-        this.dCY = z;
+        this.dCZ = z;
     }
 
     public boolean isSmallFlowOpen() {
@@ -135,11 +135,11 @@ public class e {
     }
 
     public int getMaxCostFromServer() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aFB().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aFD().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
     }
 
     public void setMaxCostFromServer(int i) {
         this.maxCost = i;
-        com.baidu.tbadk.core.sharedPref.b.aFB().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
+        com.baidu.tbadk.core.sharedPref.b.aFD().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
     }
 }

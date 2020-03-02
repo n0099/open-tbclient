@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
 /* loaded from: classes8.dex */
 public class PushStatic {
-    private static CustomMessageListener kVz = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener kVB = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,18 +22,18 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.cXk();
+                        PushStatic.cXm();
                     }
                 }).start();
             }
         }
     };
 
-    private static void cXi() {
+    private static void cXk() {
         fJ(TbadkApplication.getInst());
     }
 
-    private static void cXj() {
+    private static void cXl() {
         fK(TbadkCoreApplication.getInst());
     }
 
@@ -49,23 +49,23 @@ public class PushStatic {
     }
 
     private static void fK(Context context) {
-        if (b.aFB().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+        if (b.aFD().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             PushManager.stopWork(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cXk() {
+    public static void cXm() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                cXi();
+                cXk();
             } else {
-                cXj();
+                cXl();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, kVz);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, kVB);
     }
 }

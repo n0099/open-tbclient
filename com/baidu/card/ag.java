@@ -96,7 +96,7 @@ public class ag extends b<com.baidu.tbadk.core.data.a> {
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Mp = aVar;
-        this.Mo.setData(aVar.aAe());
+        this.Mo.setData(aVar.aAg());
         if ((this.Mm & 4) > 0) {
             this.Mo.post(this.Mr);
         }
@@ -141,7 +141,7 @@ public class ag extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void aZ(int i) {
-        this.Mo.dhF = i;
+        this.Mo.dhG = i;
     }
 
     public void setFrom(int i) {

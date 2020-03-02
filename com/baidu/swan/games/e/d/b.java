@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 /* loaded from: classes11.dex */
 public interface b {
     @Nullable
-    V8EngineConfiguration.CodeCacheSetting Pc();
+    V8EngineConfiguration.CodeCacheSetting Pe();
 
-    String Pd();
+    String Pf();
 
     void a(com.baidu.swan.games.e.a aVar);
 

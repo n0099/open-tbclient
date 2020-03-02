@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int nhR;
+    protected final int nhT;
 
     public abstract void a(C0812a c0812a, T t);
 
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.nhR = i;
+        this.nhT = i;
     }
 
     @Override // android.widget.Adapter
@@ -62,25 +62,25 @@ public abstract class a<T> extends BaseAdapter {
     }
 
     protected int MZ(int i) {
-        return this.nhR;
+        return this.nhT;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static class C0812a {
-        public View hQG;
-        private final SparseArray<View> nib = new SparseArray<>();
+        public View hQI;
+        private final SparseArray<View> nie = new SparseArray<>();
 
         public C0812a(View view) {
-            this.hQG = view;
+            this.hQI = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
         public View Oo(int i) {
-            View view = this.nib.get(i);
+            View view = this.nie.get(i);
             if (view == null) {
-                View findViewById = this.hQG.findViewById(i);
-                this.nib.put(i, findViewById);
+                View findViewById = this.hQI.findViewById(i);
+                this.nie.put(i, findViewById);
                 return findViewById;
             }
             return view;

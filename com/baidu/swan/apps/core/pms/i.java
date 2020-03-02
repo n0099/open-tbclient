@@ -13,18 +13,18 @@ public class i extends k {
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected PMSDownloadType Pn() {
+    protected PMSDownloadType Pp() {
         return PMSDownloadType.SWAN_APP_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String Pz() {
-        return com.baidu.swan.apps.core.pms.d.a.PH();
+    protected String PB() {
+        return com.baidu.swan.apps.core.pms.d.a.PJ();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PA() {
-        return com.baidu.swan.apps.core.pms.d.a.PA();
+    protected String PC() {
+        return com.baidu.swan.apps.core.pms.d.a.PC();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
@@ -54,26 +54,26 @@ public class i extends k {
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bvg = bVar.filePath;
+        aVar.bvh = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(0, aVar)) {
             if (DEBUG) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
             }
-            boolean Hy = com.baidu.swan.apps.w.a.TX().Hy();
+            boolean HA = com.baidu.swan.apps.w.a.TZ().HA();
             if (DEBUG) {
-                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + Hy);
+                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + HA);
             }
-            if (Hy) {
+            if (HA) {
                 if (DEBUG) {
                     Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
                 }
-                long RZ = com.baidu.swan.apps.extcore.b.eN(0).RN().RZ();
-                if (RZ > 0) {
+                long Sb = com.baidu.swan.apps.extcore.b.eN(0).RP().Sb();
+                if (Sb > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateCore", "发送extension core更新事件");
                     }
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, RZ);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, Sb);
                 }
             }
             return null;

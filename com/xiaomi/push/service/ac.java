@@ -18,11 +18,11 @@ import java.util.regex.Pattern;
 public class ac {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Pattern f843a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+    private static final Pattern f842a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
     private static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f842a = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private static ThreadPoolExecutor f841a = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     private static String a(String str) {
         BufferedReader bufferedReader;
@@ -62,14 +62,14 @@ public class ac {
     public static void a() {
         ed.a m530a;
         long currentTimeMillis = System.currentTimeMillis();
-        if ((f842a.getActiveCount() <= 0 || currentTimeMillis - a >= 1800000) && gy.m323a().m328a() && (m530a = ba.a().m530a()) != null && m530a.e() > 0) {
+        if ((f841a.getActiveCount() <= 0 || currentTimeMillis - a >= 1800000) && gy.m323a().m328a() && (m530a = ba.a().m530a()) != null && m530a.e() > 0) {
             a = currentTimeMillis;
             a(m530a.a(), true);
         }
     }
 
     public static void a(List<String> list, boolean z) {
-        f842a.execute(new ad(list, z));
+        f841a.execute(new ad(list, z));
     }
 
     public static void b() {

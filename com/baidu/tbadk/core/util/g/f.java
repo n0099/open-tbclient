@@ -18,27 +18,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class f {
-    private b dcW;
-    private a dcX;
+    private b dcX;
+    private a dcY;
     private String mUrl;
 
     public f(String str, b bVar) {
         this.mUrl = str;
-        this.dcW = bVar;
+        this.dcX = bVar;
     }
 
     public void load() {
         if (TextUtils.isEmpty(this.mUrl)) {
             g.log("VideoLoaderImp url == null");
         } else if (s.wF(this.mUrl) != null) {
-            if (this.dcW != null) {
+            if (this.dcX != null) {
                 g.log("complete file has exist, 不需要下载");
-                this.dcW.onSuccess(this.mUrl);
+                this.dcX.onSuccess(this.mUrl);
             }
         } else {
             String wH = s.wH(this.mUrl);
             if (TextUtils.isEmpty(wH)) {
-                this.dcW.cz(this.mUrl, "dir is null");
+                this.dcX.cz(this.mUrl, "dir is null");
                 g.log("dir is null " + this.mUrl);
                 return;
             }
@@ -49,26 +49,26 @@ public class f {
             File file2 = new File(file, "0");
             if (file2.exists()) {
                 g.log("segment has exist " + this.mUrl);
-                this.dcW.onSuccess(this.mUrl);
+                this.dcX.onSuccess(this.mUrl);
                 return;
             }
-            this.dcX = new a(this.mUrl, wH, file2.getAbsolutePath(), this.dcW);
-            this.dcX.execute(new Void[0]);
+            this.dcY = new a(this.mUrl, wH, file2.getAbsolutePath(), this.dcX);
+            this.dcY.execute(new Void[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<Void, Void, Boolean> {
-        private b dcW;
-        private String dcY;
+        private b dcX;
         private String dcZ;
+        private String dda;
         private String mVideoUrl;
 
         public a(String str, String str2, String str3, b bVar) {
             this.mVideoUrl = str;
-            this.dcY = str3;
-            this.dcW = bVar;
-            this.dcZ = str2;
+            this.dcZ = str3;
+            this.dcX = bVar;
+            this.dda = str2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [179=5, 180=4, 182=4, 183=4, 184=4] */
@@ -86,10 +86,10 @@ public class f {
             FileOutputStream fileOutputStream;
             String str;
             try {
-                g.log("start load  " + this.mVideoUrl + " des file " + this.dcY);
+                g.log("start load  " + this.mVideoUrl + " des file " + this.dcZ);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.mVideoUrl).openConnection();
                 try {
-                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aHj().getSize());
+                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aHl().getSize());
                     int timeOutAuto = com.baidu.adp.framework.c.b.fc().fd().getTimeOutAuto();
                     if (timeOutAuto == 0) {
                         timeOutAuto = 5000;
@@ -167,12 +167,12 @@ public class f {
                         }
                         fileOutputStream.write(bArr, 0, read);
                     }
-                    g.log("download success   des: " + this.dcY + "  mVideoUrl " + this.mVideoUrl);
+                    g.log("download success   des: " + this.dcZ + "  mVideoUrl " + this.mVideoUrl);
                     File file = new File(str);
                     if (file.exists()) {
-                        File file2 = new File(this.dcY);
+                        File file2 = new File(this.dcZ);
                         if (file2.exists()) {
-                            g.log("des file exist " + this.dcY + "  mVideoUrl " + this.mVideoUrl);
+                            g.log("des file exist " + this.dcZ + "  mVideoUrl " + this.mVideoUrl);
                             file.delete();
                             if (httpURLConnection2 != null) {
                                 httpURLConnection2.disconnect();
@@ -184,9 +184,9 @@ public class f {
                         }
                         file.renameTo(file2);
                     }
-                    f.t(this.dcZ, System.currentTimeMillis());
-                    new File(this.dcZ, "header_downloaded").createNewFile();
-                    g.log("rename success   des: " + this.dcY + "  mVideoUrl " + this.mVideoUrl);
+                    f.t(this.dda, System.currentTimeMillis());
+                    new File(this.dda, "header_downloaded").createNewFile();
+                    g.log("rename success   des: " + this.dcZ + "  mVideoUrl " + this.mVideoUrl);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -233,11 +233,11 @@ public class f {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
-                if (this.dcW != null) {
-                    this.dcW.onSuccess(this.mVideoUrl);
+                if (this.dcX != null) {
+                    this.dcX.onSuccess(this.mVideoUrl);
                 }
-            } else if (this.dcW != null) {
-                this.dcW.cz(this.mVideoUrl, LivenessStat.TYPE_FACE_MATCH_FAIL);
+            } else if (this.dcX != null) {
+                this.dcX.cz(this.mVideoUrl, LivenessStat.TYPE_FACE_MATCH_FAIL);
             }
         }
 
@@ -245,16 +245,16 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.dcW != null) {
-                this.dcW.tN(this.mVideoUrl);
+            if (this.dcX != null) {
+                this.dcX.tN(this.mVideoUrl);
             }
         }
     }
 
     public void release() {
         g.log("release url: " + this.mUrl);
+        this.dcY = null;
         this.dcX = null;
-        this.dcW = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

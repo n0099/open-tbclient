@@ -24,7 +24,7 @@ public class e extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.JD()) {
+        if (eVar != null && eVar.JF()) {
             if (DEBUG) {
                 Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
             }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.d;
 /* loaded from: classes9.dex */
 public class b {
-    public boolean gJk = false;
-    public int gJl = 0;
-    public String gJm = null;
-    public int gJn = -1;
-    public int gJo = -1;
+    public boolean gJm = false;
+    public int gJn = 0;
+    public String gJo = null;
     public int gJp = -1;
+    public int gJq = -1;
+    public int gJr = -1;
 }

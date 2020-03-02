@@ -22,75 +22,75 @@ public interface d {
         @Nullable
         private final Handler handler;
         @Nullable
-        private final d maI;
+        private final d maK;
 
         public a(@Nullable Handler handler, @Nullable d dVar) {
             this.handler = dVar != null ? (Handler) com.google.android.exoplayer2.util.a.checkNotNull(handler) : null;
-            this.maI = dVar;
+            this.maK = dVar;
         }
 
         public void e(final com.google.android.exoplayer2.a.d dVar) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.maI.a(dVar);
+                        a.this.maK.a(dVar);
                     }
                 });
             }
         }
 
         public void f(final String str, final long j, final long j2) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.maI.d(str, j, j2);
+                        a.this.maK.d(str, j, j2);
                     }
                 });
             }
         }
 
         public void f(final Format format) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.maI.a(format);
+                        a.this.maK.a(format);
                     }
                 });
             }
         }
 
         public void h(final int i, final long j, final long j2) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.maI.e(i, j, j2);
+                        a.this.maK.e(i, j, j2);
                     }
                 });
             }
         }
 
         public void f(final com.google.android.exoplayer2.a.d dVar) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        dVar.duz();
-                        a.this.maI.b(dVar);
+                        dVar.duB();
+                        a.this.maK.b(dVar);
                     }
                 });
             }
         }
 
         public void Je(final int i) {
-            if (this.maI != null) {
+            if (this.maK != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.audio.d.a.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.maI.EU(i);
+                        a.this.maK.EU(i);
                     }
                 });
             }

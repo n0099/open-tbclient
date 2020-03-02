@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends a {
-    private int bht;
     private int bhu;
-    private String bhv;
-    private float bhw;
+    private int bhv;
+    private String bhw;
+    private float bhx;
     public int mHeight;
     private int mWidth;
     private int mX;
@@ -24,18 +24,18 @@ public class f extends a {
 
     public f(String str) {
         super(str);
-        this.bhv = "png";
-        this.bhw = 1.0f;
+        this.bhw = "png";
+        this.bhx = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             this.mY = af.S((float) jSONObject.optDouble("y"));
             this.mWidth = af.S((float) jSONObject.optDouble("width"));
             this.mHeight = af.S((float) jSONObject.optDouble("height"));
-            this.bht = af.S((float) jSONObject.optDouble("destWidth"));
-            this.bhu = af.S((float) jSONObject.optDouble("destHeight"));
-            this.bhv = jSONObject.optString("fileType");
-            this.bhw = (float) jSONObject.optDouble("quality");
+            this.bhu = af.S((float) jSONObject.optDouble("destWidth"));
+            this.bhv = af.S((float) jSONObject.optDouble("destHeight"));
+            this.bhw = jSONObject.optString("fileType");
+            this.bhx = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -59,11 +59,11 @@ public class f extends a {
             this.mY = (this.mY < 0 || this.mY >= height) ? 0 : this.mY;
             this.mWidth = (this.mWidth <= 0 || this.mX + this.mWidth > width) ? width - this.mX : this.mWidth;
             this.mHeight = (this.mHeight <= 0 || this.mY + this.mHeight > height) ? height - this.mY : this.mHeight;
-            this.bht = this.bht <= 0 ? this.mWidth : this.bht;
-            this.bhu = this.bhu <= 0 ? this.mHeight : this.bhu;
-            Bitmap createBitmap2 = Bitmap.createBitmap(this.bht, this.bhu, createBitmap.getConfig());
-            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bht, this.bhu), new Paint());
-            Bitmap.CompressFormat compressFormat = Ku() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            this.bhu = this.bhu <= 0 ? this.mWidth : this.bhu;
+            this.bhv = this.bhv <= 0 ? this.mHeight : this.bhv;
+            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhu, this.bhv, createBitmap.getConfig());
+            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhu, this.bhv), new Paint());
+            Bitmap.CompressFormat compressFormat = Kw() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -73,7 +73,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap2.compress(compressFormat, (int) (this.bhw * 100.0f), fileOutputStream);
+            createBitmap2.compress(compressFormat, (int) (this.bhx * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.d.c.closeSafely(fileOutputStream);
             return true;
@@ -90,12 +90,12 @@ public class f extends a {
         }
     }
 
-    public boolean Ku() {
-        return TextUtils.equals(this.bhv, "jpg");
+    public boolean Kw() {
+        return TextUtils.equals(this.bhw, "jpg");
     }
 
-    public String Kv() {
-        return Ku() ? "jpg" : "png";
+    public String Kx() {
+        return Kw() ? "jpg" : "png";
     }
 
     @Override // com.baidu.swan.apps.canvas.b.a, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a

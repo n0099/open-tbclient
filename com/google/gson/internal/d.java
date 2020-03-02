@@ -1,9 +1,9 @@
 package com.google.gson.internal;
 /* loaded from: classes7.dex */
 public final class d {
-    private static final int mKz = dAD();
+    private static final int mKB = dAF();
 
-    private static int dAD() {
+    private static int dAF() {
         return QI(System.getProperty("java.version"));
     }
 
@@ -47,11 +47,11 @@ public final class d {
         }
     }
 
-    public static int dAE() {
-        return mKz;
+    public static int dAG() {
+        return mKB;
     }
 
-    public static boolean dAF() {
-        return mKz >= 9;
+    public static boolean dAH() {
+        return mKB >= 9;
     }
 }

@@ -22,13 +22,13 @@ import com.baidu.tieba.R;
 public class v extends a<bj> implements com.baidu.tieba.a.e {
     private bj KJ;
     private String LC;
-    private final View cel;
-    private HeadImageView fCV;
-    private TextView fLA;
+    private final View cem;
+    private HeadImageView fCX;
     private TextView fLB;
-    private s fLC;
-    private FrsBaseVideoView fLD;
-    private TextView fLz;
+    private TextView fLC;
+    private TextView fLD;
+    private s fLE;
+    private FrsBaseVideoView fLF;
     private TbPageContext<?> mPageContext;
 
     public v(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -36,25 +36,25 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.fCV = (HeadImageView) view.findViewById(R.id.topic_icon);
-        this.fCV.setIsRound(true);
-        this.fCV.setDefaultResource(R.drawable.pic_head_topic);
-        this.fLz = (TextView) view.findViewById(R.id.card_topic_name);
-        this.fLB = (TextView) view.findViewById(R.id.card_thread_title);
-        this.fLA = (TextView) view.findViewById(R.id.card_reply_time);
-        this.cel = view.findViewById(R.id.card_divider_line);
-        this.fLD = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
-        this.fLD.setClickListener(this);
+        this.fCX = (HeadImageView) view.findViewById(R.id.topic_icon);
+        this.fCX.setIsRound(true);
+        this.fCX.setDefaultResource(R.drawable.pic_head_topic);
+        this.fLB = (TextView) view.findViewById(R.id.card_topic_name);
+        this.fLD = (TextView) view.findViewById(R.id.card_thread_title);
+        this.fLC = (TextView) view.findViewById(R.id.card_reply_time);
+        this.cem = view.findViewById(R.id.card_divider_line);
+        this.fLF = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
+        this.fLF.setClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.fCV.invalidate();
-        am.setViewTextColor(this.fLz, (int) R.color.cp_cont_b);
+        this.fCX.invalidate();
+        am.setViewTextColor(this.fLB, (int) R.color.cp_cont_b);
         am.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        am.setBackgroundColor(this.cel, R.color.cp_bg_line_c);
-        if (this.fLD != null) {
-            this.fLD.onChangeSkinType(i);
+        am.setBackgroundColor(this.cem, R.color.cp_bg_line_c);
+        if (this.fLF != null) {
+            this.fLF.onChangeSkinType(i);
         }
     }
 
@@ -78,43 +78,43 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (this.fLD != null) {
-            this.fLD.a(this.KJ, bjVar.aBU());
+        if (this.fLF != null) {
+            this.fLF.a(this.KJ, bjVar.aBW());
         }
-        if (bjVar.aCm() != null) {
-            this.fLz.setText(bjVar.aCm().getName_show());
+        if (bjVar.aCo() != null) {
+            this.fLB.setText(bjVar.aCo().getName_show());
         }
-        this.fLA.setText(aq.getFormatTime(bjVar.aCf() * 1000));
-        String str = bjVar.aDM() + "：";
+        this.fLC.setText(aq.getFormatTime(bjVar.aCh() * 1000));
+        String str = bjVar.aDO() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bjVar.u(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
-        this.fLB.setText(spannableStringBuilder);
-        l.a(this.fLB, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.fLD.setText(spannableStringBuilder);
+        l.a(this.fLD, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.KJ != null) {
-            if (buE() != null) {
-                buE().a(view, (View) this.KJ, (Object) this.fLC);
+            if (buG() != null) {
+                buG().a(view, (View) this.KJ, (Object) this.fLE);
             }
             l.zS(this.KJ.getTid());
-            l.a(this.fLB, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bvf();
+            l.a(this.fLD, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            bvh();
         }
     }
 
-    private void bvf() {
-        if (this.KJ != null && this.KJ.aCm() != null && this.KJ.aCm().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.gX(true) && !com.baidu.tbadk.plugins.b.aRB()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.KJ.aCm().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.KJ.getFid(), this.KJ.aDQ(), this.KJ.aDR(), com.baidu.adp.lib.f.b.toLong(this.KJ.getTid(), 0L));
+    private void bvh() {
+        if (this.KJ != null && this.KJ.aCo() != null && this.KJ.aCo().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.gX(true) && !com.baidu.tbadk.plugins.b.aRD()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.KJ.aCo().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.KJ.getFid(), this.KJ.aDS(), this.KJ.aDT(), com.baidu.adp.lib.f.b.toLong(this.KJ.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            ba.aGE().b(this.mPageContext, new String[]{this.KJ.aDS()});
+            ba.aGG().b(this.mPageContext, new String[]{this.KJ.aDU()});
         }
     }
 

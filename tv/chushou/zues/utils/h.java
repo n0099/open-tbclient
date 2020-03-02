@@ -17,20 +17,20 @@ import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class h {
-    private static volatile File nWM;
-    private static tv.chushou.zues.toolkit.a.b.a<Drawable> nWN;
-    private static final Field nWO;
-    private static volatile Resources nWg;
+    private static volatile File nWO;
+    private static tv.chushou.zues.toolkit.a.b.a<Drawable> nWP;
+    private static final Field nWQ;
+    private static volatile Resources nWi;
     private static volatile Application sApplication;
 
     public static void a(Context context, File file, Resources resources) {
         sApplication = (Application) context;
-        nWM = file;
-        nWg = resources;
+        nWO = file;
+        nWi = resources;
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dPR() {
+    public static Application dPT() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,8 +45,8 @@ public class h {
         return sApplication;
     }
 
-    public static Resources dQs() {
-        return nWg;
+    public static Resources dQu() {
+        return nWi;
     }
 
     public static boolean isEmpty(String str) {
@@ -116,17 +116,17 @@ public class h {
         }
     }
 
-    public static void dQt() {
-        if (nWN != null) {
-            nWN.clear();
-            nWN = null;
+    public static void dQv() {
+        if (nWP != null) {
+            nWP.clear();
+            nWP = null;
         }
     }
 
     @Nullable
     public static Drawable SW(String str) {
-        if (nWN != null) {
-            return nWN.get(str);
+        if (nWP != null) {
+            return nWP.get(str);
         }
         return null;
     }
@@ -139,11 +139,11 @@ public class h {
                 if (obj instanceof Drawable) {
                     bitmapDrawable = (Drawable) obj;
                 } else if (obj instanceof Bitmap) {
-                    bitmapDrawable = new BitmapDrawable(dQs(), (Bitmap) obj);
+                    bitmapDrawable = new BitmapDrawable(dQu(), (Bitmap) obj);
                 }
                 if (bitmapDrawable != null) {
-                    if (nWN == null) {
-                        nWN = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: tv.chushou.zues.utils.h.1
+                    if (nWP == null) {
+                        nWP = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: tv.chushou.zues.utils.h.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // tv.chushou.zues.toolkit.a.b.b
                             /* renamed from: b */
@@ -152,7 +152,7 @@ public class h {
                             }
                         });
                     }
-                    nWN.put(str, bitmapDrawable);
+                    nWP.put(str, bitmapDrawable);
                 }
             } catch (Exception e) {
             }
@@ -164,9 +164,9 @@ public class h {
         if (isEmpty(str)) {
             return "";
         }
-        File file = nWM;
+        File file = nWO;
         if (file == null) {
-            file = dPR().getCacheDir();
+            file = dPT().getCacheDir();
         }
         return file.getAbsolutePath() + File.separator + tv.chushou.a.a.d.b.encrypt(str);
     }
@@ -248,12 +248,12 @@ public class h {
             } catch (Exception e2) {
                 e = e2;
                 e.printStackTrace();
-                nWO = field;
+                nWQ = field;
             }
         } catch (Exception e3) {
             field = null;
             e = e3;
         }
-        nWO = field;
+        nWQ = field;
     }
 }

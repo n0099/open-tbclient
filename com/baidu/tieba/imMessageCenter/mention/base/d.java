@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class d extends RecyclerView.ItemDecoration {
-    private int fOc;
+    private int fOe;
 
     public d() {
-        if (this.fOc <= 0) {
-            this.fOc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.fOe <= 0) {
+            this.fOe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -26,6 +26,6 @@ public class d extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        rect.set(0, 0, 0, this.fOc);
+        rect.set(0, 0, 0, this.fOe);
     }
 }

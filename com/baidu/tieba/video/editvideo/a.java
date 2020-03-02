@@ -11,11 +11,11 @@ public interface a {
 
     void JU(String str);
 
-    void cPE();
-
     void cPG();
 
-    void cup();
+    void cPI();
+
+    void cur();
 
     void ep(List<PendantData> list);
 

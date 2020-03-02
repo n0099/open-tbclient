@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class c extends v.a {
     public TbImageView EB;
-    public View gfh;
-    private m jgn;
-    public TextView jgo;
+    public View gfj;
+    private m jgp;
+    public TextView jgq;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
@@ -25,17 +25,17 @@ public class c extends v.a {
         this.mSkinType = 3;
         this.EB = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.EB.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gfh = view.findViewById(R.id.normal_pic_click_bg);
-        this.jgo = (TextView) view.findViewById(R.id.tip_default_view);
+        this.gfj = view.findViewById(R.id.normal_pic_click_bg);
+        this.jgq = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void h(m mVar) {
         if (mVar instanceof n) {
-            this.jgn = mVar;
+            this.jgp = mVar;
             n nVar = (n) mVar;
-            if (nVar.aNY()) {
+            if (nVar.aOa()) {
                 String tn = o.tn(nVar.getSmallUrl());
-                this.jgo.setVisibility(0);
+                this.jgq.setVisibility(0);
                 if (StringUtils.isNull(tn)) {
                     this.EB.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
@@ -43,7 +43,7 @@ public class c extends v.a {
                 }
             } else {
                 this.EB.setDefaultResource(R.drawable.img_default_100);
-                this.jgo.setVisibility(8);
+                this.jgq.setVisibility(8);
                 this.EB.startLoad(nVar.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
@@ -53,14 +53,14 @@ public class c extends v.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.jgo, R.color.cp_cont_g, 1);
-            am.setBackgroundColor(this.jgo, R.color.black_alpha50);
+            am.setViewTextColor(this.jgq, R.color.cp_cont_g, 1);
+            am.setBackgroundColor(this.jgq, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }
 
-    public m aIv() {
-        return this.jgn;
+    public m aIx() {
+        return this.jgp;
     }
 
     public void D(View.OnClickListener onClickListener) {

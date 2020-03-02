@@ -4,11 +4,11 @@ package kotlin.b;
 /* loaded from: classes7.dex */
 public class o extends n {
     public static final f ew(int i, int i2) {
-        return f.nCJ.av(i, i2, -1);
+        return f.nCL.av(i, i2, -1);
     }
 
     public static final h ex(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.nCL.dKI() : new h(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? h.nCN.dKK() : new h(i, i2 - 1);
     }
 
     public static final int ey(int i, int i2) {

@@ -36,50 +36,50 @@ import com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.ala.personcenter.model.a {
-    private TbPageContext cVg;
-    private int eLg;
-    private NoNetworkView elh;
-    private g etW;
-    private AlaPersonCenterModel ftU;
-    private b ftV;
-    private c ftW;
-    private BdTypeListView ftX;
-    private ImageView ftY;
-    private TextView ftZ;
-    private boolean fua;
+    private TbPageContext cVh;
+    private int eLh;
+    private NoNetworkView eli;
+    private g etX;
+    private AlaPersonCenterModel ftV;
+    private b ftW;
+    private c ftX;
+    private BdTypeListView ftY;
+    private ImageView ftZ;
+    private TextView fua;
+    private boolean fub;
     private String mForumId;
     private String mForumName;
     private boolean mIsHost;
     private NavigationBar mNavigationBar;
     private h mRefreshView;
     private View mRootView;
-    private boolean eLf = true;
-    private boolean erR = false;
-    private boolean fub = false;
-    private CustomMessageListener fuc = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_USER_AUTHENT_UPLOAD_FINISH) { // from class: com.baidu.tieba.ala.personcenter.b.a.2
+    private boolean eLg = true;
+    private boolean erS = false;
+    private boolean fuc = false;
+    private CustomMessageListener fud = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_USER_AUTHENT_UPLOAD_FINISH) { // from class: com.baidu.tieba.ala.personcenter.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.ftU != null) {
-                a.this.ftU.loadData();
+            if (a.this.ftV != null) {
+                a.this.ftV.loadData();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.eLg = 0;
-        this.fua = false;
-        this.cVg = tbPageContext;
-        this.fua = z;
-        this.eLg = (int) this.cVg.getResources().getDimension(R.dimen.ds400);
-        this.ftU = new AlaPersonCenterModel(tbPageContext);
-        this.ftU.a(this);
+        this.eLh = 0;
+        this.fub = false;
+        this.cVh = tbPageContext;
+        this.fub = z;
+        this.eLh = (int) this.cVh.getResources().getDimension(R.dimen.ds400);
+        this.ftV = new AlaPersonCenterModel(tbPageContext);
+        this.ftV.a(this);
         eJ(tbPageContext.getPageActivity());
     }
 
-    private void bcu() {
+    private void bcw() {
         if (this.mRefreshView == null) {
-            this.mRefreshView = new h(this.cVg.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.1
+            this.mRefreshView = new h(this.cVh.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.loadData();
@@ -87,24 +87,24 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
             });
             this.mRefreshView.setTitle(null);
             this.mRefreshView.setButtonText(null);
-            this.mRefreshView.setLayoutMargin(this.cVg.getResources().getDimensionPixelSize(R.dimen.ds340));
+            this.mRefreshView.setLayoutMargin(this.cVh.getResources().getDimensionPixelSize(R.dimen.ds340));
             this.mRefreshView.showRefreshButton();
             this.mRefreshView.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         this.mRefreshView.setSubText(null);
-        this.mRefreshView.setTitle(this.cVg.getResources().getString(R.string.refresh_view_title_text));
+        this.mRefreshView.setTitle(this.cVh.getResources().getString(R.string.refresh_view_title_text));
         this.mRefreshView.onChangeSkinType();
-        if (!this.erR) {
+        if (!this.erS) {
             ((ViewGroup) this.mRootView).addView(this.mRefreshView.getAttachedView(), 0);
         }
-        this.erR = true;
+        this.erS = true;
     }
 
-    private void bcv() {
+    private void bcx() {
         if (this.mRefreshView != null && this.mRefreshView.getAttachedView().getParent() != null) {
             ((ViewGroup) this.mRefreshView.getAttachedView().getParent()).removeView(this.mRefreshView.getAttachedView());
         }
-        this.erR = false;
+        this.erS = false;
     }
 
     public View getView() {
@@ -115,53 +115,53 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         this.mRootView = View.inflate(context, R.layout.ala_person_center_layout, null);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.ala_person_center_navigation_bar);
         View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.fua) {
+        if (this.fub) {
             addSystemImageButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, a.this.cVg.getUniqueId()));
+                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, a.this.cVh.getUniqueId()));
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
             });
         }
-        this.ftY = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
+        this.ftZ = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
         this.mNavigationBar.showBottomLine(false);
-        if (!this.fua) {
-            this.ftZ = this.mNavigationBar.setCenterTextTitle(this.cVg.getString(R.string.ala_live));
+        if (!this.fub) {
+            this.fua = this.mNavigationBar.setCenterTextTitle(this.cVh.getString(R.string.ala_live));
         } else {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.cVg.getResources().getString(R.string.forum));
-            this.ftZ = this.mNavigationBar.setCenterTextTitle(sb.toString());
+            sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.cVh.getResources().getString(R.string.forum));
+            this.fua = this.mNavigationBar.setCenterTextTitle(sb.toString());
         }
-        this.elh = (NoNetworkView) this.mRootView.findViewById(R.id.ala_person_center_no_network_view);
-        this.ftX = (BdTypeListView) this.mRootView.findViewById(R.id.ala_person_center_listview);
-        this.ftX.setItemsCanFocus(true);
-        this.ftX.setVisibility(8);
-        this.ftW = new c(this.cVg, this.ftX, this);
-        if (this.fua) {
+        this.eli = (NoNetworkView) this.mRootView.findViewById(R.id.ala_person_center_no_network_view);
+        this.ftY = (BdTypeListView) this.mRootView.findViewById(R.id.ala_person_center_listview);
+        this.ftY.setItemsCanFocus(true);
+        this.ftY.setVisibility(8);
+        this.ftX = new c(this.cVh, this.ftY, this);
+        if (this.fub) {
             this.mRootView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        this.etW = new g(this.cVg.getPageActivity());
-        this.etW.attachView(this.mRootView, false);
-        this.ftX.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.4
+        this.etX = new g(this.cVh.getPageActivity());
+        this.etX.attachView(this.mRootView, false);
+        this.ftY.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.4
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                a.this.bgB();
-                a.this.bgC();
+                a.this.bgD();
+                a.this.bgE();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgB() {
-        if (Build.VERSION.SDK_INT >= 11 && this.ftX.getChildAt(0) != null) {
-            int dimension = (int) this.cVg.getResources().getDimension(R.dimen.ds98);
-            int i = this.eLg - (-this.ftX.getChildAt(0).getTop());
+    public void bgD() {
+        if (Build.VERSION.SDK_INT >= 11 && this.ftY.getChildAt(0) != null) {
+            int dimension = (int) this.cVh.getResources().getDimension(R.dimen.ds98);
+            int i = this.eLh - (-this.ftY.getChildAt(0).getTop());
             if (i < dimension) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -175,7 +175,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.ftX.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.ftY.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -183,137 +183,137 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgC() {
+    public void bgE() {
         if (2 != TbadkCoreApplication.getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
                 alpha = 1.0f - alpha;
-                if (!this.eLf) {
-                    this.eLf = true;
+                if (!this.eLg) {
+                    this.eLg = true;
                 }
-            } else if (this.eLf) {
-                this.eLf = false;
+            } else if (this.eLg) {
+                this.eLg = false;
             }
-            a(alpha, this.eLf ? false : true);
+            a(alpha, this.eLg ? false : true);
         }
     }
 
     protected void a(float f, boolean z) {
-        if (z || this.erR) {
-            am.setNavbarIconSrc(this.ftY, R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
-            am.setNavbarTitleColor(this.ftZ, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        if (z || this.erS) {
+            am.setNavbarIconSrc(this.ftZ, R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
+            am.setNavbarTitleColor(this.fua, R.color.cp_cont_b, R.color.s_navbar_title_color);
         } else {
-            am.setNavbarIconSrc(this.ftY, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
-            am.setNavbarTitleColor(this.ftZ, R.color.cp_cont_a, R.color.cp_cont_a);
+            am.setNavbarIconSrc(this.ftZ, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
+            am.setNavbarTitleColor(this.fua, R.color.cp_cont_a, R.color.cp_cont_a);
         }
+        this.fua.setAlpha(f);
         this.ftZ.setAlpha(f);
-        this.ftY.setAlpha(f);
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.cVg, i);
+        this.mNavigationBar.onChangeSkinType(this.cVh, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         am.setNavbarTitleColor(this.mNavigationBar.mTextTitle, R.color.cp_cont_a, R.color.cp_cont_a);
-        am.setNavbarIconSrc(this.ftY, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
-        this.ftX.setDivider(am.getDrawable(i, (int) R.color.cp_bg_line_c));
-        this.ftX.setDividerHeight(this.cVg.getResources().getDimensionPixelSize(R.dimen.ds2));
+        am.setNavbarIconSrc(this.ftZ, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
+        this.ftY.setDivider(am.getDrawable(i, (int) R.color.cp_bg_line_c));
+        this.ftY.setDividerHeight(this.cVh.getResources().getDimensionPixelSize(R.dimen.ds2));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        if (this.ftX.getAdapter() instanceof e) {
-            this.ftX.getAdapter().notifyDataSetChanged();
-            if (this.etW != null) {
-                this.etW.onChangeSkinType();
+        if (this.ftY.getAdapter() instanceof e) {
+            this.ftY.getAdapter().notifyDataSetChanged();
+            if (this.etX != null) {
+                this.etX.onChangeSkinType();
             }
-            this.elh.onChangeSkinType(this.cVg, i);
+            this.eli.onChangeSkinType(this.cVh, i);
             if (i == 1) {
-                this.mNavigationBar.getBarBgView().setBackgroundColor(this.cVg.getResources().getColor(R.color.cp_bg_line_h_1));
-                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.cVg.getResources().getColor(R.color.cp_bg_line_d_1));
+                this.mNavigationBar.getBarBgView().setBackgroundColor(this.cVh.getResources().getColor(R.color.cp_bg_line_h_1));
+                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.cVh.getResources().getColor(R.color.cp_bg_line_d_1));
             } else if (i == 0) {
-                this.mNavigationBar.getBarBgView().setBackgroundColor(this.cVg.getResources().getColor(R.color.cp_bg_line_h));
-                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.cVg.getResources().getColor(R.color.cp_bg_line_d));
+                this.mNavigationBar.getBarBgView().setBackgroundColor(this.cVh.getResources().getColor(R.color.cp_bg_line_h));
+                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.cVh.getResources().getColor(R.color.cp_bg_line_d));
             }
         }
     }
 
     public void f(String str, String str2, String str3, boolean z) {
-        this.ftU.setUid(str);
+        this.ftV.setUid(str);
         this.mIsHost = z;
     }
 
     public void loadData() {
-        this.ftU.loadData();
+        this.ftV.loadData();
     }
 
     @Override // com.baidu.tieba.ala.personcenter.model.a
     public void b(Object obj, int i) {
         if (obj != null) {
-            bcv();
+            bcx();
             if ((obj instanceof b) && i == 1) {
-                this.ftV = (b) obj;
-                this.ftV.setIsHost(this.mIsHost);
-                this.etW.dettachView(this.mRootView);
-                this.ftX.setVisibility(0);
-                bse();
+                this.ftW = (b) obj;
+                this.ftW.setIsHost(this.mIsHost);
+                this.etX.dettachView(this.mRootView);
+                this.ftY.setVisibility(0);
+                bsg();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.personcenter.model.a
     public void c(int i, String str, Object obj) {
-        if (this.etW != null) {
-            this.etW.dettachView(this.mRootView);
+        if (this.etX != null) {
+            this.etX.dettachView(this.mRootView);
         }
-        this.ftX.setVisibility(0);
-        if (this.ftX != null && v.isEmpty(this.ftX.getData())) {
-            bcu();
+        this.ftY.setVisibility(0);
+        if (this.ftY != null && v.isEmpty(this.ftY.getData())) {
+            bcw();
         }
     }
 
     public void onDestory() {
-        if (this.etW != null) {
-            this.etW.release();
-            this.etW.dettachView(this.mRootView);
+        if (this.etX != null) {
+            this.etX.release();
+            this.etX.dettachView(this.mRootView);
         }
-        if (this.ftU != null) {
-            this.ftU.destory();
+        if (this.ftV != null) {
+            this.ftV.destory();
         }
     }
 
-    public void bse() {
+    public void bsg() {
         ArrayList arrayList;
-        if (this.ftV != null) {
+        if (this.ftW != null) {
             if (this.mIsHost) {
                 arrayList = new ArrayList(10);
                 d dVar = new d();
-                dVar.a(this.ftV);
+                dVar.a(this.ftW);
                 arrayList.add(dVar);
                 com.baidu.tieba.ala.personcenter.c.h hVar = new com.baidu.tieba.ala.personcenter.c.h();
-                hVar.a(this.ftV);
+                hVar.a(this.ftW);
                 arrayList.add(hVar);
                 i iVar = new i();
-                iVar.a(this.ftV);
+                iVar.a(this.ftW);
                 arrayList.add(iVar);
                 f fVar = new f();
-                fVar.a(this.ftV);
+                fVar.a(this.ftW);
                 arrayList.add(fVar);
                 j jVar = new j();
-                jVar.a(this.ftV);
+                jVar.a(this.ftW);
                 arrayList.add(jVar);
                 com.baidu.tieba.ala.personcenter.c.e eVar = new com.baidu.tieba.ala.personcenter.c.e();
-                eVar.a(this.ftV);
+                eVar.a(this.ftW);
                 arrayList.add(eVar);
                 com.baidu.tieba.ala.personcenter.c.c cVar = new com.baidu.tieba.ala.personcenter.c.c();
-                cVar.a(this.ftV);
+                cVar.a(this.ftW);
                 arrayList.add(cVar);
                 k kVar = new k();
-                kVar.a(this.ftV);
+                kVar.a(this.ftW);
                 arrayList.add(kVar);
             } else {
                 arrayList = new ArrayList(4);
                 d dVar2 = new d();
-                dVar2.a(this.ftV);
+                dVar2.a(this.ftW);
                 arrayList.add(dVar2);
             }
-            this.ftW.setData(arrayList);
+            this.ftX.setData(arrayList);
         }
     }
 
@@ -323,25 +323,25 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
 
     public void setForumName(String str) {
         this.mForumName = str;
-        if (!this.fua) {
-            this.ftZ = this.mNavigationBar.setCenterTextTitle(this.cVg.getString(R.string.ala_live));
+        if (!this.fub) {
+            this.fua = this.mNavigationBar.setCenterTextTitle(this.cVh.getString(R.string.ala_live));
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.cVg.getResources().getString(R.string.forum));
-        this.ftZ = this.mNavigationBar.setCenterTextTitle(sb.toString());
+        sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.cVh.getResources().getString(R.string.forum));
+        this.fua = this.mNavigationBar.setCenterTextTitle(sb.toString());
     }
 
     @Override // com.baidu.tieba.ala.personcenter.d.a
     public void qM(int i) {
         if (i == 1) {
-            this.fub = true;
+            this.fuc = true;
         }
     }
 
     public void onResume() {
-        if (this.fub) {
-            this.fub = false;
+        if (this.fuc) {
+            this.fuc = false;
             loadData();
         }
     }

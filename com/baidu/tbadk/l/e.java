@@ -11,30 +11,30 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e dCR;
-    private List<String> dCQ;
+    private static e dCS;
+    private List<String> dCR;
 
-    public static e aQR() {
-        if (dCR == null) {
+    public static e aQT() {
+        if (dCS == null) {
             synchronized (e.class) {
-                if (dCR == null) {
-                    dCR = new e();
+                if (dCS == null) {
+                    dCS = new e();
                 }
             }
         }
-        return dCR;
+        return dCS;
     }
 
     public e() {
-        vC(com.baidu.tbadk.core.sharedPref.b.aFB().getString("key_need_add_source_stat_list", ""));
+        vC(com.baidu.tbadk.core.sharedPref.b.aFD().getString("key_need_add_source_stat_list", ""));
     }
 
     public void vB(String str) {
-        this.dCQ = vC(str);
+        this.dCR = vC(str);
         if (str == null) {
             str = "";
         }
-        com.baidu.tbadk.core.sharedPref.b.aFB().putString("key_need_add_source_stat_list", str);
+        com.baidu.tbadk.core.sharedPref.b.aFD().putString("key_need_add_source_stat_list", str);
     }
 
     private List<String> vC(String str) {
@@ -45,10 +45,10 @@ public class e {
     }
 
     public boolean vD(String str) {
-        if (v.isEmpty(this.dCQ) || aq.isEmpty(str)) {
+        if (v.isEmpty(this.dCR) || aq.isEmpty(str)) {
             return false;
         }
-        for (String str2 : this.dCQ) {
+        for (String str2 : this.dCR) {
             if (str.equals(str2)) {
                 return true;
             }
@@ -64,7 +64,7 @@ public class e {
             if (!TextUtils.isEmpty(currentPageKey)) {
                 anVar.cy("page_key", currentPageKey);
             }
-            String b = d.b(ea.aQO(), currentPageKey, 6);
+            String b = d.b(ea.aQQ(), currentPageKey, 6);
             if (!TextUtils.isEmpty(b)) {
                 anVar.cy("page_source", b);
             }

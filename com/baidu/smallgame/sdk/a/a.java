@@ -6,25 +6,25 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
-    private static int aYS = 1;
-    private static int aYT = 2;
-    private static int aYU = 3;
-    private Map<String, String> aYV = new HashMap();
+    private static int aYT = 1;
+    private static int aYU = 2;
+    private static int aYV = 3;
     private Map<String, String> aYW = new HashMap();
-    private SharedPreferences aYX;
+    private Map<String, String> aYX = new HashMap();
+    private SharedPreferences aYY;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.aYX = sharedPreferences;
+        this.aYY = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == aYS) {
-            this.aYV.put(str, str2);
-        } else if (i == aYT) {
+        if (i == aYT) {
             this.aYW.put(str, str2);
         } else if (i == aYU) {
-            if (this.aYX != null) {
-                this.aYX.edit().putString(str, str2).commit();
+            this.aYX.put(str, str2);
+        } else if (i == aYV) {
+            if (this.aYY != null) {
+                this.aYY.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == aYS) {
-            str2 = this.aYV.get(str);
-        } else if (i == aYT) {
+        if (i == aYT) {
             str2 = this.aYW.get(str);
         } else if (i == aYU) {
-            if (this.aYX != null) {
-                str2 = this.aYX.getString(str, "");
+            str2 = this.aYX.get(str);
+        } else if (i == aYV) {
+            if (this.aYY != null) {
+                str2 = this.aYY.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.aYV.clear();
+        this.aYW.clear();
     }
 }

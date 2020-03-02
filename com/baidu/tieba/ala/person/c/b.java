@@ -14,9 +14,9 @@ import com.baidu.tieba.ala.person.messages.PlaybacksResponseMessage;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
     private int akj;
-    private int fsb;
-    private a fsc;
-    private HttpMessageListener fsd;
+    private int fsc;
+    private a fsd;
+    private HttpMessageListener fse;
     private String uid;
 
     /* loaded from: classes3.dex */
@@ -29,28 +29,28 @@ public class b extends BdBaseModel {
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.akj = -1;
-        this.fsd = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
+        this.fse = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.fsc != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.fsd != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PlaybacksResponseMessage)) {
-                        b.this.fsc.onFail(httpResponsedMessage.getErrorString());
+                        b.this.fsd.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     PlaybacksResponseMessage playbacksResponseMessage = (PlaybacksResponseMessage) httpResponsedMessage;
                     if (playbacksResponseMessage.getError() != 0) {
-                        b.this.fsc.onFail(httpResponsedMessage.getErrorString());
+                        b.this.fsd.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
-                    b.this.fsb = playbacksResponseMessage.frV.fqA.has_more;
-                    b.this.fsc.a(playbacksResponseMessage.frV);
+                    b.this.fsc = playbacksResponseMessage.frW.fqB.has_more;
+                    b.this.fsd.a(playbacksResponseMessage.frW);
                 }
             }
         };
-        this.fsd.setSelfListener(true);
-        this.fsd.setTag(getUniqueId());
-        registerListener(this.fsd);
+        this.fse.setSelfListener(true);
+        this.fse.setTag(getUniqueId());
+        registerListener(this.fse);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -91,6 +91,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fsc = aVar;
+        this.fsd = aVar;
     }
 }

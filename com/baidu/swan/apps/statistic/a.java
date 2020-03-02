@@ -31,14 +31,14 @@ public class a {
                     jSONObject.put("page", c0297a.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(c0297a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0297a.bUI);
+                boolean isEmpty2 = TextUtils.isEmpty(c0297a.bUJ);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", c0297a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", c0297a.bUI);
+                        jSONObject2.put("info", c0297a.bUJ);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -60,12 +60,12 @@ public class a {
     /* loaded from: classes11.dex */
     public static class C0297a {
         private String appId;
-        private String bUI;
+        private String bUJ;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a bUH = new a();
+        private a bUI = new a();
         private String from = "swan";
 
         public C0297a(int i) {
@@ -83,12 +83,12 @@ public class a {
         }
 
         public C0297a lF(String str) {
-            this.bUI = str;
+            this.bUJ = str;
             return this;
         }
 
-        public void Wk() {
-            this.bUH.a(this);
+        public void Wm() {
+            this.bUI.a(this);
         }
     }
 }

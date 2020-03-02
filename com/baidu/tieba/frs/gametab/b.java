@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private boolean dGM = false;
-    private a.InterfaceC0499a fRx = new a.InterfaceC0499a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private boolean dGN = false;
+    private a.InterfaceC0499a fRz = new a.InterfaceC0499a() { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.tieba.f.a.InterfaceC0499a
         public void z(int i, int i2) {
             if (av(i2)) {
@@ -40,8 +40,8 @@ public class b {
             return Math.abs(f) >= 10.0f;
         }
     };
-    private boolean gEi;
-    private com.baidu.tieba.f.b gsm;
+    private boolean gEk;
+    private com.baidu.tieba.f.b gso;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.gEi = z;
-        if (this.gEi) {
-            this.gsm = new com.baidu.tieba.f.b(context);
-            this.gsm.a(this.fRx);
+        this.gEk = z;
+        if (this.gEk) {
+            this.gso = new com.baidu.tieba.f.b(context);
+            this.gso.a(this.fRz);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.gEi = false;
+                    this.gEk = false;
                     break;
                 } else {
-                    this.gEi = true;
+                    this.gEk = true;
                     break;
                 }
         }
-        if (this.gEi && this.gsm != null) {
-            this.gsm.onTouchEvent(motionEvent);
+        if (this.gEk && this.gso != null) {
+            this.gso.onTouchEvent(motionEvent);
         }
     }
 
@@ -91,9 +91,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lC(boolean z) {
-        this.dGM = z;
-        if (this.gEi) {
-            A(!this.dGM, true);
+        this.dGN = z;
+        if (this.gEk) {
+            A(!this.dGN, true);
         }
     }
 

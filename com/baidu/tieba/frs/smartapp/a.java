@@ -14,31 +14,31 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> cVQ;
-    private TbPageContext cVg;
+    private ArrayList<b> cVR;
+    private TbPageContext cVh;
 
     public a(TbPageContext tbPageContext) {
-        this.cVg = tbPageContext;
+        this.cVh = tbPageContext;
     }
 
     public void setData(ArrayList<b> arrayList) {
-        this.cVQ = arrayList;
+        this.cVR = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return 0;
         }
-        return this.cVQ.size();
+        return this.cVR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cVQ == null || i < 0 || i >= this.cVQ.size()) {
+        if (this.cVR == null || i < 0 || i >= this.cVR.size()) {
             return null;
         }
-        return this.cVQ.get(i);
+        return this.cVR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,10 +53,10 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0510a c0510a;
         if (view == null) {
-            view = LayoutInflater.from(this.cVg.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
+            view = LayoutInflater.from(this.cVh.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
             C0510a c0510a2 = new C0510a();
-            c0510a2.gIt = (RelativeLayout) view.findViewById(R.id.card);
-            c0510a2.gIs = (HeadImageView) view.findViewById(R.id.portrait);
+            c0510a2.gIv = (RelativeLayout) view.findViewById(R.id.card);
+            c0510a2.gIu = (HeadImageView) view.findViewById(R.id.portrait);
             c0510a2.mTitle = (TextView) view.findViewById(R.id.title);
             c0510a2.alh = (TextView) view.findViewById(R.id.desc);
             view.setTag(c0510a2);
@@ -65,15 +65,15 @@ public class a extends BaseAdapter {
             c0510a = (C0510a) view.getTag();
         }
         b bVar = (b) getItem(i);
-        int dimens = l.getDimens(this.cVg.getPageActivity(), R.dimen.tbds136);
-        c0510a.gIs.setIsRound(true);
-        c0510a.gIs.setPlaceHolder(2);
-        c0510a.gIs.a(bVar.avatar, 10, dimens, dimens, false);
+        int dimens = l.getDimens(this.cVh.getPageActivity(), R.dimen.tbds136);
+        c0510a.gIu.setIsRound(true);
+        c0510a.gIu.setPlaceHolder(2);
+        c0510a.gIu.a(bVar.avatar, 10, dimens, dimens, false);
         c0510a.mTitle.setText(bVar.name);
-        c0510a.alh.setText(bVar.gIv);
+        c0510a.alh.setText(bVar.gIx);
         am.setViewTextColor(c0510a.mTitle, R.color.cp_cont_b, 1);
         am.setViewTextColor(c0510a.alh, R.color.cp_cont_d, 1);
-        am.setBackgroundResource(c0510a.gIt, R.drawable.lite_progrom_icorner_bg);
+        am.setBackgroundResource(c0510a.gIv, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
@@ -81,8 +81,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes9.dex */
     public class C0510a {
         TextView alh;
-        HeadImageView gIs;
-        RelativeLayout gIt;
+        HeadImageView gIu;
+        RelativeLayout gIv;
         TextView mTitle;
 
         public C0510a() {

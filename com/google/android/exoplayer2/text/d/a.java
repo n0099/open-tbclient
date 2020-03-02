@@ -11,12 +11,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public final class a extends c {
-    private static final Pattern mBe = Pattern.compile("\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))\\s*-->\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))?\\s*");
-    private final StringBuilder mBf;
+    private static final Pattern mBh = Pattern.compile("\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))\\s*-->\\s*((?:(\\d+):)?(\\d+):(\\d+),(\\d+))?\\s*");
+    private final StringBuilder mBi;
 
     public a() {
         super("SubripDecoder");
-        this.mBf = new StringBuilder();
+        this.mBi = new StringBuilder();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public final class a extends c {
                         Log.w("SubripDecoder", "Unexpected end");
                         break;
                     }
-                    Matcher matcher = mBe.matcher(readLine2);
+                    Matcher matcher = mBh.matcher(readLine2);
                     if (matcher.matches()) {
                         gVar.gG(a(matcher, 1));
                         if (TextUtils.isEmpty(matcher.group(6))) {
@@ -49,18 +49,18 @@ public final class a extends c {
                             gVar.gG(a(matcher, 6));
                             z2 = true;
                         }
-                        this.mBf.setLength(0);
+                        this.mBi.setLength(0);
                         while (true) {
                             String readLine3 = lVar.readLine();
                             if (TextUtils.isEmpty(readLine3)) {
                                 break;
                             }
-                            if (this.mBf.length() > 0) {
-                                this.mBf.append("<br>");
+                            if (this.mBi.length() > 0) {
+                                this.mBi.append("<br>");
                             }
-                            this.mBf.append(readLine3.trim());
+                            this.mBi.append(readLine3.trim());
                         }
-                        arrayList.add(new com.google.android.exoplayer2.text.b(Html.fromHtml(this.mBf.toString())));
+                        arrayList.add(new com.google.android.exoplayer2.text.b(Html.fromHtml(this.mBi.toString())));
                         if (z2) {
                             arrayList.add(null);
                         }
@@ -74,7 +74,7 @@ public final class a extends c {
         }
         com.google.android.exoplayer2.text.b[] bVarArr = new com.google.android.exoplayer2.text.b[arrayList.size()];
         arrayList.toArray(bVarArr);
-        return new b(bVarArr, gVar.dzm());
+        return new b(bVarArr, gVar.dzo());
     }
 
     private static long a(Matcher matcher, int i) {

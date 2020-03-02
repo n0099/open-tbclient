@@ -19,7 +19,7 @@ import com.baidu.tieba.card.z;
 public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     private z<k> JZ;
     private r OR;
-    private BdUniqueId dBj;
+    private BdUniqueId dBk;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,7 +29,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.aAe() != null) {
+                if (view != null && kVar != null && kVar.aAg() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
                         com.baidu.tieba.homepage.video.c.a.m(kVar);
@@ -55,7 +55,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     public af<k> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBj);
+        eVar.setPageUniqueId(this.dBk);
         eVar.aL(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.homepage.video.a.f.2
             @Override // com.baidu.card.e.a
@@ -67,7 +67,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad a = aVar.a(false, viewGroup, this.OR);
         a.aQ(19);
         af<k> afVar = new af<>(a);
-        afVar.setPageId(this.dBj);
+        afVar.setPageId(this.dBk);
         a(new s() { // from class: com.baidu.tieba.homepage.video.a.f.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -90,7 +90,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRe == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
@@ -102,6 +102,6 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBj = bdUniqueId;
+        this.dBk = bdUniqueId;
     }
 }

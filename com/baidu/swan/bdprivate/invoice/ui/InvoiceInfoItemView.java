@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private View cel;
-    private TextView cen;
-    private EditText ceo;
-    private String cep;
-    private boolean ceq;
+    private View cem;
+    private TextView ceo;
+    private EditText cep;
+    private String ceq;
+    private boolean cer;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -40,77 +40,77 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, b.f.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(b.e.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(b.C0318b.invoice_edit_view_bg));
-        this.cen = (TextView) findViewById(b.e.invoice_info_desc);
-        this.ceo = (EditText) findViewById(b.e.invoice_info_content);
-        this.cel = findViewById(b.e.divider_line);
-        this.cen.setTextColor(getResources().getColor(b.C0318b.invoice_info_desc));
-        this.ceo.setTextColor(getResources().getColor(b.C0318b.invoice_info_content));
-        this.ceo.setHintTextColor(getResources().getColor(b.C0318b.invoice_info_content_hint));
-        this.cel.setBackground(getResources().getDrawable(b.C0318b.invoice_info_item_divider_line));
+        this.ceo = (TextView) findViewById(b.e.invoice_info_desc);
+        this.cep = (EditText) findViewById(b.e.invoice_info_content);
+        this.cem = findViewById(b.e.divider_line);
+        this.ceo.setTextColor(getResources().getColor(b.C0318b.invoice_info_desc));
+        this.cep.setTextColor(getResources().getColor(b.C0318b.invoice_info_content));
+        this.cep.setHintTextColor(getResources().getColor(b.C0318b.invoice_info_content_hint));
+        this.cem.setBackground(getResources().getDrawable(b.C0318b.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.ceq = aVar.ceq;
-            this.cen.setText(aVar.mDesc);
-            this.ceo.setHint(aVar.ces);
-            if (!aVar.cet) {
-                this.ceo.setSingleLine();
+            this.cer = aVar.cer;
+            this.ceo.setText(aVar.mDesc);
+            this.cep.setHint(aVar.cet);
+            if (!aVar.ceu) {
+                this.cep.setSingleLine();
             } else {
-                aVar.cer |= 131072;
+                aVar.ces |= 131072;
             }
-            this.ceo.setInputType(aVar.cer);
-            if (!TextUtils.isEmpty(aVar.ceu)) {
-                this.ceo.setKeyListener(DigitsKeyListener.getInstance(aVar.ceu));
+            this.cep.setInputType(aVar.ces);
+            if (!TextUtils.isEmpty(aVar.cev)) {
+                this.cep.setKeyListener(DigitsKeyListener.getInstance(aVar.cev));
             }
-            this.cep = aVar.cep;
+            this.ceq = aVar.ceq;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.ceo != null) {
-            return this.ceo.getText().toString().trim();
+        if (this.cep != null) {
+            return this.cep.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.ceo != null) {
-            this.ceo.setText(charSequence);
+        if (this.cep != null) {
+            this.cep.setText(charSequence);
         }
     }
 
-    public boolean aiI() {
-        return this.ceq;
+    public boolean aiK() {
+        return this.cer;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.ceo != null && textWatcher != null) {
-            this.ceo.addTextChangedListener(textWatcher);
+        if (this.cep != null && textWatcher != null) {
+            this.cep.addTextChangedListener(textWatcher);
         }
     }
 
     public void a(TextWatcher textWatcher) {
-        if (this.ceo != null) {
-            this.ceo.removeTextChangedListener(textWatcher);
+        if (this.cep != null) {
+            this.cep.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String cep;
-        private boolean ceq = false;
-        private int cer = 1;
-        private String ces;
-        private boolean cet;
-        private String ceu;
+        private String ceq;
+        private boolean cer = false;
+        private int ces = 1;
+        private String cet;
+        private boolean ceu;
+        private String cev;
         private String mDesc;
         private String mErrorMessage;
 
         public a eq(boolean z) {
-            this.ceq = z;
+            this.cer = z;
             return this;
         }
 
@@ -120,17 +120,17 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a hv(int i) {
-            this.cer = i;
+            this.ces = i;
             return this;
         }
 
         public a np(String str) {
-            this.ces = str;
+            this.cet = str;
             return this;
         }
 
         public a nq(String str) {
-            this.cep = str;
+            this.ceq = str;
             return this;
         }
 
@@ -140,12 +140,12 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a er(boolean z) {
-            this.cet = z;
+            this.ceu = z;
             return this;
         }
 
         public a ns(String str) {
-            this.ceu = str;
+            this.cev = str;
             return this;
         }
     }

@@ -17,7 +17,7 @@ public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public JSONArray read(a aVar) throws IOException {
-        if (aVar.dAR() == JsonToken.BEGIN_ARRAY) {
+        if (aVar.dAT() == JsonToken.BEGIN_ARRAY) {
             return JSONParser.readJSONArray(aVar);
         }
         return null;

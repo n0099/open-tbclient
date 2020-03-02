@@ -7,22 +7,22 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.swan.apps.adaptation.a.j {
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int GV() {
+    public int GX() {
         return 10150;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean GW() {
+    public boolean GY() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean GX() {
+    public boolean GZ() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int GY() {
+    public int Ha() {
         return 5000;
     }
 
@@ -31,17 +31,17 @@ public class a implements com.baidu.swan.apps.adaptation.a.j {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public void GZ() {
-        com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).GZ();
+    public void Hb() {
+        com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).Hb();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
     public void a(final a.InterfaceC0245a interfaceC0245a) {
         com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
             @Override // com.baidu.swan.apps.core.j.b.a
-            public void Hb() {
+            public void Hd() {
                 if (interfaceC0245a != null) {
-                    interfaceC0245a.Hb();
+                    interfaceC0245a.Hd();
                 }
                 com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).b(this);
             }
@@ -49,7 +49,7 @@ public class a implements com.baidu.swan.apps.adaptation.a.j {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public VideoPlayerFactory Ha() {
+    public VideoPlayerFactory Hc() {
         return null;
     }
 }

@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class ae implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.a lID;
-    private final com.facebook.common.memory.g lQq;
-    private final af lSo;
+    private final com.facebook.common.memory.a lIF;
+    private final com.facebook.common.memory.g lQs;
+    private final af lSq;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.lQq = gVar;
-        this.lID = aVar;
-        this.lSo = afVar;
+        this.lQs = gVar;
+        this.lIF = aVar;
+        this.lSq = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        akVar.drw().fm(akVar.getId(), "NetworkFetchProducer");
-        final t b = this.lSo.b(kVar, akVar);
-        this.lSo.a((af) b, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        akVar.dry().fm(akVar.getId(), "NetworkFetchProducer");
+        final t b = this.lSq.b(kVar, akVar);
+        this.lSq.a((af) b, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void g(InputStream inputStream, int i) throws IOException {
                 ae.this.a(b, inputStream, i);
@@ -34,37 +34,37 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void dkC() {
+            public void dkE() {
                 ae.this.b(b);
             }
         });
     }
 
     protected void a(t tVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i dkO;
+        com.facebook.common.memory.i dkQ;
         if (i > 0) {
-            dkO = this.lQq.Hu(i);
+            dkQ = this.lQs.Hu(i);
         } else {
-            dkO = this.lQq.dkO();
+            dkQ = this.lQs.dkQ();
         }
-        byte[] bArr = this.lID.get(16384);
+        byte[] bArr = this.lIF.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        dkO.write(bArr, 0, read);
-                        a(dkO, tVar);
-                        tVar.drH().aK(dC(dkO.size(), i));
+                        dkQ.write(bArr, 0, read);
+                        a(dkQ, tVar);
+                        tVar.drJ().aK(dC(dkQ.size(), i));
                     }
                 } else {
-                    this.lSo.b((af) tVar, dkO.size());
-                    b(dkO, tVar);
+                    this.lSq.b((af) tVar, dkQ.size());
+                    b(dkQ, tVar);
                     return;
                 }
             } finally {
-                this.lID.release(bArr);
-                dkO.close();
+                this.lIF.release(bArr);
+                dkQ.close();
             }
         }
     }
@@ -75,29 +75,29 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
 
     protected void a(com.facebook.common.memory.i iVar, t tVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(tVar) && uptimeMillis - tVar.drJ() >= 100) {
+        if (c(tVar) && uptimeMillis - tVar.drL() >= 100) {
             tVar.fj(uptimeMillis);
-            tVar.drw().az(tVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, tVar.drK(), tVar.drL(), tVar.drH());
+            tVar.dry().az(tVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, tVar.drM(), tVar.drN(), tVar.drJ());
         }
     }
 
     protected void b(com.facebook.common.memory.i iVar, t tVar) {
         Map<String, String> a = a(tVar, iVar.size());
-        am drw = tVar.drw();
-        drw.a(tVar.getId(), "NetworkFetchProducer", a);
-        drw.D(tVar.getId(), "NetworkFetchProducer", true);
-        a(iVar, tVar.drK() | 1, tVar.drL(), tVar.drH());
+        am dry = tVar.dry();
+        dry.a(tVar.getId(), "NetworkFetchProducer", a);
+        dry.D(tVar.getId(), "NetworkFetchProducer", true);
+        a(iVar, tVar.drM() | 1, tVar.drN(), tVar.drJ());
     }
 
     private void a(com.facebook.common.memory.i iVar, int i, @Nullable com.facebook.imagepipeline.common.a aVar, k<com.facebook.imagepipeline.g.e> kVar) {
         com.facebook.imagepipeline.g.e eVar;
-        com.facebook.common.references.a b = com.facebook.common.references.a.b(iVar.dkP());
+        com.facebook.common.references.a b = com.facebook.common.references.a.b(iVar.dkR());
         try {
             eVar = new com.facebook.imagepipeline.g.e(b);
             try {
                 eVar.b(aVar);
-                eVar.dqz();
+                eVar.dqB();
                 kVar.g(eVar, i);
                 com.facebook.imagepipeline.g.e.e(eVar);
                 com.facebook.common.references.a.c(b);
@@ -115,28 +115,28 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(t tVar, Throwable th) {
-        tVar.drw().a(tVar.getId(), "NetworkFetchProducer", th, (Map<String, String>) null);
-        tVar.drw().D(tVar.getId(), "NetworkFetchProducer", false);
-        tVar.drH().C(th);
+        tVar.dry().a(tVar.getId(), "NetworkFetchProducer", th, (Map<String, String>) null);
+        tVar.dry().D(tVar.getId(), "NetworkFetchProducer", false);
+        tVar.drJ().C(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(t tVar) {
-        tVar.drw().b(tVar.getId(), "NetworkFetchProducer", null);
-        tVar.drH().dkC();
+        tVar.dry().b(tVar.getId(), "NetworkFetchProducer", null);
+        tVar.drJ().dkE();
     }
 
     private boolean c(t tVar) {
-        if (tVar.drI().drA()) {
-            return this.lSo.a(tVar);
+        if (tVar.drK().drC()) {
+            return this.lSq.a(tVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> a(t tVar, int i) {
-        if (tVar.drw().Pd(tVar.getId())) {
-            return this.lSo.a((af) tVar, i);
+        if (tVar.dry().Pd(tVar.getId())) {
+            return this.lSq.a((af) tVar, i);
         }
         return null;
     }

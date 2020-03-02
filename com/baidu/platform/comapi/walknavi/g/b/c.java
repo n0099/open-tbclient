@@ -316,7 +316,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.overlook(0.0f);
                 builder.zoom(19.0f);
-                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f993top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f993top) - 75) * 0.25d)))));
+                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f992top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f992top) - 75) * 0.25d)))));
                 com.baidu.mapapi.model.inner.Point K = com.baidu.platform.comapi.walknavi.b.a().K();
                 if (K != null) {
                     builder.target(new LatLng(K.getmPty(), K.getmPtx()));

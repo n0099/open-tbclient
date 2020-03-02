@@ -17,21 +17,21 @@ import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView cKQ;
-    private TextView fOC;
-    private TextView fOD;
-    private TextView fOH;
-    private LinearLayout fOI;
+    private TextView cKR;
+    private TextView fOE;
+    private TextView fOF;
+    private TextView fOJ;
+    private LinearLayout fOK;
     private TextView subTextView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cKQ = (TextView) view.findViewById(R.id.chosen_no_picture_title);
-        this.fOC = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
-        this.fOD = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
-        this.fOH = (TextView) view.findViewById(R.id.chosen_no_picture_head);
+        this.cKR = (TextView) view.findViewById(R.id.chosen_no_picture_title);
+        this.fOE = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
+        this.fOF = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
+        this.fOJ = (TextView) view.findViewById(R.id.chosen_no_picture_head);
         this.subTextView = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
-        this.fOI = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
+        this.fOK = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
@@ -48,18 +48,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void ai(final tinfo tinfoVar) {
         super.ai(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.fOH.setVisibility(8);
+            this.fOJ.setVisibility(8);
         } else {
-            this.fOH.setVisibility(0);
-            this.fOH.setText(tinfoVar.title);
+            this.fOJ.setVisibility(0);
+            this.fOJ.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.fOI.setVisibility(8);
+            this.fOK.setVisibility(8);
         } else {
-            this.fOI.setVisibility(0);
-            this.cKQ.setVisibility(0);
-            this.cKQ.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.cKQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.fOK.setVisibility(0);
+            this.cKR.setVisibility(0);
+            this.cKR.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.cKR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -70,16 +70,16 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.fOC.setVisibility(8);
+                this.fOE.setVisibility(8);
             } else {
-                this.fOC.setVisibility(0);
-                this.fOC.setText(tinfoVar.zan_num + "");
+                this.fOE.setVisibility(0);
+                this.fOE.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.fOD.setVisibility(8);
+                this.fOF.setVisibility(8);
             } else {
-                this.fOD.setVisibility(0);
-                this.fOD.setText(tinfoVar.reply_num + "");
+                this.fOF.setVisibility(0);
+                this.fOF.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {

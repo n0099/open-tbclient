@@ -7,21 +7,21 @@ import android.graphics.drawable.NinePatchDrawable;
 /* loaded from: classes5.dex */
 public class a {
     public final Bitmap bitmap;
-    public final NinePatchChunk nWf;
+    public final NinePatchChunk nWh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Bitmap bitmap, NinePatchChunk ninePatchChunk) {
         this.bitmap = bitmap;
-        this.nWf = ninePatchChunk;
+        this.nWh = ninePatchChunk;
     }
 
     public NinePatchDrawable b(Resources resources, String str) {
         if (this.bitmap == null) {
             return null;
         }
-        if (this.nWf == null) {
+        if (this.nWh == null) {
             return new NinePatchDrawable(resources, this.bitmap, null, new Rect(), str);
         }
-        return new NinePatchDrawable(resources, this.bitmap, this.nWf.toBytes(), this.nWf.padding, str);
+        return new NinePatchDrawable(resources, this.bitmap, this.nWh.toBytes(), this.nWh.padding, str);
     }
 }

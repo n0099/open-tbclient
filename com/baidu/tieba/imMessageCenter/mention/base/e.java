@@ -12,12 +12,12 @@ import java.util.List;
 public class e {
     private BdTypeRecyclerView BK;
     private List<com.baidu.adp.widget.ListView.a> asE = new LinkedList();
-    private ArrayList<m> fSr;
+    private ArrayList<m> fSt;
     private b hQA;
     private b hQB;
     private b hQC;
-    private b hQy;
-    private b hQz;
+    private b hQD;
+    private b hQE;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void s(TbPageContext tbPageContext) {
-        this.hQy = new b(tbPageContext, a.hQh);
-        this.hQz = new b(tbPageContext, a.hQi);
-        this.hQA = new b(tbPageContext, a.hQl);
+        this.hQA = new b(tbPageContext, a.hQj);
         this.hQB = new b(tbPageContext, a.hQk);
-        this.hQC = new b(tbPageContext, a.hQj);
-        this.asE.add(this.hQy);
-        this.asE.add(this.hQz);
+        this.hQC = new b(tbPageContext, a.hQn);
+        this.hQD = new b(tbPageContext, a.hQm);
+        this.hQE = new b(tbPageContext, a.hQl);
         this.asE.add(this.hQA);
         this.asE.add(this.hQB);
         this.asE.add(this.hQC);
+        this.asE.add(this.hQD);
+        this.asE.add(this.hQE);
         this.BK.addAdapters(this.asE);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<m> arrayList) {
         this.BK.setData(arrayList);
-        this.fSr = arrayList;
+        this.fSt = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(z zVar) {
+        this.hQE.setOnCardSubClickListener(zVar);
+        this.hQD.setOnCardSubClickListener(zVar);
         this.hQC.setOnCardSubClickListener(zVar);
-        this.hQB.setOnCardSubClickListener(zVar);
-        this.hQA.setOnCardSubClickListener(zVar);
     }
 }

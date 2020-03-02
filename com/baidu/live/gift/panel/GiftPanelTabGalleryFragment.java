@@ -77,8 +77,8 @@ public class GiftPanelTabGalleryFragment extends GiftPanelTabBaseFragment {
     }
 
     private boolean b(g gVar) {
-        if (com.baidu.live.v.a.zj().axB != null && com.baidu.live.v.a.zj().axB.acR != null) {
-            String str = com.baidu.live.v.a.zj().axB.acR.acc;
+        if (com.baidu.live.v.a.zl().axC != null && com.baidu.live.v.a.zl().axC.acR != null) {
+            String str = com.baidu.live.v.a.zl().axC.acR.acc;
             if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.rT()))) {
                 return true;
             }

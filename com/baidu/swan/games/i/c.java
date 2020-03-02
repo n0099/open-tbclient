@@ -23,15 +23,15 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bld;
-    private String bpE;
-    private boolean bpF;
-    private com.baidu.swan.games.binding.a bpz = new com.baidu.swan.games.binding.a();
-    private DuMixGameSurfaceView cok;
-    private InterfaceC0336c col;
+    private com.baidu.swan.games.e.a ble;
+    private com.baidu.swan.games.binding.a bpA = new com.baidu.swan.games.binding.a();
+    private String bpF;
+    private boolean bpG;
+    private DuMixGameSurfaceView col;
 
     /* renamed from: com  reason: collision with root package name */
-    private boolean f1013com;
+    private InterfaceC0336c f1012com;
+    private boolean con;
 
     /* renamed from: com.baidu.swan.games.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -44,77 +44,77 @@ public class c {
     }
 
     private void bO(@NonNull String str, @NonNull String str2) {
-        this.cok = com.baidu.swan.games.glsurface.b.aor().dx(AppRuntime.getAppContext());
-        this.cok.setRenderMode(1);
-        this.bld = g.a(Pb(), new b(str, str2), new a(this.cok));
-        this.bld.setContext(com.baidu.swan.apps.w.a.TU());
-        this.cok.setV8Engine(this.bld);
+        this.col = com.baidu.swan.games.glsurface.b.aot().dx(AppRuntime.getAppContext());
+        this.col.setRenderMode(1);
+        this.ble = g.a(Pd(), new b(str, str2), new a(this.col));
+        this.ble.setContext(com.baidu.swan.apps.w.a.TW());
+        this.col.setV8Engine(this.ble);
     }
 
-    private h Pb() {
-        return new h.a().hQ(2).oJ("master").anC();
+    private h Pd() {
+        return new h.a().hQ(2).oJ("master").anE();
     }
 
     public void finish() {
         if (DEBUG) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish engine");
         }
-        this.bld.finish();
-        if (!this.cok.isAttachedToWindow()) {
+        this.ble.finish();
+        if (!this.col.isAttachedToWindow()) {
             if (DEBUG) {
                 Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish surfaceView");
             }
-            this.cok.onDestroy();
+            this.col.onDestroy();
         }
     }
 
     public void aa(Activity activity) {
-        this.bpz.Z(activity);
+        this.bpA.Z(activity);
     }
 
     public void a(InterfaceC0336c interfaceC0336c) {
-        this.col = interfaceC0336c;
+        this.f1012com = interfaceC0336c;
     }
 
-    public com.baidu.swan.games.e.a aoj() {
-        return this.bld;
+    public com.baidu.swan.games.e.a aol() {
+        return this.ble;
     }
 
-    public DuMixGameSurfaceView anY() {
-        return this.cok;
+    public DuMixGameSurfaceView aoa() {
+        return this.col;
     }
 
-    public int Pe() {
-        return com.baidu.swan.apps.core.b.a.j(this.bpF, this.f1013com);
+    public int Pg() {
+        return com.baidu.swan.apps.core.b.a.j(this.bpG, this.con);
     }
 
     public void b(final a.b bVar) {
         if (bVar != null && !TextUtils.isEmpty(bVar.appBundlePath)) {
-            this.bpE = bVar.appBundlePath;
+            this.bpF = bVar.appBundlePath;
             final Runnable runnable = new Runnable() { // from class: com.baidu.swan.games.i.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.aok();
-                    c.this.aol();
                     c.this.aom();
+                    c.this.aon();
+                    c.this.aoo();
                 }
             };
             if (DEBUG) {
                 Log.d("SwanGameV8Master", "SwanGameCoreRuntime loadAppJs run event");
             }
-            this.bld.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.c.2
+            this.ble.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (c.DEBUG) {
                         Log.d("SwanGameV8Master", "SwanGameCoreRuntime JSThread run event start");
                     }
-                    com.baidu.swan.games.inspector.a aVar = bVar.cpr == null ? null : bVar.cpr.crm;
+                    com.baidu.swan.games.inspector.a aVar = bVar.cps == null ? null : bVar.cps.crn;
                     a.C0337a a2 = com.baidu.swan.games.inspector.a.a(aVar);
                     if (a2.isEnabled()) {
-                        SwanInspectorEndpoint.aoD().a(aVar, c.this.bld, a2, runnable);
+                        SwanInspectorEndpoint.aoF().a(aVar, c.this.ble, a2, runnable);
                         return;
                     }
-                    SwanInspectorEndpoint.aoD().a(a2);
+                    SwanInspectorEndpoint.aoF().a(a2);
                     runnable.run();
                 }
             });
@@ -122,38 +122,38 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aok() {
-        this.cok.aon();
-        this.bld.setFileSystemDelegatePolicy(new d());
-        this.bld.anq();
-        this.bld.anp();
-        if (com.baidu.swan.apps.w.a.TX().dT(1)) {
-            this.bld.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ax("gamejs", this.bpE));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aol() {
-        if (DEBUG && com.baidu.swan.apps.ah.a.a.aao() && new File(com.baidu.swan.games.d.b.RR(), com.baidu.swan.games.d.b.anm()).exists()) {
-            this.bld.bF(com.baidu.swan.games.d.b.RR().getAbsolutePath(), com.baidu.swan.games.d.b.anm());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void aom() {
+        this.col.aop();
+        this.ble.setFileSystemDelegatePolicy(new d());
+        this.ble.ans();
+        this.ble.anr();
+        if (com.baidu.swan.apps.w.a.TZ().dT(1)) {
+            this.ble.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ax("gamejs", this.bpF));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aon() {
+        if (DEBUG && com.baidu.swan.apps.ah.a.a.aaq() && new File(com.baidu.swan.games.d.b.RT(), com.baidu.swan.games.d.b.ano()).exists()) {
+            this.ble.bF(com.baidu.swan.games.d.b.RT().getAbsolutePath(), com.baidu.swan.games.d.b.ano());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aoo() {
         if (DEBUG) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js start.");
         }
         f.jP("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_index_js_start"));
-        this.bld.dispatchEvent(new com.baidu.swan.games.o.c());
-        this.bld.bF(this.bpE, "index.js");
-        this.bld.dispatchEvent(new com.baidu.swan.games.o.d());
+        this.ble.dispatchEvent(new com.baidu.swan.games.o.c());
+        this.ble.bF(this.bpF, "index.js");
+        this.ble.dispatchEvent(new com.baidu.swan.games.o.d());
         f.jP("startup").f(new UbcFlowEvent("na_load_index_js_end"));
         if (DEBUG) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js end.");
         }
-        this.bld.onLoad();
-        this.cok.aoo();
+        this.ble.onLoad();
+        this.col.aoq();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -169,8 +169,8 @@ public class c {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            c.this.bpz.a(aVar, com.baidu.swan.apps.w.a.TU());
-            new com.baidu.swan.games.binding.b().a(aVar, com.baidu.swan.apps.w.a.TU());
+            c.this.bpA.a(aVar, com.baidu.swan.apps.w.a.TW());
+            new com.baidu.swan.games.binding.b().a(aVar, com.baidu.swan.apps.w.a.TW());
             aVar.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.games.i.c.b.1
                 @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
                 public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
@@ -183,8 +183,8 @@ public class c {
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void b(com.baidu.swan.games.e.a aVar) {
             f.jP("preload").f(new UbcFlowEvent("na_load_swan_game_js_end"));
-            if (c.this.col != null) {
-                c.this.col.c(aVar);
+            if (c.this.f1012com != null) {
+                c.this.f1012com.c(aVar);
             }
         }
 
@@ -194,13 +194,13 @@ public class c {
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public String Pd() {
+        public String Pf() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public V8EngineConfiguration.CodeCacheSetting Pc() {
-            if (com.baidu.swan.apps.w.a.TX().dT(1)) {
+        public V8EngineConfiguration.CodeCacheSetting Pe() {
+            if (com.baidu.swan.apps.w.a.TZ().dT(1)) {
                 return com.baidu.swan.apps.core.b.a.ax("gameframe", getInitBasePath());
             }
             return null;
@@ -216,11 +216,11 @@ public class c {
                     File file = new File(cacheInfo.jsPath);
                     try {
                         if (TextUtils.isEmpty(getInitBasePath()) || !file.getCanonicalPath().startsWith(new File(getInitBasePath()).getCanonicalPath())) {
-                            if (!TextUtils.isEmpty(c.this.bpE) && file.getCanonicalPath().startsWith(new File(c.this.bpE).getCanonicalPath())) {
-                                c.this.f1013com = true;
+                            if (!TextUtils.isEmpty(c.this.bpF) && file.getCanonicalPath().startsWith(new File(c.this.bpF).getCanonicalPath())) {
+                                c.this.con = true;
                             }
                         } else {
-                            c.this.bpF = true;
+                            c.this.bpG = true;
                         }
                     } catch (IOException e) {
                         if (c.DEBUG) {
@@ -235,10 +235,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a implements V8ThreadDelegatePolicy {
-        private DuMixGameSurfaceView boJ;
+        private DuMixGameSurfaceView boK;
 
         a(DuMixGameSurfaceView duMixGameSurfaceView) {
-            this.boJ = duMixGameSurfaceView;
+            this.boK = duMixGameSurfaceView;
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
@@ -246,7 +246,7 @@ public class c {
             if (c.DEBUG) {
                 Log.d("SwanGameV8Master", "startV8Engine");
             }
-            this.boJ.runOnGLThread(new Runnable() { // from class: com.baidu.swan.games.i.c.a.1
+            this.boK.runOnGLThread(new Runnable() { // from class: com.baidu.swan.games.i.c.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (c.DEBUG) {
@@ -259,27 +259,27 @@ public class c {
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnable(Runnable runnable) {
-            this.boJ.queueEvent(runnable);
+            this.boK.queueEvent(runnable);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnable(Runnable runnable, long j) {
-            this.boJ.queueEvent(runnable, j);
+            this.boK.queueEvent(runnable, j);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnableDirectly(Runnable runnable) {
-            this.boJ.runOnGLThread(runnable);
+            this.boK.runOnGLThread(runnable);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void shutdown() {
-            this.boJ.clearOldEvents();
+            this.boK.clearOldEvents();
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public Thread getThread() {
-            return this.boJ.getThread();
+            return this.boK.getThread();
         }
     }
 }

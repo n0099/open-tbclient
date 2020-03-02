@@ -9,27 +9,27 @@ import java.util.PriorityQueue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public abstract class d implements com.google.android.exoplayer2.text.f {
-    private final LinkedList<i> mAa;
-    private final PriorityQueue<h> mAb;
-    private h mAc;
-    private final LinkedList<h> mzZ = new LinkedList<>();
+    private final LinkedList<h> mAb = new LinkedList<>();
+    private final LinkedList<i> mAc;
+    private final PriorityQueue<h> mAd;
+    private h mAe;
     private long playbackPositionUs;
 
     protected abstract void b(h hVar);
 
-    protected abstract boolean dxN();
+    protected abstract boolean dxP();
 
-    protected abstract com.google.android.exoplayer2.text.e dxO();
+    protected abstract com.google.android.exoplayer2.text.e dxQ();
 
     public d() {
         for (int i = 0; i < 10; i++) {
-            this.mzZ.add(new h());
+            this.mAb.add(new h());
         }
-        this.mAa = new LinkedList<>();
+        this.mAc = new LinkedList<>();
         for (int i2 = 0; i2 < 2; i2++) {
-            this.mAa.add(new e(this));
+            this.mAc.add(new e(this));
         }
-        this.mAb = new PriorityQueue<>();
+        this.mAd = new PriorityQueue<>();
     }
 
     @Override // com.google.android.exoplayer2.text.f
@@ -39,50 +39,50 @@ public abstract class d implements com.google.android.exoplayer2.text.f {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.a.c
-    /* renamed from: dxS */
-    public h dux() throws SubtitleDecoderException {
-        com.google.android.exoplayer2.util.a.checkState(this.mAc == null);
-        if (this.mzZ.isEmpty()) {
+    /* renamed from: dxU */
+    public h duz() throws SubtitleDecoderException {
+        com.google.android.exoplayer2.util.a.checkState(this.mAe == null);
+        if (this.mAb.isEmpty()) {
             return null;
         }
-        this.mAc = this.mzZ.pollFirst();
-        return this.mAc;
+        this.mAe = this.mAb.pollFirst();
+        return this.mAe;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.a.c
     /* renamed from: c */
     public void bx(h hVar) throws SubtitleDecoderException {
-        com.google.android.exoplayer2.util.a.checkArgument(hVar == this.mAc);
-        if (hVar.dur()) {
+        com.google.android.exoplayer2.util.a.checkArgument(hVar == this.mAe);
+        if (hVar.dut()) {
             d(hVar);
         } else {
-            this.mAb.add(hVar);
+            this.mAd.add(hVar);
         }
-        this.mAc = null;
+        this.mAe = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.a.c
-    /* renamed from: dxR */
-    public i duy() throws SubtitleDecoderException {
-        if (this.mAa.isEmpty()) {
+    /* renamed from: dxT */
+    public i duA() throws SubtitleDecoderException {
+        if (this.mAc.isEmpty()) {
             return null;
         }
-        while (!this.mAb.isEmpty() && this.mAb.peek().mdB <= this.playbackPositionUs) {
-            h poll = this.mAb.poll();
-            if (poll.dus()) {
-                i pollFirst = this.mAa.pollFirst();
+        while (!this.mAd.isEmpty() && this.mAd.peek().mdD <= this.playbackPositionUs) {
+            h poll = this.mAd.poll();
+            if (poll.duu()) {
+                i pollFirst = this.mAc.pollFirst();
                 pollFirst.aK(4);
                 d(poll);
                 return pollFirst;
             }
             b(poll);
-            if (dxN()) {
-                com.google.android.exoplayer2.text.e dxO = dxO();
-                if (!poll.dur()) {
-                    i pollFirst2 = this.mAa.pollFirst();
-                    pollFirst2.a(poll.mdB, dxO, Format.OFFSET_SAMPLE_RELATIVE);
+            if (dxP()) {
+                com.google.android.exoplayer2.text.e dxQ = dxQ();
+                if (!poll.dut()) {
+                    i pollFirst2 = this.mAc.pollFirst();
+                    pollFirst2.a(poll.mdD, dxQ, Format.OFFSET_SAMPLE_RELATIVE);
                     d(poll);
                     return pollFirst2;
                 }
@@ -94,24 +94,24 @@ public abstract class d implements com.google.android.exoplayer2.text.f {
 
     private void d(h hVar) {
         hVar.clear();
-        this.mzZ.add(hVar);
+        this.mAb.add(hVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(i iVar) {
         iVar.clear();
-        this.mAa.add(iVar);
+        this.mAc.add(iVar);
     }
 
     @Override // com.google.android.exoplayer2.a.c
     public void flush() {
         this.playbackPositionUs = 0L;
-        while (!this.mAb.isEmpty()) {
-            d(this.mAb.poll());
+        while (!this.mAd.isEmpty()) {
+            d(this.mAd.poll());
         }
-        if (this.mAc != null) {
-            d(this.mAc);
-            this.mAc = null;
+        if (this.mAe != null) {
+            d(this.mAe);
+            this.mAe = null;
         }
     }
 

@@ -39,7 +39,7 @@ public class TriangleShapeView extends View {
         int width = getWidth();
         int height = getHeight();
         if (width != 0 && height != 0) {
-            crg();
+            cri();
             if (this.mPath == null) {
                 this.mPath = new Path();
             }
@@ -51,7 +51,7 @@ public class TriangleShapeView extends View {
         }
     }
 
-    private void crg() {
+    private void cri() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }

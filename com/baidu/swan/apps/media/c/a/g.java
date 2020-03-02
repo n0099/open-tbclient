@@ -12,12 +12,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bEJ;
+    protected String bEK;
 
     public abstract boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public g(@NonNull String str) {
-        this.bEJ = str;
+        this.bEK = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, a.Je());
+        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, a.Jg());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -48,9 +48,9 @@ public abstract class g {
     @Nullable
     protected com.baidu.swan.apps.media.c.a a(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         com.baidu.swan.apps.media.a B;
-        if (TextUtils.isEmpty(str3) || (B = com.baidu.swan.apps.media.b.B(str, str2, str3)) == null || !(B.Xa() instanceof com.baidu.swan.apps.media.c.a)) {
+        if (TextUtils.isEmpty(str3) || (B = com.baidu.swan.apps.media.b.B(str, str2, str3)) == null || !(B.Xc() instanceof com.baidu.swan.apps.media.c.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.c.a) B.Xa();
+        return (com.baidu.swan.apps.media.c.a) B.Xc();
     }
 }

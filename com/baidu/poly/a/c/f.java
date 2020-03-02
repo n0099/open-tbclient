@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 /* loaded from: classes11.dex */
 public class f {
-    public ImageView aQw;
+    public ImageView aQx;
     public Bitmap bitmap;
     public String url;
 
     public f(ImageView imageView, String str, Bitmap bitmap) {
-        this.aQw = imageView;
+        this.aQx = imageView;
         this.url = str;
         this.bitmap = bitmap;
     }

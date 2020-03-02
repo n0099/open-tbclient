@@ -7,11 +7,11 @@ import com.baidu.swan.apps.ap.e;
 import com.baidu.swan.games.v.a.d;
 /* loaded from: classes11.dex */
 public class c {
-    protected com.baidu.swan.games.e.b cjZ;
-    protected b csq = new b();
+    protected com.baidu.swan.games.e.b cka;
+    protected b csr = new b();
 
     public c(com.baidu.swan.games.e.b bVar) {
-        this.cjZ = bVar;
+        this.cka = bVar;
     }
 
     @NonNull
@@ -20,12 +20,12 @@ public class c {
         if (str == null) {
             return d.pJ("parameter error: the key cannot be null.");
         }
-        String string = this.csq.getString(str, null);
+        String string = this.csr.getString(str, null);
         if (string != null) {
-            obj = this.cjZ.c(Base64.decode(string, 2), true);
+            obj = this.cka.c(Base64.decode(string, 2), true);
         }
         if (obj == null) {
-            obj = d.apN();
+            obj = d.apP();
         }
         return d.X(obj);
     }
@@ -38,19 +38,19 @@ public class c {
         } else if (jsSerializeValue == null) {
             return d.X(null);
         } else {
-            byte[] a = this.cjZ.a(jsSerializeValue, true);
+            byte[] a = this.cka.a(jsSerializeValue, true);
             a(jsSerializeValue);
             if (a == null) {
                 return d.pJ("parameter error: the data parse failed.");
             }
             String encodeToString = Base64.encodeToString(a, 2);
-            String string = this.csq.getString(str, null);
+            String string = this.csr.getString(str, null);
             int length = str.getBytes().length;
-            if (this.csq.afj() - this.csq.afi() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
+            if (this.csr.afl() - this.csr.afk() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
                 return d.pJ("storage error: the storage space insufficient.");
             }
-            boolean putString = this.csq.putString(str, encodeToString);
-            e.bXP.update();
+            boolean putString = this.csr.putString(str, encodeToString);
+            e.bXQ.update();
             return putString ? d.X(null) : d.pJ("storage error: the storage is invalid.");
         }
     }
@@ -60,25 +60,25 @@ public class c {
         if (str == null) {
             return d.pJ("parameter error: the key cannot be null.");
         }
-        this.csq.remove(str);
-        e.bXP.update();
+        this.csr.remove(str);
+        e.bXQ.update();
         return d.X(null);
     }
 
     @NonNull
-    public d apL() {
-        this.csq.apI();
-        e.bXP.update();
+    public d apN() {
+        this.csr.apK();
+        e.bXQ.update();
         return d.X(null);
     }
 
     @NonNull
     public com.baidu.swan.games.v.a.c getStorageInfoSync() {
-        String[] apH = this.csq.apH();
+        String[] apJ = this.csr.apJ();
         com.baidu.swan.games.v.a.c cVar = new com.baidu.swan.games.v.a.c();
-        cVar.keys = apH;
-        cVar.currentSize = this.csq.afi() / 1024;
-        cVar.limitSize = this.csq.afj() / 1024;
+        cVar.keys = apJ;
+        cVar.currentSize = this.csr.afk() / 1024;
+        cVar.limitSize = this.csr.afl() / 1024;
         cVar.errMsg = com.baidu.swan.games.v.a.a.pI("getStorageInfoSync");
         return cVar;
     }

@@ -39,10 +39,10 @@ public abstract class JsonCallbackWrapper implements a<Http.Resp> {
             return;
         }
         if (optInt == 401) {
-            b.dPS().d(HttpExecutor.TAG, "401, url=" + resp.baseUrl + resp.path);
+            b.dPU().d(HttpExecutor.TAG, "401, url=" + resp.baseUrl + resp.path);
         }
         String optString = resp.respJson.optString("message");
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) b.dPT().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) b.dPV().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
             bVar.MW(optInt);
         }

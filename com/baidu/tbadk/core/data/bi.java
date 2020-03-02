@@ -3,8 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bi extends a implements com.baidu.adp.widget.ListView.m {
-    public bj cRe;
-    public boolean cQT = false;
+    public bj cRf;
     public boolean cQU = false;
     public boolean cQV = false;
     public boolean cQW = false;
@@ -15,76 +14,74 @@ public class bi extends a implements com.baidu.adp.widget.ListView.m {
     public boolean cRb = false;
     public boolean cRc = false;
     public boolean cRd = false;
-    public int cRf = 0;
+    public boolean cRe = false;
     public int cRg = 0;
+    public int cRh = 0;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.cRe == null) {
+        if (this.cRf == null) {
             return null;
         }
-        if (this.cRe.aDW()) {
-            if (this.cRe.aCD() != null) {
-                return bj.cRy;
-            }
-            return bj.cRi;
-        }
-        int aCh = this.cRe.aCh();
-        if (this.cRe.aCD() != null && this.cRe.aDP()) {
-            return bj.cRQ;
-        }
-        if (this.cRe.threadType == 63) {
-            bj bjVar = this.cRe;
-            return bj.cRJ;
-        } else if (this.cRe.threadType == 64) {
-            bj bjVar2 = this.cRe;
-            return bj.cRK;
-        } else if (this.cRe.threadType == 65) {
-            bj bjVar3 = this.cRe;
-            return bj.cRv;
-        } else if (this.cRe.aCF() != null && this.cRe.threadType == 60) {
-            return bj.cRB;
-        } else {
-            if (this.cRe.aCF() != null && this.cRe.threadType == 49) {
+        if (this.cRf.aDY()) {
+            if (this.cRf.aCF() != null) {
                 return bj.cRz;
             }
-            if (this.cRe.threadType == 51) {
+            return bj.cRj;
+        }
+        int aCj = this.cRf.aCj();
+        if (this.cRf.aCF() != null && this.cRf.aDR()) {
+            return bj.cRR;
+        }
+        if (this.cRf.threadType == 63) {
+            bj bjVar = this.cRf;
+            return bj.cRK;
+        } else if (this.cRf.threadType == 64) {
+            bj bjVar2 = this.cRf;
+            return bj.cRL;
+        } else if (this.cRf.threadType == 65) {
+            bj bjVar3 = this.cRf;
+            return bj.cRw;
+        } else if (this.cRf.aCH() != null && this.cRf.threadType == 60) {
+            return bj.cRC;
+        } else {
+            if (this.cRf.aCH() != null && this.cRf.threadType == 49) {
                 return bj.cRA;
             }
-            if (aCh == 2 || aCh == 1) {
-                return bj.cRh;
+            if (this.cRf.threadType == 51) {
+                return bj.cRB;
             }
-            if (this.cRe.aCD() != null && this.cRe.aDv() && !this.cRe.aDn()) {
-                return bj.cRP;
+            if (aCj == 2 || aCj == 1) {
+                return bj.cRi;
             }
-            if (this.cRe.isShareThread && this.cRe.cTP != null) {
-                if (this.cRe.cTP.cPL) {
-                    if (this.cRe.cTP.videoInfo != null) {
+            if (this.cRf.aCF() != null && this.cRf.aDx() && !this.cRf.aDp()) {
+                return bj.cRQ;
+            }
+            if (this.cRf.isShareThread && this.cRf.cTQ != null) {
+                if (this.cRf.cTQ.cPM) {
+                    if (this.cRf.cTQ.videoInfo != null) {
+                        return bj.cRG;
+                    }
+                    if (this.cRf.cTQ.aBd()) {
                         return bj.cRF;
                     }
-                    if (this.cRe.cTP.aBb()) {
-                        return bj.cRE;
-                    }
-                    return bj.cRD;
+                    return bj.cRE;
                 }
-                return bj.cRC;
-            } else if (this.cRe.aDp()) {
-                bj bjVar4 = this.cRe;
-                return bj.cRM.get() ? bj.cTc : bj.cRi;
-            } else if (this.cRe.aCX() && this.cRe.aCW() == 1) {
-                bj bjVar5 = this.cRe;
-                return bj.cRM.get() ? bj.cTk : bj.cRi;
-            } else if (this.cRe.isLinkThread()) {
-                return bj.cRw;
+                return bj.cRD;
+            } else if (this.cRf.aDr()) {
+                bj bjVar4 = this.cRf;
+                return bj.cRN.get() ? bj.cTd : bj.cRj;
+            } else if (this.cRf.aCZ() && this.cRf.aCY() == 1) {
+                bj bjVar5 = this.cRf;
+                return bj.cRN.get() ? bj.cTl : bj.cRj;
+            } else if (this.cRf.isLinkThread()) {
+                return bj.cRx;
             } else {
-                if (this.cRe.aDO()) {
-                    return this.cRe.aBU() != null ? bj.cRI : bj.cRH;
-                } else if (this.cQT) {
-                    return bj.cRm;
+                if (this.cRf.aDQ()) {
+                    return this.cRf.aBW() != null ? bj.cRJ : bj.cRI;
+                } else if (this.cQU) {
+                    return bj.cRn;
                 } else {
-                    if (this.cQU) {
-                        return bj.cRn;
-                    }
                     if (this.cQV) {
                         return bj.cRo;
                     }
@@ -104,17 +101,20 @@ public class bi extends a implements com.baidu.adp.widget.ListView.m {
                         return bj.cRt;
                     }
                     if (this.cRb) {
-                        return bj.cRy;
+                        return bj.cRu;
                     }
-                    if (this.cRe.aCp()) {
-                        if (this.cRc) {
-                            return bj.cRG;
+                    if (this.cRc) {
+                        return bj.cRz;
+                    }
+                    if (this.cRf.aCr()) {
+                        if (this.cRd) {
+                            return bj.cRH;
                         }
-                        return bj.cRx;
-                    } else if (this.cRd) {
-                        return bj.cRL;
+                        return bj.cRy;
+                    } else if (this.cRe) {
+                        return bj.cRM;
                     } else {
-                        return bj.cRi;
+                        return bj.cRj;
                     }
                 }
             }
@@ -122,30 +122,30 @@ public class bi extends a implements com.baidu.adp.widget.ListView.m {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj aAe() {
-        return this.cRe;
+    public bj aAg() {
+        return this.cRf;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al aAg() {
-        if (this.cRe == null || this.cRe.feedBackReasonMap == null || this.cRe.feedBackReasonMap.size() <= 0) {
+    public al aAi() {
+        if (this.cRf == null || this.cRf.feedBackReasonMap == null || this.cRf.feedBackReasonMap.size() <= 0) {
             return null;
         }
         al alVar = new al();
-        alVar.setTid(aAe().getTid());
-        alVar.setFid(aAe().getFid());
-        alVar.setFeedBackReasonMap(this.cRe.feedBackReasonMap);
-        alVar.cPD = this.cRe.mRecomAbTag;
-        alVar.weight = this.cRe.mRecomWeight;
-        alVar.extra = this.cRe.mRecomExtra;
-        alVar.source = this.cRe.mRecomSource;
-        alVar.cPE = this.cRe.cPE;
-        alVar.cardType = this.cRe.aEj();
+        alVar.setTid(aAg().getTid());
+        alVar.setFid(aAg().getFid());
+        alVar.setFeedBackReasonMap(this.cRf.feedBackReasonMap);
+        alVar.cPE = this.cRf.mRecomAbTag;
+        alVar.weight = this.cRf.mRecomWeight;
+        alVar.extra = this.cRf.mRecomExtra;
+        alVar.source = this.cRf.mRecomSource;
+        alVar.cPF = this.cRf.cPF;
+        alVar.cardType = this.cRf.aEl();
         return alVar;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String aAf() {
-        return this.cRe.cTv;
+    public String aAh() {
+        return this.cRf.cTw;
     }
 }

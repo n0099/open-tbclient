@@ -10,12 +10,12 @@ public class br extends bw.b<Long> {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f159a;
+    private String f158a;
 
     public br(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i);
         this.a = 0L;
-        this.f159a = str6;
+        this.f158a = str6;
     }
 
     public static br a(String str) {

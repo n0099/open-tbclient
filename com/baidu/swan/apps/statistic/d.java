@@ -33,7 +33,7 @@ public final class d {
         }
         com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().lN(f.gs(i)).e(new com.baidu.swan.apps.ap.a().aI(11L).aJ(2331L).mz("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            e.a(((com.baidu.swan.apps.core.pms.g) dVar).Py());
+            e.a(((com.baidu.swan.apps.core.pms.g) dVar).PA());
         }
         a(e);
         if (DEBUG) {

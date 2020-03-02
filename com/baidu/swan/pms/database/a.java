@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public abstract class a {
-    private static volatile a cAI;
+    private static volatile a cAJ;
 
     public abstract boolean Q(String str, int i);
 
@@ -21,9 +21,9 @@ public abstract class a {
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract Map<String, f> atu();
+    public abstract Map<String, f> atw();
 
-    public abstract Map<String, PMSAppInfo> atv();
+    public abstract Map<String, PMSAppInfo> atx();
 
     public abstract <T extends e> boolean b(Class<T> cls, String str);
 
@@ -51,14 +51,14 @@ public abstract class a {
 
     public abstract void qq(String str);
 
-    public static a att() {
-        if (cAI == null) {
+    public static a atv() {
+        if (cAJ == null) {
             synchronized (a.class) {
-                if (cAI == null) {
-                    cAI = new b();
+                if (cAJ == null) {
+                    cAJ = new b();
                 }
             }
         }
-        return cAI;
+        return cAJ;
     }
 }

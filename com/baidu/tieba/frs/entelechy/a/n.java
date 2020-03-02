@@ -15,31 +15,31 @@ import com.baidu.tieba.R;
 public class n extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.x, com.baidu.tieba.frs.d.d {
     private com.baidu.tieba.card.z JZ;
     private String LC;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> gtj;
-    private com.baidu.adp.lib.d.b<TbImageView> gtk;
-    private com.baidu.tieba.frs.d.b gwo;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> gtl;
+    private com.baidu.adp.lib.d.b<TbImageView> gtm;
+    private com.baidu.tieba.frs.d.b gwq;
     private TbPageContext mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.gwo = new com.baidu.tieba.frs.d.b();
+        this.gwq = new com.baidu.tieba.frs.d.b();
         this.JZ = new com.baidu.tieba.card.z() { // from class: com.baidu.tieba.frs.entelechy.a.n.1
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if (bVar instanceof bj) {
-                    if (n.this.gnQ != null) {
-                        n.this.gnQ.a(view, (View) bVar, (Object) bj.cRH);
+                    if (n.this.gnS != null) {
+                        n.this.gnS.a(view, (View) bVar, (Object) bj.cRI);
                     }
                     bj bjVar = (bj) bVar;
-                    com.baidu.tieba.frs.d.c.bJH().a(n.this.gwo, bjVar, 1);
-                    com.baidu.tieba.frs.d.a.a(bjVar, 1, n.this.mPageId, n.this.gwo, n.this.getTbPageTag());
+                    com.baidu.tieba.frs.d.c.bJJ().a(n.this.gwq, bjVar, 1);
+                    com.baidu.tieba.frs.d.a.a(bjVar, 1, n.this.mPageId, n.this.gwq, n.this.getTbPageTag());
                 }
             }
         };
-        this.gtj = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.n.2
+        this.gtl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.n.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bGa */
+            /* renamed from: bGc */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(n.this.mPageContext.getPageActivity());
             }
@@ -65,10 +65,10 @@ public class n extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.gtk = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.n.3
+        this.gtm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.n.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: aIe */
+            /* renamed from: aIg */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(n.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -119,8 +119,8 @@ public class n extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> b(ViewGroup viewGroup) {
         com.baidu.tieba.card.u uVar = new com.baidu.tieba.card.u(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar = new com.baidu.tieba.card.a.a<>(uVar);
-        uVar.setConstrainImagePool(this.gtk);
-        uVar.setConstrainLayoutPool(this.gtj);
+        uVar.setConstrainImagePool(this.gtm);
+        uVar.setConstrainLayoutPool(this.gtl);
         uVar.c(this.JZ);
         return aVar;
     }
@@ -129,24 +129,24 @@ public class n extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar) {
-        if (aVar == null || aVar.bvI() == null) {
+        if (aVar == null || aVar.bvK() == null) {
             return null;
         }
-        if (aVar.bvI() instanceof com.baidu.tieba.a.e) {
-            aVar.bvI().setPage(this.LC);
+        if (aVar.bvK() instanceof com.baidu.tieba.a.e) {
+            aVar.bvK().setPage(this.LC);
         }
         super.a(i, view, viewGroup, (ViewGroup) biVar, (bi) aVar);
-        if (this.gwo != null) {
+        if (this.gwq != null) {
             int i2 = 0;
-            if (this.gnK != null) {
-                i2 = this.gnK.getTopThreadSize();
+            if (this.gnM != null) {
+                i2 = this.gnM.getTopThreadSize();
             }
-            biVar.cRe.cPE = (biVar.position + 1) - i2;
+            biVar.cRf.cPF = (biVar.position + 1) - i2;
         }
-        com.baidu.tieba.frs.d.a.a(biVar.cRe, this.mPageId, this.gwo, getTbPageTag());
-        com.baidu.tieba.frs.d.c.bJH().a(this.gwo, biVar.cRe);
-        aVar.bvI().c(this.JZ);
-        aVar.bvI().a(biVar.cRe);
+        com.baidu.tieba.frs.d.a.a(biVar.cRf, this.mPageId, this.gwq, getTbPageTag());
+        com.baidu.tieba.frs.d.c.bJJ().a(this.gwq, biVar.cRf);
+        aVar.bvK().c(this.JZ);
+        aVar.bvK().a(biVar.cRf);
         return aVar.getView();
     }
 
@@ -156,7 +156,7 @@ public class n extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bGV() {
-        return this.gwo;
+    public com.baidu.tieba.frs.d.b bGX() {
+        return this.gwq;
     }
 }

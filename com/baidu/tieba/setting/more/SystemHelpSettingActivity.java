@@ -19,39 +19,39 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
 /* loaded from: classes13.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.a {
-    private h jUC = null;
-    private SystemHelpSettingModel jUD = null;
-    private com.baidu.tbadk.core.dialog.a jUE;
+    private h jUE = null;
+    private SystemHelpSettingModel jUF = null;
+    private com.baidu.tbadk.core.dialog.a jUG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jUC = new h(this);
-        this.jUD = new SystemHelpSettingModel(this);
+        this.jUE = new h(this);
+        this.jUF = new SystemHelpSettingModel(this);
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.jUC.cHf().turnOn();
+            this.jUE.cHh().turnOn();
         } else {
-            this.jUC.cHf().turnOff();
+            this.jUE.cHh().turnOff();
         }
-        if (com.baidu.tbadk.core.sharedPref.b.aFB().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true)) {
-            this.jUC.cHe().turnOn();
+        if (com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true)) {
+            this.jUE.cHg().turnOn();
         } else {
-            this.jUC.cHe().turnOff();
+            this.jUE.cHg().turnOff();
         }
-        this.jUC.cHg().setTip(getPageContext().getString(R.string.calc_cache_size));
-        this.jUC.cHg().displayTip();
-        this.jUD.a(new BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.1
+        this.jUE.cHi().setTip(getPageContext().getString(R.string.calc_cache_size));
+        this.jUE.cHi().displayTip();
+        this.jUF.a(new BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.1
             @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
             public void callback(Object... objArr) {
                 Object obj = objArr[0];
                 if (objArr != null && (obj instanceof MoreModel.TaskType)) {
                     if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                         SystemHelpSettingActivity.this.closeLoadingDialog();
-                        SystemHelpSettingActivity.this.jUC.cHg().setTip("");
+                        SystemHelpSettingActivity.this.jUE.cHi().setTip("");
                         SystemHelpSettingActivity.this.showToast(R.string.systemhelpsetting_clear_cache_success);
                     } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                        SystemHelpSettingActivity.this.jUC.cHg().setTip((String) objArr[1]);
+                        SystemHelpSettingActivity.this.jUE.cHi().setTip((String) objArr[1]);
                     }
                 }
             }
@@ -70,37 +70,37 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jUD != null) {
-            this.jUD.cFi();
+        if (this.jUF != null) {
+            this.jUF.cFk();
         }
-        cFk();
+        cFm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jUC.onChangeSkinType(i);
+        this.jUE.onChangeSkinType(i);
     }
 
-    private void cFk() {
-        this.jUC.cHi().refresh();
+    private void cFm() {
+        this.jUE.cHk().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jUC != null) {
-            if (view == this.jUC.cHg()) {
-                if (this.jUD != null) {
+        if (this.jUE != null) {
+            if (view == this.jUE.cHi()) {
+                if (this.jUF != null) {
                     s.clearCache(getApplicationContext());
-                    if (TextUtils.isEmpty(this.jUC.cHg().getTip())) {
+                    if (TextUtils.isEmpty(this.jUE.cHi().getTip())) {
                         showToast(R.string.no_cache_delete);
                     } else {
-                        this.jUE = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).jW(R.string.alert_clear_all_cache).a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.4
+                        this.jUG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).jW(R.string.alert_clear_all_cache).a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.4
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 SystemHelpSettingActivity.this.showLoadingDialog(SystemHelpSettingActivity.this.getPageContext().getString(R.string.deleting));
-                                SystemHelpSettingActivity.this.jUD.buA();
+                                SystemHelpSettingActivity.this.jUF.buC();
                                 aVar.dismiss();
                             }
                         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.3
@@ -108,26 +108,26 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 aVar.dismiss();
                             }
-                        }).b(getPageContext()).aEA();
+                        }).b(getPageContext()).aEC();
                     }
                 }
-            } else if (view == this.jUC.cHh()) {
-                if (this.jUD != null) {
-                    this.jUE = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).jW(R.string.alert_clear_cache).a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.6
+            } else if (view == this.jUE.cHj()) {
+                if (this.jUF != null) {
+                    this.jUG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).jW(R.string.alert_clear_cache).a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.6
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                             aVar.dismiss();
                             SystemHelpSettingActivity.this.showLoadingDialog(SystemHelpSettingActivity.this.getPageContext().getString(R.string.deleting));
-                            SystemHelpSettingActivity.this.jUD.cFh();
+                            SystemHelpSettingActivity.this.jUF.cFj();
                         }
                     }).b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.setting.more.SystemHelpSettingActivity.5
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                             aVar.dismiss();
                         }
-                    }).b(getPageContext()).aEA();
+                    }).b(getPageContext()).aEC();
                 }
-            } else if (view == this.jUC.cHi()) {
+            } else if (view == this.jUE.cHk()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
             }
         }
@@ -136,19 +136,19 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.jUC.cHf())) {
+            if (view.equals(this.jUE.cHh())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    this.jUD.setHeadsetModeOn(true);
+                    this.jUF.setHeadsetModeOn(true);
                 } else {
-                    this.jUD.setHeadsetModeOn(false);
+                    this.jUF.setHeadsetModeOn(false);
                 }
-            } else if (view == this.jUC.cHe()) {
+            } else if (view == this.jUE.cHg()) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
                     s.rP(true);
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aFB().putBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, false);
+                com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, false);
                 s.rP(false);
             }
         }
@@ -157,8 +157,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.jUE != null && this.jUE.isShowing()) {
-            this.jUE.dismiss();
+        if (this.jUG != null && this.jUG.isShowing()) {
+            this.jUG.dismiss();
         }
         super.onDestroy();
     }

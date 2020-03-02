@@ -20,10 +20,10 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String aqM() {
+    public static String aqO() {
         File aL;
-        e acx = com.baidu.swan.apps.runtime.d.acA().acx();
-        if (acx.available() && acx.getVersion() != null && (aL = a.c.aL(acx.getAppId(), acx.getVersion())) != null && aL.exists()) {
+        e acz = com.baidu.swan.apps.runtime.d.acC().acz();
+        if (acz.available() && acz.getVersion() != null && (aL = a.c.aL(acz.getAppId(), acz.getVersion())) != null && aL.exists()) {
             return "file://" + aL.getAbsolutePath();
         }
         return null;

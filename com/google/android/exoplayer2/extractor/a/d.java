@@ -32,69 +32,69 @@ import java.util.Locale;
 import java.util.UUID;
 /* loaded from: classes6.dex */
 public final class d implements com.google.android.exoplayer2.extractor.e {
-    private long lZB;
-    private g meB;
-    private final l meK;
-    private final l meL;
-    private final f meP;
-    private final l mex;
-    private int mfA;
-    private long mfB;
-    private long mfC;
-    private int mfD;
-    private int mfE;
-    private int[] mfF;
+    private long lZD;
+    private g meD;
+    private final l meM;
+    private final l meN;
+    private final f meR;
+    private final l mez;
+    private com.google.android.exoplayer2.util.g mfA;
+    private boolean mfB;
+    private int mfC;
+    private long mfD;
+    private long mfE;
+    private int mfF;
     private int mfG;
-    private int mfH;
+    private int[] mfH;
     private int mfI;
     private int mfJ;
-    private boolean mfK;
-    private boolean mfL;
+    private int mfK;
+    private int mfL;
     private boolean mfM;
     private boolean mfN;
-    private byte mfO;
-    private int mfP;
-    private int mfQ;
+    private boolean mfO;
+    private boolean mfP;
+    private byte mfQ;
     private int mfR;
-    private boolean mfS;
-    private boolean mfT;
-    private final com.google.android.exoplayer2.extractor.a.b mfb;
-    private final SparseArray<b> mfc;
-    private final boolean mfd;
-    private final l mfe;
-    private final l mff;
+    private int mfS;
+    private int mfT;
+    private boolean mfU;
+    private boolean mfV;
+    private final com.google.android.exoplayer2.extractor.a.b mfd;
+    private final SparseArray<b> mfe;
+    private final boolean mff;
     private final l mfg;
     private final l mfh;
     private final l mfi;
     private final l mfj;
-    private ByteBuffer mfk;
-    private long mfl;
-    private long mfm;
+    private final l mfk;
+    private final l mfl;
+    private ByteBuffer mfm;
     private long mfn;
     private long mfo;
-    private b mfp;
-    private boolean mfq;
-    private int mfr;
-    private long mfs;
-    private boolean mft;
+    private long mfp;
+    private long mfq;
+    private b mfr;
+    private boolean mfs;
+    private int mft;
     private long mfu;
-    private long mfv;
+    private boolean mfv;
     private long mfw;
-    private com.google.android.exoplayer2.util.g mfx;
-    private com.google.android.exoplayer2.util.g mfy;
-    private boolean mfz;
-    public static final h mev = new h() { // from class: com.google.android.exoplayer2.extractor.a.d.1
+    private long mfx;
+    private long mfy;
+    private com.google.android.exoplayer2.util.g mfz;
+    public static final h mex = new h() { // from class: com.google.android.exoplayer2.extractor.a.d.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public com.google.android.exoplayer2.extractor.e[] duR() {
+        public com.google.android.exoplayer2.extractor.e[] duT() {
             return new com.google.android.exoplayer2.extractor.e[]{new d()};
         }
     };
-    private static final byte[] meV = {49, 10, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 32, 45, 45, 62, 32, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 10};
-    private static final byte[] meW = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
-    private static final byte[] meX = v.QA("Format: Start, End, ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect, Text");
-    private static final byte[] meY = {68, 105, 97, 108, 111, 103, 117, Constants.SHORT_PING_CMD_TYPE, 58, 32, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44};
-    private static final byte[] meZ = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
-    private static final UUID mfa = new UUID(72057594037932032L, -9223371306706625679L);
+    private static final byte[] meX = {49, 10, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 32, 45, 45, 62, 32, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 10};
+    private static final byte[] meY = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
+    private static final byte[] meZ = v.QA("Format: Start, End, ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect, Text");
+    private static final byte[] mfa = {68, 105, 97, 108, 111, 103, 117, Constants.SHORT_PING_CMD_TYPE, 58, 32, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44};
+    private static final byte[] mfb = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
+    private static final UUID mfc = new UUID(72057594037932032L, -9223371306706625679L);
 
     public d() {
         this(0);
@@ -105,27 +105,27 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     }
 
     d(com.google.android.exoplayer2.extractor.a.b bVar, int i) {
-        this.mfm = -1L;
-        this.mfn = -9223372036854775807L;
-        this.mfo = -9223372036854775807L;
-        this.lZB = -9223372036854775807L;
-        this.mfu = -1L;
-        this.mfv = -1L;
-        this.mfw = -9223372036854775807L;
-        this.mfb = bVar;
-        this.mfb.a(new a());
-        this.mfd = (i & 1) == 0;
-        this.meP = new f();
-        this.mfc = new SparseArray<>();
-        this.mex = new l(4);
-        this.mfe = new l(ByteBuffer.allocate(4).putInt(-1).array());
-        this.mff = new l(4);
-        this.meK = new l(j.mGZ);
-        this.meL = new l(4);
-        this.mfg = new l();
-        this.mfh = new l();
-        this.mfi = new l(8);
+        this.mfo = -1L;
+        this.mfp = -9223372036854775807L;
+        this.mfq = -9223372036854775807L;
+        this.lZD = -9223372036854775807L;
+        this.mfw = -1L;
+        this.mfx = -1L;
+        this.mfy = -9223372036854775807L;
+        this.mfd = bVar;
+        this.mfd.a(new a());
+        this.mff = (i & 1) == 0;
+        this.meR = new f();
+        this.mfe = new SparseArray<>();
+        this.mez = new l(4);
+        this.mfg = new l(ByteBuffer.allocate(4).putInt(-1).array());
+        this.mfh = new l(4);
+        this.meM = new l(j.mHb);
+        this.meN = new l(4);
+        this.mfi = new l();
         this.mfj = new l();
+        this.mfk = new l(8);
+        this.mfl = new l();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -135,16 +135,16 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(g gVar) {
-        this.meB = gVar;
+        this.meD = gVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        this.mfw = -9223372036854775807L;
-        this.mfA = 0;
-        this.mfb.reset();
-        this.meP.reset();
-        duU();
+        this.mfy = -9223372036854775807L;
+        this.mfC = 0;
+        this.mfd.reset();
+        this.meR.reset();
+        duW();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -153,10 +153,10 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(com.google.android.exoplayer2.extractor.f fVar, k kVar) throws IOException, InterruptedException {
-        this.mfS = false;
+        this.mfU = false;
         boolean z = true;
-        while (z && !this.mfS) {
-            z = this.mfb.g(fVar);
+        while (z && !this.mfU) {
+            z = this.mfd.g(fVar);
             if (z && a(kVar, fVar.getPosition())) {
                 return 1;
             }
@@ -261,46 +261,46 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     void k(int i, long j, long j2) throws ParserException {
         switch (i) {
             case 160:
-                this.mfT = false;
+                this.mfV = false;
                 return;
             case 174:
-                this.mfp = new b();
+                this.mfr = new b();
                 return;
             case Opcodes.NEW /* 187 */:
-                this.mfz = false;
+                this.mfB = false;
                 return;
             case 19899:
-                this.mfr = -1;
-                this.mfs = -1L;
+                this.mft = -1;
+                this.mfu = -1L;
                 return;
             case 20533:
-                this.mfp.mfX = true;
+                this.mfr.mfZ = true;
                 return;
             case 21968:
-                this.mfp.mge = true;
+                this.mfr.mgg = true;
                 return;
             case 25152:
             default:
                 return;
             case 408125543:
-                if (this.mfm != -1 && this.mfm != j) {
+                if (this.mfo != -1 && this.mfo != j) {
                     throw new ParserException("Multiple Segment elements not supported");
                 }
-                this.mfm = j;
-                this.mfl = j2;
+                this.mfo = j;
+                this.mfn = j2;
                 return;
             case 475249515:
-                this.mfx = new com.google.android.exoplayer2.util.g();
-                this.mfy = new com.google.android.exoplayer2.util.g();
+                this.mfz = new com.google.android.exoplayer2.util.g();
+                this.mfA = new com.google.android.exoplayer2.util.g();
                 return;
             case 524531317:
-                if (!this.mfq) {
-                    if (this.mfd && this.mfu != -1) {
-                        this.mft = true;
+                if (!this.mfs) {
+                    if (this.mff && this.mfw != -1) {
+                        this.mfv = true;
                         return;
                     }
-                    this.meB.a(new l.a(this.lZB));
-                    this.mfq = true;
+                    this.meD.a(new l.a(this.lZD));
+                    this.mfs = true;
                     return;
                 }
                 return;
@@ -310,64 +310,64 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     void JF(int i) throws ParserException {
         switch (i) {
             case 160:
-                if (this.mfA == 2) {
-                    if (!this.mfT) {
-                        this.mfI |= 1;
+                if (this.mfC == 2) {
+                    if (!this.mfV) {
+                        this.mfK |= 1;
                     }
-                    a(this.mfc.get(this.mfG), this.mfB);
-                    this.mfA = 0;
+                    a(this.mfe.get(this.mfI), this.mfD);
+                    this.mfC = 0;
                     return;
                 }
                 return;
             case 174:
-                if (Ps(this.mfp.mfV)) {
-                    this.mfp.a(this.meB, this.mfp.number);
-                    this.mfc.put(this.mfp.number, this.mfp);
+                if (Ps(this.mfr.mfX)) {
+                    this.mfr.a(this.meD, this.mfr.number);
+                    this.mfe.put(this.mfr.number, this.mfr);
                 }
-                this.mfp = null;
+                this.mfr = null;
                 return;
             case 19899:
-                if (this.mfr == -1 || this.mfs == -1) {
+                if (this.mft == -1 || this.mfu == -1) {
                     throw new ParserException("Mandatory element SeekID or SeekPosition not found");
                 }
-                if (this.mfr == 475249515) {
-                    this.mfu = this.mfs;
+                if (this.mft == 475249515) {
+                    this.mfw = this.mfu;
                     return;
                 }
                 return;
             case 25152:
-                if (this.mfp.mfX) {
-                    if (this.mfp.mfZ == null) {
+                if (this.mfr.mfZ) {
+                    if (this.mfr.mgb == null) {
                         throw new ParserException("Encrypted Track found but ContentEncKeyID was not found");
                     }
-                    this.mfp.drmInitData = new DrmInitData(new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lYd, "video/webm", this.mfp.mfZ.meq));
+                    this.mfr.drmInitData = new DrmInitData(new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lYf, "video/webm", this.mfr.mgb.mes));
                     return;
                 }
                 return;
             case 28032:
-                if (this.mfp.mfX && this.mfp.mfY != null) {
+                if (this.mfr.mfZ && this.mfr.mga != null) {
                     throw new ParserException("Combining encryption and compression is not supported");
                 }
                 return;
             case 357149030:
-                if (this.mfn == -9223372036854775807L) {
-                    this.mfn = TimeUtils.NANOS_PER_MS;
+                if (this.mfp == -9223372036854775807L) {
+                    this.mfp = TimeUtils.NANOS_PER_MS;
                 }
-                if (this.mfo != -9223372036854775807L) {
-                    this.lZB = fM(this.mfo);
+                if (this.mfq != -9223372036854775807L) {
+                    this.lZD = fM(this.mfq);
                     return;
                 }
                 return;
             case 374648427:
-                if (this.mfc.size() == 0) {
+                if (this.mfe.size() == 0) {
                     throw new ParserException("No valid tracks were found");
                 }
-                this.meB.duS();
+                this.meD.duU();
                 return;
             case 475249515:
-                if (!this.mfq) {
-                    this.meB.a(duV());
-                    this.mfq = true;
+                if (!this.mfs) {
+                    this.meD.a(duX());
+                    this.mfs = true;
                     return;
                 }
                 return;
@@ -379,41 +379,41 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     void C(int i, long j) throws ParserException {
         switch (i) {
             case IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER /* 131 */:
-                this.mfp.type = (int) j;
+                this.mfr.type = (int) j;
                 return;
             case 136:
-                this.mfp.mgu = j == 1;
+                this.mfr.mgw = j == 1;
                 return;
             case 155:
-                this.mfC = fM(j);
+                this.mfE = fM(j);
                 return;
             case Opcodes.IF_ICMPEQ /* 159 */:
-                this.mfp.channelCount = (int) j;
+                this.mfr.channelCount = (int) j;
                 return;
             case Opcodes.ARETURN /* 176 */:
-                this.mfp.width = (int) j;
+                this.mfr.width = (int) j;
                 return;
             case 179:
-                this.mfx.gG(fM(j));
+                this.mfz.gG(fM(j));
                 return;
             case 186:
-                this.mfp.height = (int) j;
+                this.mfr.height = (int) j;
                 return;
             case 215:
-                this.mfp.number = (int) j;
+                this.mfr.number = (int) j;
                 return;
             case 231:
-                this.mfw = fM(j);
+                this.mfy = fM(j);
                 return;
             case BaseActivity.DIALOG_PROMPT /* 241 */:
-                if (!this.mfz) {
-                    this.mfy.gG(j);
-                    this.mfz = true;
+                if (!this.mfB) {
+                    this.mfA.gG(j);
+                    this.mfB = true;
                     return;
                 }
                 return;
             case 251:
-                this.mfT = true;
+                this.mfV = true;
                 return;
             case 16980:
                 if (j != 3) {
@@ -451,44 +451,44 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 }
                 return;
             case 21420:
-                this.mfs = this.mfm + j;
+                this.mfu = this.mfo + j;
                 return;
             case 21432:
                 switch ((int) j) {
                     case 0:
-                        this.mfp.stereoMode = 0;
+                        this.mfr.stereoMode = 0;
                         return;
                     case 1:
-                        this.mfp.stereoMode = 2;
+                        this.mfr.stereoMode = 2;
                         return;
                     case 3:
-                        this.mfp.stereoMode = 1;
+                        this.mfr.stereoMode = 1;
                         return;
                     case 15:
-                        this.mfp.stereoMode = 3;
+                        this.mfr.stereoMode = 3;
                         return;
                     default:
                         return;
                 }
             case 21680:
-                this.mfp.mgb = (int) j;
+                this.mfr.mgd = (int) j;
                 return;
             case 21682:
-                this.mfp.mgd = (int) j;
+                this.mfr.mgf = (int) j;
                 return;
             case 21690:
-                this.mfp.mgc = (int) j;
+                this.mfr.mge = (int) j;
                 return;
             case 21930:
-                this.mfp.mgv = j == 1;
+                this.mfr.mgx = j == 1;
                 return;
             case 21945:
                 switch ((int) j) {
                     case 1:
-                        this.mfp.colorRange = 2;
+                        this.mfr.colorRange = 2;
                         return;
                     case 2:
-                        this.mfp.colorRange = 1;
+                        this.mfr.colorRange = 1;
                         return;
                     default:
                         return;
@@ -498,22 +498,22 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     case 1:
                     case 6:
                     case 7:
-                        this.mfp.colorTransfer = 3;
+                        this.mfr.colorTransfer = 3;
                         return;
                     case 16:
-                        this.mfp.colorTransfer = 6;
+                        this.mfr.colorTransfer = 6;
                         return;
                     case 18:
-                        this.mfp.colorTransfer = 7;
+                        this.mfr.colorTransfer = 7;
                         return;
                     default:
                         return;
                 }
             case 21947:
-                this.mfp.mge = true;
+                this.mfr.mgg = true;
                 switch ((int) j) {
                     case 1:
-                        this.mfp.colorSpace = 1;
+                        this.mfr.colorSpace = 1;
                         return;
                     case 2:
                     case 3:
@@ -524,32 +524,32 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     case 5:
                     case 6:
                     case 7:
-                        this.mfp.colorSpace = 2;
+                        this.mfr.colorSpace = 2;
                         return;
                     case 9:
-                        this.mfp.colorSpace = 6;
+                        this.mfr.colorSpace = 6;
                         return;
                 }
             case 21948:
-                this.mfp.mgf = (int) j;
+                this.mfr.mgh = (int) j;
                 return;
             case 21949:
-                this.mfp.mgg = (int) j;
+                this.mfr.mgi = (int) j;
                 return;
             case 22186:
-                this.mfp.mgs = j;
+                this.mfr.mgu = j;
                 return;
             case 22203:
-                this.mfp.mgt = j;
+                this.mfr.mgv = j;
                 return;
             case 25188:
-                this.mfp.mgr = (int) j;
+                this.mfr.mgt = (int) j;
                 return;
             case 2352003:
-                this.mfp.mfW = (int) j;
+                this.mfr.mfY = (int) j;
                 return;
             case 2807729:
-                this.mfn = j;
+                this.mfp = j;
                 return;
             default:
                 return;
@@ -559,40 +559,40 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     void d(int i, double d) {
         switch (i) {
             case Opcodes.PUTFIELD /* 181 */:
-                this.mfp.sampleRate = (int) d;
+                this.mfr.sampleRate = (int) d;
                 return;
             case 17545:
-                this.mfo = (long) d;
+                this.mfq = (long) d;
                 return;
             case 21969:
-                this.mfp.mgh = (float) d;
+                this.mfr.mgj = (float) d;
                 return;
             case 21970:
-                this.mfp.mgi = (float) d;
+                this.mfr.mgk = (float) d;
                 return;
             case 21971:
-                this.mfp.mgj = (float) d;
+                this.mfr.mgl = (float) d;
                 return;
             case 21972:
-                this.mfp.mgk = (float) d;
+                this.mfr.mgm = (float) d;
                 return;
             case 21973:
-                this.mfp.mgl = (float) d;
+                this.mfr.mgn = (float) d;
                 return;
             case 21974:
-                this.mfp.mgm = (float) d;
+                this.mfr.mgo = (float) d;
                 return;
             case 21975:
-                this.mfp.mgn = (float) d;
+                this.mfr.mgp = (float) d;
                 return;
             case 21976:
-                this.mfp.mgo = (float) d;
+                this.mfr.mgq = (float) d;
                 return;
             case 21977:
-                this.mfp.mgp = (float) d;
+                this.mfr.mgr = (float) d;
                 return;
             case 21978:
-                this.mfp.mgq = (float) d;
+                this.mfr.mgs = (float) d;
                 return;
             default:
                 return;
@@ -602,7 +602,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     void bh(int i, String str) throws ParserException {
         switch (i) {
             case 134:
-                this.mfp.mfV = str;
+                this.mfr.mfX = str;
                 return;
             case 17026:
                 if (!"webm".equals(str) && !"matroska".equals(str)) {
@@ -610,7 +610,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 }
                 return;
             case 2274716:
-                this.mfp.language = str;
+                this.mfr.language = str;
                 return;
             default:
                 return;
@@ -622,57 +622,57 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
         switch (i) {
             case 161:
             case Opcodes.IF_ICMPGT /* 163 */:
-                if (this.mfA == 0) {
-                    this.mfG = (int) this.meP.a(fVar, false, true, 8);
-                    this.mfH = this.meP.duZ();
-                    this.mfC = -9223372036854775807L;
-                    this.mfA = 1;
-                    this.mex.reset();
+                if (this.mfC == 0) {
+                    this.mfI = (int) this.meR.a(fVar, false, true, 8);
+                    this.mfJ = this.meR.dvb();
+                    this.mfE = -9223372036854775807L;
+                    this.mfC = 1;
+                    this.mez.reset();
                 }
-                b bVar = this.mfc.get(this.mfG);
+                b bVar = this.mfe.get(this.mfI);
                 if (bVar == null) {
-                    fVar.Jv(i2 - this.mfH);
-                    this.mfA = 0;
+                    fVar.Jv(i2 - this.mfJ);
+                    this.mfC = 0;
                     return;
                 }
-                if (this.mfA == 1) {
+                if (this.mfC == 1) {
                     d(fVar, 3);
-                    int i4 = (this.mex.data[2] & 6) >> 1;
+                    int i4 = (this.mez.data[2] & 6) >> 1;
                     if (i4 == 0) {
-                        this.mfE = 1;
-                        this.mfF = c(this.mfF, 1);
-                        this.mfF[0] = (i2 - this.mfH) - 3;
+                        this.mfG = 1;
+                        this.mfH = c(this.mfH, 1);
+                        this.mfH[0] = (i2 - this.mfJ) - 3;
                     } else if (i != 163) {
                         throw new ParserException("Lacing only supported in SimpleBlocks.");
                     } else {
                         d(fVar, 4);
-                        this.mfE = (this.mex.data[3] & 255) + 1;
-                        this.mfF = c(this.mfF, this.mfE);
+                        this.mfG = (this.mez.data[3] & 255) + 1;
+                        this.mfH = c(this.mfH, this.mfG);
                         if (i4 == 2) {
-                            Arrays.fill(this.mfF, 0, this.mfE, ((i2 - this.mfH) - 4) / this.mfE);
+                            Arrays.fill(this.mfH, 0, this.mfG, ((i2 - this.mfJ) - 4) / this.mfG);
                         } else if (i4 == 1) {
                             int i5 = 0;
                             int i6 = 4;
-                            for (int i7 = 0; i7 < this.mfE - 1; i7++) {
-                                this.mfF[i7] = 0;
+                            for (int i7 = 0; i7 < this.mfG - 1; i7++) {
+                                this.mfH[i7] = 0;
                                 do {
                                     i6++;
                                     d(fVar, i6);
-                                    i3 = this.mex.data[i6 - 1] & 255;
-                                    int[] iArr = this.mfF;
+                                    i3 = this.mez.data[i6 - 1] & 255;
+                                    int[] iArr = this.mfH;
                                     iArr[i7] = iArr[i7] + i3;
                                 } while (i3 == 255);
-                                i5 += this.mfF[i7];
+                                i5 += this.mfH[i7];
                             }
-                            this.mfF[this.mfE - 1] = ((i2 - this.mfH) - i6) - i5;
+                            this.mfH[this.mfG - 1] = ((i2 - this.mfJ) - i6) - i5;
                         } else if (i4 == 3) {
                             int i8 = 0;
                             int i9 = 4;
-                            for (int i10 = 0; i10 < this.mfE - 1; i10++) {
-                                this.mfF[i10] = 0;
+                            for (int i10 = 0; i10 < this.mfG - 1; i10++) {
+                                this.mfH[i10] = 0;
                                 i9++;
                                 d(fVar, i9);
-                                if (this.mex.data[i9 - 1] == 0) {
+                                if (this.mez.data[i9 - 1] == 0) {
                                     throw new ParserException("No valid varint length mask found");
                                 }
                                 long j = 0;
@@ -681,15 +681,15 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                                     int i12 = i11;
                                     if (i12 < 8) {
                                         int i13 = 1 << (7 - i12);
-                                        if ((this.mex.data[i9 - 1] & i13) == 0) {
+                                        if ((this.mez.data[i9 - 1] & i13) == 0) {
                                             i11 = i12 + 1;
                                         } else {
                                             int i14 = i9 - 1;
                                             i9 += i12;
                                             d(fVar, i9);
-                                            j = this.mex.data[i14] & 255 & (i13 ^ (-1));
+                                            j = this.mez.data[i14] & 255 & (i13 ^ (-1));
                                             for (int i15 = i14 + 1; i15 < i9; i15++) {
-                                                j = (this.mex.data[i15] & 255) | (j << 8);
+                                                j = (this.mez.data[i15] & 255) | (j << 8);
                                             }
                                             if (i10 > 0) {
                                                 j -= (1 << ((i12 * 7) + 6)) - 1;
@@ -701,56 +701,56 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                                     throw new ParserException("EBML lacing sample size out of range.");
                                 }
                                 int i16 = (int) j;
-                                int[] iArr2 = this.mfF;
+                                int[] iArr2 = this.mfH;
                                 if (i10 != 0) {
-                                    i16 += this.mfF[i10 - 1];
+                                    i16 += this.mfH[i10 - 1];
                                 }
                                 iArr2[i10] = i16;
-                                i8 += this.mfF[i10];
+                                i8 += this.mfH[i10];
                             }
-                            this.mfF[this.mfE - 1] = ((i2 - this.mfH) - i9) - i8;
+                            this.mfH[this.mfG - 1] = ((i2 - this.mfJ) - i9) - i8;
                         } else {
                             throw new ParserException("Unexpected lacing value: " + i4);
                         }
                     }
-                    this.mfB = this.mfw + fM((this.mex.data[0] << 8) | (this.mex.data[1] & 255));
-                    this.mfI = ((this.mex.data[2] & 8) == 8 ? Integer.MIN_VALUE : 0) | (bVar.type == 2 || (i == 163 && (this.mex.data[2] & 128) == 128) ? 1 : 0);
-                    this.mfA = 2;
-                    this.mfD = 0;
+                    this.mfD = this.mfy + fM((this.mez.data[0] << 8) | (this.mez.data[1] & 255));
+                    this.mfK = ((this.mez.data[2] & 8) == 8 ? Integer.MIN_VALUE : 0) | (bVar.type == 2 || (i == 163 && (this.mez.data[2] & 128) == 128) ? 1 : 0);
+                    this.mfC = 2;
+                    this.mfF = 0;
                 }
                 if (i == 163) {
-                    while (this.mfD < this.mfE) {
-                        a(fVar, bVar, this.mfF[this.mfD]);
-                        a(bVar, this.mfB + ((this.mfD * bVar.mfW) / 1000));
-                        this.mfD++;
+                    while (this.mfF < this.mfG) {
+                        a(fVar, bVar, this.mfH[this.mfF]);
+                        a(bVar, this.mfD + ((this.mfF * bVar.mfY) / 1000));
+                        this.mfF++;
                     }
-                    this.mfA = 0;
+                    this.mfC = 0;
                     return;
                 }
-                a(fVar, bVar, this.mfF[0]);
+                a(fVar, bVar, this.mfH[0]);
                 return;
             case 16981:
-                this.mfp.mfY = new byte[i2];
-                fVar.readFully(this.mfp.mfY, 0, i2);
+                this.mfr.mga = new byte[i2];
+                fVar.readFully(this.mfr.mga, 0, i2);
                 return;
             case 18402:
                 byte[] bArr = new byte[i2];
                 fVar.readFully(bArr, 0, i2);
-                this.mfp.mfZ = new m.a(1, bArr, 0, 0);
+                this.mfr.mgb = new m.a(1, bArr, 0, 0);
                 return;
             case 21419:
-                Arrays.fill(this.mff.data, (byte) 0);
-                fVar.readFully(this.mff.data, 4 - i2, i2);
-                this.mff.setPosition(0);
-                this.mfr = (int) this.mff.readUnsignedInt();
+                Arrays.fill(this.mfh.data, (byte) 0);
+                fVar.readFully(this.mfh.data, 4 - i2, i2);
+                this.mfh.setPosition(0);
+                this.mft = (int) this.mfh.readUnsignedInt();
                 return;
             case 25506:
-                this.mfp.mga = new byte[i2];
-                fVar.readFully(this.mfp.mga, 0, i2);
+                this.mfr.mgc = new byte[i2];
+                fVar.readFully(this.mfr.mgc, 0, i2);
                 return;
             case 30322:
-                this.mfp.projectionData = new byte[i2];
-                fVar.readFully(this.mfp.projectionData, 0, i2);
+                this.mfr.projectionData = new byte[i2];
+                fVar.readFully(this.mfr.projectionData, 0, i2);
                 return;
             default:
                 throw new ParserException("Unexpected id: " + i);
@@ -758,169 +758,169 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     }
 
     private void a(b bVar, long j) {
-        if ("S_TEXT/UTF8".equals(bVar.mfV)) {
-            a(bVar, "%02d:%02d:%02d,%03d", 19, 1000L, meW);
-        } else if ("S_TEXT/ASS".equals(bVar.mfV)) {
-            a(bVar, "%01d:%02d:%02d:%02d", 21, 10000L, meZ);
+        if ("S_TEXT/UTF8".equals(bVar.mfX)) {
+            a(bVar, "%02d:%02d:%02d,%03d", 19, 1000L, meY);
+        } else if ("S_TEXT/ASS".equals(bVar.mfX)) {
+            a(bVar, "%01d:%02d:%02d:%02d", 21, 10000L, mfb);
         }
-        bVar.meJ.a(j, this.mfI, this.mfR, 0, bVar.mfZ);
-        this.mfS = true;
-        duU();
+        bVar.meL.a(j, this.mfK, this.mfT, 0, bVar.mgb);
+        this.mfU = true;
+        duW();
     }
 
-    private void duU() {
-        this.mfJ = 0;
-        this.mfR = 0;
-        this.mfQ = 0;
-        this.mfK = false;
-        this.mfL = false;
-        this.mfN = false;
-        this.mfP = 0;
-        this.mfO = (byte) 0;
+    private void duW() {
+        this.mfL = 0;
+        this.mfT = 0;
+        this.mfS = 0;
         this.mfM = false;
-        this.mfg.reset();
+        this.mfN = false;
+        this.mfP = false;
+        this.mfR = 0;
+        this.mfQ = (byte) 0;
+        this.mfO = false;
+        this.mfi.reset();
     }
 
     private void d(com.google.android.exoplayer2.extractor.f fVar, int i) throws IOException, InterruptedException {
-        if (this.mex.dzs() < i) {
-            if (this.mex.capacity() < i) {
-                this.mex.I(Arrays.copyOf(this.mex.data, Math.max(this.mex.data.length * 2, i)), this.mex.dzs());
+        if (this.mez.dzu() < i) {
+            if (this.mez.capacity() < i) {
+                this.mez.I(Arrays.copyOf(this.mez.data, Math.max(this.mez.data.length * 2, i)), this.mez.dzu());
             }
-            fVar.readFully(this.mex.data, this.mex.dzs(), i - this.mex.dzs());
-            this.mex.setLimit(i);
+            fVar.readFully(this.mez.data, this.mez.dzu(), i - this.mez.dzu());
+            this.mez.setLimit(i);
         }
     }
 
     private void a(com.google.android.exoplayer2.extractor.f fVar, b bVar, int i) throws IOException, InterruptedException {
-        if ("S_TEXT/UTF8".equals(bVar.mfV)) {
-            a(fVar, meV, i);
-        } else if ("S_TEXT/ASS".equals(bVar.mfV)) {
-            a(fVar, meY, i);
+        if ("S_TEXT/UTF8".equals(bVar.mfX)) {
+            a(fVar, meX, i);
+        } else if ("S_TEXT/ASS".equals(bVar.mfX)) {
+            a(fVar, mfa, i);
         } else {
-            m mVar = bVar.meJ;
-            if (!this.mfK) {
-                if (bVar.mfX) {
-                    this.mfI &= -1073741825;
-                    if (!this.mfL) {
-                        fVar.readFully(this.mex.data, 0, 1);
-                        this.mfJ++;
-                        if ((this.mex.data[0] & 128) == 128) {
+            m mVar = bVar.meL;
+            if (!this.mfM) {
+                if (bVar.mfZ) {
+                    this.mfK &= -1073741825;
+                    if (!this.mfN) {
+                        fVar.readFully(this.mez.data, 0, 1);
+                        this.mfL++;
+                        if ((this.mez.data[0] & 128) == 128) {
                             throw new ParserException("Extension bit is set in signal byte");
                         }
-                        this.mfO = this.mex.data[0];
-                        this.mfL = true;
+                        this.mfQ = this.mez.data[0];
+                        this.mfN = true;
                     }
-                    if ((this.mfO & 1) == 1) {
-                        boolean z = (this.mfO & 2) == 2;
-                        this.mfI |= 1073741824;
-                        if (!this.mfM) {
-                            fVar.readFully(this.mfi.data, 0, 8);
-                            this.mfJ += 8;
-                            this.mfM = true;
-                            this.mex.data[0] = (byte) ((z ? 128 : 0) | 8);
-                            this.mex.setPosition(0);
-                            mVar.a(this.mex, 1);
-                            this.mfR++;
-                            this.mfi.setPosition(0);
-                            mVar.a(this.mfi, 8);
-                            this.mfR += 8;
+                    if ((this.mfQ & 1) == 1) {
+                        boolean z = (this.mfQ & 2) == 2;
+                        this.mfK |= 1073741824;
+                        if (!this.mfO) {
+                            fVar.readFully(this.mfk.data, 0, 8);
+                            this.mfL += 8;
+                            this.mfO = true;
+                            this.mez.data[0] = (byte) ((z ? 128 : 0) | 8);
+                            this.mez.setPosition(0);
+                            mVar.a(this.mez, 1);
+                            this.mfT++;
+                            this.mfk.setPosition(0);
+                            mVar.a(this.mfk, 8);
+                            this.mfT += 8;
                         }
                         if (z) {
-                            if (!this.mfN) {
-                                fVar.readFully(this.mex.data, 0, 1);
-                                this.mfJ++;
-                                this.mex.setPosition(0);
-                                this.mfP = this.mex.readUnsignedByte();
-                                this.mfN = true;
+                            if (!this.mfP) {
+                                fVar.readFully(this.mez.data, 0, 1);
+                                this.mfL++;
+                                this.mez.setPosition(0);
+                                this.mfR = this.mez.readUnsignedByte();
+                                this.mfP = true;
                             }
-                            int i2 = this.mfP * 4;
-                            this.mex.reset(i2);
-                            fVar.readFully(this.mex.data, 0, i2);
-                            this.mfJ = i2 + this.mfJ;
-                            short s = (short) ((this.mfP / 2) + 1);
+                            int i2 = this.mfR * 4;
+                            this.mez.reset(i2);
+                            fVar.readFully(this.mez.data, 0, i2);
+                            this.mfL = i2 + this.mfL;
+                            short s = (short) ((this.mfR / 2) + 1);
                             int i3 = (s * 6) + 2;
-                            if (this.mfk == null || this.mfk.capacity() < i3) {
-                                this.mfk = ByteBuffer.allocate(i3);
+                            if (this.mfm == null || this.mfm.capacity() < i3) {
+                                this.mfm = ByteBuffer.allocate(i3);
                             }
-                            this.mfk.position(0);
-                            this.mfk.putShort(s);
+                            this.mfm.position(0);
+                            this.mfm.putShort(s);
                             int i4 = 0;
                             int i5 = 0;
-                            while (i4 < this.mfP) {
-                                int dzC = this.mex.dzC();
+                            while (i4 < this.mfR) {
+                                int dzE = this.mez.dzE();
                                 if (i4 % 2 == 0) {
-                                    this.mfk.putShort((short) (dzC - i5));
+                                    this.mfm.putShort((short) (dzE - i5));
                                 } else {
-                                    this.mfk.putInt(dzC - i5);
+                                    this.mfm.putInt(dzE - i5);
                                 }
                                 i4++;
-                                i5 = dzC;
+                                i5 = dzE;
                             }
-                            int i6 = (i - this.mfJ) - i5;
-                            if (this.mfP % 2 == 1) {
-                                this.mfk.putInt(i6);
+                            int i6 = (i - this.mfL) - i5;
+                            if (this.mfR % 2 == 1) {
+                                this.mfm.putInt(i6);
                             } else {
-                                this.mfk.putShort((short) i6);
-                                this.mfk.putInt(0);
+                                this.mfm.putShort((short) i6);
+                                this.mfm.putInt(0);
                             }
-                            this.mfj.I(this.mfk.array(), i3);
-                            mVar.a(this.mfj, i3);
-                            this.mfR += i3;
+                            this.mfl.I(this.mfm.array(), i3);
+                            mVar.a(this.mfl, i3);
+                            this.mfT += i3;
                         }
                     }
-                } else if (bVar.mfY != null) {
-                    this.mfg.I(bVar.mfY, bVar.mfY.length);
+                } else if (bVar.mga != null) {
+                    this.mfi.I(bVar.mga, bVar.mga.length);
                 }
-                this.mfK = true;
+                this.mfM = true;
             }
-            int dzs = this.mfg.dzs() + i;
-            if ("V_MPEG4/ISO/AVC".equals(bVar.mfV) || "V_MPEGH/ISO/HEVC".equals(bVar.mfV)) {
-                byte[] bArr = this.meL.data;
+            int dzu = this.mfi.dzu() + i;
+            if ("V_MPEG4/ISO/AVC".equals(bVar.mfX) || "V_MPEGH/ISO/HEVC".equals(bVar.mfX)) {
+                byte[] bArr = this.meN.data;
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i7 = bVar.meM;
-                int i8 = 4 - bVar.meM;
-                while (this.mfJ < dzs) {
-                    if (this.mfQ == 0) {
+                int i7 = bVar.meO;
+                int i8 = 4 - bVar.meO;
+                while (this.mfL < dzu) {
+                    if (this.mfS == 0) {
                         a(fVar, bArr, i8, i7);
-                        this.meL.setPosition(0);
-                        this.mfQ = this.meL.dzC();
-                        this.meK.setPosition(0);
-                        mVar.a(this.meK, 4);
-                        this.mfR += 4;
+                        this.meN.setPosition(0);
+                        this.mfS = this.meN.dzE();
+                        this.meM.setPosition(0);
+                        mVar.a(this.meM, 4);
+                        this.mfT += 4;
                     } else {
-                        this.mfQ -= a(fVar, mVar, this.mfQ);
+                        this.mfS -= a(fVar, mVar, this.mfS);
                     }
                 }
             } else {
-                while (this.mfJ < dzs) {
-                    a(fVar, mVar, dzs - this.mfJ);
+                while (this.mfL < dzu) {
+                    a(fVar, mVar, dzu - this.mfL);
                 }
             }
-            if ("A_VORBIS".equals(bVar.mfV)) {
-                this.mfe.setPosition(0);
-                mVar.a(this.mfe, 4);
-                this.mfR += 4;
+            if ("A_VORBIS".equals(bVar.mfX)) {
+                this.mfg.setPosition(0);
+                mVar.a(this.mfg, 4);
+                this.mfT += 4;
             }
         }
     }
 
     private void a(com.google.android.exoplayer2.extractor.f fVar, byte[] bArr, int i) throws IOException, InterruptedException {
         int length = bArr.length + i;
-        if (this.mfh.capacity() < length) {
-            this.mfh.data = Arrays.copyOf(bArr, length + i);
+        if (this.mfj.capacity() < length) {
+            this.mfj.data = Arrays.copyOf(bArr, length + i);
         } else {
-            System.arraycopy(bArr, 0, this.mfh.data, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.mfj.data, 0, bArr.length);
         }
-        fVar.readFully(this.mfh.data, bArr.length, i);
-        this.mfh.reset(length);
+        fVar.readFully(this.mfj.data, bArr.length, i);
+        this.mfj.reset(length);
     }
 
     private void a(b bVar, String str, int i, long j, byte[] bArr) {
-        a(this.mfh.data, this.mfC, str, i, j, bArr);
-        bVar.meJ.a(this.mfh, this.mfh.dzs());
-        this.mfR += this.mfh.dzs();
+        a(this.mfj.data, this.mfE, str, i, j, bArr);
+        bVar.meL.a(this.mfj, this.mfj.dzu());
+        this.mfT += this.mfj.dzu();
     }
 
     private static void a(byte[] bArr, long j, String str, int i, long j2, byte[] bArr2) {
@@ -939,74 +939,74 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     }
 
     private void a(com.google.android.exoplayer2.extractor.f fVar, byte[] bArr, int i, int i2) throws IOException, InterruptedException {
-        int min = Math.min(i2, this.mfg.dzr());
+        int min = Math.min(i2, this.mfi.dzt());
         fVar.readFully(bArr, i + min, i2 - min);
         if (min > 0) {
-            this.mfg.G(bArr, i, min);
+            this.mfi.G(bArr, i, min);
         }
-        this.mfJ += i2;
+        this.mfL += i2;
     }
 
     private int a(com.google.android.exoplayer2.extractor.f fVar, m mVar, int i) throws IOException, InterruptedException {
         int a2;
-        int dzr = this.mfg.dzr();
-        if (dzr > 0) {
-            a2 = Math.min(i, dzr);
-            mVar.a(this.mfg, a2);
+        int dzt = this.mfi.dzt();
+        if (dzt > 0) {
+            a2 = Math.min(i, dzt);
+            mVar.a(this.mfi, a2);
         } else {
             a2 = mVar.a(fVar, i, false);
         }
-        this.mfJ += a2;
-        this.mfR += a2;
+        this.mfL += a2;
+        this.mfT += a2;
         return a2;
     }
 
-    private com.google.android.exoplayer2.extractor.l duV() {
-        if (this.mfm == -1 || this.lZB == -9223372036854775807L || this.mfx == null || this.mfx.size() == 0 || this.mfy == null || this.mfy.size() != this.mfx.size()) {
-            this.mfx = null;
-            this.mfy = null;
-            return new l.a(this.lZB);
+    private com.google.android.exoplayer2.extractor.l duX() {
+        if (this.mfo == -1 || this.lZD == -9223372036854775807L || this.mfz == null || this.mfz.size() == 0 || this.mfA == null || this.mfA.size() != this.mfz.size()) {
+            this.mfz = null;
+            this.mfA = null;
+            return new l.a(this.lZD);
         }
-        int size = this.mfx.size();
+        int size = this.mfz.size();
         int[] iArr = new int[size];
         long[] jArr = new long[size];
         long[] jArr2 = new long[size];
         long[] jArr3 = new long[size];
         for (int i = 0; i < size; i++) {
-            jArr3[i] = this.mfx.LT(i);
-            jArr[i] = this.mfm + this.mfy.LT(i);
+            jArr3[i] = this.mfz.LT(i);
+            jArr[i] = this.mfo + this.mfA.LT(i);
         }
         for (int i2 = 0; i2 < size - 1; i2++) {
             iArr[i2] = (int) (jArr[i2 + 1] - jArr[i2]);
             jArr2[i2] = jArr3[i2 + 1] - jArr3[i2];
         }
-        iArr[size - 1] = (int) ((this.mfm + this.mfl) - jArr[size - 1]);
-        jArr2[size - 1] = this.lZB - jArr3[size - 1];
-        this.mfx = null;
-        this.mfy = null;
+        iArr[size - 1] = (int) ((this.mfo + this.mfn) - jArr[size - 1]);
+        jArr2[size - 1] = this.lZD - jArr3[size - 1];
+        this.mfz = null;
+        this.mfA = null;
         return new com.google.android.exoplayer2.extractor.a(iArr, jArr, jArr2, jArr3);
     }
 
     private boolean a(k kVar, long j) {
-        if (this.mft) {
-            this.mfv = j;
-            kVar.fNZ = this.mfu;
-            this.mft = false;
+        if (this.mfv) {
+            this.mfx = j;
+            kVar.fOb = this.mfw;
+            this.mfv = false;
             return true;
-        } else if (!this.mfq || this.mfv == -1) {
+        } else if (!this.mfs || this.mfx == -1) {
             return false;
         } else {
-            kVar.fNZ = this.mfv;
-            this.mfv = -1L;
+            kVar.fOb = this.mfx;
+            this.mfx = -1L;
             return true;
         }
     }
 
     private long fM(long j) throws ParserException {
-        if (this.mfn == -9223372036854775807L) {
+        if (this.mfp == -9223372036854775807L) {
             throw new ParserException("Can't scale timecode prior to timecodeScale being set.");
         }
-        return v.i(j, this.mfn, 1000L);
+        return v.i(j, this.mfp, 1000L);
     }
 
     private static boolean Ps(String str) {
@@ -1076,22 +1076,20 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
         public DrmInitData drmInitData;
         public int height;
         private String language;
-        public m meJ;
-        public int meM;
-        public String mfV;
-        public int mfW;
-        public boolean mfX;
-        public byte[] mfY;
-        public m.a mfZ;
+        public m meL;
+        public int meO;
+        public String mfX;
+        public int mfY;
+        public boolean mfZ;
         public byte[] mga;
-        public int mgb;
-        public int mgc;
+        public m.a mgb;
+        public byte[] mgc;
         public int mgd;
-        public boolean mge;
+        public int mge;
         public int mgf;
-        public int mgg;
-        public float mgh;
-        public float mgi;
+        public boolean mgg;
+        public int mgh;
+        public int mgi;
         public float mgj;
         public float mgk;
         public float mgl;
@@ -1100,11 +1098,13 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
         public float mgo;
         public float mgp;
         public float mgq;
-        public int mgr;
-        public long mgs;
-        public long mgt;
-        public boolean mgu;
-        public boolean mgv;
+        public float mgr;
+        public float mgs;
+        public int mgt;
+        public long mgu;
+        public long mgv;
+        public boolean mgw;
+        public boolean mgx;
         public int number;
         public byte[] projectionData;
         public int sampleRate;
@@ -1115,19 +1115,17 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
         private b() {
             this.width = -1;
             this.height = -1;
-            this.mgb = -1;
-            this.mgc = -1;
-            this.mgd = 0;
+            this.mgd = -1;
+            this.mge = -1;
+            this.mgf = 0;
             this.projectionData = null;
             this.stereoMode = -1;
-            this.mge = false;
+            this.mgg = false;
             this.colorSpace = -1;
             this.colorTransfer = -1;
             this.colorRange = -1;
-            this.mgf = 1000;
-            this.mgg = 200;
-            this.mgh = -1.0f;
-            this.mgi = -1.0f;
+            this.mgh = 1000;
+            this.mgi = 200;
             this.mgj = -1.0f;
             this.mgk = -1.0f;
             this.mgl = -1.0f;
@@ -1136,12 +1134,14 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
             this.mgo = -1.0f;
             this.mgp = -1.0f;
             this.mgq = -1.0f;
+            this.mgr = -1.0f;
+            this.mgs = -1.0f;
             this.channelCount = 1;
-            this.mgr = -1;
+            this.mgt = -1;
             this.sampleRate = 8000;
-            this.mgs = 0L;
-            this.mgt = 0L;
-            this.mgv = true;
+            this.mgu = 0L;
+            this.mgv = 0L;
+            this.mgx = true;
             this.language = "eng";
         }
 
@@ -1152,7 +1152,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
             int i3 = -1;
             int i4 = -1;
             List list = null;
-            String str2 = this.mfV;
+            String str2 = this.mfX;
             char c = 65535;
             switch (str2.hashCode()) {
                 case -2095576542:
@@ -1344,22 +1344,22 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 case 4:
                 case 5:
                     str = "video/mp4v-es";
-                    list = this.mga == null ? null : Collections.singletonList(this.mga);
+                    list = this.mgc == null ? null : Collections.singletonList(this.mgc);
                     break;
                 case 6:
                     str = "video/avc";
-                    com.google.android.exoplayer2.video.a ag = com.google.android.exoplayer2.video.a.ag(new com.google.android.exoplayer2.util.l(this.mga));
+                    com.google.android.exoplayer2.video.a ag = com.google.android.exoplayer2.video.a.ag(new com.google.android.exoplayer2.util.l(this.mgc));
                     list = ag.initializationData;
-                    this.meM = ag.meM;
+                    this.meO = ag.meO;
                     break;
                 case 7:
                     str = "video/hevc";
-                    com.google.android.exoplayer2.video.b ai = com.google.android.exoplayer2.video.b.ai(new com.google.android.exoplayer2.util.l(this.mga));
+                    com.google.android.exoplayer2.video.b ai = com.google.android.exoplayer2.video.b.ai(new com.google.android.exoplayer2.util.l(this.mgc));
                     list = ai.initializationData;
-                    this.meM = ai.meM;
+                    this.meO = ai.meO;
                     break;
                 case '\b':
-                    list = j(new com.google.android.exoplayer2.util.l(this.mga));
+                    list = j(new com.google.android.exoplayer2.util.l(this.mgc));
                     if (list != null) {
                         str = "video/wvc1";
                         break;
@@ -1374,19 +1374,19 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 case '\n':
                     str = "audio/vorbis";
                     i3 = 8192;
-                    list = at(this.mga);
+                    list = at(this.mgc);
                     break;
                 case 11:
                     str = "audio/opus";
                     i3 = 5760;
                     list = new ArrayList(3);
-                    list.add(this.mga);
-                    list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.mgs).array());
-                    list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.mgt).array());
+                    list.add(this.mgc);
+                    list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.mgu).array());
+                    list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.mgv).array());
                     break;
                 case '\f':
                     str = "audio/mp4a-latm";
-                    list = Collections.singletonList(this.mga);
+                    list = Collections.singletonList(this.mgc);
                     break;
                 case '\r':
                     str = "audio/mpeg-L2";
@@ -1414,16 +1414,16 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     break;
                 case 21:
                     str = "audio/flac";
-                    list = Collections.singletonList(this.mga);
+                    list = Collections.singletonList(this.mgc);
                     break;
                 case 22:
                     str = "audio/raw";
-                    if (k(new com.google.android.exoplayer2.util.l(this.mga))) {
-                        i4 = v.LZ(this.mgr);
+                    if (k(new com.google.android.exoplayer2.util.l(this.mgc))) {
+                        i4 = v.LZ(this.mgt);
                         if (i4 == 0) {
                             i4 = -1;
                             str = "audio/x-unknown";
-                            Log.w("MatroskaExtractor", "Unsupported PCM bit depth: " + this.mgr + ". Setting mimeType to audio/x-unknown");
+                            Log.w("MatroskaExtractor", "Unsupported PCM bit depth: " + this.mgt + ". Setting mimeType to audio/x-unknown");
                             break;
                         }
                     } else {
@@ -1434,11 +1434,11 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     break;
                 case 23:
                     str = "audio/raw";
-                    i4 = v.LZ(this.mgr);
+                    i4 = v.LZ(this.mgt);
                     if (i4 == 0) {
                         i4 = -1;
                         str = "audio/x-unknown";
-                        Log.w("MatroskaExtractor", "Unsupported PCM bit depth: " + this.mgr + ". Setting mimeType to audio/x-unknown");
+                        Log.w("MatroskaExtractor", "Unsupported PCM bit depth: " + this.mgt + ". Setting mimeType to audio/x-unknown");
                         break;
                     }
                     break;
@@ -1450,34 +1450,34 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     break;
                 case 26:
                     str = "application/vobsub";
-                    list = Collections.singletonList(this.mga);
+                    list = Collections.singletonList(this.mgc);
                     break;
                 case 27:
                     str = "application/pgs";
                     break;
                 case 28:
                     str = "application/dvbsubs";
-                    list = Collections.singletonList(new byte[]{this.mga[0], this.mga[1], this.mga[2], this.mga[3]});
+                    list = Collections.singletonList(new byte[]{this.mgc[0], this.mgc[1], this.mgc[2], this.mgc[3]});
                     break;
                 default:
                     throw new ParserException("Unrecognized codec identifier.");
             }
-            int i5 = 0 | (this.mgv ? 1 : 0) | (this.mgu ? 2 : 0);
+            int i5 = 0 | (this.mgx ? 1 : 0) | (this.mgw ? 2 : 0);
             if (i.Qo(str)) {
                 a = Format.a(Integer.toString(i), str, (String) null, -1, i3, this.channelCount, this.sampleRate, i4, list, this.drmInitData, i5, this.language);
                 i2 = 1;
             } else if (i.OQ(str)) {
-                if (this.mgd == 0) {
-                    this.mgb = this.mgb == -1 ? this.width : this.mgb;
-                    this.mgc = this.mgc == -1 ? this.height : this.mgc;
+                if (this.mgf == 0) {
+                    this.mgd = this.mgd == -1 ? this.width : this.mgd;
+                    this.mge = this.mge == -1 ? this.height : this.mge;
                 }
                 float f = -1.0f;
-                if (this.mgb != -1 && this.mgc != -1) {
-                    f = (this.height * this.mgb) / (this.width * this.mgc);
+                if (this.mgd != -1 && this.mge != -1) {
+                    f = (this.height * this.mgd) / (this.width * this.mge);
                 }
                 ColorInfo colorInfo = null;
-                if (this.mge) {
-                    colorInfo = new ColorInfo(this.colorSpace, this.colorRange, this.colorTransfer, duY());
+                if (this.mgg) {
+                    colorInfo = new ColorInfo(this.colorSpace, this.colorRange, this.colorTransfer, dva());
                 }
                 a = Format.a(Integer.toString(i), str, (String) null, -1, i3, this.width, this.height, -1.0f, list, -1, f, this.projectionData, this.stereoMode, colorInfo, this.drmInitData);
                 i2 = 2;
@@ -1486,8 +1486,8 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 i2 = 3;
             } else if ("text/x-ssa".equals(str)) {
                 ArrayList arrayList = new ArrayList(2);
-                arrayList.add(d.meX);
-                arrayList.add(this.mga);
+                arrayList.add(d.meZ);
+                arrayList.add(this.mgc);
                 a = Format.a(Integer.toString(i), str, (String) null, -1, i5, this.language, -1, this.drmInitData, (long) Format.OFFSET_SAMPLE_RELATIVE, arrayList);
                 i2 = 3;
             } else if ("application/vobsub".equals(str) || "application/pgs".equals(str) || "application/dvbsubs".equals(str)) {
@@ -1496,36 +1496,36 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
             } else {
                 throw new ParserException("Unexpected MIME type.");
             }
-            this.meJ = gVar.dK(this.number, i2);
-            this.meJ.h(a);
+            this.meL = gVar.dK(this.number, i2);
+            this.meL.h(a);
         }
 
-        private byte[] duY() {
-            if (this.mgh == -1.0f || this.mgi == -1.0f || this.mgj == -1.0f || this.mgk == -1.0f || this.mgl == -1.0f || this.mgm == -1.0f || this.mgn == -1.0f || this.mgo == -1.0f || this.mgp == -1.0f || this.mgq == -1.0f) {
+        private byte[] dva() {
+            if (this.mgj == -1.0f || this.mgk == -1.0f || this.mgl == -1.0f || this.mgm == -1.0f || this.mgn == -1.0f || this.mgo == -1.0f || this.mgp == -1.0f || this.mgq == -1.0f || this.mgr == -1.0f || this.mgs == -1.0f) {
                 return null;
             }
             byte[] bArr = new byte[25];
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
             wrap.put((byte) 0);
-            wrap.putShort((short) ((this.mgh * 50000.0f) + 0.5f));
-            wrap.putShort((short) ((this.mgi * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgj * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgk * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgl * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgm * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgn * 50000.0f) + 0.5f));
             wrap.putShort((short) ((this.mgo * 50000.0f) + 0.5f));
-            wrap.putShort((short) (this.mgp + 0.5f));
-            wrap.putShort((short) (this.mgq + 0.5f));
-            wrap.putShort((short) this.mgf);
-            wrap.putShort((short) this.mgg);
+            wrap.putShort((short) ((this.mgp * 50000.0f) + 0.5f));
+            wrap.putShort((short) ((this.mgq * 50000.0f) + 0.5f));
+            wrap.putShort((short) (this.mgr + 0.5f));
+            wrap.putShort((short) (this.mgs + 0.5f));
+            wrap.putShort((short) this.mgh);
+            wrap.putShort((short) this.mgi);
             return bArr;
         }
 
         private static List<byte[]> j(com.google.android.exoplayer2.util.l lVar) throws ParserException {
             try {
                 lVar.skipBytes(16);
-                if (lVar.dzx() != 826496599) {
+                if (lVar.dzz() != 826496599) {
                     return null;
                 }
                 byte[] bArr = lVar.data;
@@ -1586,14 +1586,14 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
 
         private static boolean k(com.google.android.exoplayer2.util.l lVar) throws ParserException {
             try {
-                int dzu = lVar.dzu();
-                if (dzu == 1) {
+                int dzw = lVar.dzw();
+                if (dzw == 1) {
                     return true;
                 }
-                if (dzu == 65534) {
+                if (dzw == 65534) {
                     lVar.setPosition(24);
-                    if (lVar.readLong() == d.mfa.getMostSignificantBits()) {
-                        if (lVar.readLong() == d.mfa.getLeastSignificantBits()) {
+                    if (lVar.readLong() == d.mfc.getMostSignificantBits()) {
+                        if (lVar.readLong() == d.mfc.getLeastSignificantBits()) {
                             return true;
                         }
                     }

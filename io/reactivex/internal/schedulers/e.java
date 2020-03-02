@@ -4,19 +4,19 @@ import io.reactivex.v;
 import java.util.concurrent.ThreadFactory;
 /* loaded from: classes7.dex */
 public final class e extends v {
-    private static final RxThreadFactory nyR = new RxThreadFactory("RxNewThreadScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.newthread-priority", 5).intValue())));
-    final ThreadFactory aRV;
+    private static final RxThreadFactory nyT = new RxThreadFactory("RxNewThreadScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.newthread-priority", 5).intValue())));
+    final ThreadFactory aRW;
 
     public e() {
-        this(nyR);
+        this(nyT);
     }
 
     public e(ThreadFactory threadFactory) {
-        this.aRV = threadFactory;
+        this.aRW = threadFactory;
     }
 
     @Override // io.reactivex.v
-    public v.c dJf() {
-        return new f(this.aRV);
+    public v.c dJh() {
+        return new f(this.aRW);
     }
 }

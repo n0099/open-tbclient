@@ -7,9 +7,9 @@ public interface q {
         void a(T t);
     }
 
-    long dwf();
+    long dwh();
 
-    long dwg();
+    long dwi();
 
     boolean gd(long j);
 }

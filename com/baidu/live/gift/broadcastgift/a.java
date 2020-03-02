@@ -92,7 +92,7 @@ public class a implements s {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() != null && (view.getTag() instanceof AlaLiveInfoCoreData)) {
-                if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.v.a.zj().awA.aav) {
+                if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.v.a.zl().awB.aav) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) view.getTag();
                     if (alaLiveInfoCoreData.broadcast_type == 2) {
                         LogManager.getCommonLogger().doClickHourRankConfirmNoticeLog(alaLiveInfoCoreData.feed_id, alaLiveInfoCoreData.otherParams);

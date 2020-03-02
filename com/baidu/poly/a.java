@@ -6,23 +6,23 @@ import com.baidu.poly.util.f;
 import com.baidu.poly.widget.PolyActivity;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.poly.c.a.c aPT;
-    private long aPU;
+    private com.baidu.poly.c.a.c aPU;
+    private long aPV;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0153a {
-        private com.baidu.poly.c.a.c aPT;
+        private com.baidu.poly.c.a.c aPU;
         private Context context;
-        private int aPV = 1;
+        private int aPW = 1;
         private boolean debug = false;
 
-        public a Ew() {
+        public a Ey() {
             return new a(this);
         }
 
         public C0153a a(com.baidu.poly.c.a.c cVar) {
-            this.aPT = cVar;
+            this.aPU = cVar;
             return this;
         }
 
@@ -37,7 +37,7 @@ public class a {
         }
 
         public C0153a dt(int i) {
-            this.aPV = i;
+            this.aPW = i;
             return this;
         }
     }
@@ -53,27 +53,27 @@ public class a {
         }
         if (bundle != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.aPU < 1000) {
+            if (currentTimeMillis - this.aPV < 1000) {
                 com.baidu.poly.util.c.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.aPU = currentTimeMillis;
+            this.aPV = currentTimeMillis;
             com.baidu.poly.util.c.info("cashier pay");
-            PolyActivity.a(context, this.aPT, bVar, bundle);
+            PolyActivity.a(context, this.aPU, bVar, bundle);
             return;
         }
         throw new IllegalArgumentException("arguments can not be null");
     }
 
     private a(C0153a c0153a) {
-        this.aPU = 0L;
-        if (c0153a != null && c0153a.aPT != null) {
+        this.aPV = 0L;
+        if (c0153a != null && c0153a.aPU != null) {
             if (c0153a.context != null) {
-                this.aPT = c0153a.aPT;
-                com.baidu.poly.a.b.a.init(c0153a.aPV);
+                this.aPU = c0153a.aPU;
+                com.baidu.poly.a.b.a.init(c0153a.aPW);
                 com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aW(c0153a.context.getApplicationContext()));
                 f.b(c0153a.context.getApplicationContext());
-                com.baidu.poly.util.c.aSb = c0153a.debug;
+                com.baidu.poly.util.c.aSc = c0153a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

@@ -15,9 +15,9 @@ import com.baidu.live.u.a;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private Drawable eLD;
-    private boolean eLE;
-    private View.OnClickListener ewR;
+    private Drawable eLE;
+    private boolean eLF;
+    private View.OnClickListener ewS;
     private Context mContext;
     private TbPageContext mPageContext;
     private int mSex;
@@ -25,28 +25,28 @@ public class c extends b {
     public c(TbPageContext tbPageContext, boolean z, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.eLE = z;
+        this.eLF = z;
         this.mSex = i;
-        this.eLD = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
+        this.eLE = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eLC) {
+        if (this.eLD) {
             return 1;
         }
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return 0;
         }
-        return this.cVQ.size();
+        return this.cVR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cVQ == null) {
+        if (this.cVR == null) {
             return null;
         }
-        return this.cVQ.get(i);
+        return this.cVR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,8 +56,8 @@ public class c extends b {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.cVQ = eVar.aBl();
-            bgH();
+            this.cVR = eVar.aBn();
+            bgJ();
             notifyDataSetChanged();
         }
     }
@@ -68,45 +68,45 @@ public class c extends b {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_list_item, (ViewGroup) null);
-            aVar.eLF = (LinearLayout) view.findViewById(a.g.info);
-            aVar.exk = (HeadImageView) view.findViewById(a.g.photo);
-            aVar.exk.setIsRound(true);
-            aVar.exk.setAutoChangeStyle(false);
-            aVar.exk.setClickable(false);
+            aVar.eLG = (LinearLayout) view.findViewById(a.g.info);
+            aVar.exl = (HeadImageView) view.findViewById(a.g.photo);
+            aVar.exl.setIsRound(true);
+            aVar.exl.setAutoChangeStyle(false);
+            aVar.exl.setClickable(false);
             aVar.mName = (TextView) view.findViewById(a.g.name);
-            aVar.exl = (TextView) view.findViewById(a.g.intro);
+            aVar.exm = (TextView) view.findViewById(a.g.intro);
             aVar.arB = (TextView) view.findViewById(a.g.attention_btn);
-            aVar.eLG = (TextView) view.findViewById(a.g.at_list_nodata);
+            aVar.eLH = (TextView) view.findViewById(a.g.at_list_nodata);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (this.eLC) {
-            aVar.eLF.setVisibility(8);
-            aVar.eLG.setVisibility(0);
-            if (this.eLE) {
-                aVar.eLG.setText(a.i.sdk_prc_not_have_fans);
+        if (this.eLD) {
+            aVar.eLG.setVisibility(8);
+            aVar.eLH.setVisibility(0);
+            if (this.eLF) {
+                aVar.eLH.setText(a.i.sdk_prc_not_have_fans);
             } else if (this.mSex == 2) {
-                aVar.eLG.setText(a.i.sdk_prc_her_no_fan_other);
+                aVar.eLH.setText(a.i.sdk_prc_her_no_fan_other);
             } else if (this.mSex == 1) {
-                aVar.eLG.setText(a.i.sdk_prc_him_no_fan_other);
+                aVar.eLH.setText(a.i.sdk_prc_him_no_fan_other);
             } else {
-                aVar.eLG.setText(a.i.sdk_prc_no_fan_other);
+                aVar.eLH.setText(a.i.sdk_prc_no_fan_other);
             }
         } else {
-            aVar.eLG.setVisibility(8);
-            aVar.eLF.setVisibility(0);
-            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.cVQ, i);
+            aVar.eLH.setVisibility(8);
+            aVar.eLG.setVisibility(0);
+            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.cVR, i);
             if (aVar2 != null) {
-                aVar.exk.startLoad(aVar2.portrait, 12, false);
+                aVar.exl.startLoad(aVar2.portrait, 12, false);
                 aVar.mName.setText(aVar2.getNameShow());
                 if (StringHelper.isEmpty(aVar2.intro)) {
-                    aVar.exl.setVisibility(8);
+                    aVar.exm.setVisibility(8);
                 } else {
-                    aVar.exl.setVisibility(0);
-                    aVar.exl.setText(aVar2.intro);
+                    aVar.exm.setVisibility(0);
+                    aVar.exm.setText(aVar2.intro);
                 }
-                b(aVar.arB, aVar2.bgG(), i);
+                b(aVar.arB, aVar2.bgI(), i);
             }
         }
         return view;
@@ -119,12 +119,12 @@ public class c extends b {
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.ewR = onClickListener;
+        this.ewS = onClickListener;
     }
 
     public void X(String str, boolean z) {
-        if (this.cVQ != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.cVQ.iterator();
+        if (this.cVR != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.cVR.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -132,9 +132,9 @@ public class c extends b {
                 com.baidu.tieba.ala.live.personcenter.fans.a next = it.next();
                 if (next != null && str.equals(next.userId)) {
                     if (z) {
-                        next.eLA = 1;
+                        next.eLB = 1;
                     } else {
-                        next.eLA = 0;
+                        next.eLB = 0;
                     }
                 }
             }
@@ -145,10 +145,10 @@ public class c extends b {
     /* loaded from: classes3.dex */
     private static class a {
         public TextView arB;
-        public LinearLayout eLF;
-        public TextView eLG;
-        public HeadImageView exk;
-        public TextView exl;
+        public LinearLayout eLG;
+        public TextView eLH;
+        public HeadImageView exl;
+        public TextView exm;
         public TextView mName;
 
         private a() {

@@ -1,9 +1,9 @@
 package com.baidu.g.a.b.a;
 /* loaded from: classes3.dex */
 public class a {
-    public int aHB;
     public int aHC;
     public int aHD;
+    public int aHE;
     public int heigth;
     public String thumbUrl;
     public int type;
@@ -14,12 +14,12 @@ public class a {
         return this.thumbUrl;
     }
 
-    public int BJ() {
-        return this.aHC;
+    public int BL() {
+        return this.aHD;
     }
 
-    public int BK() {
-        return this.aHD;
+    public int BM() {
+        return this.aHE;
     }
 
     public int getType() {
@@ -34,11 +34,11 @@ public class a {
         return this.width;
     }
 
-    public int BL() {
+    public int BN() {
         return this.heigth;
     }
 
-    public int BM() {
-        return this.aHB;
+    public int BO() {
+        return this.aHC;
     }
 }

@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cFV;
-    private boolean cFW = false;
+    private static c cFW;
+    private boolean cFX = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
-    public static c awz() {
-        if (cFV == null) {
+    public static c awB() {
+        if (cFW == null) {
             synchronized (c.class) {
-                if (cFV == null) {
-                    cFV = new c();
+                if (cFW == null) {
+                    cFW = new c();
                 }
             }
         }
-        return cFV;
+        return cFW;
     }
 
-    public synchronized void awA() {
-        if (!this.cFW) {
-            if (b.awt()) {
-                awB();
+    public synchronized void awC() {
+        if (!this.cFX) {
+            if (b.awv()) {
+                awD();
             } else {
-                this.cFW = true;
-                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aww(), b.awv()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
+                this.cFX = true;
+                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.awy(), b.awx()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
@@ -40,11 +40,11 @@ public class c {
 
                     @Override // com.baidu.swan.a.e
                     public void E(int i, String str) {
-                        c.this.cFW = false;
+                        c.this.cFX = false;
                         if (i == 1010) {
-                            c.this.awB();
+                            c.this.awD();
                         } else {
-                            c.this.awC();
+                            c.this.awE();
                         }
                     }
 
@@ -71,7 +71,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awB() {
+    public synchronized void awD() {
         for (a aVar : this.mListeners) {
             aVar.onSuccess();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awC() {
+    public synchronized void awE() {
         for (a aVar : this.mListeners) {
             aVar.onFail();
         }
@@ -112,31 +112,31 @@ public class c {
 
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
-                if (!c.this.awD()) {
-                    c.this.cFW = false;
-                    c.this.awC();
+                if (!c.this.awF()) {
+                    c.this.cFX = false;
+                    c.this.awE();
                     return;
                 }
                 b.U(cVar.versionName, cVar.versionCode);
-                c.this.cFW = false;
-                c.this.awB();
+                c.this.cFX = false;
+                c.this.awD();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean awD() {
-        return new d(AppRuntime.getAppContext()).awF();
+    public synchronized boolean awF() {
+        return new d(AppRuntime.getAppContext()).awH();
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.brh)) {
+        if (e.unzipFile(cVar.filePath, b.bri)) {
             b.U(cVar.versionName, cVar.versionCode);
-            this.cFW = false;
-            awB();
+            this.cFX = false;
+            awD();
         } else {
-            this.cFW = false;
-            awC();
+            this.cFX = false;
+            awE();
         }
     }
 }

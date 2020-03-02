@@ -8,11 +8,11 @@ import java.util.Map;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a<T> {
-    private final LruCache<String, T> nWx;
-    private final Map<String, WeakReference<T>> nWy = new ArrayMap();
+    private final Map<String, WeakReference<T>> nWA = new ArrayMap();
+    private final LruCache<String, T> nWz;
 
     public a(int i, final b<T> bVar) {
-        this.nWx = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
+        this.nWz = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.support.v4.util.LruCache
@@ -30,7 +30,7 @@ public class a<T> {
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, T t, T t2) {
                 if (z && t != null) {
-                    a.this.nWy.put(str, new WeakReference(t));
+                    a.this.nWA.put(str, new WeakReference(t));
                 }
             }
         };
@@ -39,7 +39,7 @@ public class a<T> {
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.nWx.put(str, t);
+                this.nWz.put(str, t);
             }
         }
     }
@@ -52,15 +52,15 @@ public class a<T> {
             return null;
         }
         synchronized (this) {
-            T t2 = this.nWx.get(str);
-            if (t2 != null || (weakReference = this.nWy.get(str)) == null) {
+            T t2 = this.nWz.get(str);
+            if (t2 != null || (weakReference = this.nWA.get(str)) == null) {
                 t = t2;
             } else {
                 t = weakReference.get();
                 if (t != null) {
-                    this.nWx.put(str, t);
+                    this.nWz.put(str, t);
                 } else {
-                    this.nWy.remove(str);
+                    this.nWA.remove(str);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class a<T> {
 
     public void clear() {
         synchronized (this) {
-            this.nWx.evictAll();
-            this.nWy.clear();
+            this.nWz.evictAll();
+            this.nWA.clear();
         }
     }
 }

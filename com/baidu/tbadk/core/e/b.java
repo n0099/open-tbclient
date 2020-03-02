@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a cXp = null;
+    private static a cXq = null;
 
     public static void v(Context context, int i) {
-        if (cXp != null) {
-            cXp.v(context, i);
+        if (cXq != null) {
+            cXq.v(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (cXp != null) {
-            cXp.b(context, i, z);
+        if (cXq != null) {
+            cXq.b(context, i, z);
         }
     }
 
     public static void dM(Context context) {
-        if (cXp != null) {
-            cXp.dM(context);
+        if (cXq != null) {
+            cXq.dM(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (cXp != null) {
-            cXp.c(context, i, z);
+        if (cXq != null) {
+            cXq.c(context, i, z);
         }
     }
 
-    public static Class<?> aFs() {
-        if (cXp == null) {
+    public static Class<?> aFu() {
+        if (cXq == null) {
             return null;
         }
-        return cXp.aFs();
+        return cXq.aFu();
     }
 
-    public static String aFt() {
-        if (cXp == null) {
+    public static String aFv() {
+        if (cXq == null) {
             return null;
         }
-        return cXp.aFt();
+        return cXq.aFv();
     }
 
     public static void a(a aVar) {
-        cXp = aVar;
+        cXq = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (cXp == null) {
+        if (cXq == null) {
             return -1;
         }
-        return cXp.getCurrentTabType();
+        return cXq.getCurrentTabType();
     }
 }

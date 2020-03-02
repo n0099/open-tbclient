@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void cMb() {
+    public static void cMd() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.execSQLNoException("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
@@ -50,8 +50,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.kjz = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.kjA = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.kjB = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.kjC = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.notifySQLException(e, "getChunkUploadDataByMd5");

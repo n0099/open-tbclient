@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes11.dex */
 public class b {
-    private static b cFI;
-    private final a<String> cFJ = new a<>();
-    private String cFK;
+    private static b cFJ;
+    private final a<String> cFK = new a<>();
+    private String cFL;
 
     private b(Context context) {
-        this.cFJ.a(new c(context));
-        this.cFJ.a(new e(context));
-        this.cFJ.a(new d(context));
-        this.cFJ.a(new g(context));
-        this.cFJ.a(new com.baidu.swan.uuid.a.a(context));
-        this.cFJ.a(new f(context));
+        this.cFK.a(new c(context));
+        this.cFK.a(new e(context));
+        this.cFK.a(new d(context));
+        this.cFK.a(new g(context));
+        this.cFK.a(new com.baidu.swan.uuid.a.a(context));
+        this.cFK.a(new f(context));
     }
 
     public static b dH(Context context) {
-        if (cFI == null) {
+        if (cFJ == null) {
             synchronized (b.class) {
-                if (cFI == null) {
-                    cFI = new b(context);
+                if (cFJ == null) {
+                    cFJ = new b(context);
                 }
             }
         }
-        return cFI;
+        return cFJ;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.cFK)) {
+        if (TextUtils.isEmpty(this.cFL)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.cFK)) {
-                    this.cFK = this.cFJ.awg();
-                    this.cFJ.ad(this.cFK);
+                if (TextUtils.isEmpty(this.cFL)) {
+                    this.cFL = this.cFK.awi();
+                    this.cFK.ad(this.cFL);
                 }
             }
         }
-        return this.cFK;
+        return this.cFL;
     }
 }

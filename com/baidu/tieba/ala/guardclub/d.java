@@ -19,37 +19,37 @@ public class d {
     private boolean Yr;
     private String agZ;
     private com.baidu.live.guardclub.a apX;
-    private GuardClubInfoActivity eEf;
-    private boolean eEg;
-    private e eEh;
+    private GuardClubInfoActivity eEg;
+    private boolean eEh;
+    private e eEi;
     private boolean isFullScreen;
     private boolean isTranslucent;
     private long liveId;
     private String otherParams;
     private long roomId;
-    private BdUniqueId ewH = BdUniqueId.gen();
-    private View.OnClickListener eEi = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.d.1
+    private BdUniqueId ewI = BdUniqueId.gen();
+    private View.OnClickListener eEj = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.beZ();
+            d.this.bfb();
         }
     };
-    private HttpMessageListener eDR = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.d.2
+    private HttpMessageListener eDS = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             GuardClubInfoHttpResponseMessage guardClubInfoHttpResponseMessage;
             if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage)) {
-                if (d.this.eEh != null) {
-                    d.this.eEh.bfb();
+                if (d.this.eEi != null) {
+                    d.this.eEi.bfd();
                 }
-            } else if (d.this.eEh != null && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == d.this.ewH && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.apX != null) {
+            } else if (d.this.eEi != null && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == d.this.ewI && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.apX != null) {
                 d.this.apX = guardClubInfoHttpResponseMessage.apX;
-                d.this.eEh.a(guardClubInfoHttpResponseMessage.apX, guardClubInfoHttpResponseMessage.apY, guardClubInfoHttpResponseMessage.apZ, guardClubInfoHttpResponseMessage.aqa, guardClubInfoHttpResponseMessage.aqc);
+                d.this.eEi.a(guardClubInfoHttpResponseMessage.apX, guardClubInfoHttpResponseMessage.apY, guardClubInfoHttpResponseMessage.apZ, guardClubInfoHttpResponseMessage.aqa, guardClubInfoHttpResponseMessage.aqc);
             }
         }
     };
-    HttpMessageListener eDU = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.d.3
+    HttpMessageListener eDV = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -65,7 +65,7 @@ public class d {
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (d.this.apX != null && d.this.apX.id == guardClubJoinHttpResponseMessage.aqf) {
-                        d.this.beZ();
+                        d.this.bfb();
                     }
                 } else if (!guardClubJoinHttpResponseMessage.aqi) {
                     guardClubJoinHttpResponseMessage.aqi = true;
@@ -78,7 +78,7 @@ public class d {
             }
         }
     };
-    HttpMessageListener eEj = new HttpMessageListener(1021142) { // from class: com.baidu.tieba.ala.guardclub.d.4
+    HttpMessageListener eEk = new HttpMessageListener(1021142) { // from class: com.baidu.tieba.ala.guardclub.d.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -93,8 +93,8 @@ public class d {
                 }
                 com.baidu.live.guardclub.a aVar = ((GuardClubInfoRenameResponseMessage) httpResponsedMessage).apX;
                 if (aVar != null && d.this.apX != null && d.this.apX.id == aVar.id) {
-                    if (d.this.eEh != null) {
-                        d.this.eEh.yu(aVar.apL);
+                    if (d.this.eEi != null) {
+                        d.this.eEi.yu(aVar.apL);
                         return;
                     }
                     return;
@@ -107,20 +107,20 @@ public class d {
             }
         }
     };
-    private HttpMessageListener axE = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.ala.guardclub.d.5
+    private HttpMessageListener axF = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.ala.guardclub.d.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).yW() != null) {
-                    d.this.beZ();
+                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).yX() != null) {
+                    d.this.bfb();
                 }
             }
         }
     };
 
     public d(GuardClubInfoActivity guardClubInfoActivity, long j, long j2, long j3, String str, boolean z, String str2, boolean z2, boolean z3, boolean z4, String str3, boolean z5) {
-        this.eEf = guardClubInfoActivity;
+        this.eEg = guardClubInfoActivity;
         this.WZ = j;
         this.liveId = j2;
         this.roomId = j3;
@@ -128,51 +128,51 @@ public class d {
         this.Yr = z;
         this.otherParams = str2;
         this.isFullScreen = z2;
-        this.eEg = z4;
+        this.eEh = z4;
         this.isTranslucent = z5;
-        this.eEh = new e(guardClubInfoActivity, j, j2, j3, str, z, str2, z2, z3, z4, str3, z5, this.eEi);
-        MessageManager.getInstance().registerListener(this.eDR);
-        MessageManager.getInstance().registerListener(this.eDU);
-        MessageManager.getInstance().registerListener(this.axE);
-        MessageManager.getInstance().registerListener(this.eEj);
-        beZ();
+        this.eEi = new e(guardClubInfoActivity, j, j2, j3, str, z, str2, z2, z3, z4, str3, z5, this.eEj);
+        MessageManager.getInstance().registerListener(this.eDS);
+        MessageManager.getInstance().registerListener(this.eDV);
+        MessageManager.getInstance().registerListener(this.axF);
+        MessageManager.getInstance().registerListener(this.eEk);
+        bfb();
     }
 
     public View getView() {
-        return this.eEh.getView();
+        return this.eEi.getView();
     }
 
     public void ta() {
-        if (this.eEh != null) {
-            this.eEh.ta();
+        if (this.eEi != null) {
+            this.eEi.ta();
         }
     }
 
-    public void beZ() {
+    public void bfb() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
             bVar.D(this.WZ);
             bVar.setParams();
-            bVar.setTag(this.ewH);
+            bVar.setTag(this.ewI);
             MessageManager.getInstance().sendMessage(bVar);
-        } else if (this.eEh != null) {
-            this.eEh.bfb();
+        } else if (this.eEi != null) {
+            this.eEi.bfd();
         }
     }
 
     public void onDestroy() {
-        this.eEh.onDestory();
-        if (this.eDR != null) {
-            MessageManager.getInstance().unRegisterListener(this.eDR);
+        this.eEi.onDestory();
+        if (this.eDS != null) {
+            MessageManager.getInstance().unRegisterListener(this.eDS);
         }
-        if (this.eDU != null) {
-            MessageManager.getInstance().unRegisterListener(this.eDU);
+        if (this.eDV != null) {
+            MessageManager.getInstance().unRegisterListener(this.eDV);
         }
-        if (this.axE != null) {
-            MessageManager.getInstance().unRegisterListener(this.axE);
+        if (this.axF != null) {
+            MessageManager.getInstance().unRegisterListener(this.axF);
         }
-        if (this.eEj != null) {
-            MessageManager.getInstance().unRegisterListener(this.eEj);
+        if (this.eEk != null) {
+            MessageManager.getInstance().unRegisterListener(this.eEk);
         }
     }
 }

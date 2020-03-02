@@ -15,36 +15,36 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d bka;
-    static Flow bkb;
-    private static Timer bkc;
-    private static boolean bkd;
+    private static d bkb;
+    static Flow bkc;
+    private static Timer bkd;
+    private static boolean bke;
 
     public abstract void gD(String str);
 
     private d() {
     }
 
-    public static d LG() {
-        if (bka == null) {
+    public static d LI() {
+        if (bkb == null) {
             synchronized (f.class) {
-                if (bka == null) {
-                    if (com.baidu.pyramid.runtime.multiprocess.a.EP()) {
-                        bka = new a();
+                if (bkb == null) {
+                    if (com.baidu.pyramid.runtime.multiprocess.a.ER()) {
+                        bkb = new a();
                     } else {
-                        bka = new b();
+                        bkb = new b();
                     }
                 }
             }
         }
-        return bka;
+        return bkb;
     }
 
-    public void LH() {
-        bkd = true;
+    public void LJ() {
+        bke = true;
     }
 
-    String LI() {
+    String LK() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
@@ -57,33 +57,33 @@ public abstract class d {
     }
 
     void ci(boolean z) {
-        if (bkb == null) {
-            bkb = s.rb("1153");
+        if (bkc == null) {
+            bkc = s.rb("1153");
             if (!z) {
-                bkb.addEvent("downloadstart", LI());
-                bkb.addEvent("downloadsuccess", LI());
+                bkc.addEvent("downloadstart", LK());
+                bkc.addEvent("downloadsuccess", LK());
             }
-            bkc = new Timer();
-            bkc.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
+            bkd = new Timer();
+            bkd.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
                         Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
                     }
-                    d.this.LJ();
+                    d.this.LL();
                     d.this.release();
                 }
             }, 40000L);
         }
     }
 
-    protected void LJ() {
-        if (bkb != null) {
+    protected void LL() {
+        if (bkc != null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                com.baidu.swan.apps.runtime.e acE = com.baidu.swan.apps.runtime.e.acE();
-                jSONObject2.putOpt("appid", acE == null ? "" : acE.getAppKey());
+                com.baidu.swan.apps.runtime.e acG = com.baidu.swan.apps.runtime.e.acG();
+                jSONObject2.putOpt("appid", acG == null ? "" : acG.getAppKey());
                 jSONObject2.putOpt("from", "remote-debug");
                 jSONObject.putOpt("from", "swan");
                 jSONObject.putOpt("ext", jSONObject2);
@@ -92,18 +92,18 @@ public abstract class d {
                     Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
                 }
             }
-            bkb.setValueWithDuration(jSONObject.toString());
-            bkb.end();
+            bkc.setValueWithDuration(jSONObject.toString());
+            bkc.end();
         }
     }
 
     void release() {
-        if (bkc != null) {
-            bkc.cancel();
-            bkc = null;
+        if (bkd != null) {
+            bkd.cancel();
+            bkd = null;
         }
-        bka = null;
         bkb = null;
+        bkc = null;
     }
 
     public static void v(JSONArray jSONArray) {
@@ -113,8 +113,8 @@ public abstract class d {
             if (optJSONObject != null) {
                 str = optJSONObject.optString("actionId");
             }
-            if (!TextUtils.isEmpty(str) && bka != null) {
-                bka.gD(str);
+            if (!TextUtils.isEmpty(str) && bkb != null) {
+                bkb.gD(str);
             }
         }
     }
@@ -156,21 +156,21 @@ public abstract class d {
                 switch (c) {
                     case 0:
                         ci(true);
-                        bkb.addEvent(str, LI());
+                        bkc.addEvent(str, LK());
                         return;
                     case 1:
-                        if (bkb != null) {
-                            bkb.cancel();
+                        if (bkc != null) {
+                            bkc.cancel();
                         }
                         release();
                         return;
                     case 2:
-                        LJ();
+                        LL();
                         release();
                         return;
                     default:
-                        if (bkb != null) {
-                            bkb.addEvent(str, LI());
+                        if (bkc != null) {
+                            bkc.addEvent(str, LK());
                             return;
                         }
                         return;
@@ -188,9 +188,9 @@ public abstract class d {
 
         @Override // com.baidu.swan.apps.console.debugger.a.d
         public void gD(String str) {
-            SwanAppActivity acz;
+            SwanAppActivity acB;
             boolean z = true;
-            if (!TextUtils.isEmpty(str) && !e.LO()) {
+            if (!TextUtils.isEmpty(str) && !e.LQ()) {
                 if (d.DEBUG) {
                     Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
                 }
@@ -211,33 +211,33 @@ public abstract class d {
                 }
                 switch (c) {
                     case 0:
-                        if (com.baidu.swan.apps.runtime.e.acE() != null && (acz = com.baidu.swan.apps.runtime.e.acE().acz()) != null && !acz.isFinishing()) {
+                        if (com.baidu.swan.apps.runtime.e.acG() != null && (acB = com.baidu.swan.apps.runtime.e.acG().acB()) != null && !acB.isFinishing()) {
                             z = false;
                         }
                         ci(z);
                         if (!z) {
-                            if (d.bkd) {
-                                bkb.addEvent(str + "-preload", LI());
-                                boolean unused = d.bkd = false;
+                            if (d.bke) {
+                                bkc.addEvent(str + "-preload", LK());
+                                boolean unused = d.bke = false;
                                 return;
                             }
-                            bkb.addEvent(str, LI());
+                            bkc.addEvent(str, LK());
                             return;
                         }
-                        bkb.addEvent(str + "-destroy", LI());
-                        boolean unused2 = d.bkd = false;
+                        bkc.addEvent(str + "-destroy", LK());
+                        boolean unused2 = d.bke = false;
                         return;
                     case 1:
-                        if (bkb != null) {
-                            bkb.addEvent(str, LI());
-                            LJ();
+                        if (bkc != null) {
+                            bkc.addEvent(str, LK());
+                            LL();
                             release();
                             return;
                         }
                         return;
                     default:
-                        if (bkb != null) {
-                            bkb.addEvent(str, LI());
+                        if (bkc != null) {
+                            bkc.addEvent(str, LK());
                             return;
                         }
                         return;
@@ -248,18 +248,18 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(com.baidu.swan.apps.x.b.c cVar) {
-        cVar.VN().putString("aiapp_extra_need_download", "1");
-        cVar.VN().putString("aiapp_extra_preset_pkg", "0");
-        cVar.VN().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        cVar.VP().putString("aiapp_extra_need_download", "1");
+        cVar.VP().putString("aiapp_extra_preset_pkg", "0");
+        cVar.VP().putLong("launch_flag_for_statistic", System.currentTimeMillis());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(cVar.getAppFrameType());
         fVar.b(cVar);
         fVar.mType = Config.LAUNCH;
-        fVar.bVp = "1";
-        fVar.bVq = "0";
+        fVar.bVq = "1";
+        fVar.bVr = "0";
         fVar.mSource = "remote-debug";
-        JSONObject lI = com.baidu.swan.apps.statistic.f.lI(cVar.VJ());
-        fVar.lR(cVar.VN().getString("ubc"));
+        JSONObject lI = com.baidu.swan.apps.statistic.f.lI(cVar.VL());
+        fVar.lR(cVar.VP().getString("ubc"));
         fVar.ba(lI);
         com.baidu.swan.apps.statistic.f.onEvent(fVar);
     }
@@ -275,7 +275,7 @@ public abstract class d {
         com.baidu.swan.apps.statistic.f.onEvent(fVar);
     }
 
-    public static void LK() {
+    public static void LM() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;
@@ -284,7 +284,7 @@ public abstract class d {
         com.baidu.swan.apps.statistic.f.onEvent(fVar);
     }
 
-    public static void LL() {
+    public static void LN() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;
@@ -294,7 +294,7 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void LM() {
+    public static void LO() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;

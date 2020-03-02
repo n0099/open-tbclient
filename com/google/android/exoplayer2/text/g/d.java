@@ -10,18 +10,18 @@ final class d {
     private float SW;
     private int backgroundColor;
     private int bold;
-    private int gOR;
+    private int gOT;
     private String hD;
     private int italic;
-    private Layout.Alignment mBA;
-    private String mBW;
-    private String mBX;
-    private List<String> mBY;
+    private int mBA;
+    private Layout.Alignment mBC;
+    private String mBY;
     private String mBZ;
-    private boolean mBv;
-    private boolean mBw;
-    private int mBx;
-    private int mBy;
+    private boolean mBx;
+    private boolean mBy;
+    private int mBz;
+    private List<String> mCa;
+    private String mCb;
     private int underline;
 
     public d() {
@@ -29,46 +29,46 @@ final class d {
     }
 
     public void reset() {
-        this.mBW = "";
-        this.mBX = "";
-        this.mBY = Collections.emptyList();
+        this.mBY = "";
         this.mBZ = "";
+        this.mCa = Collections.emptyList();
+        this.mCb = "";
         this.hD = null;
-        this.mBv = false;
-        this.mBw = false;
-        this.mBx = -1;
+        this.mBx = false;
+        this.mBy = false;
+        this.mBz = -1;
         this.underline = -1;
         this.bold = -1;
         this.italic = -1;
-        this.mBy = -1;
-        this.mBA = null;
+        this.mBA = -1;
+        this.mBC = null;
     }
 
     public void Qc(String str) {
-        this.mBW = str;
+        this.mBY = str;
     }
 
     public void Qd(String str) {
-        this.mBX = str;
-    }
-
-    public void T(String[] strArr) {
-        this.mBY = Arrays.asList(strArr);
-    }
-
-    public void Qe(String str) {
         this.mBZ = str;
     }
 
+    public void T(String[] strArr) {
+        this.mCa = Arrays.asList(strArr);
+    }
+
+    public void Qe(String str) {
+        this.mCb = str;
+    }
+
     public int a(String str, String str2, String[] strArr, String str3) {
-        if (this.mBW.isEmpty() && this.mBX.isEmpty() && this.mBY.isEmpty() && this.mBZ.isEmpty()) {
+        if (this.mBY.isEmpty() && this.mBZ.isEmpty() && this.mCa.isEmpty() && this.mCb.isEmpty()) {
             return str2.isEmpty() ? 1 : 0;
         }
-        int b = b(b(b(0, this.mBW, str, 1073741824), this.mBX, str2, 2), this.mBZ, str3, 4);
-        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mBY)) {
+        int b = b(b(b(0, this.mBY, str, 1073741824), this.mBZ, str2, 2), this.mCb, str3, 4);
+        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mCa)) {
             return 0;
         }
-        return (this.mBY.size() * 4) + b;
+        return (this.mCa.size() * 4) + b;
     }
 
     public int getStyle() {
@@ -78,11 +78,11 @@ final class d {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dyj() {
-        return this.mBx == 1;
+    public boolean dyl() {
+        return this.mBz == 1;
     }
 
-    public boolean dyk() {
+    public boolean dym() {
         return this.underline == 1;
     }
 
@@ -101,7 +101,7 @@ final class d {
         return this;
     }
 
-    public String dyl() {
+    public String dyn() {
         return this.hD;
     }
 
@@ -111,24 +111,24 @@ final class d {
     }
 
     public int getFontColor() {
-        if (!this.mBv) {
+        if (!this.mBx) {
             throw new IllegalStateException("Font color not defined");
         }
-        return this.gOR;
+        return this.gOT;
     }
 
     public d LB(int i) {
-        this.gOR = i;
-        this.mBv = true;
+        this.gOT = i;
+        this.mBx = true;
         return this;
     }
 
-    public boolean dym() {
-        return this.mBv;
+    public boolean dyo() {
+        return this.mBx;
     }
 
     public int getBackgroundColor() {
-        if (!this.mBw) {
+        if (!this.mBy) {
             throw new IllegalStateException("Background color not defined.");
         }
         return this.backgroundColor;
@@ -136,23 +136,23 @@ final class d {
 
     public d LC(int i) {
         this.backgroundColor = i;
-        this.mBw = true;
+        this.mBy = true;
         return this;
     }
 
-    public boolean dyn() {
-        return this.mBw;
-    }
-
-    public Layout.Alignment dyo() {
-        return this.mBA;
-    }
-
-    public int dyp() {
+    public boolean dyp() {
         return this.mBy;
     }
 
-    public float dyq() {
+    public Layout.Alignment dyq() {
+        return this.mBC;
+    }
+
+    public int dyr() {
+        return this.mBA;
+    }
+
+    public float dys() {
         return this.SW;
     }
 

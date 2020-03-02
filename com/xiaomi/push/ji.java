@@ -23,7 +23,7 @@ public class ji extends iy {
 
         @Override // com.xiaomi.push.iy.a, com.xiaomi.push.je
         public jc a(jm jmVar) {
-            ji jiVar = new ji(jmVar, this.f787a, this.b);
+            ji jiVar = new ji(jmVar, this.f786a, this.b);
             if (this.a != 0) {
                 jiVar.b(this.a);
             }

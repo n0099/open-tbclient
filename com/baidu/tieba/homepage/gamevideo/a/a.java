@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private BdTypeRecyclerView BK;
-    private LinkedList<com.baidu.adp.widget.ListView.a> has = new LinkedList<>();
-    private f hat;
-    private c hau;
-    private d hav;
-    private e haw;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hau = new LinkedList<>();
+    private f hav;
+    private c haw;
+    private d hax;
+    private e hay;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,19 +27,19 @@ public class a {
     }
 
     private void wM() {
-        this.hat = new f(this.mPageContext, k.fMW);
-        this.hau = new c(this.mPageContext, l.cRy);
-        this.hav = new d(this.mPageContext, k.fNe);
-        this.haw = new e(this.mPageContext, k.fNf);
-        this.hat.b((r) this.BK);
-        this.hau.b((r) this.BK);
+        this.hav = new f(this.mPageContext, k.fMY);
+        this.haw = new c(this.mPageContext, l.cRz);
+        this.hax = new d(this.mPageContext, k.fNg);
+        this.hay = new e(this.mPageContext, k.fNh);
         this.hav.b((r) this.BK);
         this.haw.b((r) this.BK);
-        this.has.add(this.hat);
-        this.has.add(this.hau);
-        this.has.add(this.hav);
-        this.has.add(this.haw);
-        this.BK.addAdapters(this.has);
+        this.hax.b((r) this.BK);
+        this.hay.b((r) this.BK);
+        this.hau.add(this.hav);
+        this.hau.add(this.haw);
+        this.hau.add(this.hax);
+        this.hau.add(this.hay);
+        this.BK.addAdapters(this.hau);
     }
 
     public void notifyDataSetChanged() {
@@ -49,17 +49,17 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hat != null) {
-            this.hat.setPageUniqueId(bdUniqueId);
-        }
-        if (this.hau != null) {
-            this.hau.setPageUniqueId(bdUniqueId);
-        }
         if (this.hav != null) {
             this.hav.setPageUniqueId(bdUniqueId);
         }
         if (this.haw != null) {
             this.haw.setPageUniqueId(bdUniqueId);
+        }
+        if (this.hax != null) {
+            this.hax.setPageUniqueId(bdUniqueId);
+        }
+        if (this.hay != null) {
+            this.hay.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -75,29 +75,29 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.haw != null) {
-            this.haw.setEventCallback(aVar);
+        if (this.hay != null) {
+            this.hay.setEventCallback(aVar);
         }
     }
 
     public void vl(int i) {
-        if (this.hat != null) {
-            this.hat.vl(i);
-        }
-        if (this.hau != null) {
-            this.hau.vl(i);
-        }
         if (this.hav != null) {
             this.hav.vl(i);
         }
         if (this.haw != null) {
             this.haw.vl(i);
         }
+        if (this.hax != null) {
+            this.hax.vl(i);
+        }
+        if (this.hay != null) {
+            this.hay.vl(i);
+        }
     }
 
     public void onPause() {
-        if (this.hau != null) {
-            this.hau.onPause();
+        if (this.haw != null) {
+            this.haw.onPause();
         }
     }
 

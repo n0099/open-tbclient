@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.transmit;
 /* loaded from: classes13.dex */
 public interface a {
-    boolean cUV();
+    boolean cUX();
 
-    void cUW();
+    void cUY();
 
-    void cUX();
+    void cUZ();
 }

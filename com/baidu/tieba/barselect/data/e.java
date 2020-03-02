@@ -3,45 +3,45 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes8.dex */
 public class e {
-    private long fDr;
-    private long fDs;
     private long fDt;
     private long fDu;
-    private int fDv;
-    private int fDw;
-    private boolean fDx;
+    private long fDv;
+    private long fDw;
+    private int fDx;
+    private int fDy;
+    private boolean fDz;
     private int status = 0;
 
-    public int btX() {
-        return this.fDv;
+    public int btZ() {
+        return this.fDx;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int btY() {
-        return this.fDw;
-    }
-
-    public long btZ() {
-        return this.fDr;
-    }
-
-    public long bua() {
-        return this.fDt;
+    public int bua() {
+        return this.fDy;
     }
 
     public long bub() {
-        return this.fDu;
+        return this.fDt;
     }
 
     public long buc() {
-        return this.fDs;
+        return this.fDv;
     }
 
-    public boolean bud() {
-        return this.fDx;
+    public long bud() {
+        return this.fDw;
+    }
+
+    public long bue() {
+        return this.fDu;
+    }
+
+    public boolean buf() {
+        return this.fDz;
     }
 
     public static e a(Basic basic) {
@@ -70,19 +70,19 @@ public class e {
     }
 
     public void rf(int i) {
-        this.fDv = i;
+        this.fDx = i;
     }
 
     public void dh(long j) {
-        this.fDr = j;
-    }
-
-    public void di(long j) {
         this.fDt = j;
     }
 
+    public void di(long j) {
+        this.fDv = j;
+    }
+
     public void dj(long j) {
-        this.fDu = j;
+        this.fDw = j;
     }
 
     public void setStatus(int i) {
@@ -90,14 +90,14 @@ public class e {
     }
 
     public void rg(int i) {
-        this.fDw = i;
+        this.fDy = i;
     }
 
     public void dk(long j) {
-        this.fDs = j;
+        this.fDu = j;
     }
 
     public void ke(boolean z) {
-        this.fDx = z;
+        this.fDz = z;
     }
 }

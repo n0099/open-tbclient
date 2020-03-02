@@ -9,12 +9,12 @@ public class aw extends XMPushService.i {
     private ff a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f876a;
+    private XMPushService f875a;
 
     public aw(XMPushService xMPushService, ff ffVar) {
         super(4);
-        this.f876a = null;
-        this.f876a = xMPushService;
+        this.f875a = null;
+        this.f875a = xMPushService;
         this.a = ffVar;
     }
 
@@ -27,11 +27,11 @@ public class aw extends XMPushService.i {
     public void a() {
         try {
             if (this.a != null) {
-                this.f876a.a(this.a);
+                this.f875a.a(this.a);
             }
         } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f876a.a(10, e);
+            this.f875a.a(10, e);
         }
     }
 }

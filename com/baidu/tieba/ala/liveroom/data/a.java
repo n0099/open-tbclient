@@ -6,16 +6,16 @@ import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    public com.baidu.live.o.c awh;
+    public com.baidu.live.o.e awi;
     public long enterTime;
-    public com.baidu.live.o.b fag;
-    public com.baidu.tieba.ala.liveroom.m.c fah;
-    public AlaLiveView fai;
-    public boolean faj;
-    public boolean fak = false;
+    public com.baidu.live.o.d fah;
+    public com.baidu.tieba.ala.liveroom.m.c fai;
+    public AlaLiveView faj;
+    public boolean fak;
     public boolean fal = false;
-    public ArrayList<AlaBroadcastGiftToastData> fam;
-    public boolean fan;
+    public boolean fam = false;
+    public ArrayList<AlaBroadcastGiftToastData> fan;
+    public boolean fao;
     public String fromType;
     public TbPageContext pageContext;
 }

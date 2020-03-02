@@ -87,8 +87,8 @@ public class b {
                         int a = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
                         int length = cVar.length();
                         if (view instanceof SimpleDraweeSpanTextView) {
-                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dmW(), h.dPR());
-                            a2.setController(com.facebook.drawee.a.a.c.dlw().vh(true).OV(richText.mImage).dmn());
+                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dmY(), h.dPT());
+                            a2.setController(com.facebook.drawee.a.a.c.dly().vh(true).OV(richText.mImage).dmp());
                             cVar.append(HanziToPinyin.Token.SEPARATOR);
                             cVar.a(a2, length, length, 20, a, true, 2);
                         }
@@ -144,7 +144,7 @@ public class b {
                     String str3 = "res_" + richText.mDrawableId;
                     Drawable SW2 = h.SW(str3);
                     if (SW2 == null) {
-                        drawable = h.dQs().getDrawable(richText.mDrawableId);
+                        drawable = h.dQu().getDrawable(richText.mDrawableId);
                         h.J(str3, drawable);
                     } else {
                         drawable = SW2;
@@ -208,8 +208,8 @@ public class b {
                         int a = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
                         int length = cVar.length();
                         if (view instanceof SimpleDraweeSpanTextView) {
-                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dmW(), h.dPR());
-                            a2.setController(com.facebook.drawee.a.a.c.dlw().OV(richText.mImage).dmn());
+                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dmY(), h.dPT());
+                            a2.setController(com.facebook.drawee.a.a.c.dly().OV(richText.mImage).dmp());
                             cVar.append(HanziToPinyin.Token.SEPARATOR);
                             cVar.a(a2, length, length, 20, a, true, 2);
                         }
@@ -281,7 +281,7 @@ public class b {
                     String str5 = "res_" + richText.mDrawableId;
                     Drawable SW2 = h.SW(str5);
                     if (SW2 == null) {
-                        drawable = h.dQs().getDrawable(richText.mDrawableId);
+                        drawable = h.dQu().getDrawable(richText.mDrawableId);
                         h.J(str5, drawable);
                     } else {
                         drawable = SW2;

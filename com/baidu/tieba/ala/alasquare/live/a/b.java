@@ -12,53 +12,53 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private final List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private e cVC;
-    private BdTypeListView eka;
-    private a ekb;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a ekc;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b ekd;
+    private e cVD;
+    private BdTypeListView ekb;
+    private a ekc;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a ekd;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b eke;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.cVC = tbPageContext;
-        this.eka = bdTypeListView;
+        this.cVD = tbPageContext;
+        this.ekb = bdTypeListView;
         wM();
     }
 
     private void wM() {
-        this.ekd = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.cVC);
+        this.eke = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.cVD);
+        this.eke.setFrom(1);
+        this.ekd = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.cVD);
         this.ekd.setFrom(1);
-        this.ekc = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.cVC);
-        this.ekc.setFrom(1);
-        this.ekb = new a((TbPageContext) this.cVC, com.baidu.tieba.ala.alasquare.live.b.b.ekh);
+        this.ekc = new a((TbPageContext) this.cVD, com.baidu.tieba.ala.alasquare.live.b.b.eki);
+        this.asE.add(this.eke);
         this.asE.add(this.ekd);
         this.asE.add(this.ekc);
-        this.asE.add(this.ekb);
-        this.eka.addAdapters(this.asE);
+        this.ekb.addAdapters(this.asE);
     }
 
     public void setDatas(List<m> list) {
-        if (this.eka != null) {
-            this.eka.setData(list);
+        if (this.ekb != null) {
+            this.ekb.setData(list);
         }
     }
 
     public void oB(int i) {
+        this.eke.oB(i);
         this.ekd.oB(i);
-        this.ekc.oB(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eka != null && (this.eka.getAdapter() instanceof BaseAdapter)) {
-            this.eka.getAdapter().notifyDataSetChanged();
+        if (this.ekb != null && (this.ekb.getAdapter() instanceof BaseAdapter)) {
+            this.ekb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.ekb.a(iAlaSquareTabController);
+        this.ekc.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
+        this.eke.b(iVar);
         this.ekd.b(iVar);
-        this.ekc.b(iVar);
     }
 }

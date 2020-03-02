@@ -18,7 +18,7 @@ public final class h {
         }
         ByteBuffer allocate = ByteBuffer.allocate(i);
         allocate.putInt(i);
-        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mhK);
+        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mhM);
         allocate.putInt(z ? 16777216 : 0);
         allocate.putLong(uuid.getMostSignificantBits());
         allocate.putLong(uuid.getLeastSignificantBits());
@@ -46,11 +46,11 @@ public final class h {
 
     private static a av(byte[] bArr) {
         com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bArr);
-        if (lVar.dzs() < 32) {
+        if (lVar.dzu() < 32) {
             return null;
         }
         lVar.setPosition(0);
-        if (lVar.readInt() == lVar.dzr() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhK) {
+        if (lVar.readInt() == lVar.dzt() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhM) {
             int JI = com.google.android.exoplayer2.extractor.c.a.JI(lVar.readInt());
             if (JI > 1) {
                 Log.w("PsshAtomUtil", "Unsupported pssh version: " + JI);
@@ -58,12 +58,12 @@ public final class h {
             }
             UUID uuid = new UUID(lVar.readLong(), lVar.readLong());
             if (JI == 1) {
-                lVar.skipBytes(lVar.dzC() * 16);
+                lVar.skipBytes(lVar.dzE() * 16);
             }
-            int dzC = lVar.dzC();
-            if (dzC == lVar.dzr()) {
-                byte[] bArr2 = new byte[dzC];
-                lVar.G(bArr2, 0, dzC);
+            int dzE = lVar.dzE();
+            if (dzE == lVar.dzt()) {
+                byte[] bArr2 = new byte[dzE];
+                lVar.G(bArr2, 0, dzE);
                 return new a(uuid, JI, bArr2);
             }
             return null;
@@ -74,14 +74,14 @@ public final class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private final byte[] mkv;
+        private final byte[] mkx;
         private final UUID uuid;
         private final int version;
 
         public a(UUID uuid, int i, byte[] bArr) {
             this.uuid = uuid;
             this.version = i;
-            this.mkv = bArr;
+            this.mkx = bArr;
         }
     }
 }

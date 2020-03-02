@@ -6,34 +6,34 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 /* loaded from: classes11.dex */
 public class b {
-    private a bXv;
+    private a bXw;
     private View rootView;
     private int rootViewVisibleHeight;
-    private int bXu = 0;
-    private int brW = 200;
+    private int bXv = 0;
+    private int brX = 200;
 
     private b(final String str, Activity activity) {
         this.rootView = activity.getWindow().getDecorView();
         this.rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.b.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (b.this.bXv != null) {
-                    b.this.bXv.gt(str);
+                if (b.this.bXw != null) {
+                    b.this.bXw.gt(str);
                 }
                 Rect rect = new Rect();
                 b.this.rootView.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (b.this.rootViewVisibleHeight == b.this.bXu) {
+                if (b.this.rootViewVisibleHeight == b.this.bXv) {
                     b.this.rootViewVisibleHeight = height;
                 } else if (b.this.rootViewVisibleHeight != height) {
-                    if (b.this.rootViewVisibleHeight - height > b.this.brW) {
-                        if (b.this.bXv != null) {
-                            b.this.bXv.w(str, b.this.rootViewVisibleHeight - height);
+                    if (b.this.rootViewVisibleHeight - height > b.this.brX) {
+                        if (b.this.bXw != null) {
+                            b.this.bXw.w(str, b.this.rootViewVisibleHeight - height);
                         }
                         b.this.rootViewVisibleHeight = height;
-                    } else if (height - b.this.rootViewVisibleHeight > b.this.brW) {
-                        if (b.this.bXv != null) {
-                            b.this.bXv.x(str, height - b.this.rootViewVisibleHeight);
+                    } else if (height - b.this.rootViewVisibleHeight > b.this.brX) {
+                        if (b.this.bXw != null) {
+                            b.this.bXw.x(str, height - b.this.rootViewVisibleHeight);
                         }
                         b.this.rootViewVisibleHeight = height;
                     }
@@ -43,7 +43,7 @@ public class b {
     }
 
     private void a(a aVar) {
-        this.bXv = aVar;
+        this.bXw = aVar;
     }
 
     public static void a(String str, Activity activity, a aVar) {

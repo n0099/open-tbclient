@@ -1,48 +1,48 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private String cBY;
-    private int cBZ;
-    private long cCa;
-    private String cCb;
+    private String cBZ;
+    private int cCa;
+    private long cCb;
     private String cCc;
-    private int cCd;
+    private String cCd;
+    private int cCe;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.cBZ = -1;
-        this.cCa = -1L;
-        this.cCd = -1;
-        this.cBY = str;
+        this.cCa = -1;
+        this.cCb = -1L;
+        this.cCe = -1;
+        this.cBZ = str;
     }
 
     public c iJ(int i) {
-        this.cCd = i;
+        this.cCe = i;
         return this;
     }
 
-    public int auk() {
-        return this.cCd;
+    public int aum() {
+        return this.cCe;
     }
 
     public c qw(String str) {
-        this.cCb = str;
+        this.cCc = str;
         return this;
     }
 
     public c iK(int i) {
-        this.cBZ = i;
+        this.cCa = i;
         return this;
     }
 
     public c bl(long j) {
-        this.cCa = j;
+        this.cCb = j;
         return this;
     }
 
     public c qx(String str) {
-        this.cCc = str;
+        this.cCd = str;
         return this;
     }
 
@@ -52,23 +52,23 @@ public class c extends f {
     }
 
     public String getBundleId() {
-        return this.cBY;
-    }
-
-    public int aui() {
         return this.cBZ;
     }
 
-    public long auj() {
+    public int auk() {
         return this.cCa;
     }
 
-    public String aul() {
+    public long aul() {
         return this.cCb;
     }
 
-    public String aum() {
+    public String aun() {
         return this.cCc;
+    }
+
+    public String auo() {
+        return this.cCd;
     }
 
     public String getPath() {

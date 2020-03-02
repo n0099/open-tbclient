@@ -1869,13 +1869,13 @@ public class e {
                                                     JSONObject optJSONObject10 = optJSONObject9.optJSONObject("landscape");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.ncA = dG(optJSONObject10);
+                                                        aVar.ncC = dG(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
                                                     }
                                                     JSONObject optJSONObject11 = optJSONObject9.optJSONObject("portrait");
                                                     if (optJSONObject11 != null) {
                                                         aVar.o = optJSONObject11.optString("url", "");
-                                                        aVar.ncB = dG(optJSONObject11);
+                                                        aVar.ncD = dG(optJSONObject11);
                                                         aVar.a = optJSONObject11.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
@@ -3011,11 +3011,11 @@ public class e {
         dVar.q = jSONObject.optString("displayType", "94");
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.ncA = dG(optJSONObject);
+            dVar.ncC = dG(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.ncB = dG(optJSONObject2);
+            dVar.ncD = dG(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }
@@ -3105,10 +3105,10 @@ public class e {
         if (jSONArray == null && jSONArray2 == null) {
             return true;
         }
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dPT().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dPV().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
             str = bVar.getAppKey();
-            str2 = bVar.dEd();
+            str2 = bVar.dEf();
         } else {
             str = null;
         }

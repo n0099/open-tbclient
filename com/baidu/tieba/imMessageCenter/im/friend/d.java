@@ -35,19 +35,19 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements c.b {
     private BdListView AG;
-    private final InviteFriendListActivity hMS;
-    private c hMT;
-    private View hMU;
-    private InviteFriendCandidateList hMV;
-    private LinearLayout hMW;
-    private Button hMX;
-    private int hMY;
-    private boolean hMZ;
-    private TextView hNa;
-    private View hNb;
-    private View hNc;
-    private TextView hNd;
-    private ImageView hNe;
+    private final InviteFriendListActivity hMU;
+    private c hMV;
+    private View hMW;
+    private InviteFriendCandidateList hMX;
+    private LinearLayout hMY;
+    private Button hMZ;
+    private int hNa;
+    private boolean hNb;
+    private TextView hNc;
+    private View hNd;
+    private View hNe;
+    private TextView hNf;
+    private ImageView hNg;
     private EditText mEditText;
     private View mListFooter;
     private NavigationBar mNavigationBar;
@@ -58,9 +58,9 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
 
     public d(InviteFriendListActivity inviteFriendListActivity, boolean z) {
         super(inviteFriendListActivity.getPageContext());
-        this.hMY = 0;
-        this.hMS = inviteFriendListActivity;
-        this.hMZ = z;
+        this.hNa = 0;
+        this.hMU = inviteFriendListActivity;
+        this.hNb = z;
         initialize();
     }
 
@@ -69,24 +69,24 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     }
 
     private void initialize() {
-        this.hMS.setContentView(R.layout.invite_friend_list);
-        this.mRoot = this.hMS.findViewById(R.id.root_view);
-        bcH();
+        this.hMU.setContentView(R.layout.invite_friend_list);
+        this.mRoot = this.hMU.findViewById(R.id.root_view);
+        bcJ();
         this.AG = (BdListView) this.mRoot.findViewById(R.id.friend_list);
-        this.AG.setOnItemClickListener(this.hMS);
-        if (this.hMZ) {
-            this.mNoDataView = NoDataViewFactory.a(this.hMS.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.NET_RERESHNEW_TOP_MARGIN), NoDataViewFactory.d.aF(R.string.no_friends, R.string.no_friends_tip), null);
+        this.AG.setOnItemClickListener(this.hMU);
+        if (this.hNb) {
+            this.mNoDataView = NoDataViewFactory.a(this.hMU.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.NET_RERESHNEW_TOP_MARGIN), NoDataViewFactory.d.aF(R.string.no_friends, R.string.no_friends_tip), null);
         } else {
-            this.mNoDataView = NoDataViewFactory.a(this.hMS.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.NET_RERESHNEW_TOP_MARGIN), NoDataViewFactory.d.aF(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.b.a(new NoDataViewFactory.a(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.1
+            this.mNoDataView = NoDataViewFactory.a(this.hMU.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.NET_RERESHNEW_TOP_MARGIN), NoDataViewFactory.d.aF(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.b.a(new NoDataViewFactory.a(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchFriendActivityConfig(d.this.hMS.getPageContext().getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchFriendActivityConfig(d.this.hMU.getPageContext().getPageActivity())));
                 }
             })));
         }
         this.mProgress = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        this.hMV = (InviteFriendCandidateList) this.mRoot.findViewById(R.id.candidate_list);
-        this.hMV.a(new InviteFriendCandidateList.a() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.2
+        this.hMX = (InviteFriendCandidateList) this.mRoot.findViewById(R.id.candidate_list);
+        this.hMX.a(new InviteFriendCandidateList.a() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.2
             @Override // com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList.a
             public void a(View view, Object obj) {
                 if (obj != null) {
@@ -102,52 +102,52 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
                 }
             }
         });
-        this.hMW = (LinearLayout) this.mRoot.findViewById(R.id.invite_candidate);
-        this.hMU = this.mRoot.findViewById(R.id.invite_candidate_border);
-        if (this.hMZ) {
+        this.hMY = (LinearLayout) this.mRoot.findViewById(R.id.invite_candidate);
+        this.hMW = this.mRoot.findViewById(R.id.invite_candidate_border);
+        if (this.hNb) {
+            this.hMY.setVisibility(8);
             this.hMW.setVisibility(8);
-            this.hMU.setVisibility(8);
         }
-        bZd();
-        this.hMX = (Button) this.mRoot.findViewById(R.id.button_send);
-        this.hMX.setOnClickListener(this.hMS);
-        aHL();
-        bYV();
+        bZf();
+        this.hMZ = (Button) this.mRoot.findViewById(R.id.button_send);
+        this.hMZ.setOnClickListener(this.hMU);
+        aHN();
+        bYX();
         wX(0);
     }
 
-    private void bcH() {
+    private void bcJ() {
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.hNb != null && d.this.hNb.getVisibility() == 0) {
-                    d.this.bYW();
+                if (d.this.hNd != null && d.this.hNd.getVisibility() == 0) {
+                    d.this.bYY();
                     return;
                 }
-                l.hideSoftKeyPad(d.this.hMS.getPageContext().getPageActivity(), d.this.mEditText);
-                d.this.hMS.finish();
+                l.hideSoftKeyPad(d.this.hMU.getPageContext().getPageActivity(), d.this.mEditText);
+                d.this.hMU.finish();
             }
         });
-        if (this.hMZ) {
-            this.hNa = this.mNavigationBar.setTitleText(R.string.invite_contact_title);
+        if (this.hNb) {
+            this.hNc = this.mNavigationBar.setTitleText(R.string.invite_contact_title);
         } else {
-            this.hNa = this.mNavigationBar.setTitleText(R.string.invite_friend);
+            this.hNc = this.mNavigationBar.setTitleText(R.string.invite_friend);
         }
-        this.hNc = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.4
+        this.hNe = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.hNa.setVisibility(8);
                 d.this.hNc.setVisibility(8);
-                d.this.hNb.setVisibility(0);
+                d.this.hNe.setVisibility(8);
+                d.this.hNd.setVisibility(0);
                 d.this.mEditText.requestFocus();
-                l.showSoftKeyPad(d.this.hMS.getPageContext().getPageActivity(), d.this.mEditText);
+                l.showSoftKeyPad(d.this.hMU.getPageContext().getPageActivity(), d.this.mEditText);
             }
         });
-        this.hNe = (ImageView) this.hNc.findViewById(R.id.new_friend_search);
-        this.hNb = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
-        this.hNb.setVisibility(8);
-        this.mEditText = (EditText) this.hNb.findViewById(R.id.search_bar_edit);
+        this.hNg = (ImageView) this.hNe.findViewById(R.id.new_friend_search);
+        this.hNd = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
+        this.hNd.setVisibility(8);
+        this.mEditText = (EditText) this.hNd.findViewById(R.id.search_bar_edit);
         if (this.mEditText.getParent() != null) {
             ((View) this.mEditText.getParent()).setFocusable(true);
             ((View) this.mEditText.getParent()).setFocusableInTouchMode(true);
@@ -158,11 +158,11 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
                 String charSequence2String = k.charSequence2String(editable, null);
                 if (charSequence2String != null) {
                     if (charSequence2String.length() > 0) {
-                        d.this.hNd.setVisibility(0);
+                        d.this.hNf.setVisibility(0);
                     } else {
-                        d.this.hNd.setVisibility(8);
+                        d.this.hNf.setVisibility(8);
                     }
-                    d.this.bYU();
+                    d.this.bYW();
                 }
             }
 
@@ -175,8 +175,8 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
             }
         };
         this.mEditText.addTextChangedListener(this.mTextWatcher);
-        this.hNd = (TextView) this.hNb.findViewById(R.id.search_bar_delete_button);
-        this.hNd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.6
+        this.hNf = (TextView) this.hNd.findViewById(R.id.search_bar_delete_button);
+        this.hNf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 d.this.mEditText.getText().clear();
@@ -185,24 +185,24 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYU() {
-        if (this.hMS != null) {
-            this.hMS.bYS();
+    public void bYW() {
+        if (this.hMU != null) {
+            this.hMU.bYU();
         }
     }
 
-    public void aHL() {
+    public void aHN() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.hMS.getLayoutMode().setNightMode(skinType == 1);
-        this.hMS.getLayoutMode().onModeChanged(this.mRoot);
-        SvgManager.aGA().a(this.hNe, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
-        this.mNavigationBar.onChangeSkinType(this.hMS.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.hMS.getPageContext(), skinType);
+        this.hMU.getLayoutMode().setNightMode(skinType == 1);
+        this.hMU.getLayoutMode().onModeChanged(this.mRoot);
+        SvgManager.aGC().a(this.hNg, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+        this.mNavigationBar.onChangeSkinType(this.hMU.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.hMU.getPageContext(), skinType);
         am.setBackgroundResource(this.mListFooter, R.drawable.invite_friend_list_item_bg_color);
         this.mListFooter.setEnabled(false);
     }
 
-    public void bYV() {
+    public void bYX() {
         this.AG.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -212,43 +212,43 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         });
     }
 
-    public void bYW() {
-        l.hideSoftKeyPad(this.hMS.getPageContext().getPageActivity(), this.mEditText);
-        this.hNb.setVisibility(8);
-        this.hNa.setVisibility(0);
+    public void bYY() {
+        l.hideSoftKeyPad(this.hMU.getPageContext().getPageActivity(), this.mEditText);
+        this.hNd.setVisibility(8);
         this.hNc.setVisibility(0);
+        this.hNe.setVisibility(0);
         this.mEditText.getText().clear();
     }
 
-    public boolean bYX() {
-        return this.hNb != null && this.hNb.getVisibility() == 0;
+    public boolean bYZ() {
+        return this.hNd != null && this.hNd.getVisibility() == 0;
     }
 
-    public int bYY() {
-        return this.hMX.getId();
+    public int bZa() {
+        return this.hMZ.getId();
     }
 
-    public String bYZ() {
+    public String bZb() {
         Editable text = this.mEditText.getText();
         return text != null ? text.toString() : "";
     }
 
-    public String bZa() {
-        return this.hMV.getDataList();
+    public String bZc() {
+        return this.hMX.getDataList();
     }
 
     public void s(List<com.baidu.tbadk.coreExtra.relationship.a> list, boolean z) {
-        if (this.hMT == null) {
-            this.hMT = new c(this.hMS, this.hMZ);
-            this.hMT.a(this);
-            this.hMT.a(new TbCheckBox.a() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.8
+        if (this.hMV == null) {
+            this.hMV = new c(this.hMU, this.hNb);
+            this.hMV.a(this);
+            this.hMV.a(new TbCheckBox.a() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.8
                 @Override // com.baidu.tbadk.core.view.TbCheckBox.a
                 public void a(TbCheckBox tbCheckBox, boolean z2, Object obj) {
                     d.this.hideKeyboard();
                     if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                         if (z2) {
-                            if (d.this.bZf() <= d.this.hMV.getItemLength()) {
-                                d.this.hMS.showToast(String.format(d.this.hMS.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(d.this.hMY)));
+                            if (d.this.bZh() <= d.this.hMX.getItemLength()) {
+                                d.this.hMU.showToast(String.format(d.this.hMU.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(d.this.hNa)));
                                 tbCheckBox.setChecked(false);
                                 ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
                                 return;
@@ -260,41 +260,41 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
                     }
                 }
             });
-            this.AG.setAdapter((ListAdapter) this.hMT);
+            this.AG.setAdapter((ListAdapter) this.hMV);
         }
         if (!z && list.isEmpty()) {
             this.mNoDataView.setVisibility(0);
             this.AG.setVisibility(8);
-            if (!this.hMZ) {
-                this.hMW.setVisibility(8);
+            if (!this.hNb) {
+                this.hMY.setVisibility(8);
                 return;
             }
             return;
         }
         this.mNoDataView.setVisibility(8);
         this.AG.setVisibility(0);
-        this.hMT.setData(list);
-        this.hMT.notifyDataSetChanged();
-        if (!this.hMZ) {
-            this.hMW.setVisibility(0);
+        this.hMV.setData(list);
+        this.hMV.notifyDataSetChanged();
+        if (!this.hNb) {
+            this.hMY.setVisibility(0);
         }
     }
 
-    public void bZb() {
+    public void bZd() {
         if (this.mNoDataView != null) {
-            this.mNoDataView.e(this.hMS.getPageContext());
+            this.mNoDataView.e(this.hMU.getPageContext());
         }
     }
 
-    public void bZc() {
+    public void bZe() {
         if (this.mNoDataView != null) {
-            this.mNoDataView.aHz();
+            this.mNoDataView.aHB();
         }
     }
 
-    private void bZd() {
-        int dimensionPixelSize = this.hMS.getResources().getDimensionPixelSize(R.dimen.ds80) + this.hMS.getResources().getDimensionPixelSize(R.dimen.ds16) + this.hMS.getResources().getDimensionPixelSize(R.dimen.ds16);
-        this.mListFooter = new View(this.hMS.getPageContext().getPageActivity());
+    private void bZf() {
+        int dimensionPixelSize = this.hMU.getResources().getDimensionPixelSize(R.dimen.ds80) + this.hMU.getResources().getDimensionPixelSize(R.dimen.ds16) + this.hMU.getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.mListFooter = new View(this.hMU.getPageContext().getPageActivity());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
         this.mListFooter.setEnabled(false);
         this.AG.addFooterView(this.mListFooter);
@@ -302,49 +302,49 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
 
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.hMV.d(aVar);
-            wX(this.hMV.getItemLength());
-            bZe();
+            this.hMX.d(aVar);
+            wX(this.hMX.getItemLength());
+            bZg();
         }
     }
 
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.hMV.f(aVar);
-            wX(this.hMV.getItemLength());
-            bZe();
+            this.hMX.f(aVar);
+            wX(this.hMX.getItemLength());
+            bZg();
         }
     }
 
-    private void bZe() {
-        if (this.hMV.getItemLength() > 0) {
-            this.hMX.setEnabled(true);
+    private void bZg() {
+        if (this.hMX.getItemLength() > 0) {
+            this.hMZ.setEnabled(true);
         } else {
-            this.hMX.setEnabled(false);
+            this.hMZ.setEnabled(false);
         }
     }
 
     public void hideKeyboard() {
-        l.hideSoftKeyPad(this.hMS.getPageContext().getPageActivity(), this.mEditText);
+        l.hideSoftKeyPad(this.hMU.getPageContext().getPageActivity(), this.mEditText);
     }
 
     private void wX(int i) {
-        this.hMX.setText(String.format(this.hMS.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i)));
+        this.hMZ.setText(String.format(this.hMU.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
-    public int bZf() {
-        return this.hMY;
+    public int bZh() {
+        return this.hNa;
     }
 
     public void wY(int i) {
-        this.hMY = i;
-        this.hMV.setMaxCount(i);
+        this.hNa = i;
+        this.hMX.setMaxCount(i);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.friend.c.b
     public void a(View view, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.hMV.e(aVar);
+            this.hMX.e(aVar);
         }
     }
 

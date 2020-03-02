@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.invoice;
 public interface b {
     void aiA();
 
-    void aiy();
+    void aiB();
 
-    void aiz();
+    void aiC();
 }

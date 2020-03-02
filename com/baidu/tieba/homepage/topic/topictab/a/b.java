@@ -9,34 +9,34 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> asE;
-    private r fWB;
-    private c hfV;
-    private a hht;
+    private r fWD;
+    private c hfX;
+    private a hhv;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.fWB = rVar;
+        this.fWD = rVar;
         wM();
-        this.fWB.addAdapters(this.asE);
+        this.fWD.addAdapters(this.asE);
     }
 
     private void wM() {
         this.asE = new ArrayList();
-        this.hht = new a(this.mPageContext);
-        this.hfV = new c(this.mPageContext);
-        this.asE.add(this.hht);
-        this.asE.add(this.hfV);
+        this.hhv = new a(this.mPageContext);
+        this.hfX = new c(this.mPageContext);
+        this.asE.add(this.hhv);
+        this.asE.add(this.hfX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fWB != null) {
-            this.fWB.getListAdapter().notifyDataSetChanged();
+        if (this.fWD != null) {
+            this.fWD.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.fWB.setData(list);
+        this.fWD.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

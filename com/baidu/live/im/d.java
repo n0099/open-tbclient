@@ -233,18 +233,18 @@ public class d extends BdBaseModel {
                 AlaGetLiveStatusHttpResponseMessage alaGetLiveStatusHttpResponseMessage = responsedMessage instanceof AlaGetLiveStatusHttpResponseMessage ? (AlaGetLiveStatusHttpResponseMessage) responsedMessage : null;
                 if (alaGetLiveStatusHttpResponseMessage != null) {
                     try {
-                        jSONObject = new JSONObject(alaGetLiveStatusHttpResponseMessage.awt);
+                        jSONObject = new JSONObject(alaGetLiveStatusHttpResponseMessage.awu);
                     } catch (JSONException e) {
                         jSONObject = null;
                     }
                     if (jSONObject != null) {
                         if (!"backstage_live".equals(jSONObject.optString("content_type"))) {
-                            d.this.a(alaGetLiveStatusHttpResponseMessage.awt, jSONObject, 12, false);
+                            d.this.a(alaGetLiveStatusHttpResponseMessage.awu, jSONObject, 12, false);
                             return;
                         }
                         String optString = jSONObject.optString("backstage_type");
                         if (!TextUtils.isEmpty(optString) && !optString.equals(d.this.arb)) {
-                            d.this.a(alaGetLiveStatusHttpResponseMessage.awt, jSONObject, 13, true);
+                            d.this.a(alaGetLiveStatusHttpResponseMessage.awu, jSONObject, 13, true);
                             d.this.arb = optString;
                         }
                     }
@@ -303,7 +303,7 @@ public class d extends BdBaseModel {
             vT();
             BdSocketLinkService.startService(true, "live start");
         }
-        String str6 = com.baidu.live.v.a.zj().awA.YL;
+        String str6 = com.baidu.live.v.a.zl().awB.YL;
         if (!TextUtils.isEmpty(str6)) {
             com.baidu.live.im.data.a vX = vX();
             vX.setMsgType(27);
@@ -313,14 +313,14 @@ public class d extends BdBaseModel {
                 this.aqT.g(vX);
             }
         }
-        String str7 = com.baidu.live.v.a.zj().awA.YM;
+        String str7 = com.baidu.live.v.a.zl().awB.YM;
         if (!TextUtils.isEmpty(str7)) {
             com.baidu.live.im.data.a vX2 = vX();
             vX2.setMsgType(27);
             vX2.setContent(str7);
             this.mMsgList.add(vX2);
         }
-        List<String> list = com.baidu.live.v.a.zj().awA.YK;
+        List<String> list = com.baidu.live.v.a.zl().awB.YK;
         if (list != null && list.size() > 0 && list.size() % 2 == 0) {
             int i = 0;
             while (true) {
@@ -691,8 +691,8 @@ public class d extends BdBaseModel {
                 this.mMsgList.addAll(list);
             }
         }
-        if (this.mMsgList.size() > com.baidu.live.v.a.zj().awA.aaK) {
-            int i = (int) (com.baidu.live.v.a.zj().awA.aaK * 0.7d);
+        if (this.mMsgList.size() > com.baidu.live.v.a.zl().awB.aaK) {
+            int i = (int) (com.baidu.live.v.a.zl().awB.aaK * 0.7d);
             if (i <= 0) {
                 i = 1;
             }
@@ -730,7 +730,7 @@ public class d extends BdBaseModel {
                     try {
                         if (aVar.getObjContent() instanceof JSONObject) {
                             JSONObject jSONObject = (JSONObject) aVar.getObjContent();
-                            double e = com.baidu.live.v.d.zq().e(z, jSONObject.optString(LogConfig.LOG_GIFT_ID));
+                            double e = com.baidu.live.v.d.zs().e(z, jSONObject.optString(LogConfig.LOG_GIFT_ID));
                             if (e > 0.0d) {
                                 jSONObject.put("gift_rate", e);
                                 aVar.setObjContent(jSONObject);
@@ -739,7 +739,7 @@ public class d extends BdBaseModel {
                             }
                         } else {
                             JSONObject jSONObject2 = new JSONObject(aVar.getContent());
-                            double e2 = com.baidu.live.v.d.zq().e(z, jSONObject2.optString(LogConfig.LOG_GIFT_ID));
+                            double e2 = com.baidu.live.v.d.zs().e(z, jSONObject2.optString(LogConfig.LOG_GIFT_ID));
                             if (e2 > 0.0d) {
                                 jSONObject2.put("gift_rate", e2);
                                 aVar.setContent(jSONObject2.toString());

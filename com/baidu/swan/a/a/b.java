@@ -22,11 +22,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(c cVar) {
-        this.cBl.Pk();
+        this.cBm.Pm();
         e eVar = new e();
         eVar.a(cVar, PMSPkgStatus.WAIT);
-        this.cBl.a(eVar);
-        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cBl);
+        this.cBm.a(eVar);
+        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cBm);
         return null;
     }
 
@@ -35,11 +35,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
     public boolean Q(c cVar) {
-        return cVar != null && cVar.PS();
+        return cVar != null && cVar.PU();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ajj() {
+    protected String ajl() {
         return "getSailor";
     }
 }

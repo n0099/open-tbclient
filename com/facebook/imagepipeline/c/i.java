@@ -5,21 +5,21 @@ import android.os.Build;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes12.dex */
 public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager jBD;
+    private final ActivityManager jBF;
 
     public i(ActivityManager activityManager) {
-        this.jBD = activityManager;
+        this.jBF = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: cAT */
+    /* renamed from: cAV */
     public q get() {
-        return new q(cAU(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(cAW(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    private int cAU() {
-        int min = Math.min(this.jBD.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+    private int cAW() {
+        int min = Math.min(this.jBF.getMemoryClass() * 1048576, Integer.MAX_VALUE);
         if (min < 33554432) {
             return 4194304;
         }

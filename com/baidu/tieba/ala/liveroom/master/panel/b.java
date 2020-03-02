@@ -17,28 +17,28 @@ import com.baidu.tieba.ala.liveroom.master.panel.a;
 import com.baidu.tieba.compatible.StatusBarUtil;
 /* loaded from: classes3.dex */
 public class b extends Dialog {
-    private static final int fgh = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
-    private static final int fgi = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
-    private static final int fgj = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
-    private static final int fgk = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
-    private a.InterfaceC0463a fge;
-    private boolean fgl;
-    private int fgm;
+    private static final int fgi = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
+    private static final int fgj = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
+    private static final int fgk = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
+    private static final int fgl = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
+    private a.InterfaceC0463a fgf;
+    private boolean fgm;
     private int fgn;
-    private FrameLayout fgo;
-    private NoScrollGridView fgp;
-    private com.baidu.tieba.ala.liveroom.master.panel.a fgq;
-    private a fgr;
+    private int fgo;
+    private FrameLayout fgp;
+    private NoScrollGridView fgq;
+    private com.baidu.tieba.ala.liveroom.master.panel.a fgr;
+    private a fgs;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void boH();
-
-        void boI();
-
         void boJ();
 
         void boK();
+
+        void boL();
+
+        void boM();
 
         void jD(boolean z);
 
@@ -51,39 +51,39 @@ public class b extends Dialog {
 
     public b(Context context, boolean z) {
         super(context);
-        this.fgn = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
-        this.fge = new a.InterfaceC0463a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
+        this.fgo = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
+        this.fgf = new a.InterfaceC0463a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
             @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0463a
             public void z(int i, boolean z2) {
-                if (b.this.fgr != null) {
+                if (b.this.fgs != null) {
                     if (i == 1) {
-                        b.this.fgr.switchCamera(z2);
+                        b.this.fgs.switchCamera(z2);
                     } else if (i == 2) {
-                        b.this.fgr.jD(z2);
+                        b.this.fgs.jD(z2);
                     } else if (i == 3) {
-                        b.this.fgr.jE(z2);
+                        b.this.fgs.jE(z2);
                     } else if (i == 4) {
-                        b.this.fgr.jF(z2);
+                        b.this.fgs.jF(z2);
                     } else if (i == 5) {
-                        b.this.fgr.boH();
+                        b.this.fgs.boJ();
                     } else if (i == 6) {
-                        b.this.fgr.boI();
+                        b.this.fgs.boK();
                     } else if (i == 7) {
-                        b.this.fgr.boJ();
+                        b.this.fgs.boL();
                     } else if (i == 8) {
-                        b.this.fgr.boK();
+                        b.this.fgs.boM();
                     }
                 }
             }
         };
-        this.fgl = z;
+        this.fgm = z;
         if (UtilHelper.getRealScreenOrientation(context) == 2) {
             getContext().setTheme(a.j.theme_operation_landscape_dialog);
         } else {
             getContext().setTheme(a.j.theme_operation_portrait_dialog);
         }
-        this.fgq = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
-        this.fgq.a(this.fge);
+        this.fgr = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
+        this.fgr.a(this.fgf);
     }
 
     @Override // android.app.Dialog
@@ -91,39 +91,39 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
-        boO();
-        boN();
+        boQ();
+        boP();
     }
 
-    private void boN() {
-        this.fgo.addView(this.fgp);
+    private void boP() {
+        this.fgp.addView(this.fgq);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_white_alpha10));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        layoutParams.topMargin = this.fgm;
-        layoutParams.leftMargin = this.fgn;
-        layoutParams.rightMargin = this.fgn;
-        this.fgo.addView(view, layoutParams);
-        setContentView(this.fgo);
+        layoutParams.topMargin = this.fgn;
+        layoutParams.leftMargin = this.fgo;
+        layoutParams.rightMargin = this.fgo;
+        this.fgp.addView(view, layoutParams);
+        setContentView(this.fgp);
     }
 
     public void a(a aVar) {
-        this.fgr = aVar;
+        this.fgs = aVar;
     }
 
     private void createView() {
-        this.fgo = new FrameLayout(getContext());
-        this.fgp = new NoScrollGridView(getContext());
-        this.fgp.setAdapter((ListAdapter) this.fgq);
+        this.fgp = new FrameLayout(getContext());
+        this.fgq = new NoScrollGridView(getContext());
+        this.fgq.setAdapter((ListAdapter) this.fgr);
         View findViewById = findViewById(16908290);
         if (findViewById == null) {
-            this.fgp.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
+            this.fgq.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         } else {
             findViewById.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         }
     }
 
-    private void boO() {
+    private void boQ() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = k.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -132,27 +132,27 @@ public class b extends Dialog {
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setGravity(5);
-            this.fgp.setNumColumns(2);
-            this.fgp.setPadding(fgh, fgj, navigationBarHeight + fgi, fgj);
-            this.fgm = ((this.fgl ? com.baidu.tieba.ala.liveroom.master.panel.a.fga : com.baidu.tieba.ala.liveroom.master.panel.a.fga * 2) + fgj) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
+            this.fgq.setNumColumns(2);
+            this.fgq.setPadding(fgi, fgk, navigationBarHeight + fgj, fgk);
+            this.fgn = ((this.fgm ? com.baidu.tieba.ala.liveroom.master.panel.a.fgb : com.baidu.tieba.ala.liveroom.master.panel.a.fgb * 2) + fgk) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
         } else {
             attributes.width = defaultDisplay.getWidth();
-            if (this.fgl) {
+            if (this.fgm) {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds184) + navigationBarHeight;
             } else {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds334) + navigationBarHeight;
             }
             getWindow().setAttributes(attributes);
             getWindow().setGravity(80);
-            this.fgp.setNumColumns(4);
-            this.fgp.setPadding(fgk, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), fgk, 0);
+            this.fgq.setNumColumns(4);
+            this.fgq.setPadding(fgl, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), fgl, 0);
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
     }
 
     public void jG(boolean z) {
-        this.fgq.a(1, z ? (short) 1 : (short) 2);
+        this.fgr.a(1, z ? (short) 1 : (short) 2);
     }
 
     public void F(boolean z, boolean z2) {
@@ -162,7 +162,7 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.fgq.a(2, s);
+        this.fgr.a(2, s);
     }
 
     public void G(boolean z, boolean z2) {
@@ -172,14 +172,14 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.fgq.a(3, s);
+        this.fgr.a(3, s);
     }
 
     public void jH(boolean z) {
-        this.fgq.a(4, z ? (short) 1 : (short) 2);
+        this.fgr.a(4, z ? (short) 1 : (short) 2);
     }
 
-    public void boP() {
-        this.fgq.notifyDataSetChanged();
+    public void boR() {
+        this.fgr.notifyDataSetChanged();
     }
 }

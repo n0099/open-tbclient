@@ -25,26 +25,26 @@ public class d extends ab {
             Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f WQ = f.WQ();
+        f WS = f.WS();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("openInput", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e GA = WQ.GA();
-        if (GA == null) {
+        com.baidu.swan.apps.core.d.e GC = WS.GC();
+        if (GC == null) {
             com.baidu.swan.apps.console.c.e("openInput", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
             return false;
         }
-        SwanAppActivity WB = f.WQ().WB();
-        if (WB == null) {
+        SwanAppActivity WD = f.WS().WD();
+        if (WD == null) {
             com.baidu.swan.apps.console.c.e("openInput", "activity is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add input");
             return false;
         }
-        com.baidu.swan.apps.core.d.d Om = GA.Om();
-        if (Om == null) {
+        com.baidu.swan.apps.core.d.d Oo = GC.Oo();
+        if (Oo == null) {
             com.baidu.swan.apps.console.c.e("openInput", "fragment is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
             return false;
@@ -56,12 +56,12 @@ public class d extends ab {
             e.printStackTrace();
             com.baidu.swan.apps.console.c.e("OpenInputAction", "model parse exception:", e);
         }
-        boolean isSuccess = new com.baidu.swan.apps.component.components.f.a(context, bVar, WB, Om, new a.InterfaceC0232a() { // from class: com.baidu.swan.apps.s.d.1
+        boolean isSuccess = new com.baidu.swan.apps.component.components.f.a(context, bVar, WD, Oo, new a.InterfaceC0232a() { // from class: com.baidu.swan.apps.s.d.1
             @Override // com.baidu.swan.apps.component.components.f.a.InterfaceC0232a
             public void b(String str, JSONObject jSONObject) {
                 d.this.a(callbackHandler, 0, str, jSONObject);
             }
-        }).KD().isSuccess();
+        }).KF().isSuccess();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(isSuccess ? 0 : 1001));
         return isSuccess;
     }

@@ -171,7 +171,7 @@ public class GiftPanelTabPackageFragment extends GiftPanelTabBaseFragment {
 
     private void ve() {
         bb[] bbVarArr;
-        ap apVar = com.baidu.live.v.a.zj().axB;
+        ap apVar = com.baidu.live.v.a.zl().axC;
         if (apVar != null && apVar.acV != null && apVar.acV.aex && apVar.acS != null && (bbVarArr = apVar.acS.adM) != null && bbVarArr.length > 0) {
             for (int i = 0; i < bbVarArr.length; i++) {
                 if (bbVarArr[i].price == 100) {

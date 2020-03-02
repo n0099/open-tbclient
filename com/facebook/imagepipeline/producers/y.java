@@ -14,13 +14,13 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class y implements aw<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.g lQq;
+    private final com.facebook.common.memory.g lQs;
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
 
     public y(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.lQq = gVar;
+        this.lQs = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -31,20 +31,20 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        am drw = akVar.drw();
+        am dry = akVar.dry();
         String id = akVar.getId();
-        final ImageRequest drv = akVar.drv();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, drw, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest drx = akVar.drx();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dry, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: drU */
+            /* renamed from: drW */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                ExifInterface V = y.this.V(drv.dso());
+                ExifInterface V = y.this.V(drx.dsq());
                 if (V == null || !V.hasThumbnail()) {
                     return null;
                 }
-                return y.this.a(y.this.lQq.ak(V.getThumbnail()), V);
+                return y.this.a(y.this.lQs.ak(V.getThumbnail()), V);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnN() {
+            public void dnP() {
                 aqVar.cancel();
             }
         });
@@ -96,7 +96,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         try {
             com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(b);
             com.facebook.common.references.a.c(b);
-            eVar.c(com.facebook.c.b.lPo);
+            eVar.c(com.facebook.c.b.lPq);
             eVar.Il(a);
             eVar.setWidth(intValue);
             eVar.setHeight(intValue2);

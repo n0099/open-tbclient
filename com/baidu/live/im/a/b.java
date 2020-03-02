@@ -113,10 +113,10 @@ public abstract class b extends AbsDelegateAdapter<com.baidu.live.im.data.a, com
         boolean z2 = false;
         boolean z3 = false;
         cVar.reset();
-        if (xv == null || xv.length <= 1 || com.baidu.live.v.a.zj().axB == null) {
+        if (xv == null || xv.length <= 1 || com.baidu.live.v.a.zl().axC == null) {
             z = false;
         } else {
-            aj ajVar = com.baidu.live.v.a.zj().axB.acU;
+            aj ajVar = com.baidu.live.v.a.zl().axC.acU;
             if (ajVar != null && ajVar.acu != null && !TextUtils.isEmpty(xv[0])) {
                 if (TbadkCoreApplication.getInst().isMobileBaidu() && xv[0].equals("guard_seat_effect")) {
                     xv[0] = "";

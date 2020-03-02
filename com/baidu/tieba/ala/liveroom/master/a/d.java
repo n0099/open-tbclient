@@ -16,60 +16,60 @@ import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes3.dex */
 public class d {
-    private f eTZ = new f();
-    private com.baidu.tieba.ala.liveroom.data.e feZ;
-    private com.baidu.live.liveroom.middleware.a fgA;
-    private AlaMasterLiveRoomOpearator fgw;
-    private b fgx;
-    private a fgz;
+    private f eUa = new f();
+    private com.baidu.tieba.ala.liveroom.data.e ffa;
+    private a fgA;
+    private com.baidu.live.liveroom.middleware.a fgB;
+    private AlaMasterLiveRoomOpearator fgx;
+    private b fgy;
 
     public d(AlaMasterLiveRoomActivity alaMasterLiveRoomActivity, AlaLiveRecorder alaLiveRecorder, AlaLiveView alaLiveView, FrameLayout frameLayout, ViewGroup viewGroup, com.baidu.live.tieba.e.b bVar, String str) {
-        this.eTZ.pageContext = alaMasterLiveRoomActivity.getPageContext();
-        this.eTZ.faH = alaLiveRecorder;
-        this.eTZ.faI = frameLayout;
-        this.eTZ.fai = alaLiveView;
-        this.eTZ.rootView = viewGroup;
-        this.eTZ.faM = bVar;
-        this.eTZ.faJ = this;
-        this.eTZ.faL = new AlaLiveRecorderPerfData();
-        this.fgw = new AlaMasterLiveRoomOpearator(this.eTZ, str);
+        this.eUa.pageContext = alaMasterLiveRoomActivity.getPageContext();
+        this.eUa.faI = alaLiveRecorder;
+        this.eUa.faJ = frameLayout;
+        this.eUa.faj = alaLiveView;
+        this.eUa.rootView = viewGroup;
+        this.eUa.faN = bVar;
+        this.eUa.faK = this;
+        this.eUa.faM = new AlaLiveRecorderPerfData();
+        this.fgx = new AlaMasterLiveRoomOpearator(this.eUa, str);
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.fgA = k.yy().yz();
-            this.eTZ.faN = this.fgA;
-            this.fgA.u(alaMasterLiveRoomActivity.getPageContext().getPageActivity());
+            this.fgB = k.yy().yz();
+            this.eUa.faO = this.fgB;
+            this.fgB.u(alaMasterLiveRoomActivity.getPageContext().getPageActivity());
         }
     }
 
     public void a(com.baidu.tieba.ala.liveroom.m.c cVar) {
-        this.eTZ.fah = cVar;
+        this.eUa.fai = cVar;
     }
 
     public void setArModel(com.baidu.live.ar.c cVar) {
-        this.eTZ.faK = cVar;
+        this.eUa.faL = cVar;
     }
 
     public void a(b bVar) {
-        this.fgx = bVar;
-        if (this.fgz != null) {
-            this.fgz.a(bVar);
+        this.fgy = bVar;
+        if (this.fgA != null) {
+            this.fgA.a(bVar);
         }
     }
 
     public void a(short s, Object obj) {
-        if (s == 1 && this.fgw != null) {
+        if (s == 1 && this.fgx != null) {
             g gVar = null;
             if (obj instanceof g) {
                 gVar = (g) obj;
             }
-            int a = this.fgw.a(gVar);
+            int a = this.fgx.a(gVar);
             if (a == 1 || a == 2) {
-                this.eTZ.pX(a);
+                this.eUa.pX(a);
             } else {
                 return;
             }
         }
-        if (this.fgz != null) {
-            this.fgz.a(s, obj);
+        if (this.fgA != null) {
+            this.fgA.a(s, obj);
         }
     }
 
@@ -78,231 +78,231 @@ public class d {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.feZ = eVar;
-        if (this.fgz != null) {
-            this.fgz.c(eVar);
+        this.ffa = eVar;
+        if (this.fgA != null) {
+            this.fgA.c(eVar);
         }
     }
 
     public void aw(int i, String str) {
-        if (this.fgz != null) {
-            this.fgz.aw(i, str);
+        if (this.fgA != null) {
+            this.fgA.aw(i, str);
         }
     }
 
     public void c(h hVar) {
-        if (this.fgz != null) {
-            this.fgz.c(hVar);
+        if (this.fgA != null) {
+            this.fgA.c(hVar);
         }
     }
 
     public void ax(int i, String str) {
-        if (this.fgz != null) {
-            this.fgz.ax(i, str);
+        if (this.fgA != null) {
+            this.fgA.ax(i, str);
         }
     }
 
     public void i(short s) {
-        if (this.fgz != null) {
-            this.fgz.i(s);
-        }
         if (this.fgA != null) {
-            this.fgA.yu();
+            this.fgA.i(s);
+        }
+        if (this.fgB != null) {
+            this.fgB.yu();
         }
     }
 
-    public void boT() {
-        if (this.fgz != null) {
-            this.fgz.boT();
-        }
+    public void boV() {
         if (this.fgA != null) {
-            this.fgA.onStop();
+            this.fgA.boV();
+        }
+        if (this.fgB != null) {
+            this.fgB.onStop();
         }
     }
 
-    public void boU() {
-        if (this.fgz != null) {
-            this.fgz.boU();
-        }
-        if (this.fgw != null) {
-            this.fgw.onResume();
-        }
+    public void boW() {
         if (this.fgA != null) {
-            this.fgA.onResume();
+            this.fgA.boW();
+        }
+        if (this.fgx != null) {
+            this.fgx.onResume();
+        }
+        if (this.fgB != null) {
+            this.fgB.onResume();
         }
     }
 
     public void onPause() {
-        if (this.fgz != null) {
-            this.fgz.onPause();
-        }
         if (this.fgA != null) {
             this.fgA.onPause();
         }
+        if (this.fgB != null) {
+            this.fgB.onPause();
+        }
     }
 
-    public boolean boV() {
-        if (this.fgz != null) {
-            return this.fgz.boV();
+    public boolean boX() {
+        if (this.fgA != null) {
+            return this.fgA.boX();
         }
         return false;
     }
 
-    public void boW() {
-        if (this.fgz != null) {
-            this.fgz.boW();
+    public void boY() {
+        if (this.fgA != null) {
+            this.fgA.boY();
         }
     }
 
     public void qv(int i) {
-        if (i == 1 && !(this.fgz instanceof c)) {
-            this.fgz = new c(this.eTZ);
-        } else if (i == 2 && !(this.fgz instanceof e)) {
-            this.fgz = new e(this.eTZ);
+        if (i == 1 && !(this.fgA instanceof c)) {
+            this.fgA = new c(this.eUa);
+        } else if (i == 2 && !(this.fgA instanceof e)) {
+            this.fgA = new e(this.eUa);
         } else {
             return;
         }
-        this.fgz.ac(this.fgw);
-        this.fgz.a(this.fgx);
+        this.fgA.ac(this.fgx);
+        this.fgA.a(this.fgy);
     }
 
     public void j(int i, int i2, int i3) {
-        if (this.fgw != null) {
-            this.fgw.j(i, i2, i3);
+        if (this.fgx != null) {
+            this.fgx.j(i, i2, i3);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fgw != null) {
-            this.fgw.onKeyboardVisibilityChanged(z);
+        if (this.fgx != null) {
+            this.fgx.onKeyboardVisibilityChanged(z);
         }
-        if (this.fgA != null) {
-            this.fgA.d(z, TbadkCoreApplication.getInst().getKeyboardHeight());
+        if (this.fgB != null) {
+            this.fgB.d(z, TbadkCoreApplication.getInst().getKeyboardHeight());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.fgw != null) {
-            this.fgw.onActivityResult(i, i2, intent);
+        if (this.fgx != null) {
+            this.fgx.onActivityResult(i, i2, intent);
         }
-        if (this.fgA != null) {
-            this.fgA.onActivityResult(i, i2, intent);
+        if (this.fgB != null) {
+            this.fgB.onActivityResult(i, i2, intent);
         }
     }
 
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (this.fgA != null) {
-            this.fgA.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.fgB != null) {
+            this.fgB.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
-    public AlaLiveRecorderPerfData boY() {
-        return this.eTZ.faL;
+    public AlaLiveRecorderPerfData bpa() {
+        return this.eUa.faM;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.fgw != null) {
-            return this.fgw.onKeyDown(i, keyEvent);
+        if (this.fgx != null) {
+            return this.fgx.onKeyDown(i, keyEvent);
         }
         return false;
     }
 
     public void streamStateReceived(int i, boolean z, int i2, boolean z2) {
-        if (this.fgw != null) {
-            this.fgw.streamStateReceived(i, z, i2, z2);
+        if (this.fgx != null) {
+            this.fgx.streamStateReceived(i, z, i2, z2);
         }
     }
 
-    public void boj() {
-        if (this.fgw != null) {
-            this.fgw.boj();
+    public void bol() {
+        if (this.fgx != null) {
+            this.fgx.bol();
         }
     }
 
-    public void bov() {
-        if (this.fgw != null) {
-            this.fgw.bov();
+    public void box() {
+        if (this.fgx != null) {
+            this.fgx.box();
         }
     }
 
-    public void blI() {
-        if (this.fgw != null) {
-            this.fgw.blI();
+    public void blK() {
+        if (this.fgx != null) {
+            this.fgx.blK();
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.e boZ() {
-        return this.feZ;
+    public com.baidu.tieba.ala.liveroom.data.e bpb() {
+        return this.ffa;
     }
 
-    public boolean boX() {
-        if (this.fgz != null) {
-            return this.fgz.boX();
+    public boolean boZ() {
+        if (this.fgA != null) {
+            return this.fgA.boZ();
         }
         return false;
     }
 
-    public int blK() {
-        if (this.eTZ != null) {
-            return this.eTZ.blK();
+    public int blM() {
+        if (this.eUa != null) {
+            return this.eUa.blM();
         }
         return 0;
     }
 
     public void onDestroy() {
-        if (this.fgw != null) {
-            this.fgw.onDestroy();
+        if (this.fgx != null) {
+            this.fgx.onDestroy();
         }
-        if (this.fgA != null) {
-            this.fgA.be(false);
+        if (this.fgB != null) {
+            this.fgB.be(false);
         }
     }
 
     public void f(short s) {
-        if (this.fgx != null) {
-            this.fgx.f(s);
-        }
-    }
-
-    public void blL() {
-        if (this.fgx != null) {
-            this.fgx.blL();
-        }
-    }
-
-    public void awO() {
-        if (this.fgx != null) {
-            this.fgx.awO();
-        }
-    }
-
-    public void blM() {
-        if (this.fgx != null) {
-            this.fgx.blM();
+        if (this.fgy != null) {
+            this.fgy.f(s);
         }
     }
 
     public void blN() {
-        if (this.fgx != null) {
-            this.fgx.blN();
+        if (this.fgy != null) {
+            this.fgy.blN();
+        }
+    }
+
+    public void awQ() {
+        if (this.fgy != null) {
+            this.fgy.awQ();
         }
     }
 
     public void blO() {
-        if (this.fgx != null) {
-            this.fgx.blO();
+        if (this.fgy != null) {
+            this.fgy.blO();
+        }
+    }
+
+    public void blP() {
+        if (this.fgy != null) {
+            this.fgy.blP();
+        }
+    }
+
+    public void blQ() {
+        if (this.fgy != null) {
+            this.fgy.blQ();
         }
     }
 
     public void onRtcConnected(int i) {
-        if (this.fgw != null) {
-            this.fgw.onRtcConnected(i);
+        if (this.fgx != null) {
+            this.fgx.onRtcConnected(i);
         }
     }
 
     public void onPKPlayerFirstFrame() {
-        if (this.fgw != null) {
-            this.fgw.onPKPlayerFirstFrame();
+        if (this.fgx != null) {
+            this.fgx.onPKPlayerFirstFrame();
         }
     }
 }

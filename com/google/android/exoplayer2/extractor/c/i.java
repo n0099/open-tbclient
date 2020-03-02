@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 final class i {
-    private static final int[] mkw = {v.QE("isom"), v.QE("iso2"), v.QE("iso3"), v.QE("iso4"), v.QE("iso5"), v.QE("iso6"), v.QE(VisualSampleEntry.TYPE3), v.QE("hvc1"), v.QE("hev1"), v.QE("mp41"), v.QE("mp42"), v.QE("3g2a"), v.QE("3g2b"), v.QE("3gr6"), v.QE("3gs6"), v.QE("3ge6"), v.QE("3gg6"), v.QE("M4V "), v.QE("M4A "), v.QE("f4v "), v.QE("kddi"), v.QE("M4VP"), v.QE("qt  "), v.QE("MSNV")};
+    private static final int[] mky = {v.QE("isom"), v.QE("iso2"), v.QE("iso3"), v.QE("iso4"), v.QE("iso5"), v.QE("iso6"), v.QE(VisualSampleEntry.TYPE3), v.QE("hvc1"), v.QE("hev1"), v.QE("mp41"), v.QE("mp42"), v.QE("3g2a"), v.QE("3g2b"), v.QE("3gr6"), v.QE("3gs6"), v.QE("3ge6"), v.QE("3gg6"), v.QE("M4V "), v.QE("M4A "), v.QE("f4v "), v.QE("kddi"), v.QE("M4VP"), v.QE("qt  "), v.QE("MSNV")};
 
     public static boolean r(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         return b(fVar, true);
@@ -32,7 +32,7 @@ final class i {
                 i3 = 16;
                 fVar.s(lVar.data, 8, 8);
                 lVar.setLimit(16);
-                readUnsignedInt = lVar.dzE();
+                readUnsignedInt = lVar.dzG();
             } else if (readUnsignedInt == 0) {
                 long length2 = fVar.getLength();
                 if (length2 != -1) {
@@ -43,8 +43,8 @@ final class i {
                 return false;
             }
             i2 += i3;
-            if (readInt != a.mhr) {
-                if (readInt == a.mhA || readInt == a.mhC) {
+            if (readInt != a.mht) {
+                if (readInt == a.mhC || readInt == a.mhE) {
                     z3 = true;
                     break;
                 } else if ((i2 + readUnsignedInt) - i3 >= i) {
@@ -52,7 +52,7 @@ final class i {
                 } else {
                     int i4 = (int) (readUnsignedInt - i3);
                     int i5 = i2 + i4;
-                    if (readInt == a.mgQ) {
+                    if (readInt == a.mgS) {
                         if (i4 < 8) {
                             return false;
                         }
@@ -89,7 +89,7 @@ final class i {
         if ((i >>> 8) == v.QE("3gp")) {
             return true;
         }
-        for (int i2 : mkw) {
+        for (int i2 : mky) {
             if (i2 == i) {
                 return true;
             }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes11.dex */
 public class b {
-    private com.baidu.swan.apps.res.widget.a.a bOA;
-    protected a bOz;
+    protected a bOA;
+    private com.baidu.swan.apps.res.widget.a.a bOB;
     protected Context mContext;
     protected Drawable mIconDrawable;
     protected final int mId;
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
-        this.bOA = aVar;
+        this.bOB = aVar;
     }
 
     public int getItemId() {
@@ -71,11 +71,11 @@ public class b {
         return this.mDismissDelayTime;
     }
 
-    public a act() {
-        return this.bOz;
+    public a acv() {
+        return this.bOA;
     }
 
     public void b(a aVar) {
-        this.bOz = aVar;
+        this.bOA = aVar;
     }
 }

@@ -4,12 +4,12 @@ import android.net.Uri;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 public final class g {
-    public final long fNZ;
+    public final long fOb;
     public final int flags;
     public final String key;
     public final long length;
-    public final byte[] mFN;
-    public final long mFO;
+    public final byte[] mFP;
+    public final long mFQ;
     public final Uri uri;
 
     public g(Uri uri, int i) {
@@ -33,9 +33,9 @@ public final class g {
         com.google.android.exoplayer2.util.a.checkArgument(j2 >= 0);
         com.google.android.exoplayer2.util.a.checkArgument(j3 > 0 || j3 == -1);
         this.uri = uri;
-        this.mFN = bArr;
-        this.mFO = j;
-        this.fNZ = j2;
+        this.mFP = bArr;
+        this.mFQ = j;
+        this.fOb = j2;
         this.length = j3;
         this.key = str;
         this.flags = i;
@@ -46,7 +46,7 @@ public final class g {
     }
 
     public String toString() {
-        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mFN) + ", " + this.mFO + ", " + this.fNZ + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
+        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mFP) + ", " + this.mFQ + ", " + this.fOb + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
     }
 
     public g gF(long j) {
@@ -54,6 +54,6 @@ public final class g {
     }
 
     public g V(long j, long j2) {
-        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mFN, this.mFO + j, this.fNZ + j, j2, this.key, this.flags);
+        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mFP, this.mFQ + j, this.fOb + j, j2, this.key, this.flags);
     }
 }

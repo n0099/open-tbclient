@@ -4,16 +4,16 @@ import android.app.Application;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public final class ContextGetter {
-    public static Context dGf() {
+    public static Context dGh() {
         try {
-            return dGg().getApplicationContext();
+            return dGi().getApplicationContext();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static Application dGg() throws Exception {
+    private static Application dGi() throws Exception {
         return (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]).invoke(null, null);
     }
 }

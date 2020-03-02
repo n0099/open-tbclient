@@ -9,7 +9,7 @@ public class gb extends gd {
     private a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f404a;
+    private final Map<String, String> f403a;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -20,10 +20,10 @@ public class gb extends gd {
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f405a;
+        private String f404a;
 
         private a(String str) {
-            this.f405a = str;
+            this.f404a = str;
         }
 
         public static a a(String str) {
@@ -50,19 +50,19 @@ public class gb extends gd {
         }
 
         public String toString() {
-            return this.f405a;
+            return this.f404a;
         }
     }
 
     public gb() {
         this.a = a.a;
-        this.f404a = new HashMap();
+        this.f403a = new HashMap();
     }
 
     public gb(Bundle bundle) {
         super(bundle);
         this.a = a.a;
-        this.f404a = new HashMap();
+        this.f403a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -98,7 +98,7 @@ public class gb extends gd {
         if (k() != null) {
             sb.append("chid=\"").append(go.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f404a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f403a.entrySet()) {
             sb.append(go.a(entry.getKey())).append("=\"");
             sb.append(go.a(entry.getValue())).append("\" ");
         }
@@ -129,7 +129,7 @@ public class gb extends gd {
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f404a.putAll(map);
+        this.f403a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gd

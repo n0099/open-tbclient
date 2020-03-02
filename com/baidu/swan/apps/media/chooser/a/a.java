@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    private boolean bBt;
+    private boolean bBu;
     private String mCallback;
     private int mCount;
     private String mMode;
@@ -28,11 +28,11 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (eVar == null || eVar.acz() == null) {
+        if (eVar == null || eVar.acB() == null) {
             com.baidu.swan.apps.console.c.e("chooseAlbum", "runtime exception");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
             return false;
-        } else if (eVar.JD()) {
+        } else if (eVar.JF()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -48,7 +48,7 @@ public class a extends ab {
             }
             this.mCount = parseString.optInt("count");
             this.mMode = parseString.optString("mode");
-            this.bBt = parseString.optBoolean("compressed");
+            this.bBu = parseString.optBoolean("compressed");
             l(context, unitedSchemeEntity, callbackHandler, eVar);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -79,9 +79,9 @@ public class a extends ab {
         bundle.putBoolean("isShowCamera", false);
         bundle.putInt("count", this.mCount);
         bundle.putString("mode", this.mMode);
-        bundle.putBoolean("compressed", this.bBt);
+        bundle.putBoolean("compressed", this.bBu);
         bundle.putString("swanAppId", eVar.id);
-        bundle.putString("swanTmpPath", f.WQ().Wx().afn());
+        bundle.putString("swanTmpPath", f.WS().Wz().afp());
         d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.a.2
             @Override // com.baidu.swan.apps.media.chooser.c.c
             public void U(List list) {

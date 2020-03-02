@@ -14,27 +14,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cjX = new HashMap<>();
+    private static final HashMap<String, String> cjY = new HashMap<>();
 
     static {
-        cjX.put("494433", ".mp3");
-        cjX.put("524946", ".wav");
+        cjY.put("494433", ".mp3");
+        cjY.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bAy = gVar.bAy;
-        dVar.bAG = gVar.autoplay;
+        dVar.bAz = gVar.bAz;
+        dVar.bAH = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cjU = gVar.startTime;
-        dVar.bAH = gVar.obeyMuteSwitch;
+        dVar.cjV = gVar.startTime;
+        dVar.bAI = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bAD = als().toString();
+        dVar.bAE = alu().toString();
         return dVar;
     }
 
-    public static JSONObject als() {
+    public static JSONObject alu() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -66,22 +66,22 @@ public class f {
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.acF() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.acH() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
-    public static String alt() {
-        String alv = alv();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(alv)) {
+    public static String alv() {
+        String alx = alx();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(alx)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return alv;
+        return alx;
     }
 
-    public static String alu() {
+    public static String alw() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String alv() {
+    private static String alx() {
         String str = l.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cjX.get(bytesToHexString(bArr2));
+        return cjY.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

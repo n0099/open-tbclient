@@ -30,8 +30,8 @@ public class n extends a {
     public void a(b bVar, Canvas canvas) {
         float f;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.bgt;
-            int i = bVar.bgy;
+            TextPaint textPaint = bVar.bgu;
+            int i = bVar.bgz;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;

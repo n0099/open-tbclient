@@ -16,9 +16,9 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends b {
-    private String boo;
-    private JSONObject bop;
-    private boolean boq = true;
+    private String bop;
+    private JSONObject boq;
+    private boolean bor = true;
 
     public static f aA(String str, String str2) {
         f fVar = new f();
@@ -36,8 +36,8 @@ public class f extends b {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.boo = arguments.getString("plugin_fun_page_path");
-            this.bop = s.parseString(arguments.getString("plugin_pay_params"));
+            this.bop = arguments.getString("plugin_fun_page_path");
+            this.boq = s.parseString(arguments.getString("plugin_pay_params"));
         }
     }
 
@@ -67,7 +67,7 @@ public class f extends b {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.swan.apps.runtime.d.acA().acx().acN().adZ();
+        com.baidu.swan.apps.runtime.d.acC().acz().acP().aeb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -82,11 +82,11 @@ public class f extends b {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Nt() {
+    protected void Nv() {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected boolean Jd() {
+    protected boolean Jf() {
         return false;
     }
 
@@ -96,45 +96,45 @@ public class f extends b {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Nu() {
+    public boolean Nw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean II() {
-        if (this.boq && this.bop != null) {
-            com.baidu.swan.apps.ag.c.c.a aVar = new com.baidu.swan.apps.ag.c.c.a(this.bop.optString("componentId"));
-            aVar.bil = this.bop.optString("slaveId");
-            aVar.aae();
+    public boolean IK() {
+        if (this.bor && this.boq != null) {
+            com.baidu.swan.apps.ag.c.c.a aVar = new com.baidu.swan.apps.ag.c.c.a(this.boq.optString("componentId"));
+            aVar.bim = this.boq.optString("slaveId");
+            aVar.aag();
             return false;
         }
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Jg() {
+    protected void Ji() {
     }
 
     private void initView(View view) {
-        if (view != null && this.bop != null) {
+        if (view != null && this.boq != null) {
             TextView textView = (TextView) view.findViewById(a.f.id_swan_app_plugin_app_name);
-            com.baidu.swan.apps.runtime.e acE = com.baidu.swan.apps.runtime.e.acE();
-            if (acE != null) {
-                textView.setText(acE.GC().QZ());
+            com.baidu.swan.apps.runtime.e acG = com.baidu.swan.apps.runtime.e.acG();
+            if (acG != null) {
+                textView.setText(acG.GE().Rb());
             }
-            final JSONObject optJSONObject = this.bop.optJSONObject("args");
+            final JSONObject optJSONObject = this.boq.optJSONObject("args");
             if (optJSONObject != null) {
                 ((TextView) view.findViewById(a.f.id_swan_app_plugin_money)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
                 TextView textView2 = (TextView) view.findViewById(a.f.id_swan_app_plugin_service_name);
-                com.baidu.swan.pms.model.h kk = com.baidu.swan.apps.ag.g.b.kk(this.bop.optString("pluginProvider"));
+                com.baidu.swan.pms.model.h kk = com.baidu.swan.apps.ag.g.b.kk(this.boq.optString("pluginProvider"));
                 if (kk != null) {
                     textView2.setText(kk.appName);
                 }
                 ((Button) view.findViewById(a.f.id_swan_app_plugin_pay)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.f.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        com.baidu.swan.apps.y.f.WQ().a(new com.baidu.swan.apps.ag.c.c.b(f.this.boo, optJSONObject.toString(), f.this.bop.optString("slaveId")).aaf());
-                        f.this.boq = false;
+                        com.baidu.swan.apps.y.f.WS().a(new com.baidu.swan.apps.ag.c.c.b(f.this.bop, optJSONObject.toString(), f.this.boq.optString("slaveId")).aah());
+                        f.this.bor = false;
                     }
                 });
             }

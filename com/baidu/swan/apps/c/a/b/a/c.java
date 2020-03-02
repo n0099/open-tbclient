@@ -12,12 +12,12 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h
-    public f IH() {
-        return com.baidu.swan.apps.core.k.d.Qu().Qv().bz(getContext());
+    public f IJ() {
+        return com.baidu.swan.apps.core.k.d.Qw().Qx().bz(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d Jc() {
+    protected com.baidu.swan.apps.core.f.d Je() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.b.a.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
             public boolean eo(String str) {
@@ -29,20 +29,20 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bnv.setRightZoneVisibility(true);
+        this.bnw.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected void Jg() {
-        FragmentActivity auy = auy();
-        if (auy != null && this.bnw == null) {
-            this.bnw = new com.baidu.swan.menu.h(auy, this.bnv, Jh(), com.baidu.swan.apps.w.a.TY(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bnw, this).Yi();
+    protected void Ji() {
+        FragmentActivity auA = auA();
+        if (auA != null && this.bnx == null) {
+            this.bnx = new com.baidu.swan.menu.h(auA, this.bnw, Jj(), com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.aa.a(this.bnx, this).Yk();
         }
     }
 
-    private int Jh() {
-        return NN() ? 18 : 12;
+    private int Jj() {
+        return NP() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -50,28 +50,28 @@ public class c extends h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.boD = IH();
-        this.boD.a(Jc());
-        this.baW = this.boD.IN();
-        this.boD.loadUrl(this.mUrl);
+        this.boE = IJ();
+        this.boE.a(Je());
+        this.baX = this.boE.IP();
+        this.boE.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.boD.a(frameLayout, this.baW.covertToView());
+        this.boE.a(frameLayout, this.baX.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected boolean Jd() {
+    protected boolean Jf() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    public boolean II() {
-        if (this.baW != null && this.baW.canGoBack()) {
-            this.baW.goBack();
+    public boolean IK() {
+        if (this.baX != null && this.baX.canGoBack()) {
+            this.baX.goBack();
             return true;
         }
-        d.Jx().dX(1);
+        d.Jz().dX(1);
         return false;
     }
 }

@@ -1,8 +1,8 @@
 package com.google.android.exoplayer2.a;
 /* loaded from: classes6.dex */
 public final class d {
-    public int mdr;
-    public int mds;
+    public int mdA;
+    public int mdB;
     public int mdt;
     public int mdu;
     public int mdv;
@@ -11,6 +11,6 @@ public final class d {
     public int mdy;
     public int mdz;
 
-    public synchronized void duz() {
+    public synchronized void duB() {
     }
 }

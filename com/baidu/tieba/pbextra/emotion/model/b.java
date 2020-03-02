@@ -6,88 +6,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes9.dex */
 class b {
-    private int jdU;
-    private int jdV;
-    private byte[] jdW;
+    private int jdW;
     private int jdX;
-    private int jdY;
+    private byte[] jdY;
     private int jdZ;
-    int jea;
+    private int jea;
+    private int jeb;
     int jec;
-    int jej;
-    int jek;
+    int jee;
     int jel;
-    int jep;
-    int jeb = 12;
-    int jed = 4096;
-    int[] jee = new int[StatusCode.ERROR_NOT_LOGIN];
-    int[] jef = new int[StatusCode.ERROR_NOT_LOGIN];
-    int jeg = StatusCode.ERROR_NOT_LOGIN;
-    int jeh = 0;
-    boolean jei = false;
-    int jem = 0;
-    int jen = 0;
-    int[] jeo = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ResponseCode.PROTOCOL_EXP, 2047, 4095, 8191, 16383, 32767, 65535};
-    byte[] jeq = new byte[256];
+    int jem;
+    int jen;
+    int jer;
+    int jed = 12;
+    int jef = 4096;
+    int[] jeg = new int[StatusCode.ERROR_NOT_LOGIN];
+    int[] jeh = new int[StatusCode.ERROR_NOT_LOGIN];
+    int jei = StatusCode.ERROR_NOT_LOGIN;
+    int jej = 0;
+    boolean jek = false;
+    int jeo = 0;
+    int jep = 0;
+    int[] jeq = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ResponseCode.PROTOCOL_EXP, 2047, 4095, 8191, 16383, 32767, 65535};
+    byte[] jes = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.jdU = i;
-        this.jdV = i2;
-        this.jdW = bArr;
-        this.jdX = Math.max(2, i3);
+        this.jdW = i;
+        this.jdX = i2;
+        this.jdY = bArr;
+        this.jdZ = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.jeq;
-        int i = this.jep;
-        this.jep = i + 1;
+        byte[] bArr = this.jes;
+        int i = this.jer;
+        this.jer = i + 1;
         bArr[i] = b;
-        if (this.jep >= 254) {
+        if (this.jer >= 254) {
             d(outputStream);
         }
     }
 
     void c(OutputStream outputStream) throws IOException {
-        zG(this.jeg);
-        this.jeh = this.jek + 2;
-        this.jei = true;
-        b(this.jek, outputStream);
+        zG(this.jei);
+        this.jej = this.jem + 2;
+        this.jek = true;
+        b(this.jem, outputStream);
     }
 
     void zG(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.jee[i2] = -1;
+            this.jeg[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.jej = i;
-        this.jei = false;
-        this.jea = this.jej;
-        this.jec = zH(this.jea);
-        this.jek = 1 << (i - 1);
-        this.jel = this.jek + 1;
-        this.jeh = this.jek + 2;
-        this.jep = 0;
-        int cuA = cuA();
-        for (int i3 = this.jeg; i3 < 65536; i3 *= 2) {
+        this.jel = i;
+        this.jek = false;
+        this.jec = this.jel;
+        this.jee = zH(this.jec);
+        this.jem = 1 << (i - 1);
+        this.jen = this.jem + 1;
+        this.jej = this.jem + 2;
+        this.jer = 0;
+        int cuC = cuC();
+        for (int i3 = this.jei; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.jeg;
+        int i5 = this.jei;
         zG(i5);
-        b(this.jek, outputStream);
+        b(this.jem, outputStream);
         while (true) {
-            int cuA2 = cuA();
-            if (cuA2 != -1) {
-                int i6 = (cuA2 << this.jeb) + cuA;
-                int i7 = (cuA2 << i4) ^ cuA;
-                if (this.jee[i7] == i6) {
-                    cuA = this.jef[i7];
+            int cuC2 = cuC();
+            if (cuC2 != -1) {
+                int i6 = (cuC2 << this.jed) + cuC;
+                int i7 = (cuC2 << i4) ^ cuC;
+                if (this.jeg[i7] == i6) {
+                    cuC = this.jeh[i7];
                 } else {
-                    if (this.jee[i7] >= 0) {
+                    if (this.jeg[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -97,28 +97,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.jee[i7] == i6) {
-                                cuA = this.jef[i7];
+                            if (this.jeg[i7] == i6) {
+                                cuC = this.jeh[i7];
                                 break;
                             }
-                        } while (this.jee[i7] >= 0);
+                        } while (this.jeg[i7] >= 0);
                     }
-                    b(cuA, outputStream);
-                    if (this.jeh < this.jed) {
-                        int[] iArr = this.jef;
-                        int i9 = this.jeh;
-                        this.jeh = i9 + 1;
+                    b(cuC, outputStream);
+                    if (this.jej < this.jef) {
+                        int[] iArr = this.jeh;
+                        int i9 = this.jej;
+                        this.jej = i9 + 1;
                         iArr[i7] = i9;
-                        this.jee[i7] = i6;
-                        cuA = cuA2;
+                        this.jeg[i7] = i6;
+                        cuC = cuC2;
                     } else {
                         c(outputStream);
-                        cuA = cuA2;
+                        cuC = cuC2;
                     }
                 }
             } else {
-                b(cuA, outputStream);
-                b(this.jel, outputStream);
+                b(cuC, outputStream);
+                b(this.jen, outputStream);
                 return;
             }
         }
@@ -126,18 +126,18 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.jdX);
-        this.jdY = this.jdU * this.jdV;
-        this.jdZ = 0;
-        a(this.jdX + 1, outputStream);
+        outputStream.write(this.jdZ);
+        this.jea = this.jdW * this.jdX;
+        this.jeb = 0;
+        a(this.jdZ + 1, outputStream);
         outputStream.write(0);
     }
 
     void d(OutputStream outputStream) throws IOException {
-        if (this.jep > 0) {
-            outputStream.write(this.jep);
-            outputStream.write(this.jeq, 0, this.jep);
-            this.jep = 0;
+        if (this.jer > 0) {
+            outputStream.write(this.jer);
+            outputStream.write(this.jes, 0, this.jer);
+            this.jer = 0;
         }
     }
 
@@ -145,50 +145,50 @@ class b {
         return (1 << i) - 1;
     }
 
-    private int cuA() {
-        if (this.jdY == 0) {
+    private int cuC() {
+        if (this.jea == 0) {
             return -1;
         }
-        this.jdY--;
-        byte[] bArr = this.jdW;
-        int i = this.jdZ;
-        this.jdZ = i + 1;
+        this.jea--;
+        byte[] bArr = this.jdY;
+        int i = this.jeb;
+        this.jeb = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.jem &= this.jeo[this.jen];
-        if (this.jen > 0) {
-            this.jem |= i << this.jen;
+        this.jeo &= this.jeq[this.jep];
+        if (this.jep > 0) {
+            this.jeo |= i << this.jep;
         } else {
-            this.jem = i;
+            this.jeo = i;
         }
-        this.jen += this.jea;
-        while (this.jen >= 8) {
-            a((byte) (this.jem & 255), outputStream);
-            this.jem >>= 8;
-            this.jen -= 8;
+        this.jep += this.jec;
+        while (this.jep >= 8) {
+            a((byte) (this.jeo & 255), outputStream);
+            this.jeo >>= 8;
+            this.jep -= 8;
         }
-        if (this.jeh > this.jec || this.jei) {
-            if (this.jei) {
-                int i2 = this.jej;
-                this.jea = i2;
-                this.jec = zH(i2);
-                this.jei = false;
+        if (this.jej > this.jee || this.jek) {
+            if (this.jek) {
+                int i2 = this.jel;
+                this.jec = i2;
+                this.jee = zH(i2);
+                this.jek = false;
             } else {
-                this.jea++;
-                if (this.jea == this.jeb) {
-                    this.jec = this.jed;
+                this.jec++;
+                if (this.jec == this.jed) {
+                    this.jee = this.jef;
                 } else {
-                    this.jec = zH(this.jea);
+                    this.jee = zH(this.jec);
                 }
             }
         }
-        if (i == this.jel) {
-            while (this.jen > 0) {
-                a((byte) (this.jem & 255), outputStream);
-                this.jem >>= 8;
-                this.jen -= 8;
+        if (i == this.jen) {
+            while (this.jep > 0) {
+                a((byte) (this.jeo & 255), outputStream);
+                this.jeo >>= 8;
+                this.jep -= 8;
             }
             d(outputStream);
         }

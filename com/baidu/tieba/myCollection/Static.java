@@ -95,11 +95,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.chS().destroy();
+                        com.baidu.tieba.myCollection.a.a.chU().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.chS().start();
+                        com.baidu.tieba.myCollection.a.a.chU().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.chS().destroy();
+                        com.baidu.tieba.myCollection.a.a.chU().destroy();
                     }
                 }
             }
@@ -109,9 +109,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.chS().restart();
+                    com.baidu.tieba.myCollection.a.a.chU().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.chS().destroy();
+                    com.baidu.tieba.myCollection.a.a.chU().destroy();
                 }
             }
         });
@@ -120,8 +120,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.cht().chw();
-                    b.cht().oX(true);
+                    b.chv().chy();
+                    b.chv().oX(true);
                 }
             }
         });

@@ -3,7 +3,7 @@ package com.google.gson.internal;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public abstract class e {
-    public static e mKA;
+    public static e mKC;
 
     public abstract void a(com.google.gson.stream.a aVar) throws IOException;
 }

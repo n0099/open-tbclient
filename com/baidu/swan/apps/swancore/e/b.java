@@ -4,47 +4,47 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.x.b.c;
 /* loaded from: classes11.dex */
 public class b {
-    public boolean bWk;
     public boolean bWl;
+    public boolean bWm;
     @Nullable
-    public c bWm;
-    public String bWn;
+    public c bWn;
+    public String bWo;
 
     private b() {
-        this.bWk = false;
         this.bWl = false;
-        this.bWm = null;
-        this.bWn = "";
+        this.bWm = false;
+        this.bWn = null;
+        this.bWo = "";
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private boolean bWk = false;
         private boolean bWl = false;
+        private boolean bWm = false;
         @Nullable
-        private c bWm = null;
-        private String bWn = "";
+        private c bWn = null;
+        private String bWo = "";
 
-        public static a afD() {
+        public static a afF() {
             return new a();
         }
 
         public a dX(boolean z) {
-            this.bWk = z;
+            this.bWl = z;
             return this;
         }
 
         public a mr(String str) {
-            this.bWn = str;
+            this.bWo = str;
             return this;
         }
 
-        public b afE() {
+        public b afG() {
             b bVar = new b();
-            bVar.bWk = this.bWk;
             bVar.bWl = this.bWl;
             bVar.bWm = this.bWm;
             bVar.bWn = this.bWn;
+            bVar.bWo = this.bWo;
             return bVar;
         }
     }

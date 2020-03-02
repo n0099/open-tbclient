@@ -21,8 +21,8 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class a extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cuX;
-    private C0354a cuY;
+    private g cuY;
+    private C0354a cuZ;
     private volatile String mCurrentUrl;
 
     public a(com.baidu.swan.games.e.b bVar) {
@@ -49,13 +49,13 @@ public class a extends EventTargetImpl {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cuX == null) {
-                        a.this.arl();
+                    if (a.this.cuY == null) {
+                        a.this.arn();
                     }
-                    if (!a.this.cuX.IF()) {
-                        a.this.cuX.IS();
+                    if (!a.this.cuY.IH()) {
+                        a.this.cuY.IU();
                     }
-                    a.this.cuX.loadUrl(optString);
+                    a.this.cuY.loadUrl(optString);
                     a.this.o("open", new b.a(optString));
                 }
             });
@@ -67,10 +67,10 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuX != null && a.this.cuX.IF()) {
-                    a.this.cuX.IT();
-                    a.this.cuX.destroy();
-                    a.this.cuX = null;
+                if (a.this.cuY != null && a.this.cuY.IH()) {
+                    a.this.cuY.IV();
+                    a.this.cuY.destroy();
+                    a.this.cuY = null;
                     a.this.o("close", new b.a(a.this.mCurrentUrl));
                 }
             }
@@ -88,11 +88,11 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuX != null) {
+                if (a.this.cuY != null) {
                     if (TextUtils.equals("1", optString)) {
-                        a.this.cuX.bX(true);
+                        a.this.cuY.bX(true);
                     } else {
-                        a.this.cuX.bX(false);
+                        a.this.cuY.bX(false);
                     }
                 }
             }
@@ -109,36 +109,36 @@ public class a extends EventTargetImpl {
                 com.baidu.swan.games.utils.b.a(c, false, null);
                 return;
             }
-            this.cuY = new C0354a(optString, optString2, System.currentTimeMillis());
+            this.cuZ = new C0354a(optString, optString2, System.currentTimeMillis());
             if (DEBUG) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cuY);
+                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cuZ);
             }
             com.baidu.swan.games.utils.b.a(c, true, null);
         }
     }
 
     public void onGameLoadingFinish() {
-        if (this.cuY == null) {
+        if (this.cuZ == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
                 return;
             }
             return;
         }
-        e acE = e.acE();
-        if (acE == null) {
+        e acG = e.acG();
+        if (acG == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
                 return;
             }
             return;
         }
-        this.cuY.cvc = System.currentTimeMillis();
+        this.cuZ.cvd = System.currentTimeMillis();
         if (DEBUG) {
-            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cuY);
+            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cuZ);
         }
-        c.a(acE, this.cuY);
-        this.cuY = null;
+        c.a(acG, this.cuZ);
+        this.cuZ = null;
     }
 
     private boolean pZ(String str) {
@@ -150,10 +150,10 @@ public class a extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arl() {
-        if (this.cuX == null) {
-            this.cuX = d.Qu().Qv().bA(com.baidu.swan.apps.w.a.TU());
-            this.cuX.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
+    public void arn() {
+        if (this.cuY == null) {
+            this.cuY = d.Qw().Qx().bA(com.baidu.swan.apps.w.a.TW());
+            this.cuY.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.close();
@@ -196,14 +196,14 @@ public class a extends EventTargetImpl {
         dispatchEvent(new JSEvent(str, obj));
     }
 
-    public static a arm() {
-        com.baidu.swan.games.e.a anX = com.baidu.swan.games.i.a.anW().anX();
-        if (anX == null) {
+    public static a aro() {
+        com.baidu.swan.games.e.a anZ = com.baidu.swan.games.i.a.anY().anZ();
+        if (anZ == null) {
             return null;
         }
-        EventTarget anu = anX.anu();
-        if (anu instanceof com.baidu.swan.games.binding.c) {
-            return ((com.baidu.swan.games.binding.c) anu).getWebViewManager();
+        EventTarget anw = anZ.anw();
+        if (anw instanceof com.baidu.swan.games.binding.c) {
+            return ((com.baidu.swan.games.binding.c) anw).getWebViewManager();
         }
         return null;
     }
@@ -212,19 +212,19 @@ public class a extends EventTargetImpl {
     /* renamed from: com.baidu.swan.games.view.webview.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0354a {
-        long cvb;
         long cvc;
+        long cvd;
         String mGameId;
         String mGameName;
 
         private C0354a(String str, String str2, long j) {
             this.mGameId = str;
             this.mGameName = str2;
-            this.cvb = j;
+            this.cvc = j;
         }
 
         public String toString() {
-            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cvb + ", mFinishLoadingTimestamp=" + this.cvc + '}';
+            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cvc + ", mFinishLoadingTimestamp=" + this.cvd + '}';
         }
     }
 }

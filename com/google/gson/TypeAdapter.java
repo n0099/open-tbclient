@@ -25,7 +25,7 @@ public abstract class TypeAdapter<T> {
             @Override // com.google.gson.TypeAdapter
             public void write(b bVar, T t) throws IOException {
                 if (t == null) {
-                    bVar.dBg();
+                    bVar.dBi();
                 } else {
                     TypeAdapter.this.write(bVar, t);
                 }
@@ -33,8 +33,8 @@ public abstract class TypeAdapter<T> {
 
             @Override // com.google.gson.TypeAdapter
             public T read(a aVar) throws IOException {
-                if (aVar.dAR() == JsonToken.NULL) {
-                    aVar.dAW();
+                if (aVar.dAT() == JsonToken.NULL) {
+                    aVar.dAY();
                     return null;
                 }
                 return (T) TypeAdapter.this.read(aVar);
@@ -56,7 +56,7 @@ public abstract class TypeAdapter<T> {
         try {
             f fVar = new f();
             write(fVar, t);
-            return fVar.dBa();
+            return fVar.dBc();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadFactory;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class b {
-    private static b nuv = null;
+    private static b nux = null;
     private SQLiteDatabase mDatabase;
     private ExecutorService mExecutor = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: common.network.b.b.1
         @Override // java.util.concurrent.ThreadFactory
@@ -24,27 +24,27 @@ public class b {
     });
 
     public static void init(Context context) {
-        nuv = new b(context);
+        nux = new b(context);
     }
 
-    public static b dIJ() {
-        return nuv;
+    public static b dIL() {
+        return nux;
     }
 
     /* loaded from: classes.dex */
     private class a implements Runnable {
         private String mIp;
-        private String nux;
+        private String nuz;
 
         public a(String str, String[] strArr) {
-            this.nux = str;
+            this.nuz = str;
             this.mIp = new JSONArray((Collection) Arrays.asList(strArr)).toString();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("hostname", this.nux);
+            contentValues.put("hostname", this.nuz);
             contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP, this.mIp);
             b.this.mDatabase.insertWithOnConflict("dns_disaster_cache", null, contentValues, 5);
         }

@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent gat = new KeyEvent(0, 67);
+    private static final KeyEvent gav = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(qVar.getName()), selectionStart, aVar, qVar.aJu());
+                        b.a(context, editText, new SpannableStringBuilder(qVar.getName()), selectionStart, aVar, qVar.aJw());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -54,8 +54,8 @@ public class b {
     public static void b(final Context context, q qVar, final EditText editText) {
         if (qVar != null && editText != null && qVar.getName() != null) {
             String name = qVar.getName();
-            final EmotionGroupType aJu = qVar.aJu();
-            if (aJu == EmotionGroupType.LOCAL || aJu == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType aJw = qVar.aJw();
+            if (aJw == EmotionGroupType.LOCAL || aJw == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
                     c.gr().a(name, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
@@ -69,7 +69,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, aJu);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, aJw);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -115,7 +115,7 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.gar.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.gat.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
@@ -252,9 +252,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, gat);
+                editText.onKeyDown(67, gav);
             }
-            editText.onKeyDown(67, gat);
+            editText.onKeyDown(67, gav);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

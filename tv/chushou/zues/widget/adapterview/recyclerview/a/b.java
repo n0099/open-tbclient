@@ -11,29 +11,29 @@ import tv.chushou.zues.widget.adapterview.c;
 /* loaded from: classes5.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LinearLayout mHeaderLayout;
-    private LinearLayout nXb;
-    private RecyclerView.Adapter nXc;
-    private tv.chushou.zues.widget.adapterview.a nXd;
-    private c nXe;
-    private int nXf = 0;
-    private int nXg = 0;
-    private RecyclerView.AdapterDataObserver nXh = new RecyclerView.AdapterDataObserver() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.2
+    private LinearLayout nXd;
+    private RecyclerView.Adapter nXe;
+    private tv.chushou.zues.widget.adapterview.a nXf;
+    private c nXg;
+    private int nXh = 0;
+    private int nXi = 0;
+    private RecyclerView.AdapterDataObserver nXj = new RecyclerView.AdapterDataObserver() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.2
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onChanged() {
             super.onChanged();
             b.this.notifyDataSetChanged();
-            if (b.this.nXd != null) {
-                if (b.this.nXc.getItemCount() == 0) {
-                    b.this.nXd.xg(true);
+            if (b.this.nXf != null) {
+                if (b.this.nXe.getItemCount() == 0) {
+                    b.this.nXf.xg(true);
                 } else {
-                    b.this.nXd.xg(false);
+                    b.this.nXf.xg(false);
                 }
             }
-            if (b.this.nXe != null) {
-                b.this.nXf = b.this.nXg;
-                b.this.nXg = b.this.nXc.getItemCount();
-                if (b.this.nXg != b.this.nXf) {
-                    b.this.nXe.On(b.this.nXg - b.this.nXf);
+            if (b.this.nXg != null) {
+                b.this.nXh = b.this.nXi;
+                b.this.nXi = b.this.nXe.getItemCount();
+                if (b.this.nXi != b.this.nXh) {
+                    b.this.nXg.On(b.this.nXi - b.this.nXh);
                 }
             }
         }
@@ -52,17 +52,17 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeInserted(int i, int i2) {
             super.onItemRangeInserted(i, i2);
-            if (b.this.nXe != null) {
-                if (b.this.nXe.dQw()) {
+            if (b.this.nXg != null) {
+                if (b.this.nXg.dQy()) {
                     b.this.notifyItemRangeChanged(b.this.getHeaderViewsCount() + i, 1);
                     b.this.notifyItemRangeInserted(i + 1 + b.this.getHeaderViewsCount(), i2);
                 } else {
                     b.this.notifyItemRangeInserted(b.this.getHeaderViewsCount() + i, i2);
                 }
-                b.this.nXf = b.this.nXg;
-                b.this.nXg = b.this.nXc.getItemCount();
-                if (b.this.nXg != b.this.nXf) {
-                    b.this.nXe.On(b.this.nXg - b.this.nXf);
+                b.this.nXh = b.this.nXi;
+                b.this.nXi = b.this.nXe.getItemCount();
+                if (b.this.nXi != b.this.nXh) {
+                    b.this.nXg.On(b.this.nXi - b.this.nXh);
                     return;
                 }
                 return;
@@ -89,39 +89,39 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
-        this.nXf = 0;
-        this.nXg = 0;
-        if (this.nXc != null) {
-            notifyItemRangeRemoved(getHeaderViewsCount(), this.nXc.getItemCount());
-            this.nXc.unregisterAdapterDataObserver(this.nXh);
+        this.nXh = 0;
+        this.nXi = 0;
+        if (this.nXe != null) {
+            notifyItemRangeRemoved(getHeaderViewsCount(), this.nXe.getItemCount());
+            this.nXe.unregisterAdapterDataObserver(this.nXj);
         }
-        this.nXc = adapter;
-        this.nXc.registerAdapterDataObserver(this.nXh);
-        notifyItemRangeInserted(getHeaderViewsCount(), this.nXc.getItemCount());
+        this.nXe = adapter;
+        this.nXe.registerAdapterDataObserver(this.nXj);
+        notifyItemRangeInserted(getHeaderViewsCount(), this.nXe.getItemCount());
     }
 
     public void a(tv.chushou.zues.widget.adapterview.a aVar) {
-        this.nXd = aVar;
+        this.nXf = aVar;
     }
 
     public void setLoadMoreProvider(c cVar) {
-        this.nXe = cVar;
+        this.nXg = cVar;
     }
 
-    public void dQx() {
-        this.nXf = 0;
-        this.nXg = 0;
+    public void dQz() {
+        this.nXh = 0;
+        this.nXi = 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        int itemCount = this.nXc.getItemCount();
+        int itemCount = this.nXe.getItemCount();
         int headerViewsCount = getHeaderViewsCount();
         if (i < headerViewsCount) {
             return Integer.MIN_VALUE;
         }
         if (i >= headerViewsCount && i < itemCount + headerViewsCount) {
-            int itemViewType = this.nXc.getItemViewType(i - getHeaderViewsCount());
+            int itemViewType = this.nXe.getItemViewType(i - getHeaderViewsCount());
             if (itemViewType >= 1073741823) {
                 throw new IllegalArgumentException("item view type in inner adapter should not be greater than Integer.MAX_VALUE / 2  ");
             }
@@ -137,16 +137,16 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return new a(this.mHeaderLayout);
         }
         if (i == -2147483647) {
-            return new a(this.nXb);
+            return new a(this.nXd);
         }
-        return this.nXc.createViewHolder(viewGroup, i - 1073741823);
+        return this.nXe.createViewHolder(viewGroup, i - 1073741823);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i, List<Object> list) {
         int headerViewsCount = getHeaderViewsCount();
-        if (i >= headerViewsCount && i < this.nXc.getItemCount() + headerViewsCount) {
-            this.nXc.onBindViewHolder(viewHolder, i - headerViewsCount, list);
+        if (i >= headerViewsCount && i < this.nXe.getItemCount() + headerViewsCount) {
+            this.nXe.onBindViewHolder(viewHolder, i - headerViewsCount, list);
             return;
         }
         ViewGroup.LayoutParams layoutParams = viewHolder.itemView.getLayoutParams();
@@ -158,8 +158,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         int headerViewsCount = getHeaderViewsCount();
-        if (i >= headerViewsCount && i < this.nXc.getItemCount() + headerViewsCount) {
-            this.nXc.onBindViewHolder(viewHolder, i - headerViewsCount);
+        if (i >= headerViewsCount && i < this.nXe.getItemCount() + headerViewsCount) {
+            this.nXe.onBindViewHolder(viewHolder, i - headerViewsCount);
             return;
         }
         ViewGroup.LayoutParams layoutParams = viewHolder.itemView.getLayoutParams();
@@ -170,7 +170,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return getHeaderViewsCount() + this.nXc.getItemCount() + getFooterViewsCount();
+        return getHeaderViewsCount() + this.nXe.getItemCount() + getFooterViewsCount();
     }
 
     public int getHeaderViewsCount() {
@@ -178,7 +178,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public int getFooterViewsCount() {
-        return (this.nXb == null || this.nXb.getChildCount() == 0) ? 0 : 1;
+        return (this.nXd == null || this.nXd.getChildCount() == 0) ? 0 : 1;
     }
 
     public void addFooterView(View view, int i) {
@@ -186,34 +186,34 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void n(View view, int i, int i2) {
-        if (this.nXb == null) {
-            this.nXb = new LinearLayout(view.getContext());
+        if (this.nXd == null) {
+            this.nXd = new LinearLayout(view.getContext());
             if (i2 == 1) {
-                this.nXb.setOrientation(1);
-                this.nXb.setClipChildren(false);
-                this.nXb.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+                this.nXd.setOrientation(1);
+                this.nXd.setClipChildren(false);
+                this.nXd.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             } else {
-                this.nXb.setOrientation(0);
-                this.nXb.setLayoutParams(new RecyclerView.LayoutParams(-2, -1));
+                this.nXd.setOrientation(0);
+                this.nXd.setLayoutParams(new RecyclerView.LayoutParams(-2, -1));
             }
         }
-        if (i >= this.nXb.getChildCount()) {
+        if (i >= this.nXd.getChildCount()) {
             i = -1;
         }
-        this.nXb.addView(view, i);
-        if (this.nXb.getChildCount() == 1) {
-            notifyItemInserted(getHeaderViewsCount() + this.nXc.getItemCount());
+        this.nXd.addView(view, i);
+        if (this.nXd.getChildCount() == 1) {
+            notifyItemInserted(getHeaderViewsCount() + this.nXe.getItemCount());
         }
     }
 
     public void dE(final View view) {
         if (getFooterViewsCount() != 0) {
-            this.nXb.post(new Runnable() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.1
+            this.nXd.post(new Runnable() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.nXb.removeView(view);
-                    if (b.this.nXb.getChildCount() == 0) {
-                        b.this.notifyItemRemoved(b.this.getHeaderViewsCount() + b.this.nXc.getItemCount());
+                    b.this.nXd.removeView(view);
+                    if (b.this.nXd.getChildCount() == 0) {
+                        b.this.notifyItemRemoved(b.this.getHeaderViewsCount() + b.this.nXe.getItemCount());
                     }
                 }
             });
@@ -226,11 +226,11 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public boolean dF(View view) {
-        if (this.nXb == null || this.nXb.getChildCount() == 0) {
+        if (this.nXd == null || this.nXd.getChildCount() == 0) {
             return false;
         }
-        for (int i = 0; i < this.nXb.getChildCount(); i++) {
-            if (this.nXb.getChildAt(i) == view) {
+        for (int i = 0; i < this.nXd.getChildCount(); i++) {
+            if (this.nXd.getChildAt(i) == view) {
                 return true;
             }
         }
@@ -238,7 +238,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public boolean Oq(int i) {
-        return getFooterViewsCount() > 0 && i >= getHeaderViewsCount() + this.nXc.getItemCount() && i < getItemCount();
+        return getFooterViewsCount() > 0 && i >= getHeaderViewsCount() + this.nXe.getItemCount() && i < getItemCount();
     }
 
     /* loaded from: classes5.dex */

@@ -28,7 +28,7 @@ public class e extends ab {
                 if (TextUtils.isEmpty(optString)) {
                     Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 } else {
-                    d.amV().a(optString, new d.a() { // from class: com.baidu.swan.games.b.e.1
+                    d.amX().a(optString, new d.a() { // from class: com.baidu.swan.games.b.e.1
                         @Override // com.baidu.swan.games.b.d.a
                         public void cn(boolean z) {
                             Context appContext = AppRuntime.getAppContext();

@@ -26,81 +26,81 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes9.dex */
 public class a {
-    private TbPageContext cVg;
-    private TextView dhd;
-    private TbImageView dia;
-    private LinearGradientView gIL;
-    private BarImageView gIM;
-    private String gIN;
-    private FrsViewData gnK;
-    private final View.OnClickListener gqo = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.a.1
+    private TbPageContext cVh;
+    private TextView dhe;
+    private TbImageView dib;
+    private LinearGradientView gIN;
+    private BarImageView gIO;
+    private String gIP;
+    private FrsViewData gnM;
+    private final View.OnClickListener gqq = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.dia) {
-                if (!aq.isEmpty(a.this.gIN) && a.this.gnK != null && a.this.gnK.getForum() != null) {
-                    ba.aGE().a(a.this.cVg, new String[]{a.this.gIN}, true);
-                    TiebaStatic.log(new an("c13415").cy("fid", a.this.gnK.getForum().getId()).X("obj_type", a.this.gvX ? 2 : 1));
+            if (view == a.this.dib) {
+                if (!aq.isEmpty(a.this.gIP) && a.this.gnM != null && a.this.gnM.getForum() != null) {
+                    ba.aGG().a(a.this.cVh, new String[]{a.this.gIP}, true);
+                    TiebaStatic.log(new an("c13415").cy("fid", a.this.gnM.getForum().getId()).X("obj_type", a.this.gvZ ? 2 : 1));
                 }
-            } else if ((view == a.this.gIM || view == a.this.dhd) && a.this.gnK != null && a.this.gnK.getForum() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(a.this.cVg.getPageActivity(), a.this.gnK.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
-                TiebaStatic.log(new an("c13416").cy("fid", a.this.gnK.getForum().getId()));
+            } else if ((view == a.this.gIO || view == a.this.dhe) && a.this.gnM != null && a.this.gnM.getForum() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(a.this.cVh.getPageActivity(), a.this.gnM.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
+                TiebaStatic.log(new an("c13416").cy("fid", a.this.gnM.getForum().getId()));
             }
         }
     };
-    private boolean gvX;
-    private boolean gwe;
+    private boolean gvZ;
+    private boolean gwg;
 
     public a(FrsSportsRecommendFragment frsSportsRecommendFragment, View view) {
         if (frsSportsRecommendFragment != null && view != null) {
-            this.cVg = frsSportsRecommendFragment.getPageContext();
-            this.dia = (TbImageView) view.findViewById(R.id.head_top_bg_mask);
-            this.gIL = (LinearGradientView) view.findViewById(R.id.head_top_gradient_bg);
-            this.gIM = (BarImageView) view.findViewById(R.id.frs_image);
-            this.dhd = (TextView) view.findViewById(R.id.forum_name);
-            this.dia.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.gIM.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.gIM.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gIM.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.bar_header));
-            this.gIM.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.gIM.setShowOval(true);
+            this.cVh = frsSportsRecommendFragment.getPageContext();
+            this.dib = (TbImageView) view.findViewById(R.id.head_top_bg_mask);
+            this.gIN = (LinearGradientView) view.findViewById(R.id.head_top_gradient_bg);
+            this.gIO = (BarImageView) view.findViewById(R.id.frs_image);
+            this.dhe = (TextView) view.findViewById(R.id.forum_name);
+            this.dib.setPageId(frsSportsRecommendFragment.getUniqueId());
+            this.gIO.setPageId(frsSportsRecommendFragment.getUniqueId());
+            this.gIO.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gIO.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.bar_header));
+            this.gIO.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.gIO.setShowOval(true);
         }
     }
 
     public void g(FrsViewData frsViewData) {
         if (frsViewData != null && frsViewData.getForum() != null) {
-            this.gnK = frsViewData;
-            this.gwe = false;
-            String name = this.gnK.getForum().getName();
+            this.gnM = frsViewData;
+            this.gwg = false;
+            String name = this.gnM.getForum().getName();
             if (aq.getChineseAndEnglishLength(name) > 20) {
                 name = aq.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
             }
-            this.dhd.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_bar_name), name));
-            this.gIM.startLoad(this.gnK.getForum().getImage_url(), 10, false);
-            bJE();
-            this.gIM.setOnClickListener(this.gqo);
-            this.dhd.setOnClickListener(this.gqo);
+            this.dhe.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_bar_name), name));
+            this.gIO.startLoad(this.gnM.getForum().getImage_url(), 10, false);
+            bJG();
+            this.gIO.setOnClickListener(this.gqq);
+            this.dhe.setOnClickListener(this.gqq);
         }
     }
 
     public void setData(String str, String str2, boolean z) {
-        this.gIM.refresh();
+        this.gIO.refresh();
         if (aq.isEmpty(str)) {
-            this.gwe = false;
-            bJE();
+            this.gwg = false;
+            bJG();
             return;
         }
-        this.gwe = true;
-        this.gIN = str2;
-        this.gvX = z;
-        this.dia.startLoad(str, 10, false);
-        this.dia.setOnClickListener(this.gqo);
+        this.gwg = true;
+        this.gIP = str2;
+        this.gvZ = z;
+        this.dib.startLoad(str, 10, false);
+        this.dib.setOnClickListener(this.gqq);
     }
 
-    private void bJE() {
+    private void bJG() {
         ForumData forum;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
-        if (this.gnK != null && (forum = this.gnK.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
+        if (this.gnM != null && (forum = this.gnM.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 4) {
                 themeElement = themeColorInfo.dark;
@@ -109,26 +109,26 @@ public class a {
             } else {
                 themeElement = themeColorInfo.day;
             }
-            if (!this.gwe) {
-                if (this.gIL != null) {
-                    this.gIL.setGradientColor(themeColorInfo.day.light_color, themeColorInfo.day.dark_color, themeColorInfo.night.light_color, themeColorInfo.night.dark_color, themeColorInfo.dark.light_color, themeColorInfo.dark.dark_color);
-                    this.gIL.changeSkinType(skinType);
+            if (!this.gwg) {
+                if (this.gIN != null) {
+                    this.gIN.setGradientColor(themeColorInfo.day.light_color, themeColorInfo.day.dark_color, themeColorInfo.night.light_color, themeColorInfo.night.dark_color, themeColorInfo.dark.light_color, themeColorInfo.dark.dark_color);
+                    this.gIN.changeSkinType(skinType);
                 }
-                if (this.dia != null) {
-                    this.dia.startLoad(themeElement.pattern_image, 10, false);
+                if (this.dib != null) {
+                    this.dib.startLoad(themeElement.pattern_image, 10, false);
                 }
             }
         }
     }
 
     public void onChangeSkinType() {
-        bJE();
-        am.setViewTextColor(this.dhd, (int) R.color.cp_cont_a);
-        if (this.gIM != null) {
-            this.gIM.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
-            this.gIM.setBorderColor(am.getColor(R.color.black_alpha15));
-            this.gIM.setStrokeColorResId(R.color.cp_bg_line_d);
-            this.gIM.invalidate();
+        bJG();
+        am.setViewTextColor(this.dhe, (int) R.color.cp_cont_a);
+        if (this.gIO != null) {
+            this.gIO.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
+            this.gIO.setBorderColor(am.getColor(R.color.black_alpha15));
+            this.gIO.setStrokeColorResId(R.color.cp_bg_line_d);
+            this.gIO.invalidate();
         }
     }
 }

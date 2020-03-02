@@ -16,21 +16,21 @@ import java.nio.channels.Pipe;
 /* loaded from: classes11.dex */
 public class f extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.pms.model.e bxA;
-    private final com.baidu.swan.pms.a.d bxt;
+    private final com.baidu.swan.pms.model.e bxB;
+    private final com.baidu.swan.pms.a.d bxu;
 
     public f(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.d dVar) {
         super("extract");
-        this.bxA = eVar;
-        this.bxt = dVar;
+        this.bxB = eVar;
+        this.bxu = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.t.g.a
-    public void TP() {
-        super.TP();
-        if (TR().getBoolean("result_output_dir_allow_rollback", false)) {
-            com.baidu.swan.d.c.rg(TR().getString("result_output_dir"));
+    public void TR() {
+        super.TR();
+        if (TT().getBoolean("result_output_dir_allow_rollback", false)) {
+            com.baidu.swan.d.c.rg(TT().getString("result_output_dir"));
         }
     }
 
@@ -38,7 +38,7 @@ public class f extends g.a {
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         String string = bundle.getString("launch_id");
         com.baidu.swan.apps.x.c.a iM = com.baidu.swan.apps.x.c.a.iM(string);
-        iM.Wh().iP("SwanExtractor").fm(1);
+        iM.Wj().iP("SwanExtractor").fm(1);
         boolean e = e(Channels.newInputStream(sourceChannel), string);
         iM.aT("SwanExtractor", "done: " + e);
         return e;
@@ -53,7 +53,7 @@ public class f extends g.a {
             return true;
         }
         com.baidu.swan.apps.x.c.a.iM(str).aT("SwanExtractor", "onProcess installe error=" + a);
-        TR().putLong("result_error_code", a.agi());
+        TT().putLong("result_error_code", a.agk());
         return false;
     }
 
@@ -63,18 +63,18 @@ public class f extends g.a {
         boolean z;
         a.C0301a c0301a;
         com.baidu.swan.apps.x.c.a iM = com.baidu.swan.apps.x.c.a.iM(str);
-        if (this.bxA == null) {
+        if (this.bxB == null) {
             com.baidu.swan.apps.ap.a mz = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("pkg info is empty");
-            com.baidu.swan.apps.ap.e.agm().f(mz);
+            com.baidu.swan.apps.ap.e.ago().f(mz);
             return mz;
         }
-        if (this.bxA.category == 1) {
-            aL = a.c.aL(this.bxA.cAX, String.valueOf(this.bxA.versionCode));
-        } else if (this.bxA.category == 0) {
-            aL = e.d.aL(this.bxA.cAX, String.valueOf(this.bxA.versionCode));
+        if (this.bxB.category == 1) {
+            aL = a.c.aL(this.bxB.cAY, String.valueOf(this.bxB.versionCode));
+        } else if (this.bxB.category == 0) {
+            aL = e.d.aL(this.bxB.cAY, String.valueOf(this.bxB.versionCode));
         } else {
             com.baidu.swan.apps.ap.a mz2 = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("pkh category illegal");
-            com.baidu.swan.apps.ap.e.agm().f(mz2);
+            com.baidu.swan.apps.ap.e.ago().f(mz2);
             return mz2;
         }
         if (aL.isFile() && !aL.delete()) {
@@ -82,24 +82,24 @@ public class f extends g.a {
                 iM.aT("SwanExtractor", "解压失败：解压目录被文件占用，且无法删除");
             }
             com.baidu.swan.apps.ap.a mz3 = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("解压失败：解压目录被文件占用，且无法删除");
-            com.baidu.swan.apps.ap.e.agm().f(mz3);
+            com.baidu.swan.apps.ap.e.ago().f(mz3);
             return mz3;
         }
         if (!aL.exists()) {
-            TR().putBoolean("result_output_dir_allow_rollback", true);
+            TT().putBoolean("result_output_dir_allow_rollback", true);
             if (!aL.mkdirs()) {
                 if (DEBUG) {
                     iM.aT("SwanExtractor", "解压失败：解压文件夹创建失败");
                 }
                 com.baidu.swan.apps.ap.a mz4 = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("解压失败：解压文件夹创建失败");
-                com.baidu.swan.apps.ap.e.agm().f(mz4);
+                com.baidu.swan.apps.ap.e.ago().f(mz4);
                 return mz4;
             }
         }
         if (DEBUG) {
             iM.aT("SwanExtractor", "开始执行解压操作, folder:" + aL.getPath());
         }
-        TR().putString("result_output_dir", aL.toString());
+        TT().putString("result_output_dir", aL.toString());
         long currentTimeMillis = System.currentTimeMillis();
         try {
             a.b a = com.baidu.swan.apps.t.a.a.a(bufferedInputStream);
@@ -126,21 +126,21 @@ public class f extends g.a {
             if (DEBUG) {
                 com.baidu.swan.apps.t.a.a.fe((int) (currentTimeMillis2 - currentTimeMillis));
             }
-            if (this.bxt != null) {
+            if (this.bxu != null) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("download_package_type_id", i);
-                h.a(this.bxt, bundle, "event_download_package_type");
+                h.a(this.bxu, bundle, "event_download_package_type");
             }
             if (z) {
                 return null;
             }
             com.baidu.swan.apps.ap.a aI = new com.baidu.swan.apps.ap.a().aI(11L);
             if (z2) {
-                aI.aJ(2330L).mz("decrypt failed:" + c0301a.bqF);
+                aI.aJ(2330L).mz("decrypt failed:" + c0301a.bqG);
             } else {
                 aI.aJ(2320L).mz("unzip failed");
             }
-            com.baidu.swan.apps.ap.e.agm().f(aI);
+            com.baidu.swan.apps.ap.e.ago().f(aI);
             return aI;
         } catch (IOException e) {
             if (DEBUG) {
@@ -148,7 +148,7 @@ public class f extends g.a {
             }
             iM.aT("SwanExtractor", "obtainEncryptedBundle Exception: " + e.toString());
             com.baidu.swan.apps.ap.a mz5 = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("obtainEncryptedBundle Exception: " + e.toString());
-            com.baidu.swan.apps.ap.e.agm().f(mz5);
+            com.baidu.swan.apps.ap.e.ago().f(mz5);
             return mz5;
         }
     }
@@ -174,8 +174,8 @@ public class f extends g.a {
     }
 
     private void aP(String str, String str2) {
-        if (this.bxt != null) {
-            this.bxt.aw(str, str2);
+        if (this.bxu != null) {
+            this.bxu.aw(str, str2);
         }
     }
 }

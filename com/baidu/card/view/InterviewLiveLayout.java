@@ -112,7 +112,7 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a vx = c.aPO().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.NJ ? 13 : 14));
+                    com.baidu.adp.widget.ImageView.a vx = c.aPQ().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.NJ ? 13 : 14));
                     if (vx != null) {
                         int width = vx.getWidth();
                         i = vx.getHeight();
@@ -188,23 +188,23 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
             setVisibility(8);
             return;
         }
-        bj aAe = aVar.aAe();
-        bh aBS = aAe.aBS();
-        if (aBS == null) {
+        bj aAg = aVar.aAg();
+        bh aBU = aAg.aBU();
+        if (aBU == null) {
             setVisibility(8);
             return;
         }
-        this.NQ = aAe;
-        this.forumId = aAe.getFid();
-        this.taskId = aBS.getTaskId();
-        if (i.azM().isShowImages() && aBS != null && !StringUtils.isNull(aBS.getThreadImgUrl())) {
+        this.NQ = aAg;
+        this.forumId = aAg.getFid();
+        this.taskId = aBU.getTaskId();
+        if (i.azO().isShowImages() && aBU != null && !StringUtils.isNull(aBU.getThreadImgUrl())) {
             this.NP.clear();
-            this.NP.add(aBS.getThreadImgUrl());
+            this.NP.add(aBU.getThreadImgUrl());
             setVisibility(0);
             this.NK.setSupportNoImage(true);
             this.NK.setScaleType(ImageView.ScaleType.MATRIX);
             this.NK.setOnDrawListener(this.NT);
-            this.NK.startLoad(aBS.getThreadImgUrl(), this.NJ ? 13 : 14, false);
+            this.NK.startLoad(aBU.getThreadImgUrl(), this.NJ ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);
