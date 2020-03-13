@@ -5,7 +5,7 @@ import com.baidu.swan.apps.t.e;
 import java.io.File;
 /* loaded from: classes11.dex */
 public abstract class b implements a {
-    public static final String bvi = e.TN() + File.separator + "extension_core";
+    public static final String bvj = e.TN() + File.separator + "extension_core";
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull

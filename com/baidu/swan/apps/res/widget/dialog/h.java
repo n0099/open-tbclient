@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class h extends c {
-    private a bOm;
+    private a bOn;
 
     public h(Context context, int i) {
         super(context, i);
@@ -28,24 +28,24 @@ public class h extends c {
     }
 
     public a acq() {
-        return this.bOm;
+        return this.bOn;
     }
 
     void a(a aVar) {
-        this.bOm = aVar;
+        this.bOn = aVar;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        protected final b bOn;
-        protected final h bOo;
+        protected final b bOo;
+        protected final h bOp;
         private Context mContext;
         private boolean mSystemDialog = false;
 
         public a(Context context) {
-            this.bOo = cr(context);
-            this.bOo.a(this);
-            this.bOn = new b((ViewGroup) this.bOo.getWindow().getDecorView());
+            this.bOp = cr(context);
+            this.bOp.a(this);
+            this.bOo = new b((ViewGroup) this.bOp.getWindow().getDecorView());
             this.mContext = context;
         }
 
@@ -54,17 +54,17 @@ public class h extends c {
         }
 
         public a ao(View view) {
-            this.bOn.mDialogContent.removeAllViews();
-            this.bOn.mDialogContent.addView(view);
+            this.bOo.mDialogContent.removeAllViews();
+            this.bOo.mDialogContent.addView(view);
             return this;
         }
 
         public h aci() {
-            this.bOo.setOnCancelListener(this.bOn.mOnCancelListener);
-            this.bOo.setOnDismissListener(this.bOn.mOnDismissListener);
-            this.bOo.setOnShowListener(this.bOn.mOnShowListener);
-            this.bOo.a(this);
-            return this.bOo;
+            this.bOp.setOnCancelListener(this.bOo.mOnCancelListener);
+            this.bOp.setOnDismissListener(this.bOo.mOnDismissListener);
+            this.bOp.setOnShowListener(this.bOo.mOnShowListener);
+            this.bOp.a(this);
+            return this.bOp;
         }
 
         public h acr() {
@@ -84,13 +84,13 @@ public class h extends c {
         }
 
         public a d(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.bOn.mPositiveButton.setText(charSequence);
-            this.bOn.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.1
+            this.bOo.mPositiveButton.setText(charSequence);
+            this.bOo.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bOo.dismiss();
+                    a.this.bOp.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.bOo, -1);
+                        onClickListener.onClick(a.this.bOp, -1);
                     }
                 }
             });
@@ -102,13 +102,13 @@ public class h extends c {
         }
 
         public a e(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.bOn.mNegativeButton.setText(charSequence);
-            this.bOn.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.2
+            this.bOo.mNegativeButton.setText(charSequence);
+            this.bOo.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bOo.dismiss();
+                    a.this.bOp.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.bOo, -2);
+                        onClickListener.onClick(a.this.bOp, -2);
                     }
                 }
             });
@@ -116,21 +116,21 @@ public class h extends c {
         }
 
         public a c(DialogInterface.OnCancelListener onCancelListener) {
-            this.bOn.mOnCancelListener = onCancelListener;
+            this.bOo.mOnCancelListener = onCancelListener;
             return this;
         }
 
         public a dJ(boolean z) {
-            this.bOo.setCanceledOnTouchOutside(z);
+            this.bOp.setCanceledOnTouchOutside(z);
             return this;
         }
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        public FrameLayout bOg;
         public FrameLayout bOh;
-        public View bOi;
+        public FrameLayout bOi;
+        public View bOj;
         public LinearLayout mBtnPanelLayout;
         public View mCustomPanel;
         public FrameLayout mDialogContent;
@@ -146,7 +146,7 @@ public class h extends c {
         @SuppressLint({"CutPasteId"})
         public b(ViewGroup viewGroup) {
             this.mRoot = viewGroup;
-            this.bOh = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.bOi = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
             this.mPositiveButton = (TextView) viewGroup.findViewById(a.f.positive_button);
             this.mNegativeButton = (TextView) viewGroup.findViewById(a.f.negative_button);
             this.mDialogContentPanel = viewGroup.findViewById(a.f.dialog_customPanel);
@@ -154,8 +154,8 @@ public class h extends c {
             this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
             this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
             this.mCustomPanel = viewGroup.findViewById(a.f.dialog_customPanel);
-            this.bOg = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
-            this.bOi = viewGroup.findViewById(a.f.nightmode_mask);
+            this.bOh = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.bOj = viewGroup.findViewById(a.f.nightmode_mask);
         }
     }
 }

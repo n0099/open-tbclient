@@ -32,6 +32,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
@@ -54,7 +55,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     TbPageContext<?> context;
     private boolean isAddScreenView;
     private Handler mHandle;
-    private com.baidu.tbadk.core.util.b.a mPermissionJudgePolicy;
+    private PermissionJudgePolicy mPermissionJudgePolicy;
     private CustomResponsedMessage<com.baidu.tieba.tbadkCore.voice.a> mRecorderManagerRespMsg;
     private b sNewPlayView;
     private b sPlayView;
@@ -450,7 +451,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void startPlay(b bVar) {
         if (bVar != null) {
             if (this.mPermissionJudgePolicy == null) {
-                this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
+                this.mPermissionJudgePolicy = new PermissionJudgePolicy();
             }
             this.mPermissionJudgePolicy.clearRequestPermissionList();
             this.mPermissionJudgePolicy.appendRequestPermission(this.context.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");

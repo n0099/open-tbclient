@@ -3,21 +3,21 @@ package com.google.android.exoplayer2;
 import java.util.HashSet;
 /* loaded from: classes6.dex */
 public final class l {
-    private static final HashSet<String> lZw = new HashSet<>();
-    private static String lZx = "goog.exo.core";
+    private static final HashSet<String> lZH = new HashSet<>();
+    private static String lZI = "goog.exo.core";
 
-    public static synchronized String dtx() {
+    public static synchronized String dty() {
         String str;
         synchronized (l.class) {
-            str = lZx;
+            str = lZI;
         }
         return str;
     }
 
-    public static synchronized void Pl(String str) {
+    public static synchronized void Pm(String str) {
         synchronized (l.class) {
-            if (lZw.add(str)) {
-                lZx += ", " + str;
+            if (lZH.add(str)) {
+                lZI += ", " + str;
             }
         }
     }

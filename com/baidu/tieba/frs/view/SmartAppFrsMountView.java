@@ -14,15 +14,15 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class SmartAppFrsMountView extends LinearLayout {
-    private int cRg;
-    private ImageOverlayView gQx;
-    private String gRb;
-    private List<String> gRc;
-    private int gRd;
-    private int gRe;
-    private int gRf;
-    private TextView gRg;
-    private ImageView gRh;
+    private int cRh;
+    private ImageOverlayView gQJ;
+    private String gRn;
+    private List<String> gRo;
+    private int gRp;
+    private int gRq;
+    private int gRr;
+    private TextView gRs;
+    private ImageView gRt;
 
     public SmartAppFrsMountView(Context context) {
         super(context);
@@ -40,62 +40,62 @@ public class SmartAppFrsMountView extends LinearLayout {
     }
 
     public void init() {
-        bLP();
         bLQ();
         bLR();
+        bLS();
     }
 
     public void setData(String str, List<String> list) {
         if (!v.isEmpty(list)) {
-            this.gRc = list;
-            int size = this.gRc.size();
+            this.gRo = list;
+            int size = this.gRo.size();
             int i = size <= 3 ? size : 3;
-            this.gQx.k(i, this.cRg, this.cRg, this.gRd, this.gRe, this.gRf);
-            this.gQx.setData(this.gRc);
+            this.gQJ.k(i, this.cRh, this.cRh, this.gRp, this.gRq, this.gRr);
+            this.gQJ.setData(this.gRo);
             if (i == 1 && !TextUtils.isEmpty(str)) {
-                this.gRb = aq.Y(str, 10);
-                this.gRg.setText(this.gRb);
-                this.gRg.setVisibility(0);
+                this.gRn = aq.Y(str, 10);
+                this.gRs.setText(this.gRn);
+                this.gRs.setVisibility(0);
                 return;
             }
-            this.gRg.setVisibility(8);
+            this.gRs.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        if (this.gQx != null) {
-            this.gQx.onChangeSkinType();
+        if (this.gQJ != null) {
+            this.gQJ.onChangeSkinType();
         }
-        am.setViewTextColor(this.gRg, (int) R.color.cp_cont_j);
-        am.setImageResource(this.gRh, R.drawable.icon_common_arrow20_right_n);
-    }
-
-    private void bLP() {
-        this.gRd = l.getDimens(getContext(), R.dimen.tbds5);
-        this.gRe = R.color.cp_bg_line_d;
-        this.cRg = l.getDimens(getContext(), R.dimen.tbds62);
-        this.gRf = l.getDimens(getContext(), R.dimen.tbds14);
-        this.gQx = new ImageOverlayView(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.tbds11);
-        this.gQx.setLayoutParams(layoutParams);
-        addView(this.gQx);
+        am.setViewTextColor(this.gRs, (int) R.color.cp_cont_j);
+        am.setImageResource(this.gRt, R.drawable.icon_common_arrow20_right_n);
     }
 
     private void bLQ() {
-        this.gRg = new TextView(getContext());
+        this.gRp = l.getDimens(getContext(), R.dimen.tbds5);
+        this.gRq = R.color.cp_bg_line_d;
+        this.cRh = l.getDimens(getContext(), R.dimen.tbds62);
+        this.gRr = l.getDimens(getContext(), R.dimen.tbds14);
+        this.gQJ = new ImageOverlayView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.tbds13);
-        this.gRg.setLayoutParams(layoutParams);
-        this.gRg.setSingleLine();
-        this.gRg.setTextSize(0, getResources().getDimension(R.dimen.tbds36));
-        this.gRg.setVisibility(8);
-        addView(this.gRg);
+        layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.tbds11);
+        this.gQJ.setLayoutParams(layoutParams);
+        addView(this.gQJ);
     }
 
     private void bLR() {
-        this.gRh = new ImageView(getContext());
-        this.gRh.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(this.gRh);
+        this.gRs = new TextView(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.tbds13);
+        this.gRs.setLayoutParams(layoutParams);
+        this.gRs.setSingleLine();
+        this.gRs.setTextSize(0, getResources().getDimension(R.dimen.tbds36));
+        this.gRs.setVisibility(8);
+        addView(this.gRs);
+    }
+
+    private void bLS() {
+        this.gRt = new ImageView(getContext());
+        this.gRt.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        addView(this.gRt);
     }
 }

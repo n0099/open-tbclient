@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class f implements d {
-    private final b lTN;
+    private final b lTY;
 
     /* loaded from: classes12.dex */
     public interface b {
-        List<Integer> dqo();
+        List<Integer> dqp();
 
-        int dqp();
+        int dqq();
     }
 
     /* loaded from: classes12.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> dqo() {
+        public List<Integer> dqp() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int dqp() {
+        public int dqq() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.lTN = (b) g.checkNotNull(bVar);
+        this.lTY = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int Ih(int i) {
-        List<Integer> dqo = this.lTN.dqo();
-        if (dqo == null || dqo.isEmpty()) {
+        List<Integer> dqp = this.lTY.dqp();
+        if (dqp == null || dqp.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < dqo.size()) {
-                if (dqo.get(i3).intValue() <= i) {
+            if (i3 < dqp.size()) {
+                if (dqp.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return dqo.get(i3).intValue();
+                    return dqp.get(i3).intValue();
                 }
             } else {
                 return Integer.MAX_VALUE;
@@ -62,6 +62,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public h Ii(int i) {
-        return com.facebook.imagepipeline.g.g.k(i, i >= this.lTN.dqp(), false);
+        return com.facebook.imagepipeline.g.g.k(i, i >= this.lTY.dqq(), false);
     }
 }

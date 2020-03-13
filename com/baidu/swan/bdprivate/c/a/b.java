@@ -173,12 +173,12 @@ public class b extends com.baidu.swan.apps.network.a {
 
     @Nullable
     private Request ni(@Nullable String str) {
-        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bjE);
+        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bjF);
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.Lb().bjD.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.Lb().bjE.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

@@ -8,9 +8,9 @@ import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public abstract class a {
     protected b.a Ka;
-    protected TbPageContext cVh;
-    protected z iSV;
-    protected OriginalThreadInfo iSW;
+    protected TbPageContext cVi;
+    protected z iTh;
+    protected OriginalThreadInfo iTi;
     protected int mSkinType = 3;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
@@ -20,11 +20,11 @@ public abstract class a {
     public abstract void onChangeSkinType(TbPageContext tbPageContext, int i);
 
     public a(TbPageContext tbPageContext) {
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
     }
 
     public void a(z zVar) {
-        this.iSV = zVar;
+        this.iTh = zVar;
     }
 
     public void a(b.a aVar) {

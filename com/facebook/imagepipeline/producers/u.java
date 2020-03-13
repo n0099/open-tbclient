@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 /* loaded from: classes12.dex */
 public class u extends c<t> {
-    private int lSB;
+    private int lSM;
     private final ExecutorService mExecutorService;
 
     public u() {
@@ -21,7 +21,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.lSB = i;
+        this.lSM = i;
     }
 
     u(ExecutorService executorService) {
@@ -41,11 +41,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.drK().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.drL().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnP() {
+            public void dnQ() {
                 if (submit.cancel(false)) {
-                    aVar.dkE();
+                    aVar.dkF();
                 }
             }
         });
@@ -132,7 +132,7 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection T = T(uri);
-        T.setConnectTimeout(this.lSB);
+        T.setConnectTimeout(this.lSM);
         int responseCode = T.getResponseCode();
         if (!IM(responseCode)) {
             if (isHttpRedirect(responseCode)) {

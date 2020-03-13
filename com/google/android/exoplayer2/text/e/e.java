@@ -5,18 +5,18 @@ import android.text.Layout;
 final class e {
     private float SW;
     private int backgroundColor;
-    private int gOT;
+    private int gPf;
     private String hD;
     private String id;
-    private e mBB;
-    private Layout.Alignment mBC;
-    private boolean mBx;
-    private boolean mBy;
-    private int mBz = -1;
+    private boolean mBI;
+    private boolean mBJ;
+    private e mBM;
+    private Layout.Alignment mBN;
+    private int mBK = -1;
     private int underline = -1;
     private int bold = -1;
     private int italic = -1;
-    private int mBA = -1;
+    private int mBL = -1;
 
     public int getStyle() {
         if (this.bold == -1 && this.italic == -1) {
@@ -25,68 +25,68 @@ final class e {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dyl() {
-        return this.mBz == 1;
+    public boolean dym() {
+        return this.mBK == 1;
     }
 
     public e vK(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
-        this.mBz = z ? 1 : 0;
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
+        this.mBK = z ? 1 : 0;
         return this;
     }
 
-    public boolean dym() {
+    public boolean dyn() {
         return this.underline == 1;
     }
 
     public e vL(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
         this.underline = z ? 1 : 0;
         return this;
     }
 
     public e vM(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
         this.bold = z ? 1 : 0;
         return this;
     }
 
     public e vN(boolean z) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
         this.italic = z ? 1 : 0;
         return this;
     }
 
-    public String dyn() {
+    public String dyo() {
         return this.hD;
     }
 
-    public e Qa(String str) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
+    public e Qb(String str) {
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
         this.hD = str;
         return this;
     }
 
     public int getFontColor() {
-        if (!this.mBx) {
+        if (!this.mBI) {
             throw new IllegalStateException("Font color has not been defined.");
         }
-        return this.gOT;
+        return this.gPf;
     }
 
     public e Ly(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mBB == null);
-        this.gOT = i;
-        this.mBx = true;
+        com.google.android.exoplayer2.util.a.checkState(this.mBM == null);
+        this.gPf = i;
+        this.mBI = true;
         return this;
     }
 
-    public boolean dyo() {
-        return this.mBx;
+    public boolean dyp() {
+        return this.mBI;
     }
 
     public int getBackgroundColor() {
-        if (!this.mBy) {
+        if (!this.mBJ) {
             throw new IllegalStateException("Background color has not been defined.");
         }
         return this.backgroundColor;
@@ -94,12 +94,12 @@ final class e {
 
     public e Lz(int i) {
         this.backgroundColor = i;
-        this.mBy = true;
+        this.mBJ = true;
         return this;
     }
 
-    public boolean dyp() {
-        return this.mBy;
+    public boolean dyq() {
+        return this.mBJ;
     }
 
     public e b(e eVar) {
@@ -108,8 +108,8 @@ final class e {
 
     private e a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!this.mBx && eVar.mBx) {
-                Ly(eVar.gOT);
+            if (!this.mBI && eVar.mBI) {
+                Ly(eVar.gPf);
             }
             if (this.bold == -1) {
                 this.bold = eVar.bold;
@@ -120,27 +120,27 @@ final class e {
             if (this.hD == null) {
                 this.hD = eVar.hD;
             }
-            if (this.mBz == -1) {
-                this.mBz = eVar.mBz;
+            if (this.mBK == -1) {
+                this.mBK = eVar.mBK;
             }
             if (this.underline == -1) {
                 this.underline = eVar.underline;
             }
-            if (this.mBC == null) {
-                this.mBC = eVar.mBC;
+            if (this.mBN == null) {
+                this.mBN = eVar.mBN;
             }
-            if (this.mBA == -1) {
-                this.mBA = eVar.mBA;
+            if (this.mBL == -1) {
+                this.mBL = eVar.mBL;
                 this.SW = eVar.SW;
             }
-            if (z && !this.mBy && eVar.mBy) {
+            if (z && !this.mBJ && eVar.mBJ) {
                 Lz(eVar.backgroundColor);
             }
         }
         return this;
     }
 
-    public e Qb(String str) {
+    public e Qc(String str) {
         this.id = str;
         return this;
     }
@@ -149,12 +149,12 @@ final class e {
         return this.id;
     }
 
-    public Layout.Alignment dyq() {
-        return this.mBC;
+    public Layout.Alignment dyr() {
+        return this.mBN;
     }
 
     public e a(Layout.Alignment alignment) {
-        this.mBC = alignment;
+        this.mBN = alignment;
         return this;
     }
 
@@ -164,15 +164,15 @@ final class e {
     }
 
     public e LA(int i) {
-        this.mBA = i;
+        this.mBL = i;
         return this;
     }
 
-    public int dyr() {
-        return this.mBA;
+    public int dys() {
+        return this.mBL;
     }
 
-    public float dys() {
+    public float dyt() {
         return this.SW;
     }
 }

@@ -16,9 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class b {
-    private String cBg;
-    private ArrayList<String> kLy;
-    private final String kRM = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String cBh;
+    private ArrayList<String> kLK;
+    private final String kRY = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.kLy)) {
+        if (spannable != null && !v.isEmpty(this.kLK)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.kLy.iterator();
+                Iterator<String> it = this.kLK.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -90,7 +90,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cUc())) {
+        if (v.isEmpty(cUd())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -113,19 +113,19 @@ public class b {
     }
 
     public void aU(ArrayList<String> arrayList) {
-        this.kLy = arrayList;
+        this.kLK = arrayList;
     }
 
-    public ArrayList<String> cUc() {
-        return this.kLy;
+    public ArrayList<String> cUd() {
+        return this.kLK;
     }
 
-    public void KK(String str) {
-        this.cBg = str;
+    public void KL(String str) {
+        this.cBh = str;
     }
 
-    public String cUg() {
-        return this.cBg;
+    public String cUh() {
+        return this.cBh;
     }
 
     private void c(Spannable spannable) {

@@ -16,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class z extends ab {
-    private String bRo;
+    private String bRp;
 
     public z(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/share");
@@ -62,21 +62,21 @@ public class z extends ab {
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: c */
                     public void D(com.baidu.swan.apps.setting.oauth.e eVar2) {
-                        if (eVar2 != null && !eVar2.forbidden && eVar2.bTq == 1 && !TextUtils.isEmpty(eVar2.bTu.optString("web_url"))) {
-                            z.this.bRo = eVar2.bTu.optString("web_url");
+                        if (eVar2 != null && !eVar2.forbidden && eVar2.bTr == 1 && !TextUtils.isEmpty(eVar2.bTv.optString("web_url"))) {
+                            z.this.bRp = eVar2.bTv.optString("web_url");
                             String optString2 = b.optString("path");
                             if (!TextUtils.isEmpty(optString2)) {
-                                if (!z.this.bRo.endsWith("/")) {
-                                    z.this.bRo += "/";
+                                if (!z.this.bRp.endsWith("/")) {
+                                    z.this.bRp += "/";
                                 }
                                 if (optString2.startsWith("/")) {
                                     optString2 = optString2.substring(1);
                                 }
-                                z.this.bRo += optString2;
+                                z.this.bRp += optString2;
                             }
-                            z.this.bRo = ag.addParam(z.this.bRo, "_swebfr", "1");
+                            z.this.bRp = ag.addParam(z.this.bRp, "_swebfr", "1");
                         }
-                        z.this.a(z.this.bRo, context, optString, callbackHandler, b, eVar);
+                        z.this.a(z.this.bRp, context, optString, callbackHandler, b, eVar);
                     }
                 });
             }
@@ -129,8 +129,8 @@ public class z extends ab {
         String optString = jSONObject.optString("shareUrl");
         JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
         try {
-            if (ai.ahi() && !TextUtils.isEmpty(this.bRo)) {
-                jSONObject.put("linkUrl", this.bRo);
+            if (ai.ahi() && !TextUtils.isEmpty(this.bRp)) {
+                jSONObject.put("linkUrl", this.bRp);
             } else if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("linkUrl", str2);
             }

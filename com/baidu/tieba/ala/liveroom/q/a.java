@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.q;
 /* loaded from: classes3.dex */
 public class a {
-    public String dYp;
+    public String dYC;
     public long mUserId;
 
     public a() {
@@ -9,14 +9,14 @@ public class a {
 
     public a(long j, String str) {
         this.mUserId = j;
-        this.dYp = str;
+        this.dYC = str;
     }
 
     public long getUserId() {
         return this.mUserId;
     }
 
-    public String aXT() {
-        return this.dYp;
+    public String aXU() {
+        return this.dYC;
     }
 }

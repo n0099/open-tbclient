@@ -11,7 +11,7 @@ import java.util.List;
 public class a extends b {
     private List<w> mDatas;
 
-    public List<w> bHt() {
+    public List<w> bHu() {
         return this.mDatas;
     }
 

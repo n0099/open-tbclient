@@ -527,11 +527,11 @@ public final class a {
         public static final int abc_shareactionprovider_share_with_application = 2131230735;
         public static final int abc_toolbar_collapse_description = 2131230736;
         public static final int app_name = 2131231744;
-        public static final int effect_reverse_fail = 2131232912;
-        public static final int has_not_enough_sdcard_size = 2131233592;
+        public static final int effect_reverse_fail = 2131232913;
+        public static final int has_not_enough_sdcard_size = 2131233593;
         public static final int search_menu_title = 2131230748;
         public static final int status_bar_notification_info_overflow = 2131230749;
-        public static final int sticker_file_unexists = 2131236030;
-        public static final int sticker_file_unkown = 2131236031;
+        public static final int sticker_file_unexists = 2131236037;
+        public static final int sticker_file_unkown = 2131236038;
     }
 }

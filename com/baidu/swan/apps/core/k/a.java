@@ -9,32 +9,32 @@ import java.util.TreeMap;
 public class a {
     public String appConfig;
     public String appPath;
-    public String bsg;
     public String bsh;
     public String bsi;
     public String bsj;
     public String bsk;
-    public boolean bsl;
-    public String bsm;
-    public boolean bsn;
-    public String bso;
+    public String bsl;
+    public boolean bsm;
+    public String bsn;
+    public boolean bso;
+    public String bsp;
 
     public static com.baidu.swan.apps.n.a.b a(a aVar, com.baidu.swan.apps.ag.b.a aVar2) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appConfig", aVar.appConfig);
         treeMap.put("appPath", aVar.appPath);
-        treeMap.put("wvID", aVar.bsg);
-        treeMap.put("pageUrl", aVar.bsh);
-        treeMap.put("devhook", aVar.bsj);
-        treeMap.put("root", aVar.bsk);
-        if (!TextUtils.isEmpty(aVar.bsi)) {
-            treeMap.put("extraData", aVar.bsi);
+        treeMap.put("wvID", aVar.bsh);
+        treeMap.put("pageUrl", aVar.bsi);
+        treeMap.put("devhook", aVar.bsk);
+        treeMap.put("root", aVar.bsl);
+        if (!TextUtils.isEmpty(aVar.bsj)) {
+            treeMap.put("extraData", aVar.bsj);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.bsl));
-        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bsm);
-        treeMap.put("isT7Available", String.valueOf(aVar.bsn));
-        if (!TextUtils.isEmpty(aVar.bso)) {
-            treeMap.put("masterPreload", aVar.bso);
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.bsm));
+        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bsn);
+        treeMap.put("isT7Available", String.valueOf(aVar.bso));
+        if (!TextUtils.isEmpty(aVar.bsp)) {
+            treeMap.put("masterPreload", aVar.bsp);
         }
         com.baidu.swan.apps.ag.g.b.a(treeMap, aVar2, "app ready event");
         return new com.baidu.swan.apps.n.a.b("AppReady", treeMap);

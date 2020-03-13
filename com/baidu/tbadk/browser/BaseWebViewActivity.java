@@ -416,12 +416,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> aJl = com.baidu.tbadk.coreExtra.data.f.aJl();
-        if (v.isEmpty(aJl)) {
+        List<String> aJm = com.baidu.tbadk.coreExtra.data.f.aJm();
+        if (v.isEmpty(aJm)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = aJl.iterator();
+        Iterator<String> it = aJm.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -431,7 +431,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 break;
             }
         }
-        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.cHY)) {
+        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.cHZ)) {
             z = z && "1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK));
         }
         if (z) {
@@ -505,9 +505,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.imageUri = Uri.parse(str4);
         }
-        shareItem.dpT = true;
+        shareItem.dqg = true;
         shareItem.extData = this.mUrl;
-        shareItem.dqe = 13;
+        shareItem.dqr = 13;
         Bundle bundle = new Bundle();
         bundle.putString(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
         shareItem.Y(bundle);
@@ -545,14 +545,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         shareItem.topic = optString5;
                     }
                     if (!aq.isEmpty(optString6)) {
-                        shareItem.dqk = optString6;
+                        shareItem.dqx = optString6;
                     }
                     if (!aq.isEmpty(optString7)) {
-                        shareItem.dql = optString7;
+                        shareItem.dqy = optString7;
                     }
                     shareItem.shareType = jSONObject.optInt("shareimg");
                     if (!aq.isEmpty(optString8) && "1".equals(optString8)) {
-                        shareItem.dpY = true;
+                        shareItem.dql = true;
                         shareItem.title = optString + HanziToPinyin.Token.SEPARATOR + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");

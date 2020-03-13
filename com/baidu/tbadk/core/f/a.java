@@ -24,7 +24,8 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static CustomMessageListener cXE = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
+    private static a cXA;
+    private static CustomMessageListener cXF = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -33,12 +34,11 @@ public class a {
             }
         }
     };
-    private static a cXz;
     private int activityId;
-    private int cXA;
     private int cXB;
     private int cXC;
-    private CustomMessageListener cXD = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
+    private int cXD;
+    private CustomMessageListener cXE = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,14 +51,14 @@ public class a {
     private int missionId;
 
     public static a aFA() {
-        if (cXz == null) {
+        if (cXA == null) {
             synchronized (a.class) {
-                if (cXz == null) {
-                    cXz = new a();
+                if (cXA == null) {
+                    cXA = new a();
                 }
             }
         }
-        return cXz;
+        return cXA;
     }
 
     public void c(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
@@ -66,8 +66,8 @@ public class a {
         TbPageContext r;
         if (aVar != null) {
             boolean z = b.aFD().getBoolean("key_task_system_new_user_popup_show_number", false);
-            if (aVar.isNewUser && !StringUtils.isNull(aVar.cJg) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null) {
-                r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", aVar.cJg + "?page_type=open_full_screen_opacity_web_page", true)));
+            if (aVar.isNewUser && !StringUtils.isNull(aVar.cJh) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null) {
+                r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", aVar.cJh + "?page_type=open_full_screen_opacity_web_page", true)));
                 b.aFD().putBoolean("key_task_system_new_user_popup_show_number", true);
             }
         }
@@ -87,13 +87,13 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.cXA = missionInfo.total_limit.intValue();
-            this.cXC = missionInfo.cleartype.intValue();
-            this.cXB = missionInfo.cleartime.intValue();
+            this.cXB = missionInfo.total_limit.intValue();
+            this.cXD = missionInfo.cleartype.intValue();
+            this.cXC = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.bp(this.cXB);
-            bVar.jh(this.cXC);
-            b.aFD().putInt("task_share_thread_success_data_total_limit", this.cXA);
+            bVar.bp(this.cXC);
+            bVar.jh(this.cXD);
+            b.aFD().putInt("task_share_thread_success_data_total_limit", this.cXB);
             b.aFD().putInt("task_share_thread_success_data_mission_id", this.missionId);
             b.aFD().putInt("task_share_thread_success_data_action_id", this.activityId);
             b.aFD().putLong("task_share_thread_success_data_specific_clear_time", bVar.axh());
@@ -139,7 +139,7 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.cXD);
-        MessageManager.getInstance().registerListener(cXE);
+        MessageManager.getInstance().registerListener(this.cXE);
+        MessageManager.getInstance().registerListener(cXF);
     }
 }

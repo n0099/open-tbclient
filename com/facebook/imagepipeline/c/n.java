@@ -5,8 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void doa();
-
     void dob();
 
     void doc();
@@ -20,6 +18,8 @@ public interface n {
     void dog();
 
     void doh();
+
+    void doi();
 
     void p(com.facebook.cache.common.b bVar);
 

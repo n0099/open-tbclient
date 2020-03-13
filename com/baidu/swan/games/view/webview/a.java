@@ -21,8 +21,8 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class a extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cuY;
-    private C0354a cuZ;
+    private g cuZ;
+    private C0354a cva;
     private volatile String mCurrentUrl;
 
     public a(com.baidu.swan.games.e.b bVar) {
@@ -49,13 +49,13 @@ public class a extends EventTargetImpl {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cuY == null) {
+                    if (a.this.cuZ == null) {
                         a.this.arn();
                     }
-                    if (!a.this.cuY.IH()) {
-                        a.this.cuY.IU();
+                    if (!a.this.cuZ.IH()) {
+                        a.this.cuZ.IU();
                     }
-                    a.this.cuY.loadUrl(optString);
+                    a.this.cuZ.loadUrl(optString);
                     a.this.o("open", new b.a(optString));
                 }
             });
@@ -67,10 +67,10 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuY != null && a.this.cuY.IH()) {
-                    a.this.cuY.IV();
-                    a.this.cuY.destroy();
-                    a.this.cuY = null;
+                if (a.this.cuZ != null && a.this.cuZ.IH()) {
+                    a.this.cuZ.IV();
+                    a.this.cuZ.destroy();
+                    a.this.cuZ = null;
                     a.this.o("close", new b.a(a.this.mCurrentUrl));
                 }
             }
@@ -88,11 +88,11 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cuY != null) {
+                if (a.this.cuZ != null) {
                     if (TextUtils.equals("1", optString)) {
-                        a.this.cuY.bX(true);
+                        a.this.cuZ.bX(true);
                     } else {
-                        a.this.cuY.bX(false);
+                        a.this.cuZ.bX(false);
                     }
                 }
             }
@@ -109,16 +109,16 @@ public class a extends EventTargetImpl {
                 com.baidu.swan.games.utils.b.a(c, false, null);
                 return;
             }
-            this.cuZ = new C0354a(optString, optString2, System.currentTimeMillis());
+            this.cva = new C0354a(optString, optString2, System.currentTimeMillis());
             if (DEBUG) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cuZ);
+                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cva);
             }
             com.baidu.swan.games.utils.b.a(c, true, null);
         }
     }
 
     public void onGameLoadingFinish() {
-        if (this.cuZ == null) {
+        if (this.cva == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
                 return;
@@ -133,12 +133,12 @@ public class a extends EventTargetImpl {
             }
             return;
         }
-        this.cuZ.cvd = System.currentTimeMillis();
+        this.cva.cve = System.currentTimeMillis();
         if (DEBUG) {
-            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cuZ);
+            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cva);
         }
-        c.a(acG, this.cuZ);
-        this.cuZ = null;
+        c.a(acG, this.cva);
+        this.cva = null;
     }
 
     private boolean pZ(String str) {
@@ -151,9 +151,9 @@ public class a extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void arn() {
-        if (this.cuY == null) {
-            this.cuY = d.Qw().Qx().bA(com.baidu.swan.apps.w.a.TW());
-            this.cuY.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
+        if (this.cuZ == null) {
+            this.cuZ = d.Qw().Qx().bA(com.baidu.swan.apps.w.a.TW());
+            this.cuZ.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.close();
@@ -212,19 +212,19 @@ public class a extends EventTargetImpl {
     /* renamed from: com.baidu.swan.games.view.webview.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0354a {
-        long cvc;
         long cvd;
+        long cve;
         String mGameId;
         String mGameName;
 
         private C0354a(String str, String str2, long j) {
             this.mGameId = str;
             this.mGameName = str2;
-            this.cvc = j;
+            this.cvd = j;
         }
 
         public String toString() {
-            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cvc + ", mFinishLoadingTimestamp=" + this.cvd + '}';
+            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cvd + ", mFinishLoadingTimestamp=" + this.cve + '}';
         }
     }
 }

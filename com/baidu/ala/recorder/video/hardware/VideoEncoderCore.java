@@ -56,7 +56,7 @@ public class VideoEncoderCore {
         void onFormatChanged(MediaFormat mediaFormat);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=7, 152=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=7, 152=7] */
     @TargetApi(19)
     public VideoEncoderCore(TextureEncoder.EncodeConfig encodeConfig, OutputCallback outputCallback) {
         try {

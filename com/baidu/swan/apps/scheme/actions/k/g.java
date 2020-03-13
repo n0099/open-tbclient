@@ -143,7 +143,7 @@ public class g {
         if (fVar == null) {
             return false;
         }
-        return b(bVar, fVar.bxA);
+        return b(bVar, fVar.bxB);
     }
 
     public static boolean b(com.baidu.swan.apps.x.b.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -154,10 +154,10 @@ public class g {
         if (!TextUtils.isEmpty(delAllParamsFromUrl) && delAllParamsFromUrl.startsWith(File.separator)) {
             delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
         }
-        if (swanAppConfigData == null || swanAppConfigData.bPC == null || swanAppConfigData.bPC.le(delAllParamsFromUrl)) {
+        if (swanAppConfigData == null || swanAppConfigData.bPD == null || swanAppConfigData.bPD.le(delAllParamsFromUrl)) {
             return false;
         }
-        String str = swanAppConfigData.bPD.bPZ.get(delAllParamsFromUrl);
+        String str = swanAppConfigData.bPE.bQa.get(delAllParamsFromUrl);
         if (TextUtils.isEmpty(str)) {
             return false;
         }

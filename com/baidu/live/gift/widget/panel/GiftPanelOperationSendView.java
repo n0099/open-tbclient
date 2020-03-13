@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GiftPanelOperationSendView extends TextView {
-    private GradientDrawable apk;
-    private float apl;
-    private boolean apm;
+    private GradientDrawable apl;
+    private float apm;
+    private boolean apn;
     private int mStyle;
 
     public GiftPanelOperationSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,13 +25,13 @@ public class GiftPanelOperationSendView extends TextView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isEnabled()) {
             if (motionEvent.getAction() == 0) {
-                this.apm = true;
+                this.apn = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.apm = false;
+                this.apn = false;
             }
             setStyle(this.mStyle, true);
         } else {
-            this.apm = false;
+            this.apn = false;
         }
         return super.onTouchEvent(motionEvent);
     }
@@ -58,37 +58,37 @@ public class GiftPanelOperationSendView extends TextView {
                     z2 = false;
                     break;
             }
-            if (!(z2 & true) && !this.apm) {
-                this.apk.clearColorFilter();
+            if (!(z2 & true) && !this.apn) {
+                this.apl.clearColorFilter();
                 setTextColor(-1);
                 setEnabled(true);
             } else {
-                this.apk.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+                this.apl.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
                 setTextColor(-2130706433);
                 if (!z) {
                     setEnabled(false);
                 }
             }
             if (!(z2 & true)) {
-                this.apk.setCornerRadius(this.apl);
+                this.apl.setCornerRadius(this.apm);
             } else {
-                this.apk.setCornerRadii(new float[]{0.0f, 0.0f, this.apl, this.apl, this.apl, this.apl, 0.0f, 0.0f});
+                this.apl.setCornerRadii(new float[]{0.0f, 0.0f, this.apm, this.apm, this.apm, this.apm, 0.0f, 0.0f});
             }
-            setBackgroundDrawable(this.apk);
+            setBackgroundDrawable(this.apl);
         }
     }
 
     private void init() {
-        this.apl = getResources().getDimensionPixelOffset(a.e.sdk_ds16);
-        this.apk = new GradientDrawable();
-        this.apk.setShape(0);
-        this.apk.setCornerRadius(this.apl);
-        this.apk.setGradientType(0);
+        this.apm = getResources().getDimensionPixelOffset(a.e.sdk_ds16);
+        this.apl = new GradientDrawable();
+        this.apl.setShape(0);
+        this.apl.setCornerRadius(this.apm);
+        this.apl.setGradientType(0);
         if (Build.VERSION.SDK_INT >= 16) {
-            this.apk.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            this.apk.setColors(new int[]{-49865, -40664});
+            this.apl.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            this.apl.setColors(new int[]{-49865, -40664});
         }
-        setBackgroundDrawable(this.apk);
+        setBackgroundDrawable(this.apl);
         setGravity(17);
         setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize26));
     }

@@ -5,12 +5,12 @@ import java.util.Set;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class an extends am {
-    public static final <T> Set<T> dKk() {
+    public static final <T> Set<T> dKl() {
         return EmptySet.INSTANCE;
     }
 
     public static final <T> Set<T> P(T... tArr) {
         kotlin.jvm.internal.q.j(tArr, "elements");
-        return tArr.length > 0 ? f.O(tArr) : al.dKk();
+        return tArr.length > 0 ? f.O(tArr) : al.dKl();
     }
 }

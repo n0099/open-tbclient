@@ -30,7 +30,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return d.bUm().m(linkedList);
+                    return d.bUn().m(linkedList);
                 }
             }, lVar);
         }
@@ -43,7 +43,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.bUm().CS(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.bUn().CT(UpdatesItemData.this.getNotice_id()));
                 }
             }, lVar);
         }
@@ -55,7 +55,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ab
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.bUm().cR(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.bUn().cR(UpdatesModel.this.dataToDelete));
             }
         }, lVar);
     }
@@ -113,7 +113,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.bUm().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.bUn().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, lVar);
     }

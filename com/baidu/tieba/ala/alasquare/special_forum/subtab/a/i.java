@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private b esZ;
-    private b eta;
+    private b etn;
+    private b eto;
 
     public i(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.esZ = new b(getTbPageContext());
-        this.eta = new b(getTbPageContext());
+        this.etn = new b(getTbPageContext());
+        this.eto = new b(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.esZ.getView());
+        viewGroup2.addView(this.etn.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.eta.getView());
+        viewGroup2.addView(this.eto.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.esZ.onChangeSkinType(tbPageContext, i);
-        this.eta.onChangeSkinType(tbPageContext, i);
+        this.etn.onChangeSkinType(tbPageContext, i);
+        this.eto.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -36,21 +36,21 @@ public class i extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.subt
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
-            this.esZ.b(bVar.elV);
-            this.eta.b(bVar.elW);
+            this.etn.b(bVar.emi);
+            this.eto.b(bVar.emj);
         }
     }
 
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, int i) {
         if (bVar != null) {
-            this.esZ.a(bVar.elV, i);
-            this.eta.a(bVar.elW, i);
+            this.etn.a(bVar.emi, i);
+            this.eto.a(bVar.emj, i);
         }
     }
 
     public void d(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.esZ.c(iVar);
-        this.eta.c(iVar);
+        this.etn.c(iVar);
+        this.eto.c(iVar);
     }
 
     @Override // android.view.View.OnClickListener

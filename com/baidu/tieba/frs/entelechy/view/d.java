@@ -21,18 +21,18 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public class d extends c {
-    private RelativeLayout gyT;
-    private TextView gyU;
-    private TextView gyV;
-    private TextView gyW;
+    private RelativeLayout gzf;
+    private TextView gzg;
+    private TextView gzh;
+    private TextView gzi;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.gyT = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
-        this.gyU = (TextView) view.findViewById(R.id.lottery_time_tv);
-        this.gyV = (TextView) view.findViewById(R.id.lottery_join_count_tv);
-        this.gyW = (TextView) view.findViewById(R.id.lottery_btn);
+        this.gzf = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
+        this.gzg = (TextView) view.findViewById(R.id.lottery_time_tv);
+        this.gzh = (TextView) view.findViewById(R.id.lottery_join_count_tv);
+        this.gzi = (TextView) view.findViewById(R.id.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
@@ -51,7 +51,7 @@ public class d extends c {
                 bjVar.z(arrayList);
             }
             super.a(bjVar);
-            this.fJP.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            this.fKc.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.widget.layout.d
                 public void b(View view, int i, boolean z) {
                     if (d.this.KJ != null && d.this.uX()) {
@@ -62,10 +62,10 @@ public class d extends c {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) v.getItem(bjVar.aCz(), 0);
             if (bVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.gyU.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAl()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAm())))));
-                this.gyV.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.aAn())));
-                this.gyW.setText(R.string.lottery_btn_text);
-                this.eNm.setCommentNumEnable(false);
+                this.gzg.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAl()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.aAm())))));
+                this.gzh.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.aAn())));
+                this.gzi.setText(R.string.lottery_btn_text);
+                this.eNz.setCommentNumEnable(false);
             }
         }
     }
@@ -88,11 +88,11 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.gyT, R.color.cp_bg_line_e);
-            am.setViewTextColor(this.gyU, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.gyV, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.gyW, (int) R.color.cp_link_tip_a);
-            am.setBackgroundResource(this.gyW, R.drawable.bg_card_frs_lottery_btn);
+            am.setBackgroundColor(this.gzf, R.color.cp_bg_line_e);
+            am.setViewTextColor(this.gzg, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.gzh, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.gzi, (int) R.color.cp_link_tip_a);
+            am.setBackgroundResource(this.gzi, R.drawable.bg_card_frs_lottery_btn);
         }
         super.onChangeSkinType(tbPageContext, i);
     }

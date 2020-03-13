@@ -2,10 +2,10 @@ package org.brotli.dec;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public final class d {
-    private static final int[] nKC = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    private static final int[] nKD = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
-    private static final int[] nKE = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
-    private static final int[] nKF = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
+    private static final int[] nKN = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    private static final int[] nKO = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
+    private static final int[] nKP = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
+    private static final int[] nKQ = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
 
     private static int h(a aVar) {
         if (a.a(aVar, 1) != 0) {
@@ -19,14 +19,14 @@ public final class d {
     }
 
     private static void a(a aVar, j jVar) {
-        jVar.nLb = a.a(aVar, 1) == 1;
-        jVar.nLa = 0;
-        jVar.nLc = false;
-        jVar.nLd = false;
-        if (!jVar.nLb || a.a(aVar, 1) == 0) {
+        jVar.nLm = a.a(aVar, 1) == 1;
+        jVar.nLl = 0;
+        jVar.nLn = false;
+        jVar.nLo = false;
+        if (!jVar.nLm || a.a(aVar, 1) == 0) {
             int a = a.a(aVar, 2) + 4;
             if (a == 7) {
-                jVar.nLd = true;
+                jVar.nLo = true;
                 if (a.a(aVar, 1) != 0) {
                     throw new BrotliRuntimeException("Corrupted reserved bit");
                 }
@@ -37,7 +37,7 @@ public final class d {
                         if (a3 == 0 && i + 1 == a2 && a2 > 1) {
                             throw new BrotliRuntimeException("Exuberant nibble");
                         }
-                        jVar.nLa = (a3 << (i * 8)) | jVar.nLa;
+                        jVar.nLl = (a3 << (i * 8)) | jVar.nLl;
                     }
                 } else {
                     return;
@@ -48,18 +48,18 @@ public final class d {
                     if (a4 == 0 && i2 + 1 == a && a > 4) {
                         throw new BrotliRuntimeException("Exuberant nibble");
                     }
-                    jVar.nLa = (a4 << (i2 * 4)) | jVar.nLa;
+                    jVar.nLl = (a4 << (i2 * 4)) | jVar.nLl;
                 }
             }
-            jVar.nLa++;
-            if (!jVar.nLb) {
-                jVar.nLc = a.a(aVar, 1) == 1;
+            jVar.nLl++;
+            if (!jVar.nLm) {
+                jVar.nLn = a.a(aVar, 1) == 1;
             }
         }
     }
 
     private static int a(int[] iArr, int i, a aVar) {
-        int i2 = (int) (aVar.nKv >>> aVar.bitOffset);
+        int i2 = (int) (aVar.nKG >>> aVar.bitOffset);
         int i3 = i + (i2 & 255);
         int i4 = iArr[i3] >> 16;
         int i5 = iArr[i3] & 65535;
@@ -75,11 +75,11 @@ public final class d {
     private static int b(int[] iArr, int i, a aVar) {
         a.b(aVar);
         int a = a(iArr, i, aVar);
-        return i.nKM[a] + a.a(aVar, i.nKN[a]);
+        return i.nKX[a] + a.a(aVar, i.nKY[a]);
     }
 
     private static int a(int i, int[] iArr, int i2) {
-        return i < 16 ? iArr[(nKD[i] + i2) & 3] + nKE[i] : (i - 16) + 1;
+        return i < 16 ? iArr[(nKO[i] + i2) & 3] + nKP[i] : (i - 16) + 1;
     }
 
     private static void d(int[] iArr, int i) {
@@ -121,7 +121,7 @@ public final class d {
         while (i7 < i && i11 > 0) {
             a.a(aVar);
             a.b(aVar);
-            int i12 = ((int) (aVar.nKv >>> aVar.bitOffset)) & 31;
+            int i12 = ((int) (aVar.nKG >>> aVar.bitOffset)) & 31;
             aVar.bitOffset += iArr3[i12] >> 16;
             int i13 = 65535 & iArr3[i12];
             if (i13 < 16) {
@@ -236,11 +236,11 @@ public final class d {
             int i6 = 32;
             int i7 = 0;
             for (int i8 = a; i8 < 18 && i6 > 0; i8++) {
-                int i9 = nKC[i8];
+                int i9 = nKN[i8];
                 a.b(aVar);
-                int i10 = ((int) (aVar.nKv >>> aVar.bitOffset)) & 15;
-                aVar.bitOffset += nKF[i10] >> 16;
-                int i11 = nKF[i10] & 65535;
+                int i10 = ((int) (aVar.nKG >>> aVar.bitOffset)) & 15;
+                aVar.bitOffset += nKQ[i10] >> 16;
+                int i11 = nKQ[i10] & 65535;
                 iArr4[i9] = i11;
                 if (i11 != 0) {
                     i6 -= 32 >> i11;
@@ -303,12 +303,12 @@ public final class d {
 
     private static void a(j jVar, int i) {
         int i2;
-        a aVar = jVar.nKW;
-        int[] iArr = jVar.nLj;
+        a aVar = jVar.nLh;
+        int[] iArr = jVar.nLu;
         int i3 = i * 2;
         a.b(aVar);
-        int a = a(jVar.nKY, i * 1080, aVar);
-        jVar.nLh[i] = b(jVar.nKZ, i * 1080, aVar);
+        int a = a(jVar.nLj, i * 1080, aVar);
+        jVar.nLs[i] = b(jVar.nLk, i * 1080, aVar);
         if (a == 1) {
             i2 = iArr[i3 + 1] + 1;
         } else if (a == 0) {
@@ -316,8 +316,8 @@ public final class d {
         } else {
             i2 = a - 2;
         }
-        if (i2 >= jVar.nLi[i]) {
-            i2 -= jVar.nLi[i];
+        if (i2 >= jVar.nLt[i]) {
+            i2 -= jVar.nLt[i];
         }
         iArr[i3] = iArr[i3 + 1];
         iArr[i3 + 1] = i2;
@@ -325,27 +325,27 @@ public final class d {
 
     private static void a(j jVar) {
         a(jVar, 0);
-        int i = jVar.nLj[1];
-        jVar.nLs = i << 6;
-        jVar.nLn = jVar.nLr[jVar.nLs] & 255;
-        jVar.nLo = jVar.nLe.nKL[jVar.nLn];
-        byte b = jVar.nLq[i];
-        jVar.nLu = c.nKB[b];
-        jVar.nLv = c.nKB[b + 1];
+        int i = jVar.nLu[1];
+        jVar.nLD = i << 6;
+        jVar.nLy = jVar.nLC[jVar.nLD] & 255;
+        jVar.nLz = jVar.nLp.nKW[jVar.nLy];
+        byte b = jVar.nLB[i];
+        jVar.nLF = c.nKM[b];
+        jVar.nLG = c.nKM[b + 1];
     }
 
     private static void b(j jVar) {
         a(jVar, 1);
-        jVar.nLw = jVar.nLf.nKL[jVar.nLj[3]];
+        jVar.nLH = jVar.nLq.nKW[jVar.nLu[3]];
     }
 
     private static void c(j jVar) {
         a(jVar, 2);
-        jVar.nLt = jVar.nLj[5] << 2;
+        jVar.nLE = jVar.nLu[5] << 2;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0022, code lost:
-        if (r8.nLF >= 16384) goto L13;
+        if (r8.nLQ >= 16384) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -354,66 +354,66 @@ public final class d {
         int i;
         int i2;
         int i3 = 16384;
-        int i4 = jVar.nLF;
-        if (i4 > jVar.nLH) {
-            while ((i4 >> 1) > ((int) jVar.nLH) + jVar.nLI.length) {
+        int i4 = jVar.nLQ;
+        if (i4 > jVar.nLS) {
+            while ((i4 >> 1) > ((int) jVar.nLS) + jVar.nLT.length) {
                 i4 >>= 1;
             }
-            if (!jVar.nLb) {
+            if (!jVar.nLm) {
                 if (i4 < 16384) {
                 }
             }
         }
         i3 = i4;
-        if (i3 > jVar.nLG) {
+        if (i3 > jVar.nLR) {
             byte[] bArr = new byte[i3 + 37];
-            if (jVar.nKX != null) {
-                System.arraycopy(jVar.nKX, 0, bArr, 0, jVar.nLG);
-            } else if (jVar.nLI.length != 0) {
-                int length = jVar.nLI.length;
-                if (length > jVar.nLE) {
-                    i2 = length - jVar.nLE;
-                    i = jVar.nLE;
+            if (jVar.nLi != null) {
+                System.arraycopy(jVar.nLi, 0, bArr, 0, jVar.nLR);
+            } else if (jVar.nLT.length != 0) {
+                int length = jVar.nLT.length;
+                if (length > jVar.nLP) {
+                    i2 = length - jVar.nLP;
+                    i = jVar.nLP;
                 } else {
                     i = length;
                     i2 = 0;
                 }
-                System.arraycopy(jVar.nLI, i2, bArr, 0, i);
+                System.arraycopy(jVar.nLT, i2, bArr, 0, i);
                 jVar.pos = i;
-                jVar.nLJ = i;
+                jVar.nLU = i;
             }
-            jVar.nKX = bArr;
-            jVar.nLG = i3;
+            jVar.nLi = bArr;
+            jVar.nLR = i3;
         }
     }
 
     private static void e(j jVar) {
-        a aVar = jVar.nKW;
-        if (jVar.nLb) {
-            jVar.nKV = 10;
-            jVar.nLN = jVar.pos;
-            jVar.nnl = 0;
-            jVar.nKU = 12;
+        a aVar = jVar.nLh;
+        if (jVar.nLm) {
+            jVar.nLg = 10;
+            jVar.nLY = jVar.pos;
+            jVar.nnw = 0;
+            jVar.nLf = 12;
             return;
         }
-        jVar.nLe.nKK = null;
-        jVar.nLe.nKL = null;
-        jVar.nLf.nKK = null;
-        jVar.nLf.nKL = null;
-        jVar.nLg.nKK = null;
-        jVar.nLg.nKL = null;
+        jVar.nLp.nKV = null;
+        jVar.nLp.nKW = null;
+        jVar.nLq.nKV = null;
+        jVar.nLq.nKW = null;
+        jVar.nLr.nKV = null;
+        jVar.nLr.nKW = null;
         a.a(aVar);
         a(aVar, jVar);
-        if (jVar.nLa != 0 || jVar.nLd) {
-            if (jVar.nLc || jVar.nLd) {
+        if (jVar.nLl != 0 || jVar.nLo) {
+            if (jVar.nLn || jVar.nLo) {
                 a.f(aVar);
-                jVar.nKU = jVar.nLd ? 4 : 5;
+                jVar.nLf = jVar.nLo ? 4 : 5;
             } else {
-                jVar.nKU = 2;
+                jVar.nLf = 2;
             }
-            if (!jVar.nLd) {
-                jVar.nLH += jVar.nLa;
-                if (jVar.nLG < jVar.nLF) {
+            if (!jVar.nLo) {
+                jVar.nLS += jVar.nLl;
+                if (jVar.nLR < jVar.nLQ) {
                     d(jVar);
                 }
             }
@@ -421,109 +421,109 @@ public final class d {
     }
 
     private static void f(j jVar) {
-        a aVar = jVar.nKW;
+        a aVar = jVar.nLh;
         for (int i = 0; i < 3; i++) {
-            jVar.nLi[i] = h(aVar) + 1;
-            jVar.nLh[i] = 268435456;
-            if (jVar.nLi[i] > 1) {
-                a(jVar.nLi[i] + 2, jVar.nKY, i * 1080, aVar);
-                a(26, jVar.nKZ, i * 1080, aVar);
-                jVar.nLh[i] = b(jVar.nKZ, i * 1080, aVar);
+            jVar.nLt[i] = h(aVar) + 1;
+            jVar.nLs[i] = 268435456;
+            if (jVar.nLt[i] > 1) {
+                a(jVar.nLt[i] + 2, jVar.nLj, i * 1080, aVar);
+                a(26, jVar.nLk, i * 1080, aVar);
+                jVar.nLs[i] = b(jVar.nLk, i * 1080, aVar);
             }
         }
         a.a(aVar);
-        jVar.nLB = a.a(aVar, 2);
-        jVar.nLz = (a.a(aVar, 4) << jVar.nLB) + 16;
-        jVar.nLA = (1 << jVar.nLB) - 1;
-        int i2 = (48 << jVar.nLB) + jVar.nLz;
-        jVar.nLq = new byte[jVar.nLi[0]];
+        jVar.nLM = a.a(aVar, 2);
+        jVar.nLK = (a.a(aVar, 4) << jVar.nLM) + 16;
+        jVar.nLL = (1 << jVar.nLM) - 1;
+        int i2 = (48 << jVar.nLM) + jVar.nLK;
+        jVar.nLB = new byte[jVar.nLt[0]];
         int i3 = 0;
-        while (i3 < jVar.nLi[0]) {
-            int min = Math.min(i3 + 96, jVar.nLi[0]);
+        while (i3 < jVar.nLt[0]) {
+            int min = Math.min(i3 + 96, jVar.nLt[0]);
             while (i3 < min) {
-                jVar.nLq[i3] = (byte) (a.a(aVar, 2) << 1);
+                jVar.nLB[i3] = (byte) (a.a(aVar, 2) << 1);
                 i3++;
             }
             a.a(aVar);
         }
-        jVar.nLr = new byte[jVar.nLi[0] << 6];
-        int a = a(jVar.nLi[0] << 6, jVar.nLr, aVar);
-        jVar.nLm = true;
+        jVar.nLC = new byte[jVar.nLt[0] << 6];
+        int a = a(jVar.nLt[0] << 6, jVar.nLC, aVar);
+        jVar.nLx = true;
         int i4 = 0;
         while (true) {
-            if (i4 < (jVar.nLi[0] << 6)) {
-                if (jVar.nLr[i4] == (i4 >> 6)) {
+            if (i4 < (jVar.nLt[0] << 6)) {
+                if (jVar.nLC[i4] == (i4 >> 6)) {
                     i4++;
                 } else {
-                    jVar.nLm = false;
+                    jVar.nLx = false;
                     break;
                 }
             } else {
                 break;
             }
         }
-        jVar.nLy = new byte[jVar.nLi[2] << 2];
-        int a2 = a(jVar.nLi[2] << 2, jVar.nLy, aVar);
-        g.a(jVar.nLe, 256, a);
-        g.a(jVar.nLf, 704, jVar.nLi[1]);
-        g.a(jVar.nLg, i2, a2);
-        g.a(jVar.nLe, aVar);
-        g.a(jVar.nLf, aVar);
-        g.a(jVar.nLg, aVar);
-        jVar.nLs = 0;
-        jVar.nLt = 0;
-        jVar.nLu = c.nKB[jVar.nLq[0]];
-        jVar.nLv = c.nKB[jVar.nLq[0] + 1];
-        jVar.nLn = 0;
-        jVar.nLo = jVar.nLe.nKL[0];
-        jVar.nLw = jVar.nLf.nKL[0];
-        int[] iArr = jVar.nLj;
-        int[] iArr2 = jVar.nLj;
-        jVar.nLj[4] = 1;
+        jVar.nLJ = new byte[jVar.nLt[2] << 2];
+        int a2 = a(jVar.nLt[2] << 2, jVar.nLJ, aVar);
+        g.a(jVar.nLp, 256, a);
+        g.a(jVar.nLq, 704, jVar.nLt[1]);
+        g.a(jVar.nLr, i2, a2);
+        g.a(jVar.nLp, aVar);
+        g.a(jVar.nLq, aVar);
+        g.a(jVar.nLr, aVar);
+        jVar.nLD = 0;
+        jVar.nLE = 0;
+        jVar.nLF = c.nKM[jVar.nLB[0]];
+        jVar.nLG = c.nKM[jVar.nLB[0] + 1];
+        jVar.nLy = 0;
+        jVar.nLz = jVar.nLp.nKW[0];
+        jVar.nLH = jVar.nLq.nKW[0];
+        int[] iArr = jVar.nLu;
+        int[] iArr2 = jVar.nLu;
+        jVar.nLu[4] = 1;
         iArr2[2] = 1;
         iArr[0] = 1;
-        int[] iArr3 = jVar.nLj;
-        int[] iArr4 = jVar.nLj;
-        jVar.nLj[5] = 0;
+        int[] iArr3 = jVar.nLu;
+        int[] iArr4 = jVar.nLu;
+        jVar.nLu[5] = 0;
         iArr4[3] = 0;
         iArr3[1] = 0;
     }
 
     private static void g(j jVar) {
-        a aVar = jVar.nKW;
-        byte[] bArr = jVar.nKX;
-        if (jVar.nLa <= 0) {
+        a aVar = jVar.nLh;
+        byte[] bArr = jVar.nLi;
+        if (jVar.nLl <= 0) {
             a.d(aVar);
-            jVar.nKU = 1;
+            jVar.nLf = 1;
             return;
         }
-        int min = Math.min(jVar.nLG - jVar.pos, jVar.nLa);
+        int min = Math.min(jVar.nLR - jVar.pos, jVar.nLl);
         a.a(aVar, bArr, jVar.pos, min);
-        jVar.nLa -= min;
+        jVar.nLl -= min;
         jVar.pos += min;
-        if (jVar.pos == jVar.nLG) {
-            jVar.nKV = 5;
-            jVar.nLN = jVar.nLG;
-            jVar.nnl = 0;
-            jVar.nKU = 12;
+        if (jVar.pos == jVar.nLR) {
+            jVar.nLg = 5;
+            jVar.nLY = jVar.nLR;
+            jVar.nnw = 0;
+            jVar.nLf = 12;
             return;
         }
         a.d(aVar);
-        jVar.nKU = 1;
+        jVar.nLf = 1;
     }
 
     private static boolean h(j jVar) {
-        if (jVar.nLJ != 0) {
-            jVar.nnl += jVar.nLJ;
-            jVar.nLJ = 0;
+        if (jVar.nLU != 0) {
+            jVar.nnw += jVar.nLU;
+            jVar.nLU = 0;
         }
-        int min = Math.min(jVar.nLL - jVar.nLM, jVar.nLN - jVar.nnl);
+        int min = Math.min(jVar.nLW - jVar.nLX, jVar.nLY - jVar.nnw);
         if (min != 0) {
-            System.arraycopy(jVar.nKX, jVar.nnl, jVar.output, jVar.nLK + jVar.nLM, min);
-            jVar.nLM += min;
-            jVar.nnl = min + jVar.nnl;
+            System.arraycopy(jVar.nLi, jVar.nnw, jVar.output, jVar.nLV + jVar.nLX, min);
+            jVar.nLX += min;
+            jVar.nnw = min + jVar.nnw;
         }
-        return jVar.nLM < jVar.nLL;
+        return jVar.nLX < jVar.nLW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -531,7 +531,7 @@ public final class d {
         if (bArr == null) {
             bArr = new byte[0];
         }
-        jVar.nLI = bArr;
+        jVar.nLT = bArr;
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -597,14 +597,14 @@ public final class d {
     */
     public static void i(org.brotli.dec.j r11) {
         /*
-            int r0 = r11.nKU
+            int r0 = r11.nLf
             if (r0 != 0) goto Ld
             java.lang.IllegalStateException r0 = new java.lang.IllegalStateException
             java.lang.String r1 = "Can't decompress until initialized"
             r0.<init>(r1)
             throw r0
         Ld:
-            int r0 = r11.nKU
+            int r0 = r11.nLf
             r1 = 11
             if (r0 != r1) goto L1c
             java.lang.IllegalStateException r0 = new java.lang.IllegalStateException
@@ -612,16 +612,16 @@ public final class d {
             r0.<init>(r1)
             throw r0
         L1c:
-            org.brotli.dec.a r7 = r11.nKW
-            int r0 = r11.nLG
+            org.brotli.dec.a r7 = r11.nLh
+            int r0 = r11.nLR
             int r1 = r0 + (-1)
-            byte[] r0 = r11.nKX
+            byte[] r0 = r11.nLi
             r6 = r1
         L25:
-            int r1 = r11.nKU
+            int r1 = r11.nLf
             r2 = 10
             if (r1 == r2) goto L3d1
-            int r1 = r11.nKU
+            int r1 = r11.nLf
             switch(r1) {
                 case 1: goto L4c;
                 case 2: goto L64;
@@ -643,13 +643,13 @@ public final class d {
             r1.<init>()
             java.lang.String r2 = "Unexpected state "
             java.lang.StringBuilder r1 = r1.append(r2)
-            int r2 = r11.nKU
+            int r2 = r11.nLf
             java.lang.StringBuilder r1 = r1.append(r2)
             java.lang.String r1 = r1.toString()
             r0.<init>(r1)
             throw r0
         L4c:
-            int r0 = r11.nLa
+            int r0 = r11.nLl
             if (r0 >= 0) goto L59
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid metablock length"
@@ -657,99 +657,99 @@ public final class d {
             throw r0
         L59:
             e(r11)
-            int r0 = r11.nLG
+            int r0 = r11.nLR
             int r1 = r0 + (-1)
-            byte[] r0 = r11.nKX
+            byte[] r0 = r11.nLi
             r6 = r1
             goto L25
         L64:
             f(r11)
             r1 = 3
-            r11.nKU = r1
+            r11.nLf = r1
         L6a:
-            int r1 = r11.nLa
+            int r1 = r11.nLl
             if (r1 > 0) goto L72
             r1 = 1
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L72:
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 1
             r1 = r1[r2]
             if (r1 != 0) goto L7f
             b(r11)
         L7f:
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 1
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r1 = r11.nLf
-            int[] r1 = r1.nKK
-            int r2 = r11.nLw
+            org.brotli.dec.g r1 = r11.nLq
+            int[] r1 = r1.nKV
+            int r2 = r11.nLH
             int r2 = a(r1, r2, r7)
             int r1 = r2 >>> 6
             r3 = 0
-            r11.nLx = r3
+            r11.nLI = r3
             r3 = 2
             if (r1 < r3) goto La2
             int r1 = r1 + (-2)
             r3 = -1
-            r11.nLx = r3
+            r11.nLI = r3
         La2:
-            int[] r3 = org.brotli.dec.i.nKS
+            int[] r3 = org.brotli.dec.i.nLd
             r3 = r3[r1]
             int r4 = r2 >>> 3
             r4 = r4 & 7
             int r3 = r3 + r4
-            int[] r4 = org.brotli.dec.i.nKT
+            int[] r4 = org.brotli.dec.i.nLe
             r1 = r4[r1]
             r2 = r2 & 7
             int r1 = r1 + r2
-            int[] r2 = org.brotli.dec.i.nKO
+            int[] r2 = org.brotli.dec.i.nKZ
             r2 = r2[r3]
-            int[] r4 = org.brotli.dec.i.nKP
+            int[] r4 = org.brotli.dec.i.nLa
             r3 = r4[r3]
             int r3 = org.brotli.dec.a.a(r7, r3)
             int r2 = r2 + r3
-            r11.nLp = r2
-            int[] r2 = org.brotli.dec.i.nKQ
+            r11.nLA = r2
+            int[] r2 = org.brotli.dec.i.nLb
             r2 = r2[r1]
-            int[] r3 = org.brotli.dec.i.nKR
+            int[] r3 = org.brotli.dec.i.nLc
             r1 = r3[r1]
             int r1 = org.brotli.dec.a.a(r7, r1)
             int r1 = r1 + r2
-            r11.nLC = r1
+            r11.nLN = r1
             r1 = 0
             r11.j = r1
             r1 = 6
-            r11.nKU = r1
+            r11.nLf = r1
         Ld6:
-            boolean r1 = r11.nLm
+            boolean r1 = r11.nLx
             if (r1 == 0) goto L139
         Lda:
             int r1 = r11.j
-            int r2 = r11.nLp
+            int r2 = r11.nLA
             if (r1 >= r2) goto L124
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 0
             r1 = r1[r2]
             if (r1 != 0) goto Led
             a(r11)
         Led:
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 0
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
             int r1 = r11.pos
-            org.brotli.dec.g r2 = r11.nLe
-            int[] r2 = r2.nKK
-            int r3 = r11.nLo
+            org.brotli.dec.g r2 = r11.nLp
+            int[] r2 = r2.nKV
+            int r3 = r11.nLz
             int r2 = a(r2, r3, r7)
             byte r2 = (byte) r2
             r0[r1] = r2
@@ -761,25 +761,25 @@ public final class d {
             r11.pos = r2
             if (r1 != r6) goto Lda
             r1 = 6
-            r11.nKV = r1
-            int r1 = r11.nLG
-            r11.nLN = r1
+            r11.nLg = r1
+            int r1 = r11.nLR
+            r11.nLY = r1
             r1 = 0
-            r11.nnl = r1
+            r11.nnw = r1
             r1 = 12
-            r11.nKU = r1
+            r11.nLf = r1
         L124:
-            int r1 = r11.nKU
+            int r1 = r11.nLf
             r2 = 6
             if (r1 != r2) goto L25
-            int r1 = r11.nLa
-            int r2 = r11.nLp
+            int r1 = r11.nLl
+            int r2 = r11.nLA
             int r1 = r1 - r2
-            r11.nLa = r1
-            int r1 = r11.nLa
+            r11.nLl = r1
+            int r1 = r11.nLl
             if (r1 > 0) goto L1b7
             r1 = 3
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L139:
             int r1 = r11.pos
@@ -794,39 +794,39 @@ public final class d {
             r1 = r1 & 255(0xff, float:3.57E-43)
         L14b:
             int r3 = r11.j
-            int r4 = r11.nLp
+            int r4 = r11.nLA
             if (r3 >= r4) goto L124
             org.brotli.dec.a.a(r7)
-            int[] r3 = r11.nLh
+            int[] r3 = r11.nLs
             r4 = 0
             r3 = r3[r4]
             if (r3 != 0) goto L15e
             a(r11)
         L15e:
-            byte[] r3 = r11.nLr
-            int r4 = r11.nLs
-            int[] r5 = org.brotli.dec.c.nKA
-            int r8 = r11.nLu
+            byte[] r3 = r11.nLC
+            int r4 = r11.nLD
+            int[] r5 = org.brotli.dec.c.nKL
+            int r8 = r11.nLF
             int r8 = r8 + r2
             r5 = r5[r8]
-            int[] r8 = org.brotli.dec.c.nKA
-            int r9 = r11.nLv
+            int[] r8 = org.brotli.dec.c.nKL
+            int r9 = r11.nLG
             int r1 = r1 + r9
             r1 = r8[r1]
             r1 = r1 | r5
             int r1 = r1 + r4
             r1 = r3[r1]
             r1 = r1 & 255(0xff, float:3.57E-43)
-            int[] r3 = r11.nLh
+            int[] r3 = r11.nLs
             r4 = 0
             r5 = r3[r4]
             int r5 = r5 + (-1)
             r3[r4] = r5
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r3 = r11.nLe
-            int[] r3 = r3.nKK
-            org.brotli.dec.g r4 = r11.nLe
-            int[] r4 = r4.nKL
+            org.brotli.dec.g r3 = r11.nLp
+            int[] r3 = r3.nKV
+            org.brotli.dec.g r4 = r11.nLp
+            int[] r4 = r4.nKW
             r1 = r4[r1]
             int r1 = a(r3, r1, r7)
             int r3 = r11.pos
@@ -840,13 +840,13 @@ public final class d {
             r11.pos = r4
             if (r3 != r6) goto L1b3
             r1 = 6
-            r11.nKV = r1
-            int r1 = r11.nLG
-            r11.nLN = r1
+            r11.nLg = r1
+            int r1 = r11.nLR
+            r11.nLY = r1
             r1 = 0
-            r11.nnl = r1
+            r11.nnw = r1
             r1 = 12
-            r11.nKU = r1
+            r11.nLf = r1
             goto L124
         L1b3:
             r10 = r2
@@ -854,28 +854,28 @@ public final class d {
             r1 = r10
             goto L14b
         L1b7:
-            int r1 = r11.nLx
+            int r1 = r11.nLI
             if (r1 >= 0) goto L229
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 2
             r1 = r1[r2]
             if (r1 != 0) goto L1c8
             c(r11)
         L1c8:
-            int[] r1 = r11.nLh
+            int[] r1 = r11.nLs
             r2 = 2
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r1 = r11.nLg
-            int[] r2 = r1.nKK
-            org.brotli.dec.g r1 = r11.nLg
-            int[] r3 = r1.nKL
-            byte[] r4 = r11.nLy
-            int r5 = r11.nLt
-            int r1 = r11.nLC
+            org.brotli.dec.g r1 = r11.nLr
+            int[] r2 = r1.nKV
+            org.brotli.dec.g r1 = r11.nLr
+            int[] r3 = r1.nKW
+            byte[] r4 = r11.nLJ
+            int r5 = r11.nLE
+            int r1 = r11.nLN
             r8 = 4
             if (r1 <= r8) goto L242
             r1 = 3
@@ -885,41 +885,41 @@ public final class d {
             r1 = r1 & 255(0xff, float:3.57E-43)
             r1 = r3[r1]
             int r1 = a(r2, r1, r7)
-            r11.nLx = r1
-            int r1 = r11.nLx
-            int r2 = r11.nLz
+            r11.nLI = r1
+            int r1 = r11.nLI
+            int r2 = r11.nLK
             if (r1 < r2) goto L229
-            int r1 = r11.nLx
-            int r2 = r11.nLz
+            int r1 = r11.nLI
+            int r2 = r11.nLK
             int r1 = r1 - r2
-            r11.nLx = r1
-            int r1 = r11.nLx
-            int r2 = r11.nLA
+            r11.nLI = r1
+            int r1 = r11.nLI
+            int r2 = r11.nLL
             r1 = r1 & r2
-            int r2 = r11.nLx
-            int r3 = r11.nLB
+            int r2 = r11.nLI
+            int r3 = r11.nLM
             int r2 = r2 >>> r3
-            r11.nLx = r2
-            int r2 = r11.nLx
+            r11.nLI = r2
+            int r2 = r11.nLI
             int r2 = r2 >>> 1
             int r2 = r2 + 1
-            int r3 = r11.nLx
+            int r3 = r11.nLI
             r3 = r3 & 1
             int r3 = r3 + 2
             int r3 = r3 << r2
             int r3 = r3 + (-4)
-            int r4 = r11.nLz
+            int r4 = r11.nLK
             int r1 = r1 + r4
             int r2 = org.brotli.dec.a.a(r7, r2)
             int r2 = r2 + r3
-            int r3 = r11.nLB
+            int r3 = r11.nLM
             int r2 = r2 << r3
             int r1 = r1 + r2
-            r11.nLx = r1
+            r11.nLI = r1
         L229:
-            int r1 = r11.nLx
-            int[] r2 = r11.nLk
-            int r3 = r11.nLl
+            int r1 = r11.nLI
+            int[] r2 = r11.nLv
+            int r3 = r11.nLw
             int r1 = a(r1, r2, r3)
             r11.distance = r1
             int r1 = r11.distance
@@ -929,45 +929,45 @@ public final class d {
             r0.<init>(r1)
             throw r0
         L242:
-            int r1 = r11.nLC
+            int r1 = r11.nLN
             int r1 = r1 + (-2)
             goto L1e6
         L247:
-            int r1 = r11.eLh
-            int r2 = r11.nLE
+            int r1 = r11.eLu
+            int r2 = r11.nLP
             if (r1 == r2) goto L267
             int r1 = r11.pos
-            int r2 = r11.nLE
+            int r2 = r11.nLP
             if (r1 >= r2) goto L267
             int r1 = r11.pos
-            r11.eLh = r1
+            r11.eLu = r1
         L257:
             int r1 = r11.pos
-            r11.nLD = r1
+            r11.nLO = r1
             int r1 = r11.distance
-            int r2 = r11.eLh
+            int r2 = r11.eLu
             if (r1 <= r2) goto L26c
             r1 = 9
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L267:
-            int r1 = r11.nLE
-            r11.eLh = r1
+            int r1 = r11.nLP
+            r11.eLu = r1
             goto L257
         L26c:
-            int r1 = r11.nLx
+            int r1 = r11.nLI
             if (r1 <= 0) goto L280
-            int[] r1 = r11.nLk
-            int r2 = r11.nLl
+            int[] r1 = r11.nLv
+            int r2 = r11.nLw
             r2 = r2 & 3
             int r3 = r11.distance
             r1[r2] = r3
-            int r1 = r11.nLl
+            int r1 = r11.nLw
             int r1 = r1 + 1
-            r11.nLl = r1
+            r11.nLw = r1
         L280:
-            int r1 = r11.nLC
-            int r2 = r11.nLa
+            int r1 = r11.nLN
+            int r2 = r11.nLl
             if (r1 <= r2) goto L28f
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid backward reference"
@@ -977,14 +977,14 @@ public final class d {
             r1 = 0
             r11.j = r1
             r1 = 7
-            r11.nKU = r1
+            r11.nLf = r1
         L295:
             int r1 = r11.pos
             int r2 = r11.distance
             int r1 = r1 - r2
             r3 = r1 & r6
             int r2 = r11.pos
-            int r1 = r11.nLC
+            int r1 = r11.nLN
             int r4 = r11.j
             int r8 = r1 - r4
             int r1 = r3 + r8
@@ -1007,22 +1007,22 @@ public final class d {
             int r1 = r11.j
             int r1 = r1 + r8
             r11.j = r1
-            int r1 = r11.nLa
+            int r1 = r11.nLl
             int r1 = r1 - r8
-            r11.nLa = r1
+            r11.nLl = r1
             int r1 = r11.pos
             int r1 = r1 + r8
             r11.pos = r1
         L2cc:
-            int r1 = r11.nKU
+            int r1 = r11.nLf
             r2 = 7
             if (r1 != r2) goto L25
             r1 = 3
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L2d6:
             int r1 = r11.j
-            int r2 = r11.nLC
+            int r2 = r11.nLN
             if (r1 >= r2) goto L2cc
             int r1 = r11.pos
             int r2 = r11.pos
@@ -1031,9 +1031,9 @@ public final class d {
             r2 = r2 & r6
             r2 = r0[r2]
             r0[r1] = r2
-            int r1 = r11.nLa
+            int r1 = r11.nLl
             int r1 = r1 + (-1)
-            r11.nLa = r1
+            r11.nLl = r1
             int r1 = r11.j
             int r1 = r1 + 1
             r11.j = r1
@@ -1042,68 +1042,68 @@ public final class d {
             r11.pos = r2
             if (r1 != r6) goto L2d6
             r1 = 7
-            r11.nKV = r1
-            int r1 = r11.nLG
-            r11.nLN = r1
+            r11.nLg = r1
+            int r1 = r11.nLR
+            r11.nLY = r1
             r1 = 0
-            r11.nnl = r1
+            r11.nnw = r1
             r1 = 12
-            r11.nKU = r1
+            r11.nLf = r1
             goto L2cc
         L30b:
-            int r1 = r11.nLC
+            int r1 = r11.nLN
             r2 = 4
             if (r1 < r2) goto L37a
-            int r1 = r11.nLC
+            int r1 = r11.nLN
             r2 = 24
             if (r1 > r2) goto L37a
-            int[] r1 = org.brotli.dec.e.nKG
-            int r2 = r11.nLC
+            int[] r1 = org.brotli.dec.e.nKR
+            int r2 = r11.nLN
             r1 = r1[r2]
             int r2 = r11.distance
-            int r3 = r11.eLh
+            int r3 = r11.eLu
             int r2 = r2 - r3
             int r2 = r2 + (-1)
-            int[] r3 = org.brotli.dec.e.nKH
-            int r4 = r11.nLC
+            int[] r3 = org.brotli.dec.e.nKS
+            int r4 = r11.nLN
             r3 = r3[r4]
             r4 = 1
             int r4 = r4 << r3
             int r4 = r4 + (-1)
             r4 = r4 & r2
             int r5 = r2 >>> r3
-            int r2 = r11.nLC
+            int r2 = r11.nLN
             int r2 = r2 * r4
             int r3 = r1 + r2
-            org.brotli.dec.k[] r1 = org.brotli.dec.k.nLP
+            org.brotli.dec.k[] r1 = org.brotli.dec.k.nMa
             int r1 = r1.length
             if (r5 >= r1) goto L371
-            int r1 = r11.nLD
+            int r1 = r11.nLO
             byte[] r2 = org.brotli.dec.e.getData()
-            int r4 = r11.nLC
-            org.brotli.dec.k[] r8 = org.brotli.dec.k.nLP
+            int r4 = r11.nLN
+            org.brotli.dec.k[] r8 = org.brotli.dec.k.nMa
             r5 = r8[r5]
             int r1 = org.brotli.dec.k.a(r0, r1, r2, r3, r4, r5)
-            int r2 = r11.nLD
+            int r2 = r11.nLO
             int r2 = r2 + r1
-            r11.nLD = r2
+            r11.nLO = r2
             int r2 = r11.pos
             int r2 = r2 + r1
             r11.pos = r2
-            int r2 = r11.nLa
+            int r2 = r11.nLl
             int r1 = r2 - r1
-            r11.nLa = r1
-            int r1 = r11.nLD
-            int r2 = r11.nLG
+            r11.nLl = r1
+            int r1 = r11.nLO
+            int r2 = r11.nLR
             if (r1 < r2) goto L383
             r1 = 8
-            r11.nKV = r1
-            int r1 = r11.nLG
-            r11.nLN = r1
+            r11.nLg = r1
+            int r1 = r11.nLR
+            r11.nLY = r1
             r1 = 0
-            r11.nnl = r1
+            r11.nnw = r1
             r1 = 12
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L371:
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
@@ -1117,31 +1117,31 @@ public final class d {
             throw r0
         L383:
             r1 = 3
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L388:
-            int r1 = r11.nLG
+            int r1 = r11.nLR
             r2 = 0
-            int r3 = r11.nLD
-            int r4 = r11.nLG
+            int r3 = r11.nLO
+            int r4 = r11.nLR
             int r3 = r3 - r4
             java.lang.System.arraycopy(r0, r1, r0, r2, r3)
             r1 = 3
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L398:
-            int r1 = r11.nLa
+            int r1 = r11.nLl
             if (r1 <= 0) goto L3ab
             org.brotli.dec.a.a(r7)
             r1 = 8
             org.brotli.dec.a.a(r7, r1)
-            int r1 = r11.nLa
+            int r1 = r11.nLl
             int r1 = r1 + (-1)
-            r11.nLa = r1
+            r11.nLl = r1
             goto L398
         L3ab:
             r1 = 1
-            r11.nKU = r1
+            r11.nLf = r1
             goto L25
         L3b0:
             g(r11)
@@ -1153,22 +1153,22 @@ public final class d {
             return
         L3bc:
             int r1 = r11.pos
-            int r2 = r11.nLE
+            int r2 = r11.nLP
             if (r1 < r2) goto L3c6
-            int r1 = r11.nLE
-            r11.eLh = r1
+            int r1 = r11.nLP
+            r11.eLu = r1
         L3c6:
             int r1 = r11.pos
             r1 = r1 & r6
             r11.pos = r1
-            int r1 = r11.nKV
-            r11.nKU = r1
+            int r1 = r11.nLg
+            r11.nLf = r1
             goto L25
         L3d1:
-            int r0 = r11.nKU
+            int r0 = r11.nLf
             r1 = 10
             if (r0 != r1) goto L3bb
-            int r0 = r11.nLa
+            int r0 = r11.nLl
             if (r0 >= 0) goto L3e4
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid metablock length"
@@ -1176,7 +1176,7 @@ public final class d {
             throw r0
         L3e4:
             org.brotli.dec.a.f(r7)
-            org.brotli.dec.a r0 = r11.nKW
+            org.brotli.dec.a r0 = r11.nLh
             r1 = 1
             org.brotli.dec.a.a(r0, r1)
             goto L3bb

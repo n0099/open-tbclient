@@ -24,20 +24,20 @@ public class AlaGiftDrawPanel extends FrameLayout {
     public List<m> ahu;
     private Bitmap ahy;
     private g ahz;
-    private Paint ani;
-    private ArrayList<PointF> anj;
+    private Paint anj;
     private ArrayList<PointF> ank;
-    private a anl;
-    private boolean anm;
-    private float ann;
+    private ArrayList<PointF> anl;
+    private a anm;
+    private boolean ann;
     private float ano;
     private float anp;
     private float anq;
-    private PointF anr;
-    private boolean ans;
-    private int ant;
+    private float anr;
+    private PointF ans;
+    private boolean ant;
     private int anu;
     private int anv;
+    private int anw;
     private int mBackgroundColor;
 
     /* loaded from: classes3.dex */
@@ -47,40 +47,40 @@ public class AlaGiftDrawPanel extends FrameLayout {
 
     public AlaGiftDrawPanel(Context context) {
         super(context);
-        this.anm = false;
+        this.ann = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     public AlaGiftDrawPanel(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.anm = false;
+        this.ann = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     public AlaGiftDrawPanel(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.anm = false;
+        this.ann = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     private void init() {
         View.inflate(getContext(), a.h.ala_gift_draw_region_layout, this);
-        this.ani = new Paint();
-        this.ani.setAntiAlias(true);
-        this.ani.setFilterBitmap(true);
-        this.ani.setDither(true);
-        this.anj = new ArrayList<>();
+        this.anj = new Paint();
+        this.anj.setAntiAlias(true);
+        this.anj.setFilterBitmap(true);
+        this.anj.setDither(true);
         this.ank = new ArrayList<>();
+        this.anl = new ArrayList<>();
         this.ahu = new ArrayList();
         float dip2px = BdUtilHelper.dip2px(getContext(), 32.0f);
-        this.anp = dip2px;
-        this.ann = dip2px;
-        float f = this.anp / 2.0f;
-        this.anq = f;
-        this.ano = f;
+        this.anq = dip2px;
+        this.ano = dip2px;
+        float f = this.anq / 2.0f;
+        this.anr = f;
+        this.anp = f;
         this.mBackgroundColor = getResources().getColor(a.d.sdk_black_alpha50);
     }
 
@@ -89,24 +89,24 @@ public class AlaGiftDrawPanel extends FrameLayout {
         PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
         switch (motionEvent.getAction()) {
             case 0:
-                this.anv = this.anj.size();
-                this.ank.clear();
+                this.anw = this.ank.size();
+                this.anl.clear();
                 a(pointF);
                 break;
             case 1:
-                this.anm = false;
+                this.ann = false;
                 tF();
-                this.anj.addAll(this.ank);
+                this.ank.addAll(this.anl);
                 uy();
                 break;
             case 2:
-                if (!this.anm) {
+                if (!this.ann) {
                     b(pointF);
                     break;
                 }
                 break;
             case 6:
-                this.anm = true;
+                this.ann = true;
                 break;
         }
         return true;
@@ -115,23 +115,23 @@ public class AlaGiftDrawPanel extends FrameLayout {
     private void a(PointF pointF) {
         if (this.ahy != null && !this.ahy.isRecycled()) {
             if (c(pointF)) {
-                this.ans = true;
-                this.anr = pointF;
-                this.ank.add(pointF);
-                if (this.anl != null) {
-                    this.anl.c(getCurrentPointSize(), getTotalPrice());
+                this.ant = true;
+                this.ans = pointF;
+                this.anl.add(pointF);
+                if (this.anm != null) {
+                    this.anm.c(getCurrentPointSize(), getTotalPrice());
                 }
             } else {
-                this.ans = false;
+                this.ant = false;
             }
             postInvalidate();
         }
     }
 
     private void b(PointF pointF) {
-        if (this.ans) {
-            if (c(pointF, this.anr)) {
-                e(this.anr, pointF);
+        if (this.ant) {
+            if (c(pointF, this.ans)) {
+                e(this.ans, pointF);
             }
             postInvalidate();
         }
@@ -144,25 +144,25 @@ public class AlaGiftDrawPanel extends FrameLayout {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.anj.size()) {
+            if (i2 >= this.ank.size()) {
                 break;
             }
-            PointF pointF = this.anj.get(i2);
-            float f = pointF.x - this.ano;
-            float f2 = pointF.y - this.anq;
+            PointF pointF = this.ank.get(i2);
+            float f = pointF.x - this.anp;
+            float f2 = pointF.y - this.anr;
             Bitmap bM = bM(i2);
             if (bM != null && !bM.isRecycled()) {
-                canvas.drawBitmap(bM, f, f2, this.ani);
+                canvas.drawBitmap(bM, f, f2, this.anj);
             }
             i = i2 + 1;
         }
-        Iterator<PointF> it = this.ank.iterator();
+        Iterator<PointF> it = this.anl.iterator();
         while (it.hasNext()) {
             PointF next = it.next();
-            float f3 = next.x - this.ano;
-            float f4 = next.y - this.anq;
+            float f3 = next.x - this.anp;
+            float f4 = next.y - this.anr;
             if (this.ahy != null) {
-                canvas.drawBitmap(this.ahy, f3, f4, this.ani);
+                canvas.drawBitmap(this.ahy, f3, f4, this.anj);
             }
         }
     }
@@ -188,15 +188,15 @@ public class AlaGiftDrawPanel extends FrameLayout {
     public void setGiftBitmp(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        float f = this.ann / width;
-        float f2 = this.anp / height;
+        float f = this.ano / width;
+        float f2 = this.anq / height;
         Matrix matrix = new Matrix();
         matrix.postScale(f, f2);
         this.ahy = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
     }
 
     public void setGiftDrawEventListener(a aVar) {
-        this.anl = aVar;
+        this.anm = aVar;
     }
 
     public void setTipImageVisibility(int i) {
@@ -204,31 +204,31 @@ public class AlaGiftDrawPanel extends FrameLayout {
     }
 
     public void ux() {
-        if (this.anl != null && !ListUtils.isEmpty(this.anj)) {
-            this.anl.c(0, 0L);
+        if (this.anm != null && !ListUtils.isEmpty(this.ank)) {
+            this.anm.c(0, 0L);
         }
-        ListUtils.clear(this.anj);
+        ListUtils.clear(this.ank);
         postInvalidate();
     }
 
     public void setGiftCountRange(int i, int i2) {
-        this.ant = i;
-        this.anu = i2;
+        this.anu = i;
+        this.anv = i2;
     }
 
     private boolean c(PointF pointF) {
-        if (getCurrentPointSize() >= this.anu) {
+        if (getCurrentPointSize() >= this.anv) {
             BdUtilHelper.showToast(getContext(), getContext().getString(a.i.ala_gift_tip_max_size));
         }
-        return getCurrentPointSize() < this.anu && pointF.x > this.ano && pointF.x < ((float) getWidth()) - this.ano && pointF.y > this.anq && pointF.y < ((float) getHeight()) - this.anq;
+        return getCurrentPointSize() < this.anv && pointF.x > this.anp && pointF.x < ((float) getWidth()) - this.anp && pointF.y > this.anr && pointF.y < ((float) getHeight()) - this.anr;
     }
 
     public int getCurrentPointSize() {
-        return this.anj.size() + this.ank.size();
+        return this.ank.size() + this.anl.size();
     }
 
     private boolean c(PointF pointF, PointF pointF2) {
-        return c(pointF) && d(pointF, pointF2) >= this.anp;
+        return c(pointF) && d(pointF, pointF2) >= this.anq;
     }
 
     private float d(PointF pointF, PointF pointF2) {
@@ -274,13 +274,13 @@ public class AlaGiftDrawPanel extends FrameLayout {
                 int i14 = i13 + i2;
                 int i15 = i12 + i10;
                 PointF pointF4 = new PointF(i14, i5);
-                if (d(pointF3, pointF4) < this.anp) {
+                if (d(pointF3, pointF4) < this.anq) {
                     pointF4 = pointF3;
-                } else if (getCurrentPointSize() < this.anu) {
-                    this.ank.add(pointF4);
-                    this.anr = pointF4;
-                    if (this.anl != null) {
-                        this.anl.c(getCurrentPointSize(), getTotalPrice());
+                } else if (getCurrentPointSize() < this.anv) {
+                    this.anl.add(pointF4);
+                    this.ans = pointF4;
+                    if (this.anm != null) {
+                        this.anm.c(getCurrentPointSize(), getTotalPrice());
                     }
                 } else {
                     return;
@@ -303,13 +303,13 @@ public class AlaGiftDrawPanel extends FrameLayout {
             int i19 = i17 + i;
             int i20 = i16 + i11;
             PointF pointF6 = new PointF(i18, i19);
-            if (d(pointF5, pointF6) < this.anp) {
+            if (d(pointF5, pointF6) < this.anq) {
                 pointF6 = pointF5;
-            } else if (getCurrentPointSize() < this.anu) {
-                this.ank.add(pointF6);
-                this.anr = pointF6;
-                if (this.anl != null) {
-                    this.anl.c(getCurrentPointSize(), getTotalPrice());
+            } else if (getCurrentPointSize() < this.anv) {
+                this.anl.add(pointF6);
+                this.ans = pointF6;
+                if (this.anm != null) {
+                    this.anm.c(getCurrentPointSize(), getTotalPrice());
                 }
             } else {
                 return;
@@ -321,7 +321,7 @@ public class AlaGiftDrawPanel extends FrameLayout {
     }
 
     public List<PointF> getPoints() {
-        return this.anj;
+        return this.ank;
     }
 
     public List<m> getGraffitiPointDesDatas() {
@@ -333,8 +333,8 @@ public class AlaGiftDrawPanel extends FrameLayout {
         for (m mVar : this.ahu) {
             j = mVar.ahz != null ? (mVar.st() * JavaTypesHelper.toLong(mVar.ahz.getPrice(), 0L)) + j : j;
         }
-        if (this.ank.size() > 0) {
-            return j + (JavaTypesHelper.toLong(this.ahz.getPrice(), 0L) * this.ank.size());
+        if (this.anl.size() > 0) {
+            return j + (JavaTypesHelper.toLong(this.ahz.getPrice(), 0L) * this.anl.size());
         }
         return j;
     }
@@ -366,14 +366,14 @@ public class AlaGiftDrawPanel extends FrameLayout {
     }
 
     public void tF() {
-        if (this.ahu != null && this.ank != null && this.ank.size() > 0) {
+        if (this.ahu != null && this.anl != null && this.anl.size() > 0) {
             this.ahu.add(getAlaGraffitiPointDesData());
         }
     }
 
     public void uy() {
-        if (this.ank != null) {
-            this.ank.clear();
+        if (this.anl != null) {
+            this.anl.clear();
         }
     }
 
@@ -383,7 +383,7 @@ public class AlaGiftDrawPanel extends FrameLayout {
         mVar.ahz = this.ahz;
         mVar.dj(this.ahz != null ? this.ahz.rA() : "");
         mVar.setGiftId(this.ahz != null ? Integer.parseInt(this.ahz.rx()) : 0);
-        mVar.bs(getCurrentPointSize() - this.anv);
+        mVar.bs(getCurrentPointSize() - this.anw);
         return mVar;
     }
 
@@ -394,12 +394,12 @@ public class AlaGiftDrawPanel extends FrameLayout {
     public void uz() {
         if (this.ahu != null && this.ahu.size() > 0) {
             for (int st = this.ahu.get(this.ahu.size() - 1).st(); st > 0; st--) {
-                this.anj.remove(this.anj.size() - 1);
+                this.ank.remove(this.ank.size() - 1);
             }
             this.ahu.remove(this.ahu.size() - 1);
             postInvalidate();
-            if (this.anl != null) {
-                this.anl.c(getCurrentPointSize(), getTotalPrice());
+            if (this.anm != null) {
+                this.anm.c(getCurrentPointSize(), getTotalPrice());
             }
         }
     }

@@ -6,22 +6,22 @@ import kotlin.collections.ae;
 /* loaded from: classes7.dex */
 final class j extends ae {
     private int index;
-    private final long[] nCm;
+    private final long[] nCx;
 
     public j(long[] jArr) {
         q.j(jArr, "array");
-        this.nCm = jArr;
+        this.nCx = jArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nCm.length;
+        return this.index < this.nCx.length;
     }
 
     @Override // kotlin.collections.ae
     public long nextLong() {
         try {
-            long[] jArr = this.nCm;
+            long[] jArr = this.nCx;
             int i = this.index;
             this.index = i + 1;
             return jArr[i];

@@ -10,7 +10,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences cfD = null;
+    private static SharedPreferences cfE = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -22,10 +22,10 @@ public class a {
     }
 
     private static SharedPreferences dq(Context context) {
-        if (cfD == null) {
-            cfD = context.getSharedPreferences("downgradefile", 0);
+        if (cfE == null) {
+            cfE = context.getSharedPreferences("downgradefile", 0);
         }
-        return cfD;
+        return cfE;
     }
 
     private int dr(Context context) {

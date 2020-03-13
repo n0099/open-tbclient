@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes11.dex */
 public abstract class AbsCanvasView extends View {
-    private boolean bhy;
+    private boolean bhA;
     private boolean bhz;
     private boolean mInterceptTouchEvent;
 
@@ -20,8 +20,8 @@ public abstract class AbsCanvasView extends View {
     public AbsCanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mInterceptTouchEvent = false;
-        this.bhy = false;
         this.bhz = false;
+        this.bhA = false;
     }
 
     public boolean Ky() {
@@ -33,10 +33,10 @@ public abstract class AbsCanvasView extends View {
     }
 
     public void setGesture(boolean z) {
-        this.bhy = z;
+        this.bhz = z;
     }
 
     public void setHide(boolean z) {
-        this.bhz = z;
+        this.bhA = z;
     }
 }

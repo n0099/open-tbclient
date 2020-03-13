@@ -19,7 +19,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bQw = i.K("https", "wss");
+    private static final Set<String> bQx = i.K("https", "wss");
 
     /* JADX WARN: Can't wrap try/catch for region: R(13:58|59|(3:62|(4:65|(1:105)(8:67|68|(3:99|100|(2:102|103)(1:104))(3:70|71|(2:73|74)(1:97))|80|(1:(1:83)(1:84))|(1:86)|87|(2:89|90)(1:91))|98|63)|106)|108|75|76|(1:78)|79|80|(0)|(0)|87|(0)(0)) */
     /* JADX WARN: Code restructure failed: missing block: B:83:0x01ff, code lost:
@@ -304,7 +304,7 @@ public final class b {
     }
 
     private static boolean lj(String str) {
-        for (String str2 : bQw) {
+        for (String str2 : bQx) {
             if (str.startsWith(str2)) {
                 return true;
             }

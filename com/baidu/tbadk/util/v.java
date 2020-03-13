@@ -16,9 +16,9 @@ public final class v {
             return false;
         }
         try {
-            a aSk = a.aSk();
+            a aSl = a.aSl();
             for (String str : strArr) {
-                if (aSk.vV(str) != null) {
+                if (aSl.vW(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class v {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a dGI;
-        private final Properties dGJ = new Properties();
+        private static a dGV;
+        private final Properties dGW = new Properties();
 
         private a() throws IOException {
-            this.dGJ.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.dGW.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aSk() throws IOException {
-            if (dGI == null) {
+        public static a aSl() throws IOException {
+            if (dGV == null) {
                 synchronized (a.class) {
-                    if (dGI == null) {
-                        dGI = new a();
+                    if (dGV == null) {
+                        dGV = new a();
                     }
                 }
             }
-            return dGI;
+            return dGV;
         }
 
-        public String vV(String str) {
-            return this.dGJ.getProperty(str);
+        public String vW(String str) {
+            return this.dGW.getProperty(str);
         }
     }
 }

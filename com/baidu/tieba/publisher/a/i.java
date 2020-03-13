@@ -1,15 +1,15 @@
 package com.baidu.tieba.publisher.a;
 /* loaded from: classes7.dex */
 public class i {
-    private static volatile h jBH;
+    private static volatile h jBT;
 
-    public static synchronized h cAY() {
+    public static synchronized h cAZ() {
         h hVar;
         synchronized (i.class) {
-            if (jBH == null) {
-                jBH = new h();
+            if (jBT == null) {
+                jBT = new h();
             }
-            hVar = jBH;
+            hVar = jBT;
         }
         return hVar;
     }

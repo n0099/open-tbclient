@@ -13,13 +13,13 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class c extends h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
-    private com.baidu.tieba.ala.livecard.b.b eMW;
-    private z<bj> eMX;
+    private com.baidu.tieba.ala.livecard.b.b eNj;
+    private z<bj> eNk;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.eMX = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.eNk = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -43,19 +43,19 @@ public class c extends h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eMW = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.eMW.m(this.mPageId);
-        this.eMW.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.eMW);
+        this.eNj = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.eNj.m(this.mPageId);
+        this.eNj.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.eNj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.eNh.a(bjVar);
-        aVar.eNh.setForumName(this.mForumName);
-        aVar.eNh.c(this.eMX);
+        aVar.eNu.a(bjVar);
+        aVar.eNu.setForumName(this.mForumName);
+        aVar.eNu.c(this.eNk);
         if (bjVar != null) {
             bjVar.aDw();
         }

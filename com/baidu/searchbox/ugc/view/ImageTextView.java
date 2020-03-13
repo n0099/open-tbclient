@@ -229,7 +229,7 @@ public class ImageTextView extends EditText {
 
     public void loadEditTextImage(final String str, final int i, final String str2) {
         Uri uri = UgcUriUtils.getUri(str);
-        c.dlA().e(ImageRequestBuilder.Y(uri).a(b.don().vo(true).vn(true).dov()).dsC(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ugc.view.ImageTextView.1
+        c.dlB().e(ImageRequestBuilder.Y(uri).a(b.doo().vo(true).vn(true).dow()).dsD(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ugc.view.ImageTextView.1
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(Bitmap bitmap) {
                 UrlImageSpan[] urlImageSpanArr;
@@ -277,7 +277,7 @@ public class ImageTextView extends EditText {
             public void onCancellation(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
                 super.onCancellation(bVar);
             }
-        }, i.dkF());
+        }, i.dkG());
     }
 
     public Bitmap createWaterMarkBitmap(Bitmap bitmap, int i, int i2, Bitmap bitmap2, int i3, int i4, int i5) {

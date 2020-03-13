@@ -5,35 +5,35 @@ import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.f.w;
 /* loaded from: classes6.dex */
 public final class p implements w {
-    private long mdD;
-    private com.google.android.exoplayer2.util.s mjr;
-    private int mmz;
-    private final h moq;
-    private boolean mos;
-    private boolean mot;
-    private boolean mou;
-    private int mov;
-    private boolean mow;
+    private long mdO;
+    private com.google.android.exoplayer2.util.s mjC;
+    private int mmK;
+    private final h moB;
+    private boolean moD;
+    private boolean moE;
+    private boolean moF;
+    private int moG;
+    private boolean moH;
     private int payloadSize;
-    private final com.google.android.exoplayer2.util.k mor = new com.google.android.exoplayer2.util.k(new byte[10]);
+    private final com.google.android.exoplayer2.util.k moC = new com.google.android.exoplayer2.util.k(new byte[10]);
     private int state = 0;
 
     public p(h hVar) {
-        this.moq = hVar;
+        this.moB = hVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
     public void a(com.google.android.exoplayer2.util.s sVar, com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        this.mjr = sVar;
-        this.moq.a(gVar, dVar);
+        this.mjC = sVar;
+        this.moB.a(gVar, dVar);
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
-    public final void czd() {
+    public final void cze() {
         this.state = 0;
-        this.mmz = 0;
-        this.mou = false;
-        this.moq.czd();
+        this.mmK = 0;
+        this.moF = false;
+        this.moB.cze();
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.w
@@ -47,47 +47,47 @@ public final class p implements w {
                     if (this.payloadSize != -1) {
                         Log.w("PesReader", "Unexpected start indicator: expected " + this.payloadSize + " more bytes");
                     }
-                    this.moq.dvp();
+                    this.moB.dvq();
                     break;
             }
             setState(1);
         }
-        while (lVar.dzt() > 0) {
+        while (lVar.dzu() > 0) {
             switch (this.state) {
                 case 0:
-                    lVar.skipBytes(lVar.dzt());
+                    lVar.skipBytes(lVar.dzu());
                     break;
                 case 1:
-                    if (!a(lVar, this.mor.data, 9)) {
+                    if (!a(lVar, this.moC.data, 9)) {
                         break;
                     } else {
-                        setState(dvz() ? 2 : 0);
+                        setState(dvA() ? 2 : 0);
                         break;
                     }
                 case 2:
-                    if (a(lVar, this.mor.data, Math.min(10, this.mov)) && a(lVar, (byte[]) null, this.mov)) {
-                        dvA();
-                        this.moq.o(this.mdD, this.mow);
+                    if (a(lVar, this.moC.data, Math.min(10, this.moG)) && a(lVar, (byte[]) null, this.moG)) {
+                        dvB();
+                        this.moB.o(this.mdO, this.moH);
                         setState(3);
                         break;
                     }
                     break;
                 case 3:
-                    int dzt = lVar.dzt();
-                    int i = this.payloadSize == -1 ? 0 : dzt - this.payloadSize;
+                    int dzu = lVar.dzu();
+                    int i = this.payloadSize == -1 ? 0 : dzu - this.payloadSize;
                     if (i > 0) {
-                        dzt -= i;
-                        lVar.setLimit(lVar.getPosition() + dzt);
+                        dzu -= i;
+                        lVar.setLimit(lVar.getPosition() + dzu);
                     }
-                    this.moq.I(lVar);
+                    this.moB.I(lVar);
                     if (this.payloadSize == -1) {
                         break;
                     } else {
-                        this.payloadSize -= dzt;
+                        this.payloadSize -= dzu;
                         if (this.payloadSize != 0) {
                             break;
                         } else {
-                            this.moq.dvp();
+                            this.moB.dvq();
                             setState(1);
                             break;
                         }
@@ -98,69 +98,69 @@ public final class p implements w {
 
     private void setState(int i) {
         this.state = i;
-        this.mmz = 0;
+        this.mmK = 0;
     }
 
     private boolean a(com.google.android.exoplayer2.util.l lVar, byte[] bArr, int i) {
-        int min = Math.min(lVar.dzt(), i - this.mmz);
+        int min = Math.min(lVar.dzu(), i - this.mmK);
         if (min <= 0) {
             return true;
         }
         if (bArr == null) {
             lVar.skipBytes(min);
         } else {
-            lVar.G(bArr, this.mmz, min);
+            lVar.G(bArr, this.mmK, min);
         }
-        this.mmz = min + this.mmz;
-        return this.mmz == i;
+        this.mmK = min + this.mmK;
+        return this.mmK == i;
     }
 
-    private boolean dvz() {
-        this.mor.setPosition(0);
-        int readBits = this.mor.readBits(24);
+    private boolean dvA() {
+        this.moC.setPosition(0);
+        int readBits = this.moC.readBits(24);
         if (readBits != 1) {
             Log.w("PesReader", "Unexpected start code prefix: " + readBits);
             this.payloadSize = -1;
             return false;
         }
-        this.mor.JU(8);
-        int readBits2 = this.mor.readBits(16);
-        this.mor.JU(5);
-        this.mow = this.mor.dvn();
-        this.mor.JU(2);
-        this.mos = this.mor.dvn();
-        this.mot = this.mor.dvn();
-        this.mor.JU(6);
-        this.mov = this.mor.readBits(8);
+        this.moC.JU(8);
+        int readBits2 = this.moC.readBits(16);
+        this.moC.JU(5);
+        this.moH = this.moC.dvo();
+        this.moC.JU(2);
+        this.moD = this.moC.dvo();
+        this.moE = this.moC.dvo();
+        this.moC.JU(6);
+        this.moG = this.moC.readBits(8);
         if (readBits2 == 0) {
             this.payloadSize = -1;
         } else {
-            this.payloadSize = ((readBits2 + 6) - 9) - this.mov;
+            this.payloadSize = ((readBits2 + 6) - 9) - this.moG;
         }
         return true;
     }
 
-    private void dvA() {
-        this.mor.setPosition(0);
-        this.mdD = -9223372036854775807L;
-        if (this.mos) {
-            this.mor.JU(4);
-            this.mor.JU(1);
-            long readBits = (this.mor.readBits(3) << 30) | (this.mor.readBits(15) << 15);
-            this.mor.JU(1);
-            long readBits2 = readBits | this.mor.readBits(15);
-            this.mor.JU(1);
-            if (!this.mou && this.mot) {
-                this.mor.JU(4);
-                this.mor.JU(1);
-                long readBits3 = (this.mor.readBits(3) << 30) | (this.mor.readBits(15) << 15);
-                this.mor.JU(1);
-                long readBits4 = readBits3 | this.mor.readBits(15);
-                this.mor.JU(1);
-                this.mjr.gI(readBits4);
-                this.mou = true;
+    private void dvB() {
+        this.moC.setPosition(0);
+        this.mdO = -9223372036854775807L;
+        if (this.moD) {
+            this.moC.JU(4);
+            this.moC.JU(1);
+            long readBits = (this.moC.readBits(3) << 30) | (this.moC.readBits(15) << 15);
+            this.moC.JU(1);
+            long readBits2 = readBits | this.moC.readBits(15);
+            this.moC.JU(1);
+            if (!this.moF && this.moE) {
+                this.moC.JU(4);
+                this.moC.JU(1);
+                long readBits3 = (this.moC.readBits(3) << 30) | (this.moC.readBits(15) << 15);
+                this.moC.JU(1);
+                long readBits4 = readBits3 | this.moC.readBits(15);
+                this.moC.JU(1);
+                this.mjC.gI(readBits4);
+                this.moF = true;
             }
-            this.mdD = this.mjr.gI(readBits2);
+            this.mdO = this.mjC.gI(readBits2);
         }
     }
 }

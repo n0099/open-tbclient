@@ -13,30 +13,30 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean kju = new AtomicBoolean(false);
-    private static List<Integer> kjv = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean kjG = new AtomicBoolean(false);
+    private static List<Integer> kjH = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!kjv.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!kjH.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!kjv.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!kjH.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
     }
 
     private static boolean b(int i, String str, a aVar) {
-        i uh;
-        if (kju.compareAndSet(false, true)) {
+        i ui;
+        if (kjG.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
-                final i aJm = i.aJm();
-                aJm.a(aVar);
+                final i aJn = i.aJn();
+                aJn.a(aVar);
                 if (aVar != null) {
                     aVar.onFail();
                 }
@@ -47,7 +47,7 @@ public class f {
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                             com.baidu.tbadk.core.dialog.a.this.dismiss();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, aJm));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, aJn));
                         }
                     });
                     aVar2.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.2
@@ -63,18 +63,18 @@ public class f {
                 }
             } else {
                 if (i == 3250017) {
-                    uh = i.aJn();
+                    ui = i.aJo();
                 } else if (i == 3250023) {
-                    uh = i.aJo();
+                    ui = i.aJp();
                 } else if (i == 3250024) {
-                    uh = new i(4, null);
+                    ui = new i(4, null);
                 } else {
-                    uh = i.uh(str);
+                    ui = i.ui(str);
                 }
-                uh.a(aVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, uh));
+                ui.a(aVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, ui));
             }
-            kju.set(false);
+            kjG.set(false);
             return true;
         }
         return false;
@@ -82,22 +82,22 @@ public class f {
 
     /* loaded from: classes.dex */
     public static abstract class a {
-        public abstract void Am(String str);
-
         public abstract void An(String str);
 
-        public abstract void bxG();
+        public abstract void Ao(String str);
+
+        public abstract void bxH();
 
         public void b(i.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof i.a) {
-                    Am(((i.a) cVar).authSid);
+                    An(((i.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof i.b) {
-                    An(((i.b) cVar).callbackKey);
+                    Ao(((i.b) cVar).callbackKey);
                     return;
                 } else {
-                    bxG();
+                    bxH();
                     return;
                 }
             }

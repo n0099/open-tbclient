@@ -4,17 +4,17 @@ import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public String euM;
-    public a evo;
+    public String euZ;
+    public a evB;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.euM = jSONObject.optString("task_h5url");
+                this.euZ = jSONObject.optString("task_h5url");
                 JSONObject optJSONObject = jSONObject.optJSONObject("anchor_info");
                 if (optJSONObject != null) {
-                    this.evo = new a();
-                    this.evo.parseJson(optJSONObject);
+                    this.evB = new a();
+                    this.evB.parseJson(optJSONObject);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

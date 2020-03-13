@@ -12,42 +12,42 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cci;
-    private boolean bLE;
-    private List<d> ccf = new ArrayList();
-    private Map<d, List<d>> ccg = new HashMap();
+    private static volatile c ccj;
+    private boolean bLF;
+    private List<d> ccg = new ArrayList();
     private Map<d, List<d>> cch = new HashMap();
+    private Map<d, List<d>> cci = new HashMap();
 
     public static c aik() {
-        if (cci == null) {
+        if (ccj == null) {
             synchronized (c.class) {
-                if (cci == null) {
-                    cci = new c();
+                if (ccj == null) {
+                    ccj = new c();
                 }
             }
         }
-        return cci;
+        return ccj;
     }
 
     public void initData() {
         B(aip());
-        this.bLE = true;
+        this.bLF = true;
     }
 
     public boolean ail() {
-        return this.bLE;
+        return this.bLF;
     }
 
     public List<d> aim() {
-        return this.ccf;
-    }
-
-    public Map<d, List<d>> ain() {
         return this.ccg;
     }
 
-    public Map<d, List<d>> aio() {
+    public Map<d, List<d>> ain() {
         return this.cch;
+    }
+
+    public Map<d, List<d>> aio() {
+        return this.cci;
     }
 
     private void B(JSONArray jSONArray) {
@@ -59,12 +59,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (bd = d.bd(optJSONObject)) != null) {
-                        this.ccf.add(bd);
+                        this.ccg.add(bd);
                         if (bd.ait()) {
-                            this.ccg.put(bd, bd.UB);
+                            this.cch.put(bd, bd.UB);
                             for (d dVar : bd.UB) {
                                 if (dVar.ait()) {
-                                    this.cch.put(dVar, dVar.UB);
+                                    this.cci.put(dVar, dVar.UB);
                                 }
                             }
                         }

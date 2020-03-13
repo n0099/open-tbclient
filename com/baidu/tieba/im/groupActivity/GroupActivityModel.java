@@ -8,21 +8,21 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes10.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int cGZ;
-    private RequestGetGroupActivityMessage hCm;
-    private RequestGetGroupActivityLocalMessage hCn;
-    private RequestDelGroupActivityMessage hCo;
-    private GroupActivityActivity hCp;
-    private GroupActivityData hCq;
+    private int cHa;
+    private RequestDelGroupActivityMessage hCA;
+    private GroupActivityActivity hCB;
+    private GroupActivityData hCC;
+    private RequestGetGroupActivityMessage hCy;
+    private RequestGetGroupActivityLocalMessage hCz;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.hCp = groupActivityActivity;
+        this.hCB = groupActivityActivity;
     }
 
-    public int bVI() {
+    public int bVJ() {
         return this.mFrom;
     }
 
@@ -30,15 +30,15 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int bVJ() {
-        return this.cGZ;
+    public int bVK() {
+        return this.cHa;
     }
 
     public void wy(int i) {
-        this.cGZ = i;
+        this.cHa = i;
     }
 
-    public long bVK() {
+    public long bVL() {
         return this.mGroupId;
     }
 
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.hCm = wz(i);
-        this.hCp.sendMessage(this.hCm);
+        this.hCy = wz(i);
+        this.hCB.sendMessage(this.hCy);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void wB(int i) {
-        this.hCn = wA(i);
-        this.hCp.sendMessage(this.hCn);
+        this.hCz = wA(i);
+        this.hCB.sendMessage(this.hCz);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.hCn;
+        return this.hCz;
     }
 
     public Message<?> getSendMsg() {
-        return this.hCm;
+        return this.hCy;
     }
 
-    public Message<?> bVL() {
-        return this.hCo;
+    public Message<?> bVM() {
+        return this.hCA;
     }
 
     public void r(long j, int i) {
-        this.hCo = new RequestDelGroupActivityMessage();
-        this.hCo.setActivityId(i);
-        this.hCo.setGroupId(j);
-        this.hCp.sendMessage(this.hCo);
+        this.hCA = new RequestDelGroupActivityMessage();
+        this.hCA.setActivityId(i);
+        this.hCA.setGroupId(j);
+        this.hCB.sendMessage(this.hCA);
     }
 
-    public GroupActivityData bVM() {
-        return this.hCq;
+    public GroupActivityData bVN() {
+        return this.hCC;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.hCq = groupActivityData;
+            this.hCC = groupActivityData;
         }
     }
 }

@@ -9,15 +9,15 @@ public interface m {
 
     void c(d dVar, boolean z);
 
-    float dMe();
-
-    int dMf();
+    float dMf();
 
     int dMg();
 
     int dMh();
 
     int dMi();
+
+    int dMj();
 
     float getDensity();
 

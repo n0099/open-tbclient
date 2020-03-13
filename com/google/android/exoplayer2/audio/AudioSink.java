@@ -10,14 +10,14 @@ public interface AudioSink {
     public interface a {
         void EU(int i);
 
-        void dtW();
+        void dtX();
 
         void i(int i, long j, long j2);
     }
 
     void Jf(int i);
 
-    boolean Pm(String str);
+    boolean Pn(String str);
 
     void a(a aVar);
 
@@ -31,15 +31,15 @@ public interface AudioSink {
 
     q d(q qVar);
 
-    q dsV();
+    q dsW();
 
-    void dtS();
+    void dtT();
 
-    void dtT() throws WriteException;
+    void dtU() throws WriteException;
 
-    boolean dtU();
+    boolean dtV();
 
-    void dtV();
+    void dtW();
 
     void pause();
 

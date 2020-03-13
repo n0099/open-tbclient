@@ -18,8 +18,8 @@ public class g {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.gL.add(list.get(i2).dHj().dGP());
-                this.gM.add(list.get(i2).dGV().dGP());
+                this.gL.add(list.get(i2).dHk().dGQ());
+                this.gM.add(list.get(i2).dGW().dGQ());
                 i = i2 + 1;
             } else {
                 return;

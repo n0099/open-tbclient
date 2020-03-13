@@ -8,19 +8,19 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
     private int aQA;
-    private ImageView aQx;
-    private Handler aQy;
-    private int aQz;
+    private int aQB;
+    private ImageView aQy;
+    private Handler aQz;
     private Context context;
     private String url;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aQy = handler;
+        this.aQz = handler;
         this.url = str;
-        this.aQx = imageView;
-        this.aQz = i;
-        this.aQA = i2;
+        this.aQy = imageView;
+        this.aQA = i;
+        this.aQB = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
@@ -58,9 +58,9 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap j = j(this.url, this.aQz, this.aQA);
-        if (this.aQy != null) {
-            this.aQy.obtainMessage(1, new f(this.aQx, this.url, j)).sendToTarget();
+        Bitmap j = j(this.url, this.aQA, this.aQB);
+        if (this.aQz != null) {
+            this.aQz.obtainMessage(1, new f(this.aQy, this.url, j)).sendToTarget();
         }
     }
 }

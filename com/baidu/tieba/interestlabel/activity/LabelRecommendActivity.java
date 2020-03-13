@@ -17,11 +17,11 @@ import com.baidu.tieba.interestlabel.view.b;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
-    private LabelSettingModel hUk;
-    private b hUl;
-    private a hUm = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
+    private LabelSettingModel hUw;
+    private b hUx;
+    private a hUy = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void caU() {
+        public void caV() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
@@ -30,20 +30,20 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
 
         @Override // com.baidu.tieba.interestlabel.model.a
         public void a(LabelRequestEnum labelRequestEnum, com.baidu.tieba.interestlabel.b.b bVar, int i) {
-            switch (AnonymousClass2.hUo[labelRequestEnum.ordinal()]) {
+            switch (AnonymousClass2.hUA[labelRequestEnum.ordinal()]) {
                 case 1:
-                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.hUl.getRootView());
-                    if (bVar == null || v.isEmpty(bVar.caX()) || v.isEmpty(bVar.caY())) {
-                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.hUl.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.hUx.getRootView());
+                    if (bVar == null || v.isEmpty(bVar.caY()) || v.isEmpty(bVar.caZ())) {
+                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.hUx.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
-                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.hUl.getRootView());
-                    LabelRecommendActivity.this.hUl.setData(bVar);
+                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.hUx.getRootView());
+                    LabelRecommendActivity.this.hUx.setData(bVar);
                     return;
                 case 2:
                     if (i == 0) {
                         com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
-                        LabelRecommendActivity.this.caT();
+                        LabelRecommendActivity.this.caU();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -58,15 +58,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     /* renamed from: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity$2  reason: invalid class name */
     /* loaded from: classes10.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] hUo = new int[LabelRequestEnum.values().length];
+        static final /* synthetic */ int[] hUA = new int[LabelRequestEnum.values().length];
 
         static {
             try {
-                hUo[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
+                hUA[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                hUo[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                hUA[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
         }
@@ -76,10 +76,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hUl = new b(this);
-        this.hUl.setOnClickListener(this);
-        this.hUk = new LabelSettingModel(getPageContext());
-        this.hUk.a(this.hUm);
+        this.hUx = new b(this);
+        this.hUx.setOnClickListener(this);
+        this.hUw = new LabelSettingModel(getPageContext());
+        this.hUw.a(this.hUy);
         if (getIntent() != null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
         }
@@ -89,37 +89,37 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     private void loadData() {
-        this.hUk.cba();
-        showLoadingView(this.hUl.getRootView(), true);
+        this.hUw.cbb();
+        showLoadingView(this.hUx.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.hUl.cbg()) {
+        if (view == this.hUx.cbh()) {
             TiebaStatic.log(new an("c12245").X("obj_type", this.mFrom));
             finish();
-        } else if (view == this.hUl.cbh()) {
-            this.hUk.dh(this.hUl.cbj());
+        } else if (view == this.hUx.cbi()) {
+            this.hUw.dh(this.hUx.cbk());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.hUl.getRootView());
+        hideNetRefreshView(this.hUx.getRootView());
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caT() {
-        List<Integer> cbj = this.hUl.cbj();
-        if (!v.isEmpty(cbj)) {
+    public void caU() {
+        List<Integer> cbk = this.hUx.cbk();
+        if (!v.isEmpty(cbk)) {
             StringBuilder sb = new StringBuilder();
-            int size = cbj.size();
+            int size = cbk.size();
             for (int i = 0; i < size; i++) {
-                if (cbj.get(i) != null) {
-                    sb.append(cbj.get(i));
+                if (cbk.get(i) != null) {
+                    sb.append(cbk.get(i));
                     if (i < size - 1) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.videoEasterEgg;
 /* loaded from: classes9.dex */
 public interface b {
-    void Ku(String str);
-
     void Kv(String str);
+
+    void Kw(String str);
 
     void Qu();
 

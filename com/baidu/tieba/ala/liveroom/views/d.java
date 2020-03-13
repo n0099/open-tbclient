@@ -24,11 +24,11 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d {
     private int count;
-    private ViewGroup fnS;
-    private ImageView fnT;
-    private TextView fnU;
-    private String fnV;
-    private Runnable fnW = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.d.1
+    private ViewGroup fof;
+    private ImageView fog;
+    private TextView foh;
+    private String foi;
+    private Runnable foj = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.d.1
         @Override // java.lang.Runnable
         public void run() {
             d.this.mHandler.removeCallbacks(this);
@@ -36,37 +36,37 @@ public class d {
                 d.this.mHandler.removeCallbacksAndMessages(null);
                 return;
             }
-            d.this.isShowLocation = d.this.brl();
-            d.this.brq();
+            d.this.isShowLocation = d.this.brm();
+            d.this.brr();
             d.this.mHandler.postDelayed(this, 3000L);
             d.d(d.this);
         }
     };
-    private CustomMessageListener fnX = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.d.2
+    private CustomMessageListener fok = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-                d.this.isShowLocation = d.this.brl();
+                d.this.isShowLocation = d.this.brm();
                 if (d.this.isShowLocation) {
-                    d.this.fnU.setText(a.i.ala_live_prepare_locating);
+                    d.this.foh.setText(a.i.ala_live_prepare_locating);
                 } else {
-                    d.this.fnU.setText(a.i.ala_live_prepare_locate_title);
+                    d.this.foh.setText(a.i.ala_live_prepare_locate_title);
                 }
             }
-            d.this.mHandler.postDelayed(d.this.fnW, 3000L);
+            d.this.mHandler.postDelayed(d.this.foj, 3000L);
         }
     };
-    private CustomMessageListener fnY = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.d.3
+    private CustomMessageListener fol = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.this.isShowLocation = d.this.brl();
-            d.this.brq();
-            if (d.this.brl()) {
+            d.this.isShowLocation = d.this.brm();
+            d.this.brr();
+            if (d.this.brm()) {
                 LocationInfo locationInfo = d.this.mLocation.getLocationInfo();
                 if (locationInfo == null || StringUtils.isNull(locationInfo.getCurCityName())) {
-                    d.this.fnU.setText(a.i.ala_live_prepare_locate_fail);
+                    d.this.foh.setText(a.i.ala_live_prepare_locate_fail);
                 }
             }
         }
@@ -85,44 +85,44 @@ public class d {
     public d(TbPageContext tbPageContext) {
         this.isShowLocation = true;
         this.mPageContext = tbPageContext;
-        this.isShowLocation = brl();
-        MessageManager.getInstance().registerListener(this.fnX);
-        MessageManager.getInstance().registerListener(this.fnY);
+        this.isShowLocation = brm();
+        MessageManager.getInstance().registerListener(this.fok);
+        MessageManager.getInstance().registerListener(this.fol);
         this.mHandler = new Handler();
     }
 
     public void an(ViewGroup viewGroup) {
-        this.fnS = viewGroup;
-        this.fnT = (ImageView) viewGroup.findViewById(a.g.ala_live_prepare_locate_img);
-        this.fnU = (TextView) viewGroup.findViewById(a.g.ala_live_prepare_locate_tv);
+        this.fof = viewGroup;
+        this.fog = (ImageView) viewGroup.findViewById(a.g.ala_live_prepare_locate_img);
+        this.foh = (TextView) viewGroup.findViewById(a.g.ala_live_prepare_locate_tv);
         this.mLocation = LocationManager.getInstance().buildLocation();
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isOther()) {
             if (!checkPermission()) {
-                brp();
-            } else {
                 brq();
+            } else {
+                brr();
             }
         } else {
-            brq();
+            brr();
         }
-        this.fnS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.d.4
+        this.fof.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.brn();
+                d.this.bro();
             }
         });
     }
 
-    public boolean brl() {
+    public boolean brm() {
         return UtilHelper.isSystemLocationProviderEnabled(this.mPageContext.getPageActivity());
     }
 
-    public boolean brm() {
-        return brl();
+    public boolean brn() {
+        return brm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bnk() {
+    public boolean bnl() {
         boolean z = false;
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
             com.baidu.live.c.pr().getBoolean("has_request_location", false);
@@ -147,23 +147,23 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brn() {
+    public void bro() {
         if (this.isShowLocation) {
             LogManager.getLiveRecordLogger().doClickLiveLocationAlreadyButtonLog("");
         } else {
             LogManager.getLiveRecordLogger().doClickLiveLocationAllowButtonLog("");
         }
-        if (!bnk()) {
+        if (!bnl()) {
             this.isShowLocation = !this.isShowLocation;
-            bro();
+            brp();
         }
     }
 
-    private void bro() {
-        brq();
+    private void brp() {
+        brr();
     }
 
-    private void brp() {
+    private void brq() {
         if (!com.baidu.live.c.pr().getBoolean("has_master_show_location_dialog", false)) {
             com.baidu.live.c.pr().putBoolean("has_master_show_location_dialog", true);
             BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
@@ -177,7 +177,7 @@ public class d {
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
-                    d.this.bnk();
+                    d.this.bnl();
                 }
             }).setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.d.5
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -190,35 +190,35 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brq() {
+    public void brr() {
         if (this.isShowLocation) {
             if (this.mLocation != null) {
                 LocationInfo locationInfo = this.mLocation.getLocationInfo();
                 if (locationInfo != null && !StringUtils.isNull(locationInfo.getCurCityName())) {
-                    this.fnU.setText(locationInfo.getCurCityName());
-                    this.fnV = locationInfo.getCurCityName();
+                    this.foh.setText(locationInfo.getCurCityName());
+                    this.foi = locationInfo.getCurCityName();
                 } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-                    this.fnU.setText(a.i.ala_live_prepare_locating);
+                    this.foh.setText(a.i.ala_live_prepare_locating);
                 } else {
-                    this.fnU.setText(a.i.ala_live_prepare_locate_opened_title);
+                    this.foh.setText(a.i.ala_live_prepare_locate_opened_title);
                 }
             } else {
-                this.fnU.setText(a.i.ala_live_prepare_locate_opened_title);
+                this.foh.setText(a.i.ala_live_prepare_locate_opened_title);
             }
         } else {
-            this.fnU.setText(a.i.ala_live_prepare_locate_title);
+            this.foh.setText(a.i.ala_live_prepare_locate_title);
         }
-        this.fnT.setSelected(!this.isShowLocation);
-        this.fnU.setTextColor(this.isShowLocation ? this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_g) : this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
+        this.fog.setSelected(!this.isShowLocation);
+        this.foh.setTextColor(this.isShowLocation ? this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_g) : this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
     }
 
-    public void brr() {
-        this.isShowLocation = brl();
-        brq();
+    public void brs() {
+        this.isShowLocation = brm();
+        brr();
     }
 
-    public String brs() {
-        return this.fnV;
+    public String brt() {
+        return this.foi;
     }
 
     public boolean isShowLocation() {
@@ -226,8 +226,8 @@ public class d {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.fnX);
-        MessageManager.getInstance().unRegisterListener(this.fnY);
+        MessageManager.getInstance().unRegisterListener(this.fok);
+        MessageManager.getInstance().unRegisterListener(this.fol);
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

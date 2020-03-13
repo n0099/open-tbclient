@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static boolean isShowing = false;
-    private static final long byl = TimeUnit.SECONDS.toMillis(1);
+    private static final long bym = TimeUnit.SECONDS.toMillis(1);
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.ap.a aVar, int i, String str) {
         a(context, aVar, i, str, false);
@@ -136,7 +136,7 @@ public class a {
             e.abu().a(new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.x.a.a.1
                 @Override // com.baidu.swan.apps.process.messaging.service.a
                 public void b(String str3, com.baidu.swan.apps.process.messaging.service.c cVar) {
-                    if (cVar.bJz.index == i && K.contains(str3)) {
+                    if (cVar.bJA.index == i && K.contains(str3)) {
                         e.abu().a(this);
                         a.aQ(str, str2);
                     }
@@ -146,7 +146,7 @@ public class a {
                 public void Vp() {
                     a.aQ(str, str2);
                 }
-            }, byl);
+            }, bym);
         }
     }
 

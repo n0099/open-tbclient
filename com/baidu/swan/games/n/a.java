@@ -31,10 +31,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = b.DEBUG;
-    private static final Set<String> bSl = new HashSet();
+    private static final Set<String> bSm = new HashSet();
 
     static {
-        bSl.add("_baiduboxapp");
+        bSm.add("_baiduboxapp");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -161,7 +161,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String j(Uri uri) {
-        return ag.deleteQueryParam(uri.getQuery(), bSl);
+        return ag.deleteQueryParam(uri.getQuery(), bSm);
     }
 
     private void a(final c cVar, String str, Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
@@ -194,8 +194,8 @@ public class a extends UnitedSchemeBaseInterceptor {
                             @Override // com.baidu.swan.apps.t.b
                             public void a(int i, com.baidu.swan.apps.t.a aVar) {
                                 a.b bVar = (a.b) aVar;
-                                if (i == 0 && bVar != null && bVar.cps != null) {
-                                    cVar.fi(bVar.cps.crf);
+                                if (i == 0 && bVar != null && bVar.cpt != null) {
+                                    cVar.fi(bVar.cpt.crg);
                                     Intent a = c.a(applicationContext, cVar);
                                     a.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
                                     a.setFlags(268435456);

@@ -14,12 +14,12 @@ public class n {
     private static int everyDayUser = 0;
     private static int everyDayDevice = 0;
     private static int deviceNotClick = 0;
-    private static boolean aDL = false;
-    private static HashMap<Long, Integer> aDM = new HashMap<>();
+    private static boolean aDM = false;
+    private static HashMap<Long, Integer> aDN = new HashMap<>();
 
     private static void init() {
-        if (com.baidu.live.v.a.zl().awB.aaU != null) {
-            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.zl().awB.aaU;
+        if (com.baidu.live.v.a.zl().awC.aaU != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.zl().awC.aaU;
             if (alaFeedDiversionData.frequencyData != null) {
                 AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
                 startEveryLive = alaFrequencyData.startEveryLive;
@@ -37,7 +37,7 @@ public class n {
         if (startEveryLive <= 0) {
             return false;
         }
-        if (aDM.containsKey(Long.valueOf(j)) && aDM.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+        if (aDN.containsKey(Long.valueOf(j)) && aDN.get(Long.valueOf(j)).intValue() >= startEveryLive) {
             return false;
         }
         return true;
@@ -64,10 +64,10 @@ public class n {
 
     public static void P(long j) {
         Integer num = 0;
-        if (aDM.containsKey(Long.valueOf(j))) {
-            num = aDM.get(Long.valueOf(j));
+        if (aDN.containsKey(Long.valueOf(j))) {
+            num = aDN.get(Long.valueOf(j));
         }
-        aDM.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        aDN.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
         JSONObject Bf = Bf();
         String b = j.b(new Date());
         JSONObject optJSONObject = Bf.optJSONObject(b);
@@ -127,9 +127,9 @@ public class n {
 
     public static boolean Q(long j) {
         boolean O;
-        if (!aDL && (O = O(j))) {
-            aDL = (Bd() && Be()) ? false : true;
-            return O & (aDL ? false : true);
+        if (!aDM && (O = O(j))) {
+            aDM = (Bd() && Be()) ? false : true;
+            return O & (aDM ? false : true);
         }
         return false;
     }

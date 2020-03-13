@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0400a dSv;
-    private long dSw;
-    private long dSx;
-    private boolean dSy;
-    private boolean dSz;
+    private InterfaceC0400a dSI;
+    private long dSJ;
+    private long dSK;
+    private boolean dSL;
+    private boolean dSM;
     private float mDownX;
     private float mDownY;
     private int mMaximumVelocity;
@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0400a {
-        void aVl();
-
         void aVm();
+
+        void aVn();
 
         void u(float f, float f2);
     }
@@ -48,40 +48,40 @@ public class a {
             case 0:
                 this.mDownX = motionEvent.getX();
                 this.mDownY = motionEvent.getY();
-                this.dSw = System.currentTimeMillis();
-                this.dSy = true;
+                this.dSJ = System.currentTimeMillis();
+                this.dSL = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.dSw < 100 && currentTimeMillis - this.dSx < 500) {
-                    this.dSz = true;
+                if (currentTimeMillis - this.dSJ < 100 && currentTimeMillis - this.dSK < 500) {
+                    this.dSM = true;
                 } else {
-                    this.dSz = false;
+                    this.dSM = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                 if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.mDownY - motionEvent.getY()) > 50.0f) {
-                    this.dSz = false;
-                    this.dSy = false;
+                    this.dSM = false;
+                    this.dSL = false;
                 }
-                if (this.dSz) {
-                    if (this.dSv != null) {
-                        this.dSv.u(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.dSM) {
+                    if (this.dSI != null) {
+                        this.dSI.u(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.dSv != null) {
-                    this.dSv.aVm();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.dSI != null) {
+                    this.dSI.aVn();
                 }
-                if (!this.dSz && this.dSy && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
+                if (!this.dSM && this.dSL && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.dSz && a.this.dSy && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.dSv != null) {
-                                a.this.dSv.aVl();
+                            if (!a.this.dSM && a.this.dSL && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.dSI != null) {
+                                a.this.dSI.aVm();
                             }
                         }
                     }, 300L);
                 }
-                this.dSx = currentTimeMillis;
+                this.dSK = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0400a interfaceC0400a) {
-        this.dSv = interfaceC0400a;
+        this.dSI = interfaceC0400a;
     }
 
     private void releaseVelocityTracker() {

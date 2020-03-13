@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes11.dex */
 public class c {
-    private static final char[] cfK = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] cfL = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String nA(String str) {
         Signature nB = nB(str);
@@ -35,8 +35,8 @@ public class c {
         char[] cArr = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
             byte b = bArr[i];
-            cArr[i * 2] = cfK[(b >>> 4) & 15];
-            cArr[(i * 2) + 1] = cfK[b & 15];
+            cArr[i * 2] = cfL[(b >>> 4) & 15];
+            cArr[(i * 2) + 1] = cfL[b & 15];
         }
         return new String(cArr);
     }

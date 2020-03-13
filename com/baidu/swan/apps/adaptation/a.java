@@ -5,14 +5,14 @@ import com.baidu.swan.apps.adaptation.a.g;
 import com.baidu.swan.bdprivate.a.t;
 /* loaded from: classes7.dex */
 public class a {
-    private g bbg;
+    private g bbh;
 
     @NonNull
     public g GV() {
-        if (this.bbg == null) {
-            this.bbg = GW();
+        if (this.bbh == null) {
+            this.bbh = GW();
         }
-        return this.bbg;
+        return this.bbh;
     }
 
     public g GW() {

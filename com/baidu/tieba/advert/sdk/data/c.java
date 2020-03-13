@@ -10,11 +10,11 @@ public class c {
     public c(Context context) {
     }
 
-    public String aZj() {
+    public String aZk() {
         return this.mSharedPreferences.getString("splash", "");
     }
 
-    public void xA(String str) {
+    public void xB(String str) {
         SharedPreferences.Editor edit = this.mSharedPreferences.edit();
         edit.putString("splash", str);
         edit.commit();

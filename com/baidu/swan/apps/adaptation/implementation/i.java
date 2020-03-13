@@ -19,8 +19,8 @@ import org.json.JSONObject;
 public class i implements ac {
     private static final String TAG = i.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bbs = 0;
-    private static int bbt = 1;
+    private static int bbt = 0;
+    private static int bbu = 1;
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(@NonNull String str, @NonNull String str2, @NonNull final a.InterfaceC0269a interfaceC0269a) {
@@ -52,7 +52,7 @@ public class i implements ac {
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(@NonNull String str, @Nullable String str2, @Nullable String str3, com.baidu.swan.apps.o.b bVar) {
-        String dU = dU(bbs);
+        String dU = dU(bbt);
         PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(dU)).cookieManager(com.baidu.swan.apps.w.a.Uu().Iu())).addParam("appkey", str);
         if (str2 != null) {
             addParam.addParam("template_id", str2);
@@ -65,7 +65,7 @@ public class i implements ac {
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(String str, com.baidu.swan.apps.ae.a.a aVar) {
-        a(dU(bbt), str, aVar);
+        a(dU(bbu), str, aVar);
     }
 
     private String dU(int i) {
@@ -74,7 +74,7 @@ public class i implements ac {
         String str;
         String str2;
         String str3 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        if (i == bbs) {
+        if (i == bbt) {
             sb = new StringBuilder(HG());
             str = "rasign=" + com.baidu.swan.apps.h.b.Lb().ac(seconds);
             str2 = "delta=smartapp_formid";
@@ -98,10 +98,10 @@ public class i implements ac {
     /* loaded from: classes11.dex */
     public static class a extends ResponseCallback<JSONObject> {
         @Nullable
-        private final com.baidu.swan.apps.ai.a bbw;
+        private final com.baidu.swan.apps.ai.a bbx;
 
         a(@Nullable com.baidu.swan.apps.ai.a aVar) {
-            this.bbw = aVar;
+            this.bbx = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,11 +124,11 @@ public class i implements ac {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (this.bbw != null) {
+            if (this.bbx != null) {
                 if (jSONObject == null) {
-                    this.bbw.onFail("request fail");
+                    this.bbx.onFail("request fail");
                 } else {
-                    this.bbw.K(jSONObject);
+                    this.bbx.K(jSONObject);
                 }
             }
         }
@@ -138,21 +138,21 @@ public class i implements ac {
             if (i.DEBUG) {
                 Log.e(i.TAG, "SimpleResponseCallback", exc);
             }
-            if (this.bbw != null) {
-                this.bbw.onFail(exc.toString());
+            if (this.bbx != null) {
+                this.bbx.onFail(exc.toString());
             }
         }
     }
 
     public static String HG() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/new", com.baidu.swan.apps.h.c.bjE));
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/new", com.baidu.swan.apps.h.c.bjF));
     }
 
     public static String HH() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/payid/new", com.baidu.swan.apps.h.c.bjE));
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/payid/new", com.baidu.swan.apps.h.c.bjF));
     }
 
     public static String HI() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/msgtpl", com.baidu.swan.apps.h.c.bjE));
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/formid/msgtpl", com.baidu.swan.apps.h.c.bjF));
     }
 }

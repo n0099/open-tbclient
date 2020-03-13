@@ -4,46 +4,46 @@ import android.content.Context;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItemView {
-    private short fgu;
-    private int fgv;
-    private int fgw;
+    private short fgH;
+    private int fgI;
+    private int fgJ;
 
     public AlaMasterOperationSwitchItemView(Context context, int i) {
         super(context, i);
-        this.fgu = (short) 1;
+        this.fgH = (short) 1;
     }
 
     public void setTextResIdAndOnIconIdAndOffIconId(int i, int i2, int i3) {
         setTextResId(i);
-        this.fgv = i2;
-        this.fgw = i3;
-        boS();
-    }
-
-    public void h(short s) {
-        this.fgu = s;
-        boS();
+        this.fgI = i2;
+        this.fgJ = i3;
         boT();
     }
 
-    private void boS() {
-        if (this.fgu == 1) {
-            setIconResId(this.fgv);
+    public void h(short s) {
+        this.fgH = s;
+        boT();
+        boU();
+    }
+
+    private void boT() {
+        if (this.fgH == 1) {
+            setIconResId(this.fgI);
             setEnabled(true);
-        } else if (this.fgu == 2) {
-            setIconResId(this.fgw);
+        } else if (this.fgH == 2) {
+            setIconResId(this.fgJ);
             setEnabled(true);
         } else {
-            setIconResId(this.fgv);
+            setIconResId(this.fgI);
             setEnabled(false);
         }
     }
 
-    private void boT() {
+    private void boU() {
         if (this.mId == 3) {
-            if (this.fgu == 1) {
+            if (this.fgH == 1) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_on);
-            } else if (this.fgu == 2) {
+            } else if (this.fgH == 2) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_off);
             }
         }

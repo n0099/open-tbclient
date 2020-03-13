@@ -23,7 +23,7 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cfd;
+    private a cfe;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -56,11 +56,11 @@ public class BdContextMenuView extends FrameLayout implements a.b {
             Log.d("BdContextMenuView", "layout menu view");
         }
         if (!this.mMenuLoaded) {
-            if (this.cfd == null) {
-                this.cfd = new a(this.mContext, list);
-                this.mListView.setAdapter((ListAdapter) this.cfd);
+            if (this.cfe == null) {
+                this.cfe = new a(this.mContext, list);
+                this.mListView.setAdapter((ListAdapter) this.cfe);
             } else {
-                this.cfd.setData(list);
+                this.cfe.setData(list);
             }
             this.mMenuLoaded = true;
         }
@@ -78,7 +78,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.bdprivate.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.cfd.onItemClicked(i);
+                BdContextMenuView.this.cfe.onItemClicked(i);
             }
         });
     }

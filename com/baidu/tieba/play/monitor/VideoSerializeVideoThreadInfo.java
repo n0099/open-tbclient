@@ -87,7 +87,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
 
     public void copyFromTransmitThreadData(bj bjVar) {
         if (bjVar != null) {
-            OriginalThreadInfo originalThreadInfo = bjVar.cTQ;
+            OriginalThreadInfo originalThreadInfo = bjVar.cTR;
             VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
             if (originalThreadInfo.author != null) {
                 videoAggregationAuthorData.userId = String.valueOf(originalThreadInfo.author.id);
@@ -133,8 +133,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.playCount = originalThreadInfo.videoInfo.play_count.intValue();
             }
             this.video = videoAggregationVideoData;
-            if (bjVar.cUa != null) {
-                this.forumId = bjVar.cUa.id;
+            if (bjVar.cUb != null) {
+                this.forumId = bjVar.cUb.id;
             }
             if (originalThreadInfo != null) {
                 this.threadId = originalThreadInfo.threadId;
@@ -209,8 +209,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.video = videoAggregationVideoData;
             this.forumId = String.valueOf(bjVar.getFid());
             this.threadId = bjVar.getId();
-            if (bjVar.cUa != null) {
-                this.forumId = bjVar.cUa.id;
+            if (bjVar.cUb != null) {
+                this.forumId = bjVar.cUb.id;
             }
             this.firstPostId = bjVar.aBY();
             this.createTime = String.valueOf(bjVar.getCreateTime());

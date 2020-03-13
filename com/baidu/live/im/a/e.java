@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.aqz);
+        super(context, com.baidu.live.im.a.aqA);
     }
 
     @Override // com.baidu.live.im.a.b
@@ -62,7 +62,7 @@ public class e extends b {
                     wR();
                 }
             }
-            cVar.aqO.setText(spannableStringBuilder);
+            cVar.aqP.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }

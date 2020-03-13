@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fQq = BdUniqueId.gen();
-    private ScoreCardInfo fQr;
+    public static final BdUniqueId fQD = BdUniqueId.gen();
+    private ScoreCardInfo fQE;
 
     public void a(ScoreCardInfo scoreCardInfo) {
-        this.fQr = scoreCardInfo;
+        this.fQE = scoreCardInfo;
     }
 
-    public ScoreCardInfo bwF() {
-        return this.fQr;
+    public ScoreCardInfo bwG() {
+        return this.fQE;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fQq;
+        return fQD;
     }
 }

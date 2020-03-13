@@ -38,7 +38,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.f.a.b;
+import com.baidu.tbadk.core.util.e.a.b;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.core.view.UserIconBox;
@@ -268,7 +268,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (this.Nj != null && bjVar != null && this.KJ.aCo() != null) {
             this.Nj.setBigVDimenSize(R.dimen.tbds32);
             if (!UtilHelper.showHeadBjhBigVIcon(this.Nj, this.KJ.aCo(), 0)) {
-                if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
+                if (this.KJ.cTP > 0 && this.KJ.cTQ == 0) {
                     this.Nj.fQ(false);
                 } else {
                     this.Nj.a(this.KJ.aCo(), 0);
@@ -296,14 +296,14 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         nu();
         d(bjVar);
         setVisibility(0);
-        if (isShow(128) && !bjVar.cUr && !bjVar.aEb()) {
+        if (isShow(128) && !bjVar.cUs && !bjVar.aEb()) {
             this.Ny.post(this.ND);
         }
     }
 
     private void d(bj bjVar) {
         if (isShow(4096) && bjVar != null && this.Nt != null) {
-            if (bjVar.cUm) {
+            if (bjVar.cUn) {
                 this.Nt.setVisibility(0);
             } else {
                 this.Nt.setVisibility(8);
@@ -315,11 +315,11 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (bjVar != null && bjVar.aCo() != null) {
             String userId = bjVar.aCo().getUserId();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUr && !TextUtils.equals(userId, currentAccount)) {
+            if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUs && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
-            } else if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUs && !bjVar.aCo().hadConcerned() && !TextUtils.equals(userId, currentAccount)) {
+            } else if ((bjVar.aEf() || bjVar.aBd() || bjVar.aBe()) && bjVar.cUt && !bjVar.aCo().hadConcerned() && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
-            } else if (bjVar.aCH() != null && j.aa(bjVar) && bjVar.cUr && !TextUtils.equals(userId, currentAccount)) {
+            } else if (bjVar.aCH() != null && j.aa(bjVar) && bjVar.cUs && !TextUtils.equals(userId, currentAccount)) {
                 this.NC |= 2048;
             } else {
                 this.NC &= -2049;
@@ -329,7 +329,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
             } else {
                 this.NC &= -4097;
             }
-            if (bjVar.cUr && !bjVar.aEi()) {
+            if (bjVar.cUs && !bjVar.aEi()) {
                 this.NC &= -129;
             } else {
                 this.NC |= 128;
@@ -385,7 +385,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void h(bj bjVar) {
         if (this.Nl != null && bjVar != null) {
-            if (bjVar.cUr || bjVar.aEb()) {
+            if (bjVar.cUs || bjVar.aEb()) {
                 ViewGroup.LayoutParams layoutParams = this.Ny.getLayoutParams();
                 layoutParams.width = this.tbds580;
                 this.Ny.setLayoutParams(layoutParams);
@@ -414,7 +414,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (this.Nq != null) {
             if (bjVar == null || (!isShow(8) && !isShow(512))) {
                 this.Nq.setVisibility(8);
-            } else if (this.KJ.getType() == bj.cTd) {
+            } else if (this.KJ.getType() == bj.cTe) {
                 this.Nq.setVisibility(0);
                 this.Nq.getPaint().setFakeBoldText(true);
                 am.setViewTextColor(this.Nq, (int) R.color.cp_cont_b);
@@ -443,7 +443,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
         if (this.Nn != null) {
             if (!isShow(32)) {
                 this.Nn.setVisibility(8);
-            } else if (bjVar == null || bjVar.aCo() == null || (bjVar.cTO > 0 && bjVar.cTP == 0)) {
+            } else if (bjVar == null || bjVar.aCo() == null || (bjVar.cTP > 0 && bjVar.cTQ == 0)) {
                 this.Nn.setVisibility(8);
             } else {
                 ArrayList<IconData> iconInfo = bjVar.aCo().getIconInfo();
@@ -463,7 +463,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void nt() {
         if (this.KJ != null && this.KJ.aCo() != null) {
-            if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
+            if (this.KJ.cTP > 0 && this.KJ.cTQ == 0) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_f);
             } else if (!v.isEmpty(this.KJ.aCo().getTShowInfoNew()) || this.KJ.aCo().isBigV()) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_h);
@@ -495,7 +495,7 @@ public class CardUserInfoLayout extends LinearLayout implements n {
             if (aCo.getIs_bawu() == 1) {
                 am.setBackgroundResource(this.Nm, R.drawable.brand_official_btn);
                 am.setViewTextColor(this.Nm, (int) R.color.cp_cont_a);
-                if (bjVar.cUb) {
+                if (bjVar.cUc) {
                     this.Nm.setVisibility(0);
                     this.Nm.setText(R.string.brand_Official);
                 } else if (Config.BAWU_TYPE_MANAGER.equals(aCo.getBawu_type())) {
@@ -643,8 +643,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void nw() {
         this.tbds6 = l.getDimens(this.mContext, R.dimen.tbds6);
-        this.Nu = new LayerDrawable(new Drawable[]{b.aHb().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHd(), b.aHb().kB(0).af(this.tbds6).tM("#4D000000").aHd()});
-        this.Nv = new LayerDrawable(new Drawable[]{b.aHb().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHd(), b.aHb().kB(0).af(this.tbds6).tM("#4D000000").aHd()});
+        this.Nu = new LayerDrawable(new Drawable[]{b.aHc().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHe(), b.aHc().kB(0).af(this.tbds6).tN("#4D000000").aHe()});
+        this.Nv = new LayerDrawable(new Drawable[]{b.aHc().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHe(), b.aHc().kB(0).af(this.tbds6).tN("#4D000000").aHe()});
     }
 
     public RelativeLayout getSuffixContainer() {

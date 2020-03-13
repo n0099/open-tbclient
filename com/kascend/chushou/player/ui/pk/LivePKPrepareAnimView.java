@@ -15,8 +15,8 @@ public class LivePKPrepareAnimView extends RelativeLayout {
     private ImageView b;
     private io.reactivex.disposables.b d;
     private int[] e;
-    private AnimationSet ndT;
-    private a ndU;
+    private AnimationSet nee;
+    private a nef;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -51,7 +51,7 @@ public class LivePKPrepareAnimView extends RelativeLayout {
         inflate(context, a.h.layout_live_pk_prepare_anim_view, this);
         this.a = (TextView) findViewById(a.f.tv_live_pk_prepare);
         this.b = (ImageView) findViewById(a.f.img_live_pk_prepare);
-        this.ndT = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0690a.pk_live_online_count_down_last_three);
+        this.nee = (AnimationSet) AnimationUtils.loadAnimation(context, a.C0690a.pk_live_online_count_down_last_three);
     }
 
     private void b() {
@@ -60,14 +60,14 @@ public class LivePKPrepareAnimView extends RelativeLayout {
 
     public void a(final long j) {
         if (j <= 0) {
-            if (this.ndU != null) {
-                this.ndU.a();
+            if (this.nef != null) {
+                this.nef.a();
                 return;
             }
             return;
         }
         setVisibility(0);
-        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dJi()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
+        this.d = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dJj()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKPrepareAnimView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -81,12 +81,12 @@ public class LivePKPrepareAnimView extends RelativeLayout {
                         LivePKPrepareAnimView.this.a.setVisibility(8);
                         LivePKPrepareAnimView.this.b.setVisibility(0);
                         LivePKPrepareAnimView.this.b.setImageResource(LivePKPrepareAnimView.this.e[longValue - 1]);
-                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.ndT);
+                        LivePKPrepareAnimView.this.b.startAnimation(LivePKPrepareAnimView.this.nee);
                     }
                 } else if (longValue <= 0) {
                     LivePKPrepareAnimView.this.a();
-                    if (LivePKPrepareAnimView.this.ndU != null) {
-                        LivePKPrepareAnimView.this.ndU.a();
+                    if (LivePKPrepareAnimView.this.nef != null) {
+                        LivePKPrepareAnimView.this.nef.a();
                     }
                 }
             }
@@ -105,6 +105,6 @@ public class LivePKPrepareAnimView extends RelativeLayout {
     }
 
     public void setCallBack(a aVar) {
-        this.ndU = aVar;
+        this.nef = aVar;
     }
 }

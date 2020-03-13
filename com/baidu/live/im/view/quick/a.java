@@ -26,13 +26,13 @@ import com.baidu.live.u.a;
 import com.baidu.live.view.Switch;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private ImBarrageItemView auj;
-    private ImBarrageOptionListView aul;
-    private Switch aum;
-    private InterfaceC0089a avF;
-    private View avG;
-    private FlexLayout avH;
-    private b avI;
+    private ImBarrageItemView auk;
+    private ImBarrageOptionListView aum;
+    private Switch aun;
+    private InterfaceC0089a avG;
+    private View avH;
+    private FlexLayout avI;
+    private b avJ;
     private View mContentView;
 
     /* renamed from: com.baidu.live.im.view.quick.a$a  reason: collision with other inner class name */
@@ -55,7 +55,7 @@ public class a extends Dialog {
     }
 
     public void a(InterfaceC0089a interfaceC0089a) {
-        this.avF = interfaceC0089a;
+        this.avG = interfaceC0089a;
     }
 
     public void m(String[] strArr) {
@@ -68,9 +68,9 @@ public class a extends Dialog {
                 @Override // java.lang.Runnable
                 public void run() {
                     ViewGroup.LayoutParams layoutParams;
-                    if (a.this.avH != null && (layoutParams = a.this.avH.getLayoutParams()) != null) {
-                        layoutParams.height = a.this.avH.realHeight;
-                        a.this.avH.setLayoutParams(layoutParams);
+                    if (a.this.avI != null && (layoutParams = a.this.avI.getLayoutParams()) != null) {
+                        layoutParams.height = a.this.avI.realHeight;
+                        a.this.avI.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -81,36 +81,36 @@ public class a extends Dialog {
         ViewGroup.LayoutParams layoutParams;
         Window window = getWindow();
         if (window != null) {
-            if (this.avH != null && (layoutParams = this.avH.getLayoutParams()) != null) {
+            if (this.avI != null && (layoutParams = this.avI.getLayoutParams()) != null) {
                 layoutParams.height = -2;
-                this.avH.setLayoutParams(layoutParams);
+                this.avI.setLayoutParams(layoutParams);
             }
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.width = -1;
             window.setAttributes(attributes);
             if (i == 2) {
-                this.auj.setVisibility(4);
+                this.auk.setVisibility(4);
                 if (this.mContentView != null) {
                     this.mContentView.post(new Runnable() { // from class: com.baidu.live.im.view.quick.a.2
                         @Override // java.lang.Runnable
                         public void run() {
                             ViewGroup.LayoutParams layoutParams2;
-                            if (a.this.avH != null && (layoutParams2 = a.this.avH.getLayoutParams()) != null) {
-                                layoutParams2.height = a.this.avH.realHeight;
-                                a.this.avH.setLayoutParams(layoutParams2);
+                            if (a.this.avI != null && (layoutParams2 = a.this.avI.getLayoutParams()) != null) {
+                                layoutParams2.height = a.this.avI.realHeight;
+                                a.this.avI.setLayoutParams(layoutParams2);
                             }
                         }
                     });
                 }
-            } else if (this.aum != null && this.aum.isChecked()) {
-                this.auj.setVisibility(0);
+            } else if (this.aun != null && this.aun.isChecked()) {
+                this.auk.setVisibility(0);
             }
         }
     }
 
     public void yj() {
-        if (this.aul != null) {
-            this.aul.i(r.sx().sz());
+        if (this.aum != null) {
+            this.aum.i(r.sx().sz());
         }
     }
 
@@ -139,22 +139,22 @@ public class a extends Dialog {
         setCanceledOnTouchOutside(true);
         this.mContentView = LayoutInflater.from(getContext()).inflate(a.h.ala_im_quick_input_list, (ViewGroup) null);
         setContentView(this.mContentView);
-        this.auj = (ImBarrageItemView) findViewById(a.g.barrage_preview);
-        this.avG = findViewById(a.g.layout_barrage);
-        this.aum = (Switch) findViewById(a.g.switch_barrage);
-        this.aul = (ImBarrageOptionListView) findViewById(a.g.hlv_barrage_option);
-        this.avH = (FlexLayout) findViewById(a.g.flex);
-        this.aum.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.im.view.quick.a.3
+        this.auk = (ImBarrageItemView) findViewById(a.g.barrage_preview);
+        this.avH = findViewById(a.g.layout_barrage);
+        this.aun = (Switch) findViewById(a.g.switch_barrage);
+        this.aum = (ImBarrageOptionListView) findViewById(a.g.hlv_barrage_option);
+        this.avI = (FlexLayout) findViewById(a.g.flex);
+        this.aun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.im.view.quick.a.3
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 a.this.aX(z);
             }
         });
-        this.aul.setSelectEnabled(false);
-        this.aul.setCallback(new ImBarrageOptionListView.a() { // from class: com.baidu.live.im.view.quick.a.4
+        this.aum.setSelectEnabled(false);
+        this.aum.setCallback(new ImBarrageOptionListView.a() { // from class: com.baidu.live.im.view.quick.a.4
             @Override // com.baidu.live.im.view.barrage.ImBarrageOptionListView.a
             public boolean xn() {
-                return a.this.avF != null && a.this.avF.xn();
+                return a.this.avG != null && a.this.avG.xn();
             }
 
             @Override // com.baidu.live.im.view.barrage.ImBarrageOptionListView.a
@@ -162,16 +162,16 @@ public class a extends Dialog {
                 a.this.aY(false);
             }
         });
-        this.avH.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds20));
-        this.avH.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds24));
-        this.avH.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.im.view.quick.a.5
+        this.avI.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds20));
+        this.avI.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds24));
+        this.avI.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.im.view.quick.a.5
             @Override // com.baidu.live.tbadk.widget.flex.FlexLayout.OnItemClickListener
             public void onItemClick(FlexLayout flexLayout, View view, int i) {
                 bb bbVar;
-                if (a.this.avF != null) {
-                    if (a.this.avG.getVisibility() == 0 && a.this.aum.isChecked()) {
-                        bb selectInfo = a.this.aul.getSelectInfo();
-                        if (selectInfo != null && selectInfo.type == 16 && (a.this.avF == null || !a.this.avF.xn())) {
+                if (a.this.avG != null) {
+                    if (a.this.avH.getVisibility() == 0 && a.this.aun.isChecked()) {
+                        bb selectInfo = a.this.aum.getSelectInfo();
+                        if (selectInfo != null && selectInfo.type == 16 && (a.this.avG == null || !a.this.avG.xn())) {
                             BdUtilHelper.showToast(a.this.getContext().getApplicationContext(), a.i.sdk_throne_disabled_alert);
                             return;
                         }
@@ -179,7 +179,7 @@ public class a extends Dialog {
                     } else {
                         bbVar = null;
                     }
-                    a.this.avF.a(i, a.this.avI.getItem(i), bbVar);
+                    a.this.avG.a(i, a.this.avJ.getItem(i), bbVar);
                 }
             }
         });
@@ -189,19 +189,19 @@ public class a extends Dialog {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.im.view.quick.a.6
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.avF != null) {
-                    a.this.avF.xm();
+                if (a.this.avG != null) {
+                    a.this.avG.xm();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.im.view.quick.a.7
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.auj != null) {
-                    a.this.auj.release();
+                if (a.this.auk != null) {
+                    a.this.auk.release();
                 }
-                if (a.this.avF != null) {
-                    a.this.avF.onDismiss();
+                if (a.this.avG != null) {
+                    a.this.avG.onDismiss();
                 }
             }
         });
@@ -209,75 +209,75 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aX(boolean z) {
-        if (z && this.avF != null && !this.avF.ws()) {
-            this.aum.setChecked(false, false);
+        if (z && this.avG != null && !this.avG.ws()) {
+            this.aun.setChecked(false, false);
         } else if (z) {
-            this.aul.setSwitchStatus(true);
+            this.aum.setSwitchStatus(true);
             if (!TextUtils.isEmpty(k.wA().wD())) {
-                this.aul.setSelectId(k.wA().wD());
+                this.aum.setSelectId(k.wA().wD());
             } else {
-                this.aul.setSelectPos(0);
+                this.aum.setSelectPos(0);
             }
-            this.aul.setSelectEnabled(true);
+            this.aum.setSelectEnabled(true);
             aY(true);
         } else {
-            this.aul.setSwitchStatus(false);
-            this.aul.setSelectEnabled(false);
-            this.auj.setVisibility(4);
+            this.aum.setSwitchStatus(false);
+            this.aum.setSelectEnabled(false);
+            this.auk.setVisibility(4);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aY(boolean z) {
         if (z) {
-            this.auj.setPreview();
+            this.auk.setPreview();
         }
-        this.auj.setUIInfo(this.aul.getSelectInfo(), z);
+        this.auk.setUIInfo(this.aum.getSelectInfo(), z);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.auj.setVisibility(4);
-        } else if (this.aum != null && this.aum.isChecked()) {
-            this.auj.setVisibility(0);
+            this.auk.setVisibility(4);
+        } else if (this.aun != null && this.aun.isChecked()) {
+            this.auk.setVisibility(0);
         }
     }
 
     private void xT() {
-        final bb[] aT = k.wA().aT(this.avF != null && this.avF.xn());
+        final bb[] aT = k.wA().aT(this.avG != null && this.avG.xn());
         if (aT == null) {
-            if (this.aum.isChecked()) {
-                this.aum.setChecked(false, false);
+            if (this.aun.isChecked()) {
+                this.aun.setChecked(false, false);
             } else {
                 aX(false);
             }
-            this.avG.setVisibility(8);
+            this.avH.setVisibility(8);
             return;
         }
-        this.avG.setVisibility(0);
-        this.aul.post(new Runnable() { // from class: com.baidu.live.im.view.quick.a.8
+        this.avH.setVisibility(0);
+        this.aum.post(new Runnable() { // from class: com.baidu.live.im.view.quick.a.8
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aul.setData(aT, r.sx().sz(), 1);
+                a.this.aum.setData(aT, r.sx().sz(), 1);
                 if (k.wA().wC()) {
-                    if (a.this.aum.isChecked()) {
-                        a.this.aul.setSelectId(k.wA().wD());
+                    if (a.this.aun.isChecked()) {
+                        a.this.aum.setSelectId(k.wA().wD());
                         a.this.aY(true);
                         return;
                     }
-                    a.this.aum.setChecked(true, false);
-                } else if (a.this.aum.isChecked()) {
-                    a.this.aum.setChecked(false, false);
+                    a.this.aun.setChecked(true, false);
+                } else if (a.this.aun.isChecked()) {
+                    a.this.aun.setChecked(false, false);
                 }
             }
         });
     }
 
     private void n(String[] strArr) {
-        if (this.avI == null) {
-            this.avI = new b(strArr);
-            this.avH.setAdapter(this.avI);
+        if (this.avJ == null) {
+            this.avJ = new b(strArr);
+            this.avI.setAdapter(this.avJ);
             return;
         }
-        this.avI.setDatas(strArr);
-        this.avI.notifyDataSetChanged();
+        this.avJ.setDatas(strArr);
+        this.avJ.notifyDataSetChanged();
     }
 
     private void tN() {

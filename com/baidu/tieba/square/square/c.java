@@ -5,14 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.tieba.square.data.a {
-    private ArrayList<e> kcg = new ArrayList<>();
+    private ArrayList<e> kcs = new ArrayList<>();
 
-    public ArrayList<e> cJJ() {
-        return this.kcg;
+    public ArrayList<e> cJK() {
+        return this.kcs;
     }
 
     public void aQ(ArrayList<e> arrayList) {
-        this.kcg = arrayList;
+        this.kcs = arrayList;
         setErrorMsg(null);
     }
 

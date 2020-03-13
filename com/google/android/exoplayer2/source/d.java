@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class d implements l, l.a {
-    private final l lbX;
-    private final long mqW;
-    private final long mqX;
-    private final boolean mrc;
-    private final ArrayList<c> mrd;
-    private l.a mre;
+    private final l lcj;
+    private final long mrh;
+    private final long mri;
+    private final boolean mrn;
+    private final ArrayList<c> mro;
+    private l.a mrp;
 
     public d(l lVar, long j, long j2) {
         this(lVar, j, j2, true);
@@ -19,89 +19,89 @@ public final class d implements l, l.a {
 
     public d(l lVar, long j, long j2, boolean z) {
         com.google.android.exoplayer2.util.a.checkArgument(j >= 0);
-        this.lbX = (l) com.google.android.exoplayer2.util.a.checkNotNull(lVar);
-        this.mqW = j;
-        this.mqX = j2;
-        this.mrc = z;
-        this.mrd = new ArrayList<>();
+        this.lcj = (l) com.google.android.exoplayer2.util.a.checkNotNull(lVar);
+        this.mrh = j;
+        this.mri = j2;
+        this.mrn = z;
+        this.mro = new ArrayList<>();
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void a(com.google.android.exoplayer2.g gVar, boolean z, l.a aVar) {
-        this.mre = aVar;
-        this.lbX.a(gVar, false, this);
+        this.mrp = aVar;
+        this.lcj.a(gVar, false, this);
     }
 
     @Override // com.google.android.exoplayer2.source.l
-    public void dwm() throws IOException {
-        this.lbX.dwm();
+    public void dwn() throws IOException {
+        this.lcj.dwn();
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public k a(l.b bVar, com.google.android.exoplayer2.upstream.b bVar2) {
-        c cVar = new c(this.lbX.a(bVar, bVar2), this.mrc);
-        this.mrd.add(cVar);
-        cVar.R(this.mqW, this.mqX);
+        c cVar = new c(this.lcj.a(bVar, bVar2), this.mrn);
+        this.mro.add(cVar);
+        cVar.R(this.mrh, this.mri);
         return cVar;
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void e(k kVar) {
-        com.google.android.exoplayer2.util.a.checkState(this.mrd.remove(kVar));
-        this.lbX.e(((c) kVar).lZi);
+        com.google.android.exoplayer2.util.a.checkState(this.mro.remove(kVar));
+        this.lcj.e(((c) kVar).lZt);
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void releaseSource() {
-        this.lbX.releaseSource();
+        this.lcj.releaseSource();
     }
 
     @Override // com.google.android.exoplayer2.source.l.a
     public void a(l lVar, x xVar, Object obj) {
-        this.mre.a(this, new a(xVar, this.mqW, this.mqX), obj);
-        int size = this.mrd.size();
+        this.mrp.a(this, new a(xVar, this.mrh, this.mri), obj);
+        int size = this.mro.size();
         for (int i = 0; i < size; i++) {
-            this.mrd.get(i).R(this.mqW, this.mqX);
+            this.mro.get(i).R(this.mrh, this.mri);
         }
     }
 
     /* loaded from: classes6.dex */
     private static final class a extends j {
-        private final long mqW;
-        private final long mqX;
+        private final long mrh;
+        private final long mri;
 
         public a(x xVar, long j, long j2) {
             super(xVar);
-            com.google.android.exoplayer2.util.a.checkArgument(xVar.dtB() == 1);
             com.google.android.exoplayer2.util.a.checkArgument(xVar.dtC() == 1);
+            com.google.android.exoplayer2.util.a.checkArgument(xVar.dtD() == 1);
             x.b a = xVar.a(0, new x.b(), false);
             com.google.android.exoplayer2.util.a.checkArgument(!a.isDynamic);
-            j2 = j2 == Long.MIN_VALUE ? a.lZD : j2;
-            if (a.lZD != -9223372036854775807L) {
-                j2 = j2 > a.lZD ? a.lZD : j2;
-                com.google.android.exoplayer2.util.a.checkArgument(j == 0 || a.mas);
+            j2 = j2 == Long.MIN_VALUE ? a.lZO : j2;
+            if (a.lZO != -9223372036854775807L) {
+                j2 = j2 > a.lZO ? a.lZO : j2;
+                com.google.android.exoplayer2.util.a.checkArgument(j == 0 || a.maE);
                 com.google.android.exoplayer2.util.a.checkArgument(j <= j2);
             }
-            com.google.android.exoplayer2.util.a.checkArgument(xVar.a(0, new x.a()).dtF() == 0);
-            this.mqW = j;
-            this.mqX = j2;
+            com.google.android.exoplayer2.util.a.checkArgument(xVar.a(0, new x.a()).dtG() == 0);
+            this.mrh = j;
+            this.mri = j2;
         }
 
         @Override // com.google.android.exoplayer2.source.j, com.google.android.exoplayer2.x
         public x.b a(int i, x.b bVar, boolean z, long j) {
             x.b a = this.timeline.a(0, bVar, z, j);
-            a.lZD = this.mqX != -9223372036854775807L ? this.mqX - this.mqW : -9223372036854775807L;
-            if (a.mav != -9223372036854775807L) {
-                a.mav = Math.max(a.mav, this.mqW);
-                a.mav = this.mqX == -9223372036854775807L ? a.mav : Math.min(a.mav, this.mqX);
-                a.mav -= this.mqW;
+            a.lZO = this.mri != -9223372036854775807L ? this.mri - this.mrh : -9223372036854775807L;
+            if (a.maH != -9223372036854775807L) {
+                a.maH = Math.max(a.maH, this.mrh);
+                a.maH = this.mri == -9223372036854775807L ? a.maH : Math.min(a.maH, this.mri);
+                a.maH -= this.mrh;
             }
-            long fn = com.google.android.exoplayer2.b.fn(this.mqW);
-            if (a.maq != -9223372036854775807L) {
-                a.maq += fn;
+            long fn = com.google.android.exoplayer2.b.fn(this.mrh);
+            if (a.maC != -9223372036854775807L) {
+                a.maC += fn;
             }
-            if (a.mar != -9223372036854775807L) {
-                a.mar = fn + a.mar;
+            if (a.maD != -9223372036854775807L) {
+                a.maD = fn + a.maD;
             }
             return a;
         }
@@ -109,7 +109,7 @@ public final class d implements l, l.a {
         @Override // com.google.android.exoplayer2.source.j, com.google.android.exoplayer2.x
         public x.a a(int i, x.a aVar, boolean z) {
             x.a a = this.timeline.a(0, aVar, z);
-            a.lZD = this.mqX != -9223372036854775807L ? this.mqX - this.mqW : -9223372036854775807L;
+            a.lZO = this.mri != -9223372036854775807L ? this.mri - this.mrh : -9223372036854775807L;
             return a;
         }
     }

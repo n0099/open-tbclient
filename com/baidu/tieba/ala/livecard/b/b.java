@@ -19,53 +19,53 @@ import com.baidu.tieba.card.x;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.a<bj> implements x {
     private bj KJ;
-    private View bZS;
-    private TbPageContext<?> cVh;
-    private View eNN;
-    private TextView eNO;
-    private TextView eNP;
-    private TextView eNQ;
-    private RelativeLayout eNR;
-    private final View.OnClickListener eNS;
-    private RelativeLayout eNk;
+    private View bZT;
+    private TbPageContext<?> cVi;
+    private RelativeLayout eNx;
+    private View eOa;
+    private TextView eOb;
+    private TextView eOc;
+    private TextView eOd;
+    private RelativeLayout eOe;
+    private final View.OnClickListener eOf;
     private View mDivider;
     private String mForumName;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eNS = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
+        this.eOf = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.KJ != null && b.this.buG() != null) {
-                    b.this.buG().a(view, b.this.KJ);
+                if (b.this.KJ != null && b.this.buH() != null) {
+                    b.this.buH().a(view, b.this.KJ);
                     TiebaStatic.log(new an("c11844").cy("uid", TbadkCoreApplication.getCurrentAccount()).s("fid", b.this.KJ.getFid()));
                 }
             }
         };
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
         View view = getView();
         this.mDivider = view.findViewById(R.id.divider);
-        this.eNN = view.findViewById(R.id.recommend_left_line);
-        this.bZS = view.findViewById(R.id.recommend_right_line);
-        this.eNk = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
-        this.eNO = (TextView) view.findViewById(R.id.ala_live_title);
-        this.eNP = (TextView) view.findViewById(R.id.start_live_btn);
-        this.eNR = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
-        this.eNQ = (TextView) view.findViewById(R.id.ala_recommend_live);
+        this.eOa = view.findViewById(R.id.recommend_left_line);
+        this.bZT = view.findViewById(R.id.recommend_right_line);
+        this.eNx = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
+        this.eOb = (TextView) view.findViewById(R.id.ala_live_title);
+        this.eOc = (TextView) view.findViewById(R.id.start_live_btn);
+        this.eOe = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
+        this.eOd = (TextView) view.findViewById(R.id.ala_recommend_live);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.eNP, R.drawable.ala_live_card_start_live_selector);
-            am.setViewTextColor(this.eNP, (int) R.color.cp_cont_a);
-            am.setBackgroundColor(this.eNk, R.color.cp_bg_line_d);
+            am.setBackgroundResource(this.eOc, R.drawable.ala_live_card_start_live_selector);
+            am.setViewTextColor(this.eOc, (int) R.color.cp_cont_a);
+            am.setBackgroundColor(this.eNx, R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-            am.setBackgroundColor(this.eNN, R.color.cp_bg_line_c);
-            am.setBackgroundColor(this.bZS, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.eNO, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.eNQ, (int) R.color.cp_cont_c);
-            am.setBackgroundColor(this.eNR, R.color.cp_bg_line_d);
+            am.setBackgroundColor(this.eOa, R.color.cp_bg_line_c);
+            am.setBackgroundColor(this.bZT, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.eOb, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.eOd, (int) R.color.cp_cont_c);
+            am.setBackgroundColor(this.eOe, R.color.cp_bg_line_d);
             this.mSkinType = i;
         }
     }
@@ -96,25 +96,25 @@ public class b extends com.baidu.tieba.card.a<bj> implements x {
     }
 
     private void refreshView() {
-        if (!this.KJ.cTF) {
-            this.eNQ.setVisibility(8);
-            this.eNN.setVisibility(8);
-            this.bZS.setVisibility(8);
-            ViewGroup.LayoutParams layoutParams = this.eNR.getLayoutParams();
-            layoutParams.height = l.getEquipmentHeight(this.cVh.getPageActivity()) / 4;
-            this.eNR.setLayoutParams(layoutParams);
+        if (!this.KJ.cTG) {
+            this.eOd.setVisibility(8);
+            this.eOa.setVisibility(8);
+            this.bZT.setVisibility(8);
+            ViewGroup.LayoutParams layoutParams = this.eOe.getLayoutParams();
+            layoutParams.height = l.getEquipmentHeight(this.cVi.getPageActivity()) / 4;
+            this.eOe.setLayoutParams(layoutParams);
         } else {
-            this.eNQ.setVisibility(0);
-            this.eNN.setVisibility(0);
-            this.bZS.setVisibility(0);
-            ViewGroup.LayoutParams layoutParams2 = this.eNR.getLayoutParams();
-            layoutParams2.height = this.cVh.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.eNR.setLayoutParams(layoutParams2);
+            this.eOd.setVisibility(0);
+            this.eOa.setVisibility(0);
+            this.bZT.setVisibility(0);
+            ViewGroup.LayoutParams layoutParams2 = this.eOe.getLayoutParams();
+            layoutParams2.height = this.cVi.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
+            this.eOe.setLayoutParams(layoutParams2);
         }
-        onChangeSkinType(this.cVh, TbadkCoreApplication.getInst().getSkinType());
+        onChangeSkinType(this.cVi, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.eNP.setOnClickListener(this.eNS);
+        this.eOc.setOnClickListener(this.eOf);
     }
 }

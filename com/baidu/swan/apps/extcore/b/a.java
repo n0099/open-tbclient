@@ -7,14 +7,14 @@ import java.io.File;
 public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    protected T buD;
+    protected T buE;
 
     public a(@NonNull T t) {
-        this.buD = t;
+        this.buE = t;
     }
 
     public File RN() {
-        return this.buD.RX();
+        return this.buE.RX();
     }
 
     @NonNull

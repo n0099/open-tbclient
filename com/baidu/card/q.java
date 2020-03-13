@@ -86,11 +86,11 @@ public class q extends d implements m<bj>, n {
             public void onClick(View view) {
                 if (q.this.KH != null && q.this.KJ != null && q.this.KI != null && !q.this.KJ.aDW()) {
                     if (!q.this.KJ.aDV()) {
-                        if (com.baidu.tieba.frs.a.bCV().ah(q.this.KJ)) {
+                        if (com.baidu.tieba.frs.a.bCW().ah(q.this.KJ)) {
                             q.this.KJ.fC(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bCV().ai(q.this.KJ);
+                        com.baidu.tieba.frs.a.bCW().ai(q.this.KJ);
                         q.this.KJ.fC(false);
                     }
                     q.this.nb();
@@ -131,7 +131,7 @@ public class q extends d implements m<bj>, n {
     /* renamed from: a */
     public void A(bj bjVar) {
         this.KJ = bjVar;
-        if (com.baidu.tieba.frs.a.bCV().bCW()) {
+        if (com.baidu.tieba.frs.a.bCW().bCX()) {
             this.mRootView.setVisibility(0);
             this.Ki.b(new a.C0052a(4, false));
             nb();

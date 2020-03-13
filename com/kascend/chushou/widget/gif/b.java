@@ -17,7 +17,7 @@ import tv.chushou.basis.http.listener.DownloadListener;
 import tv.chushou.zues.widget.a.e;
 /* loaded from: classes5.dex */
 public class b extends e {
-    private static final tv.chushou.zues.toolkit.b.a nes = tv.chushou.zues.toolkit.b.a.nWE;
+    private static final tv.chushou.zues.toolkit.b.a neE = tv.chushou.zues.toolkit.b.a.nWP;
 
     private b(GifDrawable gifDrawable) {
         super(gifDrawable);
@@ -34,9 +34,9 @@ public class b extends e {
         private int d;
         private WeakReference<TextView> e;
         private boolean f = false;
-        private Drawable.Callback niC;
+        private Drawable.Callback niN;
 
-        public a Rc(String str) {
+        public a Rd(String str) {
             f.a(str);
             this.a = str;
             return this;
@@ -68,19 +68,19 @@ public class b extends e {
         }
 
         public a a(Drawable.Callback callback) {
-            this.niC = callback;
+            this.niN = callback;
             return this;
         }
 
-        public ImageSpan dEC() {
+        public ImageSpan dED() {
             Drawable drawable;
             f.a(this.a);
             f.a(this.d != 0, "should set height");
-            String SR = b.nes.SR(this.a);
-            File c = com.kascend.chushou.d.c.mOY.c();
-            final File file = new File(c, SR);
+            String SS = b.neE.SS(this.a);
+            File c = com.kascend.chushou.d.c.mPj.c();
+            final File file = new File(c, SS);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.dBQ().a(this.a, new File(c, SR + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.dBR().a(this.a, new File(c, SS + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }
@@ -111,7 +111,7 @@ public class b extends e {
                                                 i = (gifDrawable.getIntrinsicWidth() * a.this.d) / gifDrawable.getIntrinsicHeight();
                                             }
                                             gifDrawable.setBounds(0, 0, i, a.this.d);
-                                            gifDrawable.setCallback(a.this.niC);
+                                            gifDrawable.setCallback(a.this.niN);
                                             int spanStart = spannable.getSpanStart(cVar);
                                             int spanEnd = spannable.getSpanEnd(cVar);
                                             spannable.removeSpan(cVar);
@@ -158,7 +158,7 @@ public class b extends e {
             }
             drawable.setBounds(0, 0, i2, this.d);
             if (drawable instanceof GifDrawable) {
-                drawable.setCallback(this.niC);
+                drawable.setCallback(this.niN);
                 return new b((GifDrawable) drawable);
             }
             return new e(drawable);

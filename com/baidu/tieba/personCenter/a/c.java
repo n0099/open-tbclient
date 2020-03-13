@@ -8,7 +8,7 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.personCenter.c.g;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f>> {
-    private z<g> gBv;
+    private z<g> gBH;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     /* renamed from: av */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> b(ViewGroup viewGroup) {
         com.baidu.tieba.personCenter.view.f fVar = new com.baidu.tieba.personCenter.view.f(this.mPageContext);
-        fVar.c(this.gBv);
+        fVar.c(this.gBH);
         return new com.baidu.tieba.card.a.a<>(fVar);
     }
 
@@ -30,11 +30,11 @@ public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
-        aVar.bvK().a(gVar);
+        aVar.bvL().a(gVar);
         return aVar.getView();
     }
 
     public void c(z<g> zVar) {
-        this.gBv = zVar;
+        this.gBH = zVar;
     }
 }

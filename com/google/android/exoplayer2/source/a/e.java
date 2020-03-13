@@ -1,11 +1,11 @@
 package com.google.android.exoplayer2.source.a;
 /* loaded from: classes6.dex */
 public final class e {
-    public c mtu;
-    public boolean mtv;
+    public c mtG;
+    public boolean mtH;
 
     public void clear() {
-        this.mtu = null;
-        this.mtv = false;
+        this.mtG = null;
+        this.mtH = false;
     }
 }

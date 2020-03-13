@@ -4,14 +4,14 @@ final class i {
     private int bitOffset;
     private int byteOffset;
     private final byte[] data;
-    private final int mlP;
+    private final int mma;
 
     public i(byte[] bArr) {
         this.data = bArr;
-        this.mlP = bArr.length;
+        this.mma = bArr.length;
     }
 
-    public boolean dvn() {
+    public boolean dvo() {
         boolean z = (((this.data[this.byteOffset] & 255) >> this.bitOffset) & 1) == 1;
         JU(1);
         return z;
@@ -40,14 +40,14 @@ final class i {
             this.byteOffset++;
             this.bitOffset -= 8;
         }
-        dvo();
+        dvp();
     }
 
     public int getPosition() {
         return (this.byteOffset * 8) + this.bitOffset;
     }
 
-    private void dvo() {
-        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlP || (this.byteOffset == this.mlP && this.bitOffset == 0)));
+    private void dvp() {
+        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mma || (this.byteOffset == this.mma && this.bitOffset == 0)));
     }
 }

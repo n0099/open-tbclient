@@ -34,8 +34,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> bTf = new HashMap();
-    private static OkHttpClient bTg;
+    private static final Map<String, a> bTg = new HashMap();
+    private static OkHttpClient bTh;
 
     public static boolean aO(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -88,11 +88,11 @@ public final class c {
     }
 
     public static OkHttpClient YW() {
-        if (bTg != null) {
-            return bTg;
+        if (bTh != null) {
+            return bTh;
         }
         OkHttpClient build = com.baidu.swan.apps.runtime.d.acC().acE().GV().HU().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.w.a.Uu().Iu())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
-        bTg = build;
+        bTh = build;
         return build;
     }
 
@@ -114,14 +114,14 @@ public final class c {
             aVar.onResult(false);
             return;
         }
-        synchronized (bTf) {
-            a aVar2 = bTf.get(eVar2.id);
+        synchronized (bTg) {
+            a aVar2 = bTg.get(eVar2.id);
             if (aVar2 != null) {
                 aVar2.kf.add(aVar);
             } else {
                 a aVar3 = new a(eVar2.id);
                 aVar3.kf.add(aVar);
-                bTf.put(eVar2.id, aVar3);
+                bTg.put(eVar2.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -158,8 +158,8 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void A(String str, boolean z) {
         a remove;
-        synchronized (bTf) {
-            remove = bTf.remove(str);
+        synchronized (bTg) {
+            remove = bTg.remove(str);
         }
         if (remove != null && !remove.kf.isEmpty()) {
             for (com.baidu.swan.apps.setting.oauth.a aVar : remove.kf) {
@@ -215,7 +215,7 @@ public final class c {
     }
 
     public static boolean b(h<b.d> hVar) {
-        return hVar != null && hVar.isOk() && hVar.mData.bTm;
+        return hVar != null && hVar.isOk() && hVar.mData.bTn;
     }
 
     public static void a(int i, CallbackHandler callbackHandler, String str) {
@@ -247,9 +247,9 @@ public final class c {
 
     public static void a(com.baidu.swan.apps.setting.b.a aVar, CallbackHandler callbackHandler, String str) {
         int i;
-        if (aVar != null && aVar.bUs != null) {
+        if (aVar != null && aVar.bUt != null) {
             try {
-                i = (int) aVar.bUs.agk();
+                i = (int) aVar.bUt.agk();
             } catch (ClassCastException e) {
                 if (DEBUG) {
                     Log.e("OAuthUtils", e.toString());
@@ -294,6 +294,6 @@ public final class c {
     }
 
     public static void release() {
-        bTf.clear();
+        bTg.clear();
     }
 }

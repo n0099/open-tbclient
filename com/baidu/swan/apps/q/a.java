@@ -10,29 +10,29 @@ import com.baidu.swan.apps.statistic.f;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bvO;
+    private static volatile a bvP;
     private String mContent;
 
     private a() {
     }
 
     public static a Td() {
-        if (bvO == null) {
+        if (bvP == null) {
             synchronized (a.class) {
-                if (bvO == null) {
-                    bvO = new a();
+                if (bvP == null) {
+                    bvP = new a();
                 }
             }
         }
-        return bvO;
+        return bvP;
     }
 
     public static void release() {
-        if (bvO != null) {
-            if (bvO.mContent != null) {
-                bvO.mContent = null;
+        if (bvP != null) {
+            if (bvP.mContent != null) {
+                bvP.mContent = null;
             }
-            bvO = null;
+            bvP = null;
         }
     }
 

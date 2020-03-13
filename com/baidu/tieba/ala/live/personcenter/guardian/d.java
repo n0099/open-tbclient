@@ -9,17 +9,17 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d {
-    private LinearLayout eMN;
-    private TextView eMO;
+    private LinearLayout eNa;
+    private TextView eNb;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        initView(bgF());
+        initView(bgG());
     }
 
-    public View bgF() {
+    public View bgG() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
@@ -27,15 +27,15 @@ public class d {
     }
 
     private void initView(View view) {
-        this.eMN = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
-        this.eMO = (TextView) view.findViewById(a.g.ala_guardian_header_title);
+        this.eNa = (LinearLayout) view.findViewById(a.g.ala_guardian_header_root);
+        this.eNb = (TextView) view.findViewById(a.g.ala_guardian_header_title);
     }
 
-    public void yI(String str) {
-        this.eMO.setText(str);
+    public void yJ(String str) {
+        this.eNb.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.eMN);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.eNa);
     }
 }

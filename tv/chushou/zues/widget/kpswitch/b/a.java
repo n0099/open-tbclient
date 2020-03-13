@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes5.dex */
 public class a {
-    public static View nZp = null;
+    public static View nZA = null;
 
     /* renamed from: tv.chushou.zues.widget.kpswitch.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -26,7 +26,7 @@ public class a {
                 }
             });
         }
-        if (aI(activity)) {
+        if (aK(activity)) {
             view3.setOnTouchListener(new View.OnTouchListener() { // from class: tv.chushou.zues.widget.kpswitch.b.a.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view4, MotionEvent motionEvent) {
@@ -50,7 +50,7 @@ public class a {
 
     public static void h(View view, View view2) {
         d.dL(view2);
-        if (aI((Activity) view.getContext())) {
+        if (aK((Activity) view.getContext())) {
             view.setVisibility(4);
         }
     }
@@ -59,7 +59,7 @@ public class a {
         boolean z = true;
         boolean z2 = view2.getVisibility() != 0;
         if (!z2) {
-            if (nZp == null || nZp == view) {
+            if (nZA == null || nZA == view) {
                 h(view2, view3);
                 z = z2;
             }
@@ -67,7 +67,7 @@ public class a {
             dK(view2);
             z = z2;
         }
-        nZp = view;
+        nZA = view;
         return z;
     }
 
@@ -75,7 +75,7 @@ public class a {
         return z || (z2 && !z3);
     }
 
-    static boolean aI(Activity activity) {
+    static boolean aK(Activity activity) {
         return l(e.isFullScreen(activity), e.D(activity), e.F(activity));
     }
 }

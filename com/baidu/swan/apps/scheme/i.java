@@ -7,7 +7,7 @@ public class i extends j {
 
     @Override // com.baidu.swan.apps.scheme.j
     protected void adJ() {
-        this.bQK.clear();
+        this.bQL.clear();
         a(new com.baidu.swan.apps.x.a(this));
         a(new com.baidu.swan.apps.console.debugger.a.a(this));
         a(new com.baidu.swan.apps.console.debugger.b.a(this));

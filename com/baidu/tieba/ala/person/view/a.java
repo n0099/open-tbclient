@@ -26,23 +26,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static final int fsp = "   ".length();
-    private x feW;
-    private PersonCardActivity fsq;
-    private TextView fsr;
-    private TextView fss;
-    private TextView fst;
-    private View fsu;
-    private List<AlaLiveMarkData> fsv;
-    private List<AlaLiveMarkData> fsw;
-    private List<AlaLiveMarkData> fsx;
-    private int fsy = 0;
+    private static final int fsC = "   ".length();
+    private x ffj;
+    private PersonCardActivity fsD;
+    private TextView fsE;
+    private TextView fsF;
+    private TextView fsG;
+    private View fsH;
+    private List<AlaLiveMarkData> fsI;
+    private List<AlaLiveMarkData> fsJ;
+    private List<AlaLiveMarkData> fsK;
+    private int fsL = 0;
     private long lastClickTime = 0;
     private View mContentView;
     private View mRootView;
 
     public a(PersonCardActivity personCardActivity, View view, View view2) {
-        this.fsq = personCardActivity;
+        this.fsD = personCardActivity;
         this.mContentView = view;
         this.mRootView = view2;
         initView();
@@ -50,41 +50,41 @@ public class a {
 
     private void initView() {
         if (this.mContentView != null) {
-            this.fsr = (TextView) this.mContentView.findViewById(a.g.user_mark_normal);
-            this.fss = (TextView) this.mContentView.findViewById(a.g.user_mark_extra);
-            this.fst = (TextView) this.mRootView.findViewById(a.g.user_name);
-            this.fss.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.a.1
+            this.fsE = (TextView) this.mContentView.findViewById(a.g.user_mark_normal);
+            this.fsF = (TextView) this.mContentView.findViewById(a.g.user_mark_extra);
+            this.fsG = (TextView) this.mRootView.findViewById(a.g.user_name);
+            this.fsF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bsc();
+                    a.this.bsd();
                 }
             });
-            this.fsu = this.mContentView.findViewById(a.g.user_mark_divider);
+            this.fsH = this.mContentView.findViewById(a.g.user_mark_divider);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.ala.person.PersonCardActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void bsc() {
+    public void bsd() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastClickTime >= 500) {
             this.lastClickTime = currentTimeMillis;
-            if (this.feW != null && com.baidu.live.v.a.zl().axC.adb != null) {
-                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.feW.user_id)) {
-                    String str = com.baidu.live.v.a.zl().axC.adb.acN;
+            if (this.ffj != null && com.baidu.live.v.a.zl().axD.adb != null) {
+                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.ffj.user_id)) {
+                    String str = com.baidu.live.v.a.zl().axD.adb.acN;
                     if (!TextUtils.isEmpty(str)) {
-                        UrlManager.getInstance().dealOneLink(this.fsq.getPageContext(), new String[]{str});
+                        UrlManager.getInstance().dealOneLink(this.fsD.getPageContext(), new String[]{str});
                     }
                 } else {
-                    String str2 = com.baidu.live.v.a.zl().axC.adb.acO;
-                    if (str2 != null && this.feW != null) {
+                    String str2 = com.baidu.live.v.a.zl().axD.adb.acO;
+                    if (str2 != null && this.ffj != null) {
                         if (str2.endsWith("/")) {
                             str2 = str2.substring(0, str2.length() - 1);
                         }
-                        String str3 = this.feW.user_id;
-                        String str4 = this.feW.portrait;
-                        String str5 = this.feW.user_nickname;
+                        String str3 = this.ffj.user_id;
+                        String str4 = this.ffj.portrait;
+                        String str5 = this.ffj.user_nickname;
                         StringBuilder sb = new StringBuilder();
                         sb.append("id=");
                         sb.append(ExtraParamsManager.getEncryptionUserId(str3));
@@ -109,7 +109,7 @@ public class a {
                         }
                         sb.insert(0, str2);
                         String sb2 = sb.toString();
-                        this.fsq.finish();
+                        this.fsD.finish();
                         if (!TextUtils.isEmpty(sb2)) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913132, sb2));
                         }
@@ -124,38 +124,38 @@ public class a {
 
     public void setData(x xVar) {
         if (xVar != null) {
-            this.feW = xVar;
-            if (this.fsv == null) {
-                this.fsv = new ArrayList();
+            this.ffj = xVar;
+            if (this.fsI == null) {
+                this.fsI = new ArrayList();
             }
-            this.fsv.clear();
-            if (this.fsw == null) {
-                this.fsw = new ArrayList();
+            this.fsI.clear();
+            if (this.fsJ == null) {
+                this.fsJ = new ArrayList();
             }
-            this.fsw.clear();
-            if (this.fsx == null) {
-                this.fsx = new ArrayList();
+            this.fsJ.clear();
+            if (this.fsK == null) {
+                this.fsK = new ArrayList();
             }
-            this.fsx.clear();
+            this.fsK.clear();
             bG(xVar.live_mark_info_new);
-            if (!ListUtils.isEmpty(this.fsv)) {
-                a("", "", this.fsr, this.fsv);
+            if (!ListUtils.isEmpty(this.fsI)) {
+                a("", "", this.fsE, this.fsI);
             }
-            if (!ListUtils.isEmpty(this.fsw)) {
+            if (!ListUtils.isEmpty(this.fsJ)) {
                 int i = xVar.abm;
                 if (i <= 0) {
-                    i = this.fsy;
+                    i = this.fsL;
                 }
-                a("  ", i + this.fsq.getResources().getString(a.i.ala_count_mei), this.fss, this.fsw);
-                this.fss.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_person_card_more, 0);
-                this.fsu.setVisibility(0);
+                a("  ", i + this.fsD.getResources().getString(a.i.ala_count_mei), this.fsF, this.fsJ);
+                this.fsF.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_person_card_more, 0);
+                this.fsH.setVisibility(0);
             } else {
-                this.fss.setText("");
-                this.fss.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                this.fsu.setVisibility(8);
+                this.fsF.setText("");
+                this.fsF.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.fsH.setVisibility(8);
             }
-            if (!ListUtils.isEmpty(this.fsx)) {
-                a(this.feW.getNameShow() + HanziToPinyin.Token.SEPARATOR, "", this.fst, this.fsx);
+            if (!ListUtils.isEmpty(this.fsK)) {
+                a(this.ffj.getNameShow() + HanziToPinyin.Token.SEPARATOR, "", this.fsG, this.fsK);
             }
         }
     }
@@ -175,10 +175,10 @@ public class a {
             if (i3 < list.size()) {
                 AlaLiveMarkData alaLiveMarkData = list.get(i3);
                 if (alaLiveMarkData != null) {
-                    final int i4 = length + (fsp * i3);
+                    final int i4 = length + (fsC * i3);
                     final int i5 = i4 + 1;
                     if (1 == alaLiveMarkData.type) {
-                        new com.baidu.live.view.b(this.fsq, alaLiveMarkData, this.feW.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
+                        new com.baidu.live.view.b(this.fsD, alaLiveMarkData, this.ffj.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
                             @Override // com.baidu.live.view.c.a
                             public void e(Bitmap bitmap) {
                             }
@@ -190,7 +190,7 @@ public class a {
                             }
                         });
                     } else {
-                        new com.baidu.live.view.c(this.fsq, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.3
+                        new com.baidu.live.view.c(this.fsD, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.3
                             @Override // com.baidu.live.view.c.a
                             public void e(Bitmap bitmap) {
                             }
@@ -217,7 +217,7 @@ public class a {
                 if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type) {
                     if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                         linkedList.add(alaLiveMarkData);
-                    } else if (alaLiveMarkData.anchor_user_id.equals(this.fsq.brM())) {
+                    } else if (alaLiveMarkData.anchor_user_id.equals(this.fsD.brN())) {
                         linkedList.add(alaLiveMarkData);
                     }
                 }
@@ -225,19 +225,19 @@ public class a {
             if (!ListUtils.isEmpty(linkedList)) {
                 for (AlaLiveMarkData alaLiveMarkData2 : linkedList) {
                     if (alaLiveMarkData2.type == 103 || alaLiveMarkData2.type == 104) {
-                        this.fsw.add(alaLiveMarkData2);
+                        this.fsJ.add(alaLiveMarkData2);
                     } else if (alaLiveMarkData2.type == 2) {
-                        this.fsx.add(alaLiveMarkData2);
+                        this.fsK.add(alaLiveMarkData2);
                     } else {
-                        this.fsv.add(alaLiveMarkData2);
+                        this.fsI.add(alaLiveMarkData2);
                     }
                 }
-                this.fsy = this.fsw.size();
-                if (this.fsy > 2) {
-                    this.fsw = this.fsw.subList(0, 2);
+                this.fsL = this.fsJ.size();
+                if (this.fsL > 2) {
+                    this.fsJ = this.fsJ.subList(0, 2);
                 }
-                if (this.fsv.size() > 3) {
-                    this.fsv = this.fsv.subList(0, 3);
+                if (this.fsI.size() > 3) {
+                    this.fsI = this.fsI.subList(0, 3);
                 }
             }
         }

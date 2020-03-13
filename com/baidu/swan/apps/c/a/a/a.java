@@ -25,9 +25,9 @@ public final class a extends ab {
         boolean z;
         q.j(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.c.a.e.bcn.bZ(true);
+        com.baidu.swan.apps.c.a.e.bco.bZ(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a Jl = com.baidu.swan.apps.c.a.e.bcn.Jl();
+            com.baidu.swan.apps.a.a Jl = com.baidu.swan.apps.c.a.e.bco.Jl();
             if (Jl != null) {
                 Jl.onResult(-1);
             }
@@ -36,9 +36,9 @@ public final class a extends ab {
         }
         int optInt = optParamsAsJo.optInt("errno");
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ai.l(RunnableC0228a.bct);
+        ai.l(RunnableC0228a.bcu);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a Jl2 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+            com.baidu.swan.apps.a.a Jl2 = com.baidu.swan.apps.c.a.e.bco.Jl();
             if (Jl2 != null) {
                 Jl2.onResult(-1);
             }
@@ -48,17 +48,17 @@ public final class a extends ab {
             String optString = optJSONObject.optString("ma_bduss");
             String str = optString;
             if (!(str == null || l.isBlank(str))) {
-                com.baidu.swan.apps.c.a.h.bcs.d(optInt, optJSONObject);
+                com.baidu.swan.apps.c.a.h.bct.d(optInt, optJSONObject);
                 com.baidu.swan.apps.c.a.a.ae(context, optString);
-                com.baidu.swan.apps.c.a.e.bcn.bS(true);
-                com.baidu.swan.apps.a.a Jl3 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+                com.baidu.swan.apps.c.a.e.bco.bS(true);
+                com.baidu.swan.apps.a.a Jl3 = com.baidu.swan.apps.c.a.e.bco.Jl();
                 if (Jl3 != null) {
                     Jl3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a Jl4 = com.baidu.swan.apps.c.a.e.bcn.Jl();
+                com.baidu.swan.apps.a.a Jl4 = com.baidu.swan.apps.c.a.e.bco.Jl();
                 if (Jl4 != null) {
                     Jl4.onResult(-1);
                 }
@@ -76,7 +76,7 @@ public final class a extends ab {
     /* renamed from: com.baidu.swan.apps.c.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     static final class RunnableC0228a implements Runnable {
-        public static final RunnableC0228a bct = new RunnableC0228a();
+        public static final RunnableC0228a bcu = new RunnableC0228a();
 
         RunnableC0228a() {
         }

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.adaptation.b.e;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] bfB = {"swan", "swanAPI"};
+    private static final String[] bfC = {"swan", "swanAPI"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.b.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
@@ -59,7 +59,7 @@ public class a {
             return !com.baidu.swan.apps.aj.a.b.li(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = bfB.length;
+        int length = bfC.length;
         for (int i = 0; i < length; i++) {
             if (com.baidu.swan.apps.aj.a.b.li(strArr[i] + "/" + substring)) {
                 return false;

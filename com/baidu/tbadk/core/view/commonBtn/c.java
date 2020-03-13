@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private boolean djN;
+    private boolean dka;
 
     public c() {
-        this.djA = R.color.cp_link_tip_a;
-        this.djN = true;
+        this.djN = R.color.cp_link_tip_a;
+        this.dka = true;
     }
 
     public void ls(@ColorRes int i) {
-        this.djA = i;
-        this.djN = true;
-        this.djL = true;
-        if (this.djM != null) {
-            this.djM.aIq();
+        this.djN = i;
+        this.dka = true;
+        this.djY = true;
+        if (this.djZ != null) {
+            this.djZ.aIr();
         }
     }
 
     public void lt(@ColorRes int i) {
-        this.djA = i;
-        this.djC = R.color.cp_btn_a;
-        this.djN = false;
-        this.djL = true;
-        if (this.djM != null) {
-            this.djM.aIq();
+        this.djN = i;
+        this.djP = R.color.cp_btn_a;
+        this.dka = false;
+        this.djY = true;
+        if (this.djZ != null) {
+            this.djZ.aIr();
         }
     }
 
-    public void aIt() {
-        this.djA = R.color.cp_cont_a;
-        this.djC = R.color.cp_btn_j;
-        this.djN = false;
-        this.djL = true;
-        if (this.djM != null) {
-            this.djM.aIq();
+    public void aIu() {
+        this.djN = R.color.cp_cont_a;
+        this.djP = R.color.cp_btn_j;
+        this.dka = false;
+        this.djY = true;
+        if (this.djZ != null) {
+            this.djZ.aIr();
         }
     }
 
     public void lu(@ColorRes int i) {
-        this.djA = i;
-        this.djC = R.color.cp_btn_c;
-        this.djN = false;
-        if (this.djM != null) {
-            this.djM.aIq();
+        this.djN = i;
+        this.djP = R.color.cp_btn_c;
+        this.dka = false;
+        if (this.djZ != null) {
+            this.djZ.aIr();
         }
     }
 
@@ -60,10 +60,10 @@ public class c extends a {
 
     private Drawable am(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.djN) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.djL ? am.getColor(this.djA) : this.djA, 0.08f));
+        if (this.dka) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.djY ? am.getColor(this.djN) : this.djN, 0.08f));
         } else {
-            gradientDrawable.setColor(am.getColor(this.djC));
+            gradientDrawable.setColor(am.getColor(this.djP));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

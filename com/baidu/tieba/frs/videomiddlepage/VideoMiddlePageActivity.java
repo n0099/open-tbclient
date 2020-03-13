@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment gOa;
+    private VideoMiddlePageFragment gOm;
     private String mFrom;
     private String mId;
     private String mNid;
@@ -37,10 +37,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.mNid = intent.getStringExtra("key_nid");
         Ar();
-        bLv();
+        bLw();
     }
 
-    private void bLv() {
+    private void bLw() {
         an anVar = new an("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             anVar.cy("obj_source", this.mFrom);
@@ -62,7 +62,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 videoMiddlePageFragment = VideoMiddlePageFragment.dv(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.gOa = videoMiddlePageFragment;
+            this.gOm = videoMiddlePageFragment;
         }
     }
 
@@ -71,7 +71,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!aq.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.axz().o(com.baidu.tbadk.BdToken.b.cGS, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.axz().o(com.baidu.tbadk.BdToken.b.cGT, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -113,10 +113,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.gOa == null) {
+        if (keyEvent == null || this.gOm == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.gOa.tf(i)) {
+        if (this.gOm.tf(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -143,7 +143,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             }
             pageStayDurationItem.setSorceKeyList(arrayList);
             pageStayDurationItem.isVertical = "0";
-            pageStayDurationItem.dCX = TextUtils.isEmpty(this.mNid) ? "0" : "1";
+            pageStayDurationItem.dDk = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         }
         return pageStayDurationItem;
     }

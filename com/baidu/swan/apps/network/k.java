@@ -9,8 +9,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class k {
-    public static final a bGx = new a(null);
-    private volatile Set<String> bGw;
+    public static final a bGy = new a(null);
+    private volatile Set<String> bGx;
 
     @kotlin.h
     /* loaded from: classes11.dex */
@@ -25,10 +25,10 @@ public final class k {
 
     public final synchronized void a(WebSocketTask webSocketTask) {
         q.j(webSocketTask, "task");
-        if (this.bGw == null) {
-            this.bGw = new LinkedHashSet();
+        if (this.bGx == null) {
+            this.bGx = new LinkedHashSet();
         }
-        Set<String> set = this.bGw;
+        Set<String> set = this.bGx;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
@@ -36,14 +36,14 @@ public final class k {
 
     public final synchronized void jH(String str) {
         q.j(str, "taskId");
-        Set<String> set = this.bGw;
+        Set<String> set = this.bGx;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.bGw;
+        Set<String> set = this.bGx;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,7 +53,7 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.bGw;
+        Set<String> set2 = this.bGx;
         if (set2 != null) {
             set2.clear();
         }
@@ -62,7 +62,7 @@ public final class k {
     public final synchronized boolean Za() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.bGw;
+            Set<String> set = this.bGx;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

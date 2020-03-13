@@ -7,7 +7,7 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class h extends HttpMessage {
     private long WZ;
-    private int apW;
+    private int apX;
     private int pn;
     private int ps;
 
@@ -15,7 +15,7 @@ public class h extends HttpMessage {
         super(1021138);
         this.ps = 20;
         this.pn = 1;
-        this.apW = 2;
+        this.apX = 2;
     }
 
     public void setPs(int i) {
@@ -35,6 +35,6 @@ public class h extends HttpMessage {
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.WZ + ""));
-        addParam("client_type", this.apW);
+        addParam("client_type", this.apX);
     }
 }

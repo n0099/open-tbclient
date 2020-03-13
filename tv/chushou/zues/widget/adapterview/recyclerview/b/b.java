@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class b extends LinearLayoutManager {
-    private static boolean nXm = true;
-    private static Field nXn = null;
-    private final Rect gdb;
-    private final int[] nXo;
-    private int nXp;
-    private boolean nXq;
-    private int nXr;
+    private static boolean nXx = true;
+    private static Field nXy = null;
+    private final Rect gdo;
+    private int nXA;
+    private boolean nXB;
+    private int nXC;
+    private final int[] nXz;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.nXo = new int[2];
-        this.nXp = 100;
-        this.nXr = 0;
-        this.gdb = new Rect();
+        this.nXz = new int[2];
+        this.nXA = 100;
+        this.nXC = 0;
+        this.gdo = new Rect();
         this.view = null;
     }
 
-    public static int dQA() {
+    public static int dQB() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int dQA = dQA();
+        int dQB = dQB();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.nXq) {
+                if (!this.nXB) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, dQA, this.nXo);
+                        a(recycler, i8, size, dQB, this.nXz);
                     } else {
                         Or(i8);
                     }
                 }
-                i5 = this.nXo[1] + i7;
-                i4 = i8 == 0 ? this.nXo[0] : i6;
+                i5 = this.nXz[1] + i7;
+                i4 = i8 == 0 ? this.nXz[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.nXq) {
+                if (!this.nXB) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, dQA, size2, this.nXo);
+                        a(recycler, i8, dQB, size2, this.nXz);
                     } else {
                         Or(i8);
                     }
                 }
-                i4 = i6 + this.nXo[0];
-                i5 = i8 == 0 ? this.nXo[1] : i7;
+                i4 = i6 + this.nXz[0];
+                i5 = i8 == 0 ? this.nXz[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -116,7 +116,7 @@ public class b extends LinearLayoutManager {
             }
         }
         setMeasuredDimension(min, paddingTop);
-        if (this.view != null && this.nXr == 1) {
+        if (this.view != null && this.nXC == 1) {
             ViewCompat.setOverScrollMode(this.view, (z5 && (!z2 || paddingTop < size2)) || (!z5 && (!z || min < size)) ? 2 : 0);
         }
     }
@@ -126,22 +126,22 @@ public class b extends LinearLayoutManager {
     }
 
     private void u(int i, int i2, boolean z) {
-        if (this.nXo[0] == 0 && this.nXo[1] == 0) {
+        if (this.nXz[0] == 0 && this.nXz[1] == 0) {
             if (z) {
-                this.nXo[0] = i;
-                this.nXo[1] = this.nXp;
+                this.nXz[0] = i;
+                this.nXz[1] = this.nXA;
                 return;
             }
-            this.nXo[0] = this.nXp;
-            this.nXo[1] = i2;
+            this.nXz[0] = this.nXA;
+            this.nXz[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.nXo != null && getOrientation() != i) {
-            this.nXo[0] = 0;
-            this.nXo[1] = 0;
+        if (this.nXz != null && getOrientation() != i) {
+            this.nXz[0] = 0;
+            this.nXz[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -155,7 +155,7 @@ public class b extends LinearLayoutManager {
             int i4 = layoutParams.leftMargin + layoutParams.rightMargin;
             int i5 = layoutParams.topMargin + layoutParams.bottomMargin;
             a(layoutParams);
-            calculateItemDecorationsForChild(viewForPosition, this.gdb);
+            calculateItemDecorationsForChild(viewForPosition, this.gdo);
             viewForPosition.measure(getChildMeasureSpec(i2, paddingLeft + i4 + getRightDecorationWidth(viewForPosition) + getLeftDecorationWidth(viewForPosition), layoutParams.width, canScrollHorizontally()), getChildMeasureSpec(i3, paddingTop + i5 + getTopDecorationHeight(viewForPosition) + getBottomDecorationHeight(viewForPosition), layoutParams.height, canScrollVertically()));
             iArr[0] = getDecoratedMeasuredWidth(viewForPosition) + layoutParams.leftMargin + layoutParams.rightMargin;
             iArr[1] = getDecoratedMeasuredHeight(viewForPosition) + layoutParams.bottomMargin + layoutParams.topMargin;
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (nXm) {
+        if (nXx) {
             try {
-                if (nXn == null) {
-                    nXn = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    nXn.setAccessible(true);
+                if (nXy == null) {
+                    nXy = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    nXy.setAccessible(true);
                 }
-                nXn.set(layoutParams, true);
+                nXy.set(layoutParams, true);
             } catch (Exception e) {
-                dQB();
+                dQC();
             }
         }
     }
 
-    private static void dQB() {
-        nXm = false;
+    private static void dQC() {
+        nXx = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

@@ -1,19 +1,19 @@
 package com.baidu.tieba.tbadkCore.d;
 /* loaded from: classes.dex */
 public class e {
-    public boolean khZ;
-    public d kia = new d();
-    public d kib = new d();
-    public d kic = new d();
+    public boolean kim;
+    public d kin = new d();
+    public d kio = new d();
+    public d kip = new d();
     public String netType;
     public String type;
 
     public e(String str, String str2, boolean z) {
-        this.khZ = false;
+        this.kim = false;
         this.netType = null;
         this.type = null;
         this.type = str;
         this.netType = str2;
-        this.khZ = z;
+        this.kim = z;
     }
 }

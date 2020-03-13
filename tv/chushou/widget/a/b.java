@@ -22,18 +22,18 @@ public final class b {
 
     /* loaded from: classes4.dex */
     public static final class c {
-        public static final int commonres_bg_page_status_button = 2130839666;
-        public static final int commonres_female_big = 2130839667;
-        public static final int commonres_female_no_border = 2130839668;
-        public static final int commonres_loading = 2130839669;
-        public static final int commonres_loading_anim = 2130839670;
-        public static final int commonres_male_big = 2130839671;
-        public static final int commonres_male_no_border = 2130839672;
-        public static final int commonres_pagestatus_empty = 2130839673;
-        public static final int commonres_pagestatus_need_login = 2130839674;
-        public static final int commonres_pagestatus_net_error = 2130839675;
-        public static final int commonres_pagestatus_unknown_error = 2130839676;
-        public static final int commonres_placeholder_icon = 2130839677;
+        public static final int commonres_bg_page_status_button = 2130839669;
+        public static final int commonres_female_big = 2130839670;
+        public static final int commonres_female_no_border = 2130839671;
+        public static final int commonres_loading = 2130839672;
+        public static final int commonres_loading_anim = 2130839673;
+        public static final int commonres_male_big = 2130839674;
+        public static final int commonres_male_no_border = 2130839675;
+        public static final int commonres_pagestatus_empty = 2130839676;
+        public static final int commonres_pagestatus_need_login = 2130839677;
+        public static final int commonres_pagestatus_net_error = 2130839678;
+        public static final int commonres_pagestatus_unknown_error = 2130839679;
+        public static final int commonres_placeholder_icon = 2130839680;
     }
 
     /* loaded from: classes4.dex */
@@ -51,10 +51,10 @@ public final class b {
 
     /* loaded from: classes4.dex */
     public static final class f {
-        public static final int commonres_pagestatus_action_login = 2131232301;
-        public static final int commonres_pagestatus_action_refresh = 2131232302;
-        public static final int commonres_pagestatus_empty = 2131232303;
-        public static final int commonres_pagestatus_net_error = 2131232304;
-        public static final int commonres_pagestatus_unknown = 2131232305;
+        public static final int commonres_pagestatus_action_login = 2131232302;
+        public static final int commonres_pagestatus_action_refresh = 2131232303;
+        public static final int commonres_pagestatus_empty = 2131232304;
+        public static final int commonres_pagestatus_net_error = 2131232305;
+        public static final int commonres_pagestatus_unknown = 2131232306;
     }
 }

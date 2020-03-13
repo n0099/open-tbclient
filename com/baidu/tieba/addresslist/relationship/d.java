@@ -15,9 +15,9 @@ public class d implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
                 com.baidu.tbadk.coreExtra.relationship.a aVar = (com.baidu.tbadk.coreExtra.relationship.a) customMessage.getData();
                 if (cmd == 2001179) {
-                    cw = f.aYZ().c(aVar);
+                    cw = f.aZa().c(aVar);
                 } else {
-                    cw = f.aYZ().cw(aVar.getUserId());
+                    cw = f.aZa().cw(aVar.getUserId());
                 }
                 if (!cw) {
                     com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);

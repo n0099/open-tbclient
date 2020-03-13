@@ -7,31 +7,31 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
     private int Ni;
-    private o dTb;
-    private Object dTc;
-    private boolean dTd;
+    private o dTo;
+    private Object dTp;
+    private boolean dTq;
     private int maskColor;
     private Map<String, String> params;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.dTd = false;
+        this.dTq = false;
     }
 
-    public o aVF() {
-        return this.dTb;
+    public o aVG() {
+        return this.dTo;
     }
 
     public void a(o oVar) {
-        this.dTb = oVar;
+        this.dTo = oVar;
     }
 
-    public Object aVG() {
-        return this.dTc;
+    public Object aVH() {
+        return this.dTp;
     }
 
     public void ao(Object obj) {
-        this.dTc = obj;
+        this.dTp = obj;
     }
 
     public Map<String, String> getParams() {

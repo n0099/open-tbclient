@@ -17,14 +17,14 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.f> {
 
     private boolean a(Context context, com.baidu.swan.apps.z.a.f fVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WS().hv(fVar.bim);
+        com.baidu.swan.apps.adaptation.b.e hv = com.baidu.swan.apps.y.f.WS().hv(fVar.bin);
         if (!(hv instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arB().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(fVar.bil);
+        com.baidu.swan.impl.map.item.c qa = com.baidu.swan.impl.map.c.arB().h((com.baidu.swan.apps.adaptation.b.c) hv).qa(fVar.bim);
         if (qa == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bil);
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bim);
             return false;
         }
         return a(fVar, qa, bVar);
@@ -34,8 +34,8 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.f> {
         if (!fVar.isValid()) {
             return false;
         }
-        LatLng latLng = new LatLng(fVar.bzL.latitude, fVar.bzL.longitude);
-        List<com.baidu.swan.impl.map.item.b> qb = cVar.qb(fVar.bAe);
+        LatLng latLng = new LatLng(fVar.bzM.latitude, fVar.bzM.longitude);
+        List<com.baidu.swan.impl.map.item.b> qb = cVar.qb(fVar.bAf);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
         if (qb != null) {
             for (com.baidu.swan.impl.map.item.b bVar2 : qb) {

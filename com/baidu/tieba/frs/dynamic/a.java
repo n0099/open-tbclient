@@ -61,7 +61,7 @@ public class a implements c {
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
                         bjVar.aDj();
-                        if (bjVar.getType() == bj.cRj || bjVar.getType() == bj.cRy || bjVar.getType() == bj.cRD || bjVar.getType() == bj.cRz || bjVar.getType() == bj.cRH || bjVar.getType() == bj.cRI) {
+                        if (bjVar.getType() == bj.cRk || bjVar.getType() == bj.cRz || bjVar.getType() == bj.cRE || bjVar.getType() == bj.cRA || bjVar.getType() == bj.cRI || bjVar.getType() == bj.cRJ) {
                             this.threadList.add(bjVar);
                         }
                     }

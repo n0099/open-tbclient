@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.source.u;
 import com.google.android.exoplayer2.t;
 /* loaded from: classes6.dex */
 public abstract class h {
-    private a mDn;
+    private a mDA;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -16,6 +16,6 @@ public abstract class h {
     public abstract void bA(Object obj);
 
     public final void a(a aVar) {
-        this.mDn = aVar;
+        this.mDA = aVar;
     }
 }

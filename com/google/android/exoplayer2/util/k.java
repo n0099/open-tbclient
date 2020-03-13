@@ -4,7 +4,7 @@ public final class k {
     private int bitOffset;
     private int byteOffset;
     public byte[] data;
-    private int mlP;
+    private int mma;
 
     public k() {
     }
@@ -15,7 +15,7 @@ public final class k {
 
     public k(byte[] bArr, int i) {
         this.data = bArr;
-        this.mlP = i;
+        this.mma = i;
     }
 
     public void aB(byte[] bArr) {
@@ -26,18 +26,18 @@ public final class k {
         this.data = bArr;
         this.byteOffset = 0;
         this.bitOffset = 0;
-        this.mlP = i;
+        this.mma = i;
     }
 
-    public int dzp() {
-        return ((this.mlP - this.byteOffset) * 8) - this.bitOffset;
+    public int dzq() {
+        return ((this.mma - this.byteOffset) * 8) - this.bitOffset;
     }
 
     public int getPosition() {
         return (this.byteOffset * 8) + this.bitOffset;
     }
 
-    public int dzq() {
+    public int dzr() {
         a.checkState(this.bitOffset == 0);
         return this.byteOffset;
     }
@@ -45,17 +45,17 @@ public final class k {
     public void setPosition(int i) {
         this.byteOffset = i / 8;
         this.bitOffset = i - (this.byteOffset * 8);
-        dvo();
+        dvp();
     }
 
-    public void dzr() {
+    public void dzs() {
         int i = this.bitOffset + 1;
         this.bitOffset = i;
         if (i == 8) {
             this.bitOffset = 0;
             this.byteOffset++;
         }
-        dvo();
+        dvp();
     }
 
     public void JU(int i) {
@@ -66,12 +66,12 @@ public final class k {
             this.byteOffset++;
             this.bitOffset -= 8;
         }
-        dvo();
+        dvp();
     }
 
-    public boolean dvn() {
+    public boolean dvo() {
         boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
-        dzr();
+        dzs();
         return z;
     }
 
@@ -93,7 +93,7 @@ public final class k {
             this.bitOffset = 0;
             this.byteOffset++;
         }
-        dvo();
+        dvp();
         return i4;
     }
 
@@ -124,15 +124,15 @@ public final class k {
                 this.bitOffset = 0;
                 this.byteOffset++;
             }
-            dvo();
+            dvp();
         }
     }
 
-    public void dzs() {
+    public void dzt() {
         if (this.bitOffset != 0) {
             this.bitOffset = 0;
             this.byteOffset++;
-            dvo();
+            dvp();
         }
     }
 
@@ -140,16 +140,16 @@ public final class k {
         a.checkState(this.bitOffset == 0);
         System.arraycopy(this.data, this.byteOffset, bArr, i, i2);
         this.byteOffset += i2;
-        dvo();
+        dvp();
     }
 
     public void skipBytes(int i) {
         a.checkState(this.bitOffset == 0);
         this.byteOffset += i;
-        dvo();
+        dvp();
     }
 
-    private void dvo() {
-        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlP || (this.byteOffset == this.mlP && this.bitOffset == 0)));
+    private void dvp() {
+        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mma || (this.byteOffset == this.mma && this.bitOffset == 0)));
     }
 }

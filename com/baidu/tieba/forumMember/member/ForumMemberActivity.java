@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements g.c {
-    private an gkB;
-    private com.baidu.tieba.forumMember.member.a.b gkD;
-    private e gkE;
+    private an gkO;
+    private com.baidu.tieba.forumMember.member.a.b gkQ;
+    private e gkR;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.m> gkC = null;
-    private aj gkF = new aj() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.m> gkP = null;
+    private aj gkS = new aj() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.aj
         public void a(int i, int i2, aq aqVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-            ForumMemberActivity.this.gkD.hideLoadingView();
-            ForumMemberActivity.this.gkD.completePullRefresh();
+            ForumMemberActivity.this.gkQ.hideLoadingView();
+            ForumMemberActivity.this.gkQ.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.m> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!v.isEmpty(arrayList)) {
-                ForumMemberActivity.this.gkD.bcx();
-                ForumMemberActivity.this.gkC = arrayList;
-                ForumMemberActivity.this.gkD.ca(ForumMemberActivity.this.gkC);
-            } else if (v.isEmpty(ForumMemberActivity.this.gkC) && aqVar != null) {
-                ForumMemberActivity.this.gkD.AY(aqVar.errMsg);
+                ForumMemberActivity.this.gkQ.bcy();
+                ForumMemberActivity.this.gkP = arrayList;
+                ForumMemberActivity.this.gkQ.ca(ForumMemberActivity.this.gkP);
+            } else if (v.isEmpty(ForumMemberActivity.this.gkP) && aqVar != null) {
+                ForumMemberActivity.this.gkQ.AZ(aqVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a fYL = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a fYY = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.gkD.kY(z);
+            ForumMemberActivity.this.gkQ.kY(z);
             if (z) {
-                if (v.isEmpty(ForumMemberActivity.this.gkC)) {
-                    ForumMemberActivity.this.bCv();
+                if (v.isEmpty(ForumMemberActivity.this.gkP)) {
+                    ForumMemberActivity.this.bCw();
                 } else {
-                    ForumMemberActivity.this.gkD.startPullRefresh();
+                    ForumMemberActivity.this.gkQ.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.gkD = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.gkD.f(this.fYL);
-        this.gkE = new e();
-        this.gkE.setTag(getUniqueId());
-        this.gkE.init();
-        this.gkE.a(this.gkF);
-        bCv();
+        this.gkQ = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.gkQ.f(this.fYY);
+        this.gkR = new e();
+        this.gkR.setTag(getUniqueId());
+        this.gkR.init();
+        this.gkR.a(this.gkS);
+        bCw();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.gkB = new an();
-        this.gkB.forumId = this.mForumId;
-        this.gkB.forumName = this.mForumName;
+        this.gkO = new an();
+        this.gkO.forumId = this.mForumId;
+        this.gkO.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gkD.onChangeSkinType(i);
+        this.gkQ.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gkE.bgW();
-        if (this.gkD != null) {
-            this.gkD.onDestroy();
+        this.gkR.bgX();
+        if (this.gkQ != null) {
+            this.gkQ.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        e eVar = this.gkE;
-        e eVar2 = this.gkE;
-        eVar.a(3, 0, this.gkB);
+        e eVar = this.gkR;
+        e eVar2 = this.gkR;
+        eVar.a(3, 0, this.gkO);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            bCv();
+            bCw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCv() {
-        this.gkD.showLoadingView();
-        e eVar = this.gkE;
-        e eVar2 = this.gkE;
-        eVar.a(3, 0, this.gkB);
+    public void bCw() {
+        this.gkQ.showLoadingView();
+        e eVar = this.gkR;
+        e eVar2 = this.gkR;
+        eVar.a(3, 0, this.gkO);
     }
 }

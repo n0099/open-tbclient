@@ -11,12 +11,12 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 /* loaded from: classes11.dex */
 public final class m {
-    private static volatile b bYo;
     private static volatile b bYp;
     private static volatile b bYq;
+    private static volatile b bYr;
     private static final String TAG = m.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final rx.functions.b bYr = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.1
+    private static final rx.functions.b bYs = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -53,53 +53,53 @@ public final class m {
     }
 
     public static a agL() {
-        if (bYo == null) {
-            synchronized (m.class) {
-                if (bYo == null) {
-                    bYo = new b(PublishSubject.dPr());
-                    bYo.dNU().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.4
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // rx.functions.f
-                        /* renamed from: b */
-                        public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.cc(pair).e(Schedulers.io()).e(m.bYr).dNX();
-                        }
-                    }).dNW().dNM();
-                }
-            }
-        }
-        return bYo;
-    }
-
-    public static a agM() {
         if (bYp == null) {
             synchronized (m.class) {
                 if (bYp == null) {
-                    bYp = new b(PublishSubject.dPr());
-                    bYp.dNU().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.5
+                    bYp = new b(PublishSubject.dPs());
+                    bYp.dNV().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.cc(pair).e(Schedulers.computation()).e(m.bYr).dNX();
+                            return rx.h.cc(pair).e(Schedulers.io()).e(m.bYs).dNY();
                         }
-                    }).dNW().dNM();
+                    }).dNX().dNN();
                 }
             }
         }
         return bYp;
     }
 
-    public static a agN() {
+    public static a agM() {
         if (bYq == null) {
             synchronized (m.class) {
                 if (bYq == null) {
-                    bYq = new b(PublishSubject.dPr());
-                    bYq.dNU().c(Schedulers.io()).b(bYr).dNW().dNM();
+                    bYq = new b(PublishSubject.dPs());
+                    bYq.dNV().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.5
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // rx.functions.f
+                        /* renamed from: b */
+                        public rx.d<?> call(Pair<Runnable, String> pair) {
+                            return rx.h.cc(pair).e(Schedulers.computation()).e(m.bYs).dNY();
+                        }
+                    }).dNX().dNN();
                 }
             }
         }
         return bYq;
+    }
+
+    public static a agN() {
+        if (bYr == null) {
+            synchronized (m.class) {
+                if (bYr == null) {
+                    bYr = new b(PublishSubject.dPs());
+                    bYr.dNV().c(Schedulers.io()).b(bYs).dNX().dNN();
+                }
+            }
+        }
+        return bYr;
     }
 
     public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
@@ -130,7 +130,7 @@ public final class m {
                     Log.wtf(m.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dNM();
+        }).dNN();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -149,7 +149,7 @@ public final class m {
                     Log.wtf(m.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dNM();
+        }).dNN();
     }
 
     public static String getStandardThreadName(String str) {
@@ -201,6 +201,6 @@ public final class m {
                     Log.wtf(m.TAG, "delay task fail", th);
                 }
             }
-        }).dNM();
+        }).dNN();
     }
 }

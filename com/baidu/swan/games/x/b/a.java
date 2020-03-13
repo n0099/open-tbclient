@@ -17,10 +17,10 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private String bqC;
-    private b.a csC;
-    private String csD;
-    private c<g> csE = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.x.b.a.1
+    private String bqD;
+    private b.a csD;
+    private String csE;
+    private c<g> csF = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.x.b.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -31,7 +31,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
         public String K(g gVar) {
-            return com.baidu.swan.apps.core.pms.d.b.hk(a.this.bqC);
+            return com.baidu.swan.apps.core.pms.d.b.hk(a.this.bqD);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,9 +82,9 @@ public class a extends j {
 
     public a(String str, String str2, String str3, b.a aVar) {
         this.mAppId = str;
-        this.csD = str3;
-        this.csC = aVar;
-        this.bqC = a.c.aL(str, str2).getPath();
+        this.csE = str3;
+        this.csD = aVar;
+        this.bqD = a.c.aL(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -107,7 +107,7 @@ public class a extends j {
 
     @Override // com.baidu.swan.pms.a.g
     public c<g> Pr() {
-        return this.csE;
+        return this.csF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -118,7 +118,7 @@ public class a extends j {
             }
             eJ(2104);
             com.baidu.swan.apps.core.pms.c.Pk().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aI(12L).aJ(2300L).my("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bqC, this.csD))) {
+        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bqD, this.csE))) {
             if (DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: 解压成功");
             }
@@ -152,21 +152,21 @@ public class a extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eJ(int i) {
-        if (this.csC != null) {
-            this.csC.dY(i);
+        if (this.csD != null) {
+            this.csD.dY(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void PG() {
-        if (this.csC != null) {
-            this.csC.apR();
+        if (this.csD != null) {
+            this.csD.apR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(long j, long j2) {
-        if (this.csC != null) {
+        if (this.csD != null) {
             if (j2 <= 0 || j > j2) {
                 eJ(2114);
                 return;
@@ -176,7 +176,7 @@ public class a extends j {
                 if (DEBUG) {
                     Log.i("SwanGameSubPkgDownload", "callbackProgress: " + floor);
                 }
-                this.csC.d(floor, j, j2);
+                this.csD.d(floor, j, j2);
             }
         }
     }

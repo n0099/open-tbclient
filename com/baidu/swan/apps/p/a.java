@@ -65,15 +65,15 @@ public class a extends c {
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class C0270a implements com.baidu.swan.apps.p.b {
-        private String bvb;
+        private String bvc;
 
         private C0270a(String str) {
-            this.bvb = str;
+            this.bvc = str;
         }
 
         @Override // com.baidu.swan.apps.p.b
         public void K(@Nullable JSONObject jSONObject) {
-            a.this.a(this.bvb, jSONObject == null ? new com.baidu.swan.apps.api.b.b(0) : new com.baidu.swan.apps.api.b.b(0, jSONObject));
+            a.this.a(this.bvc, jSONObject == null ? new com.baidu.swan.apps.api.b.b(0) : new com.baidu.swan.apps.api.b.b(0, jSONObject));
         }
 
         @Override // com.baidu.swan.apps.p.b
@@ -81,7 +81,7 @@ public class a extends c {
             if (c.DEBUG && i == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.a(this.bvb, str == null ? new com.baidu.swan.apps.api.b.b(i) : new com.baidu.swan.apps.api.b.b(i, str));
+            a.this.a(this.bvc, str == null ? new com.baidu.swan.apps.api.b.b(i) : new com.baidu.swan.apps.api.b.b(i, str));
         }
     }
 

@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class b {
     public static void a(com.baidu.tbadk.coreExtra.data.e eVar) {
         if (eVar != null) {
-            if (eVar.dma != 0) {
-                com.baidu.tbadk.core.sharedPref.b.aFD().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.dma + "");
+            if (eVar.dmn != 0) {
+                com.baidu.tbadk.core.sharedPref.b.aFD().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.dmn + "");
             }
-            if (eVar.dlZ != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.aFD().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.dlZ + "");
+            if (eVar.dmm != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+                com.baidu.tbadk.core.sharedPref.b.aFD().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.dmm + "");
             }
         }
     }
 
-    public int aVq() {
+    public int aVr() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             string = com.baidu.tbadk.core.sharedPref.b.aFD().getString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, "");

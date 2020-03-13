@@ -7,15 +7,15 @@ import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes9.dex */
 public class d {
-    private final com.baidu.tieba.pb.videopb.b iQv;
-    private final HttpMessageListener iQw = new HttpMessageListener(1001601, true) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.1
+    private final com.baidu.tieba.pb.videopb.b iQH;
+    private final HttpMessageListener iQI = new HttpMessageListener(1001601, true) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             d.this.a(httpResponsedMessage, 1001601);
         }
     };
-    private final HttpMessageListener iQx = new HttpMessageListener(1001604) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.2
+    private final HttpMessageListener iQJ = new HttpMessageListener(1001604) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -27,24 +27,24 @@ public class d {
         if (bVar == null) {
             throw new NullPointerException("PbActivity is NullPointerException");
         }
-        this.iQv = bVar;
-        cqG();
+        this.iQH = bVar;
+        cqH();
     }
 
     public void onDestroy() {
-        cqF();
+        cqG();
     }
 
-    private boolean cqF() {
-        MessageManager.getInstance().unRegisterListener(this.iQw);
-        MessageManager.getInstance().unRegisterListener(this.iQx);
+    private boolean cqG() {
+        MessageManager.getInstance().unRegisterListener(this.iQI);
+        MessageManager.getInstance().unRegisterListener(this.iQJ);
         return true;
     }
 
-    public boolean cqG() {
-        if (this.iQv != null) {
-            this.iQv.registerListener(this.iQw);
-            this.iQv.registerListener(this.iQx);
+    public boolean cqH() {
+        if (this.iQH != null) {
+            this.iQH.registerListener(this.iQI);
+            this.iQH.registerListener(this.iQJ);
             return true;
         }
         return true;
@@ -53,10 +53,10 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpResponsedMessage httpResponsedMessage, int i) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.iQv != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.iQH != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
             CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
             activityDialogData.type = 0;
-            com.baidu.tieba.pb.interactionpopupwindow.c.a(this.iQv.getPageContext(), activityDialogData).show();
+            com.baidu.tieba.pb.interactionpopupwindow.c.a(this.iQH.getPageContext(), activityDialogData).show();
         }
     }
 }

@@ -18,16 +18,16 @@ import rx.schedulers.Schedulers;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.swan.apps.process.messaging.service.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> cqZ = i.K("event_puppet_unload_app", "event_puppet_offline");
-    private static long cra = TimeUnit.SECONDS.toMillis(10);
-    private int crb = SwanAppProcessInfo.UNKNOWN.index;
+    private static final Set<String> cra = i.K("event_puppet_unload_app", "event_puppet_offline");
+    private static long crb = TimeUnit.SECONDS.toMillis(10);
+    private int crd = SwanAppProcessInfo.UNKNOWN.index;
 
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull final Bundle bundle) {
-        this.crb = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-        final boolean checkProcessId = SwanAppProcessInfo.checkProcessId(this.crb);
+        this.crd = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
+        final boolean checkProcessId = SwanAppProcessInfo.checkProcessId(this.crd);
         if (DEBUG) {
-            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.crb);
+            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.crd);
             Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
         }
         d.cb("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.games.r.b.1
@@ -36,9 +36,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
             public void call(String str) {
                 if (checkProcessId) {
                     if (b.DEBUG) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.cra);
+                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.crb);
                     }
-                    e.abu().a(b.this, b.cra);
+                    e.abu().a(b.this, b.crb);
                 }
                 com.baidu.swan.apps.env.c RE = com.baidu.swan.apps.env.e.RD().RE();
                 if (RE != null) {
@@ -56,7 +56,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
 
     @Override // com.baidu.swan.apps.process.messaging.service.a
     public void b(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-        if (cVar.bJz.index == this.crb && cqZ.contains(str)) {
+        if (cVar.bJA.index == this.crd && cra.contains(str)) {
             e.abu().a(this);
             if (DEBUG) {
                 Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
@@ -75,7 +75,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
 
     /* JADX INFO: Access modifiers changed from: private */
     public void invoke() {
-        String string = this.bIQ.getString(SuspensionBallEntity.KEY_SCHEME);
+        String string = this.bIR.getString(SuspensionBallEntity.KEY_SCHEME);
         if (DEBUG) {
             Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
         }

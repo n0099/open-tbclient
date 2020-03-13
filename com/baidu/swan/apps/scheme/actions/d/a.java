@@ -16,22 +16,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bRG;
-    private FloatButton bRH;
-    private JSONObject bRI;
+    private static volatile a bRH;
+    private FloatButton bRI;
+    private JSONObject bRJ;
     private Activity mActivity;
     private String mApkName = "";
     private String mText;
 
     public static a adN() {
-        if (bRG == null) {
+        if (bRH == null) {
             synchronized (a.class) {
-                if (bRG == null) {
-                    bRG = new a();
+                if (bRH == null) {
+                    bRH = new a();
                 }
             }
         }
-        return bRG;
+        return bRH;
     }
 
     private a() {
@@ -45,7 +45,7 @@ public class a {
             this.mActivity = activity;
             this.mApkName = jSONObject.optString("name");
             this.mText = ai.isAppInstalled(activity, this.mApkName) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.bRI = jSONObject.optJSONObject("style");
+            this.bRJ = jSONObject.optJSONObject("style");
         }
     }
 
@@ -53,15 +53,15 @@ public class a {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.bRH == null) {
-            this.bRH = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.bRI == null) {
+            this.bRI = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.bRH.setFloatButtonText(this.mText);
-        this.bRH.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.bRH.setFloatButtonDefaultPosition();
-        this.bRH.setFloatButtonStyle(this.bRI);
-        this.bRH.setVisibility(0);
-        return this.bRH;
+        this.bRI.setFloatButtonText(this.mText);
+        this.bRI.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.bRI.setFloatButtonDefaultPosition();
+        this.bRI.setFloatButtonStyle(this.bRJ);
+        this.bRI.setVisibility(0);
+        return this.bRI;
     }
 
     private FloatButton d(Context context, ViewGroup viewGroup) {
@@ -81,7 +81,7 @@ public class a {
     }
 
     public void K(Intent intent) {
-        if (intent != null && this.bRH != null) {
+        if (intent != null && this.bRI != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
@@ -91,18 +91,18 @@ public class a {
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.bRH.setFloatButtonText(this.mText);
+                    this.bRI.setFloatButtonText(this.mText);
                 }
             }
         }
     }
 
     public FloatButton adP() {
-        return this.bRH;
+        return this.bRI;
     }
 
     public void a(FloatButton floatButton) {
-        this.bRH = floatButton;
+        this.bRI = floatButton;
     }
 
     public void ls(String str) {
@@ -110,8 +110,8 @@ public class a {
     }
 
     public static void release() {
-        if (bRG != null) {
-            bRG = null;
+        if (bRH != null) {
+            bRH = null;
         }
     }
 }

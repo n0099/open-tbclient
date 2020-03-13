@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public final class d {
-    private static volatile d bHT;
-    private HashMap<String, e> bHU;
+    private static volatile d bHU;
     private HashMap<String, e> bHV;
     private HashMap<String, e> bHW;
+    private HashMap<String, e> bHX;
 
     private d() {
         aac();
     }
 
     public static d aab() {
-        if (bHT == null) {
+        if (bHU == null) {
             synchronized (d.class) {
-                if (bHT == null) {
-                    bHT = new d();
+                if (bHU == null) {
+                    bHU = new d();
                 }
             }
         }
-        return bHT;
+        return bHU;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (bHT != null) {
-                bHT.release();
-                bHT = null;
+            if (bHU != null) {
+                bHU.release();
+                bHU = null;
             }
         }
     }
 
     private void release() {
-        if (this.bHU != null) {
-            this.bHU.clear();
-        }
         if (this.bHV != null) {
             this.bHV.clear();
         }
         if (this.bHW != null) {
             this.bHW.clear();
+        }
+        if (this.bHX != null) {
+            this.bHX.clear();
         }
     }
 
@@ -105,14 +105,14 @@ public final class d {
     }
 
     private void aac() {
-        if (this.bHU == null) {
-            this.bHU = new HashMap<>();
-        }
         if (this.bHV == null) {
             this.bHV = new HashMap<>();
         }
         if (this.bHW == null) {
             this.bHW = new HashMap<>();
+        }
+        if (this.bHX == null) {
+            this.bHX = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.bHU.get(str);
-                    if (eVar == null) {
-                        eVar = new b();
-                        this.bHU.put(str, eVar);
-                        break;
-                    }
-                    break;
-                case 1:
                     eVar = this.bHV.get(str);
                     if (eVar == null) {
-                        eVar = new a();
+                        eVar = new b();
                         this.bHV.put(str, eVar);
                         break;
                     }
                     break;
-                case 2:
+                case 1:
                     eVar = this.bHW.get(str);
                     if (eVar == null) {
-                        eVar = new c();
+                        eVar = new a();
                         this.bHW.put(str, eVar);
+                        break;
+                    }
+                    break;
+                case 2:
+                    eVar = this.bHX.get(str);
+                    if (eVar == null) {
+                        eVar = new c();
+                        this.bHX.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,13 +198,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.bHU.remove(str);
-                    break;
-                case 1:
                     eVar = this.bHV.remove(str);
                     break;
-                case 2:
+                case 1:
                     eVar = this.bHW.remove(str);
+                    break;
+                case 2:
+                    eVar = this.bHX.remove(str);
                     break;
             }
             if (eVar != null) {
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.ap.e.bXM.O(Long.valueOf(j));
-                    return;
-                case 1:
                     com.baidu.swan.apps.ap.e.bXN.O(Long.valueOf(j));
                     return;
-                case 2:
+                case 1:
                     com.baidu.swan.apps.ap.e.bXO.O(Long.valueOf(j));
+                    return;
+                case 2:
+                    com.baidu.swan.apps.ap.e.bXP.O(Long.valueOf(j));
                     return;
                 default:
                     return;

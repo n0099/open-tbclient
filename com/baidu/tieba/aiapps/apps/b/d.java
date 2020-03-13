@@ -18,7 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes12.dex */
 public class d {
-    public static String bjE = "https://mbd.baidu.com";
+    public static String bjF = "https://mbd.baidu.com";
 
     public static String processCommonParams(String str) {
         String ci = ci(getDeviceInfo());

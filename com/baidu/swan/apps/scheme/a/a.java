@@ -30,13 +30,13 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bSl = new HashSet();
+    private static final Set<String> bSm = new HashSet();
 
     static {
-        bSl.add("_baiduboxapp");
-        bSl.add(BuyTBeanActivityConfig.CALLBACK);
-        bSl.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-        bSl.add("_naExtParams");
+        bSm.add("_baiduboxapp");
+        bSm.add(BuyTBeanActivityConfig.CALLBACK);
+        bSm.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        bSm.add("_naExtParams");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -186,7 +186,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String e(Uri uri) {
-        return ag.deleteQueryParam(uri.getEncodedQuery(), bSl);
+        return ag.deleteQueryParam(uri.getEncodedQuery(), bSm);
     }
 
     private String f(Uri uri) {

@@ -8,9 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends c {
-    public String bAb = "";
     public String bAc = "";
-    public ArrayList<String> bAd;
+    public String bAd = "";
+    public ArrayList<String> bAe;
 
     @Override // com.baidu.swan.apps.z.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,19 +18,19 @@ public class e extends c {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("scale")) {
-                this.bzM = jSONObject.optDouble("scale", 18.0d);
+                this.bzN = jSONObject.optDouble("scale", 18.0d);
             }
             if (jSONObject.has("name")) {
-                this.bAb = jSONObject.optString("name");
+                this.bAc = jSONObject.optString("name");
             }
             if (jSONObject.has(SlideActiviy.ADDRESS_PAGE_NAME)) {
-                this.bAc = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+                this.bAd = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
             }
             if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
                 int length = optJSONArray.length();
-                this.bAd = new ArrayList<>();
+                this.bAe = new ArrayList<>();
                 for (int i = 0; i < length; i++) {
-                    this.bAd.add(optJSONArray.optString(i));
+                    this.bAe.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -38,6 +38,6 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.bim) || this.bzL == null || !this.bzL.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.bin) || this.bzM == null || !this.bzM.isValid()) ? false : true;
     }
 }

@@ -10,8 +10,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bvj;
     private static a bvk;
+    private static a bvl;
     public String extensionCoreVersionName;
 
     @NonNull
@@ -21,18 +21,18 @@ public class a {
 
     @NonNull
     private static a hL(@NonNull String str) {
-        if (bvj == null) {
-            bvj = ai(hN(str));
-        }
-        return bvj;
-    }
-
-    @NonNull
-    private static a hM(@NonNull String str) {
         if (bvk == null) {
             bvk = ai(hN(str));
         }
         return bvk;
+    }
+
+    @NonNull
+    private static a hM(@NonNull String str) {
+        if (bvl == null) {
+            bvl = ai(hN(str));
+        }
+        return bvl;
     }
 
     @NonNull

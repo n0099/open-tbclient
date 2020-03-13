@@ -18,12 +18,12 @@ public class a {
             bVar2.aT(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.wj(forumData.getFirst_class());
-                bVar2.wk(forumData.getSecond_class());
+                bVar2.wk(forumData.getFirst_class());
+                bVar2.wl(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.wl(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.wm(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.hv(z);
             bVar2.setPageNum(i);
@@ -41,7 +41,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.getCount(list) > 0 && v.getCount(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.kfV) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.kgh) {
                 m mVar = (m) v.getItem(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
                     fVar.cJ(i, indexOf);

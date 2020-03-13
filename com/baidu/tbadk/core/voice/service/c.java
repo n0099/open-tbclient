@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void aIM();
-
-    void aIP();
+    void aIN();
 
     void aIQ();
 
     void aIR();
+
+    void aIS();
 
     int getErrorNo();
 
@@ -19,5 +19,5 @@ public interface c {
 
     void seek(int i);
 
-    boolean ug(String str);
+    boolean uh(String str);
 }

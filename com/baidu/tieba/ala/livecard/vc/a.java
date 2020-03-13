@@ -19,9 +19,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    private NEGFeedBackView eNx;
-    private ViewGroup eNy;
-    private NEGFeedBackView.a eNz = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
+    private NEGFeedBackView eNK;
+    private ViewGroup eNL;
+    private NEGFeedBackView.a eNM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void b(al alVar) {
             if (alVar != null) {
@@ -60,7 +60,7 @@ public class a {
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.eNy = viewGroup;
+        this.eNL = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -69,56 +69,56 @@ public class a {
 
     public void e(bj bjVar, String str) {
         int i = 0;
-        if (bjVar != null && bjVar.aCH() != null && this.mPageContext != null && this.eNy != null) {
+        if (bjVar != null && bjVar.aCH() != null && this.mPageContext != null && this.eNL != null) {
             boolean z = (bjVar.aCo() == null || bjVar.aCo().getUserId() == null || !bjVar.aCo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (TbadkCoreApplication.isLogin() && bjVar.aCH().dislikeInfo != null && !z && bjVar.aCH().dislikeInfo.size() > 0) {
-                if (this.eNx == null) {
-                    this.eNx = new NEGFeedBackView(this.mPageContext);
-                    this.eNx.setUniqueId(this.mBdUniqueId);
-                    this.eNx.setId(R.id.negative_feedback_view);
-                    this.eNx.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
-                    this.eNx.setEventCallback(this.eNz);
-                    this.eNx.b(this.eNy, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
-                    this.eNx.onChangeSkinType();
+                if (this.eNK == null) {
+                    this.eNK = new NEGFeedBackView(this.mPageContext);
+                    this.eNK.setUniqueId(this.mBdUniqueId);
+                    this.eNK.setId(R.id.negative_feedback_view);
+                    this.eNK.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
+                    this.eNK.setEventCallback(this.eNM);
+                    this.eNK.b(this.eNL, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
+                    this.eNK.onChangeSkinType();
                 }
-                if (this.eNx.getVisibility() != 0) {
-                    this.eNx.setVisibility(0);
+                if (this.eNK.getVisibility() != 0) {
+                    this.eNK.setVisibility(0);
                 }
                 al alVar = new al();
                 alVar.setTid(bjVar.getTid());
                 alVar.setFid(bjVar.getFid());
                 alVar.setType(str);
                 alVar.setFeedBackReasonMap(bjVar.aCH().dislikeInfo);
-                this.eNx.setData(alVar);
+                this.eNK.setData(alVar);
             } else {
-                if (this.eNx != null && this.eNx.getVisibility() != 8) {
-                    this.eNx.setVisibility(8);
+                if (this.eNK != null && this.eNK.getVisibility() != 8) {
+                    this.eNK.setVisibility(8);
                 }
                 i = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32);
             }
-            if (this.eNy.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eNy.getLayoutParams();
+            if (this.eNL.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eNL.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.eNy.setLayoutParams(layoutParams);
+                this.eNL.setLayoutParams(layoutParams);
             }
-            if (this.eNy.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eNy.getLayoutParams();
+            if (this.eNL.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eNL.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.eNy.setLayoutParams(layoutParams2);
+                this.eNL.setLayoutParams(layoutParams2);
             }
-            if (this.eNx != null) {
-                this.eNx.aWn();
+            if (this.eNK != null) {
+                this.eNK.aWo();
             }
         }
     }
 
-    public View bgX() {
-        return this.eNx;
+    public View bgY() {
+        return this.eNK;
     }
 
     public void onChangeSkinType() {
-        if (this.eNx != null) {
-            this.eNx.onChangeSkinType();
+        if (this.eNK != null) {
+            this.eNK.onChangeSkinType();
         }
     }
 }

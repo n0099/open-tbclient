@@ -18,17 +18,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    private static d cdz;
+    private static d cdA;
 
     public static d aiD() {
-        if (cdz == null) {
+        if (cdA == null) {
             synchronized (d.class) {
-                if (cdz == null) {
-                    cdz = new d();
+                if (cdA == null) {
+                    cdA = new d();
                 }
             }
         }
-        return cdz;
+        return cdA;
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.a aVar) {
@@ -53,10 +53,10 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar, int i) {
                     if (aVar != null) {
-                        if (!TextUtils.equals(dVar.cdL, "0") || dVar.cdN == null) {
-                            d.this.a(dVar.cdL, dVar.cdM, aVar);
+                        if (!TextUtils.equals(dVar.cdM, "0") || dVar.cdO == null) {
+                            d.this.a(dVar.cdM, dVar.cdN, aVar);
                         } else {
-                            aVar.a(dVar.cdN);
+                            aVar.a(dVar.cdO);
                         }
                     }
                 }
@@ -129,10 +129,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.a> dVar, int i) {
                 if (interfaceC0321c != null) {
-                    if (!TextUtils.equals(dVar.cdL, "0") || dVar.cdN == null) {
-                        d.this.a(dVar.cdL, dVar.cdM, interfaceC0321c);
+                    if (!TextUtils.equals(dVar.cdM, "0") || dVar.cdO == null) {
+                        d.this.a(dVar.cdM, dVar.cdN, interfaceC0321c);
                     } else {
-                        interfaceC0321c.ai(dVar.cdN.cdK);
+                        interfaceC0321c.ai(dVar.cdO.cdL);
                     }
                 }
             }
@@ -167,10 +167,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar, int i) {
                 if (eVar != null) {
-                    if (!TextUtils.equals(dVar.cdL, "0") || dVar.cdN == null) {
-                        d.this.a(dVar.cdL, dVar.cdM, eVar);
+                    if (!TextUtils.equals(dVar.cdM, "0") || dVar.cdO == null) {
+                        d.this.a(dVar.cdM, dVar.cdN, eVar);
                     } else {
-                        eVar.b(dVar.cdN);
+                        eVar.b(dVar.cdO);
                     }
                 }
             }
@@ -206,8 +206,8 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d dVar2, int i) {
                 if (dVar != null) {
-                    if (!TextUtils.equals(dVar2.cdL, "0")) {
-                        d.this.a(dVar2.cdL, dVar2.cdM, dVar);
+                    if (!TextUtils.equals(dVar2.cdM, "0")) {
+                        d.this.a(dVar2.cdM, dVar2.cdN, dVar);
                     } else {
                         dVar.aN(j);
                     }
@@ -245,10 +245,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b> dVar, int i) {
                 if (bVar != null) {
-                    if (!TextUtils.equals(dVar.cdL, "0") || dVar.cdN == null) {
-                        d.this.a(dVar.cdL, dVar.cdM, bVar);
+                    if (!TextUtils.equals(dVar.cdM, "0") || dVar.cdO == null) {
+                        d.this.a(dVar.cdM, dVar.cdN, bVar);
                     } else {
-                        bVar.aM(dVar.cdN.mId);
+                        bVar.aM(dVar.cdO.mId);
                     }
                 }
             }

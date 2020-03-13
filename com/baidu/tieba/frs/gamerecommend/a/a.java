@@ -11,22 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeListView ekb;
+    private BdTypeListView eko;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
-    private z gBs = new z() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
+    private z gBE = new z() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
         @Override // com.baidu.tieba.card.z
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             super.a(view, bVar);
             a.this.notifyDataSetChanged();
         }
     };
-    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.ekb = bdTypeListView;
+        this.eko = bdTypeListView;
         this.mForumId = str;
         this.mForumName = str2;
         wM();
@@ -34,35 +34,35 @@ public class a {
 
     private void wM() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.d(this.gBs);
-        this.asE.add(bVar);
+        bVar.d(this.gBE);
+        this.asF.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.d(this.gBs);
-        this.asE.add(cVar);
-        this.asE.add(new h(this.mPageContext, this.mForumId));
-        this.asE.add(new f(this.mPageContext, this.mForumId));
-        this.asE.add(new i(this.mPageContext, com.baidu.tieba.e.h.fQs, this.mPageContext.getUniqueId(), this.mForumId));
+        cVar.d(this.gBE);
+        this.asF.add(cVar);
+        this.asF.add(new h(this.mPageContext, this.mForumId));
+        this.asF.add(new f(this.mPageContext, this.mForumId));
+        this.asF.add(new i(this.mPageContext, com.baidu.tieba.e.h.fQF, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
-        eVar.d(this.gBs);
-        this.asE.add(eVar);
-        this.asE.add(new d(this.mPageContext, com.baidu.tieba.e.c.fQg, this.mPageContext.getUniqueId(), this.mForumId));
-        this.asE.add(new g(this.mPageContext, com.baidu.tieba.e.f.fQo, this.mPageContext.getUniqueId(), this.mForumId));
-        ab abVar = new ab(this.mPageContext, r.gru, this.mPageContext.getUniqueId());
-        abVar.bHi();
+        eVar.d(this.gBE);
+        this.asF.add(eVar);
+        this.asF.add(new d(this.mPageContext, com.baidu.tieba.e.c.fQt, this.mPageContext.getUniqueId(), this.mForumId));
+        this.asF.add(new g(this.mPageContext, com.baidu.tieba.e.f.fQB, this.mPageContext.getUniqueId(), this.mForumId));
+        ab abVar = new ab(this.mPageContext, r.grH, this.mPageContext.getUniqueId());
+        abVar.bHj();
         abVar.setForumId(this.mForumId);
-        this.asE.add(abVar);
-        this.ekb.addAdapters(this.asE);
+        this.asF.add(abVar);
+        this.eko.addAdapters(this.asF);
     }
 
     public void setData(List<m> list) {
-        if (this.ekb != null) {
-            this.ekb.setData(list);
+        if (this.eko != null) {
+            this.eko.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.ekb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.ekb.getAdapter().notifyDataSetChanged();
+        if (this.eko.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.eko.getAdapter().notifyDataSetChanged();
         }
     }
 }

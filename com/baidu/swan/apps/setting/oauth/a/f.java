@@ -11,16 +11,16 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean bTT;
-    private final String bUi;
+    private boolean bTU;
+    private final String bUj;
     protected final Activity mActivity;
     private final String mScope;
 
     public f(Activity activity, String str, String str2, boolean z) {
         this.mActivity = activity;
         this.mScope = str;
-        this.bUi = str2;
-        this.bTT = z;
+        this.bUj = str2;
+        this.bTU = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -41,15 +41,15 @@ public class f extends g<JSONObject> {
             if (adb.GE() != null && adb.GE().VJ() != null) {
                 jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, adb.GE().VJ());
             }
-            if (this.bTT) {
+            if (this.bTU) {
                 jSONObject.put(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "1");
             }
             String Ic = com.baidu.swan.apps.w.a.Ui().Ic();
             if (!TextUtils.isEmpty(Ic)) {
                 jSONObject.put("host_api_key", Ic);
             }
-            if (!TextUtils.isEmpty(this.bUi)) {
-                jSONObject.put("provider_appkey", this.bUi);
+            if (!TextUtils.isEmpty(this.bUj)) {
+                jSONObject.put("provider_appkey", this.bUj);
             }
         } catch (JSONException e) {
             if (DEBUG) {

@@ -11,24 +11,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private com.baidu.poly.c.a.c aRA;
+    private com.baidu.poly.c.a.c aRB;
     private Activity activity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class a extends com.baidu.poly.a.a.a<Map<String, String>> {
-        final /* synthetic */ l aRn;
-        final /* synthetic */ String aRx;
+        final /* synthetic */ l aRo;
+        final /* synthetic */ String aRy;
 
         a(String str, l lVar) {
-            this.aRx = str;
-            this.aRn = lVar;
+            this.aRy = str;
+            this.aRo = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         public void a(Map<String, String> map) {
-            b.this.b(map, this.aRx, this.aRn);
+            b.this.b(map, this.aRy, this.aRo);
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -39,7 +39,7 @@ public class b {
             } else {
                 message = th != null ? th.getMessage() : null;
             }
-            this.aRn.a("pay_platform error msg is " + message);
+            this.aRo.a("pay_platform error msg is " + message);
             com.baidu.poly.a.g.c.a(new com.baidu.poly.a.g.a("1").eQ(new com.baidu.poly.a.h.a("pay_platform error --> " + str, th).B()));
         }
     }
@@ -48,24 +48,24 @@ public class b {
     /* renamed from: com.baidu.poly.a.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class C0159b implements com.baidu.poly.c.a.a {
-        final /* synthetic */ l aRn;
-        final /* synthetic */ String aRz;
+        final /* synthetic */ String aRA;
+        final /* synthetic */ l aRo;
 
         C0159b(String str, l lVar) {
-            this.aRz = str;
-            this.aRn = lVar;
+            this.aRA = str;
+            this.aRo = lVar;
         }
 
         @Override // com.baidu.poly.c.a.a
         public void onResult(int i, String str) {
             com.baidu.poly.util.c.info("WalletChannel->thirdPay onResult statusCode = " + i + " msg = " + str);
-            this.aRn.a(i, com.baidu.poly.util.a.a(i, this.aRz, str));
+            this.aRo.a(i, com.baidu.poly.util.a.a(i, this.aRA, str));
         }
     }
 
     public b(Activity activity, com.baidu.poly.c.a.c cVar) {
         this.activity = activity;
-        this.aRA = cVar;
+        this.aRB = cVar;
     }
 
     public void a(Map<String, String> map, String str, l lVar) {
@@ -78,11 +78,11 @@ public class b {
 
     public void b(Map<String, String> map, String str, l lVar) {
         com.baidu.poly.c.a.b bVar = new com.baidu.poly.c.a.b();
-        bVar.aSe = j(map);
+        bVar.aSf = j(map);
         bVar.channel = str;
         String str2 = map.get("payOrderNo");
-        com.baidu.poly.a.g.c.aRk = str2;
-        com.baidu.poly.c.a.c cVar = this.aRA;
+        com.baidu.poly.a.g.c.aRl = str2;
+        com.baidu.poly.c.a.c cVar = this.aRB;
         if (cVar != null) {
             cVar.a(this.activity, bVar, new C0159b(str2, lVar));
             com.baidu.poly.util.c.info("WalletChannel->thirdPay setIsPreparePaying()");

@@ -20,16 +20,16 @@ public interface c {
 
         com.facebook.a.a aQ(Object obj) throws IOException;
 
-        boolean dkc();
+        boolean dkd();
     }
 
-    long OK(String str) throws IOException;
+    long OL(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void djY();
+    void djZ();
 
-    Collection<a> djZ() throws IOException;
+    Collection<a> dka() throws IOException;
 
     boolean isExternal();
 

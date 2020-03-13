@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes9.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String iAa;
-        private InterfaceC0571b iAb;
-        private String izZ;
+        private String iAl;
+        private String iAm;
+        private InterfaceC0571b iAn;
 
         public a(String str, String str2, InterfaceC0571b interfaceC0571b) {
-            this.izZ = str;
-            this.iAa = str2;
-            this.iAb = interfaceC0571b;
+            this.iAl = str;
+            this.iAm = str2;
+            this.iAn = interfaceC0571b;
             setPriority(3);
         }
 
@@ -42,8 +42,8 @@ public class b {
         /* renamed from: M */
         public ForbidTplData doInBackground(String... strArr) {
             x xVar = new x(b.BAWU_LIST_REASON);
-            xVar.addPostData("forum_id", this.izZ);
-            xVar.addPostData("user_id", this.iAa);
+            xVar.addPostData("forum_id", this.iAl);
+            xVar.addPostData("user_id", this.iAm);
             String postNetData = xVar.postNetData();
             if (xVar.aGg().aGI().isRequestSuccess()) {
                 try {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.iAb != null) {
+            if (this.iAn != null) {
                 if (forbidTplData.error.errno == 0 && aq.isEmpty(forbidTplData.error.errMsg)) {
-                    this.iAb.a(forbidTplData);
+                    this.iAn.a(forbidTplData);
                 } else {
-                    this.iAb.b(forbidTplData);
+                    this.iAn.b(forbidTplData);
                 }
             }
         }

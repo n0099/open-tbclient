@@ -722,7 +722,7 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     private void nativeOnFastOpen(int i, int i2) {
-        if (getVideoPlayer(i) != null) {
+        if (!this.mIsDestroy) {
             getVideoPlayer(i).getPlayerData().mFastOpen = i2;
             Message obtainMessage = this.mPlayerHandler.obtainMessage(6);
             obtainMessage.arg1 = i;
@@ -732,32 +732,36 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     private void nativeOnStreamStuck(int i, int i2, int i3) {
-        MessageStreamStuckData messageStreamStuckData = new MessageStreamStuckData();
-        messageStreamStuckData.index = i;
-        messageStreamStuckData.type = i2;
-        messageStreamStuckData.ms = i3;
-        Message obtainMessage = this.mPlayerHandler.obtainMessage(5);
-        obtainMessage.obj = messageStreamStuckData;
-        this.mPlayerHandler.sendMessage(obtainMessage);
+        if (!this.mIsDestroy) {
+            MessageStreamStuckData messageStreamStuckData = new MessageStreamStuckData();
+            messageStreamStuckData.index = i;
+            messageStreamStuckData.type = i2;
+            messageStreamStuckData.ms = i3;
+            Message obtainMessage = this.mPlayerHandler.obtainMessage(5);
+            obtainMessage.obj = messageStreamStuckData;
+            this.mPlayerHandler.sendMessage(obtainMessage);
+        }
     }
 
     private void rtmpResponsedCallback(int i, int i2, int i3, String str) {
-        if (i2 == 0) {
-            if (this.mPlayerHandler != null) {
-                this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 1));
-            }
-            AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "startnative", "curnet", BdNetTypeUtil.netTypeNameInLowerCase(), "pullip", getPullStreamIp(i));
-        } else if (i2 == 1 && this.mPlayerHandler != null) {
-            this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 0));
-        }
-        if (getVideoPlayer(i) != null && getVideoPlayer(i).getPlayerData().mIsRun == 1 && !this.manualReconnect && i2 == 0 && getNetworkState() > 0) {
-            for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
-                AlaVideoPlayer2 value = entry.getValue();
-                if (value != null && value.getPlayerData().mPlayUrl != null && value.getPlayerData().mPlayUrl.length() > 0) {
-                    restart(entry.getKey().intValue(), getVideoPlayer(entry.getKey().intValue()).getPlayerData().mPlayUrl);
+        if (!this.mIsDestroy) {
+            if (i2 == 0) {
+                if (this.mPlayerHandler != null) {
+                    this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 1));
                 }
+                AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "startnative", "curnet", BdNetTypeUtil.netTypeNameInLowerCase(), "pullip", getPullStreamIp(i));
+            } else if (i2 == 1 && this.mPlayerHandler != null) {
+                this.mPlayerHandler.sendMessage(this.mPlayerHandler.obtainMessage(4, i, 0));
             }
-            AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "restart", TiebaInitialize.LogFields.REASON, "streamclose");
+            if (getVideoPlayer(i) != null && getVideoPlayer(i).getPlayerData().mIsRun == 1 && !this.manualReconnect && i2 == 0 && getNetworkState() > 0) {
+                for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
+                    AlaVideoPlayer2 value = entry.getValue();
+                    if (value != null && value.getPlayerData().mPlayUrl != null && value.getPlayerData().mPlayUrl.length() > 0) {
+                        restart(entry.getKey().intValue(), getVideoPlayer(entry.getKey().intValue()).getPlayerData().mPlayUrl);
+                    }
+                }
+                AlaLivePlayerUtil.log(BdStatsConstant.StatsType.ERROR, "restart", TiebaInitialize.LogFields.REASON, "streamclose");
+            }
         }
     }
 

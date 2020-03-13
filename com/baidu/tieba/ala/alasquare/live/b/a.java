@@ -7,20 +7,20 @@ import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
 public class a {
     public String bitmap_wh_ratio;
-    public int ekf;
-    public int ekg;
-    public List<String> ekh;
+    public int eks;
+    public int ekt;
+    public List<String> eku;
     public String entry_name;
     public String label_name;
     public List<ThreadInfo> live;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
-        this.ekf = hotLiveWithCategory.tab_id.intValue();
+        this.eks = hotLiveWithCategory.tab_id.intValue();
         this.entry_name = hotLiveWithCategory.entry_name;
         this.label_name = hotLiveWithCategory.label_name;
         this.bitmap_wh_ratio = hotLiveWithCategory.bitmap_wh_ratio;
         this.live = new ArrayList(hotLiveWithCategory.live);
-        this.ekg = hotLiveWithCategory.live_tab_type.intValue();
-        this.ekh = hotLiveWithCategory.sub_type_list;
+        this.ekt = hotLiveWithCategory.live_tab_type.intValue();
+        this.eku = hotLiveWithCategory.sub_type_list;
     }
 }

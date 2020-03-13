@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes11.dex */
 public class a {
-    private final InterfaceC0283a bOs;
-    private final ViewGroup bOt;
+    private final InterfaceC0283a bOt;
+    private final ViewGroup bOu;
     private int mMarginTop;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
@@ -19,8 +19,8 @@ public class a {
     }
 
     public a(@NonNull InterfaceC0283a interfaceC0283a, @NonNull ViewGroup viewGroup, int i) {
-        this.bOs = interfaceC0283a;
-        this.bOt = viewGroup;
+        this.bOt = interfaceC0283a;
+        this.bOu = viewGroup;
         this.mMarginTop = i;
     }
 
@@ -32,17 +32,17 @@ public class a {
     }
 
     private Context getContext() {
-        return this.bOt.getContext();
+        return this.bOu.getContext();
     }
 
     @Nullable
     private Container acs() {
         Container container;
-        synchronized (this.bOt) {
+        synchronized (this.bOu) {
             int i = 0;
             while (true) {
-                if (i < this.bOt.getChildCount()) {
-                    View childAt = this.bOt.getChildAt(i);
+                if (i < this.bOu.getChildCount()) {
+                    View childAt = this.bOu.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -64,12 +64,12 @@ public class a {
         int i;
         int i2;
         int i3 = -1;
-        synchronized (this.bOt) {
+        synchronized (this.bOu) {
             acs = acs();
             if (acs == null) {
                 acs = new Container(getContext());
-                int height = this.bOt.getHeight() - this.mMarginTop;
-                if (this.bOt instanceof LinearLayout) {
+                int height = this.bOu.getHeight() - this.mMarginTop;
+                if (this.bOu instanceof LinearLayout) {
                     i = -height;
                 } else {
                     i = this.mMarginTop;
@@ -80,13 +80,13 @@ public class a {
                 } else {
                     i2 = height;
                 }
-                if ((this.bOt instanceof LinearLayout) || this.mMarginTop != 0) {
+                if ((this.bOu instanceof LinearLayout) || this.mMarginTop != 0) {
                     i3 = i2;
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i3);
                 layoutParams.setMargins(0, i, 0, 0);
                 acs.setLayoutParams(layoutParams);
-                this.bOt.addView(acs);
+                this.bOu.addView(acs);
             }
         }
         return acs;
@@ -97,11 +97,11 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.bOt) {
+        synchronized (this.bOu) {
             Container acs = acs();
             if (!z || acs == null || acs.getChildCount() <= 0) {
                 if (acs != null) {
-                    this.bOt.removeView(acs);
+                    this.bOu.removeView(acs);
                 }
             }
         }

@@ -102,30 +102,30 @@ public final class ObservableSampleWithObservable<T> extends io.reactivex.intern
 
     /* loaded from: classes7.dex */
     static final class a<T> implements u<Object> {
-        final SampleMainObserver<T> nyf;
+        final SampleMainObserver<T> nyq;
 
         a(SampleMainObserver<T> sampleMainObserver) {
-            this.nyf = sampleMainObserver;
+            this.nyq = sampleMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.nyf.setOther(bVar);
+            this.nyq.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(Object obj) {
-            this.nyf.run();
+            this.nyq.run();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.nyf.error(th);
+            this.nyq.error(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
-            this.nyf.complete();
+            this.nyq.complete();
         }
     }
 

@@ -17,22 +17,22 @@ import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private TbPageContext cVh;
-    private GameVideoGridView haI;
-    private com.baidu.tieba.homepage.gamevideo.a.b haJ;
-    private InterfaceC0517a haK;
+    private TbPageContext cVi;
+    private GameVideoGridView haU;
+    private com.baidu.tieba.homepage.gamevideo.a.b haV;
+    private InterfaceC0517a haW;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.haJ != null && i < a.this.haJ.getCount() && a.this.haJ.getItem(i) != null && (a.this.haJ.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.haJ.getItem(i);
+            if (a.this.haV != null && i < a.this.haV.getCount() && a.this.haV.getItem(i) != null && (a.this.haV.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.haV.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.haJ.vm(aVar.sub_class_id);
-                    if (a.this.haK != null) {
-                        a.this.haK.a(aVar);
+                    a.this.haV.vm(aVar.sub_class_id);
+                    if (a.this.haW != null) {
+                        a.this.haW.a(aVar);
                     }
-                    a.this.bNY();
+                    a.this.bNZ();
                     com.baidu.tbadk.core.sharedPref.b.aFD().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aFD().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new an("c13485").X("obj_type", aVar.sub_class_id));
@@ -50,26 +50,26 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.cVh.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.haI = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.haJ = new com.baidu.tieba.homepage.gamevideo.a.b(this.cVh, 101, this.mBdUniqueId);
-        this.haI.setNumColumns(4);
-        this.haI.setAdapter((ListAdapter) this.haJ);
-        this.haI.setOnItemClickListener(this.mOnItemClickListener);
+        this.mRootView = LayoutInflater.from(this.cVi.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
+        this.haU = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.haV = new com.baidu.tieba.homepage.gamevideo.a.b(this.cVi, 101, this.mBdUniqueId);
+        this.haU.setNumColumns(4);
+        this.haU.setAdapter((ListAdapter) this.haV);
+        this.haU.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!v.isEmpty(list)) {
-            this.haJ.setData(list);
-            this.haJ.notifyDataSetChanged();
+            this.haV.setData(list);
+            this.haV.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void bNY() {
+    public void bNZ() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void a(InterfaceC0517a interfaceC0517a) {
-        this.haK = interfaceC0517a;
+        this.haW = interfaceC0517a;
     }
 
     public void onDestroy() {
-        if (this.haI != null) {
-            this.haI.onDestroy();
+        if (this.haU != null) {
+            this.haU.onDestroy();
         }
     }
 }

@@ -28,7 +28,7 @@ import java.util.Date;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.swan.apps.core.e.a bpj;
+    private com.baidu.swan.apps.core.e.a bpk;
     private Context mContext;
 
     /* loaded from: classes11.dex */
@@ -62,26 +62,26 @@ public class b {
     }
 
     public void a(final a aVar, String str, String str2) {
-        this.bpj = new com.baidu.swan.apps.core.e.a(this.mContext, str, str2);
-        this.bpj.a(new a.b() { // from class: com.baidu.swan.apps.core.e.b.1
+        this.bpk = new com.baidu.swan.apps.core.e.a(this.mContext, str, str2);
+        this.bpk.a(new a.b() { // from class: com.baidu.swan.apps.core.e.b.1
             @Override // com.baidu.swan.apps.core.e.a.b
             public void p(String str3, String str4, String str5, String str6) {
                 if (aVar != null) {
                     aVar.av(str5, str6);
                 }
-                b.this.bpj = null;
+                b.this.bpk = null;
             }
         });
-        this.bpj.a(new a.InterfaceC0247a() { // from class: com.baidu.swan.apps.core.e.b.10
+        this.bpk.a(new a.InterfaceC0247a() { // from class: com.baidu.swan.apps.core.e.b.10
             @Override // com.baidu.swan.apps.core.e.a.InterfaceC0247a
             public void onCancel() {
                 if (aVar != null) {
                     aVar.Na();
                 }
-                b.this.bpj = null;
+                b.this.bpk = null;
             }
         });
-        this.bpj.show();
+        this.bpk.show();
     }
 
     public void a(final c cVar, final SslErrorHandler sslErrorHandler, final SslError sslError) {
@@ -89,17 +89,17 @@ public class b {
             sslErrorHandler.cancel();
         } else {
             new c.a(this.mContext).eD(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
-                private long[] bnk = null;
+                private long[] bnl = null;
 
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void onItemClick(View view) {
-                    if (this.bnk == null) {
-                        this.bnk = new long[5];
+                    if (this.bnl == null) {
+                        this.bnl = new long[5];
                     }
-                    System.arraycopy(this.bnk, 1, this.bnk, 0, this.bnk.length - 1);
-                    this.bnk[this.bnk.length - 1] = SystemClock.uptimeMillis();
-                    if (this.bnk[0] >= SystemClock.uptimeMillis() - 3000) {
-                        this.bnk = null;
+                    System.arraycopy(this.bnl, 1, this.bnl, 0, this.bnl.length - 1);
+                    this.bnl[this.bnl.length - 1] = SystemClock.uptimeMillis();
+                    if (this.bnl[0] >= SystemClock.uptimeMillis() - 3000) {
+                        this.bnl = null;
                         b.this.hg(sslError.toString());
                     }
                 }

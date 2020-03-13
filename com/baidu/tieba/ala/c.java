@@ -7,39 +7,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private static c eiV;
-    private List<an> dXF;
+    private static c eji;
+    private List<an> dXS;
 
-    public static c bbQ() {
-        if (eiV == null) {
+    public static c bbR() {
+        if (eji == null) {
             synchronized (c.class) {
-                if (eiV == null) {
-                    eiV = new c();
+                if (eji == null) {
+                    eji = new c();
                 }
             }
         }
-        return eiV;
+        return eji;
     }
 
     public void d(an anVar) {
         if (anVar != null) {
-            if (this.dXF == null) {
-                this.dXF = new ArrayList();
+            if (this.dXS == null) {
+                this.dXS = new ArrayList();
             }
-            if (this.dXF != null) {
-                this.dXF.add(anVar);
+            if (this.dXS != null) {
+                this.dXS.add(anVar);
             }
         }
     }
 
-    public void bbR() {
-        if (v.getCount(this.dXF) != 0) {
-            for (an anVar : this.dXF) {
+    public void bbS() {
+        if (v.getCount(this.dXS) != 0) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 }

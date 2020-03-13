@@ -15,10 +15,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d bkb;
-    static Flow bkc;
-    private static Timer bkd;
-    private static boolean bke;
+    private static d bkc;
+    static Flow bkd;
+    private static Timer bke;
+    private static boolean bkf;
 
     public abstract void gD(String str);
 
@@ -26,22 +26,22 @@ public abstract class d {
     }
 
     public static d LI() {
-        if (bkb == null) {
+        if (bkc == null) {
             synchronized (f.class) {
-                if (bkb == null) {
+                if (bkc == null) {
                     if (com.baidu.pyramid.runtime.multiprocess.a.ER()) {
-                        bkb = new a();
+                        bkc = new a();
                     } else {
-                        bkb = new b();
+                        bkc = new b();
                     }
                 }
             }
         }
-        return bkb;
+        return bkc;
     }
 
     public void LJ() {
-        bke = true;
+        bkf = true;
     }
 
     String LK() {
@@ -57,14 +57,14 @@ public abstract class d {
     }
 
     void ci(boolean z) {
-        if (bkc == null) {
-            bkc = s.rb("1153");
+        if (bkd == null) {
+            bkd = s.rb("1153");
             if (!z) {
-                bkc.addEvent("downloadstart", LK());
-                bkc.addEvent("downloadsuccess", LK());
+                bkd.addEvent("downloadstart", LK());
+                bkd.addEvent("downloadsuccess", LK());
             }
-            bkd = new Timer();
-            bkd.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
+            bke = new Timer();
+            bke.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
@@ -78,7 +78,7 @@ public abstract class d {
     }
 
     protected void LL() {
-        if (bkc != null) {
+        if (bkd != null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
@@ -92,18 +92,18 @@ public abstract class d {
                     Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
                 }
             }
-            bkc.setValueWithDuration(jSONObject.toString());
-            bkc.end();
+            bkd.setValueWithDuration(jSONObject.toString());
+            bkd.end();
         }
     }
 
     void release() {
-        if (bkd != null) {
-            bkd.cancel();
-            bkd = null;
+        if (bke != null) {
+            bke.cancel();
+            bke = null;
         }
-        bkb = null;
         bkc = null;
+        bkd = null;
     }
 
     public static void v(JSONArray jSONArray) {
@@ -113,8 +113,8 @@ public abstract class d {
             if (optJSONObject != null) {
                 str = optJSONObject.optString("actionId");
             }
-            if (!TextUtils.isEmpty(str) && bkb != null) {
-                bkb.gD(str);
+            if (!TextUtils.isEmpty(str) && bkc != null) {
+                bkc.gD(str);
             }
         }
     }
@@ -156,11 +156,11 @@ public abstract class d {
                 switch (c) {
                     case 0:
                         ci(true);
-                        bkc.addEvent(str, LK());
+                        bkd.addEvent(str, LK());
                         return;
                     case 1:
-                        if (bkc != null) {
-                            bkc.cancel();
+                        if (bkd != null) {
+                            bkd.cancel();
                         }
                         release();
                         return;
@@ -169,8 +169,8 @@ public abstract class d {
                         release();
                         return;
                     default:
-                        if (bkc != null) {
-                            bkc.addEvent(str, LK());
+                        if (bkd != null) {
+                            bkd.addEvent(str, LK());
                             return;
                         }
                         return;
@@ -216,28 +216,28 @@ public abstract class d {
                         }
                         ci(z);
                         if (!z) {
-                            if (d.bke) {
-                                bkc.addEvent(str + "-preload", LK());
-                                boolean unused = d.bke = false;
+                            if (d.bkf) {
+                                bkd.addEvent(str + "-preload", LK());
+                                boolean unused = d.bkf = false;
                                 return;
                             }
-                            bkc.addEvent(str, LK());
+                            bkd.addEvent(str, LK());
                             return;
                         }
-                        bkc.addEvent(str + "-destroy", LK());
-                        boolean unused2 = d.bke = false;
+                        bkd.addEvent(str + "-destroy", LK());
+                        boolean unused2 = d.bkf = false;
                         return;
                     case 1:
-                        if (bkc != null) {
-                            bkc.addEvent(str, LK());
+                        if (bkd != null) {
+                            bkd.addEvent(str, LK());
                             LL();
                             release();
                             return;
                         }
                         return;
                     default:
-                        if (bkc != null) {
-                            bkc.addEvent(str, LK());
+                        if (bkd != null) {
+                            bkd.addEvent(str, LK());
                             return;
                         }
                         return;
@@ -255,8 +255,8 @@ public abstract class d {
         fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(cVar.getAppFrameType());
         fVar.b(cVar);
         fVar.mType = Config.LAUNCH;
-        fVar.bVq = "1";
-        fVar.bVr = "0";
+        fVar.bVr = "1";
+        fVar.bVs = "0";
         fVar.mSource = "remote-debug";
         JSONObject lI = com.baidu.swan.apps.statistic.f.lI(cVar.VL());
         fVar.lR(cVar.VP().getString("ubc"));

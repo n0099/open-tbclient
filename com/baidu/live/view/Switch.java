@@ -27,7 +27,7 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class Switch extends CompoundButton {
     private static final int[] CHECKED_STATE_SET = {16842912};
-    private static final a<Switch> aFG = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
+    private static final a<Switch> aFH = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: b */
@@ -421,7 +421,7 @@ public class Switch extends CompoundButton {
     }
 
     private void animateThumbToCheckedState(boolean z) {
-        this.mPositionAnimator = ObjectAnimator.ofFloat(this, aFG, z ? 1.0f : 0.0f);
+        this.mPositionAnimator = ObjectAnimator.ofFloat(this, aFH, z ? 1.0f : 0.0f);
         this.mPositionAnimator.setDuration(250L);
         this.mPositionAnimator.start();
     }

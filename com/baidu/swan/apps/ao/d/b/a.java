@@ -13,14 +13,14 @@ public class a {
     /* renamed from: com.baidu.swan.apps.ao.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0206a {
-        public static final a bWF = new a();
+        public static final a bWG = new a();
     }
 
     private a() {
     }
 
     public static a afN() {
-        return C0206a.bWF;
+        return C0206a.bWG;
     }
 
     public void b(Activity activity, float f) {

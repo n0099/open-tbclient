@@ -25,20 +25,20 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topictab.b.a> {
     private static final int Ky = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-    private RelativeLayout fHi;
-    private TbImageView fXi;
-    private TextView hhO;
-    private TextView hhP;
-    private RelativeLayout hhQ;
-    private View hhR;
-    private TopicPkView hhS;
-    private ThreadGodReplyLayout hhT;
-    private View hhU;
-    private TextView hhV;
-    private View hhW;
-    private LinearLayout.LayoutParams hhX;
-    private com.baidu.tieba.homepage.topic.topictab.b.a hhY;
-    private CellTopicLinearLayout hhm;
+    private RelativeLayout fHv;
+    private TbImageView fXv;
+    private CellTopicLinearLayout hhy;
+    private TextView hia;
+    private TextView hib;
+    private RelativeLayout hic;
+    private View hie;
+    private TopicPkView hif;
+    private ThreadGodReplyLayout hig;
+    private View hih;
+    private TextView hii;
+    private View hij;
+    private LinearLayout.LayoutParams hik;
+    private com.baidu.tieba.homepage.topic.topictab.b.a hil;
     private TextView mDescView;
     private int mSkinType;
     private TextView mTitleView;
@@ -47,41 +47,41 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.hhm = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
-        this.fHi = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
-        this.hhO = (TextView) view.findViewById(R.id.cell_topic_index);
+        this.hhy = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
+        this.fHv = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
+        this.hia = (TextView) view.findViewById(R.id.cell_topic_index);
         this.mTitleView = (TextView) view.findViewById(R.id.cell_topic_title);
-        this.hhP = (TextView) view.findViewById(R.id.cell_topic_partake);
+        this.hib = (TextView) view.findViewById(R.id.cell_topic_partake);
         this.mDescView = (TextView) view.findViewById(R.id.cell_topic_des);
-        this.hhQ = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
-        this.fXi = (TbImageView) view.findViewById(R.id.cell_topic_img);
-        this.hhR = view.findViewById(R.id.cell_topic_img_placeholder);
-        this.hhS = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
-        this.hhT = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
-        this.hhU = view.findViewById(R.id.cell_topic_bottom_placeholder);
-        this.hhV = (TextView) view.findViewById(R.id.cell_topic_icon);
-        this.hhW = view.findViewById(R.id.cell_topic_img_mask);
-        ViewGroup.LayoutParams layoutParams = this.fXi.getLayoutParams();
+        this.hic = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
+        this.fXv = (TbImageView) view.findViewById(R.id.cell_topic_img);
+        this.hie = view.findViewById(R.id.cell_topic_img_placeholder);
+        this.hif = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
+        this.hig = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
+        this.hih = view.findViewById(R.id.cell_topic_bottom_placeholder);
+        this.hii = (TextView) view.findViewById(R.id.cell_topic_icon);
+        this.hij = view.findViewById(R.id.cell_topic_img_mask);
+        ViewGroup.LayoutParams layoutParams = this.fXv.getLayoutParams();
         layoutParams.height = ((l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.fXi.setLayoutParams(layoutParams);
-        this.fXi.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.fXi.setConrers(15);
-        this.fXi.setPlaceHolder(3);
-        this.hhX = (LinearLayout.LayoutParams) this.fHi.getLayoutParams();
-        this.hhm.setTopicOnClickListener(this);
+        this.fXv.setLayoutParams(layoutParams);
+        this.fXv.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.fXv.setConrers(15);
+        this.fXv.setPlaceHolder(3);
+        this.hik = (LinearLayout.LayoutParams) this.fHv.getLayoutParams();
+        this.hhy.setTopicOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.hhS.onChangeSkinType();
-        this.hhT.onChangeSkinType();
+        this.hif.onChangeSkinType();
+        this.hig.onChangeSkinType();
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.hhO, (int) R.color.cp_cont_a);
+            am.setViewTextColor(this.hia, (int) R.color.cp_cont_a);
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.hhP, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.hib, (int) R.color.cp_cont_d);
             am.setViewTextColor(this.mDescView, (int) R.color.cp_cont_b);
-            this.fXi.setIsNight(this.mSkinType == 1);
+            this.fXv.setIsNight(this.mSkinType == 1);
         }
     }
 
@@ -94,96 +94,96 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.topic.topictab.b.a aVar) {
         if (aVar != null) {
-            this.hhY = aVar;
+            this.hil = aVar;
             if (aVar.from == 0) {
-                this.hhV.setVisibility(8);
-                this.hhO.setVisibility(0);
-                this.hhP.setVisibility(0);
-                this.hhO.setText(String.valueOf(aVar.index));
+                this.hii.setVisibility(8);
+                this.hia.setVisibility(0);
+                this.hib.setVisibility(0);
+                this.hia.setText(String.valueOf(aVar.index));
                 if (aVar.index == 1) {
-                    am.setBackgroundResource(this.hhO, R.drawable.topic_rank_one_bg);
+                    am.setBackgroundResource(this.hia, R.drawable.topic_rank_one_bg);
                 } else if (aVar.index == 2) {
-                    am.setBackgroundResource(this.hhO, R.drawable.topic_rank_two_bg);
+                    am.setBackgroundResource(this.hia, R.drawable.topic_rank_two_bg);
                 } else if (aVar.index == 3) {
-                    am.setBackgroundResource(this.hhO, R.drawable.topic_rank_three_bg);
+                    am.setBackgroundResource(this.hia, R.drawable.topic_rank_three_bg);
                 } else {
-                    am.setBackgroundResource(this.hhO, R.drawable.topic_rank_other_bg);
+                    am.setBackgroundResource(this.hia, R.drawable.topic_rank_other_bg);
                 }
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams();
                 int dimens = l.getDimens(getContext(), R.dimen.tbds16);
                 layoutParams.addRule(1, R.id.cell_topic_index);
                 layoutParams.setMargins(dimens, 0, dimens, 0);
-                au.a(this.mDescView, aVar.cQD, (int) R.string.check_detail, (int) R.dimen.tbds17, 2, Ky, true);
-                if (aVar.cQC == 0) {
-                    this.hhP.setText("NEW");
+                au.a(this.mDescView, aVar.cQE, (int) R.string.check_detail, (int) R.dimen.tbds17, 2, Ky, true);
+                if (aVar.cQD == 0) {
+                    this.hib.setText("NEW");
                 } else {
-                    this.hhP.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), aq.numberUniformFormat(aVar.cQC)));
+                    this.hib.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), aq.numberUniformFormat(aVar.cQD)));
                 }
-                if (aVar.hhz == null) {
-                    this.hhT.setVisibility(8);
+                if (aVar.hhL == null) {
+                    this.hig.setVisibility(8);
                 } else {
-                    this.hhT.setVisibility(0);
-                    this.hhT.setData(aVar.hhz);
+                    this.hig.setVisibility(0);
+                    this.hig.setData(aVar.hhL);
                 }
             } else {
-                this.hhV.setVisibility(0);
-                this.hhO.setVisibility(8);
-                this.hhP.setVisibility(8);
-                this.hhT.setVisibility(8);
-                this.hhX.setMargins(0, l.getDimens(getContext(), R.dimen.tbds44), 0, 0);
+                this.hii.setVisibility(0);
+                this.hia.setVisibility(8);
+                this.hib.setVisibility(8);
+                this.hig.setVisibility(8);
+                this.hik.setMargins(0, l.getDimens(getContext(), R.dimen.tbds44), 0, 0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams();
                 int dimens2 = l.getDimens(getContext(), R.dimen.tbds30);
                 int dimens3 = l.getDimens(getContext(), R.dimen.tbds16);
                 layoutParams2.addRule(1, R.id.cell_topic_icon);
                 layoutParams2.setMargins(dimens2, 0, dimens3, 0);
                 this.mTitleView.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds40));
-                if (StringUtils.isNull(aVar.cQD)) {
+                if (StringUtils.isNull(aVar.cQE)) {
                     this.mDescView.setVisibility(8);
                 } else {
                     this.mDescView.setVisibility(0);
-                    this.mDescView.setText(aVar.cQD);
+                    this.mDescView.setText(aVar.cQE);
                 }
                 am.setViewTextColor(this.mDescView, R.color.cp_cont_b, 1);
             }
-            String str = aVar.cQB;
+            String str = aVar.cQC;
             if (str.length() > 14) {
                 str = str.substring(0, 13) + StringHelper.STRING_MORE;
             }
             this.mTitleView.setText(String.format(this.mTbPageContext.getString(R.string.daily_topic_name), str));
-            if (StringUtils.isNull(aVar.hgd)) {
-                this.hhQ.setVisibility(8);
-                this.hhS.setUserColor(R.color.cp_cont_d);
+            if (StringUtils.isNull(aVar.hgp)) {
+                this.hic.setVisibility(8);
+                this.hif.setUserColor(R.color.cp_cont_d);
             } else {
-                this.hhQ.setVisibility(0);
-                this.fXi.setPlaceHolder(3);
-                this.fXi.startLoad(aVar.hgd, 10, false);
-                this.hhS.setUserColor(R.color.cp_cont_a);
+                this.hic.setVisibility(0);
+                this.fXv.setPlaceHolder(3);
+                this.fXv.startLoad(aVar.hgp, 10, false);
+                this.hif.setUserColor(R.color.cp_cont_a);
             }
-            if (aVar.hhy == null) {
-                this.hhR.setVisibility(8);
-                this.hhS.setVisibility(8);
-                this.hhW.setVisibility(8);
+            if (aVar.hhK == null) {
+                this.hie.setVisibility(8);
+                this.hif.setVisibility(8);
+                this.hij.setVisibility(8);
                 return;
             }
-            this.hhR.setVisibility(0);
-            this.hhS.setVisibility(0);
-            this.hhS.setData(aVar.hhy);
-            this.hhW.setVisibility(0);
+            this.hie.setVisibility(0);
+            this.hif.setVisibility(0);
+            this.hif.setData(aVar.hhK);
+            this.hij.setVisibility(0);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hhY != null && this.hhY.from != 1) {
-            TiebaStatic.log(new an("c13351").s("topic_id", this.hhY.topicId).X("obj_locate", this.hhY.index));
+        if (this.hil != null && this.hil.from != 1) {
+            TiebaStatic.log(new an("c13351").s("topic_id", this.hil.topicId).X("obj_locate", this.hil.index));
         }
-        if (this.hhY != null && this.hhY.from == 1) {
-            TiebaStatic.log(new an("c13449").s("topic_id", this.hhY.topicId));
+        if (this.hil != null && this.hil.from == 1) {
+            TiebaStatic.log(new an("c13449").s("topic_id", this.hil.topicId));
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.hhY.topicId)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.hil.topicId)));
     }
 
-    public CellTopicLinearLayout bPD() {
-        return this.hhm;
+    public CellTopicLinearLayout bPE() {
+        return this.hhy;
     }
 }

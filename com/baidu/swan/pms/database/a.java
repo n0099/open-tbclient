@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public abstract class a {
-    private static volatile a cAJ;
+    private static volatile a cAK;
 
     public abstract boolean Q(String str, int i);
 
@@ -52,13 +52,13 @@ public abstract class a {
     public abstract void qq(String str);
 
     public static a atv() {
-        if (cAJ == null) {
+        if (cAK == null) {
             synchronized (a.class) {
-                if (cAJ == null) {
-                    cAJ = new b();
+                if (cAK == null) {
+                    cAK = new b();
                 }
             }
         }
-        return cAJ;
+        return cAK;
     }
 }

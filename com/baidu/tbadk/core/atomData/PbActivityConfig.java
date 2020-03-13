@@ -359,10 +359,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bjVar.getFid());
             String aCt = bjVar.aCt();
-            if (bjVar.cUa != null) {
+            if (bjVar.cUb != null) {
                 setFromForumId(valueOf);
-                valueOf = bjVar.cUa.id;
-                aCt = bjVar.cUa.ori_fname;
+                valueOf = bjVar.cUb.id;
+                aCt = bjVar.cUb.ori_fname;
             }
             setThreadData(bjVar);
             setForumId(String.valueOf(valueOf));

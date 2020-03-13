@@ -11,7 +11,7 @@ public class j extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
     }
 
-    public void yz(String str) {
+    public void yA(String str) {
         this.id = str;
     }
 

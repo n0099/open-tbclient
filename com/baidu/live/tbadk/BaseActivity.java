@@ -90,6 +90,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     private final Handler mSafeHandler = new Handler();
     protected int mSkinType = 3;
     private boolean mUseStyleImmersiveSticky = true;
+    private boolean mIsImmersiveStickySeted = false;
     protected boolean mIsLogin = false;
     private KeyboardAdjust mKeyboardAdjust = null;
     private boolean isAddSwipeBackLayout = true;
@@ -191,7 +192,6 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
-        this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
             this.mSwipeBackLayout.attachToActivity(getPageContext().getPageActivity());
@@ -206,7 +206,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.mLayoutInflateFactory = new BDLayoutInflateFactory();
         this.mLayoutInflateFactory.setViewMode(this.mLayoutMode);
         getLayoutInflater().setFactory(this.mLayoutInflateFactory);
-        if (this.mUseStyleImmersiveSticky) {
+        if (isUseStyleImmersiveSticky()) {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         if (getGpuSwitch()) {
@@ -239,9 +239,14 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     public void setUseStyleImmersiveSticky(boolean z) {
         this.mUseStyleImmersiveSticky = z;
+        this.mIsImmersiveStickySeted = true;
     }
 
     public boolean isUseStyleImmersiveSticky() {
+        if (!this.mIsImmersiveStickySeted) {
+            this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
+            this.mIsImmersiveStickySeted = true;
+        }
         return this.mUseStyleImmersiveSticky;
     }
 
@@ -279,21 +284,21 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void adjustResizeForSoftInput() {
-        if (this.mUseStyleImmersiveSticky) {
+        if (isUseStyleImmersiveSticky()) {
             adjustResizeForSoftInputOnDestory();
             this.mKeyboardAdjust = KeyboardAdjust.assistActivity(getPageContext().getPageActivity());
         }
     }
 
     protected void adjustResizeForSoftInput(int i, boolean z) {
-        if (this.mUseStyleImmersiveSticky) {
+        if (isUseStyleImmersiveSticky()) {
             adjustResizeForSoftInputOnDestory();
             this.mKeyboardAdjust = KeyboardAdjust.assistActivity(getPageContext().getPageActivity(), i, z);
         }
     }
 
     protected void adjustResizeForSoftInput(boolean z) {
-        if (this.mUseStyleImmersiveSticky) {
+        if (isUseStyleImmersiveSticky()) {
             adjustResizeForSoftInputOnDestory();
             this.mKeyboardAdjust = KeyboardAdjust.assistActivity(getPageContext().getPageActivity(), z);
         }
@@ -453,7 +458,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener, boolean z) {
         if (!getActivity().isFinishing() && ShowUtil.isActivityCanShowDialogOrPopupWindow(getPageContext())) {
             if (str == null) {
-                str = TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_Waiting);
+                str = TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_waiting);
             }
             this.mWaitingDialog = new BlueCircleProgressDialog(getPageContext());
             this.mWaitingDialog.setTipString(str);
@@ -709,7 +714,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mKeyboardAdjust != null) {
             this.mKeyboardAdjust.onSkinTypeChanged(i);
         }
-        if (this.mUseStyleImmersiveSticky) {
+        if (isUseStyleImmersiveSticky()) {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         if (this.mListMenu != null) {

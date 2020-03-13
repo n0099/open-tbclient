@@ -7,13 +7,13 @@ import java.nio.channels.Pipe;
 /* loaded from: classes11.dex */
 public class d extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String bxt;
-    private final com.baidu.swan.pms.a.d bxu;
+    private final String bxu;
+    private final com.baidu.swan.pms.a.d bxv;
 
     public d(String str, com.baidu.swan.pms.a.d dVar) {
         super("check_sign");
-        this.bxt = str;
-        this.bxu = dVar;
+        this.bxu = str;
+        this.bxv = dVar;
     }
 
     @Override // com.baidu.swan.apps.t.g.a
@@ -23,7 +23,7 @@ public class d extends g.a {
         iM.Wj().iP("SignChecker").fm(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            mz = com.baidu.swan.apps.core.pms.d.a.a(sourceChannel, this.bxt, this.bxu);
+            mz = com.baidu.swan.apps.core.pms.d.a.a(sourceChannel, this.bxu, this.bxv);
         } catch (IOException e) {
             if (DEBUG) {
                 e.printStackTrace();

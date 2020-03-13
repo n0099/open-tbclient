@@ -5,7 +5,7 @@ public interface j {
 
     int ay(String str, boolean z);
 
-    void cCh();
+    void cCi();
 
     void g(String str, int i, boolean z);
 }

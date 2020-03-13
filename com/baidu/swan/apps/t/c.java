@@ -14,11 +14,11 @@ import java.nio.channels.WritableByteChannel;
 /* loaded from: classes11.dex */
 public class c extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final File bxs;
+    private final File bxt;
 
     public c(File file) {
         super("dump");
-        this.bxs = file;
+        this.bxt = file;
     }
 
     @Override // com.baidu.swan.apps.t.g.a
@@ -27,7 +27,7 @@ public class c extends g.a {
         iM.Wj().iP("DumpFileProcessor").fm(1);
         WritableByteChannel writableByteChannel = null;
         try {
-            writableByteChannel = Channels.newChannel(new FileOutputStream(this.bxs, false));
+            writableByteChannel = Channels.newChannel(new FileOutputStream(this.bxt, false));
             a(sourceChannel, writableByteChannel);
             iM.aT("DumpFileProcessor", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             return true;

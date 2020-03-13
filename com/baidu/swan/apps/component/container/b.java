@@ -16,7 +16,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean f(@NonNull com.baidu.swan.apps.component.b.b bVar) {
-        return (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) && TextUtils.equals(((com.baidu.swan.apps.component.components.e.c.b) bVar).biJ, "scroll");
+        return (bVar instanceof com.baidu.swan.apps.component.components.e.c.b) && TextUtils.equals(((com.baidu.swan.apps.component.components.e.c.b) bVar).biK, "scroll");
     }
 
     @Nullable
@@ -43,7 +43,7 @@ public class b {
         swanAppComponentContainerView.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.component.container.b.2
             @Override // java.lang.Runnable
             public void run() {
-                scrollView.smoothScrollTo(0, bVar2.biI);
+                scrollView.smoothScrollTo(0, bVar2.biJ);
             }
         }, 100L);
         swanAppComponentContainerView.setScrollView(scrollView);
@@ -54,17 +54,17 @@ public class b {
     public static boolean a(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
         boolean z = true;
         com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "insert component（scroll）");
-        if (bVar.biq == null) {
+        if (bVar.bir == null) {
             com.baidu.swan.apps.component.e.a.au("Component-Container-Scroll", "insert component（scroll） with a null position");
             return false;
-        } else if (TextUtils.isEmpty(bVar.bin)) {
+        } else if (TextUtils.isEmpty(bVar.bip)) {
             ScrollView b = b(swanAppComponentContainerView, bVar);
-            if (b == null || !cVar.bju.a(b, bVar.biq)) {
+            if (b == null || !cVar.bjv.a(b, bVar.bir)) {
                 z = false;
             }
             return z;
         } else {
-            SwanAppComponentContainerView gw = cVar.gw(bVar.bin);
+            SwanAppComponentContainerView gw = cVar.gw(bVar.bip);
             if (gw == null) {
                 com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
                 return false;
@@ -84,9 +84,9 @@ public class b {
         if (DEBUG) {
             Log.d("Component-Container-Scroll", "update component（scroll）position");
         }
-        String str = bVar.bin;
+        String str = bVar.bip;
         if (TextUtils.isEmpty(str)) {
-            return cVar.bju.b(swanAppComponentContainerView, bVar.biq);
+            return cVar.bjv.b(swanAppComponentContainerView, bVar.bir);
         }
         SwanAppComponentContainerView gw = cVar.gw(str);
         if (gw == null) {
@@ -139,7 +139,7 @@ public class b {
                     Log.d("Component-Container-Scroll", "update component（scroll） scroll_top");
                 }
                 if (scrollView != null) {
-                    scrollView.smoothScrollTo(0, ((com.baidu.swan.apps.component.components.e.c.b) bVar).biI);
+                    scrollView.smoothScrollTo(0, ((com.baidu.swan.apps.component.components.e.c.b) bVar).biJ);
                 }
             }
         }
@@ -147,10 +147,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean c(@NonNull c cVar, @NonNull com.baidu.swan.apps.component.b.b bVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        if (TextUtils.isEmpty(bVar.bin)) {
-            return cVar.bju.au(swanAppComponentContainerView.getScrollView());
+        if (TextUtils.isEmpty(bVar.bip)) {
+            return cVar.bjv.au(swanAppComponentContainerView.getScrollView());
         }
-        SwanAppComponentContainerView gw = cVar.gw(bVar.bin);
+        SwanAppComponentContainerView gw = cVar.gw(bVar.bip);
         if (gw == null) {
             com.baidu.swan.apps.console.c.e("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
             return false;

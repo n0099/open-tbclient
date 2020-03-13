@@ -6,18 +6,18 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* loaded from: classes10.dex */
 public class VideoAdView extends RelativeLayout {
-    private com.baidu.mobads.production.h.b aOW;
-    private IOAdEventListener aOX;
-    private VideoAdViewListener aOY;
+    private com.baidu.mobads.production.h.b aOX;
+    private IOAdEventListener aOY;
+    private VideoAdViewListener aOZ;
 
     public VideoAdView(Context context) {
         super(context);
-        this.aOX = new v(this);
+        this.aOY = new v(this);
     }
 
     public VideoAdView(Context context, String str) {
         super(context, null);
-        this.aOX = new v(this);
+        this.aOY = new v(this);
     }
 
     /* loaded from: classes10.dex */
@@ -60,19 +60,19 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void requestAd(VideoAdRequest videoAdRequest) {
-        this.aOW = new com.baidu.mobads.production.h.b(getContext(), "TODO");
-        this.aOW.setActivity(getContext());
-        this.aOW.setAdSlotBase(this);
-        this.aOW.addEventListener(IXAdEvent.AD_CLICK_THRU, this.aOX);
-        this.aOW.addEventListener(IXAdEvent.AD_LOADED, this.aOX);
-        this.aOW.addEventListener(IXAdEvent.AD_STARTED, this.aOX);
-        this.aOW.addEventListener(IXAdEvent.AD_STOPPED, this.aOX);
-        this.aOW.addEventListener(IXAdEvent.AD_ERROR, this.aOX);
-        this.aOW.request();
+        this.aOX = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.aOX.setActivity(getContext());
+        this.aOX.setAdSlotBase(this);
+        this.aOX.addEventListener(IXAdEvent.AD_CLICK_THRU, this.aOY);
+        this.aOX.addEventListener(IXAdEvent.AD_LOADED, this.aOY);
+        this.aOX.addEventListener(IXAdEvent.AD_STARTED, this.aOY);
+        this.aOX.addEventListener(IXAdEvent.AD_STOPPED, this.aOY);
+        this.aOX.addEventListener(IXAdEvent.AD_ERROR, this.aOY);
+        this.aOX.request();
     }
 
     public void startVideo() {
-        this.aOW.start();
+        this.aOX.start();
     }
 
     public static void setAppSid(Context context, String str) {
@@ -80,6 +80,6 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void setListener(VideoAdViewListener videoAdViewListener) {
-        this.aOY = videoAdViewListener;
+        this.aOZ = videoAdViewListener;
     }
 }

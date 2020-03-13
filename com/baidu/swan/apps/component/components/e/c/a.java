@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 /* loaded from: classes11.dex */
 public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
-    private SwanAppComponentContainerView biC;
+    private SwanAppComponentContainerView biD;
     private TextView mTextView;
 
     public a(@NonNull Context context, @NonNull b bVar) {
         super(context, bVar);
         ee(4);
-        this.biC = new SwanAppComponentContainerView(context);
+        this.biD = new SwanAppComponentContainerView(context);
         this.mTextView = new TextView(context);
     }
 
@@ -36,10 +36,10 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull b bVar, @NonNull b bVar2) {
         com.baidu.swan.apps.component.d.b a = super.a(bVar, bVar2);
-        if (!TextUtils.equals(bVar.biJ, bVar2.biJ) && (TextUtils.equals(bVar.biJ, "scroll") || TextUtils.equals(bVar2.biJ, "scroll"))) {
+        if (!TextUtils.equals(bVar.biK, bVar2.biK) && (TextUtils.equals(bVar.biK, "scroll") || TextUtils.equals(bVar2.biK, "scroll"))) {
             a.ei(7);
         }
-        if (!TextUtils.equals(bVar.biJ, bVar2.biJ) || (TextUtils.equals(bVar2.biJ, "scroll") && bVar.biI != bVar2.biI)) {
+        if (!TextUtils.equals(bVar.biK, bVar2.biK) || (TextUtils.equals(bVar2.biK, "scroll") && bVar.biJ != bVar2.biJ)) {
             a.ei(8);
         }
         return a;
@@ -52,12 +52,12 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
         if (DEBUG) {
             Log.d("Component-CoverView", "renderBackground");
         }
-        if (bVar.bhU != null) {
+        if (bVar.bhV != null) {
             ViewParent parent = textView.getParent();
             if (parent instanceof View) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setColor(bVar.backgroundColor);
-                gradientDrawable.setCornerRadius(bVar.bhV);
+                gradientDrawable.setCornerRadius(bVar.bhW);
                 gradientDrawable.setStroke(bVar.borderWidth, bVar.borderColor);
                 ((View) parent).setBackground(gradientDrawable);
             }
@@ -72,7 +72,7 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
         if (DEBUG) {
             Log.d("Component-CoverView", "renderAlpha");
         }
-        if (bVar.bhU != null) {
+        if (bVar.bhV != null) {
             ViewParent parent = view.getParent();
             if (parent instanceof View) {
                 super.c((View) parent, (View) bVar);
@@ -83,6 +83,6 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
     protected SwanAppComponentContainerView bJ(@NonNull Context context) {
-        return this.biC;
+        return this.biD;
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.live.message.AlaGiftRefreshScoresHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class c extends BdBaseModel {
-    private com.baidu.live.d awW;
+    private com.baidu.live.d awX;
     private Handler handler = new Handler();
-    private HttpMessageListener awX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.k.c.1
+    private HttpMessageListener awY = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.k.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,11 +28,11 @@ public class c extends BdBaseModel {
                     TbadkCoreApplication.getInst().currentAccountFlowerNum = yQ.mPetalTotal;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 }
-                if (c.this.awW != null) {
+                if (c.this.awX != null) {
                     c.this.handler.post(new Runnable() { // from class: com.baidu.live.k.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.awW.ps();
+                            c.this.awX.ps();
                         }
                     });
                 }
@@ -41,11 +41,11 @@ public class c extends BdBaseModel {
     };
 
     public void initListener() {
-        registerListener(this.awX);
+        registerListener(this.awY);
     }
 
     public void a(com.baidu.live.d dVar) {
-        this.awW = dVar;
+        this.awX = dVar;
     }
 
     public boolean refreshCurUserScores() {
@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.awX);
+        MessageManager.getInstance().unRegisterListener(this.awY);
         this.handler.removeCallbacksAndMessages(null);
     }
 }

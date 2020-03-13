@@ -9,9 +9,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bj cRf;
+    private bj cRg;
     private int duration;
-    private String jwg;
+    private String jws;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.jwg = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.jws = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.jwg = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.jws = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -70,7 +70,7 @@ public class u {
 
     public void aj(bj bjVar) {
         h(bjVar.aCF());
-        this.cRf = bjVar;
+        this.cRg = bjVar;
     }
 
     public void b(AlaInfoData alaInfoData) {
@@ -80,7 +80,7 @@ public class u {
     }
 
     public bj aAg() {
-        return this.cRf;
+        return this.cRg;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long czl() {
+    public long czm() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String czm() {
-        return this.jwg;
+    public String czn() {
+        return this.jws;
     }
 }

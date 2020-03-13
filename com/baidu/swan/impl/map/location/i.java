@@ -17,13 +17,13 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class i {
-    private BaiduMap cvL;
-    private Marker cvM;
-    private LocationClient cvk;
-    private BDLocation cvm;
-    private boolean cvn = false;
-    private BitmapDescriptor cxn;
-    private b cxo;
+    private BaiduMap cvM;
+    private Marker cvN;
+    private LocationClient cvl;
+    private BDLocation cvn;
+    private boolean cvo = false;
+    private BitmapDescriptor cxo;
+    private b cxp;
     private Context mContext;
 
     /* loaded from: classes12.dex */
@@ -34,43 +34,43 @@ public class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Context context, BaiduMap baiduMap) {
         this.mContext = context;
-        this.cvL = baiduMap;
+        this.cvM = baiduMap;
     }
 
     private void arv() {
-        if (this.cvk == null) {
-            this.cvk = new LocationClient(this.mContext.getApplicationContext());
-            this.cvk.registerLocationListener(new a());
+        if (this.cvl == null) {
+            this.cvl = new LocationClient(this.mContext.getApplicationContext());
+            this.cvl.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.cvk.setLocOption(locationClientOption);
-            this.cxn = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_my_point);
+            this.cvl.setLocOption(locationClientOption);
+            this.cxo = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_my_point);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopLocation() {
-        if (this.cvn && this.cvk != null && this.cvk.isStarted()) {
-            this.cvk.stop();
-            this.cvn = false;
+        if (this.cvo && this.cvl != null && this.cvl.isStarted()) {
+            this.cvl.stop();
+            this.cvo = false;
         }
     }
 
     private void arw() {
-        if (!this.cvn) {
+        if (!this.cvo) {
             arv();
-            if (this.cvk != null && !this.cvk.isStarted()) {
-                this.cvk.start();
-                this.cvn = true;
+            if (this.cvl != null && !this.cvl.isStarted()) {
+                this.cvl.start();
+                this.cvo = true;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BDLocation arA() {
-        return this.cvm;
+        return this.cvn;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -84,7 +84,7 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.cxo = bVar;
+        this.cxp = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,20 +99,20 @@ public class i {
                 i.this.stopLocation();
                 return;
             }
-            i.this.cvL.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-            if (i.this.cvM != null) {
-                i.this.cvM.remove();
-                i.this.cvM = null;
+            i.this.cvM.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+            if (i.this.cvN != null) {
+                i.this.cvN.remove();
+                i.this.cvN = null;
             }
-            MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(i.this.cxn);
-            i.this.cvM = (Marker) i.this.cvL.addOverlay(icon);
-            if (i.this.cvm == null) {
-                i.this.cvL.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                if (i.this.cxo != null) {
-                    i.this.cxo.d(bDLocation);
+            MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(i.this.cxo);
+            i.this.cvN = (Marker) i.this.cvM.addOverlay(icon);
+            if (i.this.cvn == null) {
+                i.this.cvM.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
+                if (i.this.cxp != null) {
+                    i.this.cxp.d(bDLocation);
                 }
             }
-            i.this.cvm = bDLocation;
+            i.this.cvn = bDLocation;
         }
     }
 }

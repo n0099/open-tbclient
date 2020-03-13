@@ -4,7 +4,7 @@ import android.content.Context;
 /* loaded from: classes3.dex */
 public class a {
     public String agZ;
-    public long axs;
+    public long axt;
     public Context context;
     public boolean isHost;
     public int liveType;
@@ -30,6 +30,6 @@ public class a {
         this.portrait = str;
         this.otherParams = str2;
         this.agZ = str3;
-        this.axs = j2;
+        this.axt = j2;
     }
 }

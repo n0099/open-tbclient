@@ -16,13 +16,13 @@ import java.nio.channels.Pipe;
 /* loaded from: classes11.dex */
 public class f extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.pms.model.e bxB;
-    private final com.baidu.swan.pms.a.d bxu;
+    private final com.baidu.swan.pms.model.e bxC;
+    private final com.baidu.swan.pms.a.d bxv;
 
     public f(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.d dVar) {
         super("extract");
-        this.bxB = eVar;
-        this.bxu = dVar;
+        this.bxC = eVar;
+        this.bxv = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,15 +63,15 @@ public class f extends g.a {
         boolean z;
         a.C0301a c0301a;
         com.baidu.swan.apps.x.c.a iM = com.baidu.swan.apps.x.c.a.iM(str);
-        if (this.bxB == null) {
+        if (this.bxC == null) {
             com.baidu.swan.apps.ap.a mz = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("pkg info is empty");
             com.baidu.swan.apps.ap.e.ago().f(mz);
             return mz;
         }
-        if (this.bxB.category == 1) {
-            aL = a.c.aL(this.bxB.cAY, String.valueOf(this.bxB.versionCode));
-        } else if (this.bxB.category == 0) {
-            aL = e.d.aL(this.bxB.cAY, String.valueOf(this.bxB.versionCode));
+        if (this.bxC.category == 1) {
+            aL = a.c.aL(this.bxC.cAZ, String.valueOf(this.bxC.versionCode));
+        } else if (this.bxC.category == 0) {
+            aL = e.d.aL(this.bxC.cAZ, String.valueOf(this.bxC.versionCode));
         } else {
             com.baidu.swan.apps.ap.a mz2 = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2320L).mz("pkh category illegal");
             com.baidu.swan.apps.ap.e.ago().f(mz2);
@@ -126,17 +126,17 @@ public class f extends g.a {
             if (DEBUG) {
                 com.baidu.swan.apps.t.a.a.fe((int) (currentTimeMillis2 - currentTimeMillis));
             }
-            if (this.bxu != null) {
+            if (this.bxv != null) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("download_package_type_id", i);
-                h.a(this.bxu, bundle, "event_download_package_type");
+                h.a(this.bxv, bundle, "event_download_package_type");
             }
             if (z) {
                 return null;
             }
             com.baidu.swan.apps.ap.a aI = new com.baidu.swan.apps.ap.a().aI(11L);
             if (z2) {
-                aI.aJ(2330L).mz("decrypt failed:" + c0301a.bqG);
+                aI.aJ(2330L).mz("decrypt failed:" + c0301a.bqH);
             } else {
                 aI.aJ(2320L).mz("unzip failed");
             }
@@ -174,8 +174,8 @@ public class f extends g.a {
     }
 
     private void aP(String str, String str2) {
-        if (this.bxu != null) {
-            this.bxu.aw(str, str2);
+        if (this.bxv != null) {
+            this.bxv.aw(str, str2);
         }
     }
 }

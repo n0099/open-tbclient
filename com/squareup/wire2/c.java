@@ -8,20 +8,20 @@ import okio.BufferedSource;
 import okio.ByteString;
 /* loaded from: classes.dex */
 public final class c {
-    private FieldEncoding npi;
+    private FieldEncoding npt;
     private int recursionDepth;
     private final BufferedSource source;
     private long pos = 0;
     private long limit = Format.OFFSET_SAMPLE_RELATIVE;
     private int state = 2;
     private int tag = -1;
-    private long nph = -1;
+    private long nps = -1;
 
     public c(BufferedSource bufferedSource) {
         this.source = bufferedSource;
     }
 
-    public long dGo() throws IOException {
+    public long dGp() throws IOException {
         if (this.state != 2) {
             throw new IllegalStateException("Unexpected call to beginMessage()");
         }
@@ -30,8 +30,8 @@ public final class c {
         if (i > 65) {
             throw new IOException("Wire recursion limit exceeded");
         }
-        long j = this.nph;
-        this.nph = -1L;
+        long j = this.nps;
+        this.nps = -1L;
         this.state = 6;
         return j;
     }
@@ -42,7 +42,7 @@ public final class c {
         }
         int i = this.recursionDepth - 1;
         this.recursionDepth = i;
-        if (i < 0 || this.nph != -1) {
+        if (i < 0 || this.nps != -1) {
             throw new IllegalStateException("No corresponding call to beginMessage()");
         }
         if (this.pos != this.limit && this.recursionDepth != 0) {
@@ -51,7 +51,7 @@ public final class c {
         this.limit = j;
     }
 
-    public int dGp() throws IOException {
+    public int dGq() throws IOException {
         if (this.state == 7) {
             this.state = 2;
             return this.tag;
@@ -59,34 +59,34 @@ public final class c {
             throw new IllegalStateException("Unexpected call to nextTag()");
         } else {
             while (this.pos < this.limit && !this.source.exhausted()) {
-                int dGs = dGs();
-                if (dGs == 0) {
+                int dGt = dGt();
+                if (dGt == 0) {
                     throw new ProtocolException("Unexpected tag 0");
                 }
-                this.tag = dGs >> 3;
-                int i = dGs & 7;
+                this.tag = dGt >> 3;
+                int i = dGt & 7;
                 switch (i) {
                     case 0:
-                        this.npi = FieldEncoding.VARINT;
+                        this.npt = FieldEncoding.VARINT;
                         this.state = 0;
                         return this.tag;
                     case 1:
-                        this.npi = FieldEncoding.FIXED64;
+                        this.npt = FieldEncoding.FIXED64;
                         this.state = 1;
                         return this.tag;
                     case 2:
-                        this.npi = FieldEncoding.LENGTH_DELIMITED;
+                        this.npt = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
-                        int dGs2 = dGs();
-                        if (dGs2 < 0) {
-                            throw new ProtocolException("Negative length: " + dGs2);
+                        int dGt2 = dGt();
+                        if (dGt2 < 0) {
+                            throw new ProtocolException("Negative length: " + dGt2);
                         }
-                        if (this.nph != -1) {
+                        if (this.nps != -1) {
                             throw new IllegalStateException();
                         }
-                        this.nph = this.limit;
-                        this.limit = dGs2 + this.pos;
-                        if (this.limit > this.nph) {
+                        this.nps = this.limit;
+                        this.limit = dGt2 + this.pos;
+                        if (this.limit > this.nps) {
                             throw new EOFException();
                         }
                         return this.tag;
@@ -95,7 +95,7 @@ public final class c {
                     case 4:
                         throw new ProtocolException("Unexpected end group");
                     case 5:
-                        this.npi = FieldEncoding.FIXED32;
+                        this.npt = FieldEncoding.FIXED32;
                         this.state = 5;
                         return this.tag;
                     default:
@@ -106,18 +106,18 @@ public final class c {
         }
     }
 
-    public FieldEncoding dGq() {
-        return this.npi;
+    public FieldEncoding dGr() {
+        return this.npt;
     }
 
     private void Nq(int i) throws IOException {
         while (this.pos < this.limit && !this.source.exhausted()) {
-            int dGs = dGs();
-            if (dGs == 0) {
+            int dGt = dGt();
+            if (dGt == 0) {
                 throw new ProtocolException("Unexpected tag 0");
             }
-            int i2 = dGs >> 3;
-            int i3 = dGs & 7;
+            int i2 = dGt >> 3;
+            int i3 = dGt & 7;
             switch (i3) {
                 case 0:
                     this.state = 0;
@@ -128,9 +128,9 @@ public final class c {
                     readFixed64();
                     break;
                 case 2:
-                    int dGs2 = dGs();
-                    this.pos += dGs2;
-                    this.source.skip(dGs2);
+                    int dGt2 = dGt();
+                    this.pos += dGt2;
+                    this.source.skip(dGt2);
                     break;
                 case 3:
                     Nq(i2);
@@ -151,24 +151,24 @@ public final class c {
         throw new EOFException();
     }
 
-    public ByteString dGr() throws IOException {
-        return this.source.readByteString(dGt());
+    public ByteString dGs() throws IOException {
+        return this.source.readByteString(dGu());
     }
 
     public String readString() throws IOException {
-        return this.source.readUtf8(dGt());
+        return this.source.readUtf8(dGu());
     }
 
     public int readVarint32() throws IOException {
         if (this.state != 0 && this.state != 2) {
             throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.state);
         }
-        int dGs = dGs();
+        int dGt = dGt();
         Nr(0);
-        return dGs;
+        return dGt;
     }
 
-    private int dGs() throws IOException {
+    private int dGt() throws IOException {
         this.pos++;
         byte readByte = this.source.readByte();
         if (readByte < 0) {
@@ -254,8 +254,8 @@ public final class c {
             throw new IOException("Expected to end at " + this.limit + " but was " + this.pos);
         } else {
             if (this.pos == this.limit) {
-                this.limit = this.nph;
-                this.nph = -1L;
+                this.limit = this.nps;
+                this.nps = -1L;
                 this.state = 6;
                 return;
             }
@@ -263,7 +263,7 @@ public final class c {
         }
     }
 
-    private long dGt() throws IOException {
+    private long dGu() throws IOException {
         if (this.state != 2) {
             throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.state);
         }
@@ -271,8 +271,8 @@ public final class c {
         this.source.require(j);
         this.state = 6;
         this.pos = this.limit;
-        this.limit = this.nph;
-        this.nph = -1L;
+        this.limit = this.nps;
+        this.nps = -1L;
         return j;
     }
 }

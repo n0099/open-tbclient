@@ -19,21 +19,21 @@ import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView eqe;
-    private TextView fOD;
-    private TextView fOE;
-    private TextView fOF;
-    private View fOG;
+    private TbImageView eqr;
+    private TextView fOQ;
+    private TextView fOR;
+    private TextView fOS;
+    private View fOT;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.eqe = (TbImageView) view.findViewById(R.id.chosen_image_text_img);
+        this.eqr = (TbImageView) view.findViewById(R.id.chosen_image_text_img);
         this.title = (TextView) view.findViewById(R.id.chosen_image_text_title);
-        this.fOG = view.findViewById(R.id.chosen_image_text_divider);
-        this.fOD = (TextView) view.findViewById(R.id.chosen_image_text_forum);
-        this.fOE = (TextView) view.findViewById(R.id.chosen_image_text_praise);
-        this.fOF = (TextView) view.findViewById(R.id.chosen_image_text_comment);
+        this.fOT = view.findViewById(R.id.chosen_image_text_divider);
+        this.fOQ = (TextView) view.findViewById(R.id.chosen_image_text_forum);
+        this.fOR = (TextView) view.findViewById(R.id.chosen_image_text_praise);
+        this.fOS = (TextView) view.findViewById(R.id.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,14 +46,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.eqe.startLoad(str, 10, false);
+            this.eqr.startLoad(str, 10, false);
             this.title.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.fOD.setVisibility(8);
+                this.fOQ.setVisibility(8);
             } else {
-                this.fOD.setVisibility(0);
-                this.fOD.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.fOD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
+                this.fOQ.setVisibility(0);
+                this.fOQ.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.fOQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str2 = tinfoVar.forum_name;
@@ -65,14 +65,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (tinfoVar.zan_num != null) {
-                this.fOE.setText(String.valueOf(tinfoVar.zan_num));
+                this.fOR.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.fOF.setText(String.valueOf(tinfoVar.reply_num));
+                this.fOS.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.fOG.setVisibility(0);
+            this.fOT.setVisibility(0);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jo(String.valueOf(tinfoVar.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.Jp(String.valueOf(tinfoVar.forum_id))) {
                 am.setViewTextColor(this.title, R.color.cp_cont_d, 1);
             } else {
                 am.setViewTextColor(this.title, R.color.cp_cont_b, 1);

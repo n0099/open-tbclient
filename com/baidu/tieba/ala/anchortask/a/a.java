@@ -20,42 +20,42 @@ import com.baidu.tieba.ala.anchortask.message.GetAnchorTaskInfoHttpResponseMessa
 public class a implements com.baidu.live.b.a {
     private m Yq;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a euK;
-    private com.baidu.tieba.ala.anchortask.b.b euL;
-    private String euM;
-    private int euO;
-    private int euP;
+    private com.baidu.tieba.ala.anchortask.c.a euX;
+    private com.baidu.tieba.ala.anchortask.b.b euY;
+    private String euZ;
+    private int evb;
+    private int evc;
     private Handler handler = new Handler();
-    private boolean euN = false;
+    private boolean eva = false;
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bdE();
+            a.this.bdF();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private View.OnClickListener dri = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private View.OnClickListener drw = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.euM != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.euM));
+            if (a.this.euZ != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.euZ));
             }
-            a.this.bdE();
+            a.this.bdF();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private HttpMessageListener euQ = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
+    private HttpMessageListener evd = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.euK != null) {
-                a.this.euL = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).euL;
-                if (a.this.euL != null && a.this.euL.evo != null) {
-                    a.this.euM = a.this.euL.euM;
-                    a.this.bdF();
-                    a.this.euK.a(a.this.euL.evo);
-                    if (a.this.euL.evo.evc == 2) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.euX != null) {
+                a.this.euY = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).euY;
+                if (a.this.euY != null && a.this.euY.evB != null) {
+                    a.this.euZ = a.this.euY.euZ;
+                    a.this.bdG();
+                    a.this.euX.a(a.this.euY.evB);
+                    if (a.this.euY.evB.evp == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
@@ -66,16 +66,16 @@ public class a implements com.baidu.live.b.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.euK = new com.baidu.tieba.ala.anchortask.c.a(context);
-        if (this.euK.getView() != null) {
-            this.euK.getView().setOnClickListener(this.dri);
+        this.euX = new com.baidu.tieba.ala.anchortask.c.a(context);
+        if (this.euX.getView() != null) {
+            this.euX.getView().setOnClickListener(this.drw);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         boolean z = true;
-        av avVar = com.baidu.live.v.a.zl().axC.adc;
+        av avVar = com.baidu.live.v.a.zl().axD.adc;
         if (avVar != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 if (avVar.adD != 1) {
@@ -95,8 +95,8 @@ public class a implements com.baidu.live.b.a {
                 z = false;
             }
             if (z) {
-                if (this.euK != null) {
-                    viewGroup.addView(this.euK.getView(), layoutParams);
+                if (this.euX != null) {
+                    viewGroup.addView(this.euX.getView(), layoutParams);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -115,10 +115,10 @@ public class a implements com.baidu.live.b.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.euQ);
+        MessageManager.getInstance().registerListener(this.evd);
     }
 
-    public void bdE() {
+    public void bdF() {
         if (this.Yq != null) {
             long j = this.Yq.mLiveInfo.live_id;
             long j2 = this.Yq.mLiveInfo.user_id;
@@ -131,42 +131,42 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdF() {
-        if (this.euL != null && this.euL.evo != null) {
-            if (!this.euN) {
-                this.euN = true;
-                this.euO = this.euL.evo.eva;
-                this.euP = this.euL.evo.evb;
+    public void bdG() {
+        if (this.euY != null && this.euY.evB != null) {
+            if (!this.eva) {
+                this.eva = true;
+                this.evb = this.euY.evB.evn;
+                this.evc = this.euY.evB.evo;
             }
-            int i = this.euL.evo.evc;
-            int i2 = this.euL.evo.evd;
-            int i3 = this.euL.evo.eve;
+            int i = this.euY.evB.evp;
+            int i2 = this.euY.evB.evq;
+            int i3 = this.euY.evB.evr;
             String str = null;
-            if (this.euO == 1 && i == 2) {
+            if (this.evb == 1 && i == 2) {
                 str = this.context.getString(a.i.txt_im_identity_is_mcn);
-            } else if (this.euO == 2 && i == 1) {
+            } else if (this.evb == 2 && i == 1) {
                 str = String.format(this.context.getString(a.i.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.euO == 1 && i == 1) {
-                if (i2 > this.euP) {
+            } else if (this.evb == 1 && i == 1) {
+                if (i2 > this.evc) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.euP) {
+                } else if (i2 < this.evc) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913143, str));
             }
-            this.euO = i;
-            this.euP = i2;
+            this.evb = i;
+            this.evc = i2;
         }
     }
 
     @Override // com.baidu.live.b.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.euQ);
-        if (this.euK != null) {
-            this.euK.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.evd);
+        if (this.euX != null) {
+            this.euX.onDestroy();
         }
     }
 }

@@ -17,14 +17,14 @@ public class p {
         h.a gn = com.facebook.imagepipeline.a.a.a.gn(context);
         b.a gj = com.facebook.cache.disk.b.gj(context);
         gj.ai(new File(PathUtils.getImageCacheDirectoryBaseForFresco(context)));
-        gn.c(gj.dko());
+        gn.c(gj.dkp());
         gn.vp(true);
         gn.b(new e((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)));
-        com.facebook.drawee.a.a.c.a(context, gn.dph(), com.facebook.drawee.a.a.b.dlv().a(new a()).dlx());
+        com.facebook.drawee.a.a.c.a(context, gn.dpi(), com.facebook.drawee.a.a.b.dlw().a(new a()).dly());
         BasePool.a(new BasePool.b() { // from class: com.baidu.tieba.publisher.a.p.1
             @Override // com.facebook.imagepipeline.memory.BasePool.b
             public void onFailed() {
-                com.facebook.drawee.a.a.c.dlA().doJ();
+                com.facebook.drawee.a.a.c.dlB().doK();
             }
         });
     }
@@ -43,8 +43,8 @@ public class p {
         public Drawable b(com.facebook.imagepipeline.g.c cVar) {
             if (cVar instanceof com.facebook.imagepipeline.g.d) {
                 com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-                BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dqr());
-                return (dVar.dqv() == 0 || dVar.dqv() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, dVar.dqv());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dqs());
+                return (dVar.dqw() == 0 || dVar.dqw() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, dVar.dqw());
             }
             return null;
         }

@@ -15,13 +15,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a axa;
-    private String axb;
-    private TbHttpMessageTask axc;
-    private String axd;
-    private TbHttpMessageTask axe;
-    private HttpMessageListener axf;
+    private a axb;
+    private String axc;
+    private TbHttpMessageTask axd;
+    private String axe;
+    private TbHttpMessageTask axf;
     private HttpMessageListener axg;
+    private HttpMessageListener axh;
     private BdSwitchView.SwitchState mState;
 
     /* loaded from: classes3.dex */
@@ -33,52 +33,52 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.axf = new HttpMessageListener(1021028) { // from class: com.baidu.live.k.d.1
+        this.axg = new HttpMessageListener(1021028) { // from class: com.baidu.live.k.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021028 && d.this.axa != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021028 && d.this.axb != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.axa.bt(httpResponsedMessage.getErrorString());
+                        d.this.axb.bt(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.axa.a(d.this.mState, 1);
+                        d.this.axb.a(d.this.mState, 1);
                     } else {
-                        d.this.axa.bt(httpResponsedMessage.getErrorString());
+                        d.this.axb.bt(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.axg = new HttpMessageListener(1021032) { // from class: com.baidu.live.k.d.2
+        this.axh = new HttpMessageListener(1021032) { // from class: com.baidu.live.k.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021032 && d.this.axa != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021032 && d.this.axb != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.axa.bt(httpResponsedMessage.getErrorString());
+                        d.this.axb.bt(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.axa.a(d.this.mState, 2);
+                        d.this.axb.a(d.this.mState, 2);
                     } else {
-                        d.this.axa.bt(httpResponsedMessage.getErrorString());
+                        d.this.axb.bt(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
         yY();
-        this.axf.setTag(getUniqueId());
         this.axg.setTag(getUniqueId());
-        registerListener(this.axf);
+        this.axh.setTag(getUniqueId());
         registerListener(this.axg);
+        registerListener(this.axh);
     }
 
     private void yY() {
-        this.axb = TbConfig.SERVER_ADDRESS + "ala/relation/switchPush";
-        this.axc = new TbHttpMessageTask(1021028, this.axb);
-        this.axc.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(this.axc);
-        this.axd = TbConfig.SERVER_ADDRESS + "ala/relation/globalSwitchPush";
-        this.axe = new TbHttpMessageTask(1021032, this.axd);
-        this.axe.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(this.axe);
+        this.axc = TbConfig.SERVER_ADDRESS + "ala/relation/switchPush";
+        this.axd = new TbHttpMessageTask(1021028, this.axc);
+        this.axd.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(this.axd);
+        this.axe = TbConfig.SERVER_ADDRESS + "ala/relation/globalSwitchPush";
+        this.axf = new TbHttpMessageTask(1021032, this.axe);
+        this.axf.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(this.axf);
     }
 
     public boolean a(BdSwitchView.SwitchState switchState, String str, int i) {

@@ -21,18 +21,18 @@ import com.baidu.tieba.card.z;
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.e, af<com.baidu.tieba.card.data.e>> implements com.baidu.tieba.a.f {
     private z<com.baidu.tieba.card.data.e> JZ;
     private String LC;
-    public BdUniqueId dBk;
-    private int frQ;
-    private int jmS;
-    private int jmT;
+    public BdUniqueId dBx;
+    private int fsd;
+    private int jne;
+    private int jnf;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jmS = 0;
-        this.jmT = 0;
-        this.frQ = 0;
+        this.jne = 0;
+        this.jnf = 0;
+        this.fsd = 0;
         this.JZ = new z<com.baidu.tieba.card.data.e>() { // from class: com.baidu.tieba.personPolymeric.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
@@ -49,7 +49,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        bOW();
+        bOX();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,11 +59,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public af<com.baidu.tieba.card.data.e> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBk);
+        eVar.setPageUniqueId(this.dBx);
         eVar.b(this.mPageContext);
         eVar.aL(32768);
-        if (this.jmS > 0) {
-            eVar.aK(this.jmS);
+        if (this.jne > 0) {
+            eVar.aK(this.jne);
         }
         eVar.ab(false);
         eVar.ac(false);
@@ -85,13 +85,13 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         });
         aVar.c(cVar);
-        if (this.frQ == 2) {
+        if (this.fsd == 2) {
             aVar.a((com.baidu.card.h) new com.baidu.card.i(this.mPageContext.getPageActivity()));
         }
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNB = 3;
-        dVar.cNH = 3;
+        dVar.cNC = 3;
+        dVar.cNI = 3;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(8);
         agVar.setShareReportFrom(6);
@@ -101,8 +101,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad nj = aVar.nj();
         nj.aQ(4);
         af<com.baidu.tieba.card.data.e> afVar = new af<>(nj);
-        afVar.setPageId(this.dBk);
-        afVar.aY(this.jmT);
+        afVar.setPageId(this.dBx);
+        afVar.aY(this.jnf);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.a.4
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -132,7 +132,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wO(String str) {
+    public void wP(String str) {
         this.LC = str;
     }
 
@@ -146,8 +146,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
     }
 
-    private void bOW() {
-        k.fMU = "c13542";
+    private void bOX() {
+        k.fNh = "c13542";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -163,11 +163,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void zX(int i) {
-        this.jmS = i;
+        this.jne = i;
     }
 
     public void setTabType(int i) {
-        this.frQ = i;
+        this.fsd = i;
     }
 
     public void setIsHost(boolean z) {
@@ -175,6 +175,6 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void zW(int i) {
-        this.jmT = i;
+        this.jnf = i;
     }
 }

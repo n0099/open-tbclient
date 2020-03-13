@@ -11,106 +11,106 @@ import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class m implements a.InterfaceC0642a {
-    private static long kVJ = f.cXz();
-    private static n kWs;
-    private static long kWt;
-    private Runnable kWw;
-    private boolean kWu = false;
-    private boolean kWv = true;
+    private static long kVV = f.cXA();
+    private static n kWE;
+    private static long kWF;
+    private Runnable kWI;
+    private boolean kWG = false;
+    private boolean kWH = true;
     private Handler handler = new Handler();
-    private a kWx = new a() { // from class: com.baidu.ubs.analytics.c.m.1
+    private a kWJ = new a() { // from class: com.baidu.ubs.analytics.c.m.1
         @Override // com.baidu.ubs.analytics.c.m.a
-        public final void cXL() {
+        public final void cXM() {
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.ubs.analytics.d.b.Ls("app   went foreground ");
-            if (currentTimeMillis - m.kWt > m.kVJ) {
+            com.baidu.ubs.analytics.d.b.Lt("app   went foreground ");
+            if (currentTimeMillis - m.kWF > m.kVV) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.cXo().i()) {
+            if (com.baidu.ubs.analytics.d.cXp().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
-                        com.baidu.ubs.analytics.d.b.Ls("记录一次app启动事件");
+                        com.baidu.ubs.analytics.d.b.Lt("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.cXo().a(false);
+                        com.baidu.ubs.analytics.d.cXp().a(false);
                     }
                 });
             }
         }
 
         @Override // com.baidu.ubs.analytics.c.m.a
-        public final void cXM() {
+        public final void cXN() {
             d dVar;
-            dVar = d.a.kWb;
-            if (dVar.cXv().size() == 0) {
-                com.baidu.ubs.analytics.d.b.Ls("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.cXo().a(true);
-                long unused = m.kWt = 0L;
+            dVar = d.a.kWn;
+            if (dVar.cXw().size() == 0) {
+                com.baidu.ubs.analytics.d.b.Lt("后台应用退出了 了               ");
+                com.baidu.ubs.analytics.d.cXp().a(true);
+                long unused = m.kWF = 0L;
                 return;
             }
-            com.baidu.ubs.analytics.d.b.Ls("进入后台但没退出                  ");
+            com.baidu.ubs.analytics.d.b.Lt("进入后台但没退出                  ");
         }
     };
 
     /* loaded from: classes8.dex */
     public interface a {
-        void cXL();
-
         void cXM();
+
+        void cXN();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m() {
         long currentTimeMillis = System.currentTimeMillis();
-        kWt = currentTimeMillis;
+        kWF = currentTimeMillis;
         d(currentTimeMillis);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n cXG() {
-        return kWs;
+    public static n cXH() {
+        return kWE;
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void T() {
-        this.kWv = false;
-        boolean z = this.kWu ? false : true;
-        this.kWu = true;
-        if (this.kWw != null) {
-            this.handler.removeCallbacks(this.kWw);
+        this.kWH = false;
+        boolean z = this.kWG ? false : true;
+        this.kWG = true;
+        if (this.kWI != null) {
+            this.handler.removeCallbacks(this.kWI);
         }
         if (z) {
             try {
-                this.kWx.cXL();
+                this.kWJ.cXM();
             } catch (Exception e) {
-                com.baidu.ubs.analytics.d.j.Ls("Listener threw exception!:" + e.toString());
+                com.baidu.ubs.analytics.d.j.Lt("Listener threw exception!:" + e.toString());
             }
         }
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
     public final void U() {
-        this.kWv = true;
-        if (this.kWw != null) {
-            this.handler.removeCallbacks(this.kWw);
-            this.kWw = null;
+        this.kWH = true;
+        if (this.kWI != null) {
+            this.handler.removeCallbacks(this.kWI);
+            this.kWI = null;
         }
-        kWt = System.currentTimeMillis();
+        kWF = System.currentTimeMillis();
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.3
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.kWs.z(String.valueOf(currentTimeMillis));
+                m.kWE.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.kWs.A(String.valueOf(currentTimeMillis - Long.parseLong(m.kWs.N())));
+                    m.kWE.A(String.valueOf(currentTimeMillis - Long.parseLong(m.kWE.N())));
                 } catch (NumberFormatException e) {
-                    com.baidu.ubs.analytics.d.b.Ls(e.getLocalizedMessage());
+                    com.baidu.ubs.analytics.d.b.Lt(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.Ln(m.kWs.I())) {
-                    pVar.b(m.kWs);
+                if (pVar.Lo(m.kWE.I())) {
+                    pVar.b(m.kWE);
                 } else {
-                    pVar.c(m.kWs);
+                    pVar.c(m.kWE);
                 }
             }
         });
@@ -118,17 +118,17 @@ public final class m implements a.InterfaceC0642a {
         Runnable runnable = new Runnable() { // from class: com.baidu.ubs.analytics.c.m.2
             @Override // java.lang.Runnable
             public final void run() {
-                if (m.this.kWu && m.this.kWv) {
-                    m.this.kWu = false;
+                if (m.this.kWG && m.this.kWH) {
+                    m.this.kWG = false;
                     try {
-                        m.this.kWx.cXM();
+                        m.this.kWJ.cXN();
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.Ls("Listener threw exception!:" + e.toString());
+                        com.baidu.ubs.analytics.d.j.Lt("Listener threw exception!:" + e.toString());
                     }
                 }
             }
         };
-        this.kWw = runnable;
+        this.kWI = runnable;
         handler.postDelayed(runnable, 1000L);
     }
 
@@ -143,14 +143,14 @@ public final class m implements a.InterfaceC0642a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j) {
         n nVar = new n();
-        kWs = nVar;
+        kWE = nVar;
         nVar.setStartTime(String.valueOf(j));
-        kWs.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
+        kWE.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.4
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                com.baidu.ubs.analytics.d.b.Ls("超时了……………… 一个新的session");
-                new p().c(m.kWs);
+                com.baidu.ubs.analytics.d.b.Lt("超时了……………… 一个新的session");
+                new p().c(m.kWE);
             }
         });
     }

@@ -26,19 +26,19 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class a implements b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<JSEvent> cmA;
-    private boolean cmB;
-    protected com.baidu.swan.games.e.d.b cmt;
-    public final String cmu;
-    private EventTarget cmv;
+    private com.baidu.swan.games.e.a.a cmA;
+    private List<JSEvent> cmB;
+    private boolean cmC;
+    protected com.baidu.swan.games.e.d.b cmu;
+    public final String cmv;
     private EventTarget cmw;
-    private com.baidu.swan.games.e.b.a cmx;
-    private com.baidu.swan.games.e.b.b cmy;
-    private com.baidu.swan.games.e.a.a cmz;
+    private EventTarget cmx;
+    private com.baidu.swan.games.e.b.a cmy;
+    private com.baidu.swan.games.e.b.b cmz;
     private Context mContext;
     protected V8Engine mV8Engine;
     private int mCurState = 0;
-    private boolean cmC = false;
+    private boolean cmD = false;
 
     @NonNull
     public abstract EventTarget anp();
@@ -49,21 +49,21 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull String str, @NonNull com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        this.cmu = str;
-        this.cmt = bVar;
+        this.cmv = str;
+        this.cmu = bVar;
         String initBasePath = getInitBasePath();
         if (!TextUtils.isEmpty(initBasePath)) {
-            this.cmv = anp();
-            this.cmw = anq();
-            this.mV8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.cmt.Pf(), v8ThreadDelegatePolicy, this.cmv, this.cmw);
+            this.cmw = anp();
+            this.cmx = anq();
+            this.mV8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.cmu.Pf(), v8ThreadDelegatePolicy, this.cmw, this.cmx);
             this.mV8Engine.setExternalV8BinFilesPath(com.baidu.swan.games.utils.so.d.aqo());
             this.mV8Engine.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
             if (bVar.Pe() != null) {
                 this.mV8Engine.setCodeCacheSetting(bVar.Pe());
             }
-            this.cmx = new com.baidu.swan.games.e.b.a(this.mV8Engine);
-            this.cmz = new com.baidu.swan.games.e.a.a(this.mV8Engine);
-            this.cmA = new ArrayList();
+            this.cmy = new com.baidu.swan.games.e.b.a(this.mV8Engine);
+            this.cmA = new com.baidu.swan.games.e.a.a(this.mV8Engine);
+            this.cmB = new ArrayList();
             onCreate();
         }
     }
@@ -94,7 +94,7 @@ public abstract class a implements b {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "initEngine start.");
         }
-        this.cmt.a(this);
+        this.cmu.a(this);
         this.mV8Engine.startEngine();
         this.mV8Engine.addStatusHandler(new V8Engine.V8StatusListener() { // from class: com.baidu.swan.games.e.a.1
             @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
@@ -124,11 +124,11 @@ public abstract class a implements b {
     }
 
     public void finish() {
-        if (!this.cmB) {
+        if (!this.cmC) {
             if (DEBUG) {
                 Log.d("SwanAppV8Engine", "finish called.");
             }
-            this.cmB = true;
+            this.cmC = true;
             onFinish();
             this.mV8Engine.destroyEngine(new V8ExecuteCallback() { // from class: com.baidu.swan.games.e.a.2
                 @Override // com.baidu.searchbox.v8engine.thread.V8ExecuteCallback
@@ -143,15 +143,15 @@ public abstract class a implements b {
     }
 
     public boolean isFinishing() {
-        return this.cmB;
+        return this.cmC;
     }
 
     @Override // com.baidu.swan.games.e.b
     public com.baidu.swan.games.e.b.b anu() {
-        if (this.cmy == null) {
-            this.cmy = new com.baidu.swan.games.e.b.b(this.mV8Engine);
+        if (this.cmz == null) {
+            this.cmz = new com.baidu.swan.games.e.b.b(this.mV8Engine);
         }
-        return this.cmy;
+        return this.cmz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -161,24 +161,24 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.games.e.b
     public EventTarget anw() {
-        return this.cmv;
-    }
-
-    @Override // com.baidu.swan.games.e.b
-    public EventTarget anx() {
         return this.cmw;
     }
 
     @Override // com.baidu.swan.games.e.b
+    public EventTarget anx() {
+        return this.cmx;
+    }
+
+    @Override // com.baidu.swan.games.e.b
     public com.baidu.swan.games.e.a.a any() {
-        return this.cmz;
+        return this.cmA;
     }
 
     public boolean dispatchEvent(final JSEvent jSEvent) {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "dispatchEvent event: " + (jSEvent != null ? jSEvent.type : ""));
         }
-        if (this.cmv == null || !JSEvent.isValid(jSEvent)) {
+        if (this.cmw == null || !JSEvent.isValid(jSEvent)) {
             if (DEBUG) {
                 Log.e("SwanAppV8Engine", "dispatchEvent globalObject or event is invalid.");
             }
@@ -191,10 +191,10 @@ public abstract class a implements b {
                     if (a.DEBUG) {
                         Log.d("SwanAppV8Engine", "dispatchEvent add to pending list.");
                     }
-                    a.this.cmA.add(jSEvent);
+                    a.this.cmB.add(jSEvent);
                     return;
                 }
-                a.this.cmv.dispatchEvent(jSEvent);
+                a.this.cmw.dispatchEvent(jSEvent);
             }
         });
         return true;
@@ -207,30 +207,30 @@ public abstract class a implements b {
         runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.e.a.4
             @Override // java.lang.Runnable
             public void run() {
-                for (JSEvent jSEvent : a.this.cmA) {
+                for (JSEvent jSEvent : a.this.cmB) {
                     if (a.DEBUG) {
                         Log.d("SwanAppV8Engine", "doPendingDispatch event type: " + jSEvent.type);
                     }
                     a.this.dispatchEvent(jSEvent);
                 }
-                a.this.cmA.clear();
+                a.this.cmB.clear();
             }
         });
     }
 
     @Override // com.baidu.swan.games.e.b
     public void bF(String str, String str2) {
-        this.cmx.bF(str, str2);
+        this.cmy.bF(str, str2);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        this.cmx.evaluateJavascript(str, valueCallback);
+        this.cmy.evaluateJavascript(str, valueCallback);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isDestroyed() {
-        return this.cmB;
+        return this.cmC;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
@@ -238,12 +238,12 @@ public abstract class a implements b {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "addJavascriptInterface object: " + obj + " ,name: " + str);
         }
-        this.cmx.addJavascriptInterface(obj, str);
+        this.cmy.addJavascriptInterface(obj, str);
     }
 
     @Override // com.baidu.swan.games.e.b
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
-        this.cmx.throwJSException(jSExceptionType, str);
+        this.cmy.throwJSException(jSExceptionType, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
@@ -302,7 +302,7 @@ public abstract class a implements b {
     }
 
     public String getLogTag() {
-        return "[" + this.cmu + "] : ";
+        return "[" + this.cmv + "] : ";
     }
 
     private d anA() {
@@ -318,7 +318,7 @@ public abstract class a implements b {
     public void onReady() {
         anA().i(this);
         this.mCurState = 2;
-        this.cmt.b(this);
+        this.cmu.b(this);
     }
 
     public void onPause() {
@@ -340,7 +340,7 @@ public abstract class a implements b {
     public void onLoad() {
         anA().j(this);
         this.mCurState = 3;
-        this.cmC = true;
+        this.cmD = true;
         anz();
     }
 
@@ -356,7 +356,7 @@ public abstract class a implements b {
     }
 
     public boolean isLoaded() {
-        return this.cmC;
+        return this.cmD;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
@@ -396,7 +396,7 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.games.e.b
     public String getInitBasePath() {
-        return this.cmt.getInitBasePath();
+        return this.cmu.getInitBasePath();
     }
 
     public InspectorNativeClient initInspector(InspectorNativeChannel inspectorNativeChannel) {
@@ -432,6 +432,6 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.cmu;
+        return this.cmv;
     }
 }

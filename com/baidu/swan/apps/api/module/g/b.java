@@ -41,10 +41,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.api.a.c {
-    private static final Set<String> beD = i.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
-    private static final Set<String> beE = i.K("json", "string");
-    private static final Set<String> beF = i.K("text", "arraybuffer");
-    private static final Set<String> beG = i.K("REFERER", "USER-AGENT");
+    private static final Set<String> beE = i.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> beF = i.K("json", "string");
+    private static final Set<String> beG = i.K("text", "arraybuffer");
+    private static final Set<String> beH = i.K("REFERER", "USER-AGENT");
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -161,7 +161,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
         if (!TextUtils.isEmpty(optString2)) {
             optString2 = optString2.toUpperCase();
         }
-        optString2 = (TextUtils.isEmpty(optString2) || !beD.contains(optString2)) ? "GET" : "GET";
+        optString2 = (TextUtils.isEmpty(optString2) || !beE.contains(optString2)) ? "GET" : "GET";
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
         a(builder, jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
@@ -187,7 +187,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !beG.contains(next.toUpperCase())) {
+                if (!TextUtils.isEmpty(next) && !beH.contains(next.toUpperCase())) {
                     String mU = ai.mU(jSONObject.optString(next));
                     if (TextUtils.isEmpty(mU)) {
                         mU = "";
@@ -337,11 +337,11 @@ public class b extends com.baidu.swan.apps.api.a.c {
     private static RequestBody b(@Nullable Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
         if (TextUtils.isEmpty(str)) {
-            return RequestBody.create(f.a.bGh, obj == null ? "" : obj.toString());
+            return RequestBody.create(f.a.bGi, obj == null ? "" : obj.toString());
         }
         MediaType parse = MediaType.parse(str);
-        if (f.a.bGh.equals(parse)) {
-            return RequestBody.create(f.a.bGh, obj == null ? "" : obj.toString());
+        if (f.a.bGi.equals(parse)) {
+            return RequestBody.create(f.a.bGi, obj == null ? "" : obj.toString());
         }
         return a(obj, parse);
     }
@@ -373,7 +373,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
         if (TextUtils.isEmpty(optString)) {
             return "json";
         }
-        if (!beE.contains(optString)) {
+        if (!beF.contains(optString)) {
             return "string";
         }
         return optString;
@@ -382,7 +382,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
     @NonNull
     public static String T(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("responseType");
-        if (!beF.contains(optString)) {
+        if (!beG.contains(optString)) {
             return "text";
         }
         return optString;

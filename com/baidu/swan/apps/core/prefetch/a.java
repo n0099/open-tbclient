@@ -12,8 +12,8 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c bqI = new c();
-    private static d bqJ = new d();
+    private static c bqJ = new c();
+    private static d bqK = new d();
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -27,11 +27,11 @@ public final class a {
     }
 
     static com.baidu.swan.apps.process.messaging.service.c a(@NonNull PrefetchEvent prefetchEvent) {
-        return e.abu().a((e) prefetchEvent.appId, (e.a<e>) bqI);
+        return e.abu().a((e) prefetchEvent.appId, (e.a<e>) bqJ);
     }
 
     static com.baidu.swan.apps.process.messaging.service.c b(@NonNull PrefetchEvent prefetchEvent) {
-        return e.abu().a((e) prefetchEvent.appId, (e.a<e>) bqJ);
+        return e.abu().a((e) prefetchEvent.appId, (e.a<e>) bqK);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,7 +99,7 @@ public final class a {
     public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull InterfaceC0253a interfaceC0253a) {
         switch (com.baidu.swan.apps.core.prefetch.a.a.PP()) {
             case 1:
-                if (cVar.bJB == null || TextUtils.equals(cVar.bJB.appId, prefetchEvent.appId)) {
+                if (cVar.bJC == null || TextUtils.equals(cVar.bJC.appId, prefetchEvent.appId)) {
                     interfaceC0253a.a(cVar);
                     return;
                 }
@@ -159,10 +159,10 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.messaging.service.e.a
         public boolean a(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-            if (cVar.bJB == null) {
+            if (cVar.bJC == null) {
                 return false;
             }
-            return TextUtils.equals(str, cVar.bJB.appId);
+            return TextUtils.equals(str, cVar.bJC.appId);
         }
     }
 

@@ -7,7 +7,7 @@ public interface e {
 
     /* loaded from: classes6.dex */
     public interface a {
-        e dyV();
+        e dyW();
     }
 
     long a(g gVar) throws IOException;

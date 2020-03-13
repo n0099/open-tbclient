@@ -10,21 +10,21 @@ public class c {
         String str;
         int i = -1;
         try {
-            i = Integer.parseInt(cVar.aHI);
+            i = Integer.parseInt(cVar.aHJ);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         switch (i) {
             case 0:
             case 3:
-                return (cVar.aHM == null || cVar.aHM.aIl == null || TextUtils.isEmpty(cVar.aHM.aIl.word)) ? "" : "" + cVar.aHM.aIl.word;
+                return (cVar.aHN == null || cVar.aHN.aIm == null || TextUtils.isEmpty(cVar.aHN.aIm.word)) ? "" : "" + cVar.aHN.aIm.word;
             case 1:
             case 2:
             case 4:
-                if (cVar.aHM == null || cVar.aHM.aIl == null || TextUtils.isEmpty(cVar.aHM.aIl.word)) {
+                if (cVar.aHN == null || cVar.aHN.aIm == null || TextUtils.isEmpty(cVar.aHN.aIm.word)) {
                     str = "";
                 } else {
-                    str = cVar.aHM.aIl.word;
+                    str = cVar.aHN.aIm.word;
                 }
                 return str + context.getString(R.string.livesdk_pic);
             case 5:
@@ -36,7 +36,7 @@ public class c {
 
     public static String a(Context context, com.baidu.g.a.b.a.c cVar, boolean z) {
         String a = a(context, cVar);
-        if (z && !TextUtils.isEmpty(cVar.aHN)) {
+        if (z && !TextUtils.isEmpty(cVar.aHO)) {
             String b = b(context, cVar);
             if (!a.startsWith(b)) {
                 return b + a;
@@ -47,14 +47,14 @@ public class c {
     }
 
     public static String b(Context context, com.baidu.g.a.b.a.c cVar) {
-        return (cVar == null || TextUtils.isEmpty(cVar.aHN)) ? "" : context.getString(R.string.livesdk_reply) + cVar.aHP + HanziToPinyin.Token.SEPARATOR;
+        return (cVar == null || TextUtils.isEmpty(cVar.aHO)) ? "" : context.getString(R.string.livesdk_reply) + cVar.aHQ + HanziToPinyin.Token.SEPARATOR;
     }
 
     public static void c(Context context, com.baidu.g.a.b.a.c cVar) {
-        if (cVar != null && cVar.aHU != null && cVar.aHU.aIl != null && !TextUtils.isEmpty(cVar.aHU.aIl.word)) {
+        if (cVar != null && cVar.aHV != null && cVar.aHV.aIm != null && !TextUtils.isEmpty(cVar.aHV.aIm.word)) {
             String b = b(context, cVar);
-            if (cVar.aHU.aIl.word.startsWith(b)) {
-                cVar.aHU.aIl.word = cVar.aHU.aIl.word.replace(b, "");
+            if (cVar.aHV.aIm.word.startsWith(b)) {
+                cVar.aHV.aIm.word = cVar.aHV.aIm.word.replace(b, "");
             }
         }
     }

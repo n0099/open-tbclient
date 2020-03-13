@@ -33,27 +33,27 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
-    private RelativeLayout gVK;
+    private RelativeLayout gVW;
     public NavigationBar mNavigationBar;
-    private TextView gVA = null;
-    private TextView gVB = null;
-    private EditText gVC = null;
-    private EditText gVD = null;
-    private RelativeLayout gVE = null;
-    private FrameLayout gVF = null;
-    private ImageView dYe = null;
+    private TextView gVM = null;
+    private TextView gVN = null;
+    private EditText gVO = null;
+    private EditText gVP = null;
+    private RelativeLayout gVQ = null;
+    private FrameLayout gVR = null;
+    private ImageView dYr = null;
     private ProgressBar mProgress = null;
-    private ProgressBar gVG = null;
-    private a gVH = null;
-    private b gVI = null;
+    private ProgressBar gVS = null;
+    private a gVT = null;
+    private b gVU = null;
     private View.OnClickListener mOnClickListener = null;
     private TextWatcher mTextWatcher = null;
-    private String gVJ = null;
+    private String gVV = null;
     private TextView mErrorView = null;
     private RelativeLayout mContainer = null;
-    private TextView gVL = null;
-    private String gVM = null;
-    private boolean gVN = false;
+    private TextView gVX = null;
+    private String gVY = null;
+    private boolean gVZ = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -62,14 +62,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         setContentView(R.layout.create_bar_activity);
         initData();
         initUI();
-        bMQ();
+        bMR();
         adjustResizeForSoftInput();
     }
 
-    private void bMQ() {
-        if (this.gVI == null) {
-            this.gVI = new b();
-            this.gVI.execute(new String[0]);
+    private void bMR() {
+        if (this.gVU == null) {
+            this.gVU = new b();
+            this.gVU.execute(new String[0]);
         }
     }
 
@@ -77,38 +77,38 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gVH != null) {
-            this.gVH.cancel();
+        if (this.gVT != null) {
+            this.gVT.cancel();
         }
-        if (this.gVI != null) {
-            this.gVI.cancel();
+        if (this.gVU != null) {
+            this.gVU.cancel();
         }
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.gVM = intent.getStringExtra("barname");
-        this.gVN = intent.getBooleanExtra("isvalid", false);
-        if (this.gVM == null) {
-            this.gVM = "";
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bMR() {
-        if (this.gVI == null && this.gVH == null) {
-            this.gVI = new b();
-            this.gVI.setPriority(3);
-            this.gVI.execute(new String[0]);
+        this.gVY = intent.getStringExtra("barname");
+        this.gVZ = intent.getBooleanExtra("isvalid", false);
+        if (this.gVY == null) {
+            this.gVY = "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bMS() {
-        if (this.gVH == null) {
-            this.gVH = new a(this.gVC.getText().toString().trim(), this.gVD.getText().toString().trim());
-            this.gVH.setPriority(3);
-            this.gVH.execute(new String[0]);
+        if (this.gVU == null && this.gVT == null) {
+            this.gVU = new b();
+            this.gVU.setPriority(3);
+            this.gVU.execute(new String[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bMT() {
+        if (this.gVT == null) {
+            this.gVT = new a(this.gVO.getText().toString().trim(), this.gVP.getText().toString().trim());
+            this.gVT.setPriority(3);
+            this.gVT.execute(new String[0]);
         }
     }
 
@@ -116,10 +116,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateBarActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == CreateBarActivity.this.gVE) {
+                if (view == CreateBarActivity.this.gVQ) {
+                    CreateBarActivity.this.bMT();
+                } else if (view == CreateBarActivity.this.gVR) {
                     CreateBarActivity.this.bMS();
-                } else if (view == CreateBarActivity.this.gVF) {
-                    CreateBarActivity.this.bMR();
                 }
             }
         };
@@ -134,11 +134,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                int length = CreateBarActivity.this.gVC.getText().toString().trim().length();
-                if (length <= 0 || length >= 32 || CreateBarActivity.this.gVD.getText().toString().trim().length() <= 0) {
-                    CreateBarActivity.this.gVE.setEnabled(false);
+                int length = CreateBarActivity.this.gVO.getText().toString().trim().length();
+                if (length <= 0 || length >= 32 || CreateBarActivity.this.gVP.getText().toString().trim().length() <= 0) {
+                    CreateBarActivity.this.gVQ.setEnabled(false);
                 } else {
-                    CreateBarActivity.this.gVE.setEnabled(true);
+                    CreateBarActivity.this.gVQ.setEnabled(true);
                 }
                 if (length >= 32) {
                     CreateBarActivity.this.mErrorView.setText(CreateBarActivity.this.getPageContext().getString(R.string.bar_name_long));
@@ -153,42 +153,42 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.create_bar));
         this.mContainer = (RelativeLayout) findViewById(R.id.container);
-        this.gVL = (TextView) findViewById(R.id.text);
+        this.gVX = (TextView) findViewById(R.id.text);
         ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.mErrorView = (TextView) findViewById(R.id.error);
-        this.gVA = (TextView) findViewById(R.id.info);
-        this.gVE = (RelativeLayout) findViewById(R.id.create);
-        this.gVE.setOnClickListener(this.mOnClickListener);
-        this.gVB = (TextView) findViewById(R.id.info2);
-        this.gVC = (EditText) findViewById(R.id.edit_name);
-        this.gVC.addTextChangedListener(this.mTextWatcher);
-        this.gVD = (EditText) findViewById(R.id.edit_vcode);
-        this.gVD.addTextChangedListener(this.mTextWatcher);
-        if (this.gVN) {
-            this.gVB.setText(getPageContext().getString(R.string.noforum_create_form_tip));
-            this.gVC.setText(this.gVM);
+        this.gVM = (TextView) findViewById(R.id.info);
+        this.gVQ = (RelativeLayout) findViewById(R.id.create);
+        this.gVQ.setOnClickListener(this.mOnClickListener);
+        this.gVN = (TextView) findViewById(R.id.info2);
+        this.gVO = (EditText) findViewById(R.id.edit_name);
+        this.gVO.addTextChangedListener(this.mTextWatcher);
+        this.gVP = (EditText) findViewById(R.id.edit_vcode);
+        this.gVP.addTextChangedListener(this.mTextWatcher);
+        if (this.gVZ) {
+            this.gVN.setText(getPageContext().getString(R.string.noforum_create_form_tip));
+            this.gVO.setText(this.gVY);
         } else {
-            this.gVB.setText(getPageContext().getString(R.string.bar_name_invalid));
+            this.gVN.setText(getPageContext().getString(R.string.bar_name_invalid));
         }
-        this.gVK = (RelativeLayout) findViewById(R.id.create);
-        this.gVF = (FrameLayout) findViewById(R.id.image_button);
-        this.gVF.setOnClickListener(this.mOnClickListener);
-        this.dYe = (ImageView) findViewById(R.id.image);
-        this.gVE.setEnabled(false);
+        this.gVW = (RelativeLayout) findViewById(R.id.create);
+        this.gVR = (FrameLayout) findViewById(R.id.image_button);
+        this.gVR.setOnClickListener(this.mOnClickListener);
+        this.dYr = (ImageView) findViewById(R.id.image);
+        this.gVQ.setEnabled(false);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
-        this.gVG = (ProgressBar) findViewById(R.id.progress_image);
-        if (this.gVN) {
-            this.gVD.requestFocus();
+        this.gVS = (ProgressBar) findViewById(R.id.progress_image);
+        if (this.gVZ) {
+            this.gVP.requestFocus();
         }
         findViewById(R.id.show_message_container).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.home.CreateBarActivity.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    if (CreateBarActivity.this.gVC.hasFocus()) {
-                        l.hideSoftKeyPad(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.gVC);
+                    if (CreateBarActivity.this.gVO.hasFocus()) {
+                        l.hideSoftKeyPad(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.gVO);
                     }
-                    if (CreateBarActivity.this.gVD.hasFocus()) {
-                        l.hideSoftKeyPad(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.gVD);
+                    if (CreateBarActivity.this.gVP.hasFocus()) {
+                        l.hideSoftKeyPad(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.gVP);
                         return false;
                     }
                     return false;
@@ -204,23 +204,23 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
         getLayoutMode().onModeChanged(this.mContainer);
-        am.setButtonTextColor(this.gVL, i);
-        am.setTextColor(this.gVB, i);
-        String str = this.gVM + getPageContext().getString(R.string.bar_not_create);
+        am.setButtonTextColor(this.gVX, i);
+        am.setTextColor(this.gVN, i);
+        String str = this.gVY + getPageContext().getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {
         }
-        spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.common_color_10252)), 0, this.gVM.length(), 33);
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.gVM.length(), str.length(), 33);
-        am.setBackgroundResource(this.gVK, R.drawable.btn_general_start_selector);
-        this.gVA.setText(spannableString);
+        spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.common_color_10252)), 0, this.gVY.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.gVY.length(), str.length(), 33);
+        am.setBackgroundResource(this.gVW, R.drawable.btn_general_start_selector);
+        this.gVM.setText(spannableString);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        private String gVM;
+        private String gVY;
         private x mNetwork = null;
         private String mVcode;
 
@@ -231,13 +231,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 this.mNetwork.cancelNetConnect();
             }
             CreateBarActivity.this.mProgress.setVisibility(8);
-            CreateBarActivity.this.gVH = null;
+            CreateBarActivity.this.gVT = null;
         }
 
         public a(String str, String str2) {
-            this.gVM = null;
+            this.gVY = null;
             this.mVcode = null;
-            this.gVM = str;
+            this.gVY = str;
             this.mVcode = str2;
         }
 
@@ -248,9 +248,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + Config.CREATE_BAR_ADDRESS);
                 this.mNetwork.aGg().aGH().mIsNeedTbs = true;
-                this.mNetwork.addPostData("kw", this.gVM);
+                this.mNetwork.addPostData("kw", this.gVY);
                 this.mNetwork.addPostData("vcode", this.mVcode);
-                this.mNetwork.addPostData("vcode_md5", CreateBarActivity.this.gVJ);
+                this.mNetwork.addPostData("vcode_md5", CreateBarActivity.this.gVV);
                 this.mNetwork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
                 this.mNetwork.postNetData();
                 return null;
@@ -266,15 +266,15 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             CreateBarActivity.this.mProgress.setVisibility(8);
-            CreateBarActivity.this.gVH = null;
+            CreateBarActivity.this.gVT = null;
             if (this.mNetwork.aGg().aGI().isRequestSuccess()) {
-                CreateBarSuccessActivity.aU(CreateBarActivity.this.getPageContext().getPageActivity(), this.gVM);
+                CreateBarSuccessActivity.aU(CreateBarActivity.this.getPageContext().getPageActivity(), this.gVY);
                 CreateBarActivity.this.finish();
                 return;
             }
             CreateBarActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateBarActivity.this.bMR();
+                CreateBarActivity.this.bMS();
             }
         }
 
@@ -304,8 +304,8 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            CreateBarActivity.this.gVG.setVisibility(8);
-            CreateBarActivity.this.gVI = null;
+            CreateBarActivity.this.gVS.setVisibility(8);
+            CreateBarActivity.this.gVU = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -326,7 +326,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     if (aaVar.getVcode_pic_url() == null || aaVar.getVcode_pic_url().length() <= 0) {
                         return null;
                     }
-                    CreateBarActivity.this.gVJ = aaVar.getVcode_md5();
+                    CreateBarActivity.this.gVV = aaVar.getVcode_md5();
                     if (this.mCanceled) {
                         return null;
                     }
@@ -345,10 +345,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((b) bitmap);
-            CreateBarActivity.this.gVG.setVisibility(8);
-            CreateBarActivity.this.gVI = null;
+            CreateBarActivity.this.gVS.setVisibility(8);
+            CreateBarActivity.this.gVU = null;
             if (bitmap != null) {
-                CreateBarActivity.this.dYe.setImageBitmap(bitmap);
+                CreateBarActivity.this.dYr.setImageBitmap(bitmap);
             }
         }
 
@@ -356,9 +356,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            CreateBarActivity.this.gVJ = null;
-            CreateBarActivity.this.gVG.setVisibility(0);
-            CreateBarActivity.this.dYe.setImageDrawable(null);
+            CreateBarActivity.this.gVV = null;
+            CreateBarActivity.this.gVS.setVisibility(0);
+            CreateBarActivity.this.dYr.setImageDrawable(null);
         }
     }
 }

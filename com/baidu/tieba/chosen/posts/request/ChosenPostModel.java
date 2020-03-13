@@ -17,12 +17,12 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> aQB() {
+    protected Class<? extends ChosenPostHttpResponse> aQC() {
         return ChosenPostHttpResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> aQC() {
+    protected Class<? extends ChosenPostSocketResponse> aQD() {
         return ChosenPostSocketResponse.class;
     }
 

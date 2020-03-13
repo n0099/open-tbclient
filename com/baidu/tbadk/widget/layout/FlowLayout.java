@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FlowLayout extends ViewGroup {
-    private boolean dLS;
+    private boolean dMf;
     private int horizontalSpacing;
     private int orientation;
     private int verticalSpacing;
@@ -22,7 +22,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.dLS = false;
+        this.dMf = false;
         h(context, null);
     }
 
@@ -31,7 +31,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.dLS = false;
+        this.dMf = false;
         h(context, attributeSet);
     }
 
@@ -40,7 +40,7 @@ public class FlowLayout extends ViewGroup {
         this.horizontalSpacing = 0;
         this.verticalSpacing = 0;
         this.orientation = 0;
-        this.dLS = false;
+        this.dMf = false;
         h(context, attributeSet);
     }
 
@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
                 }
                 int i15 = i10 + i3;
                 int i16 = i15 + b;
-                if (layoutParams.dLU || (mode2 != 0 && i15 > size)) {
+                if (layoutParams.dMh || (mode2 != 0 && i15 > size)) {
                     i6 = measuredWidth;
                     i7 = measuredWidth + a;
                     i10 = b + i3;
@@ -139,7 +139,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int a(LayoutParams layoutParams) {
-        if (!layoutParams.aTB()) {
+        if (!layoutParams.aTC()) {
             return this.verticalSpacing;
         }
         return layoutParams.verticalSpacing;
@@ -154,7 +154,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int b(LayoutParams layoutParams) {
-        if (!layoutParams.aTA()) {
+        if (!layoutParams.aTB()) {
             return this.horizontalSpacing;
         }
         return layoutParams.horizontalSpacing;
@@ -185,7 +185,7 @@ public class FlowLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: aTz */
+    /* renamed from: aTA */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2);
     }
@@ -211,14 +211,14 @@ public class FlowLayout extends ViewGroup {
             this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(1, 0);
             this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.orientation = obtainStyledAttributes.getInteger(4, 0);
-            this.dLS = obtainStyledAttributes.getBoolean(2, false);
+            this.dMf = obtainStyledAttributes.getBoolean(2, false);
         } finally {
             obtainStyledAttributes.recycle();
         }
     }
 
     private void a(Canvas canvas, View view) {
-        if (this.dLS) {
+        if (this.dMf) {
             Paint nf = nf(InputDeviceCompat.SOURCE_ANY);
             Paint nf2 = nf(-16711936);
             Paint nf3 = nf(SupportMenu.CATEGORY_MASK);
@@ -249,7 +249,7 @@ public class FlowLayout extends ViewGroup {
                 canvas.drawLine(left - 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, nf2);
                 canvas.drawLine(left + 4.0f, (this.verticalSpacing + bottom2) - 4.0f, left, bottom2 + this.verticalSpacing, nf2);
             }
-            if (layoutParams.dLU) {
+            if (layoutParams.dMh) {
                 if (this.orientation == 0) {
                     float left2 = view.getLeft();
                     float top3 = view.getTop() + (view.getHeight() / 2.0f);
@@ -273,8 +273,8 @@ public class FlowLayout extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
-        private static int dLT = -1;
-        private boolean dLU;
+        private static int dMg = -1;
+        private boolean dMh;
         private int horizontalSpacing;
         private int verticalSpacing;
         private int x;
@@ -282,32 +282,32 @@ public class FlowLayout extends ViewGroup {
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.horizontalSpacing = dLT;
-            this.verticalSpacing = dLT;
-            this.dLU = false;
+            this.horizontalSpacing = dMg;
+            this.verticalSpacing = dMg;
+            this.dMh = false;
             h(context, attributeSet);
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.horizontalSpacing = dLT;
-            this.verticalSpacing = dLT;
-            this.dLU = false;
+            this.horizontalSpacing = dMg;
+            this.verticalSpacing = dMg;
+            this.dMh = false;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.horizontalSpacing = dLT;
-            this.verticalSpacing = dLT;
-            this.dLU = false;
-        }
-
-        public boolean aTA() {
-            return this.horizontalSpacing != dLT;
+            this.horizontalSpacing = dMg;
+            this.verticalSpacing = dMg;
+            this.dMh = false;
         }
 
         public boolean aTB() {
-            return this.verticalSpacing != dLT;
+            return this.horizontalSpacing != dMg;
+        }
+
+        public boolean aTC() {
+            return this.verticalSpacing != dMg;
         }
 
         public void aP(int i, int i2) {
@@ -318,9 +318,9 @@ public class FlowLayout extends ViewGroup {
         private void h(Context context, AttributeSet attributeSet) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FlowLayout_LayoutParams);
             try {
-                this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(2, dLT);
-                this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(1, dLT);
-                this.dLU = obtainStyledAttributes.getBoolean(0, false);
+                this.horizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(2, dMg);
+                this.verticalSpacing = obtainStyledAttributes.getDimensionPixelSize(1, dMg);
+                this.dMh = obtainStyledAttributes.getBoolean(0, false);
             } finally {
                 obtainStyledAttributes.recycle();
             }

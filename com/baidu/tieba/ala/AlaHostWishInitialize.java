@@ -17,10 +17,10 @@ public class AlaHostWishInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaLiveAddWishActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(l.class, AlaLiveWishListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.c.d.class, AlaDeleteWishActivity.class);
-        bbw();
+        bbx();
     }
 
-    public static void bbw() {
+    public static void bbx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913149, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaHostWishInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.i.a> run(CustomMessage<Context> customMessage) {

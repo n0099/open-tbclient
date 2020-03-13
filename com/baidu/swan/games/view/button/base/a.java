@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0349a ctd;
+    private InterfaceC0349a cte;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -79,13 +79,13 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.ctd != null) {
-            this.ctd.aqK();
+        if (this.cte != null) {
+            this.cte.aqK();
         }
     }
 
     public void a(InterfaceC0349a interfaceC0349a) {
-        this.ctd = interfaceC0349a;
+        this.cte = interfaceC0349a;
     }
 
     public static int ia(@ColorInt int i) {

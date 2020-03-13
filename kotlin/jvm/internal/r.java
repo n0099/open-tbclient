@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 /* loaded from: classes7.dex */
 public final class r {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Void dKx() {
+    public static final Void dKy() {
         throw new UnsupportedOperationException("Not supported for local property reference.");
     }
 }

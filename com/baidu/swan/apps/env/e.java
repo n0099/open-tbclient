@@ -14,23 +14,23 @@ import com.baidu.swan.apps.env.launch.SwanLauncher;
 /* loaded from: classes11.dex */
 public final class e implements c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c btU;
-    private volatile boolean btV;
+    private c btV;
+    private volatile boolean btW;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        static final e btZ = new e();
+        static final e bua = new e();
     }
 
     private e() {
-        this.btV = false;
-        this.btU = new c(this);
+        this.btW = false;
+        this.btV = new c(this);
         com.baidu.swan.apps.extcore.cores.a.RR().RS();
     }
 
     public static e RD() {
-        return a.btZ;
+        return a.bua;
     }
 
     @Override // com.baidu.swan.apps.env.b
@@ -40,18 +40,18 @@ public final class e implements c.a {
     }
 
     public void p(Bundle bundle) {
-        if (!this.btV) {
+        if (!this.btW) {
             synchronized (this) {
-                if (!this.btV) {
+                if (!this.btW) {
                     q(bundle);
-                    this.btV = true;
+                    this.btW = true;
                 }
             }
         }
     }
 
     public c RE() {
-        return this.btU;
+        return this.btV;
     }
 
     private void q(Bundle bundle) {

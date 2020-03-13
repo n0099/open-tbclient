@@ -11,8 +11,8 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> clU;
-    private Map<String, Integer> clV;
+    private Map<String, Object> clV;
+    private Map<String, Integer> clW;
 
     public static c c(JsObject jsObject) {
         if (jsObject == null) {
@@ -65,18 +65,18 @@ public class c {
     }
 
     private Map<String, Object> amV() {
-        if (this.clU == null) {
-            this.clU = new TreeMap();
-        }
-        return this.clU;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, Integer> amW() {
         if (this.clV == null) {
             this.clV = new TreeMap();
         }
         return this.clV;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Map<String, Integer> amW() {
+        if (this.clW == null) {
+            this.clW = new TreeMap();
+        }
+        return this.clW;
     }
 
     public Set<String> keySet() {
@@ -154,7 +154,7 @@ public class c {
         if (T == null) {
             throw a.a(this, str, 6);
         }
-        return T.clW.toStringArray(T.index);
+        return T.clX.toStringArray(T.index);
     }
 
     public String[] oB(String str) {
@@ -163,7 +163,7 @@ public class c {
 
     public String[] e(String str, String[] strArr) {
         d T = a.T(amV().get(str));
-        return T != null ? T.clW.toStringArray(T.index) : strArr;
+        return T != null ? T.clX.toStringArray(T.index) : strArr;
     }
 
     public JsObject[] oC(String str) throws JSTypeMismatchException {
@@ -171,7 +171,7 @@ public class c {
         if (T == null) {
             throw a.a(this, str, 6);
         }
-        return T.clW.toObjectArray(T.index);
+        return T.clX.toObjectArray(T.index);
     }
 
     public JsObject[] oD(String str) {
@@ -180,7 +180,7 @@ public class c {
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
         d T = a.T(amV().get(str));
-        return T != null ? T.clW.toObjectArray(T.index) : jsObjectArr;
+        return T != null ? T.clX.toObjectArray(T.index) : jsObjectArr;
     }
 
     public double[] oE(String str) {
@@ -189,7 +189,7 @@ public class c {
 
     public double[] a(String str, double[] dArr) {
         d T = a.T(amV().get(str));
-        return T != null ? T.clW.toDoubleArray(T.index) : dArr;
+        return T != null ? T.clX.toDoubleArray(T.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {

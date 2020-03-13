@@ -13,10 +13,10 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
         byte[] array = byteBuffer.array();
         int limit = byteBuffer.limit();
         l lVar = new l(array, limit);
-        String dzH = lVar.dzH();
-        String dzH2 = lVar.dzH();
+        String dzI = lVar.dzI();
+        String dzI2 = lVar.dzI();
         long readUnsignedInt = lVar.readUnsignedInt();
         lVar.skipBytes(4);
-        return new Metadata(new EventMessage(dzH, dzH2, (lVar.readUnsignedInt() * 1000) / readUnsignedInt, lVar.readUnsignedInt(), Arrays.copyOfRange(array, lVar.getPosition(), limit)));
+        return new Metadata(new EventMessage(dzI, dzI2, (lVar.readUnsignedInt() * 1000) / readUnsignedInt, lVar.readUnsignedInt(), Arrays.copyOfRange(array, lVar.getPosition(), limit)));
     }
 }

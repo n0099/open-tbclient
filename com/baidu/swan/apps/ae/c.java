@@ -39,7 +39,7 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bnw.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        this.bnx.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
         cq(false);
     }
 }

@@ -8,40 +8,40 @@ import java.util.Map;
 /* loaded from: classes9.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e dWP;
-    private c dWR;
-    private HashMap<String, c> dWQ = new HashMap<>();
-    private List<c> dWS = new ArrayList();
+    private static e dXc;
+    private c dXe;
+    private HashMap<String, c> dXd = new HashMap<>();
+    private List<c> dXf = new ArrayList();
 
     private e() {
     }
 
-    public static e aXf() {
-        if (dWP == null) {
+    public static e aXg() {
+        if (dXc == null) {
             synchronized (e.class) {
-                if (dWP == null) {
-                    dWP = new e();
+                if (dXc == null) {
+                    dXc = new e();
                 }
             }
         }
-        return dWP;
+        return dXc;
     }
 
     public synchronized void s(c cVar) {
         j.z(TAG, "addPlayingCacheFile " + cVar);
-        c cVar2 = this.dWQ.get(cVar.getVideoUrl());
+        c cVar2 = this.dXd.get(cVar.getVideoUrl());
         if (cVar2 != null) {
             j.z(TAG, "got pre same CacheFile ****************************************************************");
             cVar2.close();
         }
-        this.dWQ.put(cVar.getVideoUrl(), cVar);
+        this.dXd.put(cVar.getVideoUrl(), cVar);
     }
 
     public synchronized void t(c cVar) {
         if (cVar != null) {
-            if (cVar == this.dWQ.get(cVar.getVideoUrl())) {
+            if (cVar == this.dXd.get(cVar.getVideoUrl())) {
                 cVar.close();
-                this.dWQ.remove(cVar.getVideoUrl());
+                this.dXd.remove(cVar.getVideoUrl());
             }
         }
     }
@@ -50,7 +50,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<Map.Entry<String, c>> it = this.dWQ.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.dXd.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -70,18 +70,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean wr(String str) {
+    public synchronized boolean ws(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<Map.Entry<String, c>> it = this.dWQ.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.dXd.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.wC(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.wD(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -93,32 +93,32 @@ public class e {
     }
 
     public void v(c cVar) {
-        this.dWR = cVar;
+        this.dXe = cVar;
     }
 
-    public c aXg() {
-        return this.dWR;
+    public c aXh() {
+        return this.dXe;
     }
 
     public synchronized void w(c cVar) {
-        this.dWS.add(cVar);
+        this.dXf.add(cVar);
     }
 
     public synchronized void x(c cVar) {
-        this.dWS.remove(cVar);
+        this.dXf.remove(cVar);
     }
 
-    public synchronized void ws(String str) {
+    public synchronized void wt(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                for (c cVar : this.dWS) {
+                for (c cVar : this.dXf) {
                     if (cVar != null && str.equals(cVar.getVideoUrl())) {
                         cVar.close();
                         arrayList.add(cVar);
                     }
                 }
-                this.dWS.removeAll(arrayList);
+                this.dXf.removeAll(arrayList);
             }
         }
     }
@@ -127,7 +127,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<c> it = this.dWS.iterator();
+                Iterator<c> it = this.dXf.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -145,18 +145,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean wt(String str) {
+    public synchronized boolean wu(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<c> it = this.dWS.iterator();
+                Iterator<c> it = this.dXf.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.wC(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.wD(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -169,15 +169,15 @@ public class e {
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
         r0.close();
-        r3.dWQ.remove(r4);
+        r3.dXd.remove(r4);
         com.baidu.tieba.VideoCache.j.z(com.baidu.tieba.VideoCache.e.TAG, "CacheFile close: " + r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void wu(String str) {
+    public synchronized void wv(String str) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.dWQ.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.dXd.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -201,7 +201,7 @@ public class e {
     */
     public synchronized void v(String str, long j) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.dWQ.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.dXd.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

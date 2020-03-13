@@ -14,40 +14,40 @@ import com.baidu.tieba.ala.alasquare.subtablist.message.SdkLiveInfoListResponsed
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveTabGameModel extends BdBaseModel {
-    private String emb;
-    private String emc;
-    private boolean emt;
-    private com.baidu.tieba.ala.alasquare.live_tab.c.a emu;
-    private a emv;
+    private boolean emG;
+    private com.baidu.tieba.ala.alasquare.live_tab.c.a emH;
+    private a emI;
+    private String emo;
+    private String emp;
     private boolean hasMore;
     private int mPn;
     private TbPageContext mTbPageContext;
-    private HttpMessageListener emw = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
+    private HttpMessageListener emJ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021150 && (httpResponsedMessage instanceof SdkLiveInfoListResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabGameModel.this.mCurTag) {
                 SdkLiveInfoListResponsedMessage sdkLiveInfoListResponsedMessage = (SdkLiveInfoListResponsedMessage) httpResponsedMessage;
                 if (sdkLiveInfoListResponsedMessage.getError() != 0 || !sdkLiveInfoListResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabGameModel.this.emv != null) {
-                        AlaLiveTabGameModel.this.emv.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.emt);
+                    if (AlaLiveTabGameModel.this.emI != null) {
+                        AlaLiveTabGameModel.this.emI.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.emG);
                     }
                 } else {
-                    if (AlaLiveTabGameModel.this.emt) {
-                        AlaLiveTabGameModel.this.emu.k(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
+                    if (AlaLiveTabGameModel.this.emG) {
+                        AlaLiveTabGameModel.this.emH.k(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
                     } else {
-                        if (AlaLiveTabGameModel.this.emu != null) {
-                            AlaLiveTabGameModel.this.emu.clear();
+                        if (AlaLiveTabGameModel.this.emH != null) {
+                            AlaLiveTabGameModel.this.emH.clear();
                         }
-                        AlaLiveTabGameModel.this.emu = new com.baidu.tieba.ala.alasquare.live_tab.c.a(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.emb, AlaLiveTabGameModel.this.emc);
+                        AlaLiveTabGameModel.this.emH = new com.baidu.tieba.ala.alasquare.live_tab.c.a(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.emo, AlaLiveTabGameModel.this.emp);
                     }
-                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.emu.hasMore();
+                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.emH.hasMore();
                     AlaLiveTabGameModel.g(AlaLiveTabGameModel.this);
-                    if (AlaLiveTabGameModel.this.emv != null) {
-                        AlaLiveTabGameModel.this.emv.d(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.emu.getData());
+                    if (AlaLiveTabGameModel.this.emI != null) {
+                        AlaLiveTabGameModel.this.emI.d(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.emH.getData());
                     }
                 }
-                AlaLiveTabGameModel.this.emt = false;
+                AlaLiveTabGameModel.this.emG = false;
             }
         }
     };
@@ -68,22 +68,22 @@ public class AlaLiveTabGameModel extends BdBaseModel {
 
     public AlaLiveTabGameModel(TbPageContext tbPageContext, a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.emv = aVar;
+        this.emI = aVar;
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.emw);
+        MessageManager.getInstance().registerListener(this.emJ);
     }
 
     public void refresh() {
-        this.emt = false;
+        this.emG = false;
         this.mPn = 1;
         oE(this.mPn);
     }
 
-    public void bcf() {
-        if (this.hasMore && !this.emt) {
-            this.emt = true;
+    public void bcg() {
+        if (this.hasMore && !this.emG) {
+            this.emG = true;
             oE(this.mPn);
         }
     }
@@ -97,7 +97,7 @@ public class AlaLiveTabGameModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.emw);
+        MessageManager.getInstance().unRegisterListener(this.emJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -111,7 +111,7 @@ public class AlaLiveTabGameModel extends BdBaseModel {
     }
 
     public void cP(String str, String str2) {
-        this.emb = str;
-        this.emc = str2;
+        this.emo = str;
+        this.emp = str2;
     }
 }

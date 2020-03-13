@@ -4,28 +4,28 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b {
-    static ArrayList<Integer> lCt = new ArrayList<>(4);
-    static String lCu;
+    static ArrayList<Integer> lCE = new ArrayList<>(4);
+    static String lCF;
 
     static {
-        lCt.add(10000);
-        lCt.add(10001);
-        lCt.add(10002);
-        lCt.add(20001);
-        lCt.add(-1);
+        lCE.add(10000);
+        lCE.add(10001);
+        lCE.add(10002);
+        lCE.add(20001);
+        lCE.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dhU() {
-        if (TextUtils.isEmpty(lCu)) {
-            lCu = com.baidu.n.a.c.d.getManufacturer();
+    public static int dhV() {
+        if (TextUtils.isEmpty(lCF)) {
+            lCF = com.baidu.n.a.c.d.getManufacturer();
         }
-        if (TextUtils.isEmpty(lCu)) {
+        if (TextUtils.isEmpty(lCF)) {
             return 20001;
         }
-        if (lCu.toUpperCase().contains("HUAWEI")) {
+        if (lCF.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        return lCu.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
+        return lCF.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
     }
 }

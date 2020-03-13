@@ -32,10 +32,10 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     private String k;
     private boolean m;
     private int[] n;
-    private FrescoThumbnailView nbn;
-    private MutiTextHorizontalMarqueeView nhs;
-    private c nht;
-    private a nhu;
+    private FrescoThumbnailView nby;
+    private MutiTextHorizontalMarqueeView nhD;
+    private c nhE;
+    private a nhF;
     private String o;
 
     /* loaded from: classes5.dex */
@@ -56,12 +56,12 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
         this.n = new int[]{a.e.icon_rank_0, a.e.icon_rank_1, a.e.icon_rank_2, a.e.icon_rank_3, a.e.icon_rank_4, a.e.icon_rank_5, a.e.icon_rank_6, a.e.icon_rank_7, a.e.icon_rank_8, a.e.icon_rank_9};
         inflate(context, a.h.layout_video_show_vote, this);
         this.a = (TextView) findViewById(a.f.tv_time);
-        this.nbn = (FrescoThumbnailView) findViewById(a.f.ftv_avatar);
+        this.nby = (FrescoThumbnailView) findViewById(a.f.ftv_avatar);
         this.b = (ProgressBar) findViewById(a.f.pb);
         this.f = (TextView) findViewById(a.f.tv_current);
         this.d = (LinearLayout) findViewById(a.f.ll_level);
-        this.nhs = (MutiTextHorizontalMarqueeView) findViewById(a.f.view_marquee);
-        this.nht = new c(new Handler.Callback() { // from class: com.kascend.chushou.widget.VideoShowVoteView.1
+        this.nhD = (MutiTextHorizontalMarqueeView) findViewById(a.f.view_marquee);
+        this.nhE = new c(new Handler.Callback() { // from class: com.kascend.chushou.widget.VideoShowVoteView.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
@@ -73,9 +73,9 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
                         } else {
                             long minutes = TimeUnit.MILLISECONDS.toMinutes(longValue);
                             VideoShowVoteView.this.a.setText(String.format(Locale.CHINA, "%02d:%02d", Long.valueOf(minutes), Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(longValue - TimeUnit.MINUTES.toMillis(minutes)))));
-                            Message Oh = VideoShowVoteView.this.nht.Oh(1);
+                            Message Oh = VideoShowVoteView.this.nhE.Oh(1);
                             Oh.obj = Long.valueOf(longValue - 1000);
-                            VideoShowVoteView.this.nht.a(Oh, 1000L);
+                            VideoShowVoteView.this.nhE.a(Oh, 1000L);
                             break;
                         }
                 }
@@ -91,7 +91,7 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     }
 
     public void setStatusChangeListener(a aVar) {
-        this.nhu = aVar;
+        this.nhF = aVar;
     }
 
     public void a(KaraokeBean karaokeBean, String str, String str2) {
@@ -103,23 +103,23 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
             }
             if (!this.m) {
                 this.m = true;
-                if (this.nhu != null) {
-                    this.nhu.a();
+                if (this.nhF != null) {
+                    this.nhF.a();
                 }
             }
             if (!this.h) {
-                this.nht.cq(null);
+                this.nhE.cq(null);
                 long j = karaokeBean.actingInfo.finishTime - karaokeBean.actingInfo.currentTime;
                 if (j > 0) {
                     this.h = true;
-                    Message Oh = this.nht.Oh(1);
+                    Message Oh = this.nhE.Oh(1);
                     Oh.obj = Long.valueOf(j);
                     Oh.sendToTarget();
                 }
             }
             if (!TextUtils.equals(this.j, str)) {
                 this.j = str;
-                this.nbn.bU(str, com.kascend.chushou.view.a.a(str2));
+                this.nby.bU(str, com.kascend.chushou.view.a.a(str2));
             }
             if (!TextUtils.equals(this.k, karaokeBean.actingInfo.musicName)) {
                 if (!TextUtils.isEmpty(karaokeBean.actingInfo.musicName)) {
@@ -148,7 +148,7 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
             return;
         }
         setVisibility(8);
-        this.nht.cq(null);
+        this.nhE.cq(null);
         this.h = false;
         this.j = "NO_ICON";
         this.k = "NO_MUSIC";
@@ -160,17 +160,17 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
         if (!TextUtils.isEmpty(str)) {
             int dip2px = tv.chushou.zues.utils.a.dip2px(getContext(), 14.0f);
             int dip2px2 = tv.chushou.zues.utils.a.dip2px(getContext(), 75.0f);
-            this.nhs.g();
-            this.nhs.a();
-            this.nhs.a(dip2px2);
-            this.nhs.a(str, getResources().getColor(a.c.white), 9, 0, dip2px, true, 1, 2, 2, getResources().getColor(a.c.black));
-            this.nhs.setScrollDirection(2);
-            this.nhs.setDuration(4500);
-            this.nhs.d();
+            this.nhD.g();
+            this.nhD.a();
+            this.nhD.a(dip2px2);
+            this.nhD.a(str, getResources().getColor(a.c.white), 9, 0, dip2px, true, 1, 2, 2, getResources().getColor(a.c.black));
+            this.nhD.setScrollDirection(2);
+            this.nhD.setDuration(4500);
+            this.nhD.d();
             return;
         }
-        this.nhs.g();
-        this.nhs.a();
+        this.nhD.g();
+        this.nhD.a();
     }
 
     public String getRoomId() {
@@ -198,8 +198,8 @@ public class VideoShowVoteView extends FrameLayout implements View.OnClickListen
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.nhs != null) {
-            this.nhs.g();
+        if (this.nhD != null) {
+            this.nhD.g();
         }
     }
 }

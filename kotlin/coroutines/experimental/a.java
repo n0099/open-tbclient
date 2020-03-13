@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class a implements d {
-    private final d nBS;
-    private final d.b nBT;
+    private final d nCd;
+    private final d.b nCe;
 
     public a(d dVar, d.b bVar) {
         q.j(dVar, "left");
         q.j(bVar, "element");
-        this.nBS = dVar;
-        this.nBT = bVar;
+        this.nCd = dVar;
+        this.nCe = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -23,9 +23,9 @@ public final class a implements d {
         q.j(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.nBT.a(cVar);
+            E e = (E) aVar.nCe.a(cVar);
             if (e == null) {
-                d dVar = aVar.nBS;
+                d dVar = aVar.nCd;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -40,33 +40,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
         q.j(mVar, "operation");
-        return mVar.invoke((Object) this.nBS.fold(r, mVar), this.nBT);
+        return mVar.invoke((Object) this.nCd.fold(r, mVar), this.nCe);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         q.j(cVar, "key");
-        if (this.nBT.a(cVar) != null) {
-            return this.nBS;
+        if (this.nCe.a(cVar) != null) {
+            return this.nCd;
         }
-        d b = this.nBS.b(cVar);
-        return b == this.nBS ? this : b == e.nBW ? this.nBT : new a(b, this.nBT);
+        d b = this.nCd.b(cVar);
+        return b == this.nCd ? this : b == e.nCh ? this.nCe : new a(b, this.nCe);
     }
 
     private final int size() {
-        if (this.nBS instanceof a) {
-            return ((a) this.nBS).size() + 1;
+        if (this.nCd instanceof a) {
+            return ((a) this.nCd).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.h(a((d.c<d.b>) bVar.dKo()), bVar);
+        return q.h(a((d.c<d.b>) bVar.dKp()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.nBT)) {
-            d dVar = aVar.nBS;
+        while (a(aVar.nCe)) {
+            d dVar = aVar.nCd;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,7 +83,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.nBS.hashCode() + this.nBT.hashCode();
+        return this.nCd.hashCode() + this.nCe.hashCode();
     }
 
     public String toString() {

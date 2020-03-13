@@ -13,23 +13,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    public bj cRf;
-    private String fMs;
-    private int fMt;
-    private String fMu;
-    private String fMv;
-    public int fMx;
+    public bj cRg;
+    private String fMF;
+    private int fMG;
+    private String fMH;
+    private String fMI;
+    public int fMK;
     private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
     public SparseArray<String> feedBackReasonMap = null;
-    private Integer fMw = 0;
-    public int cRg = 0;
+    private Integer fMJ = 0;
     public int cRh = 0;
+    public int cRi = 0;
 
     public void setWeight(String str) {
-        this.fMs = str;
+        this.fMF = str;
     }
 
     public void setSource(String str) {
@@ -37,40 +37,40 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void rt(int i) {
-        this.fMt = i;
+        this.fMG = i;
     }
 
-    public void zU(String str) {
-        this.fMu = str;
+    public void zV(String str) {
+        this.fMH = str;
     }
 
-    public int bvq() {
-        return this.fMt;
+    public int bvr() {
+        return this.fMG;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public String aAj() {
-        return this.mSource + "#" + this.fMt + "#" + this.fMu;
+        return this.mSource + "#" + this.fMG + "#" + this.fMH;
     }
 
     public String getWeight() {
-        return this.fMs;
+        return this.fMF;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String bvr() {
-        return this.fMu;
-    }
-
     public String bvs() {
-        return this.fMv;
+        return this.fMH;
     }
 
-    public void zV(String str) {
-        this.fMv = str;
+    public String bvt() {
+        return this.fMI;
+    }
+
+    public void zW(String str) {
+        this.fMI = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -90,15 +90,15 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mExtra;
     }
 
-    public Integer bvt() {
-        return this.fMw;
+    public Integer bvu() {
+        return this.fMJ;
     }
 
     public void j(Integer num) {
-        this.fMw = num;
+        this.fMJ = num;
     }
 
-    public an zW(String str) {
+    public an zX(String str) {
         return af(str, false);
     }
 
@@ -107,20 +107,20 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (aAg == null || str.length() == 0) {
             return null;
         }
-        an cy = new an(str).cy("fid", String.valueOf(aAg.getFid())).cy("tid", String.valueOf(aAg.getTid())).cy("obj_id", getExtra()).cy("obj_param1", getWeight()).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_source", getSource()).X("obj_locate", bvq()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buX());
+        an cy = new an(str).cy("fid", String.valueOf(aAg.getFid())).cy("tid", String.valueOf(aAg.getTid())).cy("obj_id", getExtra()).cy("obj_param1", getWeight()).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_source", getSource()).X("obj_locate", bvr()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buY());
         if (!z) {
-            cy.X("obj_type", bvu());
+            cy.X("obj_type", bvv());
         } else {
-            if (aAg.cTO > 0) {
+            if (aAg.cTP > 0) {
                 cy.X("midpageflag", 1);
             } else {
                 cy.X("midpageflag", 0);
             }
-            cy.cy(TiebaInitialize.Params.AB_TAG, bvr());
-            cy.X("is_vertical", bvt().intValue());
+            cy.cy(TiebaInitialize.Params.AB_TAG, bvs());
+            cy.X("is_vertical", bvu().intValue());
         }
-        if (aAg.aDM() != null && aAg.aDM().cLc() != null && aAg.aDM().cLc().aTS() != null && aAg.aDM().cLc().aTS().size() > 0) {
-            cy.X(TiebaInitialize.Params.OBJ_TO, aAg.aDM().khb ? 2 : 1);
+        if (aAg.aDM() != null && aAg.aDM().cLd() != null && aAg.aDM().cLd().aTT() != null && aAg.aDM().cLd().aTT().size() > 0) {
+            cy.X(TiebaInitialize.Params.OBJ_TO, aAg.aDM().khn ? 2 : 1);
         }
         return cy;
     }
@@ -130,9 +130,9 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (aAg == null) {
             return null;
         }
-        an cy = new an(str).cy("fid", String.valueOf(aAg.getFid())).cy("tid", String.valueOf(aAg.getTid())).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_param1", getWeight()).cy("obj_source", getSource()).X("obj_locate", bvq()).cy("obj_name", bvr()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buX());
+        an cy = new an(str).cy("fid", String.valueOf(aAg.getFid())).cy("tid", String.valueOf(aAg.getTid())).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cy("obj_param1", getWeight()).cy("obj_source", getSource()).X("obj_locate", bvr()).cy("obj_name", bvs()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.buY());
         if (i == 0) {
-            cy.X("obj_type", bvu());
+            cy.X("obj_type", bvv());
         } else {
             cy.X("obj_type", i);
         }
@@ -140,7 +140,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return cy;
     }
 
-    private int bvu() {
+    private int bvv() {
         int i;
         int i2 = 0;
         bj aAg = aAg();
@@ -177,11 +177,11 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void ru(int i) {
-        this.fMx = i;
+        this.fMK = i;
     }
 
-    public boolean bvv() {
-        return this.fMx == 1;
+    public boolean bvw() {
+        return this.fMK == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -193,7 +193,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         alVar.setTid(aAg().getTid());
         alVar.setFid(aAg().getFid());
         alVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        alVar.weight = this.fMs;
+        alVar.weight = this.fMF;
         alVar.source = this.mSource;
         alVar.extra = this.mExtra;
         alVar.threadType = aAg().threadType;

@@ -112,32 +112,32 @@ public final class a {
         String J = ai.J(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
         com.baidu.swan.apps.runtime.config.c iS = com.baidu.swan.apps.y.f.WS().iS(bVar.mPage);
         com.baidu.swan.apps.core.k.b bVar2 = new com.baidu.swan.apps.core.k.b();
-        bVar2.bsn = cVar.IN();
+        bVar2.bso = cVar.IN();
         bVar2.appPath = bVar.mBaseUrl;
         if (com.baidu.swan.apps.runtime.e.acF() != null) {
-            bVar2.bsm = com.baidu.swan.apps.runtime.e.acF().kS(bVar.mPage);
+            bVar2.bsn = com.baidu.swan.apps.runtime.e.acF().kS(bVar.mPage);
         }
-        bVar2.bsp = com.baidu.swan.apps.model.b.d(bVar);
-        bVar2.bsq = iS.bsq;
-        bVar2.bsj = String.valueOf(com.baidu.swan.apps.console.a.Lr());
+        bVar2.bsq = com.baidu.swan.apps.model.b.d(bVar);
+        bVar2.bsr = iS.bsr;
+        bVar2.bsk = String.valueOf(com.baidu.swan.apps.console.a.Lr());
         if (com.baidu.swan.apps.runtime.e.acF() != null) {
             String kU = com.baidu.swan.apps.runtime.e.acF().kU(bVar.mPage);
             if (!TextUtils.isEmpty(kU)) {
                 if (DEBUG) {
                     Log.d("ActionUtils", "add initData: " + kU);
                 }
-                bVar2.bsr = kU;
+                bVar2.bss = kU;
             }
         }
-        bVar2.bsl = DEBUG || com.baidu.swan.apps.y.f.WS().Wx();
-        bVar2.bss = str;
+        bVar2.bsm = DEBUG || com.baidu.swan.apps.y.f.WS().Wx();
+        bVar2.bst = str;
         if (com.baidu.swan.apps.ah.a.a.aaD()) {
-            bVar2.bso = com.baidu.swan.apps.console.debugger.b.Ly();
+            bVar2.bsp = com.baidu.swan.apps.console.debugger.b.Ly();
         }
         com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
         y.agS();
         com.baidu.swan.apps.y.f.WS().a(cVar.IR(), com.baidu.swan.apps.core.k.b.b(bVar2));
-        com.baidu.swan.apps.statistic.c.bn(cVar.IR(), bVar2.bsp);
+        com.baidu.swan.apps.statistic.c.bn(cVar.IR(), bVar2.bsq);
         com.baidu.swan.apps.core.slave.b.a(J, cVar);
         com.baidu.swan.apps.performance.e.z("route", "createAndLoadPage end.");
     }

@@ -10,38 +10,38 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class e implements c {
-    private static final Class<?> lHa = e.class;
-    volatile a lHN = new a(null, null);
-    private final CacheErrorLogger lHf;
-    private final String lHm;
-    private final j<File> lHn;
+    private static final Class<?> lHl = e.class;
+    volatile a lHY = new a(null, null);
+    private final CacheErrorLogger lHq;
+    private final String lHx;
+    private final j<File> lHy;
     private final int mVersion;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes13.dex */
     public static class a {
         @Nullable
-        public final c lHO;
+        public final c lHZ;
         @Nullable
-        public final File lHP;
+        public final File lIa;
 
         a(@Nullable File file, @Nullable c cVar) {
-            this.lHO = cVar;
-            this.lHP = file;
+            this.lHZ = cVar;
+            this.lIa = file;
         }
     }
 
     public e(int i, j<File> jVar, String str, CacheErrorLogger cacheErrorLogger) {
         this.mVersion = i;
-        this.lHf = cacheErrorLogger;
-        this.lHn = jVar;
-        this.lHm = str;
+        this.lHq = cacheErrorLogger;
+        this.lHy = jVar;
+        this.lHx = str;
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
         try {
-            return dku().isExternal();
+            return dkv().isExternal();
         } catch (IOException e) {
             return false;
         }
@@ -49,74 +49,74 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a v(String str, Object obj) throws IOException {
-        return dku().v(str, obj);
+        return dkv().v(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean w(String str, Object obj) throws IOException {
-        return dku().w(str, obj);
+        return dkv().w(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public void djY() {
+    public void djZ() {
         try {
-            dku().djY();
+            dkv().djZ();
         } catch (IOException e) {
-            com.facebook.common.c.a.b(lHa, "purgeUnexpectedResources", (Throwable) e);
+            com.facebook.common.c.a.b(lHl, "purgeUnexpectedResources", (Throwable) e);
         }
     }
 
     @Override // com.facebook.cache.disk.c
     public c.b u(String str, Object obj) throws IOException {
-        return dku().u(str, obj);
+        return dkv().u(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public Collection<c.a> djZ() throws IOException {
-        return dku().djZ();
+    public Collection<c.a> dka() throws IOException {
+        return dkv().dka();
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) throws IOException {
-        return dku().a(aVar);
+        return dkv().a(aVar);
     }
 
     @Override // com.facebook.cache.disk.c
-    public long OK(String str) throws IOException {
-        return dku().OK(str);
+    public long OL(String str) throws IOException {
+        return dkv().OL(str);
     }
 
-    synchronized c dku() throws IOException {
-        if (dkv()) {
-            dkw();
+    synchronized c dkv() throws IOException {
+        if (dkw()) {
             dkx();
+            dky();
         }
-        return (c) com.facebook.common.internal.g.checkNotNull(this.lHN.lHO);
+        return (c) com.facebook.common.internal.g.checkNotNull(this.lHY.lHZ);
     }
 
-    private boolean dkv() {
-        a aVar = this.lHN;
-        return aVar.lHO == null || aVar.lHP == null || !aVar.lHP.exists();
+    private boolean dkw() {
+        a aVar = this.lHY;
+        return aVar.lHZ == null || aVar.lIa == null || !aVar.lIa.exists();
     }
 
-    void dkw() {
-        if (this.lHN.lHO != null && this.lHN.lHP != null) {
-            com.facebook.common.file.a.ak(this.lHN.lHP);
+    void dkx() {
+        if (this.lHY.lHZ != null && this.lHY.lIa != null) {
+            com.facebook.common.file.a.ak(this.lHY.lIa);
         }
     }
 
-    private void dkx() throws IOException {
-        File file = new File(this.lHn.get(), this.lHm);
+    private void dky() throws IOException {
+        File file = new File(this.lHy.get(), this.lHx);
         aj(file);
-        this.lHN = new a(file, new DefaultDiskStorage(file, this.mVersion, this.lHf));
+        this.lHY = new a(file, new DefaultDiskStorage(file, this.mVersion, this.lHq));
     }
 
     void aj(File file) throws IOException {
         try {
             FileUtils.al(file);
-            com.facebook.common.c.a.b(lHa, "Created cache directory %s", file.getAbsolutePath());
+            com.facebook.common.c.a.b(lHl, "Created cache directory %s", file.getAbsolutePath());
         } catch (FileUtils.CreateDirectoryException e) {
-            this.lHf.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lHa, "createRootDirectoryIfNecessary", e);
+            this.lHq.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lHl, "createRootDirectoryIfNecessary", e);
             throw e;
         }
     }

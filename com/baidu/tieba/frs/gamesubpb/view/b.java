@@ -11,26 +11,26 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes9.dex */
 public class b {
-    private SpannableTextView gDW;
-    private a.InterfaceC0508a gDf;
+    private a.InterfaceC0508a gDr;
+    private SpannableTextView gEi;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.gDW = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        am.setViewTextColor(this.gDW, (int) R.color.cp_cont_f);
+        this.gEi = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
+        am.setViewTextColor(this.gEi, (int) R.color.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.gDW.f(dVar);
-            this.gDW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.gEi.f(dVar);
+            this.gEi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.gDf != null) {
-                        b.this.gDf.c(dVar);
+                    if (b.this.gDr != null) {
+                        b.this.gDr.c(dVar);
                     }
                 }
             });
@@ -42,21 +42,21 @@ public class b {
     }
 
     public void setClickListener(a.InterfaceC0508a interfaceC0508a) {
-        this.gDf = interfaceC0508a;
-        this.gDW.setClickListener(interfaceC0508a);
+        this.gDr = interfaceC0508a;
+        this.gEi.setClickListener(interfaceC0508a);
     }
 
     /* loaded from: classes9.dex */
     public static class a extends v.a {
-        private b gDY;
+        private b gEk;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.gDY = bVar;
+            this.gEk = bVar;
         }
 
         public void f(d dVar) {
-            this.gDY.f(dVar);
+            this.gEk.f(dVar);
         }
     }
 }

@@ -9,62 +9,62 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 public final class j implements h {
-    private com.google.android.exoplayer2.extractor.m meL;
-    private boolean mev;
-    private String mmI;
-    private long mmZ;
-    private final t mng;
-    private final boolean mnh;
-    private final boolean mni;
-    private a mnm;
+    private boolean meG;
+    private com.google.android.exoplayer2.extractor.m meW;
+    private String mmT;
+    private long mnk;
+    private final t mnr;
+    private final boolean mns;
+    private final boolean mnt;
+    private a mnx;
     private long totalBytesWritten;
-    private final boolean[] mmW = new boolean[3];
-    private final o mnj = new o(7, 128);
-    private final o mnk = new o(8, 128);
-    private final o mnl = new o(6, 128);
-    private final com.google.android.exoplayer2.util.l mnn = new com.google.android.exoplayer2.util.l();
+    private final boolean[] mnh = new boolean[3];
+    private final o mnu = new o(7, 128);
+    private final o mnv = new o(8, 128);
+    private final o mnw = new o(6, 128);
+    private final com.google.android.exoplayer2.util.l mny = new com.google.android.exoplayer2.util.l();
 
     public j(t tVar, boolean z, boolean z2) {
-        this.mng = tVar;
-        this.mnh = z;
-        this.mni = z2;
+        this.mnr = tVar;
+        this.mns = z;
+        this.mnt = z2;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void czd() {
-        com.google.android.exoplayer2.util.j.b(this.mmW);
-        this.mnj.reset();
-        this.mnk.reset();
-        this.mnl.reset();
-        this.mnm.reset();
+    public void cze() {
+        com.google.android.exoplayer2.util.j.b(this.mnh);
+        this.mnu.reset();
+        this.mnv.reset();
+        this.mnw.reset();
+        this.mnx.reset();
         this.totalBytesWritten = 0L;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dvE();
-        this.mmI = dVar.dvG();
-        this.meL = gVar.dK(dVar.dvF(), 2);
-        this.mnm = new a(this.meL, this.mnh, this.mni);
-        this.mng.a(gVar, dVar);
+        dVar.dvF();
+        this.mmT = dVar.dvH();
+        this.meW = gVar.dK(dVar.dvG(), 2);
+        this.mnx = new a(this.meW, this.mns, this.mnt);
+        this.mnr.a(gVar, dVar);
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void o(long j, boolean z) {
-        this.mmZ = j;
+        this.mnk = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
         int position = lVar.getPosition();
-        int dzu = lVar.dzu();
+        int dzv = lVar.dzv();
         byte[] bArr = lVar.data;
-        this.totalBytesWritten += lVar.dzt();
-        this.meL.a(lVar, lVar.dzt());
+        this.totalBytesWritten += lVar.dzu();
+        this.meW.a(lVar, lVar.dzu());
         while (true) {
-            int a2 = com.google.android.exoplayer2.util.j.a(bArr, position, dzu, this.mmW);
-            if (a2 == dzu) {
-                v(bArr, position, dzu);
+            int a2 = com.google.android.exoplayer2.util.j.a(bArr, position, dzv, this.mnh);
+            if (a2 == dzv) {
+                v(bArr, position, dzv);
                 return;
             }
             int G = com.google.android.exoplayer2.util.j.G(bArr, a2);
@@ -72,183 +72,183 @@ public final class j implements h {
             if (i > 0) {
                 v(bArr, position, a2);
             }
-            int i2 = dzu - a2;
+            int i2 = dzv - a2;
             long j = this.totalBytesWritten - i2;
-            a(j, i2, i < 0 ? -i : 0, this.mmZ);
-            b(j, G, this.mmZ);
+            a(j, i2, i < 0 ? -i : 0, this.mnk);
+            b(j, G, this.mnk);
             position = a2 + 3;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvp() {
+    public void dvq() {
     }
 
     private void b(long j, int i, long j2) {
-        if (!this.mev || this.mnm.dvx()) {
-            this.mnj.JZ(i);
-            this.mnk.JZ(i);
+        if (!this.meG || this.mnx.dvy()) {
+            this.mnu.JZ(i);
+            this.mnv.JZ(i);
         }
-        this.mnl.JZ(i);
-        this.mnm.b(j, i, j2);
+        this.mnw.JZ(i);
+        this.mnx.b(j, i, j2);
     }
 
     private void v(byte[] bArr, int i, int i2) {
-        if (!this.mev || this.mnm.dvx()) {
-            this.mnj.w(bArr, i, i2);
-            this.mnk.w(bArr, i, i2);
+        if (!this.meG || this.mnx.dvy()) {
+            this.mnu.w(bArr, i, i2);
+            this.mnv.w(bArr, i, i2);
         }
-        this.mnl.w(bArr, i, i2);
-        this.mnm.w(bArr, i, i2);
+        this.mnw.w(bArr, i, i2);
+        this.mnx.w(bArr, i, i2);
     }
 
     private void a(long j, int i, int i2, long j2) {
-        if (!this.mev || this.mnm.dvx()) {
-            this.mnj.Ka(i2);
-            this.mnk.Ka(i2);
-            if (!this.mev) {
-                if (this.mnj.aW() && this.mnk.aW()) {
+        if (!this.meG || this.mnx.dvy()) {
+            this.mnu.Ka(i2);
+            this.mnv.Ka(i2);
+            if (!this.meG) {
+                if (this.mnu.aW() && this.mnv.aW()) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(Arrays.copyOf(this.mnj.moo, this.mnj.mop));
-                    arrayList.add(Arrays.copyOf(this.mnk.moo, this.mnk.mop));
-                    j.b C = com.google.android.exoplayer2.util.j.C(this.mnj.moo, 3, this.mnj.mop);
-                    j.a D = com.google.android.exoplayer2.util.j.D(this.mnk.moo, 3, this.mnk.mop);
-                    this.meL.h(Format.a(this.mmI, "video/avc", (String) null, -1, -1, C.width, C.height, -1.0f, arrayList, -1, C.mHr, (DrmInitData) null));
-                    this.mev = true;
-                    this.mnm.a(C);
-                    this.mnm.a(D);
-                    this.mnj.reset();
-                    this.mnk.reset();
+                    arrayList.add(Arrays.copyOf(this.mnu.moz, this.mnu.moA));
+                    arrayList.add(Arrays.copyOf(this.mnv.moz, this.mnv.moA));
+                    j.b C = com.google.android.exoplayer2.util.j.C(this.mnu.moz, 3, this.mnu.moA);
+                    j.a D = com.google.android.exoplayer2.util.j.D(this.mnv.moz, 3, this.mnv.moA);
+                    this.meW.h(Format.a(this.mmT, "video/avc", (String) null, -1, -1, C.width, C.height, -1.0f, arrayList, -1, C.mHC, (DrmInitData) null));
+                    this.meG = true;
+                    this.mnx.a(C);
+                    this.mnx.a(D);
+                    this.mnu.reset();
+                    this.mnv.reset();
                 }
-            } else if (this.mnj.aW()) {
-                this.mnm.a(com.google.android.exoplayer2.util.j.C(this.mnj.moo, 3, this.mnj.mop));
-                this.mnj.reset();
-            } else if (this.mnk.aW()) {
-                this.mnm.a(com.google.android.exoplayer2.util.j.D(this.mnk.moo, 3, this.mnk.mop));
-                this.mnk.reset();
+            } else if (this.mnu.aW()) {
+                this.mnx.a(com.google.android.exoplayer2.util.j.C(this.mnu.moz, 3, this.mnu.moA));
+                this.mnu.reset();
+            } else if (this.mnv.aW()) {
+                this.mnx.a(com.google.android.exoplayer2.util.j.D(this.mnv.moz, 3, this.mnv.moA));
+                this.mnv.reset();
             }
         }
-        if (this.mnl.Ka(i2)) {
-            this.mnn.I(this.mnl.moo, com.google.android.exoplayer2.util.j.F(this.mnl.moo, this.mnl.mop));
-            this.mnn.setPosition(4);
-            this.mng.a(j2, this.mnn);
+        if (this.mnw.Ka(i2)) {
+            this.mny.I(this.mnw.moz, com.google.android.exoplayer2.util.j.F(this.mnw.moz, this.mnw.moA));
+            this.mny.setPosition(4);
+            this.mnr.a(j2, this.mny);
         }
-        this.mnm.B(j, i);
+        this.mnx.B(j, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static final class a {
         private int bufferLength;
-        private final com.google.android.exoplayer2.extractor.m meL;
-        private long mmT;
-        private long mna;
-        private boolean mnb;
-        private boolean mne;
-        private final boolean mnh;
-        private final boolean mni;
-        private int mnr;
-        private long mns;
-        private long mnt;
-        private boolean mnw;
-        private final SparseArray<j.b> mno = new SparseArray<>();
-        private final SparseArray<j.a> mnp = new SparseArray<>();
-        private C0677a mnu = new C0677a();
-        private C0677a mnv = new C0677a();
+        private final com.google.android.exoplayer2.extractor.m meW;
+        private int mnC;
+        private long mnD;
+        private long mnE;
+        private boolean mnH;
+        private long mne;
+        private long mnl;
+        private boolean mnm;
+        private boolean mnp;
+        private final boolean mns;
+        private final boolean mnt;
+        private final SparseArray<j.b> mnz = new SparseArray<>();
+        private final SparseArray<j.a> mnA = new SparseArray<>();
+        private C0677a mnF = new C0677a();
+        private C0677a mnG = new C0677a();
         private byte[] buffer = new byte[128];
-        private final com.google.android.exoplayer2.util.m mnq = new com.google.android.exoplayer2.util.m(this.buffer, 0, 0);
+        private final com.google.android.exoplayer2.util.m mnB = new com.google.android.exoplayer2.util.m(this.buffer, 0, 0);
 
         public a(com.google.android.exoplayer2.extractor.m mVar, boolean z, boolean z2) {
-            this.meL = mVar;
-            this.mnh = z;
-            this.mni = z2;
+            this.meW = mVar;
+            this.mns = z;
+            this.mnt = z2;
             reset();
         }
 
-        public boolean dvx() {
-            return this.mni;
+        public boolean dvy() {
+            return this.mnt;
         }
 
         public void a(j.b bVar) {
-            this.mno.append(bVar.mHp, bVar);
+            this.mnz.append(bVar.mHA, bVar);
         }
 
         public void a(j.a aVar) {
-            this.mnp.append(aVar.mnC, aVar);
+            this.mnA.append(aVar.mnN, aVar);
         }
 
         public void reset() {
-            this.mne = false;
-            this.mnw = false;
-            this.mnv.clear();
+            this.mnp = false;
+            this.mnH = false;
+            this.mnG.clear();
         }
 
         public void b(long j, int i, long j2) {
-            this.mnr = i;
-            this.mnt = j2;
-            this.mns = j;
-            if (!this.mnh || this.mnr != 1) {
-                if (!this.mni) {
+            this.mnC = i;
+            this.mnE = j2;
+            this.mnD = j;
+            if (!this.mns || this.mnC != 1) {
+                if (!this.mnt) {
                     return;
                 }
-                if (this.mnr != 5 && this.mnr != 1 && this.mnr != 2) {
+                if (this.mnC != 5 && this.mnC != 1 && this.mnC != 2) {
                     return;
                 }
             }
-            C0677a c0677a = this.mnu;
-            this.mnu = this.mnv;
-            this.mnv = c0677a;
-            this.mnv.clear();
+            C0677a c0677a = this.mnF;
+            this.mnF = this.mnG;
+            this.mnG = c0677a;
+            this.mnG.clear();
             this.bufferLength = 0;
-            this.mne = true;
+            this.mnp = true;
         }
 
         public void w(byte[] bArr, int i, int i2) {
-            if (this.mne) {
+            if (this.mnp) {
                 int i3 = i2 - i;
                 if (this.buffer.length < this.bufferLength + i3) {
                     this.buffer = Arrays.copyOf(this.buffer, (this.bufferLength + i3) * 2);
                 }
                 System.arraycopy(bArr, i, this.buffer, this.bufferLength, i3);
                 this.bufferLength = i3 + this.bufferLength;
-                this.mnq.H(this.buffer, 0, this.bufferLength);
-                if (this.mnq.LW(8)) {
-                    this.mnq.dzr();
-                    int readBits = this.mnq.readBits(2);
-                    this.mnq.JU(5);
-                    if (this.mnq.dzJ()) {
-                        this.mnq.dzK();
-                        if (this.mnq.dzJ()) {
-                            int dzK = this.mnq.dzK();
-                            if (!this.mni) {
-                                this.mne = false;
-                                this.mnv.JX(dzK);
-                            } else if (this.mnq.dzJ()) {
-                                int dzK2 = this.mnq.dzK();
-                                if (this.mnp.indexOfKey(dzK2) < 0) {
-                                    this.mne = false;
+                this.mnB.H(this.buffer, 0, this.bufferLength);
+                if (this.mnB.LW(8)) {
+                    this.mnB.dzs();
+                    int readBits = this.mnB.readBits(2);
+                    this.mnB.JU(5);
+                    if (this.mnB.dzK()) {
+                        this.mnB.dzL();
+                        if (this.mnB.dzK()) {
+                            int dzL = this.mnB.dzL();
+                            if (!this.mnt) {
+                                this.mnp = false;
+                                this.mnG.JX(dzL);
+                            } else if (this.mnB.dzK()) {
+                                int dzL2 = this.mnB.dzL();
+                                if (this.mnA.indexOfKey(dzL2) < 0) {
+                                    this.mnp = false;
                                     return;
                                 }
-                                j.a aVar = this.mnp.get(dzK2);
-                                j.b bVar = this.mno.get(aVar.mHp);
-                                if (bVar.mHs) {
-                                    if (this.mnq.LW(2)) {
-                                        this.mnq.JU(2);
+                                j.a aVar = this.mnA.get(dzL2);
+                                j.b bVar = this.mnz.get(aVar.mHA);
+                                if (bVar.mHD) {
+                                    if (this.mnB.LW(2)) {
+                                        this.mnB.JU(2);
                                     } else {
                                         return;
                                     }
                                 }
-                                if (this.mnq.LW(bVar.mHu)) {
+                                if (this.mnB.LW(bVar.mHF)) {
                                     boolean z = false;
                                     boolean z2 = false;
                                     boolean z3 = false;
-                                    int readBits2 = this.mnq.readBits(bVar.mHu);
-                                    if (!bVar.mHt) {
-                                        if (this.mnq.LW(1)) {
-                                            z = this.mnq.dvn();
+                                    int readBits2 = this.mnB.readBits(bVar.mHF);
+                                    if (!bVar.mHE) {
+                                        if (this.mnB.LW(1)) {
+                                            z = this.mnB.dvo();
                                             if (z) {
-                                                if (this.mnq.LW(1)) {
-                                                    z3 = this.mnq.dvn();
+                                                if (this.mnB.LW(1)) {
+                                                    z3 = this.mnB.dvo();
                                                     z2 = true;
                                                 } else {
                                                     return;
@@ -258,11 +258,11 @@ public final class j implements h {
                                             return;
                                         }
                                     }
-                                    boolean z4 = this.mnr == 5;
+                                    boolean z4 = this.mnC == 5;
                                     int i4 = 0;
                                     if (z4) {
-                                        if (this.mnq.dzJ()) {
-                                            i4 = this.mnq.dzK();
+                                        if (this.mnB.dzK()) {
+                                            i4 = this.mnB.dzL();
                                         } else {
                                             return;
                                         }
@@ -271,12 +271,12 @@ public final class j implements h {
                                     int i6 = 0;
                                     int i7 = 0;
                                     int i8 = 0;
-                                    if (bVar.mHv == 0) {
-                                        if (this.mnq.LW(bVar.mHw)) {
-                                            i5 = this.mnq.readBits(bVar.mHw);
-                                            if (aVar.mHq && !z) {
-                                                if (this.mnq.dzJ()) {
-                                                    i6 = this.mnq.dzL();
+                                    if (bVar.mHG == 0) {
+                                        if (this.mnB.LW(bVar.mHH)) {
+                                            i5 = this.mnB.readBits(bVar.mHH);
+                                            if (aVar.mHB && !z) {
+                                                if (this.mnB.dzK()) {
+                                                    i6 = this.mnB.dzM();
                                                 } else {
                                                     return;
                                                 }
@@ -284,12 +284,12 @@ public final class j implements h {
                                         } else {
                                             return;
                                         }
-                                    } else if (bVar.mHv == 1 && !bVar.mHx) {
-                                        if (this.mnq.dzJ()) {
-                                            i7 = this.mnq.dzL();
-                                            if (aVar.mHq && !z) {
-                                                if (this.mnq.dzJ()) {
-                                                    i8 = this.mnq.dzL();
+                                    } else if (bVar.mHG == 1 && !bVar.mHI) {
+                                        if (this.mnB.dzK()) {
+                                            i7 = this.mnB.dzM();
+                                            if (aVar.mHB && !z) {
+                                                if (this.mnB.dzK()) {
+                                                    i8 = this.mnB.dzM();
                                                 } else {
                                                     return;
                                                 }
@@ -298,8 +298,8 @@ public final class j implements h {
                                             return;
                                         }
                                     }
-                                    this.mnv.a(bVar, readBits, dzK, readBits2, dzK2, z, z2, z3, z4, i4, i5, i6, i7, i8);
-                                    this.mne = false;
+                                    this.mnG.a(bVar, readBits, dzL, readBits2, dzL2, z, z2, z3, z4, i4, i5, i6, i7, i8);
+                                    this.mnp = false;
                                 }
                             }
                         }
@@ -310,24 +310,24 @@ public final class j implements h {
 
         public void B(long j, int i) {
             boolean z = false;
-            if (this.mnr == 9 || (this.mni && this.mnv.a(this.mnu))) {
-                if (this.mnw) {
-                    JW(((int) (j - this.mns)) + i);
+            if (this.mnC == 9 || (this.mnt && this.mnG.a(this.mnF))) {
+                if (this.mnH) {
+                    JW(((int) (j - this.mnD)) + i);
                 }
-                this.mna = this.mns;
-                this.mmT = this.mnt;
-                this.mnb = false;
-                this.mnw = true;
+                this.mnl = this.mnD;
+                this.mne = this.mnE;
+                this.mnm = false;
+                this.mnH = true;
             }
-            boolean z2 = this.mnb;
-            if (this.mnr == 5 || (this.mnh && this.mnr == 1 && this.mnv.dvy())) {
+            boolean z2 = this.mnm;
+            if (this.mnC == 5 || (this.mns && this.mnC == 1 && this.mnG.dvz())) {
                 z = true;
             }
-            this.mnb = z | z2;
+            this.mnm = z | z2;
         }
 
         private void JW(int i) {
-            this.meL.a(this.mmT, this.mnb ? 1 : 0, (int) (this.mns - this.mna), i, null);
+            this.meW.a(this.mne, this.mnm ? 1 : 0, (int) (this.mnD - this.mnl), i, null);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -335,77 +335,77 @@ public final class j implements h {
         /* loaded from: classes6.dex */
         public static final class C0677a {
             private int frameNum;
-            private int mnA;
-            private int mnB;
-            private int mnC;
-            private boolean mnD;
-            private boolean mnE;
-            private boolean mnF;
-            private boolean mnG;
-            private int mnH;
-            private int mnI;
-            private int mnJ;
-            private int mnK;
+            private boolean mnI;
+            private boolean mnJ;
+            private j.b mnK;
             private int mnL;
-            private boolean mnx;
-            private boolean mny;
-            private j.b mnz;
+            private int mnM;
+            private int mnN;
+            private boolean mnO;
+            private boolean mnP;
+            private boolean mnQ;
+            private boolean mnR;
+            private int mnS;
+            private int mnT;
+            private int mnU;
+            private int mnV;
+            private int mnW;
 
             private C0677a() {
             }
 
             public void clear() {
-                this.mny = false;
-                this.mnx = false;
+                this.mnJ = false;
+                this.mnI = false;
             }
 
             public void JX(int i) {
-                this.mnB = i;
-                this.mny = true;
+                this.mnM = i;
+                this.mnJ = true;
             }
 
             public void a(j.b bVar, int i, int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, int i5, int i6, int i7, int i8, int i9) {
-                this.mnz = bVar;
-                this.mnA = i;
-                this.mnB = i2;
+                this.mnK = bVar;
+                this.mnL = i;
+                this.mnM = i2;
                 this.frameNum = i3;
-                this.mnC = i4;
-                this.mnD = z;
-                this.mnE = z2;
-                this.mnF = z3;
-                this.mnG = z4;
-                this.mnH = i5;
-                this.mnI = i6;
-                this.mnJ = i7;
-                this.mnK = i8;
-                this.mnL = i9;
-                this.mnx = true;
-                this.mny = true;
+                this.mnN = i4;
+                this.mnO = z;
+                this.mnP = z2;
+                this.mnQ = z3;
+                this.mnR = z4;
+                this.mnS = i5;
+                this.mnT = i6;
+                this.mnU = i7;
+                this.mnV = i8;
+                this.mnW = i9;
+                this.mnI = true;
+                this.mnJ = true;
             }
 
-            public boolean dvy() {
-                return this.mny && (this.mnB == 7 || this.mnB == 2);
+            public boolean dvz() {
+                return this.mnJ && (this.mnM == 7 || this.mnM == 2);
             }
 
             /* JADX INFO: Access modifiers changed from: private */
             public boolean a(C0677a c0677a) {
-                if (this.mnx) {
-                    if (!c0677a.mnx || this.frameNum != c0677a.frameNum || this.mnC != c0677a.mnC || this.mnD != c0677a.mnD) {
+                if (this.mnI) {
+                    if (!c0677a.mnI || this.frameNum != c0677a.frameNum || this.mnN != c0677a.mnN || this.mnO != c0677a.mnO) {
                         return true;
                     }
-                    if (this.mnE && c0677a.mnE && this.mnF != c0677a.mnF) {
+                    if (this.mnP && c0677a.mnP && this.mnQ != c0677a.mnQ) {
                         return true;
                     }
-                    if (this.mnA != c0677a.mnA && (this.mnA == 0 || c0677a.mnA == 0)) {
+                    if (this.mnL != c0677a.mnL && (this.mnL == 0 || c0677a.mnL == 0)) {
                         return true;
                     }
-                    if (this.mnz.mHv == 0 && c0677a.mnz.mHv == 0 && (this.mnI != c0677a.mnI || this.mnJ != c0677a.mnJ)) {
+                    if (this.mnK.mHG == 0 && c0677a.mnK.mHG == 0 && (this.mnT != c0677a.mnT || this.mnU != c0677a.mnU)) {
                         return true;
                     }
-                    if ((this.mnz.mHv == 1 && c0677a.mnz.mHv == 1 && (this.mnK != c0677a.mnK || this.mnL != c0677a.mnL)) || this.mnG != c0677a.mnG) {
+                    if ((this.mnK.mHG == 1 && c0677a.mnK.mHG == 1 && (this.mnV != c0677a.mnV || this.mnW != c0677a.mnW)) || this.mnR != c0677a.mnR) {
                         return true;
                     }
-                    if (this.mnG && c0677a.mnG && this.mnH != c0677a.mnH) {
+                    if (this.mnR && c0677a.mnR && this.mnS != c0677a.mnS) {
                         return true;
                     }
                 }

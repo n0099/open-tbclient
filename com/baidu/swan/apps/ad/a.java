@@ -55,7 +55,7 @@ public class a implements k {
 
     @Override // com.baidu.swan.ubc.k
     public boolean Zs() {
-        return com.baidu.swan.apps.ah.a.a.Zs() && (Zr() || com.baidu.swan.apps.b.baW);
+        return com.baidu.swan.apps.ah.a.a.Zs() && (Zr() || com.baidu.swan.apps.b.baX);
     }
 
     @Override // com.baidu.swan.ubc.k

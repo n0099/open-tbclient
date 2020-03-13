@@ -8,23 +8,23 @@ import java.util.LinkedList;
 /* loaded from: classes11.dex */
 public class b extends a implements c {
     private static final String TAG = b.class.getSimpleName();
-    protected d aJi;
-    protected com.baidu.mario.gldraw2d.d.c aJj;
-    private int aJk;
+    protected d aJj;
+    protected com.baidu.mario.gldraw2d.d.c aJk;
+    private int aJl;
     protected int mProgramHandle;
     private int maPositionLoc;
     private int maTextureCoordLoc;
     private int muMVPMatrixLoc;
     private int muTexMatrixLoc;
-    protected String aJg = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
-    protected String aJh = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+    protected String aJh = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+    protected String aJi = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
     private final LinkedList<Runnable> mRunOnDraw = new LinkedList<>();
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void a(d dVar, com.baidu.mario.gldraw2d.d.c cVar) {
-        this.aJi = dVar;
-        this.aJj = cVar;
-        an(this.aJg, this.aJh);
+        this.aJj = dVar;
+        this.aJk = cVar;
+        an(this.aJh, this.aJi);
         if (this.mProgramHandle == -1) {
             throw new RuntimeException("Unable to create program");
         }
@@ -33,16 +33,16 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void c(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
-        if (this.aJi == null || !this.aJi.Ch()) {
+        if (this.aJj == null || !this.aJj.Ch()) {
             Log.e(TAG, "onDraw filter has not been setup!!!");
             return;
         }
         Cc();
-        a(this.aJi);
+        a(this.aJj);
         a(aVar, bVar);
         b(aVar, bVar);
         Cd();
-        b(this.aJi);
+        b(this.aJj);
         Ce();
     }
 
@@ -53,7 +53,7 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void an(String str, String str2) {
-        if (this.aJi.getType() != 36197) {
+        if (this.aJj.getType() != 36197) {
             str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
         }
         this.mProgramHandle = com.baidu.mario.gldraw2d.e.a.createProgram(str, str2);
@@ -61,7 +61,7 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void Cb() {
-        this.aJk = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
+        this.aJl = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
         this.muTexMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix");
@@ -77,7 +77,7 @@ public class b extends a implements c {
     protected void a(d dVar) {
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(dVar.getType(), dVar.getId());
-        GLES20.glUniform1i(this.aJk, 0);
+        GLES20.glUniform1i(this.aJl, 0);
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a

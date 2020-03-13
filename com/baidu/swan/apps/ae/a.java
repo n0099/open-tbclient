@@ -15,24 +15,24 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    public static volatile a bHa;
+    public static volatile a bHb;
     public String appId;
-    public String bGY;
     public String bGZ;
-    public com.baidu.j.a.a bHb;
+    public String bHa;
+    public com.baidu.j.a.a bHc;
 
     private a() {
     }
 
     public static a Zu() {
-        if (bHa == null) {
+        if (bHb == null) {
             synchronized (a.class) {
-                if (bHa == null) {
-                    bHa = new a();
+                if (bHb == null) {
+                    bHb = new a();
                 }
             }
         }
-        return bHa;
+        return bHb;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {

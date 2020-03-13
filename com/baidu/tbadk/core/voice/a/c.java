@@ -26,7 +26,7 @@ public class c implements e<a> {
         diskFileOperate.setSubFolder(false);
         diskFileOperate.setIsFormatData(false);
         if (aVar != null) {
-            com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
+            com.baidu.tbadk.core.util.c.e eVar = new com.baidu.tbadk.core.util.c.e();
             eVar.f(diskFileOperate);
             aVar.rT = eVar;
         }
@@ -77,7 +77,7 @@ public class c implements e<a> {
                 diskFileOperate.setSubFolder(false);
                 diskFileOperate.setData(tF);
                 if (aVar != null) {
-                    com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
+                    com.baidu.tbadk.core.util.c.e eVar = new com.baidu.tbadk.core.util.c.e();
                     eVar.f(diskFileOperate);
                     aVar.rT = eVar;
                 }

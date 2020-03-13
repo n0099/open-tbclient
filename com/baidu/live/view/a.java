@@ -30,7 +30,7 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a aEe;
+    private static volatile a aEf;
     private HashMap<String, LinkedList<com.baidu.live.data.b>> mUserAttentionRequestMap = new HashMap<>();
     private HashMap<String, C0103a> mAttentionTaskMap = new HashMap<>();
 
@@ -38,14 +38,14 @@ public class a {
     }
 
     public static a Bj() {
-        if (aEe == null) {
+        if (aEf == null) {
             synchronized (a.class) {
-                if (aEe == null) {
-                    aEe = new a();
+                if (aEf == null) {
+                    aEf = new a();
                 }
             }
         }
-        return aEe;
+        return aEf;
     }
 
     public void a(String str, com.baidu.live.data.b bVar) {
@@ -103,7 +103,7 @@ public class a {
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0103a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId aEj;
+        private BdUniqueId aEk;
         private String forumId;
         private String from;
         private String inLive;
@@ -128,7 +128,7 @@ public class a {
             this.isAttention = bVar.isAttention();
             this.toUid = bVar.getUserId();
             this.inLive = bVar.getInLive();
-            this.aEj = bVar.qo();
+            this.aEk = bVar.qo();
             this.from = bVar.getFrom();
             this.forumId = bVar.getForumId();
             this.isGod = bVar.isGod();
@@ -183,7 +183,7 @@ public class a {
                 updateAttentionData.parserJson(str, this.showToastAfterAttentionSuc);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.aEj));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.aEk));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
             }
             a.this.mAttentionTaskMap.remove(this.toUid);

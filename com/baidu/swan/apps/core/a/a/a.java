@@ -39,7 +39,7 @@ public final class a {
             com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0243a) { // from class: com.baidu.swan.apps.core.a.a.a.1
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
                 public void Nb() {
-                    this.bqe = str2;
+                    this.bqf = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
@@ -50,8 +50,8 @@ public final class a {
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void aw(String str4, String str5) {
                     super.aw(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqd != null) {
-                        this.bqd.add(new UbcFlowEvent(str5));
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqe != null) {
+                        this.bqe.add(new UbcFlowEvent(str5));
                     }
                 }
             });

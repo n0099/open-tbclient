@@ -22,18 +22,18 @@ import com.baidu.tieba.play.y;
 public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     private z<l> JZ;
     private r OR;
-    private BdUniqueId dBk;
-    private int ddp;
-    private al gXV;
+    private BdUniqueId dBx;
+    private int ddD;
+    private al gYh;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.gXV != null && this.gXV.np() != null && this.gXV.np().cyr() != null) {
-            if (view.getId() == this.gXV.np().cyr().getId()) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddp);
+        if (this.gYh != null && this.gYh.np() != null && this.gYh.np().cys() != null) {
+            if (view.getId() == this.gYh.np().cys().getId()) {
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddD);
             } else if (view.getId() == R.id.thread_card_root) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddp);
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.ddD);
             }
         }
     }
@@ -62,13 +62,13 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     /* renamed from: aR */
     public com.baidu.card.a<l> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        this.gXV = new x(this.mPageContext.getPageActivity());
-        this.gXV.setPageUniqueId(this.dBk);
-        this.gXV.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        aVar.c(this.gXV);
+        this.gYh = new x(this.mPageContext.getPageActivity());
+        this.gYh.setPageUniqueId(this.dBx);
+        this.gYh.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        aVar.c(this.gYh);
         ad a = aVar.a(false, viewGroup, this.OR);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a);
-        aVar2.setPageId(this.dBk);
+        aVar2.setPageId(this.dBx);
         a.a(this.JZ);
         a.aQ(18);
         a(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.2
@@ -101,7 +101,7 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
         }
         lVar.rt(lVar.position + 1);
         aVar.nk().setPosition(i);
-        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.ddp);
+        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.ddD);
         aVar.setVideoStatsData(c(lVar));
         aVar.b((com.baidu.card.a<l>) lVar);
         aVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -116,34 +116,34 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             yVar.mLocate = "17";
             yVar.Pj = lVar.tid;
             if (lVar.aAg() != null) {
-                yVar.emb = String.valueOf(lVar.aAg().getFid());
+                yVar.emo = String.valueOf(lVar.aAg().getFid());
                 if (lVar.aAg().aCF() != null) {
-                    yVar.jwK = lVar.aAg().aCF().video_md5;
-                    yVar.jwM = String.valueOf(lVar.aAg().aCF().is_vertical);
+                    yVar.jwW = lVar.aAg().aCF().video_md5;
+                    yVar.jwY = String.valueOf(lVar.aAg().aCF().is_vertical);
                 }
             }
-            yVar.cOR = lVar.getExtra();
+            yVar.cOS = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.mAbTag = lVar.bvr();
-            yVar.jwH = lVar.getWeight();
+            yVar.mAbTag = lVar.bvs();
+            yVar.jwT = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bvq());
-            yVar.jwN = String.valueOf(this.ddp);
+            yVar.mFloor = String.valueOf(lVar.bvr());
+            yVar.jwZ = String.valueOf(this.ddD);
         }
         return yVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBk = bdUniqueId;
+        this.dBx = bdUniqueId;
     }
 
     public void vl(int i) {
-        this.ddp = i;
+        this.ddD = i;
     }
 
     public void onPause() {
-        if (this.gXV != null) {
-            this.gXV.onPause();
+        if (this.gYh != null) {
+            this.gYh.onPause();
         }
     }
 }

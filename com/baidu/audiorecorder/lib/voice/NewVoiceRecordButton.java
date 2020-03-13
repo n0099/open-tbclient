@@ -14,6 +14,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.m;
@@ -31,7 +32,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     private boolean FQ;
     private com.baidu.tbadk.core.dialog.a FR;
     private VoiceData.VoiceModel mModel;
-    private com.baidu.tbadk.core.util.b.a mPermissionJudgePolicy;
+    private PermissionJudgePolicy mPermissionJudgePolicy;
 
     public NewVoiceRecordButton(Context context) {
         super(context);
@@ -101,7 +102,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     public void startRecord() {
         if (getContext() instanceof Activity) {
             if (this.mPermissionJudgePolicy == null) {
-                this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
+                this.mPermissionJudgePolicy = new PermissionJudgePolicy();
             }
             this.mPermissionJudgePolicy.clearRequestPermissionList();
             this.mPermissionJudgePolicy.appendRequestPermission((Activity) getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");

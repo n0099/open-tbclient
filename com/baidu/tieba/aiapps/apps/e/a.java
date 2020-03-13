@@ -55,10 +55,10 @@ public class a implements x {
             dVar.setCurrentPageKey(getCurrentPageKey());
             dVar.setTid(j);
             dVar.objID = string;
-            dVar.dCV = string2;
+            dVar.dDi = string2;
             dVar.setSorceKeyList(getCurrentPageSourceKeyList());
-            com.baidu.tbadk.m.e.aQX().gS(true);
-            com.baidu.tbadk.m.e.aQX().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.m.e.aQY().gS(true);
+            com.baidu.tbadk.m.e.aQY().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
             com.baidu.tbadk.core.sharedPref.b.aFD().putLong("smart_app_tid", 0L);
         }
     }

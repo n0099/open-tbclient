@@ -18,12 +18,12 @@ import com.baidu.swan.apps.y.f;
 import com.baidu.swan.games.view.recommend.c.a;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.games.view.recommend.a.a {
-    private g cuj;
-    private View cuk;
+    private g cuk;
     private View cul;
-    private ImageView cum;
-    private View cun;
-    private a cuo;
+    private View cum;
+    private ImageView cun;
+    private View cuo;
+    private a cup;
     private RecyclerView mRecyclerView;
 
     public b(@NonNull Context context, @NonNull com.baidu.swan.games.view.recommend.a.d dVar) {
@@ -33,57 +33,57 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     @Override // com.baidu.swan.games.view.recommend.a.a
     protected View aqV() {
         View aqV = super.aqV();
-        this.cuk = LayoutInflater.from(this.mContext).inflate(a.g.swangame_recommend_dialog, (ViewGroup) null);
-        this.cul = this.cuk.findViewById(a.f.swangame_recommend_dialog_content);
-        this.cun = this.cuk.findViewById(a.f.swangame_recommend_dialog_night_mask);
-        this.cum = (ImageView) this.cuk.findViewById(a.f.swangame_recommend_dialog_cancel);
+        this.cul = LayoutInflater.from(this.mContext).inflate(a.g.swangame_recommend_dialog, (ViewGroup) null);
+        this.cum = this.cul.findViewById(a.f.swangame_recommend_dialog_content);
+        this.cuo = this.cul.findViewById(a.f.swangame_recommend_dialog_night_mask);
+        this.cun = (ImageView) this.cul.findViewById(a.f.swangame_recommend_dialog_cancel);
         initDialog();
-        this.mRecyclerView = (RecyclerView) this.cuk.findViewById(a.f.swangame_recommend_dialog_list);
+        this.mRecyclerView = (RecyclerView) this.cul.findViewById(a.f.swangame_recommend_dialog_list);
         this.mRecyclerView.setItemAnimator(null);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mContext));
         this.mRecyclerView.addItemDecoration(new c(this.mContext));
-        this.cuo = new a(this.mContext);
-        this.mRecyclerView.setAdapter(this.cuo);
+        this.cup = new a(this.mContext);
+        this.mRecyclerView.setAdapter(this.cup);
         aB(aqV);
         return aqV;
     }
 
     private void initDialog() {
-        g.a an = new g.a(this.mContext).dD(true).dB(true).dG(false).acn().aco().gb(17170445).an(this.cuk);
+        g.a an = new g.a(this.mContext).dD(true).dB(true).dG(false).acn().aco().gb(17170445).an(this.cul);
         an.dC(false);
-        this.cuj = an.Pc();
-        com.baidu.swan.apps.as.c.b(f.WS().WD(), this.cuj);
+        this.cuk = an.Pc();
+        com.baidu.swan.apps.as.c.b(f.WS().WD(), this.cuk);
     }
 
     private void aB(View view) {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.ctS != null) {
-                    b.this.ctS.arc();
+                if (b.this.ctT != null) {
+                    b.this.ctT.arc();
                 }
                 b.this.arg();
             }
         });
-        this.cuo.a(new a.InterfaceC0351a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
+        this.cup.a(new a.InterfaceC0351a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
             @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0351a
             public void ih(int i) {
-                if (b.this.ctS != null) {
-                    b.this.ctS.id(i);
+                if (b.this.ctT != null) {
+                    b.this.ctT.id(i);
                 }
                 b.this.arh();
             }
         });
-        this.cuk.findViewById(a.f.swangame_recommend_dialog_game_center).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.3
+        this.cul.findViewById(a.f.swangame_recommend_dialog_game_center).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.ctR != null && b.this.ctS != null) {
-                    b.this.ctS.arb();
+                if (b.this.ctS != null && b.this.ctT != null) {
+                    b.this.ctT.arb();
                 }
                 b.this.arh();
             }
         });
-        this.cum.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.4
+        this.cun.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.arh();
@@ -94,7 +94,7 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     @Override // com.baidu.swan.games.view.recommend.a.a, com.baidu.swan.games.view.recommend.a.b
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
         super.a(aVar);
-        this.cuo.a(aVar);
+        this.cup.a(aVar);
         are();
     }
 
@@ -112,17 +112,17 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
 
     private void arf() {
         boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState();
-        this.cun.setVisibility(8);
-        this.cum.setImageResource(nightModeSwitcherState ? a.e.swangame_recommend_button_close_night : a.e.swangame_recommend_button_close);
+        this.cuo.setVisibility(8);
+        this.cun.setImageResource(nightModeSwitcherState ? a.e.swangame_recommend_button_close_night : a.e.swangame_recommend_button_close);
         if (nightModeSwitcherState) {
-            this.cul.post(new Runnable() { // from class: com.baidu.swan.games.view.recommend.c.b.5
+            this.cum.post(new Runnable() { // from class: com.baidu.swan.games.view.recommend.c.b.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) b.this.cun.getLayoutParams();
-                    layoutParams.width = b.this.cul.getWidth();
-                    layoutParams.height = b.this.cul.getHeight();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) b.this.cuo.getLayoutParams();
+                    layoutParams.width = b.this.cum.getWidth();
+                    layoutParams.height = b.this.cum.getHeight();
                     layoutParams.topMargin = -layoutParams.height;
-                    b.this.cun.setVisibility(0);
+                    b.this.cuo.setVisibility(0);
                 }
             });
         }
@@ -131,15 +131,15 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void arg() {
         arf();
-        if (this.cuj != null) {
-            this.cuj.show();
+        if (this.cuk != null) {
+            this.cuk.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void arh() {
-        if (this.cuj != null) {
-            this.cuj.dismiss();
+        if (this.cuk != null) {
+            this.cuk.dismiss();
         }
     }
 }

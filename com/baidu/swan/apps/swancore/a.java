@@ -27,11 +27,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0298a {
-        private static final a bVY = new a();
+        private static final a bVZ = new a();
     }
 
     public static a afs() {
-        return C0298a.bVY;
+        return C0298a.bVZ;
     }
 
     public static String gt(int i) {
@@ -80,7 +80,7 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.bVZ).compareTo(String.valueOf(bVar2.bVZ));
+                return String.valueOf(bVar.bWa).compareTo(String.valueOf(bVar2.bWa));
             }
         });
     }
@@ -155,11 +155,11 @@ public class a {
 
     /* loaded from: classes11.dex */
     public class b {
-        long bVZ;
+        long bWa;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.bVZ = j;
+            this.bWa = j;
             this.swanCoreVersion = j2;
         }
 
@@ -168,7 +168,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bVZ));
+                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bWa));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
@@ -188,7 +188,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.bVZ);
+                jSONObject.put("time", this.bWa);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {

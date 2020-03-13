@@ -36,13 +36,13 @@ public class b {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.cuv = bJ(optJSONObject);
+            aVar.cuw = bJ(optJSONObject);
         }
-        aVar.cuw = new ArrayList();
+        aVar.cux = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.cuw.add(bJ(optJSONArray.optJSONObject(i)));
+                aVar.cux.add(bJ(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;

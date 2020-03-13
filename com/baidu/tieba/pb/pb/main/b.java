@@ -8,7 +8,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double iEf = 0.5d;
+    private static double iEr = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
@@ -21,9 +21,9 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         aS(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         aT(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
         nr(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds14));
-        this.dNZ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.dOa = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        this.dOb = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.dOm = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.dOn = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.dOo = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
         this.NT = new TbImageView.c() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -32,10 +32,10 @@ public class b extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPQ().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
-                    if (vx != null) {
-                        i2 = vx.getWidth();
-                        i = vx.getHeight();
+                    com.baidu.adp.widget.ImageView.a vy = com.baidu.tbadk.imageManager.c.aPR().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
+                    if (vy != null) {
+                        i2 = vy.getWidth();
+                        i = vy.getHeight();
                     } else {
                         i = 0;
                     }
@@ -64,18 +64,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.dNP || dNB <= 1.0f) {
+        if (!this.dOc || dNO <= 1.0f) {
             i3 = i;
         } else {
-            if (i * dNB <= i3 * iEf) {
-                i3 = (int) (i * dNB);
+            if (i * dNO <= i3 * iEr) {
+                i3 = (int) (i * dNO);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.dNN = ImageView.ScaleType.MATRIX;
+                this.dOa = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.dNN = ImageView.ScaleType.CENTER_CROP;
+                this.dOa = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

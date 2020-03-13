@@ -36,16 +36,16 @@ public class f extends SwipRefreshRecyclerView {
     private String i;
     private TextView l;
     private TextView m;
-    public GeneralGift mOT;
+    public GeneralGift mPe;
     private TextView n;
-    private FrescoThumbnailView nbl;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<GeneralGift> njO;
-    private a njP;
-    private PopupWindow njQ;
-    private FlexboxLayout njR;
-    private GridLayoutManager njS;
-    private d njT;
-    private c njU;
+    private FrescoThumbnailView nbw;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<GeneralGift> njZ;
+    private a nka;
+    private PopupWindow nkb;
+    private FlexboxLayout nkc;
+    private GridLayoutManager nkd;
+    private d nke;
+    private c nkf;
     private TextView p;
     private View q;
     private int r;
@@ -70,14 +70,14 @@ public class f extends SwipRefreshRecyclerView {
 
     public f(Context context, AttributeSet attributeSet, int i, int i2, a aVar, String str, int i3) {
         super(context, attributeSet);
-        this.mOT = null;
+        this.mPe = null;
         this.d = -1;
         this.r = -1;
         this.s = 5;
         this.x = false;
         this.h = context;
         this.f = i2;
-        this.njP = aVar;
+        this.nka = aVar;
         this.i = str;
         this.s = i3;
         a(context);
@@ -85,8 +85,8 @@ public class f extends SwipRefreshRecyclerView {
 
     private void a(Context context) {
         this.a = new ArrayList();
-        this.njS = new GridLayoutManager(context, this.s);
-        this.njS.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.widget.gifts.f.1
+        this.nkd = new GridLayoutManager(context, this.s);
+        this.nkd.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.widget.gifts.f.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
                 if (f.this.Ot(i)) {
@@ -100,7 +100,7 @@ public class f extends SwipRefreshRecyclerView {
             @Override // android.support.v7.widget.RecyclerView.ItemDecoration
             public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
                 if (f.this.a != null) {
-                    if (f.this.njS.getPosition(view) / f.this.s == ((int) Math.ceil((f.this.a.size() * 1.0f) / f.this.s)) - 1) {
+                    if (f.this.nkd.getPosition(view) / f.this.s == ((int) Math.ceil((f.this.a.size() * 1.0f) / f.this.s)) - 1) {
                         rect.bottom = dip2px;
                         return;
                     } else {
@@ -111,7 +111,7 @@ public class f extends SwipRefreshRecyclerView {
                 super.getItemOffsets(rect, view, recyclerView, state);
             }
         });
-        this.njO = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<GeneralGift>(this.a, a.h.room_gift_item, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.f.3
+        this.njZ = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<GeneralGift>(this.a, a.h.room_gift_item, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.f.3
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i) {
                 f.this.a(view, i);
@@ -163,8 +163,8 @@ public class f extends SwipRefreshRecyclerView {
                             view$OnLongClickListenerC0813a.Oo(a.f.rl_gift_item_root).setSelected(true);
                             f.this.b = view$OnLongClickListenerC0813a.Oo(a.f.iv_gift_icon);
                             f.this.d = i;
-                            if (f.this.njP != null) {
-                                f.this.njP.a(f.this.b, f.this.mOT, i, f.this.f);
+                            if (f.this.nka != null) {
+                                f.this.nka.a(f.this.b, f.this.mPe, i, f.this.f);
                                 return;
                             }
                             return;
@@ -185,14 +185,14 @@ public class f extends SwipRefreshRecyclerView {
                 if (f.this.a != null && i < f.this.a.size() && f.this.a.get(i).mSelectFlag) {
                     f.this.b = view$OnLongClickListenerC0813a.Oo(a.f.iv_gift_icon);
                     f.this.d = i;
-                    if (f.this.njP != null) {
-                        f.this.njP.a(f.this.b, f.this.mOT, i, f.this.f);
+                    if (f.this.nka != null) {
+                        f.this.nka.a(f.this.b, f.this.mPe, i, f.this.f);
                     }
                 }
             }
         };
-        setLayoutManager(this.njS);
-        setAdapter(this.njO);
+        setLayoutManager(this.nkd);
+        setAdapter(this.njZ);
         setPullToRefreshEnabled(false);
     }
 
@@ -231,19 +231,19 @@ public class f extends SwipRefreshRecyclerView {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, int i) {
         if (!a(this.a.get(i).mType)) {
-            if (this.njP != null) {
-                this.njP.a(this.a.get(i));
+            if (this.nka != null) {
+                this.nka.a(this.a.get(i));
                 return;
             }
             return;
         }
         this.b = view.findViewById(a.f.iv_gift_icon);
-        this.mOT = this.a.get(i);
+        this.mPe = this.a.get(i);
         this.d = i;
-        if (this.njP != null) {
-            this.njP.a(this.b, this.mOT, i, this.f);
+        if (this.nka != null) {
+            this.nka.a(this.b, this.mPe, i, this.f);
         }
-        if (this.a != null && this.njO != null) {
+        if (this.a != null && this.njZ != null) {
             int i2 = 0;
             for (int i3 = 0; i3 < this.a.size(); i3++) {
                 if (i3 != i) {
@@ -255,11 +255,11 @@ public class f extends SwipRefreshRecyclerView {
                     this.a.get(i3).mSelectFlag = true;
                 }
             }
-            this.njO.notifyItemChanged(i2, 1);
-            this.njO.notifyItemChanged(i, 1);
+            this.njZ.notifyItemChanged(i2, 1);
+            this.njZ.notifyItemChanged(i, 1);
         }
-        if (this.mOT != null) {
-            com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "giftId", Integer.valueOf(this.mOT.mId), "roomId", this.i);
+        if (this.mPe != null) {
+            com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "giftId", Integer.valueOf(this.mPe.mId), "roomId", this.i);
         }
     }
 
@@ -279,16 +279,16 @@ public class f extends SwipRefreshRecyclerView {
                 }
             }
         }
-        if (z && this.njT != null && z2 && this.a.size() > 0) {
+        if (z && this.nke != null && z2 && this.a.size() > 0) {
             GeneralGift generalGift = this.a.get(this.a.size() - 1);
-            this.njT.a(this.i, generalGift.mId, generalGift.mGroup);
+            this.nke.a(this.i, generalGift.mId, generalGift.mGroup);
         }
         setHasMoreItems(z && (z2 || !h.isEmpty(list)));
-        if (this.mOT != null) {
+        if (this.mPe != null) {
             for (int i2 = 0; i2 < this.a.size(); i2++) {
-                if (this.a.get(i2) != null && this.a.get(i2).mId == this.mOT.mId && this.a.get(i2).mType == this.mOT.mType) {
+                if (this.a.get(i2) != null && this.a.get(i2).mId == this.mPe.mId && this.a.get(i2).mType == this.mPe.mType) {
                     this.a.get(i2).mSelectFlag = true;
-                    this.mOT = list.get(i2);
+                    this.mPe = list.get(i2);
                     this.d = i2;
                     z3 = true;
                     break;
@@ -298,7 +298,7 @@ public class f extends SwipRefreshRecyclerView {
         z3 = false;
         if (!z3) {
             this.b = null;
-            this.mOT = null;
+            this.mPe = null;
             this.d = -1;
             while (true) {
                 if (i < this.a.size()) {
@@ -307,7 +307,7 @@ public class f extends SwipRefreshRecyclerView {
                     } else {
                         this.a.get(i).mSelectFlag = true;
                         this.b = getChildAt(i);
-                        this.mOT = this.a.get(i);
+                        this.mPe = this.a.get(i);
                         this.d = i;
                         break;
                     }
@@ -316,7 +316,7 @@ public class f extends SwipRefreshRecyclerView {
                 }
             }
         }
-        this.njO.notifyDataSetChanged();
+        this.njZ.notifyDataSetChanged();
     }
 
     public boolean a(int i) {
@@ -332,32 +332,32 @@ public class f extends SwipRefreshRecyclerView {
     }
 
     public void setPresenter(d dVar) {
-        if (this.njU != null) {
-            this.njU.a();
-            this.njU = null;
+        if (this.nkf != null) {
+            this.nkf.a();
+            this.nkf = null;
         }
-        this.njT = dVar;
+        this.nke = dVar;
         setLoadMoreListener(new tv.chushou.zues.widget.adapterview.b() { // from class: com.kascend.chushou.widget.gifts.f.6
             @Override // tv.chushou.zues.widget.adapterview.b
-            public void bcf() {
-                if (f.this.njT != null && f.this.njT.b()) {
-                    f.this.njT.c();
+            public void bcg() {
+                if (f.this.nke != null && f.this.nke.b()) {
+                    f.this.nke.c();
                 }
             }
         });
     }
 
     public void setSearchPresenter(c cVar) {
-        if (this.njT != null) {
-            this.njT.a();
-            this.njT = null;
+        if (this.nke != null) {
+            this.nke.a();
+            this.nke = null;
         }
-        this.njU = cVar;
+        this.nkf = cVar;
         setLoadMoreListener(new tv.chushou.zues.widget.adapterview.b() { // from class: com.kascend.chushou.widget.gifts.f.7
             @Override // tv.chushou.zues.widget.adapterview.b
-            public void bcf() {
-                if (f.this.njU != null && f.this.njU.b()) {
-                    f.this.njU.a(false);
+            public void bcg() {
+                if (f.this.nkf != null && f.this.nkf.b()) {
+                    f.this.nkf.a(false);
                 }
             }
         });
@@ -366,11 +366,11 @@ public class f extends SwipRefreshRecyclerView {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.njT != null) {
-            this.njT.a((d) this);
+        if (this.nke != null) {
+            this.nke.a((d) this);
         }
-        if (this.njU != null) {
-            this.njU.a((c) this);
+        if (this.nkf != null) {
+            this.nkf.a((c) this);
         }
     }
 
@@ -378,54 +378,54 @@ public class f extends SwipRefreshRecyclerView {
     @Override // android.support.v4.widget.SwipeRefreshLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.njT != null) {
-            this.njT.a();
+        if (this.nke != null) {
+            this.nke.a();
         }
-        if (this.njU != null) {
-            this.njU.a();
+        if (this.nkf != null) {
+            this.nkf.a();
         }
     }
 
     public void a(String str) {
-        if (this.njU != null) {
-            this.njU.a(str);
+        if (this.nkf != null) {
+            this.nkf.a(str);
         }
     }
 
     public void a() {
-        if (this.njU != null) {
-            this.njU.c();
+        if (this.nkf != null) {
+            this.nkf.c();
         }
         if (this.a != null) {
             this.a.clear();
         }
-        if (this.njO != null) {
-            this.njO.notifyDataSetChanged();
+        if (this.njZ != null) {
+            this.njZ.notifyDataSetChanged();
         }
         this.b = null;
-        this.mOT = null;
+        this.mPe = null;
         this.d = -1;
     }
 
     private void c() {
-        if (this.njQ == null) {
+        if (this.nkb == null) {
             if (this.x) {
                 this.q = LayoutInflater.from(this.h).inflate(a.h.room_emoji_gift_pop_view, (ViewGroup) null);
             } else {
                 this.q = LayoutInflater.from(this.h).inflate(a.h.room_gift_pop_view, (ViewGroup) null);
             }
-            this.nbl = (FrescoThumbnailView) this.q.findViewById(a.f.iv_gift_icon);
-            this.nbl.setAnim(true);
+            this.nbw = (FrescoThumbnailView) this.q.findViewById(a.f.iv_gift_icon);
+            this.nbw.setAnim(true);
             this.l = (TextView) this.q.findViewById(a.f.tv_expired_time);
             this.m = (TextView) this.q.findViewById(a.f.tv_gift_name);
             this.n = (TextView) this.q.findViewById(a.f.tv_gift_count);
-            this.njR = (FlexboxLayout) this.q.findViewById(a.f.ll_gift_tags);
+            this.nkc = (FlexboxLayout) this.q.findViewById(a.f.ll_gift_tags);
             this.p = (TextView) this.q.findViewById(a.f.tv_gift_desc);
-            this.njQ = new PopupWindow(this.q, tv.chushou.zues.utils.a.dip2px(this.h, this.x ? 160.0f : 250.0f), -2);
-            this.njQ.setBackgroundDrawable(this.h.getResources().getDrawable(a.e.bg_room_gift_pop));
-            this.njQ.setFocusable(false);
-            this.njQ.setOutsideTouchable(false);
-            this.njQ.update();
+            this.nkb = new PopupWindow(this.q, tv.chushou.zues.utils.a.dip2px(this.h, this.x ? 160.0f : 250.0f), -2);
+            this.nkb.setBackgroundDrawable(this.h.getResources().getDrawable(a.e.bg_room_gift_pop));
+            this.nkb.setFocusable(false);
+            this.nkb.setOutsideTouchable(false);
+            this.nkb.update();
         }
     }
 
@@ -433,12 +433,12 @@ public class f extends SwipRefreshRecyclerView {
     public void b(View view, int i) {
         if (view != null && i >= 0 && this.a != null && i < this.a.size()) {
             GeneralGift generalGift = this.a.get(i);
-            if (this.njQ == null) {
+            if (this.nkb == null) {
                 c();
             }
             this.r = i;
             if (this.x) {
-                ViewGroup.LayoutParams layoutParams = this.nbl.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.nbw.getLayoutParams();
                 if (generalGift.mGiftDetailHeight > 0 && generalGift.mGiftDetailWidth > 0) {
                     layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.h, generalGift.mGiftDetailHeight);
                     layoutParams.width = tv.chushou.zues.utils.a.dip2px(this.h, generalGift.mGiftDetailWidth);
@@ -446,9 +446,9 @@ public class f extends SwipRefreshRecyclerView {
                     layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.h, 80.0f);
                     layoutParams.width = tv.chushou.zues.utils.a.dip2px(this.h, 80.0f);
                 }
-                this.nbl.setLayoutParams(layoutParams);
+                this.nbw.setLayoutParams(layoutParams);
             }
-            this.nbl.i(generalGift.mIcon, a.e.default_gift, b.a.medium, b.a.medium);
+            this.nbw.i(generalGift.mIcon, a.e.default_gift, b.a.medium, b.a.medium);
             if (h.isEmpty(generalGift.mExpiredTimeDesc)) {
                 this.l.setVisibility(8);
             } else {
@@ -463,16 +463,16 @@ public class f extends SwipRefreshRecyclerView {
                 this.n.setVisibility(0);
             }
             if (h.isEmpty(generalGift.mTagLists)) {
-                this.njR.removeAllViews();
-                this.njR.setVisibility(8);
+                this.nkc.removeAllViews();
+                this.nkc.setVisibility(8);
             } else {
-                this.njR.removeAllViews();
+                this.nkc.removeAllViews();
                 for (int i2 = 0; i2 < generalGift.mTagLists.size(); i2++) {
-                    View inflate = LayoutInflater.from(this.h).inflate(a.h.room_gift_pop_tag_item, (ViewGroup) this.njR, false);
+                    View inflate = LayoutInflater.from(this.h).inflate(a.h.room_gift_pop_tag_item, (ViewGroup) this.nkc, false);
                     ((TextView) inflate.findViewById(a.f.tv_tag)).setText(generalGift.mTagLists.get(i2));
-                    this.njR.addView(inflate);
+                    this.nkc.addView(inflate);
                 }
-                this.njR.setVisibility(0);
+                this.nkc.setVisibility(0);
             }
             this.p.setText(generalGift.mDesc);
             int[] iArr = new int[2];
@@ -488,23 +488,23 @@ public class f extends SwipRefreshRecyclerView {
                 width = tv.chushou.zues.utils.a.dip2px(this.h, 5.0f);
             }
             int measuredHeight = (i4 - this.q.getMeasuredHeight()) - tv.chushou.zues.utils.a.dip2px(this.h, 15.0f);
-            if (!this.njQ.isShowing()) {
-                this.njQ.showAtLocation(view, 0, width, measuredHeight);
+            if (!this.nkb.isShowing()) {
+                this.nkb.showAtLocation(view, 0, width, measuredHeight);
             } else {
-                this.njQ.update(width, measuredHeight, -1, -1);
+                this.nkb.update(width, measuredHeight, -1, -1);
             }
         }
     }
 
     private void d() {
-        if (this.njQ != null) {
-            this.njQ.dismiss();
-            this.njQ = null;
+        if (this.nkb != null) {
+            this.nkb.dismiss();
+            this.nkb = null;
         }
     }
 
     public boolean b() {
-        if (this.d == -1 || this.njS == null || (this.d >= this.njS.findFirstVisibleItemPosition() && this.d <= this.njS.findLastVisibleItemPosition())) {
+        if (this.d == -1 || this.nkd == null || (this.d >= this.nkd.findFirstVisibleItemPosition() && this.d <= this.nkd.findLastVisibleItemPosition())) {
             return false;
         }
         scrollToPosition(this.d);

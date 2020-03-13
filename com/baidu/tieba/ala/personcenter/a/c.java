@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private BdTypeListView ekb;
-    private com.baidu.tieba.ala.personcenter.d.a ftJ;
+    private BdTypeListView eko;
+    private com.baidu.tieba.ala.personcenter.d.a ftW;
     private TbPageContext mPageContext;
-    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
     private List<m> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.ekb = bdTypeListView;
-        this.ftJ = aVar;
+        this.eko = bdTypeListView;
+        this.ftW = aVar;
         wM();
     }
 
@@ -29,23 +29,23 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        i iVar = new i(this.mPageContext, this.ftJ);
-        this.asE.add(bVar);
-        this.asE.add(fVar);
-        this.asE.add(gVar);
-        this.asE.add(eVar);
-        this.asE.add(hVar);
-        this.asE.add(dVar);
-        this.asE.add(aVar);
-        this.asE.add(iVar);
-        this.ekb.addAdapters(this.asE);
+        i iVar = new i(this.mPageContext, this.ftW);
+        this.asF.add(bVar);
+        this.asF.add(fVar);
+        this.asF.add(gVar);
+        this.asF.add(eVar);
+        this.asF.add(hVar);
+        this.asF.add(dVar);
+        this.asF.add(aVar);
+        this.asF.add(iVar);
+        this.eko.addAdapters(this.asF);
     }
 
     public void setData(List<m> list) {
-        if (this.ekb != null && !v.isEmpty(list)) {
+        if (this.eko != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.ekb.setData(this.mDataList);
+            this.eko.setData(this.mDataList);
         }
     }
 }

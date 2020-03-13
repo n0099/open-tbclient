@@ -5,9 +5,9 @@ public interface b {
 
     void a(a[] aVarArr);
 
-    a dyS();
+    a dyT();
 
-    int dyT();
+    int dyU();
 
     void trim();
 }

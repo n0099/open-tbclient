@@ -16,7 +16,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes9.dex */
 public class a {
-    private final c gYr = new c();
+    private final c gYD = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -50,7 +50,7 @@ public class a {
                 bj bjVar = new bj();
                 bjVar.fE(true);
                 bjVar.a(concernData.thread_list);
-                if ((k.aa(bjVar) || l.aa(bjVar)) && bjVar.getType() != bj.cRD) {
+                if ((k.aa(bjVar) || l.aa(bjVar)) && bjVar.getType() != bj.cRE) {
                     int[] imageWidthAndHeight = bjVar.getImageWidthAndHeight();
                     k aA = d.aA(bjVar);
                     if (aA != null) {
@@ -59,9 +59,9 @@ public class a {
                         d.a(aA);
                     }
                     if (k.aa(bjVar)) {
-                        aA.zV("1");
+                        aA.zW("1");
                     } else if (l.aa(bjVar)) {
-                        aA.zV("2");
+                        aA.zW("2");
                     }
                     if (aA != null && aA.isValid()) {
                         linkedList.add(aA);
@@ -75,8 +75,8 @@ public class a {
                                 d.d(az);
                             } else if (bjVar.aDq() == 1) {
                                 d.b(az);
-                                az.cRg = imageWidthAndHeight[0];
-                                az.cRh = imageWidthAndHeight[1];
+                                az.cRh = imageWidthAndHeight[0];
+                                az.cRi = imageWidthAndHeight[1];
                             } else if (bjVar.aDq() >= 2) {
                                 d.c(az);
                             } else {
@@ -87,9 +87,9 @@ public class a {
                         }
                     }
                     if (k.aa(bjVar)) {
-                        az.zV("1");
+                        az.zW("1");
                     } else if (l.aa(bjVar)) {
-                        az.zV("2");
+                        az.zW("2");
                     }
                     if (az != null && az.isValid()) {
                         linkedList.add(az);
@@ -101,9 +101,9 @@ public class a {
                         d.g(aA2);
                     }
                     if (k.aa(bjVar)) {
-                        aA2.zV("1");
+                        aA2.zW("1");
                     } else if (l.aa(bjVar)) {
-                        aA2.zV("2");
+                        aA2.zW("2");
                     }
                     if (aA2 != null && !StringUtils.isNull(bjVar.aCt())) {
                         linkedList.add(aA2);
@@ -116,9 +116,9 @@ public class a {
                             d.i(aA3);
                         }
                         if (k.aa(bjVar)) {
-                            aA3.zV("1");
+                            aA3.zW("1");
                         } else if (l.aa(bjVar)) {
-                            aA3.zV("2");
+                            aA3.zW("2");
                         }
                         if (aA3 != null && aA3.isValid()) {
                             linkedList.add(aA3);
@@ -130,17 +130,17 @@ public class a {
                         aA4.position = i3;
                         d.j(aA4);
                     }
-                    if (bjVar.getType() == bj.cRj) {
-                        aA4.zV("1");
+                    if (bjVar.getType() == bj.cRk) {
+                        aA4.zW("1");
                     } else if (l.aa(bjVar)) {
-                        aA4.zV("2");
+                        aA4.zW("2");
                     }
                     if (aA4 != null && aA4.isValid()) {
                         linkedList.add(aA4);
                     }
                 } else if (bjVar.isShareThread) {
                     k kVar = new k();
-                    kVar.cRf = bjVar;
+                    kVar.cRg = bjVar;
                     kVar.position = i3;
                     linkedList.add(kVar);
                 } else if (l.aa(bjVar)) {
@@ -154,7 +154,7 @@ public class a {
                     j jVar = new j(bjVar);
                     if (jVar != null) {
                         jVar.tid = bjVar.getTid();
-                        jVar.zV("3");
+                        jVar.zW("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -165,12 +165,12 @@ public class a {
                     linkedList.add(eVar);
                 } else {
                     k kVar2 = new k();
-                    kVar2.cRf = bjVar;
-                    kVar2.zV(kVar2.cRf.isLinkThread() ? "4" : "1");
+                    kVar2.cRg = bjVar;
+                    kVar2.zW(kVar2.cRg.isLinkThread() ? "4" : "1");
                     kVar2.position = i3;
                     kVar2.isLinkThread = false;
                     kVar2.ru(concernData.source.intValue());
-                    if (kVar2.cRf != null && kVar2.isValid() && !StringUtils.isNull(kVar2.cRf.getId()) && !"0".equals(kVar2.cRf.getTid())) {
+                    if (kVar2.cRg != null && kVar2.isValid() && !StringUtils.isNull(kVar2.cRg.getId()) && !"0".equals(kVar2.cRg.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
@@ -178,8 +178,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.gYr.dTe = linkedList;
-        return this.gYr;
+        this.gYD.dTr = linkedList;
+        return this.gYD;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -210,7 +210,7 @@ public class a {
                     }
                 }
             }
-            this.gYr.hfd = v.getCount(list) - count;
+            this.gYD.hfp = v.getCount(list) - count;
         }
     }
 

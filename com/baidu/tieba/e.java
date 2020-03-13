@@ -12,22 +12,22 @@ import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import com.baidu.searchbox.ugc.webjs.UnitedSchemeUGCDispatcher;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.b.a;
 import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.data.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static com.baidu.tieba.publisher.service.a dWe;
-    private static com.baidu.tbadk.core.util.b.a mPermissionJudgement;
+    private static com.baidu.tieba.publisher.service.a dWr;
+    private static PermissionJudgePolicy mPermissionJudgement;
     private static IPublisherManagerInterface mPublisherInterfaceManager;
 
-    public static com.baidu.tieba.publisher.service.a aWQ() {
-        if (dWe == null) {
-            dWe = new com.baidu.tieba.publisher.service.a();
+    public static com.baidu.tieba.publisher.service.a aWR() {
+        if (dWr == null) {
+            dWr = new com.baidu.tieba.publisher.service.a();
         }
-        return dWe;
+        return dWr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,12 +37,12 @@ public class e {
 
     public static void a(final Activity activity, final h hVar) {
         if (mPermissionJudgement == null) {
-            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
+            mPermissionJudgement = new PermissionJudgePolicy();
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0378a() { // from class: com.baidu.tieba.e.1
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0378a
+        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.1
+            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
                 if (e.eo(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -73,8 +73,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvp != null) {
-                                hVar.dvp.onSuccess();
+                            if (hVar.dvC != null) {
+                                hVar.dvC.onSuccess();
                             }
                         }
 
@@ -95,12 +95,12 @@ public class e {
 
     public static void b(final Activity activity, final h hVar) {
         if (mPermissionJudgement == null) {
-            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
+            mPermissionJudgement = new PermissionJudgePolicy();
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0378a() { // from class: com.baidu.tieba.e.2
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0378a
+        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.2
+            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
                 if (e.eo(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -131,8 +131,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvp != null) {
-                                hVar.dvp.onSuccess();
+                            if (hVar.dvC != null) {
+                                hVar.dvC.onSuccess();
                             }
                         }
 
@@ -153,12 +153,12 @@ public class e {
 
     public static void c(final Activity activity, final h hVar) {
         if (mPermissionJudgement == null) {
-            mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
+            mPermissionJudgement = new PermissionJudgePolicy();
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0378a() { // from class: com.baidu.tieba.e.3
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0378a
+        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.3
+            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
                 if (e.eo(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -177,34 +177,34 @@ public class e {
                         ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
                     }
                     ugcSchemeModel.sourceFrom = "tieba";
-                    if (!StringUtils.isNull(hVar.dvq)) {
-                        ugcSchemeModel.forwardContent = hVar.dvq;
+                    if (!StringUtils.isNull(hVar.dvD)) {
+                        ugcSchemeModel.forwardContent = hVar.dvD;
                     }
-                    if (hVar.dvr != null) {
+                    if (hVar.dvE != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("title", hVar.dvr.title);
-                            jSONObject.put("ref_type", hVar.dvr.ref_type);
-                            jSONObject.put("thumbpic", hVar.dvr.thumbpic);
-                            jSONObject.put("channel", hVar.dvr.channel);
-                            jSONObject.put("url", hVar.dvr.url);
-                            jSONObject.put("account_type", hVar.dvr.dvA);
-                            jSONObject.put("id", hVar.dvr.id);
-                            jSONObject.put("nid", hVar.dvr.nid);
-                            jSONObject.put("video_duration", hVar.dvr.video_duration);
-                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvr.avatar);
-                            jSONObject.put("tid", hVar.dvr.tid);
+                            jSONObject.put("title", hVar.dvE.title);
+                            jSONObject.put("ref_type", hVar.dvE.ref_type);
+                            jSONObject.put("thumbpic", hVar.dvE.thumbpic);
+                            jSONObject.put("channel", hVar.dvE.channel);
+                            jSONObject.put("url", hVar.dvE.url);
+                            jSONObject.put("account_type", hVar.dvE.dvN);
+                            jSONObject.put("id", hVar.dvE.id);
+                            jSONObject.put("nid", hVar.dvE.nid);
+                            jSONObject.put("video_duration", hVar.dvE.video_duration);
+                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvE.avatar);
+                            jSONObject.put("tid", hVar.dvE.tid);
                             ugcSchemeModel.referenceDt = jSONObject.toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    if (hVar.dvs != null) {
+                    if (hVar.dvF != null) {
                         try {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("share_type", hVar.dvs.dvx);
-                            jSONObject2.put("forward_rel_id", hVar.dvs.dvy);
-                            jSONObject2.put("forward_is_comment", hVar.dvs.dvz);
+                            jSONObject2.put("share_type", hVar.dvF.dvK);
+                            jSONObject2.put("forward_rel_id", hVar.dvF.dvL);
+                            jSONObject2.put("forward_is_comment", hVar.dvF.dvM);
                             ugcSchemeModel.ext = jSONObject2.toString();
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -214,8 +214,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvp != null) {
-                                hVar.dvp.onSuccess();
+                            if (hVar.dvC != null) {
+                                hVar.dvC.onSuccess();
                             }
                         }
 

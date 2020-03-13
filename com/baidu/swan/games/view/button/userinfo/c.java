@@ -17,9 +17,9 @@ public class c extends com.baidu.swan.games.view.button.base.c {
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
                 public void D(com.baidu.swan.apps.setting.b.a aVar2) {
-                    if (aVar2 != null && aVar2.bTC != null) {
-                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.bTC);
-                        aVar.bH(aVar2.bTC);
+                    if (aVar2 != null && aVar2.bTD != null) {
+                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.bTD);
+                        aVar.bH(aVar2.bTD);
                         return;
                     }
                     aVar.bH(null);

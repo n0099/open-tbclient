@@ -25,12 +25,12 @@ public class a implements View.OnClickListener {
     private ImageView k;
     private RelativeLayout l;
     private boolean m = false;
-    public ListItem mON;
-    private GiftPopupLayout nbB;
-    private RedpacketNotifier nbC;
-    private InteractNotifier nbD;
-    private FoodView nbE;
-    private FrescoThumbnailView nbF;
+    public ListItem mOY;
+    private GiftPopupLayout nbM;
+    private RedpacketNotifier nbN;
+    private InteractNotifier nbO;
+    private FoodView nbP;
+    private FrescoThumbnailView nbQ;
 
     public a(View view, int i) {
         this.h = 1;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener {
         d();
         c(list);
         a(aVar);
-        this.nbD.a(bVar, aVar2, aVar3);
+        this.nbO.a(bVar, aVar2, aVar3);
     }
 
     public void a(boolean z) {
@@ -50,12 +50,12 @@ public class a implements View.OnClickListener {
             this.c.setVisibility(0);
             if (!z) {
                 this.d.setVisibility(8);
-                this.nbB.setVisibility(8);
+                this.nbM.setVisibility(8);
                 this.l.setVisibility(8);
                 return;
             }
             this.d.setVisibility(0);
-            this.nbB.setVisibility(0);
+            this.nbM.setVisibility(0);
             this.l.setVisibility(0);
             if (this.h == 2 && (this.c.getContext() instanceof Activity)) {
                 Activity activity = (Activity) this.c.getContext();
@@ -75,19 +75,19 @@ public class a implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.nbB != null) {
-            this.nbB.removeAllViews();
-            this.nbB.setVisibility(8);
+        if (this.nbM != null) {
+            this.nbM.removeAllViews();
+            this.nbM.setVisibility(8);
         }
-        if (this.nbD != null) {
-            this.nbD.b();
-            this.nbD.setVisibility(8);
+        if (this.nbO != null) {
+            this.nbO.b();
+            this.nbO.setVisibility(8);
         }
-        if (this.nbC != null) {
-            this.nbC.setVisibility(8);
+        if (this.nbN != null) {
+            this.nbN.setVisibility(8);
         }
-        if (this.nbE != null) {
-            this.nbE.setVisibility(8);
+        if (this.nbP != null) {
+            this.nbP.setVisibility(8);
         }
     }
 
@@ -98,7 +98,7 @@ public class a implements View.OnClickListener {
     public void a(com.kascend.chushou.player.ui.h5.redpacket.a aVar) {
         if (aVar != null) {
             d();
-            this.nbC.a(aVar, true);
+            this.nbN.a(aVar, true);
         }
     }
 
@@ -122,60 +122,60 @@ public class a implements View.OnClickListener {
 
     public void a(List<ListItem> list) {
         if (h.isEmpty(list)) {
-            if (this.nbB != null) {
-                this.nbB.removeAllViews();
-                this.nbB.setVisibility(8);
+            if (this.nbM != null) {
+                this.nbM.removeAllViews();
+                this.nbM.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nbB.a(list, this.h);
+        this.nbM.a(list, this.h);
     }
 
     public void a(int i) {
         if (i <= 0) {
-            if (this.nbC != null) {
-                this.nbC.setVisibility(8);
+            if (this.nbN != null) {
+                this.nbN.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nbC.a(i, true);
+        this.nbN.a(i, true);
     }
 
     public void a(long j) {
         d();
-        if (this.nbD != null) {
-            this.nbD.b(j);
+        if (this.nbO != null) {
+            this.nbO.b(j);
         }
     }
 
     public void b(int i) {
         d();
-        if (this.nbD != null) {
-            this.nbD.a(i);
+        if (this.nbO != null) {
+            this.nbO.a(i);
         }
     }
 
     public void b(long j) {
         d();
-        if (this.nbD != null) {
-            this.nbD.a(j);
+        if (this.nbO != null) {
+            this.nbO.a(j);
         }
     }
 
     public void c() {
         d();
-        if (this.nbD != null) {
-            this.nbD.a();
+        if (this.nbO != null) {
+            this.nbO.a();
         }
     }
 
     public void a(ListItem listItem, FoodView.a aVar) {
-        if (this.nbE != null && listItem != null) {
-            this.nbE.a(listItem, 0, aVar);
+        if (this.nbP != null && listItem != null) {
+            this.nbP.a(listItem, 0, aVar);
         }
     }
 
@@ -183,20 +183,20 @@ public class a implements View.OnClickListener {
         if (!this.m) {
             if (this.h == 1) {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_landscape)).inflate();
-                this.nbB = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
-                this.nbC = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
-                this.nbD = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
+                this.nbM = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
+                this.nbN = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
+                this.nbO = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
             } else {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_portrait)).inflate();
-                this.nbB = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
-                this.nbC = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
-                this.nbD = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
+                this.nbM = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
+                this.nbN = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
+                this.nbO = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
             }
-            this.nbE = (FoodView) this.c.findViewById(a.f.ad_pendant);
+            this.nbP = (FoodView) this.c.findViewById(a.f.ad_pendant);
             this.d = this.c.findViewById(a.f.rl_vertical_container);
-            this.nbF = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
+            this.nbQ = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
             this.k = (ImageView) this.c.findViewById(a.f.iv_shopwindow_close);
-            this.nbF.setOnClickListener(this);
+            this.nbQ.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l = (RelativeLayout) this.c.findViewById(a.f.rl_shopwindow);
             this.m = true;
@@ -207,14 +207,14 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ic_shopwindow) {
-            if (this.mON != null) {
-                if (this.nbF.getContext() instanceof Activity) {
-                    e.a(this.nbF.getContext(), this.mON, (JSONObject) null);
+            if (this.mOY != null) {
+                if (this.nbQ.getContext() instanceof Activity) {
+                    e.a(this.nbQ.getContext(), this.mOY, (JSONObject) null);
                     return;
                 }
                 Activity e = com.kascend.chushou.d.b.e();
                 if (e != null) {
-                    e.a(e, this.mON, (JSONObject) null);
+                    e.a(e, this.mOY, (JSONObject) null);
                 }
             }
         } else if (id == a.f.iv_shopwindow_close && this.l != null) {
@@ -223,12 +223,12 @@ public class a implements View.OnClickListener {
     }
 
     public void b(List<ListItem> list) {
-        if (this.nbF != null && !h.isEmpty(list)) {
-            this.mON = list.get(0);
-            this.nbF.setVisibility(0);
-            this.nbF.a(this.mON.mCover, 0, 0, 0, 1);
+        if (this.nbQ != null && !h.isEmpty(list)) {
+            this.mOY = list.get(0);
+            this.nbQ.setVisibility(0);
+            this.nbQ.a(this.mOY.mCover, 0, 0, 0, 1);
             if (this.k != null) {
-                if (this.mON.mShowClose) {
+                if (this.mOY.mShowClose) {
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);

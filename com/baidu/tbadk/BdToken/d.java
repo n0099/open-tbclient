@@ -30,25 +30,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static final Pattern cHP = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-    private r cHQ;
-    private e cHR;
-    private AtomicBoolean cHS;
-    private e.a cHT;
+    public static final Pattern cHQ = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+    private r cHR;
+    private e cHS;
+    private AtomicBoolean cHT;
+    private e.a cHU;
 
     public static final d axJ() {
-        return a.cHV;
+        return a.cHW;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final d cHV = new d();
+        private static final d cHW = new d();
     }
 
     private d() {
-        this.cHS = new AtomicBoolean(false);
-        this.cHT = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
+        this.cHT = new AtomicBoolean(false);
+        this.cHU = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
             @Override // com.baidu.tbadk.BdToken.e.a
             public void a(boolean z, v vVar) {
                 if (z && vVar != null) {
@@ -60,9 +60,9 @@ public class d {
         };
         te();
         registerListener();
-        this.cHR = new e();
-        this.cHR.a(this.cHT);
-        this.cHQ = new r();
+        this.cHS = new e();
+        this.cHS.a(this.cHU);
+        this.cHR = new r();
     }
 
     private void te() {
@@ -78,7 +78,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage responsedMessage) {
                 g decryptData;
-                d.this.cHS.compareAndSet(true, false);
+                d.this.cHT.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (responsedMessage instanceof DecryptCodeSocketRespMsg) {
@@ -152,8 +152,8 @@ public class d {
                 public void onPostExecute(String str) {
                     super.onPostExecute((AnonymousClass4) str);
                     if (str == null) {
-                        if (d.this.cHQ != null && d.this.axM()) {
-                            d.this.cHQ.check();
+                        if (d.this.cHR != null && d.this.axM()) {
+                            d.this.cHR.check();
                             return;
                         }
                         return;
@@ -177,7 +177,7 @@ public class d {
                         return null;
                     }
                     String str = strArr[0];
-                    if (aq.isEmpty(str) || (matcher = d.cHP.matcher(str)) == null || !matcher.find()) {
+                    if (aq.isEmpty(str) || (matcher = d.cHQ.matcher(str)) == null || !matcher.find()) {
                         return null;
                     }
                     return str;
@@ -188,8 +188,8 @@ public class d {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str) {
                     super.onPostExecute((AnonymousClass5) str);
-                    if (str != null && !d.this.cHS.get()) {
-                        d.this.cHS.compareAndSet(false, true);
+                    if (str != null && !d.this.cHT.get()) {
+                        d.this.cHT.compareAndSet(false, true);
                         DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                         decryptCodeReqMsg.setCode(str);
                         MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -214,7 +214,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rz(String str) {
-        this.cHR.load(str);
+        this.cHS.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -244,9 +244,9 @@ public class d {
         Activity currentActivity;
         Uri parse;
         if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
-            if (str.startsWith(f.cHY)) {
+            if (str.startsWith(f.cHZ)) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(f.cIq, f.cIv);
+                buildUpon.appendQueryParameter(f.cIr, f.cIw);
                 parse = buildUpon.build();
             }
             UtilHelper.dealOneScheme(currentActivity, parse.toString());

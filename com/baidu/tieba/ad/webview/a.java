@@ -19,11 +19,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class a {
-    private static HashMap<String, Integer> bYv = new HashMap<>();
+    private static final Pattern bYA;
     private static HashMap<String, Integer> bYw = new HashMap<>();
-    private static HashMap<String, String> bYx = new HashMap<>();
+    private static HashMap<String, Integer> bYx = new HashMap<>();
     private static HashMap<String, String> bYy = new HashMap<>();
-    private static final Pattern bYz;
+    private static HashMap<String, String> bYz = new HashMap<>();
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -344,15 +344,15 @@ public final class a {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        bYz = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bYA = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        bYv.put(str2, Integer.valueOf(i));
-        bYw.put(str, Integer.valueOf(i));
-        bYx.put(str2, str);
-        if (!bYy.containsKey(str)) {
-            bYy.put(str, str2);
+        bYw.put(str2, Integer.valueOf(i));
+        bYx.put(str, Integer.valueOf(i));
+        bYy.put(str2, str);
+        if (!bYz.containsKey(str)) {
+            bYz.put(str, str2);
         }
     }
 
@@ -361,9 +361,9 @@ public final class a {
     }
 
     public static int w(String str, String str2, boolean z) {
-        Integer num = bYw.get(str2);
+        Integer num = bYx.get(str2);
         if (num == null) {
-            num = bYv.get(str);
+            num = bYw.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -387,14 +387,14 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYx.get(str);
+        return bYy.get(str);
     }
 
-    public static String xf(String str) {
+    public static String xg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYy.get(str);
+        return bYz.get(str);
     }
 
     public static String aa(String str, String str2, String str3) {
@@ -406,7 +406,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = xg(str2);
+            str4 = xh(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -453,10 +453,10 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String xf = xf(str3);
+                String xg = xg(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(xf) ? xf.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(xg) ? xg.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
                 String mJ = mJ(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
@@ -504,9 +504,9 @@ public final class a {
         return null;
     }
 
-    static String xg(String str) {
+    static String xh(String str) {
         try {
-            Matcher matcher = bYz.matcher(str);
+            Matcher matcher = bYA.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

@@ -12,55 +12,55 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private CustomMessageListener eOK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private CustomMessageListener eOX = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.frU != null && d.this.frU.isEmpty() && !d.this.frU.isLoading()) {
-                d.this.frU.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.fsh != null && d.this.fsh.isEmpty() && !d.this.fsh.isLoading()) {
+                d.this.fsh.refreshData();
             }
         }
     };
-    private BdUniqueId ewI;
-    private int frQ;
-    private b frU;
+    private BdUniqueId ewV;
+    private int fsd;
+    private b fsh;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.ewI = null;
+        this.ewV = null;
         this.mPageContext = tbPageContext;
-        this.frQ = i;
+        this.fsd = i;
         this.mUserId = str;
-        this.ewI = bdUniqueId;
-        this.frU = new b(this.mPageContext, this.frQ, this.mUserId, this.ewI);
-        if (this.frU != null && this.frU.isEmpty() && !this.frU.isLoading()) {
-            this.frU.refreshData();
+        this.ewV = bdUniqueId;
+        this.fsh = new b(this.mPageContext, this.fsd, this.mUserId, this.ewV);
+        if (this.fsh != null && this.fsh.isEmpty() && !this.fsh.isLoading()) {
+            this.fsh.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.eOK);
+        MessageManager.getInstance().registerListener(this.eOX);
     }
 
     public void Z(String str, boolean z) {
-        if (this.frU != null) {
-            this.frU.Z(str, z);
+        if (this.fsh != null) {
+            this.fsh.Z(str, z);
         }
     }
 
     public int getTabType() {
-        return this.frQ;
+        return this.fsd;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View we() {
-        if (this.frU == null) {
+        if (this.fsh == null) {
             return null;
         }
-        return this.frU.aIh();
+        return this.fsh.aIi();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.frQ == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.fsd == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -69,8 +69,8 @@ public class d implements com.baidu.live.liveroom.d.d {
     }
 
     public void a(a.InterfaceC0474a interfaceC0474a) {
-        if (this.frU != null) {
-            this.frU.a(interfaceC0474a);
+        if (this.fsh != null) {
+            this.fsh.a(interfaceC0474a);
         }
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eOK);
-        if (this.frU != null) {
-            this.frU.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.eOX);
+        if (this.fsh != null) {
+            this.fsh.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.frU != null) {
-            this.frU.onChangeSkinType(i);
+        if (this.fsh != null) {
+            this.fsh.onChangeSkinType(i);
         }
     }
 }

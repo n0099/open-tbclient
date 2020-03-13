@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends ab {
-    private a bkO;
+    private a bkP;
 
     public c(j jVar) {
         super(jVar, "/swanAPI/perfCat");
@@ -61,20 +61,20 @@ public class c extends ab {
         }
         switch (c) {
             case 0:
-                if (this.bkO == null) {
-                    this.bkO = new a();
+                if (this.bkP == null) {
+                    this.bkP = new a();
                 }
-                this.bkO.startMonitor();
+                this.bkP.startMonitor();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             case 1:
                 JSONObject jSONObject = new JSONObject();
-                if (this.bkO == null) {
+                if (this.bkP == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String Ma = this.bkO.Ma();
-                    this.bkO = null;
+                    String Ma = this.bkP.Ma();
+                    this.bkP = null;
                     f.WS().NZ();
                     try {
                         jSONObject.put("wvID", f.WS().NZ());
@@ -95,8 +95,8 @@ public class c extends ab {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.bkO != null) {
-                        this.bkO.en(optParamsAsJo.optInt("duration"));
+                    if (this.bkP != null) {
+                        this.bkP.en(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

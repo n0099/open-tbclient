@@ -11,8 +11,8 @@ import tv.chushou.zues.widget.adapterview.c;
 import tv.chushou.zues.widget.adapterview.recyclerview.a.b;
 /* loaded from: classes5.dex */
 public class ExtendedRecyclerView extends RecyclerView {
-    protected View fGH;
-    protected b nXs;
+    protected View fGU;
+    protected b nXD;
 
     public ExtendedRecyclerView(Context context) {
         super(context);
@@ -29,77 +29,77 @@ public class ExtendedRecyclerView extends RecyclerView {
     @Override // android.support.v7.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         if (adapter instanceof b) {
-            this.nXs = (b) adapter;
-            super.setAdapter(this.nXs);
-        } else if (this.nXs == null) {
-            this.nXs = new b(adapter);
-            super.setAdapter(this.nXs);
+            this.nXD = (b) adapter;
+            super.setAdapter(this.nXD);
+        } else if (this.nXD == null) {
+            this.nXD = new b(adapter);
+            super.setAdapter(this.nXD);
         } else {
-            this.nXs.setAdapter(adapter);
+            this.nXD.setAdapter(adapter);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView
     public b getAdapter() {
-        return this.nXs;
+        return this.nXD;
     }
 
     public boolean Os(int i) {
-        return this.nXs != null && this.nXs.Op(i);
+        return this.nXD != null && this.nXD.Op(i);
     }
 
     public int getHeaderViewCount() {
-        if (this.nXs == null) {
+        if (this.nXD == null) {
             return 0;
         }
-        return this.nXs.getHeaderViewsCount();
+        return this.nXD.getHeaderViewsCount();
     }
 
     public boolean dG(View view) {
-        return this.nXs != null && this.nXs.dF(view);
+        return this.nXD != null && this.nXD.dF(view);
     }
 
     public boolean Ot(int i) {
-        return this.nXs != null && this.nXs.Oq(i);
+        return this.nXD != null && this.nXD.Oq(i);
     }
 
     public void addFooterView(@NonNull View view, int i) {
-        if (this.nXs == null) {
+        if (this.nXD == null) {
             throw new IllegalStateException("should call setAdapter() first");
         }
-        this.nXs.addFooterView(view, i);
+        this.nXD.addFooterView(view, i);
     }
 
     public void dE(View view) {
-        if (view != null && this.nXs != null) {
-            this.nXs.dE(view);
+        if (view != null && this.nXD != null) {
+            this.nXD.dE(view);
         }
     }
 
     public int getFooterViewCount() {
-        if (this.nXs == null) {
+        if (this.nXD == null) {
             return 0;
         }
-        return this.nXs.getFooterViewsCount();
+        return this.nXD.getFooterViewsCount();
     }
 
     public void setEmptyView(@NonNull View view) {
-        this.fGH = view;
-        if (this.nXs == null) {
+        this.fGU = view;
+        if (this.nXD == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.nXs.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
+        this.nXD.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
             @Override // tv.chushou.zues.widget.adapterview.a
             public void xg(boolean z) {
-                if (ExtendedRecyclerView.this.fGH != null) {
+                if (ExtendedRecyclerView.this.fGU != null) {
                     if (z) {
                         ExtendedRecyclerView.this.setVisibility(8);
-                        ExtendedRecyclerView.this.fGH.setVisibility(0);
+                        ExtendedRecyclerView.this.fGU.setVisibility(0);
                         return;
                     }
                     ExtendedRecyclerView.this.setVisibility(0);
-                    ExtendedRecyclerView.this.fGH.setVisibility(8);
+                    ExtendedRecyclerView.this.fGU.setVisibility(8);
                 }
             }
         });
@@ -107,13 +107,13 @@ public class ExtendedRecyclerView extends RecyclerView {
 
     @Nullable
     public View getEmptyView() {
-        return this.fGH;
+        return this.fGU;
     }
 
     public void setLoadMoreProvider(c cVar) {
-        if (this.nXs == null) {
+        if (this.nXD == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.nXs.setLoadMoreProvider(cVar);
+        this.nXD.setLoadMoreProvider(cVar);
     }
 }

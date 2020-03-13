@@ -8,27 +8,27 @@ import java.util.regex.Matcher;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class j implements i {
-    private final CharSequence nDm;
-    private final g nDu;
-    private final Matcher nDv;
+    private final g nDF;
+    private final Matcher nDG;
+    private final CharSequence nDx;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.j(matcher, "matcher");
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        this.nDv = matcher;
-        this.nDm = charSequence;
-        this.nDu = new a();
+        this.nDG = matcher;
+        this.nDx = charSequence;
+        this.nDF = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dKS() {
-        return this.nDv;
+    public final MatchResult dKT() {
+        return this.nDG;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h dKQ() {
+    public kotlin.b.h dKR() {
         kotlin.b.h a2;
-        a2 = k.a(dKS());
+        a2 = k.a(dKT());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dKS().groupCount() + 1;
+            return j.this.dKT().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -68,9 +68,9 @@ public final class j implements i {
 
         public f NI(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.dKS(), i);
-            if (a.dKH().intValue() >= 0) {
-                String group = j.this.dKS().group(i);
+            a = k.a(j.this.dKT(), i);
+            if (a.dKI().intValue() >= 0) {
+                String group = j.this.dKT().group(i);
                 kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dKR() {
+    public i dKS() {
         i a2;
-        int end = (dKS().end() == dKS().start() ? 1 : 0) + dKS().end();
-        if (end <= this.nDm.length()) {
-            Matcher matcher = this.nDv.pattern().matcher(this.nDm);
+        int end = (dKT().end() == dKT().start() ? 1 : 0) + dKT().end();
+        if (end <= this.nDx.length()) {
+            Matcher matcher = this.nDG.pattern().matcher(this.nDx);
             kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.nDm);
+            a2 = k.a(matcher, end, this.nDx);
             return a2;
         }
         return null;

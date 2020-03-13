@@ -21,17 +21,17 @@ public final class d extends b {
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public int dxj() {
+    public int dxk() {
         return 0;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public int dxk() {
+    public int dxl() {
         return this.reason;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public Object dxl() {
+    public Object dxm() {
         return this.data;
     }
 }

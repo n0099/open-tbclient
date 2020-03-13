@@ -14,10 +14,10 @@ import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private TextView cVp;
-    private int cVq;
-    private View.OnClickListener cVr;
-    private View cuz;
+    private TextView cVq;
+    private int cVr;
+    private View.OnClickListener cVs;
+    private View cuA;
     private Drawable mBackgroundDrawable;
     private ViewGroup mContainer;
     private Activity mContext;
@@ -42,20 +42,20 @@ public class f implements View.OnClickListener {
             this.mContext = activity;
             this.mHeight = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds114);
             this.mCornerRadius = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds84);
-            this.cVq = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
+            this.cVr = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
             this.offsetY = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds222);
             this.offsetX = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds29);
             View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
             this.mContainer = (ViewGroup) inflate.findViewById(R.id.layout_container);
-            this.cuz = inflate.findViewById(R.id.background);
-            this.cVp = (TextView) inflate.findViewById(R.id.toast_tv);
+            this.cuA = inflate.findViewById(R.id.background);
+            this.cVq = (TextView) inflate.findViewById(R.id.toast_tv);
             this.mRootView = inflate;
-            this.cuz.setBackgroundDrawable(aEK());
-            this.cVp.setMaxLines(1);
-            this.cVp.setGravity(17);
-            this.cVp.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
-            this.cVp.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_a));
-            this.cVp.setPadding(this.cVq, 0, this.cVq, 0);
+            this.cuA.setBackgroundDrawable(aEK());
+            this.cVq.setMaxLines(1);
+            this.cVq.setGravity(17);
+            this.cVq.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
+            this.cVq.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_a));
+            this.cVq.setPadding(this.cVr, 0, this.cVr, 0);
             this.mWindowManager = (WindowManager) this.mContext.getSystemService("window");
             this.mLayoutParams = new WindowManager.LayoutParams();
             this.mLayoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - (this.offsetX * 2);
@@ -88,7 +88,7 @@ public class f implements View.OnClickListener {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cVr = onClickListener;
+        this.cVs = onClickListener;
     }
 
     public static f d(Activity activity, String str) {
@@ -98,11 +98,11 @@ public class f implements View.OnClickListener {
     private f sV(String str) {
         if (this.mContext != null && !TextUtils.isEmpty(str)) {
             String interceptString = ad.interceptString(str, 34);
-            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.cVp.getPaint(), interceptString);
+            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.cVq.getPaint(), interceptString);
             ViewGroup.LayoutParams layoutParams = this.mContainer.getLayoutParams();
-            layoutParams.width = textWidth + (this.cVq * 2);
+            layoutParams.width = textWidth + (this.cVr * 2);
             this.mContainer.setLayoutParams(layoutParams);
-            this.cVp.setText(interceptString);
+            this.cVq.setText(interceptString);
         }
         return this;
     }
@@ -138,8 +138,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cVr != null) {
-            this.cVr.onClick(view);
+        if (this.cVs != null) {
+            this.cVs.onClick(view);
         }
         hide();
     }

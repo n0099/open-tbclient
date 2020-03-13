@@ -7,19 +7,19 @@ import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
 /* loaded from: classes6.dex */
 public final class j implements AudioProcessor {
-    private boolean mba;
-    private i mda;
-    private long mdd;
-    private long mde;
+    private boolean mbl;
+    private i mdl;
+    private long mdo;
+    private long mdp;
     private float speed = 1.0f;
     private float pitch = 1.0f;
     private int channelCount = -1;
-    private int maW = -1;
-    private int mdb = -1;
+    private int mbh = -1;
+    private int mdm = -1;
     private ByteBuffer buffer = EMPTY_BUFFER;
-    private ShortBuffer mdc = this.buffer.asShortBuffer();
-    private ByteBuffer maZ = EMPTY_BUFFER;
-    private int mcZ = -1;
+    private ShortBuffer mdn = this.buffer.asShortBuffer();
+    private ByteBuffer mbk = EMPTY_BUFFER;
+    private int mdk = -1;
 
     public float bw(float f) {
         this.speed = v.g(f, 0.1f, 8.0f);
@@ -32,11 +32,11 @@ public final class j implements AudioProcessor {
     }
 
     public long fJ(long j) {
-        if (this.mde >= 1024) {
-            if (this.mdb == this.maW) {
-                return v.i(j, this.mdd, this.mde);
+        if (this.mdp >= 1024) {
+            if (this.mdm == this.mbh) {
+                return v.i(j, this.mdo, this.mdp);
             }
-            return v.i(j, this.mdb * this.mdd, this.maW * this.mde);
+            return v.i(j, this.mdm * this.mdo, this.mbh * this.mdp);
         }
         return (long) (this.speed * j);
     }
@@ -46,34 +46,34 @@ public final class j implements AudioProcessor {
         if (i3 != 2) {
             throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         }
-        int i4 = this.mcZ == -1 ? i : this.mcZ;
-        if (this.maW == i && this.channelCount == i2 && this.mdb == i4) {
+        int i4 = this.mdk == -1 ? i : this.mdk;
+        if (this.mbh == i && this.channelCount == i2 && this.mdm == i4) {
             return false;
         }
-        this.maW = i;
+        this.mbh = i;
         this.channelCount = i2;
-        this.mdb = i4;
+        this.mdm = i4;
         return true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isActive() {
-        return Math.abs(this.speed - 1.0f) >= 0.01f || Math.abs(this.pitch - 1.0f) >= 0.01f || this.mdb != this.maW;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int dtN() {
-        return this.channelCount;
+        return Math.abs(this.speed - 1.0f) >= 0.01f || Math.abs(this.pitch - 1.0f) >= 0.01f || this.mdm != this.mbh;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int dtO() {
-        return 2;
+        return this.channelCount;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int dtP() {
-        return this.mdb;
+        return 2;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int dtQ() {
+        return this.mdm;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -81,65 +81,65 @@ public final class j implements AudioProcessor {
         if (byteBuffer.hasRemaining()) {
             ShortBuffer asShortBuffer = byteBuffer.asShortBuffer();
             int remaining = byteBuffer.remaining();
-            this.mdd += remaining;
-            this.mda.b(asShortBuffer);
+            this.mdo += remaining;
+            this.mdl.b(asShortBuffer);
             byteBuffer.position(byteBuffer.position() + remaining);
         }
-        int dur = this.mda.dur() * this.channelCount * 2;
-        if (dur > 0) {
-            if (this.buffer.capacity() < dur) {
-                this.buffer = ByteBuffer.allocateDirect(dur).order(ByteOrder.nativeOrder());
-                this.mdc = this.buffer.asShortBuffer();
+        int dus = this.mdl.dus() * this.channelCount * 2;
+        if (dus > 0) {
+            if (this.buffer.capacity() < dus) {
+                this.buffer = ByteBuffer.allocateDirect(dus).order(ByteOrder.nativeOrder());
+                this.mdn = this.buffer.asShortBuffer();
             } else {
                 this.buffer.clear();
-                this.mdc.clear();
+                this.mdn.clear();
             }
-            this.mda.c(this.mdc);
-            this.mde += dur;
-            this.buffer.limit(dur);
-            this.maZ = this.buffer;
+            this.mdl.c(this.mdn);
+            this.mdp += dus;
+            this.buffer.limit(dus);
+            this.mbk = this.buffer;
         }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void dtQ() {
-        this.mda.dtQ();
-        this.mba = true;
+    public void dtR() {
+        this.mdl.dtR();
+        this.mbl = true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public ByteBuffer dtR() {
-        ByteBuffer byteBuffer = this.maZ;
-        this.maZ = EMPTY_BUFFER;
+    public ByteBuffer dtS() {
+        ByteBuffer byteBuffer = this.mbk;
+        this.mbk = EMPTY_BUFFER;
         return byteBuffer;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean avR() {
-        return this.mba && (this.mda == null || this.mda.dur() == 0);
+        return this.mbl && (this.mdl == null || this.mdl.dus() == 0);
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public void flush() {
-        this.mda = new i(this.maW, this.channelCount, this.speed, this.pitch, this.mdb);
-        this.maZ = EMPTY_BUFFER;
-        this.mdd = 0L;
-        this.mde = 0L;
-        this.mba = false;
+        this.mdl = new i(this.mbh, this.channelCount, this.speed, this.pitch, this.mdm);
+        this.mbk = EMPTY_BUFFER;
+        this.mdo = 0L;
+        this.mdp = 0L;
+        this.mbl = false;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public void reset() {
-        this.mda = null;
+        this.mdl = null;
         this.buffer = EMPTY_BUFFER;
-        this.mdc = this.buffer.asShortBuffer();
-        this.maZ = EMPTY_BUFFER;
+        this.mdn = this.buffer.asShortBuffer();
+        this.mbk = EMPTY_BUFFER;
         this.channelCount = -1;
-        this.maW = -1;
-        this.mdb = -1;
-        this.mdd = 0L;
-        this.mde = 0L;
-        this.mba = false;
-        this.mcZ = -1;
+        this.mbh = -1;
+        this.mdm = -1;
+        this.mdo = 0L;
+        this.mdp = 0L;
+        this.mbl = false;
+        this.mdk = -1;
     }
 }

@@ -3,35 +3,35 @@ package com.baidu.tbadk.mvc.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b {
-    private int dBQ;
-    private boolean dBR = true;
-    private com.baidu.tbadk.mvc.b.a dBS;
-    private com.baidu.tbadk.mvc.d.b dBT;
-    private com.baidu.tbadk.mvc.a.a dBU;
+    private int dCd;
+    private boolean dCe = true;
+    private com.baidu.tbadk.mvc.b.a dCf;
+    private com.baidu.tbadk.mvc.d.b dCg;
+    private com.baidu.tbadk.mvc.a.a dCh;
     private Object extra;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.dBQ = i;
-        this.dBS = aVar;
-        this.dBT = bVar;
-        this.dBU = aVar2;
+        this.dCd = i;
+        this.dCf = aVar;
+        this.dCg = bVar;
+        this.dCh = aVar2;
     }
 
-    public int aQn() {
-        return this.dBQ;
+    public int aQo() {
+        return this.dCd;
     }
 
-    public com.baidu.tbadk.mvc.b.a aQo() {
-        return this.dBS;
+    public com.baidu.tbadk.mvc.b.a aQp() {
+        return this.dCf;
     }
 
-    public com.baidu.tbadk.mvc.d.b aQp() {
-        return this.dBT;
+    public com.baidu.tbadk.mvc.d.b aQq() {
+        return this.dCg;
     }
 
     public void a(com.baidu.tbadk.mvc.d.b bVar) {
-        this.dBT = bVar;
+        this.dCg = bVar;
     }
 
     public Object getExtra() {
@@ -42,8 +42,8 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean aQq() {
-        return this.dBR;
+    public boolean aQr() {
+        return this.dCe;
     }
 
     public BdUniqueId getUniqueId() {

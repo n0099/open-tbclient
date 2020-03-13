@@ -44,7 +44,7 @@ public class ac extends d implements m<bj> {
         MetaData aCo;
         if (bjVar != null && this.Ln != null && (aCo = bjVar.aCo()) != null) {
             final ThemeCardInUserData themeCard = aCo.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bjVar.cUm) {
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bjVar.cUn) {
                 this.Ln.setVisibility(8);
                 return;
             }

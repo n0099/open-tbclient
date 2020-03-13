@@ -21,17 +21,17 @@ public class d implements View.OnClickListener {
     private final View.OnClickListener Nw = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.eNp != null) {
-                d.this.eNp.c(view, d.this.KJ);
+            if (d.this.eNC != null) {
+                d.this.eNC.c(view, d.this.KJ);
             }
         }
     };
-    public RelativeLayout eNk;
-    public ThreadUserInfoLayout eNl;
-    public ThreadCommentAndPraiseInfoLayout eNm;
-    public View eNn;
-    public AlaVideoContainer eNo;
-    private com.baidu.tieba.ala.livecard.vc.c eNp;
+    public View eNA;
+    public AlaVideoContainer eNB;
+    private com.baidu.tieba.ala.livecard.vc.c eNC;
+    public RelativeLayout eNx;
+    public ThreadUserInfoLayout eNy;
+    public ThreadCommentAndPraiseInfoLayout eNz;
     public View mDivider;
     private String mForumName;
     public TextView mTextTitle;
@@ -39,18 +39,18 @@ public class d implements View.OnClickListener {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.eNk = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.eNl = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.eNl.setFrom(3);
+        this.eNx = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.eNy = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.eNy.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.eNo = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.eNn = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.eNm = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.eNB = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.eNA = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.eNz = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
         this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.eNk.setOnClickListener(this);
-        this.eNm.setOnClickListener(this);
-        this.eNm.getCommentContainer().setOnClickListener(this);
-        this.eNo.setOnVideoClickListener(this);
+        this.eNx.setOnClickListener(this);
+        this.eNz.setOnClickListener(this);
+        this.eNz.getCommentContainer().setOnClickListener(this);
+        this.eNB.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -67,48 +67,48 @@ public class d implements View.OnClickListener {
         if (bjVar != null && bjVar.aCo() != null) {
             this.KJ = bjVar;
             this.mForumName = str;
-            this.eNk.setVisibility(0);
-            this.eNl.setData(bjVar);
-            if (this.eNl.getHeaderImg() != null) {
-                this.eNl.getHeaderImg().setData(bjVar);
+            this.eNx.setVisibility(0);
+            this.eNy.setData(bjVar);
+            if (this.eNy.getHeaderImg() != null) {
+                this.eNy.getHeaderImg().setData(bjVar);
             }
-            this.eNl.setUserAfterClickListener(this.Nw);
-            bjVar.s(false, true);
+            this.eNy.setUserAfterClickListener(this.Nw);
+            bjVar.t(false, true);
             this.mTextTitle.setText(bjVar.aCV());
-            this.eNo.getController().a(bjVar, str, "", false);
-            this.eNo.getController().startPlayAnimation();
-            this.eNm.setReplyTimeVisible(false);
-            this.eNm.setNeedAddReplyIcon(true);
-            this.eNm.setIsBarViewVisible(false);
-            this.eNm.setCommentNumEnable(false);
-            this.eNm.setOnClickListener(this);
-            this.eNm.setLiveShareEnable(false);
-            this.eNm.setShareVisible(true);
-            this.eNm.setShowPraiseNum(true);
-            this.eNm.setNeedAddPraiseIcon(true);
-            this.eNm.setFrom(2);
-            if (this.eNm.setData(bjVar)) {
-                this.eNn.setVisibility(8);
+            this.eNB.getController().a(bjVar, str, "", false);
+            this.eNB.getController().startPlayAnimation();
+            this.eNz.setReplyTimeVisible(false);
+            this.eNz.setNeedAddReplyIcon(true);
+            this.eNz.setIsBarViewVisible(false);
+            this.eNz.setCommentNumEnable(false);
+            this.eNz.setOnClickListener(this);
+            this.eNz.setLiveShareEnable(false);
+            this.eNz.setShareVisible(true);
+            this.eNz.setShowPraiseNum(true);
+            this.eNz.setNeedAddPraiseIcon(true);
+            this.eNz.setFrom(2);
+            if (this.eNz.setData(bjVar)) {
+                this.eNA.setVisibility(8);
             } else {
-                this.eNn.setVisibility(0);
+                this.eNA.setVisibility(0);
             }
             T(bjVar);
         }
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.eNm != null && this.eNl != null) {
-            this.eNl.setPageUniqueId(bdUniqueId);
+        if (bdUniqueId != null && this.eNz != null && this.eNy != null) {
+            this.eNy.setPageUniqueId(bdUniqueId);
         }
     }
 
     private void T(bj bjVar) {
-        this.eNm.onChangeSkinType();
-        this.eNl.onChangeSkinType();
-        this.eNo.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.eNk.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
+        this.eNz.onChangeSkinType();
+        this.eNy.onChangeSkinType();
+        this.eNB.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.eNx.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
         am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (bjVar != null && l.zT(bjVar.getId())) {
+        if (bjVar != null && l.zU(bjVar.getId())) {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
         } else {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
@@ -116,20 +116,20 @@ public class d implements View.OnClickListener {
     }
 
     public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.eNp = cVar;
+        this.eNC = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eNk || view == this.eNm.getCommentContainer()) {
+        if (view == this.eNx || view == this.eNz.getCommentContainer()) {
             if (this.KJ != null) {
-                l.zS(this.KJ.getId());
+                l.zT(this.KJ.getId());
             }
-            if (this.eNp != null) {
-                this.eNp.b(view, this.KJ);
+            if (this.eNC != null) {
+                this.eNC.b(view, this.KJ);
             }
-        } else if (view.getId() == R.id.video_container && this.eNp != null) {
-            this.eNp.b(view, this.KJ);
+        } else if (view.getId() == R.id.video_container && this.eNC != null) {
+            this.eNC.b(view, this.KJ);
         }
     }
 }

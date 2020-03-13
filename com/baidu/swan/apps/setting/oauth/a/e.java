@@ -20,31 +20,31 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bTQ;
-    public b.a bUc;
-    public b bUd = new b(Looper.getMainLooper(), this);
-    public Bundle bUe;
-    protected JSONObject bUf;
+    protected String bTR;
+    public b.a bUd;
+    public b bUe = new b(Looper.getMainLooper(), this);
+    public Bundle bUf;
+    protected JSONObject bUg;
     protected final Activity mActivity;
 
     public e(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.bUc = aVar;
+        this.bUd = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.bTQ = bundle.getString("__plugin__");
+            this.bTR = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.bUe = bundle;
+        this.bUf = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
     protected boolean aeg() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.bTQ);
-            jSONObject.put("ma_id", isEmpty ? adb().id : this.bTQ);
+            boolean isEmpty = TextUtils.isEmpty(this.bTR);
+            jSONObject.put("ma_id", isEmpty ? adb().id : this.bTR);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? adb().getAppKey() : this.bTQ);
+            jSONObject2.put("app_key", isEmpty ? adb().getAppKey() : this.bTR);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             String Ic = com.baidu.swan.apps.w.a.Ui().Ic();
@@ -100,7 +100,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.bUd.removeMessages(1);
+        this.bUe.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,7 +117,7 @@ public class e extends g<c> {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                acQ.a(e.this.mActivity, e.this.bUe, this);
+                acQ.a(e.this.mActivity, e.this.bUf, this);
             }
             return isLogin;
         }
@@ -158,16 +158,16 @@ public class e extends g<c> {
 
     /* loaded from: classes11.dex */
     public static class b extends Handler {
-        private WeakReference<e> bUh;
+        private WeakReference<e> bUi;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.bUh = new WeakReference<>(eVar);
+            this.bUi = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.bUh.get();
+            e eVar = this.bUi.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:

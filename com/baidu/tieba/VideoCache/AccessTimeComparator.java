@@ -10,10 +10,10 @@ public class AccessTimeComparator implements Serializable, Comparator<d> {
         if (dVar == null || dVar2 == null) {
             return 0;
         }
-        long aXe = dVar.aXe();
-        long aXe2 = dVar2.aXe();
-        int i = aXe > aXe2 ? 1 : 0;
-        if (aXe < aXe2) {
+        long aXf = dVar.aXf();
+        long aXf2 = dVar2.aXf();
+        int i = aXf > aXf2 ? 1 : 0;
+        if (aXf < aXf2) {
             return -1;
         }
         return i;

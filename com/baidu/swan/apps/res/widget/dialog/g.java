@@ -22,7 +22,7 @@ import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.swan.apps.res.widget.dialog.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a bOb;
+    private a bOc;
 
     /* loaded from: classes11.dex */
     public interface c {
@@ -44,11 +44,11 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
     }
 
     public a ack() {
-        return this.bOb;
+        return this.bOc;
     }
 
     void a(a aVar) {
-        this.bOb = aVar;
+        this.bOc = aVar;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -61,16 +61,16 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
     public static class a {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = a.h.aiapps_dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = a.h.aiapps_dialog_positive_title_ok;
-        protected final b bOc;
-        protected final g bpd;
+        protected final b bOd;
+        protected final g bpe;
         protected int mBtnHeight;
         private Context mContext;
         private boolean mSystemDialog = false;
 
         public a(Context context) {
-            this.bpd = bX(context);
-            this.bpd.a(this);
-            this.bOc = new b((ViewGroup) this.bpd.getWindow().getDecorView());
+            this.bpe = bX(context);
+            this.bpe.a(this);
+            this.bOd = new b((ViewGroup) this.bpe.getWindow().getDecorView());
             this.mContext = context;
             this.mBtnHeight = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
         }
@@ -88,13 +88,13 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a eD(int i) {
-            this.bOc.mTitle.setText(this.mContext.getText(i));
+            this.bOd.mTitle.setText(this.mContext.getText(i));
             return this;
         }
 
         public a e(CharSequence charSequence) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.bOc.mTitle.setText(charSequence);
+                this.bOd.mTitle.setText(charSequence);
             } else {
                 dB(true);
             }
@@ -102,55 +102,55 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a dB(boolean z) {
-            this.bOc.mTitlePanel.setVisibility(z ? 8 : 0);
+            this.bOd.mTitlePanel.setVisibility(z ? 8 : 0);
             return this;
         }
 
         public a eC(int i) {
-            if (this.bOc.mMessageContent.getVisibility() != 0) {
-                this.bOc.mMessageContent.setVisibility(0);
+            if (this.bOd.mMessageContent.getVisibility() != 0) {
+                this.bOd.mMessageContent.setVisibility(0);
             }
-            this.bOc.mMessage.setText(this.mContext.getText(i));
+            this.bOd.mMessage.setText(this.mContext.getText(i));
             setMsgContentParams();
             return this;
         }
 
         public a kJ(String str) {
-            if (this.bOc.mMessageContent.getVisibility() != 0) {
-                this.bOc.mMessageContent.setVisibility(0);
+            if (this.bOd.mMessageContent.getVisibility() != 0) {
+                this.bOd.mMessageContent.setVisibility(0);
             }
             if (str != null) {
-                this.bOc.mMessage.setText(str);
+                this.bOd.mMessage.setText(str);
                 setMsgContentParams();
             }
             return this;
         }
 
         public a a(Spanned spanned) {
-            if (this.bOc.mMessageContent.getVisibility() != 0) {
-                this.bOc.mMessageContent.setVisibility(0);
+            if (this.bOd.mMessageContent.getVisibility() != 0) {
+                this.bOd.mMessageContent.setVisibility(0);
             }
             if (spanned != null) {
-                this.bOc.mMessage.setMovementMethod(LinkMovementMethod.getInstance());
-                this.bOc.mMessage.setText(spanned);
+                this.bOd.mMessage.setMovementMethod(LinkMovementMethod.getInstance());
+                this.bOd.mMessage.setText(spanned);
                 setMsgContentParams();
             }
             return this;
         }
 
         public a acm() {
-            this.bOc.mMessage.setGravity(3);
+            this.bOd.mMessage.setGravity(3);
             return this;
         }
 
         private void setMsgContentParams() {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
             layoutParams.addRule(3, a.f.dialog_message_content);
-            this.bOc.mBtnPanelLayout.setLayoutParams(layoutParams);
+            this.bOd.mBtnPanelLayout.setLayoutParams(layoutParams);
         }
 
         public a fR(int i) {
-            this.bOc.setMessageMaxHeight(i);
+            this.bOd.setMessageMaxHeight(i);
             return this;
         }
 
@@ -160,23 +160,23 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.bOc.mPositiveButton.setVisibility(8);
-                if (this.bOc.mNegativeButton.getVisibility() == 0) {
-                    this.bOc.mDivider3.setVisibility(8);
+                this.bOd.mPositiveButton.setVisibility(8);
+                if (this.bOd.mNegativeButton.getVisibility() == 0) {
+                    this.bOd.mDivider3.setVisibility(8);
                 }
             } else {
-                this.bOc.mPositiveButton.setVisibility(0);
-                if (this.bOc.mNegativeButton.getVisibility() == 0) {
-                    this.bOc.mDivider3.setVisibility(0);
+                this.bOd.mPositiveButton.setVisibility(0);
+                if (this.bOd.mNegativeButton.getVisibility() == 0) {
+                    this.bOd.mDivider3.setVisibility(0);
                 }
-                this.bOc.mPositiveButton.setText(charSequence);
-                this.bOc.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.1
+                this.bOd.mPositiveButton.setText(charSequence);
+                this.bOd.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bpd.onButtonClick(-1);
-                        a.this.bpd.dismiss();
+                        a.this.bpe.onButtonClick(-1);
+                        a.this.bpe.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(a.this.bpd, -1);
+                            onClickListener.onClick(a.this.bpe, -1);
                         }
                     }
                 });
@@ -189,9 +189,9 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
                 view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        a.this.bpd.onButtonClick(i);
-                        a.this.bpd.dismiss();
-                        onClickListener.onClick(a.this.bpd, i);
+                        a.this.bpe.onButtonClick(i);
+                        a.this.bpe.dismiss();
+                        onClickListener.onClick(a.this.bpe, i);
                     }
                 });
             }
@@ -200,20 +200,20 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         public TextView ifOnlyOneBtnGetIt() {
             int i;
             TextView textView;
-            if (this.bOc.mPositiveButton == null || this.bOc.mPositiveButton.getVisibility() != 0) {
+            if (this.bOd.mPositiveButton == null || this.bOd.mPositiveButton.getVisibility() != 0) {
                 i = 0;
                 textView = null;
             } else {
-                textView = this.bOc.mPositiveButton;
+                textView = this.bOd.mPositiveButton;
                 i = 1;
             }
-            if (this.bOc.mNegativeButton != null && this.bOc.mNegativeButton.getVisibility() == 0) {
+            if (this.bOd.mNegativeButton != null && this.bOd.mNegativeButton.getVisibility() == 0) {
                 i++;
-                textView = this.bOc.mNegativeButton;
+                textView = this.bOd.mNegativeButton;
             }
-            if (this.bOc.mNeutralButton != null && this.bOc.mNeutralButton.getVisibility() == 0) {
+            if (this.bOd.mNeutralButton != null && this.bOd.mNeutralButton.getVisibility() == 0) {
                 i++;
-                textView = this.bOc.mNeutralButton;
+                textView = this.bOd.mNeutralButton;
             }
             if (i != 1) {
                 return null;
@@ -227,23 +227,23 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.bOc.mNegativeButton.setVisibility(8);
-                if (this.bOc.mPositiveButton.getVisibility() == 0) {
-                    this.bOc.mDivider3.setVisibility(8);
+                this.bOd.mNegativeButton.setVisibility(8);
+                if (this.bOd.mPositiveButton.getVisibility() == 0) {
+                    this.bOd.mDivider3.setVisibility(8);
                 }
             } else {
-                this.bOc.mNegativeButton.setVisibility(0);
-                if (this.bOc.mPositiveButton.getVisibility() == 0) {
-                    this.bOc.mDivider3.setVisibility(0);
+                this.bOd.mNegativeButton.setVisibility(0);
+                if (this.bOd.mPositiveButton.getVisibility() == 0) {
+                    this.bOd.mDivider3.setVisibility(0);
                 }
-                this.bOc.mNegativeButton.setText(charSequence);
-                this.bOc.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.3
+                this.bOd.mNegativeButton.setText(charSequence);
+                this.bOd.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bpd.onButtonClick(-2);
-                        a.this.bpd.dismiss();
+                        a.this.bpe.onButtonClick(-2);
+                        a.this.bpe.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(a.this.bpd, -2);
+                            onClickListener.onClick(a.this.bpe, -2);
                         }
                     }
                 });
@@ -253,9 +253,9 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a dC(boolean z) {
             if (z) {
-                this.bOc.mDivider2.setVisibility(0);
+                this.bOd.mDivider2.setVisibility(0);
             } else {
-                this.bOc.mDivider2.setVisibility(8);
+                this.bOd.mDivider2.setVisibility(8);
             }
             return this;
         }
@@ -263,18 +263,18 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         public a fS(int i) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i);
             layoutParams.addRule(2, a.f.btn_panel);
-            this.bOc.mDivider2.setLayoutParams(layoutParams);
+            this.bOd.mDivider2.setLayoutParams(layoutParams);
             return this;
         }
 
         public void fT(int i) {
-            this.bOc.mDialogLayout.getLayoutParams().height = i;
-            this.bOc.mDialogLayout.requestLayout();
+            this.bOd.mDialogLayout.getLayoutParams().height = i;
+            this.bOd.mDialogLayout.requestLayout();
         }
 
         public void fU(int i) {
-            this.bOc.mDialogLayout.getLayoutParams().width = i;
-            this.bOc.mDialogLayout.requestLayout();
+            this.bOd.mDialogLayout.getLayoutParams().width = i;
+            this.bOd.mDialogLayout.requestLayout();
         }
 
         public a e(int i, DialogInterface.OnClickListener onClickListener) {
@@ -282,18 +282,18 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a c(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.bOc.mNeutralButton.setVisibility(0);
-            if (this.bOc.mPositiveButton.getVisibility() == 0) {
-                this.bOc.mDivider4.setVisibility(0);
+            this.bOd.mNeutralButton.setVisibility(0);
+            if (this.bOd.mPositiveButton.getVisibility() == 0) {
+                this.bOd.mDivider4.setVisibility(0);
             }
-            this.bOc.mNeutralButton.setText(charSequence);
-            this.bOc.mNeutralButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.4
+            this.bOd.mNeutralButton.setText(charSequence);
+            this.bOd.mNeutralButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bpd.onButtonClick(-3);
-                    a.this.bpd.dismiss();
+                    a.this.bpe.onButtonClick(-3);
+                    a.this.bpe.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.bpd, -3);
+                        onClickListener.onClick(a.this.bpe, -3);
                     }
                 }
             });
@@ -301,76 +301,76 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a fV(int i) {
-            this.bOc.mIcon.setImageResource(i);
+            this.bOd.mIcon.setImageResource(i);
             return this;
         }
 
         public a an(View view) {
-            this.bOc.mDialogContent.removeAllViews();
-            this.bOc.mDialogContent.addView(view);
+            this.bOd.mDialogContent.removeAllViews();
+            this.bOd.mDialogContent.addView(view);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
             layoutParams.addRule(3, a.f.dialog_customPanel);
-            this.bOc.mBtnPanelLayout.setLayoutParams(layoutParams);
+            this.bOd.mBtnPanelLayout.setLayoutParams(layoutParams);
             return this;
         }
 
         public a acn() {
-            this.bOc.bOg.setPadding(0, 0, 0, 0);
+            this.bOd.bOh.setPadding(0, 0, 0, 0);
             return this;
         }
 
         public a aco() {
-            ((ViewGroup.MarginLayoutParams) this.bOc.mDialogContentPanel.getLayoutParams()).setMargins(0, 0, 0, 0);
+            ((ViewGroup.MarginLayoutParams) this.bOd.mDialogContentPanel.getLayoutParams()).setMargins(0, 0, 0, 0);
             return this;
         }
 
         public a dD(boolean z) {
-            this.bOc.mCancelable = Boolean.valueOf(z);
+            this.bOd.mCancelable = Boolean.valueOf(z);
             return this;
         }
 
         public a b(DialogInterface.OnCancelListener onCancelListener) {
-            this.bOc.mOnCancelListener = onCancelListener;
+            this.bOd.mOnCancelListener = onCancelListener;
             return this;
         }
 
         public a b(DialogInterface.OnDismissListener onDismissListener) {
-            this.bOc.mOnDismissListener = onDismissListener;
+            this.bOd.mOnDismissListener = onDismissListener;
             return this;
         }
 
         public a a(DialogInterface.OnShowListener onShowListener) {
-            this.bOc.mOnShowListener = onShowListener;
+            this.bOd.mOnShowListener = onShowListener;
             return this;
         }
 
         public a a(c cVar) {
-            this.bOc.bOf = cVar;
+            this.bOd.bOg = cVar;
             return this;
         }
 
         public a dE(boolean z) {
-            this.bOc.bOi.setVisibility(z ? 0 : 8);
+            this.bOd.bOj.setVisibility(z ? 0 : 8);
             return this;
         }
 
         public g Pc() {
-            this.bpd.setCancelable(this.bOc.mCancelable.booleanValue());
-            if (this.bOc.mCancelable.booleanValue()) {
-                this.bpd.setCanceledOnTouchOutside(false);
+            this.bpe.setCancelable(this.bOd.mCancelable.booleanValue());
+            if (this.bOd.mCancelable.booleanValue()) {
+                this.bpe.setCanceledOnTouchOutside(false);
             }
-            this.bpd.setOnCancelListener(this.bOc.mOnCancelListener);
-            this.bpd.setOnDismissListener(this.bOc.mOnDismissListener);
-            this.bpd.setOnShowListener(this.bOc.mOnShowListener);
-            if (this.bOc.mOnKeyListener != null) {
-                this.bpd.setOnKeyListener(this.bOc.mOnKeyListener);
+            this.bpe.setOnCancelListener(this.bOd.mOnCancelListener);
+            this.bpe.setOnDismissListener(this.bOd.mOnDismissListener);
+            this.bpe.setOnShowListener(this.bOd.mOnShowListener);
+            if (this.bOd.mOnKeyListener != null) {
+                this.bpe.setOnKeyListener(this.bOd.mOnKeyListener);
             }
             updateDialogUI();
-            if (this.bOc.bOf != null) {
-                this.bOc.bOf.a(this.bpd, this.bOc);
+            if (this.bOd.bOg != null) {
+                this.bOd.bOg.a(this.bpe, this.bOd);
             }
-            this.bpd.a(this);
-            return this.bpd;
+            this.bpe.a(this);
+            return this.bpe;
         }
 
         @Deprecated
@@ -404,43 +404,43 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             int color3 = getAlertDialogResources().getColor(a.c.aiapps_dialog_btn_text_color);
             int color4 = getAlertDialogResources().getColor(a.c.aiapps_box_dialog_message_text_color);
             int color5 = getAlertDialogResources().getColor(a.c.aiapps_dialog_gray);
-            this.bOc.mDialogLayout.setBackground(getAlertDialogResources().getDrawable(this.bOc.bOj != -1 ? this.bOc.bOj : a.e.aiapps_dialog_bg_white));
-            this.bOc.mTitle.setTextColor(color);
-            this.bOc.mMessage.setTextColor(color4);
-            this.bOc.mPositiveButton.setTextColor(this.bOc.mPositiveBtnTextColor != color3 ? this.bOc.mPositiveBtnTextColor : color3);
-            if (this.bOc.mNegativeBtnTextColor != color2) {
-                this.bOc.mNegativeButton.setTextColor(this.bOc.mNegativeBtnTextColor);
-            } else if (this.bOc.bOe != -1) {
-                this.bOc.mNegativeButton.setTextColor(getAlertDialogResources().getColorStateList(this.bOc.bOe));
+            this.bOd.mDialogLayout.setBackground(getAlertDialogResources().getDrawable(this.bOd.bOk != -1 ? this.bOd.bOk : a.e.aiapps_dialog_bg_white));
+            this.bOd.mTitle.setTextColor(color);
+            this.bOd.mMessage.setTextColor(color4);
+            this.bOd.mPositiveButton.setTextColor(this.bOd.mPositiveBtnTextColor != color3 ? this.bOd.mPositiveBtnTextColor : color3);
+            if (this.bOd.mNegativeBtnTextColor != color2) {
+                this.bOd.mNegativeButton.setTextColor(this.bOd.mNegativeBtnTextColor);
+            } else if (this.bOd.bOf != -1) {
+                this.bOd.mNegativeButton.setTextColor(getAlertDialogResources().getColorStateList(this.bOd.bOf));
             } else {
-                this.bOc.mNegativeButton.setTextColor(color2);
+                this.bOd.mNegativeButton.setTextColor(color2);
             }
-            this.bOc.mNeutralButton.setTextColor(color2);
-            int color6 = this.bOc.bOk != -1 ? getAlertDialogResources().getColor(this.bOc.bOk) : color5;
-            this.bOc.mDivider2.setBackgroundColor(color6);
-            this.bOc.mDivider3.setBackgroundColor(color6);
-            this.bOc.mDivider4.setBackgroundColor(color6);
-            this.bOc.mPositiveButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
-            this.bOc.mNegativeButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
-            this.bOc.mNeutralButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            this.bOd.mNeutralButton.setTextColor(color2);
+            int color6 = this.bOd.bOl != -1 ? getAlertDialogResources().getColor(this.bOd.bOl) : color5;
+            this.bOd.mDivider2.setBackgroundColor(color6);
+            this.bOd.mDivider3.setBackgroundColor(color6);
+            this.bOd.mDivider4.setBackgroundColor(color6);
+            this.bOd.mPositiveButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.bOd.mNegativeButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.bOd.mNeutralButton.setBackground(getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
             TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
             if (ifOnlyOneBtnGetIt != null) {
-                ifOnlyOneBtnGetIt.setBackground(this.bOc.bOl ? getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
+                ifOnlyOneBtnGetIt.setBackground(this.bOd.bOm ? getAlertDialogResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
             }
         }
 
         public a dG(boolean z) {
-            this.bOc.mBtnPanelLayout.setVisibility(z ? 0 : 8);
+            this.bOd.mBtnPanelLayout.setVisibility(z ? 0 : 8);
             return this;
         }
 
         public a dH(boolean z) {
-            this.bOc.bOl = z;
+            this.bOd.bOm = z;
             return this;
         }
 
         public a dI(boolean z) {
-            ViewGroup.LayoutParams layoutParams = this.bOc.mCustomPanel.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bOd.mCustomPanel.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_content_margin_top), 0, 0);
             }
@@ -469,8 +469,8 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a fX(int i) {
-            this.bOc.mPositiveBtnTextColor = i;
-            this.bOc.mPositiveButton.setTextColor(i);
+            this.bOd.mPositiveBtnTextColor = i;
+            this.bOd.mPositiveButton.setTextColor(i);
             return this;
         }
 
@@ -479,7 +479,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a fZ(int i) {
-            this.bOc.bOe = i;
+            this.bOd.bOf = i;
             return this;
         }
 
@@ -501,38 +501,38 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a ga(int i) {
-            this.bOc.mNegativeBtnTextColor = i;
+            this.bOd.mNegativeBtnTextColor = i;
             return this;
         }
 
         public ViewGroup getCustomContentParent() {
-            return this.bOc.mDialogContent;
+            return this.bOd.mDialogContent;
         }
 
         public a o(int i, int i2, int i3, int i4) {
-            this.bOc.bOh.setPadding(i, i2, i3, i4);
+            this.bOd.bOi.setPadding(i, i2, i3, i4);
             return this;
         }
 
         public a gb(int i) {
-            this.bOc.bOj = i;
-            this.bOc.mDialogLayout.setBackgroundResource(i);
+            this.bOd.bOk = i;
+            this.bOd.mDialogLayout.setBackgroundResource(i);
             return this;
         }
 
         public a gc(int i) {
-            this.bOc.bOk = i;
+            this.bOd.bOl = i;
             return this;
         }
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        public SwanAppScrollView bKJ;
-        public c bOf;
-        public FrameLayout bOg;
+        public SwanAppScrollView bKK;
+        public c bOg;
         public FrameLayout bOh;
-        public View bOi;
+        public FrameLayout bOi;
+        public View bOj;
         public LinearLayout mBtnPanelLayout;
         public View mCustomPanel;
         public FrameLayout mDialogContent;
@@ -557,14 +557,14 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         public TextView mTitle;
         public LinearLayout mTitlePanel;
         public Boolean mCancelable = true;
-        public int bOe = -1;
-        public int bOj = -1;
+        public int bOf = -1;
         public int bOk = -1;
-        public boolean bOl = true;
+        public int bOl = -1;
+        public boolean bOm = true;
 
         public b(ViewGroup viewGroup) {
             this.mRoot = viewGroup;
-            this.bOh = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.bOi = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
             this.mTitlePanel = (LinearLayout) viewGroup.findViewById(a.f.title_panel);
             this.mTitle = (TextView) viewGroup.findViewById(a.f.dialog_title);
             this.mMessage = (TextView) viewGroup.findViewById(a.f.dialog_message);
@@ -579,11 +579,11 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             this.mIcon = (ImageView) viewGroup.findViewById(a.f.dialog_icon);
             this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
             this.mDivider2 = viewGroup.findViewById(a.f.divider2);
-            this.bKJ = (SwanAppScrollView) viewGroup.findViewById(a.f.message_scrollview);
+            this.bKK = (SwanAppScrollView) viewGroup.findViewById(a.f.message_scrollview);
             this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
             this.mCustomPanel = viewGroup.findViewById(a.f.dialog_customPanel);
-            this.bOg = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
-            this.bOi = viewGroup.findViewById(a.f.nightmode_mask);
+            this.bOh = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.bOj = viewGroup.findViewById(a.f.nightmode_mask);
             if (com.baidu.swan.apps.as.a.isGingerbread() || com.baidu.swan.apps.as.a.isGingerbreadmr1()) {
                 int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
                 this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
@@ -594,7 +594,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public void setMessageMaxHeight(int i) {
-            this.bKJ.setMaxHeight(i);
+            this.bKK.setMaxHeight(i);
         }
     }
 }

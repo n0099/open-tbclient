@@ -6,7 +6,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes11.dex */
 public class y {
-    private static int bYB = -1;
+    private static int bYC = -1;
 
     public static void agS() {
         String agT = agT();
@@ -33,10 +33,10 @@ public class y {
     }
 
     public static int agU() {
-        if (bYB < 0) {
-            bYB = com.baidu.swan.apps.w.a.TZ().Hz();
+        if (bYC < 0) {
+            bYC = com.baidu.swan.apps.w.a.TZ().Hz();
         }
-        return bYB;
+        return bYC;
     }
 
     public static boolean mN(String str) {

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class h extends HttpMessage {
     public String agZ;
-    public boolean awM;
+    public boolean awN;
     public long liveId;
 
     public h() {

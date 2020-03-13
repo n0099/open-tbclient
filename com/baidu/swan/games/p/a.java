@@ -11,7 +11,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes11.dex */
 public final class a {
-    private final ArrayList<Integer> cqd = new ArrayList<>();
+    private final ArrayList<Integer> cqe = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -43,8 +43,8 @@ public final class a {
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
         Integer pq = b.pq(str);
         if (pq != null) {
-            if (!this.cqd.contains(pq)) {
-                this.cqd.add(pq);
+            if (!this.cqe.contains(pq)) {
+                this.cqe.add(pq);
             }
             if (hVar != null) {
                 hVar.ip(pq.intValue());
@@ -55,8 +55,8 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.cqd.isEmpty()) {
-            Iterator<Integer> it = this.cqd.iterator();
+        if (!this.cqe.isEmpty()) {
+            Iterator<Integer> it = this.cqe.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {

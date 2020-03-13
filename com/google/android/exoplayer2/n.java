@@ -3,9 +3,9 @@ package com.google.android.exoplayer2;
 public interface n {
     void a(s[] sVarArr, com.google.android.exoplayer2.source.u uVar, com.google.android.exoplayer2.b.g gVar);
 
-    void dsQ();
+    void dsR();
 
-    com.google.android.exoplayer2.upstream.b dsR();
+    com.google.android.exoplayer2.upstream.b dsS();
 
     boolean fp(long j);
 

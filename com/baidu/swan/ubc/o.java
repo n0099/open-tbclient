@@ -13,11 +13,11 @@ public class o {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final o cFc = new o();
+        private static final o cFd = new o();
     }
 
     public static o avH() {
-        return a.cFc;
+        return a.cFd;
     }
 
     public final void onEvent(String str) {

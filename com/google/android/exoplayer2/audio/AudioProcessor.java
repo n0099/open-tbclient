@@ -10,15 +10,15 @@ public interface AudioProcessor {
 
     boolean avR();
 
-    int dtN();
-
     int dtO();
 
     int dtP();
 
-    void dtQ();
+    int dtQ();
 
-    ByteBuffer dtR();
+    void dtR();
+
+    ByteBuffer dtS();
 
     void flush();
 

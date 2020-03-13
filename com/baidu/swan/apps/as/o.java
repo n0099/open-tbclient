@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class o {
+    private static final Pattern bYA;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern bYu = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> bYv = new HashMap<>();
+    private static final Pattern bYv = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
     private static HashMap<String, Integer> bYw = new HashMap<>();
-    private static HashMap<String, String> bYx = new HashMap<>();
-    public static HashMap<String, String> bYy = new HashMap<>();
-    private static final Pattern bYz;
+    private static HashMap<String, Integer> bYx = new HashMap<>();
+    private static HashMap<String, String> bYy = new HashMap<>();
+    public static HashMap<String, String> bYz = new HashMap<>();
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -341,15 +341,15 @@ public final class o {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        bYz = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bYA = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        bYv.put(str2, Integer.valueOf(i));
-        bYw.put(str, Integer.valueOf(i));
-        bYx.put(str2, str);
-        if (!bYy.containsKey(str)) {
-            bYy.put(str, str2);
+        bYw.put(str2, Integer.valueOf(i));
+        bYx.put(str, Integer.valueOf(i));
+        bYy.put(str2, str);
+        if (!bYz.containsKey(str)) {
+            bYz.put(str, str2);
         }
     }
 
@@ -365,12 +365,12 @@ public final class o {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYx.get(str);
+        return bYy.get(str);
     }
 
     public static String mK(String str) {
         try {
-            Matcher matcher = bYu.matcher(str);
+            Matcher matcher = bYv.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

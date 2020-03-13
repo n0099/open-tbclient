@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c dlz;
+    private com.baidu.tbadk.coreExtra.view.c dlM;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -52,23 +52,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.setViewTextColor(qVar.glx, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(qVar.glw, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(qVar.gly, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.glK, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.glJ, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.glL, R.drawable.frs_member_manito_bg);
                 }
-                int bCz = pVar.bCz();
-                if (bCz > 0) {
-                    qVar.glx.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bCz)));
-                    qVar.gly.setTag(R.id.assist_apply_tip, pVar.bCA());
-                    qVar.gly.setOnClickListener(this.mClickListener);
-                    qVar.gly.setEnabled(true);
-                    qVar.gly.setClickable(true);
+                int bCA = pVar.bCA();
+                if (bCA > 0) {
+                    qVar.glK.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bCA)));
+                    qVar.glL.setTag(R.id.assist_apply_tip, pVar.bCB());
+                    qVar.glL.setOnClickListener(this.mClickListener);
+                    qVar.glL.setEnabled(true);
+                    qVar.glL.setClickable(true);
                 } else {
-                    qVar.glx.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.gly.setEnabled(false);
-                    qVar.gly.setClickable(false);
+                    qVar.glK.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.glL.setEnabled(false);
+                    qVar.glL.setClickable(false);
                 }
-                qVar.glx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.glK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -84,17 +84,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.dlz == null) {
-            this.dlz = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.dlM == null) {
+            this.dlM = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.dlz.aMN();
-        this.dlz.setAccountData(accountData);
-        this.dlz.lY(1);
+        this.dlM.aMO();
+        this.dlM.setAccountData(accountData);
+        this.dlM.lY(1);
     }
 
     public void onDestroy() {
-        if (this.dlz != null) {
-            this.dlz.onDestroy();
+        if (this.dlM != null) {
+            this.dlM.onDestroy();
         }
     }
 }

@@ -21,20 +21,20 @@ public final class h {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private h cmG = new h();
+        private h cmH = new h();
 
         public a hQ(int i) {
-            this.cmG.mType = i;
+            this.cmH.mType = i;
             return this;
         }
 
         public a oJ(String str) {
-            this.cmG.mID = str;
+            this.cmH.mID = str;
             return this;
         }
 
         public h anE() {
-            return this.cmG;
+            return this.cmH;
         }
     }
 }

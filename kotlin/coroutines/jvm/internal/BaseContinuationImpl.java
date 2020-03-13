@@ -29,7 +29,7 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
         while (true) {
             kotlin.coroutines.a<Object> aVar = baseContinuationImpl.completion;
             if (aVar == null) {
-                q.dKv();
+                q.dKw();
             }
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
@@ -37,7 +37,7 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
                 Result.a aVar2 = Result.Companion;
                 obj = Result.m570constructorimpl(i.N(th));
             }
-            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dKp()) {
+            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dKq()) {
                 Result.a aVar3 = Result.Companion;
                 obj = Result.m570constructorimpl(invokeSuspend);
                 baseContinuationImpl.releaseIntercepted();

@@ -26,8 +26,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int ctime;
     private int dataSize;
     private int isGood;
-    private String keQ;
-    private String keR;
+    private String kfc;
+    private String kfd;
     private String kw;
     private String lastId;
     private int loadCount;
@@ -45,14 +45,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int keP = 30;
-    private String dhI = "";
+    private int kfb = 30;
+    private String dhV = "";
     private int mSortType = -1;
     private int mLoadType = 1;
-    private int keS = 0;
+    private int kfe = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long keT = 0;
+    private long kff = 0;
     private int isDefaultNavTab = 0;
 
     public void setLastClickTid(long j) {
@@ -156,7 +156,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.dhI = str;
+        this.dhV = str;
     }
 
     public void setLastId(String str) {
@@ -183,16 +183,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void IS(String str) {
-        this.keQ = str;
+    public void IT(String str) {
+        this.kfc = str;
     }
 
     public void setObjSource(String str) {
-        this.keR = str;
+        this.kfd = str;
     }
 
     public void Cq(int i) {
-        this.keS = i;
+        this.kfe = i;
     }
 
     public void setCallFrom(int i) {
@@ -204,12 +204,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aQk() {
+    public HashMap<String, Object> aQl() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> aQl() {
+    public HashMap<String, String> aQm() {
         return this.headers;
     }
 
@@ -226,7 +226,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.keP);
+        builder.rn_need = Integer.valueOf(this.kfb);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -241,16 +241,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.dhI;
+        builder.yuelaou_locate = this.dhV;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cDk().cDn();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cDl().cDo();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.keQ;
-        builder.obj_source = this.keR;
-        builder.is_selection = Integer.valueOf(this.keS);
+        builder.obj_locate = this.kfc;
+        builder.obj_source = this.kfd;
+        builder.is_selection = Integer.valueOf(this.kfe);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.keT);
+        builder.hot_thread_id = Long.valueOf(this.kff);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -264,16 +264,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String aQh() {
+    public String aQi() {
         return null;
     }
 
     public void eD(long j) {
-        this.keT = j;
+        this.kff = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean aQi() {
+    public boolean aQj() {
         return false;
     }
 

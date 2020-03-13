@@ -56,7 +56,7 @@ public class h extends ab {
             com.baidu.swan.apps.performance.f.aY("route", uuid).f(new UbcFlowEvent("fe_route_start").au(Long.valueOf(a3).longValue()));
         }
         final b.a K = com.baidu.swan.apps.core.slave.b.K(WS.WD());
-        final String IR = K.brK.IR();
+        final String IR = K.brL.IR();
         if (DEBUG) {
             Log.d("ReLaunchAction", "webview idx: " + IR);
         }
@@ -93,7 +93,7 @@ public class h extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final b.a aVar, final com.baidu.swan.apps.model.b bVar, final com.baidu.swan.apps.core.d.e eVar, final String str) {
-        boolean z = aVar != null && aVar.brL;
+        boolean z = aVar != null && aVar.brM;
         com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_check")).bb("preload", z ? "1" : "0");
         if (DEBUG) {
             Log.d("ReLaunchAction", "tryToExecutePageRoute start. isReady : " + z);
@@ -105,7 +105,7 @@ public class h extends ab {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.g.a(aVar, str);
-                a.a(aVar.brK, bVar, str);
+                a.a(aVar.brL, bVar, str);
                 h.a(eVar, bVar, str);
                 if (h.DEBUG) {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady end.");

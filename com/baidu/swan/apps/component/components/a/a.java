@@ -18,11 +18,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimationView, b> {
     @NonNull
-    private String bis;
+    private String bit;
 
     public a(@Nullable Context context, @NonNull b bVar, @NonNull String str) {
         super(context, bVar);
-        this.bis = str;
+        this.bit = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
             b bVar = (b) KI();
             lottieAnimationView.loop(bVar.loop);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-            lottieAnimationView.setAnimation(new JSONObject(this.bis));
+            lottieAnimationView.setAnimation(new JSONObject(this.bit));
             if (bVar.autoPlay) {
                 lottieAnimationView.playAnimation();
             }
@@ -52,7 +52,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
                 d(lottieAnimationView, bVar);
             }
         } catch (IllegalStateException | JSONException e) {
-            as(this.bis, e.acH());
+            as(this.bit, e.acH());
         }
     }
 
@@ -101,9 +101,9 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bim);
+            jSONObject.put("wvID", bVar.bin);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bil);
+            jSONObject2.putOpt("animationViewId", bVar.bim);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -117,7 +117,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.swan.apps.view.b.b.a.a(bVar.bim, bVar.bil, "animateview", "ended", jSONObject);
+                com.baidu.swan.apps.view.b.b.a.a(bVar.bin, bVar.bim, "animateview", "ended", jSONObject);
                 c.d("Component-AnimationView", "progress: " + lottieAnimationView.getProgress());
             }
 

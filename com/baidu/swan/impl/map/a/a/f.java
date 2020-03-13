@@ -26,13 +26,13 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
 
     private Bundle a(com.baidu.swan.apps.z.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.bim);
-        bundle.putDouble("latitude", eVar.bzL.latitude);
-        bundle.putDouble("longitude", eVar.bzL.longitude);
-        bundle.putDouble("scale", eVar.bzM);
-        bundle.putString("name", eVar.bAb);
-        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.bAc);
-        bundle.putStringArrayList("ignoredApps", eVar.bAd);
+        bundle.putString("slaveId", eVar.bin);
+        bundle.putDouble("latitude", eVar.bzM.latitude);
+        bundle.putDouble("longitude", eVar.bzM.longitude);
+        bundle.putDouble("scale", eVar.bzN);
+        bundle.putString("name", eVar.bAc);
+        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.bAd);
+        bundle.putStringArrayList("ignoredApps", eVar.bAe);
         return bundle;
     }
 

@@ -5,26 +5,26 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class c {
-    private ConcurrentHashMap<Class<?>, b> cAL;
-    private ConcurrentHashMap<Class<?>, Uri> cAM;
+    private ConcurrentHashMap<Class<?>, b> cAM;
+    private ConcurrentHashMap<Class<?>, Uri> cAN;
 
     private void aty() {
-        this.cAL = new ConcurrentHashMap<>();
         this.cAM = new ConcurrentHashMap<>();
-        this.cAL.put(com.baidu.swan.pms.model.f.class, new f());
-        this.cAL.put(com.baidu.swan.pms.model.g.class, new g());
-        this.cAL.put(com.baidu.swan.pms.model.d.class, new e());
-        this.cAL.put(com.baidu.swan.pms.model.b.class, new d());
-        this.cAL.put(PMSAppInfo.class, new a());
-        this.cAL.put(com.baidu.swan.pms.model.h.class, new h());
-        this.cAL.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
-        this.cAM.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.cAR);
-        this.cAM.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.cAS);
-        this.cAM.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.cAP);
-        this.cAM.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.cAT);
-        this.cAM.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.cAQ);
-        this.cAM.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.cAU);
-        this.cAM.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.cAV);
+        this.cAN = new ConcurrentHashMap<>();
+        this.cAM.put(com.baidu.swan.pms.model.f.class, new f());
+        this.cAM.put(com.baidu.swan.pms.model.g.class, new g());
+        this.cAM.put(com.baidu.swan.pms.model.d.class, new e());
+        this.cAM.put(com.baidu.swan.pms.model.b.class, new d());
+        this.cAM.put(PMSAppInfo.class, new a());
+        this.cAM.put(com.baidu.swan.pms.model.h.class, new h());
+        this.cAM.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
+        this.cAN.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.cAS);
+        this.cAN.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.cAT);
+        this.cAN.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.cAQ);
+        this.cAN.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.cAU);
+        this.cAN.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.cAR);
+        this.cAN.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.cAV);
+        this.cAN.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.cAW);
     }
 
     public c() {
@@ -32,10 +32,10 @@ public class c {
     }
 
     public <T> b<T> q(Class<T> cls) {
-        return this.cAL.get(cls);
+        return this.cAM.get(cls);
     }
 
     public <T> Uri r(Class<T> cls) {
-        return this.cAM.get(cls);
+        return this.cAN.get(cls);
     }
 }

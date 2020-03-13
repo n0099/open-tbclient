@@ -3,21 +3,21 @@ package com.baidu.n.a.a;
 public interface c {
     void He(int i);
 
-    void NI(String str);
-
     void NJ(String str);
 
     void NK(String str);
 
-    boolean dhQ();
+    void NL(String str);
 
-    c dia();
+    boolean dhR();
 
-    String dib();
+    c dib();
 
     String dic();
 
     String did();
+
+    String die();
 
     int getStatusCode();
 

@@ -11,19 +11,19 @@ import java.util.TreeSet;
 /* loaded from: classes6.dex */
 final class b {
     private List<b> UB;
-    public final boolean mBr;
-    public final e mBs;
-    public final String mBt;
-    private final String[] mBu;
-    private final HashMap<String, Integer> mBv;
-    private final HashMap<String, Integer> mBw;
-    public final long mtk;
-    public final long mtl;
+    public final boolean mBC;
+    public final e mBD;
+    public final String mBE;
+    private final String[] mBF;
+    private final HashMap<String, Integer> mBG;
+    private final HashMap<String, Integer> mBH;
+    public final long mtv;
+    public final long mtw;
     public final String tag;
     public final String text;
 
-    public static b PY(String str) {
-        return new b(null, d.PZ(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
+    public static b PZ(String str) {
+        return new b(null, d.Qa(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
     }
 
     public static b a(String str, long j, long j2, e eVar, String[] strArr, String str2) {
@@ -33,18 +33,18 @@ final class b {
     private b(String str, String str2, long j, long j2, e eVar, String[] strArr, String str3) {
         this.tag = str;
         this.text = str2;
-        this.mBs = eVar;
-        this.mBu = strArr;
-        this.mBr = str2 != null;
-        this.mtk = j;
-        this.mtl = j2;
-        this.mBt = (String) com.google.android.exoplayer2.util.a.checkNotNull(str3);
-        this.mBv = new HashMap<>();
-        this.mBw = new HashMap<>();
+        this.mBD = eVar;
+        this.mBF = strArr;
+        this.mBC = str2 != null;
+        this.mtv = j;
+        this.mtw = j2;
+        this.mBE = (String) com.google.android.exoplayer2.util.a.checkNotNull(str3);
+        this.mBG = new HashMap<>();
+        this.mBH = new HashMap<>();
     }
 
     public boolean gy(long j) {
-        return (this.mtk == -9223372036854775807L && this.mtl == -9223372036854775807L) || (this.mtk <= j && this.mtl == -9223372036854775807L) || ((this.mtk == -9223372036854775807L && j < this.mtl) || (this.mtk <= j && j < this.mtl));
+        return (this.mtv == -9223372036854775807L && this.mtw == -9223372036854775807L) || (this.mtv <= j && this.mtw == -9223372036854775807L) || ((this.mtv == -9223372036854775807L && j < this.mtw) || (this.mtv <= j && j < this.mtw));
     }
 
     public void a(b bVar) {
@@ -68,7 +68,7 @@ final class b {
         return this.UB.size();
     }
 
-    public long[] dyk() {
+    public long[] dyl() {
         int i = 0;
         TreeSet<Long> treeSet = new TreeSet<>();
         a(treeSet, false);
@@ -88,11 +88,11 @@ final class b {
     private void a(TreeSet<Long> treeSet, boolean z) {
         boolean equals = "p".equals(this.tag);
         if (z || equals) {
-            if (this.mtk != -9223372036854775807L) {
-                treeSet.add(Long.valueOf(this.mtk));
+            if (this.mtv != -9223372036854775807L) {
+                treeSet.add(Long.valueOf(this.mtv));
             }
-            if (this.mtl != -9223372036854775807L) {
-                treeSet.add(Long.valueOf(this.mtl));
+            if (this.mtw != -9223372036854775807L) {
+                treeSet.add(Long.valueOf(this.mtw));
             }
         }
         if (this.UB != null) {
@@ -104,31 +104,31 @@ final class b {
 
     public List<com.google.android.exoplayer2.text.b> a(long j, Map<String, e> map, Map<String, c> map2) {
         TreeMap treeMap = new TreeMap();
-        a(j, false, this.mBt, (Map<String, SpannableStringBuilder>) treeMap);
+        a(j, false, this.mBE, (Map<String, SpannableStringBuilder>) treeMap);
         b(map, treeMap);
         ArrayList arrayList = new ArrayList();
         for (Map.Entry entry : treeMap.entrySet()) {
             c cVar = map2.get(entry.getKey());
-            arrayList.add(new com.google.android.exoplayer2.text.b(d((SpannableStringBuilder) entry.getValue()), null, cVar.myB, cVar.myC, cVar.myD, cVar.myE, Integer.MIN_VALUE, cVar.width));
+            arrayList.add(new com.google.android.exoplayer2.text.b(d((SpannableStringBuilder) entry.getValue()), null, cVar.myM, cVar.myN, cVar.myO, cVar.myP, Integer.MIN_VALUE, cVar.width));
         }
         return arrayList;
     }
 
     private void a(long j, boolean z, String str, Map<String, SpannableStringBuilder> map) {
-        this.mBv.clear();
-        this.mBw.clear();
-        String str2 = this.mBt;
+        this.mBG.clear();
+        this.mBH.clear();
+        String str2 = this.mBE;
         if ("".equals(str2)) {
             str2 = str;
         }
-        if (this.mBr && z) {
+        if (this.mBC && z) {
             m(str2, map).append((CharSequence) this.text);
         } else if ("br".equals(this.tag) && z) {
             m(str2, map).append('\n');
         } else if (!"metadata".equals(this.tag) && gy(j)) {
             boolean equals = "p".equals(this.tag);
             for (Map.Entry<String, SpannableStringBuilder> entry : map.entrySet()) {
-                this.mBv.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
+                this.mBG.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
             }
             for (int i = 0; i < getChildCount(); i++) {
                 Lx(i).a(j, z || equals, str2, map);
@@ -137,7 +137,7 @@ final class b {
                 d.e(m(str2, map));
             }
             for (Map.Entry<String, SpannableStringBuilder> entry2 : map.entrySet()) {
-                this.mBw.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
+                this.mBH.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
             }
         }
     }
@@ -150,9 +150,9 @@ final class b {
     }
 
     private void b(Map<String, e> map, Map<String, SpannableStringBuilder> map2) {
-        for (Map.Entry<String, Integer> entry : this.mBw.entrySet()) {
+        for (Map.Entry<String, Integer> entry : this.mBH.entrySet()) {
             String key = entry.getKey();
-            a(map, map2.get(key), this.mBv.containsKey(key) ? this.mBv.get(key).intValue() : 0, entry.getValue().intValue());
+            a(map, map2.get(key), this.mBG.containsKey(key) ? this.mBG.get(key).intValue() : 0, entry.getValue().intValue());
             for (int i = 0; i < getChildCount(); i++) {
                 Lx(i).b(map, map2);
             }
@@ -161,7 +161,7 @@ final class b {
 
     private void a(Map<String, e> map, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         e a;
-        if (i != i2 && (a = d.a(this.mBs, this.mBu, map)) != null) {
+        if (i != i2 && (a = d.a(this.mBD, this.mBF, map)) != null) {
             d.a(spannableStringBuilder, i, i2, a);
         }
     }

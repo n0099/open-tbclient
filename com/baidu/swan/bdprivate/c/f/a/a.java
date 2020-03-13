@@ -109,11 +109,11 @@ public abstract class a extends ab {
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.c.f.b.b bVar2 = new com.baidu.swan.bdprivate.c.f.b.b();
                             if (bVar != null && !TextUtils.isEmpty(bVar.coorType)) {
-                                bVar2.cdy = bVar.coorType;
+                                bVar2.cdz = bVar.coorType;
                                 bVar2.latitude = bVar.latitude;
                                 bVar2.longitude = bVar.longitude;
                             } else {
-                                bVar2.cdy = "unknown";
+                                bVar2.cdz = "unknown";
                             }
                             jVar.onNext(bVar2);
                             jVar.onCompleted();

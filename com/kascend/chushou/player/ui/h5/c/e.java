@@ -34,16 +34,16 @@ public class e extends d {
         return this.a;
     }
 
-    public e QX(String str) {
+    public e QY(String str) {
         this.a = str;
         return this;
     }
 
-    public H5Positon dEb() {
-        return this.ncC;
+    public H5Positon dEc() {
+        return this.ncN;
     }
 
-    public H5Positon dEc() {
-        return this.ncD;
+    public H5Positon dEd() {
+        return this.ncO;
     }
 }

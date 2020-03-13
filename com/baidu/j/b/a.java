@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.j.c.a {
     private static final String TAG = a.class.getSimpleName();
-    private static final String aPR = SchemeConfig.getSchemeHead() + "://swan/";
+    private static final String aPS = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // com.baidu.j.c.a
     public void e(Activity activity, String str, com.baidu.j.a.a aVar) {
@@ -40,7 +40,7 @@ public class a implements com.baidu.j.c.a {
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
             com.baidu.j.a.s(3, "支付信息不能为空");
         } else {
-            SchemeRouter.invoke(context, aPR + optString + optString2);
+            SchemeRouter.invoke(context, aPS + optString + optString2);
         }
     }
 

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class a {
-    private static boolean bjG;
+    private static boolean bjH;
 
     public static void i(Context context, boolean z) {
         final e acF = e.acF();
@@ -33,10 +33,10 @@ public class a {
     }
 
     public static boolean Lr() {
-        return bjG;
+        return bjH;
     }
 
     public static void cf(boolean z) {
-        bjG = z;
+        bjH = z;
     }
 }

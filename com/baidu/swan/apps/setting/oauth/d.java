@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private b bTk;
+    private b bTl;
     private Exception vJ;
 
     protected abstract boolean ael() throws Exception;
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.bTk = bVar;
+        this.bTl = bVar;
         return this;
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.bTk.b(d.this);
+                d.this.bTl.b(d.this);
             }
         });
     }

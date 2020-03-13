@@ -5,64 +5,64 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class n {
-    public int eAg;
-    public long eAh;
-    public long eAi;
-    public long eAj;
-    public String eAk;
-    public long eAl;
-    public boolean eAm;
-    public boolean eAn;
+    public boolean eAA;
+    public int eAt;
+    public long eAu;
+    public long eAv;
+    public long eAw;
+    public String eAx;
+    public long eAy;
+    public boolean eAz;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.eAg = jSONObject.optInt("current_rank");
-            this.eAh = jSONObject.optInt("current_charm_value");
-            this.eAi = jSONObject.optInt("up_charm_value");
-            this.eAj = jSONObject.optInt("down_charm_value");
+            this.eAt = jSONObject.optInt("current_rank");
+            this.eAu = jSONObject.optInt("current_charm_value");
+            this.eAv = jSONObject.optInt("up_charm_value");
+            this.eAw = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
-            this.eAk = jSONObject.optString("bd_portrait");
+            this.eAx = jSONObject.optString("bd_portrait");
         }
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.eAg = gVar.rank;
-            this.eAh = JavaTypesHelper.toLong(gVar.point, 0L);
+            this.eAt = gVar.rank;
+            this.eAu = JavaTypesHelper.toLong(gVar.point, 0L);
             this.userId = gVar.user_id;
             this.userName = gVar.user_name;
             this.userNickname = gVar.user_nickname;
-            this.eAk = gVar.avatar;
+            this.eAx = gVar.avatar;
         }
     }
 
     public void cH(long j) {
-        this.eAi = j;
+        this.eAv = j;
     }
 
     public void cI(long j) {
-        this.eAj = j;
+        this.eAw = j;
     }
 
     public void ip(boolean z) {
-        this.eAm = z;
+        this.eAz = z;
     }
 
-    public boolean beC() {
-        return this.eAm;
+    public boolean beD() {
+        return this.eAz;
     }
 
     public void iq(boolean z) {
-        this.eAn = z;
+        this.eAA = z;
     }
 
     public void cJ(long j) {
-        this.eAl = j;
+        this.eAy = j;
     }
 
     public String getNameShow() {
@@ -70,6 +70,6 @@ public class n {
     }
 
     public boolean isValid() {
-        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.eAk)) ? false : true;
+        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.eAx)) ? false : true;
     }
 }

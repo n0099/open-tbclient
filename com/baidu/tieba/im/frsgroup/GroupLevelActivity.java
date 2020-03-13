@@ -18,31 +18,31 @@ import com.baidu.tieba.im.model.GroupLevelModel;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
-    private GroupLevelModel hAi;
-    private k hAj;
-    private com.baidu.tbadk.core.dialog.a hAk;
-    private a.b hAl = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
+    private GroupLevelModel hAu;
+    private k hAv;
+    private com.baidu.tbadk.core.dialog.a hAw;
+    private a.b hAx = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             RequestUpgradeMemberGroupMessage requestUpgradeMemberGroupMessage = new RequestUpgradeMemberGroupMessage();
-            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.hAi.getGroupId());
+            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.hAu.getGroupId());
             requestUpgradeMemberGroupMessage.setUpOrDown(true);
             GroupLevelActivity.this.sendMessage(requestUpgradeMemberGroupMessage);
             aVar.dismiss();
         }
     };
-    private a.b hAm = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
+    private a.b hAy = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
         }
     };
-    private com.baidu.adp.framework.listener.c hrA = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
+    private com.baidu.adp.framework.listener.c hrM = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             GroupLevelInfo.LevelInfo levelInfo;
-            GroupLevelActivity.this.hAj.ny(false);
+            GroupLevelActivity.this.hAv.ny(false);
             if (socketResponsedMessage == null) {
                 GroupLevelActivity.this.showToast(R.string.neterror);
             } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
@@ -70,22 +70,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
                         int activeDay = groupLevelInfo.getActiveDay();
                         int thresholdDay = levelInfo.getThresholdDay();
                         String intro = levelInfo.getIntro();
-                        GroupLevelActivity.this.hAj.K(grade, groupLevelInfo.isMemGroup());
-                        GroupLevelActivity.this.hAj.bVd().setText(intro);
-                        GroupLevelActivity.this.hAj.Q(grade, activeDay, thresholdDay);
-                        GroupLevelActivity.this.hAj.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                        TextView[] bVb = GroupLevelActivity.this.hAj.bVb();
+                        GroupLevelActivity.this.hAv.K(grade, groupLevelInfo.isMemGroup());
+                        GroupLevelActivity.this.hAv.bVe().setText(intro);
+                        GroupLevelActivity.this.hAv.Q(grade, activeDay, thresholdDay);
+                        GroupLevelActivity.this.hAv.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
+                        TextView[] bVc = GroupLevelActivity.this.hAv.bVc();
                         for (int i = 1; i < levelInfos.size(); i++) {
                             int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                            if (i <= bVb.length) {
-                                bVb[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(R.string.grouplevel_level_condition, String.valueOf(maxMemberNum)));
+                            if (i <= bVc.length) {
+                                bVc[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(R.string.grouplevel_level_condition, String.valueOf(maxMemberNum)));
                             }
                         }
-                        TextView[] bVc = GroupLevelActivity.this.hAj.bVc();
+                        TextView[] bVd = GroupLevelActivity.this.hAv.bVd();
                         for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                             int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                            if (i2 <= bVc.length) {
-                                bVc[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(R.string.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
+                            if (i2 <= bVd.length) {
+                                bVd[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(R.string.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
                             }
                         }
                     }
@@ -116,23 +116,23 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.hAj.ny(true);
-        this.hAi.sendMessage(this.hAi.getGroupId(), getUniqueId());
+        this.hAv.ny(true);
+        this.hAu.sendMessage(this.hAu.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.hAi.saveInstance(bundle);
+        this.hAu.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hAj.bUZ()) {
+        if (view == this.hAv.bVa()) {
             closeActivity();
-        } else if (view == this.hAj.bVa()) {
+        } else if (view == this.hAv.bVb()) {
             TiebaStatic.log("im_group_level_upgrade_mem");
-            this.hAk.aEC();
+            this.hAw.aEC();
         }
     }
 
@@ -140,7 +140,7 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hAj.onChangeSkinType(i);
+        this.hAv.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -150,22 +150,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     }
 
     public void initData(Bundle bundle) {
-        this.hAi = new GroupLevelModel(this);
+        this.hAu = new GroupLevelModel(this);
         if (bundle == null) {
-            this.hAi.initWithIntent(getIntent());
+            this.hAu.initWithIntent(getIntent());
         } else {
-            this.hAi.initWithBundle(bundle);
+            this.hAu.initWithBundle(bundle);
         }
-        registerListener(CmdConfigSocket.CMD_REQUEST_GROUPLEVEL_BY_ID, this.hrA);
-        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.hrA);
+        registerListener(CmdConfigSocket.CMD_REQUEST_GROUPLEVEL_BY_ID, this.hrM);
+        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.hrM);
     }
 
     private void ap(Bundle bundle) {
-        this.hAj = new k(this, this.hAi.isMem());
-        this.hAk = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.hAk.jW(R.string.upgrade_mem_group_if_up);
-        this.hAk.a(R.string.confirm, this.hAl);
-        this.hAk.b(R.string.cancel, this.hAm);
-        this.hAk.b(getPageContext());
+        this.hAv = new k(this, this.hAu.isMem());
+        this.hAw = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.hAw.jW(R.string.upgrade_mem_group_if_up);
+        this.hAw.a(R.string.confirm, this.hAx);
+        this.hAw.b(R.string.cancel, this.hAy);
+        this.hAw.b(getPageContext());
     }
 }

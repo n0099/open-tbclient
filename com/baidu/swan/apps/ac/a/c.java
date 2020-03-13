@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.ac.a;
 /* loaded from: classes11.dex */
 public class c {
-    protected int bFV;
-    protected String bFW;
-    protected long bFX;
-    protected boolean bFm;
+    protected int bFW;
+    protected String bFX;
+    protected long bFY;
+    protected boolean bFn;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.bFm = false;
-        this.bFV = i;
-        this.bFW = str;
+        this.bFn = false;
+        this.bFW = i;
+        this.bFX = str;
     }
 
     public c(int i, String str, long j) {
-        this.bFm = false;
-        this.bFV = i;
-        this.bFW = str;
-        this.bFX = j;
+        this.bFn = false;
+        this.bFW = i;
+        this.bFX = str;
+        this.bFY = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.bFm = false;
-        this.bFV = i;
-        this.bFW = str;
-        this.bFX = j;
-        this.bFm = z;
+        this.bFn = false;
+        this.bFW = i;
+        this.bFX = str;
+        this.bFY = j;
+        this.bFn = z;
     }
 
     public int getId() {
-        return this.bFV;
-    }
-
-    public String YR() {
         return this.bFW;
     }
 
-    public long YS() {
+    public String YR() {
         return this.bFX;
     }
 
+    public long YS() {
+        return this.bFY;
+    }
+
     public boolean YT() {
-        return this.bFm;
+        return this.bFn;
     }
 }

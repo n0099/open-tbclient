@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements Cloneable {
-    public String bIK;
     public String bIL;
-    public int bIM;
-    public String bIN;
+    public String bIM;
+    public int bIN;
+    public String bIO;
     public String xU;
 
     public a(JSONObject jSONObject, int i) {
-        this.bIM = 4;
+        this.bIN = 4;
         if (jSONObject != null) {
-            this.bIL = jSONObject.optString("version");
+            this.bIM = jSONObject.optString("version");
             this.xU = jSONObject.optString("provider");
-            this.bIN = jSONObject.optString("path");
-            this.bIM = i;
+            this.bIO = jSONObject.optString("path");
+            this.bIN = i;
         }
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.xU) || TextUtils.isEmpty(this.bIL)) ? false : true;
+        return (TextUtils.isEmpty(this.xU) || TextUtils.isEmpty(this.bIM)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -29,6 +29,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.bIK + "', pluginVersion='" + this.bIL + "', pluginName='" + this.xU + "', pluginCategory=" + this.bIM + ", pluginPath='" + this.bIN + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.bIL + "', pluginVersion='" + this.bIM + "', pluginName='" + this.xU + "', pluginCategory=" + this.bIN + ", pluginPath='" + this.bIO + "'}";
     }
 }

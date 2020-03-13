@@ -7,15 +7,15 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final Set<String> bVJ;
+    public final Set<String> bVK;
 
     public a(String str) {
         super(str);
-        this.bVJ = new HashSet();
+        this.bVK = new HashSet();
     }
 
     public boolean mm(String str) {
-        return this.bVJ.contains(str);
+        return this.bVK.contains(str);
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences

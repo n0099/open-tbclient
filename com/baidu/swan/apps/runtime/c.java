@@ -6,7 +6,7 @@ import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 /* loaded from: classes11.dex */
 public final class c extends d {
-    public final e bOM = new e(this, "");
+    public final e bON = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
     public SwanAppProcessInfo abh() {
@@ -45,7 +45,7 @@ public final class c extends d {
 
     @Override // com.baidu.swan.apps.runtime.h
     public e acz() {
-        return this.bOM;
+        return this.bON;
     }
 
     @Override // com.baidu.swan.apps.runtime.h

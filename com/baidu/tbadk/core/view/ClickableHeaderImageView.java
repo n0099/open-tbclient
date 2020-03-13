@@ -18,12 +18,12 @@ import org.apache.http.HttpHost;
 public class ClickableHeaderImageView extends HeadImageView {
     private bj KJ;
     private View.OnClickListener Nh;
-    private boolean ded;
-    protected com.baidu.tbadk.h.d dee;
+    private boolean deq;
+    protected com.baidu.tbadk.h.d der;
     public View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.h.d dVar) {
-        this.dee = dVar;
+        this.der = dVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -35,8 +35,8 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.dee == null || !ClickableHeaderImageView.this.dee.onClickEvent(view)) && ClickableHeaderImageView.this.KJ != null) {
-                    MetaData aCo = ClickableHeaderImageView.this.ded ? ClickableHeaderImageView.this.KJ.aDM().aCo() : ClickableHeaderImageView.this.KJ.aCo();
+                if ((ClickableHeaderImageView.this.der == null || !ClickableHeaderImageView.this.der.onClickEvent(view)) && ClickableHeaderImageView.this.KJ != null) {
+                    MetaData aCo = ClickableHeaderImageView.this.deq ? ClickableHeaderImageView.this.KJ.aDM().aCo() : ClickableHeaderImageView.this.KJ.aCo();
                     if (aCo != null && !StringUtils.isNull(aCo.getName_show()) && !StringUtils.isNull(aCo.getUserId())) {
                         long j = com.baidu.adp.lib.f.b.toLong(aCo.getUserId(), 0L);
                         PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), aCo.isBigV());
@@ -57,8 +57,8 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.dee == null || !ClickableHeaderImageView.this.dee.onClickEvent(view)) && ClickableHeaderImageView.this.KJ != null) {
-                    MetaData aCo = ClickableHeaderImageView.this.ded ? ClickableHeaderImageView.this.KJ.aDM().aCo() : ClickableHeaderImageView.this.KJ.aCo();
+                if ((ClickableHeaderImageView.this.der == null || !ClickableHeaderImageView.this.der.onClickEvent(view)) && ClickableHeaderImageView.this.KJ != null) {
+                    MetaData aCo = ClickableHeaderImageView.this.deq ? ClickableHeaderImageView.this.KJ.aDM().aCo() : ClickableHeaderImageView.this.KJ.aCo();
                     if (aCo != null && !StringUtils.isNull(aCo.getName_show()) && !StringUtils.isNull(aCo.getUserId())) {
                         long j = com.baidu.adp.lib.f.b.toLong(aCo.getUserId(), 0L);
                         PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), aCo.isBigV());
@@ -85,7 +85,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         MetaData aCo;
         if (bjVar != null && bjVar.aCo() != null) {
             this.KJ = bjVar;
-            this.ded = z2;
+            this.deq = z2;
             if (z2) {
                 aCo = bjVar.aDM().aCo();
             } else {

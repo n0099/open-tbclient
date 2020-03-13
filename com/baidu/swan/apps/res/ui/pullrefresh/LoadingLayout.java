@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes11.dex */
 public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
-    private View bLJ;
-    private ILoadingLayout.State bLK;
+    private View bLK;
     private ILoadingLayout.State bLL;
+    private ILoadingLayout.State bLM;
 
     protected abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
 
@@ -27,27 +27,27 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bLK = ILoadingLayout.State.NONE;
         this.bLL = ILoadingLayout.State.NONE;
+        this.bLM = ILoadingLayout.State.NONE;
         init(context, attributeSet);
     }
 
     protected void init(Context context, AttributeSet attributeSet) {
-        this.bLJ = a(context, this, attributeSet);
-        if (this.bLJ == null) {
+        this.bLK = a(context, this, attributeSet);
+        if (this.bLK == null) {
             throw new NullPointerException("Loading view can not be null.");
         }
         int i = -2;
-        ViewGroup.LayoutParams layoutParams = this.bLJ.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bLK.getLayoutParams();
         if (layoutParams != null) {
             i = layoutParams.height;
         }
-        addView(this.bLJ, new FrameLayout.LayoutParams(-1, i));
+        addView(this.bLK, new FrameLayout.LayoutParams(-1, i));
     }
 
     public void show(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z != (getVisibility() == 0) && (layoutParams = this.bLJ.getLayoutParams()) != null) {
+        if (z != (getVisibility() == 0) && (layoutParams = this.bLK.getLayoutParams()) != null) {
             if (z) {
                 layoutParams.height = -2;
             } else {
@@ -74,34 +74,34 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     public void setHeaderBackgroundColor(int i) {
-        if (this.bLJ != null) {
-            this.bLJ.setBackgroundColor(i);
+        if (this.bLK != null) {
+            this.bLK.setBackgroundColor(i);
         }
     }
 
     public void setHeaderBackgroundResource(int i) {
-        if (this.bLJ != null) {
-            this.bLJ.setBackgroundColor(getResources().getColor(i));
+        if (this.bLK != null) {
+            this.bLK.setBackgroundColor(getResources().getColor(i));
         }
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.bLJ != null) {
-            this.bLJ.setBackgroundColor(i);
+        if (this.bLK != null) {
+            this.bLK.setBackgroundColor(i);
         }
     }
 
     public void setState(ILoadingLayout.State state) {
-        if (this.bLK != state) {
-            this.bLL = this.bLK;
-            this.bLK = state;
-            a(state, this.bLL);
+        if (this.bLL != state) {
+            this.bLM = this.bLL;
+            this.bLL = state;
+            a(state, this.bLM);
         }
     }
 
     public ILoadingLayout.State getState() {
-        return this.bLK;
+        return this.bLL;
     }
 
     public void onPull(float f) {
@@ -109,7 +109,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ILoadingLayout.State getPreState() {
-        return this.bLL;
+        return this.bLM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dJm()) {
+            if (dJn()) {
                 this.actual.onSubscribe(this);
-                dJn();
+                dJo();
             }
         }
     }
 
-    protected boolean dJm() {
+    protected boolean dJn() {
         return true;
     }
 
-    protected void dJn() {
+    protected void dJo() {
     }
 
     public void onError(Throwable th) {

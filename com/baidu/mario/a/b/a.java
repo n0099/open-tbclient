@@ -10,7 +10,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long aKL = 0;
+    private long aKM = 0;
 
     @Override // com.baidu.mario.a.b.b
     public /* bridge */ /* synthetic */ long CM() {
@@ -55,7 +55,7 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aKO = eVar;
+            this.aKP = eVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.Dx());
             mediaFormat.setInteger("aac-profile", 2);
@@ -67,46 +67,46 @@ public class a extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.Dx());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.Dr()) {
-                    this.aKQ = true;
+                    this.aKR = true;
                 } else {
-                    this.aKQ = false;
+                    this.aKR = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aKP == null) {
-                this.aKP.bC(z);
+            if (this.aKQ == null) {
+                this.aKQ.bC(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aKP == null) {
+        if (this.aKQ == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
     protected void Dl() {
-        if (this.aKR == 0) {
-            this.aKR = this.mBufferInfo.presentationTimeUs;
+        if (this.aKS == 0) {
+            this.aKS = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aKR;
-        if (this.mBufferInfo.presentationTimeUs < this.aKL) {
+        this.mBufferInfo.presentationTimeUs -= this.aKS;
+        if (this.mBufferInfo.presentationTimeUs < this.aKM) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.aKL + 10000;
-            this.aKL = j;
+            long j = this.aKM + 10000;
+            this.aKM = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > aKS + 500000) {
-            if (aKS > this.aKL) {
-                this.mBufferInfo.presentationTimeUs = aKS + 5000;
+        if (this.mBufferInfo.presentationTimeUs > aKT + 500000) {
+            if (aKT > this.aKM) {
+                this.mBufferInfo.presentationTimeUs = aKT + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.aKL + 5000;
+                this.mBufferInfo.presentationTimeUs = this.aKM + 5000;
             }
         }
-        if (aKS > this.mBufferInfo.presentationTimeUs + 500000) {
-            aKT = 1200;
+        if (aKT > this.mBufferInfo.presentationTimeUs + 500000) {
+            aKU = 1200;
         }
-        this.aKL = this.mBufferInfo.presentationTimeUs;
+        this.aKM = this.mBufferInfo.presentationTimeUs;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class d extends a {
-    public TextView dXZ;
+    public TextView dYm;
     private LinearLayout mRootView;
 
     public d(TbPageContext tbPageContext, int i) {
@@ -22,15 +22,15 @@ public class d extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        this.mRootView = (LinearLayout) this.cVh.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.dXZ = (TextView) this.mRootView.findViewById(R.id.text);
+        this.mRootView = (LinearLayout) this.cVi.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.dYm = (TextView) this.mRootView.findViewById(R.id.text);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.dXZ.setText(new SpannableString(originalThreadInfo.title));
-        am.setViewTextColor(this.dXZ, (int) R.color.cp_cont_b);
+        this.dYm.setText(new SpannableString(originalThreadInfo.title));
+        am.setViewTextColor(this.dYm, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -48,7 +48,7 @@ public class d extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.dXZ, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.dYm, (int) R.color.cp_cont_b);
         }
     }
 }

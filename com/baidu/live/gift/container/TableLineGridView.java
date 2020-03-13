@@ -8,7 +8,7 @@ import android.view.View;
 import com.baidu.live.tbadk.core.view.BdGridView;
 /* loaded from: classes3.dex */
 public class TableLineGridView extends BdGridView {
-    private int alo;
+    private int alp;
     private int columnCount;
     private int mWidth;
     private int rowCount;
@@ -33,7 +33,7 @@ public class TableLineGridView extends BdGridView {
         if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.alo);
+            paint.setColor(this.alp);
             paint.setStrokeWidth(this.mWidth);
             int width = childAt.getWidth() * this.columnCount;
             int height = childAt.getHeight() * this.rowCount;
@@ -72,11 +72,11 @@ public class TableLineGridView extends BdGridView {
     }
 
     public int getBackgroundLineResource() {
-        return this.alo;
+        return this.alp;
     }
 
     public void setBackgroundLineResource(int i) {
-        this.alo = i;
+        this.alp = i;
     }
 
     public void setStokeWidth(int i) {

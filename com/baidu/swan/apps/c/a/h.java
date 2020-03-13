@@ -6,8 +6,8 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    private static String bcr;
-    public static final h bcs = new h();
+    private static String bcs;
+    public static final h bct = new h();
 
     private h() {
     }
@@ -39,15 +39,15 @@ public final class h {
     }
 
     public final String getUid() {
-        String str = bcr;
+        String str = bcs;
         if (str == null || l.isBlank(str)) {
-            bcr = Jx();
+            bcs = Jx();
         }
-        return bcr;
+        return bcs;
     }
 
     public final void Jy() {
         com.baidu.swan.apps.storage.c.h.afr().putString("alliance_login_uk", "");
-        bcr = null;
+        bcs = null;
     }
 }

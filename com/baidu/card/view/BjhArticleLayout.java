@@ -52,12 +52,12 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
         bj aAg = aVar.aAg();
-        if (aAg.isShareThread && aAg.cTQ != null) {
-            if (aAg.cTQ.cOK) {
+        if (aAg.isShareThread && aAg.cTR != null) {
+            if (aAg.cTR.cOL) {
                 setVisibility(8);
                 return;
             }
-            aAg = aAg.cTQ.aAW();
+            aAg = aAg.cTR.aAW();
         }
         this.mTitle.setText(aAg.getTitle());
         if (StringUtils.isNull(aAg.aEk())) {
@@ -136,7 +136,7 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
             com.baidu.tieba.card.l.a(this.mTitle, this.Kc.aAg().getId(), this.MW.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
         am.setViewTextColor(this.MV, (int) R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.f.a.aHa().kB(0).kD(R.color.cp_mask_b_alpha42).af(this.MY).aQ(this.MV);
-        com.baidu.tbadk.core.util.f.a.aHa().kB(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).aj(l.getDimens(getContext(), R.dimen.tbds10)).ai(l.getDimens(getContext(), R.dimen.tbds10)).kJ(128).aQ(this.MX);
+        com.baidu.tbadk.core.util.e.a.aHb().kB(0).kD(R.color.cp_mask_b_alpha42).af(this.MY).aQ(this.MV);
+        com.baidu.tbadk.core.util.e.a.aHb().kB(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).aj(l.getDimens(getContext(), R.dimen.tbds10)).ai(l.getDimens(getContext(), R.dimen.tbds10)).kJ(128).aQ(this.MX);
     }
 }

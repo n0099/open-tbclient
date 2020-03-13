@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 public class q {
-    private com.facebook.common.memory.j lQI;
-    private c lQp;
-    private com.facebook.common.memory.g lQs;
-    private i lQu;
-    private final p lUH;
-    private k lUI;
-    private com.facebook.common.memory.a lUJ;
+    private c lQA;
+    private com.facebook.common.memory.g lQD;
+    private i lQF;
+    private com.facebook.common.memory.j lQT;
+    private final p lUS;
+    private k lUT;
+    private com.facebook.common.memory.a lUU;
 
     public q(p pVar) {
-        this.lUH = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.lUS = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c drn() {
-        if (this.lQp == null) {
-            this.lQp = new c(this.lUH.doY(), this.lUH.dre(), this.lUH.drf());
+    public c dro() {
+        if (this.lQA == null) {
+            this.lQA = new c(this.lUS.doZ(), this.lUS.drf(), this.lUS.drg());
         }
-        return this.lQp;
+        return this.lQA;
     }
 
-    public i dro() {
-        if (this.lQu == null) {
-            this.lQu = new i(this.lUH.doY(), this.lUH.dri());
+    public i drp() {
+        if (this.lQF == null) {
+            this.lQF = new i(this.lUS.doZ(), this.lUS.drj());
         }
-        return this.lQu;
+        return this.lQF;
     }
 
-    public int drp() {
-        return this.lUH.dri().lUQ;
+    public int drq() {
+        return this.lUS.drj().lVb;
     }
 
-    public k drq() {
-        if (this.lUI == null) {
-            this.lUI = new k(this.lUH.doY(), this.lUH.drg(), this.lUH.drh());
+    public k drr() {
+        if (this.lUT == null) {
+            this.lUT = new k(this.lUS.doZ(), this.lUS.drh(), this.lUS.dri());
         }
-        return this.lUI;
+        return this.lUT;
     }
 
-    public com.facebook.common.memory.g drr() {
-        if (this.lQs == null) {
-            this.lQs = new m(drq(), drs());
+    public com.facebook.common.memory.g drs() {
+        if (this.lQD == null) {
+            this.lQD = new m(drr(), drt());
         }
-        return this.lQs;
+        return this.lQD;
     }
 
-    public com.facebook.common.memory.j drs() {
-        if (this.lQI == null) {
-            this.lQI = new com.facebook.common.memory.j(drt());
+    public com.facebook.common.memory.j drt() {
+        if (this.lQT == null) {
+            this.lQT = new com.facebook.common.memory.j(dru());
         }
-        return this.lQI;
+        return this.lQT;
     }
 
-    public com.facebook.common.memory.a drt() {
-        if (this.lUJ == null) {
-            this.lUJ = new j(this.lUH.doY(), this.lUH.drj(), this.lUH.drk());
+    public com.facebook.common.memory.a dru() {
+        if (this.lUU == null) {
+            this.lUU = new j(this.lUS.doZ(), this.lUS.drk(), this.lUS.drl());
         }
-        return this.lUJ;
+        return this.lUU;
     }
 }

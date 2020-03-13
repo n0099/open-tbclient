@@ -32,7 +32,7 @@ public class a {
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: c */
                 public void D(com.baidu.swan.apps.setting.oauth.e eVar) {
-                    if (eVar == null || eVar.forbidden || eVar.bTq != 1) {
+                    if (eVar == null || eVar.forbidden || eVar.bTr != 1) {
                         a.c(c.this, "system deny");
                     } else {
                         a.d(c.this, optString);

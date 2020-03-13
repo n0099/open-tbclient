@@ -7,23 +7,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.view.GodHeadImageView;
 /* loaded from: classes10.dex */
 public class f extends v.a {
-    public TextView cuh;
+    public TextView cui;
     public View dividerLine;
-    public GodHeadImageView gkv;
-    public TextView gkw;
-    public TextView gkx;
+    public GodHeadImageView gkI;
+    public TextView gkJ;
+    public TextView gkK;
     public int mSkinType;
 
     public f(View view) {
         super(view);
         this.mSkinType = 3;
-        this.gkv = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.gkv.setShapeType(0);
-        this.gkv.setShowType(1);
-        this.gkv.setRadius(14);
-        this.cuh = (TextView) view.findViewById(R.id.item_manito_name);
-        this.gkw = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.gkx = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.gkI = (GodHeadImageView) view.findViewById(R.id.item_head);
+        this.gkI.setShapeType(0);
+        this.gkI.setShowType(1);
+        this.gkI.setRadius(14);
+        this.cui = (TextView) view.findViewById(R.id.item_manito_name);
+        this.gkJ = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.gkK = (TextView) view.findViewById(R.id.item_manito_fans);
         this.dividerLine = view.findViewById(R.id.divider_line);
     }
 }

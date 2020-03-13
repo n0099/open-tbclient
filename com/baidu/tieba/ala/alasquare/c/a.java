@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a epS;
-    private List<an> dXF;
+    private static a eqf;
+    private List<an> dXS;
 
-    public static a bcX() {
-        if (epS == null) {
+    public static a bcY() {
+        if (eqf == null) {
             synchronized (a.class) {
-                if (epS == null) {
-                    epS = new a();
+                if (eqf == null) {
+                    eqf = new a();
                 }
             }
         }
-        return epS;
+        return eqf;
     }
 
     public void d(an anVar) {
         if (anVar != null) {
-            if (this.dXF == null) {
-                this.dXF = new ArrayList();
+            if (this.dXS == null) {
+                this.dXS = new ArrayList();
             }
-            if (this.dXF != null) {
-                this.dXF.add(anVar);
+            if (this.dXS != null) {
+                this.dXS.add(anVar);
             }
         }
     }
 
-    public void xI(String str) {
+    public void xJ(String str) {
         if (str != null) {
-            if (this.dXF == null) {
-                this.dXF = new ArrayList();
+            if (this.dXS == null) {
+                this.dXS = new ArrayList();
             }
-            if (this.dXF != null) {
-                this.dXF.add(new an(str));
+            if (this.dXS != null) {
+                this.dXS.add(new an(str));
             }
         }
     }
 
-    public void bbR() {
-        if (v.getCount(this.dXF) != 0) {
-            for (an anVar : this.dXF) {
+    public void bbS() {
+        if (v.getCount(this.dXS) != 0) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 
     public void ib(boolean z) {
-        if (v.getCount(this.dXF) != 0) {
-            for (an anVar : this.dXF) {
+        if (v.getCount(this.dXS) != 0) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 

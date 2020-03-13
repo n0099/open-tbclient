@@ -63,7 +63,7 @@ public final class EventBusWrapper {
     }
 
     public static <T> d<T> register(Object obj, Class<T> cls) {
-        return RxBus.get().isRegistered(obj, cls) ? d.dNT() : RxBus.get().register(obj, cls);
+        return RxBus.get().isRegistered(obj, cls) ? d.dNU() : RxBus.get().register(obj, cls);
     }
 
     public static <T> void register(Object obj, Class<T> cls, b<T> bVar) {
@@ -80,13 +80,13 @@ public final class EventBusWrapper {
             };
             d<T> register = RxBus.get().register(obj, cls);
             if (i == 0) {
-                register.c(a.dOd()).b(bVar).a(bVar2).dNW().dNM();
+                register.c(a.dOe()).b(bVar).a(bVar2).dNX().dNN();
             } else if (i == 1) {
-                register.c(Schedulers.computation()).b(bVar).a(bVar2).dNW().dNM();
+                register.c(Schedulers.computation()).b(bVar).a(bVar2).dNX().dNN();
             } else if (i == 2) {
-                register.b(bVar).a(bVar2).dNW().dNM();
+                register.b(bVar).a(bVar2).dNX().dNN();
             } else {
-                register.b(bVar).a(bVar2).dNW().dNM();
+                register.b(bVar).a(bVar2).dNX().dNN();
             }
         }
     }
@@ -98,7 +98,7 @@ public final class EventBusWrapper {
                 @Override // rx.functions.b
                 public void call(Throwable th) {
                 }
-            }).dNW().dNM();
+            }).dNX().dNN();
         }
     }
 
@@ -124,11 +124,11 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnMainThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.dNT();
+            return d.dNU();
         }
         d register = register(obj, cls);
         if (register != null) {
-            return register.c(a.dOd());
+            return register.c(a.dOe());
         }
         return null;
     }
@@ -166,7 +166,7 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnBackgroundThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.dNT();
+            return d.dNU();
         }
         d register = register(obj, cls);
         if (register != null) {

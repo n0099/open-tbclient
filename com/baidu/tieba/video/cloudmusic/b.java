@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes10.dex */
 public class b implements c.a {
-    private final CloudMusicModel kvG;
-    private final c.b kvH;
+    private final CloudMusicModel kvS;
+    private final c.b kvT;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.kvG = cloudMusicModel;
-        this.kvH = bVar;
+        this.kvS = cloudMusicModel;
+        this.kvT = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void cPs() {
-        this.kvH.tl(true);
-        this.kvG.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void cPt() {
+        this.kvT.tl(true);
+        this.kvS.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void aC(CloudMusicData cloudMusicData) {
-                b.this.kvH.tl(false);
+                b.this.kvT.tl(false);
                 if (cloudMusicData != null) {
-                    b.this.kvH.tm(false);
+                    b.this.kvT.tm(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.kvH.tm(true);
+                        b.this.kvT.tm(true);
                         return;
                     } else {
-                        b.this.kvH.a(cloudMusicData);
+                        b.this.kvT.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.kvH.tm(true);
+                b.this.kvT.tm(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bGv() {
-        this.kvG.cancelLoadData();
+    public void bGw() {
+        this.kvS.cancelLoadData();
     }
 }

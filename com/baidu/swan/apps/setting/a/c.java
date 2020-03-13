@@ -46,7 +46,7 @@ public class c extends ab {
                         if (!aVar.aeE()) {
                             com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                         } else {
-                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTC, 0).toString());
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTD, 0).toString());
                         }
                     }
                 });

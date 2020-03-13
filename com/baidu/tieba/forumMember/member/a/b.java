@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b {
-    private BdTypeListView ekb;
-    private NoNetworkView fUQ;
-    private View glE;
-    private a glF;
+    private BdTypeListView eko;
+    private NoNetworkView fVd;
+    private View glR;
+    private a glS;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private h mPullView;
@@ -37,78 +37,78 @@ public class b {
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mActivity.setNetRefreshViewTopMargin(BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
-        this.fUQ = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
-        this.ekb = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
+        this.fVd = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
+        this.eko = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
         this.mPullView = new h(this.mActivity.getPageContext());
         this.mPullView.setTag(this.mActivity.getUniqueId());
         if (this.mActivity instanceof g.c) {
             this.mPullView.setListPullRefreshListener((g.c) this.mActivity);
         }
         if (this.mActivity instanceof BdListView.e) {
-            this.ekb.setOnSrollToBottomListener((BdListView.e) this.mActivity);
+            this.eko.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
-        this.ekb.setPullRefresh(this.mPullView);
-        this.glE = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.ekb, BdListViewHelper.HeadType.DEFAULT);
-        this.glF = new a(this.mActivity, this.ekb);
-        this.ekb.addAdapters(this.glF.bcE());
+        this.eko.setPullRefresh(this.mPullView);
+        this.glR = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.eko, BdListViewHelper.HeadType.DEFAULT);
+        this.glS = new a(this.mActivity, this.eko);
+        this.eko.addAdapters(this.glS.bcF());
     }
 
     public void showLoadingView() {
-        this.ekb.setVisibility(8);
+        this.eko.setVisibility(8);
         this.mActivity.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
-        this.ekb.setVisibility(0);
+        this.eko.setVisibility(0);
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void AY(String str) {
-        this.ekb.setVisibility(8);
+    public void AZ(String str) {
+        this.eko.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void bcx() {
-        this.ekb.setVisibility(0);
+    public void bcy() {
+        this.eko.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
 
     public void ca(List<m> list) {
         if (list != null) {
-            this.ekb.setData(list);
+            this.eko.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        this.glF.notifyDataSetChanged();
+        this.glS.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
-        this.ekb.completePullRefreshPostDelayed(0L);
+        this.eko.completePullRefreshPostDelayed(0L);
     }
 
     public void startPullRefresh() {
-        this.ekb.startPullRefresh();
+        this.eko.startPullRefresh();
     }
 
     public void f(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.fUQ.a(aVar);
+            this.fVd.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
-        this.fUQ.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.fVd.onChangeSkinType(this.mActivity.getPageContext(), i);
         notifyDataSetChanged();
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
     }
 
     public void kY(boolean z) {
-        BdListViewHelper.a(this.glE, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.a(this.glR, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void onDestroy() {
-        this.glF.onDestroy();
+        this.glS.onDestroy();
     }
 }

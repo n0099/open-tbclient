@@ -26,7 +26,7 @@ public class SocketStatic {
                         BdSocketLinkService.startService(false, "net succ");
                     }
                     synchronized (f.class) {
-                        f.dba.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                        f.dbb.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
                         f.proxyHost = null;
                     }
                 }

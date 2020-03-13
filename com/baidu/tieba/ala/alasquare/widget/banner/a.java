@@ -10,32 +10,32 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a<T> extends RecyclerView.Adapter<b> {
     private List<T> acz;
-    private c euC;
-    private c euD;
-    private boolean euE;
-    private d euy;
+    private d euL;
+    private c euP;
+    private c euQ;
+    private boolean euR;
     private Context mContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.euy != null) {
-                a.this.euy.ap(view.getTag());
+            if (a.this.euL != null) {
+                a.this.euL.ap(view.getTag());
             }
         }
     };
 
     public a(Context context, c cVar, boolean z) {
         this.mContext = context;
-        this.euC = cVar;
-        this.euE = z;
+        this.euP = cVar;
+        this.euR = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: n */
     public b onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (this.euC != null) {
-            return this.euC.m(viewGroup, i);
+        if (this.euP != null) {
+            return this.euP.m(viewGroup, i);
         }
         return null;
     }
@@ -69,10 +69,10 @@ public class a<T> extends RecyclerView.Adapter<b> {
         if (v.isEmpty(this.acz) || v.getCount(this.acz) == 1) {
             return v.getCount(this.acz);
         }
-        return this.euE ? v.getCount(this.acz) * 3 : v.getCount(this.acz);
+        return this.euR ? v.getCount(this.acz) * 3 : v.getCount(this.acz);
     }
 
-    public int bdC() {
+    public int bdD() {
         return v.getCount(this.acz);
     }
 
@@ -81,10 +81,10 @@ public class a<T> extends RecyclerView.Adapter<b> {
     }
 
     public void setOnBannerClickListener(d dVar) {
-        this.euy = dVar;
+        this.euL = dVar;
     }
 
     public void setViewHolderAdapter(c cVar) {
-        this.euD = cVar;
+        this.euQ = cVar;
     }
 }

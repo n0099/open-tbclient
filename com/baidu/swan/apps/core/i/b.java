@@ -38,7 +38,7 @@ abstract class b {
         for (int i = 0; i < optJSONArray.length(); i++) {
             c ah = ah(optJSONArray.optJSONObject(i));
             if (ah != null) {
-                hashMap.put(ah.cAY, ah);
+                hashMap.put(ah.cAZ, ah);
             }
         }
         return hashMap;
@@ -56,7 +56,7 @@ abstract class b {
                 @Override // java.lang.Runnable
                 public void run() {
                     jP.f(new UbcFlowEvent("loadPresetApp#run-start").dg(true));
-                    String hp = b.this.hp(cVar.cAY);
+                    String hp = b.this.hp(cVar.cAZ);
                     if (TextUtils.isEmpty(hp)) {
                         dVar.onFailed(0);
                         return;
@@ -77,7 +77,7 @@ abstract class b {
                     }
                     jP.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").dg(true));
                     if (a2) {
-                        a.setOrientation(b.this.c(cVar.category, cVar.cAY, cVar.versionCode));
+                        a.setOrientation(b.this.c(cVar.category, cVar.cAZ, cVar.versionCode));
                         com.baidu.swan.pms.database.a.atv().a(cVar, a);
                         jP.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").dg(true));
                         dVar.f(a);
@@ -97,7 +97,7 @@ abstract class b {
         if (i != 1 || (y = com.baidu.swan.apps.core.pms.d.a.y(str, i2)) == null) {
             return 0;
         }
-        return y.crf;
+        return y.crg;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,8 +114,8 @@ abstract class b {
     private c ah(JSONObject jSONObject) {
         c cVar;
         if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.f.d.a(jSONObject, new c())) != null) {
-            cVar.cBi = jSONObject.optInt("pkg_type");
-            cVar.brb = jSONObject.optString("bundle_name");
+            cVar.cBj = jSONObject.optInt("pkg_type");
+            cVar.brc = jSONObject.optString("bundle_name");
             if (cVar.PU()) {
                 return cVar;
             }

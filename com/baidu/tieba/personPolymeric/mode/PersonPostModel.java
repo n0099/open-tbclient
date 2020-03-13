@@ -270,7 +270,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.fNE != 33) {
+                if (cardPersonDynamicThreadData.fNR != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -527,17 +527,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             m next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).fNQ = true;
-                ((CardPersonDynamicThreadData) next).fNP = true;
-                long j = ((CardPersonDynamicThreadData) next).fNC * 1000;
+                ((CardPersonDynamicThreadData) next).fOd = true;
+                ((CardPersonDynamicThreadData) next).fOc = true;
+                long j = ((CardPersonDynamicThreadData) next).fNP * 1000;
                 String yearBytime2 = aq.getYearBytime(j);
                 String chineseMonthBytime = aq.getChineseMonthBytime(j);
                 String dateBytime = aq.getDateBytime(j);
                 if (aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).fNQ = false;
+                    ((CardPersonDynamicThreadData) next).fOd = false;
                 }
                 if (aq.equals(dateBytime, str5) && aq.equals(chineseMonthBytime, str4) && aq.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).fNP = false;
+                    ((CardPersonDynamicThreadData) next).fOc = false;
                     str = str5;
                     str2 = str4;
                     str3 = yearBytime;

@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ac;
 /* loaded from: classes3.dex */
 public class a extends b {
-    private AlaGameFrsLiveTabFragment eDr = new AlaGameFrsLiveTabFragment();
+    private AlaGameFrsLiveTabFragment eDE = new AlaGameFrsLiveTabFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.eDr;
+        getFragmentTabStructure().frag = this.eDE;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -45,20 +45,20 @@ public class a extends b {
     }
 
     public void setForumId(String str) {
-        if (this.eDr != null) {
-            this.eDr.setForumId(str);
+        if (this.eDE != null) {
+            this.eDE.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.eDr != null) {
-            this.eDr.setForumName(str);
+        if (this.eDE != null) {
+            this.eDE.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.eDr != null) {
-            this.eDr.setForumGameLabel(str);
+        if (this.eDE != null) {
+            this.eDE.setForumGameLabel(str);
         }
     }
 }

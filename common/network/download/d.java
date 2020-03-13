@@ -6,33 +6,33 @@ import org.json.JSONObject;
 public class d {
     private int mEnd;
     private int mStart;
-    private boolean nuN;
-    private boolean nuO;
-    private boolean nuP;
+    private boolean nuY;
+    private boolean nuZ;
+    private boolean nva;
 
     public d(int i) {
         this.mEnd = 0;
-        this.nuN = false;
-        this.nuO = false;
-        this.nuP = false;
+        this.nuY = false;
+        this.nuZ = false;
+        this.nva = false;
         this.mStart = i;
         this.mEnd = (131072 + i) - 1;
     }
 
     public d(int i, boolean z) {
         this.mEnd = 0;
-        this.nuN = false;
-        this.nuO = false;
-        this.nuP = false;
+        this.nuY = false;
+        this.nuZ = false;
+        this.nva = false;
         this.mStart = i;
-        this.nuN = z;
+        this.nuY = z;
     }
 
     public d(int i, int i2) {
         this.mEnd = 0;
-        this.nuN = false;
-        this.nuO = false;
-        this.nuP = false;
+        this.nuY = false;
+        this.nuZ = false;
+        this.nva = false;
         this.mStart = i;
         this.mEnd = i2;
     }
@@ -42,19 +42,19 @@ public class d {
     }
 
     public boolean isLast() {
-        return this.nuN;
+        return this.nuY;
     }
 
     public void kV(boolean z) {
-        this.nuN = z;
+        this.nuY = z;
     }
 
     public boolean aW() {
-        return this.nuO;
+        return this.nuZ;
     }
 
     public void fj(boolean z) {
-        this.nuO = z;
+        this.nuZ = z;
     }
 
     public static d dX(JSONObject jSONObject) throws JSONException {
@@ -71,11 +71,11 @@ public class d {
         return dVar2;
     }
 
-    public JSONObject dIO() {
+    public JSONObject dIP() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("start", this.mStart);
-            jSONObject.put("completed", this.nuO);
+            jSONObject.put("completed", this.nuZ);
             jSONObject.put("end", isLast() ? 0 : this.mEnd);
             return jSONObject;
         } catch (Exception e) {
@@ -83,18 +83,18 @@ public class d {
         }
     }
 
-    public String dIP() {
+    public String dIQ() {
         Object[] objArr = new Object[2];
         objArr[0] = Integer.valueOf(this.mStart);
-        objArr[1] = this.nuN ? "" : Integer.valueOf(this.mEnd);
+        objArr[1] = this.nuY ? "" : Integer.valueOf(this.mEnd);
         return String.format("bytes=%s-%s", objArr);
     }
 
     public void wE(boolean z) {
-        this.nuP = z;
+        this.nva = z;
     }
 
     public boolean isFailed() {
-        return this.nuP;
+        return this.nva;
     }
 }

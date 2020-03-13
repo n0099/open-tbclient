@@ -12,9 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<d> ajD;
-    private ArrayList<e> ajE;
-    private ArrayList<i> anU;
+    private ArrayList<d> ajE;
+    private ArrayList<e> ajF;
+    private ArrayList<i> anV;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -40,8 +40,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.anU = new ArrayList<>();
-            this.ajD = new ArrayList<>();
+            this.anV = new ArrayList<>();
+            this.ajE = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -58,7 +58,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     dVar.setCategoryName(optString);
                     dVar.f(arrayList);
                     dVar.aw(z);
-                    this.ajD.add(dVar);
+                    this.ajE.add(dVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -80,7 +80,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     iVar.setCategoryName(optString);
                     iVar.r(arrayList2);
                     iVar.aw(z);
-                    this.anU.add(iVar);
+                    this.anV.add(iVar);
                 }
             }
         }
@@ -88,27 +88,27 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.ajE = new ArrayList<>();
+            this.ajF = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     e eVar = new e();
                     eVar.parser(optJSONObject);
-                    this.ajE.add(eVar);
+                    this.ajF.add(eVar);
                 }
             }
         }
     }
 
     public ArrayList<i> uG() {
-        return this.anU;
+        return this.anV;
     }
 
     public ArrayList<d> getCategoryList() {
-        return this.ajD;
+        return this.ajE;
     }
 
     public ArrayList<e> uH() {
-        return this.ajE;
+        return this.ajF;
     }
 }

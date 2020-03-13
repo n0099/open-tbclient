@@ -151,20 +151,20 @@ public final class SpliceInsertCommand extends SpliceCommand {
 
     /* loaded from: classes6.dex */
     public static final class a {
-        public final long mqA;
-        public final int mqy;
-        public final long mqz;
+        public final int mqJ;
+        public final long mqK;
+        public final long mqL;
 
         private a(int i, long j, long j2) {
-            this.mqy = i;
-            this.mqz = j;
-            this.mqA = j2;
+            this.mqJ = i;
+            this.mqK = j;
+            this.mqL = j2;
         }
 
         public void aC(Parcel parcel) {
-            parcel.writeInt(this.mqy);
-            parcel.writeLong(this.mqz);
-            parcel.writeLong(this.mqA);
+            parcel.writeInt(this.mqJ);
+            parcel.writeLong(this.mqK);
+            parcel.writeLong(this.mqL);
         }
 
         public static a aD(Parcel parcel) {

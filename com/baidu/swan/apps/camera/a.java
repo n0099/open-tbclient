@@ -25,7 +25,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b bfE;
+    private com.baidu.swan.apps.camera.b.b bfF;
     private Timer mTimer;
 
     private a() {
@@ -35,11 +35,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0229a {
-        private static final a bfH = new a();
+        private static final a bfI = new a();
     }
 
     public static a Kg() {
-        return C0229a.bfH;
+        return C0229a.bfI;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -90,7 +90,7 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.bfE = bVar;
+        this.bfF = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -104,15 +104,15 @@ public class a {
     }
 
     public void stopTimer() {
-        this.bfE = null;
+        this.bfF = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.bfE != null) {
-            this.bfE.cancel();
+        if (this.bfF != null) {
+            this.bfF.cancel();
         }
         stopTimer();
     }

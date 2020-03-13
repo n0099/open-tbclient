@@ -14,7 +14,7 @@ import com.baidu.swan.apps.setting.oauth.c;
 import com.baidu.swan.apps.setting.oauth.h;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    private static boolean bDt;
+    private static boolean bDu;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/live");
@@ -54,8 +54,8 @@ public class a extends ab {
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
                 public void D(h<b.d> hVar) {
-                    boolean unused = a.bDt = c.b(hVar);
-                    if (!a.bDt) {
+                    boolean unused = a.bDu = c.b(hVar);
+                    if (!a.bDu) {
                         c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
@@ -175,7 +175,7 @@ public class a extends ab {
         if (com.baidu.swan.apps.ah.a.a.aav()) {
             return true;
         }
-        return bDt;
+        return bDu;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

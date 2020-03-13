@@ -9,9 +9,9 @@ public interface d {
 
     int T(long j, long j2);
 
-    int dwX();
+    int dwY();
 
-    boolean dwY();
+    boolean dwZ();
 
     int gq(long j);
 }

@@ -12,31 +12,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private TbImageView ddA;
-    private ViewGroup etd;
+    private TbImageView ddN;
+    private ViewGroup etq;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bdu();
+        bdv();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.etd = new FrameLayout(this.mTbPageContext.getPageActivity());
-        this.ddA = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.elc);
-        this.ddA.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ddA.setDefaultErrorResource(R.drawable.pic_live_ufan);
-        this.ddA.setLayoutParams(layoutParams);
-        this.etd.addView(this.ddA);
+        this.etq = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.ddN = new TbImageView(this.mTbPageContext.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.elp);
+        this.ddN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ddN.setDefaultErrorResource(R.drawable.pic_live_ufan);
+        this.ddN.setLayoutParams(layoutParams);
+        this.etq.addView(this.ddN);
         this.mMaskView.setVisibility(8);
-        this.etd.addView(this.mMaskView);
-        this.ddA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
+        this.etq.addView(this.mMaskView);
+        this.ddN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(c.this.etb.erm)) {
-                    ba.aGG().a(c.this.mTbPageContext, new String[]{c.this.etb.erm}, true);
-                    com.baidu.tieba.ala.alasquare.c.a.bcX().c("c12909", c.this.etb.ero, 3, "-1");
+                if (!TextUtils.isEmpty(c.this.etp.erA)) {
+                    ba.aGG().a(c.this.mTbPageContext, new String[]{c.this.etp.erA}, true);
+                    com.baidu.tieba.ala.alasquare.c.a.bcY().c("c12909", c.this.etp.erC, 3, "-1");
                 }
             }
         });
@@ -49,30 +49,30 @@ public class c extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public boolean b(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return (aVar == null || 3 != aVar.ern || TextUtils.isEmpty(aVar.erk)) ? false : true;
+        return (aVar == null || 3 != aVar.erB || TextUtils.isEmpty(aVar.ery)) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bdv() {
-        super.bdv();
-        if (this.ddA != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ddA.getLayoutParams();
+    public void bdw() {
+        super.bdw();
+        if (this.ddN != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ddN.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.elc;
-            this.ddA.setLayoutParams(layoutParams);
+            layoutParams.height = this.elp;
+            this.ddN.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.etd;
+        return this.etq;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
-        this.ddA.startLoad(aVar.erk, 10, false);
-        com.baidu.tieba.ala.alasquare.c.a.bcX().c("c12908", this.etb.ero, 3, "-1");
+        this.ddN.startLoad(aVar.ery, 10, false);
+        com.baidu.tieba.ala.alasquare.c.a.bcY().c("c12908", this.etp.erC, 3, "-1");
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -94,6 +94,6 @@ public class c extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        this.ddA = null;
+        this.ddN = null;
     }
 }

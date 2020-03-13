@@ -115,11 +115,11 @@ public class MultiImgLayout extends LinearLayout implements m<com.baidu.tbadk.co
         VoiceData.VoiceModel voiceModel = aCC.get(0);
         this.NY.setVoiceModel(voiceModel);
         this.NY.setTag(voiceModel);
-        this.NY.bHs();
+        this.NY.bHt();
         if (voiceModel != null) {
             this.NY.wW(voiceModel.voice_status.intValue());
         }
-        this.NY.cMh();
+        this.NY.cMi();
         this.Ob = true;
     }
 
@@ -150,7 +150,7 @@ public class MultiImgLayout extends LinearLayout implements m<com.baidu.tbadk.co
                                 subClickListener.a(view, MultiImgLayout.this.Kc);
                                 MultiImgLayout.this.Kc.objType = 1;
                             }
-                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dlX) {
+                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dmk) {
                                 au.a(view, MultiImgLayout.this.NJ, linkedList, i2, MultiImgLayout.this.Kc.aAg(), MultiImgLayout.this.mFrom);
                             } else if ("frs".equals(MultiImgLayout.this.mFrom)) {
                                 au.a(MultiImgLayout.this.Kc, view.getContext(), 3, false);

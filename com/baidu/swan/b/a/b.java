@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b {
-    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> cjh = new HashMap<>();
+    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> cji = new HashMap<>();
 
     public synchronized void a(String str, com.baidu.swan.b.a.e.b bVar) {
         for (com.baidu.swan.b.a.d.b bVar2 : new ArrayList(getEventListeners(str))) {
@@ -22,8 +22,8 @@ public class b {
             if (!eventListeners.contains(bVar)) {
                 eventListeners.add(bVar);
             }
-            if (!this.cjh.containsKey(str)) {
-                this.cjh.put(str, eventListeners);
+            if (!this.cji.containsKey(str)) {
+                this.cji.put(str, eventListeners);
             }
         }
     }
@@ -35,13 +35,13 @@ public class b {
     public synchronized void g(String str, com.baidu.swan.b.a.d.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (bVar == null) {
-                this.cjh.remove(str);
+                this.cji.remove(str);
             } else {
                 List<com.baidu.swan.b.a.d.b> eventListeners = getEventListeners(str);
                 if (eventListeners.contains(bVar)) {
                     eventListeners.remove(bVar);
                     if (eventListeners.isEmpty()) {
-                        this.cjh.remove(str);
+                        this.cji.remove(str);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class b {
         boolean z2 = false;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                List<com.baidu.swan.b.a.d.b> list = this.cjh.get(str);
+                List<com.baidu.swan.b.a.d.b> list = this.cji.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -75,7 +75,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<com.baidu.swan.b.a.d.b> list = this.cjh.get(str);
+        List<com.baidu.swan.b.a.d.b> list = this.cji.get(str);
         return list == null ? new ArrayList() : list;
     }
 }

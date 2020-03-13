@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 public interface af {
     void AC();
 
-    void aHN();
+    void aHO();
 
     void bcA();
 
-    void bcz();
+    void bcB();
 
     void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.z zVar);
 

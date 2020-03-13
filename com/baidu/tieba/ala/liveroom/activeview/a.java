@@ -6,18 +6,18 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private TbImageView ePh;
-    private View ePi;
+    private TbImageView ePu;
+    private View ePv;
     private int mPosition;
     private View mRoot;
 
     public a(View view, int i) {
         this.mRoot = view;
-        this.ePh = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
-        this.ePi = view.findViewById(a.g.new_icon);
-        this.ePh.setDefaultErrorResource(0);
-        this.ePh.setDefaultBgResource(a.d.sdk_transparent);
-        this.ePh.setAutoChangeStyle(false);
+        this.ePu = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
+        this.ePv = view.findViewById(a.g.new_icon);
+        this.ePu.setDefaultErrorResource(0);
+        this.ePu.setDefaultBgResource(a.d.sdk_transparent);
+        this.ePu.setAutoChangeStyle(false);
         this.mPosition = i;
     }
 
@@ -29,11 +29,11 @@ public class a {
         if (fVar != null) {
             this.mRoot.setTag(a.g.ala_active_view_position, Integer.valueOf(this.mPosition));
             this.mRoot.setTag(a.g.ala_active_view_data, fVar);
-            this.ePh.startLoad(fVar.pic_url, 10, false);
+            this.ePu.startLoad(fVar.pic_url, 10, false);
             if (fVar.Xt) {
-                this.ePi.setVisibility(0);
+                this.ePv.setVisibility(0);
             } else {
-                this.ePi.setVisibility(4);
+                this.ePv.setVisibility(4);
             }
         }
     }

@@ -12,7 +12,7 @@ import kotlin.h;
 public @interface c {
     String c() default "";
 
-    int[] dKq() default {};
+    int[] dKr() default {};
 
     String f() default "";
 

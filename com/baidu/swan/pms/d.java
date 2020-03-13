@@ -8,6 +8,6 @@ public class d {
     }
 
     public static a atq() {
-        return com.baidu.tieba.aiapps.apps.k.b.bbd();
+        return com.baidu.tieba.aiapps.apps.k.b.bbe();
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public interface e {
     long Lk(int i);
 
-    int dxK();
+    int dxL();
 
     int gw(long j);
 

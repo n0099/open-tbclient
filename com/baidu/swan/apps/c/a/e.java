@@ -9,13 +9,13 @@ import kotlin.text.l;
 /* loaded from: classes11.dex */
 public final class e {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bck;
-    private static com.baidu.swan.apps.a.c bcl;
-    private static boolean bcm;
-    public static final e bcn = new e();
+    private static com.baidu.swan.apps.a.a bcl;
+    private static com.baidu.swan.apps.a.c bcm;
+    private static boolean bcn;
+    public static final e bco = new e();
 
     static {
-        String simpleName = bcn.getClass().getSimpleName();
+        String simpleName = bco.getClass().getSimpleName();
         q.i(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -24,19 +24,19 @@ public final class e {
     }
 
     public final com.baidu.swan.apps.a.a Jl() {
-        return bck;
-    }
-
-    public final com.baidu.swan.apps.a.c Jm() {
         return bcl;
     }
 
-    public final boolean Jn() {
+    public final com.baidu.swan.apps.a.c Jm() {
         return bcm;
     }
 
+    public final boolean Jn() {
+        return bcn;
+    }
+
     public final void bZ(boolean z) {
-        bcm = z;
+        bcn = z;
     }
 
     public final boolean isLogin() {
@@ -46,9 +46,9 @@ public final class e {
         if (q.h(f.Jr(), false)) {
             return false;
         }
-        String Ju = g.bcq.Ju();
+        String Ju = g.bcr.Ju();
         if (!(Ju == null || l.isBlank(Ju))) {
-            String uid = h.bcs.getUid();
+            String uid = h.bct.getUid();
             if (!(uid == null || l.isBlank(uid))) {
                 return true;
             }
@@ -57,8 +57,8 @@ public final class e {
     }
 
     public final void Jo() {
-        g.bcq.Jv();
-        h.bcs.Jy();
+        g.bcr.Jv();
+        h.bct.Jy();
         bS(false);
     }
 
@@ -68,7 +68,7 @@ public final class e {
         }
         Boolean Jr = f.Jr();
         if (Jr == null) {
-            q.dKv();
+            q.dKw();
         }
         return Jr.booleanValue();
     }

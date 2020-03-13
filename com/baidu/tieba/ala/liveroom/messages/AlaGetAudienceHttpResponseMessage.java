@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private h ewN;
+    private h exa;
 
     public AlaGetAudienceHttpResponseMessage() {
         super(1021129);
@@ -16,12 +16,12 @@ public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ewN = new h();
-            this.ewN.parserJson(optJSONObject);
+            this.exa = new h();
+            this.exa.parserJson(optJSONObject);
         }
     }
 
-    public h bdY() {
-        return this.ewN;
+    public h bdZ() {
+        return this.exa;
     }
 }

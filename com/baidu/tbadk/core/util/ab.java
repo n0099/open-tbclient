@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.util.ArrayMap;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.webkit.sdk.PermissionRequest;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ab {
     public static boolean checkLocationForBaiduLocation(Context context) {
@@ -115,12 +115,11 @@ public class ab {
         return false;
     }
 
-    public static void reuqestLocation(Activity activity, int i) {
-        try {
-            com.baidu.k.a.a.requestPermissions(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public static boolean e(Activity activity, int i) {
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+        permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_COARSE_LOCATION");
+        permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_FINE_LOCATION");
+        return permissionJudgePolicy.f(activity, i);
     }
 
     public static void requestWriteExternalStorage(Activity activity, int i) {
@@ -143,22 +142,14 @@ public class ab {
     }
 
     public static boolean requestWriteExternalStorgeAndCameraPermission(Activity activity, int i) {
-        ArrayList arrayList = new ArrayList(2);
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         if (!checkWriteExternalStorage(activity.getApplicationContext())) {
-            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+            permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
         }
         if (!checkCamera(activity.getApplicationContext())) {
-            arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(activity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         }
-        if (arrayList.size() == 0) {
-            return false;
-        }
-        try {
-            com.baidu.k.a.a.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        return true;
+        return permissionJudgePolicy.a(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one);
     }
 
     public static boolean ay(Context context, String str) {

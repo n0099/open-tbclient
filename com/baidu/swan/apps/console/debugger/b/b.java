@@ -15,12 +15,12 @@ public class b {
         e.f fVar = new e.f();
         File file = new File(LC, "app.json");
         SwanAppConfigData l = SwanAppConfigData.l(com.baidu.swan.d.c.readFileData(file), LC);
-        fVar.bxz = LC.getPath() + File.separator;
-        fVar.bxA = l;
+        fVar.bxA = LC.getPath() + File.separator;
+        fVar.bxB = l;
         if (DEBUG) {
             Log.d("WirelessDebugBundleHelper", "configFile path: " + file.getPath());
             Log.d("WirelessDebugBundleHelper", "configFile exist: " + file.exists());
-            Log.d("WirelessDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bxz);
+            Log.d("WirelessDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bxA);
         }
         return fVar;
     }

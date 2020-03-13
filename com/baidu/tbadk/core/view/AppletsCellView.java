@@ -18,13 +18,13 @@ import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
     private String Pj;
-    private TextView bpp;
-    private SmartApp cUe;
-    private TbImageView ddA;
-    private HeadImageView ddB;
-    private TextView ddC;
-    private HeadImageView ddy;
-    private TextView ddz;
+    private TextView bpq;
+    private SmartApp cUf;
+    private HeadImageView ddL;
+    private TextView ddM;
+    private TbImageView ddN;
+    private HeadImageView ddO;
+    private TextView ddP;
     private String mForumId;
     private String mFrom;
     private int mSkinType;
@@ -50,25 +50,25 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.applets_cell_layout, (ViewGroup) this, true);
-        this.ddy = (HeadImageView) findViewById(R.id.applets_app_icon);
-        this.ddz = (TextView) findViewById(R.id.applets_app_name);
-        this.bpp = (TextView) findViewById(R.id.applets_app_content);
-        this.ddA = (TbImageView) findViewById(R.id.applets_app_img);
-        this.ddB = (HeadImageView) findViewById(R.id.applets_app_type_icon);
-        this.ddC = (TextView) findViewById(R.id.applets_app_type_name);
-        this.ddy.setIsRound(true);
-        this.ddy.setIsPreDrawBorder(true);
-        this.ddy.setDrawBorder(true);
-        this.ddy.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds1));
-        this.ddy.setDefaultResource(R.color.cp_bg_line_e);
-        this.ddy.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds70));
-        ViewGroup.LayoutParams layoutParams = this.ddA.getLayoutParams();
+        this.ddL = (HeadImageView) findViewById(R.id.applets_app_icon);
+        this.ddM = (TextView) findViewById(R.id.applets_app_name);
+        this.bpq = (TextView) findViewById(R.id.applets_app_content);
+        this.ddN = (TbImageView) findViewById(R.id.applets_app_img);
+        this.ddO = (HeadImageView) findViewById(R.id.applets_app_type_icon);
+        this.ddP = (TextView) findViewById(R.id.applets_app_type_name);
+        this.ddL.setIsRound(true);
+        this.ddL.setIsPreDrawBorder(true);
+        this.ddL.setDrawBorder(true);
+        this.ddL.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds1));
+        this.ddL.setDefaultResource(R.color.cp_bg_line_e);
+        this.ddL.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds70));
+        ViewGroup.LayoutParams layoutParams = this.ddN.getLayoutParams();
         layoutParams.height = ((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds130)) * 9) / 16;
-        this.ddA.setLayoutParams(layoutParams);
-        this.ddA.setConrers(15);
+        this.ddN.setLayoutParams(layoutParams);
+        this.ddN.setConrers(15);
         setOnClickListener(this);
-        this.ddB.setIsRound(true);
-        this.ddB.setDrawBorder(false);
+        this.ddO.setIsRound(true);
+        this.ddO.setDrawBorder(false);
         onChangeSkinType();
     }
 
@@ -90,60 +90,60 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             return;
         }
         setVisibility(0);
-        this.cUe = smartApp;
-        this.ddy.startLoad(smartApp.avatar, 10, false);
-        this.ddz.setText(smartApp.name);
+        this.cUf = smartApp;
+        this.ddL.startLoad(smartApp.avatar, 10, false);
+        this.ddM.setText(smartApp.name);
         if (StringUtils.isNull(smartApp._abstract, true)) {
-            this.bpp.setVisibility(8);
+            this.bpq.setVisibility(8);
         } else {
-            this.bpp.setVisibility(0);
-            this.bpp.setText(smartApp._abstract);
+            this.bpq.setVisibility(0);
+            this.bpq.setText(smartApp._abstract);
         }
         if (StringUtils.isNull(smartApp.pic, true)) {
-            this.ddA.setDefaultBgResource(R.drawable.pic_share_default_applets);
+            this.ddN.setDefaultBgResource(R.drawable.pic_share_default_applets);
             return;
         }
-        this.ddA.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
+        this.ddN.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str, boolean z) {
                 if (!z) {
-                    AppletsCellView.this.ddA.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                    AppletsCellView.this.ddN.setDefaultBgResource(R.drawable.pic_share_default_applets);
                 }
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                AppletsCellView.this.ddA.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                AppletsCellView.this.ddN.setDefaultBgResource(R.drawable.pic_share_default_applets);
             }
         });
-        this.ddA.startLoad(smartApp.pic, 10, false);
+        this.ddN.startLoad(smartApp.pic, 10, false);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cUe != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.cUe.id, this.cUe.link, "1191003900000000", this.cUe.is_game)) {
-                if (!StringUtils.isNull(this.cUe.h5_url)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(getContext(), this.cUe.h5_url);
+        if (this.cUf != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.cUf.id, this.cUf.link, "1191003900000000", this.cUf.is_game)) {
+                if (!StringUtils.isNull(this.cUf.h5_url)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(getContext(), this.cUf.h5_url);
                 } else {
                     return;
                 }
             }
-            TiebaStatic.log(new an("c13274").cy("fid", this.mForumId).cy("tid", this.Pj).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_name", this.cUe.name).s("obj_id", this.cUe.swan_app_id.longValue()).cy("obj_source", this.mFrom).X("obj_param1", this.cUe.is_game.intValue()));
+            TiebaStatic.log(new an("c13274").cy("fid", this.mForumId).cy("tid", this.Pj).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_name", this.cUf.name).s("obj_id", this.cUf.swan_app_id.longValue()).cy("obj_source", this.mFrom).X("obj_param1", this.cUf.is_game.intValue()));
         }
     }
 
     public void onChangeSkinType() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         am.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        this.ddy.setBorderColor(am.getColor(R.color.cp_bg_line_d));
-        this.ddy.setIsNight(this.mSkinType == 1);
-        am.setViewTextColor(this.ddz, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.bpp, (int) R.color.cp_cont_b);
-        this.ddA.setIsNight(this.mSkinType == 1);
-        this.ddB.setImageDrawable(am.getDrawable(R.drawable.icon_avatar_smallapp_tie));
-        this.ddB.setBorderColor(am.getColor(R.color.cp_bg_line_d));
-        this.ddB.setIsNight(this.mSkinType == 1);
-        am.setViewTextColor(this.ddC, (int) R.color.cp_cont_d);
+        this.ddL.setBorderColor(am.getColor(R.color.cp_bg_line_d));
+        this.ddL.setIsNight(this.mSkinType == 1);
+        am.setViewTextColor(this.ddM, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.bpq, (int) R.color.cp_cont_b);
+        this.ddN.setIsNight(this.mSkinType == 1);
+        this.ddO.setImageDrawable(am.getDrawable(R.drawable.icon_avatar_smallapp_tie));
+        this.ddO.setBorderColor(am.getColor(R.color.cp_bg_line_d));
+        this.ddO.setIsNight(this.mSkinType == 1);
+        am.setViewTextColor(this.ddP, (int) R.color.cp_cont_d);
     }
 }

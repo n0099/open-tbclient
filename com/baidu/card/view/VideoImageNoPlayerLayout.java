@@ -66,10 +66,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements m<com.ba
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a vx = c.aPQ().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), 10));
-                    if (vx != null) {
-                        int width = vx.getWidth();
-                        i = vx.getHeight();
+                    com.baidu.adp.widget.ImageView.a vy = c.aPR().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), 10));
+                    if (vy != null) {
+                        int width = vy.getWidth();
+                        i = vy.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -186,8 +186,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements m<com.ba
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAg() != null && aVar.aAg().cTQ != null) {
-            OriginalThreadInfo originalThreadInfo = aVar.aAg().cTQ;
+        if (aVar != null && aVar.aAg() != null && aVar.aAg().cTR != null) {
+            OriginalThreadInfo originalThreadInfo = aVar.aAg().cTR;
             this.Pi = originalThreadInfo.videoInfo.is_vertical.intValue() == 1;
             this.Pj = originalThreadInfo.threadId;
             this.Pk = originalThreadInfo.videoInfo.video_length.intValue();

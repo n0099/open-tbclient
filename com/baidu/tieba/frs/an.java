@@ -4,7 +4,7 @@ public class an {
     public Object ext;
     public String forumId;
     public String forumName;
-    public boolean gsr = false;
+    public boolean gsE = false;
     public int pn;
     public String stType;
 }

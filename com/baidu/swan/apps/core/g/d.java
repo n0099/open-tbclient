@@ -10,9 +10,9 @@ import com.baidu.swan.games.e.h;
 /* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a ble;
-    private com.baidu.swan.games.binding.a bpA = new com.baidu.swan.games.binding.a();
-    private b bpB;
+    private com.baidu.swan.games.e.a blf;
+    private com.baidu.swan.games.binding.a bpB = new com.baidu.swan.games.binding.a();
+    private b bpC;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -20,23 +20,23 @@ public class d {
     }
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.ble = g.a(Pd(), new a(str, str2), null);
+        this.blf = g.a(Pd(), new a(str, str2), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.ble.setCodeCacheSetting(codeCacheSetting);
+        this.blf.setCodeCacheSetting(codeCacheSetting);
     }
 
     public void a(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
-        this.ble.a(jSCacheCallback);
+        this.blf.a(jSCacheCallback);
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.ble;
+        return this.blf;
     }
 
     public void finish() {
-        this.ble.finish();
+        this.blf.finish();
     }
 
     private h Pd() {
@@ -44,11 +44,11 @@ public class d {
     }
 
     public void H(Activity activity) {
-        this.bpA.Z(activity);
+        this.bpB.Z(activity);
     }
 
     public void a(b bVar) {
-        this.bpB = bVar;
+        this.bpC = bVar;
     }
 
     /* loaded from: classes11.dex */
@@ -88,13 +88,13 @@ public class d {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            d.this.bpA.a(aVar, com.baidu.swan.apps.w.a.TW());
+            d.this.bpB.a(aVar, com.baidu.swan.apps.w.a.TW());
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void b(com.baidu.swan.games.e.a aVar) {
-            if (d.this.bpB != null) {
-                d.this.bpB.c(aVar);
+            if (d.this.bpC != null) {
+                d.this.bpC.c(aVar);
             }
             aVar.onLoad();
         }

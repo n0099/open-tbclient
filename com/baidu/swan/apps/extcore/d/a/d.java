@@ -15,7 +15,7 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends ab {
-    private static final String buM = d.class.getSimpleName();
+    private static final String buN = d.class.getSimpleName();
 
     public d(j jVar) {
         super(jVar, "/swanAPI/debug/replaceSwanCore");
@@ -64,7 +64,7 @@ public class d extends ab {
                 File RV = com.baidu.swan.apps.swancore.c.a.RV();
                 File RT = com.baidu.swan.apps.swancore.c.a.RT();
                 if (d.DEBUG) {
-                    Log.d(d.buM, "swanCoreZipFile: " + RV + " swanCoreDir: " + RT);
+                    Log.d(d.buN, "swanCoreZipFile: " + RV + " swanCoreDir: " + RT);
                 }
                 if (RV.exists() && com.baidu.swan.d.c.unzipFile(RV.getPath(), RT.getPath())) {
                     com.baidu.swan.apps.ah.a.a.dm(true);

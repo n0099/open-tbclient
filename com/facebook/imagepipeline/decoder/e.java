@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a lIF;
-    private boolean lTM;
-    private int lTI = 0;
-    private int lTH = 0;
-    private int lTJ = 0;
-    private int lTL = 0;
-    private int lTK = 0;
-    private int lTG = 0;
+    private final com.facebook.common.memory.a lIQ;
+    private boolean lTX;
+    private int lTT = 0;
+    private int lTS = 0;
+    private int lTU = 0;
+    private int lTW = 0;
+    private int lTV = 0;
+    private int lTR = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.lIF = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.lIQ = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.lTG != 6 && eVar.getSize() > this.lTI) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lIF.get(16384), this.lIF);
+        if (this.lTR != 6 && eVar.getSize() > this.lTT) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lIQ.get(16384), this.lIQ);
             try {
-                com.facebook.common.util.c.a(fVar, this.lTI);
+                com.facebook.common.util.c.a(fVar, this.lTT);
                 return w(fVar);
             } catch (IOException e) {
                 l.t(e);
@@ -38,82 +38,82 @@ public class e {
     private boolean w(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.lTK;
-        while (this.lTG != 6 && (read = inputStream.read()) != -1) {
+        int i = this.lTV;
+        while (this.lTR != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.lTI++;
-                if (this.lTM) {
-                    this.lTG = 6;
-                    this.lTM = false;
+                this.lTT++;
+                if (this.lTX) {
+                    this.lTR = 6;
+                    this.lTX = false;
                     return false;
                 }
-                switch (this.lTG) {
+                switch (this.lTR) {
                     case 0:
                         if (read == 255) {
-                            this.lTG = 1;
+                            this.lTR = 1;
                             break;
                         } else {
-                            this.lTG = 6;
+                            this.lTR = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.lTG = 2;
+                            this.lTR = 2;
                             break;
                         } else {
-                            this.lTG = 6;
+                            this.lTR = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.lTG = 3;
+                            this.lTR = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.lTG = 3;
+                            this.lTR = 3;
                             break;
                         } else if (read == 0) {
-                            this.lTG = 2;
+                            this.lTR = 2;
                             break;
                         } else if (read == 217) {
-                            this.lTM = true;
-                            Ik(this.lTI - 2);
-                            this.lTG = 2;
+                            this.lTX = true;
+                            Ik(this.lTT - 2);
+                            this.lTR = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                Ik(this.lTI - 2);
+                                Ik(this.lTT - 2);
                             }
                             if (Ij(read)) {
-                                this.lTG = 4;
+                                this.lTR = 4;
                                 break;
                             } else {
-                                this.lTG = 2;
+                                this.lTR = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.lTG = 5;
+                        this.lTR = 5;
                         break;
                     case 5:
-                        int i2 = ((this.lTH << 8) + read) - 2;
+                        int i2 = ((this.lTS << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.lTI = i2 + this.lTI;
-                        this.lTG = 2;
+                        this.lTT = i2 + this.lTT;
+                        this.lTR = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.lTH = read;
+                this.lTS = read;
             } catch (IOException e) {
                 l.t(e);
             }
         }
-        if (this.lTG == 6 || this.lTK == i) {
+        if (this.lTR == 6 || this.lTV == i) {
             z = false;
         }
         return z;
@@ -134,23 +134,23 @@ public class e {
     }
 
     private void Ik(int i) {
-        if (this.lTJ > 0) {
-            this.lTL = i;
+        if (this.lTU > 0) {
+            this.lTW = i;
         }
-        int i2 = this.lTJ;
-        this.lTJ = i2 + 1;
-        this.lTK = i2;
-    }
-
-    public int dql() {
-        return this.lTL;
+        int i2 = this.lTU;
+        this.lTU = i2 + 1;
+        this.lTV = i2;
     }
 
     public int dqm() {
-        return this.lTK;
+        return this.lTW;
     }
 
-    public boolean dqn() {
-        return this.lTM;
+    public int dqn() {
+        return this.lTV;
+    }
+
+    public boolean dqo() {
+        return this.lTX;
     }
 }

@@ -6,9 +6,9 @@ import rx.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class q<T> implements d.b<T, T> {
-    final a<T> nQK;
-    final b<T> nQL;
-    final rx.d<? extends T> nQM;
+    final a<T> nQV;
+    final b<T> nQW;
+    final rx.d<? extends T> nQX;
     final rx.g scheduler;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,9 +28,9 @@ public class q<T> implements d.b<T, T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(a<T> aVar, b<T> bVar, rx.d<? extends T> dVar, rx.g gVar) {
-        this.nQK = aVar;
-        this.nQL = bVar;
-        this.nQM = dVar;
+        this.nQV = aVar;
+        this.nQW = bVar;
+        this.nQX = dVar;
         this.scheduler = gVar;
     }
 
@@ -40,10 +40,10 @@ public class q<T> implements d.b<T, T> {
         rx.b.e eVar = new rx.b.e(jVar);
         rx.subscriptions.d dVar = new rx.subscriptions.d();
         eVar.add(dVar);
-        c cVar = new c(eVar, this.nQL, dVar, this.nQM, createWorker);
+        c cVar = new c(eVar, this.nQW, dVar, this.nQX, createWorker);
         eVar.add(cVar);
-        eVar.setProducer(cVar.nOf);
-        dVar.f(this.nQK.b(cVar, 0L, createWorker));
+        eVar.setProducer(cVar.nOq);
+        dVar.f(this.nQV.b(cVar, 0L, createWorker));
         return cVar;
     }
 
@@ -51,25 +51,25 @@ public class q<T> implements d.b<T, T> {
     /* loaded from: classes6.dex */
     public static final class c<T> extends rx.j<T> {
         long actual;
-        final rx.internal.producers.a nOf = new rx.internal.producers.a();
-        final b<T> nQL;
-        final rx.d<? extends T> nQM;
-        final rx.b.e<T> nQN;
-        final g.a nQO;
+        final rx.internal.producers.a nOq = new rx.internal.producers.a();
+        final b<T> nQW;
+        final rx.d<? extends T> nQX;
+        final rx.b.e<T> nQY;
+        final g.a nQZ;
         final rx.subscriptions.d serial;
         boolean terminated;
 
         c(rx.b.e<T> eVar, b<T> bVar, rx.subscriptions.d dVar, rx.d<? extends T> dVar2, g.a aVar) {
-            this.nQN = eVar;
-            this.nQL = bVar;
+            this.nQY = eVar;
+            this.nQW = bVar;
             this.serial = dVar;
-            this.nQM = dVar2;
-            this.nQO = aVar;
+            this.nQX = dVar2;
+            this.nQZ = aVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.nOf.setProducer(fVar);
+            this.nOq.setProducer(fVar);
         }
 
         @Override // rx.e
@@ -86,8 +86,8 @@ public class q<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                this.nQN.onNext(t);
-                this.serial.f(this.nQL.a(this, Long.valueOf(j), t, this.nQO));
+                this.nQY.onNext(t);
+                this.serial.f(this.nQW.a(this, Long.valueOf(j), t, this.nQZ));
             }
         }
 
@@ -103,7 +103,7 @@ public class q<T> implements d.b<T, T> {
             }
             if (z) {
                 this.serial.unsubscribe();
-                this.nQN.onError(th);
+                this.nQY.onError(th);
             }
         }
 
@@ -119,7 +119,7 @@ public class q<T> implements d.b<T, T> {
             }
             if (z) {
                 this.serial.unsubscribe();
-                this.nQN.onCompleted();
+                this.nQY.onCompleted();
             }
         }
 
@@ -133,32 +133,32 @@ public class q<T> implements d.b<T, T> {
                 }
             }
             if (z) {
-                if (this.nQM == null) {
-                    this.nQN.onError(new TimeoutException());
+                if (this.nQX == null) {
+                    this.nQY.onError(new TimeoutException());
                     return;
                 }
                 rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.q.c.1
                     @Override // rx.e
                     public void onNext(T t) {
-                        c.this.nQN.onNext(t);
+                        c.this.nQY.onNext(t);
                     }
 
                     @Override // rx.e
                     public void onError(Throwable th) {
-                        c.this.nQN.onError(th);
+                        c.this.nQY.onError(th);
                     }
 
                     @Override // rx.e
                     public void onCompleted() {
-                        c.this.nQN.onCompleted();
+                        c.this.nQY.onCompleted();
                     }
 
                     @Override // rx.j
                     public void setProducer(rx.f fVar) {
-                        c.this.nOf.setProducer(fVar);
+                        c.this.nOq.setProducer(fVar);
                     }
                 };
-                this.nQM.a((rx.j<? super Object>) jVar);
+                this.nQX.a((rx.j<? super Object>) jVar);
                 this.serial.f(jVar);
             }
         }

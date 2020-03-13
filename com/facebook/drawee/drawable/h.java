@@ -6,8 +6,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes13.dex */
 public class h extends g {
-    private int lMg;
-    private int lMh;
+    private int lMr;
+    private int lMs;
     private Matrix mDrawMatrix;
     private Matrix mMatrix;
 
@@ -20,7 +20,7 @@ public class h extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        dmz();
+        dmA();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -39,8 +39,8 @@ public class h extends g {
         configureBounds();
     }
 
-    private void dmz() {
-        if (this.lMg != getCurrent().getIntrinsicWidth() || this.lMh != getCurrent().getIntrinsicHeight()) {
+    private void dmA() {
+        if (this.lMr != getCurrent().getIntrinsicWidth() || this.lMs != getCurrent().getIntrinsicHeight()) {
             configureBounds();
         }
     }
@@ -49,9 +49,9 @@ public class h extends g {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.lMg = intrinsicWidth;
+        this.lMr = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.lMh = intrinsicHeight;
+        this.lMs = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;

@@ -6,20 +6,20 @@ import com.baidu.swan.games.h.j;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int bYg = 0;
+    private static int bYh = 0;
 
     public static void af(int i, int i2) {
         com.baidu.swan.apps.extcore.cores.a.RR().Z(i, i2);
         g.agH();
         if (i == 0) {
-            bYg = 2;
+            bYh = 2;
         } else if (i2 > i) {
-            bYg = 1;
+            bYh = 1;
             j.anR();
         }
     }
 
     public static int agt() {
-        return bYg;
+        return bYh;
     }
 }

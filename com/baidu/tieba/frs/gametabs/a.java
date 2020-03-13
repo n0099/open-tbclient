@@ -17,13 +17,13 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class a extends n {
-    private l cXp;
-    private String emb;
+    private l cXq;
+    private String emo;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.cXp = lVar;
-        this.emb = str;
+        this.cXq = lVar;
+        this.emo = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,22 +44,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    Bt(optString);
+                    Bu(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.cCB().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.HN(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.cCC().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.HO(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new an("c12775").cy("fid", StringUtils.isNull(this.emb) ? "" : this.emb));
+                TiebaStatic.log(new an("c12775").cy("fid", StringUtils.isNull(this.emo) ? "" : this.emo));
             }
         }
     }
 
-    private void Bt(String str) {
+    private void Bu(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.cXp.getContext() instanceof Activity)) {
+            if (!(this.cXq.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.cXp.getContext().startActivity(intent);
+            this.cXq.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

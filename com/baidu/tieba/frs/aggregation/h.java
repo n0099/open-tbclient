@@ -15,21 +15,21 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a dab;
-    private c guV;
+    private com.baidu.tbadk.coreExtra.model.a dac;
+    private c gvh;
     private TbPageContext mPageContext;
     private BdUniqueId MO = BdUniqueId.gen();
-    private CustomMessageListener daf = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
+    private CustomMessageListener dag = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.guV != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.gvh != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.isSucc) {
-                    h.this.guV.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.gvh.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.guV.lG(data.isAttention);
+                    h.this.gvh.lG(data.isAttention);
                 }
             }
         }
@@ -37,25 +37,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.guV = cVar;
-        this.dab = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.daf.setSelfListener(true);
-        this.daf.setTag(this.MO);
-        MessageManager.getInstance().registerListener(this.daf);
+        this.gvh = cVar;
+        this.dac = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.dag.setSelfListener(true);
+        this.dag.setTag(this.MO);
+        MessageManager.getInstance().registerListener(this.dag);
     }
 
     public void f(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.guy != null && this.dab != null && bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            this.dab.a(!gVar.guy.hasFocus, gVar.guy.portrait, gVar.guy.userId, this.MO);
+        } else if (gVar != null && gVar.guK != null && this.dac != null && bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            this.dac.a(!gVar.guK.hasFocus, gVar.guK.portrait, gVar.guK.userId, this.MO);
         }
     }
 
     public void g(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && this.guV != null && bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.gvh != null && bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -65,14 +65,14 @@ public class h {
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.guV.bGm();
+            this.gvh.bGn();
         }
     }
 
-    public void bGv() {
-        if (this.dab != null) {
-            this.dab.cancel();
+    public void bGw() {
+        if (this.dac != null) {
+            this.dac.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.daf);
+        MessageManager.getInstance().unRegisterListener(this.dag);
     }
 }

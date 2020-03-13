@@ -10,7 +10,7 @@ public final class b {
     public static class a {
         public int bPA;
         public int bPB;
-        public int bPy;
+        public int bPC;
         public int bPz;
 
         public static a ay(JSONObject jSONObject) {
@@ -22,10 +22,10 @@ public final class b {
                 return adq();
             }
             a aVar = new a();
-            aVar.bPy = optJSONObject.optInt("request", 60000);
-            aVar.bPz = optJSONObject.optInt("connectSocket", 60000);
-            aVar.bPA = optJSONObject.optInt("uploadFile");
-            aVar.bPB = optJSONObject.optInt("downloadFile");
+            aVar.bPz = optJSONObject.optInt("request", 60000);
+            aVar.bPA = optJSONObject.optInt("connectSocket", 60000);
+            aVar.bPB = optJSONObject.optInt("uploadFile");
+            aVar.bPC = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
@@ -34,8 +34,8 @@ public final class b {
                 Log.e("SwanAppCommonConfigData", "NetworkConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             a aVar = new a();
-            aVar.bPy = 60000;
             aVar.bPz = 60000;
+            aVar.bPA = 60000;
             return aVar;
         }
     }

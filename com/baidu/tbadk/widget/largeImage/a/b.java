@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a dLe;
+    private a dLr;
     private final int mBlockSize;
     private final Rect mOriginalBitmapRect;
     private final int mRealHeight;
@@ -59,7 +59,7 @@ public class b {
         return new Point[]{point, point2};
     }
 
-    public a aTs() {
+    public a aTt() {
         return new a(this.mBlockSize);
     }
 
@@ -103,13 +103,13 @@ public class b {
 
     public void setThumbnail(Bitmap bitmap) {
         if (bitmap != null) {
-            this.dLe = new a(bitmap);
-            this.dLe.setDstRect(0, 0, this.mRealWidth, this.mRealHeight);
+            this.dLr = new a(bitmap);
+            this.dLr.setDstRect(0, 0, this.mRealWidth, this.mRealHeight);
         }
     }
 
-    public a aTt() {
-        return this.dLe;
+    public a aTu() {
+        return this.dLr;
     }
 
     public void moveWindow(float f, float f2) {

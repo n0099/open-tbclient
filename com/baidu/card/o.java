@@ -33,7 +33,7 @@ public class o extends al {
         this.MK = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.Kz = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.MN = mZ();
-        this.MN.cyr().setBackgroundResource(R.color.transparent);
+        this.MN.cys().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -15,17 +15,17 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class g extends h {
-    private static final int mlE = v.QE("Opus");
-    private static final byte[] mlF = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
-    private boolean mlG;
+    private static final int mlP = v.QF("Opus");
+    private static final byte[] mlQ = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
+    private boolean mlR;
 
     public static boolean A(l lVar) {
-        if (lVar.dzt() < mlF.length) {
+        if (lVar.dzu() < mlQ.length) {
             return false;
         }
-        byte[] bArr = new byte[mlF.length];
-        lVar.G(bArr, 0, mlF.length);
-        return Arrays.equals(bArr, mlF);
+        byte[] bArr = new byte[mlQ.length];
+        lVar.G(bArr, 0, mlQ.length);
+        return Arrays.equals(bArr, mlQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,7 +33,7 @@ final class g extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mlG = false;
+            this.mlR = false;
         }
     }
 
@@ -44,18 +44,18 @@ final class g extends h {
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
-        if (!this.mlG) {
-            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dzu());
+        if (!this.mlR) {
+            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dzv());
             int i = copyOf[9] & 255;
             ArrayList arrayList = new ArrayList(3);
             arrayList.add(copyOf);
             q(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
             q(arrayList, 3840);
-            aVar.lZy = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
-            this.mlG = true;
+            aVar.lZJ = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
+            this.mlR = true;
             return true;
         }
-        boolean z = lVar.readInt() == mlE;
+        boolean z = lVar.readInt() == mlP;
         lVar.setPosition(0);
         return z;
     }

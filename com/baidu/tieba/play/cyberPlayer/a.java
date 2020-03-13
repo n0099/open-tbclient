@@ -12,87 +12,87 @@ import com.baidu.tieba.play.n;
 import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
 public class a {
-    private bj cRf;
-    private boolean jvH;
-    private long jvN;
-    private y jvy;
-    private long guB = 0;
+    private bj cRg;
+    private y jvK;
+    private boolean jvT;
+    private long jvZ;
+    private long guN = 0;
     private long mStartTime = 0;
-    private String jvz = "1";
-    private k jwO = new k();
+    private String jvL = "1";
+    private k jxa = new k();
 
-    public void czu() {
-        this.jwO.cgV();
+    public void czv() {
+        this.jxa.cgW();
     }
 
     public void ey(long j) {
-        this.jvN = j;
-        this.jwO.cgW();
+        this.jvZ = j;
+        this.jxa.cgX();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.guB = (System.currentTimeMillis() - this.mStartTime) + this.guB;
+            this.guN = (System.currentTimeMillis() - this.mStartTime) + this.guN;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.jvH = true;
-        this.jwO.cgX();
+        this.jvT = true;
+        this.jxa.cgY();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        this.jwO.a(tbCyberVideoView);
+        this.jxa.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.guB = (System.currentTimeMillis() - this.mStartTime) + this.guB;
+            this.guN = (System.currentTimeMillis() - this.mStartTime) + this.guN;
             this.mStartTime = 0L;
         }
-        this.jvH = false;
+        this.jvT = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.guB = (System.currentTimeMillis() - this.mStartTime) + this.guB;
+            this.guN = (System.currentTimeMillis() - this.mStartTime) + this.guN;
             this.mStartTime = 0L;
         }
-        cyX();
-        this.guB = 0L;
+        cyY();
+        this.guN = 0L;
         this.mStartTime = 0L;
-        this.jvH = false;
-        this.jwO.cgU();
+        this.jvT = false;
+        this.jxa.cgV();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.guB = (System.currentTimeMillis() - this.mStartTime) + this.guB;
+            this.guN = (System.currentTimeMillis() - this.mStartTime) + this.guN;
             this.mStartTime = 0L;
         }
     }
 
     public void h(n nVar) {
-        this.cRf = nVar.cyZ().aAg();
-        this.jvy = nVar.czc();
+        this.cRg = nVar.cza().aAg();
+        this.jvK = nVar.czd();
     }
 
-    private void cyX() {
-        if (this.guB >= 0 && this.guB < 86400000) {
-            if (this.guB > 0) {
+    private void cyY() {
+        if (this.guN >= 0 && this.guN < 86400000) {
+            if (this.guN > 0) {
                 an anVar = new an(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                anVar.s("obj_duration", this.guB);
-                anVar.cy("obj_type", this.jvz);
-                anVar.s("playduration", this.jvN);
+                anVar.s("obj_duration", this.guN);
+                anVar.cy("obj_type", this.jvL);
+                anVar.s("playduration", this.jvZ);
                 if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     anVar.cy("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.jvy != null) {
-                    this.jvy.e(anVar);
+                if (this.jvK != null) {
+                    this.jvK.e(anVar);
                 }
-                if (!anVar.tu("obj_param5") && this.cRf != null) {
-                    if (this.cRf.getBaijiahaoData() != null) {
-                        if (this.cRf.getBaijiahaoData().oriUgcType == 2) {
+                if (!anVar.tu("obj_param5") && this.cRg != null) {
+                    if (this.cRg.getBaijiahaoData() != null) {
+                        if (this.cRg.getBaijiahaoData().oriUgcType == 2) {
                             anVar.X("obj_param5", 3);
-                        } else if (this.cRf.getBaijiahaoData().oriUgcType == 4) {
+                        } else if (this.cRg.getBaijiahaoData().oriUgcType == 4) {
                             anVar.X("obj_param5", 2);
                         }
                     } else {
@@ -100,9 +100,9 @@ public class a {
                     }
                 }
                 TiebaStatic.log(anVar);
-                l.a(this.guB, this.jvz, this.jvy, "", this.jvN);
-            } else if (this.jvH) {
-                l.a(this.guB, this.jvz, this.jvy, "", this.jvN);
+                l.a(this.guN, this.jvL, this.jvK, "", this.jvZ);
+            } else if (this.jvT) {
+                l.a(this.guN, this.jvL, this.jvK, "", this.jvZ);
             }
         }
     }

@@ -14,36 +14,36 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String caw;
-    private List<C0305a> cax;
-    private int[] cay;
+    private String cax;
+    private List<C0305a> cay;
+    private int[] caz;
     private long mTimeStamp;
     private List<C0305a> mTouchList;
 
     public a(MotionEvent motionEvent) {
-        this.caw = BdStatsConstant.StatsType.ERROR;
+        this.cax = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
         this.mTouchList = new ArrayList();
-        this.cax = new ArrayList();
-        this.cay = new int[2];
+        this.cay = new ArrayList();
+        this.caz = new int[2];
         a(motionEvent, "");
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.caw = BdStatsConstant.StatsType.ERROR;
+        this.cax = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
         this.mTouchList = new ArrayList();
-        this.cax = new ArrayList();
-        this.cay = new int[2];
+        this.cay = new ArrayList();
+        this.caz = new int[2];
         a(motionEvent, str);
     }
 
     public String ahH() {
-        return this.caw;
+        return this.cax;
     }
 
     public void g(int[] iArr) {
-        this.cay = iArr;
+        this.caz = iArr;
         if (DEBUG) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
@@ -52,49 +52,49 @@ public class a {
     private void a(MotionEvent motionEvent, String str) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.caw = "touchstart";
+                this.cax = "touchstart";
                 m(motionEvent);
                 break;
             case 1:
-                this.caw = "touchend";
+                this.cax = "touchend";
                 m(motionEvent);
                 break;
             case 2:
-                this.caw = "touchmove";
+                this.cax = "touchmove";
                 m(motionEvent);
                 break;
             case 3:
-                this.caw = "touchcancel";
+                this.cax = "touchcancel";
                 m(motionEvent);
                 break;
             case 4:
             default:
-                this.caw = BdStatsConstant.StatsType.ERROR;
+                this.cax = BdStatsConstant.StatsType.ERROR;
                 break;
             case 5:
-                this.caw = "touchpointerdown";
+                this.cax = "touchpointerdown";
                 m(motionEvent);
                 break;
             case 6:
-                this.caw = "touchpointerup";
+                this.cax = "touchpointerup";
                 m(motionEvent);
                 break;
         }
         this.mTimeStamp = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.caw = str;
+            this.cax = str;
         }
         onTouch(motionEvent);
-        if (TextUtils.equals(this.caw, "touchpointerdown")) {
-            this.caw = "touchstart";
+        if (TextUtils.equals(this.cax, "touchpointerdown")) {
+            this.cax = "touchstart";
         }
-        if (TextUtils.equals(this.caw, "touchpointerup")) {
-            this.caw = "touchend";
+        if (TextUtils.equals(this.cax, "touchpointerup")) {
+            this.cax = "touchend";
         }
     }
 
     private void onTouch(MotionEvent motionEvent) {
-        if (!TextUtils.equals(this.caw, "touchend") && !TextUtils.equals(this.caw, "touchcancel")) {
+        if (!TextUtils.equals(this.cax, "touchend") && !TextUtils.equals(this.cax, "touchcancel")) {
             try {
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i = 0; i < pointerCount; i++) {
@@ -113,12 +113,12 @@ public class a {
     private void m(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.cax.add(b(motionEvent, motionEvent.getActionIndex()));
+                this.cay.add(b(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i = 0; i < pointerCount; i++) {
-                this.cax.add(b(motionEvent, i));
+                this.cay.add(b(motionEvent, i));
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -133,9 +133,9 @@ public class a {
         c0305a.identifier = pointerId;
         c0305a.x = motionEvent.getX(i);
         c0305a.y = motionEvent.getY(i);
-        c0305a.caz = (motionEvent.getRawX() + c0305a.x) - motionEvent.getX();
-        c0305a.caA = (motionEvent.getRawY() + c0305a.y) - motionEvent.getY();
-        c0305a.caB = motionEvent.getPressure(i);
+        c0305a.caA = (motionEvent.getRawX() + c0305a.x) - motionEvent.getX();
+        c0305a.caB = (motionEvent.getRawY() + c0305a.y) - motionEvent.getY();
+        c0305a.caC = motionEvent.getPressure(i);
         return c0305a;
     }
 
@@ -151,8 +151,8 @@ public class a {
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.cax.isEmpty()) {
-                for (C0305a c0305a2 : this.cax) {
+            if (!this.cay.isEmpty()) {
+                for (C0305a c0305a2 : this.cay) {
                     if (c0305a2 != null) {
                         jSONArray2.put(c0305a2.ahJ());
                     }
@@ -175,7 +175,7 @@ public class a {
     public class C0305a {
         private float caA;
         private float caB;
-        private float caz;
+        private float caC;
         private int identifier;
         private float x;
         private float y;
@@ -188,10 +188,10 @@ public class a {
             try {
                 jSONObject.put(Config.EVENT_HEAT_X, af.px2dpFloat(this.x));
                 jSONObject.put("y", af.px2dpFloat(this.y));
-                jSONObject.put("clientX", af.px2dpFloat(this.caz - a.this.cay[0]));
-                jSONObject.put("clientY", af.px2dpFloat(this.caA - a.this.cay[1]));
+                jSONObject.put("clientX", af.px2dpFloat(this.caA - a.this.caz[0]));
+                jSONObject.put("clientY", af.px2dpFloat(this.caB - a.this.caz[1]));
                 jSONObject.put("identifier", this.identifier);
-                jSONObject.put("force", this.caB);
+                jSONObject.put("force", this.caC);
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     e.printStackTrace();

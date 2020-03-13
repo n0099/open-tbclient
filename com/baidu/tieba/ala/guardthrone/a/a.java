@@ -55,17 +55,17 @@ public class a extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
             c0440a = new C0440a();
-            c0440a.dXZ = (TextView) view.findViewById(a.g.tv_text);
-            c0440a.eIO = (TbImageView) view.findViewById(a.g.iv_pic);
-            c0440a.eIO.setDefaultBgResource(a.f.ala_guard_throne_privilege_corner_bg);
+            c0440a.dYm = (TextView) view.findViewById(a.g.tv_text);
+            c0440a.eJb = (TbImageView) view.findViewById(a.g.iv_pic);
+            c0440a.eJb.setDefaultBgResource(a.f.ala_guard_throne_privilege_corner_bg);
             view.setTag(c0440a);
         } else {
             c0440a = (C0440a) view.getTag();
         }
         a.C0441a.C0442a c0442a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0442a != null) {
-            c0440a.dXZ.setText(c0442a.text);
-            c0440a.eIO.startLoad(c0442a.pic, 10, false);
+            c0440a.dYm.setText(c0442a.text);
+            c0440a.eJb.startLoad(c0442a.pic, 10, false);
         }
         return view;
     }
@@ -73,8 +73,8 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.guardthrone.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class C0440a {
-        public TextView dXZ;
-        public TbImageView eIO;
+        public TextView dYm;
+        public TbImageView eJb;
 
         private C0440a() {
         }

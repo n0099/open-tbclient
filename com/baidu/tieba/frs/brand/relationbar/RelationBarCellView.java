@@ -22,10 +22,10 @@ import com.baidu.tieba.R;
 import tbclient.OriForumInfo;
 /* loaded from: classes9.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TbImageView fXi;
-    private TextView gvp;
-    private TextView gvq;
-    private OriForumInfo gvr;
+    private TbImageView fXv;
+    private TextView gvB;
+    private TextView gvC;
+    private OriForumInfo gvD;
     private int mHeight;
     private int mSkinType;
     private int mWidth;
@@ -50,14 +50,14 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.fXi = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
-        this.gvp = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
-        this.gvq = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
-        this.fXi.setDefaultResource(17170445);
-        this.fXi.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fXi.setBorderColor(0);
-        this.fXi.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
-        this.fXi.setConrers(5);
+        this.fXv = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
+        this.gvB = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
+        this.gvC = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
+        this.fXv.setDefaultResource(17170445);
+        this.fXv.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fXv.setBorderColor(0);
+        this.fXv.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.fXv.setConrers(5);
         this.mWidth = l.getDimens(context, R.dimen.tbds471);
         this.mHeight = l.getDimens(context, R.dimen.tbds164);
         setOnClickListener(this);
@@ -76,16 +76,16 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             return;
         }
         setVisibility(0);
-        this.gvr = oriForumInfo;
-        this.fXi.startLoad(oriForumInfo.ori_avatar, 10, false);
-        this.gvp.setText(oriForumInfo.ori_fname);
-        this.gvq.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), aq.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+        this.gvD = oriForumInfo;
+        this.fXv.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.gvB.setText(oriForumInfo.ori_fname);
+        this.gvC.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), aq.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new an("c13110").s("obj_id", this.gvr.ori_fid.longValue()));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getContext()).createNormalCfg(this.gvr.ori_fname, "")));
+        TiebaStatic.log(new an("c13110").s("obj_id", this.gvD.ori_fid.longValue()));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getContext()).createNormalCfg(this.gvD.ori_fname, "")));
     }
 
     public void onChangeSkinType() {
@@ -93,8 +93,8 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             am.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
-            am.setViewTextColor(this.gvp, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.gvq, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.gvB, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.gvC, (int) R.color.cp_cont_d);
         }
     }
 }

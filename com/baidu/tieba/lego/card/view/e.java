@@ -10,11 +10,11 @@ public interface e<T extends ICardInfo> {
 
     void ax(Object obj);
 
-    void bPI();
-
-    void cck();
+    void bPJ();
 
     void ccl();
+
+    void ccm();
 
     void j(BdUniqueId bdUniqueId);
 

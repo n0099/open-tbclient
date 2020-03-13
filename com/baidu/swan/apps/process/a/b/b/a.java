@@ -11,20 +11,20 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bIV;
-    private ConcurrentHashMap<String, com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b>> bIW = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Runnable> bIX = new ConcurrentHashMap<>();
-    private HandlerC0271a bIY = new HandlerC0271a(Looper.getMainLooper());
+    private static volatile a bIW;
+    private ConcurrentHashMap<String, com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b>> bIX = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Runnable> bIY = new ConcurrentHashMap<>();
+    private HandlerC0271a bIZ = new HandlerC0271a(Looper.getMainLooper());
 
     public static a aaJ() {
-        if (bIV == null) {
+        if (bIW == null) {
             synchronized (a.class) {
-                if (bIV == null) {
-                    bIV = new a();
+                if (bIW == null) {
+                    bIW = new a();
                 }
             }
         }
-        return bIV;
+        return bIW;
     }
 
     private a() {
@@ -39,7 +39,7 @@ public class a {
             return;
         }
         String aaI = aVar.aaI();
-        if (this.bIW.containsKey(aaI)) {
+        if (this.bIX.containsKey(aaI)) {
             if (DEBUG) {
                 Log.e("MDelegate-Observe", "multiple register observer：" + aaI);
                 return;
@@ -49,15 +49,15 @@ public class a {
         if (DEBUG) {
             Log.d("MDelegate-Observe", "register observer: " + aaI);
         }
-        this.bIW.put(aaI, aVar);
+        this.bIX.put(aaI, aVar);
         long timeoutMillis = aVar.getTimeoutMillis();
         if (timeoutMillis > 0 && aVar.aaK()) {
             if (DEBUG) {
                 Log.d("MDelegate-Observe", "post observer: " + aaI + HanziToPinyin.Token.SEPARATOR + timeoutMillis + "ms timeout runnable");
             }
             b bVar = new b(this, aaI);
-            this.bIX.put(aaI, bVar);
-            this.bIY.postDelayed(bVar, timeoutMillis);
+            this.bIY.put(aaI, bVar);
+            this.bIZ.postDelayed(bVar, timeoutMillis);
         }
     }
 
@@ -70,7 +70,7 @@ public class a {
             return;
         }
         String aaI = aVar.aaI();
-        if (!this.bIW.containsKey(aaI)) {
+        if (!this.bIX.containsKey(aaI)) {
             if (DEBUG) {
                 Log.e("MDelegate-Observe", "unregister a nonexistent observer");
                 return;
@@ -80,11 +80,11 @@ public class a {
         if (DEBUG) {
             Log.d("MDelegate-Observe", "unregister observer: " + aaI);
         }
-        this.bIW.remove(aaI);
+        this.bIX.remove(aaI);
     }
 
     public void a(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
-        com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b> aVar = this.bIW.get(bVar.aaI());
+        com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b> aVar = this.bIX.get(bVar.aaI());
         if (aVar == null) {
             if (DEBUG) {
                 Log.e("MDelegate-Observe", "notify a null observer");
@@ -97,12 +97,12 @@ public class a {
             Log.d("MDelegate-Observe", "notify observer: " + aaI);
         }
         aVar.onEvent(bVar);
-        if (this.bIX.containsKey(aaI)) {
+        if (this.bIY.containsKey(aaI)) {
             if (DEBUG) {
                 Log.d("MDelegate-Observe", "remove observer: " + aaI + " timeout runnable");
             }
-            this.bIY.removeCallbacks(this.bIX.get(aaI));
-            this.bIX.remove(aaI);
+            this.bIZ.removeCallbacks(this.bIY.get(aaI));
+            this.bIY.remove(aaI);
         }
         if (aVar.aaK()) {
             if (DEBUG) {
@@ -116,37 +116,37 @@ public class a {
         if (DEBUG) {
             Log.d("MDelegate-Observe", "release observable");
         }
-        if (bIV != null) {
-            this.bIW.clear();
-            for (Map.Entry<String, Runnable> entry : this.bIX.entrySet()) {
+        if (bIW != null) {
+            this.bIX.clear();
+            for (Map.Entry<String, Runnable> entry : this.bIY.entrySet()) {
                 if (DEBUG) {
                     Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
                 }
-                this.bIY.removeCallbacks(entry.getValue());
+                this.bIZ.removeCallbacks(entry.getValue());
             }
-            this.bIX.clear();
-            bIV = null;
+            this.bIY.clear();
+            bIW = null;
         }
     }
 
     /* loaded from: classes11.dex */
     private static class b implements Runnable {
-        private String bIU;
-        private WeakReference<a> bIZ;
+        private String bIV;
+        private WeakReference<a> bJa;
 
         b(a aVar, String str) {
-            this.bIZ = new WeakReference<>(aVar);
-            this.bIU = str;
+            this.bJa = new WeakReference<>(aVar);
+            this.bIV = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a aVar = this.bIZ.get();
+            a aVar = this.bJa.get();
             if (aVar != null) {
                 if (a.DEBUG) {
-                    Log.d("MDelegate-Observe", "run: observer timeout " + this.bIU);
+                    Log.d("MDelegate-Observe", "run: observer timeout " + this.bIV);
                 }
-                com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(this.bIU);
+                com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(this.bIV);
                 bVar.l(null);
                 aVar.a(bVar);
             }

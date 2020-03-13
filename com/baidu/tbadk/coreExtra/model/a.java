@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0385a doW;
+    private C0385a dpj;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.doW == null) {
-            this.doW = new C0385a();
-            this.doW.setPriority(2);
-            this.doW.gl(z);
-            this.doW.setPortrait(str);
-            this.doW.setToUid(str2);
-            this.doW.setIsGod(z2);
-            this.doW.setFrom(str3);
-            this.doW.setPageId(bdUniqueId);
-            this.doW.setForumId(str4);
-            this.doW.setInLive(str5);
-            this.doW.execute(new Integer[0]);
+        if (this.dpj == null) {
+            this.dpj = new C0385a();
+            this.dpj.setPriority(2);
+            this.dpj.gl(z);
+            this.dpj.setPortrait(str);
+            this.dpj.setToUid(str2);
+            this.dpj.setIsGod(z2);
+            this.dpj.setFrom(str3);
+            this.dpj.setPageId(bdUniqueId);
+            this.dpj.setForumId(str4);
+            this.dpj.setInLive(str5);
+            this.dpj.execute(new Integer[0]);
         }
     }
 
@@ -147,7 +147,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0385a) str);
-            a.this.doW = null;
+            a.this.dpj = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                 aVar.isSucc = this.mNetwork.aGg().aGI().isRequestSuccess();
@@ -157,7 +157,7 @@ public class a {
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
                 if (this.mNetwork.aGg().aGI().isRequestSuccess()) {
-                    aVar.dnU = null;
+                    aVar.doi = null;
                 }
                 if (!AntiHelper.d(a.this.getContext(), this.mNetwork.getServerErrorCode(), aVar.blockUrl)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.doW != null) {
-                a.this.doW.cancel();
-                a.this.doW = null;
+            if (a.this.dpj != null) {
+                a.this.dpj.cancel();
+                a.this.dpj = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.doW != null) {
-            this.doW.cancel();
+        if (this.dpj != null) {
+            this.dpj.cancel();
         }
     }
 }

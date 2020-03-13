@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public class a {
-    private BdUniqueId dBk;
-    private final com.baidu.adp.framework.listener.a fPY = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId dBx;
+    private final com.baidu.adp.framework.listener.a fQl = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView hgr;
+    private TopicDetailView hgD;
 
     public a(TopicDetailView topicDetailView) {
-        this.hgr = topicDetailView;
+        this.hgD = topicDetailView;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.dBk = bdUniqueId;
-        this.fPY.setTag(bdUniqueId);
-        this.fPY.getHttpMessageListener().setSelfListener(true);
-        this.fPY.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fPY);
+        this.dBx = bdUniqueId;
+        this.fQl.setTag(bdUniqueId);
+        this.fQl.getHttpMessageListener().setSelfListener(true);
+        this.fQl.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.fQl);
     }
 
     public RunnableC0520a A(long j, long j2) {
@@ -72,7 +72,7 @@ public class a {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.dBk);
+            requestGetMyPostNetMessage.setTag(a.this.dBx);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -91,7 +91,7 @@ public class a {
             bjVar.a(build);
             bjVar.bu(new Date().getTime());
             if (k.aa(bjVar)) {
-                this.hgr.aC(bjVar);
+                this.hgD.aC(bjVar);
             }
         }
     }

@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener dfY;
+    private View.OnClickListener dgl;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dfY = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.dgl = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int bUX = hVar.bUX();
-                        if (bUX == 0 && (hVar.nq() instanceof GroupPermData)) {
+                        int bUY = hVar.bUY();
+                        if (bUY == 0 && (hVar.nq() instanceof GroupPermData)) {
                             g.this.a((GroupPermData) hVar.nq());
-                        } else if (bUX == 1) {
+                        } else if (bUY == 1) {
                             bc.checkUpIsLogin(g.this.mPageContext.getPageActivity());
                         }
                     }
@@ -41,7 +41,7 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: by */
     public i b(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.dfY);
+        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.dgl);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.bUY(), hVar.bUU(), hVar.bUV(), hVar.bUW());
-            iVar.hAh.setTag(Integer.valueOf(i));
+            iVar.a(hVar.bUZ(), hVar.bUV(), hVar.bUW(), hVar.bUX());
+            iVar.hAt.setTag(Integer.valueOf(i));
         }
         return view;
     }

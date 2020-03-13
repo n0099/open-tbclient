@@ -79,7 +79,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
 
     private void sn(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, i.aJn()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, i.aJo()));
         } catch (Exception e) {
             e.printStackTrace();
         }

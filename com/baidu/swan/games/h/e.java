@@ -21,28 +21,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private static List<String> cnJ = new ArrayList();
-    private String cnI = l.getBasePath();
-    private String cnK;
+    private static List<String> cnK = new ArrayList();
+    private String cnJ = l.getBasePath();
+    private String cnL;
     private Context mContext;
 
     static {
-        cnJ.add("ascii");
-        cnJ.add("base64");
-        cnJ.add("binary");
-        cnJ.add("hex");
-        cnJ.add("utf-8");
-        cnJ.add("utf8");
-        cnJ.add("latin1");
-        cnJ.add("ucs2");
-        cnJ.add("ucs-2");
-        cnJ.add("utf16le");
-        cnJ.add("utf-16le");
+        cnK.add("ascii");
+        cnK.add("base64");
+        cnK.add("binary");
+        cnK.add("hex");
+        cnK.add("utf-8");
+        cnK.add("utf8");
+        cnK.add("latin1");
+        cnK.add("ucs2");
+        cnK.add("ucs-2");
+        cnK.add("utf16le");
+        cnK.add("utf-16le");
     }
 
     public e(Context context, String str) {
         this.mContext = context;
-        this.cnK = str;
+        this.cnL = str;
     }
 
     private String oN(String str) {
@@ -56,8 +56,8 @@ public class e {
             return l.oY(str);
         }
         if (str.startsWith("bdfile://code")) {
-            this.cnK = this.cnK.endsWith(File.separator) ? this.cnK.substring(0, this.cnK.length() - 1) : this.cnK;
-            return this.cnK + str.substring("bdfile://code".length());
+            this.cnL = this.cnL.endsWith(File.separator) ? this.cnL.substring(0, this.cnL.length() - 1) : this.cnL;
+            return this.cnL + str.substring("bdfile://code".length());
         }
         return "";
     }
@@ -200,7 +200,7 @@ public class e {
             if ("binary".equals(str2.toLowerCase())) {
                 str2 = "latin1";
             }
-            if (!cnJ.contains(str2.toLowerCase())) {
+            if (!cnK.contains(str2.toLowerCase())) {
                 return J(-1, "fail invalid encoding \"" + str2 + "\"");
             }
         }
@@ -711,7 +711,7 @@ public class e {
                     str3 = "latin1";
                 }
             }
-            if (!isEmpty && !cnJ.contains(str3)) {
+            if (!isEmpty && !cnK.contains(str3)) {
                 return J(-1, "fail Error: Unknown encoding: " + str3);
             }
             String oN = oN(pa);
@@ -737,7 +737,7 @@ public class e {
                     str4 = a;
                 }
                 if (TextUtils.isEmpty(str3)) {
-                    J.cmV = bArr;
+                    J.cmW = bArr;
                 } else {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str4);

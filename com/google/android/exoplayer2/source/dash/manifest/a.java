@@ -5,9 +5,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     public final int id;
-    public final List<g> muG;
-    public final List<d> muH;
-    public final List<d> muI;
+    public final List<g> muR;
+    public final List<d> muS;
+    public final List<d> muT;
     public final int type;
 
     public a(int i, int i2, List<g> list, List<d> list2, List<d> list3) {
@@ -15,18 +15,18 @@ public class a {
         List<d> unmodifiableList2;
         this.id = i;
         this.type = i2;
-        this.muG = Collections.unmodifiableList(list);
+        this.muR = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list2);
         }
-        this.muH = unmodifiableList;
+        this.muS = unmodifiableList;
         if (list3 == null) {
             unmodifiableList2 = Collections.emptyList();
         } else {
             unmodifiableList2 = Collections.unmodifiableList(list3);
         }
-        this.muI = unmodifiableList2;
+        this.muT = unmodifiableList2;
     }
 }

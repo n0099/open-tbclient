@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ar {
-    private TranslateAnimation aFI;
-    private View gsA = null;
-    private int gsB = 2000;
-    private Runnable aFJ = new Runnable() { // from class: com.baidu.tieba.frs.ar.1
+    private TranslateAnimation aFJ;
+    private View gsN = null;
+    private int gsO = 2000;
+    private Runnable aFK = new Runnable() { // from class: com.baidu.tieba.frs.ar.1
         @Override // java.lang.Runnable
         public void run() {
             ar.this.hideTip();
         }
     };
-    private ValueAnimator gsC = new ValueAnimator();
+    private ValueAnimator gsP = new ValueAnimator();
 
     public ar() {
-        this.gsC.setFloatValues(1.0f, 0.0f);
-        this.gsC.setDuration(400L);
-        this.gsC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ar.2
+        this.gsP.setFloatValues(1.0f, 0.0f);
+        this.gsP.setDuration(400L);
+        this.gsP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ar.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ar.this.gsA != null && valueAnimator != null) {
-                    ar.this.gsA.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (ar.this.gsN != null && valueAnimator != null) {
+                    ar.this.gsN.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.gsC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.ar.3
+        this.gsP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.ar.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (ar.this.gsA != null) {
-                    ar.this.bFS();
-                    ar.this.gsA.setAlpha(1.0f);
+                if (ar.this.gsN != null) {
+                    ar.this.bFT();
+                    ar.this.gsN.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class ar {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.aFI = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.aFI.setDuration(400L);
-        this.aFI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.ar.4
+        this.aFJ = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.aFJ.setDuration(400L);
+        this.aFJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.ar.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.f.e.gx().postDelayed(ar.this.aFJ, ar.this.gsB);
+                com.baidu.adp.lib.f.e.gx().postDelayed(ar.this.aFK, ar.this.gsO);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class ar {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.gsA = view;
-            bFS();
-            viewGroup.addView(this.gsA, layoutParams);
-            this.gsA.setVisibility(0);
-            this.gsB = i;
-            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFJ);
-            com.baidu.adp.lib.f.e.gx().postDelayed(this.aFJ, this.gsB);
+            this.gsN = view;
+            bFT();
+            viewGroup.addView(this.gsN, layoutParams);
+            this.gsN.setVisibility(0);
+            this.gsO = i;
+            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFK);
+            com.baidu.adp.lib.f.e.gx().postDelayed(this.aFK, this.gsO);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.gsA = view;
-            bFS();
-            viewGroup.addView(this.gsA, layoutParams);
-            this.gsA.setVisibility(0);
+            this.gsN = view;
+            bFT();
+            viewGroup.addView(this.gsN, layoutParams);
+            this.gsN.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFJ);
-        if (this.gsA != null && this.gsA.getParent() != null && this.gsA.getVisibility() == 0 && !this.gsC.isRunning()) {
-            this.gsC.start();
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFK);
+        if (this.gsN != null && this.gsN.getParent() != null && this.gsN.getVisibility() == 0 && !this.gsP.isRunning()) {
+            this.gsP.start();
         }
     }
 
-    public void bFS() {
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFJ);
-        if (this.gsA != null) {
-            if (this.gsC != null && this.gsC.isRunning()) {
-                this.gsC.cancel();
+    public void bFT() {
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.aFK);
+        if (this.gsN != null) {
+            if (this.gsP != null && this.gsP.isRunning()) {
+                this.gsP.cancel();
             }
-            this.gsA.clearAnimation();
-            if (this.gsA.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.gsA.getParent()).removeView(this.gsA);
+            this.gsN.clearAnimation();
+            if (this.gsN.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.gsN.getParent()).removeView(this.gsN);
             }
-            this.gsA.setVisibility(8);
+            this.gsN.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        bFS();
+        bFT();
     }
 }

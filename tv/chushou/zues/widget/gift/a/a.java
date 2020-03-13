@@ -2,18 +2,18 @@ package tv.chushou.zues.widget.gift.a;
 /* loaded from: classes5.dex */
 public class a {
     public String aaT;
-    public long bds = 3000;
+    public long bdt = 3000;
     public String mNickName;
     public boolean mShowAvatar;
     public String mUserId;
-    public String nYl;
-    public String nYm;
-    public String nYn;
-    public String nYo;
-    public String nYp;
-    public int nYq;
-    public int nYr;
-    public long nYs;
+    public String nYA;
+    public int nYB;
+    public int nYC;
+    public long nYD;
+    public String nYw;
+    public String nYx;
+    public String nYy;
+    public String nYz;
 
     public boolean equals(Object obj) {
         a aVar = (a) obj;

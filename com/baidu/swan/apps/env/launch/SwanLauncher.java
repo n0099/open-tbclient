@@ -20,9 +20,9 @@ import rx.k;
 /* loaded from: classes11.dex */
 public final class SwanLauncher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final a bue = new c(0);
-    private static final a bug = new c(1);
-    private static final a buh = new a() { // from class: com.baidu.swan.apps.env.launch.SwanLauncher.4
+    private static final a bug = new c(0);
+    private static final a buh = new c(1);
+    private static final a bui = new a() { // from class: com.baidu.swan.apps.env.launch.SwanLauncher.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -60,11 +60,11 @@ public final class SwanLauncher {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b {
-        public static final SwanLauncher bup = new SwanLauncher();
+        public static final SwanLauncher buq = new SwanLauncher();
     }
 
     public static SwanLauncher RG() {
-        return b.bup;
+        return b.buq;
     }
 
     private SwanLauncher() {
@@ -97,7 +97,7 @@ public final class SwanLauncher {
                 final com.baidu.swan.apps.process.messaging.service.c kx = com.baidu.swan.apps.process.messaging.service.e.abu().kx(string);
                 kx.kv(string);
                 if (DEBUG) {
-                    Log.d("SwanLauncher", "onReady processId: " + kx.bJz + " ,client:" + kx.toString());
+                    Log.d("SwanLauncher", "onReady processId: " + kx.bJA + " ,client:" + kx.toString());
                 }
                 final int v = v(bundle);
                 if (v < 0) {
@@ -119,8 +119,8 @@ public final class SwanLauncher {
                     }
                 };
                 a[] aVarArr = new a[2];
-                aVarArr[0] = buh;
-                aVarArr[1] = 1 == v ? bug : bue;
+                aVarArr[0] = bui;
+                aVarArr[1] = 1 == v ? buh : bug;
                 a(cVar, aVarArr);
             }
         }
@@ -213,11 +213,11 @@ public final class SwanLauncher {
 
     /* loaded from: classes11.dex */
     private static class c extends a {
-        final int buq;
+        final int bur;
 
         c(int i) {
             super();
-            this.buq = i;
+            this.bur = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -233,7 +233,7 @@ public final class SwanLauncher {
                         c.this.RH();
                         cVar.onCompleted();
                     }
-                }, this.buq);
+                }, this.bur);
             }
         }
     }
@@ -260,7 +260,7 @@ public final class SwanLauncher {
                     Log.i("SwanLauncher", "init onSubscribe: " + kVar);
                 }
             }
-        }, buh, bue, bug);
+        }, bui, bug, buh);
     }
 
     private void a(@NonNull rx.c cVar, a... aVarArr) {
@@ -289,7 +289,7 @@ public final class SwanLauncher {
         if (arrayList == null || arrayList.isEmpty()) {
             cVar.onCompleted();
         } else {
-            rx.b.k(arrayList).b(rx.a.b.a.dOd()).a(rx.a.b.a.dOd()).c(cVar);
+            rx.b.k(arrayList).b(rx.a.b.a.dOe()).a(rx.a.b.a.dOe()).c(cVar);
         }
     }
 

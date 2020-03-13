@@ -32,86 +32,86 @@ import kotlin.l;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public View bZX;
-    public TextView bZY;
-    public ImageView bZZ;
-    public SwanAppRoundedImageView bng;
-    public BdBaseImageView bnh;
-    public TextView bni;
+    public View bZY;
+    public TextView bZZ;
+    public SwanAppRoundedImageView bnh;
+    public BdBaseImageView bni;
+    public TextView bnj;
     public ImageView caa;
-    private ImageView cab;
-    public RelativeLayout cac;
-    private com.baidu.swan.apps.d.a cad;
-    private SwanAppActivity cae;
-    private View caf;
-    private SwanLoadingTipsView cag;
-    private com.baidu.swan.games.loading.a cah;
-    private TextView cai;
-    private ValueAnimator caj;
-    private boolean cak = false;
-    private float cal = 0.0f;
+    public ImageView cab;
+    private ImageView cac;
+    public RelativeLayout cad;
+    private com.baidu.swan.apps.d.a cae;
+    private SwanAppActivity caf;
+    private View cag;
+    private SwanLoadingTipsView cah;
+    private com.baidu.swan.games.loading.a cai;
+    private TextView caj;
+    private ValueAnimator cak;
+    private boolean cal = false;
     private float cam = 0.0f;
     private float can = 0.0f;
+    private float cao = 0.0f;
     private View mRightMenu;
     private ImageView mRightMenuImageView;
 
     public c(SwanAppActivity swanAppActivity) {
         DecimalFormat.getPercentInstance();
-        this.cae = swanAppActivity;
+        this.caf = swanAppActivity;
     }
 
     public void ej(boolean z) {
-        if (this.cad == null) {
-            this.cad = new com.baidu.swan.apps.d.a();
+        if (this.cae == null) {
+            this.cae = new com.baidu.swan.apps.d.a();
         }
-        this.bZX = LayoutInflater.from(this.cae).inflate(z ? a.g.ai_games_loading_fragment : a.g.aiapps_loading_fragment, (ViewGroup) null);
+        this.bZY = LayoutInflater.from(this.caf).inflate(z ? a.g.ai_games_loading_fragment : a.g.aiapps_loading_fragment, (ViewGroup) null);
         if (!z) {
-            this.bZX.setPadding(0, com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION ? af.getStatusBarHeight() : 0, 0, 0);
+            this.bZY.setPadding(0, com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION ? af.getStatusBarHeight() : 0, 0, 0);
         } else {
             ahz();
         }
-        this.cae.Gx().ap(this.bZX);
-        this.cak = true;
-        this.bZY = (TextView) this.bZX.findViewById(a.f.aiapps_title);
-        this.bng = (SwanAppRoundedImageView) this.bZX.findViewById(a.f.aiapps_icon);
-        this.bnh = (BdBaseImageView) this.bZX.findViewById(a.f.aiapps_label_bg);
-        this.bni = (TextView) this.bZX.findViewById(a.f.aiapps_label_tv);
-        this.cac = (RelativeLayout) this.bZX.findViewById(a.f.aiapps_icon_rl);
+        this.caf.Gx().ap(this.bZY);
+        this.cal = true;
+        this.bZZ = (TextView) this.bZY.findViewById(a.f.aiapps_title);
+        this.bnh = (SwanAppRoundedImageView) this.bZY.findViewById(a.f.aiapps_icon);
+        this.bni = (BdBaseImageView) this.bZY.findViewById(a.f.aiapps_label_bg);
+        this.bnj = (TextView) this.bZY.findViewById(a.f.aiapps_label_tv);
+        this.cad = (RelativeLayout) this.bZY.findViewById(a.f.aiapps_icon_rl);
         b.a acI = d.acC().acz().acI();
         nb(acI.Rb());
         na(acI.getIconUrl());
         hj(acI.getType());
-        this.bZZ = (ImageView) this.bZX.findViewById(a.f.light_print);
-        this.caa = (ImageView) this.bZX.findViewById(a.f.dark_print);
-        this.mRightMenuImageView = (ImageView) this.bZX.findViewById(a.f.titlebar_right_menu_img);
-        this.cab = (ImageView) this.bZX.findViewById(a.f.titlebar_right_menu_exit);
-        this.mRightMenu = this.bZX.findViewById(a.f.titlebar_right_menu);
+        this.caa = (ImageView) this.bZY.findViewById(a.f.light_print);
+        this.cab = (ImageView) this.bZY.findViewById(a.f.dark_print);
+        this.mRightMenuImageView = (ImageView) this.bZY.findViewById(a.f.titlebar_right_menu_img);
+        this.cac = (ImageView) this.bZY.findViewById(a.f.titlebar_right_menu_exit);
+        this.mRightMenu = this.bZY.findViewById(a.f.titlebar_right_menu);
         if (z) {
             this.mRightMenuImageView.setClickable(true);
             this.mRightMenuImageView.setImageResource(a.e.aiapps_action_bar_single_menu_white_selector);
-            this.cab.setImageResource(a.e.aiapps_action_bar_exit_white_selector);
+            this.cac.setImageResource(a.e.aiapps_action_bar_exit_white_selector);
             this.mRightMenu.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg_solid);
-            this.caf = this.bZX.findViewById(a.f.titlebar_right_menu_line);
-            this.caf.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
+            this.cag = this.bZY.findViewById(a.f.titlebar_right_menu_line);
+            this.cag.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
         } else {
             this.mRightMenuImageView.setImageResource(a.e.aiapps_action_bar_menu_black_selector);
-            this.cab.setImageResource(a.e.aiapps_action_bar_exit_black_selector);
+            this.cac.setImageResource(a.e.aiapps_action_bar_exit_black_selector);
             this.mRightMenu.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg);
         }
         PMSAppInfo VZ = acI.VZ();
         int i = VZ == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : VZ.payProtected;
         if (!z && ai.ahi() && i == PMSConstants.PayProtected.PAY_PROTECTED.type) {
-            ((RelativeLayout) this.bZX.findViewById(a.f.guarantee_plan_rl)).setVisibility(0);
+            ((RelativeLayout) this.bZY.findViewById(a.f.guarantee_plan_rl)).setVisibility(0);
         }
-        this.caa.setAlpha(0.0f);
-        this.cad.g(this.cae);
+        this.cab.setAlpha(0.0f);
+        this.cae.g(this.caf);
         ahB();
     }
 
     private void ahz() {
-        this.cai = (TextView) this.bZX.findViewById(a.f.aiapps_loading_progress);
-        this.cag = (SwanLoadingTipsView) this.bZX.findViewById(a.f.aigames_loading_game_tips);
-        this.cag.setTipsAnimationFinishCallback(new kotlin.jvm.a.a<l>() { // from class: com.baidu.swan.apps.view.c.1
+        this.caj = (TextView) this.bZY.findViewById(a.f.aiapps_loading_progress);
+        this.cah = (SwanLoadingTipsView) this.bZY.findViewById(a.f.aigames_loading_game_tips);
+        this.cah.setTipsAnimationFinishCallback(new kotlin.jvm.a.a<l>() { // from class: com.baidu.swan.apps.view.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.a.a
             /* renamed from: ahG */
@@ -120,8 +120,8 @@ public class c {
                 return null;
             }
         });
-        this.cah = new com.baidu.swan.games.loading.a();
-        this.bZX.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.swan.apps.view.c.2
+        this.cai = new com.baidu.swan.games.loading.a();
+        this.bZY.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.swan.apps.view.c.2
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewAttachedToWindow(View view) {
                 c.this.ahA();
@@ -136,17 +136,17 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ahA() {
-        if (this.cag != null && this.cah != null) {
-            this.cag.pp(this.cah.aoN());
+        if (this.cah != null && this.cai != null) {
+            this.cah.pp(this.cai.aoN());
         }
     }
 
     private void ahB() {
-        this.cab.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.c.3
+        this.cac.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.cae != null && !c.this.cae.isFinishing()) {
-                    c.this.cae.moveTaskToBack(true);
+                if (c.this.caf != null && !c.this.caf.isFinishing()) {
+                    c.this.caf.moveTaskToBack(true);
                     c.this.ahC();
                 }
             }
@@ -156,7 +156,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void ahC() {
         Bundle VO;
-        b.a GE = this.cae.GE();
+        b.a GE = this.caf.GE();
         if (GE != null && (VO = GE.VO()) != null) {
             long j = VO.getLong("page_display_flag_for_statistic");
             VO.remove("page_display_flag_for_statistic");
@@ -165,50 +165,50 @@ public class c {
                 f fVar = new f();
                 fVar.mType = Config.LAUNCH;
                 fVar.mValue = "realcancel";
-                fVar.bVs = valueOf;
+                fVar.bVt = valueOf;
                 fVar.n(TiebaInitialize.LogFields.REASON, "close");
                 if (GE.getAppFrameType() == 1) {
                     fVar.n("errorList", com.baidu.swan.games.u.b.apD().apE());
                 }
-                this.cae.a(fVar);
+                this.caf.a(fVar);
                 com.baidu.swan.apps.statistic.c.a(GE);
             }
         }
     }
 
     private void hj(int i) {
-        af.a(this.bnh, this.bni, String.valueOf(i));
+        af.a(this.bni, this.bnj, String.valueOf(i));
     }
 
     public void hk(int i) {
         com.baidu.swan.apps.performance.f.ZV().f(new UbcFlowEvent("first_anim_end"));
         com.baidu.swan.apps.an.a.aeH().lC("first_anim_end");
-        this.cad.a(this.cae, i);
-        this.cak = false;
+        this.cae.a(this.caf, i);
+        this.cal = false;
     }
 
     public void JB() {
-        this.cad.JB();
-        if (this.cag != null) {
-            this.cag.doDestroy();
-            this.cag = null;
-        }
-        if (this.cai != null) {
-            this.cai.setVisibility(8);
-            this.cai = null;
+        this.cae.JB();
+        if (this.cah != null) {
+            this.cah.doDestroy();
+            this.cah = null;
         }
         if (this.caj != null) {
-            this.caj.removeAllUpdateListeners();
-            this.caj.cancel();
+            this.caj.setVisibility(8);
             this.caj = null;
         }
-        this.cak = false;
+        if (this.cak != null) {
+            this.cak.removeAllUpdateListeners();
+            this.cak.cancel();
+            this.cak = null;
+        }
+        this.cal = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(Bitmap bitmap) {
-        if (bitmap != null && this.bng != null) {
-            this.bng.setImageBitmap(bitmap);
+        if (bitmap != null && this.bnh != null) {
+            this.bnh.setImageBitmap(bitmap);
         }
     }
 
@@ -216,43 +216,43 @@ public class c {
         if (DEBUG) {
             Log.i("SwanAppLoadingView", "onDownloadProgressUpdate: " + f);
         }
-        if (this.cai != null) {
+        if (this.caj != null) {
             float f2 = f >= 0.0f ? f : 0.0f;
-            this.cal = f2 <= 1.0f ? f2 : 1.0f;
+            this.cam = f2 <= 1.0f ? f2 : 1.0f;
             ahE();
         }
     }
 
     public void ahD() {
-        if (this.cai != null) {
-            if (this.caj != null) {
-                this.caj.cancel();
-                this.caj.removeAllUpdateListeners();
+        if (this.caj != null) {
+            if (this.cak != null) {
+                this.cak.cancel();
+                this.cak.removeAllUpdateListeners();
             }
-            this.cam = 0.0f;
-            this.cal = 0.0f;
             this.can = 0.0f;
+            this.cam = 0.0f;
+            this.cao = 0.0f;
             ahE();
-            this.caj = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.caj.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.view.c.4
+            this.cak = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.cak.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.view.c.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    if (floatValue > 0.9f || floatValue - c.this.cam > 0.05d) {
-                        c.this.cam = floatValue;
+                    if (floatValue > 0.9f || floatValue - c.this.can > 0.05d) {
+                        c.this.can = floatValue;
                         c.this.ahE();
                     }
                 }
             });
-            this.caj.setDuration(4000L);
-            this.caj.start();
+            this.cak.setDuration(4000L);
+            this.cak.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ahE() {
-        if (this.cai != null) {
-            float r = r(this.cam, this.cal);
+        if (this.caj != null) {
+            float r = r(this.can, this.cam);
             if (r >= 1.0f) {
                 r = 0.99f;
             }
@@ -261,10 +261,10 @@ public class c {
     }
 
     private void X(float f) {
-        if (this.cai != null && this.can <= f) {
-            this.can = f;
-            this.cai.setText(NumberFormat.getPercentInstance().format(f));
-            this.cai.setVisibility(0);
+        if (this.caj != null && this.cao <= f) {
+            this.cao = f;
+            this.caj.setText(NumberFormat.getPercentInstance().format(f));
+            this.caj.setVisibility(0);
         }
     }
 
@@ -274,11 +274,11 @@ public class c {
     }
 
     public void ahF() {
-        if (this.cai != null) {
-            if (this.caj != null) {
-                this.caj.removeAllUpdateListeners();
-                this.caj.cancel();
-                this.caj = null;
+        if (this.caj != null) {
+            if (this.cak != null) {
+                this.cak.removeAllUpdateListeners();
+                this.cak.cancel();
+                this.cak = null;
             }
             X(1.0f);
         }
@@ -289,8 +289,8 @@ public class c {
             Log.i("SwanAppLoadingView", "updateIcon: icon=" + str);
         }
         final String appId = d.acC().getAppId();
-        if (this.cak) {
-            this.bng.setImageBitmap(ai.a(str, "SwanAppLoadingView", true, new p.a() { // from class: com.baidu.swan.apps.view.c.5
+        if (this.cal) {
+            this.bnh.setImageBitmap(ai.a(str, "SwanAppLoadingView", true, new p.a() { // from class: com.baidu.swan.apps.view.c.5
                 @Override // com.baidu.swan.apps.as.p.a
                 public void h(String str2, Bitmap bitmap) {
                     SwanAppActivity acB;
@@ -304,8 +304,8 @@ public class c {
     }
 
     public void nb(String str) {
-        if (this.cak && !TextUtils.isEmpty(str)) {
-            this.bZY.setText(str);
+        if (this.cal && !TextUtils.isEmpty(str)) {
+            this.bZZ.setText(str);
         }
     }
 }

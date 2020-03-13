@@ -17,7 +17,7 @@ public class a {
             return null;
         }
         String name = bVar.getName();
-        String str = bVar.bim;
+        String str = bVar.bin;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : slaveId is empty");
             return null;
@@ -27,10 +27,10 @@ public class a {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : null component context");
             return null;
         }
-        String str2 = bVar.bil;
+        String str2 = bVar.bim;
         if (TextUtils.isEmpty(str2)) {
             com.baidu.swan.apps.console.c.w("Component-Finder", "find " + name + " with a empty componentId");
-            List<com.baidu.swan.apps.component.b.a> list = gv.KW().bjw.get(bVar.bik);
+            List<com.baidu.swan.apps.component.b.a> list = gv.KW().bjx.get(bVar.bil);
             if (list == null) {
                 com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " with a empty componentId: fallbackComponents are null ");
                 return null;
@@ -42,7 +42,7 @@ public class a {
                 c = (C) list.get(0);
             }
         } else {
-            c = (C) gv.KW().bjv.get(str2);
+            c = (C) gv.KW().bjw.get(str2);
         }
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : not exist");
@@ -61,7 +61,7 @@ public class a {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : null component context");
             return null;
         }
-        C c = (C) gv.KW().bjv.get(str2);
+        C c = (C) gv.KW().bjw.get(str2);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : not exist");
             return null;
@@ -75,7 +75,7 @@ public class a {
             com.baidu.swan.apps.component.e.a.au("Component-Finder", "find component context with a null model");
             return null;
         }
-        return gv(bVar.bim);
+        return gv(bVar.bin);
     }
 
     @Nullable

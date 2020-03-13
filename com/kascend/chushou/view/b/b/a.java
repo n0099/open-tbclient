@@ -33,12 +33,12 @@ import tv.chushou.zues.widget.fresco.b;
 @h
 /* loaded from: classes5.dex */
 public final class a extends com.kascend.chushou.view.base.a implements View.OnClickListener {
-    public static final C0715a nfk = new C0715a(null);
+    public static final C0715a nfv = new C0715a(null);
     private boolean e;
     private boolean f;
     private HashMap h;
-    private com.kascend.chushou.view.b.b.b nfi;
-    private final DecimalFormat nfj = new DecimalFormat("#.#");
+    private com.kascend.chushou.view.b.b.b nft;
+    private final DecimalFormat nfu = new DecimalFormat("#.#");
 
     public View MS(int i) {
         if (this.h == null) {
@@ -111,7 +111,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         this.e = arguments4 != null ? arguments4.getBoolean("inLivePage", false) : false;
         Bundle arguments5 = getArguments();
         this.f = arguments5 != null ? arguments5.getBoolean("showAt", false) : false;
-        this.nfi = new com.kascend.chushou.view.b.b.b(str, string, string2);
+        this.nft = new com.kascend.chushou.view.b.b.b(str, string, string2);
         setStyle(1, a.j.cs_usercard_dialog);
     }
 
@@ -143,11 +143,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (frescoThumbnailView != null) {
             frescoThumbnailView.setOnClickListener(this);
         }
-        com.kascend.chushou.view.b.b.b bVar = this.nfi;
+        com.kascend.chushou.view.b.b.b bVar = this.nft;
         if (bVar != null) {
             bVar.a((com.kascend.chushou.view.b.b.b) this);
         }
-        com.kascend.chushou.view.b.b.b bVar2 = this.nfi;
+        com.kascend.chushou.view.b.b.b bVar2 = this.nft;
         if (bVar2 != null) {
             bVar2.d();
         }
@@ -161,7 +161,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
-        com.kascend.chushou.view.b.b.b bVar = this.nfi;
+        com.kascend.chushou.view.b.b.b bVar = this.nft;
         if (bVar != null) {
             bVar.a();
         }
@@ -188,7 +188,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
                 return;
             }
             int i4 = a.f.tvSubscribe;
-            if (valueOf != null && valueOf.intValue() == i4 && (bVar = this.nfi) != null) {
+            if (valueOf != null && valueOf.intValue() == i4 && (bVar = this.nft) != null) {
                 bVar.e();
             }
         }
@@ -199,10 +199,10 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (textView != null) {
             textView.setVisibility(8);
         }
-        ((FrescoThumbnailView) MS(a.f.ivAvatar)).xo(c.dQk());
+        ((FrescoThumbnailView) MS(a.f.ivAvatar)).xo(c.dQl());
         ImageView imageView = (ImageView) MS(a.f.ivGender);
         if (imageView != null) {
-            imageView.setImageResource(c.SN(null));
+            imageView.setImageResource(c.SO(null));
         }
         String string = c.getString(a.i.profile_failture_str);
         SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) MS(a.f.tvNickName);
@@ -268,12 +268,12 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) MS(a.f.ivAvatar);
         if (frescoThumbnailView != null) {
             UserCard.UserCardInfo userCardInfo = userCard.getUserCardInfo();
-            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.dQk(), b.C0816b.medium, b.C0816b.medium);
+            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.dQl(), b.C0816b.medium, b.C0816b.medium);
         }
         ImageView imageView = (ImageView) MS(a.f.ivGender);
         if (imageView != null) {
             UserCard.UserCardInfo userCardInfo2 = userCard.getUserCardInfo();
-            imageView.setImageResource(c.SN(userCardInfo2 != null ? userCardInfo2.getGender() : null));
+            imageView.setImageResource(c.SO(userCardInfo2 != null ? userCardInfo2.getGender() : null));
         }
         ImageView imageView2 = (ImageView) MS(a.f.ivGender);
         if (imageView2 != null) {
@@ -309,7 +309,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             q.i(flexboxLayout2, "flexMedal");
             flexboxLayout2.setVisibility(0);
             if (medalList == null) {
-                q.dKv();
+                q.dKw();
             }
             for (UserCard.Medal medal : medalList) {
                 View inflate = getLayoutInflater().inflate(a.h.view_medal_card, (ViewGroup) ((FlexboxLayout) MS(a.f.flexMedal)), false);
@@ -375,7 +375,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         UserCard.UserCardInfo userCardInfo14 = userCard.getUserCardInfo();
         String managerLevel2 = (userCardInfo14 == null || (meta2 = userCardInfo14.getMeta()) == null) ? null : meta2.getManagerLevel();
         LoginManager Instance = LoginManager.Instance();
-        com.kascend.chushou.view.b.b.b bVar = this.nfi;
+        com.kascend.chushou.view.b.b.b bVar = this.nft;
         if (Instance.isMySelf(bVar != null ? bVar.f() : null)) {
             TextView textView10 = (TextView) MS(a.f.tvReport);
             if (textView10 != null) {
@@ -437,7 +437,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         }
         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams3;
         LoginManager Instance2 = LoginManager.Instance();
-        com.kascend.chushou.view.b.b.b bVar2 = this.nfi;
+        com.kascend.chushou.view.b.b.b bVar2 = this.nft;
         boolean isMySelf = Instance2.isMySelf(bVar2 != null ? bVar2.f() : null);
         if (!this.f && isMySelf) {
             LinearLayout linearLayout5 = (LinearLayout) MS(a.f.llBottomBtn);
@@ -507,11 +507,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
             cVar.append(HanziToPinyin.Token.SEPARATOR);
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).HO(com.kascend.chushou.view.a.a()).dmY(), this.b);
-            com.facebook.drawee.controller.a dml = com.facebook.drawee.a.a.c.dly().OV(str).vh(true).dmp();
-            q.i(dml, "Fresco.newDraweeControll…yAnimations(true).build()");
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).HO(com.kascend.chushou.view.a.a()).dmZ(), this.b);
+            com.facebook.drawee.controller.a dmm = com.facebook.drawee.a.a.c.dlz().OW(str).vh(true).dmq();
+            q.i(dmm, "Fresco.newDraweeControll…yAnimations(true).build()");
             q.i(a, "medalDraweeHolder");
-            a.setController(dml);
+            a.setController(dmm);
             cVar.append("1");
             int Oe = c.Oe(i);
             cVar.a(a, length, length, Oe, Oe, true, 2);
@@ -546,40 +546,40 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
     }
 
     private final void d() {
-        UserCard dEp;
+        UserCard dEq;
         UserCard.UserCardMeta meta;
         UserCard.UserCardMeta meta2;
         String str = null;
-        com.kascend.chushou.view.b.b.b bVar = this.nfi;
-        if (bVar != null && (dEp = bVar.dEp()) != null) {
+        com.kascend.chushou.view.b.b.b bVar = this.nft;
+        if (bVar != null && (dEq = bVar.dEq()) != null) {
             ChatInfo chatInfo = new ChatInfo();
-            UserCard.UserCardInfo userCardInfo = dEp.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo = dEq.getUserCardInfo();
             chatInfo.mUserNickname = userCardInfo != null ? userCardInfo.getNickname() : null;
-            UserCard.UserCardInfo userCardInfo2 = dEp.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo2 = dEq.getUserCardInfo();
             chatInfo.mUserID = userCardInfo2 != null ? userCardInfo2.getUid() : null;
-            com.kascend.chushou.view.b.b.b bVar2 = this.nfi;
+            com.kascend.chushou.view.b.b.b bVar2 = this.nft;
             chatInfo.mRoomID = bVar2 != null ? bVar2.g() : null;
-            UserCard.UserCardInfo userCardInfo3 = dEp.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo3 = dEq.getUserCardInfo();
             String managerLevel = (userCardInfo3 == null || (meta2 = userCardInfo3.getMeta()) == null) ? null : meta2.getManagerLevel();
             if (!(managerLevel == null || managerLevel.length() == 0)) {
                 PrivilegeInfo privilegeInfo = chatInfo.mPrivilegeInfo;
-                UserCard.UserCardInfo userCardInfo4 = dEp.getUserCardInfo();
+                UserCard.UserCardInfo userCardInfo4 = dEq.getUserCardInfo();
                 if (userCardInfo4 != null && (meta = userCardInfo4.getMeta()) != null) {
                     str = meta.getManagerLevel();
                 }
                 privilegeInfo.mRole = str;
             }
             com.kascend.chushou.player.a.f fVar = new com.kascend.chushou.player.a.f(getActivity());
-            fVar.a(chatInfo, dEp.getManagerLevel(), this.e);
+            fVar.a(chatInfo, dEq.getManagerLevel(), this.e);
             fVar.show();
         }
     }
 
     private final void e() {
         com.kascend.chushou.view.b.b.b bVar;
-        UserCard dEp;
+        UserCard dEq;
         UserCard.UserCardInfo userCardInfo;
-        if (this.e && (bVar = this.nfi) != null && (dEp = bVar.dEp()) != null && (userCardInfo = dEp.getUserCardInfo()) != null) {
+        if (this.e && (bVar = this.nft) != null && (dEq = bVar.dEq()) != null && (userCardInfo = dEq.getUserCardInfo()) != null) {
             tv.chushou.zues.a.a.post(new i(3, userCardInfo));
             dismissAllowingStateLoss();
         }
@@ -594,11 +594,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             q.i(a, "sp.append(num.toString(), AbsoluteSizeSpan(big))");
             return a;
         } else if (j < 100000000) {
-            tv.chushou.zues.widget.a.c a2 = cVar.a(this.nfj.format((j * 1.0d) / 10000), new AbsoluteSizeSpan(bK2)).a(c.getString(a.i.zues_str_wan), new AbsoluteSizeSpan(bK));
+            tv.chushou.zues.widget.a.c a2 = cVar.a(this.nfu.format((j * 1.0d) / 10000), new AbsoluteSizeSpan(bK2)).a(c.getString(a.i.zues_str_wan), new AbsoluteSizeSpan(bK));
             q.i(a2, "sp.append(df.format(size… AbsoluteSizeSpan(small))");
             return a2;
         } else {
-            tv.chushou.zues.widget.a.c a3 = cVar.a(this.nfj.format((j * 1.0d) / 100000000), new AbsoluteSizeSpan(bK2)).a(c.getString(a.i.zues_str_yi), new AbsoluteSizeSpan(bK));
+            tv.chushou.zues.widget.a.c a3 = cVar.a(this.nfu.format((j * 1.0d) / 100000000), new AbsoluteSizeSpan(bK2)).a(c.getString(a.i.zues_str_yi), new AbsoluteSizeSpan(bK));
             q.i(a3, "sp.append(df.format(size… AbsoluteSizeSpan(small))");
             return a3;
         }

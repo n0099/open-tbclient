@@ -13,47 +13,47 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
-    private c euS;
-    private CustomMessageListener euT;
-    private PopupWindow.OnDismissListener euU;
+    private c evf;
+    private CustomMessageListener evg;
+    private PopupWindow.OnDismissListener evh;
     private Activity mContext;
 
     public b(Activity activity) {
         this.mContext = activity;
-        bdG();
+        bdH();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.euS = new c(this.mContext);
-        this.euS.setOnDismissListener(this.euU);
-        this.euS.bdH().setBackgroundColor(xK(str));
+        this.evf = new c(this.mContext);
+        this.evf.setOnDismissListener(this.evh);
+        this.evf.bdI().setBackgroundColor(xL(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.euS).a(this.euS.bdH().getSchemeCallback());
+        fVar.y(this.mContext).a(this.evf).a(this.evf.bdI().getSchemeCallback());
         com.baidu.live.view.web.a[] BC = fVar.BC();
         for (com.baidu.live.view.web.a aVar : BC) {
-            this.euS.bdH().addJavascriptInterface(aVar, aVar.getName());
+            this.evf.bdI().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.euS.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.evf.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.euS != null && this.euS.isShowing() && this.euS.bdH() != null) {
-            this.euS.bdH().onResume();
+        if (this.evf != null && this.evf.isShowing() && this.evf.bdI() != null) {
+            this.evf.bdI().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.euS != null && this.euS.isShowing() && this.euS.bdH() != null) {
-            this.euS.bdH().onPause();
+        if (this.evf != null && this.evf.isShowing() && this.evf.bdI() != null) {
+            this.evf.bdI().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.euS != null) {
-            this.euS.bdI();
+        if (this.evf != null) {
+            this.evf.bdJ();
         }
     }
 
@@ -64,23 +64,23 @@ public class b implements com.baidu.live.b.b {
     @Override // com.baidu.live.b.b
     public void release() {
         sL();
-        MessageManager.getInstance().unRegisterListener(this.euT);
+        MessageManager.getInstance().unRegisterListener(this.evg);
     }
 
-    private void bdG() {
-        this.euT = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bdH() {
+        this.evg = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.euS != null && b.this.euS.isShowing()) {
-                    b.this.euS.dismiss();
+                if (b.this.evf != null && b.this.evf.isShowing()) {
+                    b.this.evf.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.euT);
+        MessageManager.getInstance().registerListener(this.evg);
     }
 
-    private int xK(String str) {
+    private int xL(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

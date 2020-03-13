@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap dao;
+    private static ap dap;
 
     public static synchronized ap aGA() {
         ap apVar;
         synchronized (ap.class) {
-            if (dao == null) {
-                dao = new ap();
+            if (dap == null) {
+                dap = new ap();
             }
-            apVar = dao;
+            apVar = dap;
         }
         return apVar;
     }

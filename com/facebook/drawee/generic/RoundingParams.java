@@ -6,14 +6,14 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class RoundingParams {
-    private RoundingMethod lNy = RoundingMethod.BITMAP_ONLY;
-    private boolean lNz = false;
-    private float[] lNA = null;
-    private int lMt = 0;
+    private RoundingMethod lNJ = RoundingMethod.BITMAP_ONLY;
+    private boolean lNK = false;
+    private float[] lNL = null;
+    private int lME = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
     private float mPadding = 0.0f;
-    private boolean lMo = false;
+    private boolean lMz = false;
 
     /* loaded from: classes13.dex */
     public enum RoundingMethod {
@@ -22,63 +22,63 @@ public class RoundingParams {
     }
 
     public RoundingParams vm(boolean z) {
-        this.lNz = z;
+        this.lNK = z;
         return this;
     }
 
-    public boolean dmZ() {
-        return this.lNz;
+    public boolean dna() {
+        return this.lNK;
     }
 
     public RoundingParams bo(float f) {
-        Arrays.fill(dnd(), f);
+        Arrays.fill(dne(), f);
         return this;
     }
 
     public RoundingParams n(float f, float f2, float f3, float f4) {
-        float[] dnd = dnd();
-        dnd[1] = f;
-        dnd[0] = f;
-        dnd[3] = f2;
-        dnd[2] = f2;
-        dnd[5] = f3;
-        dnd[4] = f3;
-        dnd[7] = f4;
-        dnd[6] = f4;
+        float[] dne = dne();
+        dne[1] = f;
+        dne[0] = f;
+        dne[3] = f2;
+        dne[2] = f2;
+        dne[5] = f3;
+        dne[4] = f3;
+        dne[7] = f4;
+        dne[6] = f4;
         return this;
     }
 
-    public float[] dna() {
-        return this.lNA;
+    public float[] dnb() {
+        return this.lNL;
     }
 
     public RoundingParams a(RoundingMethod roundingMethod) {
-        this.lNy = roundingMethod;
+        this.lNJ = roundingMethod;
         return this;
     }
 
-    public RoundingMethod dnb() {
-        return this.lNy;
+    public RoundingMethod dnc() {
+        return this.lNJ;
     }
 
     public RoundingParams HP(@ColorInt int i) {
-        this.lMt = i;
-        this.lNy = RoundingMethod.OVERLAY_COLOR;
+        this.lME = i;
+        this.lNJ = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
-    public int dnc() {
-        return this.lMt;
+    public int dnd() {
+        return this.lME;
     }
 
-    private float[] dnd() {
-        if (this.lNA == null) {
-            this.lNA = new float[8];
+    private float[] dne() {
+        if (this.lNL == null) {
+            this.lNL = new float[8];
         }
-        return this.lNA;
+        return this.lNL;
     }
 
-    public static RoundingParams dne() {
+    public static RoundingParams dnf() {
         return new RoundingParams().vm(true);
     }
 
@@ -122,8 +122,8 @@ public class RoundingParams {
         return this.mPadding;
     }
 
-    public boolean dnf() {
-        return this.lMo;
+    public boolean dng() {
+        return this.lMz;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -134,13 +134,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.lNz == roundingParams.lNz && this.lMt == roundingParams.lMt && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.lNy == roundingParams.lNy && this.lMo == roundingParams.lMo) {
-            return Arrays.equals(this.lNA, roundingParams.lNA);
+        if (this.lNK == roundingParams.lNK && this.lME == roundingParams.lME && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.lNJ == roundingParams.lNJ && this.lMz == roundingParams.lMz) {
+            return Arrays.equals(this.lNL, roundingParams.lNL);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.lNA != null ? Arrays.hashCode(this.lNA) : 0) + (((this.lNz ? 1 : 0) + ((this.lNy != null ? this.lNy.hashCode() : 0) * 31)) * 31)) * 31) + this.lMt) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.lMo ? 1 : 0);
+        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.lNL != null ? Arrays.hashCode(this.lNL) : 0) + (((this.lNK ? 1 : 0) + ((this.lNJ != null ? this.lNJ.hashCode() : 0) * 31)) * 31)) * 31) + this.lME) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.lMz ? 1 : 0);
     }
 }

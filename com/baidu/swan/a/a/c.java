@@ -6,6 +6,6 @@ import com.baidu.swan.pms.model.e;
 public class c extends e {
     @Override // com.baidu.swan.pms.model.e
     public boolean PU() {
-        return (TextUtils.isEmpty(this.cAY) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+        return (TextUtils.isEmpty(this.cAZ) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 }

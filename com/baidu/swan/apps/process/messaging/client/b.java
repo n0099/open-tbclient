@@ -13,15 +13,15 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> bJu = new ArrayDeque();
+    private final Deque<Message> bJv = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void aaO() {
         a aaV = a.aaV();
-        while (aaV.aaZ() && !this.bJu.isEmpty()) {
-            Message peek = this.bJu.peek();
+        while (aaV.aaZ() && !this.bJv.isEmpty()) {
+            Message peek = this.bJv.peek();
             if (peek == null || z(peek)) {
-                this.bJu.poll();
+                this.bJv.poll();
             }
         }
     }
@@ -45,7 +45,7 @@ public class b implements a.b {
             }
         }
         if (!z(aaP) && cVar.isSticky()) {
-            this.bJu.offer(aaP);
+            this.bJv.offer(aaP);
             a.aaV().aaX();
         }
     }

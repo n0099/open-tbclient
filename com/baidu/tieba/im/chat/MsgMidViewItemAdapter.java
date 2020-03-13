@@ -17,7 +17,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        aVar.bSm().setData(chatMessage);
+        aVar.bSn().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

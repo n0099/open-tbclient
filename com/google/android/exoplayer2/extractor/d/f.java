@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.extractor.l;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 interface f {
-    l dvj();
+    l dvk();
 
     long fS(long j);
 

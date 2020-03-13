@@ -19,15 +19,15 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class SwanContentProvider extends ContentProvider {
     private static final boolean DEBUG = b.DEBUG;
-    private static final String cfG = AppRuntime.getAppContext().getPackageName() + ".provider";
-    private static UriMatcher cfH = new UriMatcher(-1);
-    private static HashSet<String> cfI = new HashSet<>();
+    private static final String cfH = AppRuntime.getAppContext().getPackageName() + ".provider";
+    private static UriMatcher cfI = new UriMatcher(-1);
+    private static HashSet<String> cfJ = new HashSet<>();
 
     static {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : ProcessorInfo.values()) {
             if (processorInfo != null) {
-                cfH.addURI(cfG, processorInfo.getPath(), processorInfo.getMatcherCode());
+                cfI.addURI(cfH, processorInfo.getPath(), processorInfo.getMatcherCode());
             }
         }
     }
@@ -47,7 +47,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         a hx;
-        if (ajt() && (hx = hx(cfH.match(uri))) != null) {
+        if (ajt() && (hx = hx(cfI.match(uri))) != null) {
             return hx.query(uri, strArr, str, strArr2, str2);
         }
         return null;
@@ -57,7 +57,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         a hx;
-        if (!aju() || (hx = hx(cfH.match(uri))) == null) {
+        if (!aju() || (hx = hx(cfI.match(uri))) == null) {
             return null;
         }
         return hx.insert(uri, contentValues);
@@ -66,7 +66,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         a hx;
-        if (!aju() || (hx = hx(cfH.match(uri))) == null) {
+        if (!aju() || (hx = hx(cfI.match(uri))) == null) {
             return 0;
         }
         return hx.delete(uri, str, strArr);
@@ -75,7 +75,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         a hx;
-        if (!aju() || (hx = hx(cfH.match(uri))) == null) {
+        if (!aju() || (hx = hx(cfI.match(uri))) == null) {
             return 0;
         }
         return hx.update(uri, contentValues, str, strArr);
@@ -107,12 +107,12 @@ public class SwanContentProvider extends ContentProvider {
         boolean z = true;
         if (!al(Process.myUid(), Binder.getCallingUid())) {
             String callingPackage = getCallingPackage();
-            if (!cfI.contains(callingPackage)) {
+            if (!cfJ.contains(callingPackage)) {
                 String nA = c.nA(callingPackage);
                 Set<String> ajg = com.baidu.swan.config.c.c.aje().ajg();
                 z = (ajg == null || !ajg.contains(nA)) ? false : false;
                 if (z) {
-                    cfI.add(callingPackage);
+                    cfJ.add(callingPackage);
                 }
             }
         }

@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class l {
-    public static final String kDi;
-    private List<DownloadData> kDj;
-    private a kDk;
-    private String kDl;
-    private com.baidu.tbadk.download.c kDm = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String kDu;
+    private List<DownloadData> kDv;
+    private a kDw;
+    private String kDx;
+    private com.baidu.tbadk.download.c kDy = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -25,8 +25,8 @@ public class l {
                     file.delete();
                 }
                 l.this.w(downloadData);
-                if (l.this.kDk != null && l.this.kDl.equals(downloadData.getUrl())) {
-                    l.this.kDk.cPq();
+                if (l.this.kDw != null && l.this.kDx.equals(downloadData.getUrl())) {
+                    l.this.kDw.cPr();
                 }
             }
         }
@@ -43,11 +43,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.kDi)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.kDu)) {
                 l.this.w(downloadData);
-                if (l.this.kDk != null && l.this.kDl.equals(downloadData.getUrl())) {
-                    l.this.kxc.put(downloadData.getPath().substring(l.kDi.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.kDk.eJ(l.this.kDl, downloadData.getPath());
+                if (l.this.kDw != null && l.this.kDx.equals(downloadData.getUrl())) {
+                    l.this.kxo.put(downloadData.getPath().substring(l.kDu.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.kDw.eJ(l.this.kDx, downloadData.getPath());
                 }
             }
         }
@@ -59,92 +59,92 @@ public class l {
                 file.delete();
             }
             l.this.w(downloadData);
-            if (l.this.kDk != null && l.this.kDl.equals(downloadData.getUrl())) {
-                l.this.kDk.JT(str);
+            if (l.this.kDw != null && l.this.kDx.equals(downloadData.getUrl())) {
+                l.this.kDw.JU(str);
             }
         }
     };
-    private HashMap<String, String> kxc;
+    private HashMap<String, String> kxo;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void JT(String str);
+        void JU(String str);
 
-        void cPq();
+        void cPr();
 
         void eJ(String str, String str2);
     }
 
     static {
-        kDi = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        kDu = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String Ko(String str) {
+    public String Kp(String str) {
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.kxc == null) {
-            this.kxc = new HashMap<>();
-            cSa();
+        if (this.kxo == null) {
+            this.kxo = new HashMap<>();
+            cSb();
         }
-        return this.kxc.get(nameMd5FromUrl);
+        return this.kxo.get(nameMd5FromUrl);
     }
 
-    public void cSa() {
-        if (!StringUtils.isNull(kDi)) {
-            if (this.kxc == null) {
-                this.kxc = new HashMap<>();
+    public void cSb() {
+        if (!StringUtils.isNull(kDu)) {
+            if (this.kxo == null) {
+                this.kxo = new HashMap<>();
             } else {
-                this.kxc.clear();
+                this.kxo.clear();
             }
-            File file = new File(kDi);
+            File file = new File(kDu);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.kxc.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.kxo.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
         }
     }
 
-    public void Kp(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(kDi)) {
-            if (this.kDk != null) {
-                this.kDk.JT("");
+    public void Kq(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(kDu)) {
+            if (this.kDw != null) {
+                this.kDw.JU("");
                 return;
             }
             return;
         }
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl != null) {
-            File file = new File(kDi);
+            File file = new File(kDu);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.kDj == null) {
-                this.kDj = new ArrayList();
+            if (this.kDv == null) {
+                this.kDv = new ArrayList();
             }
-            if (!Kq(str)) {
+            if (!Kr(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(kDi + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.kDm);
-                this.kDj.add(downloadData);
-                com.baidu.tbadk.download.d.aOp().f(downloadData);
+                downloadData.setPath(kDu + "/" + nameMd5FromUrl + str2);
+                downloadData.setCallback(this.kDy);
+                this.kDv.add(downloadData);
+                com.baidu.tbadk.download.d.aOq().f(downloadData);
             }
         }
     }
 
-    private boolean Kq(String str) {
-        if (v.isEmpty(this.kDj) || str == null) {
+    private boolean Kr(String str) {
+        if (v.isEmpty(this.kDv) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.kDj) {
+        for (DownloadData downloadData : this.kDv) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void w(DownloadData downloadData) {
         int i;
-        if (!v.isEmpty(this.kDj) && downloadData != null) {
+        if (!v.isEmpty(this.kDv) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.kDj.size()) {
+                if (i >= this.kDv.size()) {
                     i = -1;
                     break;
-                } else if (this.kDj.get(i) != null && this.kDj.get(i).getUrl() != null && this.kDj.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.kDv.get(i) != null && this.kDv.get(i).getUrl() != null && this.kDv.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.kDj.remove(i);
+            this.kDv.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.kDk = aVar;
+        this.kDw = aVar;
     }
 
-    public void Kr(String str) {
+    public void Ks(String str) {
         if (str == null) {
-            this.kDl = "";
+            this.kDx = "";
         } else {
-            this.kDl = str;
+            this.kDx = str;
         }
     }
 }

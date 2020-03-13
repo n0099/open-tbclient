@@ -20,13 +20,13 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     protected Activity activity;
-    protected com.baidu.live.liveroom.a.b awf;
-    protected com.baidu.live.liveroom.g.a awg;
-    protected com.baidu.live.o.d awh;
-    protected e awi;
+    protected com.baidu.live.liveroom.a.b awg;
+    protected com.baidu.live.liveroom.g.a awh;
+    protected com.baidu.live.o.d awi;
+    protected e awj;
     protected ViewGroup rootView;
     protected Handler mHandler = new Handler();
-    private CustomMessageListener awj = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
+    private CustomMessageListener awk = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,7 +38,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
             }
         }
     };
-    private CustomMessageListener awk = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
+    private CustomMessageListener awl = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -87,12 +87,12 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public abstract boolean yJ();
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.awj);
         MessageManager.getInstance().registerListener(this.awk);
+        MessageManager.getInstance().registerListener(this.awl);
     }
 
     public void a(com.baidu.live.liveroom.a.b bVar) {
-        this.awf = bVar;
+        this.awg = bVar;
     }
 
     public void setActivity(Activity activity) {
@@ -104,7 +104,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     }
 
     public void b(com.baidu.live.liveroom.g.a aVar) {
-        this.awg = aVar;
+        this.awh = aVar;
     }
 
     public void bf(boolean z) {
@@ -120,8 +120,8 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.awj);
         MessageManager.getInstance().unRegisterListener(this.awk);
+        MessageManager.getInstance().unRegisterListener(this.awl);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -137,7 +137,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     }
 
     public void a(com.baidu.live.o.d dVar, e eVar) {
-        this.awh = dVar;
-        this.awi = eVar;
+        this.awi = dVar;
+        this.awj = eVar;
     }
 }

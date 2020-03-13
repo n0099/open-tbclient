@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 public class q {
     private static String Pj;
     private static String mPid;
-    private static String dGD = "";
+    private static String dGQ = "";
     private static int mThreadType = 0;
-    public static String dGE = "floor";
-    public static String dGF = "pbPage";
+    public static String dGR = "floor";
+    public static String dGS = "pbPage";
 
     public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar, BaijiahaoData baijiahaoData) {
         Pj = str;
         mPid = str2;
-        dGD = str3;
+        dGQ = str3;
         mThreadType = i;
-        if (!StringUtils.isNull(dGD) && eVar != null && eVar.getPageActivity() != null) {
-            if (dGE.equals(dGD)) {
+        if (!StringUtils.isNull(dGQ) && eVar != null && eVar.getPageActivity() != null) {
+            if (dGR.equals(dGQ)) {
                 SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(Pj, mPid, "search_post", true);
                 createSubPbActivityConfig.setKeyPageStartFrom(8);
                 createSubPbActivityConfig.setBjhData(baijiahaoData);

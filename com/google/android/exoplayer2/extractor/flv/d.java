@@ -10,15 +10,15 @@ import com.google.android.exoplayer2.util.l;
 /* loaded from: classes6.dex */
 final class d extends TagPayloadReader {
     private int frameType;
-    private final l meM;
-    private final l meN;
-    private int meO;
-    private boolean mev;
+    private boolean meG;
+    private final l meX;
+    private final l meY;
+    private int meZ;
 
     public d(m mVar) {
         super(mVar);
-        this.meM = new l(j.mHb);
-        this.meN = new l(4);
+        this.meX = new l(j.mHm);
+        this.meY = new l(4);
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
@@ -36,31 +36,31 @@ final class d extends TagPayloadReader {
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
     protected void a(l lVar, long j) throws ParserException {
         int readUnsignedByte = lVar.readUnsignedByte();
-        long dzy = (lVar.dzy() * 1000) + j;
-        if (readUnsignedByte == 0 && !this.mev) {
-            l lVar2 = new l(new byte[lVar.dzt()]);
-            lVar.G(lVar2.data, 0, lVar.dzt());
+        long dzz = (lVar.dzz() * 1000) + j;
+        if (readUnsignedByte == 0 && !this.meG) {
+            l lVar2 = new l(new byte[lVar.dzu()]);
+            lVar.G(lVar2.data, 0, lVar.dzu());
             com.google.android.exoplayer2.video.a ag = com.google.android.exoplayer2.video.a.ag(lVar2);
-            this.meO = ag.meO;
-            this.meL.h(Format.a((String) null, "video/avc", (String) null, -1, -1, ag.width, ag.height, -1.0f, ag.initializationData, -1, ag.mHr, (DrmInitData) null));
-            this.mev = true;
-        } else if (readUnsignedByte == 1 && this.mev) {
-            byte[] bArr = this.meN.data;
+            this.meZ = ag.meZ;
+            this.meW.h(Format.a((String) null, "video/avc", (String) null, -1, -1, ag.width, ag.height, -1.0f, ag.initializationData, -1, ag.mHC, (DrmInitData) null));
+            this.meG = true;
+        } else if (readUnsignedByte == 1 && this.meG) {
+            byte[] bArr = this.meY.data;
             bArr[0] = 0;
             bArr[1] = 0;
             bArr[2] = 0;
-            int i = 4 - this.meO;
+            int i = 4 - this.meZ;
             int i2 = 0;
-            while (lVar.dzt() > 0) {
-                lVar.G(this.meN.data, i, this.meO);
-                this.meN.setPosition(0);
-                int dzE = this.meN.dzE();
-                this.meM.setPosition(0);
-                this.meL.a(this.meM, 4);
-                this.meL.a(lVar, dzE);
-                i2 = i2 + 4 + dzE;
+            while (lVar.dzu() > 0) {
+                lVar.G(this.meY.data, i, this.meZ);
+                this.meY.setPosition(0);
+                int dzF = this.meY.dzF();
+                this.meX.setPosition(0);
+                this.meW.a(this.meX, 4);
+                this.meW.a(lVar, dzF);
+                i2 = i2 + 4 + dzF;
             }
-            this.meL.a(dzy, this.frameType == 1 ? 1 : 0, i2, 0, null);
+            this.meW.a(dzz, this.frameType == 1 ? 1 : 0, i2, 0, null);
         }
     }
 }

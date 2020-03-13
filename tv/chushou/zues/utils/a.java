@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dQp() {
-        Application dPT = h.dPT();
-        if (dPT == null) {
+    public static boolean dQq() {
+        Application dPU = h.dPU();
+        if (dPU == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dPT.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dPU.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dQq() {
+    public static boolean dQr() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {

@@ -7,9 +7,9 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes13.dex */
 public class CountDownTextView extends TextView {
-    private int bnF;
-    private final Runnable ecV;
-    private b kkM;
+    private int bnG;
+    private final Runnable edi;
+    private b kkY;
     private Handler mHandler;
     private String mText;
 
@@ -20,15 +20,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes13.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> ecq;
+        private final WeakReference<CountDownTextView> ecD;
 
         private a(CountDownTextView countDownTextView) {
-            this.ecq = new WeakReference<>(countDownTextView);
+            this.ecD = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.ecq.get();
+            CountDownTextView countDownTextView = this.ecD.get();
             if (countDownTextView != null) {
                 countDownTextView.on(1);
             }
@@ -37,15 +37,15 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.bnF = 0;
+        this.bnG = 0;
         this.mText = "";
-        this.kkM = null;
+        this.kkY = null;
         this.mHandler = new Handler();
-        this.ecV = new a();
+        this.edi = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.kkM = bVar;
+        this.kkY = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -57,7 +57,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aZt();
+        aZu();
     }
 
     @Override // android.view.View
@@ -66,35 +66,35 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             on(0);
         } else {
-            aZt();
+            aZu();
         }
     }
 
     public void al(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.bnF = i;
+            this.bnG = i;
         }
     }
 
-    private void aZt() {
+    private void aZu() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void on(int i) {
-        this.bnF -= i;
-        if (this.bnF == 0) {
-            if (this.kkM != null) {
-                this.kkM.bq(this);
+        this.bnG -= i;
+        if (this.bnG == 0) {
+            if (this.kkY != null) {
+                this.kkY.bq(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.bnF > 0) {
-            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bnF)));
+        if (this.bnG > 0) {
+            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bnG)));
         }
-        this.mHandler.removeCallbacks(this.ecV);
-        this.mHandler.postDelayed(this.ecV, 1000L);
+        this.mHandler.removeCallbacks(this.edi);
+        this.mHandler.postDelayed(this.edi, 1000L);
     }
 }

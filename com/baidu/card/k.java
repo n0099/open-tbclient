@@ -86,7 +86,7 @@ public class k extends h {
         PostData aDM = aVar.aAg().aDM();
         if (this.Kt != null && aDM != null && aDM.aCo() != null && aDM.aCo().getUserId() != null) {
             this.Kt.cy("tid", aVar.aAg().tid).cy("post_id", aDM.getId()).cy("uid", aDM.aCo().getUserId());
-            com.baidu.tieba.card.r.bvg().d(this.Kt);
+            com.baidu.tieba.card.r.bvh().d(this.Kt);
         }
         this.Ks.setData(aVar.aAg());
     }

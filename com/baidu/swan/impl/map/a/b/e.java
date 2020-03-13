@@ -15,7 +15,7 @@ public class e {
             com.baidu.swan.apps.console.c.e("map", "initMapView model is invalid");
             return;
         }
-        BaiduMap map = cVar.cws.getMap();
+        BaiduMap map = cVar.cwt.getMap();
         com.baidu.swan.impl.map.b.b bVar2 = new com.baidu.swan.impl.map.b.b(cVar);
         map.setOnMapClickListener(bVar2);
         map.setOnMarkerClickListener(bVar2);
@@ -24,30 +24,30 @@ public class e {
         map.setOnMapStatusChangeListener(bVar2);
         map.setOnMyLocationClickListener(bVar2);
         UiSettings uiSettings = map.getUiSettings();
-        uiSettings.setScrollGesturesEnabled(cVar2.bzU);
-        uiSettings.setRotateGesturesEnabled(cVar2.bzV);
-        uiSettings.setZoomGesturesEnabled(cVar2.bzT);
-        cVar.cws.showZoomControls(cVar2.bzT);
-        map.setBuildingsEnabled(cVar2.bzY);
-        uiSettings.setOverlookingGesturesEnabled(cVar2.bzX);
-        if (cVar2.bzL != null && cVar2.bzL.isValid()) {
-            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar2.bzL);
-            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar2.bzL.latitude, cVar2.bzL.longitude)));
+        uiSettings.setScrollGesturesEnabled(cVar2.bzV);
+        uiSettings.setRotateGesturesEnabled(cVar2.bzW);
+        uiSettings.setZoomGesturesEnabled(cVar2.bzU);
+        cVar.cwt.showZoomControls(cVar2.bzU);
+        map.setBuildingsEnabled(cVar2.bzZ);
+        uiSettings.setOverlookingGesturesEnabled(cVar2.bzY);
+        if (cVar2.bzM != null && cVar2.bzM.isValid()) {
+            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar2.bzM);
+            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar2.bzM.latitude, cVar2.bzM.longitude)));
         }
         MapStatus mapStatus = map.getMapStatus();
-        float f = mapStatus != null ? mapStatus.zoom : (float) cVar2.bzM;
+        float f = mapStatus != null ? mapStatus.zoom : (float) cVar2.bzN;
         if (!z) {
-            f = (float) cVar2.bzM;
+            f = (float) cVar2.bzN;
         }
         map.setMapStatus(MapStatusUpdateFactory.zoomTo(f));
-        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar2.bzM);
+        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar2.bzN);
         cVar.isShowLocation = cVar2.isShowLocation;
         if (cVar2.isShowLocation) {
             a(context, bVar);
         } else {
             bVar.eK(false);
         }
-        uiSettings.setCompassEnabled(cVar2.bzW);
+        uiSettings.setCompassEnabled(cVar2.bzX);
         f.a(AppRuntime.getAppContext(), cVar2, cVar);
         f.a(cVar2, cVar, bVar2);
     }

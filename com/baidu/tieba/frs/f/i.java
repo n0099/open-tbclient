@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class i {
-    private static void BN(String str) {
+    private static void BO(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -88,16 +88,16 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    BN(decode);
+                    BO(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                BN(decode);
+                BO(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     dVar.forumName = decode.substring(length);
                     try {
-                        dVar.gLc = uri.getQueryParameter("from");
+                        dVar.gLo = uri.getQueryParameter("from");
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -213,14 +213,14 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bjVar != null) {
             String valueOf = String.valueOf(bjVar.getFid());
-            if (bjVar.cUa == null) {
+            if (bjVar.cUb == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bjVar.cUa.id;
+                str = bjVar.cUb.id;
                 str2 = valueOf;
             }
-            if (bjVar.aCK() > 0 && com.baidu.tieba.tbadkCore.util.e.cMc()) {
+            if (bjVar.aCK() > 0 && com.baidu.tieba.tbadkCore.util.e.cMd()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aCK()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

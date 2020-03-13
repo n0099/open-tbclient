@@ -12,11 +12,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class d {
-    private static d bWA;
-    private boolean bWC;
+    private static d bWB;
+    private boolean bWD;
     private AudioManager mAudioManager;
-    private final ConcurrentHashMap<String, a> bWB = new ConcurrentHashMap<>();
-    private BroadcastReceiver bWD = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ao.b.d.1
+    private final ConcurrentHashMap<String, a> bWC = new ConcurrentHashMap<>();
+    private BroadcastReceiver bWE = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ao.b.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             int i;
@@ -24,7 +24,7 @@ public class d {
                 if (d.this.mAudioManager == null) {
                     d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.w.a.TW().getSystemService("audio");
                 }
-                for (Map.Entry entry : d.this.bWB.entrySet()) {
+                for (Map.Entry entry : d.this.bWC.entrySet()) {
                     if (d.this.mAudioManager != null) {
                         i = d.this.mAudioManager.getStreamVolume(3);
                     } else {
@@ -45,26 +45,26 @@ public class d {
     }
 
     public static d afL() {
-        if (bWA == null) {
+        if (bWB == null) {
             synchronized (d.class) {
-                if (bWA == null) {
-                    bWA = new d();
+                if (bWB == null) {
+                    bWB = new d();
                 }
             }
         }
-        return bWA;
+        return bWB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull String str, @NonNull a aVar) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                this.bWB.put(str, aVar);
-                if (!this.bWC) {
+                this.bWC.put(str, aVar);
+                if (!this.bWD) {
                     registerReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.bWB.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.bWC.size());
                 }
             }
         }
@@ -74,12 +74,12 @@ public class d {
     public boolean ms(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                a remove = this.bWB.remove(str);
-                if (this.bWB.size() == 0 && this.bWC) {
+                a remove = this.bWC.remove(str);
+                if (this.bWC.size() == 0 && this.bWD) {
                     unregisterReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.bWB.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.bWC.size());
                 }
                 r0 = remove != null;
             }
@@ -101,31 +101,31 @@ public class d {
     private void registerReceiver() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-        com.baidu.swan.apps.w.a.TW().registerReceiver(this.bWD, intentFilter);
-        this.bWC = true;
+        com.baidu.swan.apps.w.a.TW().registerReceiver(this.bWE, intentFilter);
+        this.bWD = true;
     }
 
     private void unregisterReceiver() {
         try {
-            com.baidu.swan.apps.w.a.TW().unregisterReceiver(this.bWD);
-            this.bWC = false;
+            com.baidu.swan.apps.w.a.TW().unregisterReceiver(this.bWE);
+            this.bWD = false;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void release() {
-        if (bWA != null) {
-            bWA.PR();
+        if (bWB != null) {
+            bWB.PR();
         }
     }
 
     private void PR() {
         synchronized (this) {
-            this.bWB.clear();
+            this.bWC.clear();
             this.mAudioManager = null;
-            this.bWC = false;
+            this.bWD = false;
         }
-        bWA = null;
+        bWB = null;
     }
 }

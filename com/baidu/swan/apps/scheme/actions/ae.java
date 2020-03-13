@@ -23,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
-    private int bQP;
+    private int bQQ;
 
     public ae(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/uploadFile");
-        this.bQP = 0;
+        this.bQQ = 0;
     }
 
     @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.ab
@@ -56,7 +56,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
         final String valueOf = String.valueOf(System.currentTimeMillis());
         Request a = a(b, optString, fI, valueOf, eVar, callbackHandler);
         if (a == null) {
-            unitedSchemeEntity.result = fC(this.bQP);
+            unitedSchemeEntity.result = fC(this.bQQ);
             jG(valueOf);
             return false;
         }
@@ -137,8 +137,8 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
         if (TextUtils.isEmpty(httpUrl)) {
             return null;
         }
-        this.bQP = com.baidu.swan.apps.aj.a.b.D("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
-        if (this.bQP != 0) {
+        this.bQQ = com.baidu.swan.apps.aj.a.b.D("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
+        if (this.bQQ != 0) {
             return null;
         }
         String optString = jSONObject.optString("filePath", "");
@@ -165,7 +165,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
             return null;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-        this.bGd.put(str3, 0L);
+        this.bGe.put(str3, 0L);
         String name = file.getName();
         if (!TextUtils.isEmpty(name)) {
             String mJ = com.baidu.swan.apps.as.o.mJ(com.baidu.swan.apps.as.o.mI(name));
@@ -214,7 +214,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
                         }
                     }
                 }
-                this.bGd.put(str2, Long.valueOf(System.currentTimeMillis()));
+                this.bGe.put(str2, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }

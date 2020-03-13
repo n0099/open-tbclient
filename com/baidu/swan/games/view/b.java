@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b {
-    private ArrayList<a> csX = new ArrayList<>();
+    private ArrayList<a> csY = new ArrayList<>();
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -18,24 +18,24 @@ public class b {
     }
 
     public synchronized void a(a aVar) {
-        if (!this.csX.contains(aVar)) {
-            this.csX.add(aVar);
+        if (!this.csY.contains(aVar)) {
+            this.csY.add(aVar);
         }
     }
 
     public synchronized void hY(int i) {
-        Iterator<a> it = this.csX.iterator();
+        Iterator<a> it = this.csY.iterator();
         while (it.hasNext()) {
             it.next().dZ(i);
         }
     }
 
     public synchronized void JJ() {
-        Iterator<a> it = this.csX.iterator();
+        Iterator<a> it = this.csY.iterator();
         while (it.hasNext()) {
             it.next().JJ();
         }
-        this.csX.clear();
+        this.csY.clear();
     }
 
     @Nullable

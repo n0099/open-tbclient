@@ -151,7 +151,7 @@ public class d extends a {
         } catch (Exception e2) {
             e = e2;
             z2 = z;
-            com.baidu.swan.apps.camera.a.Kg().h(bVar.bim, bVar.bfZ, false);
+            com.baidu.swan.apps.camera.a.Kg().h(bVar.bin, bVar.bga, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

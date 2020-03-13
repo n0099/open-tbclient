@@ -13,7 +13,7 @@ public final class FlowableConcatWithMaybe<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nwt.a((j) new ConcatWithSubscriber(cVar, this.other));
+        this.nwE.a((j) new ConcatWithSubscriber(cVar, this.other));
     }
 
     /* loaded from: classes7.dex */

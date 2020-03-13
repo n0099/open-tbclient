@@ -13,13 +13,13 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void b(TbVideoViewSet.a aVar);
 
-    void cyM();
-
     void cyN();
 
-    boolean cyO();
+    void cyO();
 
-    void cyR();
+    boolean cyP();
+
+    void cyS();
 
     void e(long j, long j2, long j3);
 

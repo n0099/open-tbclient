@@ -16,7 +16,7 @@ public final class FlowableTakeUntil<T, U> extends a<T, T> {
         TakeUntilMainSubscriber takeUntilMainSubscriber = new TakeUntilMainSubscriber(cVar);
         cVar.onSubscribe(takeUntilMainSubscriber);
         this.other.subscribe(takeUntilMainSubscriber.other);
-        this.nwt.a((j) takeUntilMainSubscriber);
+        this.nwE.a((j) takeUntilMainSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

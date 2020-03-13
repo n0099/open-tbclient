@@ -23,7 +23,7 @@ public class b {
                 anVar.X("obj_type", 8);
             } else if (aAg.aEh()) {
                 anVar.X("obj_type", 9);
-            } else if (aAg.getType() == bj.cRj) {
+            } else if (aAg.getType() == bj.cRk) {
                 anVar.X("obj_type", 1);
             } else if (aAg.aBb()) {
                 anVar.X("obj_type", 2);
@@ -33,7 +33,7 @@ public class b {
             anVar.s("fid", aVar.aAg().getFid());
             anVar.X("obj_source", 1);
             if (aVar instanceof com.baidu.tieba.card.data.c) {
-                anVar.X("obj_param1", ((com.baidu.tieba.card.data.c) aVar).bvv() ? 2 : 1);
+                anVar.X("obj_param1", ((com.baidu.tieba.card.data.c) aVar).bvw() ? 2 : 1);
             }
             TiebaStatic.log(anVar);
         }

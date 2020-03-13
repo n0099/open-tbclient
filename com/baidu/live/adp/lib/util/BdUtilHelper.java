@@ -150,14 +150,14 @@ public class BdUtilHelper {
         if (str != null) {
             return ProgressDialog.show(context, "", str, true, false, onCancelListener);
         }
-        return ProgressDialog.show(context, "", context.getResources().getString(R.string.sdk_Waiting), true, false, onCancelListener);
+        return ProgressDialog.show(context, "", context.getResources().getString(R.string.sdk_waiting), true, false, onCancelListener);
     }
 
     public static ProgressDialog showLoadingDialog(Context context, String str, DialogInterface.OnCancelListener onCancelListener) {
         if (str != null) {
             return ProgressDialog.show(context, "", str, true, true, onCancelListener);
         }
-        return ProgressDialog.show(context, "", context.getResources().getString(R.string.sdk_Waiting), true, true, onCancelListener);
+        return ProgressDialog.show(context, "", context.getResources().getString(R.string.sdk_waiting), true, true, onCancelListener);
     }
 
     public static void closeLoadingDialog(ProgressDialog progressDialog) {

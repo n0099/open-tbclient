@@ -50,7 +50,7 @@ public abstract class b extends ab {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(c0205a.level <= 100 ? c0205a.level : 100));
-            jSONObject.put("isCharging", c0205a.bWE);
+            jSONObject.put("isCharging", c0205a.bWF);
             return jSONObject;
         } catch (JSONException e) {
             return null;

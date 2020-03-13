@@ -14,12 +14,12 @@ public class b extends com.baidu.swan.apps.component.b.b {
     public float alpha;
     public int backgroundColor;
     @Nullable
-    public JSONObject bhU;
-    public int bhV;
-    public JSONArray bhW;
+    public JSONObject bhV;
+    public int bhW;
+    public JSONArray bhX;
     @Nullable
-    public JSONObject bhX;
-    public String bhY;
+    public JSONObject bhY;
+    public String bhZ;
     public int borderColor;
     public int borderWidth;
     public long duration;
@@ -29,30 +29,30 @@ public class b extends com.baidu.swan.apps.component.b.b {
         this.backgroundColor = 0;
         this.borderColor = 0;
         this.alpha = -1.0f;
-        this.bhY = "";
+        this.bhZ = "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.b
     public Object clone() throws CloneNotSupportedException {
         b bVar = (b) super.clone();
-        if (this.bhU != null) {
+        if (this.bhV != null) {
             try {
-                bVar.bhU = new JSONObject(this.bhU.toString());
+                bVar.bhV = new JSONObject(this.bhV.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        if (this.bhW != null) {
+        if (this.bhX != null) {
             try {
-                bVar.bhW = new JSONArray(this.bhW.toString());
+                bVar.bhX = new JSONArray(this.bhX.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.bhX != null) {
+        if (this.bhY != null) {
             try {
-                bVar.bhX = new JSONObject(this.bhX.toString());
+                bVar.bhY = new JSONObject(this.bhY.toString());
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
@@ -64,8 +64,8 @@ public class b extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.bhU = jSONObject.optJSONObject("style");
-            this.bhX = jSONObject.optJSONObject("transition");
+            this.bhV = jSONObject.optJSONObject("style");
+            this.bhY = jSONObject.optJSONObject("transition");
             KA();
             KE();
         }
@@ -79,35 +79,35 @@ public class b extends com.baidu.swan.apps.component.b.b {
     }
 
     private void KA() {
-        if (this.bhU != null) {
+        if (this.bhV != null) {
             try {
-                this.backgroundColor = Color.parseColor(this.bhU.optString("bgColor"));
+                this.backgroundColor = Color.parseColor(this.bhV.optString("bgColor"));
             } catch (Exception e) {
                 c.w("Component-Model-View", "backgroundColor occurs exception");
                 this.backgroundColor = 0;
             }
-            this.borderWidth = this.bhU.optInt("borderWidth");
+            this.borderWidth = this.bhV.optInt("borderWidth");
             try {
-                this.borderColor = Color.parseColor(this.bhU.optString("borderColor"));
+                this.borderColor = Color.parseColor(this.bhV.optString("borderColor"));
             } catch (Exception e2) {
                 c.w("Component-Model-View", "borderColor occurs exception");
                 this.borderColor = 0;
             }
-            this.bhV = af.S(this.bhU.optInt("borderRadius"));
-            this.alpha = s.getFloat(this.bhU, "opacity", -1.0f);
-            this.bhW = this.bhU.optJSONArray("padding");
+            this.bhW = af.S(this.bhV.optInt("borderRadius"));
+            this.alpha = s.getFloat(this.bhV, "opacity", -1.0f);
+            this.bhX = this.bhV.optJSONArray("padding");
         }
     }
 
     private void KE() {
-        if (this.bhX != null) {
+        if (this.bhY != null) {
             try {
-                this.duration = Long.parseLong(this.bhX.optString("duration"));
+                this.duration = Long.parseLong(this.bhY.optString("duration"));
             } catch (Exception e) {
                 c.e("Component-Model-View", "duration occurs exception", e);
                 this.duration = 0L;
             }
-            this.bhY = this.bhX.optString("easing");
+            this.bhZ = this.bhY.optString("easing");
         }
     }
 }

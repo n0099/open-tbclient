@@ -3,28 +3,28 @@ package rx.internal.util;
 import rx.j;
 /* loaded from: classes6.dex */
 public final class b<T> extends j<T> {
-    final rx.functions.b<Throwable> nRc;
-    final rx.functions.b<? super T> nSo;
-    final rx.functions.a nSp;
+    final rx.functions.b<Throwable> nRn;
+    final rx.functions.a nSA;
+    final rx.functions.b<? super T> nSz;
 
     public b(rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2, rx.functions.a aVar) {
-        this.nSo = bVar;
-        this.nRc = bVar2;
-        this.nSp = aVar;
+        this.nSz = bVar;
+        this.nRn = bVar2;
+        this.nSA = aVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.nSo.call(t);
+        this.nSz.call(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.nRc.call(th);
+        this.nRn.call(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.nSp.call();
+        this.nSA.call();
     }
 }

@@ -5,19 +5,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private static d aVM;
+    private static d aVN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void h(Exception exc) {
-        if (aVM != null) {
-            aVM.eU(i(exc).toString());
+        if (aVN != null) {
+            aVN.eU(i(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void eU(String str) {
-        if (aVM != null) {
-            aVM.eU(str);
+        if (aVN != null) {
+            aVN.eU(str);
         }
     }
 

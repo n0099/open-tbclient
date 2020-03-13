@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dnR() {
-                n.this.dob();
+            public void dnS() {
+                n.this.doc();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dnS() {
-                n.this.doa();
+            public void dnT() {
+                n.this.dob();
             }
         });
     }

@@ -22,8 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener amH;
-    private a amJ;
+    private HttpMessageListener amI;
+    private a amK;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -32,7 +32,7 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.amH = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
+        this.amI = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -42,8 +42,8 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.amH.setTag(bdPageContext.getUniqueId());
-        registerListener(this.amH);
+        this.amI.setTag(bdPageContext.getUniqueId());
+        registerListener(this.amI);
     }
 
     public void i(final String str, final boolean z) {
@@ -96,8 +96,8 @@ public class b extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
         com.baidu.live.gift.b.b.uu().e(str, alaSdkGetGiftListHttpResponseMessage.uG());
-        if (this.amJ != null) {
-            this.amJ.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.uG(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.uH());
+        if (this.amK != null) {
+            this.amK.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.uG(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.uH());
         }
     }
 
@@ -114,10 +114,10 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.amH);
+        MessageManager.getInstance().unRegisterListener(this.amI);
     }
 
     public void a(a aVar) {
-        this.amJ = aVar;
+        this.amK = aVar;
     }
 }

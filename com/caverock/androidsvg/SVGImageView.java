@@ -71,8 +71,8 @@ public class SVGImageView extends ImageView {
         if (svg == null) {
             throw new IllegalArgumentException("Null value passed to setSVG()");
         }
-        djd();
-        setImageDrawable(new PictureDrawable(svg.dis()));
+        dje();
+        setImageDrawable(new PictureDrawable(svg.dit()));
     }
 
     @Override // android.widget.ImageView
@@ -113,7 +113,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: f */
         public Picture doInBackground(Integer... numArr) {
             try {
-                return SVG.J(SVGImageView.this.getContext(), numArr[0].intValue()).dis();
+                return SVG.J(SVGImageView.this.getContext(), numArr[0].intValue()).dit();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e.getMessage()));
                 return null;
@@ -126,7 +126,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.djd();
+                SVGImageView.this.dje();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
@@ -144,7 +144,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: S */
         public Picture doInBackground(String... strArr) {
             try {
-                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).dis();
+                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).dit();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", "Error loading file " + strArr + ": " + e.getMessage());
                 return null;
@@ -163,7 +163,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.djd();
+                SVGImageView.this.dje();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
@@ -183,12 +183,12 @@ public class SVGImageView extends ImageView {
         public Picture doInBackground(InputStream... inputStreamArr) {
             try {
                 try {
-                    Picture dis = SVG.n(inputStreamArr[0]).dis();
+                    Picture dit = SVG.n(inputStreamArr[0]).dit();
                     try {
                         inputStreamArr[0].close();
-                        return dis;
+                        return dit;
                     } catch (IOException e) {
-                        return dis;
+                        return dit;
                     }
                 } catch (SVGParseException e2) {
                     Log.e("SVGImageView", "Parse error loading URI: " + e2.getMessage());
@@ -213,14 +213,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.djd();
+                SVGImageView.this.dje();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djd() {
+    public void dje() {
         if (setLayerTypeMethod != null) {
             try {
                 setLayerTypeMethod.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);

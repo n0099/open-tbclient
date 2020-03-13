@@ -11,5 +11,5 @@ public interface c {
 
     void onSuccess(String str, String str2);
 
-    void xc(String str);
+    void xd(String str);
 }

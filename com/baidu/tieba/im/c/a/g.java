@@ -10,15 +10,15 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c hJP;
+    private com.baidu.tieba.im.db.c hKb;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.bUl(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
+        a(com.baidu.tieba.im.db.c.bUm(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.hJP = cVar;
+        this.hKb = cVar;
         this.mCmd = i;
     }
 
@@ -27,17 +27,17 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
             return wT(this.mCmd);
         }
-        if (this.hJP == null) {
+        if (this.hKb == null) {
             return wT(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> f = this.hJP.f(data.id, data.hGI, data.hGJ, data.limit);
+        LinkedList<ChatMessage> f = this.hKb.f(data.id, data.hGU, data.hGV, data.limit);
         if (f == null) {
             return wT(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.hGI == null) {
+        if (data.hGU == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;

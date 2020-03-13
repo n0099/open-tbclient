@@ -9,11 +9,11 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class AlbumCompressProgressView extends View {
-    private int aBh;
-    private int cVl;
-    private Paint cVm;
+    private int aBi;
+    private int cVm;
     private Paint cVn;
-    private RectF cVo;
+    private Paint cVo;
+    private RectF cVp;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class AlbumCompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.aBh = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.cVl = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.cVm = new Paint();
-        this.cVm.setStrokeWidth(this.aBh);
-        this.cVm.setColor(getResources().getColor(R.color.cp_bg_line_d));
-        this.cVm.setStyle(Paint.Style.STROKE);
-        this.cVm.setAntiAlias(true);
+        this.aBi = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.cVm = getResources().getDimensionPixelSize(R.dimen.ds2);
         this.cVn = new Paint();
-        this.cVn.setStrokeWidth(this.cVl);
-        this.cVn.setColor(getResources().getColor(R.color.cp_cont_a));
+        this.cVn.setStrokeWidth(this.aBi);
+        this.cVn.setColor(getResources().getColor(R.color.cp_bg_line_d));
         this.cVn.setStyle(Paint.Style.STROKE);
         this.cVn.setAntiAlias(true);
-        this.cVo = new RectF(this.aBh, this.aBh, this.mWidth + this.aBh, this.mWidth + this.aBh);
+        this.cVo = new Paint();
+        this.cVo.setStrokeWidth(this.cVm);
+        this.cVo.setColor(getResources().getColor(R.color.cp_cont_a));
+        this.cVo.setStyle(Paint.Style.STROKE);
+        this.cVo.setAntiAlias(true);
+        this.cVp = new RectF(this.aBi, this.aBi, this.mWidth + this.aBi, this.mWidth + this.aBi);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.cVo, 270.0f, 360.0f, false, this.cVn);
-        canvas.drawArc(this.cVo, 270.0f, (this.mValue * 360) / 100, false, this.cVm);
+        canvas.drawArc(this.cVp, 270.0f, 360.0f, false, this.cVo);
+        canvas.drawArc(this.cVp, 270.0f, (this.mValue * 360) / 100, false, this.cVn);
     }
 }

@@ -4,15 +4,15 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes11.dex */
 public class d {
-    private int coc;
+    private int cod;
     @V8JavascriptField
     public String[] files;
     private int mID;
 
     public d() {
-        this.coc = 0;
-        int i = this.coc;
-        this.coc = i + 1;
+        this.cod = 0;
+        int i = this.cod;
+        this.cod = i + 1;
         this.mID = i;
     }
 

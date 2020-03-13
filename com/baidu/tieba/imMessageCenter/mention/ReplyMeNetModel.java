@@ -13,12 +13,12 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aQB() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aQC() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> aQC() {
+    protected Class<? extends MvcSocketResponsedMessage> aQD() {
         return ReplyMeSocketResponseMessage.class;
     }
 

@@ -32,7 +32,7 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
                         ai.this.mT().a(ai.this.Mv, ai.this.Kc);
                     }
                     String id = ai.this.Kc.aAg().getId();
-                    com.baidu.tieba.card.l.zS(id);
+                    com.baidu.tieba.card.l.zT(id);
                     ai.this.cb(id);
                     ai.this.JX.b(new a.C0052a(1));
                 }
@@ -59,19 +59,19 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
             this.Kc = aVar;
             au.a(this.mTitle, aVar.aAg());
             au.a(this.KA, this.mTitle, aVar.aAg(), Ky);
-            this.Mv.b(aVar.aAg().cTQ);
+            this.Mv.b(aVar.aAg().cTR);
         }
     }
 
     public void ba(int i) {
-        this.Mv.fLL = i;
+        this.Mv.fLY = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cb(String str) {
         com.baidu.tieba.card.l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.l.a(this.KA, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.Mv.setReadState(com.baidu.tieba.card.l.zT(str));
+        this.Mv.setReadState(com.baidu.tieba.card.l.zU(str));
     }
 
     @Override // com.baidu.card.n

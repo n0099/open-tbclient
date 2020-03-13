@@ -19,39 +19,39 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes11.dex */
 public class c {
-    public static String bjE = "https://mbd.baidu.com";
-    public static String bjF = "https://ossapi.baidu.com";
+    public static String bjF = "https://mbd.baidu.com";
+    public static String bjG = "https://ossapi.baidu.com";
 
     public static String Lc() {
-        return String.format("%s/ma/invoice/create", bjE);
+        return String.format("%s/ma/invoice/create", bjF);
     }
 
     public static String Ld() {
-        return String.format("%s/ma/invoice/list", bjE);
+        return String.format("%s/ma/invoice/list", bjF);
     }
 
     public static String Le() {
-        return String.format("%s/ma/invoice/oa_list", bjE);
+        return String.format("%s/ma/invoice/oa_list", bjF);
     }
 
     public static String Lf() {
-        return String.format("%s/ma/invoice/modify", bjE);
+        return String.format("%s/ma/invoice/modify", bjF);
     }
 
     public static String Lg() {
-        return String.format("%s/ma/invoice/modify_default", bjE);
+        return String.format("%s/ma/invoice/modify_default", bjF);
     }
 
     public static String Lh() {
-        return String.format("%s/ma/invoice/del", bjE);
+        return String.format("%s/ma/invoice/del", bjF);
     }
 
     public static String Li() {
-        return String.format("%s/ma/address", bjE);
+        return String.format("%s/ma/address", bjF);
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", ci(getUid())), j.c, ci(nY())), "ut", ci(getDeviceInfo())), "osbranch", Lk()), "pkgname", getPkgName()), "network", Lj()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", Lo()), "mnpunion", String.valueOf(e.bcn.Jp() ? 1 : 0));
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", ci(getUid())), j.c, ci(nY())), "ut", ci(getDeviceInfo())), "osbranch", Lk()), "pkgname", getPkgName()), "network", Lj()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", Lo()), "mnpunion", String.valueOf(e.bco.Jp() ? 1 : 0));
     }
 
     public static String Lj() {

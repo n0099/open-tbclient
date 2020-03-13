@@ -15,11 +15,11 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
 /* loaded from: classes11.dex */
 public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.d.b<i.a> {
-    private static int cfT = 0;
-    private TextView cai;
-    private LoadingProgressBar cfQ;
-    private TextView cfR;
-    private LinearLayout cfS;
+    private static int cfU = 0;
+    private TextView caj;
+    private LoadingProgressBar cfR;
+    private TextView cfS;
+    private LinearLayout cfT;
     private RelativeLayout mRootView;
 
     @Override // android.app.Activity
@@ -30,7 +30,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
         setContentView(a.d.activity_loading);
         initViews();
         registerListener();
-        hz(cfT);
+        hz(cfU);
         ajU();
     }
 
@@ -50,11 +50,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
 
     private void initViews() {
         this.mRootView = (RelativeLayout) findViewById(a.c.rl_root);
-        this.cfS = (LinearLayout) findViewById(a.c.ll_container);
-        this.cfQ = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.cai = (TextView) findViewById(a.c.tv_progress);
-        this.cfR = (TextView) findViewById(a.c.tv_hide);
-        this.cfR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+        this.cfT = (LinearLayout) findViewById(a.c.ll_container);
+        this.cfR = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.caj = (TextView) findViewById(a.c.tv_progress);
+        this.cfS = (TextView) findViewById(a.c.tv_hide);
+        this.cfS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -63,9 +63,9 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
     }
 
     void hz(int i) {
-        if (this.cfQ != null && this.cai != null && i > 0) {
-            this.cfQ.setProgress(i);
-            this.cai.setText(String.valueOf(i));
+        if (this.cfR != null && this.caj != null && i > 0) {
+            this.cfR.setProgress(i);
+            this.caj.setText(String.valueOf(i));
         }
     }
 
@@ -97,7 +97,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
                 @Override // java.lang.Runnable
                 public void run() {
                     int i = (int) ((j / j2) * 100.0d);
-                    int unused = LoadingActivity.cfT = i;
+                    int unused = LoadingActivity.cfU = i;
                     LoadingActivity.this.hz(i);
                 }
             });

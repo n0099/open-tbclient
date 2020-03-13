@@ -3,52 +3,52 @@ package com.baidu.live.liveroom.e;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class e {
-    private static volatile e awb = null;
-    private b awc;
+    private static volatile e awc = null;
     private b awd;
-    private com.baidu.live.o.c awe;
+    private b awe;
+    private com.baidu.live.o.c awf;
 
     private e() {
     }
 
     public static e yG() {
-        if (awb == null) {
+        if (awc == null) {
             synchronized (e.class) {
-                if (awb == null) {
-                    awb = new e();
+                if (awc == null) {
+                    awc = new e();
                 }
             }
         }
-        return awb;
+        return awc;
     }
 
     public void a(b bVar) {
-        this.awc = bVar;
-    }
-
-    public void b(b bVar) {
         this.awd = bVar;
     }
 
+    public void b(b bVar) {
+        this.awe = bVar;
+    }
+
     public boolean yH() {
-        return this.awc != null;
+        return this.awd != null;
     }
 
     public a aH(Context context) {
-        if (this.awc != null) {
-            return this.awc.aG(context);
-        }
-        return null;
-    }
-
-    public a aI(Context context) {
         if (this.awd != null) {
             return this.awd.aG(context);
         }
         return null;
     }
 
+    public a aI(Context context) {
+        if (this.awe != null) {
+            return this.awe.aG(context);
+        }
+        return null;
+    }
+
     public com.baidu.live.o.c yI() {
-        return this.awe;
+        return this.awf;
     }
 }

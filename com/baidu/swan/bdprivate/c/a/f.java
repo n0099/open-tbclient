@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends ab {
-    private int ccT;
+    private int ccU;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
@@ -31,7 +31,7 @@ public class f extends ab {
 
     public f(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.ccT = -1;
+        this.ccU = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -68,8 +68,8 @@ public class f extends ab {
         final JSONObject jSONObject = new JSONObject();
         z dc = com.baidu.swan.bdprivate.a.a.dc(context);
         jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, dc.displayName);
-        jSONObject.put("portrait", dc.aqo);
-        if (this.ccT != -1) {
+        jSONObject.put("portrait", dc.aqp);
+        if (this.ccU != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.c.a.f.1
@@ -79,7 +79,7 @@ public class f extends ab {
                         f.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    f.this.ccT = f.this.be(jSONObject2);
+                    f.this.ccU = f.this.be(jSONObject2);
                     f.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -88,9 +88,9 @@ public class f extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.ccT != -1) {
+        if (this.ccU != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.ccT));
+                jSONObject.put("gender", String.valueOf(this.ccU));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

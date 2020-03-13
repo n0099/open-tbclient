@@ -22,9 +22,9 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         if (this.emitLast) {
-            this.nwt.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+            this.nwE.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.nwt.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.nwE.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 

@@ -16,52 +16,52 @@ import com.baidu.tieba.enterForum.view.f;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class b {
-    private f fTl;
-    private com.baidu.tieba.enterForum.view.a fVt;
-    private a fVu;
+    private f fTy;
+    private com.baidu.tieba.enterForum.view.a fVG;
+    private a fVH;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private boolean fVv = false;
-    private a.InterfaceC0496a fVw = new a.InterfaceC0496a() { // from class: com.baidu.tieba.enterForum.home.b.1
+    private boolean fVI = false;
+    private a.InterfaceC0496a fVJ = new a.InterfaceC0496a() { // from class: com.baidu.tieba.enterForum.home.b.1
         @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0496a
         public void onItemClick(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new an("c13369").X("obj_type", i == 1 ? 2 : 1));
-            b.this.byv();
-            if (b.this.fVu != null) {
-                b.this.fVu.rL(b.this.mSortType);
+            b.this.byw();
+            if (b.this.fVH != null) {
+                b.this.fVH.rL(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener dfY = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener dgl = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.fTl.bzI()) {
+            if (!b.this.fTy.bzJ()) {
                 if (view == b.this.mTitle) {
-                    if (b.this.fVt == null) {
-                        b.this.fVt = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                        b.this.fVt.setOnDismissListener(b.this.mOnDismissListener);
-                        b.this.fVt.a(b.this.fVw);
-                        b.this.fVt.rY(b.this.mStatusBarHeight);
+                    if (b.this.fVG == null) {
+                        b.this.fVG = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                        b.this.fVG.setOnDismissListener(b.this.mOnDismissListener);
+                        b.this.fVG.a(b.this.fVJ);
+                        b.this.fVG.rY(b.this.mStatusBarHeight);
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new k(b.this.mContext.getString(R.string.level_sort), 1));
                     arrayList.add(new k(b.this.mContext.getString(R.string.update_sort), 2));
-                    b.this.fVt.setData(arrayList, b.this.mSortType);
-                    b.this.fVt.R(b.this.mTitle);
+                    b.this.fVG.setData(arrayList, b.this.mSortType);
+                    b.this.fVG.R(b.this.mTitle);
                 }
-                b.this.fVv = true;
-                b.this.kE(b.this.fVv);
+                b.this.fVI = true;
+                b.this.kE(b.this.fVI);
             }
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.enterForum.home.b.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            b.this.fVv = false;
-            b.this.kE(b.this.fVv);
+            b.this.fVI = false;
+            b.this.kE(b.this.fVI);
         }
     };
 
@@ -74,7 +74,7 @@ public class b {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.fTl = fVar;
+        this.fTy = fVar;
     }
 
     public void e(TextView textView) {
@@ -82,13 +82,13 @@ public class b {
     }
 
     public void AT() {
-        if (this.fVt != null) {
-            this.fVt.AT();
+        if (this.fVG != null) {
+            this.fVG.AT();
         }
     }
 
-    public void byv() {
-        if (byw() && this.mTitle != null) {
+    public void byw() {
+        if (byx() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -97,44 +97,44 @@ public class b {
                     this.mTitle.setText(R.string.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.dfY);
-            kE(this.fVv);
+            this.mTitle.setOnClickListener(this.dgl);
+            kE(this.fVI);
         }
     }
 
-    public boolean byw() {
+    public boolean byx() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (byw()) {
+        if (byx()) {
             this.mSortType = i;
-            byv();
+            byw();
         }
     }
 
     public void a(a aVar) {
-        this.fVu = aVar;
+        this.fVH = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (byw()) {
+        if (byx()) {
             am.setViewTextColor(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
-                kE(this.fVv);
+                kE(this.fVI);
             }
         }
-        if (this.fVt != null && this.fVv) {
-            this.fVt.onChangeSkinType();
+        if (this.fVG != null && this.fVI) {
+            this.fVG.onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kE(boolean z) {
         int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-        com.baidu.tieba.enterForum.data.b bzO = this.fTl != null ? this.fTl.bzO() : null;
-        if (bzO != null && bzO.fTT) {
-            if (this.fTl != null && this.fTl.isShow()) {
+        com.baidu.tieba.enterForum.data.b bzP = this.fTy != null ? this.fTy.bzP() : null;
+        if (bzP != null && bzP.fUg) {
+            if (this.fTy != null && this.fTy.isShow()) {
                 am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_j);
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aGC().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                 return;

@@ -22,19 +22,19 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.b bVar) {
-        this.cBm.Pm();
+        this.cBn.Pm();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(bVar.cBQ, eVar);
-        a(bVar.cBT, eVar);
+        a(bVar.cBR, eVar);
         a(bVar.cBU, eVar);
-        a(bVar.cBW, eVar);
-        p(bVar.cBV);
+        a(bVar.cBV, eVar);
+        a(bVar.cBX, eVar);
+        p(bVar.cBW);
         if (eVar.aut() == 0) {
-            this.cBm.Pi();
+            this.cBn.Pi();
             return null;
         }
-        this.cBm.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(bVar, this.cBm);
+        this.cBn.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(bVar, this.cBn);
         return null;
     }
 
@@ -46,20 +46,20 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.cBQ == null && ((bVar.cBT == null || bVar.cBT.isEmpty()) && bVar.cBU == null && bVar.cBW == null && bVar.cBV == null)) {
+        if (bVar.cBR == null && ((bVar.cBU == null || bVar.cBU.isEmpty()) && bVar.cBV == null && bVar.cBX == null && bVar.cBW == null)) {
             return false;
         }
-        if (bVar.cBQ == null || bVar.cBQ.PU()) {
-            if (bVar.cBT != null) {
-                for (com.baidu.swan.pms.model.g gVar : bVar.cBT) {
+        if (bVar.cBR == null || bVar.cBR.PU()) {
+            if (bVar.cBU != null) {
+                for (com.baidu.swan.pms.model.g gVar : bVar.cBU) {
                     if (!gVar.PU()) {
                         return false;
                     }
                 }
             }
-            if (bVar.cBU == null || bVar.cBU.PU()) {
-                if (bVar.cBW == null || bVar.cBW.PU()) {
-                    return bVar.cBV == null || bVar.cBV.PU();
+            if (bVar.cBV == null || bVar.cBV.PU()) {
+                if (bVar.cBX == null || bVar.cBX.PU()) {
+                    return bVar.cBW == null || bVar.cBW.PU();
                 }
                 return false;
             }

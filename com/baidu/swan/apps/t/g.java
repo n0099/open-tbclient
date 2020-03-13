@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class g extends l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, a> bxC = new HashMap();
-    public final com.baidu.swan.apps.x.b.a.c bxD = new c.a();
-    private final com.baidu.swan.apps.x.b.a.c bxE = new c.a();
+    private final Map<String, a> bxD = new HashMap();
+    public final com.baidu.swan.apps.x.b.a.c bxE = new c.a();
+    private final com.baidu.swan.apps.x.b.a.c bxF = new c.a();
 
     public g a(a... aVarArr) {
         com.baidu.swan.apps.as.d.a.a(new com.baidu.swan.apps.as.d.b<a>() { // from class: com.baidu.swan.apps.t.g.1
@@ -24,21 +24,21 @@ public class g extends l {
             /* renamed from: a */
             public void D(a aVar) {
                 aVar.b(g.this);
-                g.this.bxC.put(aVar.id, aVar);
+                g.this.bxD.put(aVar.id, aVar);
             }
         }, aVarArr);
         return this;
     }
 
     public g x(Bundle bundle) {
-        this.bxD.B(bundle);
+        this.bxE.B(bundle);
         return this;
     }
 
     public synchronized g a(ReadableByteChannel readableByteChannel) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.bxE.Wh();
-        final com.baidu.swan.apps.as.b.a Q = new com.baidu.swan.apps.as.b.a().hg(32768).a(30L, TimeUnit.SECONDS).Q(this.bxD.toBundle());
+        this.bxF.Wh();
+        final com.baidu.swan.apps.as.b.a Q = new com.baidu.swan.apps.as.b.a().hg(32768).a(30L, TimeUnit.SECONDS).Q(this.bxE.toBundle());
         Q.k(new com.baidu.swan.apps.as.d.b<String>() { // from class: com.baidu.swan.apps.t.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
@@ -83,7 +83,7 @@ public class g extends l {
     }
 
     public boolean isOk() {
-        if (this.bxC.isEmpty() || this.bxE.getBoolean("flag_is_ok", false)) {
+        if (this.bxD.isEmpty() || this.bxF.getBoolean("flag_is_ok", false)) {
             return true;
         }
         final boolean[] zArr = {true};
@@ -96,24 +96,24 @@ public class g extends l {
                 zArr2[0] = zArr2[0] & aVar.isOk();
             }
         });
-        this.bxE.w("flag_is_ok", zArr[0]);
+        this.bxF.w("flag_is_ok", zArr[0]);
         return zArr[0];
     }
 
     private void a(com.baidu.swan.apps.as.d.b<a> bVar) {
-        com.baidu.swan.apps.as.d.a.a(bVar, this.bxC.values());
+        com.baidu.swan.apps.as.d.a.a(bVar, this.bxD.values());
     }
 
     private void log(String str) {
         if (DEBUG) {
-            com.baidu.swan.apps.x.c.a.iM(this.bxD.getString("launch_id", "")).iN(str).iP("SwanInstaller");
+            com.baidu.swan.apps.x.c.a.iM(this.bxE.getString("launch_id", "")).iN(str).iP("SwanInstaller");
             Log.i("SwanInstaller", str);
         }
     }
 
     /* loaded from: classes11.dex */
     public static abstract class a implements com.baidu.swan.apps.as.d.b<Pipe.SourceChannel> {
-        private g bxI;
+        private g bxJ;
         final String id;
         private final Bundle mResult = new Bundle();
 
@@ -125,14 +125,14 @@ public class g extends l {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(g gVar) {
-            this.bxI = gVar;
+            this.bxJ = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.b
         /* renamed from: a */
         public void D(Pipe.SourceChannel sourceChannel) {
-            if (this.bxI != null && a(sourceChannel, this.bxI.bxD.toBundle())) {
+            if (this.bxJ != null && a(sourceChannel, this.bxJ.bxE.toBundle())) {
                 TS();
             }
         }

@@ -11,10 +11,10 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class b {
     protected static WeakReference<TbPageContext<?>> Pf = null;
-    protected static boolean cKv = false;
-    protected String cKs = "183322726";
-    protected boolean cKu = true;
-    protected transient List<String> cKt = new ArrayList(5);
+    protected static boolean cKw = false;
+    protected String cKt = "183322726";
+    protected boolean cKv = true;
+    protected transient List<String> cKu = new ArrayList(5);
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -65,12 +65,12 @@ public abstract class b {
     }
 
     public boolean ayU() {
-        return cKv;
+        return cKw;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void fn(boolean z) {
-        this.cKu = z;
+        this.cKv = z;
     }
 
     public void resetContext() {

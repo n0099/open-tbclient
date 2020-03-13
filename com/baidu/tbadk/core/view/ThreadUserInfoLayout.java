@@ -48,18 +48,18 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     private UserIconBox No;
     protected TextView Nq;
     private View.OnClickListener Nw;
-    private TextView dhf;
-    private TextView diM;
-    private View diN;
-    private TextView diO;
-    private View diP;
-    private FrameLayout diQ;
-    private boolean diR;
-    private View diS;
-    private boolean diT;
-    private boolean diU;
-    private TextView dic;
-    public ClickableHeaderImageView dio;
+    private TextView dhs;
+    public ClickableHeaderImageView diD;
+    private TextView diZ;
+    private TextView diq;
+    private View dja;
+    private TextView djb;
+    private View djc;
+    private FrameLayout djd;
+    private boolean dje;
+    private View djf;
+    private boolean djg;
+    private boolean djh;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
@@ -70,7 +70,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     public ThreadUserInfoLayout(Context context) {
         super(context);
-        this.diR = true;
+        this.dje = true;
         this.mFrom = 1;
         this.mSkinType = 3;
         this.NF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
@@ -118,7 +118,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     public ThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.diR = true;
+        this.dje = true;
         this.mFrom = 1;
         this.mSkinType = 3;
         this.NF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
@@ -166,7 +166,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     public ThreadUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.diR = true;
+        this.dje = true;
         this.mFrom = 1;
         this.mSkinType = 3;
         this.NF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
@@ -215,23 +215,23 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_user_info_layout, (ViewGroup) this, true);
-        this.dio = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
+        this.diD = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
         this.No = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_tshow_icon);
         this.Nl = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_user_name);
         this.Nm = (TextView) inflate.findViewById(R.id.identity_view);
         this.Nn = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_user_icon);
-        this.dhf = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
-        this.diM = (TextView) inflate.findViewById(R.id.thread_info_address);
-        this.diN = inflate.findViewById(R.id.divider);
-        this.diS = findViewById(R.id.divider_forum_name);
-        this.dic = (TextView) findViewById(R.id.thread_info_forum_name);
+        this.dhs = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
+        this.diZ = (TextView) inflate.findViewById(R.id.thread_info_address);
+        this.dja = inflate.findViewById(R.id.divider);
+        this.djf = findViewById(R.id.divider_forum_name);
+        this.diq = (TextView) findViewById(R.id.thread_info_forum_name);
         this.Nq = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_share_intro);
-        this.diO = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
-        this.diQ = (FrameLayout) inflate.findViewById(R.id.ala_live_info_content_layout);
-        this.diP = com.baidu.tbadk.ala.b.ayB().u(this.mContext, 1);
-        if (this.diP != null) {
-            this.diP.setVisibility(8);
-            this.diQ.addView(this.diP);
+        this.djb = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
+        this.djd = (FrameLayout) inflate.findViewById(R.id.ala_live_info_content_layout);
+        this.djc = com.baidu.tbadk.ala.b.ayB().u(this.mContext, 1);
+        if (this.djc != null) {
+            this.djc.setVisibility(8);
+            this.djd.addView(this.djc);
         }
         setGravity(16);
         initHeaderImg();
@@ -247,8 +247,8 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
             return false;
         }
         this.KJ = bjVar;
-        if (this.KJ.cTO > 0) {
-            if (this.KJ.cTP == 0 && this.KJ.aCo() != null) {
+        if (this.KJ.cTP > 0) {
+            if (this.KJ.cTQ == 0 && this.KJ.aCo() != null) {
                 if (!v.isEmpty(this.KJ.aCo().getTShowInfoNew())) {
                     this.KJ.aCo().getTShowInfoNew().clear();
                 }
@@ -257,12 +257,12 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
             this.No.setOnClickListener(null);
             this.Nl.setOnClickListener(null);
             this.Nn.setOnClickListener(null);
-            this.dio.setClickable(false);
+            this.diD.setClickable(false);
         } else {
             this.No.setOnClickListener(this.NF);
             this.Nl.setOnClickListener(this.NG);
             this.Nn.setOnClickListener(this.NH);
-            this.dio.setClickable(true);
+            this.diD.setClickable(true);
         }
         k(bjVar);
         h(bjVar);
@@ -280,12 +280,12 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     }
 
     private void initHeaderImg() {
-        if (this.dio != null) {
-            this.dio.setDefaultResource(17170445);
-            this.dio.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.dio.setPlaceHolder(1);
-            this.dio.setIsRound(true);
-            this.dio.setAfterClickListener(this.Nw);
+        if (this.diD != null) {
+            this.diD.setDefaultResource(17170445);
+            this.diD.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.diD.setPlaceHolder(1);
+            this.diD.setIsRound(true);
+            this.diD.setAfterClickListener(this.Nw);
         }
     }
 
@@ -293,32 +293,32 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
         if (this.mFrom == 3) {
             if (bjVar != null && bjVar.aCo() != null && bjVar.aCo().getAlaUserData() != null) {
                 AlaUserInfoData alaUserData = bjVar.aCo().getAlaUserData();
-                if (this.diP != null) {
+                if (this.djc != null) {
                     com.baidu.tbadk.ala.a aVar = new com.baidu.tbadk.ala.a();
-                    aVar.cJR = alaUserData;
+                    aVar.cJS = alaUserData;
                     aVar.type = 1;
-                    this.diP.setTag(aVar);
+                    this.djc.setTag(aVar);
                     if (alaUserData.anchor_live == 0) {
-                        this.diP.setVisibility(8);
+                        this.djc.setVisibility(8);
                     } else {
-                        this.diP.setVisibility(0);
+                        this.djc.setVisibility(0);
                     }
                 }
-            } else if (this.diP != null) {
-                this.diP.setVisibility(8);
+            } else if (this.djc != null) {
+                this.djc.setVisibility(8);
             }
         }
     }
 
     private void H(bj bjVar) {
-        if (this.diO != null && bjVar != null && bjVar.aCo() != null) {
+        if (this.djb != null && bjVar != null && bjVar.aCo() != null) {
             if (bjVar.aCo().hadConcerned()) {
-                this.diO.setVisibility(0);
-                am.setViewTextColor(this.diO, (int) R.color.cp_cont_d);
-                am.setBackgroundResource(this.diO, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
+                this.djb.setVisibility(0);
+                am.setViewTextColor(this.djb, (int) R.color.cp_cont_d);
+                am.setBackgroundResource(this.djb, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
                 return;
             }
-            this.diO.setVisibility(8);
+            this.djb.setVisibility(8);
         }
     }
 
@@ -338,11 +338,11 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
         if (this.Nm != null && bjVar != null && bjVar.aCo() != null) {
             MetaData aCo = bjVar.aCo();
             if (aCo.getIs_bawu() == 1) {
-                int i = bjVar.cUb ? R.drawable.brand_official_btn : R.drawable.user_identity_btn;
-                int i2 = bjVar.cUb ? R.color.cp_cont_a : R.color.cp_cont_j;
+                int i = bjVar.cUc ? R.drawable.brand_official_btn : R.drawable.user_identity_btn;
+                int i2 = bjVar.cUc ? R.color.cp_cont_a : R.color.cp_cont_j;
                 am.setBackgroundResource(this.Nm, i);
                 am.setViewTextColor(this.Nm, i2);
-                if (bjVar.cUb) {
+                if (bjVar.cUc) {
                     this.Nm.setVisibility(0);
                     this.Nm.setText(R.string.brand_Official);
                 } else if (Config.BAWU_TYPE_MANAGER.equals(aCo.getBawu_type())) {
@@ -383,7 +383,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     private void h(bj bjVar) {
         if (this.Nl != null && bjVar != null) {
             if (!StringUtils.isNull(this.KJ.aCo().getName_show())) {
-                this.Nl.setText(tY(this.KJ.aCo().getName_show()));
+                this.Nl.setText(tZ(this.KJ.aCo().getName_show()));
             }
             nt();
             if (this.mFrom == 3 || this.mFrom == 4) {
@@ -392,7 +392,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                     this.Nl.setText(com.baidu.tieba.pb.c.ba(this.mContext, this.Nl.getText().toString()));
                     this.Nl.setGravity(16);
-                    this.Nl.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.ckd());
+                    this.Nl.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cke());
                     am.setViewTextColor(this.Nl, R.color.cp_other_f, 1);
                 }
             }
@@ -401,9 +401,9 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     private void j(bj bjVar) {
         if (this.Nn != null) {
-            if (this.diU) {
+            if (this.djh) {
                 this.Nn.setVisibility(8);
-            } else if (bjVar == null || bjVar.aCo() == null || ((bjVar.cTO > 0 && bjVar.cTP == 0) || !this.diR)) {
+            } else if (bjVar == null || bjVar.aCo() == null || ((bjVar.cTP > 0 && bjVar.cTQ == 0) || !this.dje)) {
                 this.Nn.setVisibility(8);
             } else {
                 ArrayList<IconData> iconInfo = bjVar.aCo().getIconInfo();
@@ -419,12 +419,12 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     private void C(bj bjVar) {
         String formatTime;
-        if (this.dhf != null && bjVar != null) {
+        if (this.dhs != null && bjVar != null) {
             if (bjVar.aCh() <= 0) {
-                this.dhf.setVisibility(4);
+                this.dhs.setVisibility(4);
                 return;
             }
-            this.dhf.setVisibility(0);
+            this.dhs.setVisibility(0);
             if (this.mFrom == 2) {
                 formatTime = aq.getPostTimeInterval(bjVar.aCh());
             } else if (bjVar.aDA()) {
@@ -434,14 +434,14 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
             } else {
                 formatTime = aq.getFormatTime(bjVar.aCh() * 1000);
             }
-            this.dhf.setText(formatTime);
+            this.dhs.setText(formatTime);
         }
     }
 
     protected void i(bj bjVar) {
         if (this.Nq == null || bjVar == null) {
             this.Nq.setVisibility(8);
-        } else if (this.diU) {
+        } else if (this.djh) {
             if (StringUtils.isNull(bjVar.aAh())) {
                 this.Nq.setVisibility(8);
                 return;
@@ -453,7 +453,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
             }
             this.Nq.setText(bjVar.aAh());
             this.Nq.setVisibility(0);
-        } else if (this.KJ.aCH() == null || this.KJ.aCH().share_info == null || this.KJ.aCH().share_info.share_user_count <= 0 || !this.KJ.aDD() || (this.KJ.cTO > 0 && this.KJ.cTP == 0)) {
+        } else if (this.KJ.aCH() == null || this.KJ.aCH().share_info == null || this.KJ.aCH().share_info.share_user_count <= 0 || !this.KJ.aDD() || (this.KJ.cTP > 0 && this.KJ.cTQ == 0)) {
             this.Nq.setVisibility(8);
         } else {
             this.Nq.setVisibility(0);
@@ -468,40 +468,40 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
 
     private void I(bj bjVar) {
         if (bjVar == null || StringUtils.isNull(bjVar.getAddress())) {
-            this.diM.setVisibility(8);
-            this.diN.setVisibility(8);
+            this.diZ.setVisibility(8);
+            this.dja.setVisibility(8);
             return;
         }
-        this.diM.setText(this.KJ.getAddress());
-        this.diM.setVisibility(0);
-        this.diN.setVisibility(0);
+        this.diZ.setText(this.KJ.getAddress());
+        this.diZ.setVisibility(0);
+        this.dja.setVisibility(0);
     }
 
     public void J(bj bjVar) {
         String str;
         if (bjVar == null) {
-            this.dic.setVisibility(8);
-            this.diS.setVisibility(8);
+            this.diq.setVisibility(8);
+            this.djf.setVisibility(8);
             return;
         }
         this.KJ.aCt();
         String str2 = (this.mFrom == 3 || this.mFrom == 4) ? null : null;
         if (bjVar.aDW()) {
-            str2 = bjVar.cUa.ori_fname;
+            str2 = bjVar.cUb.ori_fname;
         }
         if (StringUtils.isNull(str2)) {
-            this.dic.setVisibility(8);
-            this.diS.setVisibility(8);
+            this.diq.setVisibility(8);
+            this.djf.setVisibility(8);
             return;
         }
-        if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
+        if (this.KJ.cTP > 0 && this.KJ.cTQ == 0) {
             str = getContext().getString(R.string.select_video_list);
         } else {
             str = aq.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + getResources().getString(R.string.forum);
         }
-        this.dic.setText(str);
-        this.dic.setVisibility(0);
-        this.diS.setVisibility(0);
+        this.diq.setText(str);
+        this.diq.setVisibility(0);
+        this.djf.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.core.view.c
@@ -510,23 +510,23 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
             J(this.KJ);
             return;
         }
-        this.dic.setVisibility(8);
-        this.diS.setVisibility(8);
+        this.diq.setVisibility(8);
+        this.djf.setVisibility(8);
     }
 
     private void c(bj bjVar) {
-        if (this.dio != null && bjVar != null && this.KJ.aCo() != null) {
-            if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
-                this.dio.setShowV(false);
+        if (this.diD != null && bjVar != null && this.KJ.aCo() != null) {
+            if (this.KJ.cTP > 0 && this.KJ.cTQ == 0) {
+                this.diD.setShowV(false);
             } else {
-                this.dio.setShowV(this.KJ.aCo().isBigV());
+                this.diD.setShowV(this.KJ.aCo().isBigV());
             }
         }
     }
 
     private void nt() {
         if (this.KJ != null && this.KJ.aCo() != null) {
-            if (this.KJ.cTO > 0 && this.KJ.cTP == 0) {
+            if (this.KJ.cTP > 0 && this.KJ.cTQ == 0) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_f);
             } else if (!v.isEmpty(this.KJ.aCo().getTShowInfoNew()) || this.KJ.aCo().isBigV()) {
                 am.setViewTextColor(this.Nl, (int) R.color.cp_cont_h);
@@ -546,57 +546,57 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     public void onChangeSkinType() {
         nt();
         am.setViewTextColor(this.Nq, (int) R.color.cp_cont_f);
-        am.setViewTextColor(this.dhf, (int) R.color.cp_cont_d);
-        am.setBackgroundColor(this.diN, R.color.cp_cont_e);
-        am.setViewTextColor(this.diM, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.dic, (int) R.color.cp_cont_d);
-        am.setBackgroundColor(this.diN, R.color.cp_cont_e);
-        am.setBackgroundColor(this.diS, R.color.cp_cont_e);
+        am.setViewTextColor(this.dhs, (int) R.color.cp_cont_d);
+        am.setBackgroundColor(this.dja, R.color.cp_cont_e);
+        am.setViewTextColor(this.diZ, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.diq, (int) R.color.cp_cont_d);
+        am.setBackgroundColor(this.dja, R.color.cp_cont_e);
+        am.setBackgroundColor(this.djf, R.color.cp_cont_e);
         l(this.KJ);
     }
 
     public void setIsSimpleThread(boolean z) {
-        this.diT = z;
+        this.djg = z;
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public boolean getIsSimpleThread() {
-        return this.diT;
+        return this.djg;
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         this.Nw = onClickListener;
-        if (this.dio != null) {
-            this.dio.setAfterClickListener(this.Nw);
+        if (this.diD != null) {
+            this.diD.setAfterClickListener(this.Nw);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.dio != null) {
-            this.dio.setPageId(bdUniqueId);
+        if (this.diD != null) {
+            this.diD.setPageId(bdUniqueId);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.c
     public ClickableHeaderImageView getHeaderImg() {
-        return this.dio;
+        return this.diD;
     }
 
     public TextView getUserName() {
         return this.Nl;
     }
 
-    protected String tY(String str) {
+    protected String tZ(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 
     public void setTShowVisible(boolean z) {
-        this.diR = z;
+        this.dje = z;
     }
 
     public void setIsFromConcern(boolean z) {
-        this.diU = z;
+        this.djh = z;
     }
 }

@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes9.dex */
 public class n {
-    private BaseFragmentActivity grE;
-    private PbModel iEi;
-    private a iGj = null;
-    protected final HttpMessageListener iGk = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.n.1
+    private BaseFragmentActivity grR;
+    private PbModel iEu;
+    private a iGv = null;
+    protected final HttpMessageListener iGw = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    n.this.iGj.m(-1, null, null);
+                    n.this.iGv.m(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -26,7 +26,7 @@ public class n {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                n.this.iGj.m(errorCode, errorMessage, tid);
+                n.this.iGv.m(errorCode, errorMessage, tid);
             }
         }
     };
@@ -37,19 +37,19 @@ public class n {
     }
 
     public n(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.iEi = pbModel;
-        this.grE = baseFragmentActivity;
-        this.grE.registerListener(this.iGk);
+        this.iEu = pbModel;
+        this.grR = baseFragmentActivity;
+        this.grR.registerListener(this.iGw);
     }
 
     public void a(a aVar) {
-        this.iGj = aVar;
+        this.iGv = aVar;
     }
 
     public void yI(int i) {
-        if (this.iEi != null) {
+        if (this.iEu != null) {
             HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.iEi.cny());
+            httpMessage.addParam("thread_id", this.iEu.cnz());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

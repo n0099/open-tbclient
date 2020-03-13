@@ -8,9 +8,9 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes11.dex */
 public class b extends ab {
-    private a bEW;
-    private e bEX;
-    private d bEY;
+    private a bEX;
+    private e bEY;
+    private d bEZ;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -53,22 +53,22 @@ public class b extends ab {
         }
         switch (c) {
             case 0:
-                if (this.bEW == null) {
-                    this.bEW = new a("/swanAPI/vrvideo/open");
-                }
-                a = this.bEW.a(context, unitedSchemeEntity, callbackHandler, eVar);
-                break;
-            case 1:
                 if (this.bEX == null) {
-                    this.bEX = new e("/swanAPI/vrvideo/update");
+                    this.bEX = new a("/swanAPI/vrvideo/open");
                 }
                 a = this.bEX.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
-            case 2:
+            case 1:
                 if (this.bEY == null) {
-                    this.bEY = new d("/swanAPI/vrvideo/remove");
+                    this.bEY = new e("/swanAPI/vrvideo/update");
                 }
                 a = this.bEY.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                break;
+            case 2:
+                if (this.bEZ == null) {
+                    this.bEZ = new d("/swanAPI/vrvideo/remove");
+                }
+                a = this.bEZ.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

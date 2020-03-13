@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f nTv = new f();
-    static final b nTA = new b() { // from class: rx.c.f.1
+    private static final f nTG = new f();
+    static final b nTL = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> nTw = new AtomicReference<>();
-    private final AtomicReference<d> nTx = new AtomicReference<>();
-    private final AtomicReference<h> nTy = new AtomicReference<>();
-    private final AtomicReference<a> nTz = new AtomicReference<>();
-    private final AtomicReference<g> nNw = new AtomicReference<>();
+    private final AtomicReference<b> nTH = new AtomicReference<>();
+    private final AtomicReference<d> nTI = new AtomicReference<>();
+    private final AtomicReference<h> nTJ = new AtomicReference<>();
+    private final AtomicReference<a> nTK = new AtomicReference<>();
+    private final AtomicReference<g> nNH = new AtomicReference<>();
 
     @Deprecated
-    public static f dOY() {
-        return nTv;
+    public static f dOZ() {
+        return nTG;
     }
 
     f() {
     }
 
-    public b dOZ() {
-        if (this.nTw.get() == null) {
+    public b dPa() {
+        if (this.nTH.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.nTw.compareAndSet(null, nTA);
+                this.nTH.compareAndSet(null, nTL);
             } else {
-                this.nTw.compareAndSet(null, (b) a);
+                this.nTH.compareAndSet(null, (b) a);
             }
         }
-        return this.nTw.get();
+        return this.nTH.get();
     }
 
-    public d dPa() {
-        if (this.nTx.get() == null) {
+    public d dPb() {
+        if (this.nTI.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.nTx.compareAndSet(null, e.dOX());
+                this.nTI.compareAndSet(null, e.dOY());
             } else {
-                this.nTx.compareAndSet(null, (d) a);
+                this.nTI.compareAndSet(null, (d) a);
             }
         }
-        return this.nTx.get();
+        return this.nTI.get();
     }
 
-    public h dPb() {
-        if (this.nTy.get() == null) {
+    public h dPc() {
+        if (this.nTJ.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.nTy.compareAndSet(null, i.dPl());
+                this.nTJ.compareAndSet(null, i.dPm());
             } else {
-                this.nTy.compareAndSet(null, (h) a);
+                this.nTJ.compareAndSet(null, (h) a);
             }
         }
-        return this.nTy.get();
+        return this.nTJ.get();
     }
 
-    public a dPc() {
-        if (this.nTz.get() == null) {
+    public a dPd() {
+        if (this.nTK.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.nTz.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.nTK.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.nTz.compareAndSet(null, (a) a);
+                this.nTK.compareAndSet(null, (a) a);
             }
         }
-        return this.nTz.get();
+        return this.nTK.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dPd() {
-        if (this.nNw.get() == null) {
+    public g dPe() {
+        if (this.nNH.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.nNw.compareAndSet(null, g.dPk());
+                this.nNH.compareAndSet(null, g.dPl());
             } else {
-                this.nNw.compareAndSet(null, (g) a);
+                this.nNH.compareAndSet(null, (g) a);
             }
         }
-        return this.nNw.get();
+        return this.nNH.get();
     }
 }

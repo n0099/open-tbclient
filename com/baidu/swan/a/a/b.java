@@ -22,11 +22,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(c cVar) {
-        this.cBm.Pm();
+        this.cBn.Pm();
         e eVar = new e();
         eVar.a(cVar, PMSPkgStatus.WAIT);
-        this.cBm.a(eVar);
-        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cBm);
+        this.cBn.a(eVar);
+        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cBn);
         return null;
     }
 

@@ -32,12 +32,12 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private BdListView AG;
-    private FrameLayout bow;
-    private CustomMessageListener daf;
-    private PbListView elj;
-    private AlaRecentHistoryActivity eqv;
-    private com.baidu.tieba.ala.alasquare.recent_history.a.a eqw;
-    private b eqx;
+    private FrameLayout box;
+    private CustomMessageListener dag;
+    private PbListView elw;
+    private AlaRecentHistoryActivity eqI;
+    private com.baidu.tieba.ala.alasquare.recent_history.a.a eqJ;
+    private b eqK;
     private NoNetworkView mNetworkView;
     private TbPageContext mPageContext;
     private h mPullView;
@@ -46,57 +46,57 @@ public class a {
 
     public a(TbPageContext tbPageContext, int i) {
         this.mPageContext = tbPageContext;
-        this.eqv = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
+        this.eqI = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
         this.mType = i;
         initView();
     }
 
     public void initView() {
         ColorDrawable colorDrawable;
-        this.mRootView = LayoutInflater.from(this.eqv).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
-        this.mRootView.setPadding(0, (int) this.eqv.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.bow = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
+        this.mRootView = LayoutInflater.from(this.eqI).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
+        this.mRootView.setPadding(0, (int) this.eqI.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.box = (FrameLayout) this.mRootView.findViewById(R.id.square_recent_history_container);
         this.AG = (BdListView) this.mRootView.findViewById(R.id.square_recent_history_listview);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            colorDrawable = new ColorDrawable(this.eqv.getPageContext().getResources().getColor(R.color.cp_bg_line_c_1));
+            colorDrawable = new ColorDrawable(this.eqI.getPageContext().getResources().getColor(R.color.cp_bg_line_c_1));
         } else {
-            colorDrawable = new ColorDrawable(this.eqv.getPageContext().getResources().getColor(R.color.cp_bg_line_c));
+            colorDrawable = new ColorDrawable(this.eqI.getPageContext().getResources().getColor(R.color.cp_bg_line_c));
         }
         this.AG.setDivider(colorDrawable);
-        this.AG.setDividerHeight(this.eqv.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.AG.setDividerHeight(this.eqI.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.square_recent_history_network);
         this.mPullView = new h(this.mPageContext);
-        this.mPullView.setTag(this.eqv.getUniqueId());
+        this.mPullView.setTag(this.eqI.getUniqueId());
         this.AG.setPullRefresh(this.mPullView);
-        this.elj = new PbListView(this.eqv);
-        this.elj.createView();
-        bcY();
-    }
-
-    private void bcY() {
+        this.elw = new PbListView(this.eqI);
+        this.elw.createView();
         bcZ();
     }
 
     private void bcZ() {
+        bda();
+    }
+
+    private void bda() {
         if (this.mType == 0) {
-            this.eqw = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
+            this.eqJ = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
         } else if (1 == this.mType) {
-            this.eqw = new c(this.mPageContext);
+            this.eqJ = new c(this.mPageContext);
             registerListener();
-            ((c) this.eqw).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
+            ((c) this.eqJ).a(new c.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.1
                 @Override // com.baidu.tieba.ala.alasquare.recent_history.a.c.a
                 public void a(b bVar) {
-                    a.this.eqx = bVar;
-                    a.this.a(bVar.cRf.aCo(), bVar.isFollow);
+                    a.this.eqK = bVar;
+                    a.this.a(bVar.cRg.aCo(), bVar.isFollow);
                 }
             });
         }
-        this.AG.setAdapter((ListAdapter) this.eqw);
+        this.AG.setAdapter((ListAdapter) this.eqJ);
         this.AG.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    com.baidu.tieba.ala.alasquare.c.a.bcX().bbR();
+                    com.baidu.tieba.ala.alasquare.c.a.bcY().bbS();
                 }
             }
 
@@ -107,35 +107,35 @@ public class a {
     }
 
     private void registerListener() {
-        this.daf = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
+        this.dag = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.alasquare.recent_history.c.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j;
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.eqx != null) {
-                        if (a.this.eqx.cRf != null && a.this.eqx.cRf.aCo() != null) {
-                            j = a.this.eqx.cRf.aCo().getUserIdLong();
+                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.eqK != null) {
+                        if (a.this.eqK.cRg != null && a.this.eqK.cRg.aCo() != null) {
+                            j = a.this.eqK.cRg.aCo().getUserIdLong();
                         } else {
                             j = -100;
                         }
                         if (updateAttentionMessage.getData().toUid.equals(String.valueOf(j))) {
                             if (updateAttentionMessage.getData().isSucc) {
-                                a.this.eqx.isFollow = true;
-                                if (a.this.eqw instanceof c) {
-                                    a.this.eqw.notifyDataSetChanged();
+                                a.this.eqK.isFollow = true;
+                                if (a.this.eqJ instanceof c) {
+                                    a.this.eqJ.notifyDataSetChanged();
                                     return;
                                 }
                                 return;
                             }
-                            a.this.eqx.isFollow = false;
+                            a.this.eqK.isFollow = false;
                         }
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.daf);
+        MessageManager.getInstance().registerListener(this.dag);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,8 +152,8 @@ public class a {
         return this.mRootView;
     }
 
-    public ViewGroup bda() {
-        return this.bow;
+    public ViewGroup bdb() {
+        return this.box;
     }
 
     public void completePullRefresh() {
@@ -161,39 +161,39 @@ public class a {
     }
 
     public void setData(List<b> list, boolean z) {
-        if (this.eqw instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
-            this.eqw.setData(list);
-        } else if (this.eqw instanceof c) {
-            this.eqw.setData(list);
+        if (this.eqJ instanceof com.baidu.tieba.ala.alasquare.recent_history.a.b) {
+            this.eqJ.setData(list);
+        } else if (this.eqJ instanceof c) {
+            this.eqJ.setData(list);
         }
         if (z) {
-            bcu();
+            bcv();
         } else {
-            bct();
-        }
-    }
-
-    private void bct() {
-        if (this.elj != null) {
-            if (this.elj.getView().getParent() == null) {
-                this.AG.setNextPage(this.elj);
-            }
-            this.elj.setText(this.eqv.getPageContext().getResources().getString(R.string.list_no_more));
-            this.elj.endLoadData();
+            bcu();
         }
     }
 
     private void bcu() {
-        if (this.elj != null) {
-            if (this.elj.getView().getParent() == null) {
-                this.AG.setNextPage(this.elj);
+        if (this.elw != null) {
+            if (this.elw.getView().getParent() == null) {
+                this.AG.setNextPage(this.elw);
             }
-            this.elj.showLoadingViewWithoutEmptyView();
-            this.elj.startLoadData();
+            this.elw.setText(this.eqI.getPageContext().getResources().getString(R.string.list_no_more));
+            this.elw.endLoadData();
         }
     }
 
-    public void bdb() {
+    private void bcv() {
+        if (this.elw != null) {
+            if (this.elw.getView().getParent() == null) {
+                this.AG.setNextPage(this.elw);
+            }
+            this.elw.showLoadingViewWithoutEmptyView();
+            this.elw.startLoadData();
+        }
+    }
+
+    public void bdc() {
         this.AG.setNextPage(null);
     }
 
@@ -212,8 +212,8 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.daf != null) {
-            MessageManager.getInstance().unRegisterListener(this.daf);
+        if (this.dag != null) {
+            MessageManager.getInstance().unRegisterListener(this.dag);
         }
     }
 }

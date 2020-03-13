@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @Deprecated
-    private static b bHJ;
+    private static b bHK;
 
     private static b ZU() {
-        if (bHJ == null) {
-            bHJ = new b();
-            a(bHJ);
+        if (bHK == null) {
+            bHK = new b();
+            a(bHK);
         }
-        return bHJ;
+        return bHK;
     }
 
     private static void a(b bVar) {
@@ -183,9 +183,9 @@ public final class f {
 
     /* loaded from: classes11.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int bHK = 35;
-        public JSONObject bHL;
-        private boolean bHM = true;
+        private static int bHL = 35;
+        public JSONObject bHM;
+        private boolean bHN = true;
         final String eventId;
 
         public a(String str) {
@@ -210,18 +210,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.bVl == null) {
-                this.bVl = new JSONObject();
+            if (this.bVm == null) {
+                this.bVm = new JSONObject();
             }
             try {
-                if (this.bHL != null) {
-                    if (this.bHM) {
-                        String hf = ai.hf(bHK);
+                if (this.bHM != null) {
+                    if (this.bHN) {
+                        String hf = ai.hf(bHL);
                         if (!TextUtils.isEmpty(hf)) {
-                            this.bHL.put("stacktrace", hf);
+                            this.bHM.put("stacktrace", hf);
                         }
                     }
-                    this.bVl.put("info", this.bHL);
+                    this.bVm.put("info", this.bHM);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

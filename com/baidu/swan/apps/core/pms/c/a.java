@@ -16,9 +16,9 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.core.pms.b bqB;
-    private String bqC;
-    private c<g> bqh = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.apps.core.pms.c.a.1
+    private com.baidu.swan.apps.core.pms.b bqC;
+    private String bqD;
+    private c<g> bqi = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.apps.core.pms.c.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -29,7 +29,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
         public String K(g gVar) {
-            return com.baidu.swan.apps.core.pms.d.b.hj(a.this.bqC);
+            return com.baidu.swan.apps.core.pms.d.b.hj(a.this.bqD);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,8 +69,8 @@ public class a extends j {
 
     public a(String str, String str2, com.baidu.swan.apps.core.pms.b bVar) {
         this.mAppId = str;
-        this.bqB = bVar;
-        this.bqC = e.d.aL(str, str2).getPath();
+        this.bqC = bVar;
+        this.bqD = e.d.aL(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -87,7 +87,7 @@ public class a extends j {
 
     @Override // com.baidu.swan.pms.a.g
     public c<g> Pr() {
-        return this.bqh;
+        return this.bqi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,7 +98,7 @@ public class a extends j {
             }
             eJ(4);
             com.baidu.swan.apps.core.pms.c.Pk().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aI(12L).aJ(2300L).my("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bqC, gVar.pkgName))) {
+        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bqD, gVar.pkgName))) {
             if (DEBUG) {
                 Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
             }
@@ -132,15 +132,15 @@ public class a extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eJ(int i) {
-        if (this.bqB != null) {
-            this.bqB.eG(i);
+        if (this.bqC != null) {
+            this.bqC.eG(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void PG() {
-        if (this.bqB != null) {
-            this.bqB.Pj();
+        if (this.bqC != null) {
+            this.bqC.Pj();
         }
     }
 }

@@ -1,17 +1,17 @@
 package com.caverock.androidsvg;
 /* loaded from: classes12.dex */
 public class a {
-    boolean lDd;
+    boolean lDo;
     int pos;
     long value;
 
     public a(boolean z, long j, int i) {
-        this.lDd = z;
+        this.lDo = z;
         this.value = j;
         this.pos = i;
     }
 
-    public int dip() {
+    public int diq() {
         return this.pos;
     }
 

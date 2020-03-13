@@ -2,10 +2,10 @@ package com.google.android.exoplayer2.source.dash.manifest;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class i implements com.google.android.exoplayer2.source.dash.d {
-    private final f mvu;
+    private final f mvF;
 
     public i(f fVar) {
-        this.mvu = fVar;
+        this.mvF = fVar;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
@@ -25,11 +25,11 @@ public final class i implements com.google.android.exoplayer2.source.dash.d {
 
     @Override // com.google.android.exoplayer2.source.dash.d
     public f KW(int i) {
-        return this.mvu;
+        return this.mvF;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int dwX() {
+    public int dwY() {
         return 0;
     }
 
@@ -39,7 +39,7 @@ public final class i implements com.google.android.exoplayer2.source.dash.d {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public boolean dwY() {
+    public boolean dwZ() {
         return true;
     }
 }

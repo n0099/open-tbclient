@@ -8,14 +8,14 @@ import com.baidu.swan.apps.runtime.i;
 /* loaded from: classes11.dex */
 public class l extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h bPw;
+    public final h bPx;
 
     public l() {
         this(null);
     }
 
     public l(h hVar) {
-        this.bPw = hVar == null ? d.acC() : hVar;
+        this.bPx = hVar == null ? d.acC() : hVar;
     }
 
     public SwanAppProcessInfo abh() {
@@ -108,6 +108,6 @@ public class l extends a {
     }
 
     public h adp() {
-        return this.bPw;
+        return this.bPx;
     }
 }

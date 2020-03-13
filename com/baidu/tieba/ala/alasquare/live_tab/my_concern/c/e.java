@@ -9,33 +9,33 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.k> {
-    private View cVT;
-    private d enX;
-    private d enY;
-    private LinearLayout enZ;
+    private View cVU;
+    private d eol;
+    private d eom;
+    private LinearLayout eon;
     private ViewGroup rootView;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.enX = new d(tbPageContext);
-        this.enY = new d(tbPageContext);
+        this.eol = new d(tbPageContext);
+        this.eom = new d(tbPageContext);
         this.rootView = (ViewGroup) getView();
-        this.enZ = (LinearLayout) this.rootView.findViewById(R.id.id_tab_live_sub_row);
-        this.cVT = this.rootView.findViewById(R.id.id_tab_live_sub_line_divider);
+        this.eon = (LinearLayout) this.rootView.findViewById(R.id.id_tab_live_sub_row);
+        this.cVU = this.rootView.findViewById(R.id.id_tab_live_sub_line_divider);
         View view = new View(getContext());
-        this.enZ.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.enZ.addView(this.enX.getView());
-        this.enZ.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.enZ.addView(this.enY.getView());
+        this.eon.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.eon.addView(this.eol.getView());
+        this.eon.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.eon.addView(this.eom.getView());
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.enX.onChangeSkinType(tbPageContext, i);
-        this.enY.onChangeSkinType(tbPageContext, i);
-        am.setBackgroundResource(this.cVT, R.color.cp_bg_line_c);
+        this.eol.onChangeSkinType(tbPageContext, i);
+        this.eom.onChangeSkinType(tbPageContext, i);
+        am.setBackgroundResource(this.cVU, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -47,19 +47,19 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.k kVar) {
         if (kVar != null) {
-            this.enX.b(kVar.elV);
-            this.enY.b(kVar.elW);
-            if (kVar.elX) {
-                this.cVT.setVisibility(0);
+            this.eol.b(kVar.emi);
+            this.eom.b(kVar.emj);
+            if (kVar.emk) {
+                this.cVU.setVisibility(0);
             } else {
-                this.cVT.setVisibility(8);
+                this.cVU.setVisibility(8);
             }
         }
     }
 
     public void a(o oVar) {
-        this.enX.a(oVar);
-        this.enY.a(oVar);
+        this.eol.a(oVar);
+        this.eom.a(oVar);
     }
 
     @Override // android.view.View.OnClickListener

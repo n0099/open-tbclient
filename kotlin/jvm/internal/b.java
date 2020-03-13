@@ -5,22 +5,22 @@ import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 final class b extends kotlin.collections.m {
     private int index;
-    private final byte[] nCh;
+    private final byte[] nCs;
 
     public b(byte[] bArr) {
         q.j(bArr, "array");
-        this.nCh = bArr;
+        this.nCs = bArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nCh.length;
+        return this.index < this.nCs.length;
     }
 
     @Override // kotlin.collections.m
     public byte nextByte() {
         try {
-            byte[] bArr = this.nCh;
+            byte[] bArr = this.nCs;
             int i = this.index;
             this.index = i + 1;
             return bArr[i];

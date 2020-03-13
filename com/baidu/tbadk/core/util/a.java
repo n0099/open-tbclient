@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a cYB = null;
+    private static a cYC = null;
 
     private a() {
     }
@@ -12,10 +12,10 @@ public class a implements com.baidu.adp.lib.stats.b {
     public static synchronized a aFJ() {
         a aVar;
         synchronized (a.class) {
-            if (cYB == null) {
-                cYB = new a();
+            if (cYC == null) {
+                cYC = new a();
             }
-            aVar = cYB;
+            aVar = cYC;
         }
         return aVar;
     }

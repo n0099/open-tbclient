@@ -20,12 +20,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.cDk().CD(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.cDk().CE(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.cDk().ez(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.cgr() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.d.a.cDl().CE(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.cDl().CF(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.cDl().ez(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.cgs() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.a(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.cgs();
+                            UpdateInfoService.this.mModel.cgt();
                             return;
                         }
                         return;
@@ -50,7 +50,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.cgt();
+        this.mModel.cgu();
         this.mModel.ej(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
@@ -76,7 +76,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.cgr()) {
+        if (this.mModel.cgs()) {
             findLocationFromLocal();
         }
     }

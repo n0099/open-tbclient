@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.d;
 /* loaded from: classes11.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b bJa;
+    private b bJb;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -26,11 +26,11 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0272a {
-        private static a bJd = new a();
+        private static a bJe = new a();
     }
 
     public static a aaL() {
-        return C0272a.bJd;
+        return C0272a.bJe;
     }
 
     public void a(@NonNull final c cVar) {
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.bJa == null) {
-            this.bJa = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.bJb == null) {
+            this.bJb = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.bJa);
-        this.bJa.aaO();
-        this.bJa.a(cVar);
-        this.bJa.aaO();
+        log("send: sender=" + this.bJb);
+        this.bJb.aaO();
+        this.bJb.a(cVar);
+        this.bJb.aaO();
     }
 
     public void kr(String str) {
-        if (this.bJa != null) {
-            this.bJa.clear(str);
+        if (this.bJb != null) {
+            this.bJb.clear(str);
         }
     }
 
     public void aaM() {
-        if (this.bJa != null) {
-            this.bJa.aaO();
+        if (this.bJb != null) {
+            this.bJb.aaO();
         }
     }
 
     public void ks(String str) {
-        if (this.bJa != null) {
-            this.bJa.kt(str);
+        if (this.bJb != null) {
+            this.bJb.kt(str);
         }
     }
 

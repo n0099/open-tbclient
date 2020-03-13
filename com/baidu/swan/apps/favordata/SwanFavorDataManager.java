@@ -30,7 +30,7 @@ public class SwanFavorDataManager implements c {
 
     /* loaded from: classes11.dex */
     public class FavorDataDBLoaderCB implements LoaderManager.LoaderCallbacks<Cursor> {
-        private a bvn;
+        private a bvo;
 
         @Override // android.support.v4.app.LoaderManager.LoaderCallbacks
         @NonNull
@@ -48,8 +48,8 @@ public class SwanFavorDataManager implements c {
         */
         public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
             if (loader.getId() != 101) {
-                if (this.bvn != null) {
-                    this.bvn.Sk();
+                if (this.bvo != null) {
+                    this.bvo.Sk();
                     return;
                 }
                 return;
@@ -62,17 +62,17 @@ public class SwanFavorDataManager implements c {
                         arrayList.add(b);
                     }
                 } while (cursor.moveToNext());
-                if (this.bvn == null) {
+                if (this.bvo == null) {
                 }
-            } else if (this.bvn == null) {
-                this.bvn.T(arrayList);
+            } else if (this.bvo == null) {
+                this.bvo.T(arrayList);
             }
         }
 
         @Override // android.support.v4.app.LoaderManager.LoaderCallbacks
         public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            if (this.bvn != null) {
-                this.bvn.Sk();
+            if (this.bvo != null) {
+                this.bvo.Sk();
             }
         }
     }
@@ -84,11 +84,11 @@ public class SwanFavorDataManager implements c {
 
     /* loaded from: classes11.dex */
     private static class b {
-        private static final SwanFavorDataManager bvo = new SwanFavorDataManager();
+        private static final SwanFavorDataManager bvp = new SwanFavorDataManager();
     }
 
     public static SwanFavorDataManager Sf() {
-        return b.bvo;
+        return b.bvp;
     }
 
     public List<SwanFavorItemData> Sg() {

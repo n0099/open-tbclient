@@ -269,16 +269,16 @@ public class a extends ab {
             bVar.onError(202);
             return true;
         }
-        if (TextUtils.isEmpty(cVar.bim)) {
+        if (TextUtils.isEmpty(cVar.bin)) {
             String ahg = ai.ahg();
             if (!TextUtils.isEmpty(ahg)) {
-                cVar.bim = ahg;
+                cVar.bin = ahg;
             }
             c.w("map", "webView id is empty, use current webView");
         }
-        if (ai.iT(cVar.bim) == null) {
+        if (ai.iT(cVar.bin) == null) {
             bVar.onError(202);
-            c.e("map", "can not find weiView by id " + cVar.bim);
+            c.e("map", "can not find weiView by id " + cVar.bin);
             return true;
         }
         return false;

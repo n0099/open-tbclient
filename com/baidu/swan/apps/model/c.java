@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean bFm;
+    private boolean bFn;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -26,7 +26,7 @@ public final class c {
     }
 
     public void Om() {
-        this.bFm = false;
+        this.bFn = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.bFm);
+            jSONObject.put("isFirstPage", this.bFn);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.bFm = jSONObject.optBoolean("isFirstPage");
+            cVar.bFn = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private c bnu = new c();
+        private c bnv = new c();
 
         public a jx(String str) {
-            this.bnu.mPage = str;
+            this.bnv.mPage = str;
             return this;
         }
 
         public a jy(String str) {
-            this.bnu.mParams = str;
+            this.bnv.mParams = str;
             return this;
         }
 
         public a jz(String str) {
-            this.bnu.mBaseUrl = str;
+            this.bnv.mBaseUrl = str;
             return this;
         }
 
         public a da(boolean z) {
-            this.bnu.bFm = z;
+            this.bnv.bFn = z;
             return this;
         }
 
         public c Yv() {
-            return this.bnu;
+            return this.bnv;
         }
     }
 }

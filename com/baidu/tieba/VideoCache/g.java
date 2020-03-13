@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        aXh();
+        aXi();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void aXh() {
+    private synchronized void aXi() {
         File file;
-        long ww;
+        long wx;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
         j.z(TAG, "merge ...");
-        String wC = m.wC(this.mVideoUrl);
-        if (wC != null && !wC.isEmpty() && ((file = new File(i.dXf + wC + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.dXf + wC + "/completed.temp");
+        String wD = m.wD(this.mVideoUrl);
+        if (wD != null && !wD.isEmpty() && ((file = new File(i.dXs + wD + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.dXs + wD + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.dXf + wC + "/segments");
+            File file3 = new File(i.dXs + wD + "/segments");
             if (file3 != null && file3.exists()) {
-                ww = ww(wC);
+                wx = wx(wD);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -130,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == ww) {
+        } else if (m.getFileSize(fileArr[i]) + j == wx) {
             i++;
         }
     }
@@ -244,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long ww(String str) {
+    private long wx(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.dXf + str + "/content_length");
+        File file = new File(i.dXs + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

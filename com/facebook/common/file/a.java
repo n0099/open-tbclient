@@ -3,7 +3,7 @@ package com.facebook.common.file;
 import java.io.File;
 /* loaded from: classes13.dex */
 public class a {
-    public static String lIl = null;
+    public static String lIw = null;
 
     public static void a(File file, b bVar) {
         File[] b;
@@ -22,10 +22,10 @@ public class a {
                     bVar.ac(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (lIl == null) {
-                            lIl = path;
-                        } else if (path.length() > lIl.length()) {
-                            lIl = path;
+                        if (lIw == null) {
+                            lIw = path;
+                        } else if (path.length() > lIw.length()) {
+                            lIw = path;
                         }
                     }
                 }

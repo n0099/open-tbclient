@@ -11,12 +11,12 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class a {
-    private final String bpc;
-    private g bpd;
-    private TextView bpe;
+    private final String bpd;
+    private g bpe;
     private TextView bpf;
-    private b bpg;
-    private InterfaceC0247a bph;
+    private TextView bpg;
+    private b bph;
+    private InterfaceC0247a bpi;
     private final Context mContext;
     private final String mHost;
 
@@ -34,36 +34,36 @@ public class a {
     public a(Context context, String str, String str2) {
         this.mContext = context;
         this.mHost = str;
-        this.bpc = str2;
+        this.bpd = str2;
         OY();
     }
 
     private String getUsername() {
-        return this.bpe.getText().toString();
-    }
-
-    private String getPassword() {
         return this.bpf.getText().toString();
     }
 
+    private String getPassword() {
+        return this.bpg.getText().toString();
+    }
+
     public void a(b bVar) {
-        this.bpg = bVar;
+        this.bph = bVar;
     }
 
     public void a(InterfaceC0247a interfaceC0247a) {
-        this.bph = interfaceC0247a;
+        this.bpi = interfaceC0247a;
     }
 
     public void show() {
-        this.bpd.show();
-        this.bpe.requestFocus();
+        this.bpe.show();
+        this.bpf.requestFocus();
     }
 
     private void OY() {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_browser_http_authentication, (ViewGroup) null);
-        this.bpe = (TextView) inflate.findViewById(a.f.username_edit);
-        this.bpf = (TextView) inflate.findViewById(a.f.password_edit);
-        this.bpf.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
+        this.bpf = (TextView) inflate.findViewById(a.f.username_edit);
+        this.bpg = (TextView) inflate.findViewById(a.f.password_edit);
+        this.bpg.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6 || i == 0) {
@@ -76,7 +76,7 @@ public class a {
                 return false;
             }
         });
-        this.bpd = new g.a(this.mContext).e(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.bpc)).fV(17301543).an(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
+        this.bpe = new g.a(this.mContext).e(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.bpd)).fV(17301543).an(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.this.OZ();
@@ -84,25 +84,25 @@ public class a {
         }).d(a.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (a.this.bph != null) {
-                    a.this.bph.onCancel();
+                if (a.this.bpi != null) {
+                    a.this.bpi.onCancel();
                 }
             }
         }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.a.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (a.this.bph != null) {
-                    a.this.bph.onCancel();
+                if (a.this.bpi != null) {
+                    a.this.bpi.onCancel();
                 }
             }
         }).Pc();
-        this.bpd.getWindow().setSoftInputMode(4);
+        this.bpe.getWindow().setSoftInputMode(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void OZ() {
-        if (this.bpg != null) {
-            this.bpg.p(this.mHost, this.bpc, getUsername(), getPassword());
+        if (this.bph != null) {
+            this.bph.p(this.mHost, this.bpd, getUsername(), getPassword());
         }
     }
 }

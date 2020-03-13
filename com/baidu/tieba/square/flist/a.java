@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private e jZW;
-    private int jZX = 0;
-    C0606a jZY;
+    private e kai;
+    private int kaj = 0;
+    C0606a kak;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     public class C0606a {
-        ImageView jZZ;
-        TextView kaa;
+        ImageView kal;
+        TextView kam;
 
         C0606a() {
         }
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jZW == null || this.jZW.kci == null) {
+        if (this.kai == null || this.kai.kcu == null) {
             return 0;
         }
-        return this.jZW.kci.size();
+        return this.kai.kcu.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.jZW == null || this.jZW.kci == null) {
+        if (this.kai == null || this.kai.kcu == null) {
             return null;
         }
-        return this.jZW.kci.get(i);
+        return this.kai.kcu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = cJu();
+            view = cJv();
         }
-        if (this.jZW != null) {
-            e eVar = this.jZW.kci.get(i);
-            this.jZY = (C0606a) view.getTag();
+        if (this.kai != null) {
+            e eVar = this.kai.kcu.get(i);
+            this.kak = (C0606a) view.getTag();
             if (eVar != null) {
-                a(this.jZY, eVar, view, i);
+                a(this.kak, eVar, view, i);
             }
         }
         return view;
     }
 
     public void Cj(int i) {
-        this.jZX = i;
+        this.kaj = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.jZW = eVar;
+        this.kai = eVar;
     }
 
-    public e cJt() {
-        return this.jZW;
+    public e cJu() {
+        return this.kai;
     }
 
-    private View cJu() {
+    private View cJv() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.jZY = new C0606a();
-        this.jZY.jZZ = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.jZY.kaa = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.jZY);
+        this.kak = new C0606a();
+        this.kak.kal = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.kak.kam = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.kak);
         return inflate;
     }
 
     private void a(C0606a c0606a, e eVar, View view, int i) {
         if (c0606a != null && eVar != null) {
-            c0606a.kaa.setText("");
+            c0606a.kam.setText("");
             if (i == 0) {
-                c0606a.kaa.setText(this.mActivity.getString(R.string.all) + eVar.kae);
+                c0606a.kam.setText(this.mActivity.getString(R.string.all) + eVar.kaq);
             } else {
-                c0606a.kaa.setText(eVar.kae);
+                c0606a.kam.setText(eVar.kaq);
             }
-            if (i != this.jZX) {
-                c0606a.jZZ.setVisibility(4);
-                am.setViewTextColor(c0606a.kaa, R.color.common_color_10200, 1);
+            if (i != this.kaj) {
+                c0606a.kal.setVisibility(4);
+                am.setViewTextColor(c0606a.kam, R.color.common_color_10200, 1);
                 return;
             }
-            c0606a.jZZ.setVisibility(0);
-            am.setViewTextColor(c0606a.kaa, R.color.common_color_10013, 1);
+            c0606a.kal.setVisibility(0);
+            am.setViewTextColor(c0606a.kam, R.color.common_color_10013, 1);
         }
     }
 }

@@ -25,7 +25,7 @@ public class BdToast {
     private final TextView mTextView;
     private Toast mToast;
     private int mIconResId = -1;
-    private boolean cVi = false;
+    private boolean cVj = false;
     private int mGravity = 16;
     private int mDuration = 0;
     private int offsetX = 0;
@@ -64,7 +64,7 @@ public class BdToast {
 
     public BdToast v(int i, boolean z) {
         this.mIconResId = i;
-        this.cVi = z;
+        this.cVj = z;
         return this;
     }
 
@@ -91,7 +91,7 @@ public class BdToast {
         w.b(this.mToast);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.cVi) {
+            if (this.cVj) {
                 SvgManager.aGC().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);
@@ -114,7 +114,7 @@ public class BdToast {
         this.mToast = new Toast(this.mContext);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.cVi) {
+            if (this.cVj) {
                 SvgManager.aGC().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 am.setImageResource(this.mIconView, this.mIconResId);

@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView kRc;
-    private TextView kRd;
-    private TextView kRe;
-    private TextView kRf;
+    private TextView kRo;
+    private TextView kRp;
+    private TextView kRq;
+    private TextView kRr;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void D(View.OnClickListener onClickListener) {
-        this.kRc.setTag(0);
-        this.kRd.setTag(1);
-        this.kRe.setTag(2);
-        this.kRf.setTag(3);
-        this.kRc.setOnClickListener(onClickListener);
-        this.kRd.setOnClickListener(onClickListener);
-        this.kRe.setOnClickListener(onClickListener);
-        this.kRf.setOnClickListener(onClickListener);
+        this.kRo.setTag(0);
+        this.kRp.setTag(1);
+        this.kRq.setTag(2);
+        this.kRr.setTag(3);
+        this.kRo.setOnClickListener(onClickListener);
+        this.kRp.setOnClickListener(onClickListener);
+        this.kRq.setOnClickListener(onClickListener);
+        this.kRr.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.kRc = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.kRd = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.kRe = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.kRf = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.kRo = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.kRp = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.kRq = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.kRr = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        am.setViewTextColor(this.kRc, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.kRd, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.kRe, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.kRf, (int) R.color.cp_cont_j);
-        this.kRc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.kRd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.kRf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.kRe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.kRc.setCompoundDrawablePadding(mPadding);
-        this.kRd.setCompoundDrawablePadding(mPadding);
-        this.kRf.setCompoundDrawablePadding(mPadding);
-        this.kRe.setCompoundDrawablePadding(mPadding);
+        am.setViewTextColor(this.kRo, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kRp, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kRq, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.kRr, (int) R.color.cp_cont_j);
+        this.kRo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.kRp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.kRr.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.kRq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.kRo.setCompoundDrawablePadding(mPadding);
+        this.kRp.setCompoundDrawablePadding(mPadding);
+        this.kRr.setCompoundDrawablePadding(mPadding);
+        this.kRq.setCompoundDrawablePadding(mPadding);
     }
 }

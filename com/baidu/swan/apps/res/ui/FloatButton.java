@@ -57,63 +57,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.bKU.getHitRect(rect);
+                this.bKV.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.bLb = x;
-                    this.aDd = y;
+                    this.bLc = x;
+                    this.aDe = y;
+                    this.bLa = true;
                     this.bKZ = true;
-                    this.bKY = true;
-                    postDelayed(this.bLc, ViewConfiguration.getTapTimeout());
+                    postDelayed(this.bLd, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.bKY) {
-                    if (this.bLd != null) {
-                        this.bLd.onClick();
+                if (this.bKZ) {
+                    if (this.bLe != null) {
+                        this.bLe.onClick();
                     }
-                    removeCallbacks(this.bLc);
-                } else if (this.bKZ && this.bLd != null) {
-                    this.bLd.WI();
+                    removeCallbacks(this.bLd);
+                } else if (this.bLa && this.bLe != null) {
+                    this.bLe.WI();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bKY);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bKZ);
                 }
-                if (this.bLa && !this.bKY && x >= 0.0f && x <= this.bKX && y >= 0.0f && y <= this.mParentHeight + this.bKW) {
-                    this.bKU.animate().x(this.bKX - this.bKV).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.bLb && !this.bKZ && x >= 0.0f && x <= this.bKY && y >= 0.0f && y <= this.mParentHeight + this.bKX) {
+                    this.bKV.animate().x(this.bKY - this.bKW).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.bKY = false;
                 this.bKZ = false;
+                this.bLa = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.bLb);
-                float abs2 = Math.abs(y - this.aDd);
+                float abs = Math.abs(x - this.bLc);
+                float abs2 = Math.abs(y - this.aDe);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.bKY = false;
+                    this.bKZ = false;
                 }
                 o(x, y);
                 break;
             case 3:
-                this.bKY = false;
                 this.bKZ = false;
+                this.bLa = false;
                 break;
             case 4:
-                this.bKY = false;
                 this.bKZ = false;
+                this.bLa = false;
                 break;
         }
-        return this.bKY | this.bKZ;
+        return this.bKZ | this.bLa;
     }
 
     private void o(float f, float f2) {
-        if (this.bKU != null) {
+        if (this.bKV != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.bKV / 2));
-            int i2 = (int) (f2 - (this.bKW / 2));
-            int i3 = this.bKX - this.bKV;
-            int i4 = (this.mParentHeight - this.bKW) - 168;
+            int i = (int) (f - (this.bKW / 2));
+            int i2 = (int) (f2 - (this.bKX / 2));
+            int i3 = this.bKY - this.bKW;
+            int i4 = (this.mParentHeight - this.bKX) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -129,8 +129,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.bKU.setX(i3);
-            this.bKU.setY(i4);
+            this.bKV.setX(i3);
+            this.bKV.setY(i4);
             requestLayout();
         }
     }

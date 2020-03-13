@@ -32,7 +32,7 @@ public class e extends f {
     @Override // com.baidu.swan.pms.a.g
     public void Pi() {
         super.Pi();
-        if (this.bqc != null) {
+        if (this.bqd != null) {
             Py();
             r("checkForUpdate", false);
         }
@@ -40,9 +40,9 @@ public class e extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void Po() {
-        this.bqd.add(new UbcFlowEvent("na_start_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.ap.a Px = Px();
-        this.bqd.add(new UbcFlowEvent("na_end_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_end_update_db"));
         if (Px == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");

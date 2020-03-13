@@ -15,9 +15,9 @@ import com.baidu.live.view.web.e;
 import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
 public class a implements e, b.a {
-    private CustomMessageListener aoi;
-    private b eZC;
-    private d eZD;
+    private CustomMessageListener aoj;
+    private b eZP;
+    private d eZQ;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -25,40 +25,40 @@ public class a implements e, b.a {
         uQ();
     }
 
-    public void yR(String str) {
-        this.eZC = new b(this.mPageContext.getPageActivity());
-        this.eZC.a(this);
-        this.eZC.b(this);
-        this.eZC.bdH().setBackgroundColor(xK(str));
-        this.eZC.show(str);
+    public void yS(String str) {
+        this.eZP = new b(this.mPageContext.getPageActivity());
+        this.eZP.a(this);
+        this.eZP.b(this);
+        this.eZP.bdI().setBackgroundColor(xL(str));
+        this.eZP.show(str);
     }
 
     public void resume() {
-        if (this.eZC != null && this.eZC.isShowing() && this.eZC.bdH() != null) {
-            this.eZC.bdH().onResume();
-            this.eZC.bdH().reload();
+        if (this.eZP != null && this.eZP.isShowing() && this.eZP.bdI() != null) {
+            this.eZP.bdI().onResume();
+            this.eZP.bdI().reload();
         }
     }
 
     public void pause() {
-        if (this.eZC != null && this.eZC.isShowing() && this.eZC.bdH() != null) {
-            this.eZC.bdH().onPause();
+        if (this.eZP != null && this.eZP.isShowing() && this.eZP.bdI() != null) {
+            this.eZP.bdI().onPause();
         }
     }
 
     public void release() {
-        blw();
-        MessageManager.getInstance().unRegisterListener(this.aoi);
+        blx();
+        MessageManager.getInstance().unRegisterListener(this.aoj);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.eZD = new d(this.mPageContext.getPageActivity());
-        this.eZD.setCancelable(false);
-        this.eZD.setCanceledOnTouchOutside(false);
-        this.eZD.by(false);
-        this.eZD.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.eZD.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.eZQ = new d(this.mPageContext.getPageActivity());
+        this.eZQ.setCancelable(false);
+        this.eZQ.setCanceledOnTouchOutside(false);
+        this.eZQ.by(false);
+        this.eZQ.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.eZQ.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
             public void Bn() {
                 if (jsResult != null) {
@@ -73,24 +73,24 @@ public class a implements e, b.a {
                 }
             }
         });
-        this.eZD.show();
+        this.eZQ.show();
         return true;
     }
 
     private void uQ() {
-        this.aoi = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
+        this.aoj = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.blw();
+                    a.this.blx();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aoi);
+        MessageManager.getInstance().registerListener(this.aoj);
     }
 
-    private int xK(String str) {
+    private int xL(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -108,17 +108,17 @@ public class a implements e, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blw() {
-        if (this.eZC != null) {
-            this.eZC.dismiss();
+    public void blx() {
+        if (this.eZP != null) {
+            this.eZP.dismiss();
         }
-        if (this.eZD != null) {
-            this.eZD.release();
+        if (this.eZQ != null) {
+            this.eZQ.release();
         }
     }
 
     @Override // com.baidu.live.view.web.e
     public void cY(int i) {
-        blw();
+        blx();
     }
 }

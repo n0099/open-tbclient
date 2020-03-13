@@ -21,36 +21,36 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class h extends BaseAdapter {
-    private AlbumActivity kMN;
-    private com.baidu.tieba.write.album.c kMX;
-    private View.OnClickListener kMZ;
-    private f kNa;
-    private g kNb;
-    private TbCameraView.c kNc;
-    private TbCameraView.a kNd;
-    private a kNe;
+    private AlbumActivity kMZ;
+    private com.baidu.tieba.write.album.c kNj;
+    private View.OnClickListener kNl;
+    private f kNm;
+    private g kNn;
+    private TbCameraView.c kNo;
+    private TbCameraView.a kNp;
+    private a kNq;
     private LayoutInflater mLayoutInflater;
     private final List<MediaFileInfo> mDataList = new ArrayList();
-    private boolean aCH = false;
-    private boolean kMY = true;
+    private boolean aCI = false;
+    private boolean kNk = true;
 
-    public TbCameraView cUE() {
-        if (this.kNe != null) {
-            return this.kNe.kNg;
+    public TbCameraView cUF() {
+        if (this.kNq != null) {
+            return this.kNq.kNs;
         }
         return null;
     }
 
     public h(AlbumActivity albumActivity, com.baidu.tieba.write.album.c cVar) {
-        this.kMN = albumActivity;
-        this.kMX = cVar;
-        this.mLayoutInflater = LayoutInflater.from(this.kMN.getPageContext().getPageActivity());
+        this.kMZ = albumActivity;
+        this.kNj = cVar;
+        this.mLayoutInflater = LayoutInflater.from(this.kMZ.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
         this.mDataList.clear();
-        if (this.kMY) {
-            this.mDataList.add(cUF());
+        if (this.kNk) {
+            this.mDataList.add(cUG());
         }
         if (!v.isEmpty(list)) {
             this.mDataList.addAll(list);
@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private MediaFileInfo cUF() {
+    private MediaFileInfo cUG() {
         return new AddMediaInfo();
     }
 
@@ -113,27 +113,27 @@ public class h extends BaseAdapter {
 
     private View a(int i, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
         if (mediaFileInfo != null && mediaFileInfo.getType() == 2) {
-            if (this.kNe == null || this.kNe.kNg == null) {
-                this.kNe = new a();
+            if (this.kNq == null || this.kNq.kNs == null) {
+                this.kNq = new a();
                 View inflate = this.mLayoutInflater.inflate(R.layout.album_make_picture_view, viewGroup, false);
-                this.kNe.rootView = inflate;
-                this.kNe.kNg = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
-                this.kNe.kNf = (TbImageView) inflate.findViewById(R.id.icon_make_photo);
-                this.kNe.kNf.setDefaultResource(0);
-                this.kNe.kNf.setDefaultErrorResource(0);
-                this.kNe.kNf.setGifIconSupport(false);
-                this.kNe.kNf.setLongIconSupport(false);
-                inflate.setTag(this.kNe);
-                this.kMN.showTip(this.kNe.kNf);
+                this.kNq.rootView = inflate;
+                this.kNq.kNs = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
+                this.kNq.kNr = (TbImageView) inflate.findViewById(R.id.icon_make_photo);
+                this.kNq.kNr.setDefaultResource(0);
+                this.kNq.kNr.setDefaultErrorResource(0);
+                this.kNq.kNr.setGifIconSupport(false);
+                this.kNq.kNr.setLongIconSupport(false);
+                inflate.setTag(this.kNq);
+                this.kMZ.showTip(this.kNq.kNr);
             }
-            this.kNe.kNg.setOnRequestPermissionListener(this.kNc);
-            this.kNe.kNg.setOnOpenCameraFailedListener(this.kNd);
-            this.kNe.kNf.setOnClickListener(this.kMZ);
-            this.kNe.kNg.setOnClickListener(this.kMZ);
-            this.kNe.rootView.setOnClickListener(this.kMZ);
-            am.setImageResource(this.kNe.kNf, R.drawable.icon_album_camera);
-            am.setBackgroundColor(this.kNe.rootView, R.color.black_alpha90);
-            return this.kNe.rootView;
+            this.kNq.kNs.setOnRequestPermissionListener(this.kNo);
+            this.kNq.kNs.setOnOpenCameraFailedListener(this.kNp);
+            this.kNq.kNr.setOnClickListener(this.kNl);
+            this.kNq.kNs.setOnClickListener(this.kNl);
+            this.kNq.rootView.setOnClickListener(this.kNl);
+            am.setImageResource(this.kNq.kNr, R.drawable.icon_album_camera);
+            am.setBackgroundColor(this.kNq.rootView, R.color.black_alpha90);
+            return this.kNq.rootView;
         }
         return view;
     }
@@ -146,28 +146,28 @@ public class h extends BaseAdapter {
                 d dVar2 = new d();
                 view = this.mLayoutInflater.inflate(R.layout.album_image_item_view, viewGroup, false);
                 dVar2.rootView = view;
-                dVar2.gbh = (TbImageView) view.findViewById(R.id.pic);
-                dVar2.gbh.setDefaultResource(0);
-                dVar2.gbh.setDefaultErrorResource(0);
-                dVar2.gbh.setTagPaddingDis(8, 8);
-                dVar2.gbh.setGifIconSupport(true);
-                dVar2.gbh.setLongIconSupport(true);
-                dVar2.aCN = (ImageView) view.findViewById(R.id.select_icon);
-                dVar2.aCO = (RelativeLayout) view.findViewById(R.id.lay_select);
-                if (this.kMX != null && this.kMX.getWriteImagesInfo() != null && this.kMX.getWriteImagesInfo().isFromQRCode()) {
-                    dVar2.aCO.setVisibility(8);
+                dVar2.gbu = (TbImageView) view.findViewById(R.id.pic);
+                dVar2.gbu.setDefaultResource(0);
+                dVar2.gbu.setDefaultErrorResource(0);
+                dVar2.gbu.setTagPaddingDis(8, 8);
+                dVar2.gbu.setGifIconSupport(true);
+                dVar2.gbu.setLongIconSupport(true);
+                dVar2.aCO = (ImageView) view.findViewById(R.id.select_icon);
+                dVar2.aCP = (RelativeLayout) view.findViewById(R.id.lay_select);
+                if (this.kNj != null && this.kNj.getWriteImagesInfo() != null && this.kNj.getWriteImagesInfo().isFromQRCode()) {
+                    dVar2.aCP.setVisibility(8);
                 }
                 view.setTag(dVar2);
                 dVar = dVar2;
             } else {
                 dVar = (d) view.getTag();
             }
-            dVar.gbh.setIsLongPic(imageFileInfo.isLong());
-            dVar.gbh.startLoad(imageFileInfo.getFilePath(), 35, false);
-            a(dVar.aCN, mediaFileInfo);
+            dVar.gbu.setIsLongPic(imageFileInfo.isLong());
+            dVar.gbu.startLoad(imageFileInfo.getFilePath(), 35, false);
+            a(dVar.aCO, mediaFileInfo);
             b bVar = new b(mediaFileInfo, i);
-            dVar.gbh.setOnClickListener(bVar);
-            dVar.aCO.setOnClickListener(bVar);
+            dVar.gbu.setOnClickListener(bVar);
+            dVar.aCP.setOnClickListener(bVar);
         }
         return view;
     }
@@ -180,36 +180,36 @@ public class h extends BaseAdapter {
                 c cVar2 = new c();
                 view = this.mLayoutInflater.inflate(R.layout.album_video_item_view, viewGroup, false);
                 cVar2.rootView = view;
-                cVar2.kNj = (TbImageView) view.findViewById(R.id.video_thumb);
-                cVar2.kNj.setDefaultResource(0);
-                cVar2.kNj.setDefaultErrorResource(0);
-                cVar2.kNj.setTagPaddingDis(8, 8);
-                cVar2.kNj.setGifIconSupport(false);
-                cVar2.kNj.setLongIconSupport(false);
-                cVar2.aCN = (ImageView) view.findViewById(R.id.select_icon);
-                cVar2.kNk = (RelativeLayout) view.findViewById(R.id.video_select);
-                cVar2.kNl = (TextView) view.findViewById(R.id.video_play_time);
+                cVar2.kNv = (TbImageView) view.findViewById(R.id.video_thumb);
+                cVar2.kNv.setDefaultResource(0);
+                cVar2.kNv.setDefaultErrorResource(0);
+                cVar2.kNv.setTagPaddingDis(8, 8);
+                cVar2.kNv.setGifIconSupport(false);
+                cVar2.kNv.setLongIconSupport(false);
+                cVar2.aCO = (ImageView) view.findViewById(R.id.select_icon);
+                cVar2.kNw = (RelativeLayout) view.findViewById(R.id.video_select);
+                cVar2.kNx = (TextView) view.findViewById(R.id.video_play_time);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.kNj.startLoad(videoFileInfo.videoPath, 37, false);
-            cVar.kNl.setText(aq.stringForVideoTime(videoFileInfo.videoDuration));
-            a(cVar.aCN, mediaFileInfo);
+            cVar.kNv.startLoad(videoFileInfo.videoPath, 37, false);
+            cVar.kNx.setText(aq.stringForVideoTime(videoFileInfo.videoDuration));
+            a(cVar.aCO, mediaFileInfo);
             b bVar = new b(mediaFileInfo, i);
-            cVar.kNj.setOnClickListener(bVar);
-            cVar.kNk.setOnClickListener(bVar);
+            cVar.kNv.setOnClickListener(bVar);
+            cVar.kNw.setOnClickListener(bVar);
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.kMX != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.kMX.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.kMX != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.kMX.b((VideoFileInfo) mediaFileInfo);
+        if (this.kNj != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.kNj.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.kNj != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.kNj.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -217,11 +217,11 @@ public class h extends BaseAdapter {
     public void b(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.kMN.getResources().getString(R.string.check_box_checked));
+                imageView.setContentDescription(this.kMZ.getResources().getString(R.string.check_box_checked));
                 am.setImageResource(imageView, R.drawable.icon_list_select_ok_n);
                 return;
             }
-            imageView.setContentDescription(this.kMN.getResources().getString(R.string.check_box_not_checked));
+            imageView.setContentDescription(this.kMZ.getResources().getString(R.string.check_box_not_checked));
             am.setImageResource(imageView, R.drawable.icon_list_select_n);
         }
     }
@@ -229,55 +229,55 @@ public class h extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public class b implements View.OnClickListener {
-        private MediaFileInfo kNi;
+        private MediaFileInfo kNu;
         private int position;
 
         public b(MediaFileInfo mediaFileInfo, int i) {
-            this.kNi = mediaFileInfo;
+            this.kNu = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pic) {
-                if (h.this.kNa != null && this.kNi != null) {
-                    h.this.kNa.a(this.position, this.kNi);
+                if (h.this.kNm != null && this.kNu != null) {
+                    h.this.kNm.a(this.position, this.kNu);
                 }
             } else if (view.getId() == R.id.lay_select) {
-                if (this.kNi != null && h.this.kNb != null) {
-                    h.this.kNb.b(this.position, this.kNi);
+                if (this.kNu != null && h.this.kNn != null) {
+                    h.this.kNn.b(this.position, this.kNu);
                 }
             } else if (view.getId() == R.id.video_thumb) {
-                if (h.this.kNa != null && this.kNi != null) {
-                    h.this.kNa.a(this.position, this.kNi);
+                if (h.this.kNm != null && this.kNu != null) {
+                    h.this.kNm.a(this.position, this.kNu);
                 }
-            } else if (view.getId() == R.id.video_select && this.kNi != null && h.this.kNb != null) {
-                h.this.kNb.b(this.position, this.kNi);
+            } else if (view.getId() == R.id.video_select && this.kNu != null && h.this.kNn != null) {
+                h.this.kNn.b(this.position, this.kNu);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.aCH;
+        return this.aCI;
     }
 
     public void bw(boolean z) {
-        this.aCH = z;
+        this.aCI = z;
     }
 
     public void a(f fVar) {
-        this.kNa = fVar;
+        this.kNm = fVar;
     }
 
     public void a(g gVar) {
-        this.kNb = gVar;
+        this.kNn = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public class a {
-        TbImageView kNf;
-        TbCameraView kNg;
+        TbImageView kNr;
+        TbCameraView kNs;
         View rootView;
 
         private a() {
@@ -287,9 +287,9 @@ public class h extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public class d {
-        ImageView aCN;
-        RelativeLayout aCO;
-        TbImageView gbh;
+        ImageView aCO;
+        RelativeLayout aCP;
+        TbImageView gbu;
         View rootView;
 
         private d() {
@@ -299,10 +299,10 @@ public class h extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public class c {
-        ImageView aCN;
-        TbImageView kNj;
-        RelativeLayout kNk;
-        TextView kNl;
+        ImageView aCO;
+        TbImageView kNv;
+        RelativeLayout kNw;
+        TextView kNx;
         View rootView;
 
         private c() {
@@ -331,20 +331,20 @@ public class h extends BaseAdapter {
     }
 
     public void af(View.OnClickListener onClickListener) {
-        this.kMZ = onClickListener;
+        this.kNl = onClickListener;
     }
 
     public void setOnRequestPermissionListener(TbCameraView.c cVar) {
-        this.kNc = cVar;
+        this.kNo = cVar;
     }
 
     public void setOnOpenCameraFailedListener(TbCameraView.a aVar) {
-        this.kNd = aVar;
+        this.kNp = aVar;
     }
 
     public void tM(boolean z) {
-        if (this.kMY != z) {
-            this.kMY = z;
+        if (this.kNk != z) {
+            this.kNk = z;
             notifyDataSetChanged();
         }
     }

@@ -2,6 +2,8 @@ package com.baidu.tieba.ala.live.personcenter.forbidden;
 
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.live.adp.base.BdBaseApplication;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
@@ -10,8 +12,8 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.a;
 /* loaded from: classes3.dex */
 public class AlaForbiddenListActivity extends BaseFragmentActivity {
-    private NoNetworkView eKE;
-    private a eMb;
+    private NoNetworkView eKR;
+    private a eMo;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -19,12 +21,19 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
         setContentView(a.h.sdk_prc_person_forbiddenlist_layout);
         this.rootView = findViewById(a.g.ala_person_forbiddenlist_rootview);
         this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_forbiddenlist_navigation_bar);
-        this.eKE = (NoNetworkView) findViewById(a.g.ala_person_forbiddenlist_no_network_view);
-        this.eMb = new com.baidu.tieba.ala.live.personcenter.forbidden.c.a(getPageContext(), this.rootView);
-        this.eMb.onCreate(bundle);
+        this.eKR = (NoNetworkView) findViewById(a.g.ala_person_forbiddenlist_no_network_view);
+        this.eMo = new com.baidu.tieba.ala.live.personcenter.forbidden.c.a(getPageContext(), this.rootView);
+        this.eMo.onCreate(bundle);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_forbiddenlist_title));
     }
@@ -33,8 +42,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.eMb != null) {
-            this.eMb.onPause();
+        if (this.eMo != null) {
+            this.eMo.onPause();
         }
     }
 
@@ -42,8 +51,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.eMb != null) {
-            this.eMb.onStop();
+        if (this.eMo != null) {
+            this.eMo.onStop();
         }
     }
 
@@ -51,8 +60,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.eMb != null) {
-            this.eMb.onResume();
+        if (this.eMo != null) {
+            this.eMo.onResume();
         }
     }
 
@@ -60,8 +69,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.eMb != null) {
-            this.eMb.onStart();
+        if (this.eMo != null) {
+            this.eMo.onStart();
         }
     }
 
@@ -69,8 +78,8 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eMb != null) {
-            this.eMb.onDestroy();
+        if (this.eMo != null) {
+            this.eMo.onDestroy();
         }
     }
 
@@ -82,11 +91,11 @@ public class AlaForbiddenListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.d.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.d.sdk_cp_bg_line_d);
-        if (this.eKE != null) {
-            this.eKE.onChangeSkinType(getPageContext(), i);
+        if (this.eKR != null) {
+            this.eKR.onChangeSkinType(getPageContext(), i);
         }
-        if (this.eMb != null) {
-            this.eMb.onChangeSkinType(i);
+        if (this.eMo != null) {
+            this.eMo.onChangeSkinType(i);
         }
     }
 }

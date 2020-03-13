@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class m extends com.baidu.adp.base.c<MembersActivity> {
-    private MembersActivity hAQ;
-    private l hBj;
-    private TextView hBk;
-    private NoDataView hBl;
-    private ViewGroup hBm;
-    private ViewGroup hBn;
-    private RelativeLayout hBo;
-    private ViewGroup hBp;
-    private TextView hBq;
-    private TextView hBr;
-    private TextView hBs;
-    private View hBt;
-    private View hBu;
-    private BdListView hvg;
+    private RelativeLayout hBA;
+    private ViewGroup hBB;
+    private TextView hBC;
+    private TextView hBD;
+    private TextView hBE;
+    private View hBF;
+    private View hBG;
+    private MembersActivity hBc;
+    private l hBv;
+    private TextView hBw;
+    private NoDataView hBx;
+    private ViewGroup hBy;
+    private ViewGroup hBz;
+    private BdListView hvs;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private ViewGroup mRootView;
 
     public m(MembersActivity membersActivity) {
         super(membersActivity.getPageContext());
-        this.hAQ = membersActivity;
+        this.hBc = membersActivity;
         membersActivity.setContentView(R.layout.im_members_activity);
         g(membersActivity);
         h(membersActivity);
@@ -45,35 +45,35 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
     }
 
     private void g(MembersActivity membersActivity) {
-        this.mRootView = (ViewGroup) this.hAQ.findViewById(R.id.rootView);
-        this.mNavigationBar = (NavigationBar) this.hAQ.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.hAQ.getPageContext().getString(R.string.group_info_member));
+        this.mRootView = (ViewGroup) this.hBc.findViewById(R.id.rootView);
+        this.mNavigationBar = (NavigationBar) this.hBc.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.hBc.getPageContext().getString(R.string.group_info_member));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                m.this.hAQ.finish();
+                m.this.hBc.finish();
             }
         });
-        this.hBu = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_member_navi_right_button, (View.OnClickListener) null);
-        this.hBk = (TextView) this.hBu.findViewById(R.id.right_textview);
-        this.hBk.setText(this.hAQ.getResources().getString(R.string.members_order));
-        this.hBk.setOnClickListener(membersActivity);
+        this.hBG = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_member_navi_right_button, (View.OnClickListener) null);
+        this.hBw = (TextView) this.hBG.findViewById(R.id.right_textview);
+        this.hBw.setText(this.hBc.getResources().getString(R.string.members_order));
+        this.hBw.setOnClickListener(membersActivity);
     }
 
     private void h(MembersActivity membersActivity) {
-        this.hvg = (BdListView) membersActivity.findViewById(R.id.members_list);
-        this.hBl = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(R.id.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
-        this.hBj = new l(this.hAQ);
-        this.hvg.setAdapter((ListAdapter) this.hBj);
-        this.hvg.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
+        this.hvs = (BdListView) membersActivity.findViewById(R.id.members_list);
+        this.hBx = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(R.id.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
+        this.hBv = new l(this.hBc);
+        this.hvs.setAdapter((ListAdapter) this.hBv);
+        this.hvs.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    if (m.this.hBt != null) {
-                        m.this.hBt.setVisibility(0);
+                    if (m.this.hBF != null) {
+                        m.this.hBF.setVisibility(0);
                     }
-                } else if (m.this.hBt != null) {
-                    m.this.hBt.setVisibility(8);
+                } else if (m.this.hBF != null) {
+                    m.this.hBF.setVisibility(8);
                 }
             }
 
@@ -84,14 +84,14 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
     }
 
     private void i(MembersActivity membersActivity) {
-        this.hBm = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
-        this.hBt = membersActivity.findViewById(R.id.bottom_divider_line);
-        this.hBn = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
-        this.hBo = (RelativeLayout) membersActivity.findViewById(R.id.edit_lay);
-        this.hBp = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
-        this.hBq = (TextView) membersActivity.findViewById(R.id.edit_cancel);
-        this.hBr = (TextView) membersActivity.findViewById(R.id.edit_num);
-        this.hBs = (TextView) membersActivity.findViewById(R.id.members_edit);
+        this.hBy = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
+        this.hBF = membersActivity.findViewById(R.id.bottom_divider_line);
+        this.hBz = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
+        this.hBA = (RelativeLayout) membersActivity.findViewById(R.id.edit_lay);
+        this.hBB = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
+        this.hBC = (TextView) membersActivity.findViewById(R.id.edit_cancel);
+        this.hBD = (TextView) membersActivity.findViewById(R.id.edit_num);
+        this.hBE = (TextView) membersActivity.findViewById(R.id.members_edit);
         this.mProgressBar = (ProgressBar) membersActivity.findViewById(R.id.progress_loading);
         wv(0);
     }
@@ -100,82 +100,82 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         this.mProgressBar.setVisibility(z ? 0 : 8);
     }
 
-    public ViewGroup bVn() {
-        return this.hBn;
+    public ViewGroup bVo() {
+        return this.hBz;
     }
 
     public void onChangeSkinType(int i) {
-        this.hAQ.getLayoutMode().setNightMode(i == 1);
-        this.hAQ.getLayoutMode().onModeChanged(this.mRootView);
-        this.hAQ.getLayoutMode().onModeChanged(this.hBu);
+        this.hBc.getLayoutMode().setNightMode(i == 1);
+        this.hBc.getLayoutMode().onModeChanged(this.mRootView);
+        this.hBc.getLayoutMode().onModeChanged(this.hBG);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.hBs.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
-        if (this.hBj != null) {
-            this.hBj.notifyDataSetChanged();
+        this.hBE.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.hBv != null) {
+            this.hBv.notifyDataSetChanged();
         }
-    }
-
-    public TextView bVo() {
-        return this.hBq;
     }
 
     public TextView bVp() {
-        return this.hBr;
+        return this.hBC;
+    }
+
+    public TextView bVq() {
+        return this.hBD;
     }
 
     public void wv(int i) {
-        this.hBr.setText(this.hAQ.getPageContext().getPageActivity().getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
+        this.hBD.setText(this.hBc.getPageContext().getPageActivity().getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void setController(boolean z) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hvg.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hvs.getLayoutParams();
         if (z) {
-            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.hAQ.getPageContext().getPageActivity(), R.dimen.ds150);
-            this.hBm.setVisibility(0);
-            this.hBo.setVisibility(0);
-            this.hBp.setVisibility(8);
+            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.hBc.getPageContext().getPageActivity(), R.dimen.ds150);
+            this.hBy.setVisibility(0);
+            this.hBA.setVisibility(0);
+            this.hBB.setVisibility(8);
         } else {
             layoutParams.bottomMargin = 0;
-            this.hBm.setVisibility(8);
+            this.hBy.setVisibility(8);
         }
-        this.hvg.requestLayout();
+        this.hvs.requestLayout();
     }
 
     public void nC(boolean z) {
         if (z) {
-            this.hBo.setVisibility(8);
-            this.hBp.setVisibility(0);
+            this.hBA.setVisibility(8);
+            this.hBB.setVisibility(0);
             return;
         }
-        this.hBo.setVisibility(0);
-        this.hBp.setVisibility(8);
+        this.hBA.setVisibility(0);
+        this.hBB.setVisibility(8);
     }
 
-    public void bJN() {
-        this.hvg.completePullRefreshPostDelayed(0L);
+    public void bJO() {
+        this.hvs.completePullRefreshPostDelayed(0L);
     }
 
-    public NoDataView bVq() {
-        return this.hBl;
+    public NoDataView bVr() {
+        return this.hBx;
     }
 
-    public l bVr() {
-        return this.hBj;
+    public l bVs() {
+        return this.hBv;
     }
 
-    public void bVs() {
-        this.hBj.notifyDataSetChanged();
+    public void bVt() {
+        this.hBv.notifyDataSetChanged();
     }
 
-    public TextView bVt() {
-        return this.hBk;
+    public TextView bVu() {
+        return this.hBw;
     }
 
     public void nD(boolean z) {
-        this.hBk.setEnabled(z);
+        this.hBw.setEnabled(z);
     }
 
-    public BdListView bSH() {
-        return this.hvg;
+    public BdListView bSI() {
+        return this.hvs;
     }
 }

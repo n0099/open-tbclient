@@ -14,43 +14,43 @@ import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
 /* loaded from: classes11.dex */
 public class EfficientProgressBar extends View {
-    private int bKN;
     private int bKO;
     private int bKP;
-    private long bKQ;
-    private Transformation bKR;
-    private AnimationSet bKS;
-    private float bKT;
+    private int bKQ;
+    private long bKR;
+    private Transformation bKS;
+    private AnimationSet bKT;
+    private float bKU;
     private Interpolator mInterpolator;
     private Drawable mThumb;
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.bKP = fH(66);
-        this.bKQ = -1L;
-        this.bKR = new Transformation();
+        this.bKQ = fH(66);
+        this.bKR = -1L;
+        this.bKS = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.bKT = -1.0f;
+        this.bKU = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bKP = fH(66);
-        this.bKQ = -1L;
-        this.bKR = new Transformation();
+        this.bKQ = fH(66);
+        this.bKR = -1L;
+        this.bKS = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.bKT = -1.0f;
+        this.bKU = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bKP = fH(66);
-        this.bKQ = -1L;
-        this.bKR = new Transformation();
+        this.bKQ = fH(66);
+        this.bKR = -1L;
+        this.bKS = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.bKT = -1.0f;
+        this.bKU = -1.0f;
         init();
     }
 
@@ -62,23 +62,23 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || fI(this.bKN) != 100) {
-            this.bKN = fH(i);
+        if (i != 100 || fI(this.bKO) != 100) {
+            this.bKO = fH(i);
             if (i == 100) {
-                if (this.bKS == null) {
+                if (this.bKT == null) {
                     dt(z);
                 }
-            } else if (this.bKQ == -1) {
+            } else if (this.bKR == -1) {
                 start();
             }
         }
     }
 
     public void reset() {
+        this.bKP = 0;
         this.bKO = 0;
-        this.bKN = 0;
-        this.bKQ = -1L;
-        this.bKS = null;
+        this.bKR = -1L;
+        this.bKT = null;
         r(0, false);
         setVisibility(4);
     }
@@ -88,13 +88,13 @@ public class EfficientProgressBar extends View {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
-            f = ((10000 - this.bKO) / 10000.0f) * width;
+            f = ((10000 - this.bKP) / 10000.0f) * width;
         }
         if (f > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f);
             }
-            this.bKT = f;
+            this.bKU = f;
         }
     }
 
@@ -113,26 +113,26 @@ public class EfficientProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         if (this.mThumb != null) {
-            if (this.bKS != null) {
-                if (this.bKS.getTransformation(getDrawingTime(), this.bKR)) {
-                    r((int) (this.bKR.getAlpha() * 10000.0f), false);
+            if (this.bKT != null) {
+                if (this.bKT.getTransformation(getDrawingTime(), this.bKS)) {
+                    r((int) (this.bKS.getAlpha() * 10000.0f), false);
                 } else {
-                    this.bKS = null;
+                    this.bKT = null;
                     reset();
                 }
-            } else if (this.bKQ != -1 && this.bKO < this.bKP) {
+            } else if (this.bKR != -1 && this.bKP < this.bKQ) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int ax = ax(currentTimeMillis - this.bKQ);
-                this.bKO += ax;
+                int ax = ax(currentTimeMillis - this.bKR);
+                this.bKP += ax;
                 if (ax != 0) {
-                    this.bKQ = currentTimeMillis;
-                    r(this.bKO, true);
+                    this.bKR = currentTimeMillis;
+                    r(this.bKP, true);
                 }
             }
             int i = -1;
             if (getPaddingLeft() > 0) {
                 i = canvas.save();
-                canvas.clipRect(this.bKT + getPaddingLeft(), 0.0f, getWidth(), getHeight());
+                canvas.clipRect(this.bKU + getPaddingLeft(), 0.0f, getWidth(), getHeight());
             }
             this.mThumb.draw(canvas);
             if (i >= 0) {
@@ -145,7 +145,7 @@ public class EfficientProgressBar extends View {
         if (i > 10000) {
             i = 10000;
         }
-        this.bKO = i;
+        this.bKP = i;
         abJ();
         if (z) {
             postInvalidateDelayed(50L);
@@ -155,24 +155,24 @@ public class EfficientProgressBar extends View {
     }
 
     private void start() {
+        this.bKP = 0;
         this.bKO = 0;
-        this.bKN = 0;
-        this.bKS = null;
-        this.bKQ = System.currentTimeMillis();
-        r(this.bKO, false);
+        this.bKT = null;
+        this.bKR = System.currentTimeMillis();
+        r(this.bKP, false);
         setVisibility(0);
     }
 
     private void dt(boolean z) {
         if (getVisibility() == 0) {
             if (z) {
-                this.bKS = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.bKO / 10000.0f, 1.0f);
+                this.bKT = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.bKP / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.mInterpolator);
-                this.bKS.addAnimation(alphaAnimation);
-                this.bKR.clear();
-                this.bKS.start();
+                this.bKT.addAnimation(alphaAnimation);
+                this.bKS.clear();
+                this.bKT.start();
                 invalidate();
                 return;
             }

@@ -85,11 +85,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String e = d.cKb().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String e = d.cKc().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cKb().p(e, bArr);
+                d.cKc().p(e, bArr);
             } else {
-                d.cKb().c(e, bArr, true);
+                d.cKc().c(e, bArr, true);
             }
         }
     }

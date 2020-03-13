@@ -5,7 +5,7 @@ public interface b {
 
     c Hp(int i);
 
-    boolean djS();
+    boolean djT();
 
     int getFrameCount();
 

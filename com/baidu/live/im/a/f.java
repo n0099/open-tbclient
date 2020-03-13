@@ -9,7 +9,7 @@ import com.baidu.live.u.a;
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.aqv);
+        super(context, com.baidu.live.im.a.aqw);
     }
 
     @Override // com.baidu.live.im.a.b

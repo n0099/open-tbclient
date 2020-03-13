@@ -12,8 +12,8 @@ import com.baidu.live.utils.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0087a amG;
-    private HttpMessageListener amH;
+    private InterfaceC0087a amH;
+    private HttpMessageListener amI;
 
     /* renamed from: com.baidu.live.gift.giftList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class a extends BdBaseModel {
 
     public a(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.amH = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.a.1
+        this.amI = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -56,13 +56,13 @@ public class a extends BdBaseModel {
                     if (uq != null) {
                         a.this.d(arrayList, uq);
                     }
-                    if (a.this.amG != null) {
-                        a.this.amG.i(arrayList);
+                    if (a.this.amH != null) {
+                        a.this.amH.i(arrayList);
                     }
                 }
             }
         };
-        registerListener(this.amH);
+        registerListener(this.amI);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -81,10 +81,10 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.amH);
+        MessageManager.getInstance().unRegisterListener(this.amI);
     }
 
     public void a(InterfaceC0087a interfaceC0087a) {
-        this.amG = interfaceC0087a;
+        this.amH = interfaceC0087a;
     }
 }

@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g bAl;
+    public g bAm;
     public String id;
     public String iconPath = "";
-    public boolean atm = false;
+    public boolean atn = false;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,15 +18,15 @@ public class b implements com.baidu.swan.apps.model.a {
             if (TextUtils.isEmpty(this.id)) {
                 this.id = jSONObject.optString("id");
             }
-            this.bAl = new g();
-            this.bAl.parseFromJson(jSONObject.optJSONObject("position"));
+            this.bAm = new g();
+            this.bAm.parseFromJson(jSONObject.optJSONObject("position"));
             this.iconPath = jSONObject.optString("iconPath");
-            this.atm = jSONObject.optBoolean("clickable");
+            this.atn = jSONObject.optBoolean("clickable");
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.bAl == null || !this.bAl.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
+        return (this.bAm == null || !this.bAm.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
     }
 }

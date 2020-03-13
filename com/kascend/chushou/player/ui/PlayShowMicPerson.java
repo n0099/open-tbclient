@@ -37,8 +37,8 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
     private boolean j;
     private int l;
     private int m;
-    private RecyclerView mZG;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> mZH;
+    private RecyclerView mZR;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> mZS;
     private ArrayList<FanItem> n;
 
     public PlayShowMicPerson(Context context) {
@@ -66,10 +66,10 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
             }
         });
         this.a = (TextView) findViewById(a.f.tv_mic_count);
-        this.mZG = (RecyclerView) findViewById(a.f.lv_list);
+        this.mZR = (RecyclerView) findViewById(a.f.lv_list);
         this.m = (int) ((tv.chushou.zues.utils.a.hd(this.b).y * 0.7d) - tv.chushou.zues.utils.a.dip2px(this.b, 44.0f));
-        this.mZG.setLayoutManager(new LinearLayoutManager(this.b));
-        this.mZH = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.n, a.h.list_playshow_micperson_item, new d() { // from class: com.kascend.chushou.player.ui.PlayShowMicPerson.2
+        this.mZR.setLayoutManager(new LinearLayoutManager(this.b));
+        this.mZS = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.n, a.h.list_playshow_micperson_item, new d() { // from class: com.kascend.chushou.player.ui.PlayShowMicPerson.2
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i2) {
                 if (PlayShowMicPerson.this.b != null && PlayShowMicPerson.this.n != null && i2 >= 0 && i2 < PlayShowMicPerson.this.n.size()) {
@@ -83,10 +83,10 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
                 FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0813a.Oo(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
                 view$OnLongClickListenerC0813a.r(a.f.iv_avatar);
-                frescoThumbnailView.bU(fanItem.mAvatar, c.dQk());
+                frescoThumbnailView.bU(fanItem.mAvatar, c.dQl());
                 tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
                 cVar.append(fanItem.mNickname);
-                cVar.append(HanziToPinyin.Token.SEPARATOR).a(PlayShowMicPerson.this.b, c.SO(fanItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
+                cVar.append(HanziToPinyin.Token.SEPARATOR).a(PlayShowMicPerson.this.b, c.SP(fanItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
                 ((TextView) view$OnLongClickListenerC0813a.Oo(a.f.tv_nickname)).setText(cVar);
                 TextView textView = (TextView) view$OnLongClickListenerC0813a.Oo(a.f.tv_signature);
                 if (h.isEmpty(fanItem.mSignature)) {
@@ -105,7 +105,7 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
                 view$OnLongClickListenerC0813a.a(false, a.f.iv_fans_icon);
             }
         };
-        this.mZG.setAdapter(this.mZH);
+        this.mZR.setAdapter(this.mZS);
     }
 
     public void a(ArrayList<FanItem> arrayList, MicStatus micStatus, String str, boolean z, String str2) {
@@ -121,7 +121,7 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
             this.n.clear();
             this.n.addAll(arrayList);
             setListViewHeight(this.n.size());
-            this.mZH.notifyDataSetChanged();
+            this.mZS.notifyDataSetChanged();
         }
     }
 
@@ -159,10 +159,10 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
     }
 
     public void setListViewHeight(int i) {
-        if (i > 0 && tv.chushou.zues.utils.a.dip2px(this.b, 60.0f) * i > this.m && this.mZG != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mZG.getLayoutParams();
+        if (i > 0 && tv.chushou.zues.utils.a.dip2px(this.b, 60.0f) * i > this.m && this.mZR != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mZR.getLayoutParams();
             layoutParams.height = this.m;
-            this.mZG.setLayoutParams(layoutParams);
+            this.mZR.setLayoutParams(layoutParams);
         }
     }
 }

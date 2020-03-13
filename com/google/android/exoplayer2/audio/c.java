@@ -9,9 +9,9 @@ import java.util.Arrays;
 @TargetApi(21)
 /* loaded from: classes6.dex */
 public final class c {
-    public static final c maH = new c(new int[]{2}, 2);
-    private final int[] maI;
-    private final int maJ;
+    public static final c maS = new c(new int[]{2}, 2);
+    private final int[] maT;
+    private final int maU;
 
     public static c gq(Context context) {
         return aJ(context.registerReceiver(null, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG")));
@@ -20,23 +20,23 @@ public final class c {
     @SuppressLint({"InlinedApi"})
     static c aJ(Intent intent) {
         if (intent == null || intent.getIntExtra("android.media.extra.AUDIO_PLUG_STATE", 0) == 0) {
-            return maH;
+            return maS;
         }
         return new c(intent.getIntArrayExtra("android.media.extra.ENCODINGS"), intent.getIntExtra("android.media.extra.MAX_CHANNEL_COUNT", 0));
     }
 
     c(int[] iArr, int i) {
         if (iArr != null) {
-            this.maI = Arrays.copyOf(iArr, iArr.length);
-            Arrays.sort(this.maI);
+            this.maT = Arrays.copyOf(iArr, iArr.length);
+            Arrays.sort(this.maT);
         } else {
-            this.maI = new int[0];
+            this.maT = new int[0];
         }
-        this.maJ = i;
+        this.maU = i;
     }
 
     public boolean Jd(int i) {
-        return Arrays.binarySearch(this.maI, i) >= 0;
+        return Arrays.binarySearch(this.maT, i) >= 0;
     }
 
     public boolean equals(Object obj) {
@@ -45,16 +45,16 @@ public final class c {
         }
         if (obj instanceof c) {
             c cVar = (c) obj;
-            return Arrays.equals(this.maI, cVar.maI) && this.maJ == cVar.maJ;
+            return Arrays.equals(this.maT, cVar.maT) && this.maU == cVar.maU;
         }
         return false;
     }
 
     public int hashCode() {
-        return this.maJ + (Arrays.hashCode(this.maI) * 31);
+        return this.maU + (Arrays.hashCode(this.maT) * 31);
     }
 
     public String toString() {
-        return "AudioCapabilities[maxChannelCount=" + this.maJ + ", supportedEncodings=" + Arrays.toString(this.maI) + "]";
+        return "AudioCapabilities[maxChannelCount=" + this.maU + ", supportedEncodings=" + Arrays.toString(this.maT) + "]";
     }
 }

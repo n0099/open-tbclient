@@ -9,15 +9,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nxh;
-    final org.a.b<? extends T> nxi;
+    final org.a.b<? extends T> nxs;
+    final org.a.b<? extends T> nxt;
     final int prefetch;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nxh, this.nxi);
+        equalCoordinator.subscribe(this.nxs, this.nxt);
     }
 
     /* loaded from: classes7.dex */

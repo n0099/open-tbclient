@@ -16,9 +16,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView fIv;
-    private TextView fIw;
-    private TextView fIx;
+    private TbImageView fII;
+    private TextView fIJ;
+    private TextView fIK;
     private String mForumId;
     public int mSkinType;
 
@@ -42,18 +42,18 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.fIv = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.fIv.setAutoChangeStyle(true);
-        this.fIv.setDefaultResource(17170445);
-        this.fIv.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.fIv.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fIv.setDrawerType(1);
-        this.fIv.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.fIv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fIv.setBorderColor(am.getColor(R.color.common_color_10043));
-        this.fIv.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.fIw = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.fIx = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        this.fII = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.fII.setAutoChangeStyle(true);
+        this.fII.setDefaultResource(17170445);
+        this.fII.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.fII.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fII.setDrawerType(1);
+        this.fII.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.fII.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fII.setBorderColor(am.getColor(R.color.common_color_10043));
+        this.fII.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.fIJ = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.fIK = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -74,22 +74,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.fIv;
+        return this.fII;
     }
 
     public TextView getGameNameView() {
-        return this.fIw;
+        return this.fIJ;
     }
 
     public TextView getGameDscView() {
-        return this.fIx;
+        return this.fIK;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setViewTextColor(this.fIw, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.fIx, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fIJ, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.fIK, R.color.cp_cont_d, 1);
         }
     }
 }

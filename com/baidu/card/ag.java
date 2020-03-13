@@ -141,7 +141,7 @@ public class ag extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void aZ(int i) {
-        this.Mo.dhG = i;
+        this.Mo.dhT = i;
     }
 
     public void setFrom(int i) {

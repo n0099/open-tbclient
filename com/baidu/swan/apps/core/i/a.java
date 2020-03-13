@@ -9,11 +9,11 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String bqX = "swan_preset" + File.separator + "preset_list.json";
+    private static final String bqY = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // com.baidu.swan.apps.core.i.b
     protected String PS() {
-        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.TW(), bqX);
+        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.TW(), bqY);
     }
 
     @Override // com.baidu.swan.apps.core.i.b
@@ -26,9 +26,9 @@ class a extends b {
         boolean z = false;
         if (cVar != null) {
             Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cVar.cAY + File.separator + cVar.brb;
+            String str = "swan_preset" + File.separator + cVar.cAZ + File.separator + cVar.brc;
             try {
-                File d = d(cVar.category, cVar.cAY, cVar.versionCode);
+                File d = d(cVar.category, cVar.cAZ, cVar.versionCode);
                 if (d == null) {
                     if (DEBUG) {
                         Log.e("AssetPresetController", "获取解压路径失败");

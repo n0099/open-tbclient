@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static b cKp = null;
-    private static a cKq = null;
-    private static boolean cKr = false;
-    private static String cKs = "";
-    private static transient List<String> cKt = new ArrayList(5);
+    private static b cKq = null;
+    private static a cKr = null;
+    private static boolean cKs = false;
+    private static String cKt = "";
+    private static transient List<String> cKu = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (cKq == null) {
+        if (cKr == null) {
             synchronized (a.class) {
-                if (cKq == null) {
-                    cKq = new a();
-                    cKp = b.c(baseFragmentActivity);
+                if (cKr == null) {
+                    cKr = new a();
+                    cKq = b.c(baseFragmentActivity);
                 }
             }
-        } else if (cKp != null) {
-            cKp.a(baseFragmentActivity.getPageContext());
+        } else if (cKq != null) {
+            cKq.a(baseFragmentActivity.getPageContext());
         }
-        if (cKr && cKp != null) {
-            cKp.ayW();
-            cKp.ayX();
-            cKr = false;
+        if (cKs && cKq != null) {
+            cKq.ayW();
+            cKq.ayX();
+            cKs = false;
         }
-        return cKq;
+        return cKr;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
@@ -48,66 +48,66 @@ public class a {
 
     public void ayP() {
         ayT();
-        if (cKp != null) {
-            cKp.ayW();
-            cKr = false;
+        if (cKq != null) {
+            cKq.ayW();
+            cKs = false;
         }
     }
 
     public void ayQ() {
         ayT();
-        if (cKp != null) {
-            cKp.ayX();
-            cKr = false;
+        if (cKq != null) {
+            cKq.ayX();
+            cKs = false;
         }
     }
 
     public void fn(boolean z) {
         ayT();
-        if (cKp != null) {
-            cKp.fn(z);
+        if (cKq != null) {
+            cKq.fn(z);
         }
     }
 
     public void a(b.a aVar) {
         ayT();
-        if (cKp != null) {
-            cKp.c(aVar);
+        if (cKq != null) {
+            cKq.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
         ayT();
-        if (cKp != null) {
-            if (cKp.ayU()) {
-                cKp.c(aVar);
+        if (cKq != null) {
+            if (cKq.ayU()) {
+                cKq.c(aVar);
             }
-            cKp.ayV();
+            cKq.ayV();
         }
     }
 
     public void a(int i, b.a aVar) {
         ayT();
-        if (cKp != null) {
-            if (cKp.ayU()) {
-                cKp.c(aVar);
+        if (cKq != null) {
+            if (cKq.ayU()) {
+                cKq.c(aVar);
             }
-            cKp.jn(i);
+            cKq.jn(i);
         }
     }
 
     public void ayR() {
         ayT();
-        if (cKp != null) {
-            cKp.ayR();
-            cKr = true;
+        if (cKq != null) {
+            cKq.ayR();
+            cKs = true;
         }
     }
 
     public void resetContext() {
         ayT();
-        if (cKp != null) {
-            cKp.resetContext();
+        if (cKq != null) {
+            cKq.resetContext();
         }
     }
 
@@ -118,22 +118,22 @@ public class a {
     }
 
     private void ayT() {
-        if (cKp == null) {
+        if (cKq == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (cKp != null) {
-                if (cKq != null) {
-                    cKq.ayS();
-                }
-                cKp.removeCallBack();
-                cKp.ayY();
-                cKp = null;
-            }
             if (cKq != null) {
+                if (cKr != null) {
+                    cKr.ayS();
+                }
+                cKq.removeCallBack();
+                cKq.ayY();
                 cKq = null;
+            }
+            if (cKr != null) {
+                cKr = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

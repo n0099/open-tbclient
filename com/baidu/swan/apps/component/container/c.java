@@ -14,14 +14,14 @@ import java.util.Map;
 public final class c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    com.baidu.swan.apps.view.b.a bju;
+    com.baidu.swan.apps.view.b.a bjv;
     @NonNull
-    ArrayMap<String, com.baidu.swan.apps.component.b.a> bjv = new ArrayMap<>();
+    ArrayMap<String, com.baidu.swan.apps.component.b.a> bjw = new ArrayMap<>();
     @NonNull
-    ArrayMap<String, List<com.baidu.swan.apps.component.b.a>> bjw = new ArrayMap<>();
+    ArrayMap<String, List<com.baidu.swan.apps.component.b.a>> bjx = new ArrayMap<>();
 
     public c(@NonNull com.baidu.swan.apps.view.b.a aVar) {
-        this.bju = aVar;
+        this.bjv = aVar;
     }
 
     @UiThread
@@ -32,33 +32,33 @@ public final class c {
             return false;
         }
         com.baidu.swan.apps.component.b.b KI = aVar.KI();
-        String str = KI.bik;
-        String str2 = KI.bil;
+        String str = KI.bil;
+        String str2 = KI.bim;
         String name = aVar.getName();
         SwanAppComponentContainerView KK = aVar.KK();
         if (KK == null) {
             com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a null container view");
             return false;
         }
-        if (this.bjv.containsKey(str2)) {
+        if (this.bjw.containsKey(str2)) {
             com.baidu.swan.apps.console.c.w("Component-Container", name + " repeat insert: " + str2);
         }
         if (TextUtils.isEmpty(str2)) {
             com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a empty component id");
             return false;
-        } else if (KI.biq == null) {
+        } else if (KI.bir == null) {
             com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a null position");
             return false;
         } else {
-            if (!KI.biq.isValid()) {
-                com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a invalid position: " + (KI.biq == null ? "null" : KI.biq));
-                KI.biq = new com.baidu.swan.apps.model.a.a.a();
+            if (!KI.bir.isValid()) {
+                com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a invalid position: " + (KI.bir == null ? "null" : KI.bir));
+                KI.bir = new com.baidu.swan.apps.model.a.a.a();
             }
             if (!b.f(KI)) {
-                if (TextUtils.isEmpty(KI.bin)) {
-                    a = this.bju.a(KK, KI.biq);
+                if (TextUtils.isEmpty(KI.bip)) {
+                    a = this.bjv.a(KK, KI.bir);
                 } else {
-                    SwanAppComponentContainerView gw = gw(KI.bin);
+                    SwanAppComponentContainerView gw = gw(KI.bip);
                     if (gw == null) {
                         com.baidu.swan.apps.console.c.e("Component-Container", "insert " + name + " to parent with a null parent container view");
                         return false;
@@ -77,13 +77,13 @@ public final class c {
                 }
             }
             if (a) {
-                this.bjv.put(KI.bil, aVar);
+                this.bjw.put(KI.bim, aVar);
                 if (aVar.ef(2)) {
                     com.baidu.swan.apps.console.c.w("Component-Container", name + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<com.baidu.swan.apps.component.b.a> list = this.bjw.get(str);
+                    List<com.baidu.swan.apps.component.b.a> list = this.bjx.get(str);
                     if (list == null) {
                         list = new ArrayList<>();
-                        this.bjw.put(str, list);
+                        this.bjx.put(str, list);
                     }
                     list.add(aVar);
                 }
@@ -105,7 +105,7 @@ public final class c {
             com.baidu.swan.apps.component.e.a.au("Component-Container", "update " + name + " with a null container view");
             return false;
         }
-        if (!this.bjv.containsKey(KI.bil)) {
+        if (!this.bjw.containsKey(KI.bim)) {
             com.baidu.swan.apps.console.c.e("Component-Container", "don't insert" + name);
         }
         if (aVar instanceof com.baidu.swan.apps.component.components.e.c.a) {
@@ -148,8 +148,8 @@ public final class c {
             return false;
         }
         com.baidu.swan.apps.component.b.b KI = aVar.KI();
-        String str = KI.bik;
-        String str2 = KI.bil;
+        String str = KI.bil;
+        String str2 = KI.bim;
         String name = aVar.getName();
         SwanAppComponentContainerView KK = aVar.KK();
         if (KK == null) {
@@ -160,10 +160,10 @@ public final class c {
             return false;
         } else {
             if (!b.f(KI)) {
-                if (TextUtils.isEmpty(KI.bin)) {
-                    c = this.bju.au(KK);
+                if (TextUtils.isEmpty(KI.bip)) {
+                    c = this.bjv.au(KK);
                 } else {
-                    SwanAppComponentContainerView gw = gw(KI.bin);
+                    SwanAppComponentContainerView gw = gw(KI.bip);
                     if (gw == null) {
                         com.baidu.swan.apps.console.c.e("Component-Container", "remove " + name + " to parent with a null parent container view");
                     } else if (gw == KK.getParent()) {
@@ -181,10 +181,10 @@ public final class c {
                 }
             }
             if (c || aVar.ef(1)) {
-                this.bjv.remove(str2);
+                this.bjw.remove(str2);
                 if (aVar.ef(2)) {
                     com.baidu.swan.apps.console.c.w("Component-Container", name + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                    List<com.baidu.swan.apps.component.b.a> list = this.bjw.get(str);
+                    List<com.baidu.swan.apps.component.b.a> list = this.bjx.get(str);
                     if (list != null) {
                         list.remove(aVar);
                     }
@@ -199,13 +199,13 @@ public final class c {
         if (DEBUG) {
             Log.d("Component-Container", "container destroy");
         }
-        for (Map.Entry<String, com.baidu.swan.apps.component.b.a> entry : this.bjv.entrySet()) {
+        for (Map.Entry<String, com.baidu.swan.apps.component.b.a> entry : this.bjw.entrySet()) {
             if (entry != null && (value = entry.getValue()) != null) {
                 value.onDestroy();
             }
         }
-        this.bjv.clear();
         this.bjw.clear();
+        this.bjx.clear();
     }
 
     private boolean a(@NonNull com.baidu.swan.apps.component.b.a aVar, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull com.baidu.swan.apps.component.b.b bVar) {
@@ -213,16 +213,16 @@ public final class c {
         if (DEBUG) {
             Log.d("Component-Container", name + " perform position update");
         }
-        if (bVar.biq == null || !bVar.biq.isValid()) {
-            com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a invalid position: " + (bVar.biq == null ? "null" : bVar.biq));
+        if (bVar.bir == null || !bVar.bir.isValid()) {
+            com.baidu.swan.apps.component.e.a.au("Component-Container", "insert " + name + " with a invalid position: " + (bVar.bir == null ? "null" : bVar.bir));
             return false;
         }
         if (b.f(bVar) && !b.b(this, bVar, swanAppComponentContainerView)) {
             com.baidu.swan.apps.component.e.a.au("Component-Container", name + " performPositionUpdateForScroll fail");
         }
-        String str = bVar.bin;
+        String str = bVar.bip;
         if (TextUtils.isEmpty(str)) {
-            return this.bju.b(swanAppComponentContainerView, bVar.biq);
+            return this.bjv.b(swanAppComponentContainerView, bVar.bir);
         }
         SwanAppComponentContainerView gw = gw(str);
         if (gw == null) {
@@ -243,7 +243,7 @@ public final class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.swan.apps.component.b.a aVar = this.bjv.get(str);
+        com.baidu.swan.apps.component.b.a aVar = this.bjw.get(str);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("Component-Container", "getContainerView : get a null  component#" + str);
             return null;

@@ -8,9 +8,9 @@ public class b {
     public int afX;
     public String agZ;
     public int ahC;
-    public g ale;
-    public long alt;
-    public String alu = TbadkCoreApplication.getCurrentTbs();
+    public g alf;
+    public long alu;
+    public String alv = TbadkCoreApplication.getCurrentTbs();
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -20,7 +20,7 @@ public class b {
     public String userName;
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6) {
-        this.alt = j;
+        this.alu = j;
         this.aaT = gVar.rx();
         this.userId = str;
         this.userName = str2;
@@ -31,7 +31,7 @@ public class b {
         this.ahC = gVar.agd;
         this.afX = gVar.rD();
         this.sceneFrom = gVar.getSceneFrom();
-        this.ale = gVar;
+        this.alf = gVar;
         this.otherParams = str6;
     }
 

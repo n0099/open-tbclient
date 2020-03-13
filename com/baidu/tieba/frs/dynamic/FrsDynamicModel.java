@@ -33,12 +33,12 @@ public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, a, T
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aQB() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aQC() {
         return FrsDynamicHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> aQC() {
+    protected Class<? extends MvcSocketResponsedMessage> aQD() {
         return FrsDynamicSocketResponsedMessage.class;
     }
 }

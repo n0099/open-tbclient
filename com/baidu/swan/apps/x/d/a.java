@@ -68,8 +68,8 @@ public class a {
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void aw(String str, String str2) {
                     super.aw(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.bqd != null) {
-                        this.bqd.add(new UbcFlowEvent(str2));
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.bqe != null) {
+                        this.bqe.add(new UbcFlowEvent(str2));
                     }
                 }
             });

@@ -12,10 +12,10 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int deI;
-    private int deJ;
-    private float deK;
-    private float deL;
+    private int deV;
+    private int deW;
+    private float deX;
+    private float deY;
     private String fid;
     private int height;
     private int iconMargin;
@@ -52,7 +52,7 @@ public class HeadImageView extends TbClipImageView {
         this.mUrl = null;
         this.mDefaultId = R.drawable.transparent_bg;
         this.mDefaultBgId = R.color.cp_bg_line_j;
-        this.deI = R.drawable.ic_icon_mask_shen20_n;
+        this.deV = R.drawable.ic_icon_mask_shen20_n;
         init();
     }
 
@@ -121,8 +121,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.dIf != null && this.dIf.dDv) {
-            this.dIf.aRg();
+        } else if (this.dIs != null && this.dIs.dDI) {
+            this.dIs.aRh();
         }
     }
 
@@ -132,14 +132,14 @@ public class HeadImageView extends TbClipImageView {
         if (canvas != null) {
             if (this.mMaskColor != 0) {
                 this.mPaint.setColor(this.mMaskColor);
-                canvas.drawCircle(this.deK, this.deL, this.deK, this.mPaint);
+                canvas.drawCircle(this.deX, this.deY, this.deX, this.mPaint);
             }
             updateVIcon(canvas);
         }
     }
 
     public void setBjhAuthIconRes(int i) {
-        this.deJ = i;
+        this.deW = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -182,13 +182,13 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         Drawable bjhBigVIconDrawable;
-        if (this.isShowV && this.deJ != 0 && this.mIconWidth > 0) {
-            Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.deJ);
+        if (this.isShowV && this.deW != 0 && this.mIconWidth > 0) {
+            Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.deW);
             if (bjhBigVIconDrawable2 != null) {
                 bjhBigVIconDrawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                 bjhBigVIconDrawable2.draw(canvas);
             }
-        } else if (this.isShowV && this.mIconWidth > 0 && (bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.deI)) != null) {
+        } else if (this.isShowV && this.mIconWidth > 0 && (bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.deV)) != null) {
             bjhBigVIconDrawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
             bjhBigVIconDrawable.draw(canvas);
         }
@@ -200,7 +200,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.deK = this.width / 2.0f;
-        this.deL = this.height / 2.0f;
+        this.deX = this.width / 2.0f;
+        this.deY = this.height / 2.0f;
     }
 }

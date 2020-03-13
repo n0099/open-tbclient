@@ -22,16 +22,16 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private c anJ;
-    private AlaGiftGraffitiShowView anL;
-    private PointF anO;
-    private a anP;
+    private c anK;
+    private AlaGiftGraffitiShowView anM;
+    private PointF anP;
+    private a anQ;
     private Context mContext;
-    private boolean anK = true;
-    private int anM = 0;
+    private boolean anL = true;
     private int anN = 0;
+    private int anO = 0;
     private Handler mHandler = new Handler();
-    private Runnable anQ = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
+    private Runnable anR = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
         @Override // java.lang.Runnable
         public void run() {
             b.this.uB();
@@ -44,46 +44,46 @@ public class b {
     }
 
     public b(AlaGiftGraffitiShowView alaGiftGraffitiShowView, Context context) {
-        this.anL = alaGiftGraffitiShowView;
+        this.anM = alaGiftGraffitiShowView;
         this.mContext = context;
     }
 
     public boolean isReady() {
-        return this.anK;
+        return this.anL;
     }
 
     public void j(c cVar) {
-        if (cVar != null && cVar.alw.ags != null) {
-            this.anK = false;
-            this.anJ = k(cVar);
-            this.anL.setOffsetY(this.anN);
-            if (this.anJ.alw.ags.ahp == 0) {
-                this.anL.uA();
+        if (cVar != null && cVar.alx.ags != null) {
+            this.anL = false;
+            this.anK = k(cVar);
+            this.anM.setOffsetY(this.anO);
+            if (this.anK.alx.ags.ahp == 0) {
+                this.anM.uA();
                 uC();
             } else {
                 uE();
             }
-            this.anL.setGiftItem(this.anJ);
+            this.anM.setGiftItem(this.anK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uC() {
-        if (this.anJ == null || this.anJ.alw.ags == null) {
-            this.anM = 0;
+        if (this.anK == null || this.anK.alx.ags == null) {
+            this.anN = 0;
             return;
         }
-        if (this.anM < this.anJ.alw.ags.ahr.size()) {
-            List<PointF> list = this.anJ.alw.ags.ahr;
-            int i = this.anM;
-            this.anM = i + 1;
+        if (this.anN < this.anK.alx.ags.ahr.size()) {
+            List<PointF> list = this.anK.alx.ags.ahr;
+            int i = this.anN;
+            this.anN = i + 1;
             PointF pointF = list.get(i);
-            TbImageView tbImageView = new TbImageView(this.anL.getContext());
-            tbImageView.startLoad(bN(this.anM - 1), 10, false);
+            TbImageView tbImageView = new TbImageView(this.anM.getContext());
+            tbImageView.startLoad(bN(this.anN - 1), 10, false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
-            this.anL.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anJ.alw.ags.aht.left, (int) this.anO.y);
+            this.anM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anK.alx.ags.aht.left, (int) this.anP.y);
             if (aB(this.mContext) && uF()) {
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
@@ -97,18 +97,18 @@ public class b {
                 return;
             }
         }
-        this.mHandler.postDelayed(this.anQ, 2000L);
+        this.mHandler.postDelayed(this.anR, 2000L);
     }
 
     private String bN(int i) {
         if (uD()) {
-            if (this.anJ != null && this.anJ.ahu != null) {
+            if (this.anK != null && this.anK.ahu != null) {
                 int i2 = 0;
                 int i3 = -1;
                 while (true) {
                     int i4 = i2;
-                    if (i4 < this.anJ.ahu.size()) {
-                        m mVar = this.anJ.ahu.get(i4);
+                    if (i4 < this.anK.ahu.size()) {
+                        m mVar = this.anK.ahu.get(i4);
                         if (i3 < i && i <= mVar.st() + i3) {
                             return mVar.ss();
                         }
@@ -127,14 +127,14 @@ public class b {
     }
 
     private String getThumbnailUrl() {
-        if (this.anJ == null || this.anJ.alw == null) {
+        if (this.anK == null || this.anK.alx == null) {
             return null;
         }
-        return this.anJ.alw.rA();
+        return this.anK.alx.rA();
     }
 
     private boolean uD() {
-        return (this.anJ == null || this.anJ.ahu == null || this.anJ.ahu.size() <= 0) ? false : true;
+        return (this.anK == null || this.anK.ahu == null || this.anK.ahu.size() <= 0) ? false : true;
     }
 
     private c k(c cVar) {
@@ -144,54 +144,54 @@ public class b {
             return null;
         }
         c clone = cVar.clone();
-        clone.alw = new g(cVar.alw);
-        l lVar = cVar.alw.ags;
+        clone.alx = new g(cVar.alx);
+        l lVar = cVar.alx.ags;
         if (lVar.ahu != null && lVar.ahu.size() > 0 && clone.ahu != null) {
             clone.ahu.addAll(lVar.ahu);
         }
         float dip2px = BdUtilHelper.dip2px(this.mContext, 1.0f);
         float f = ((int) (32.0f * dip2px)) / lVar.ahq;
-        clone.alw.ags.ahp = lVar.ahp;
-        clone.alw.ags.ahs = lVar.ahs;
+        clone.alx.ags.ahp = lVar.ahp;
+        clone.alx.ags.ahs = lVar.ahs;
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.mContext);
-        clone.alw.ags.ahj = screenDimensions[0];
-        clone.alw.ags.ahk = screenDimensions[1];
-        float ceil = (lVar.aht.left * f) + ((float) Math.ceil((clone.alw.ags.ahj - (lVar.ahj * f)) / 2.0d));
-        float ceil2 = ((float) Math.ceil((clone.alw.ags.ahk - (lVar.ahk * f)) / 2.0d)) + (lVar.aht.top * f);
+        clone.alx.ags.ahj = screenDimensions[0];
+        clone.alx.ags.ahk = screenDimensions[1];
+        float ceil = (lVar.aht.left * f) + ((float) Math.ceil((clone.alx.ags.ahj - (lVar.ahj * f)) / 2.0d));
+        float ceil2 = ((float) Math.ceil((clone.alx.ags.ahk - (lVar.ahk * f)) / 2.0d)) + (lVar.aht.top * f);
         float width = lVar.aht.width() * f;
         float height = lVar.aht.height() * f;
         float ceil3 = (32.0f * dip2px) + ((float) Math.ceil(i / 2)) + (10.0f * dip2px);
         if (ceil2 >= ceil3) {
             ceil3 = ceil2;
         }
-        clone.alw.ags.aht = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
+        clone.alx.ags.aht = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
         ArrayList arrayList = new ArrayList();
         PointF pointF = lVar.ahr.get(0);
-        this.anO = new PointF(pointF.x * f, pointF.y * f);
-        PointF pointF2 = new PointF(this.anO.x, this.anO.y);
+        this.anP = new PointF(pointF.x * f, pointF.y * f);
+        PointF pointF2 = new PointF(this.anP.x, this.anP.y);
         Iterator<PointF> it = lVar.ahr.iterator();
         while (true) {
             PointF pointF3 = pointF2;
             if (it.hasNext()) {
                 PointF next = it.next();
                 PointF pointF4 = new PointF(next.x * f, next.y * f);
-                this.anO = this.anO.y > pointF4.y ? pointF4 : this.anO;
+                this.anP = this.anP.y > pointF4.y ? pointF4 : this.anP;
                 pointF2 = pointF3.y < pointF4.y ? pointF4 : pointF3;
                 arrayList.add(pointF4);
             } else {
-                clone.alw.ags.ahr = arrayList;
-                this.anN = (int) ((((rect.top + this.anO.y) - (i / 2)) - this.anL.getInfoView().getHeight()) - (10.0f * dip2px));
+                clone.alx.ags.ahr = arrayList;
+                this.anO = (int) ((((rect.top + this.anP.y) - (i / 2)) - this.anM.getInfoView().getHeight()) - (10.0f * dip2px));
                 return clone;
             }
         }
     }
 
     private void uE() {
-        this.anL.uA();
+        this.anM.uA();
         PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 3.0f * 1.3f), Keyframe.ofFloat(0.05f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.1f, 3.0f * 1.3f), Keyframe.ofFloat(0.15f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.2f, 3.0f * 1.3f), Keyframe.ofFloat(0.25f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.3f, 3.0f * 1.3f), Keyframe.ofFloat(0.35f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.4f, 3.0f * 1.3f), Keyframe.ofFloat(0.45f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.5f, 3.0f * 1.3f), Keyframe.ofFloat(0.55f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.6f, 3.0f * 1.3f), Keyframe.ofFloat(0.65f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.7f, 3.0f * 1.3f), Keyframe.ofFloat(0.75f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.8f, 3.0f * 1.3f), Keyframe.ofFloat(0.85f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.9f, 3.0f * 1.3f), Keyframe.ofFloat(0.95f, (-3.0f) * 1.3f), Keyframe.ofFloat(1.0f, 1.3f * 3.0f));
-        int size = this.anJ.alw.ags.ahr.size();
+        int size = this.anK.alx.ags.ahr.size();
         for (int i = 0; i < size; i++) {
-            TbImageView tbImageView = new TbImageView(this.anL.getContext());
+            TbImageView tbImageView = new TbImageView(this.anM.getContext());
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
@@ -201,25 +201,25 @@ public class b {
             ofPropertyValuesHolder.setRepeatCount(-1);
             ofPropertyValuesHolder.setDuration(5000L);
             ofPropertyValuesHolder.start();
-            PointF pointF = this.anJ.alw.ags.ahr.get(i);
-            this.anL.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anJ.alw.ags.aht.left, (int) this.anO.y);
+            PointF pointF = this.anK.alx.ags.ahr.get(i);
+            this.anM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.anK.alx.ags.aht.left, (int) this.anP.y);
         }
-        this.mHandler.removeCallbacks(this.anQ);
-        this.mHandler.postDelayed(this.anQ, 5000L);
+        this.mHandler.removeCallbacks(this.anR);
+        this.mHandler.postDelayed(this.anR, 5000L);
     }
 
     public void a(a aVar) {
-        this.anP = aVar;
+        this.anQ = aVar;
     }
 
     public void uB() {
-        this.anM = 0;
-        this.anK = true;
-        if (this.anL != null) {
-            this.anL.uA();
+        this.anN = 0;
+        this.anL = true;
+        if (this.anM != null) {
+            this.anM.uA();
         }
-        if (this.anP != null) {
-            this.anP.onEnd();
+        if (this.anQ != null) {
+            this.anQ.onEnd();
         }
     }
 
@@ -228,11 +228,11 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;
         }
-        if (this.anL != null) {
-            this.anL.uA();
-            this.anL = null;
+        if (this.anM != null) {
+            this.anM.uA();
+            this.anM = null;
         }
-        this.anP = null;
+        this.anQ = null;
     }
 
     private boolean aB(Context context) {
@@ -240,7 +240,7 @@ public class b {
     }
 
     private boolean uF() {
-        return (this.anJ == null || this.anJ.userId == null || !this.anJ.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        return (this.anK == null || this.anK.userId == null || !this.anK.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 
     public void sn() {

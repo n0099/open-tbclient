@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
-    private com.baidu.swan.apps.y.a cGj;
+    private com.baidu.swan.apps.y.a cGk;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.cGj = new com.baidu.swan.apps.y.a() { // from class: com.baidu.m.b.a.1
+        this.cGk = new com.baidu.swan.apps.y.a() { // from class: com.baidu.m.b.a.1
             @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
                 super.onActivityStopped(activity);
@@ -48,22 +48,22 @@ public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
     @Override // com.baidu.swan.apps.component.b.a
     public void cd(boolean z) {
         super.cd(z);
-        com.baidu.swan.apps.w.a.TW().registerActivityLifecycleCallbacks(this.cGj);
+        com.baidu.swan.apps.w.a.TW().registerActivityLifecycleCallbacks(this.cGk);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     public void onRemove() {
         super.onRemove();
-        com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this.cGj);
+        com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this.cGk);
     }
 
     private LinearLayout.LayoutParams awP() {
         int i;
-        if (KI() == 0 || ((b) KI()).biq == null) {
+        if (KI() == 0 || ((b) KI()).bir == null) {
             i = 200;
         } else {
-            i = ((b) KI()).biq.getWidth() / 2;
+            i = ((b) KI()).bir.getWidth() / 2;
         }
         return new LinearLayout.LayoutParams(i, -1);
     }

@@ -30,7 +30,7 @@ public class b extends n {
             i iVar = new i();
             iVar.setActivityId(optInt);
             iVar.mh(optInt2);
-            iVar.uS(optString);
+            iVar.uT(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, iVar));
         }
     }

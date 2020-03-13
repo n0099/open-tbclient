@@ -11,45 +11,47 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
     private int Yx;
-    private String alG;
-    private long ehL;
-    private c fjN;
-    private long fjO;
-    private String fjP;
+    private String alH;
+    private long ehY;
+    private c fka;
+    private long fkb;
+    private String fkc;
+    private boolean isShowing;
     private boolean mIsHost;
     private String mPortrait;
     public String otherParams;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
+        this.isShowing = false;
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
         this.Yx = i;
-        this.fjO = j;
-        this.fjP = str;
+        this.fkb = j;
+        this.fkc = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.alG = str4;
-        this.ehL = j2;
+        this.alH = str4;
+        this.ehY = j2;
         this.otherParams = str3;
     }
 
     public void setVisible(int i) {
-        if (this.fjN != null && this.fjN.zb() != null) {
-            this.fjN.zb().setVisibility(i);
+        if (this.fka != null && this.fka.zb() != null) {
+            this.fka.zb().setVisibility(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void af(ViewGroup viewGroup) {
         super.af(viewGroup);
-        if (this.fjN == null) {
-            com.baidu.live.p.a aVar = new com.baidu.live.p.a(getPageContext().getPageActivity(), this.Yx, this.fjO, this.mIsHost, this.mPortrait, this.otherParams, this.alG, this.ehL);
-            aVar.userName = this.fjP;
+        if (this.fka == null) {
+            com.baidu.live.p.a aVar = new com.baidu.live.p.a(getPageContext().getPageActivity(), this.Yx, this.fkb, this.mIsHost, this.mPortrait, this.otherParams, this.alH, this.ehY);
+            aVar.userName = this.fkc;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.fjN = (c) runTask.getData();
+                this.fka = (c) runTask.getData();
             }
         }
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
@@ -58,34 +60,39 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     private void am(ViewGroup viewGroup) {
-        if (this.fjN != null && this.fjN.zb() != null && viewGroup.indexOfChild(this.fjN.zb()) < 0) {
-            this.fjN.zb().setId(a.g.ala_liveroom_ranklist);
+        if (this.fka != null && this.fka.zb() != null && viewGroup.indexOfChild(this.fka.zb()) < 0) {
+            this.fka.zb().setId(a.g.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(3, a.g.ala_live_removeable_top_container);
             layoutParams.addRule(1, a.g.guard_club_entry_id);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds14);
             layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds20);
-            viewGroup.addView(this.fjN.zb(), layoutParams);
+            viewGroup.addView(this.fka.zb(), layoutParams);
+            this.isShowing = true;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void pK() {
         super.pK();
-        if (this.fjN != null && this.fjN.zb() != null && this.fjN.zb().getParent() != null) {
-            ((ViewGroup) this.fjN.zb().getParent()).removeView(this.fjN.zb());
+        if (this.fka != null && this.fka.zb() != null && this.fka.zb().getParent() != null) {
+            ((ViewGroup) this.fka.zb().getParent()).removeView(this.fka.zb());
         }
-        if (this.fjN != null) {
-            this.fjN.destory();
-            this.fjN = null;
+        if (this.fka != null) {
+            this.fka.destory();
+            this.fka = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fjN != null) {
-            this.fjN.destory();
-            this.fjN = null;
+        if (this.fka != null) {
+            this.fka.destory();
+            this.fka = null;
         }
+    }
+
+    public boolean isShowing() {
+        return this.isShowing;
     }
 }

@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private AtomicBoolean bSR;
+    private AtomicBoolean bSS;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
@@ -30,7 +30,7 @@ public class h extends ab {
 
     public h(j jVar) {
         super(jVar, "/swanAPI/multiAuthorize");
-        this.bSR = new AtomicBoolean(false);
+        this.bSS = new AtomicBoolean(false);
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -111,27 +111,27 @@ public class h extends ab {
                         i3 = i;
                     }
                     if (!arrayList.isEmpty()) {
-                        if (!h.this.bSR.compareAndSet(false, true)) {
+                        if (!h.this.bSS.compareAndSet(false, true)) {
                             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "Waiting for the end of the previous authorization process").toString());
                             return;
                         }
                         com.baidu.swan.apps.console.c.i("MultiAuthorize", "cb=" + str + ", gain=" + i3 + ", scopes=" + arrayList);
                         if (arrayList.size() == i3) {
-                            h.this.bSR.set(false);
+                            h.this.bSS.set(false);
                             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                             return;
                         }
                         int size = arrayList.size();
                         StringBuilder sb = new StringBuilder();
                         for (int i4 = 0; i4 < size; i4++) {
-                            sb.append(((com.baidu.swan.apps.setting.oauth.e) arrayList.get(i4)).bTn);
+                            sb.append(((com.baidu.swan.apps.setting.oauth.e) arrayList.get(i4)).bTo);
                             if (i4 < size - 1) {
                                 sb.append("、");
                             }
                         }
                         eVar2.name = activity.getString(a.h.swanapp_get_following_info, new Object[]{sb.toString()});
                         try {
-                            eVar2.bTr = String.format(eVar2.bTr, sb.toString());
+                            eVar2.bTs = String.format(eVar2.bTs, sb.toString());
                         } catch (Exception e) {
                             com.baidu.swan.apps.console.c.e("MultiAuthorize", "format explain error", e);
                         }
@@ -143,7 +143,7 @@ public class h extends ab {
                                     h.this.a(eVar, activity, (List<com.baidu.swan.apps.setting.oauth.e>) arrayList, false, callbackHandler, str);
                                     return;
                                 }
-                                h.this.bSR.set(false);
+                                h.this.bSS.set(false);
                                 com.baidu.swan.apps.setting.oauth.c.a(10003, callbackHandler, str);
                             }
                         });
@@ -164,7 +164,7 @@ public class h extends ab {
                 @Override // com.baidu.swan.apps.setting.a.h.a
                 public void g(boolean z2, int i) {
                     com.baidu.swan.apps.console.c.i("MultiAuthorize", "login result:" + i);
-                    h.this.bSR.set(false);
+                    h.this.bSS.set(false);
                     if (z2) {
                         h.this.a(eVar, activity, (List<com.baidu.swan.apps.setting.oauth.e>) list, true, callbackHandler, str);
                     } else {
@@ -180,7 +180,7 @@ public class h extends ab {
                 return;
             }
         }
-        this.bSR.set(false);
+        this.bSS.set(false);
         int size = list.size();
         String[] strArr = new String[size];
         for (int i = 0; i < size; i++) {

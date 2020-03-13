@@ -6,10 +6,10 @@ import kascend.core.KSDevice;
 /* loaded from: classes5.dex */
 public abstract class a {
     protected Context context;
-    protected a nBt;
-    protected KSDevice nBu;
+    protected a nBE;
+    protected KSDevice nBF;
 
-    public abstract void Sc(String str);
+    public abstract void Sd(String str);
 
     public abstract String getDS();
 
@@ -18,32 +18,32 @@ public abstract class a {
     }
 
     public void a(a aVar) {
-        this.nBt = aVar;
+        this.nBE = aVar;
     }
 
     public void a(KSDevice kSDevice) {
-        this.nBu = kSDevice;
+        this.nBF = kSDevice;
     }
 
-    public String dJU() {
+    public String dJV() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
-            if (this.nBt == null) {
-                return dJV();
+            if (this.nBE == null) {
+                return dJW();
             }
-            return this.nBt.dJU();
+            return this.nBE.dJV();
         }
         return ds;
     }
 
-    public void Sb(String str) {
-        Sc(str);
-        if (this.nBt != null) {
-            this.nBt.Sc(str);
+    public void Sc(String str) {
+        Sd(str);
+        if (this.nBE != null) {
+            this.nBE.Sd(str);
         }
     }
 
-    public String dJV() {
-        return this.nBu != null ? this.nBu.getDeviceId() : "";
+    public String dJW() {
+        return this.nBF != null ? this.nBF.getDeviceId() : "";
     }
 }

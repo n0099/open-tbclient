@@ -16,18 +16,18 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class d implements a.b {
-    private final Map<String, Deque<Message>> bJJ = new HashMap();
+    private final Map<String, Deque<Message>> bJK = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void aaO() {
-        for (String str : this.bJJ.keySet()) {
+        for (String str : this.bJK.keySet()) {
             kt(str);
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void kt(String str) {
-        Deque<Message> deque = this.bJJ.get(str);
+        Deque<Message> deque = this.bJK.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
             List<c> kz = e.abu().kz(str);
@@ -43,7 +43,7 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void clear(String str) {
-        this.bJJ.remove(str);
+        this.bJK.remove(str);
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -59,7 +59,7 @@ public class d implements a.b {
             while (it.hasNext()) {
                 c next = it.next();
                 boolean a = a(next, aaS);
-                if (aaR.contains(next.bJz) || a) {
+                if (aaR.contains(next.bJA) || a) {
                     next.J(aaP);
                     if (a) {
                         aaS.remove(next.getAppId());
@@ -72,7 +72,7 @@ public class d implements a.b {
         Iterator<c> it2 = e.abu().abw().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.abl() && (aaR.contains(next2.bJz) || a(next2, aaS))) {
+            if (next2 != null && next2.abl() && (aaR.contains(next2.bJA) || a(next2, aaS))) {
                 next2.J(aaP);
             }
         }
@@ -98,10 +98,10 @@ public class d implements a.b {
 
     private void a(String str, @NonNull Message message) {
         if (!TextUtils.isEmpty(str)) {
-            Deque<Message> deque = this.bJJ.get(str);
+            Deque<Message> deque = this.bJK.get(str);
             if (deque == null) {
                 deque = new ArrayDeque<>();
-                this.bJJ.put(str, deque);
+                this.bJK.put(str, deque);
             }
             deque.offer(message);
         }

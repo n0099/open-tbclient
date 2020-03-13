@@ -35,7 +35,7 @@ public final class g {
         return this.size;
     }
 
-    public long[] dzo() {
+    public long[] dzp() {
         return Arrays.copyOf(this.values, this.size);
     }
 }

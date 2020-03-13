@@ -2,30 +2,30 @@ package com.baidu.swan.games.bdtls;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = a.DEBUG;
-    private static volatile c ckI;
+    private static volatile c ckJ;
     private boolean mEnable = true;
-    private a ckH = new a();
+    private a ckI = new a();
 
     public static c alH() {
-        if (ckI == null) {
+        if (ckJ == null) {
             synchronized (c.class) {
-                if (ckI == null) {
-                    ckI = new c();
+                if (ckJ == null) {
+                    ckJ = new c();
                 }
             }
         }
-        return ckI;
+        return ckJ;
     }
 
     private c() {
     }
 
     public boolean ou(String str) {
-        return this.ckH != null && this.ckH.ou(str);
+        return this.ckI != null && this.ckI.ou(str);
     }
 
     public boolean isEnable() {
-        return this.ckH.alG() && this.mEnable;
+        return this.ckI.alG() && this.mEnable;
     }
 
     public void setEnable(boolean z) {

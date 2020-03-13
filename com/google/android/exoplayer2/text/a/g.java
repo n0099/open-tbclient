@@ -6,12 +6,12 @@ import com.google.android.exoplayer2.util.l;
 /* loaded from: classes6.dex */
 public final class g {
     public static void a(long j, l lVar, m[] mVarArr) {
-        while (lVar.dzt() > 1) {
+        while (lVar.dzu() > 1) {
             int T = T(lVar);
             int T2 = T(lVar);
-            if (T2 == -1 || T2 > lVar.dzt()) {
+            if (T2 == -1 || T2 > lVar.dzu()) {
                 Log.w("CeaUtil", "Skipping remainder of malformed SEI NAL unit.");
-                lVar.setPosition(lVar.dzu());
+                lVar.setPosition(lVar.dzv());
             } else if (a(T, T2, lVar)) {
                 lVar.skipBytes(8);
                 int readUnsignedByte = lVar.readUnsignedByte() & 31;
@@ -32,7 +32,7 @@ public final class g {
 
     private static int T(l lVar) {
         int i = 0;
-        while (lVar.dzt() != 0) {
+        while (lVar.dzu() != 0) {
             int readUnsignedByte = lVar.readUnsignedByte();
             i += readUnsignedByte;
             if (readUnsignedByte != 255) {

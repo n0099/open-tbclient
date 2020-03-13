@@ -8,19 +8,19 @@ import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes11.dex */
 public class g implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile g bzF;
+    private static volatile g bzG;
     private int mActivityCount;
     private boolean mIsForeground = false;
 
     public static g WX() {
-        if (bzF == null) {
+        if (bzG == null) {
             synchronized (g.class) {
-                if (bzF == null) {
-                    bzF = new g();
+                if (bzG == null) {
+                    bzG = new g();
                 }
             }
         }
-        return bzF;
+        return bzG;
     }
 
     private g() {

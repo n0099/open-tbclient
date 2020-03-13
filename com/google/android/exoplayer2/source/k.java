@@ -14,17 +14,17 @@ public interface k extends q {
 
     void a(a aVar, long j);
 
-    void dwe() throws IOException;
+    void dwf() throws IOException;
 
-    u dwf();
+    u dwg();
 
-    long dwg();
-
-    @Override // com.google.android.exoplayer2.source.q
     long dwh();
 
     @Override // com.google.android.exoplayer2.source.q
     long dwi();
+
+    @Override // com.google.android.exoplayer2.source.q
+    long dwj();
 
     void gb(long j);
 

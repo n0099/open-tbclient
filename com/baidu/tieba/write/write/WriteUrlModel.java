@@ -23,19 +23,19 @@ public class WriteUrlModel extends NewWriteModel {
     }
 
     public void e(String str, String str2, String str3, String str4, String str5, String str6) {
-        WriteData cHU = cHU();
-        if (cHU != null) {
+        WriteData cHV = cHV();
+        if (cHV != null) {
             cancelLoadData();
-            cHU.setTitle(str);
-            cHU.setIsNoTitle(StringUtils.isNull(str));
-            cHU.setContent(str2);
-            cHU.setLinkUrl(str3);
-            cHU.setLinkUrlCode(str4);
-            cHU.setIsLinkThread(true);
-            cHU.setPostLatLng(true);
-            cHU.setLat(str5);
-            cHU.setLng(str6);
-            cMj();
+            cHV.setTitle(str);
+            cHV.setIsNoTitle(StringUtils.isNull(str));
+            cHV.setContent(str2);
+            cHV.setLinkUrl(str3);
+            cHV.setLinkUrlCode(str4);
+            cHV.setIsLinkThread(true);
+            cHV.setPostLatLng(true);
+            cHV.setLat(str5);
+            cHV.setLng(str6);
+            cMk();
         }
     }
 }

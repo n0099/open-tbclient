@@ -9,10 +9,10 @@ public class b extends com.baidu.swan.d.e {
 
     /* loaded from: classes11.dex */
     private static final class a {
-        private static final b cfr = new b();
+        private static final b cfs = new b();
     }
 
     public static b aiV() {
-        return a.cfr;
+        return a.cfs;
     }
 }

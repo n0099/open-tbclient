@@ -116,7 +116,7 @@ public class b extends g {
 
     /* loaded from: classes11.dex */
     public class d {
-        b bNH;
+        b bNI;
         LinearLayout button;
         TextView subText;
         TextView text;
@@ -126,7 +126,7 @@ public class b extends g {
                 this.text = (TextView) view.findViewById(a.f.hv_btn_text);
                 this.subText = (TextView) view.findViewById(a.f.hv_btn_subtext);
                 this.button = (LinearLayout) view;
-                this.bNH = bVar;
+                this.bNI = bVar;
             }
         }
 
@@ -148,9 +148,9 @@ public class b extends g {
                 this.button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.bNH.dismiss();
-                        if (aVar.bNG != null) {
-                            aVar.bNG.onItemClick(view);
+                        d.this.bNI.dismiss();
+                        if (aVar.bNH != null) {
+                            aVar.bNH.onItemClick(view);
                         }
                     }
                 });
@@ -192,7 +192,7 @@ public class b extends g {
 
     /* loaded from: classes11.dex */
     public static class a {
-        public c bNG;
+        public c bNH;
         public CharSequence mSubText;
         public int mSubTextColorId = -1;
         public CharSequence mText;
@@ -202,7 +202,7 @@ public class b extends g {
             this.mTextColorId = -1;
             this.mText = charSequence;
             this.mTextColorId = i;
-            this.bNG = cVar;
+            this.bNH = cVar;
         }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class i extends ab {
-    private static final String buM = i.class.getSimpleName();
+    private static final String buN = i.class.getSimpleName();
 
     public i(j jVar) {
         super(jVar, "/swanAPI/debug/setReplaceSwanCoreConfig");
@@ -21,11 +21,11 @@ public class i extends ab {
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         final JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
-            com.baidu.swan.apps.console.c.e(buM, "params is null");
+            com.baidu.swan.apps.console.c.e(buN, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else if (!b.has("emitReplaceSwanCore")) {
-            com.baidu.swan.apps.console.c.e(buM, "emitReplaceSwanCore is null");
+            com.baidu.swan.apps.console.c.e(buN, "emitReplaceSwanCore is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

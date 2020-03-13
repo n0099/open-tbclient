@@ -13,26 +13,26 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends ReplacementSpan {
-    private int ddW;
-    private int ddX;
-    private int ddY;
-    private int dea;
-    private int deb;
-    private int dec;
+    private int dej;
+    private int dek;
+    private int del;
+    private int den;
+    private int deo;
+    private int dep;
     private String identify;
     private int mTextColorId;
     private int mTextSize;
-    private RectF ddZ = new RectF();
+    private RectF dem = new RectF();
     private Paint mTextPaint = new Paint();
 
     public b(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.ddW = i;
-        this.ddX = i2;
-        this.ddY = i3;
+        this.dej = i;
+        this.dek = i2;
+        this.del = i3;
         this.mTextSize = i4;
         this.mTextColorId = i5;
-        this.dea = i6;
-        this.dec = i7;
+        this.den = i6;
+        this.dep = i7;
         this.mTextPaint.setAntiAlias(true);
         this.mTextPaint.setStyle(Paint.Style.STROKE);
         this.mTextPaint.setTextSize(this.mTextSize);
@@ -40,50 +40,50 @@ public class b extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.deb = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.dea * 2);
-        return this.deb;
+        this.deo = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.den * 2);
+        return this.deo;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         int color;
         int color2;
-        this.mTextPaint.setColor(am.getColor(this.ddY));
-        int i6 = ((i5 - this.dec) / 2) + i3;
-        this.ddZ.left = f;
-        this.ddZ.top = i6;
-        this.ddZ.right = this.deb + f;
-        this.ddZ.bottom = i6 + this.dec;
+        this.mTextPaint.setColor(am.getColor(this.del));
+        int i6 = ((i5 - this.dep) / 2) + i3;
+        this.dem.left = f;
+        this.dem.top = i6;
+        this.dem.right = this.deo + f;
+        this.dem.bottom = i6 + this.dep;
         if (this.identify != null) {
             if (" 吧主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.ba_zhu_start);
-                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.ba_zhu_end);
+                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.ba_zhu_start);
+                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.ba_zhu_end);
             } else if (" 小吧主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.xiao_ba_zhu_start);
-                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.xiao_ba_zhu_end);
+                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.xiao_ba_zhu_start);
+                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.xiao_ba_zhu_end);
             } else if (" 楼主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_start);
-                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
+                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_start);
+                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_end);
             } else {
-                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
-                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
+                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_end);
+                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_end);
             }
-            this.mTextPaint.setShader(new LinearGradient(this.ddZ.left, this.ddZ.top, this.ddZ.right, this.ddZ.bottom, color, color2, Shader.TileMode.CLAMP));
+            this.mTextPaint.setShader(new LinearGradient(this.dem.left, this.dem.top, this.dem.right, this.dem.bottom, color, color2, Shader.TileMode.CLAMP));
         }
-        canvas.drawRoundRect(this.ddZ, this.ddX, this.ddX, this.mTextPaint);
+        canvas.drawRoundRect(this.dem, this.dek, this.dek, this.mTextPaint);
         this.mTextPaint.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if ((skinType == 1 || skinType == 4) && this.identify != null) {
-            this.mTextPaint.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.mask));
-            canvas.drawRoundRect(this.ddZ, this.ddX, this.ddX, this.mTextPaint);
+            this.mTextPaint.setColor(com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.mask));
+            canvas.drawRoundRect(this.dem, this.dek, this.dek, this.mTextPaint);
         }
         Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
         if (this.identify != null) {
-            this.mTextPaint.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.cp_bg_line_d));
+            this.mTextPaint.setColor(com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.cp_bg_line_d));
         } else {
             this.mTextPaint.setColor(am.getColor(this.mTextColorId));
         }
-        canvas.drawText(charSequence, i, i2, f + this.dea, (int) ((this.ddZ.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.mTextPaint);
+        canvas.drawText(charSequence, i, i2, f + this.den, (int) ((this.dem.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.mTextPaint);
     }
 
     public void fO(boolean z) {
@@ -97,10 +97,10 @@ public class b extends ReplacementSpan {
     }
 
     public void kV(int i) {
-        this.ddX = i;
+        this.dek = i;
     }
 
-    public void tR(String str) {
+    public void tS(String str) {
         this.identify = str;
     }
 }

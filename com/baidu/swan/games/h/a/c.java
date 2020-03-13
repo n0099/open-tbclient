@@ -4,7 +4,7 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes11.dex */
 public class c {
-    private int coc;
+    private int cod;
     @V8JavascriptField
     public String digest;
     @V8JavascriptField
@@ -14,9 +14,9 @@ public class c {
     public int size;
 
     public c() {
-        this.coc = 0;
-        int i = this.coc;
-        this.coc = i + 1;
+        this.cod = 0;
+        int i = this.cod;
+        this.cod = i + 1;
         this.mID = i;
     }
 

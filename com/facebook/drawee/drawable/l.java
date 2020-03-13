@@ -14,19 +14,19 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class l extends Drawable implements j {
     @Nullable
-    float[] lMn;
-    private final float[] aFt = new float[8];
-    final float[] lMm = new float[8];
+    float[] lMy;
+    private final float[] aFu = new float[8];
+    final float[] lMx = new float[8];
     final Paint mPaint = new Paint(1);
-    private boolean dHB = false;
+    private boolean dHO = false;
     private float mBorderWidth = 0.0f;
     private float mPadding = 0.0f;
     private int mBorderColor = 0;
-    private boolean lMo = false;
+    private boolean lMz = false;
     final Path mPath = new Path();
-    final Path ceY = new Path();
+    final Path ceZ = new Path();
     private int mColor = 0;
-    private final RectF lMp = new RectF();
+    private final RectF lMA = new RectF();
     private int mAlpha = 255;
 
     public l(int i) {
@@ -41,7 +41,7 @@ public class l extends Drawable implements j {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        dmB();
+        dmC();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -53,34 +53,34 @@ public class l extends Drawable implements j {
             this.mPaint.setColor(e.du(this.mBorderColor, this.mAlpha));
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            canvas.drawPath(this.ceY, this.mPaint);
+            canvas.drawPath(this.ceZ, this.mPaint);
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void vi(boolean z) {
-        this.dHB = z;
-        dmB();
+        this.dHO = z;
+        dmC();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void k(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.aFt, 0.0f);
+            Arrays.fill(this.aFu, 0.0f);
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.aFt, 0, 8);
+            System.arraycopy(fArr, 0, this.aFu, 0, 8);
         }
-        dmB();
+        dmC();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkArgument(f >= 0.0f, "radius should be non negative");
-        Arrays.fill(this.aFt, f);
-        dmB();
+        Arrays.fill(this.aFu, f);
+        dmC();
         invalidateSelf();
     }
 
@@ -99,7 +99,7 @@ public class l extends Drawable implements j {
         }
         if (this.mBorderWidth != f) {
             this.mBorderWidth = f;
-            dmB();
+            dmC();
             invalidateSelf();
         }
     }
@@ -108,16 +108,16 @@ public class l extends Drawable implements j {
     public void bm(float f) {
         if (this.mPadding != f) {
             this.mPadding = f;
-            dmB();
+            dmC();
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void vj(boolean z) {
-        if (this.lMo != z) {
-            this.lMo = z;
-            dmB();
+        if (this.lMz != z) {
+            this.lMz = z;
+            dmC();
             invalidateSelf();
         }
     }
@@ -145,36 +145,36 @@ public class l extends Drawable implements j {
         return e.HF(e.du(this.mColor, this.mAlpha));
     }
 
-    private void dmB() {
+    private void dmC() {
         this.mPath.reset();
-        this.ceY.reset();
-        this.lMp.set(getBounds());
-        this.lMp.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-        if (this.dHB) {
-            this.ceY.addCircle(this.lMp.centerX(), this.lMp.centerY(), Math.min(this.lMp.width(), this.lMp.height()) / 2.0f, Path.Direction.CW);
+        this.ceZ.reset();
+        this.lMA.set(getBounds());
+        this.lMA.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        if (this.dHO) {
+            this.ceZ.addCircle(this.lMA.centerX(), this.lMA.centerY(), Math.min(this.lMA.width(), this.lMA.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.lMm.length; i++) {
-                this.lMm[i] = (this.aFt[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.lMx.length; i++) {
+                this.lMx[i] = (this.aFu[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
             }
-            this.ceY.addRoundRect(this.lMp, this.lMm, Path.Direction.CW);
+            this.ceZ.addRoundRect(this.lMA, this.lMx, Path.Direction.CW);
         }
-        this.lMp.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
-        float f = (this.lMo ? this.mBorderWidth : 0.0f) + this.mPadding;
-        this.lMp.inset(f, f);
-        if (this.dHB) {
-            this.mPath.addCircle(this.lMp.centerX(), this.lMp.centerY(), Math.min(this.lMp.width(), this.lMp.height()) / 2.0f, Path.Direction.CW);
-        } else if (this.lMo) {
-            if (this.lMn == null) {
-                this.lMn = new float[8];
+        this.lMA.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        float f = (this.lMz ? this.mBorderWidth : 0.0f) + this.mPadding;
+        this.lMA.inset(f, f);
+        if (this.dHO) {
+            this.mPath.addCircle(this.lMA.centerX(), this.lMA.centerY(), Math.min(this.lMA.width(), this.lMA.height()) / 2.0f, Path.Direction.CW);
+        } else if (this.lMz) {
+            if (this.lMy == null) {
+                this.lMy = new float[8];
             }
-            for (int i2 = 0; i2 < this.lMn.length; i2++) {
-                this.lMn[i2] = this.aFt[i2] - this.mBorderWidth;
+            for (int i2 = 0; i2 < this.lMy.length; i2++) {
+                this.lMy[i2] = this.aFu[i2] - this.mBorderWidth;
             }
-            this.mPath.addRoundRect(this.lMp, this.lMn, Path.Direction.CW);
+            this.mPath.addRoundRect(this.lMA, this.lMy, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.lMp, this.aFt, Path.Direction.CW);
+            this.mPath.addRoundRect(this.lMA, this.aFu, Path.Direction.CW);
         }
-        this.lMp.inset(-f, -f);
+        this.lMA.inset(-f, -f);
     }
 
     public void a(ColorFilter colorFilter) {

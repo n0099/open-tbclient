@@ -4,21 +4,21 @@ import android.opengl.EGLContext;
 import com.baidu.mario.gldraw2d.d.d;
 /* loaded from: classes11.dex */
 public class c implements Cloneable, Comparable<c> {
-    private int aJy;
-    private boolean aJz;
+    private boolean aJA;
+    private int aJz;
     private EGLContext mEGLContext;
-    private d aJi = new d();
-    private com.baidu.mario.gldraw2d.d.c aJj = new com.baidu.mario.gldraw2d.d.c();
-    private com.baidu.mario.gldraw2d.d.a aJu = new com.baidu.mario.gldraw2d.d.b();
-    private a aJv = new a();
-    private boolean aJw = false;
-    private com.baidu.mario.gldraw2d.c.c aJe = null;
-    private b aJx = new b();
+    private d aJj = new d();
+    private com.baidu.mario.gldraw2d.d.c aJk = new com.baidu.mario.gldraw2d.d.c();
+    private com.baidu.mario.gldraw2d.d.a aJv = new com.baidu.mario.gldraw2d.d.b();
+    private a aJw = new a();
+    private boolean aJx = false;
+    private com.baidu.mario.gldraw2d.c.c aJf = null;
+    private b aJy = new b();
 
     public c(EGLContext eGLContext, int i, boolean z) {
         this.mEGLContext = eGLContext;
-        this.aJy = i;
-        this.aJz = z;
+        this.aJz = i;
+        this.aJA = z;
     }
 
     public EGLContext getEGLContext() {
@@ -30,62 +30,62 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public d Cu() {
-        return this.aJi;
-    }
-
-    public void c(d dVar) {
-        this.aJi = dVar;
-    }
-
-    public com.baidu.mario.gldraw2d.d.c Cv() {
         return this.aJj;
     }
 
-    public com.baidu.mario.gldraw2d.d.a Cw() {
-        return this.aJu;
+    public void c(d dVar) {
+        this.aJj = dVar;
     }
 
-    public a Cx() {
+    public com.baidu.mario.gldraw2d.d.c Cv() {
+        return this.aJk;
+    }
+
+    public com.baidu.mario.gldraw2d.d.a Cw() {
         return this.aJv;
     }
 
-    public void a(a aVar) {
-        this.aJv = aVar;
-    }
-
-    public boolean Cy() {
+    public a Cx() {
         return this.aJw;
     }
 
-    public com.baidu.mario.gldraw2d.c.c Cz() {
-        return this.aJe;
+    public void a(a aVar) {
+        this.aJw = aVar;
     }
 
-    public void c(com.baidu.mario.gldraw2d.c.c cVar) {
-        this.aJe = cVar;
-    }
-
-    public b CA() {
+    public boolean Cy() {
         return this.aJx;
     }
 
-    public void a(b bVar) {
-        this.aJx = bVar;
+    public com.baidu.mario.gldraw2d.c.c Cz() {
+        return this.aJf;
     }
 
-    public int CB() {
+    public void c(com.baidu.mario.gldraw2d.c.c cVar) {
+        this.aJf = cVar;
+    }
+
+    public b CA() {
         return this.aJy;
     }
 
-    public boolean CC() {
+    public void a(b bVar) {
+        this.aJy = bVar;
+    }
+
+    public int CB() {
         return this.aJz;
+    }
+
+    public boolean CC() {
+        return this.aJA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(c cVar) {
-        return this.aJy < cVar.CB() ? -1 : 1;
+        return this.aJz < cVar.CB() ? -1 : 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,8 +99,8 @@ public class c implements Cloneable, Comparable<c> {
             cVar = null;
         }
         if (cVar != null) {
-            cVar.a(this.aJv.clone());
-            cVar.a(this.aJx.clone());
+            cVar.a(this.aJw.clone());
+            cVar.a(this.aJy.clone());
         }
         return cVar;
     }

@@ -15,7 +15,7 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private c<h> bIf = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.b.a.a.1
+    private c<h> bIg = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.b.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -56,7 +56,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.cmp.cm(false);
+            a.this.cmq.cm(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,10 +71,10 @@ public class a extends j {
                 if (a.DEBUG) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.cmp.cm(false);
+                a.this.cmq.cm(false);
                 return;
             }
-            File Np = a.this.cmq.Np();
+            File Np = a.this.cmr.Np();
             if (Np.exists()) {
                 com.baidu.swan.d.c.deleteFile(Np);
             } else {
@@ -82,20 +82,20 @@ public class a extends j {
             }
             boolean unzipFile = com.baidu.swan.d.c.unzipFile(hVar.filePath, Np.getAbsolutePath());
             if (unzipFile) {
-                a.this.cmq.gS(hVar.versionName);
+                a.this.cmr.gS(hVar.versionName);
             }
             com.baidu.swan.d.c.deleteFile(hVar.filePath);
-            a.this.cmp.cm(unzipFile);
+            a.this.cmq.cm(unzipFile);
         }
     };
     @NonNull
-    private com.baidu.swan.games.b.b cmp;
+    private com.baidu.swan.games.b.b cmq;
     @NonNull
-    private com.baidu.swan.games.b.b.a cmq;
+    private com.baidu.swan.games.b.b.a cmr;
 
     public a(@NonNull com.baidu.swan.games.b.b.a aVar, @NonNull com.baidu.swan.games.b.b bVar) {
-        this.cmp = bVar;
-        this.cmq = aVar;
+        this.cmq = bVar;
+        this.cmr = aVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -112,7 +112,7 @@ public class a extends j {
         if (DEBUG) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.cmp.cm(false);
+        this.cmq.cm(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -121,7 +121,7 @@ public class a extends j {
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.cmp.cm(false);
+        this.cmq.cm(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -134,6 +134,6 @@ public class a extends j {
 
     @Override // com.baidu.swan.pms.a.g
     public c<h> aad() {
-        return this.bIf;
+        return this.bIg;
     }
 }

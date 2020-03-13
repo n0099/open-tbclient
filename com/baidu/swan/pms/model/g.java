@@ -4,7 +4,7 @@ import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public class g extends e {
     public String appId;
-    public int cBi;
+    public int cBj;
     public boolean independent;
     public String pkgName;
 

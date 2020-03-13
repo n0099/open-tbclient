@@ -18,40 +18,40 @@ import com.baidu.tieba.ala.person.c.c;
 import com.baidu.tieba.ala.person.view.PersonEmptyView;
 /* loaded from: classes3.dex */
 public class b {
-    private LoadingView ewE;
-    private BdUniqueId ewI;
-    private a.InterfaceC0474a frJ;
-    private com.baidu.tieba.ala.person.adapter.a frL;
-    private BdListView frM;
-    private com.baidu.tieba.ala.person.c.c frN;
-    private com.baidu.tieba.ala.person.view.d frO;
-    private PersonEmptyView frP;
-    private int frQ;
-    private boolean frR;
+    private LoadingView ewR;
+    private BdUniqueId ewV;
+    private a.InterfaceC0474a frW;
+    private com.baidu.tieba.ala.person.adapter.a frY;
+    private BdListView frZ;
+    private com.baidu.tieba.ala.person.c.c fsa;
+    private com.baidu.tieba.ala.person.view.d fsb;
+    private PersonEmptyView fsc;
+    private int fsd;
+    private boolean fse;
     private boolean mHasMore;
     private TbPageContext mPageContext;
     private View mRootView;
     private int mSkinType;
     private String mUserId;
     private boolean mIsLoading = false;
-    private c.a frS = new c.a() { // from class: com.baidu.tieba.ala.person.b.b.5
+    private c.a fsf = new c.a() { // from class: com.baidu.tieba.ala.person.b.b.5
         @Override // com.baidu.tieba.ala.person.c.c.a
         public void c(com.baidu.tieba.ala.person.a.d dVar) {
             b.this.hideLoadingView();
             if (dVar == null) {
                 CustomToast.newInstance().showToast(a.i.ala_person_load_fail);
-                b.this.frO.qL(a.i.ala_person_load_fail_click);
+                b.this.fsb.qL(a.i.ala_person_load_fail_click);
                 return;
             }
             b.this.mHasMore = dVar.has_more == 1;
             if (dVar.has_more != 1) {
-                b.this.frO.hide();
+                b.this.fsb.hide();
             } else {
-                b.this.frO.mI(a.i.sdk_loading);
+                b.this.fsb.mI(a.i.sdk_loading);
             }
-            b.this.frL.a(b.this.frR, dVar.user_list, b.this.frQ);
-            if (b.this.frR) {
-                b.this.frR = false;
+            b.this.frY.a(b.this.fse, dVar.user_list, b.this.fsd);
+            if (b.this.fse) {
+                b.this.fse = false;
             }
         }
 
@@ -59,70 +59,70 @@ public class b {
         public void onFail(String str) {
             b.this.hideLoadingView();
             CustomToast.newInstance().showToast(str);
-            b.this.frL.a(true, null, b.this.frQ);
-            if (b.this.frP != null) {
-                b.this.frM.setEmptyView(b.this.frP);
+            b.this.frY.a(true, null, b.this.fsd);
+            if (b.this.fsc != null) {
+                b.this.frZ.setEmptyView(b.this.fsc);
             }
         }
     };
 
     public b(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.ewI = null;
+        this.ewV = null;
         this.mPageContext = tbPageContext;
-        this.frQ = i;
+        this.fsd = i;
         this.mUserId = str;
-        this.ewI = bdUniqueId;
+        this.ewV = bdUniqueId;
         initView();
         initListener();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_person_card_list_view_layout, (ViewGroup) null);
-        this.frM = (BdListView) this.mRootView.findViewById(a.g.ala_person_card_list_view);
-        this.frL = new com.baidu.tieba.ala.person.adapter.a(this.mPageContext.getPageActivity(), 2);
-        this.frM.setAdapter((ListAdapter) this.frL);
-        this.frO = new com.baidu.tieba.ala.person.view.d(this.mPageContext);
-        this.frO.createView();
-        this.frO.display();
-        this.frO.mI(a.i.sdk_loading);
-        this.frM.setNextPage(this.frO);
-        this.frP = (PersonEmptyView) this.mRootView.findViewById(a.g.ala_person_card_emptyview);
-        if (this.frQ == 0) {
-            this.frP.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_fans);
+        this.frZ = (BdListView) this.mRootView.findViewById(a.g.ala_person_card_list_view);
+        this.frY = new com.baidu.tieba.ala.person.adapter.a(this.mPageContext.getPageActivity(), 2);
+        this.frZ.setAdapter((ListAdapter) this.frY);
+        this.fsb = new com.baidu.tieba.ala.person.view.d(this.mPageContext);
+        this.fsb.createView();
+        this.fsb.display();
+        this.fsb.mI(a.i.sdk_loading);
+        this.frZ.setNextPage(this.fsb);
+        this.fsc = (PersonEmptyView) this.mRootView.findViewById(a.g.ala_person_card_emptyview);
+        if (this.fsd == 0) {
+            this.fsc.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_fans);
         } else {
-            this.frP.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_attention_desc);
+            this.fsc.setParams(a.f.sdk_emotion07, -1, a.i.ala_person_no_attention_desc);
         }
-        this.frM.setEmptyView(this.frP);
-        this.frN = new com.baidu.tieba.ala.person.c.c(this.mPageContext);
-        this.frN.a(this.frS);
+        this.frZ.setEmptyView(this.fsc);
+        this.fsa = new com.baidu.tieba.ala.person.c.c(this.mPageContext);
+        this.fsa.a(this.fsf);
     }
 
     public void refreshData() {
-        this.frN.setPn(0);
-        this.frR = true;
+        this.fsa.setPn(0);
+        this.fse = true;
         showLoadingView();
-        this.frN.g(this.frQ, this.mUserId, "");
+        this.fsa.g(this.fsd, this.mUserId, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
         if (this.mHasMore) {
-            this.frN.g(this.frQ, this.mUserId, "");
+            this.fsa.g(this.fsd, this.mUserId, "");
         }
     }
 
     public void Z(String str, boolean z) {
-        if (this.frL != null) {
-            this.frL.Z(str, z);
+        if (this.frY != null) {
+            this.frY.Z(str, z);
         }
     }
 
-    public View aIh() {
+    public View aIi() {
         return this.mRootView;
     }
 
     public void a(a.InterfaceC0474a interfaceC0474a) {
-        this.frJ = interfaceC0474a;
+        this.frW = interfaceC0474a;
     }
 
     public void showLoadingView() {
@@ -136,70 +136,70 @@ public class b {
     }
 
     private void initListener() {
-        this.frM.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.b.b.1
+        this.frZ.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.person.b.b.1
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
                 if (!b.this.mHasMore) {
-                    b.this.frO.hide();
+                    b.this.fsb.hide();
                 } else {
                     b.this.loadData();
                 }
             }
         });
-        this.frO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.b.b.2
+        this.fsb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.frL != null && b.this.frL.getCount() == 0) {
+                if (b.this.frY != null && b.this.frY.getCount() == 0) {
                     b.this.loadData();
                 }
             }
         });
-        this.frL.a(new a.InterfaceC0473a() { // from class: com.baidu.tieba.ala.person.b.b.3
+        this.frY.a(new a.InterfaceC0473a() { // from class: com.baidu.tieba.ala.person.b.b.3
             @Override // com.baidu.tieba.ala.person.adapter.a.InterfaceC0473a
             public void a(com.baidu.tieba.ala.person.a.b bVar, View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(b.this.mPageContext.getPageActivity());
                 } else if (bVar != null && bVar.portrait != null && bVar.id != null) {
-                    if (bVar.eLB == 0) {
-                        bVar.eLB = 1;
-                        com.baidu.live.view.a.Bj().a(bVar.id, new com.baidu.live.data.b(bVar.portrait, bVar.id, bVar.metaKey, "1", true, b.this.ewI));
+                    if (bVar.eLO == 0) {
+                        bVar.eLO = 1;
+                        com.baidu.live.view.a.Bj().a(bVar.id, new com.baidu.live.data.b(bVar.portrait, bVar.id, bVar.metaKey, "1", true, b.this.ewV));
                     } else {
-                        bVar.eLB = 0;
-                        com.baidu.live.view.a.Bj().a(bVar.id, new com.baidu.live.data.b(bVar.portrait, bVar.id, bVar.metaKey, "1", false, b.this.ewI));
+                        bVar.eLO = 0;
+                        com.baidu.live.view.a.Bj().a(bVar.id, new com.baidu.live.data.b(bVar.portrait, bVar.id, bVar.metaKey, "1", false, b.this.ewV));
                     }
-                    b.this.frL.notifyDataSetChanged();
+                    b.this.frY.notifyDataSetChanged();
                 }
             }
         });
-        this.frL.a(new a.c() { // from class: com.baidu.tieba.ala.person.b.b.4
+        this.frY.a(new a.c() { // from class: com.baidu.tieba.ala.person.b.b.4
             @Override // com.baidu.tieba.ala.person.adapter.a.c
             public void b(com.baidu.tieba.ala.person.a.b bVar, View view) {
-                if (b.this.frJ != null) {
-                    b.this.frJ.a(bVar, view, b.this.frQ);
+                if (b.this.frW != null) {
+                    b.this.frW.a(bVar, view, b.this.fsd);
                 }
             }
         });
     }
 
     public boolean isEmpty() {
-        return this.frL == null || this.frL.getCount() <= 0;
+        return this.frY == null || this.frY.getCount() <= 0;
     }
 
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        if (this.ewE != null) {
-            this.ewE.setSkinType(i);
-            this.ewE.onChangeSkinType();
+        if (this.ewR != null) {
+            this.ewR.setSkinType(i);
+            this.ewR.onChangeSkinType();
         }
-        if (this.frL != null) {
-            this.frL.setSkinType(i);
-            this.frL.notifyDataSetChanged();
+        if (this.frY != null) {
+            this.frY.setSkinType(i);
+            this.frY.notifyDataSetChanged();
         }
     }
 
     public void onDestory() {
-        if (this.frN != null) {
-            this.frN.cancel();
+        if (this.fsa != null) {
+            this.fsa.cancel();
         }
     }
 }

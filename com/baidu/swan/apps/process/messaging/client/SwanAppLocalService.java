@@ -96,7 +96,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     jSONObject.put("time", currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put(BdStatsConstant.StatsKey.COST, currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", d.bsI);
+                    jSONObject.put("is_preload_started", d.bsJ);
                     jSONObject.put("is_preload_ready", d.Qw().QB());
                 } catch (JSONException e) {
                     if (DEBUG) {
@@ -121,7 +121,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.bcq.Jt();
+                    g.bcr.Jt();
                 }
             }, "updateMaBduss");
         }

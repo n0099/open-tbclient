@@ -6,13 +6,13 @@ import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.g.a.b.c;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.g.a.c.a {
-    private long aIW;
-    private int aIX;
+    private long aIX;
+    private int aIY;
 
     @Override // com.baidu.g.a.c.a
     public void a(Context context, String str, String str2, int i, int i2, final com.baidu.g.a.c.b bVar) {
         try {
-            this.aIX++;
+            this.aIY++;
             if (BX()) {
                 long parseLong = Long.parseLong(str);
                 long parseLong2 = Long.parseLong(str2);
@@ -23,7 +23,7 @@ public class b implements com.baidu.g.a.c.a {
                     a aVar = new a();
                     aVar.num = i;
                     aVar.roomId = parseLong;
-                    aVar.aIV = i2;
+                    aVar.aIW = i2;
                     aVar.sourceType = 0;
                     com.baidu.g.a.a.a BQ = aP.BQ();
                     if (BQ != null && BQ.isLogin() && BQ.BI() != null) {
@@ -35,7 +35,7 @@ public class b implements com.baidu.g.a.c.a {
                     }
                     com.baidu.g.b.b BT = aP.BT();
                     if (BT != null) {
-                        aVar.aIz = BT.aIz;
+                        aVar.aIA = BT.aIA;
                         aVar.cuid = BT.cuid;
                     }
                     BU.sendQuizOpts(parseLong, parseLong2, 1000, aVar.toJson(), new IMcastSetListener() { // from class: com.baidu.g.b.b.b.1
@@ -49,8 +49,8 @@ public class b implements com.baidu.g.a.c.a {
                 } else if (bVar != null) {
                     bVar.onResult(-1, parseLong, parseLong2);
                 }
-                this.aIX = 0;
-                this.aIW = System.currentTimeMillis();
+                this.aIY = 0;
+                this.aIX = System.currentTimeMillis();
             }
         } catch (Exception e2) {
             if (bVar != null) {
@@ -60,9 +60,9 @@ public class b implements com.baidu.g.a.c.a {
     }
 
     private boolean BX() {
-        if (this.aIW == 0) {
-            this.aIW = System.currentTimeMillis();
+        if (this.aIX == 0) {
+            this.aIX = System.currentTimeMillis();
         }
-        return System.currentTimeMillis() - this.aIW > 1200 && this.aIX > 0;
+        return System.currentTimeMillis() - this.aIX > 1200 && this.aIY > 0;
     }
 }

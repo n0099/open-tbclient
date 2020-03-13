@@ -21,10 +21,10 @@ import com.baidu.tieba.R;
 import java.util.Calendar;
 /* loaded from: classes9.dex */
 public class BigdayActivity extends BaseActivity {
-    private String cLR;
-    private long cLT;
-    private TbImageView hey;
-    private ImageView hez;
+    private String cLS;
+    private long cLU;
+    private TbImageView heK;
+    private ImageView heL;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,34 +33,34 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.bigday_activity);
-        this.hey = (TbImageView) findViewById(R.id.bigday_img);
-        this.hey.setAutoChangeStyle(false);
-        this.hez = (ImageView) findViewById(R.id.bigday_close);
+        this.heK = (TbImageView) findViewById(R.id.bigday_img);
+        this.heK.setAutoChangeStyle(false);
+        this.heL = (ImageView) findViewById(R.id.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.hez.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+            ((FrameLayout.LayoutParams) this.heL.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.cLR = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.cLT = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.cLS = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.cLU = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.hey.setTag(getPageContext().getUniqueId());
-        this.hey.startLoad(this.imgUrl, 41, false);
-        this.hey.setOnClickListener(this);
-        this.hez.setOnClickListener(this);
-        TiebaStatic.log(new an("c13111").s("obj_id", this.cLT).cy(TiebaInitialize.Params.OBJ_TO, this.cLR));
+        this.heK.setTag(getPageContext().getUniqueId());
+        this.heK.startLoad(this.imgUrl, 41, false);
+        this.heK.setOnClickListener(this);
+        this.heL.setOnClickListener(this);
+        TiebaStatic.log(new an("c13111").s("obj_id", this.cLU).cy(TiebaInitialize.Params.OBJ_TO, this.cLS));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.hey.getId()) {
-            if (!StringUtils.isNULL(this.cLR)) {
-                ba.aGG().b(getPageContext(), new String[]{this.cLR});
-                TiebaStatic.log(new an("c13112").s("obj_id", this.cLT).cy(TiebaInitialize.Params.OBJ_TO, this.cLR));
+        if (view.getId() == this.heK.getId()) {
+            if (!StringUtils.isNULL(this.cLS)) {
+                ba.aGG().b(getPageContext(), new String[]{this.cLS});
+                TiebaStatic.log(new an("c13112").s("obj_id", this.cLU).cy(TiebaInitialize.Params.OBJ_TO, this.cLS));
                 finish();
             }
-        } else if (view.getId() == this.hez.getId()) {
+        } else if (view.getId() == this.heL.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

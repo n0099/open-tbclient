@@ -390,7 +390,7 @@ public final class f {
                 fVar.mFrom = gs(acI.getAppFrameType());
                 fVar.mType = Config.LAUNCH;
                 fVar.mValue = UgcUBCUtils.UGC_TIME_CANCEL;
-                fVar.bVs = valueOf;
+                fVar.bVt = valueOf;
                 fVar.b(acI);
                 fVar.lR(VP.getString("ubc"));
                 fVar.ba(lI(acI.VL()));
@@ -399,7 +399,7 @@ public final class f {
                 fVar2.mFrom = gs(acI.getAppFrameType());
                 fVar2.mType = Config.LAUNCH;
                 fVar2.mValue = "realcancel";
-                fVar2.bVs = valueOf;
+                fVar2.bVt = valueOf;
                 fVar2.b(acI);
                 fVar2.ba(lI(acI.VL()));
                 fVar2.n(TiebaInitialize.LogFields.REASON, UgcUBCUtils.UGC_TIME_CANCEL);

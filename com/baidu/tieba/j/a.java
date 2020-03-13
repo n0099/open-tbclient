@@ -26,27 +26,27 @@ public class a {
             return false;
         }
         if ((xVar.isNetSuccess() ? xVar.getServerErrorCode() : xVar.getNetErrorCode()) == 1990055) {
-            bME();
+            bMF();
             return true;
         }
         return false;
     }
 
-    public static void bME() {
+    public static void bMF() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.bMF();
+                    a.bMG();
                 }
             });
         } else {
-            bMF();
+            bMG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bMF() {
+    public static final void bMG() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

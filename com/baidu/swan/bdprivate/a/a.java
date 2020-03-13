@@ -243,7 +243,7 @@ public final class a {
         if (callOnMainWithContentProvider.isOk()) {
             z zVar = new z();
             zVar.displayName = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-            zVar.aqo = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
+            zVar.aqp = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
             return zVar;
         }
         return null;

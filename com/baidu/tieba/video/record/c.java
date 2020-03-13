@@ -4,11 +4,11 @@ import android.media.AudioRecord;
 import com.baidu.ala.player.StreamConfig;
 /* loaded from: classes10.dex */
 public class c {
-    public static boolean cQW() {
-        return cQX() != -2;
+    public static boolean cQX() {
+        return cQY() != -2;
     }
 
-    private static int cQX() {
+    private static int cQY() {
         AudioRecord audioRecord;
         int minBufferSize = AudioRecord.getMinBufferSize(StreamConfig.Audio.AUDIO_FREQUENCY, 16, 2);
         short[] sArr = new short[minBufferSize];

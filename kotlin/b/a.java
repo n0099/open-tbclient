@@ -4,9 +4,9 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class a implements Iterable<Character> {
-    public static final C0768a nCB = new C0768a(null);
-    private final char nCA;
-    private final char nCz;
+    public static final C0768a nCM = new C0768a(null);
+    private final char nCK;
+    private final char nCL;
     private final int step;
 
     public a(char c, char c2, int i) {
@@ -16,43 +16,43 @@ public class a implements Iterable<Character> {
         if (i == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nCz = c;
-        this.nCA = (char) kotlin.internal.c.au(c, c2, i);
+        this.nCK = c;
+        this.nCL = (char) kotlin.internal.c.au(c, c2, i);
         this.step = i;
     }
 
-    public final char dKC() {
-        return this.nCz;
+    public final char dKD() {
+        return this.nCK;
     }
 
-    public final char dKD() {
-        return this.nCA;
+    public final char dKE() {
+        return this.nCL;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dKE */
+    /* renamed from: dKF */
     public kotlin.collections.n iterator() {
-        return new b(this.nCz, this.nCA, this.step);
+        return new b(this.nCK, this.nCL, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.nCz > this.nCA : this.nCz < this.nCA;
+        return this.step > 0 ? this.nCK > this.nCL : this.nCK < this.nCL;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.nCz == ((a) obj).nCz && this.nCA == ((a) obj).nCA && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.nCK == ((a) obj).nCK && this.nCL == ((a) obj).nCL && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.nCz * 31) + this.nCA) * 31) + this.step;
+        return (((this.nCK * 31) + this.nCL) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.nCz + IStringUtil.TOP_PATH + this.nCA + " step " + this.step : this.nCz + " downTo " + this.nCA + " step " + (-this.step);
+        return this.step > 0 ? this.nCK + IStringUtil.TOP_PATH + this.nCL + " step " + this.step : this.nCK + " downTo " + this.nCL + " step " + (-this.step);
     }
 
     @kotlin.h

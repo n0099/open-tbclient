@@ -8,11 +8,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class j {
     private long Fp;
-    private int cEM;
-    private JSONObject cEN;
-    private String cEO;
-    private boolean cEP = false;
-    private JSONArray cER;
+    private int cEN;
+    private JSONObject cEO;
+    private String cEP;
+    private boolean cEQ = false;
+    private JSONArray cES;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -26,7 +26,7 @@ public class j {
 
     public j(String str, int i, String str2, int i2, boolean z) {
         this.mId = str;
-        this.cEM = i;
+        this.cEN = i;
         this.mContent = str2;
         this.mOption = i2;
         this.mIsSampled = z;
@@ -37,7 +37,7 @@ public class j {
     }
 
     public int avv() {
-        return this.cEM;
+        return this.cEN;
     }
 
     public String getContent() {
@@ -45,7 +45,7 @@ public class j {
     }
 
     public JSONObject avx() {
-        return this.cEN;
+        return this.cEO;
     }
 
     public long avC() {
@@ -65,7 +65,7 @@ public class j {
     }
 
     public String avw() {
-        return this.cEO;
+        return this.cEP;
     }
 
     public void setId(String str) {
@@ -73,7 +73,7 @@ public class j {
     }
 
     public void iY(int i) {
-        this.cEM = i;
+        this.cEN = i;
     }
 
     public void setContent(String str) {
@@ -93,12 +93,12 @@ public class j {
     }
 
     public void qY(String str) {
-        this.cEO = str;
+        this.cEP = str;
     }
 
     public void avz() {
         if (d.avi().qQ(this.mId)) {
-            this.cEO = s.avT().Zq();
+            this.cEP = s.avT().Zq();
         }
     }
 
@@ -111,17 +111,17 @@ public class j {
     }
 
     public void fe(boolean z) {
-        this.cEP = z;
+        this.cEQ = z;
     }
 
     public boolean avt() {
-        return this.cEP;
+        return this.cEQ;
     }
 
     public void qZ(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.cER = new JSONArray(str);
+                this.cES = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -129,7 +129,7 @@ public class j {
     }
 
     public JSONArray avE() {
-        return this.cER;
+        return this.cES;
     }
 
     public boolean avB() {

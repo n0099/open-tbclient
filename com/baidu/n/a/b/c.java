@@ -6,24 +6,24 @@ import com.baidu.n.a.a.d;
 /* loaded from: classes6.dex */
 public class c extends d {
     private static String TAG = "XMUnionID";
-    private static boolean DEBUG = com.baidu.n.a.a.dhT();
+    private static boolean DEBUG = com.baidu.n.a.a.dhU();
 
     public c(Context context) {
         super(context);
         if (DEBUG) {
             Log.e(TAG, "xiaomi XMUnionID !!");
         }
-        this.lCf = "";
-        this.lCd = false;
-        this.lCG = false;
+        this.lCq = "";
+        this.lCo = false;
+        this.lCR = false;
         this.mStatusCode = -200;
     }
 
     @Override // com.baidu.n.a.a.c
-    public com.baidu.n.a.a.c dia() {
+    public com.baidu.n.a.a.c dib() {
         try {
-            this.lCG = com.c.b.a.isSupported();
-            this.lCf = com.c.b.a.gv(this.mCtx);
+            this.lCR = com.c.b.a.isSupported();
+            this.lCq = com.c.b.a.gv(this.mCtx);
             this.mStatusCode = 0;
         } catch (Exception e) {
             if (DEBUG) {

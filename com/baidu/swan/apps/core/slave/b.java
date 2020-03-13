@@ -15,16 +15,16 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> brH = new LinkedList<>();
-    private static Map<String, c> brI = new TreeMap();
+    private static LinkedList<a> brI = new LinkedList<>();
+    private static Map<String, c> brJ = new TreeMap();
 
     /* loaded from: classes11.dex */
     public static class a {
-        public c brK;
-        public boolean brL;
-        public final ArrayList<InterfaceC0255b> brM = new ArrayList<>();
-        public long brN;
+        public c brL;
+        public boolean brM;
+        public final ArrayList<InterfaceC0255b> brN = new ArrayList<>();
         public long brO;
+        public long brP;
     }
 
     /* renamed from: com.baidu.swan.apps.core.slave.b$b  reason: collision with other inner class name */
@@ -41,14 +41,14 @@ public final class b {
             }
             return;
         }
-        if (brH.size() < 2) {
+        if (brI.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            brH.add(L(activity));
+            brI.add(L(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + brH.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + brI.size());
         }
     }
 
@@ -74,13 +74,13 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (brH.isEmpty()) {
+        if (brI.isEmpty()) {
             return L(activity);
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + brH.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + brI.getFirst());
         }
-        a removeFirst = brH.removeFirst();
+        a removeFirst = brI.removeFirst();
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
         }
@@ -105,35 +105,35 @@ public final class b {
 
     public static void a(a aVar, InterfaceC0255b interfaceC0255b) {
         if (interfaceC0255b != null) {
-            if (aVar.brL) {
+            if (aVar.brM) {
                 interfaceC0255b.onReady();
             } else {
-                aVar.brM.add(interfaceC0255b);
+                aVar.brN.add(interfaceC0255b);
             }
         }
     }
 
     private static a L(Activity activity) {
         final a aVar = new a();
-        aVar.brN = System.currentTimeMillis();
-        aVar.brL = false;
-        aVar.brK = d.Qw().a(activity, new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.slave.b.3
+        aVar.brO = System.currentTimeMillis();
+        aVar.brM = false;
+        aVar.brL = d.Qw().a(activity, new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.slave.b.3
             @Override // com.baidu.swan.apps.core.b
             public void em(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.brK.IR() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.brL.IR() + " url: " + str);
                 }
-                a.this.brO = System.currentTimeMillis();
-                a.this.brL = true;
-                if (!a.this.brM.isEmpty()) {
-                    Iterator<InterfaceC0255b> it = a.this.brM.iterator();
+                a.this.brP = System.currentTimeMillis();
+                a.this.brM = true;
+                if (!a.this.brN.isEmpty()) {
+                    Iterator<InterfaceC0255b> it = a.this.brN.iterator();
                     while (it.hasNext()) {
                         InterfaceC0255b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.brM.clear();
+                    a.this.brN.clear();
                 }
             }
         });
@@ -141,7 +141,7 @@ public final class b {
     }
 
     public static void a(@NonNull String str, c cVar) {
-        Map<String, c> map = brI;
+        Map<String, c> map = brJ;
         if (str == null) {
             str = "";
         }
@@ -149,15 +149,15 @@ public final class b {
     }
 
     public static c hs(@NonNull String str) {
-        c cVar = brI.get(str != null ? str : "");
+        c cVar = brJ.get(str != null ? str : "");
         if (cVar != null) {
-            brI.remove(str);
+            brJ.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        brH.clear();
         brI.clear();
+        brJ.clear();
     }
 }

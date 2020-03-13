@@ -24,8 +24,8 @@ public class c extends com.kascend.chushou.view.base.a {
     private String i;
     private int j;
     private String k;
-    private FrescoThumbnailView nbj;
-    private a nfo;
+    private FrescoThumbnailView nbu;
+    private a nfz;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -75,7 +75,7 @@ public class c extends com.kascend.chushou.view.base.a {
         this.a = (TextView) inflate.findViewById(a.f.tv_point);
         this.d = (TextView) inflate.findViewById(a.f.tv_cancel);
         this.e = (TextView) inflate.findViewById(a.f.tv_sure);
-        this.nbj = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
+        this.nbu = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -85,8 +85,8 @@ public class c extends com.kascend.chushou.view.base.a {
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.nfo != null) {
-                    c.this.nfo.a(c.this.j, c.this.h);
+                if (c.this.nfz != null) {
+                    c.this.nfz.a(c.this.j, c.this.h);
                 }
             }
         });
@@ -106,11 +106,11 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        this.nbj.i(this.i, a.e.default_gift, b.a.medium, b.a.medium);
+        this.nbu.i(this.i, a.e.default_gift, b.a.medium, b.a.medium);
         this.a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
     }
 
     public void a(a aVar) {
-        this.nfo = aVar;
+        this.nfz = aVar;
     }
 }

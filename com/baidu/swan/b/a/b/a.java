@@ -11,29 +11,29 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cjn;
-    private long cjo;
+    private String cjo;
+    private long cjp;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.cjn = "";
-        this.cjo = System.currentTimeMillis();
+        this.cjo = "";
+        this.cjp = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.cjn = "";
-        this.cjo = System.currentTimeMillis();
+        this.cjo = "";
+        this.cjp = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.cjn = jSONObject.optString("apk_id");
-                this.cjo = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.cjo = jSONObject.optString("apk_id");
+                this.cjp = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -48,8 +48,8 @@ public class a {
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.cjn);
-            jSONObject.put("download_time", this.cjo);
+            jSONObject.put("apk_id", this.cjo);
+            jSONObject.put("download_time", this.cjp);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -77,16 +77,16 @@ public class a {
     }
 
     public String akZ() {
-        return this.cjn;
+        return this.cjo;
     }
 
     public a ob(String str) {
-        this.cjn = str;
+        this.cjo = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.cjo;
+        return this.cjp;
     }
 
     private static String getDownloadDir() {

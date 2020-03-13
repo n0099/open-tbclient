@@ -19,14 +19,14 @@ import com.baidu.tieba.ala.tasklist.model.AlaTaskRewardHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.x.a {
-    private u fzV;
-    private u fzW;
-    private boolean fzU = true;
-    private int fzX = -1;
-    private int fzY = 0;
-    private int fzZ = 0;
-    private boolean fAa = true;
-    private HttpMessageListener fzD = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.b.1
+    private u fAi;
+    private u fAj;
+    private boolean fAh = true;
+    private int fAk = -1;
+    private int fAl = 0;
+    private int fAm = 0;
+    private boolean fAn = true;
+    private HttpMessageListener fzQ = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,12 +35,12 @@ public class b implements com.baidu.live.x.a {
                 int error = httpResponsedMessage.getError();
                 AlaTaskRewardHttpResponsedMessage alaTaskRewardHttpResponsedMessage = (AlaTaskRewardHttpResponsedMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    b.this.b(alaTaskRewardHttpResponsedMessage.fzA);
+                    b.this.b(alaTaskRewardHttpResponsedMessage.fzN);
                 }
             }
         }
     };
-    private HttpMessageListener fAb = new HttpMessageListener(1021067) { // from class: com.baidu.tieba.ala.taskview.b.2
+    private HttpMessageListener fAo = new HttpMessageListener(1021067) { // from class: com.baidu.tieba.ala.taskview.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,25 +48,25 @@ public class b implements com.baidu.live.x.a {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    b.this.fAa = false;
-                    if (b.this.fzZ < 3) {
+                    b.this.fAn = false;
+                    if (b.this.fAm < 3) {
                         b.b(b.this);
-                        b.this.btB();
+                        b.this.btC();
                         return;
                     }
                     return;
                 }
-                b.this.fAa = true;
-                b.this.fzZ = 0;
+                b.this.fAn = true;
+                b.this.fAm = 0;
             }
         }
     };
-    private CustomMessageListener eOK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.taskview.b.3
+    private CustomMessageListener eOX = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.taskview.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && b.this.fzY <= 0 && !b.this.fAa) {
-                b.this.btB();
+            if (BdNetTypeUtil.isNetWorkAvailable() && b.this.fAl <= 0 && !b.this.fAn) {
+                b.this.btC();
             }
         }
     };
@@ -74,36 +74,36 @@ public class b implements com.baidu.live.x.a {
         @Override // java.lang.Runnable
         public void run() {
             b.f(b.this);
-            if (b.this.fzY > 0) {
+            if (b.this.fAl > 0) {
                 b.this.mHandler.postDelayed(this, 1000L);
             } else {
-                b.this.btB();
+                b.this.btC();
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, Integer.valueOf(b.this.fzY)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, Integer.valueOf(b.this.fAl)));
         }
     };
     private Handler mHandler = new Handler();
 
     static /* synthetic */ int b(b bVar) {
-        int i = bVar.fzZ;
-        bVar.fzZ = i + 1;
+        int i = bVar.fAm;
+        bVar.fAm = i + 1;
         return i;
     }
 
     static /* synthetic */ int f(b bVar) {
-        int i = bVar.fzY;
-        bVar.fzY = i - 1;
+        int i = bVar.fAl;
+        bVar.fAl = i - 1;
         return i;
     }
 
     public b() {
-        btA();
-        MessageManager.getInstance().registerListener(this.fAb);
-        MessageManager.getInstance().registerListener(this.fzD);
-        MessageManager.getInstance().registerListener(this.eOK);
+        btB();
+        MessageManager.getInstance().registerListener(this.fAo);
+        MessageManager.getInstance().registerListener(this.fzQ);
+        MessageManager.getInstance().registerListener(this.eOX);
     }
 
-    private static void btA() {
+    private static void btB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.a.Vp);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -145,16 +145,16 @@ public class b implements com.baidu.live.x.a {
 
     @Override // com.baidu.live.x.a
     public void bj(boolean z) {
-        this.fzU = z;
-        if (z && this.fzV != null) {
-            a(this.fzV);
+        this.fAh = z;
+        if (z && this.fAi != null) {
+            a(this.fAi);
         }
     }
 
     public void a(u uVar) {
         if (uVar != null && uVar.aba != null) {
-            if (this.fzU) {
-                this.fzV = null;
+            if (this.fAh) {
+                this.fAi = null;
                 int i = uVar.aba.abh;
                 if (i > c.pr().getInt(c.getSharedPrefKeyWithAccount("ala_free_gift_task_level_up_dialog_tip"), -1) && BdActivityStack.getInst().currentActivity() != null) {
                     com.baidu.tieba.ala.d.a aVar = new com.baidu.tieba.ala.d.a(BdActivityStack.getInst().currentActivity());
@@ -165,7 +165,7 @@ public class b implements com.baidu.live.x.a {
                 }
                 return;
             }
-            this.fzV = uVar;
+            this.fAi = uVar;
         }
     }
 
@@ -177,26 +177,26 @@ public class b implements com.baidu.live.x.a {
 
     private void c(u uVar) {
         int i;
-        if (uVar.aba != null && (i = uVar.aba.abg) != this.fzX) {
-            this.fzW = uVar;
-            this.fzX = i;
-            this.fzY = this.fzX;
+        if (uVar.aba != null && (i = uVar.aba.abg) != this.fAk) {
+            this.fAj = uVar;
+            this.fAk = i;
+            this.fAl = this.fAk;
             startCountDown();
         }
     }
 
     private void startCountDown() {
-        if (this.fzY > 0) {
+        if (this.fAl > 0) {
             this.mHandler.removeCallbacks(this.runnable);
             this.mHandler.postDelayed(this.runnable, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btB() {
-        if (this.fzW != null) {
+    public void btC() {
+        if (this.fAj != null) {
             HttpMessage httpMessage = new HttpMessage(1021067);
-            httpMessage.addParam("task_id", this.fzW.aaW);
+            httpMessage.addParam("task_id", this.fAj.aaW);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -207,8 +207,8 @@ public class b implements com.baidu.live.x.a {
             this.mHandler.removeCallbacksAndMessages(null);
         }
         MessageManager.getInstance().unRegisterTask(1021067);
-        MessageManager.getInstance().unRegisterListener(this.fzD);
-        MessageManager.getInstance().unRegisterListener(this.fAb);
-        MessageManager.getInstance().unRegisterListener(this.eOK);
+        MessageManager.getInstance().unRegisterListener(this.fzQ);
+        MessageManager.getInstance().unRegisterListener(this.fAo);
+        MessageManager.getInstance().unRegisterListener(this.eOX);
     }
 }

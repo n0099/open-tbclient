@@ -57,7 +57,7 @@ public class u extends b<com.baidu.tbadk.core.data.a> {
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
                 if (u.this.Kc != null && u.this.Kc.aAg() != null) {
-                    com.baidu.tieba.card.l.zS(u.this.Kc.aAg().getId());
+                    com.baidu.tieba.card.l.zT(u.this.Kc.aAg().getId());
                     com.baidu.tieba.card.l.a(u.this.KU.mTitle, u.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                     com.baidu.tieba.card.l.a(u.this.KU.KA, u.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }

@@ -34,12 +34,12 @@ public final class Utils {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (c.dlA().P(Uri.parse(str))) {
+        if (c.dlB().P(Uri.parse(str))) {
             return true;
         }
-        b<Boolean> Q = c.dlA().Q(Uri.parse(str));
+        b<Boolean> Q = c.dlB().Q(Uri.parse(str));
         if (Q != null) {
-            z = Q.dlf() && Q.getResult() != null && Q.getResult().booleanValue();
+            z = Q.dlg() && Q.getResult() != null && Q.getResult().booleanValue();
             Q.OD();
         } else {
             z = false;
@@ -51,7 +51,7 @@ public final class Utils {
         if (TextUtils.isEmpty(str) || !inFrescoCache(str)) {
             return "";
         }
-        a d = j.dpw().dpD().d(com.facebook.imagepipeline.c.j.dnZ().c(ImageRequestBuilder.Y(Uri.parse(str)).dsC(), context.getApplicationContext()));
+        a d = j.dpx().dpE().d(com.facebook.imagepipeline.c.j.doa().c(ImageRequestBuilder.Y(Uri.parse(str)).dsD(), context.getApplicationContext()));
         if (d == null) {
             return "";
         }

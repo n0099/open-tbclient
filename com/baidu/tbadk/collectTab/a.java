@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class a {
-    private ArrayList<b> bBY = new ArrayList<>();
+    private ArrayList<b> bBZ = new ArrayList<>();
     private Context mContext;
 
     public a(Context context) {
@@ -15,19 +15,19 @@ public class a {
 
     public void a(b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            Iterator<b> it = this.bBY.iterator();
+            Iterator<b> it = this.bBZ.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.bBY.add(bVar);
+            this.bBZ.add(bVar);
         }
     }
 
     public ArrayList<b> getList() {
-        return this.bBY;
+        return this.bBZ;
     }
 
     public Context getContext() {

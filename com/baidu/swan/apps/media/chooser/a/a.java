@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    private boolean bBu;
+    private boolean bBv;
     private String mCallback;
     private int mCount;
     private String mMode;
@@ -48,7 +48,7 @@ public class a extends ab {
             }
             this.mCount = parseString.optInt("count");
             this.mMode = parseString.optString("mode");
-            this.bBu = parseString.optBoolean("compressed");
+            this.bBv = parseString.optBoolean("compressed");
             l(context, unitedSchemeEntity, callbackHandler, eVar);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -79,7 +79,7 @@ public class a extends ab {
         bundle.putBoolean("isShowCamera", false);
         bundle.putInt("count", this.mCount);
         bundle.putString("mode", this.mMode);
-        bundle.putBoolean("compressed", this.bBu);
+        bundle.putBoolean("compressed", this.bBv);
         bundle.putString("swanAppId", eVar.id);
         bundle.putString("swanTmpPath", f.WS().Wz().afp());
         d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.a.2

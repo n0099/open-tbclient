@@ -11,6 +11,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivity;
@@ -24,9 +25,9 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class RecAppStatic {
     static {
-        r.jFX.set(new t());
+        r.jGj.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.aXZ().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.aYa().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -38,10 +39,10 @@ public class RecAppStatic {
                     if (!TextUtils.isEmpty(queryParameter)) {
                         if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
-                                com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.clearRequestPermissionList();
-                                aVar.appendRequestPermission((Activity) context, "android.permission.CALL_PHONE");
-                                if (aVar.startRequestPermission((Activity) context)) {
+                                PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+                                permissionJudgePolicy.clearRequestPermissionList();
+                                permissionJudgePolicy.appendRequestPermission((Activity) context, "android.permission.CALL_PHONE");
+                                if (permissionJudgePolicy.startRequestPermission((Activity) context)) {
                                     return 0;
                                 }
                             }
@@ -75,9 +76,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.aVC().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.aVC().a(2, new d());
-        bj.cRO.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.aVD().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.aVD().a(2, new d());
+        bj.cRP.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(NewWebVideoActivityConfig.class, NewWebVideoActivity.class);
@@ -91,13 +92,13 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.cCg().cCj();
-        b.cCg().cCh();
+        b.cCh().cCk();
+        b.cCh().cCi();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());
         if (BdLog.isDebugMode()) {
         }
-        com.baidu.tieba.ad.download.b.a.dZH.set(new com.baidu.tieba.recapp.download.b());
+        com.baidu.tieba.ad.download.b.a.dZU.set(new com.baidu.tieba.recapp.download.b());
     }
 }

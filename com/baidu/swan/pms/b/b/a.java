@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class a {
     @NonNull
-    public com.baidu.swan.pms.b.b cBa;
+    public com.baidu.swan.pms.b.b cBb;
     @NonNull
     public String downloadUrl;
     @NonNull
@@ -15,6 +15,6 @@ public class a {
         this.downloadUrl = str;
         this.size = j;
         this.md5 = str2;
-        this.cBa = bVar;
+        this.cBb = bVar;
     }
 }

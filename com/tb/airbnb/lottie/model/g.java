@@ -7,11 +7,11 @@ import android.support.v4.util.LruCache;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes6.dex */
 public class g {
-    private static final g nqC = new g();
+    private static final g nqN = new g();
     private final LruCache<String, com.tb.airbnb.lottie.d> hH = new LruCache<>(10485760);
 
-    public static g dGO() {
-        return nqC;
+    public static g dGP() {
+        return nqN;
     }
 
     @VisibleForTesting
@@ -19,7 +19,7 @@ public class g {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.d Ry(@Nullable String str) {
+    public com.tb.airbnb.lottie.d Rz(@Nullable String str) {
         if (str == null) {
             return null;
         }

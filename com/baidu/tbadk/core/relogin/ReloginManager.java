@@ -24,15 +24,15 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ReloginManager {
-    private static ReloginManager cXu = new ReloginManager();
-    private boolean cXt;
-    private final ArrayList<HttpMessage> cXv = new ArrayList<>();
-    private final HttpMessageListener cXw = new HttpMessageListener(1001101) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
+    private static ReloginManager cXv = new ReloginManager();
+    private boolean cXu;
+    private final ArrayList<HttpMessage> cXw = new ArrayList<>();
+    private final HttpMessageListener cXx = new HttpMessageListener(1001101) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
-                ReloginManager.this.cXt = false;
+                ReloginManager.this.cXu = false;
                 BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
                 int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
                 int error = bgLoginHttpResponsedMessage.getError();
@@ -45,7 +45,7 @@ public class ReloginManager {
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     l.showToast(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                ReloginManager.this.cXv.clear();
+                ReloginManager.this.cXw.clear();
             }
         }
     };
@@ -55,7 +55,7 @@ public class ReloginManager {
 
     public void te() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.cXw);
+        messageManager.registerListener(this.cXx);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001101, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -66,13 +66,13 @@ public class ReloginManager {
     }
 
     public static ReloginManager aFw() {
-        return cXu;
+        return cXv;
     }
 
     public void a(HttpMessage httpMessage) {
         a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
         b(httpMessage);
-        if (!this.cXt) {
+        if (!this.cXu) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
                 currentAccountObj = b.azS();
@@ -81,7 +81,7 @@ public class ReloginManager {
                 e(currentAccountObj);
                 return;
             }
-            this.cXt = true;
+            this.cXu = true;
             if (!aFz()) {
                 d(currentAccountObj);
             }
@@ -108,8 +108,8 @@ public class ReloginManager {
     }
 
     private void b(HttpMessage httpMessage) {
-        if (!this.cXv.contains(httpMessage)) {
-            this.cXv.add(httpMessage);
+        if (!this.cXw.contains(httpMessage)) {
+            this.cXw.add(httpMessage);
         }
     }
 
@@ -118,7 +118,7 @@ public class ReloginManager {
     }
 
     public void d(int i, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.cXv.iterator();
+        Iterator<HttpMessage> it = this.cXw.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -132,19 +132,19 @@ public class ReloginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void aFx() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.cXv.iterator();
+        Iterator<HttpMessage> it = this.cXw.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.cXv.clear();
+        this.cXw.clear();
     }
 
     public boolean aFy() {
-        return this.cXt;
+        return this.cXu;
     }
 
     public void fJ(boolean z) {
-        this.cXt = z;
+        this.cXu = z;
     }
 
     /* loaded from: classes.dex */

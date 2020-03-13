@@ -8,12 +8,12 @@ import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private f aKi;
-    private volatile boolean aLi = false;
+    private f aKj;
+    private volatile boolean aLj = false;
     private MediaMuxer mMediaMuxer;
 
     public boolean DC() {
-        return this.aLi;
+        return this.aLj;
     }
 
     public boolean a(String str, int i, f fVar) {
@@ -22,8 +22,8 @@ public class e {
         }
         try {
             this.mMediaMuxer = new MediaMuxer(str, i);
-            this.aKi = fVar;
-            this.aLi = false;
+            this.aKj = fVar;
+            this.aLj = false;
             return true;
         } catch (Exception e) {
             Log.e(TAG, "initMovieMuxer init error!!!");
@@ -56,13 +56,13 @@ public class e {
         synchronized (this) {
             try {
                 this.mMediaMuxer.start();
-                this.aLi = true;
+                this.aLj = true;
             } catch (Exception e) {
                 Log.e(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.aKi != null) {
-                this.aKi.bG(z);
+            if (this.aKj != null) {
+                this.aKj.bG(z);
             }
         }
     }
@@ -84,19 +84,19 @@ public class e {
         synchronized (this) {
             try {
                 this.mMediaMuxer.stop();
-                this.aLi = false;
+                this.aLj = false;
                 z = true;
             } catch (Exception e) {
                 Log.e(TAG, "stopMuxer error!!!");
             }
-            if (this.aKi != null) {
-                this.aKi.bH(z);
+            if (this.aKj != null) {
+                this.aKj.bH(z);
             }
         }
     }
 
     public void DF() {
-        if (!this.aLi) {
+        if (!this.aLj) {
             this.mMediaMuxer.release();
             this.mMediaMuxer = null;
         }

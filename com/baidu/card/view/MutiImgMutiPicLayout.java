@@ -90,10 +90,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements m<com.baidu.tb
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a vx = c.aPQ().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), MutiImgMutiPicLayout.this.NJ ? 13 : 14));
-                    if (vx != null) {
-                        int width = vx.getWidth();
-                        i = vx.getHeight();
+                    com.baidu.adp.widget.ImageView.a vy = c.aPR().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), MutiImgMutiPicLayout.this.NJ ? 13 : 14));
+                    if (vy != null) {
+                        int width = vy.getWidth();
+                        i = vy.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -214,7 +214,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements m<com.baidu.tb
                     subClickListener.MU = Boolean.valueOf(z);
                     subClickListener.a(view, MutiImgMutiPicLayout.this.Kc);
                 }
-                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dlX) {
+                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().dmk) {
                     au.a(view, MutiImgMutiPicLayout.this.NJ, MutiImgMutiPicLayout.this.Oc, i, MutiImgMutiPicLayout.this.Kc.aAg(), MutiImgMutiPicLayout.this.mFrom);
                 } else if ("index".equals(MutiImgMutiPicLayout.this.mFrom)) {
                     au.a(MutiImgMutiPicLayout.this.Kc, view.getContext(), 2, false);
@@ -238,11 +238,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements m<com.baidu.tb
         VoiceData.VoiceModel voiceModel = aCC.get(0);
         this.NY.setVoiceModel(voiceModel);
         this.NY.setTag(voiceModel);
-        this.NY.bHs();
+        this.NY.bHt();
         if (voiceModel != null) {
             this.NY.wW(voiceModel.voice_status.intValue());
         }
-        this.NY.cMh();
+        this.NY.cMi();
         this.Ob = true;
     }
 

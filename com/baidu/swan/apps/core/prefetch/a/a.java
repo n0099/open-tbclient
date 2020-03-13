@@ -7,21 +7,21 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int bqU = -1;
+    private static int bqV = -1;
 
     public static int PP() {
         if (com.baidu.swan.apps.ah.a.a.aam()) {
-            bqU = 2;
-            return bqU;
+            bqV = 2;
+            return bqV;
         }
-        if (DEBUG && bqU == -1) {
-            bqU = PQ();
-            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + bqU);
+        if (DEBUG && bqV == -1) {
+            bqV = PQ();
+            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + bqV);
         }
-        if (bqU == -1) {
-            bqU = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_prefetch_policy", 0);
+        if (bqV == -1) {
+            bqV = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_prefetch_policy", 0);
         }
-        return bqU;
+        return bqV;
     }
 
     public static int PQ() {

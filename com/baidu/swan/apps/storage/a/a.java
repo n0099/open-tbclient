@@ -19,7 +19,7 @@ public class a extends ab {
             return false;
         }
         eVar.acN().afi().edit().clear().apply();
-        com.baidu.swan.apps.ap.e.bXQ.update();
+        com.baidu.swan.apps.ap.e.bXR.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

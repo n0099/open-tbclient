@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> cVR = new ArrayList<>();
-    private View.OnClickListener ewS;
-    private View.OnClickListener ewT;
-    private View.OnClickListener ewU;
+    private ArrayList<ALaCharmData> cVS = new ArrayList<>();
+    private View.OnClickListener exf;
+    private View.OnClickListener exg;
+    private View.OnClickListener exh;
     private int mFromType;
     private TbPageContext mPageContext;
     private int mSkinType;
@@ -27,48 +27,48 @@ public class a extends BaseAdapter {
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.ewS = onClickListener;
+        this.exf = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.ewU = onClickListener;
+        this.exh = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.ewT = onClickListener;
+        this.exg = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.cVR.clear();
-            this.cVR.addAll(arrayList);
+            this.cVS.clear();
+            this.cVS.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void T(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.cVR.addAll(arrayList);
+            this.cVS.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVR == null) {
+        if (this.cVS == null) {
             return 0;
         }
-        return this.cVR.size();
+        return this.cVS.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: oZ */
     public ALaCharmData getItem(int i) {
-        if (this.cVR == null) {
+        if (this.cVS == null) {
             return null;
         }
-        return this.cVR.get(i);
+        return this.cVS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -89,9 +89,9 @@ public class a extends BaseAdapter {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
             d dVar2 = new d(inflate, this.mFromType);
-            dVar2.p(this.ewU);
-            dVar2.m(this.ewS);
-            dVar2.q(this.ewT);
+            dVar2.p(this.exh);
+            dVar2.m(this.exf);
+            dVar2.q(this.exg);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void X(String str, boolean z) {
-        if (this.cVR != null && str != null) {
-            Iterator<ALaCharmData> it = this.cVR.iterator();
+        if (this.cVS != null && str != null) {
+            Iterator<ALaCharmData> it = this.cVS.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

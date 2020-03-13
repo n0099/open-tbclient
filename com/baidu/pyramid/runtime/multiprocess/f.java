@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public abstract class f implements IBinder, IBinder.DeathRecipient {
-    private volatile IBinder aVK;
-    private HashSet<IBinder.DeathRecipient> aVL = new HashSet<>();
+    private volatile IBinder aVL;
+    private HashSet<IBinder.DeathRecipient> aVM = new HashSet<>();
     private Object mLock = new Object();
 
     protected abstract IBinder EY() throws RemoteException;
@@ -18,10 +18,10 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     private IBinder EZ() throws RemoteException {
         IBinder iBinder;
         synchronized (this.mLock) {
-            iBinder = this.aVK;
+            iBinder = this.aVL;
             if (iBinder == null) {
                 iBinder = EY();
-                this.aVK = iBinder;
+                this.aVL = iBinder;
                 if (iBinder != null) {
                     iBinder.linkToDeath(this, 0);
                 } else {
@@ -84,30 +84,30 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
-        synchronized (this.aVL) {
-            this.aVL.add(deathRecipient);
+        synchronized (this.aVM) {
+            this.aVM.add(deathRecipient);
         }
     }
 
     @Override // android.os.IBinder
     public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        synchronized (this.aVL) {
-            this.aVL.remove(deathRecipient);
+        synchronized (this.aVM) {
+            this.aVM.remove(deathRecipient);
         }
-        return this.aVK != null;
+        return this.aVL != null;
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
         synchronized (this.mLock) {
-            IBinder iBinder = this.aVK;
+            IBinder iBinder = this.aVL;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(this, 0);
-                this.aVK = null;
+                this.aVL = null;
             }
             ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-            synchronized (this.aVL) {
-                arrayList.addAll(this.aVL);
+            synchronized (this.aVM) {
+                arrayList.addAll(this.aVM);
             }
             for (IBinder.DeathRecipient deathRecipient : arrayList) {
                 deathRecipient.binderDied();

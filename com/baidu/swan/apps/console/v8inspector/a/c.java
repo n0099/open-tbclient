@@ -19,36 +19,36 @@ import java.util.TimeZone;
 /* loaded from: classes11.dex */
 public class c implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0238a blm;
-    private LocalServerSocket bln;
-    private String blo;
+    private a.InterfaceC0238a bln;
+    private LocalServerSocket blo;
+    private String blp;
     private boolean mRunning;
 
     /* loaded from: classes11.dex */
     public static class a {
-        String blp;
-        boolean blq;
+        String blq;
+        boolean blr;
         Map<String, String> headers = new HashMap();
         String method;
         String uri;
     }
 
     public c(String str, a.InterfaceC0238a interfaceC0238a) {
-        this.blo = str;
-        this.blm = interfaceC0238a;
+        this.blp = str;
+        this.bln = interfaceC0238a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         if (!this.mRunning) {
             try {
-                this.bln = new LocalServerSocket(this.blo);
+                this.blo = new LocalServerSocket(this.blp);
                 this.mRunning = true;
                 int i = 0;
                 while (this.mRunning) {
-                    LocalSocket accept = this.bln.accept();
+                    LocalSocket accept = this.blo.accept();
                     com.baidu.swan.apps.console.v8inspector.a.a aVar = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
-                    aVar.b(this.blm);
+                    aVar.b(this.bln);
                     ExecutorUtilsExt.postOnSerial(aVar, "V8InspectorServer");
                     i++;
                     if (i > 10) {
@@ -67,14 +67,14 @@ public class c implements a.b {
 
     /* loaded from: classes11.dex */
     public static abstract class b {
-        a blr;
+        a bls;
 
         abstract Map<String, String> Mk();
 
         abstract String Ml();
 
         public b(a aVar) {
-            this.blr = aVar;
+            this.bls = aVar;
         }
 
         protected String getContent() {

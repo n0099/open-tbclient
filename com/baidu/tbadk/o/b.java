@@ -1,8 +1,8 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class b {
-    private int dFf;
-    private String dFg;
+    private int dFs;
+    private String dFt;
     private int errorCode;
     private String exception;
     public long qZ = -1;
@@ -18,8 +18,8 @@ public class b {
         this.exception = str;
     }
 
-    public void vG(String str) {
-        this.dFg = str;
+    public void vH(String str) {
+        this.dFt = str;
     }
 
     public String getUrl() {
@@ -30,11 +30,11 @@ public class b {
         this.url = str;
     }
 
-    public String aRy() {
-        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.dFf + "-dnsStatus-" + this.dFg + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.qZ + "-fileLength-" + this.ra + "-contentLen-" + this.rb;
+    public String aRz() {
+        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.dFs + "-dnsStatus-" + this.dFt + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.qZ + "-fileLength-" + this.ra + "-contentLen-" + this.rb;
     }
 
     public void mO(int i) {
-        this.dFf = i;
+        this.dFs = i;
     }
 }

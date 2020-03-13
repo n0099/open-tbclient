@@ -58,83 +58,83 @@ public class PbModel extends DataModel {
     public static final int UPDATE_TYPE_SINGLE_FLOOR = 8;
     public static final int UPDATE_TYPE_SPEC_FLOOR = 6;
     public static final int UPDATE_TYPE_UPDATE = 3;
-    private boolean cUq;
-    private com.baidu.tieba.tbadkCore.d.b fWq;
-    private long gGo;
-    private BaseFragmentActivity grE;
-    private boolean hQp;
-    protected com.baidu.tieba.pb.data.e iFb;
-    protected String iJW;
-    private String iJX;
-    private String iJY;
-    private String iJZ;
-    private int iKA;
-    private int iKB;
+    private boolean cUr;
+    private com.baidu.tieba.tbadkCore.d.b fWD;
+    private long gGA;
+    private BaseFragmentActivity grR;
+    private boolean hQB;
+    protected com.baidu.tieba.pb.data.e iFn;
+    private boolean iKA;
+    private long iKB;
     private boolean iKC;
-    private boolean iKD;
-    private boolean iKE;
+    private String iKD;
+    private int iKE;
     private boolean iKF;
     private boolean iKG;
-    private String iKH;
-    private long iKI;
-    private boolean iKJ;
-    private int iKK;
-    private boolean iKL;
-    private boolean iKM;
+    private boolean iKH;
+    private boolean iKI;
+    private a iKJ;
+    private String iKK;
+    private String iKL;
+    private int iKM;
     private int iKN;
-    private final v iKO;
-    private final n iKP;
-    private final x iKQ;
-    private String iKR;
-    private final CheckRealNameModel iKS;
-    private final AddExperiencedModel iKT;
-    private SuggestEmotionModel iKU;
-    private GetSugMatchWordsModel iKV;
-    private boolean iKW;
-    private int iKX;
-    private String iKY;
-    private PostData iKZ;
-    private boolean iKa;
-    private boolean iKb;
-    private boolean iKc;
-    private boolean iKd;
-    private int iKe;
-    private boolean iKf;
-    private int iKg;
-    private long iKh;
-    private int iKi;
-    private int iKj;
-    private int iKk;
-    private int iKl;
+    private boolean iKO;
+    private boolean iKP;
+    private boolean iKQ;
+    private boolean iKR;
+    private boolean iKS;
+    private String iKT;
+    private long iKU;
+    private boolean iKV;
+    private int iKW;
+    private boolean iKX;
+    private boolean iKY;
+    private int iKZ;
+    protected String iKi;
+    private String iKj;
+    private String iKk;
+    private String iKl;
     private boolean iKm;
     private boolean iKn;
     private boolean iKo;
-    private long iKp;
-    private boolean iKq;
-    private String iKr;
+    private boolean iKp;
+    private int iKq;
+    private boolean iKr;
     private int iKs;
-    private boolean iKt;
-    private boolean iKu;
-    private boolean iKv;
-    private boolean iKw;
-    private a iKx;
-    private String iKy;
-    private String iKz;
-    private PostData iLa;
-    private int iLb;
-    private int iLc;
-    private Rect iLd;
-    private String iLe;
-    private com.baidu.tieba.tbadkCore.data.m iLf;
-    private boolean iLg;
-    private String iLh;
-    private String iLi;
-    private String iLj;
+    private long iKt;
+    private int iKu;
+    private int iKv;
+    private int iKw;
+    private int iKx;
+    private boolean iKy;
+    private boolean iKz;
+    private PraiseData iLA;
+    private final v iLa;
+    private final n iLb;
+    private final x iLc;
+    private String iLd;
+    private final CheckRealNameModel iLe;
+    private final AddExperiencedModel iLf;
+    private SuggestEmotionModel iLg;
+    private GetSugMatchWordsModel iLh;
+    private boolean iLi;
+    private int iLj;
     private String iLk;
-    private f.a iLl;
-    private CustomMessageListener iLm;
-    private com.baidu.adp.framework.listener.a iLn;
-    private PraiseData iLo;
+    private PostData iLl;
+    private PostData iLm;
+    private int iLn;
+    private int iLo;
+    private Rect iLp;
+    private String iLq;
+    private com.baidu.tieba.tbadkCore.data.m iLr;
+    private boolean iLs;
+    private String iLt;
+    private String iLu;
+    private String iLv;
+    private String iLw;
+    private f.a iLx;
+    private CustomMessageListener iLy;
+    private com.baidu.adp.framework.listener.a iLz;
     private boolean isAd;
     private boolean isFromMark;
     private boolean isLoading;
@@ -159,7 +159,7 @@ public class PbModel extends DataModel {
     private int oriUgcType;
     private String oriUgcVid;
     private String postID;
-    private static final int iJV = com.baidu.tbadk.data.d.getPbListItemMaxNum() / 30;
+    private static final int iKh = com.baidu.tbadk.data.d.getPbListItemMaxNum() / 30;
     public static int UPGRADE_TO_PHOTO_LIVE = 1;
 
     /* loaded from: classes9.dex */
@@ -174,64 +174,64 @@ public class PbModel extends DataModel {
     public PbModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
         this.mStType = null;
-        this.iJW = null;
-        this.iJX = null;
-        this.iJY = null;
+        this.iKi = null;
+        this.iKj = null;
+        this.iKk = null;
         this.mForumId = null;
-        this.iJZ = null;
-        this.iKa = false;
-        this.iKb = false;
-        this.iKc = true;
-        this.iKd = true;
-        this.mSortType = 0;
-        this.iKe = 0;
-        this.iKf = false;
-        this.mIsGood = 0;
-        this.iKg = 0;
-        this.iKh = 0L;
-        this.iKi = 1;
-        this.iKj = 1;
-        this.iKk = 1;
-        this.iKl = 1;
-        this.isAd = false;
-        this.hQp = false;
-        this.cUq = false;
+        this.iKl = null;
         this.iKm = false;
-        this.isFromMark = false;
         this.iKn = false;
-        this.iKo = false;
-        this.iKp = 0L;
-        this.iKq = false;
-        this.iKr = null;
-        this.iFb = null;
+        this.iKo = true;
+        this.iKp = true;
+        this.mSortType = 0;
+        this.iKq = 0;
+        this.iKr = false;
+        this.mIsGood = 0;
+        this.iKs = 0;
+        this.iKt = 0L;
+        this.iKu = 1;
+        this.iKv = 1;
+        this.iKw = 1;
+        this.iKx = 1;
+        this.isAd = false;
+        this.hQB = false;
+        this.cUr = false;
+        this.iKy = false;
+        this.isFromMark = false;
+        this.iKz = false;
+        this.iKA = false;
+        this.iKB = 0L;
+        this.iKC = false;
+        this.iKD = null;
+        this.iFn = null;
         this.isLoading = false;
-        this.iKt = false;
-        this.iKu = false;
-        this.iKv = false;
-        this.iKw = false;
+        this.iKF = false;
+        this.iKG = false;
+        this.iKH = false;
+        this.iKI = false;
         this.mLocate = null;
         this.mContext = null;
-        this.iKx = null;
+        this.iKJ = null;
         this.opType = null;
         this.opUrl = null;
-        this.iKy = null;
-        this.iKz = null;
-        this.iKA = -1;
-        this.iKB = -1;
-        this.fWq = null;
-        this.iKD = false;
-        this.iKE = false;
+        this.iKK = null;
+        this.iKL = null;
+        this.iKM = -1;
+        this.iKN = -1;
+        this.fWD = null;
+        this.iKP = false;
+        this.iKQ = false;
         this.postID = null;
-        this.iKH = null;
-        this.iKI = 0L;
-        this.iKJ = false;
-        this.iKK = -1;
-        this.iKM = false;
-        this.iKW = false;
-        this.iKX = 0;
+        this.iKT = null;
+        this.iKU = 0L;
+        this.iKV = false;
+        this.iKW = -1;
+        this.iKY = false;
+        this.iLi = false;
+        this.iLj = 0;
         this.mTabIndex = 0;
-        this.iLg = false;
-        this.iLm = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.pb.pb.main.PbModel.2
+        this.iLs = false;
+        this.iLy = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.pb.pb.main.PbModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -243,14 +243,14 @@ public class PbModel extends DataModel {
                 }
             }
         };
-        this.iLn = new com.baidu.adp.framework.listener.a(1001801, CmdConfigSocket.CMD_PB_PAGE) { // from class: com.baidu.tieba.pb.pb.main.PbModel.3
+        this.iLz = new com.baidu.adp.framework.listener.a(1001801, CmdConfigSocket.CMD_PB_PAGE) { // from class: com.baidu.tieba.pb.pb.main.PbModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 boolean z;
                 long j;
                 if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == PbModel.this.getUniqueId()) {
                     if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        PbModel.this.grE.showToast(responsedMessage.getErrorString());
+                        PbModel.this.grR.showToast(responsedMessage.getErrorString());
                     }
                     if (responsedMessage instanceof pbPageSocketResponseMessage) {
                         PbModel.this.a((pbPageSocketResponseMessage) responsedMessage);
@@ -281,14 +281,14 @@ public class PbModel extends DataModel {
                         objArr[5] = Long.valueOf(j);
                         com.baidu.tbadk.core.d.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
                     }
-                    if (!PbModel.this.iKD || !PbModel.this.iKE) {
-                        if (!PbModel.this.iKD) {
-                            PbModel.this.iKD = true;
+                    if (!PbModel.this.iKP || !PbModel.this.iKQ) {
+                        if (!PbModel.this.iKP) {
+                            PbModel.this.iKP = true;
                         } else {
-                            PbModel.this.iKE = true;
+                            PbModel.this.iKQ = true;
                         }
-                        if (PbModel.this.iKx != null) {
-                            PbModel.this.iKx.a(PbModel.this.cnt(), z, responsedMessage, PbModel.this.iKF, System.currentTimeMillis() - PbModel.this.gGo);
+                        if (PbModel.this.iKJ != null) {
+                            PbModel.this.iKJ.a(PbModel.this.cnu(), z, responsedMessage, PbModel.this.iKR, System.currentTimeMillis() - PbModel.this.gGA);
                         }
                     }
                 }
@@ -300,8 +300,8 @@ public class PbModel extends DataModel {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     String valueOf = String.valueOf(customResponsedMessage.getData());
-                    if (PbModel.this.iFb != null && PbModel.this.iFb.ckt() != null && PbModel.this.iFb.ckt().getForumId() != null && PbModel.this.iFb.ckt().getForumId().equals(valueOf)) {
-                        PbModel.this.iFb.ckt().setIsLike(false);
+                    if (PbModel.this.iFn != null && PbModel.this.iFn.cku() != null && PbModel.this.iFn.cku().getForumId() != null && PbModel.this.iFn.cku().getForumId().equals(valueOf)) {
+                        PbModel.this.iFn.cku().setIsLike(false);
                     }
                 }
             }
@@ -312,45 +312,45 @@ public class PbModel extends DataModel {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     String valueOf = String.valueOf(customResponsedMessage.getData());
-                    if (PbModel.this.iFb != null && PbModel.this.iFb.ckt() != null && PbModel.this.iFb.ckt().getForumId() != null && PbModel.this.iFb.ckt().getForumId().equals(valueOf)) {
-                        PbModel.this.iFb.ckt().setIsLike(true);
+                    if (PbModel.this.iFn != null && PbModel.this.iFn.cku() != null && PbModel.this.iFn.cku().getForumId() != null && PbModel.this.iFn.cku().getForumId().equals(valueOf)) {
+                        PbModel.this.iFn.cku().setIsLike(true);
                     }
                 }
             }
         };
-        this.iLo = null;
-        registerListener(this.iLn);
-        registerListener(this.iLm);
+        this.iLA = null;
+        registerListener(this.iLz);
+        registerListener(this.iLy);
         registerListener(this.mLikeForumListener);
         registerListener(this.mUnlikeForumListener);
-        this.iFb = new com.baidu.tieba.pb.data.e();
-        this.iFb.yA(0);
+        this.iFn = new com.baidu.tieba.pb.data.e();
+        this.iFn.yA(0);
         this.mContext = baseFragmentActivity.getPageContext().getPageActivity();
-        this.grE = baseFragmentActivity;
-        this.iKO = new v(this, this.grE);
-        this.iKP = new n(this, this.grE);
-        this.iKQ = new x(this, this.grE);
-        this.iKS = new CheckRealNameModel(this.grE.getPageContext());
-        this.iKU = new SuggestEmotionModel();
-        this.iKT = new AddExperiencedModel(this.grE.getPageContext());
-        this.iLl = new f.a() { // from class: com.baidu.tieba.pb.pb.main.PbModel.1
+        this.grR = baseFragmentActivity;
+        this.iLa = new v(this, this.grR);
+        this.iLb = new n(this, this.grR);
+        this.iLc = new x(this, this.grR);
+        this.iLe = new CheckRealNameModel(this.grR.getPageContext());
+        this.iLg = new SuggestEmotionModel();
+        this.iLf = new AddExperiencedModel(this.grR.getPageContext());
+        this.iLx = new f.a() { // from class: com.baidu.tieba.pb.pb.main.PbModel.1
             @Override // com.baidu.tbadk.BdToken.f.a
             public void n(HashMap<String, Object> hashMap) {
                 if (hashMap != null) {
-                    if (hashMap.get(com.baidu.tbadk.BdToken.f.cIj) instanceof String) {
-                        PbModel.this.iJW = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIj);
-                    }
                     if (hashMap.get(com.baidu.tbadk.BdToken.f.cIk) instanceof String) {
-                        PbModel.this.oriUgcNid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIk);
+                        PbModel.this.iKi = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIk);
                     }
                     if (hashMap.get(com.baidu.tbadk.BdToken.f.cIl) instanceof String) {
-                        PbModel.this.oriUgcTid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIl);
+                        PbModel.this.oriUgcNid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIl);
                     }
                     if (hashMap.get(com.baidu.tbadk.BdToken.f.cIm) instanceof String) {
-                        PbModel.this.oriUgcType = com.baidu.adp.lib.f.b.toInt((String) hashMap.get(com.baidu.tbadk.BdToken.f.cIm), 0);
+                        PbModel.this.oriUgcTid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIm);
                     }
                     if (hashMap.get(com.baidu.tbadk.BdToken.f.cIn) instanceof String) {
-                        PbModel.this.oriUgcVid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIn);
+                        PbModel.this.oriUgcType = com.baidu.adp.lib.f.b.toInt((String) hashMap.get(com.baidu.tbadk.BdToken.f.cIn), 0);
+                    }
+                    if (hashMap.get(com.baidu.tbadk.BdToken.f.cIo) instanceof String) {
+                        PbModel.this.oriUgcVid = (String) hashMap.get(com.baidu.tbadk.BdToken.f.cIo);
                     }
                 }
             }
@@ -358,20 +358,20 @@ public class PbModel extends DataModel {
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, int i, String str) {
-        this.iKG = true;
-        if (eVar != null && eVar.iBF == null) {
+        this.iKS = true;
+        if (eVar != null && eVar.iBR == null) {
             n(eVar);
             j(eVar);
-            if (eVar.cku() != null) {
-                eVar.cku().jH(0);
+            if (eVar.ckv() != null) {
+                eVar.ckv().jH(0);
             }
-            if (this.iKx != null && eVar != null) {
-                this.iKx.a(true, 0, i, 0, eVar, str, 0);
+            if (this.iKJ != null && eVar != null) {
+                this.iKJ.a(true, 0, i, 0, eVar, str, 0);
             }
         }
     }
 
-    protected int cnt() {
+    protected int cnu() {
         return 1001;
     }
 
@@ -387,19 +387,19 @@ public class PbModel extends DataModel {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.iJW = intent.getStringExtra("thread_id");
+            this.iKi = intent.getStringExtra("thread_id");
             this.oriUgcNid = intent.getStringExtra("key_ori_ugc_nid");
             this.oriUgcTid = intent.getStringExtra("key_ori_ugc_tid");
             this.oriUgcType = intent.getIntExtra("key_ori_ugc_type", 0);
             this.oriUgcVid = intent.getStringExtra("key_ori_ugc_vid");
             Uri uri = (Uri) intent.getParcelableExtra("key_uri");
             if (com.baidu.tbadk.BdToken.f.n(uri)) {
-                com.baidu.tbadk.BdToken.f.axP().c(uri, this.iLl);
-            } else if (StringUtils.isNull(this.iJW)) {
-                this.iKO.a(intent, this.iLl);
+                com.baidu.tbadk.BdToken.f.axP().c(uri, this.iLx);
+            } else if (StringUtils.isNull(this.iKi)) {
+                this.iLa.a(intent, this.iLx);
                 if (uri != null) {
-                    if (StringUtils.isNull(this.iJW)) {
-                        this.iJW = uri.getQueryParameter("thread_id");
+                    if (StringUtils.isNull(this.iKi)) {
+                        this.iKi = uri.getQueryParameter("thread_id");
                     }
                     if (StringUtils.isNull(this.oriUgcNid)) {
                         this.oriUgcNid = uri.getQueryParameter("key_ori_ugc_nid");
@@ -415,64 +415,64 @@ public class PbModel extends DataModel {
                     }
                 }
             }
-            if (com.baidu.tbadk.core.util.aq.isEmpty(this.iJW)) {
-                this.iJW = "0";
+            if (com.baidu.tbadk.core.util.aq.isEmpty(this.iKi)) {
+                this.iKi = "0";
             }
-            this.iKX = intent.getIntExtra("key_start_from", 0);
-            if (this.iKX == 0) {
-                this.iKX = this.iKO.Yv;
+            this.iLj = intent.getIntExtra("key_start_from", 0);
+            if (this.iLj == 0) {
+                this.iLj = this.iLa.Yv;
             }
-            this.iJY = intent.getStringExtra("post_id");
+            this.iKk = intent.getStringExtra("post_id");
             this.mForumId = intent.getStringExtra("forum_id");
             this.mFromForumId = intent.getStringExtra("from_forum_id");
-            this.iJX = intent.getStringExtra(PbActivityConfig.KEY_GOD_REPLY_ID);
-            this.iKa = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
-            this.iKb = intent.getBooleanExtra("host_only", false);
-            this.iKd = intent.getBooleanExtra("squence", true);
-            this.mSortType = intent.getIntExtra(PbActivityConfig.KEY_SORTTYPE, com.baidu.tbadk.util.a.aRL().aIY() ? 2 : 0);
+            this.iKj = intent.getStringExtra(PbActivityConfig.KEY_GOD_REPLY_ID);
+            this.iKm = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
+            this.iKn = intent.getBooleanExtra("host_only", false);
+            this.iKp = intent.getBooleanExtra("squence", true);
+            this.mSortType = intent.getIntExtra(PbActivityConfig.KEY_SORTTYPE, com.baidu.tbadk.util.a.aRM().aIZ() ? 2 : 0);
             if (this.mSortType == 2) {
-                this.iJY = "0";
+                this.iKk = "0";
             }
             this.mStType = intent.getStringExtra("st_type");
             this.mLocate = intent.getStringExtra("locate");
             this.mIsGood = intent.getIntExtra("is_good", 0);
-            this.iKg = intent.getIntExtra("is_top", 0);
-            this.iKh = intent.getLongExtra("thread_time", 0L);
+            this.iKs = intent.getIntExtra("is_top", 0);
+            this.iKt = intent.getLongExtra("thread_time", 0L);
             this.isFromMark = intent.getBooleanExtra("from_mark", false);
-            this.iKn = intent.getBooleanExtra(PbActivityConfig.KEY_SHOULD_ADD_POST_ID, false);
-            this.iKo = intent.getBooleanExtra("is_pb_key_need_post_id", false);
+            this.iKz = intent.getBooleanExtra(PbActivityConfig.KEY_SHOULD_ADD_POST_ID, false);
+            this.iKA = intent.getBooleanExtra("is_pb_key_need_post_id", false);
             this.isAd = intent.getBooleanExtra("is_ad", false);
-            this.hQp = intent.getBooleanExtra("is_sub_pb", false);
-            this.iKq = intent.getBooleanExtra("is_pv", false);
-            this.iKp = intent.getLongExtra("msg_id", 0L);
-            this.iKr = intent.getStringExtra("from_forum_name");
-            this.iKz = intent.getStringExtra("extra_pb_cache_key");
+            this.hQB = intent.getBooleanExtra("is_sub_pb", false);
+            this.iKC = intent.getBooleanExtra("is_pv", false);
+            this.iKB = intent.getLongExtra("msg_id", 0L);
+            this.iKD = intent.getStringExtra("from_forum_name");
+            this.iKL = intent.getStringExtra("extra_pb_cache_key");
             this.opType = intent.getStringExtra("op_type");
             this.opUrl = intent.getStringExtra("op_url");
-            this.iKy = intent.getStringExtra("op_stat");
-            this.iKt = intent.getBooleanExtra("is_from_thread_config", false);
-            this.iKu = intent.getBooleanExtra("is_from_interview_live_config", false);
-            this.iKv = intent.getBooleanExtra("is_from_my_god_config", false);
-            this.iKB = intent.getIntExtra("extra_pb_is_attention_key", -1);
-            this.iKA = intent.getIntExtra("extra_pb_funs_count_key", -1);
-            this.cUq = intent.getBooleanExtra("from_frs", false);
-            this.iKm = intent.getBooleanExtra("from_maintab", false);
-            this.iKM = intent.getBooleanExtra("from_smart_frs", false);
-            this.iKw = intent.getBooleanExtra("from_hottopic", false);
-            this.iKR = intent.getStringExtra("KEY_POST_THREAD_TIP");
+            this.iKK = intent.getStringExtra("op_stat");
+            this.iKF = intent.getBooleanExtra("is_from_thread_config", false);
+            this.iKG = intent.getBooleanExtra("is_from_interview_live_config", false);
+            this.iKH = intent.getBooleanExtra("is_from_my_god_config", false);
+            this.iKN = intent.getIntExtra("extra_pb_is_attention_key", -1);
+            this.iKM = intent.getIntExtra("extra_pb_funs_count_key", -1);
+            this.cUr = intent.getBooleanExtra("from_frs", false);
+            this.iKy = intent.getBooleanExtra("from_maintab", false);
+            this.iKY = intent.getBooleanExtra("from_smart_frs", false);
+            this.iKI = intent.getBooleanExtra("from_hottopic", false);
+            this.iLd = intent.getStringExtra("KEY_POST_THREAD_TIP");
             this.mIsShareThread = intent.getBooleanExtra(PbActivityConfig.KEY_IS_SHARE_THREAD, false);
-            this.iJZ = intent.getStringExtra("high_light_post_id");
-            this.iLg = intent.getBooleanExtra(PbActivityConfig.KEY_NEED_PRELOAD, false);
-            this.iKC = intent.getIntExtra("request_code", -1) == 18003;
-            this.iLh = intent.getStringExtra(PbActivityConfig.KEY_REC_WEIGHT);
-            this.iLi = intent.getStringExtra(PbActivityConfig.KEY_REC_SOURCE);
-            this.iLj = intent.getStringExtra(PbActivityConfig.KEY_REC_AB_TAG);
-            this.iLk = intent.getStringExtra(PbActivityConfig.KEY_REC_EXTRA);
+            this.iKl = intent.getStringExtra("high_light_post_id");
+            this.iLs = intent.getBooleanExtra(PbActivityConfig.KEY_NEED_PRELOAD, false);
+            this.iKO = intent.getIntExtra("request_code", -1) == 18003;
+            this.iLt = intent.getStringExtra(PbActivityConfig.KEY_REC_WEIGHT);
+            this.iLu = intent.getStringExtra(PbActivityConfig.KEY_REC_SOURCE);
+            this.iLv = intent.getStringExtra(PbActivityConfig.KEY_REC_AB_TAG);
+            this.iLw = intent.getStringExtra(PbActivityConfig.KEY_REC_EXTRA);
         }
     }
 
-    public boolean cnu() {
-        return this.iLg && com.baidu.tieba.frs.i.bDE() != null && com.baidu.tieba.frs.i.bDE().equals(this.iJW) && com.baidu.tieba.frs.i.bDD() != null;
+    public boolean cnv() {
+        return this.iLs && com.baidu.tieba.frs.i.bDF() != null && com.baidu.tieba.frs.i.bDF().equals(this.iKi) && com.baidu.tieba.frs.i.bDE() != null;
     }
 
     public com.baidu.tieba.pb.data.e aG(bj bjVar) {
@@ -506,140 +506,140 @@ public class PbModel extends DataModel {
         postData.setUserMap(hashMap);
         postData.c(TbRichTextView.a(this.mContext, bjVar.aCe(), false));
         eVar.d(postData);
-        eVar.ckw().add(postData);
+        eVar.ckx().add(postData);
         eVar.a(new com.baidu.tieba.pb.data.k(bjVar, null));
-        eVar.iBK = true;
+        eVar.iBW = true;
         eVar.setIsNewUrl(1);
         return eVar;
     }
 
     public void initWithBundle(Bundle bundle) {
-        this.iKX = bundle.getInt("key_start_from", 0);
-        this.iJW = bundle.getString("thread_id");
-        this.iJY = bundle.getString("post_id");
+        this.iLj = bundle.getInt("key_start_from", 0);
+        this.iKi = bundle.getString("thread_id");
+        this.iKk = bundle.getString("post_id");
         this.mForumId = bundle.getString("forum_id");
         this.mFromForumId = bundle.getString("from_forum_id");
-        this.iJX = bundle.getString(PbActivityConfig.KEY_GOD_REPLY_ID);
-        this.iKa = bundle.getBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
-        this.iKb = bundle.getBoolean("host_only", false);
-        this.iKd = bundle.getBoolean("squence", true);
+        this.iKj = bundle.getString(PbActivityConfig.KEY_GOD_REPLY_ID);
+        this.iKm = bundle.getBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
+        this.iKn = bundle.getBoolean("host_only", false);
+        this.iKp = bundle.getBoolean("squence", true);
         this.mSortType = bundle.getInt(PbActivityConfig.KEY_SORTTYPE, 0);
         this.mStType = bundle.getString("st_type");
         this.mLocate = bundle.getString("locate");
         this.mIsGood = bundle.getInt("is_good", 0);
-        this.iKg = bundle.getInt("is_top", 0);
-        this.iKh = bundle.getLong("thread_time");
+        this.iKs = bundle.getInt("is_top", 0);
+        this.iKt = bundle.getLong("thread_time");
         this.isFromMark = bundle.getBoolean("from_mark", false);
-        this.iKo = bundle.getBoolean("is_pb_key_need_post_id", false);
+        this.iKA = bundle.getBoolean("is_pb_key_need_post_id", false);
         this.isAd = bundle.getBoolean("is_ad", false);
-        this.hQp = bundle.getBoolean("is_sub_pb", false);
-        this.iKq = bundle.getBoolean("is_pv", false);
-        this.iKp = bundle.getLong("msg_id", 0L);
-        this.iKr = bundle.getString("from_forum_name");
-        this.iKz = bundle.getString("extra_pb_cache_key");
-        this.iKt = bundle.getBoolean("is_from_thread_config", false);
-        this.iKu = bundle.getBoolean("is_from_interview_live_config", false);
-        this.iKv = bundle.getBoolean("is_from_my_god_config", false);
-        this.iKB = bundle.getInt("extra_pb_is_attention_key", -1);
-        this.iKA = bundle.getInt("extra_pb_funs_count_key", -1);
-        this.cUq = bundle.getBoolean("from_frs", false);
-        this.iKm = bundle.getBoolean("from_maintab", false);
-        this.iKM = bundle.getBoolean("from_smart_frs", false);
-        this.iKw = bundle.getBoolean("from_hottopic", false);
+        this.hQB = bundle.getBoolean("is_sub_pb", false);
+        this.iKC = bundle.getBoolean("is_pv", false);
+        this.iKB = bundle.getLong("msg_id", 0L);
+        this.iKD = bundle.getString("from_forum_name");
+        this.iKL = bundle.getString("extra_pb_cache_key");
+        this.iKF = bundle.getBoolean("is_from_thread_config", false);
+        this.iKG = bundle.getBoolean("is_from_interview_live_config", false);
+        this.iKH = bundle.getBoolean("is_from_my_god_config", false);
+        this.iKN = bundle.getInt("extra_pb_is_attention_key", -1);
+        this.iKM = bundle.getInt("extra_pb_funs_count_key", -1);
+        this.cUr = bundle.getBoolean("from_frs", false);
+        this.iKy = bundle.getBoolean("from_maintab", false);
+        this.iKY = bundle.getBoolean("from_smart_frs", false);
+        this.iKI = bundle.getBoolean("from_hottopic", false);
         this.mIsShareThread = bundle.getBoolean(PbActivityConfig.KEY_IS_SHARE_THREAD, false);
-        this.iJZ = bundle.getString("high_light_post_id");
+        this.iKl = bundle.getString("high_light_post_id");
         this.oriUgcNid = bundle.getString("key_ori_ugc_nid");
         this.oriUgcTid = bundle.getString("key_ori_ugc_tid");
         this.oriUgcType = bundle.getInt("key_ori_ugc_type", 0);
         this.oriUgcVid = bundle.getString("key_ori_ugc_vid");
-        this.iKC = bundle.getInt("request_code", -1) == 18003;
-        this.iLh = bundle.getString(PbActivityConfig.KEY_REC_WEIGHT);
-        this.iLi = bundle.getString(PbActivityConfig.KEY_REC_SOURCE);
-        this.iLj = bundle.getString(PbActivityConfig.KEY_REC_AB_TAG);
-        this.iLk = bundle.getString(PbActivityConfig.KEY_REC_EXTRA);
+        this.iKO = bundle.getInt("request_code", -1) == 18003;
+        this.iLt = bundle.getString(PbActivityConfig.KEY_REC_WEIGHT);
+        this.iLu = bundle.getString(PbActivityConfig.KEY_REC_SOURCE);
+        this.iLv = bundle.getString(PbActivityConfig.KEY_REC_AB_TAG);
+        this.iLw = bundle.getString(PbActivityConfig.KEY_REC_EXTRA);
     }
 
     public void au(Bundle bundle) {
-        bundle.putString("thread_id", this.iJW);
-        bundle.putString("post_id", this.iJY);
+        bundle.putString("thread_id", this.iKi);
+        bundle.putString("post_id", this.iKk);
         bundle.putString("forum_id", this.mForumId);
         bundle.putString("from_forum_id", this.mFromForumId);
-        bundle.putInt("key_start_from", this.iKX);
-        bundle.putBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", this.iKa);
-        bundle.putBoolean("host_only", this.iKb);
-        bundle.putBoolean("squence", this.iKd);
+        bundle.putInt("key_start_from", this.iLj);
+        bundle.putBoolean("KEY_NEED_REPOST_RECOMMEND_FORUM", this.iKm);
+        bundle.putBoolean("host_only", this.iKn);
+        bundle.putBoolean("squence", this.iKp);
         bundle.putInt(PbActivityConfig.KEY_SORTTYPE, this.mSortType);
         bundle.putString("st_type", this.mStType);
         bundle.putString("locate", this.mLocate);
         bundle.putInt("is_good", this.mIsGood);
-        bundle.putInt("is_top", this.iKg);
-        bundle.putLong("thread_time", this.iKh);
+        bundle.putInt("is_top", this.iKs);
+        bundle.putLong("thread_time", this.iKt);
         bundle.putBoolean("from_mark", this.isFromMark);
-        bundle.putBoolean("is_pb_key_need_post_id", this.iKo);
-        bundle.putBoolean("is_sub_pb", this.hQp);
+        bundle.putBoolean("is_pb_key_need_post_id", this.iKA);
+        bundle.putBoolean("is_sub_pb", this.hQB);
         bundle.putBoolean("is_ad", this.isAd);
-        bundle.putBoolean("is_pv", this.iKq);
-        bundle.putLong("msg_id", this.iKp);
-        bundle.putString("extra_pb_cache_key", this.iKz);
+        bundle.putBoolean("is_pv", this.iKC);
+        bundle.putLong("msg_id", this.iKB);
+        bundle.putString("extra_pb_cache_key", this.iKL);
         bundle.putInt("thread_type", this.mThreadType);
-        bundle.putBoolean("is_from_thread_config", this.iKt);
-        bundle.putBoolean("is_from_interview_live_config", this.iKu);
-        bundle.putBoolean("is_from_my_god_config", this.iKv);
-        bundle.putInt("extra_pb_is_attention_key", this.iKB);
-        bundle.putInt("extra_pb_funs_count_key", this.iKA);
-        bundle.putBoolean("from_frs", this.cUq);
-        bundle.putBoolean("from_maintab", this.iKm);
-        bundle.putBoolean("from_smart_frs", this.iKM);
-        bundle.putBoolean("from_hottopic", this.iKw);
+        bundle.putBoolean("is_from_thread_config", this.iKF);
+        bundle.putBoolean("is_from_interview_live_config", this.iKG);
+        bundle.putBoolean("is_from_my_god_config", this.iKH);
+        bundle.putInt("extra_pb_is_attention_key", this.iKN);
+        bundle.putInt("extra_pb_funs_count_key", this.iKM);
+        bundle.putBoolean("from_frs", this.cUr);
+        bundle.putBoolean("from_maintab", this.iKy);
+        bundle.putBoolean("from_smart_frs", this.iKY);
+        bundle.putBoolean("from_hottopic", this.iKI);
         bundle.putBoolean(PbActivityConfig.KEY_IS_SHARE_THREAD, this.mIsShareThread);
-        bundle.putString("high_light_post_id", this.iJZ);
+        bundle.putString("high_light_post_id", this.iKl);
         bundle.putString("key_ori_ugc_nid", this.oriUgcNid);
         bundle.putString("key_ori_ugc_tid", this.oriUgcTid);
         bundle.putInt("key_ori_ugc_type", this.oriUgcType);
         bundle.putString("key_ori_ugc_vid", this.oriUgcVid);
-        bundle.putString(PbActivityConfig.KEY_REC_WEIGHT, this.iLh);
-        bundle.putString(PbActivityConfig.KEY_REC_SOURCE, this.iLi);
-        bundle.putString(PbActivityConfig.KEY_REC_AB_TAG, this.iLj);
-        bundle.putString(PbActivityConfig.KEY_REC_EXTRA, this.iLk);
+        bundle.putString(PbActivityConfig.KEY_REC_WEIGHT, this.iLt);
+        bundle.putString(PbActivityConfig.KEY_REC_SOURCE, this.iLu);
+        bundle.putString(PbActivityConfig.KEY_REC_AB_TAG, this.iLv);
+        bundle.putString(PbActivityConfig.KEY_REC_EXTRA, this.iLw);
     }
 
-    public String cnv() {
+    public String cnw() {
         StringBuilder sb = new StringBuilder(20);
-        sb.append(this.iJW);
-        if (!this.iKo) {
-            sb.append(this.iJY);
+        sb.append(this.iKi);
+        if (!this.iKA) {
+            sb.append(this.iKk);
         }
-        sb.append(this.iKb);
-        sb.append(this.iKd);
+        sb.append(this.iKn);
+        sb.append(this.iKp);
         sb.append(this.mSortType);
         sb.append(this.mStType);
         sb.append(this.mIsGood);
-        sb.append(this.iKg);
-        sb.append(this.iKh);
-        sb.append(this.cUq);
-        sb.append(this.iKm);
+        sb.append(this.iKs);
+        sb.append(this.iKt);
+        sb.append(this.cUr);
+        sb.append(this.iKy);
         sb.append(this.isFromMark);
         sb.append(this.isAd);
-        sb.append(this.hQp);
-        sb.append(this.iKq);
-        sb.append(this.iKp);
-        sb.append(this.iKr);
+        sb.append(this.hQB);
+        sb.append(this.iKC);
+        sb.append(this.iKB);
+        sb.append(this.iKD);
         sb.append(this.mThreadType);
-        sb.append(this.iKt);
-        sb.append(this.iKu);
-        sb.append(this.iKv);
+        sb.append(this.iKF);
+        sb.append(this.iKG);
+        sb.append(this.iKH);
         sb.append(this.oriUgcNid);
         sb.append(this.oriUgcTid);
         sb.append(this.oriUgcVid);
         sb.append(this.oriUgcType);
-        if (this.iKz != null) {
-            sb.append(this.iKz);
+        if (this.iKL != null) {
+            sb.append(this.iKL);
         }
         return sb.toString();
     }
 
-    public String cls() {
-        return this.iKr;
+    public String clt() {
+        return this.iKD;
     }
 
     public String getForumId() {
@@ -650,24 +650,24 @@ public class PbModel extends DataModel {
         return this.mFromForumId;
     }
 
-    public String cnw() {
-        return this.iJY;
-    }
-
     public String cnx() {
-        return this.iJZ;
+        return this.iKk;
     }
 
     public String cny() {
-        return this.iJW;
+        return this.iKl;
+    }
+
+    public String cnz() {
+        return this.iKi;
     }
 
     public boolean getHostMode() {
-        return this.iKb;
+        return this.iKn;
     }
 
-    public boolean cnz() {
-        return coo();
+    public boolean cnA() {
+        return cop();
     }
 
     public int getSortType() {
@@ -678,23 +678,23 @@ public class PbModel extends DataModel {
         return this.mIsShareThread;
     }
 
-    public boolean cnA() {
-        return this.cUq;
-    }
-
     public boolean cnB() {
-        return this.iKf;
+        return this.cUr;
     }
 
     public boolean cnC() {
-        return this.iKm;
+        return this.iKr;
+    }
+
+    public boolean cnD() {
+        return this.iKy;
     }
 
     public boolean getIsFromMark() {
         return this.isFromMark;
     }
 
-    public boolean cnD() {
+    public boolean cnE() {
         return "hot_topic".equals(this.mStType);
     }
 
@@ -702,8 +702,8 @@ public class PbModel extends DataModel {
         return this.mIsGood;
     }
 
-    public int bxQ() {
-        return this.iKg;
+    public int bxR() {
+        return this.iKs;
     }
 
     public void setIsGood(int i) {
@@ -711,45 +711,45 @@ public class PbModel extends DataModel {
     }
 
     public void yQ(int i) {
-        this.iKg = i;
-    }
-
-    public boolean cnE() {
-        return this.hQp;
+        this.iKs = i;
     }
 
     public boolean cnF() {
-        if (this.iFb == null) {
+        return this.hQB;
+    }
+
+    public boolean cnG() {
+        if (this.iFn == null) {
             return false;
         }
-        return this.iFb.isValid();
+        return this.iFn.isValid();
     }
 
     public String aCx() {
-        if (this.iFb == null || !this.iFb.ayL()) {
+        if (this.iFn == null || !this.iFn.ayL()) {
             return null;
         }
-        return this.iFb.ayK();
+        return this.iFn.ayK();
     }
 
     public boolean yR(int i) {
-        this.iKi = i;
-        if (this.iKi > this.iFb.getPage().aBf()) {
-            this.iKi = this.iFb.getPage().aBf();
+        this.iKu = i;
+        if (this.iKu > this.iFn.getPage().aBf()) {
+            this.iKu = this.iFn.getPage().aBf();
         }
-        if (this.iKi < 1) {
-            this.iKi = 1;
+        if (this.iKu < 1) {
+            this.iKu = 1;
         }
-        if (this.iJW == null) {
+        if (this.iKi == null) {
             return false;
         }
         return yT(5);
     }
 
     public void yS(int i) {
-        this.iKi = i;
-        this.iKj = i;
-        this.iKk = i;
+        this.iKu = i;
+        this.iKv = i;
+        this.iKw = i;
     }
 
     public void b(com.baidu.tbadk.core.data.ap apVar) {
@@ -757,49 +757,49 @@ public class PbModel extends DataModel {
             yS(1);
             return;
         }
-        if (this.iKj < apVar.aBi()) {
-            this.iKj = apVar.aBi();
+        if (this.iKv < apVar.aBi()) {
+            this.iKv = apVar.aBi();
         }
-        if (this.iKk > apVar.aBi()) {
-            this.iKk = apVar.aBi();
+        if (this.iKw > apVar.aBi()) {
+            this.iKw = apVar.aBi();
         }
-        this.iKl = apVar.aBf();
+        this.iKx = apVar.aBf();
     }
 
     public com.baidu.tieba.pb.data.e getPbData() {
-        return this.iFb;
+        return this.iFn;
     }
 
-    public BaijiahaoData cnG() {
-        if (this.iFb == null || this.iFb.cku() == null) {
+    public BaijiahaoData cnH() {
+        if (this.iFn == null || this.iFn.ckv() == null) {
             return null;
         }
-        return this.iFb.cku().getBaijiahaoData();
+        return this.iFn.ckv().getBaijiahaoData();
     }
 
-    public com.baidu.tieba.pb.data.e cnH() {
-        if (this.iFb == null) {
-            return this.iFb;
+    public com.baidu.tieba.pb.data.e cnI() {
+        if (this.iFn == null) {
+            return this.iFn;
         }
-        if (!cnI() && this.iLf != null) {
-            this.iFb.b(this.iLf);
+        if (!cnJ() && this.iLr != null) {
+            this.iFn.b(this.iLr);
         }
-        return this.iFb;
+        return this.iFn;
     }
 
-    private boolean cnI() {
-        return (this.iFb.ckJ() == null || this.iFb.ckJ().cKO() == null || this.iFb.ckJ().cKO().goods != null || this.iFb.ckJ().cKO().goods.goods_style == 1001) ? false : true;
+    private boolean cnJ() {
+        return (this.iFn.ckK() == null || this.iFn.ckK().cKP() == null || this.iFn.ckK().cKP().goods != null || this.iFn.ckK().cKP().goods.goods_style == 1001) ? false : true;
     }
 
     public com.baidu.tbadk.core.data.ap getPageData() {
-        if (this.iFb == null) {
+        if (this.iFn == null) {
             return null;
         }
-        return this.iFb.getPage();
+        return this.iFn.getPage();
     }
 
-    public boolean cnJ() {
-        if (coo() && this.iFb.getPage().aBk() == 0) {
+    public boolean cnK() {
+        if (cop() && this.iFn.getPage().aBk() == 0) {
             pV(true);
             return true;
         }
@@ -808,9 +808,9 @@ public class PbModel extends DataModel {
 
     public void h(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
-            this.iJW = eVar.getThreadId();
-            if (eVar.cku() != null && eVar.cku().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = eVar.cku().getBaijiahaoData();
+            this.iKi = eVar.getThreadId();
+            if (eVar.ckv() != null && eVar.ckv().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = eVar.ckv().getBaijiahaoData();
                 this.oriUgcNid = baijiahaoData.oriUgcNid;
                 this.oriUgcTid = baijiahaoData.oriUgcTid;
                 this.oriUgcType = baijiahaoData.oriUgcType;
@@ -821,37 +821,37 @@ public class PbModel extends DataModel {
                 this.oriUgcType = 0;
                 this.oriUgcVid = null;
             }
-            this.iJY = null;
-            this.iKb = false;
-            this.iKd = true;
+            this.iKk = null;
+            this.iKn = false;
+            this.iKp = true;
             LoadData();
         }
     }
 
-    public void FO(String str) {
+    public void FP(String str) {
         if (!StringUtils.isNull(str)) {
-            this.iJW = str;
-            this.iJY = null;
-            this.iKb = false;
-            this.iKd = true;
+            this.iKi = str;
+            this.iKk = null;
+            this.iKn = false;
+            this.iKp = true;
             LoadData();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.iJW == null) {
+        if (this.iKi == null) {
             return false;
         }
         cancelLoadData();
-        if (this.fWq == null) {
-            this.fWq = new com.baidu.tieba.tbadkCore.d.b("pbStat");
-            this.fWq.start();
+        if (this.fWD == null) {
+            this.fWD = new com.baidu.tieba.tbadkCore.d.b("pbStat");
+            this.fWD.start();
         }
         boolean yT = yT(3);
         if (this.opType != null) {
             this.opType = null;
-            this.iKy = null;
+            this.iKK = null;
             this.opUrl = null;
             return yT;
         }
@@ -868,24 +868,24 @@ public class PbModel extends DataModel {
     public void destory() {
         cancelLoadData();
         MessageManager.getInstance().unRegisterListener(this.unique_id);
-        if (this.iKU != null) {
-            this.iKU.cancelLoadData();
+        if (this.iLg != null) {
+            this.iLg.cancelLoadData();
         }
-        if (this.iKV != null) {
-            this.iKV.cancelLoadData();
+        if (this.iLh != null) {
+            this.iLh.cancelLoadData();
         }
-        byT();
+        byU();
     }
 
-    private void byT() {
-        if (this.fWq != null) {
-            this.fWq.destory();
-            this.fWq = null;
+    private void byU() {
+        if (this.fWD != null) {
+            this.fWD.destory();
+            this.fWD = null;
         }
     }
 
-    public boolean cnK() {
-        return (this.iJY == null || this.iJY.equals("0") || this.iJY.length() == 0) ? LoadData() : cnO();
+    public boolean cnL() {
+        return (this.iKk == null || this.iKk.equals("0") || this.iKk.length() == 0) ? LoadData() : cnP();
     }
 
     public void a(ForumData forumData, SuggestEmotionModel.a aVar) {
@@ -899,20 +899,20 @@ public class PbModel extends DataModel {
             if (!TextUtils.isEmpty(forumData.getName())) {
                 str = str3;
                 str2 = forumData.getName();
-                this.iKU.a(str, str2, aVar);
+                this.iLg.a(str, str2, aVar);
             }
         }
         str = str3;
         str2 = "";
-        this.iKU.a(str, str2, aVar);
+        this.iLg.a(str, str2, aVar);
     }
 
     public void a(GetSugMatchWordsModel.a aVar) {
         if (aVar != null) {
-            if (this.iKV == null) {
-                this.iKV = new GetSugMatchWordsModel(this.grE.getPageContext());
+            if (this.iLh == null) {
+                this.iLh = new GetSugMatchWordsModel(this.grR.getPageContext());
             }
-            this.iKV.b(aVar);
+            this.iLh.b(aVar);
         }
     }
 
@@ -937,20 +937,20 @@ public class PbModel extends DataModel {
         }
         this.isLoading = true;
         yU(i);
-        final com.baidu.tieba.pb.data.e pbData = ah.coQ().getPbData();
-        if (pbData != null && pbData.cku() != null) {
-            pbData.cku().jH(0);
-            this.iKd = ah.coQ().cnz();
-            this.iKb = ah.coQ().coV();
-            this.iKf = ah.coQ().coW();
-            this.iKZ = ah.coQ().coU();
-            this.iLa = ah.coQ().coT();
-            this.iLb = ah.coQ().coS();
-            this.iLd = ah.coQ().coX();
-            this.mTabIndex = ah.coQ().getTabIndex();
-            this.iKW = this.iKb;
-            if (this.iKb || this.isFromMark) {
-                this.iKC = false;
+        final com.baidu.tieba.pb.data.e pbData = ah.coR().getPbData();
+        if (pbData != null && pbData.ckv() != null) {
+            pbData.ckv().jH(0);
+            this.iKp = ah.coR().cnA();
+            this.iKn = ah.coR().coW();
+            this.iKr = ah.coR().coX();
+            this.iLl = ah.coR().coV();
+            this.iLm = ah.coR().coU();
+            this.iLn = ah.coR().coT();
+            this.iLp = ah.coR().coY();
+            this.mTabIndex = ah.coR().getTabIndex();
+            this.iLi = this.iKn;
+            if (this.iKn || this.isFromMark) {
+                this.iKO = false;
             }
             com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.PbModel.6
                 @Override // java.lang.Runnable
@@ -961,44 +961,44 @@ public class PbModel extends DataModel {
             });
             return false;
         }
-        if (i == 4 && !this.iKG) {
-            a(cnT(), true, this.iJY, 3);
+        if (i == 4 && !this.iKS) {
+            a(cnU(), true, this.iKk, 3);
         }
-        if (i == 3 && !this.iKG) {
+        if (i == 3 && !this.iKS) {
             if (this.isFromMark) {
-                a(cnT(), true, this.iJY, 3);
+                a(cnU(), true, this.iKk, 3);
             } else {
-                a(cnT(), false, this.iJY, 3);
+                a(cnU(), false, this.iKk, 3);
             }
         }
-        this.iKG = false;
+        this.iKS = false;
         PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
         pbPageRequestMessage.setUpdateType(i);
-        pbPageRequestMessage.setIsReqAd(this.iLf == null ? 1 : 0);
-        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.dvN);
-        if (this.iKb || this.isFromMark) {
-            this.iKC = false;
+        pbPageRequestMessage.setIsReqAd(this.iLr == null ? 1 : 0);
+        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.dwa);
+        if (this.iKn || this.isFromMark) {
+            this.iKO = false;
         }
         try {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.iJW == null || this.iJW.length() == 0) {
+        if (this.iKi == null || this.iKi.length() == 0) {
             this.isLoading = false;
             return false;
         }
-        pbPageRequestMessage.set_kz(com.baidu.adp.lib.f.b.toLong(this.iJW, 0L));
+        pbPageRequestMessage.set_kz(com.baidu.adp.lib.f.b.toLong(this.iKi, 0L));
         pbPageRequestMessage.set_rn(30);
         pbPageRequestMessage.set_with_floor(1);
         pbPageRequestMessage.set_scr_w(Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
         pbPageRequestMessage.set_scr_h(Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
         pbPageRequestMessage.set_q_type(Integer.valueOf(com.baidu.tbadk.core.util.ar.aGD().aGE() ? 2 : 1));
-        if (!this.iKd) {
+        if (!this.iKp) {
             pbPageRequestMessage.set_r(1);
         }
         pbPageRequestMessage.set_r(Integer.valueOf(this.mSortType));
-        if (this.iKb) {
+        if (this.iKn) {
             pbPageRequestMessage.set_lz(1);
         }
         if (this.mStType != null) {
@@ -1007,44 +1007,44 @@ public class PbModel extends DataModel {
         if (this.mLocate != null) {
             pbPageRequestMessage.setLocate(this.mLocate);
         }
-        if (this.iKq) {
-            pbPageRequestMessage.set_message_id(Integer.valueOf((int) this.iKp));
+        if (this.iKC) {
+            pbPageRequestMessage.set_message_id(Integer.valueOf((int) this.iKB));
             pbPageRequestMessage.set_message_click("1");
         }
-        if (this.iKC) {
+        if (this.iKO) {
             pbPageRequestMessage.set_banner(1);
         }
         if (this.opType != null) {
             pbPageRequestMessage.setOpType(this.opType);
             pbPageRequestMessage.setOpUrl(this.opUrl);
-            pbPageRequestMessage.setOpStat(com.baidu.adp.lib.f.b.toInt(this.iKy, 0));
-            pbPageRequestMessage.setOpMessageID(this.iKp);
+            pbPageRequestMessage.setOpStat(com.baidu.adp.lib.f.b.toInt(this.iKK, 0));
+            pbPageRequestMessage.setOpMessageID(this.iKB);
         }
         pbPageRequestMessage.set_thread_type(Integer.valueOf(this.mThreadType));
-        ArrayList<PostData> ckw = this.iFb.ckw();
+        ArrayList<PostData> ckx = this.iFn.ckx();
         switch (i) {
             case 1:
                 pbPageRequestMessage.set_back(0);
                 pbPageRequestMessage.set_banner(0);
                 if (!this.isFromMark) {
                     if (this.mSortType == 1) {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKk - 1));
-                        if (this.iKk - 1 <= 0) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKw - 1));
+                        if (this.iKw - 1 <= 0) {
                             z = true;
-                            if (!this.isFromMark || z || this.iKn) {
-                                if (ckw != null && ckw.size() > 0) {
-                                    size = ckw.size();
+                            if (!this.isFromMark || z || this.iKz) {
+                                if (ckx != null && ckx.size() > 0) {
+                                    size = ckx.size();
                                     i2 = 1;
                                     while (size - i2 >= 0) {
-                                        PostData postData = ckw.get(size - i2);
+                                        PostData postData = ckx.get(size - i2);
                                         if (postData == null) {
                                             i3 = i2 + 1;
                                         } else {
-                                            this.iJY = postData.getId();
-                                            if (StringUtils.isNull(this.iJY)) {
+                                            this.iKk = postData.getId();
+                                            if (StringUtils.isNull(this.iKk)) {
                                                 i3 = i2 + 1;
                                             } else if (this.mSortType == 2) {
-                                                pbPageRequestMessage.set_pn(Integer.valueOf(this.iKj + 1));
+                                                pbPageRequestMessage.set_pn(Integer.valueOf(this.iKv + 1));
                                             }
                                         }
                                         i2 = i3;
@@ -1052,8 +1052,8 @@ public class PbModel extends DataModel {
                                     if (this.mSortType == 2) {
                                     }
                                 }
-                                if (this.iJY == null && this.iJY.length() > 0) {
-                                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iJY, 0L));
+                                if (this.iKk == null && this.iKk.length() > 0) {
+                                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iKk, 0L));
                                     if (this.mSortType == 2) {
                                         pbPageRequestMessage.set_pid(0L);
                                     }
@@ -1065,20 +1065,20 @@ public class PbModel extends DataModel {
                             break;
                         }
                     } else {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKj + 1));
-                        if (this.iKj >= this.iKl) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKv + 1));
+                        if (this.iKv >= this.iKx) {
                             z = true;
                             if (!this.isFromMark) {
                             }
-                            if (ckw != null) {
-                                size = ckw.size();
+                            if (ckx != null) {
+                                size = ckx.size();
                                 i2 = 1;
                                 while (size - i2 >= 0) {
                                 }
                                 if (this.mSortType == 2) {
                                 }
                             }
-                            if (this.iJY == null) {
+                            if (this.iKk == null) {
                             }
                             if (this.mSortType == 1) {
                             }
@@ -1089,30 +1089,30 @@ public class PbModel extends DataModel {
                 z = false;
                 if (!this.isFromMark) {
                 }
-                if (ckw != null) {
+                if (ckx != null) {
                 }
-                if (this.iJY == null) {
+                if (this.iKk == null) {
                 }
                 if (this.mSortType == 1) {
                 }
                 b(pbPageRequestMessage);
             case 2:
-                if (ckw != null && ckw.size() > 0 && ckw.get(0) != null) {
-                    this.iJY = ckw.get(0).getId();
+                if (ckx != null && ckx.size() > 0 && ckx.get(0) != null) {
+                    this.iKk = ckx.get(0).getId();
                 }
                 pbPageRequestMessage.set_back(1);
                 pbPageRequestMessage.set_banner(0);
                 if (this.isFromMark) {
-                    if (coo()) {
-                        if (this.iKk - 1 > 0) {
-                            pbPageRequestMessage.set_pn(Integer.valueOf(this.iKk - 1));
+                    if (cop()) {
+                        if (this.iKw - 1 > 0) {
+                            pbPageRequestMessage.set_pn(Integer.valueOf(this.iKw - 1));
                         }
-                    } else if (this.iKj < this.iKl) {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKj + 1));
+                    } else if (this.iKv < this.iKx) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKv + 1));
                     }
                 }
-                if (this.iJY != null && this.iJY.length() > 0) {
-                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iJY, 0L));
+                if (this.iKk != null && this.iKk.length() > 0) {
+                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iKk, 0L));
                     if (this.mSortType == 2) {
                         pbPageRequestMessage.set_pid(0L);
                     }
@@ -1120,18 +1120,18 @@ public class PbModel extends DataModel {
                 b(pbPageRequestMessage);
                 break;
             case 3:
-                if (this.isFromMark || this.iKb) {
+                if (this.isFromMark || this.iKn) {
                     pbPageRequestMessage.set_banner(0);
                 } else {
                     pbPageRequestMessage.set_banner(1);
                 }
                 pbPageRequestMessage.set_back(0);
-                if (coo()) {
+                if (cop()) {
                     pbPageRequestMessage.set_pn(1);
                 } else {
                     pbPageRequestMessage.set_last(1);
-                    if (this.iKl > 0) {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKl));
+                    if (this.iKx > 0) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.iKx));
                     }
                 }
                 if (this.isFromMark) {
@@ -1142,29 +1142,29 @@ public class PbModel extends DataModel {
             case 4:
                 pbPageRequestMessage.set_st_type("store_thread");
                 pbPageRequestMessage.set_mark(1);
-                pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iJY, 0L));
+                pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iKk, 0L));
                 pbPageRequestMessage.set_back(0);
                 pbPageRequestMessage.set_banner(0);
                 b(pbPageRequestMessage);
                 break;
             case 5:
                 pbPageRequestMessage.set_back(0);
-                pbPageRequestMessage.set_pn(Integer.valueOf(this.iKi));
+                pbPageRequestMessage.set_pn(Integer.valueOf(this.iKu));
                 pbPageRequestMessage.set_banner(0);
                 b(pbPageRequestMessage);
                 break;
             case 6:
                 pbPageRequestMessage.set_mark(1);
-                if (this.mSortType == 1 && this.iKW && !this.iKb) {
+                if (this.mSortType == 1 && this.iLi && !this.iKn) {
                     pbPageRequestMessage.set_pid(0L);
                 } else {
-                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iJY, 0L));
+                    pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iKk, 0L));
                     if (this.mSortType == 2) {
                         pbPageRequestMessage.set_pid(0L);
                     }
                 }
                 pbPageRequestMessage.set_back(0);
-                if (this.iKb) {
+                if (this.iKn) {
                     pbPageRequestMessage.set_banner(0);
                 } else {
                     pbPageRequestMessage.set_banner(1);
@@ -1174,11 +1174,11 @@ public class PbModel extends DataModel {
             case 7:
                 pbPageRequestMessage.set_back(0);
                 pbPageRequestMessage.setIsJumpFloor(true);
-                pbPageRequestMessage.setJumpFloorNum(this.iKK);
+                pbPageRequestMessage.setJumpFloorNum(this.iKW);
                 b(pbPageRequestMessage);
                 break;
             case 8:
-                pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iKY, 0L));
+                pbPageRequestMessage.set_pid(com.baidu.adp.lib.f.b.toLong(this.iLk, 0L));
                 if (this.mSortType == 1) {
                     pbPageRequestMessage.set_arround(1);
                     pbPageRequestMessage.set_back(1);
@@ -1188,119 +1188,119 @@ public class PbModel extends DataModel {
                 }
                 break;
         }
-        this.iKW = this.iKb;
+        this.iLi = this.iKn;
         pbPageRequestMessage.setIsFromMark(Boolean.valueOf(this.isFromMark));
-        pbPageRequestMessage.setCacheKey(cnT());
+        pbPageRequestMessage.setCacheKey(cnU());
         pbPageRequestMessage.setContext(this.mContext);
-        pbPageRequestMessage.setObjParam1(String.valueOf(this.iKX));
-        pbPageRequestMessage.setIsSubPostDataReverse(this.iKJ);
-        pbPageRequestMessage.setFromSmartFrs(this.iKM ? 1 : 0);
+        pbPageRequestMessage.setObjParam1(String.valueOf(this.iLj));
+        pbPageRequestMessage.setIsSubPostDataReverse(this.iKV);
+        pbPageRequestMessage.setFromSmartFrs(this.iKY ? 1 : 0);
         pbPageRequestMessage.setForumId(this.mForumId);
-        pbPageRequestMessage.setNeedRepostRecommendForum(this.iKa);
+        pbPageRequestMessage.setNeedRepostRecommendForum(this.iKm);
         pbPageRequestMessage.setOriUgcNid(this.oriUgcNid);
         pbPageRequestMessage.setOriUgcTid(this.oriUgcTid);
         pbPageRequestMessage.setOriUgcType(this.oriUgcType);
         pbPageRequestMessage.setOriUgcVid(this.oriUgcVid);
         if (pbPageRequestMessage.getPn() != null) {
             if (pbPageRequestMessage.getR().intValue() == 1) {
-                if (pbPageRequestMessage.getPn().intValue() == this.iKl) {
+                if (pbPageRequestMessage.getPn().intValue() == this.iKx) {
                     i4 = -1;
                 } else {
-                    i4 = cov();
+                    i4 = cow();
                 }
             } else if (pbPageRequestMessage.getPn().intValue() == 1) {
                 i4 = -1;
             } else {
-                i4 = cov();
+                i4 = cow();
             }
         }
         pbPageRequestMessage.setAfterAdThreadCount(i4);
         pbPageRequestMessage.setTag(this.unique_id);
-        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.iJW);
+        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.iKi);
         pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
         sendMessage(pbPageRequestMessage);
         return true;
     }
 
-    public boolean clr() {
-        switch (coh()) {
+    public boolean cls() {
+        switch (coi()) {
             case 3:
                 return true;
             default:
-                return getPbData() == null || getPbData().cku() == null || !getPbData().cku().aDG();
+                return getPbData() == null || getPbData().ckv() == null || !getPbData().ckv().aDG();
         }
     }
 
     private void a(PbPageRequestMessage pbPageRequestMessage) {
-        if (!TextUtils.isEmpty(cls()) && com.baidu.tieba.recapp.r.cCv().cCp() != null) {
-            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.cCv().cCp().ax(cls(), true) + 1);
-            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.cCv().cCp().ay(cls(), true));
+        if (!TextUtils.isEmpty(clt()) && com.baidu.tieba.recapp.r.cCw().cCq() != null) {
+            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.cCw().cCq().ax(clt(), true) + 1);
+            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.cCw().cCq().ay(clt(), true));
         }
     }
 
     private void b(PbPageRequestMessage pbPageRequestMessage) {
-        if (!TextUtils.isEmpty(cls()) && com.baidu.tieba.recapp.r.cCv().cCp() != null) {
-            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.cCv().cCp().ay(cls(), true) + 1);
-            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.cCv().cCp().ax(cls(), true));
+        if (!TextUtils.isEmpty(clt()) && com.baidu.tieba.recapp.r.cCw().cCq() != null) {
+            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.cCw().cCq().ay(clt(), true) + 1);
+            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.cCw().cCq().ax(clt(), true));
         }
     }
 
     protected void yU(int i) {
         boolean z = false;
         yZ(i);
-        ArrayList<PostData> ckw = this.iFb.ckw();
-        this.iKF = false;
+        ArrayList<PostData> ckx = this.iFn.ckx();
+        this.iKR = false;
         if (i == 1) {
             boolean z2 = false;
-            while (ckw.size() + 30 > com.baidu.tbadk.data.d.getPbListItemMaxNum()) {
-                ckw.remove(0);
+            while (ckx.size() + 30 > com.baidu.tbadk.data.d.getPbListItemMaxNum()) {
+                ckx.remove(0);
                 z2 = true;
             }
             if (z2) {
-                this.iFb.getPage().jF(1);
-                if (this.iKx != null) {
-                    this.iKx.e(this.iFb);
+                this.iFn.getPage().jF(1);
+                if (this.iKJ != null) {
+                    this.iKJ.e(this.iFn);
                 }
             }
-            this.gGo = System.currentTimeMillis();
-            this.iKF = true;
+            this.gGA = System.currentTimeMillis();
+            this.iKR = true;
         } else if (i == 2) {
-            while (ckw.size() + 30 > com.baidu.tbadk.data.d.getPbListItemMaxNum()) {
-                ckw.remove(ckw.size() - 1);
+            while (ckx.size() + 30 > com.baidu.tbadk.data.d.getPbListItemMaxNum()) {
+                ckx.remove(ckx.size() - 1);
                 z = true;
             }
             if (z) {
-                this.iFb.getPage().jE(1);
+                this.iFn.getPage().jE(1);
             }
         }
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
         com.baidu.tieba.pb.data.e eVar2 = z ? null : eVar;
-        this.iKN = i2;
+        this.iKZ = i2;
         this.isLoading = false;
         if (eVar2 != null) {
             j(eVar2);
         }
         i(eVar2);
-        if (this.iLf != null && this.iLf.isValidate()) {
+        if (this.iLr != null && this.iLr.isValidate()) {
             TiebaStatic.log(com.baidu.tieba.s.a.b(PageStayDurationConstants.PageName.PB, "common_fill", true, 1));
         }
         a(eVar2, i, z, i2, str, z2, i3, j, j2, false);
     }
 
     private void i(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.ckJ() != null && eVar.ckJ().cKO() != null && eVar.ckJ().cKO().goods != null && eVar.ckJ().isValidate() && eVar.ckJ().cKO().goods.goods_style != 1001) {
-            this.iLf = eVar.ckJ();
+        if (eVar != null && eVar.ckK() != null && eVar.ckK().cKP() != null && eVar.ckK().cKP().goods != null && eVar.ckK().isValidate() && eVar.ckK().cKP().goods.goods_style != 1001) {
+            this.iLr = eVar.ckK();
         }
     }
 
-    public com.baidu.tieba.tbadkCore.data.m cnL() {
-        return this.iLf;
+    public com.baidu.tieba.tbadkCore.data.m cnM() {
+        return this.iLr;
     }
 
-    public void cnM() {
-        this.iLf = null;
+    public void cnN() {
+        this.iLr = null;
     }
 
     public void a(pbPageSocketResponseMessage pbpagesocketresponsemessage) {
@@ -1323,7 +1323,7 @@ public class PbModel extends DataModel {
 
     protected void j(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
-            if (this.iKv || this.iKt || this.iKu) {
+            if (this.iKH || this.iKF || this.iKG) {
                 eVar = l(eVar);
             }
             k(eVar);
@@ -1333,17 +1333,17 @@ public class PbModel extends DataModel {
     protected void k(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
             String m = m(eVar);
-            for (int i = 0; i < eVar.ckw().size(); i++) {
-                PostData postData = eVar.ckw().get(i);
-                for (int i2 = 0; i2 < postData.cKX().size(); i2++) {
-                    postData.cKX().get(i2).a(this.grE.getPageContext(), m.equals(postData.cKX().get(i2).aCo().getUserId()));
+            for (int i = 0; i < eVar.ckx().size(); i++) {
+                PostData postData = eVar.ckx().get(i);
+                for (int i2 = 0; i2 < postData.cKY().size(); i2++) {
+                    postData.cKY().get(i2).a(this.grR.getPageContext(), m.equals(postData.cKY().get(i2).aCo().getUserId()));
                 }
             }
-            com.baidu.tieba.pb.data.n ckF = eVar.ckF();
-            if (ckF != null && !com.baidu.tbadk.core.util.v.isEmpty(ckF.iCS)) {
-                for (PostData postData2 : ckF.iCS) {
-                    for (int i3 = 0; i3 < postData2.cKX().size(); i3++) {
-                        postData2.cKX().get(i3).a(this.grE.getPageContext(), m.equals(postData2.cKX().get(i3).aCo().getUserId()));
+            com.baidu.tieba.pb.data.n ckG = eVar.ckG();
+            if (ckG != null && !com.baidu.tbadk.core.util.v.isEmpty(ckG.iDe)) {
+                for (PostData postData2 : ckG.iDe) {
+                    for (int i3 = 0; i3 < postData2.cKY().size(); i3++) {
+                        postData2.cKY().get(i3).a(this.grR.getPageContext(), m.equals(postData2.cKY().get(i3).aCo().getUserId()));
                     }
                 }
             }
@@ -1353,14 +1353,14 @@ public class PbModel extends DataModel {
     public void a(com.baidu.tieba.pb.data.e eVar, int i) {
         if (eVar != null) {
             String m = m(eVar);
-            com.baidu.tieba.pb.data.n ckF = eVar.ckF();
-            if (ckF != null && !com.baidu.tbadk.core.util.v.isEmpty(ckF.iCS)) {
-                for (PostData postData : ckF.iCS.subList(i, ckF.iCS.size())) {
+            com.baidu.tieba.pb.data.n ckG = eVar.ckG();
+            if (ckG != null && !com.baidu.tbadk.core.util.v.isEmpty(ckG.iDe)) {
+                for (PostData postData : ckG.iDe.subList(i, ckG.iDe.size())) {
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < postData.cKX().size()) {
-                            postData.cKX().get(i3).a(this.grE.getPageContext(), m.equals(postData.cKX().get(i3).aCo().getUserId()));
+                        if (i3 < postData.cKY().size()) {
+                            postData.cKY().get(i3).a(this.grR.getPageContext(), m.equals(postData.cKY().get(i3).aCo().getUserId()));
                             i2 = i3 + 1;
                         }
                     }
@@ -1373,11 +1373,11 @@ public class PbModel extends DataModel {
         if (eVar == null) {
             return null;
         }
-        bj cku = eVar.cku();
-        cku.jM(this.mIsGood);
-        cku.jL(this.iKg);
-        if (this.iKh > 0) {
-            cku.bv(this.iKh);
+        bj ckv = eVar.ckv();
+        ckv.jM(this.mIsGood);
+        ckv.jL(this.iKs);
+        if (this.iKt > 0) {
+            ckv.bv(this.iKt);
             return eVar;
         }
         return eVar;
@@ -1388,8 +1388,8 @@ public class PbModel extends DataModel {
         if (eVar == null) {
             return null;
         }
-        if (eVar.cku() != null && eVar.cku().aCo() != null) {
-            str = eVar.cku().aCo().getUserId();
+        if (eVar.ckv() != null && eVar.ckv().aCo() != null) {
+            str = eVar.ckv().aCo().getUserId();
         }
         if (str == null) {
             return "";
@@ -1397,11 +1397,11 @@ public class PbModel extends DataModel {
         return str;
     }
 
-    public MetaData cnN() {
-        if (this.iFb == null || this.iFb.cku() == null || this.iFb.cku().aCo() == null) {
+    public MetaData cnO() {
+        if (this.iFn == null || this.iFn.ckv() == null || this.iFn.ckv().aCo() == null) {
             return null;
         }
-        return this.iFb.cku().aCo();
+        return this.iFn.ckv().aCo();
     }
 
     protected void a(com.baidu.tieba.pb.data.e eVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
@@ -1409,74 +1409,74 @@ public class PbModel extends DataModel {
         int i4;
         int i5;
         boolean z4 = !z;
-        this.iKL = z3;
-        this.iKs = i;
-        if (this.fWq != null && !z3) {
-            this.fWq.a(z2, z4, i2, str, i3, j, j2);
-            this.fWq = null;
+        this.iKX = z3;
+        this.iKE = i;
+        if (this.fWD != null && !z3) {
+            this.fWD.a(z2, z4, i2, str, i3, j, j2);
+            this.fWD = null;
         }
-        if (this.iFb != null) {
-            this.iFb.iCr = z3;
-            this.iFb.Df = i;
+        if (this.iFn != null) {
+            this.iFn.iCD = z3;
+            this.iFn.Df = i;
         }
-        if (z4 && !z3 && !TextUtils.isEmpty(cls()) && com.baidu.tieba.recapp.r.cCv().cCp() != null) {
-            com.baidu.tieba.recapp.r.cCv().cCp().g(cls(), yV(cnW()), true);
+        if (z4 && !z3 && !TextUtils.isEmpty(clt()) && com.baidu.tieba.recapp.r.cCw().cCq() != null) {
+            com.baidu.tieba.recapp.r.cCw().cCq().g(clt(), yV(cnX()), true);
         }
-        if (eVar == null || (this.iKi == 1 && i == 5 && eVar.ckw() != null && eVar.ckw().size() < 1)) {
-            if (this.iKx != null) {
-                this.iKd = this.iKc;
+        if (eVar == null || (this.iKu == 1 && i == 5 && eVar.ckx() != null && eVar.ckx().size() < 1)) {
+            if (this.iKJ != null) {
+                this.iKp = this.iKo;
                 if (i2 != 350006) {
-                    this.mSortType = this.iKe;
+                    this.mSortType = this.iKq;
                 }
-                this.iKx.a(false, i2, i, 0, null, str, 1);
+                this.iKJ.a(false, i2, i, 0, null, str, 1);
             }
         } else {
-            this.iKc = this.iKd;
+            this.iKo = this.iKp;
             if (i != 8) {
-                this.iKe = this.mSortType;
-                this.mSortType = eVar.iBE;
+                this.iKq = this.mSortType;
+                this.mSortType = eVar.iBQ;
             }
-            if (eVar.iBD != null && eVar.iBD.isEmpty()) {
+            if (eVar.iBP != null && eVar.iBP.isEmpty()) {
                 PbSortType.Builder builder = new PbSortType.Builder();
-                builder.sort_name = this.grE.getResources().getString(R.string.default_sort);
+                builder.sort_name = this.grR.getResources().getString(R.string.default_sort);
                 builder.sort_type = 0;
-                eVar.iBD = new ArrayList();
-                eVar.iBD.add(builder.build(false));
+                eVar.iBP = new ArrayList();
+                eVar.iBP.add(builder.build(false));
                 PbSortType.Builder builder2 = new PbSortType.Builder();
-                builder2.sort_name = this.grE.getResources().getString(R.string.view_reverse);
+                builder2.sort_name = this.grR.getResources().getString(R.string.view_reverse);
                 builder2.sort_type = 1;
-                eVar.iBD.add(builder2.build(false));
-                this.mSortType = this.iKe;
-                eVar.iBE = this.mSortType;
+                eVar.iBP.add(builder2.build(false));
+                this.mSortType = this.iKq;
+                eVar.iBQ = this.mSortType;
             }
-            this.iKq = false;
+            this.iKC = false;
             if (eVar.getPage() != null && (this.mSortType != 2 || i != 8)) {
                 b(eVar.getPage());
             }
-            this.iKl = this.iKl < 1 ? 1 : this.iKl;
-            ArrayList<PostData> ckw = this.iFb.ckw();
+            this.iKx = this.iKx < 1 ? 1 : this.iKx;
+            ArrayList<PostData> ckx = this.iFn.ckx();
             switch (i) {
                 case 1:
-                    this.iFb.a(eVar.getPage(), 1);
-                    d(eVar, ckw);
+                    this.iFn.a(eVar.getPage(), 1);
+                    d(eVar, ckx);
                     i4 = 0;
                     break;
                 case 2:
-                    if (eVar.ckw() == null) {
+                    if (eVar.ckx() == null) {
                         i5 = 0;
                     } else {
-                        int size2 = eVar.ckw().size() + 1;
-                        PostData postData = (PostData) com.baidu.tbadk.core.util.v.getItem(ckw, 0);
-                        PostData postData2 = (PostData) com.baidu.tbadk.core.util.v.getItem(eVar.ckw(), com.baidu.tbadk.core.util.v.getCount(eVar.ckw()) - 1);
+                        int size2 = eVar.ckx().size() + 1;
+                        PostData postData = (PostData) com.baidu.tbadk.core.util.v.getItem(ckx, 0);
+                        PostData postData2 = (PostData) com.baidu.tbadk.core.util.v.getItem(eVar.ckx(), com.baidu.tbadk.core.util.v.getCount(eVar.ckx()) - 1);
                         if (postData == null || postData2 == null || !postData.getId().equals(postData2.getId())) {
                             i5 = size2;
                         } else {
-                            eVar.ckw().remove(postData2);
+                            eVar.ckx().remove(postData2);
                             i5 = size2 - 1;
                         }
-                        ckw.addAll(0, eVar.ckw());
+                        ckx.addAll(0, eVar.ckx());
                     }
-                    this.iFb.a(eVar.getPage(), 2);
+                    this.iFn.a(eVar.getPage(), 2);
                     i4 = i5;
                     break;
                 case 3:
@@ -1503,33 +1503,33 @@ public class PbModel extends DataModel {
                     i4 = 0;
                     break;
                 case 8:
-                    if (eVar != null && !com.baidu.tbadk.core.util.v.isEmpty(eVar.ckw()) && this.iFb != null && (!this.iKb || m(eVar).equals(eVar.ckw().get(0).aCo().getUserId()))) {
-                        if (this.iFb.getPage().aBk() == 0) {
-                            this.iFb.getPage().jE(1);
+                    if (eVar != null && !com.baidu.tbadk.core.util.v.isEmpty(eVar.ckx()) && this.iFn != null && (!this.iKn || m(eVar).equals(eVar.ckx().get(0).aCo().getUserId()))) {
+                        if (this.iFn.getPage().aBk() == 0) {
+                            this.iFn.getPage().jE(1);
                         }
-                        coi();
-                        this.iKZ = eVar.ckw().get(0);
-                        if (coo() || this.iFb.ckS()) {
-                            if (this.iFb.ckw().size() - this.iLb >= 3) {
-                                this.iLa = new PostData();
-                                this.iLa.kgV = true;
-                                this.iLa.setPostType(53);
-                                this.iFb.ckw().add(this.iLa);
+                        coj();
+                        this.iLl = eVar.ckx().get(0);
+                        if (cop() || this.iFn.ckT()) {
+                            if (this.iFn.ckx().size() - this.iLn >= 3) {
+                                this.iLm = new PostData();
+                                this.iLm.khh = true;
+                                this.iLm.setPostType(53);
+                                this.iFn.ckx().add(this.iLm);
                             }
-                            this.iFb.ckw().add(this.iKZ);
-                            size = this.iFb.ckw().size() - 1;
+                            this.iFn.ckx().add(this.iLl);
+                            size = this.iFn.ckx().size() - 1;
                         } else {
-                            if (this.iLb - this.iLc >= 3) {
-                                this.iLa = new PostData();
-                                this.iLa.kgV = false;
-                                this.iLa.setPostType(53);
-                                this.iFb.ckw().add(0, this.iLa);
+                            if (this.iLn - this.iLo >= 3) {
+                                this.iLm = new PostData();
+                                this.iLm.khh = false;
+                                this.iLm.setPostType(53);
+                                this.iFn.ckx().add(0, this.iLm);
                             }
-                            this.iFb.ckw().add(0, this.iKZ);
+                            this.iFn.ckx().add(0, this.iLl);
                             size = 0;
                         }
                         if (!com.baidu.tbadk.core.util.aq.isTaday(com.baidu.tbadk.core.sharedPref.b.aFD().getLong(SharedPrefConfig.KEY_PB_POST_RECOMMEND_LIVE_DATE_PREFIX + TbadkCoreApplication.getCurrentAccount(), 0L))) {
-                            this.iKZ.khi = this.iFb.ckQ();
+                            this.iLl.khu = this.iFn.ckR();
                             com.baidu.tbadk.core.sharedPref.b.aFD().putLong(SharedPrefConfig.KEY_PB_POST_RECOMMEND_LIVE_DATE_PREFIX + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                         }
                         i4 = size;
@@ -1540,75 +1540,75 @@ public class PbModel extends DataModel {
                     i4 = 0;
                     break;
             }
-            if (this.iFb != null && this.iFb.cku() != null) {
-                PraiseData aBZ = this.iFb.cku().aBZ();
-                if (this.iLo != null && !aBZ.isPriaseDataValid()) {
-                    this.iFb.cku().a(this.iLo);
+            if (this.iFn != null && this.iFn.ckv() != null) {
+                PraiseData aBZ = this.iFn.ckv().aBZ();
+                if (this.iLA != null && !aBZ.isPriaseDataValid()) {
+                    this.iFn.ckv().a(this.iLA);
                 } else {
-                    this.iLo = this.iFb.cku().aBZ();
-                    this.iLo.setPostId(this.iFb.cku().aCE());
+                    this.iLA = this.iFn.ckv().aBZ();
+                    this.iLA.setPostId(this.iFn.ckv().aCE());
                 }
-                if (eVar.getPage() != null && eVar.getPage().aBi() == 1 && eVar.cku() != null && eVar.cku().aCz() != null && eVar.cku().aCz().size() > 0) {
-                    this.iFb.cku().x(eVar.cku().aCz());
+                if (eVar.getPage() != null && eVar.getPage().aBi() == 1 && eVar.ckv() != null && eVar.ckv().aCz() != null && eVar.ckv().aCz().size() > 0) {
+                    this.iFn.ckv().x(eVar.ckv().aCz());
                 }
-                this.iFb.cku().jJ(eVar.cku().aCf());
-                this.iFb.cku().jG(eVar.cku().getAnchorLevel());
-                this.iFb.cku().jH(eVar.cku().aBV());
+                this.iFn.ckv().jJ(eVar.ckv().aCf());
+                this.iFn.ckv().jG(eVar.ckv().getAnchorLevel());
+                this.iFn.ckv().jH(eVar.ckv().aBV());
                 if (this.mThreadType == 33) {
-                    this.iFb.cku().aCo().setHadConcerned(eVar.cku().aCo().hadConcerned());
+                    this.iFn.ckv().aCo().setHadConcerned(eVar.ckv().aCo().hadConcerned());
                 }
-                if (eVar != null && eVar.cku() != null) {
-                    this.iFb.cku().jO(eVar.cku().aCD());
+                if (eVar != null && eVar.ckv() != null) {
+                    this.iFn.ckv().jO(eVar.ckv().aCD());
                 }
             }
-            if (this.iFb != null && this.iFb.getUserData() != null && eVar.getUserData() != null) {
-                this.iFb.getUserData().setBimg_end_time(eVar.getUserData().getBimg_end_time());
-                this.iFb.getUserData().setBimg_url(eVar.getUserData().getBimg_url());
+            if (this.iFn != null && this.iFn.getUserData() != null && eVar.getUserData() != null) {
+                this.iFn.getUserData().setBimg_end_time(eVar.getUserData().getBimg_end_time());
+                this.iFn.getUserData().setBimg_url(eVar.getUserData().getBimg_url());
             }
-            if (eVar.getPage() != null && eVar.getPage().aBi() == 1 && eVar.ckE() != null) {
-                this.iFb.e(eVar.ckE());
+            if (eVar.getPage() != null && eVar.getPage().aBi() == 1 && eVar.ckF() != null) {
+                this.iFn.e(eVar.ckF());
             }
-            if (this.iKL) {
-                if (this.iFb.cku() != null && this.iFb.cku().aCo() != null && this.iFb.ckw() != null && com.baidu.tbadk.core.util.v.getItem(this.iFb.ckw(), 0) != null) {
-                    PostData postData3 = (PostData) com.baidu.tbadk.core.util.v.getItem(this.iFb.ckw(), 0);
-                    MetaData aCo = this.iFb.cku().aCo();
+            if (this.iKX) {
+                if (this.iFn.ckv() != null && this.iFn.ckv().aCo() != null && this.iFn.ckx() != null && com.baidu.tbadk.core.util.v.getItem(this.iFn.ckx(), 0) != null) {
+                    PostData postData3 = (PostData) com.baidu.tbadk.core.util.v.getItem(this.iFn.ckx(), 0);
+                    MetaData aCo = this.iFn.ckv().aCo();
                     if (postData3.aCo() != null && postData3.aCo().getGodUserData() != null) {
-                        if (this.iKA != -1) {
-                            aCo.setFansNum(this.iKA);
-                            postData3.aCo().setFansNum(this.iKA);
+                        if (this.iKM != -1) {
+                            aCo.setFansNum(this.iKM);
+                            postData3.aCo().setFansNum(this.iKM);
                         }
-                        if (this.iKB != -1) {
-                            aCo.getGodUserData().setIsLike(this.iKB == 1);
-                            postData3.aCo().getGodUserData().setIsLike(this.iKB == 1);
+                        if (this.iKN != -1) {
+                            aCo.getGodUserData().setIsLike(this.iKN == 1);
+                            postData3.aCo().getGodUserData().setIsLike(this.iKN == 1);
                             aCo.getGodUserData().setIsFromNetWork(false);
                             postData3.aCo().getGodUserData().setIsFromNetWork(false);
                         }
                     }
                 }
-                this.iFb.iBC = -1;
-                this.iFb.iBB = -1;
+                this.iFn.iBO = -1;
+                this.iFn.iBN = -1;
             }
-            if (this.iKx != null) {
-                this.iKx.a(true, getErrorCode(), i, i4, this.iFb, this.mErrorString, 1);
+            if (this.iKJ != null) {
+                this.iKJ.a(true, getErrorCode(), i, i4, this.iFn, this.mErrorString, 1);
             }
         }
-        if (this.iFb != null && this.iFb.cku() != null && this.iFb.getForum() != null && !this.iFb.ckS()) {
+        if (this.iFn != null && this.iFn.ckv() != null && this.iFn.getForum() != null && !this.iFn.ckT()) {
             HistoryMessage historyMessage = new HistoryMessage();
-            historyMessage.Activity = this.grE.getPageContext();
-            historyMessage.threadId = getPbData().cku().getId();
-            if (this.mIsShareThread && getPbData().cku().cTQ != null) {
-                historyMessage.threadName = getPbData().cku().cTQ.showText;
+            historyMessage.Activity = this.grR.getPageContext();
+            historyMessage.threadId = getPbData().ckv().getId();
+            if (this.mIsShareThread && getPbData().ckv().cTR != null) {
+                historyMessage.threadName = getPbData().ckv().cTR.showText;
             } else {
-                historyMessage.threadName = getPbData().cku().getTitle();
+                historyMessage.threadName = getPbData().ckv().getTitle();
             }
-            if (this.mIsShareThread && !clr()) {
+            if (this.mIsShareThread && !cls()) {
                 historyMessage.forumName = "";
             } else {
                 historyMessage.forumName = getPbData().getForum().getName();
             }
             historyMessage.isHostOnly = getHostMode();
-            historyMessage.isSquence = cnz();
-            historyMessage.threadType = getPbData().cku().getThreadType();
+            historyMessage.isSquence = cnA();
+            historyMessage.threadType = getPbData().ckv().getThreadType();
             historyMessage.isShareThread = this.mIsShareThread;
             MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
         }
@@ -1616,13 +1616,13 @@ public class PbModel extends DataModel {
 
     protected void d(com.baidu.tieba.pb.data.e eVar, ArrayList<PostData> arrayList) {
         String aL;
-        if (arrayList != null && eVar.ckw() != null) {
-            PostData postData = (PostData) com.baidu.tbadk.core.util.v.getItem(eVar.ckw(), 0);
+        if (arrayList != null && eVar.ckx() != null) {
+            PostData postData = (PostData) com.baidu.tbadk.core.util.v.getItem(eVar.ckx(), 0);
             if (postData != null && (aL = aL(arrayList)) != null && aL.equals(postData.getId())) {
-                eVar.ckw().remove(postData);
+                eVar.ckx().remove(postData);
             }
-            this.iFb.iCq = arrayList.size();
-            arrayList.addAll(eVar.ckw());
+            this.iFn.iCC = arrayList.size();
+            arrayList.addAll(eVar.ckx());
         }
     }
 
@@ -1654,14 +1654,14 @@ public class PbModel extends DataModel {
 
     private void n(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
-            eVar.FJ(this.iFb.ckL());
-            this.iFb = eVar;
+            eVar.FK(this.iFn.ckM());
+            this.iFn = eVar;
             yS(eVar.getPage().aBi());
         }
     }
 
-    public boolean cnO() {
-        if (this.iJW == null || this.iJY == null) {
+    public boolean cnP() {
+        if (this.iKi == null || this.iKk == null) {
             return false;
         }
         cancelMessage();
@@ -1672,44 +1672,44 @@ public class PbModel extends DataModel {
     }
 
     public boolean pV(boolean z) {
-        if (this.iJW == null || this.iFb == null) {
+        if (this.iKi == null || this.iFn == null) {
             return false;
         }
-        if (z || this.iFb.getPage().aBk() != 0) {
+        if (z || this.iFn.getPage().aBk() != 0) {
             return yT(1);
         }
         return false;
     }
 
     public boolean pW(boolean z) {
-        if (this.iJW == null || this.iFb == null) {
+        if (this.iKi == null || this.iFn == null) {
             return false;
         }
-        if ((z || this.iFb.getPage().aBl() != 0) && this.iFb.ckw() != null && this.iFb.ckw().size() >= 1) {
+        if ((z || this.iFn.getPage().aBl() != 0) && this.iFn.ckx() != null && this.iFn.ckx().size() >= 1) {
             return yT(2);
         }
         return false;
     }
 
-    public boolean FU(String str) {
-        this.iKb = !this.iKb;
-        this.iJY = str;
+    public boolean FV(String str) {
+        this.iKn = !this.iKn;
+        this.iKk = str;
         TiebaStatic.log(new com.baidu.tbadk.core.util.an("pb_onlyowner_click").X("obj_source", 0));
         if (yT(6)) {
             return true;
         }
-        this.iKb = this.iKb ? false : true;
+        this.iKn = this.iKn ? false : true;
         return false;
     }
 
     public boolean v(boolean z, String str) {
-        if (this.iKb == z) {
+        if (this.iKn == z) {
             return false;
         }
-        this.iKb = z;
-        this.iJY = str;
+        this.iKn = z;
+        this.iKk = str;
         if (this.mSortType == 2) {
-            this.iJY = "";
+            this.iKk = "";
         }
         if (z) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.an("pb_onlyowner_click").X("obj_source", 1));
@@ -1717,7 +1717,7 @@ public class PbModel extends DataModel {
         if (yT(6)) {
             return true;
         }
-        this.iKb = z ? false : true;
+        this.iKn = z ? false : true;
         return false;
     }
 
@@ -1725,56 +1725,56 @@ public class PbModel extends DataModel {
         if (i == this.mSortType) {
             return false;
         }
-        this.iKc = this.iKd;
-        this.iKe = this.mSortType;
+        this.iKo = this.iKp;
+        this.iKq = this.mSortType;
         this.mSortType = i;
-        this.iKd = !this.iKd;
+        this.iKp = !this.iKp;
         if (i == 2 && this.isFromMark) {
-            this.iJY = "0";
+            this.iKk = "0";
         }
         if (this.isLoading || !LoadData()) {
-            this.iKd = this.iKd ? false : true;
-            this.mSortType = this.iKe;
+            this.iKp = this.iKp ? false : true;
+            this.mSortType = this.iKq;
             return false;
         }
         return true;
     }
 
-    public boolean cnP() {
-        return coo();
+    public boolean cnQ() {
+        return cop();
     }
 
-    public int cnQ() {
+    public int cnR() {
         return this.mSortType;
     }
 
     public boolean hasData() {
-        return (this.iFb == null || this.iFb.getForum() == null || this.iFb.cku() == null) ? false : true;
+        return (this.iFn == null || this.iFn.getForum() == null || this.iFn.ckv() == null) ? false : true;
     }
 
     public boolean ayL() {
-        if (this.iFb == null) {
+        if (this.iFn == null) {
             return false;
         }
-        return this.iFb.ayL();
+        return this.iFn.ayL();
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData vi(String str) {
-        if (this.iFb == null || this.iFb.cku() == null || this.iFb.getForum() == null) {
+    public WriteData vj(String str) {
+        if (this.iFn == null || this.iFn.ckv() == null || this.iFn.getForum() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        if (this.iFb.cku().aDG()) {
+        if (this.iFn.ckv().aDG()) {
             writeData.setForumId("0");
             writeData.setForumName("");
         } else {
-            writeData.setForumId(this.iFb.getForum().getId());
-            writeData.setForumName(this.iFb.getForum().getName());
+            writeData.setForumId(this.iFn.getForum().getId());
+            writeData.setForumName(this.iFn.getForum().getName());
         }
         writeData.setFromForumId(this.mFromForumId);
-        writeData.sourceFrom = String.valueOf(this.iKX);
-        writeData.setThreadId(this.iJW);
+        writeData.sourceFrom = String.valueOf(this.iLj);
+        writeData.setThreadId(this.iKi);
         writeData.setIsAd(this.isAd);
         if (str == null) {
             writeData.setType(1);
@@ -1790,29 +1790,29 @@ public class PbModel extends DataModel {
         if (i < 0) {
             i = 0;
         }
-        if (this.iFb == null) {
+        if (this.iFn == null) {
             return null;
         }
-        ArrayList<PostData> ckw = this.iFb.ckw();
-        if (com.baidu.tbadk.core.util.v.isEmpty(ckw)) {
+        ArrayList<PostData> ckx = this.iFn.ckx();
+        if (com.baidu.tbadk.core.util.v.isEmpty(ckx)) {
             return null;
         }
-        if (ckw.size() > 0 && i >= ckw.size()) {
-            i = ckw.size() - 1;
+        if (ckx.size() > 0 && i >= ckx.size()) {
+            i = ckx.size() - 1;
         }
-        return l(ckw.get(i));
+        return l(ckx.get(i));
     }
 
-    public MarkData cnR() {
+    public MarkData cnS() {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.iJW);
-        markData.setPostId(this.iFb.ayK());
+        markData.setThreadId(this.iKi);
+        markData.setPostId(this.iFn.ayK());
         markData.setTime(date.getTime());
-        markData.setHostMode(this.iKb);
-        markData.setSequence(Boolean.valueOf(coo()));
-        markData.setId(this.iJW);
+        markData.setHostMode(this.iKn);
+        markData.setSequence(Boolean.valueOf(cop()));
+        markData.setId(this.iKi);
         return markData;
     }
 
@@ -1820,13 +1820,13 @@ public class PbModel extends DataModel {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.iJW);
+        markData.setThreadId(this.iKi);
         markData.setPostId(postData.getId());
         markData.setTime(date.getTime());
-        markData.setHostMode(this.iKb);
-        markData.setSequence(Boolean.valueOf(coo()));
-        markData.setId(this.iJW);
-        markData.setFloor(postData.cLa());
+        markData.setHostMode(this.iKn);
+        markData.setSequence(Boolean.valueOf(cop()));
+        markData.setId(this.iKi);
+        markData.setFloor(postData.cLb());
         markData.setForumId(this.mForumId);
         if (postData instanceof com.baidu.tieba.pb.data.c) {
             markData.setApp(true);
@@ -1836,25 +1836,25 @@ public class PbModel extends DataModel {
         return markData;
     }
 
-    public void cnS() {
-        i.cmh().ar(cnT(), this.isFromMark);
-    }
-
-    private String cnT() {
-        String cnU = (this.iJW == null || this.iJW.equals("0")) ? cnU() : this.iJW;
-        if (this.iKb) {
-            cnU = cnU + DB_KEY_HOST;
-        }
-        if (this.mSortType == 1) {
-            cnU = cnU + DB_KEY_REVER;
-        }
-        if (TbadkCoreApplication.getCurrentAccount() != null) {
-            return cnU + TbadkCoreApplication.getCurrentAccount();
-        }
-        return cnU;
+    public void cnT() {
+        i.cmi().ar(cnU(), this.isFromMark);
     }
 
     private String cnU() {
+        String cnV = (this.iKi == null || this.iKi.equals("0")) ? cnV() : this.iKi;
+        if (this.iKn) {
+            cnV = cnV + DB_KEY_HOST;
+        }
+        if (this.mSortType == 1) {
+            cnV = cnV + DB_KEY_REVER;
+        }
+        if (TbadkCoreApplication.getCurrentAccount() != null) {
+            return cnV + TbadkCoreApplication.getCurrentAccount();
+        }
+        return cnV;
+    }
+
+    private String cnV() {
         String str = this.oriUgcNid != null ? "" + this.oriUgcNid : "";
         if (this.oriUgcTid != null) {
             str = str + this.oriUgcTid;
@@ -1867,227 +1867,227 @@ public class PbModel extends DataModel {
     }
 
     public void pX(boolean z) {
-        if (this.iFb != null) {
-            this.iFb.fm(z);
+        if (this.iFn != null) {
+            this.iFn.fm(z);
         }
     }
 
-    public boolean cnV() {
-        return this.iKC;
+    public boolean cnW() {
+        return this.iKO;
     }
 
     public void a(a aVar) {
-        this.iKx = aVar;
+        this.iKJ = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public String aOO() {
+    public String aOP() {
         return this.postID;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public boolean aON() {
-        return cnK();
+    public boolean aOO() {
+        return cnL();
     }
 
-    public boolean FV(String str) {
-        if (getPbData() == null || getPbData().cku() == null || getPbData().cku().aCo() == null || StringUtils.isNull(str)) {
+    public boolean FW(String str) {
+        if (getPbData() == null || getPbData().ckv() == null || getPbData().ckv().aCo() == null || StringUtils.isNull(str)) {
             return false;
         }
-        String userId = getPbData().cku().aCo().getUserId();
+        String userId = getPbData().ckv().aCo().getUserId();
         return !StringUtils.isNull(userId) && userId.equals(str);
     }
 
-    public int cnW() {
+    public int cnX() {
         return this.mRequestType;
     }
 
-    public void cnX() {
-        if ("personalize_page".equals(this.mStType)) {
-            this.iKI = System.currentTimeMillis() / 1000;
-        }
-    }
-
     public void cnY() {
-        if ("personalize_page".equals(this.mStType) && this.iFb != null && this.iKI != 0) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c10754").cy("fid", this.iFb.getForumId()).cy("tid", this.iJW).cy("obj_duration", String.valueOf(currentTimeMillis - this.iKI)).cy(TiebaInitialize.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
-            this.iKI = 0L;
+        if ("personalize_page".equals(this.mStType)) {
+            this.iKU = System.currentTimeMillis() / 1000;
         }
     }
 
-    public boolean cnZ() {
-        return this.iKL;
+    public void cnZ() {
+        if ("personalize_page".equals(this.mStType) && this.iFn != null && this.iKU != 0) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c10754").cy("fid", this.iFn.getForumId()).cy("tid", this.iKi).cy("obj_duration", String.valueOf(currentTimeMillis - this.iKU)).cy(TiebaInitialize.Params.OBJ_PARAM3, String.valueOf(currentTimeMillis)));
+            this.iKU = 0L;
+        }
+    }
+
+    public boolean coa() {
+        return this.iKX;
     }
 
     public int getErrorNo() {
-        return this.iKN;
+        return this.iKZ;
     }
 
     public com.baidu.tieba.pb.data.d getAppealInfo() {
         return this.mAppealInfo;
     }
 
-    public n coa() {
-        return this.iKP;
+    public n cob() {
+        return this.iLb;
     }
 
-    public x cob() {
-        return this.iKQ;
+    public x coc() {
+        return this.iLc;
     }
 
-    public CheckRealNameModel coc() {
-        return this.iKS;
+    public CheckRealNameModel cod() {
+        return this.iLe;
     }
 
-    public AddExperiencedModel cod() {
+    public AddExperiencedModel coe() {
+        return this.iLf;
+    }
+
+    public String cof() {
         return this.iKT;
     }
 
-    public String coe() {
-        return this.iKH;
+    public void FX(String str) {
+        this.iKT = str;
     }
 
-    public void FW(String str) {
-        this.iKH = str;
-    }
-
-    public boolean cof() {
-        return this.iKM;
+    public boolean cog() {
+        return this.iKY;
     }
 
     public void updateCurrentUserPendant(com.baidu.tbadk.data.m mVar) {
-        if (mVar != null && this.iFb != null && this.iFb.ckw() != null && this.iFb.ckw().size() > 0) {
+        if (mVar != null && this.iFn != null && this.iFn.ckx() != null && this.iFn.ckx().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.iFb.ckw().size();
+                int size = this.iFn.ckx().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.iFb.ckw().get(i) != null && this.iFb.ckw().get(i).aCo() != null && currentAccount.equals(this.iFb.ckw().get(i).aCo().getUserId()) && this.iFb.ckw().get(i).aCo().getPendantData() != null) {
-                        this.iFb.ckw().get(i).aCo().getPendantData().sB(mVar.aAG());
-                        this.iFb.ckw().get(i).aCo().getPendantData().bI(mVar.aNY());
+                    if (this.iFn.ckx().get(i) != null && this.iFn.ckx().get(i).aCo() != null && currentAccount.equals(this.iFn.ckx().get(i).aCo().getUserId()) && this.iFn.ckx().get(i).aCo().getPendantData() != null) {
+                        this.iFn.ckx().get(i).aCo().getPendantData().sB(mVar.aAG());
+                        this.iFn.ckx().get(i).aCo().getPendantData().bI(mVar.aNZ());
                     }
                 }
             }
         }
     }
 
-    public String cog() {
-        return this.iKR;
+    public String coh() {
+        return this.iLd;
     }
 
-    public int coh() {
-        return this.iKX;
+    public int coi() {
+        return this.iLj;
     }
 
     public void yY(int i) {
-        this.iKX = i;
+        this.iLj = i;
     }
 
-    public void FX(String str) {
-        if ((!this.iKb || FV(TbadkCoreApplication.getCurrentAccount())) && this.iFb.ckw() != null) {
-            this.iFb.getPage().jE(1);
-            if (this.iFb.getPage().aBk() == 0) {
-                this.iFb.getPage().jE(1);
+    public void FY(String str) {
+        if ((!this.iKn || FW(TbadkCoreApplication.getCurrentAccount())) && this.iFn.ckx() != null) {
+            this.iFn.getPage().jE(1);
+            if (this.iFn.getPage().aBk() == 0) {
+                this.iFn.getPage().jE(1);
             }
-            this.iKY = str;
+            this.iLk = str;
             yT(8);
         }
     }
 
     private void yZ(int i) {
         if (i != 8) {
-            this.iKY = "";
-            if (this.iKZ != null) {
-                if (i == 1 && this.iFb != null && this.iFb.ckS()) {
-                    if (this.iLa != null) {
-                        getPbData().ckw().remove(this.iLa);
+            this.iLk = "";
+            if (this.iLl != null) {
+                if (i == 1 && this.iFn != null && this.iFn.ckT()) {
+                    if (this.iLm != null) {
+                        getPbData().ckx().remove(this.iLm);
                     }
-                } else if (i == 1 && !this.iKd && !com.baidu.tbadk.core.util.v.isEmpty(getPbData().ckw())) {
-                    getPbData().ckw().remove(this.iKZ);
-                    if (this.iLa != null) {
-                        getPbData().ckw().remove(this.iLa);
+                } else if (i == 1 && !this.iKp && !com.baidu.tbadk.core.util.v.isEmpty(getPbData().ckx())) {
+                    getPbData().ckx().remove(this.iLl);
+                    if (this.iLm != null) {
+                        getPbData().ckx().remove(this.iLm);
                     }
-                    getPbData().ckw().add(0, this.iKZ);
+                    getPbData().ckx().add(0, this.iLl);
                 } else {
-                    getPbData().ckw().remove(this.iKZ);
-                    if (this.iLa != null) {
-                        getPbData().ckw().remove(this.iLa);
+                    getPbData().ckx().remove(this.iLl);
+                    if (this.iLm != null) {
+                        getPbData().ckx().remove(this.iLm);
                     }
                 }
             }
-            this.iLa = null;
+            this.iLm = null;
         }
     }
 
-    public void coi() {
-        if (this.iFb != null && !com.baidu.tbadk.core.util.v.isEmpty(this.iFb.ckw())) {
-            if (this.iLa != null) {
-                this.iFb.ckw().remove(this.iLa);
-                this.iLa = null;
+    public void coj() {
+        if (this.iFn != null && !com.baidu.tbadk.core.util.v.isEmpty(this.iFn.ckx())) {
+            if (this.iLm != null) {
+                this.iFn.ckx().remove(this.iLm);
+                this.iLm = null;
             }
-            if (this.iKZ != null) {
-                this.iFb.ckw().remove(this.iKZ);
-                this.iKZ = null;
+            if (this.iLl != null) {
+                this.iFn.ckx().remove(this.iLl);
+                this.iLl = null;
             }
         }
     }
 
     public void cr(int i, int i2) {
-        this.iLb = i;
-        this.iLc = i2;
-    }
-
-    public PostData coj() {
-        return this.iKZ;
+        this.iLn = i;
+        this.iLo = i2;
     }
 
     public PostData cok() {
-        return this.iLa;
+        return this.iLl;
     }
 
-    public int col() {
-        return this.iLb;
+    public PostData col() {
+        return this.iLm;
     }
 
     public int com() {
-        return this.iLc;
+        return this.iLn;
     }
 
-    public String con() {
-        return this.iLe;
+    public int con() {
+        return this.iLo;
     }
 
-    public void FY(String str) {
-        this.iLe = str;
+    public String coo() {
+        return this.iLq;
     }
 
-    private boolean coo() {
+    public void FZ(String str) {
+        this.iLq = str;
+    }
+
+    private boolean cop() {
         return this.mSortType == 0 || this.mSortType == 2;
     }
 
-    public boolean cop() {
-        return this.iKX == 13 || this.iKX == 12;
-    }
-
-    public String coq() {
-        return this.iLh;
+    public boolean coq() {
+        return this.iLj == 13 || this.iLj == 12;
     }
 
     public String cor() {
-        return this.iLi;
+        return this.iLt;
     }
 
     public String cos() {
-        return this.iLj;
+        return this.iLu;
     }
 
     public String cot() {
-        return this.iLk;
+        return this.iLv;
     }
 
-    public Rect cou() {
-        Rect rect = this.iLd;
-        this.iLd = null;
+    public String cou() {
+        return this.iLw;
+    }
+
+    public Rect cov() {
+        Rect rect = this.iLp;
+        this.iLp = null;
         return rect;
     }
 
@@ -2095,18 +2095,18 @@ public class PbModel extends DataModel {
         return this.mTabIndex;
     }
 
-    private int cov() {
+    private int cow() {
         int i;
         int i2 = 0;
-        if (getPbData().ckw() == null) {
+        if (getPbData().ckx() == null) {
             return 0;
         }
-        ArrayList<PostData> ckw = getPbData().ckw();
-        int size = ckw.size() - 1;
+        ArrayList<PostData> ckx = getPbData().ckx();
+        int size = ckx.size() - 1;
         while (size >= 0) {
-            PostData postData = ckw.get(size);
+            PostData postData = ckx.get(size);
             if (postData instanceof com.baidu.tieba.tbadkCore.data.m) {
-                if (postData.getType() != AdvertAppInfo.cMK) {
+                if (postData.getType() != AdvertAppInfo.cML) {
                     return i2;
                 }
                 i = i2;
@@ -2116,6 +2116,6 @@ public class PbModel extends DataModel {
             size--;
             i2 = i;
         }
-        return ckw.size();
+        return ckx.size();
     }
 }

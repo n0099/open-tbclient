@@ -45,22 +45,22 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static final int bg_overlay_gradient = 0x7f02042f;
-        public static final int bg_svprogresshuddefault = 0x7f0204b3;
-        public static final int ic_svstatus_error = 0x7f020bd9;
-        public static final int ic_svstatus_info = 0x7f020bda;
-        public static final int ic_svstatus_loading = 0x7f020bdb;
-        public static final int ic_svstatus_success = 0x7f020bdc;
+        public static final int bg_svprogresshuddefault = 0x7f0204b6;
+        public static final int ic_svstatus_error = 0x7f020bdc;
+        public static final int ic_svstatus_info = 0x7f020bdd;
+        public static final int ic_svstatus_loading = 0x7f020bde;
+        public static final int ic_svstatus_success = 0x7f020bdf;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
         public static final int FILL = 0x7f0f01a0;
         public static final int STROKE = 0x7f0f01a1;
-        public static final int circleProgressBar = 0x7f0f24d7;
-        public static final int ivBigLoading = 0x7f0f24d5;
-        public static final int ivSmallLoading = 0x7f0f24d6;
-        public static final int sv_outmost_container = 0x7f0f172c;
-        public static final int tvMsg = 0x7f0f24d8;
+        public static final int circleProgressBar = 0x7f0f24db;
+        public static final int ivBigLoading = 0x7f0f24d9;
+        public static final int ivSmallLoading = 0x7f0f24da;
+        public static final int sv_outmost_container = 0x7f0f1730;
+        public static final int tvMsg = 0x7f0f24dc;
     }
 
     /* loaded from: classes.dex */
@@ -70,8 +70,8 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_svprogresshud = 0x7f0304e3;
-        public static final int view_svprogressdefault = 0x7f030898;
+        public static final int layout_svprogresshud = 0x7f0304e4;
+        public static final int view_svprogressdefault = 0x7f030899;
     }
 
     /* loaded from: classes.dex */

@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FRSRefreshButton extends ImageView {
     private int color;
-    private PorterDuffXfermode dHm;
-    private PorterDuffXfermode dHn;
-    private boolean dHo;
-    private AlphaAnimation dHp;
-    private AlphaAnimation dHq;
+    private PorterDuffXfermode dHA;
+    private boolean dHB;
+    private AlphaAnimation dHC;
+    private AlphaAnimation dHD;
+    private PorterDuffXfermode dHz;
     private int mHeight;
     private Drawable mIcon;
     private Paint mPaint;
@@ -37,12 +37,12 @@ public class FRSRefreshButton extends ImageView {
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.color = R.color.cp_bg_line_k;
-        this.dHm = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.dHn = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.dHz = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.dHA = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
-        this.dHo = false;
-        this.dHp = null;
-        this.dHq = null;
+        this.dHB = false;
+        this.dHC = null;
+        this.dHD = null;
         init();
     }
 
@@ -89,9 +89,9 @@ public class FRSRefreshButton extends ImageView {
     }
 
     private void clear(Canvas canvas) {
-        this.mPaint.setXfermode(this.dHm);
+        this.mPaint.setXfermode(this.dHz);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.dHn);
+        this.mPaint.setXfermode(this.dHA);
     }
 
     public void onChangeSkinType(int i) {
@@ -103,31 +103,31 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public void hide() {
-        if (this.dHo) {
-            if (this.dHp != null) {
-                this.dHp.cancel();
+        if (this.dHB) {
+            if (this.dHC != null) {
+                this.dHC.cancel();
             }
-            this.dHp = new AlphaAnimation(1.0f, 0.0f);
-            this.dHp.setDuration(300L);
-            this.dHp.setFillAfter(true);
-            startAnimation(this.dHp);
+            this.dHC = new AlphaAnimation(1.0f, 0.0f);
+            this.dHC.setDuration(300L);
+            this.dHC.setFillAfter(true);
+            startAnimation(this.dHC);
             setClickable(false);
-            this.dHo = false;
+            this.dHB = false;
         }
     }
 
     public void show() {
-        if (!this.dHo) {
+        if (!this.dHB) {
             setVisibility(0);
-            if (this.dHq != null) {
-                this.dHq.cancel();
+            if (this.dHD != null) {
+                this.dHD.cancel();
             }
-            this.dHq = new AlphaAnimation(0.0f, 1.0f);
-            this.dHq.setDuration(300L);
-            this.dHq.setFillAfter(true);
-            startAnimation(this.dHq);
+            this.dHD = new AlphaAnimation(0.0f, 1.0f);
+            this.dHD.setDuration(300L);
+            this.dHD.setFillAfter(true);
+            startAnimation(this.dHD);
             setClickable(true);
-            this.dHo = true;
+            this.dHB = true;
         }
     }
 }

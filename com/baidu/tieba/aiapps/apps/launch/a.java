@@ -34,9 +34,9 @@ public class a {
         if (parse != null) {
             String queryParameter = parse.getQueryParameter(f.PARAM_FROM);
             if (!TextUtils.isEmpty(queryParameter) && "shoubai".equals(queryParameter)) {
-                com.baidu.tbadk.util.d.aRR().setShow(true);
+                com.baidu.tbadk.util.d.aRS().setShow(true);
             } else {
-                com.baidu.tbadk.util.d.aRR().setShow(false);
+                com.baidu.tbadk.util.d.aRS().setShow(false);
             }
         }
     }

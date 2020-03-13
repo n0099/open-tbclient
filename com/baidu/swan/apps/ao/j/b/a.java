@@ -14,14 +14,14 @@ import com.baidu.swan.apps.y.f;
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long bWV;
-    private b bWW;
-    private final c.a bWX;
+    private long bWW;
+    private b bWX;
+    private final c.a bWY;
 
     /* renamed from: com.baidu.swan.apps.ao.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0209a {
-        public static final a bWZ = new a();
+        public static final a bXa = new a();
     }
 
     static {
@@ -30,12 +30,12 @@ public class a {
     }
 
     private a() {
-        this.bWV = 0L;
-        this.bWX = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
+        this.bWW = 0L;
+        this.bWY = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.bWW != null) {
-                    a.this.bWW.aG(a.this.bWV);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.bWX != null) {
+                    a.this.bWX.aG(a.this.bWW);
                 }
             }
         };
@@ -44,27 +44,27 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.bWW = new b(vibrator);
+            this.bWX = new b(vibrator);
         }
     }
 
     public static a afY() {
-        return C0209a.bWZ;
+        return C0209a.bXa;
     }
 
     void aG(long j) {
-        this.bWV = j;
-        if (this.bWW == null) {
+        this.bWW = j;
+        if (this.bWX == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (checkVibratePermission()) {
-            this.bWW.aG(this.bWV);
+            this.bWX.aG(this.bWW);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
             f WS = f.WS();
             if (WS != null) {
-                WS.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.bWX);
+                WS.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.bWY);
             }
         }
     }

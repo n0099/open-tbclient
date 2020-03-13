@@ -20,7 +20,7 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Runnable bzr;
+    private Runnable bzs;
 
     @Override // com.baidu.swan.apps.y.b, com.baidu.swan.apps.y.d
     public void Iy() {
@@ -31,10 +31,10 @@ public class c extends b {
             HashMap hashMap = new HashMap();
             hashMap.put("lcType", "onAppShow");
             hashMap.put("appId", acH);
-            if (this.bzm != null && this.bzm.GE() != null) {
-                hashMap.put("clkid", this.bzm.GE().VQ());
-                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, this.bzm.GE().VJ());
-                b.a GE = this.bzm.GE();
+            if (this.bzn != null && this.bzn.GE() != null) {
+                hashMap.put("clkid", this.bzn.GE().VQ());
+                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, this.bzn.GE().VJ());
+                b.a GE = this.bzn.GE();
                 com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
                 fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(0);
                 fVar.mAppId = GE.getAppId();
@@ -81,8 +81,8 @@ public class c extends b {
         super.doRelease();
         com.baidu.swan.apps.core.slave.b.clearAll();
         com.baidu.swan.apps.core.k.d.release();
-        if (this.bzj != null) {
-            this.bzj = null;
+        if (this.bzk != null) {
+            this.bzk = null;
         }
         com.baidu.swan.apps.as.g.agG();
         com.baidu.swan.apps.media.b.Xd();
@@ -115,7 +115,7 @@ public class c extends b {
             public void a(final int i, com.baidu.swan.apps.t.a aVar) {
                 final e.f fVar = (e.f) aVar;
                 if (com.baidu.swan.apps.scheme.actions.k.g.c(bVar, fVar)) {
-                    if (com.baidu.swan.apps.runtime.e.acF() == null || TextUtils.isEmpty(fVar.bxz)) {
+                    if (com.baidu.swan.apps.runtime.e.acF() == null || TextUtils.isEmpty(fVar.bxA)) {
                         if (c.DEBUG) {
                             Log.e("AppsControllerImpl", "下载分包，信息校验失败");
                         }
@@ -125,8 +125,8 @@ public class c extends b {
                         if (!TextUtils.isEmpty(delAllParamsFromUrl) && delAllParamsFromUrl.startsWith(File.separator)) {
                             delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
                         }
-                        String str = fVar.bxA.bPD.bPZ.get(delAllParamsFromUrl);
-                        com.baidu.swan.apps.scheme.actions.k.g.a(bVar.getAppId(), bVar.getVersion(), str, fVar.bxA.bPE.bQb.get(str), c.this.NZ(), new g.a() { // from class: com.baidu.swan.apps.y.c.1.1
+                        String str = fVar.bxB.bPE.bQa.get(delAllParamsFromUrl);
+                        com.baidu.swan.apps.scheme.actions.k.g.a(bVar.getAppId(), bVar.getVersion(), str, fVar.bxB.bPF.bQc.get(str), c.this.NZ(), new g.a() { // from class: com.baidu.swan.apps.y.c.1.1
                             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                             public void success(String str2) {
                                 if (c.DEBUG) {
@@ -175,8 +175,8 @@ public class c extends b {
                     e.d.aM(bVar.getAppId(), bVar.getVersion());
                 }
             }, "deleteLowerVersionFolder", 3);
-            fVar.bxA = acL;
-            fVar.bxz = e.d.aL(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
+            fVar.bxB = acL;
+            fVar.bxA = e.d.aL(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
             com.baidu.swan.apps.performance.f.ZV().f(new UbcFlowEvent("na_post_to_main_start"));
             com.baidu.swan.apps.an.a.aeH().lC("na_post_to_main_start");
             b(bVar, fVar);
@@ -193,14 +193,14 @@ public class c extends b {
     public void a(int i, final com.baidu.swan.apps.x.b.b bVar, final e.f fVar) {
         if (i == 0 && bVar != null && fVar != null) {
             com.baidu.swan.apps.performance.f.ZV().f(new UbcFlowEvent("na_post_to_main_start"));
-            ai.k(this.bzr);
-            this.bzr = new Runnable() { // from class: com.baidu.swan.apps.y.c.3
+            ai.k(this.bzs);
+            this.bzs = new Runnable() { // from class: com.baidu.swan.apps.y.c.3
                 @Override // java.lang.Runnable
                 public void run() {
                     c.this.b(bVar, fVar);
                 }
             };
-            ai.j(this.bzr);
+            ai.j(this.bzs);
         }
     }
 
@@ -213,15 +213,15 @@ public class c extends b {
         }
         if (this.mIsReleased) {
             if (DEBUG) {
-                Log.e("AppsControllerImpl", Log.getStackTraceString(new Exception("object is released. bundlePath:" + fVar.bxz + ", baseUrl:" + f.WS().WA())));
+                Log.e("AppsControllerImpl", Log.getStackTraceString(new Exception("object is released. bundlePath:" + fVar.bxA + ", baseUrl:" + f.WS().WA())));
                 return;
             }
             return;
         }
-        this.bxz = fVar.bxz;
-        a(fVar.bxA);
+        this.bxA = fVar.bxA;
+        a(fVar.bxB);
         if (bVar.VV()) {
-            O(this.bzm).setVisibility(0);
+            O(this.bzn).setVisibility(0);
             com.baidu.swan.apps.console.a.cf(true);
             com.baidu.swan.apps.console.c.d("AppsControllerImpl", "init sConsole for devHook");
         }

@@ -11,60 +11,60 @@ import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RotateLoadingLayout extends LoadingLayout {
-    private final Animation bNs;
-    private final boolean dNA;
-    private final Matrix dNx;
-    private float dNy;
-    private float dNz;
+    private final Animation bNt;
+    private final Matrix dNK;
+    private float dNL;
+    private float dNM;
+    private final boolean dNN;
 
     public RotateLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
-        this.dNA = typedArray.getBoolean(8, true);
+        this.dNN = typedArray.getBoolean(8, true);
         this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
-        this.dNx = new Matrix();
-        this.mHeaderImage.setImageMatrix(this.dNx);
-        this.bNs = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.bNs.setInterpolator(bNr);
-        this.bNs.setDuration(1200L);
-        this.bNs.setRepeatCount(-1);
-        this.bNs.setRepeatMode(1);
+        this.dNK = new Matrix();
+        this.mHeaderImage.setImageMatrix(this.dNK);
+        this.bNt = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
+        this.bNt.setInterpolator(bNs);
+        this.bNt.setDuration(1200L);
+        this.bNt.setRepeatCount(-1);
+        this.bNt.setRepeatMode(1);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void onLoadingDrawableSet(Drawable drawable) {
         if (drawable != null) {
-            this.dNy = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-            this.dNz = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+            this.dNL = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+            this.dNM = Math.round(drawable.getIntrinsicHeight() / 2.0f);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void onPullImpl(float f) {
         float max;
-        if (this.dNA) {
+        if (this.dNN) {
             max = 90.0f * f;
         } else {
             max = Math.max(0.0f, Math.min(180.0f, (360.0f * f) - 180.0f));
         }
-        this.dNx.setRotate(max, this.dNy, this.dNz);
-        this.mHeaderImage.setImageMatrix(this.dNx);
+        this.dNK.setRotate(max, this.dNL, this.dNM);
+        this.mHeaderImage.setImageMatrix(this.dNK);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void refreshingImpl() {
-        this.mHeaderImage.startAnimation(this.bNs);
+        this.mHeaderImage.startAnimation(this.bNt);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void resetImpl() {
         this.mHeaderImage.clearAnimation();
-        aTQ();
+        aTR();
     }
 
-    private void aTQ() {
-        if (this.dNx != null) {
-            this.dNx.reset();
-            this.mHeaderImage.setImageMatrix(this.dNx);
+    private void aTR() {
+        if (this.dNK != null) {
+            this.dNK.reset();
+            this.mHeaderImage.setImageMatrix(this.dNK);
         }
     }
 

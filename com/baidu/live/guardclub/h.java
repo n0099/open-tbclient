@@ -8,6 +8,8 @@ public interface h {
 
     void a(l lVar);
 
+    boolean isShowing();
+
     void onDestroy();
 
     void setHost(boolean z);

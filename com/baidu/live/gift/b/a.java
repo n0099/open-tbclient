@@ -15,11 +15,11 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String amN = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
-    private static final String amO = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
+    private static final String amO = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
+    private static final String amP = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
 
     public static String dD(String str) {
-        return amN + str;
+        return amO + str;
     }
 
     private static String dE(String str) {
@@ -27,7 +27,7 @@ public class a {
     }
 
     public static String dF(String str) {
-        return amO + str;
+        return amP + str;
     }
 
     public static void dG(String str) {
@@ -46,8 +46,8 @@ public class a {
     }
 
     public static void us() {
-        com.baidu.live.f.a.cleanDir(new File(amN));
         com.baidu.live.f.a.cleanDir(new File(amO));
+        com.baidu.live.f.a.cleanDir(new File(amP));
     }
 
     public static void a(com.baidu.live.gift.b bVar, final boolean z) {
@@ -74,7 +74,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(String str, e eVar, boolean z) {
-        String str2 = amN + eVar.zipName;
+        String str2 = amO + eVar.zipName;
         String str3 = "dynamic_video_md5_" + eVar.zipName;
         if (com.baidu.live.f.b.b(str2, com.baidu.live.f.b.cZ(str3))) {
             com.baidu.live.f.b.a(str, eVar.videoUrl, dE(eVar.zipName), str2, str3, eVar.zipName, eVar.videoMd5, 19, z);

@@ -13,11 +13,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.a;
 /* loaded from: classes9.dex */
 public class MsgReplyCardView extends g {
-    private LinearLayout hNA;
-    private TextView hNB;
-    private TextView hNC;
-    private TextView hND;
-    private TextView hNE;
+    private LinearLayout hNM;
+    private TextView hNN;
+    private TextView hNO;
+    private TextView hNP;
+    private TextView hNQ;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_reply_card_view);
@@ -25,27 +25,27 @@ public class MsgReplyCardView extends g {
     }
 
     private void init() {
-        this.hNA = (LinearLayout) findViewById(R.id.reply_card);
-        this.hNB = (TextView) findViewById(R.id.reply_title);
-        this.hNC = (TextView) findViewById(R.id.reply_content);
-        this.hND = (TextView) findViewById(R.id.reply_quote_content);
-        this.hNE = (TextView) findViewById(R.id.reply_frs_name);
-        this.hNA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
+        this.hNM = (LinearLayout) findViewById(R.id.reply_card);
+        this.hNN = (TextView) findViewById(R.id.reply_title);
+        this.hNO = (TextView) findViewById(R.id.reply_content);
+        this.hNP = (TextView) findViewById(R.id.reply_quote_content);
+        this.hNQ = (TextView) findViewById(R.id.reply_frs_name);
+        this.hNM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.hsp.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
+                MsgReplyCardView.this.hsB.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
             }
         });
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0541a DJ = a.DJ(chatMessage.getContent());
+            a.C0541a DK = a.DK(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.hNB.setText(a(DJ, valueOf));
-            this.hNC.setText(DJ.hNk);
-            this.hND.setText(b(DJ, valueOf));
-            this.hNE.setText(DJ.fName + this.mContext.getString(R.string.forum));
+            this.hNN.setText(a(DK, valueOf));
+            this.hNO.setText(DK.hNw);
+            this.hNP.setText(b(DK, valueOf));
+            this.hNQ.setText(DK.fName + this.mContext.getString(R.string.forum));
         }
     }
 
@@ -53,11 +53,11 @@ public class MsgReplyCardView extends g {
         String string;
         String wZ;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = wZ(c0541a.hNG);
+            string = wZ(c0541a.hNS);
             wZ = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            wZ = wZ(c0541a.hNG);
+            wZ = wZ(c0541a.hNS);
         }
         return String.format(this.mContext.getString(R.string.add_friend_card_title), string, xa(c0541a.type), wZ);
     }
@@ -68,11 +68,11 @@ public class MsgReplyCardView extends g {
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             wZ = this.mContext.getString(R.string.me);
         } else {
-            wZ = wZ(c0541a.hNG);
+            wZ = wZ(c0541a.hNS);
         }
         if (c0541a.type == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), wZ));
-            sb.append(c0541a.hNK);
+            sb.append(c0541a.hNW);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), wZ));
             sb.append(c0541a.title);

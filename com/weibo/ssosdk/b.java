@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String nsb = "";
+    private String nsm = "";
     private String from = "";
-    private String nsc = "";
-    private String nsd = "";
-    private String nse = "";
-    private String nsf = "";
+    private String nsn = "";
+    private String nso = "";
+    private String nsp = "";
+    private String nsq = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String RC(String str) {
+    private String RD(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return RC(jSONObject.toString());
+            return RD(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String wx(boolean z) {
-        return z ? RC(this.nse) : this.nse;
+        return z ? RD(this.nsp) : this.nsp;
     }
 
     public String wy(boolean z) {
-        return z ? RC(this.nsc) : this.nsc;
+        return z ? RD(this.nsn) : this.nsn;
     }
 
-    public void RD(String str) {
-        this.nsc = str;
+    public void RE(String str) {
+        this.nsn = str;
     }
 
     public String wz(boolean z) {
-        return z ? RC(this.nsd) : this.nsd;
+        return z ? RD(this.nso) : this.nso;
     }
 
     public String wA(boolean z) {
-        return z ? RC(this.from) : this.from;
+        return z ? RD(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String wB(boolean z) {
-        return z ? RC(this.appKey) : this.appKey;
+        return z ? RD(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String wC(boolean z) {
-        return z ? RC(this.nsb) : this.nsb;
+        return z ? RD(this.nsm) : this.nsm;
     }
 
-    public boolean dHW() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nsc)) ? false : true;
+    public boolean dHX() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.nsn)) ? false : true;
     }
 
     public Object clone() {

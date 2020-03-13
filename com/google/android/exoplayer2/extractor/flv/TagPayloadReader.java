@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.m;
 import com.google.android.exoplayer2.util.l;
 /* loaded from: classes6.dex */
 abstract class TagPayloadReader {
-    protected final m meL;
+    protected final m meW;
 
     protected abstract void a(l lVar, long j) throws ParserException;
 
@@ -20,7 +20,7 @@ abstract class TagPayloadReader {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TagPayloadReader(m mVar) {
-        this.meL = mVar;
+        this.meW = mVar;
     }
 
     public final void b(l lVar, long j) throws ParserException {

@@ -11,18 +11,18 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 /* loaded from: classes12.dex */
 public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
-    private static b lUa;
-    final com.facebook.common.memory.c lSp;
-    final r lUb;
-    final Set<V> lUd;
-    private boolean lUe;
+    private static b lUl;
+    final com.facebook.common.memory.c lSA;
+    final r lUm;
+    final Set<V> lUo;
+    private boolean lUp;
     @GuardedBy("this")
-    final a lUf;
+    final a lUq;
     @GuardedBy("this")
-    final a lUg;
-    private final s lUh;
-    private final Class<?> lHa = getClass();
-    final SparseArray<d<V>> lUc = new SparseArray<>();
+    final a lUr;
+    private final s lUs;
+    private final Class<?> lHl = getClass();
+    final SparseArray<d<V>> lUn = new SparseArray<>();
 
     /* loaded from: classes12.dex */
     public interface b {
@@ -40,64 +40,64 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     protected abstract int bq(V v);
 
     public static void a(b bVar) {
-        lUa = bVar;
+        lUl = bVar;
     }
 
     public BasePool(com.facebook.common.memory.c cVar, r rVar, s sVar) {
-        this.lSp = (com.facebook.common.memory.c) com.facebook.common.internal.g.checkNotNull(cVar);
-        this.lUb = (r) com.facebook.common.internal.g.checkNotNull(rVar);
-        this.lUh = (s) com.facebook.common.internal.g.checkNotNull(sVar);
-        if (this.lUb.lUP) {
-            dqJ();
+        this.lSA = (com.facebook.common.memory.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.lUm = (r) com.facebook.common.internal.g.checkNotNull(rVar);
+        this.lUs = (s) com.facebook.common.internal.g.checkNotNull(sVar);
+        if (this.lUm.lVa) {
+            dqK();
         } else {
             a(new SparseIntArray(0));
         }
-        this.lUd = com.facebook.common.internal.i.dkI();
-        this.lUg = new a();
-        this.lUf = new a();
+        this.lUo = com.facebook.common.internal.i.dkJ();
+        this.lUr = new a();
+        this.lUq = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initialize() {
-        this.lSp.a(this);
-        this.lUh.a(this);
+        this.lSA.a(this);
+        this.lUs.a(this);
     }
 
     @Override // com.facebook.common.memory.e
     public V get(int i) {
         V o;
-        dqI();
+        dqJ();
         int Iq = Iq(i);
         synchronized (this) {
             d<V> It = It(Iq);
             if (It != null && (o = It.get()) != null) {
-                com.facebook.common.internal.g.checkState(this.lUd.add(o));
+                com.facebook.common.internal.g.checkState(this.lUo.add(o));
                 int bq = bq(o);
                 int Ir = Ir(bq);
-                this.lUf.Iw(Ir);
-                this.lUg.Ix(Ir);
-                this.lUh.ID(Ir);
-                dok();
+                this.lUq.Iw(Ir);
+                this.lUr.Ix(Ir);
+                this.lUs.ID(Ir);
+                dol();
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.lHa, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(bq));
+                    com.facebook.common.c.a.a(this.lHl, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(bq));
                 }
             } else {
                 int Ir2 = Ir(Iq);
                 if (!Iv(Ir2)) {
-                    throw new PoolSizeViolationException(this.lUb.lUK, this.lUf.lUi, this.lUg.lUi, Ir2);
+                    throw new PoolSizeViolationException(this.lUm.lUV, this.lUq.lUt, this.lUr.lUt, Ir2);
                 }
-                this.lUf.Iw(Ir2);
+                this.lUq.Iw(Ir2);
                 if (It != null) {
-                    It.dqU();
+                    It.dqV();
                 }
                 o = o(Ir2, Iq, true);
                 synchronized (this) {
-                    com.facebook.common.internal.g.checkState(this.lUd.add(o));
-                    dqM();
-                    this.lUh.IE(Ir2);
-                    dok();
+                    com.facebook.common.internal.g.checkState(this.lUo.add(o));
+                    dqN();
+                    this.lUs.IE(Ir2);
+                    dol();
                     if (com.facebook.common.c.a.isLoggable(2)) {
-                        com.facebook.common.c.a.a(this.lHa, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(Iq));
+                        com.facebook.common.c.a.a(this.lHl, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(Iq));
                     }
                 }
             }
@@ -109,32 +109,32 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
         try {
             V Ip = Ip(i2);
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.f(this.lHa, "alloc success!!");
+                com.facebook.common.c.a.f(this.lHl, "alloc success!!");
                 return Ip;
             }
             return Ip;
         } catch (Throwable th) {
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.f(this.lHa, "alloc fail!!");
+                com.facebook.common.c.a.f(this.lHl, "alloc fail!!");
             }
-            if (!z || lUa == null) {
+            if (!z || lUl == null) {
                 if (com.facebook.common.c.a.isLoggable(3)) {
-                    com.facebook.common.c.a.f(this.lHa, "retryOnce won't work." + (z ? "retry = true" : "retry = false") + (lUa == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
+                    com.facebook.common.c.a.f(this.lHl, "retryOnce won't work." + (z ? "retry = true" : "retry = false") + (lUl == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
                 }
                 synchronized (this) {
-                    this.lUf.Ix(i);
+                    this.lUq.Ix(i);
                     d<V> It = It(i2);
                     if (It != null) {
-                        It.dqV();
+                        It.dqW();
                     }
                     com.facebook.common.internal.l.s(th);
                     return null;
                 }
             }
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.f(this.lHa, "retryOnce will work." + (z ? "retry = true" : "retry = false") + (lUa == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
+                com.facebook.common.c.a.f(this.lHl, "retryOnce will work." + (z ? "retry = true" : "retry = false") + (lUl == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
             }
-            lUa.onFailed();
+            lUl.onFailed();
             return o(i, i2, false);
         }
     }
@@ -146,39 +146,39 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
         int Ir = Ir(bq);
         synchronized (this) {
             d<V> Is = Is(bq);
-            if (!this.lUd.remove(v)) {
-                com.facebook.common.c.a.d(this.lHa, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
+            if (!this.lUo.remove(v)) {
+                com.facebook.common.c.a.d(this.lHl, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
                 bp(v);
-                this.lUh.IF(Ir);
-            } else if (Is == null || Is.dqS() || dqN() || !br(v)) {
+                this.lUs.IF(Ir);
+            } else if (Is == null || Is.dqT() || dqO() || !br(v)) {
                 if (Is != null) {
-                    Is.dqV();
+                    Is.dqW();
                 }
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.lHa, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
+                    com.facebook.common.c.a.a(this.lHl, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
                 }
                 bp(v);
-                this.lUf.Ix(Ir);
-                this.lUh.IF(Ir);
+                this.lUq.Ix(Ir);
+                this.lUs.IF(Ir);
             } else {
                 Is.release(v);
-                this.lUg.Iw(Ir);
-                this.lUf.Ix(Ir);
-                this.lUh.IG(Ir);
+                this.lUr.Iw(Ir);
+                this.lUq.Ix(Ir);
+                this.lUs.IG(Ir);
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.lHa, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
+                    com.facebook.common.c.a.a(this.lHl, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bq));
                 }
             }
-            dok();
+            dol();
         }
     }
 
     @Override // com.facebook.common.memory.b
     public void a(MemoryTrimType memoryTrimType) {
-        dqL();
+        dqM();
     }
 
-    protected void dqH() {
+    protected void dqI() {
     }
 
     protected boolean br(V v) {
@@ -186,57 +186,57 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
         return true;
     }
 
-    private synchronized void dqI() {
-        com.facebook.common.internal.g.checkState(!dqN() || this.lUg.lUi == 0);
+    private synchronized void dqJ() {
+        com.facebook.common.internal.g.checkState(!dqO() || this.lUr.lUt == 0);
     }
 
     private synchronized void a(SparseIntArray sparseIntArray) {
         synchronized (this) {
             com.facebook.common.internal.g.checkNotNull(sparseIntArray);
-            this.lUc.clear();
-            SparseIntArray sparseIntArray2 = this.lUb.lUM;
+            this.lUn.clear();
+            SparseIntArray sparseIntArray2 = this.lUm.lUX;
             if (sparseIntArray2 != null) {
                 for (int i = 0; i < sparseIntArray2.size(); i++) {
                     int keyAt = sparseIntArray2.keyAt(i);
-                    this.lUc.put(keyAt, new d<>(Ir(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.lUb.lUP));
+                    this.lUn.put(keyAt, new d<>(Ir(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.lUm.lVa));
                 }
-                this.lUe = false;
+                this.lUp = false;
             } else {
-                this.lUe = true;
+                this.lUp = true;
             }
         }
     }
 
-    private synchronized void dqJ() {
-        SparseIntArray sparseIntArray = this.lUb.lUM;
+    private synchronized void dqK() {
+        SparseIntArray sparseIntArray = this.lUm.lUX;
         if (sparseIntArray != null) {
             b(sparseIntArray);
-            this.lUe = false;
+            this.lUp = false;
         } else {
-            this.lUe = true;
+            this.lUp = true;
         }
     }
 
     private void b(SparseIntArray sparseIntArray) {
-        this.lUc.clear();
+        this.lUn.clear();
         for (int i = 0; i < sparseIntArray.size(); i++) {
             int keyAt = sparseIntArray.keyAt(i);
-            this.lUc.put(keyAt, new d<>(Ir(keyAt), sparseIntArray.valueAt(i), 0, this.lUb.lUP));
+            this.lUn.put(keyAt, new d<>(Ir(keyAt), sparseIntArray.valueAt(i), 0, this.lUm.lVa));
         }
     }
 
-    private List<d<V>> dqK() {
-        ArrayList arrayList = new ArrayList(this.lUc.size());
-        int size = this.lUc.size();
+    private List<d<V>> dqL() {
+        ArrayList arrayList = new ArrayList(this.lUn.size());
+        int size = this.lUn.size();
         for (int i = 0; i < size; i++) {
-            d<V> valueAt = this.lUc.valueAt(i);
+            d<V> valueAt = this.lUn.valueAt(i);
             int i2 = valueAt.mItemSize;
-            int i3 = valueAt.iuT;
-            int dnX = valueAt.dnX();
-            if (valueAt.dqT() > 0) {
+            int i3 = valueAt.ivf;
+            int dnY = valueAt.dnY();
+            if (valueAt.dqU() > 0) {
                 arrayList.add(valueAt);
             }
-            this.lUc.setValueAt(i, new d<>(Ir(i2), i3, dnX, this.lUb.lUP));
+            this.lUn.setValueAt(i, new d<>(Ir(i2), i3, dnY, this.lUm.lVa));
         }
         return arrayList;
     }
@@ -244,27 +244,27 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v17, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r6v0, types: [com.facebook.imagepipeline.memory.BasePool, com.facebook.imagepipeline.memory.BasePool<V>] */
-    void dqL() {
+    void dqM() {
         ArrayList arrayList;
         synchronized (this) {
-            if (this.lUb.lUP) {
-                arrayList = dqK();
+            if (this.lUm.lVa) {
+                arrayList = dqL();
             } else {
-                arrayList = new ArrayList(this.lUc.size());
+                arrayList = new ArrayList(this.lUn.size());
                 SparseIntArray sparseIntArray = new SparseIntArray();
-                for (int i = 0; i < this.lUc.size(); i++) {
-                    d<V> valueAt = this.lUc.valueAt(i);
-                    if (valueAt.dqT() > 0) {
+                for (int i = 0; i < this.lUn.size(); i++) {
+                    d<V> valueAt = this.lUn.valueAt(i);
+                    if (valueAt.dqU() > 0) {
                         arrayList.add(valueAt);
                     }
-                    sparseIntArray.put(this.lUc.keyAt(i), valueAt.dnX());
+                    sparseIntArray.put(this.lUn.keyAt(i), valueAt.dnY());
                 }
                 a(sparseIntArray);
             }
-            this.lUg.reset();
-            dok();
+            this.lUr.reset();
+            dol();
         }
-        dqH();
+        dqI();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             d dVar = (d) arrayList.get(i2);
             while (true) {
@@ -277,21 +277,21 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
         }
     }
 
-    synchronized void dqM() {
-        if (dqN()) {
-            trimToSize(this.lUb.lUL);
+    synchronized void dqN() {
+        if (dqO()) {
+            trimToSize(this.lUm.lUW);
         }
     }
 
     synchronized void trimToSize(int i) {
-        int min = Math.min((this.lUf.lUi + this.lUg.lUi) - i, this.lUg.lUi);
+        int min = Math.min((this.lUq.lUt + this.lUr.lUt) - i, this.lUr.lUt);
         if (min > 0) {
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.lHa, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.lUf.lUi + this.lUg.lUi), Integer.valueOf(min));
+                com.facebook.common.c.a.a(this.lHl, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.lUq.lUt + this.lUr.lUt), Integer.valueOf(min));
             }
-            dok();
-            for (int i2 = 0; i2 < this.lUc.size() && min > 0; i2++) {
-                d<V> valueAt = this.lUc.valueAt(i2);
+            dol();
+            for (int i2 = 0; i2 < this.lUn.size() && min > 0; i2++) {
+                d<V> valueAt = this.lUn.valueAt(i2);
                 while (min > 0) {
                     V pop = valueAt.pop();
                     if (pop == null) {
@@ -299,42 +299,42 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
                     }
                     bp(pop);
                     min -= valueAt.mItemSize;
-                    this.lUg.Ix(valueAt.mItemSize);
+                    this.lUr.Ix(valueAt.mItemSize);
                 }
             }
-            dok();
+            dol();
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.lHa, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.lUf.lUi + this.lUg.lUi));
+                com.facebook.common.c.a.a(this.lHl, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.lUq.lUt + this.lUr.lUt));
             }
         }
     }
 
     private synchronized d<V> Is(int i) {
-        return this.lUc.get(i);
+        return this.lUn.get(i);
     }
 
     synchronized d<V> It(int i) {
         d<V> dVar;
-        dVar = this.lUc.get(i);
-        if (dVar == null && this.lUe) {
+        dVar = this.lUn.get(i);
+        if (dVar == null && this.lUp) {
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.lHa, "creating new bucket %s", Integer.valueOf(i));
+                com.facebook.common.c.a.a(this.lHl, "creating new bucket %s", Integer.valueOf(i));
             }
             dVar = Iu(i);
-            this.lUc.put(i, dVar);
+            this.lUn.put(i, dVar);
         }
         return dVar;
     }
 
     d<V> Iu(int i) {
-        return new d<>(Ir(i), Integer.MAX_VALUE, 0, this.lUb.lUP);
+        return new d<>(Ir(i), Integer.MAX_VALUE, 0, this.lUm.lVa);
     }
 
-    synchronized boolean dqN() {
+    synchronized boolean dqO() {
         boolean z;
-        z = this.lUf.lUi + this.lUg.lUi > this.lUb.lUL;
+        z = this.lUq.lUt + this.lUr.lUt > this.lUm.lUW;
         if (z) {
-            this.lUh.drc();
+            this.lUs.drd();
         }
         return z;
     }
@@ -342,16 +342,16 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     synchronized boolean Iv(int i) {
         boolean z = false;
         synchronized (this) {
-            int i2 = this.lUb.lUK;
-            if (i > i2 - this.lUf.lUi) {
-                this.lUh.drd();
+            int i2 = this.lUm.lUV;
+            if (i > i2 - this.lUq.lUt) {
+                this.lUs.dre();
             } else {
-                int i3 = this.lUb.lUL;
-                if (i > i3 - (this.lUf.lUi + this.lUg.lUi)) {
+                int i3 = this.lUm.lUW;
+                if (i > i3 - (this.lUq.lUt + this.lUr.lUt)) {
                     trimToSize(i3 - i);
                 }
-                if (i > i2 - (this.lUf.lUi + this.lUg.lUi)) {
-                    this.lUh.drd();
+                if (i > i2 - (this.lUq.lUt + this.lUr.lUt)) {
+                    this.lUs.dre();
                 } else {
                     z = true;
                 }
@@ -361,9 +361,9 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     }
 
     @SuppressLint({"InvalidAccessToGuardedField"})
-    private void dok() {
+    private void dol() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(this.lHa, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.lUf.mCount), Integer.valueOf(this.lUf.lUi), Integer.valueOf(this.lUg.mCount), Integer.valueOf(this.lUg.lUi));
+            com.facebook.common.c.a.a(this.lHl, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.lUq.mCount), Integer.valueOf(this.lUq.lUt), Integer.valueOf(this.lUr.mCount), Integer.valueOf(this.lUr.lUt));
         }
     }
 
@@ -371,7 +371,7 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     @NotThreadSafe
     /* loaded from: classes12.dex */
     public static class a {
-        int lUi;
+        int lUt;
         int mCount;
 
         a() {
@@ -379,21 +379,21 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
 
         public void Iw(int i) {
             this.mCount++;
-            this.lUi += i;
+            this.lUt += i;
         }
 
         public void Ix(int i) {
-            if (this.lUi >= i && this.mCount > 0) {
+            if (this.lUt >= i && this.mCount > 0) {
                 this.mCount--;
-                this.lUi -= i;
+                this.lUt -= i;
                 return;
             }
-            com.facebook.common.c.a.j("com.facebook.imagepipeline.memory.BasePool.Counter", "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.lUi), Integer.valueOf(this.mCount));
+            com.facebook.common.c.a.j("com.facebook.imagepipeline.memory.BasePool.Counter", "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.lUt), Integer.valueOf(this.mCount));
         }
 
         public void reset() {
             this.mCount = 0;
-            this.lUi = 0;
+            this.lUt = 0;
         }
     }
 

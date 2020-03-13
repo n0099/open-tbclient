@@ -9,11 +9,11 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes13.dex */
 public class c {
-    private final h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lOU;
-    private final com.facebook.cache.common.b lQb;
+    private final h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lPf;
+    private final com.facebook.cache.common.b lQm;
     @GuardedBy("this")
-    private final LinkedHashSet<com.facebook.cache.common.b> lQd = new LinkedHashSet<>();
-    private final h.c<com.facebook.cache.common.b> lQc = new h.c<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.animated.impl.c.1
+    private final LinkedHashSet<com.facebook.cache.common.b> lQo = new LinkedHashSet<>();
+    private final h.c<com.facebook.cache.common.b> lQn = new h.c<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.animated.impl.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.c.h.c
         /* renamed from: b */
@@ -25,16 +25,16 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes13.dex */
     public static class a implements com.facebook.cache.common.b {
-        private final com.facebook.cache.common.b lQb;
+        private final com.facebook.cache.common.b lQm;
         private final int mFrameIndex;
 
         public a(com.facebook.cache.common.b bVar, int i) {
-            this.lQb = bVar;
+            this.lQm = bVar;
             this.mFrameIndex = i;
         }
 
         public String toString() {
-            return f.aS(this).x("imageCacheKey", this.lQb).bH("frameIndex", this.mFrameIndex).toString();
+            return f.aS(this).x("imageCacheKey", this.lQm).bH("frameIndex", this.mFrameIndex).toString();
         }
 
         public boolean equals(Object obj) {
@@ -43,72 +43,72 @@ public class c {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.lQb == aVar.lQb && this.mFrameIndex == aVar.mFrameIndex;
+                return this.lQm == aVar.lQm && this.mFrameIndex == aVar.mFrameIndex;
             }
             return false;
         }
 
         @Override // com.facebook.cache.common.b
         public int hashCode() {
-            return (this.lQb.hashCode() * 1013) + this.mFrameIndex;
+            return (this.lQm.hashCode() * 1013) + this.mFrameIndex;
         }
 
         @Override // com.facebook.cache.common.b
         public boolean A(Uri uri) {
-            return this.lQb.A(uri);
+            return this.lQm.A(uri);
         }
 
         @Override // com.facebook.cache.common.b
-        public String djU() {
+        public String djV() {
             return null;
         }
     }
 
     public c(com.facebook.cache.common.b bVar, h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar) {
-        this.lQb = bVar;
-        this.lOU = hVar;
+        this.lQm = bVar;
+        this.lPf = hVar;
     }
 
     public synchronized void a(com.facebook.cache.common.b bVar, boolean z) {
         if (z) {
-            this.lQd.add(bVar);
+            this.lQo.add(bVar);
         } else {
-            this.lQd.remove(bVar);
+            this.lQo.remove(bVar);
         }
     }
 
     @Nullable
     public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> b(int i, com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
-        return this.lOU.a(Ic(i), aVar, this.lQc);
+        return this.lPf.a(Ic(i), aVar, this.lQn);
     }
 
     @Nullable
     public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> Ib(int i) {
-        return this.lOU.bn(Ic(i));
+        return this.lPf.bn(Ic(i));
     }
 
     public boolean HW(int i) {
-        return this.lOU.contains(Ic(i));
+        return this.lPf.contains(Ic(i));
     }
 
     @Nullable
-    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dnM() {
+    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dnN() {
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bo;
         do {
-            com.facebook.cache.common.b dnN = dnN();
-            if (dnN == null) {
+            com.facebook.cache.common.b dnO = dnO();
+            if (dnO == null) {
                 return null;
             }
-            bo = this.lOU.bo(dnN);
+            bo = this.lPf.bo(dnO);
         } while (bo == null);
         return bo;
     }
 
     @Nullable
-    private synchronized com.facebook.cache.common.b dnN() {
+    private synchronized com.facebook.cache.common.b dnO() {
         com.facebook.cache.common.b bVar;
         bVar = null;
-        Iterator<com.facebook.cache.common.b> it = this.lQd.iterator();
+        Iterator<com.facebook.cache.common.b> it = this.lQo.iterator();
         if (it.hasNext()) {
             bVar = it.next();
             it.remove();
@@ -117,6 +117,6 @@ public class c {
     }
 
     private a Ic(int i) {
-        return new a(this.lQb, i);
+        return new a(this.lQm, i);
     }
 }

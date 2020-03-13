@@ -8,9 +8,9 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class t extends v.a {
-    public TextView glw;
-    public TextView glx;
-    public RelativeLayout gly;
+    public TextView glJ;
+    public TextView glK;
+    public RelativeLayout glL;
     public View mLineView;
     public LinearLayout mRootLayout;
     public int mSkinType;
@@ -20,8 +20,8 @@ public class t extends v.a {
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
         this.mLineView = view.findViewById(R.id.private_apply_line);
-        this.glw = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.glx = (TextView) view.findViewById(R.id.private_left_tv);
-        this.gly = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.glJ = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.glK = (TextView) view.findViewById(R.id.private_left_tv);
+        this.glL = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

@@ -40,10 +40,10 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     private LinearLayout j;
     private LinearLayout k;
     private ArrayList<ListItem> n;
-    private FrescoThumbnailView nbn;
-    private FrescoThumbnailView nbs;
-    private a nki;
-    private RoomInfo nkj;
+    private FrescoThumbnailView nbD;
+    private FrescoThumbnailView nby;
+    private a nkt;
+    private RoomInfo nku;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -64,8 +64,8 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
         this.a = context;
         int statusBarHeight = b.getStatusBarHeight(this.a);
         LayoutInflater.from(this.a).inflate(a.h.view_playshow_recommend, (ViewGroup) this, true);
-        this.nbs = (FrescoThumbnailView) findViewById(a.f.iv_head);
-        this.nbn = (FrescoThumbnailView) findViewById(a.f.iv_audio_all_bg);
+        this.nbD = (FrescoThumbnailView) findViewById(a.f.iv_head);
+        this.nby = (FrescoThumbnailView) findViewById(a.f.iv_audio_all_bg);
         this.e = (TextView) findViewById(a.f.tv_nickname);
         this.f = (TextView) findViewById(a.f.tv_roomid);
         this.g = (TextView) findViewById(a.f.tv_fans_count);
@@ -88,20 +88,20 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     public void a(RoomInfo roomInfo, a aVar) {
-        this.nkj = roomInfo;
-        this.nki = aVar;
+        this.nku = roomInfo;
+        this.nkt = aVar;
         this.i.setVisibility(8);
         this.j.removeAllViews();
         a(roomInfo.mRoomID);
         c cVar = new c();
         cVar.append(this.a.getString(a.i.str_userinfo_roomid)).append(":  ").append(roomInfo.mRoomID);
         this.f.setText(cVar);
-        this.nbn.setBlur(true);
-        this.nbn.i(roomInfo.mCreatorAvatar, a.e.ic_audio_bg, b.a.nYg, b.a.nYg);
-        this.nbs.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dQk(), b.a.small, b.a.small);
+        this.nby.setBlur(true);
+        this.nby.i(roomInfo.mCreatorAvatar, a.e.ic_audio_bg, b.a.nYr, b.a.nYr);
+        this.nbD.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dQl(), b.a.small, b.a.small);
         c cVar2 = new c();
         cVar2.append(roomInfo.mCreatorNickname);
-        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SO(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
+        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SP(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
         this.e.setText(cVar2);
         c cVar3 = new c();
         cVar3.append(this.a.getString(a.i.follower_title)).append(":  ").append(tv.chushou.zues.utils.b.formatNumber(roomInfo.mFansCount));
@@ -156,7 +156,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
                             ListItem listItem2 = (ListItem) tag;
                             if (listItem2.mType != null && listItem2.mType.equals("1")) {
                                 o oVar = new o();
-                                oVar.mON = listItem2;
+                                oVar.mOY = listItem2;
                                 oVar.b = "recommend";
                                 oVar.c = PlayShowRecommendView.this.a;
                                 oVar.g = listItem2.mLiveType;
@@ -172,8 +172,8 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dQp()) {
-            com.kascend.chushou.c.c.dBQ().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
+        if (tv.chushou.zues.utils.a.dQq()) {
+            com.kascend.chushou.c.c.dBR().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -246,16 +246,16 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.tv_subscribe) {
-            if (this.nkj != null) {
-                b(this.nkj.mCreatorUID);
+            if (this.nku != null) {
+                b(this.nku.mCreatorUID);
             }
-        } else if (this.nki != null) {
-            this.nki.a(view);
+        } else if (this.nkt != null) {
+            this.nkt.a(view);
         }
     }
 
     private void b(String str) {
-        com.kascend.chushou.c.c.dBQ().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
+        com.kascend.chushou.c.c.dBR().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
             @Override // com.kascend.chushou.c.b
             public void a() {
             }

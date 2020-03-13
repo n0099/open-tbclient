@@ -46,7 +46,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         if (DEBUG) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
-        final e.b ey = GC.hb("navigateBack").Y(e.boh, e.bog).ey(optInt);
+        final e.b ey = GC.hb("navigateBack").Y(e.boi, e.boh).ey(optInt);
         ai.l(new Runnable() { // from class: com.baidu.swan.apps.api.module.h.a.1
             @Override // java.lang.Runnable
             public void run() {

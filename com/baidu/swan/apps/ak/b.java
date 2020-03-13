@@ -6,31 +6,31 @@ import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bSm;
+    private static a bSn;
 
     public static void adQ() {
         c.cu(com.baidu.swan.apps.w.a.TW());
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (bSm == null) {
-            bSm = new a() { // from class: com.baidu.swan.apps.ak.b.1
+        if (bSn == null) {
+            bSn = new a() { // from class: com.baidu.swan.apps.ak.b.1
                 @Override // com.baidu.swan.apps.ak.a
                 public void a(c.b bVar) {
                     b.adS();
                 }
             };
         }
-        c.a(bSm);
+        c.a(bSn);
     }
 
     public static void adR() {
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        if (bSm != null) {
-            c.b(bSm);
-            bSm = null;
+        if (bSn != null) {
+            c.b(bSn);
+            bSn = null;
         }
     }
 

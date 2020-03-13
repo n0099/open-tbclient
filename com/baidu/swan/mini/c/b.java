@@ -53,7 +53,7 @@ public class b {
         }
         a.b r = com.baidu.swan.apps.t.a.a.r(file);
         if (r.type != -1) {
-            if (com.baidu.swan.apps.t.a.a.a(r.bxK, b, r.type).isSuccess) {
+            if (com.baidu.swan.apps.t.a.a.a(r.bxL, b, r.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");

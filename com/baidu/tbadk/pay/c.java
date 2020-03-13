@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c dDe = null;
+    private static c dDr = null;
 
     private c() {
     }
 
-    public static synchronized c aRa() {
+    public static synchronized c aRb() {
         c cVar;
         synchronized (c.class) {
-            if (dDe == null) {
-                dDe = new c();
+            if (dDr == null) {
+                dDr = new c();
             }
-            cVar = dDe;
+            cVar = dDr;
         }
         return cVar;
     }

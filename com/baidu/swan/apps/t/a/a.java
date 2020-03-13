@@ -38,11 +38,11 @@ import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static CharSequence bxJ = "._";
+    private static CharSequence bxK = "._";
 
     /* loaded from: classes11.dex */
     public static class b {
-        public BufferedInputStream bxK;
+        public BufferedInputStream bxL;
         public int type = -1;
     }
 
@@ -77,17 +77,17 @@ public class a {
                     dataInputStream = new DataInputStream(bufferedInputStream);
                     try {
                         bVar.versionCode = a(dataInputStream);
-                        bVar.bxL = a(dataInputStream);
                         bVar.bxM = a(dataInputStream);
                         bVar.bxN = a(dataInputStream);
-                        bVar.bxO = b(dataInputStream);
-                        dataInputStream.readFully(bVar.bxP);
-                        byte[] x = x(bVar.bxP);
+                        bVar.bxO = a(dataInputStream);
+                        bVar.bxP = b(dataInputStream);
+                        dataInputStream.readFully(bVar.bxQ);
+                        byte[] x = x(bVar.bxQ);
                         if (x == null || x.length <= 0) {
-                            c0301a.bqG = "cipher is null";
+                            c0301a.bqH = "cipher is null";
                             com.baidu.swan.d.c.closeSafely(dataInputStream);
                         } else {
-                            byte[] bArr = new byte[bVar.bxM];
+                            byte[] bArr = new byte[bVar.bxN];
                             dataInputStream.readFully(bArr);
                             byte[] bArr2 = new byte[16];
                             byte[] bArr3 = new byte[16];
@@ -95,7 +95,7 @@ public class a {
                             System.arraycopy(x, 16, bArr3, 0, 16);
                             byte[] d = d(bArr, bArr2, bArr3);
                             if (d == null || d.length <= 0) {
-                                c0301a.bqG = "index array length <= 0";
+                                c0301a.bqH = "index array length <= 0";
                                 com.baidu.swan.d.c.closeSafely(dataInputStream);
                             } else {
                                 if (i == 2) {
@@ -116,15 +116,15 @@ public class a {
                                         cVar.start();
                                         handlerArr[i2] = cVar.TV();
                                     }
-                                    for (int i3 = 0; i3 < bVar.bxL; i3++) {
+                                    for (int i3 = 0; i3 < bVar.bxM; i3++) {
                                         b.a aVar = new b.a();
                                         aVar.offset = a(dataInputStream2);
                                         aVar.size = a(dataInputStream2);
-                                        aVar.bxQ = a(dataInputStream2);
-                                        byte[] bArr4 = new byte[aVar.bxQ];
+                                        aVar.bxR = a(dataInputStream2);
+                                        byte[] bArr4 = new byte[aVar.bxR];
                                         dataInputStream2.readFully(bArr4);
                                         aVar.path = new String(bArr4, "utf-8");
-                                        if (aVar.path.contains(bxJ)) {
+                                        if (aVar.path.contains(bxK)) {
                                             dataInputStream3.skipBytes(aVar.size);
                                         } else {
                                             byte[] bArr5 = new byte[aVar.size];
@@ -150,14 +150,14 @@ public class a {
                                     if (DEBUG) {
                                         Log.e("BundleDecrypt", "create destination directory fail");
                                     }
-                                    c0301a.bqG = "create destination directory failed";
+                                    c0301a.bqH = "create destination directory failed";
                                     com.baidu.swan.d.c.closeSafely(dataInputStream);
                                 }
                             }
                         }
                     } catch (IOException e) {
                         e = e;
-                        c0301a.bqG = e.getLocalizedMessage();
+                        c0301a.bqH = e.getLocalizedMessage();
                         if (DEBUG) {
                             Log.e("BundleDecrypt", "decrypt bundle fail", e);
                         }
@@ -165,7 +165,7 @@ public class a {
                         return c0301a;
                     } catch (InterruptedException e2) {
                         e = e2;
-                        c0301a.bqG = e.getLocalizedMessage();
+                        c0301a.bqH = e.getLocalizedMessage();
                         if (DEBUG) {
                         }
                         com.baidu.swan.d.c.closeSafely(dataInputStream);
@@ -289,13 +289,13 @@ public class a {
             return closeable;
         }
         if (read == -1122498812) {
-            bVar.bxK = closeable;
+            bVar.bxL = closeable;
             bVar.type = 1;
             closeable = bVar;
         } else {
             closeable2 = closeable;
             if (read == -1122434039) {
-                bVar.bxK = closeable;
+                bVar.bxL = closeable;
                 bVar.type = 2;
                 closeable = bVar;
             }
@@ -307,7 +307,7 @@ public class a {
 
     public static b a(@NonNull BufferedInputStream bufferedInputStream) throws IOException {
         b bVar = new b();
-        bVar.bxK = bufferedInputStream;
+        bVar.bxL = bufferedInputStream;
         bufferedInputStream.mark(8);
         int read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
         if (read == -1122498812) {
@@ -338,7 +338,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.t.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0301a {
-        public String bqG = "";
+        public String bqH = "";
         public boolean isSuccess;
 
         C0301a(boolean z) {

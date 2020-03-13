@@ -13,23 +13,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private final TextView ekq;
-    private final ImageView gmS;
+    private final TextView ekD;
+    private final ImageView gnf;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.gmS = (ImageView) getView().findViewById(R.id.history_delete);
-        this.ekq = (TextView) getView().findViewById(R.id.history_title);
-        this.gmS.setOnClickListener(this);
+        this.gnf = (ImageView) getView().findViewById(R.id.history_delete);
+        this.ekD = (TextView) getView().findViewById(R.id.history_title);
+        this.gnf.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.gmS, R.drawable.icon_search_history_del);
-            am.setViewTextColor(this.ekq, (int) R.color.cp_cont_e);
+            am.setBackgroundResource(this.gnf, R.drawable.icon_search_history_del);
+            am.setViewTextColor(this.ekD, (int) R.color.cp_cont_e);
             this.mSkinType = i;
         }
     }
@@ -46,14 +46,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gmS) {
+        if (view == this.gnf) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             aVar.jV(R.string.confirm_delete_all_history);
             aVar.fH(true);
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    e.bCO();
+                    e.bCP();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RELOAD_SEARCH_FORUM_HISTORY));
                     aVar2.dismiss();
                 }

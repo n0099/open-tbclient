@@ -5,27 +5,27 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock csG = new ReentrantLock();
-    private static volatile a csH;
-    private d clI;
-    private List<c> cmA = new ArrayList(3);
+    private static final ReentrantLock csH = new ReentrantLock();
+    private static volatile a csI;
+    private d clJ;
+    private List<c> cmB = new ArrayList(3);
 
     private a() {
     }
 
     public static a apS() {
-        if (csH == null) {
+        if (csI == null) {
             synchronized (a.class) {
-                if (csH == null) {
-                    csH = new a();
+                if (csI == null) {
+                    csI = new a();
                 }
             }
         }
-        return csH;
+        return csI;
     }
 
     public void a(d dVar) {
-        this.clI = dVar;
+        this.clJ = dVar;
         apT();
     }
 
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.clI = null;
-        this.cmA.clear();
+        this.clJ = null;
+        this.cmB.clear();
     }
 
     private void a(c cVar) {
-        csG.lock();
+        csH.lock();
         try {
-            if (this.clI != null) {
-                this.clI.c(cVar);
+            if (this.clJ != null) {
+                this.clJ.c(cVar);
             } else {
-                this.cmA.add(cVar);
+                this.cmB.add(cVar);
             }
         } finally {
-            csG.unlock();
+            csH.unlock();
         }
     }
 
     private void apT() {
-        if (!this.cmA.isEmpty() && this.clI != null) {
-            csG.lock();
+        if (!this.cmB.isEmpty() && this.clJ != null) {
+            csH.lock();
             try {
-                for (c cVar : this.cmA) {
-                    this.clI.c(cVar);
+                for (c cVar : this.cmB) {
+                    this.clJ.c(cVar);
                 }
-                this.cmA.clear();
+                this.cmB.clear();
             } finally {
-                csG.unlock();
+                csH.unlock();
             }
         }
     }

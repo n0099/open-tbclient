@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.c.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a bbG;
+    private a bbH;
     private Context mContext;
     private boolean mIsMute;
 
@@ -32,14 +32,14 @@ public class RewardVideoView extends RelativeLayout {
     public void V(String str) {
         c akk = akk();
         akk.mSrc = str;
-        this.bbG.d(akk);
-        this.bbG.cK(false);
+        this.bbH.d(akk);
+        this.bbH.cK(false);
     }
 
     public void cJ(boolean z) {
-        if (this.bbG != null) {
+        if (this.bbH != null) {
             this.mIsMute = z;
-            this.bbG.cJ(z);
+            this.bbH.cJ(z);
         }
     }
 
@@ -48,18 +48,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bbG;
+        return this.bbH;
     }
 
     private void initPlayer() {
         e acF = e.acF();
         if (acF != null) {
-            this.bbG = new a(acF.acB(), akk());
+            this.bbH = new a(acF.acB(), akk());
             this.mIsMute = true;
-            this.bbG.cJ(this.mIsMute);
+            this.bbH.cJ(this.mIsMute);
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bbG.b(frameLayout);
+            this.bbH.b(frameLayout);
         }
     }
 
@@ -71,12 +71,12 @@ public class RewardVideoView extends RelativeLayout {
     @NonNull
     private c akk() {
         c cVar = new c();
-        cVar.bAz = "SwanAdPlayer";
-        cVar.bil = "SwanAdPlayer";
-        cVar.bAH = true;
-        cVar.bEh = this.mIsMute;
-        cVar.bEq = false;
-        cVar.bEz = false;
+        cVar.bAA = "SwanAdPlayer";
+        cVar.bim = "SwanAdPlayer";
+        cVar.bAI = true;
+        cVar.bEi = this.mIsMute;
+        cVar.bEr = false;
+        cVar.bEA = false;
         return cVar;
     }
 }

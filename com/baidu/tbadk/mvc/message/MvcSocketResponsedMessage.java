@@ -88,9 +88,9 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String aQh = eVar.aQh();
+                String aQi = eVar.aQi();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(aQh) && bArr != null && (cq = a.aEB().cq(aQh, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(aQi) && bArr != null && (cq = a.aEB().cq(aQi, currentAccount)) != null) {
                     cq.setForever(cacheKey, bArr);
                 }
             }

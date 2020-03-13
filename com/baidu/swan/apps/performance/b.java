@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class b {
-    private final Map<String, Map<String, HybridUbcFlow>> bHm = new HashMap();
-    private final Map<String, com.baidu.swan.apps.as.d.b<HybridUbcFlow>> bHn = new HashMap();
-    private final com.baidu.swan.apps.as.d.b<HybridUbcFlow> bHo = new com.baidu.swan.apps.as.d.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.b.1
+    private final Map<String, Map<String, HybridUbcFlow>> bHn = new HashMap();
+    private final Map<String, com.baidu.swan.apps.as.d.b<HybridUbcFlow>> bHo = new HashMap();
+    private final com.baidu.swan.apps.as.d.b<HybridUbcFlow> bHp = new com.baidu.swan.apps.as.d.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.b
         /* renamed from: a */
@@ -17,8 +17,8 @@ public class b {
 
     private HybridUbcFlow jO(String str) {
         HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-        hybridUbcFlow.c("callback_on_submit", this.bHo);
-        com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar = this.bHn.get(str);
+        hybridUbcFlow.c("callback_on_submit", this.bHp);
+        com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar = this.bHo.get(str);
         if (bVar != null) {
             bVar.D(hybridUbcFlow);
         }
@@ -31,13 +31,13 @@ public class b {
 
     public synchronized HybridUbcFlow aY(String str, String str2) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.bHm) {
-            Map<String, HybridUbcFlow> map = this.bHm.get(str);
+        synchronized (this.bHn) {
+            Map<String, HybridUbcFlow> map = this.bHn.get(str);
             if (map == null) {
                 HashMap hashMap = new HashMap();
                 hybridUbcFlow = jO(str);
                 hashMap.put(str2, hybridUbcFlow);
-                this.bHm.put(str, hashMap);
+                this.bHn.put(str, hashMap);
             } else {
                 HybridUbcFlow hybridUbcFlow2 = map.get(str2);
                 if (hybridUbcFlow2 == null) {
@@ -51,22 +51,22 @@ public class b {
     }
 
     public b b(String str, com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar) {
-        synchronized (this.bHn) {
-            this.bHn.put(str, bVar);
+        synchronized (this.bHo) {
+            this.bHo.put(str, bVar);
         }
         return this;
     }
 
     public b jQ(String str) {
-        synchronized (this.bHm) {
-            this.bHm.remove(str);
+        synchronized (this.bHn) {
+            this.bHn.remove(str);
         }
         return this;
     }
 
     public b aZ(String str, String str2) {
-        synchronized (this.bHm) {
-            Map<String, HybridUbcFlow> map = this.bHm.get(str);
+        synchronized (this.bHn) {
+            Map<String, HybridUbcFlow> map = this.bHn.get(str);
             if (map != null) {
                 map.remove(str2);
             }
@@ -80,8 +80,8 @@ public class b {
 
     public HybridUbcFlow ba(String str, String str2) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.bHm) {
-            Map<String, HybridUbcFlow> map = this.bHm.get(str);
+        synchronized (this.bHn) {
+            Map<String, HybridUbcFlow> map = this.bHn.get(str);
             hybridUbcFlow = map == null ? null : map.get(str2);
         }
         return hybridUbcFlow;

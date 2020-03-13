@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private boolean cUq;
-    private String emb;
-    private String emc;
+    private boolean cUr;
+    private String emo;
+    private String emp;
     private boolean hasMore = false;
-    private List<String> eox = new ArrayList();
-    private List<SdkLiveInfoData> eoy = new ArrayList();
-    private List<m> eoz = new ArrayList();
+    private List<String> eoK = new ArrayList();
+    private List<SdkLiveInfoData> eoL = new ArrayList();
+    private List<m> eoM = new ArrayList();
 
     public a(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.cUq = false;
+        this.cUr = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.cUq = true;
+            this.cUr = true;
         }
-        this.emb = str;
-        this.emc = str2;
+        this.emo = str;
+        this.emp = str2;
         k(list, z);
     }
 
@@ -44,18 +44,18 @@ public class a {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.eox.contains(str)) {
+                if (!this.eoK.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.eox.add(str);
+                    this.eoK.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList)) {
             return false;
         }
-        this.eoy.addAll(arrayList);
-        this.eoz = bj(this.eoy);
-        return !v.isEmpty(this.eoz);
+        this.eoL.addAll(arrayList);
+        this.eoM = bj(this.eoL);
+        return !v.isEmpty(this.eoM);
     }
 
     private ArrayList<m> bj(List<SdkLiveInfoData> list) {
@@ -64,25 +64,25 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.ejG = list.get(i);
+            aVar.ejT = list.get(i);
             aVar.isLeft = true;
-            aVar.cUq = this.cUq;
-            aVar.fid = this.emb;
-            aVar.fname = this.emc;
+            aVar.cUr = this.cUr;
+            aVar.fid = this.emo;
+            aVar.fname = this.emp;
             aVar.position = i + 1;
-            eVar.elJ = aVar;
+            eVar.elW = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.ejG = list.get(i + 1);
-                aVar2.cUq = this.cUq;
-                aVar2.fid = this.emb;
-                aVar2.fname = this.emc;
+                aVar2.ejT = list.get(i + 1);
+                aVar2.cUr = this.cUr;
+                aVar2.fid = this.emo;
+                aVar2.fname = this.emp;
                 aVar2.position = i + 2;
-                eVar.elK = aVar2;
+                eVar.elX = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.ejH = true;
+                aVar.ejU = true;
             }
             arrayList.add(eVar);
         }
@@ -95,22 +95,22 @@ public class a {
 
     public List<m> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.eoz)) {
-            arrayList.addAll(this.eoz);
+        if (!v.isEmpty(this.eoM)) {
+            arrayList.addAll(this.eoM);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.eox != null) {
-            this.eox.clear();
+        if (this.eoK != null) {
+            this.eoK.clear();
         }
-        if (this.eoy != null) {
-            this.eoy.clear();
+        if (this.eoL != null) {
+            this.eoL.clear();
         }
-        if (this.eoz != null) {
-            this.eoz.clear();
+        if (this.eoM != null) {
+            this.eoM.clear();
         }
     }
 }

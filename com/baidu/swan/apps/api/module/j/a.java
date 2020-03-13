@@ -66,7 +66,7 @@ public class a extends c {
             return new b(1001, "not available");
         }
         acN.afi().putString(optString, optString2);
-        com.baidu.swan.apps.ap.e.bXQ.update();
+        com.baidu.swan.apps.ap.e.bXR.update();
         return new b(0);
     }
 
@@ -86,7 +86,7 @@ public class a extends c {
             return new b(1001, "swan app is null");
         }
         acF.acN().afi().edit().clear().apply();
-        com.baidu.swan.apps.ap.e.bXQ.update();
+        com.baidu.swan.apps.ap.e.bXR.update();
         return new b(0);
     }
 
@@ -122,7 +122,7 @@ public class a extends c {
             return new b(1001, "empty key");
         }
         acF.acN().afi().remove(optString);
-        com.baidu.swan.apps.ap.e.bXQ.update();
+        com.baidu.swan.apps.ap.e.bXR.update();
         return new b(0);
     }
 

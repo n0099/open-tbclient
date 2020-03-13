@@ -14,7 +14,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int MAX_ASSETS_RESERVED = 15;
     public static final String TAG = "RequestParameters";
     private final String a;
-    protected String aNZ;
+    protected String aOa;
     private int b;
     private boolean c;
     private Map<String, String> d;
@@ -133,7 +133,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public String getAdPlacementId() {
-        return this.aNZ;
+        return this.aOa;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters

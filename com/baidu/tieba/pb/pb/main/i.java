@@ -4,17 +4,17 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes9.dex */
 public class i {
-    private static i iFu;
-    private com.baidu.adp.lib.cache.l<byte[]> iFv = null;
-    private com.baidu.adp.lib.cache.l<byte[]> iFw = null;
+    private static i iFG;
+    private com.baidu.adp.lib.cache.l<byte[]> iFH = null;
+    private com.baidu.adp.lib.cache.l<byte[]> iFI = null;
 
-    public static synchronized i cmh() {
+    public static synchronized i cmi() {
         i iVar;
         synchronized (i.class) {
-            if (iFu == null) {
-                iFu = new i();
+            if (iFG == null) {
+                iFG = new i();
             }
-            iVar = iFu;
+            iVar = iFG;
         }
         return iVar;
     }
@@ -24,34 +24,34 @@ public class i {
     }
 
     private void auX() {
-        if (this.iFv == null) {
-            this.iFv = com.baidu.tbadk.core.c.a.aEB().sP("tb.pb_mark");
+        if (this.iFH == null) {
+            this.iFH = com.baidu.tbadk.core.c.a.aEB().sP("tb.pb_mark");
         }
-        if (this.iFw == null) {
-            this.iFw = com.baidu.tbadk.core.c.a.aEB().sP("tb.pb_normal");
+        if (this.iFI == null) {
+            this.iFI = com.baidu.tbadk.core.c.a.aEB().sP("tb.pb_normal");
         }
     }
 
     public void ar(String str, boolean z) {
         if (z) {
-            if (this.iFv != null && str != null) {
-                this.iFv.asyncSet(str, new byte[0], 0L);
+            if (this.iFH != null && str != null) {
+                this.iFH.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.iFw != null && str != null) {
-            this.iFw.asyncSet(str, new byte[0], 0L);
+        } else if (this.iFI != null && str != null) {
+            this.iFI.asyncSet(str, new byte[0], 0L);
         }
     }
 
     public byte[] as(String str, boolean z) {
         l.b<byte[]> ad;
         if (z) {
-            if (this.iFv != null && str != null) {
-                ad = this.iFv.ad(str);
+            if (this.iFH != null && str != null) {
+                ad = this.iFH.ad(str);
             }
             ad = null;
         } else {
-            if (this.iFw != null && str != null) {
-                ad = this.iFw.ad(str);
+            if (this.iFI != null && str != null) {
+                ad = this.iFI.ad(str);
             }
             ad = null;
         }
@@ -65,9 +65,9 @@ public class i {
         if (str != null) {
             auX();
             if (z) {
-                this.iFv.set(str, bArr, 604800000L);
+                this.iFH.set(str, bArr, 604800000L);
             } else {
-                this.iFw.set(str, bArr, 86400000L);
+                this.iFI.set(str, bArr, 86400000L);
             }
         }
     }
@@ -75,7 +75,7 @@ public class i {
     public void n(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             auX();
-            this.iFv.set(str, bArr, BdKVCache.MILLS_30Days);
+            this.iFH.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }
