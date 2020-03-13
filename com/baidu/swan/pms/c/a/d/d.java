@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
 /* loaded from: classes11.dex */
 public class d {
-    private static d cBy;
-    private com.baidu.swan.pms.c.a.c.b cBz = new com.baidu.swan.pms.c.a.c.b();
+    private static d cBz;
+    private com.baidu.swan.pms.c.a.c.b cBA = new com.baidu.swan.pms.c.a.c.b();
 
     public static d atV() {
-        if (cBy != null) {
-            return cBy;
+        if (cBz != null) {
+            return cBz;
         }
         synchronized (d.class) {
-            if (cBy == null) {
-                cBy = new d();
+            if (cBz == null) {
+                cBz = new d();
             }
         }
-        return cBy;
+        return cBz;
     }
 
     private d() {
@@ -28,14 +28,14 @@ public class d {
 
     public synchronized <T> void j(f<T> fVar) {
         fVar.fa(false);
-        this.cBz.b(fVar);
+        this.cBA.b(fVar);
     }
 
     public synchronized void c(b bVar) {
-        this.cBz.a(bVar);
+        this.cBA.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.cBz.b(bVar);
+        this.cBA.b(bVar);
     }
 }

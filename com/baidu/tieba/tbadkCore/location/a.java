@@ -10,15 +10,15 @@ public class a {
     private List<C0613a> poi_info;
     private String sn;
 
-    public String cLE() {
+    public String cLF() {
         return this.formatted_address;
     }
 
-    public List<C0613a> cLF() {
+    public List<C0613a> cLG() {
         return this.poi_info;
     }
 
-    public void Je(String str) {
+    public void Jf(String str) {
         this.formatted_address = str;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this.sn;
     }
 
-    public void Jf(String str) {
+    public void Jg(String str) {
         this.sn = str;
     }
 

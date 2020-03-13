@@ -4,10 +4,10 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private String asD;
-    private String dYp;
-    private String khE;
-    private List<String> khF;
+    private String asE;
+    private String dYC;
+    private String khQ;
+    private List<String> khR;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -16,10 +16,10 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
-            this.dYp = redpacketRain.jump_url;
-            this.khE = redpacketRain.float_url;
-            this.khF = redpacketRain.dynamic_img;
-            this.asD = redpacketRain.activity_id;
+            this.dYC = redpacketRain.jump_url;
+            this.khQ = redpacketRain.float_url;
+            this.khR = redpacketRain.dynamic_img;
+            this.asE = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class o {
         return this.mEndTime;
     }
 
-    public String aXT() {
-        return this.dYp;
+    public String aXU() {
+        return this.dYC;
     }
 
-    public String cLo() {
-        return this.khE;
+    public String cLp() {
+        return this.khQ;
     }
 
-    public List<String> cLp() {
-        return this.khF;
+    public List<String> cLq() {
+        return this.khR;
     }
 
     public String gL() {
-        return this.asD;
+        return this.asE;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class o {
         this.mEndTime = j;
     }
 
-    public void Jc(String str) {
-        this.dYp = str;
+    public void Jd(String str) {
+        this.dYC = str;
     }
 
-    public void Jd(String str) {
-        this.khE = str;
+    public void Je(String str) {
+        this.khQ = str;
     }
 
     public void ee(List<String> list) {
-        this.khF = list;
+        this.khR = list;
     }
 
     public void aC(String str) {
-        this.asD = str;
+        this.asE = str;
     }
 
     public int getType() {

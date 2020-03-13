@@ -69,16 +69,16 @@ public class a extends com.baidu.swan.apps.api.a.c {
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0226a {
-        private static ArrayMap<String, Integer> bfp = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> bfq = new ArrayMap<>(3);
 
         static {
-            bfp.put("ui", 60);
-            bfp.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bfp.put("normal", 200);
+            bfq.put("ui", 60);
+            bfq.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bfq.put("normal", 200);
         }
 
         public static int ga(String str) {
-            Integer num = bfp.get(str);
+            Integer num = bfq.get(str);
             if (num != null) {
                 return num.intValue();
             }

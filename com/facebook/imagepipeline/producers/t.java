@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final ak lVG;
-    private long lVH = 0;
-    private int lVI;
+    private final k<com.facebook.imagepipeline.g.e> lVK;
+    private final ak lVR;
+    private long lVS = 0;
+    private int lVT;
     @Nullable
-    private com.facebook.imagepipeline.common.a lVJ;
-    private final k<com.facebook.imagepipeline.g.e> lVz;
+    private com.facebook.imagepipeline.common.a lVU;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.lVz = kVar;
-        this.lVG = akVar;
+        this.lVK = kVar;
+        this.lVR = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> drJ() {
-        return this.lVz;
+    public k<com.facebook.imagepipeline.g.e> drK() {
+        return this.lVK;
     }
 
-    public ak drK() {
-        return this.lVG;
+    public ak drL() {
+        return this.lVR;
     }
 
     public String getId() {
-        return this.lVG.getId();
+        return this.lVR.getId();
     }
 
-    public am dry() {
-        return this.lVG.dry();
+    public am drz() {
+        return this.lVR.drz();
     }
 
     public Uri getUri() {
-        return this.lVG.drx().dsq();
+        return this.lVR.dry().dsr();
     }
 
-    public long drL() {
-        return this.lVH;
+    public long drM() {
+        return this.lVS;
     }
 
     public void fj(long j) {
-        this.lVH = j;
+        this.lVS = j;
     }
 
-    public int drM() {
-        return this.lVI;
+    public int drN() {
+        return this.lVT;
     }
 
     public void IL(int i) {
-        this.lVI = i;
+        this.lVT = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a drN() {
-        return this.lVJ;
+    public com.facebook.imagepipeline.common.a drO() {
+        return this.lVU;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.lVJ = aVar;
+        this.lVU = aVar;
     }
 
-    public Map<String, String> drO() {
-        return this.lVG.drx().drO();
+    public Map<String, String> drP() {
+        return this.lVR.dry().drP();
     }
 }

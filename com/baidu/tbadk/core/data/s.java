@@ -4,15 +4,15 @@ import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes8.dex */
 public class s {
     private String author;
-    private int cOb;
-    private String cOn;
+    private long cOA;
+    private int cOc;
     private String cOo;
     private String cOp;
     private String cOq;
     private String cOr;
     private String cOs;
     private String cOt;
-    private long cOu;
+    private String cOu;
     private long cOv;
     private long cOw;
     private long cOx;
@@ -20,30 +20,30 @@ public class s {
     private long cOz;
 
     public String aAz() {
-        return this.cOn;
+        return this.cOo;
     }
 
     public int aAA() {
-        return this.cOb;
+        return this.cOc;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.cOn = forumBookInfo.book_id;
-            this.cOb = forumBookInfo.book_type.intValue();
-            this.cOo = forumBookInfo.book_title;
-            this.cOp = forumBookInfo.book_cover;
+            this.cOo = forumBookInfo.book_id;
+            this.cOc = forumBookInfo.book_type.intValue();
+            this.cOp = forumBookInfo.book_title;
+            this.cOq = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.cOq = forumBookInfo.forum_pic;
-            this.cOr = forumBookInfo.show_chapter_id;
-            this.cOs = forumBookInfo.show_chapter_no;
-            this.cOt = forumBookInfo.show_chapter_title;
-            this.cOu = forumBookInfo.history_page_id.longValue();
-            this.cOv = forumBookInfo.history_paragraph_id.longValue();
-            this.cOw = forumBookInfo.history_word_id.longValue();
-            this.cOx = forumBookInfo.history_percent.longValue();
-            this.cOy = forumBookInfo.show_page_id.longValue();
-            this.cOz = forumBookInfo.show_paragraph_id.longValue();
+            this.cOr = forumBookInfo.forum_pic;
+            this.cOs = forumBookInfo.show_chapter_id;
+            this.cOt = forumBookInfo.show_chapter_no;
+            this.cOu = forumBookInfo.show_chapter_title;
+            this.cOv = forumBookInfo.history_page_id.longValue();
+            this.cOw = forumBookInfo.history_paragraph_id.longValue();
+            this.cOx = forumBookInfo.history_word_id.longValue();
+            this.cOy = forumBookInfo.history_percent.longValue();
+            this.cOz = forumBookInfo.show_page_id.longValue();
+            this.cOA = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes9.dex */
 public class e extends w {
-    private PbModel iEi;
-    private d iZp = new d();
-    private int iZq = 0;
+    private PbModel iEu;
+    private d iZB = new d();
+    private int iZC = 0;
 
     public void init(Intent intent) {
-        this.iZp.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.iZp.qU(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.iZB.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.iZB.qU(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void g(PbModel pbModel) {
-        this.iEi = pbModel;
+        this.iEu = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.e eVar, int i) {
         boolean z = true;
-        if (i >= this.iZq) {
-            this.iZq = i;
-            this.iZp.I(eVar);
+        if (i >= this.iZC) {
+            this.iZC = i;
+            this.iZB.I(eVar);
             if (eVar != null) {
-                d dVar = this.iZp;
-                if (eVar.getIsNewUrl() != 1 && !eVar.ckS()) {
+                d dVar = this.iZB;
+                if (eVar.getIsNewUrl() != 1 && !eVar.ckT()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,115 +38,115 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e cte() {
-        return this.iZp.cte();
+    public com.baidu.tieba.pb.data.e ctf() {
+        return this.iZB.ctf();
     }
 
     public boolean isFromCDN() {
-        return this.iZp.isFromCDN();
+        return this.iZB.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e ctf() {
-        return this.iZp.ctf();
+    public com.baidu.tieba.pb.data.e ctg() {
+        return this.iZB.ctg();
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, int i) {
         if (i == 3) {
-            this.iZp.setData(eVar);
+            this.iZB.setData(eVar);
         }
     }
 
-    public p<bj> ctg() {
-        return this.iZp.ctg();
+    public p<bj> cth() {
+        return this.iZB.cth();
     }
 
-    public Rect cth() {
-        if (this.iZp.cth() == null || this.iZp.cth().isEmpty()) {
+    public Rect cti() {
+        if (this.iZB.cti() == null || this.iZB.cti().isEmpty()) {
             return null;
         }
-        return this.iZp.cth();
+        return this.iZB.cti();
     }
 
     public void qX(boolean z) {
-        if (this.iZp.ctl().getValue() != null) {
-            com.baidu.tieba.pb.data.e aG = this.iEi.aG(this.iZp.ctl().getValue());
+        if (this.iZB.ctm().getValue() != null) {
+            com.baidu.tieba.pb.data.e aG = this.iEu.aG(this.iZB.ctm().getValue());
             if (aG != null) {
-                this.iZp.ctj().addLast(this.iZp.ctf());
-                this.iZp.setData(aG);
-                this.iZp.aO(!v.isEmpty(aG.ckR()) ? aG.ckR().get(0) : null);
-                this.iZp.aN(this.iZp.ctj().getLast() != null ? this.iZp.ctj().getLast().cku() : null);
-                this.iEi.yY(z ? 21 : 22);
-                this.iEi.h(aG);
-                this.iZp.setIsLoading(true);
+                this.iZB.ctk().addLast(this.iZB.ctg());
+                this.iZB.setData(aG);
+                this.iZB.aO(!v.isEmpty(aG.ckS()) ? aG.ckS().get(0) : null);
+                this.iZB.aN(this.iZB.ctk().getLast() != null ? this.iZB.ctk().getLast().ckv() : null);
+                this.iEu.yY(z ? 21 : 22);
+                this.iEu.h(aG);
+                this.iZB.setIsLoading(true);
             }
         }
     }
 
     public void aP(bj bjVar) {
         com.baidu.tieba.pb.data.e aG;
-        if (bjVar != null && (aG = this.iEi.aG(bjVar)) != null) {
-            this.iZp.ctj().addLast(this.iZp.ctf());
-            this.iZp.setData(aG);
-            this.iZp.aO(!v.isEmpty(aG.ckR()) ? aG.ckR().get(0) : null);
-            this.iZp.aN(this.iZp.ctj().getLast() != null ? this.iZp.ctj().getLast().cku() : null);
-            this.iEi.yY(20);
-            this.iEi.h(aG);
-            this.iZp.setIsLoading(true);
+        if (bjVar != null && (aG = this.iEu.aG(bjVar)) != null) {
+            this.iZB.ctk().addLast(this.iZB.ctg());
+            this.iZB.setData(aG);
+            this.iZB.aO(!v.isEmpty(aG.ckS()) ? aG.ckS().get(0) : null);
+            this.iZB.aN(this.iZB.ctk().getLast() != null ? this.iZB.ctk().getLast().ckv() : null);
+            this.iEu.yY(20);
+            this.iEu.h(aG);
+            this.iZB.setIsLoading(true);
         }
     }
 
-    public void ctq() {
-        com.baidu.tieba.pb.data.e pollLast = this.iZp.ctj().pollLast();
+    public void ctr() {
+        com.baidu.tieba.pb.data.e pollLast = this.iZB.ctk().pollLast();
         if (pollLast != null) {
-            this.iZp.setData(pollLast);
-            this.iZp.aO(!v.isEmpty(pollLast.ckR()) ? pollLast.ckR().get(0) : null);
-            this.iZp.aN(this.iZp.ctj().peekLast() != null ? this.iZp.ctj().peekLast().cku() : null);
-            this.iEi.h(pollLast);
-            this.iZp.setIsLoading(true);
+            this.iZB.setData(pollLast);
+            this.iZB.aO(!v.isEmpty(pollLast.ckS()) ? pollLast.ckS().get(0) : null);
+            this.iZB.aN(this.iZB.ctk().peekLast() != null ? this.iZB.ctk().peekLast().ckv() : null);
+            this.iEu.h(pollLast);
+            this.iZB.setIsLoading(true);
         }
-    }
-
-    public p<bj> ctk() {
-        return this.iZp.ctk();
     }
 
     public p<bj> ctl() {
-        return this.iZp.ctl();
+        return this.iZB.ctl();
     }
 
-    public p<Boolean> ctm() {
-        return this.iZp.ctm();
-    }
-
-    public void qV(boolean z) {
-        this.iZp.qV(z);
+    public p<bj> ctm() {
+        return this.iZB.ctm();
     }
 
     public p<Boolean> ctn() {
-        return this.iZp.ctn();
+        return this.iZB.ctn();
     }
 
-    public void qW(boolean z) {
-        this.iZp.qW(z);
-    }
-
-    public void setIsLoading(boolean z) {
-        this.iZp.setIsLoading(z);
+    public void qV(boolean z) {
+        this.iZB.qV(z);
     }
 
     public p<Boolean> cto() {
-        return this.iZp.cto();
+        return this.iZB.cto();
     }
 
-    public boolean cti() {
-        return this.iZp.cti();
+    public void qW(boolean z) {
+        this.iZB.qW(z);
+    }
+
+    public void setIsLoading(boolean z) {
+        this.iZB.setIsLoading(z);
+    }
+
+    public p<Boolean> ctp() {
+        return this.iZB.ctp();
+    }
+
+    public boolean ctj() {
+        return this.iZB.ctj();
     }
 
     public void setCurrentTab(int i) {
-        this.iZp.setCurrentTab(i);
+        this.iZB.setCurrentTab(i);
     }
 
-    public p<Integer> ctp() {
-        return this.iZp.ctp();
+    public p<Integer> ctq() {
+        return this.iZB.ctq();
     }
 }

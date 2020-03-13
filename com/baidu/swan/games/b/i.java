@@ -8,37 +8,37 @@ import java.util.List;
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = i.class.getSimpleName();
-    private static volatile boolean bjJ = false;
-    private static volatile boolean cmn = false;
-    private static volatile List<com.baidu.swan.apps.n.a.b> cmo = new ArrayList();
+    private static volatile boolean bjK = false;
+    private static volatile boolean cmo = false;
+    private static volatile List<com.baidu.swan.apps.n.a.b> cmp = new ArrayList();
 
     private i() {
     }
 
     public static void ch(boolean z) {
-        bjJ = z;
+        bjK = z;
         com.baidu.swan.apps.console.c.ch(z);
     }
 
     public static void anm() {
         synchronized (i.class) {
-            cmo = new ArrayList();
+            cmp = new ArrayList();
         }
-        cmn = false;
+        cmo = false;
     }
 
     public static void ann() {
-        if (bjJ && !cmn) {
+        if (bjK && !cmo) {
             synchronized (i.class) {
-                if (cmo != null) {
-                    for (int i = 0; i < cmo.size(); i++) {
-                        com.baidu.swan.apps.y.f.WS().a("console", cmo.get(i));
+                if (cmp != null) {
+                    for (int i = 0; i < cmp.size(); i++) {
+                        com.baidu.swan.apps.y.f.WS().a("console", cmp.get(i));
                     }
-                    cmo.clear();
-                    cmo = null;
+                    cmp.clear();
+                    cmp = null;
                 }
             }
-            cmn = true;
+            cmo = true;
         }
     }
 
@@ -65,22 +65,22 @@ public class i {
     }
 
     public static void bD(String str, String str2) {
-        if (bjJ) {
+        if (bjK) {
             a(c.bB(str, str2));
         }
     }
 
     public static void bE(String str, String str2) {
-        if (bjJ) {
+        if (bjK) {
             a(c.bC(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.n.a.b bVar) {
-        if (!cmn) {
+        if (!cmo) {
             synchronized (i.class) {
-                if (cmo != null) {
-                    cmo.add(bVar);
+                if (cmp != null) {
+                    cmp.add(bVar);
                     return;
                 }
             }

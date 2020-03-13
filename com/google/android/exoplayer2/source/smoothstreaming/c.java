@@ -16,64 +16,64 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 final class c implements k, q.a<f<b>> {
-    private final u lYG;
-    private final com.google.android.exoplayer2.extractor.c.k[] miZ;
-    private k.a mqV;
-    private final int mrr;
-    private final com.google.android.exoplayer2.upstream.b mru;
-    private final b.a mtB;
-    private final o mtT;
-    private f<b>[] mtV;
-    private e mtW;
-    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a mxY;
-    private final b.a mya;
+    private final u lYR;
+    private final com.google.android.exoplayer2.extractor.c.k[] mjk;
+    private final int mrC;
+    private final com.google.android.exoplayer2.upstream.b mrF;
+    private k.a mrg;
+    private final b.a mtM;
+    private final o mue;
+    private f<b>[] mug;
+    private e muh;
+    private com.google.android.exoplayer2.source.smoothstreaming.manifest.a myj;
+    private final b.a myl;
 
     public c(com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar, b.a aVar2, int i, b.a aVar3, o oVar, com.google.android.exoplayer2.upstream.b bVar) {
-        this.mya = aVar2;
-        this.mtT = oVar;
-        this.mrr = i;
-        this.mtB = aVar3;
-        this.mru = bVar;
-        this.lYG = b(aVar);
-        a.C0683a c0683a = aVar.myg;
+        this.myl = aVar2;
+        this.mue = oVar;
+        this.mrC = i;
+        this.mtM = aVar3;
+        this.mrF = bVar;
+        this.lYR = b(aVar);
+        a.C0683a c0683a = aVar.myr;
         if (c0683a != null) {
-            this.miZ = new com.google.android.exoplayer2.extractor.c.k[]{new com.google.android.exoplayer2.extractor.c.k(true, null, 8, ay(c0683a.data), 0, 0, null)};
+            this.mjk = new com.google.android.exoplayer2.extractor.c.k[]{new com.google.android.exoplayer2.extractor.c.k(true, null, 8, ay(c0683a.data), 0, 0, null)};
         } else {
-            this.miZ = null;
+            this.mjk = null;
         }
-        this.mxY = aVar;
-        this.mtV = KU(0);
-        this.mtW = new e(this.mtV);
+        this.myj = aVar;
+        this.mug = KU(0);
+        this.muh = new e(this.mug);
     }
 
     public void a(com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar) {
-        this.mxY = aVar;
-        for (f<b> fVar : this.mtV) {
-            fVar.dwO().a(aVar);
+        this.myj = aVar;
+        for (f<b> fVar : this.mug) {
+            fVar.dwP().a(aVar);
         }
-        this.mqV.a((k.a) this);
+        this.mrg.a((k.a) this);
     }
 
     public void release() {
-        for (f<b> fVar : this.mtV) {
+        for (f<b> fVar : this.mug) {
             fVar.release();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public void a(k.a aVar, long j) {
-        this.mqV = aVar;
+        this.mrg = aVar;
         aVar.a((k) this);
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void dwe() throws IOException {
-        this.mtT.dwl();
+    public void dwf() throws IOException {
+        this.mue.dwm();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public u dwf() {
-        return this.lYG;
+    public u dwg() {
+        return this.lYR;
     }
 
     @Override // com.google.android.exoplayer2.source.k
@@ -100,9 +100,9 @@ final class c implements k, q.a<f<b>> {
                 }
                 i = i2 + 1;
             } else {
-                this.mtV = KU(arrayList.size());
-                arrayList.toArray(this.mtV);
-                this.mtW = new e(this.mtV);
+                this.mug = KU(arrayList.size());
+                arrayList.toArray(this.mug);
+                this.muh = new e(this.mug);
                 return j;
             }
         }
@@ -114,27 +114,27 @@ final class c implements k, q.a<f<b>> {
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
     public boolean gd(long j) {
-        return this.mtW.gd(j);
+        return this.muh.gd(j);
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dwi() {
-        return this.mtW.dwi();
+    public long dwj() {
+        return this.muh.dwj();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long dwg() {
+    public long dwh() {
         return -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dwh() {
-        return this.mtW.dwh();
+    public long dwi() {
+        return this.muh.dwi();
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public long gc(long j) {
-        for (f<b> fVar : this.mtV) {
+        for (f<b> fVar : this.mug) {
             fVar.gn(j);
         }
         return j;
@@ -144,18 +144,18 @@ final class c implements k, q.a<f<b>> {
     @Override // com.google.android.exoplayer2.source.q.a
     /* renamed from: b */
     public void a(f<b> fVar) {
-        this.mqV.a((k.a) this);
+        this.mrg.a((k.a) this);
     }
 
     private f<b> a(com.google.android.exoplayer2.b.f fVar, long j) {
-        int a = this.lYG.a(fVar.dxf());
-        return new f<>(this.mxY.myh[a].type, null, this.mya.a(this.mtT, this.mxY, a, fVar, this.miZ), this, this.mru, j, this.mrr, this.mtB);
+        int a = this.lYR.a(fVar.dxg());
+        return new f<>(this.myj.mys[a].type, null, this.myl.a(this.mue, this.myj, a, fVar, this.mjk), this, this.mrF, j, this.mrC, this.mtM);
     }
 
     private static u b(com.google.android.exoplayer2.source.smoothstreaming.manifest.a aVar) {
-        t[] tVarArr = new t[aVar.myh.length];
-        for (int i = 0; i < aVar.myh.length; i++) {
-            tVarArr[i] = new t(aVar.myh[i].msw);
+        t[] tVarArr = new t[aVar.mys.length];
+        for (int i = 0; i < aVar.mys.length; i++) {
+            tVarArr[i] = new t(aVar.mys[i].msH);
         }
         return new u(tVarArr);
     }

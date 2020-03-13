@@ -14,8 +14,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends b {
-    private static final String bRz = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String bRA = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String bRA = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String bRB = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -49,9 +49,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(bRA, swanFavorItemData.getAppKey());
+                str = String.format(bRB, swanFavorItemData.getAppKey());
             } else {
-                str = bRz + swanFavorItemData.getAppKey() + "\"}";
+                str = bRA + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, str);
         } catch (JSONException e) {

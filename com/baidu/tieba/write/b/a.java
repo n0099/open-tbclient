@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.b;
 /* loaded from: classes13.dex */
 public class a {
-    public int kOA;
-    public String kOz;
+    public String kOL;
+    public int kOM;
 
     public a(String str, int i) {
-        this.kOz = str;
-        this.kOA = i;
+        this.kOL = str;
+        this.kOM = i;
     }
 }

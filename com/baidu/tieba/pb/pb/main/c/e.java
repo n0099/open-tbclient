@@ -13,37 +13,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class e extends a {
-    private int iGP;
-    private com.baidu.tbadk.core.data.a iSX;
-    private bj iTa;
-    private l iTe;
+    private int iHb;
+    private com.baidu.tbadk.core.data.a iTj;
+    private bj iTm;
+    private l iTq;
     private View mRootView;
 
     public e(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.iGP = i;
+        this.iHb = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.iTe == null) {
-            this.iTe = new l(this.cVh.getPageActivity());
-            this.iTe.b((Boolean) true);
-            this.iTe.setFrom("pb");
-            this.iTe.e(this.cVh.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.cVh.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.cVh.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.cVh.getResources().getDimensionPixelSize(R.dimen.tbds40));
+        if (this.iTq == null) {
+            this.iTq = new l(this.cVi.getPageActivity());
+            this.iTq.b((Boolean) true);
+            this.iTq.setFrom("pb");
+            this.iTq.e(this.cVi.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.cVi.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.cVi.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.cVi.getResources().getDimensionPixelSize(R.dimen.tbds40));
         }
-        this.mRootView = this.iTe.getView();
+        this.mRootView = this.iTq.getView();
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.iSW = originalThreadInfo;
-        this.iTa = originalThreadInfo == null ? null : originalThreadInfo.aAW();
-        this.iSX = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.iTi = originalThreadInfo;
+        this.iTm = originalThreadInfo == null ? null : originalThreadInfo.aAW();
+        this.iTj = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.a
             public bj aAg() {
-                return e.this.iTa;
+                return e.this.iTm;
             }
 
             @Override // com.baidu.tbadk.core.data.a
@@ -56,31 +56,31 @@ public class e extends a {
                 return null;
             }
         };
-        if (this.iTe != null) {
-            this.iTe.A(this.iSX);
+        if (this.iTq != null) {
+            this.iTq.A(this.iTj);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(z zVar) {
         super.a(zVar);
-        if (this.iTe != null) {
-            this.iTe.setOnCardSubClickListener(this.iSV);
+        if (this.iTq != null) {
+            this.iTq.setOnCardSubClickListener(this.iTh);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.iTe != null) {
-            this.iTe.a(aVar);
+        if (this.iTq != null) {
+            this.iTq.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (e.this.Ka != null) {
-                        e.this.Ka.a(e.this.iSX);
+                        e.this.Ka.a(e.this.iTj);
                     }
                 }
             });
@@ -92,8 +92,8 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            if (this.iTe != null) {
-                this.iTe.onChangeSkinType(tbPageContext, i);
+            if (this.iTq != null) {
+                this.iTq.onChangeSkinType(tbPageContext, i);
             }
         }
     }

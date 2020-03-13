@@ -7,14 +7,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private z fWH;
+    private z fWU;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, z zVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.fWY);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.fXl);
         this.mPageContext = tbPageContext;
-        this.fWH = zVar;
+        this.fWU = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.bvK() == null) {
+        if (dVar == null || aVar == null || aVar.bvL() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.bvK().kM(dVar.needTopMargin);
+            aVar.bvL().kM(dVar.needTopMargin);
         }
-        aVar.bvK().a(dVar);
-        if (this.fWH != null) {
-            aVar.bvK().c(this.fWH);
+        aVar.bvL().a(dVar);
+        if (this.fWU != null) {
+            aVar.bvL().c(this.fWU);
         }
         return aVar.getView();
     }

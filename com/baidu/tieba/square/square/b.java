@@ -20,17 +20,17 @@ import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private ArrayList<e> kca;
-    View.OnClickListener kcb = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private ArrayList<e> kcm;
+    View.OnClickListener kcn = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).kcf) != null) {
-                if (eVar.kaf == null) {
-                    com.baidu.tieba.square.square.a.e(b.this.getContext(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).kcr) != null) {
+                if (eVar.kar == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.getContext(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.getContext(), eVar.kae, eVar.kaf, eVar.kag)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.getContext(), eVar.kaq, eVar.kar, eVar.kas)));
                 }
             }
         }
@@ -39,35 +39,35 @@ public class b extends BaseAdapter {
 
     public b(Activity activity, c cVar, boolean z) {
         this.mContext = activity;
-        this.kca = cVar.cJJ();
+        this.kcm = cVar.cJK();
     }
 
-    public ArrayList<e> cJJ() {
-        return this.kca;
+    public ArrayList<e> cJK() {
+        return this.kcm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes10.dex */
     public static class a {
-        public TextView cuh;
-        public BarImageView kcd;
-        public BestStringsFitTextView kce;
-        public e kcf;
+        public TextView cui;
+        public BarImageView kcp;
+        public BestStringsFitTextView kcq;
+        public e kcr;
 
         protected a() {
         }
     }
 
     public void aQ(ArrayList<e> arrayList) {
-        this.kca = arrayList;
+        this.kcm = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.kca == null) {
+        if (this.kcm == null) {
             return 0;
         }
-        return (this.kca.size() * 2) + 1;
+        return (this.kcm.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -101,33 +101,33 @@ public class b extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.kcb);
+        inflate.setOnClickListener(this.kcn);
         a aVar = new a();
-        aVar.kcd = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.cuh = (TextView) inflate.findViewById(R.id.name);
-        aVar.kce = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.kcp = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.cui = (TextView) inflate.findViewById(R.id.name);
+        aVar.kcq = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.kca.get(i / 2);
-        aVar.kcf = eVar;
-        aVar.cuh.setText(eVar.kae);
-        if (eVar.kci != null) {
-            aVar.kce.setVisibility(0);
-            String[] strArr = new String[eVar.kci.size()];
-            for (int i2 = 0; i2 < eVar.kci.size(); i2++) {
-                strArr[i2] = eVar.kci.get(i2).kae;
+        e eVar = this.kcm.get(i / 2);
+        aVar.kcr = eVar;
+        aVar.cui.setText(eVar.kaq);
+        if (eVar.kcu != null) {
+            aVar.kcq.setVisibility(0);
+            String[] strArr = new String[eVar.kcu.size()];
+            for (int i2 = 0; i2 < eVar.kcu.size(); i2++) {
+                strArr[i2] = eVar.kcu.get(i2).kaq;
             }
-            aVar.kce.setTextArray(strArr);
+            aVar.kcq.setTextArray(strArr);
         } else {
-            aVar.kce.setVisibility(8);
+            aVar.kcq.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            aVar.kcd.setTag(eVar.logoUrl);
-            aVar.kcd.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            aVar.kcp.setTag(eVar.logoUrl);
+            aVar.kcp.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 

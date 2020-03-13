@@ -23,7 +23,7 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class l extends ab {
-    public static final a bGy = new a(null);
+    public static final a bGz = new a(null);
 
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/webSocket");
@@ -250,18 +250,18 @@ public final class l extends ab {
     @kotlin.h
     /* loaded from: classes11.dex */
     public static final class b implements IWebSocketListener {
-        final /* synthetic */ WeakReference bGA;
-        final /* synthetic */ String bGB;
+        final /* synthetic */ WeakReference bGB;
         final /* synthetic */ String bGC;
         final /* synthetic */ String bGD;
         final /* synthetic */ String bGE;
+        final /* synthetic */ String bGF;
 
         b(WeakReference weakReference, String str, String str2, String str3, String str4) {
-            this.bGA = weakReference;
-            this.bGB = str;
-            this.bGC = str2;
-            this.bGD = str3;
-            this.bGE = str4;
+            this.bGB = weakReference;
+            this.bGC = str;
+            this.bGD = str2;
+            this.bGE = str3;
+            this.bGF = str4;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -274,9 +274,9 @@ public final class l extends ab {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket open success");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.bGA.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.bGB.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.bGB, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bGC, jSONObject3.toString());
             }
         }
 
@@ -290,9 +290,9 @@ public final class l extends ab {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.bGA.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.bGB.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.bGC, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bGD, jSONObject2.toString());
             }
         }
 
@@ -309,9 +309,9 @@ public final class l extends ab {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.bGA.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.bGB.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.bGC, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bGD, jSONObject2.toString());
             }
         }
 
@@ -326,9 +326,9 @@ public final class l extends ab {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket closed");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.bGA.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.bGB.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.bGD, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bGE, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString("taskID") : null;
             if (string == null || (OA = l.this.OA()) == null || (acT = OA.acT()) == null) {
@@ -348,9 +348,9 @@ public final class l extends ab {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "error happen");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.bGA.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.bGB.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.bGE, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bGF, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString("taskID") : null;
             if (string == null || (OA = l.this.OA()) == null || (acT = OA.acT()) == null) {

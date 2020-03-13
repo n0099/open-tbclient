@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends ab {
-    private static final String buM = b.class.getSimpleName();
+    private static final String buN = b.class.getSimpleName();
 
     public b(j jVar) {
         super(jVar, "/swanAPI/debug/getDebugConfig");
@@ -21,7 +21,7 @@ public class b extends ab {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         final JSONObject jSONObject = new JSONObject();
-        com.baidu.swan.apps.console.c.d(buM, "swan getDebugConfig");
+        com.baidu.swan.apps.console.c.d(buN, "swan getDebugConfig");
         if (com.baidu.swan.apps.runtime.d.acC().Gu() == 0) {
             eVar.acP().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -52,18 +52,18 @@ public class b extends ab {
                 }
             });
         } else if (com.baidu.swan.apps.runtime.d.acC().Gu() == 1) {
-            com.baidu.swan.apps.console.c.d(buM, "swangame getDebugConfig");
+            com.baidu.swan.apps.console.c.d(buN, "swangame getDebugConfig");
             if (!DEBUG) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             }
             JSONObject b = b(unitedSchemeEntity, "params");
             if (b == null) {
-                com.baidu.swan.apps.console.c.e(buM, "params is null");
+                com.baidu.swan.apps.console.c.e(buN, "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else if (!b.optString("category").equals("swanGame")) {
-                com.baidu.swan.apps.console.c.e(buM, "params is not swangame");
+                com.baidu.swan.apps.console.c.e(buN, "params is not swangame");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
@@ -79,7 +79,7 @@ public class b extends ab {
                 }
             }
         } else {
-            com.baidu.swan.apps.console.c.e(buM, "frame type error");
+            com.baidu.swan.apps.console.c.e(buN, "frame type error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
             return false;
         }

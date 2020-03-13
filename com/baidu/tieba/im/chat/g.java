@@ -18,46 +18,46 @@ import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
-    protected TextView eoi;
-    private Calendar hsJ;
-    protected long hsK;
-    protected TbRichTextView hsL;
-    protected ChatVoiceView hsM;
-    protected GifView hsN;
-    protected Invite2GroupView hsO;
-    protected ShareFromPBView hsP;
-    protected ShareFromFrsView hsQ;
-    protected ShareFromGameCenter hsR;
-    protected ChatImageWithTailView hsS;
-    protected boolean hsT;
-    protected boolean hsU;
-    protected com.baidu.adp.lib.b.a hsp;
-    protected com.baidu.adp.lib.b.b hsq;
-    protected int hsy;
+    protected TextView eov;
+    protected com.baidu.adp.lib.b.a hsB;
+    protected com.baidu.adp.lib.b.b hsC;
+    protected int hsK;
+    private Calendar hsV;
+    protected long hsW;
+    protected TbRichTextView hsX;
+    protected ChatVoiceView hsY;
+    protected GifView hsZ;
+    protected Invite2GroupView hta;
+    protected ShareFromPBView htb;
+    protected ShareFromFrsView htc;
+    protected ShareFromGameCenter htd;
+    protected ChatImageWithTailView hte;
+    protected boolean htf;
+    protected boolean htg;
     protected Long mId;
     private long mLastTime;
     protected int mPosition;
 
     public g(TbPageContext<MsglistActivity<?>> tbPageContext, int i) {
         super(tbPageContext, i);
-        this.hsp = null;
-        this.hsq = null;
+        this.hsB = null;
+        this.hsC = null;
         this.mPosition = 0;
-        this.hsK = 0L;
+        this.hsW = 0L;
         this.mId = null;
-        this.hsT = true;
-        this.hsU = false;
+        this.htf = true;
+        this.htg = false;
         this.mLastTime = 0L;
-        this.hsJ = null;
+        this.hsV = null;
         this.mContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.hsp = aVar;
+        this.hsB = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.hsq = bVar;
+        this.hsC = bVar;
     }
 
     public void setPosition(int i) {
@@ -69,8 +69,8 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
     }
 
     public void dL(long j) {
-        this.hsJ = Calendar.getInstance();
-        this.hsJ.setTimeInMillis(1000 * j);
+        this.hsV = Calendar.getInstance();
+        this.hsV.setTimeInMillis(1000 * j);
     }
 
     private boolean dM(long j) {
@@ -86,7 +86,7 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1000 * j);
-        if (this.hsJ != null && this.hsJ.get(1) == calendar.get(1) && this.hsJ.get(6) == calendar.get(6)) {
+        if (this.hsV != null && this.hsV.get(1) == calendar.get(1) && this.hsV.get(6) == calendar.get(6)) {
             return aq.getDateStringHm(calendar.getTime());
         }
         return aq.getDateStringMdHm(calendar.getTime());
@@ -103,128 +103,128 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.eoi = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.hsL = (TbRichTextView) findViewById(R.id.tex_msgitem_text);
-        this.hsL.setLinkTextColor(-14845754);
-        this.hsS = (ChatImageWithTailView) findViewById(R.id.img_msgitem_image);
-        this.hsO = (Invite2GroupView) findViewById(R.id.lay_msgitem_invite_view);
-        this.hsP = (ShareFromPBView) findViewById(R.id.lay_msgitem_share_view);
-        this.hsQ = (ShareFromFrsView) findViewById(R.id.lay_msgitem_share_frs);
-        this.hsR = (ShareFromGameCenter) findViewById(R.id.lay_msgitem_share_game);
-        this.hsM = (ChatVoiceView) findViewById(R.id.lay_msgitem_voice);
-        this.hsM.setClickable(true);
-        this.hsM.setOnClickListener(this.hsM);
-        this.hsM.setLongClickable(true);
-        this.hsM.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.1
+        this.eov = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.hsX = (TbRichTextView) findViewById(R.id.tex_msgitem_text);
+        this.hsX.setLinkTextColor(-14845754);
+        this.hte = (ChatImageWithTailView) findViewById(R.id.img_msgitem_image);
+        this.hta = (Invite2GroupView) findViewById(R.id.lay_msgitem_invite_view);
+        this.htb = (ShareFromPBView) findViewById(R.id.lay_msgitem_share_view);
+        this.htc = (ShareFromFrsView) findViewById(R.id.lay_msgitem_share_frs);
+        this.htd = (ShareFromGameCenter) findViewById(R.id.lay_msgitem_share_game);
+        this.hsY = (ChatVoiceView) findViewById(R.id.lay_msgitem_voice);
+        this.hsY.setClickable(true);
+        this.hsY.setOnClickListener(this.hsY);
+        this.hsY.setLongClickable(true);
+        this.hsY.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 5, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 5, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsS.getImage().setClickable(true);
-        this.hsS.getImage().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.8
+        this.hte.getImage().setClickable(true);
+        this.hte.getImage().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 4, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 4, g.this.mPosition, 0L);
             }
         });
-        this.hsS.getImage().setLongClickable(true);
-        this.hsS.getImage().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.9
+        this.hte.getImage().setLongClickable(true);
+        this.hte.getImage().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.9
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 4, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 4, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsS.getTail().setClickable(true);
-        this.hsS.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.10
+        this.hte.getTail().setClickable(true);
+        this.hte.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 13, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 13, g.this.mPosition, 0L);
             }
         });
-        this.hsL.setLongClickable(true);
-        this.hsL.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.11
+        this.hsX.setLongClickable(true);
+        this.hsX.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.11
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 3, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 3, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsN = (GifView) findViewById(R.id.emotion_msgitem_image);
-        this.hsN.setSupportNoImage(false);
-        this.hsN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.12
+        this.hsZ = (GifView) findViewById(R.id.emotion_msgitem_image);
+        this.hsZ.setSupportNoImage(false);
+        this.hsZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 7, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 7, g.this.mPosition, 0L);
             }
         });
-        this.hsN.setLongClickable(true);
-        this.hsN.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.13
+        this.hsZ.setLongClickable(true);
+        this.hsZ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.13
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 7, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 7, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsP.setClickable(true);
-        this.hsP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.14
+        this.htb.setClickable(true);
+        this.htb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 10, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 10, g.this.mPosition, 0L);
             }
         });
-        this.hsP.setLongClickable(true);
-        this.hsP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.15
+        this.htb.setLongClickable(true);
+        this.htb.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.15
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 10, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 10, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsQ.setClickable(true);
-        this.hsQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.2
+        this.htc.setClickable(true);
+        this.htc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 15, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 15, g.this.mPosition, 0L);
             }
         });
-        this.hsQ.setLongClickable(true);
-        this.hsQ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.3
+        this.htc.setLongClickable(true);
+        this.htc.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 15, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 15, g.this.mPosition, 0L);
                 return true;
             }
         });
-        this.hsR.getContentBody().setClickable(true);
-        this.hsR.getContentBody().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.4
+        this.htd.getContentBody().setClickable(true);
+        this.htd.getContentBody().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 11, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 11, g.this.mPosition, 0L);
             }
         });
-        this.hsR.getTail().setClickable(true);
-        this.hsR.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.5
+        this.htd.getTail().setClickable(true);
+        this.htd.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.hsp.onItemViewClick(view, 12, g.this.mPosition, 0L);
+                g.this.hsB.onItemViewClick(view, 12, g.this.mPosition, 0L);
             }
         });
-        this.hsR.getContentBody().setLongClickable(true);
-        this.hsR.getContentBody().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.6
+        this.htd.getContentBody().setLongClickable(true);
+        this.htd.getContentBody().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.6
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.hsq.onItemViewLongClick(view, 11, g.this.mPosition, 0L);
+                g.this.hsC.onItemViewLongClick(view, 11, g.this.mPosition, 0L);
                 return true;
             }
         });
-        if (this.hsO != null) {
-            this.hsO.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.7
+        if (this.hta != null) {
+            this.hta.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.7
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    g.this.hsq.onItemViewLongClick(view, 17, g.this.mPosition, 0L);
+                    g.this.hsC.onItemViewLongClick(view, 17, g.this.mPosition, 0L);
                     return true;
                 }
             });
@@ -233,7 +233,7 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void wb(int i) {
-        this.hsS.setVisibility(i);
+        this.hte.setVisibility(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -241,10 +241,10 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
         boolean dM = dM(chatMessage.getTime());
         if (z || dM) {
-            this.eoi.setVisibility(0);
-            this.eoi.setText(dN(chatMessage.getTime()));
+            this.eov.setVisibility(0);
+            this.eov.setText(dN(chatMessage.getTime()));
         } else {
-            this.eoi.setVisibility(8);
+            this.eov.setVisibility(8);
         }
         if (!z && dM) {
             MsgCacheData cacheData = chatMessage.getCacheData();
@@ -260,52 +260,52 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ChatMessage chatMessage, String str) {
-        j.a(this.mContext.getContext(), this.hsL, chatMessage, str, this.hsy);
+        j.a(this.mContext.getContext(), this.hsX, chatMessage, str, this.hsK);
         if (chatMessage != null && chatMessage.getContent() != null) {
             String[] split = chatMessage.getContent().split("#");
             StringBuffer stringBuffer = new StringBuffer();
             for (String str2 : split) {
                 stringBuffer.append(str2);
             }
-            this.hsL.setContentDescription(stringBuffer.toString());
-            this.hsL.getTextView().setContentDescription(stringBuffer.toString());
+            this.hsX.setContentDescription(stringBuffer.toString());
+            this.hsX.getTextView().setContentDescription(stringBuffer.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, ChatMessage chatMessage, String str) {
-        j.a(this.mContext.getContext(), view, this.hsS, chatMessage, this.hsK, str);
+        j.a(this.mContext.getContext(), view, this.hte, chatMessage, this.hsW, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(ChatMessage chatMessage, String str) {
-        j.a(this.mContext.getContext(), this.hsM, chatMessage, str);
+        j.a(this.mContext.getContext(), this.hsY, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ChatMessage chatMessage, boolean z) {
-        j.a(this.mContext.getContext(), this.hsN, chatMessage, z);
+        j.a(this.mContext.getContext(), this.hsZ, chatMessage, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(View view, ChatMessage chatMessage, String str) {
-        j.a((TbPageContext) this.mContext, this.mContext.getContext(), view, this.hsO, chatMessage, str);
+        j.a((TbPageContext) this.mContext, this.mContext.getContext(), view, this.hta, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(View view, ChatMessage chatMessage, String str) {
-        j.a(this.mContext.getContext(), view, this.hsP, this.hsQ, this.hsR, chatMessage, str);
+        j.a(this.mContext.getContext(), view, this.htb, this.htc, this.htd, chatMessage, str);
     }
 
     public void ne(boolean z) {
-        this.hsT = z;
+        this.htf = z;
     }
 
     public void nf(boolean z) {
-        this.hsU = z;
+        this.htg = z;
     }
 
     public void wa(int i) {
-        this.hsy = i;
+        this.hsK = i;
     }
 }

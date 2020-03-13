@@ -9,17 +9,17 @@ import java.util.List;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 class d implements PermissionActivity.a, h, i {
-    private static final com.yanzhenjie.permission.a.a nsh = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a nss = new com.yanzhenjie.permission.a.b();
     private String[] IL;
-    private com.yanzhenjie.permission.b.b nsi;
-    private a nsj;
-    private a nsk;
-    private g nsl;
-    private String[] nsm;
+    private com.yanzhenjie.permission.b.b nst;
+    private a nsu;
+    private a nsv;
+    private g nsw;
+    private String[] nsx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.yanzhenjie.permission.b.b bVar) {
-        this.nsi = bVar;
+        this.nst = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
@@ -32,78 +32,78 @@ class d implements PermissionActivity.a, h, i {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(g gVar) {
-        this.nsl = gVar;
+        this.nsw = gVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nsj = aVar;
+        this.nsu = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nsk = aVar;
+        this.nsv = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(nsh, this.nsi, this.IL);
-        this.nsm = (String[]) a.toArray(new String[a.size()]);
-        if (this.nsm.length > 0) {
-            List<String> b = b(this.nsi, this.nsm);
-            if (b.size() > 0 && this.nsl != null) {
-                this.nsl.showRationale(this.nsi.getContext(), b, this);
+        List<String> a = a(nss, this.nst, this.IL);
+        this.nsx = (String[]) a.toArray(new String[a.size()]);
+        if (this.nsx.length > 0) {
+            List<String> b = b(this.nst, this.nsx);
+            if (b.size() > 0 && this.nsw != null) {
+                this.nsw.showRationale(this.nst.getContext(), b, this);
                 return;
             } else {
                 execute();
                 return;
             }
         }
-        dHX();
+        dHY();
     }
 
     @Override // com.yanzhenjie.permission.i
     @RequiresApi(api = 23)
     public void execute() {
-        PermissionActivity.a(this.nsi.getContext(), this.nsm, this);
+        PermissionActivity.a(this.nst.getContext(), this.nsx, this);
     }
 
     @Override // com.yanzhenjie.permission.i
     public void cancel() {
-        X(this.nsm);
+        X(this.nsx);
     }
 
     @Override // com.yanzhenjie.permission.PermissionActivity.a
     public void X(@NonNull String[] strArr) {
-        List<String> a = a(nsh, this.nsi, strArr);
+        List<String> a = a(nss, this.nst, strArr);
         if (a.isEmpty()) {
-            dHX();
+            dHY();
         } else {
             fs(a);
         }
     }
 
-    private void dHX() {
-        if (this.nsj != null) {
+    private void dHY() {
+        if (this.nsu != null) {
             List<String> asList = Arrays.asList(this.IL);
             try {
-                this.nsj.onAction(asList);
+                this.nsu.onAction(asList);
             } catch (Exception e) {
-                if (this.nsk != null) {
-                    this.nsk.onAction(asList);
+                if (this.nsv != null) {
+                    this.nsv.onAction(asList);
                 }
             }
         }
     }
 
     private void fs(@NonNull List<String> list) {
-        if (this.nsk != null) {
-            this.nsk.onAction(list);
+        if (this.nsv != null) {
+            this.nsv.onAction(list);
         }
     }
 
@@ -120,7 +120,7 @@ class d implements PermissionActivity.a, h, i {
     private static List<String> b(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (bVar.RE(str)) {
+            if (bVar.RF(str)) {
                 arrayList.add(str);
             }
         }

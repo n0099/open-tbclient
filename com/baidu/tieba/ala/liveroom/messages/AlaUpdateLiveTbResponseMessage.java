@@ -7,10 +7,10 @@ import com.baidu.tieba.ala.liveroom.data.h;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private h fgP;
+    private h fhc;
 
-    public h bpg() {
-        return this.fgP;
+    public h bph() {
+        return this.fhc;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -26,10 +26,10 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("live_info")) != null) {
                 AlaLiveSwitchData.liveActivityType = optJSONObject.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
             }
-            this.fgP = new h();
-            this.fgP.parseJson(jSONObject);
-            setError(this.fgP.mErrorCode);
-            setErrorString(this.fgP.mErrorMsg);
+            this.fhc = new h();
+            this.fhc.parseJson(jSONObject);
+            setError(this.fhc.mErrorCode);
+            setErrorString(this.fhc.mErrorMsg);
         }
     }
 }

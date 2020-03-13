@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class a {
-    protected d bOw;
-    protected b.a bOx;
-    private InterfaceC0278a bOy;
+    protected d bOx;
+    protected b.a bOy;
+    private InterfaceC0278a bOz;
     protected Context mContext;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
@@ -68,7 +68,7 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.bOx = aVar;
+        this.bOy = aVar;
     }
 
     public void setPopupWindowWidth(int i) {
@@ -84,13 +84,13 @@ public abstract class a {
                     if (bVar2.isAutoDismiss()) {
                         a.this.dismiss(bVar2.getDismissDelayTime());
                     }
-                    if (a.this.bOx != null) {
-                        a.this.bOx.c(bVar2);
+                    if (a.this.bOy != null) {
+                        a.this.bOy.c(bVar2);
                     }
                 }
             });
         } else {
-            bVar.b(this.bOx);
+            bVar.b(this.bOy);
         }
         this.mItems.add(bVar);
         return bVar;
@@ -178,14 +178,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.bOy != null) {
-            this.bOy.onMenuItemUpdated(list);
+        if (this.bOz != null) {
+            this.bOz.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.bOw != null) {
-            this.bOw.onShowMenu();
+        if (this.bOx != null) {
+            this.bOx.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -207,15 +207,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.bOw != null) {
-                        a.this.bOw.onDismissMenu();
+                    if (a.this.bOx != null) {
+                        a.this.bOx.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.bOw != null) {
-                this.bOw.onDismissMenu();
+            if (this.bOx != null) {
+                this.bOx.onDismissMenu();
                 return;
             }
             return;

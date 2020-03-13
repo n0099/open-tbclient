@@ -5,58 +5,58 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d crL = null;
-    private GameRecorderController coA;
-    private boolean crM;
+    private static volatile d crM = null;
+    private GameRecorderController coB;
+    private boolean crN;
 
     private d() {
     }
 
     public static d app() {
-        if (crL == null) {
+        if (crM == null) {
             synchronized (d.class) {
-                if (crL == null) {
-                    crL = new d();
+                if (crM == null) {
+                    crM = new d();
                 }
             }
         }
-        return crL;
+        return crM;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.coA != null && this.coA != gameRecorderController) {
-            this.coA.release();
+        if (this.coB != null && this.coB != gameRecorderController) {
+            this.coB.release();
         }
-        this.coA = gameRecorderController;
+        this.coB = gameRecorderController;
     }
 
     @NonNull
     public GameRecorderController apq() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.coA);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.coB);
         }
-        return this.coA == null ? GameRecorderController.apo() : this.coA;
+        return this.coB == null ? GameRecorderController.apo() : this.coB;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.coA != null && this.coA == gameRecorderController) {
-            this.coA.release();
-            this.coA = null;
+        if (this.coB != null && this.coB == gameRecorderController) {
+            this.coB.release();
+            this.coB = null;
         }
     }
 
     public boolean apr() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.crM);
+            Log.i("GameRecorderManager", "isGamePause:" + this.crN);
         }
-        return this.crM;
+        return this.crN;
     }
 
     public void aps() {
-        this.crM = true;
+        this.crN = true;
     }
 
     public void apt() {
-        this.crM = false;
+        this.crN = false;
     }
 }

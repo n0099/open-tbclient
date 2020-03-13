@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> khW;
+    private static HashMap<String, e> kij;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -21,7 +21,7 @@ public class c {
                 }
             }
         });
-        khW = new HashMap<>();
+        kij = new HashMap<>();
     }
 
     public static void B(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!khW.containsKey(str3)) {
-            khW.put(str3, new e(str, str2, z));
+        if (!kij.containsKey(str3)) {
+            kij.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!khW.containsKey(str3)) {
-            khW.put(str3, new e(str, str2, z));
+        if (!kij.containsKey(str3)) {
+            kij.put(str3, new e(str, str2, z));
         }
-        return khW.get(str3);
+        return kij.get(str3);
     }
 
-    public static void cLu() {
+    public static void cLv() {
     }
 
     public static void Cz(int i) {
-        for (String str : khW.keySet()) {
-            a(khW.get(str), i);
+        for (String str : kij.keySet()) {
+            a(kij.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.kia;
-        d dVar2 = eVar.kib;
-        d dVar3 = eVar.kic;
+        d dVar = eVar.kin;
+        d dVar2 = eVar.kio;
+        d dVar3 = eVar.kip;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append("act", eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.khX));
+            aVar.append("httpTimeCost", String.valueOf(dVar.kik));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.khY));
+            aVar.append("httpFailnum", String.valueOf(dVar.kil));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.khX));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.kik));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.khY));
+            aVar.append("socketFailnum", String.valueOf(dVar2.kil));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.khX));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.kik));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.khZ ? "1" : "0");
+            aVar.append("isJson", eVar.kim ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

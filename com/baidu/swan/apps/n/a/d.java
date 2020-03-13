@@ -6,11 +6,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final String brx;
+    public final String bry;
     public final String mData;
 
     public d(String str, String str2) {
-        this.brx = str;
+        this.bry = str;
         this.mData = str2;
     }
 

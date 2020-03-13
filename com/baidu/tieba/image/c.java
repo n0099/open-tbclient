@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes8.dex */
 public class c {
-    private AdvertAppInfo hQV;
+    private AdvertAppInfo hRh;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,34 +17,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.hQV = advertAppInfo;
-    }
-
-    public void cag() {
-        DM("click");
-        com.baidu.tieba.recapp.report.c.cDp().a(com.baidu.tieba.recapp.report.f.c(this.hQV, 2, 0));
+        this.hRh = advertAppInfo;
     }
 
     public void cah() {
-        DM("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hQV, 2, 0);
-        c.Ij("title");
-        com.baidu.tieba.recapp.report.c.cDp().a(c);
+        DN("click");
+        com.baidu.tieba.recapp.report.c.cDq().a(com.baidu.tieba.recapp.report.f.c(this.hRh, 2, 0));
     }
 
     public void cai() {
-        DM("show");
-        com.baidu.tieba.recapp.report.c.cDp().a(com.baidu.tieba.recapp.report.f.c(this.hQV, 3, 0));
+        DN("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hRh, 2, 0);
+        c.Ik("title");
+        com.baidu.tieba.recapp.report.c.cDq().a(c);
     }
 
     public void caj() {
+        DN("show");
+        com.baidu.tieba.recapp.report.c.cDq().a(com.baidu.tieba.recapp.report.f.c(this.hRh, 3, 0));
     }
 
-    public void DL(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+    public void cak() {
     }
 
     public void DM(String str) {
-        com.baidu.tbadk.distribute.a.aOh().a(this.hQV, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+    }
+
+    public void DN(String str) {
+        com.baidu.tbadk.distribute.a.aOi().a(this.hRh, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

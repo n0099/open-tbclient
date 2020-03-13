@@ -9,11 +9,11 @@ import java.util.List;
 public class c implements Cloneable {
     public String XX;
     public String XY;
-    public long alA;
-    public boolean alC;
-    public String alD;
-    public g alw;
-    public int aly;
+    public long alB;
+    public boolean alD;
+    public String alE;
+    public g alx;
+    public int alz;
     public String appId;
     public String description;
     public String giftId;
@@ -25,47 +25,47 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean alv = false;
-    public String alx = "";
-    public long alz = 0;
+    public boolean alw = false;
+    public String aly = "";
+    public long alA = 0;
     public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long alB = 0;
-    private boolean alE = true;
-    public boolean alF = false;
+    public long alC = 0;
+    private boolean alF = true;
+    public boolean alG = false;
     public List<m> ahu = new ArrayList();
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8) {
         this.giftId = str;
-        this.alA = j;
-        this.alw = gVar;
+        this.alB = j;
+        this.alx = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.alC = z;
-        this.alD = str7;
+        this.alD = z;
+        this.alE = str7;
         this.appId = str8;
         tQ();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9) {
         this.giftId = str;
-        this.alA = j;
-        this.alw = gVar;
+        this.alB = j;
+        this.alx = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.aly = i;
+        this.alz = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.alC = z;
-        this.alD = str8;
+        this.alD = z;
+        this.alE = str8;
         this.appId = str9;
         tQ();
     }
@@ -79,11 +79,11 @@ public class c implements Cloneable {
     }
 
     private void tQ() {
-        this.alx = this.userId + this.giftId + this.userName;
+        this.aly = this.userId + this.giftId + this.userName;
     }
 
     public String tR() {
-        return this.alx;
+        return this.aly;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,11 +98,11 @@ public class c implements Cloneable {
     }
 
     public boolean tT() {
-        return this.alE;
+        return this.alF;
     }
 
     public void aN(boolean z) {
-        this.alE = z;
+        this.alF = z;
     }
 
     /* loaded from: classes3.dex */
@@ -118,10 +118,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.alw != null && cVar2.alw != null) {
+                if (cVar.alx != null && cVar2.alx != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.alw.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.alw.getPrice());
+                        long parseLong = Long.parseLong(cVar.alx.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.alx.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

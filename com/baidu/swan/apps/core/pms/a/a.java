@@ -5,7 +5,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.f;
 /* loaded from: classes11.dex */
 public class a extends f {
-    private InterfaceC0249a bqx;
+    private InterfaceC0249a bqy;
 
     /* renamed from: com.baidu.swan.apps.core.pms.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -19,7 +19,7 @@ public class a extends f {
 
     public a(String str, InterfaceC0249a interfaceC0249a) {
         super(str);
-        this.bqx = interfaceC0249a;
+        this.bqy = interfaceC0249a;
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -57,16 +57,16 @@ public class a extends f {
         ai.l(new Runnable() { // from class: com.baidu.swan.apps.core.pms.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bqx != null) {
+                if (a.this.bqy != null) {
                     switch (i) {
                         case -1:
-                            a.this.bqx.onError();
+                            a.this.bqy.onError();
                             return;
                         case 0:
-                            a.this.bqx.PF();
+                            a.this.bqy.PF();
                             return;
                         case 1:
-                            a.this.bqx.onSuccess();
+                            a.this.bqy.onSuccess();
                             return;
                         default:
                             return;

@@ -5,13 +5,13 @@ import com.google.android.exoplayer2.extractor.f.v;
 import java.lang.reflect.Constructor;
 /* loaded from: classes6.dex */
 public final class c implements h {
-    private static final Constructor<? extends e> meb;
-    private int mec;
-    private int med;
-    private int mee;
-    private int mef;
-    private int meg = 1;
-    private int meh;
+    private static final Constructor<? extends e> mem;
+    private int men;
+    private int meo;
+    private int mep;
+    private int meq;
+    private int mer = 1;
+    private int mes;
 
     static {
         Constructor<? extends e> constructor = null;
@@ -20,28 +20,28 @@ public final class c implements h {
         } catch (ClassNotFoundException e) {
         } catch (NoSuchMethodException e2) {
         }
-        meb = constructor;
+        mem = constructor;
     }
 
     @Override // com.google.android.exoplayer2.extractor.h
-    public synchronized e[] duT() {
+    public synchronized e[] duU() {
         e[] eVarArr;
         synchronized (this) {
-            eVarArr = new e[meb != null ? 12 : 11];
-            eVarArr[0] = new com.google.android.exoplayer2.extractor.a.d(this.mec);
-            eVarArr[1] = new com.google.android.exoplayer2.extractor.c.e(this.mee);
-            eVarArr[2] = new com.google.android.exoplayer2.extractor.c.g(this.med);
-            eVarArr[3] = new com.google.android.exoplayer2.extractor.b.b(this.mef);
+            eVarArr = new e[mem != null ? 12 : 11];
+            eVarArr[0] = new com.google.android.exoplayer2.extractor.a.d(this.men);
+            eVarArr[1] = new com.google.android.exoplayer2.extractor.c.e(this.mep);
+            eVarArr[2] = new com.google.android.exoplayer2.extractor.c.g(this.meo);
+            eVarArr[3] = new com.google.android.exoplayer2.extractor.b.b(this.meq);
             eVarArr[4] = new com.google.android.exoplayer2.extractor.f.c();
             eVarArr[5] = new com.google.android.exoplayer2.extractor.f.a();
-            eVarArr[6] = new v(this.meg, this.meh);
+            eVarArr[6] = new v(this.mer, this.mes);
             eVarArr[7] = new com.google.android.exoplayer2.extractor.flv.b();
             eVarArr[8] = new com.google.android.exoplayer2.extractor.d.c();
             eVarArr[9] = new q();
             eVarArr[10] = new com.google.android.exoplayer2.extractor.g.a();
-            if (meb != null) {
+            if (mem != null) {
                 try {
-                    eVarArr[11] = meb.newInstance(new Object[0]);
+                    eVarArr[11] = mem.newInstance(new Object[0]);
                 } catch (Exception e) {
                     throw new IllegalStateException("Unexpected error creating FLAC extractor", e);
                 }

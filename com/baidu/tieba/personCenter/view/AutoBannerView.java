@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.h.c dqV;
-    private CoverFlowView<com.baidu.tieba.personCenter.c.a> ggg;
+    private com.baidu.tbadk.h.c dri;
+    private CoverFlowView<com.baidu.tieba.personCenter.c.a> ggt;
     private List<com.baidu.tieba.personCenter.c.a> mData;
 
     public AutoBannerView(Context context) {
@@ -30,13 +30,13 @@ public class AutoBannerView extends RelativeLayout {
 
     public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ggg = null;
+        this.ggt = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.ggg = new CoverFlowView<>(getContext());
+        this.ggt = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e aEU() {
@@ -68,23 +68,23 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.ggg.setIndicatorNoOffet(false);
-        this.ggg.setDisableParentEvent(false);
-        this.ggg.setCoverFlowFactory(bVar);
-        this.ggg.setIndicatorVisible(0);
-        this.ggg.setIsAutoPlayDragging(false);
-        addView(this.ggg);
+        this.ggt.setIndicatorNoOffet(false);
+        this.ggt.setDisableParentEvent(false);
+        this.ggt.setCoverFlowFactory(bVar);
+        this.ggt.setIndicatorVisible(0);
+        this.ggt.setIsAutoPlayDragging(false);
+        addView(this.ggt);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.ggg;
+        return this.ggt;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.getCount(this.mData);
     }
 
-    public void GG(String str) {
+    public void GH(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ba.aGG().b((TbPageContext) i.ab(getContext()), new String[]{str});
@@ -94,44 +94,44 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void aIA() {
-        if (this.ggg != null) {
-            this.ggg.aEX();
+    public void aIB() {
+        if (this.ggt != null) {
+            this.ggt.aEX();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.ggg != null) {
-            this.ggg.setIndicatorVisible(i);
+        if (this.ggt != null) {
+            this.ggt.setIndicatorVisible(i);
         }
     }
 
     public void dO(List<com.baidu.tieba.personCenter.c.a> list) {
         this.mData = list;
-        this.ggg.setData(list);
+        this.ggt.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
-        this.dqV = cVar;
+        this.dri = cVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ggg != null) {
-            this.ggg.onChangeSkinType();
+        if (this.ggt != null) {
+            this.ggt.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.ggg != null) {
-            this.ggg.setMarqueenTime(j);
+        if (this.ggt != null) {
+            this.ggt.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.dqV != null) {
-            this.dqV.a(this, i == 0, null);
+        if (this.dri != null) {
+            this.dri.a(this, i == 0, null);
         }
     }
 }

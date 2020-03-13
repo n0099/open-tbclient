@@ -8,15 +8,15 @@ import java.util.Map;
 import master.flame.danmaku.danmaku.model.android.a;
 /* loaded from: classes5.dex */
 public class h extends b {
-    private static final Map<Float, Float> nIg = new HashMap();
+    private static final Map<Float, Float> nIr = new HashMap();
 
     protected Float b(master.flame.danmaku.danmaku.model.d dVar, Paint paint) {
         Float valueOf = Float.valueOf(paint.getTextSize());
-        Float f = nIg.get(valueOf);
+        Float f = nIr.get(valueOf);
         if (f == null) {
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
             Float valueOf2 = Float.valueOf(fontMetrics.leading + (fontMetrics.descent - fontMetrics.ascent));
-            nIg.put(valueOf, valueOf2);
+            nIr.put(valueOf, valueOf2);
             return valueOf2;
         }
         return f;
@@ -27,24 +27,24 @@ public class h extends b {
         String[] strArr;
         float f = 0.0f;
         Float valueOf = Float.valueOf(0.0f);
-        if (dVar.nFx == null) {
+        if (dVar.nFI == null) {
             if (dVar.text != null) {
                 f = textPaint.measureText(dVar.text.toString());
                 valueOf = b(dVar, textPaint);
             }
-            dVar.nFC = f;
-            dVar.nFD = valueOf.floatValue();
+            dVar.nFN = f;
+            dVar.nFO = valueOf.floatValue();
             return;
         }
         Float b = b(dVar, textPaint);
         float f2 = 0.0f;
-        for (String str : dVar.nFx) {
+        for (String str : dVar.nFI) {
             if (str.length() > 0) {
                 f2 = Math.max(textPaint.measureText(str), f2);
             }
         }
-        dVar.nFC = f2;
-        dVar.nFD = dVar.nFx.length * b.floatValue();
+        dVar.nFN = f2;
+        dVar.nFO = dVar.nFI.length * b.floatValue();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,15 +87,15 @@ public class h extends b {
         c0780a.wN(z);
         TextPaint d = c0780a.d(dVar, z);
         b(dVar, canvas, f, f2);
-        if (dVar.nFx != null) {
-            String[] strArr = dVar.nFx;
+        if (dVar.nFI != null) {
+            String[] strArr = dVar.nFI;
             if (strArr.length == 1) {
                 if (c0780a.p(dVar)) {
                     c0780a.a(dVar, d, true);
                     float ascent = f3 - d.ascent();
-                    if (c0780a.nGX) {
-                        f7 = f4 + c0780a.nGP;
-                        ascent += c0780a.nGQ;
+                    if (c0780a.nHi) {
+                        f7 = f4 + c0780a.nHa;
+                        ascent += c0780a.nHb;
                     } else {
                         f7 = f4;
                     }
@@ -104,7 +104,7 @@ public class h extends b {
                 c0780a.a(dVar, d, false);
                 a(dVar, strArr[0], canvas, f4, f3 - d.ascent(), d, z);
             } else {
-                float length = (dVar.nFD - (dVar.padding * 2)) / strArr.length;
+                float length = (dVar.nFO - (dVar.padding * 2)) / strArr.length;
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -115,9 +115,9 @@ public class h extends b {
                         if (c0780a.p(dVar)) {
                             c0780a.a(dVar, d, true);
                             float ascent2 = ((i2 * length) + f3) - d.ascent();
-                            if (c0780a.nGX) {
-                                f6 = f4 + c0780a.nGP;
-                                ascent2 += c0780a.nGQ;
+                            if (c0780a.nHi) {
+                                f6 = f4 + c0780a.nHa;
+                                ascent2 += c0780a.nHb;
                             } else {
                                 f6 = f4;
                             }
@@ -133,9 +133,9 @@ public class h extends b {
             if (c0780a.p(dVar)) {
                 c0780a.a(dVar, d, true);
                 float ascent3 = f3 - d.ascent();
-                if (c0780a.nGX) {
-                    f5 = f4 + c0780a.nGP;
-                    ascent3 += c0780a.nGQ;
+                if (c0780a.nHi) {
+                    f5 = f4 + c0780a.nHa;
+                    ascent3 += c0780a.nHb;
                 } else {
                     f5 = f4;
                 }
@@ -144,13 +144,13 @@ public class h extends b {
             c0780a.a(dVar, d, false);
             a(dVar, null, canvas, f4, f3 - d.ascent(), d, z);
         }
-        if (dVar.nFA != 0) {
+        if (dVar.nFL != 0) {
             Paint r = c0780a.r(dVar);
-            float f10 = (dVar.nFD + f2) - c0780a.nGO;
-            canvas.drawLine(f, f10, f + dVar.nFC, f10, r);
+            float f10 = (dVar.nFO + f2) - c0780a.nGZ;
+            canvas.drawLine(f, f10, f + dVar.nFN, f10, r);
         }
         if (dVar.borderColor != 0) {
-            canvas.drawRect(f, f2, f + dVar.nFC, f2 + dVar.nFD, c0780a.q(dVar));
+            canvas.drawRect(f, f2, f + dVar.nFN, f2 + dVar.nFO, c0780a.q(dVar));
         }
     }
 }

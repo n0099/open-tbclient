@@ -1,6 +1,6 @@
 package com.baidu.live.liveroom.d;
 /* loaded from: classes3.dex */
 public class c {
-    public Object avZ;
-    public short awa;
+    public Object awa;
+    public short awb;
 }

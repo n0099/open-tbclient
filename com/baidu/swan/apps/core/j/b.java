@@ -17,13 +17,13 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b brj;
+    private static volatile b brk;
     private Context mContext;
-    private volatile boolean brk = false;
-    private boolean brl = false;
+    private volatile boolean brl = false;
     private boolean brm = false;
-    private final Object brn = new Object();
+    private boolean brn = false;
     private final Object bro = new Object();
+    private final Object brp = new Object();
     private ArrayList<a> mListeners = new ArrayList<>();
 
     /* loaded from: classes11.dex */
@@ -38,10 +38,10 @@ public final class b {
     public static synchronized b bY(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (brj == null) {
-                brj = new b(context);
+            if (brk == null) {
+                brk = new b(context);
             }
-            bVar = brj;
+            bVar = brk;
         }
         return bVar;
     }
@@ -53,38 +53,38 @@ public final class b {
     }
 
     public void cy(boolean z) {
-        k(false, z);
+        l(false, z);
     }
 
     public void Hb() {
-        k(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
+        l(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
     }
 
-    private void k(boolean z, final boolean z2) {
-        if (!this.brk) {
-            synchronized (this.brn) {
-                if (!this.brl) {
+    private void l(boolean z, final boolean z2) {
+        if (!this.brl) {
+            synchronized (this.bro) {
+                if (!this.brm) {
                     Executors.newSingleThreadExecutor().execute(new Runnable() { // from class: com.baidu.swan.apps.core.j.b.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Process.setThreadPriority(10);
                             b.this.cz(z2);
-                            b.this.brk = true;
-                            synchronized (b.this.bro) {
-                                b.this.brm = true;
-                                b.this.bro.notifyAll();
+                            b.this.brl = true;
+                            synchronized (b.this.brp) {
+                                b.this.brn = true;
+                                b.this.brp.notifyAll();
                                 b.this.Qd();
                             }
                         }
                     });
-                    this.brl = true;
+                    this.brm = true;
                 }
             }
             if (z) {
-                synchronized (this.bro) {
-                    while (!this.brm) {
+                synchronized (this.brp) {
+                    while (!this.brn) {
                         try {
-                            this.bro.wait(1000L);
+                            this.brp.wait(1000L);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -124,25 +124,25 @@ public final class b {
     }
 
     public boolean Qc() {
-        return this.brk;
+        return this.brl;
     }
 
     public void a(a aVar) {
-        synchronized (this.bro) {
+        synchronized (this.brp) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
             if (!this.mListeners.contains(aVar)) {
                 this.mListeners.add(aVar);
             }
-            if (this.brm) {
+            if (this.brn) {
                 Qd();
             }
         }
     }
 
     public void b(a aVar) {
-        synchronized (this.bro) {
+        synchronized (this.brp) {
             boolean remove = this.mListeners.remove(aVar);
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + aVar + " ,isRemoved: " + remove);
@@ -151,7 +151,7 @@ public final class b {
     }
 
     public void Qd() {
-        synchronized (this.bro) {
+        synchronized (this.brp) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }

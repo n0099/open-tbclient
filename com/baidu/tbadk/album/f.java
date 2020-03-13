@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class f {
-    private a cKi;
+    private a cKj;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -230,19 +230,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.cKi = new a(eVar);
-        this.cKi.setPriority(3);
-        this.cKi.execute(new Object[0]);
+        this.cKj = new a(eVar);
+        this.cKj.setPriority(3);
+        this.cKj.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e cKk;
+        private final e cKl;
 
         public a(e eVar) {
-            this.cKk = eVar;
+            this.cKl = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -257,8 +257,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.cKk != null) {
-                this.cKk.onPreLoad();
+            if (this.cKl != null) {
+                this.cKl.onPreLoad();
             }
         }
 
@@ -268,16 +268,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.cKk != null) {
-                this.cKk.a(gVar);
+            if (this.cKl != null) {
+                this.cKl.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.cKi != null) {
-            this.cKi.cancel();
-            this.cKi = null;
+        if (this.cKj != null) {
+            this.cKj.cancel();
+            this.cKj = null;
         }
     }
 }

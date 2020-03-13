@@ -4,25 +4,25 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes10.dex */
 public interface a {
-    void Dx(String str);
+    void Dy(String str);
 
     void b(a.b bVar);
 
-    boolean bTH();
+    boolean bTI();
 
-    View bTR();
+    View bTS();
 
-    View bTg();
+    View bTh();
 
-    String bYj();
+    String bYk();
 
-    View bYk();
+    View bYl();
 
-    void bYl();
+    void bYm();
 
-    int bYm();
+    int bYn();
 
-    boolean bYn();
+    boolean bYo();
 
     void c(a.b bVar);
 

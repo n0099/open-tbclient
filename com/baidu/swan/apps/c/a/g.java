@@ -21,10 +21,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class g {
     private static final String TAG;
-    public static final g bcq = new g();
+    public static final g bcr = new g();
 
     static {
-        String simpleName = bcq.getClass().getSimpleName();
+        String simpleName = bcr.getClass().getSimpleName();
         q.i(simpleName, "SwanAppAllianceLoginMaBd…ager.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -33,14 +33,14 @@ public final class g {
     }
 
     public final void Jt() {
-        if (e.bcn.Jp()) {
+        if (e.bco.Jp()) {
             if (f.Js() == null) {
                 f.c(Jw());
             }
-            if (e.bcn.isLogin()) {
+            if (e.bco.isLogin()) {
                 String Ju = Ju();
                 if (!(Ju == null || l.isBlank(Ju))) {
-                    String uid = h.bcs.getUid();
+                    String uid = h.bct.getUid();
                     if (!(uid == null || l.isBlank(uid))) {
                         Long Js = f.Js();
                         if (Js != null && Js.longValue() != 0) {
@@ -50,14 +50,14 @@ public final class g {
                             q.i(UH, "SwanAppRuntime.getConfig()");
                             String addParam = ag.addParam("https://ossapi.baidu.com/oss/mabdussrefresh", "host_name", UH.getHostName());
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("ma_bduss", bcq.Ju());
+                            jSONObject.put("ma_bduss", bcr.Ju());
                             okHttpClient.newCall(builder.url(addParam).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build()).enqueue(new a());
                             return;
                         }
                         return;
                     }
                 }
-                e.bcn.Jo();
+                e.bco.Jo();
             }
         }
     }
@@ -83,17 +83,17 @@ public final class g {
                 JSONObject jSONObject = new JSONObject((body == null || (r0 = body.string()) == null) ? "" : "");
                 if (jSONObject.optInt("errno") == 0) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (!q.h(optJSONObject.optString("uk"), h.bcs.getUid())) {
-                        e.bcn.Jo();
+                    if (!q.h(optJSONObject.optString("uk"), h.bct.getUid())) {
+                        e.bco.Jo();
                         return;
                     }
-                    h hVar = h.bcs;
+                    h hVar = h.bct;
                     q.i(optJSONObject, "responseData");
                     hVar.d(0, optJSONObject);
                     com.baidu.swan.apps.c.a.a.ae(com.baidu.swan.apps.w.a.TW(), optJSONObject.optString("ma_bduss"));
                     return;
                 }
-                e.bcn.Jo();
+                e.bco.Jo();
             }
         }
     }

@@ -7,64 +7,64 @@ import java.io.EOFException;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 final class e {
-    private static final int mlv = v.QE("OggS");
-    public int mgR;
-    public long mlA;
-    public int mlB;
-    public int mlC;
-    public int mlw;
-    public long mlx;
-    public long mly;
-    public long mlz;
+    private static final int mlG = v.QF("OggS");
+    public int mhc;
+    public int mlH;
+    public long mlI;
+    public long mlJ;
+    public long mlK;
+    public long mlL;
+    public int mlM;
+    public int mlN;
     public int type;
-    public final int[] mlD = new int[255];
-    private final l mez = new l(255);
+    public final int[] mlO = new int[255];
+    private final l meK = new l(255);
 
     public void reset() {
-        this.mlw = 0;
+        this.mlH = 0;
         this.type = 0;
-        this.mlx = 0L;
-        this.mly = 0L;
-        this.mlz = 0L;
-        this.mlA = 0L;
-        this.mlB = 0;
-        this.mgR = 0;
-        this.mlC = 0;
+        this.mlI = 0L;
+        this.mlJ = 0L;
+        this.mlK = 0L;
+        this.mlL = 0L;
+        this.mlM = 0;
+        this.mhc = 0;
+        this.mlN = 0;
     }
 
     public boolean c(com.google.android.exoplayer2.extractor.f fVar, boolean z) throws IOException, InterruptedException {
-        this.mez.reset();
+        this.meK.reset();
         reset();
-        if (!(fVar.getLength() == -1 || fVar.getLength() - fVar.duS() >= 27) || !fVar.e(this.mez.data, 0, 27, true)) {
+        if (!(fVar.getLength() == -1 || fVar.getLength() - fVar.duT() >= 27) || !fVar.e(this.meK.data, 0, 27, true)) {
             if (z) {
                 return false;
             }
             throw new EOFException();
-        } else if (this.mez.readUnsignedInt() != mlv) {
+        } else if (this.meK.readUnsignedInt() != mlG) {
             if (z) {
                 return false;
             }
             throw new ParserException("expected OggS capture pattern at begin of page");
         } else {
-            this.mlw = this.mez.readUnsignedByte();
-            if (this.mlw != 0) {
+            this.mlH = this.meK.readUnsignedByte();
+            if (this.mlH != 0) {
                 if (z) {
                     return false;
                 }
                 throw new ParserException("unsupported bit stream revision");
             }
-            this.type = this.mez.readUnsignedByte();
-            this.mlx = this.mez.dzB();
-            this.mly = this.mez.dzz();
-            this.mlz = this.mez.dzz();
-            this.mlA = this.mez.dzz();
-            this.mlB = this.mez.readUnsignedByte();
-            this.mgR = this.mlB + 27;
-            this.mez.reset();
-            fVar.s(this.mez.data, 0, this.mlB);
-            for (int i = 0; i < this.mlB; i++) {
-                this.mlD[i] = this.mez.readUnsignedByte();
-                this.mlC += this.mlD[i];
+            this.type = this.meK.readUnsignedByte();
+            this.mlI = this.meK.dzC();
+            this.mlJ = this.meK.dzA();
+            this.mlK = this.meK.dzA();
+            this.mlL = this.meK.dzA();
+            this.mlM = this.meK.readUnsignedByte();
+            this.mhc = this.mlM + 27;
+            this.meK.reset();
+            fVar.s(this.meK.data, 0, this.mlM);
+            for (int i = 0; i < this.mlM; i++) {
+                this.mlO[i] = this.meK.readUnsignedByte();
+                this.mlN += this.mlO[i];
             }
             return true;
         }

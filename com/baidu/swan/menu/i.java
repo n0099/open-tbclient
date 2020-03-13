@@ -5,44 +5,44 @@ import android.graphics.drawable.Drawable;
 import com.baidu.swan.menu.g;
 /* loaded from: classes11.dex */
 public class i {
-    private com.baidu.swan.menu.viewpager.b cyZ;
-    private int czf;
-    private f czk;
+    private com.baidu.swan.menu.viewpager.b cza;
+    private int czg;
+    private f czl;
     private boolean mEnable;
     private Drawable mIcon;
     private int mIconResId;
     private int mId;
     private String mTitle;
     private boolean mIsVisible = true;
-    private int czg = 0;
-    private int czh = -1;
-    public int czi = 0;
-    private long czj = 0;
+    private int czh = 0;
+    private int czi = -1;
+    public int czj = 0;
+    private long czk = 0;
 
     public i(int i, int i2, int i3, boolean z) {
-        this.czf = -1;
+        this.czg = -1;
         this.mIconResId = -1;
         this.mEnable = true;
         this.mId = i;
-        this.czf = i2;
+        this.czg = i2;
         this.mIconResId = i3;
         this.mEnable = z;
     }
 
     public int asP() {
-        return this.czi;
-    }
-
-    public void iu(int i) {
-        this.czi = i;
-    }
-
-    public long asQ() {
         return this.czj;
     }
 
+    public void iu(int i) {
+        this.czj = i;
+    }
+
+    public long asQ() {
+        return this.czk;
+    }
+
     public void bf(long j) {
-        this.czj = j;
+        this.czk = j;
     }
 
     public int getItemId() {
@@ -50,7 +50,7 @@ public class i {
     }
 
     public void iv(int i) {
-        this.czf = i;
+        this.czg = i;
     }
 
     public void setIconResId(int i) {
@@ -65,10 +65,10 @@ public class i {
         if (this.mTitle != null) {
             return this.mTitle;
         }
-        if (this.czf <= 0) {
+        if (this.czg <= 0) {
             return null;
         }
-        return context.getResources().getString(this.czf);
+        return context.getResources().getString(this.czg);
     }
 
     public Drawable dB(Context context) {
@@ -82,7 +82,7 @@ public class i {
     }
 
     public int asR() {
-        return this.czg;
+        return this.czh;
     }
 
     public boolean isVisible() {
@@ -90,23 +90,23 @@ public class i {
     }
 
     public int getTitleColor() {
-        return this.czh == -1 ? g.a.aiapp_menu_item_text : this.czh;
+        return this.czi == -1 ? g.a.aiapp_menu_item_text : this.czi;
     }
 
     public void a(f fVar) {
-        this.czk = fVar;
+        this.czl = fVar;
     }
 
     public f asS() {
-        return this.czk;
+        return this.czl;
     }
 
     public void b(com.baidu.swan.menu.viewpager.b bVar) {
-        this.cyZ = bVar;
+        this.cza = bVar;
     }
 
     public com.baidu.swan.menu.viewpager.b asT() {
-        return this.cyZ;
+        return this.cza;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -114,6 +114,6 @@ public class i {
         if (iVar == null) {
             return null;
         }
-        return new i(iVar.mId, iVar.czf, iVar.mIconResId, iVar.mEnable);
+        return new i(iVar.mId, iVar.czg, iVar.mIconResId, iVar.mEnable);
     }
 }

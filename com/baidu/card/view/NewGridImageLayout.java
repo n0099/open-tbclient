@@ -105,8 +105,8 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         });
         this.OE = new com.baidu.tbadk.widget.richText.a();
         int i = l.getScreenDimensions(this.mContext)[0];
-        this.OE.dNZ = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
-        this.OE.dOa = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.OE.dOm = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
+        this.OE.dOn = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
         this.OB.setLayoutStrategy(this.OE);
         this.OD = new LinkedList<>();
         this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.3
@@ -131,16 +131,16 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     public void A(com.baidu.tbadk.core.data.a aVar) {
         if (aVar != null && aVar.aAg() != null) {
             bj aAg = aVar.aAg();
-            OriginalThreadInfo originalThreadInfo = aAg.cTQ;
+            OriginalThreadInfo originalThreadInfo = aAg.cTR;
             if (originalThreadInfo != null && this.OC) {
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
                 this.mTitle.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
                 this.mTitle.setVisibility(8);
-                if (originalThreadInfo.cOK) {
+                if (originalThreadInfo.cOL) {
                     au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAg, this.OA, this.OC);
                     am.setViewTextColor(this.KA, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.KA, this.mTitle, originalThreadInfo.cPL, aAg, this.OA, this.OC);
+                    au.a(this.KA, this.mTitle, originalThreadInfo.cPM, aAg, this.OA, this.OC);
                 }
             } else {
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
@@ -154,14 +154,14 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             setVoiceData(aAg);
             nn();
             this.Kc = aVar;
-            if (this.Kc.aAg().cTQ != null) {
+            if (this.Kc.aAg().cTR != null) {
                 if (aAg.isShareThread) {
-                    if (this.Kc.aAg().cTQ != null) {
-                        if (!this.Kc.aAg().cTQ.cOK) {
+                    if (this.Kc.aAg().cTR != null) {
+                        if (!this.Kc.aAg().cTR.cOL) {
                             this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.4
                                 @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                                 public void a(View view, String str, int i, boolean z, boolean z2) {
-                                    au.a(NewGridImageLayout.this.Kc.aAg().cTQ, NewGridImageLayout.this.mContext, 2);
+                                    au.a(NewGridImageLayout.this.Kc.aAg().cTR, NewGridImageLayout.this.mContext, 2);
                                 }
                             });
                         }
@@ -169,16 +169,16 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                         return;
                     }
                 }
-                if (!this.Kc.aAg().cTQ.cOK) {
+                if (!this.Kc.aAg().cTR.cOL) {
                     this.OB.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.5
                         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                         public void a(View view, String str, int i, boolean z, boolean z2) {
-                            au.a(view, true, (List<MediaData>) NewGridImageLayout.this.OD, i, NewGridImageLayout.this.Kc.aAg().cTQ.aAW(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.Kc.aAg().cTQ.cPJ);
+                            au.a(view, true, (List<MediaData>) NewGridImageLayout.this.OD, i, NewGridImageLayout.this.Kc.aAg().cTR.aAW(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.Kc.aAg().cTR.cPK);
                         }
                     });
                 }
                 if (this.OC) {
-                    if (this.Kc.aAg().cTQ == null || this.Kc.aAg().cTQ.cOK) {
+                    if (this.Kc.aAg().cTR == null || this.Kc.aAg().cTR.cOL) {
                         setOnClickListener(null);
                     } else {
                         setOnClickListener(this);
@@ -204,7 +204,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                     }
                 });
             }
-            ArrayList<VoiceData.VoiceModel> aCC = (!bjVar.isShareThread || bjVar.cTQ == null) ? bjVar.aCC() : bjVar.cTQ.cPK;
+            ArrayList<VoiceData.VoiceModel> aCC = (!bjVar.isShareThread || bjVar.cTR == null) ? bjVar.aCC() : bjVar.cTR.cPL;
             if (v.isEmpty(aCC)) {
                 this.NY.setVisibility(8);
                 this.Ob = false;
@@ -214,11 +214,11 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             VoiceData.VoiceModel voiceModel = aCC.get(0);
             this.NY.setVoiceModel(voiceModel);
             this.NY.setTag(voiceModel);
-            this.NY.bHs();
+            this.NY.bHt();
             if (voiceModel != null) {
                 this.NY.wW(voiceModel.voice_status.intValue());
             }
-            this.NY.cMh();
+            this.NY.cMi();
             this.Ob = true;
         }
     }
@@ -268,7 +268,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             return true;
         }
         if (this.Kc.aAg().getTid() == null || this.Kc.aAg().getTid().equals(bjVar.getTid())) {
-            return (!bjVar.isShareThread || bjVar.cTQ == null) ? !c(bjVar.aCy(), this.Kc.aAg().aCy()) : this.Kc.aAg().cTQ == null || !c(bjVar.cTQ.cPG, this.Kc.aAg().cTQ.cPG);
+            return (!bjVar.isShareThread || bjVar.cTR == null) ? !c(bjVar.aCy(), this.Kc.aAg().aCy()) : this.Kc.aAg().cTR == null || !c(bjVar.cTR.cPH, this.Kc.aAg().cTR.cPH);
         }
         return true;
     }
@@ -279,15 +279,15 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         String b;
         ArrayList<MediaData> aCy = bjVar.aCy();
         String aBY = bjVar.aBY();
-        if (!bjVar.isShareThread || bjVar.cTQ == null) {
+        if (!bjVar.isShareThread || bjVar.cTR == null) {
             z = false;
             arrayList = aCy;
-        } else if (bjVar.cTQ.cOK) {
+        } else if (bjVar.cTR.cOL) {
             this.OB.setVisibility(8);
             return;
         } else {
             z = true;
-            arrayList = bjVar.cTQ.cPG;
+            arrayList = bjVar.cTR.cPH;
         }
         if (v.getCount(arrayList) != 0) {
             this.OD.clear();
@@ -310,7 +310,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                     }
                     TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
                     tbRichTextImageInfo.setSrc(b);
-                    tbRichTextImageInfo.we(originalUrl);
+                    tbRichTextImageInfo.wf(originalUrl);
                     tbRichTextImageInfo.hn(mediaData2.isLongPic());
                     if (mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
                         tbRichTextImageInfo.setWidth(mediaData2.picWidth);

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.d.w;
+import com.baidu.tbadk.core.util.c.w;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.l;
 import com.baidu.tbadk.imageManager.TbFaceManager;
@@ -30,14 +30,14 @@ import java.util.List;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.e.b dOH = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.richText.e.4
+    private static com.baidu.adp.lib.e.b dOU = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.richText.e.4
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass4) aVar, str, i);
             if (aVar != null) {
-                com.baidu.tbadk.imageManager.c.aPQ().addBitmap(str, aVar.getRawBitmap());
+                com.baidu.tbadk.imageManager.c.aPR().addBitmap(str, aVar.getRawBitmap());
             }
         }
     };
@@ -120,7 +120,7 @@ public class e {
             case 2:
                 return a(bjVar, pbContent.type.intValue(), pbContent.text, pbContent.link);
             case 4:
-                return wb(pbContent.text);
+                return wc(pbContent.text);
             case 16:
                 return b(bjVar, pbContent.text, String.valueOf(pbContent.uid));
             case 18:
@@ -157,7 +157,7 @@ public class e {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.3
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.wc(str2);
+                    e.wd(str2);
                 }
             };
         }
@@ -185,25 +185,25 @@ public class e {
         return a(bjVar, i, str, str2, 0);
     }
 
-    private static SpannableString wb(String str) {
-        int vb;
+    private static SpannableString wc(String str) {
+        int vc;
         String str2;
-        a.C0391a vu;
-        if (str == null || (vb = TbFaceManager.aPP().vb(str)) == 0) {
+        a.C0391a vv;
+        if (str == null || (vc = TbFaceManager.aPQ().vc(str)) == 0) {
             return null;
         }
-        String vd = TbFaceManager.aPP().vd(str);
+        String ve = TbFaceManager.aPQ().ve(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
-            str2 = "[" + vd + "]";
-            vu = TbFaceManager.aPP().vu("image_emoticon");
+            str2 = "[" + ve + "]";
+            vv = TbFaceManager.aPQ().vv("image_emoticon");
         } else {
-            str2 = "#(" + vd + ")";
-            vu = TbFaceManager.aPP().vu(str);
+            str2 = "#(" + ve + ")";
+            vv = TbFaceManager.aPQ().vv(str);
         }
         SpannableString spannableString = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vb);
-        if (vu != null) {
-            int width = (int) (0.4d * vu.getWidth());
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vc);
+        if (vv != null) {
+            int width = (int) (0.4d * vv.getWidth());
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
             dVar.setBounds(new Rect(0, 0, 0, 0));
@@ -218,17 +218,17 @@ public class e {
         BitmapDrawable bitmapDrawable;
         if (bjVar != null && spannableString != null && !StringUtils.isNull(str)) {
             String str2 = bjVar.mUrl;
-            String str3 = bjVar.cTj;
+            String str3 = bjVar.cTk;
             if (!StringUtils.isNull(str2) && !StringUtils.isNull(str2)) {
-                Bitmap bitmap = com.baidu.tbadk.imageManager.c.aPQ().getBitmap(str2);
+                Bitmap bitmap = com.baidu.tbadk.imageManager.c.aPR().getBitmap(str2);
                 if ((bitmap == null || !w.Z(str2, 10)) && (aa = w.aa(str2, 10)) != null) {
                     bitmap = aa.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.aPQ().addBitmap(str2, bitmap);
+                    com.baidu.tbadk.imageManager.c.aPR().addBitmap(str2, bitmap);
                 }
-                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.aPQ().getBitmap(str3);
+                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.aPR().getBitmap(str3);
                 if ((bitmap2 == null || !w.Z(str3, 10)) && (aa2 = w.aa(str3, 10)) != null) {
                     bitmap2 = aa2.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.aPQ().addBitmap(str3, bitmap2);
+                    com.baidu.tbadk.imageManager.c.aPR().addBitmap(str3, bitmap2);
                 }
                 Bitmap bitmap3 = bitmap2;
                 if (bitmap != null && !bitmap.isRecycled() && bitmap3 != null && !bitmap3.isRecycled()) {
@@ -243,15 +243,15 @@ public class e {
                                 bitmapDrawable.setBounds(0, 0, bitmap3.getWidth(), bitmap3.getHeight());
                             }
                             l lVar = new l(bitmapDrawable);
-                            lVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), bjVar.cRU));
+                            lVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), bjVar.cRV));
                             spannableString.setSpan(lVar, i + i3, i + i3 + 1, 33);
                             i2++;
                         }
                     }
                     return;
                 }
-                com.baidu.adp.lib.e.c.gr().a(str2, 10, dOH, null);
-                com.baidu.adp.lib.e.c.gr().a(str3, 10, dOH, null);
+                com.baidu.adp.lib.e.c.gr().a(str2, 10, dOU, null);
+                com.baidu.adp.lib.e.c.gr().a(str3, 10, dOU, null);
             }
         }
     }
@@ -265,10 +265,10 @@ public class e {
             lVar.mLink = str;
             if (bjVar != null) {
                 lVar.type = bjVar.aCc();
-                lVar.dvD = bjVar.aCb();
+                lVar.dvQ = bjVar.aCb();
             }
             com.baidu.tbadk.plugins.b.a(lVar);
-            ba.aGG().b(tbPageContextSupport.getPageContext(), new String[]{lVar.mLink, lVar.dvD});
+            ba.aGG().b(tbPageContextSupport.getPageContext(), new String[]{lVar.mLink, lVar.dvQ});
         }
     }
 
@@ -283,7 +283,7 @@ public class e {
                     anVar = new an("c12352");
                     anVar.X("obj_source", 1);
                     a(anVar, bjVar);
-                } else if (bjVar.cUr) {
+                } else if (bjVar.cUs) {
                     anVar.X("obj_source", 2);
                     if (bjVar.getBaijiahaoData() != null) {
                         anVar.X("obj_type", bjVar.getBaijiahaoData().oriUgcType);
@@ -315,13 +315,13 @@ public class e {
             anVar.X("obj_type", 8);
         } else if (bjVar.aEh()) {
             anVar.X("obj_type", 9);
-        } else if (bjVar.getType() == bj.cRj) {
+        } else if (bjVar.getType() == bj.cRk) {
             anVar.X("obj_type", 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void wc(String str) {
+    public static void wd(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
             ba.aGG().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});

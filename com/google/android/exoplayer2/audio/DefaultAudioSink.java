@@ -21,67 +21,67 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public final class DefaultAudioSink implements AudioSink {
-    public static boolean mbb = false;
-    public static boolean mbc = false;
+    public static boolean mbm = false;
+    public static boolean mbn = false;
     private int bufferSize;
-    private boolean gdR;
-    private q lYI;
-    private ByteBuffer maZ;
-    private int mab;
-    private com.google.android.exoplayer2.audio.b mad;
+    private boolean gee;
+    private q lYT;
+    private int man;
+    private com.google.android.exoplayer2.audio.b mao;
     private int mbA;
     private int mbB;
-    private long mbC;
-    private long mbD;
+    private int mbC;
+    private int mbD;
     private boolean mbE;
     private long mbF;
-    private Method mbG;
-    private int mbH;
+    private q mbG;
+    private long mbH;
     private long mbI;
-    private long mbJ;
+    private ByteBuffer mbJ;
     private int mbK;
-    private long mbL;
-    private long mbM;
-    private int mbN;
-    private int mbO;
-    private long mbP;
+    private int mbL;
+    private int mbM;
+    private long mbN;
+    private long mbO;
+    private boolean mbP;
     private long mbQ;
-    private long mbR;
-    private AudioProcessor[] mbS;
-    private ByteBuffer[] mbT;
-    private ByteBuffer mbU;
-    private byte[] mbV;
-    private int mbW;
-    private int mbX;
-    private boolean mbY;
-    private boolean mbZ;
+    private Method mbR;
+    private int mbS;
+    private long mbT;
+    private long mbU;
+    private int mbV;
+    private long mbW;
+    private long mbX;
+    private int mbY;
+    private int mbZ;
+    private ByteBuffer mbk;
     @Nullable
-    private final com.google.android.exoplayer2.audio.c mbd;
-    private final e mbe;
-    private final k mbf;
-    private final j mbg;
-    private final AudioProcessor[] mbh;
-    private final ConditionVariable mbi = new ConditionVariable(true);
-    private final long[] mbj;
-    private final a mbk;
-    private final LinkedList<c> mbl;
+    private final com.google.android.exoplayer2.audio.c mbo;
+    private final e mbp;
+    private final k mbq;
+    private final j mbr;
+    private final AudioProcessor[] mbs;
+    private final ConditionVariable mbt = new ConditionVariable(true);
+    private final long[] mbu;
+    private final a mbv;
+    private final LinkedList<c> mbw;
     @Nullable
-    private AudioSink.a mbm;
-    private AudioTrack mbn;
-    private AudioTrack mbo;
-    private int mbp;
-    private int mbq;
-    private int mbr;
-    private int mbs;
-    private boolean mbt;
-    private long mbu;
-    private q mbv;
-    private long mbw;
-    private long mbx;
-    private ByteBuffer mby;
-    private int mbz;
-    private boolean mca;
+    private AudioSink.a mbx;
+    private AudioTrack mby;
+    private AudioTrack mbz;
+    private long mca;
     private long mcb;
+    private long mcc;
+    private AudioProcessor[] mcd;
+    private ByteBuffer[] mce;
+    private ByteBuffer mcf;
+    private byte[] mcg;
+    private int mch;
+    private int mci;
+    private boolean mcj;
+    private boolean mck;
+    private boolean mcl;
+    private long mcm;
     private int sampleRate;
     private float volume;
 
@@ -93,87 +93,87 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     public DefaultAudioSink(@Nullable com.google.android.exoplayer2.audio.c cVar, AudioProcessor[] audioProcessorArr) {
-        this.mbd = cVar;
+        this.mbo = cVar;
         if (v.SDK_INT >= 18) {
             try {
-                this.mbG = AudioTrack.class.getMethod("getLatency", null);
+                this.mbR = AudioTrack.class.getMethod("getLatency", null);
             } catch (NoSuchMethodException e) {
             }
         }
         if (v.SDK_INT >= 19) {
-            this.mbk = new b();
+            this.mbv = new b();
         } else {
-            this.mbk = new a();
+            this.mbv = new a();
         }
-        this.mbe = new e();
-        this.mbf = new k();
-        this.mbg = new j();
-        this.mbh = new AudioProcessor[audioProcessorArr.length + 4];
-        this.mbh[0] = new h();
-        this.mbh[1] = this.mbe;
-        this.mbh[2] = this.mbf;
-        System.arraycopy(audioProcessorArr, 0, this.mbh, 3, audioProcessorArr.length);
-        this.mbh[audioProcessorArr.length + 3] = this.mbg;
-        this.mbj = new long[10];
+        this.mbp = new e();
+        this.mbq = new k();
+        this.mbr = new j();
+        this.mbs = new AudioProcessor[audioProcessorArr.length + 4];
+        this.mbs[0] = new h();
+        this.mbs[1] = this.mbp;
+        this.mbs[2] = this.mbq;
+        System.arraycopy(audioProcessorArr, 0, this.mbs, 3, audioProcessorArr.length);
+        this.mbs[audioProcessorArr.length + 3] = this.mbr;
+        this.mbu = new long[10];
         this.volume = 1.0f;
-        this.mbO = 0;
-        this.mad = com.google.android.exoplayer2.audio.b.maE;
-        this.mab = 0;
-        this.lYI = q.lZJ;
-        this.mbX = -1;
-        this.mbS = new AudioProcessor[0];
-        this.mbT = new ByteBuffer[0];
-        this.mbl = new LinkedList<>();
+        this.mbZ = 0;
+        this.mao = com.google.android.exoplayer2.audio.b.maP;
+        this.man = 0;
+        this.lYT = q.lZU;
+        this.mci = -1;
+        this.mcd = new AudioProcessor[0];
+        this.mce = new ByteBuffer[0];
+        this.mbw = new LinkedList<>();
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void a(AudioSink.a aVar) {
-        this.mbm = aVar;
+        this.mbx = aVar;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public boolean Pm(String str) {
-        return this.mbd != null && this.mbd.Jd(Pn(str));
+    public boolean Pn(String str) {
+        return this.mbo != null && this.mbo.Jd(Po(str));
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public long vF(boolean z) {
         long j;
-        if (!dub()) {
+        if (!duc()) {
             return Long.MIN_VALUE;
         }
-        if (this.mbo.getPlayState() == 3) {
-            duc();
+        if (this.mbz.getPlayState() == 3) {
+            dud();
         }
         long nanoTime = System.nanoTime() / 1000;
-        if (this.mbE) {
-            j = fF(fG(nanoTime - (this.mbk.dun() / 1000)) + this.mbk.duo());
+        if (this.mbP) {
+            j = fF(fG(nanoTime - (this.mbv.duo() / 1000)) + this.mbv.dup());
         } else {
-            if (this.mbB == 0) {
-                j = this.mbk.dul();
+            if (this.mbM == 0) {
+                j = this.mbv.dum();
             } else {
-                j = nanoTime + this.mbC;
+                j = nanoTime + this.mbN;
             }
             if (!z) {
-                j -= this.mbR;
+                j -= this.mcc;
             }
         }
-        long min = Math.min(j, fF(due()));
-        return fD(min) + this.mbP;
+        long min = Math.min(j, fF(duf()));
+        return fD(min) + this.mca;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void a(String str, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, int i6) throws AudioSink.ConfigurationException {
-        int Pn;
+        int Po;
         boolean z;
         int i7;
-        this.mbp = i2;
+        this.mbA = i2;
         boolean z2 = !"audio/raw".equals(str);
         if (!z2) {
-            this.mbH = v.ea(i3, i);
-            this.mbf.dJ(i5, i6);
-            this.mbe.n(iArr);
-            AudioProcessor[] audioProcessorArr = this.mbh;
+            this.mbS = v.ea(i3, i);
+            this.mbq.dJ(i5, i6);
+            this.mbp.n(iArr);
+            AudioProcessor[] audioProcessorArr = this.mbs;
             int length = audioProcessorArr.length;
             int i8 = 0;
             z = false;
@@ -185,9 +185,9 @@ public final class DefaultAudioSink implements AudioSink {
                 try {
                     boolean af = audioProcessor.af(i10, i9, i11) | z;
                     if (audioProcessor.isActive()) {
-                        i9 = audioProcessor.dtN();
-                        i10 = audioProcessor.dtP();
-                        i11 = audioProcessor.dtO();
+                        i9 = audioProcessor.dtO();
+                        i10 = audioProcessor.dtQ();
+                        i11 = audioProcessor.dtP();
                     }
                     i8++;
                     z = af;
@@ -196,17 +196,17 @@ public final class DefaultAudioSink implements AudioSink {
                 }
             }
             if (z) {
-                dtX();
+                dtY();
                 i2 = i10;
                 i = i9;
-                Pn = i11;
+                Po = i11;
             } else {
                 i2 = i10;
                 i = i9;
-                Pn = i11;
+                Po = i11;
             }
         } else {
-            Pn = Pn(str);
+            Po = Po(str);
             z = false;
         }
         switch (i) {
@@ -232,59 +232,59 @@ public final class DefaultAudioSink implements AudioSink {
                 i7 = 1276;
                 break;
             case 8:
-                i7 = com.google.android.exoplayer2.b.lYe;
+                i7 = com.google.android.exoplayer2.b.lYp;
                 break;
             default:
                 throw new AudioSink.ConfigurationException("Unsupported channel count: " + i);
         }
-        if (v.SDK_INT <= 23 && "foster".equals(v.mHN) && "NVIDIA".equals(v.MANUFACTURER)) {
+        if (v.SDK_INT <= 23 && "foster".equals(v.mHY) && "NVIDIA".equals(v.MANUFACTURER)) {
             switch (i) {
                 case 3:
                 case 5:
                     i7 = 252;
                     break;
                 case 7:
-                    i7 = com.google.android.exoplayer2.b.lYe;
+                    i7 = com.google.android.exoplayer2.b.lYp;
                     break;
             }
         }
-        int i12 = (v.SDK_INT <= 25 && "fugu".equals(v.mHN) && z2 && i == 1) ? 12 : i7;
-        if (z || !isInitialized() || this.mbr != Pn || this.sampleRate != i2 || this.mbq != i12) {
+        int i12 = (v.SDK_INT <= 25 && "fugu".equals(v.mHY) && z2 && i == 1) ? 12 : i7;
+        if (z || !isInitialized() || this.mbC != Po || this.sampleRate != i2 || this.mbB != i12) {
             reset();
-            this.mbr = Pn;
-            this.mbt = z2;
+            this.mbC = Po;
+            this.mbE = z2;
             this.sampleRate = i2;
-            this.mbq = i12;
-            this.mbs = z2 ? Pn : 2;
-            this.mbK = v.ea(2, i);
+            this.mbB = i12;
+            this.mbD = z2 ? Po : 2;
+            this.mbV = v.ea(2, i);
             if (i4 != 0) {
                 this.bufferSize = i4;
             } else if (z2) {
-                if (this.mbs == 5 || this.mbs == 6) {
+                if (this.mbD == 5 || this.mbD == 6) {
                     this.bufferSize = 20480;
                 } else {
                     this.bufferSize = 49152;
                 }
             } else {
-                int minBufferSize = AudioTrack.getMinBufferSize(i2, i12, this.mbs);
+                int minBufferSize = AudioTrack.getMinBufferSize(i2, i12, this.mbD);
                 com.google.android.exoplayer2.util.a.checkState(minBufferSize != -2);
                 int i13 = minBufferSize * 4;
-                int fG = ((int) fG(250000L)) * this.mbK;
-                int max = (int) Math.max(minBufferSize, fG(750000L) * this.mbK);
+                int fG = ((int) fG(250000L)) * this.mbV;
+                int max = (int) Math.max(minBufferSize, fG(750000L) * this.mbV);
                 if (i13 >= fG) {
                     fG = i13 > max ? max : i13;
                 }
                 this.bufferSize = fG;
             }
-            this.mbu = z2 ? -9223372036854775807L : fF(this.bufferSize / this.mbK);
-            d(this.lYI);
+            this.mbF = z2 ? -9223372036854775807L : fF(this.bufferSize / this.mbV);
+            d(this.lYT);
         }
     }
 
-    private void dtX() {
+    private void dtY() {
         AudioProcessor[] audioProcessorArr;
         ArrayList arrayList = new ArrayList();
-        for (AudioProcessor audioProcessor : this.mbh) {
+        for (AudioProcessor audioProcessor : this.mbs) {
             if (audioProcessor.isActive()) {
                 arrayList.add(audioProcessor);
             } else {
@@ -292,124 +292,124 @@ public final class DefaultAudioSink implements AudioSink {
             }
         }
         int size = arrayList.size();
-        this.mbS = (AudioProcessor[]) arrayList.toArray(new AudioProcessor[size]);
-        this.mbT = new ByteBuffer[size];
+        this.mcd = (AudioProcessor[]) arrayList.toArray(new AudioProcessor[size]);
+        this.mce = new ByteBuffer[size];
         for (int i = 0; i < size; i++) {
-            AudioProcessor audioProcessor2 = this.mbS[i];
+            AudioProcessor audioProcessor2 = this.mcd[i];
             audioProcessor2.flush();
-            this.mbT[i] = audioProcessor2.dtR();
+            this.mce[i] = audioProcessor2.dtS();
         }
     }
 
     private void initialize() throws AudioSink.InitializationException {
-        this.mbi.block();
-        this.mbo = dui();
-        int audioSessionId = this.mbo.getAudioSessionId();
-        if (mbb && v.SDK_INT < 21) {
-            if (this.mbn != null && audioSessionId != this.mbn.getAudioSessionId()) {
-                dua();
+        this.mbt.block();
+        this.mbz = duj();
+        int audioSessionId = this.mbz.getAudioSessionId();
+        if (mbm && v.SDK_INT < 21) {
+            if (this.mby != null && audioSessionId != this.mby.getAudioSessionId()) {
+                dub();
             }
-            if (this.mbn == null) {
-                this.mbn = Jg(audioSessionId);
-            }
-        }
-        if (this.mab != audioSessionId) {
-            this.mab = audioSessionId;
-            if (this.mbm != null) {
-                this.mbm.EU(audioSessionId);
+            if (this.mby == null) {
+                this.mby = Jg(audioSessionId);
             }
         }
-        this.mbk.a(this.mbo, dug());
-        dtZ();
-        this.gdR = false;
+        if (this.man != audioSessionId) {
+            this.man = audioSessionId;
+            if (this.mbx != null) {
+                this.mbx.EU(audioSessionId);
+            }
+        }
+        this.mbv.a(this.mbz, duh());
+        dua();
+        this.gee = false;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void play() {
-        this.mbZ = true;
+        this.mck = true;
         if (isInitialized()) {
-            this.mbQ = System.nanoTime() / 1000;
-            this.mbo.play();
+            this.mcb = System.nanoTime() / 1000;
+            this.mbz.play();
         }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public void dtS() {
-        if (this.mbO == 1) {
-            this.mbO = 2;
+    public void dtT() {
+        if (this.mbZ == 1) {
+            this.mbZ = 2;
         }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public boolean a(ByteBuffer byteBuffer, long j) throws AudioSink.InitializationException, AudioSink.WriteException {
-        com.google.android.exoplayer2.util.a.checkArgument(this.mbU == null || byteBuffer == this.mbU);
+        com.google.android.exoplayer2.util.a.checkArgument(this.mcf == null || byteBuffer == this.mcf);
         if (!isInitialized()) {
             initialize();
-            if (this.mbZ) {
+            if (this.mck) {
                 play();
             }
         }
-        if (dug()) {
-            if (this.mbo.getPlayState() == 2) {
-                this.gdR = false;
+        if (duh()) {
+            if (this.mbz.getPlayState() == 2) {
+                this.gee = false;
                 return false;
-            } else if (this.mbo.getPlayState() == 1 && this.mbk.duk() != 0) {
+            } else if (this.mbz.getPlayState() == 1 && this.mbv.dul() != 0) {
                 return false;
             }
         }
-        boolean z = this.gdR;
-        this.gdR = dtU();
-        if (z && !this.gdR && this.mbo.getPlayState() != 1 && this.mbm != null) {
-            this.mbm.i(this.bufferSize, com.google.android.exoplayer2.b.fn(this.mbu), SystemClock.elapsedRealtime() - this.mcb);
+        boolean z = this.gee;
+        this.gee = dtV();
+        if (z && !this.gee && this.mbz.getPlayState() != 1 && this.mbx != null) {
+            this.mbx.i(this.bufferSize, com.google.android.exoplayer2.b.fn(this.mbF), SystemClock.elapsedRealtime() - this.mcm);
         }
-        if (this.mbU == null) {
+        if (this.mcf == null) {
             if (!byteBuffer.hasRemaining()) {
                 return true;
             }
-            if (this.mbt && this.mbN == 0) {
-                this.mbN = a(this.mbs, byteBuffer);
+            if (this.mbE && this.mbY == 0) {
+                this.mbY = a(this.mbD, byteBuffer);
             }
-            if (this.mbv != null) {
-                if (!dtY()) {
+            if (this.mbG != null) {
+                if (!dtZ()) {
                     return false;
                 }
-                this.mbl.add(new c(this.mbv, Math.max(0L, j), fF(due())));
-                this.mbv = null;
-                dtX();
+                this.mbw.add(new c(this.mbG, Math.max(0L, j), fF(duf())));
+                this.mbG = null;
+                dtY();
             }
-            if (this.mbO == 0) {
-                this.mbP = Math.max(0L, j);
-                this.mbO = 1;
+            if (this.mbZ == 0) {
+                this.mca = Math.max(0L, j);
+                this.mbZ = 1;
             } else {
-                long fE = this.mbP + fE(dud());
-                if (this.mbO == 1 && Math.abs(fE - j) > 200000) {
+                long fE = this.mca + fE(due());
+                if (this.mbZ == 1 && Math.abs(fE - j) > 200000) {
                     Log.e("AudioTrack", "Discontinuity detected [expected " + fE + ", got " + j + "]");
-                    this.mbO = 2;
+                    this.mbZ = 2;
                 }
-                if (this.mbO == 2) {
-                    this.mbP = (j - fE) + this.mbP;
-                    this.mbO = 1;
-                    if (this.mbm != null) {
-                        this.mbm.dtW();
+                if (this.mbZ == 2) {
+                    this.mca = (j - fE) + this.mca;
+                    this.mbZ = 1;
+                    if (this.mbx != null) {
+                        this.mbx.dtX();
                     }
                 }
             }
-            if (this.mbt) {
-                this.mbJ += this.mbN;
+            if (this.mbE) {
+                this.mbU += this.mbY;
             } else {
-                this.mbI += byteBuffer.remaining();
+                this.mbT += byteBuffer.remaining();
             }
-            this.mbU = byteBuffer;
+            this.mcf = byteBuffer;
         }
-        if (this.mbt) {
-            b(this.mbU, j);
+        if (this.mbE) {
+            b(this.mcf, j);
         } else {
             fC(j);
         }
-        if (!this.mbU.hasRemaining()) {
-            this.mbU = null;
+        if (!this.mcf.hasRemaining()) {
+            this.mcf = null;
             return true;
-        } else if (this.mbk.fI(due())) {
+        } else if (this.mbv.fI(duf())) {
             Log.w("AudioTrack", "Resetting stalled audio track");
             reset();
             return true;
@@ -420,22 +420,22 @@ public final class DefaultAudioSink implements AudioSink {
 
     private void fC(long j) throws AudioSink.WriteException {
         ByteBuffer byteBuffer;
-        int length = this.mbS.length;
+        int length = this.mcd.length;
         int i = length;
         while (i >= 0) {
             if (i > 0) {
-                byteBuffer = this.mbT[i - 1];
+                byteBuffer = this.mce[i - 1];
             } else {
-                byteBuffer = this.mbU != null ? this.mbU : AudioProcessor.EMPTY_BUFFER;
+                byteBuffer = this.mcf != null ? this.mcf : AudioProcessor.EMPTY_BUFFER;
             }
             if (i == length) {
                 b(byteBuffer, j);
             } else {
-                AudioProcessor audioProcessor = this.mbS[i];
+                AudioProcessor audioProcessor = this.mcd[i];
                 audioProcessor.i(byteBuffer);
-                ByteBuffer dtR = audioProcessor.dtR();
-                this.mbT[i] = dtR;
-                if (dtR.hasRemaining()) {
+                ByteBuffer dtS = audioProcessor.dtS();
+                this.mce[i] = dtS;
+                if (dtS.hasRemaining()) {
                     i++;
                 }
             }
@@ -450,51 +450,51 @@ public final class DefaultAudioSink implements AudioSink {
     private boolean b(ByteBuffer byteBuffer, long j) throws AudioSink.WriteException {
         int a2;
         if (byteBuffer.hasRemaining()) {
-            if (this.maZ != null) {
-                com.google.android.exoplayer2.util.a.checkArgument(this.maZ == byteBuffer);
+            if (this.mbk != null) {
+                com.google.android.exoplayer2.util.a.checkArgument(this.mbk == byteBuffer);
             } else {
-                this.maZ = byteBuffer;
+                this.mbk = byteBuffer;
                 if (v.SDK_INT < 21) {
                     int remaining = byteBuffer.remaining();
-                    if (this.mbV == null || this.mbV.length < remaining) {
-                        this.mbV = new byte[remaining];
+                    if (this.mcg == null || this.mcg.length < remaining) {
+                        this.mcg = new byte[remaining];
                     }
                     int position = byteBuffer.position();
-                    byteBuffer.get(this.mbV, 0, remaining);
+                    byteBuffer.get(this.mcg, 0, remaining);
                     byteBuffer.position(position);
-                    this.mbW = 0;
+                    this.mch = 0;
                 }
             }
             int remaining2 = byteBuffer.remaining();
             if (v.SDK_INT < 21) {
-                int duk = this.bufferSize - ((int) (this.mbL - (this.mbk.duk() * this.mbK)));
-                if (duk > 0) {
-                    a2 = this.mbo.write(this.mbV, this.mbW, Math.min(remaining2, duk));
+                int dul = this.bufferSize - ((int) (this.mbW - (this.mbv.dul() * this.mbV)));
+                if (dul > 0) {
+                    a2 = this.mbz.write(this.mcg, this.mch, Math.min(remaining2, dul));
                     if (a2 > 0) {
-                        this.mbW += a2;
+                        this.mch += a2;
                         byteBuffer.position(byteBuffer.position() + a2);
                     }
                 } else {
                     a2 = 0;
                 }
-            } else if (this.mca) {
+            } else if (this.mcl) {
                 com.google.android.exoplayer2.util.a.checkState(j != -9223372036854775807L);
-                a2 = a(this.mbo, byteBuffer, remaining2, j);
+                a2 = a(this.mbz, byteBuffer, remaining2, j);
             } else {
-                a2 = a(this.mbo, byteBuffer, remaining2);
+                a2 = a(this.mbz, byteBuffer, remaining2);
             }
-            this.mcb = SystemClock.elapsedRealtime();
+            this.mcm = SystemClock.elapsedRealtime();
             if (a2 < 0) {
                 throw new AudioSink.WriteException(a2);
             }
-            if (!this.mbt) {
-                this.mbL += a2;
+            if (!this.mbE) {
+                this.mbW += a2;
             }
             if (a2 == remaining2) {
-                if (this.mbt) {
-                    this.mbM += this.mbN;
+                if (this.mbE) {
+                    this.mbX += this.mbY;
                 }
-                this.maZ = null;
+                this.mbk = null;
                 return true;
             }
             return false;
@@ -503,89 +503,89 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public void dtT() throws AudioSink.WriteException {
-        if (!this.mbY && isInitialized() && dtY()) {
-            this.mbk.fH(due());
-            this.mbz = 0;
-            this.mbY = true;
+    public void dtU() throws AudioSink.WriteException {
+        if (!this.mcj && isInitialized() && dtZ()) {
+            this.mbv.fH(duf());
+            this.mbK = 0;
+            this.mcj = true;
         }
     }
 
-    private boolean dtY() throws AudioSink.WriteException {
+    private boolean dtZ() throws AudioSink.WriteException {
         boolean z;
-        if (this.mbX == -1) {
-            this.mbX = this.mbt ? this.mbS.length : 0;
+        if (this.mci == -1) {
+            this.mci = this.mbE ? this.mcd.length : 0;
             z = true;
         } else {
             z = false;
         }
-        while (this.mbX < this.mbS.length) {
-            AudioProcessor audioProcessor = this.mbS[this.mbX];
+        while (this.mci < this.mcd.length) {
+            AudioProcessor audioProcessor = this.mcd[this.mci];
             if (z) {
-                audioProcessor.dtQ();
+                audioProcessor.dtR();
             }
             fC(-9223372036854775807L);
             if (!audioProcessor.avR()) {
                 return false;
             }
-            this.mbX++;
+            this.mci++;
             z = true;
         }
-        if (this.maZ != null) {
-            b(this.maZ, -9223372036854775807L);
-            if (this.maZ != null) {
+        if (this.mbk != null) {
+            b(this.mbk, -9223372036854775807L);
+            if (this.mbk != null) {
                 return false;
             }
         }
-        this.mbX = -1;
+        this.mci = -1;
         return true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public boolean avR() {
-        return !isInitialized() || (this.mbY && !dtU());
+        return !isInitialized() || (this.mcj && !dtV());
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public boolean dtU() {
-        return isInitialized() && (due() > this.mbk.duk() || duh());
+    public boolean dtV() {
+        return isInitialized() && (duf() > this.mbv.dul() || dui());
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public q d(q qVar) {
         q qVar2;
-        if (this.mbt) {
-            this.lYI = q.lZJ;
-            return this.lYI;
+        if (this.mbE) {
+            this.lYT = q.lZU;
+            return this.lYT;
         }
-        q qVar3 = new q(this.mbg.bw(qVar.speed), this.mbg.bx(qVar.pitch));
-        if (this.mbv != null) {
-            qVar2 = this.mbv;
+        q qVar3 = new q(this.mbr.bw(qVar.speed), this.mbr.bx(qVar.pitch));
+        if (this.mbG != null) {
+            qVar2 = this.mbG;
         } else {
-            qVar2 = !this.mbl.isEmpty() ? this.mbl.getLast().lYI : this.lYI;
+            qVar2 = !this.mbw.isEmpty() ? this.mbw.getLast().lYT : this.lYT;
         }
         if (!qVar3.equals(qVar2)) {
             if (isInitialized()) {
-                this.mbv = qVar3;
+                this.mbG = qVar3;
             } else {
-                this.lYI = qVar3;
+                this.lYT = qVar3;
             }
         }
-        return this.lYI;
+        return this.lYT;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public q dsV() {
-        return this.lYI;
+    public q dsW() {
+        return this.lYT;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void a(com.google.android.exoplayer2.audio.b bVar) {
-        if (!this.mad.equals(bVar)) {
-            this.mad = bVar;
-            if (!this.mca) {
+        if (!this.mao.equals(bVar)) {
+            this.mao = bVar;
+            if (!this.mcl) {
                 reset();
-                this.mab = 0;
+                this.man = 0;
             }
         }
     }
@@ -593,18 +593,18 @@ public final class DefaultAudioSink implements AudioSink {
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void Jf(int i) {
         com.google.android.exoplayer2.util.a.checkState(v.SDK_INT >= 21);
-        if (!this.mca || this.mab != i) {
-            this.mca = true;
-            this.mab = i;
+        if (!this.mcl || this.man != i) {
+            this.mcl = true;
+            this.man = i;
             reset();
         }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public void dtV() {
-        if (this.mca) {
-            this.mca = false;
-            this.mab = 0;
+    public void dtW() {
+        if (this.mcl) {
+            this.mcl = false;
+            this.man = 0;
             reset();
         }
     }
@@ -613,26 +613,26 @@ public final class DefaultAudioSink implements AudioSink {
     public void setVolume(float f) {
         if (this.volume != f) {
             this.volume = f;
-            dtZ();
+            dua();
         }
     }
 
-    private void dtZ() {
+    private void dua() {
         if (isInitialized()) {
             if (v.SDK_INT >= 21) {
-                a(this.mbo, this.volume);
+                a(this.mbz, this.volume);
             } else {
-                b(this.mbo, this.volume);
+                b(this.mbz, this.volume);
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void pause() {
-        this.mbZ = false;
+        this.mck = false;
         if (isInitialized()) {
-            duf();
-            this.mbk.pause();
+            dug();
+            this.mbv.pause();
         }
     }
 
@@ -640,41 +640,41 @@ public final class DefaultAudioSink implements AudioSink {
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void reset() {
         if (isInitialized()) {
+            this.mbT = 0L;
+            this.mbU = 0L;
+            this.mbW = 0L;
+            this.mbX = 0L;
+            this.mbY = 0;
+            if (this.mbG != null) {
+                this.lYT = this.mbG;
+                this.mbG = null;
+            } else if (!this.mbw.isEmpty()) {
+                this.lYT = this.mbw.getLast().lYT;
+            }
+            this.mbw.clear();
+            this.mbH = 0L;
             this.mbI = 0L;
-            this.mbJ = 0L;
-            this.mbL = 0L;
-            this.mbM = 0L;
-            this.mbN = 0;
-            if (this.mbv != null) {
-                this.lYI = this.mbv;
-                this.mbv = null;
-            } else if (!this.mbl.isEmpty()) {
-                this.lYI = this.mbl.getLast().lYI;
-            }
-            this.mbl.clear();
-            this.mbw = 0L;
-            this.mbx = 0L;
-            this.mbU = null;
-            this.maZ = null;
-            for (int i = 0; i < this.mbS.length; i++) {
-                AudioProcessor audioProcessor = this.mbS[i];
+            this.mcf = null;
+            this.mbk = null;
+            for (int i = 0; i < this.mcd.length; i++) {
+                AudioProcessor audioProcessor = this.mcd[i];
                 audioProcessor.flush();
-                this.mbT[i] = audioProcessor.dtR();
+                this.mce[i] = audioProcessor.dtS();
             }
-            this.mbY = false;
-            this.mbX = -1;
-            this.mby = null;
-            this.mbz = 0;
-            this.mbO = 0;
-            this.mbR = 0L;
-            duf();
-            if (this.mbo.getPlayState() == 3) {
-                this.mbo.pause();
+            this.mcj = false;
+            this.mci = -1;
+            this.mbJ = null;
+            this.mbK = 0;
+            this.mbZ = 0;
+            this.mcc = 0L;
+            dug();
+            if (this.mbz.getPlayState() == 3) {
+                this.mbz.pause();
             }
-            final AudioTrack audioTrack = this.mbo;
-            this.mbo = null;
-            this.mbk.a(null, false);
-            this.mbi.close();
+            final AudioTrack audioTrack = this.mbz;
+            this.mbz = null;
+            this.mbv.a(null, false);
+            this.mbt.close();
             new Thread() { // from class: com.google.android.exoplayer2.audio.DefaultAudioSink.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -682,7 +682,7 @@ public final class DefaultAudioSink implements AudioSink {
                         audioTrack.flush();
                         audioTrack.release();
                     } finally {
-                        DefaultAudioSink.this.mbi.open();
+                        DefaultAudioSink.this.mbt.open();
                     }
                 }
             }.start();
@@ -692,19 +692,19 @@ public final class DefaultAudioSink implements AudioSink {
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void release() {
         reset();
-        dua();
-        for (AudioProcessor audioProcessor : this.mbh) {
+        dub();
+        for (AudioProcessor audioProcessor : this.mbs) {
             audioProcessor.reset();
         }
-        this.mab = 0;
-        this.mbZ = false;
+        this.man = 0;
+        this.mck = false;
     }
 
     /* JADX WARN: Type inference failed for: r1v1, types: [com.google.android.exoplayer2.audio.DefaultAudioSink$2] */
-    private void dua() {
-        if (this.mbn != null) {
-            final AudioTrack audioTrack = this.mbn;
-            this.mbn = null;
+    private void dub() {
+        if (this.mby != null) {
+            final AudioTrack audioTrack = this.mby;
+            this.mby = null;
             new Thread() { // from class: com.google.android.exoplayer2.audio.DefaultAudioSink.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -714,88 +714,88 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    private boolean dub() {
-        return isInitialized() && this.mbO != 0;
+    private boolean duc() {
+        return isInitialized() && this.mbZ != 0;
     }
 
     private long fD(long j) {
-        while (!this.mbl.isEmpty() && j >= this.mbl.getFirst().lZH) {
-            c remove = this.mbl.remove();
-            this.lYI = remove.lYI;
-            this.mbx = remove.lZH;
-            this.mbw = remove.mcq - this.mbP;
+        while (!this.mbw.isEmpty() && j >= this.mbw.getFirst().lZS) {
+            c remove = this.mbw.remove();
+            this.lYT = remove.lYT;
+            this.mbI = remove.lZS;
+            this.mbH = remove.mcB - this.mca;
         }
-        if (this.lYI.speed == 1.0f) {
-            return (this.mbw + j) - this.mbx;
+        if (this.lYT.speed == 1.0f) {
+            return (this.mbH + j) - this.mbI;
         }
-        if (this.mbl.isEmpty()) {
-            return this.mbw + this.mbg.fJ(j - this.mbx);
+        if (this.mbw.isEmpty()) {
+            return this.mbH + this.mbr.fJ(j - this.mbI);
         }
-        return this.mbw + ((long) (this.lYI.speed * (j - this.mbx)));
+        return this.mbH + ((long) (this.lYT.speed * (j - this.mbI)));
     }
 
-    private void duc() {
-        long dul = this.mbk.dul();
-        if (dul != 0) {
+    private void dud() {
+        long dum = this.mbv.dum();
+        if (dum != 0) {
             long nanoTime = System.nanoTime() / 1000;
-            if (nanoTime - this.mbD >= 30000) {
-                this.mbj[this.mbA] = dul - nanoTime;
-                this.mbA = (this.mbA + 1) % 10;
-                if (this.mbB < 10) {
-                    this.mbB++;
+            if (nanoTime - this.mbO >= 30000) {
+                this.mbu[this.mbL] = dum - nanoTime;
+                this.mbL = (this.mbL + 1) % 10;
+                if (this.mbM < 10) {
+                    this.mbM++;
                 }
-                this.mbD = nanoTime;
-                this.mbC = 0L;
-                for (int i = 0; i < this.mbB; i++) {
-                    this.mbC += this.mbj[i] / this.mbB;
+                this.mbO = nanoTime;
+                this.mbN = 0L;
+                for (int i = 0; i < this.mbM; i++) {
+                    this.mbN += this.mbu[i] / this.mbM;
                 }
             }
-            if (!dug() && nanoTime - this.mbF >= 500000) {
-                this.mbE = this.mbk.dum();
-                if (this.mbE) {
-                    long dun = this.mbk.dun() / 1000;
-                    long duo = this.mbk.duo();
-                    if (dun < this.mbQ) {
-                        this.mbE = false;
-                    } else if (Math.abs(dun - nanoTime) > 5000000) {
-                        String str = "Spurious audio timestamp (system clock mismatch): " + duo + ", " + dun + ", " + nanoTime + ", " + dul + ", " + dud() + ", " + due();
-                        if (mbc) {
+            if (!duh() && nanoTime - this.mbQ >= 500000) {
+                this.mbP = this.mbv.dun();
+                if (this.mbP) {
+                    long duo = this.mbv.duo() / 1000;
+                    long dup = this.mbv.dup();
+                    if (duo < this.mcb) {
+                        this.mbP = false;
+                    } else if (Math.abs(duo - nanoTime) > 5000000) {
+                        String str = "Spurious audio timestamp (system clock mismatch): " + dup + ", " + duo + ", " + nanoTime + ", " + dum + ", " + due() + ", " + duf();
+                        if (mbn) {
                             throw new InvalidAudioTrackTimestampException(str);
                         }
                         Log.w("AudioTrack", str);
-                        this.mbE = false;
-                    } else if (Math.abs(fF(duo) - dul) > 5000000) {
-                        String str2 = "Spurious audio timestamp (frame position mismatch): " + duo + ", " + dun + ", " + nanoTime + ", " + dul + ", " + dud() + ", " + due();
-                        if (mbc) {
+                        this.mbP = false;
+                    } else if (Math.abs(fF(dup) - dum) > 5000000) {
+                        String str2 = "Spurious audio timestamp (frame position mismatch): " + dup + ", " + duo + ", " + nanoTime + ", " + dum + ", " + due() + ", " + duf();
+                        if (mbn) {
                             throw new InvalidAudioTrackTimestampException(str2);
                         }
                         Log.w("AudioTrack", str2);
-                        this.mbE = false;
+                        this.mbP = false;
                     }
                 }
-                if (this.mbG != null && !this.mbt) {
+                if (this.mbR != null && !this.mbE) {
                     try {
-                        this.mbR = (((Integer) this.mbG.invoke(this.mbo, null)).intValue() * 1000) - this.mbu;
-                        this.mbR = Math.max(this.mbR, 0L);
-                        if (this.mbR > 5000000) {
-                            Log.w("AudioTrack", "Ignoring impossibly large audio latency: " + this.mbR);
-                            this.mbR = 0L;
+                        this.mcc = (((Integer) this.mbR.invoke(this.mbz, null)).intValue() * 1000) - this.mbF;
+                        this.mcc = Math.max(this.mcc, 0L);
+                        if (this.mcc > 5000000) {
+                            Log.w("AudioTrack", "Ignoring impossibly large audio latency: " + this.mcc);
+                            this.mcc = 0L;
                         }
                     } catch (Exception e) {
-                        this.mbG = null;
+                        this.mbR = null;
                     }
                 }
-                this.mbF = nanoTime;
+                this.mbQ = nanoTime;
             }
         }
     }
 
     private boolean isInitialized() {
-        return this.mbo != null;
+        return this.mbz != null;
     }
 
     private long fE(long j) {
-        return (TimeUtils.NANOS_PER_MS * j) / this.mbp;
+        return (TimeUtils.NANOS_PER_MS * j) / this.mbA;
     }
 
     private long fF(long j) {
@@ -806,41 +806,41 @@ public final class DefaultAudioSink implements AudioSink {
         return (this.sampleRate * j) / TimeUtils.NANOS_PER_MS;
     }
 
-    private long dud() {
-        return this.mbt ? this.mbJ : this.mbI / this.mbH;
-    }
-
     private long due() {
-        return this.mbt ? this.mbM : this.mbL / this.mbK;
+        return this.mbE ? this.mbU : this.mbT / this.mbS;
     }
 
-    private void duf() {
-        this.mbC = 0L;
-        this.mbB = 0;
-        this.mbA = 0;
-        this.mbD = 0L;
-        this.mbE = false;
-        this.mbF = 0L;
+    private long duf() {
+        return this.mbE ? this.mbX : this.mbW / this.mbV;
     }
 
-    private boolean dug() {
-        return v.SDK_INT < 23 && (this.mbs == 5 || this.mbs == 6);
+    private void dug() {
+        this.mbN = 0L;
+        this.mbM = 0;
+        this.mbL = 0;
+        this.mbO = 0L;
+        this.mbP = false;
+        this.mbQ = 0L;
     }
 
     private boolean duh() {
-        return dug() && this.mbo.getPlayState() == 2 && this.mbo.getPlaybackHeadPosition() == 0;
+        return v.SDK_INT < 23 && (this.mbD == 5 || this.mbD == 6);
     }
 
-    private AudioTrack dui() throws AudioSink.InitializationException {
+    private boolean dui() {
+        return duh() && this.mbz.getPlayState() == 2 && this.mbz.getPlaybackHeadPosition() == 0;
+    }
+
+    private AudioTrack duj() throws AudioSink.InitializationException {
         AudioTrack audioTrack;
         if (v.SDK_INT >= 21) {
-            audioTrack = duj();
+            audioTrack = duk();
         } else {
-            int Ma = v.Ma(this.mad.maF);
-            if (this.mab == 0) {
-                audioTrack = new AudioTrack(Ma, this.sampleRate, this.mbq, this.mbs, this.bufferSize, 1);
+            int Ma = v.Ma(this.mao.maQ);
+            if (this.man == 0) {
+                audioTrack = new AudioTrack(Ma, this.sampleRate, this.mbB, this.mbD, this.bufferSize, 1);
             } else {
-                audioTrack = new AudioTrack(Ma, this.sampleRate, this.mbq, this.mbs, this.bufferSize, 1, this.mab);
+                audioTrack = new AudioTrack(Ma, this.sampleRate, this.mbB, this.mbD, this.bufferSize, 1, this.man);
             }
         }
         int state = audioTrack.getState();
@@ -849,27 +849,27 @@ public final class DefaultAudioSink implements AudioSink {
                 audioTrack.release();
             } catch (Exception e) {
             }
-            throw new AudioSink.InitializationException(state, this.sampleRate, this.mbq, this.bufferSize);
+            throw new AudioSink.InitializationException(state, this.sampleRate, this.mbB, this.bufferSize);
         }
         return audioTrack;
     }
 
     @TargetApi(21)
-    private AudioTrack duj() {
-        AudioAttributes dtL;
-        if (this.mca) {
-            dtL = new AudioAttributes.Builder().setContentType(3).setFlags(16).setUsage(1).build();
+    private AudioTrack duk() {
+        AudioAttributes dtM;
+        if (this.mcl) {
+            dtM = new AudioAttributes.Builder().setContentType(3).setFlags(16).setUsage(1).build();
         } else {
-            dtL = this.mad.dtL();
+            dtM = this.mao.dtM();
         }
-        return new AudioTrack(dtL, new AudioFormat.Builder().setChannelMask(this.mbq).setEncoding(this.mbs).setSampleRate(this.sampleRate).build(), this.bufferSize, 1, this.mab != 0 ? this.mab : 0);
+        return new AudioTrack(dtM, new AudioFormat.Builder().setChannelMask(this.mbB).setEncoding(this.mbD).setSampleRate(this.sampleRate).build(), this.bufferSize, 1, this.man != 0 ? this.man : 0);
     }
 
     private AudioTrack Jg(int i) {
         return new AudioTrack(3, 4000, 4, 2, 2, 0, i);
     }
 
-    private static int Pn(String str) {
+    private static int Po(String str) {
         char c2 = 65535;
         switch (str.hashCode()) {
             case -1095064472:
@@ -916,7 +916,7 @@ public final class DefaultAudioSink implements AudioSink {
             return f.j(byteBuffer);
         }
         if (i == 5) {
-            return com.google.android.exoplayer2.audio.a.dtK();
+            return com.google.android.exoplayer2.audio.a.dtL();
         }
         if (i == 6) {
             return com.google.android.exoplayer2.audio.a.h(byteBuffer);
@@ -931,22 +931,22 @@ public final class DefaultAudioSink implements AudioSink {
 
     @TargetApi(21)
     private int a(AudioTrack audioTrack, ByteBuffer byteBuffer, int i, long j) {
-        if (this.mby == null) {
-            this.mby = ByteBuffer.allocate(16);
-            this.mby.order(ByteOrder.BIG_ENDIAN);
-            this.mby.putInt(1431633921);
+        if (this.mbJ == null) {
+            this.mbJ = ByteBuffer.allocate(16);
+            this.mbJ.order(ByteOrder.BIG_ENDIAN);
+            this.mbJ.putInt(1431633921);
         }
-        if (this.mbz == 0) {
-            this.mby.putInt(4, i);
-            this.mby.putLong(8, 1000 * j);
-            this.mby.position(0);
-            this.mbz = i;
+        if (this.mbK == 0) {
+            this.mbJ.putInt(4, i);
+            this.mbJ.putLong(8, 1000 * j);
+            this.mbJ.position(0);
+            this.mbK = i;
         }
-        int remaining = this.mby.remaining();
+        int remaining = this.mbJ.remaining();
         if (remaining > 0) {
-            int write = audioTrack.write(this.mby, remaining, 1);
+            int write = audioTrack.write(this.mbJ, remaining, 1);
             if (write < 0) {
-                this.mbz = 0;
+                this.mbK = 0;
                 return write;
             } else if (write < remaining) {
                 return 0;
@@ -954,10 +954,10 @@ public final class DefaultAudioSink implements AudioSink {
         }
         int a2 = a(audioTrack, byteBuffer, i);
         if (a2 < 0) {
-            this.mbz = 0;
+            this.mbK = 0;
             return a2;
         }
-        this.mbz -= a2;
+        this.mbK -= a2;
         return a2;
     }
 
@@ -973,94 +973,94 @@ public final class DefaultAudioSink implements AudioSink {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        protected AudioTrack mbo;
-        private boolean mce;
-        private long mcf;
-        private long mcg;
-        private long mch;
-        private long mci;
-        private long mcj;
-        private long mck;
-        private long mcl;
+        protected AudioTrack mbz;
+        private boolean mcp;
+        private long mcq;
+        private long mcr;
+        private long mcs;
+        private long mct;
+        private long mcu;
+        private long mcv;
+        private long mcw;
         private int sampleRate;
 
         private a() {
         }
 
         public void a(AudioTrack audioTrack, boolean z) {
-            this.mbo = audioTrack;
-            this.mce = z;
-            this.mci = -9223372036854775807L;
-            this.mcj = -9223372036854775807L;
-            this.mcf = 0L;
-            this.mcg = 0L;
-            this.mch = 0L;
+            this.mbz = audioTrack;
+            this.mcp = z;
+            this.mct = -9223372036854775807L;
+            this.mcu = -9223372036854775807L;
+            this.mcq = 0L;
+            this.mcr = 0L;
+            this.mcs = 0L;
             if (audioTrack != null) {
                 this.sampleRate = audioTrack.getSampleRate();
             }
         }
 
         public void fH(long j) {
-            this.mck = duk();
-            this.mci = SystemClock.elapsedRealtime() * 1000;
-            this.mcl = j;
-            this.mbo.stop();
+            this.mcv = dul();
+            this.mct = SystemClock.elapsedRealtime() * 1000;
+            this.mcw = j;
+            this.mbz.stop();
         }
 
         public void pause() {
-            if (this.mci == -9223372036854775807L) {
-                this.mbo.pause();
+            if (this.mct == -9223372036854775807L) {
+                this.mbz.pause();
             }
         }
 
         public boolean fI(long j) {
-            return this.mcj != -9223372036854775807L && j > 0 && SystemClock.elapsedRealtime() - this.mcj >= 200;
-        }
-
-        public long duk() {
-            if (this.mci != -9223372036854775807L) {
-                return Math.min(this.mcl, ((((SystemClock.elapsedRealtime() * 1000) - this.mci) * this.sampleRate) / TimeUtils.NANOS_PER_MS) + this.mck);
-            }
-            int playState = this.mbo.getPlayState();
-            if (playState == 1) {
-                return 0L;
-            }
-            long playbackHeadPosition = 4294967295L & this.mbo.getPlaybackHeadPosition();
-            if (this.mce) {
-                if (playState == 2 && playbackHeadPosition == 0) {
-                    this.mch = this.mcf;
-                }
-                playbackHeadPosition += this.mch;
-            }
-            if (v.SDK_INT <= 26) {
-                if (playbackHeadPosition == 0 && this.mcf > 0 && playState == 3) {
-                    if (this.mcj == -9223372036854775807L) {
-                        this.mcj = SystemClock.elapsedRealtime();
-                    }
-                    return this.mcf;
-                }
-                this.mcj = -9223372036854775807L;
-            }
-            if (this.mcf > playbackHeadPosition) {
-                this.mcg++;
-            }
-            this.mcf = playbackHeadPosition;
-            return playbackHeadPosition + (this.mcg << 32);
+            return this.mcu != -9223372036854775807L && j > 0 && SystemClock.elapsedRealtime() - this.mcu >= 200;
         }
 
         public long dul() {
-            return (duk() * TimeUtils.NANOS_PER_MS) / this.sampleRate;
+            if (this.mct != -9223372036854775807L) {
+                return Math.min(this.mcw, ((((SystemClock.elapsedRealtime() * 1000) - this.mct) * this.sampleRate) / TimeUtils.NANOS_PER_MS) + this.mcv);
+            }
+            int playState = this.mbz.getPlayState();
+            if (playState == 1) {
+                return 0L;
+            }
+            long playbackHeadPosition = 4294967295L & this.mbz.getPlaybackHeadPosition();
+            if (this.mcp) {
+                if (playState == 2 && playbackHeadPosition == 0) {
+                    this.mcs = this.mcq;
+                }
+                playbackHeadPosition += this.mcs;
+            }
+            if (v.SDK_INT <= 26) {
+                if (playbackHeadPosition == 0 && this.mcq > 0 && playState == 3) {
+                    if (this.mcu == -9223372036854775807L) {
+                        this.mcu = SystemClock.elapsedRealtime();
+                    }
+                    return this.mcq;
+                }
+                this.mcu = -9223372036854775807L;
+            }
+            if (this.mcq > playbackHeadPosition) {
+                this.mcr++;
+            }
+            this.mcq = playbackHeadPosition;
+            return playbackHeadPosition + (this.mcr << 32);
         }
 
-        public boolean dum() {
+        public long dum() {
+            return (dul() * TimeUtils.NANOS_PER_MS) / this.sampleRate;
+        }
+
+        public boolean dun() {
             return false;
         }
 
-        public long dun() {
+        public long duo() {
             throw new UnsupportedOperationException();
         }
 
-        public long duo() {
+        public long dup() {
             throw new UnsupportedOperationException();
         }
     }
@@ -1068,60 +1068,60 @@ public final class DefaultAudioSink implements AudioSink {
     @TargetApi(19)
     /* loaded from: classes6.dex */
     private static class b extends a {
-        private final AudioTimestamp mcm;
-        private long mcn;
-        private long mco;
-        private long mcp;
+        private long mcA;
+        private final AudioTimestamp mcx;
+        private long mcy;
+        private long mcz;
 
         public b() {
             super();
-            this.mcm = new AudioTimestamp();
+            this.mcx = new AudioTimestamp();
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.a
         public void a(AudioTrack audioTrack, boolean z) {
             super.a(audioTrack, z);
-            this.mcn = 0L;
-            this.mco = 0L;
-            this.mcp = 0L;
+            this.mcy = 0L;
+            this.mcz = 0L;
+            this.mcA = 0L;
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.a
-        public boolean dum() {
-            boolean timestamp = this.mbo.getTimestamp(this.mcm);
+        public boolean dun() {
+            boolean timestamp = this.mbz.getTimestamp(this.mcx);
             if (timestamp) {
-                long j = this.mcm.framePosition;
-                if (this.mco > j) {
-                    this.mcn++;
+                long j = this.mcx.framePosition;
+                if (this.mcz > j) {
+                    this.mcy++;
                 }
-                this.mco = j;
-                this.mcp = j + (this.mcn << 32);
+                this.mcz = j;
+                this.mcA = j + (this.mcy << 32);
             }
             return timestamp;
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.a
-        public long dun() {
-            return this.mcm.nanoTime;
+        public long duo() {
+            return this.mcx.nanoTime;
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.a
-        public long duo() {
-            return this.mcp;
+        public long dup() {
+            return this.mcA;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static final class c {
-        private final q lYI;
-        private final long lZH;
-        private final long mcq;
+        private final q lYT;
+        private final long lZS;
+        private final long mcB;
 
         private c(q qVar, long j, long j2) {
-            this.lYI = qVar;
-            this.mcq = j;
-            this.lZH = j2;
+            this.lYT = qVar;
+            this.mcB = j;
+            this.lZS = j2;
         }
     }
 }

@@ -47,12 +47,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private boolean eBM;
-    private ShareFromPBMsgData eDA;
-    private BaseFragment eDx;
-    private ScrollBridgeWebview eDy;
-    private int eDz = 0;
-    private g etX;
+    private boolean eBZ;
+    private BaseFragment eDK;
+    private ScrollBridgeWebview eDL;
+    private int eDM = 0;
+    private ShareFromPBMsgData eDN;
+    private g euk;
     private boolean isLoading;
     private boolean mLoadSuccess;
     private NavigationBar mNavigationBar;
@@ -61,19 +61,19 @@ public class b {
     private String mUrl;
 
     public b(boolean z) {
-        this.eBM = false;
+        this.eBZ = false;
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_DISCOVER_DATA, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 if (customMessage != null) {
-                    return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_DISCOVER_DATA, b.this.eDA);
+                    return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_DISCOVER_DATA, b.this.eDN);
                 }
                 return null;
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        this.eBM = z;
+        this.eBZ = z;
     }
 
     public void onDestroy() {
@@ -90,24 +90,24 @@ public class b {
     }
 
     public void c(BaseFragment baseFragment) {
-        this.eDx = baseFragment;
+        this.eDK = baseFragment;
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setVisibility(this.eBM ? 0 : 8);
-        if (this.eBM) {
-            this.mNavigationBar.onChangeSkinType(this.eDx.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.mNavigationBar.setVisibility(this.eBZ ? 0 : 8);
+        if (this.eBZ) {
+            this.mNavigationBar.onChangeSkinType(this.eDK.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.mNavigationBar.showBottomLine(true);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, b.this.eDx.getPageContext().getUniqueId()));
+                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, b.this.eDK.getPageContext().getUniqueId()));
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
             });
             this.mNavigationBar.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
         }
-        this.eDy = (ScrollBridgeWebview) this.mRootView.findViewById(R.id.webview);
-        this.eDy.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.4
+        this.eDL = (ScrollBridgeWebview) this.mRootView.findViewById(R.id.webview);
+        this.eDL.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.4
             @Override // com.baidu.tbadk.core.hybrid.ScrollBridgeWebview.a
             public void q(int i, int i2, int i3, int i4) {
             }
@@ -118,161 +118,161 @@ public class b {
 
             @Override // com.baidu.tbadk.core.hybrid.ScrollBridgeWebview.a
             public void onScrollChanged(int i, int i2, int i3, int i4) {
-                if (Math.abs(i2 - b.this.eDz) > 50) {
-                    b.this.eDz = i2;
+                if (Math.abs(i2 - b.this.eDM) > 50) {
+                    b.this.eDM = i2;
                     if (i2 > i4) {
-                        b.this.A(false, true);
+                        b.this.B(false, true);
                     } else {
-                        b.this.A(true, true);
+                        b.this.B(true, true);
                     }
                 }
             }
         });
-        beX();
+        beY();
     }
 
     public BaseWebView getWebView() {
-        return this.eDy;
+        return this.eDL;
     }
 
     public void loadUrl(String str) {
         this.mUrl = str;
-        this.eDy.loadUrl(str);
+        this.eDL.loadUrl(str);
     }
 
-    public void beW() {
+    public void beX() {
         if (this.mLoadSuccess) {
-            this.eDy.loadUrl("javascript:window.reload_page()");
+            this.eDL.loadUrl("javascript:window.reload_page()");
         } else {
-            this.eDy.loadUrl(this.mUrl);
+            this.eDL.loadUrl(this.mUrl);
         }
     }
 
     public void showLoadingView() {
-        if (this.eDx != null && this.mRootView != null && this.eDx.isAdded()) {
+        if (this.eDK != null && this.mRootView != null && this.eDK.isAdded()) {
             this.isLoading = true;
-            this.etX = new g(this.eDx.getActivity(), this.eDx.getResources().getDimensionPixelSize(R.dimen.ds270));
-            this.etX.attachView(this.mRootView, false);
-            this.etX.onChangeSkinType();
+            this.euk = new g(this.eDK.getActivity(), this.eDK.getResources().getDimensionPixelSize(R.dimen.ds270));
+            this.euk.attachView(this.mRootView, false);
+            this.euk.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
         this.isLoading = false;
-        if (this.etX != null) {
-            this.etX.dettachView(this.mRootView);
-            this.etX = null;
+        if (this.euk != null) {
+            this.euk.dettachView(this.mRootView);
+            this.euk = null;
         }
     }
 
-    public void bec() {
-        bcx();
-        this.eDy.setVisibility(0);
+    public void bed() {
+        bcy();
+        this.eDL.setVisibility(0);
     }
 
-    public void bcw() {
-        if (this.eDx != null && this.eDx.isAdded()) {
+    public void bcx() {
+        if (this.eDK != null && this.eDK.isAdded()) {
             String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
             if (this.mRefreshView == null) {
-                this.mRefreshView = new h(this.eDx.getActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.5
+                this.mRefreshView = new h(this.eDK.getActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        b.this.beW();
+                        b.this.beX();
                     }
                 });
                 this.mRefreshView.onChangeSkinType();
             }
-            this.eDy.setVisibility(8);
+            this.eDL.setVisibility(8);
             this.mRefreshView.setSubText(string);
             this.mRefreshView.attachView(this.mRootView, false);
             this.mRefreshView.showRefreshButton();
         }
     }
 
-    public void bcx() {
+    public void bcy() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
         }
     }
 
-    private void beX() {
-        if (this.eDy != null) {
-            this.eDy.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.6
+    private void beY() {
+        if (this.eDL != null) {
+            this.eDL.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    b.this.yj(str);
+                    b.this.yk(str);
                     if (StringUtils.isNull(str) || str.contains(UrlSchemaHelper.REDIRECT_JUMP_KEY)) {
                         return false;
                     }
-                    if (b.this.yk(str)) {
+                    if (b.this.yl(str)) {
                         return true;
                     }
-                    ba.aGG().b(b.this.eDx.getPageContext(), new String[]{str});
+                    ba.aGG().b(b.this.eDK.getPageContext(), new String[]{str});
                     return true;
                 }
             });
-            this.eDy.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.7
+            this.eDL.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.7
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
                 public void b(WebView webView, String str) {
                     b.this.showLoadingView();
                 }
             });
-            this.eDy.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.8
+            this.eDL.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.8
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
                 public void onPageFinished(WebView webView, String str) {
                     b.this.hideLoadingView();
                     if (j.isNetWorkAvailable()) {
-                        b.this.bec();
+                        b.this.bed();
                         b.this.mLoadSuccess = true;
                     }
                 }
             });
-            this.eDy.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.9
+            this.eDL.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.9
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str, String str2) {
-                    b.this.bcw();
+                    b.this.bcx();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yj(String str) {
+    public void yk(String str) {
         if (StringUtils.isNull(str)) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean yk(String str) {
-        return yl(str) || ym(str) || yn(str) || yo(str) || yp(str) || yq(str) || yr(str) || ys(str);
-    }
-
-    private boolean yl(String str) {
-        if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
-            if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
-                l.showToast(this.eDx.getActivity(), (int) R.string.plugin_install_fail);
-                return true;
-            }
-            ba.aGG().b(this.eDx.getPageContext(), new String[]{str});
-            return true;
-        }
-        return false;
+    public boolean yl(String str) {
+        return ym(str) || yn(str) || yo(str) || yp(str) || yq(str) || yr(str) || ys(str) || yt(str);
     }
 
     private boolean ym(String str) {
-        if (str.contains("nohead:url") || str.contains("booktown")) {
-            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                l.showToast(this.eDx.getActivity(), (int) R.string.plugin_install_fail);
-            } else {
-                ba.aGG().b(this.eDx.getPageContext(), new String[]{str});
+        if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
+            if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
+                l.showToast(this.eDK.getActivity(), (int) R.string.plugin_install_fail);
+                return true;
             }
+            ba.aGG().b(this.eDK.getPageContext(), new String[]{str});
             return true;
         }
         return false;
     }
 
     private boolean yn(String str) {
+        if (str.contains("nohead:url") || str.contains("booktown")) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                l.showToast(this.eDK.getActivity(), (int) R.string.plugin_install_fail);
+            } else {
+                ba.aGG().b(this.eDK.getPageContext(), new String[]{str});
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private boolean yo(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             String matchStringFromURL = ag.getMatchStringFromURL(str, "topic_id=");
             String matchStringFromURL2 = ag.getMatchStringFromURL(str, "topic_name=");
@@ -281,55 +281,55 @@ public class b {
                 return true;
             }
             if (appResponseToIntentClass) {
-                this.eDx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.eDx.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, null)));
+                this.eDK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.eDK.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, null)));
                 return true;
             }
-            com.baidu.tbadk.browser.a.startWebActivity(this.eDx.getActivity(), matchStringFromURL2, str);
+            com.baidu.tbadk.browser.a.startWebActivity(this.eDK.getActivity(), matchStringFromURL2, str);
             return true;
         } else if ((str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW) || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list")) && TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class)) {
-            new HotRanklistActivityConfig(this.eDx.getActivity()).createNormalConfig("discover", SchemeCollecter.CLASSIFY_ALL).start();
+            new HotRanklistActivityConfig(this.eDK.getActivity()).createNormalConfig("discover", SchemeCollecter.CLASSIFY_ALL).start();
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean yo(String str) {
+    private boolean yp(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SQUARE_FORUM_LIST)) {
             return false;
         }
         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_SQUARE_FORUM_LIST) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(this.eDx.getActivity(), ag.getMatchStringFromURL(str, "menuname="), ag.getMatchStringFromURL(str, "menutype="), ag.getMatchStringFromURL(str, "menuid="))));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(this.eDK.getActivity(), ag.getMatchStringFromURL(str, "menuname="), ag.getMatchStringFromURL(str, "menutype="), ag.getMatchStringFromURL(str, "menuid="))));
             return true;
         }
-        return true;
-    }
-
-    private boolean yp(String str) {
-        if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_CENTER)) {
-            return false;
-        }
-        if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
-            l.showToast(this.eDx.getActivity(), (int) R.string.plugin_install_fail);
-            return true;
-        }
-        ba.aGG().b(this.eDx.getPageContext(), new String[]{str});
         return true;
     }
 
     private boolean yq(String str) {
-        if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_DRESSUP_CENTER)) {
+        if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_CENTER)) {
             return false;
         }
-        if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-            l.showToast(this.eDx.getActivity(), (int) R.string.plugin_install_fail);
+        if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
+            l.showToast(this.eDK.getActivity(), (int) R.string.plugin_install_fail);
             return true;
         }
-        ba.aGG().b(this.eDx.getPageContext(), new String[]{str});
+        ba.aGG().b(this.eDK.getPageContext(), new String[]{str});
         return true;
     }
 
     private boolean yr(String str) {
+        if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_DRESSUP_CENTER)) {
+            return false;
+        }
+        if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
+            l.showToast(this.eDK.getActivity(), (int) R.string.plugin_install_fail);
+            return true;
+        }
+        ba.aGG().b(this.eDK.getPageContext(), new String[]{str});
+        return true;
+    }
+
+    private boolean ys(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_BEAUTY_PIC) && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -339,9 +339,9 @@ public class b {
                     arrayList.add(optJSONArray.getString(i));
                 }
                 if (arrayList.size() > 0) {
-                    ImageViewerConfig createConfig = new ImageViewerConfig(this.eDx.getActivity()).createConfig(arrayList, 0, null, "", "", true, arrayList.get(0), true);
+                    ImageViewerConfig createConfig = new ImageViewerConfig(this.eDK.getActivity()).createConfig(arrayList, 0, null, "", "", true, arrayList.get(0), true);
                     createConfig.getIntent().putExtra("from", ImageViewerConfig.FROM_DISCOVER_BEAUTY);
-                    this.eDx.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+                    this.eDK.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
                     return true;
                 }
                 return false;
@@ -352,8 +352,8 @@ public class b {
         return false;
     }
 
-    private boolean ys(String str) {
-        if (this.eDx.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
+    private boolean yt(String str) {
+        if (this.eDK.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
             String urlDecode = k.getUrlDecode(str);
             if (urlDecode.contains("data=")) {
                 try {
@@ -367,16 +367,16 @@ public class b {
                     if (TextUtils.isEmpty(optString3)) {
                         return false;
                     }
-                    if (bc.checkUpIsLogin(this.eDx.getActivity())) {
-                        this.eDA = new ShareFromPBMsgData();
-                        this.eDA.setContent(optString2);
+                    if (bc.checkUpIsLogin(this.eDK.getActivity())) {
+                        this.eDN = new ShareFromPBMsgData();
+                        this.eDN.setContent(optString2);
                         if (!TextUtils.isEmpty(optString6)) {
-                            this.eDA.setImageUrl(optString6);
+                            this.eDN.setImageUrl(optString6);
                         }
-                        this.eDA.setForumName(optString5);
-                        this.eDA.setThreadId(optString4);
-                        this.eDA.setTitle(optString);
-                        String format = MessageFormat.format(this.eDx.getResources().getString(R.string.share_content_tpl), optString, optString2);
+                        this.eDN.setForumName(optString5);
+                        this.eDN.setThreadId(optString4);
+                        this.eDN.setTitle(optString);
+                        String format = MessageFormat.format(this.eDK.getResources().getString(R.string.share_content_tpl), optString, optString2);
                         final ShareItem shareItem = new ShareItem();
                         shareItem.title = optString;
                         shareItem.content = format;
@@ -385,22 +385,22 @@ public class b {
                         if (!TextUtils.isEmpty(optString6)) {
                             shareItem.imageUri = Uri.parse(optString6);
                         }
-                        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.eDx.getActivity(), shareItem, true);
+                        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.eDK.getActivity(), shareItem, true);
                         shareDialogConfig.setIsCopyLink(true);
                         shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_unite_share_baf, new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.10
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(b.this.eDx.getActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM, 1)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(b.this.eDK.getActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM, 1)));
                             }
                         });
                         shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.2
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                                l.showToast(b.this.eDx.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                                l.showToast(b.this.eDK.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
                             }
                         });
-                        this.eDx.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+                        this.eDK.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
                     }
                     return true;
                 } catch (JSONException e) {
@@ -413,35 +413,35 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void A(boolean z, boolean z2) {
+    public void B(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
-            customMessage.setTag(this.eDx.getBaseFragmentActivity().getUniqueId());
+            customMessage.setTag(this.eDK.getBaseFragmentActivity().getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, Boolean.valueOf(z2));
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             return;
         }
         CustomMessage customMessage2 = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB);
-        customMessage2.setTag(this.eDx.getBaseFragmentActivity().getUniqueId());
+        customMessage2.setTag(this.eDK.getBaseFragmentActivity().getUniqueId());
         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, Boolean.valueOf(z2));
         customResponsedMessage2.setOrginalMessage(customMessage2);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
     }
 
-    public void bdq() {
+    public void bdr() {
         if (!this.isLoading && j.isNetWorkAvailable()) {
-            this.eDy.loadUrl(this.mUrl);
+            this.eDL.loadUrl(this.mUrl);
         }
     }
 
-    public NavigationBar beL() {
+    public NavigationBar beM() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.eDx.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.eDK.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.mNavigationBar.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
         }
     }

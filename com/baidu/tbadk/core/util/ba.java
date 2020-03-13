@@ -21,10 +21,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba daC = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba daD = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c daD;
+    private c daE;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -50,7 +50,7 @@ public class ba {
     private ba() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.daD = null;
+        this.daE = null;
     }
 
     public static SpannableString az(Context context, String str) {
@@ -70,7 +70,7 @@ public class ba {
     }
 
     public static ba aGG() {
-        return daC;
+        return daD;
     }
 
     public void a(final a aVar) {
@@ -94,7 +94,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.daD = cVar;
+        this.daE = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -144,7 +144,7 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.daD != null) {
+        if (!z3 && this.daE != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
             } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -256,7 +256,7 @@ public class ba {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.daD.a(tbPageContext, str, str2, z, dVar, z2);
+            this.daE.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 

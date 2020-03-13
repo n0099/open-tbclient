@@ -12,10 +12,10 @@ import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     private long forumId;
-    private g gjR;
-    private e gjS;
-    private e.a gjT;
-    private NoNetworkView.a gjU = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
+    private g gke;
+    private e gkf;
+    private e.a gkg;
+    private NoNetworkView.a gkh = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
@@ -37,38 +37,38 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     public void initData() {
-        this.gjS = new e();
-        this.gjT = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
+        this.gkf = new e();
+        this.gkg = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
             @Override // com.baidu.tieba.forumMember.bawu.e.a
             public void a(ArrayList<i> arrayList, p pVar, boolean z, int i, String str) {
                 if (z) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.gjR.getRootView());
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.gke.getRootView());
                     if (i == 0) {
-                        BawuTeamInfoActivity.this.gjR.a(arrayList, pVar, true);
+                        BawuTeamInfoActivity.this.gke.a(arrayList, pVar, true);
                         return;
                     }
                     BawuTeamInfoActivity.this.showToast(str);
-                    if (BawuTeamInfoActivity.this.gjR.bCr()) {
-                        BawuTeamInfoActivity.this.gjR.bCs();
+                    if (BawuTeamInfoActivity.this.gke.bCs()) {
+                        BawuTeamInfoActivity.this.gke.bCt();
                         return;
                     }
                     return;
                 }
                 if (arrayList != null && arrayList.size() > 0) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.gjR.getRootView());
-                    BawuTeamInfoActivity.this.gjR.a(arrayList, pVar, false);
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.gke.getRootView());
+                    BawuTeamInfoActivity.this.gke.a(arrayList, pVar, false);
                 }
-                BawuTeamInfoActivity.this.gjS.du(BawuTeamInfoActivity.this.forumId);
+                BawuTeamInfoActivity.this.gkf.du(BawuTeamInfoActivity.this.forumId);
             }
         };
-        this.gjS.a(this.gjT);
-        this.gjS.dt(this.forumId);
-        showLoadingView(this.gjR.getRootView(), true);
+        this.gkf.a(this.gkg);
+        this.gkf.dt(this.forumId);
+        showLoadingView(this.gke.getRootView(), true);
     }
 
     public void initUI() {
-        this.gjR = new g(this);
-        this.gjR.e(this.gjU);
+        this.gke = new g(this);
+        this.gke.e(this.gkh);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,26 +85,26 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        showLoadingView(this.gjR.getRootView(), true);
-        this.gjS.du(this.forumId);
+        showLoadingView(this.gke.getRootView(), true);
+        this.gkf.du(this.forumId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gjR.onChangeSkinType(i);
+        this.gke.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gjS != null) {
-            this.gjS.destroy();
+        if (this.gkf != null) {
+            this.gkf.destroy();
         }
-        if (this.gjR != null) {
-            this.gjR.onDestroy();
+        if (this.gke != null) {
+            this.gke.onDestroy();
         }
     }
 }

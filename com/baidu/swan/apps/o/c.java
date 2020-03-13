@@ -52,17 +52,17 @@ public final class c {
     /* loaded from: classes11.dex */
     public static abstract class a implements DialogInterface.OnClickListener {
         @Nullable
-        private CheckBox bvw;
+        private CheckBox bvx;
 
         public abstract void a(DialogInterface dialogInterface, int i, boolean z);
 
         void a(@Nullable CheckBox checkBox) {
-            this.bvw = checkBox;
+            this.bvx = checkBox;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public final void onClick(DialogInterface dialogInterface, int i) {
-            a(dialogInterface, i, this.bvw != null && this.bvw.isChecked());
+            a(dialogInterface, i, this.bvx != null && this.bvx.isChecked());
         }
     }
 }

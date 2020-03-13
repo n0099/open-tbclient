@@ -5,8 +5,8 @@ import rx.internal.operators.NotificationLite;
 /* loaded from: classes6.dex */
 public class d<T> implements rx.e<T> {
     private boolean emitting;
-    private final rx.e<? super T> nSX;
-    private a nSY;
+    private final rx.e<? super T> nTi;
+    private a nTj;
     private volatile boolean terminated;
 
     /* loaded from: classes6.dex */
@@ -37,7 +37,7 @@ public class d<T> implements rx.e<T> {
     }
 
     public d(rx.e<? super T> eVar) {
-        this.nSX = eVar;
+        this.nTi = eVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:60:0x0032, code lost:
@@ -52,37 +52,37 @@ public class d<T> implements rx.e<T> {
             synchronized (this) {
                 if (!this.terminated) {
                     if (this.emitting) {
-                        a aVar = this.nSY;
+                        a aVar = this.nTj;
                         if (aVar == null) {
                             aVar = new a();
-                            this.nSY = aVar;
+                            this.nTj = aVar;
                         }
                         aVar.add(NotificationLite.next(t));
                         return;
                     }
                     this.emitting = true;
                     try {
-                        this.nSX.onNext(t);
+                        this.nTi.onNext(t);
                         while (true) {
                             synchronized (this) {
-                                a aVar2 = this.nSY;
+                                a aVar2 = this.nTj;
                                 if (aVar2 == null) {
                                     this.emitting = false;
                                     return;
                                 }
-                                this.nSY = null;
+                                this.nTj = null;
                                 Object[] objArr = aVar2.array;
                                 for (Object obj : objArr) {
                                     if (obj != null) {
                                         try {
-                                            if (NotificationLite.a(this.nSX, obj)) {
+                                            if (NotificationLite.a(this.nTi, obj)) {
                                                 this.terminated = true;
                                                 return;
                                             }
                                         } catch (Throwable th) {
                                             this.terminated = true;
                                             rx.exceptions.a.H(th);
-                                            this.nSX.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                            this.nTi.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                             return;
                                         }
                                     }
@@ -91,7 +91,7 @@ public class d<T> implements rx.e<T> {
                         }
                     } catch (Throwable th2) {
                         this.terminated = true;
-                        rx.exceptions.a.a(th2, this.nSX, t);
+                        rx.exceptions.a.a(th2, this.nTi, t);
                     }
                 }
             }
@@ -106,16 +106,16 @@ public class d<T> implements rx.e<T> {
                 if (!this.terminated) {
                     this.terminated = true;
                     if (this.emitting) {
-                        a aVar = this.nSY;
+                        a aVar = this.nTj;
                         if (aVar == null) {
                             aVar = new a();
-                            this.nSY = aVar;
+                            this.nTj = aVar;
                         }
                         aVar.add(NotificationLite.error(th));
                         return;
                     }
                     this.emitting = true;
-                    this.nSX.onError(th);
+                    this.nTi.onError(th);
                 }
             }
         }
@@ -128,16 +128,16 @@ public class d<T> implements rx.e<T> {
                 if (!this.terminated) {
                     this.terminated = true;
                     if (this.emitting) {
-                        a aVar = this.nSY;
+                        a aVar = this.nTj;
                         if (aVar == null) {
                             aVar = new a();
-                            this.nSY = aVar;
+                            this.nTj = aVar;
                         }
-                        aVar.add(NotificationLite.dOj());
+                        aVar.add(NotificationLite.dOk());
                         return;
                     }
                     this.emitting = true;
-                    this.nSX.onCompleted();
+                    this.nTi.onCompleted();
                 }
             }
         }

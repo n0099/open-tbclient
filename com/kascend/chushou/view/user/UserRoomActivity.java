@@ -17,9 +17,9 @@ public class UserRoomActivity extends BaseActivity {
     private TextView e;
     private String h;
     private String i;
-    private FrameLayout ndW;
-    private AnimationImageView nga;
-    private b ngb;
+    private FrameLayout neh;
+    private AnimationImageView ngl;
+    private b ngm;
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -31,10 +31,10 @@ public class UserRoomActivity extends BaseActivity {
     public void a() {
         setContentView(a.h.activity_my_room);
         this.a = findViewById(a.f.title_view);
-        this.ndW = (FrameLayout) findViewById(a.f.fragment_container);
+        this.neh = (FrameLayout) findViewById(a.f.fragment_container);
         this.b = findViewById(a.f.rl_empty);
         this.c = (ImageView) findViewById(a.f.iv_empty);
-        this.nga = (AnimationImageView) findViewById(a.f.iv_loading);
+        this.ngl = (AnimationImageView) findViewById(a.f.iv_loading);
         this.e = (TextView) findViewById(a.f.tv_empty);
     }
 
@@ -44,18 +44,18 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.dQp()) {
+        if (!tv.chushou.zues.utils.a.dQq()) {
             a_(3);
             return;
         }
         a_(1);
-        this.ngb = b.b(this.h, null, booleanExtra, this.i);
-        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.ngb).commitAllowingStateLoss();
+        this.ngm = b.b(this.h, null, booleanExtra, this.i);
+        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.ngm).commitAllowingStateLoss();
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     protected int y() {
-        tv.chushou.zues.utils.systemBar.b.aG(this);
+        tv.chushou.zues.utils.systemBar.b.aI(this);
         return 1;
     }
 
@@ -64,9 +64,9 @@ public class UserRoomActivity extends BaseActivity {
         switch (i) {
             case 1:
                 this.a.setVisibility(0);
-                this.ndW.setVisibility(8);
+                this.neh.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nga.setVisibility(0);
+                this.ngl.setVisibility(0);
                 this.c.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
@@ -75,18 +75,18 @@ public class UserRoomActivity extends BaseActivity {
                 return;
             case 3:
                 this.a.setVisibility(0);
-                this.ndW.setVisibility(8);
+                this.neh.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nga.setVisibility(8);
+                this.ngl.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_net_error);
                 this.e.setVisibility(8);
                 return;
             case 4:
                 this.a.setVisibility(0);
-                this.ndW.setVisibility(8);
+                this.neh.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nga.setVisibility(8);
+                this.ngl.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_unknown_error);
                 this.e.setVisibility(8);
@@ -97,6 +97,6 @@ public class UserRoomActivity extends BaseActivity {
     public void c() {
         this.a.setVisibility(8);
         this.b.setVisibility(8);
-        this.ndW.setVisibility(0);
+        this.neh.setVisibility(0);
     }
 }

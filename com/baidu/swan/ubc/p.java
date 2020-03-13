@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class p {
-    private String bxt;
-    private int cFd;
-    private JSONObject cFe;
-    private List<f> cFf = new ArrayList();
+    private String bxu;
+    private int cFe;
+    private JSONObject cFf;
+    private List<f> cFg = new ArrayList();
     private int mThreshold;
 
     public p(String str, JSONObject jSONObject) {
-        this.bxt = str;
-        this.cFe = jSONObject;
+        this.bxu = str;
+        this.cFf = jSONObject;
     }
 
     public String getSign() {
-        return this.bxt;
+        return this.bxu;
     }
 
     public int avL() {
@@ -28,18 +28,18 @@ public class p {
     }
 
     public int avM() {
-        return this.cFd;
+        return this.cFe;
     }
 
     public List<f> avN() {
-        return this.cFf;
+        return this.cFg;
     }
 
     public boolean avO() {
         try {
-            JSONObject jSONObject = this.cFe;
+            JSONObject jSONObject = this.cFf;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.cFd = jSONObject.getInt("timeup");
+            this.cFe = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -65,7 +65,7 @@ public class p {
                     if (jSONObject2.has("idtype")) {
                         fVar.qW(jSONObject2.getString("idtype"));
                     }
-                    this.cFf.add(fVar);
+                    this.cFg.add(fVar);
                 }
             }
             return true;

@@ -10,12 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    public static String aRh;
     public static String aRi;
     public static String aRj;
     public static String aRk;
     public static String aRl;
-    private static List<com.baidu.poly.a.g.a> aRm;
+    public static String aRm;
+    private static List<com.baidu.poly.a.g.a> aRn;
 
     /* loaded from: classes11.dex */
     static class a implements Runnable {
@@ -30,8 +30,8 @@ public class c {
 
     private static com.baidu.poly.a.a.c EH() {
         com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-        if (!TextUtils.isEmpty(aRh)) {
-            cVar.f(SM.COOKIE, "BDUSS=" + aRh);
+        if (!TextUtils.isEmpty(aRi)) {
+            cVar.f(SM.COOKIE, "BDUSS=" + aRi);
         }
         return cVar;
     }
@@ -41,32 +41,32 @@ public class c {
         bVar.f("dm", "cashier");
         bVar.f("os", PraiseDataPassUtil.KEY_FROM_OS);
         bVar.f("v", "2.6.0");
-        if (!TextUtils.isEmpty(aRl)) {
-            bVar.f("n", aRl);
-        }
-        if (!TextUtils.isEmpty(aRi)) {
-            bVar.f("d", aRi);
+        if (!TextUtils.isEmpty(aRm)) {
+            bVar.f("n", aRm);
         }
         if (!TextUtils.isEmpty(aRj)) {
-            bVar.f(SuspensionBallUbc.VALUE_DT, aRj);
+            bVar.f("d", aRj);
         }
         if (!TextUtils.isEmpty(aRk)) {
-            bVar.f("dp", aRk);
+            bVar.f(SuspensionBallUbc.VALUE_DT, aRk);
+        }
+        if (!TextUtils.isEmpty(aRl)) {
+            bVar.f("dp", aRl);
         }
         return bVar;
     }
 
     public static void a(com.baidu.poly.a.g.a aVar) {
-        if (aRm == null) {
-            aRm = new ArrayList();
+        if (aRn == null) {
+            aRn = new ArrayList();
         }
         if (aVar != null) {
-            aRm.add(aVar);
+            aRn.add(aVar);
         }
     }
 
     private static void clear() {
-        List<com.baidu.poly.a.g.a> list = aRm;
+        List<com.baidu.poly.a.g.a> list = aRn;
         if (list != null) {
             list.clear();
         }
@@ -75,11 +75,11 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void doFlush() {
         synchronized (c.class) {
-            List<com.baidu.poly.a.g.a> list = aRm;
+            List<com.baidu.poly.a.g.a> list = aRn;
             if (list != null && !list.isEmpty()) {
                 com.baidu.poly.a.a.b EI = EI();
                 JSONArray jSONArray = new JSONArray();
-                for (com.baidu.poly.a.g.a aVar : aRm) {
+                for (com.baidu.poly.a.g.a aVar : aRn) {
                     JSONObject EG = aVar.EG();
                     if (EG != null) {
                         jSONArray.put(EG);
@@ -97,11 +97,11 @@ public class c {
     }
 
     public static void o() {
-        aRh = null;
         aRi = null;
         aRj = null;
         aRk = null;
         aRl = null;
+        aRm = null;
     }
 
     public static void b(int i, String str) {

@@ -10,7 +10,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b implements a<PMSAppInfo> {
-    private static final int bsX = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    private static final int bsY = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
 
     public String atz() {
         return "swan_app";
@@ -42,7 +42,7 @@ public class b implements a<PMSAppInfo> {
 
     private void q(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL("ALTER TABLE " + atz() + " ADD pay_protected INTEGER default " + bsX + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            sQLiteDatabase.execSQL("ALTER TABLE " + atz() + " ADD pay_protected INTEGER default " + bsY + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         } catch (SQLException e) {
         }
     }

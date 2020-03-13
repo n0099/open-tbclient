@@ -46,12 +46,12 @@ public class b {
             com.baidu.swan.apps.ag.d.a.print("getDownloadKey, app.json is null");
             return null;
         }
-        SwanAppConfigData.f fVar = l.bPE;
+        SwanAppConfigData.f fVar = l.bPF;
         if (fVar == null) {
             com.baidu.swan.apps.ag.d.a.print("getDownloadKey, sub pkg obj is null");
             return null;
         }
-        HashMap<String, String> hashMap = fVar.bQb;
+        HashMap<String, String> hashMap = fVar.bQc;
         if (hashMap == null) {
             com.baidu.swan.apps.ag.d.a.print("getDownloadKey, sub pkg map is null");
             return null;
@@ -80,7 +80,7 @@ public class b {
         JSONArray jSONArray = new JSONArray();
         for (com.baidu.swan.apps.ag.f.a aVar : gl) {
             if (aVar != null && aVar.isValid()) {
-                jSONArray.put(aVar.bIN);
+                jSONArray.put(aVar.bIO);
             }
         }
         String jSONArray2 = jSONArray.toString();
@@ -120,7 +120,7 @@ public class b {
                         String optString = optJSONObject.optString("plugin_id");
                         if (!TextUtils.isEmpty(optString)) {
                             h hVar = new h();
-                            hVar.cAY = optString;
+                            hVar.cAZ = optString;
                             hVar.versionCode = optJSONObject.optInt("version_code");
                             hVar.versionName = optJSONObject.optString(SharedPrefConfig.VERSION_NAME, "0.0.0");
                             hVar.token = optJSONObject.optString("token");
@@ -158,11 +158,11 @@ public class b {
                 return null;
             }
             SwanAppConfigData acL = acF.acL();
-            if (acL == null || (list = acL.bPL) == null) {
+            if (acL == null || (list = acL.bPM) == null) {
                 return null;
             }
             for (h hVar : list) {
-                if (TextUtils.equals(str, hVar.cAY)) {
+                if (TextUtils.equals(str, hVar.cAZ)) {
                     return hVar;
                 }
             }
@@ -177,7 +177,7 @@ public class b {
         if (TextUtils.isEmpty(string)) {
             SwanAppConfigData acL = acF != null ? acF.acL() : null;
             if (acL == null && aVar != null) {
-                acL = aVar.bIh;
+                acL = aVar.bIi;
             }
             if (i == 3) {
                 return com.baidu.swan.apps.ag.b.b.a(acL, false);

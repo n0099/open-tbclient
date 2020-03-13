@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bgK;
+    private String bgL;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
@@ -22,7 +22,7 @@ public class j extends a {
     private int mY;
 
     public j(String str) {
-        this.bgK = str;
+        this.bgL = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
@@ -31,7 +31,7 @@ public class j extends a {
 
     public boolean Kt() {
         try {
-            JSONObject jSONObject = new JSONObject(this.bgK);
+            JSONObject jSONObject = new JSONObject(this.bgL);
             this.mX = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             this.mY = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("y"));
             this.mWidth = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("width"));

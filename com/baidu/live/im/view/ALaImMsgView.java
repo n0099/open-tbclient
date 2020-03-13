@@ -15,71 +15,71 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ALaImMsgView extends RelativeLayout implements h {
-    private static final int auy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds340);
-    private static final int auz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds154);
-    private boolean asM;
-    private ALAImEnterView auA;
-    private ALAImMsgListView auB;
-    private ALAImMsgMoreChatView auC;
-    private boolean auD;
+    private boolean asN;
+    private ALAImEnterView auB;
+    private ALAImMsgListView auC;
+    private ALAImMsgMoreChatView auD;
     private boolean auE;
+    private boolean auF;
+    private static final int auz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds340);
+    private static final int auA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds154);
 
     public ALaImMsgView(Context context) {
         super(context);
-        this.auD = false;
         this.auE = false;
+        this.auF = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.auD = false;
         this.auE = false;
+        this.auF = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.auD = false;
         this.auE = false;
+        this.auF = false;
         init(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.auB.setPageContext(tbPageContext);
+        this.auC.setPageContext(tbPageContext);
     }
 
     private void init(Context context) {
-        this.auA = new ALAImEnterView(context);
+        this.auB = new ALAImEnterView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(a.e.sdk_ds52));
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-        addView(this.auA, layoutParams);
-        this.auB = new ALAImMsgListView(context);
-        this.auB.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
+        addView(this.auB, layoutParams);
+        this.auC = new ALAImMsgListView(context);
+        this.auC.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
             @Override // com.baidu.live.im.view.ALAImMsgListView.a
             public void xM() {
-                ALaImMsgView.this.auC.setVisibility(8);
+                ALaImMsgView.this.auD.setVisibility(8);
             }
         });
-        this.auB.setId(a.g.ala_im_normal_panel);
+        this.auC.setId(a.g.ala_im_normal_panel);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds80);
         layoutParams2.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
         layoutParams2.addRule(12);
-        addView(this.auB, layoutParams2);
-        this.auC = new ALAImMsgMoreChatView(context);
+        addView(this.auC, layoutParams2);
+        this.auD = new ALAImMsgMoreChatView(context);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(context.getResources().getDimensionPixelSize(a.e.sdk_ds236), context.getResources().getDimensionPixelSize(a.e.sdk_ds60));
         layoutParams3.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds20);
         layoutParams3.addRule(12);
-        addView(this.auC, layoutParams3);
-        this.auC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
+        addView(this.auD, layoutParams3);
+        this.auD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!ALaImMsgView.this.auD) {
-                    if (!ALaImMsgView.this.auE) {
-                        ALaImMsgView.this.auE = false;
-                        ALaImMsgView.this.auC.setVisibility(8);
-                        ALaImMsgView.this.auB.xK();
+                if (!ALaImMsgView.this.auE) {
+                    if (!ALaImMsgView.this.auF) {
+                        ALaImMsgView.this.auF = false;
+                        ALaImMsgView.this.auD.setVisibility(8);
+                        ALaImMsgView.this.auC.xK();
                         return;
                     }
                     return;
@@ -90,7 +90,7 @@ public class ALaImMsgView extends RelativeLayout implements h {
     }
 
     public void setMode(boolean z) {
-        this.auB.setMode(z);
+        this.auC.setMode(z);
     }
 
     @Override // android.view.View
@@ -98,9 +98,9 @@ public class ALaImMsgView extends RelativeLayout implements h {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.auB.setMaxHeight(Integer.MAX_VALUE);
+                this.auC.setMaxHeight(Integer.MAX_VALUE);
             } else if (configuration.orientation == 1) {
-                this.auB.setMaxHeight(Integer.MAX_VALUE);
+                this.auC.setMaxHeight(Integer.MAX_VALUE);
             }
         }
     }
@@ -112,71 +112,71 @@ public class ALaImMsgView extends RelativeLayout implements h {
 
     @Override // com.baidu.live.im.h
     public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        this.auB.setMsgData(list);
+        this.auC.setMsgData(list);
     }
 
     public boolean G(List<com.baidu.live.im.data.a> list) {
-        return list.size() != this.auB.getData().size();
+        return list.size() != this.auC.getData().size();
     }
 
     public void s(com.baidu.live.im.data.a aVar) {
-        this.auA.r(aVar);
+        this.auB.r(aVar);
     }
 
     @Override // com.baidu.live.im.h
     public void wp() {
-        this.auB.wp();
+        this.auC.wp();
     }
 
     public void wL() {
-        this.auA.wL();
         this.auB.wL();
+        this.auC.wL();
     }
 
     public void xL() {
-        this.auA.release();
-        this.auB.xL();
-        this.auC.setVisibility(8);
+        this.auB.release();
+        this.auC.xL();
+        this.auD.setVisibility(8);
     }
 
     @Override // com.baidu.live.im.h
     public void a(String str, String str2, boolean z, String str3) {
-        this.auB.a(str, str2, z, str3);
+        this.auC.a(str, str2, z, str3);
     }
 
     @Override // com.baidu.live.im.h
     public void setNeedTopAlphaShade(boolean z) {
-        this.auB.setNeedTopAlphaShade(z);
+        this.auC.setNeedTopAlphaShade(z);
     }
 
     @Override // com.baidu.live.im.h
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.auD = z;
+        this.auE = z;
     }
 
     public void setFromMaster(boolean z) {
-        this.asM = z;
-        if (this.auB != null) {
-            this.auB.setFromMaster(this.asM);
+        this.asN = z;
+        if (this.auC != null) {
+            this.auC.setFromMaster(this.asN);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.auD) {
-                this.auE = true;
+            if (this.auE) {
+                this.auF = true;
                 BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
             } else {
-                this.auE = false;
+                this.auF = false;
             }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void xX() {
-        if (this.auB.xI()) {
-            this.auC.setVisibility(0);
+        if (this.auC.xI()) {
+            this.auD.setVisibility(0);
         }
     }
 }

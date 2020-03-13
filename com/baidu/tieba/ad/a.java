@@ -17,16 +17,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class a implements h {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a dYy = new a();
+    private static a dYL = new a();
     private final List<h.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, h.b> mHandlers = new ConcurrentHashMap<>();
-    private h.c dYz = null;
+    private h.c dYM = null;
 
     private a() {
     }
 
-    public static a aXZ() {
-        return dYy;
+    public static a aYa() {
+        return dYL;
     }
 
     public void a(final h.a aVar) {
@@ -50,7 +50,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.dYz = cVar;
+        this.dYM = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -79,7 +79,7 @@ public final class a implements h {
         String str2 = strArr[0];
         h.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.j(context, getInnerParamPair(wR(str2)));
+            bVar.j(context, getInnerParamPair(wS(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -94,7 +94,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.dYz != null) {
+        if (!z3 && this.dYM != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,7 +105,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String wR(String str) {
+    private String wS(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -154,12 +154,12 @@ public final class a implements h {
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.dYz.b(context, str, str2, z, dVar, z2);
+            this.dYM.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean wS(String str) {
+    public boolean wT(String str) {
         return pattern.matcher(str).find();
     }
 }

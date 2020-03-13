@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes10.dex */
 public class l extends BaseAdapter {
-    private String[] hxe;
-    private GroupAddressEditActivity hxg;
+    private String[] hxq;
+    private GroupAddressEditActivity hxs;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.hxe = null;
-        this.hxg = null;
-        this.hxg = groupAddressEditActivity;
-        this.hxe = strArr;
+        this.hxq = null;
+        this.hxs = null;
+        this.hxs = groupAddressEditActivity;
+        this.hxq = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hxe != null) {
-            return this.hxe.length;
+        if (this.hxq != null) {
+            return this.hxq.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.hxe == null || i <= -1 || i >= this.hxe.length) ? "" : this.hxe[i];
+        return (this.hxq == null || i <= -1 || i >= this.hxq.length) ? "" : this.hxq[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,13 +38,13 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.hxg);
-            view = aVar.bgF();
+            aVar = new a(this.hxs);
+            view = aVar.bgG();
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.CC(getItem(i).toString());
-        if (this.hxg.bTQ() == i) {
+        aVar.CD(getItem(i).toString());
+        if (this.hxs.bTR() == i) {
             aVar.nm(true);
         } else {
             aVar.nm(false);
@@ -54,7 +54,7 @@ public class l extends BaseAdapter {
     }
 
     private void bX(View view) {
-        this.hxg.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hxg.getLayoutMode().onModeChanged(view);
+        this.hxs.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.hxs.getLayoutMode().onModeChanged(view);
     }
 }

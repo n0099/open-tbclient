@@ -30,7 +30,7 @@ public class HeadPendantClickableView extends HeadPendantView {
             public void onClick(View view) {
                 if (HeadPendantClickableView.this.KJ != null && HeadPendantClickableView.this.KJ.aCo() != null && !StringUtils.isNull(HeadPendantClickableView.this.KJ.aCo().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.KJ.aCo().getUserId())) {
                     String str = "";
-                    if (!HeadPendantClickableView.this.KJ.cUr) {
+                    if (!HeadPendantClickableView.this.KJ.cUs) {
                         if (!HeadPendantClickableView.this.KJ.aEb()) {
                             if (HeadPendantClickableView.this.KJ.aEc()) {
                                 str = AddFriendActivityConfig.TYPE_FRS_HEAD;
@@ -66,7 +66,7 @@ public class HeadPendantClickableView extends HeadPendantView {
             public void onClick(View view) {
                 if (HeadPendantClickableView.this.KJ != null && HeadPendantClickableView.this.KJ.aCo() != null && !StringUtils.isNull(HeadPendantClickableView.this.KJ.aCo().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.KJ.aCo().getUserId())) {
                     String str = "";
-                    if (!HeadPendantClickableView.this.KJ.cUr) {
+                    if (!HeadPendantClickableView.this.KJ.cUs) {
                         if (!HeadPendantClickableView.this.KJ.aEb()) {
                             if (HeadPendantClickableView.this.KJ.aEc()) {
                                 str = AddFriendActivityConfig.TYPE_FRS_HEAD;

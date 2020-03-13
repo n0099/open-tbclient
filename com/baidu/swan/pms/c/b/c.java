@@ -22,15 +22,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.c cVar) {
-        this.cBm.Pm();
+        this.cBn.Pm();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.cBX, eVar);
+        a(cVar.cBY, eVar);
         if (eVar.aut() == 0) {
-            this.cBm.Pi();
+            this.cBn.Pi();
             return null;
         }
-        this.cBm.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.cBm);
+        this.cBn.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.cBn);
         return null;
     }
 
@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
         if (cVar == null) {
             return false;
         }
-        return cVar.cBX == null || cVar.cBX.PU();
+        return cVar.cBY == null || cVar.cBY.PU();
     }
 
     @Override // com.baidu.swan.pms.c.d

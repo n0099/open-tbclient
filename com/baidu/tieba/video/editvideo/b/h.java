@@ -10,8 +10,8 @@ import com.faceunity.wrapper.faceunity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class h implements SurfaceTexture.OnFrameAvailableListener {
-    private com.faceunity.gles.c kwZ;
-    private com.faceunity.gles.c kxa;
+    private com.faceunity.gles.c kxl;
+    private com.faceunity.gles.c kxm;
     private Context mContext;
     private String mFilterValue;
     private boolean mFrameAvailable;
@@ -37,10 +37,10 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     private void setup() {
-        this.kwZ = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.kxl = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         Log.d("OutputSurface", "onSurfaceCreated: ");
-        this.kxa = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-        this.mTextureId = this.kxa.createTextureObject();
+        this.kxm = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+        this.mTextureId = this.kxm.createTextureObject();
         this.mSurfaceTexture = new SurfaceTexture(this.mTextureId);
         this.mSurface = new Surface(this.mSurfaceTexture);
         mFacebeautyItem = com.faceunity.a.gp(this.mContext);
@@ -52,9 +52,9 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
         this.mSurface.release();
         this.mSurface = null;
         this.mSurfaceTexture = null;
-        if (this.kwZ != null) {
-            this.kwZ.release(false);
-            this.kwZ = null;
+        if (this.kxl != null) {
+            this.kxl.release(false);
+            this.kxl = null;
         }
         faceunity.fuDestroyItem(mEffectItem);
         int[] iArr = itemsArray;
@@ -73,7 +73,7 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
         faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.mFilterValue);
         faceunity.fuItemSetParam(mFacebeautyItem, "eye_bright", 0.0d);
         faceunity.fuItemSetParam(mFacebeautyItem, "tooth_whiten", 0.0d);
-        this.kwZ.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
+        this.kxl.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
     }
 
     public Surface getSurface() {

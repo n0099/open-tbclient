@@ -5,9 +5,9 @@ public interface a {
 
     void Gi();
 
-    boolean dQN();
-
     boolean dQO();
+
+    boolean dQP();
 
     boolean isVisible();
 }

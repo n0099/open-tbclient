@@ -21,7 +21,7 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nwt.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.dJh(), this.delayError));
+        this.nwE.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.dJi(), this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -93,16 +93,16 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
         final class RunnableC0763b implements Runnable {
-            private final Throwable nwL;
+            private final Throwable nwW;
 
             RunnableC0763b(Throwable th) {
-                this.nwL = th;
+                this.nwW = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    a.this.actual.onError(this.nwL);
+                    a.this.actual.onError(this.nwW);
                 } finally {
                     a.this.w.dispose();
                 }

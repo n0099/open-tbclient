@@ -21,14 +21,14 @@ import com.baidu.swan.games.u.d;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.framework.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long coj;
+    private long cok;
 
     public b(SwanAppActivity swanAppActivity, String str) {
         super(swanAppActivity, str);
     }
 
     @Override // com.baidu.swan.apps.framework.c
-    protected void l(boolean z, boolean z2) {
+    protected void m(boolean z, boolean z2) {
         if (z) {
             SM();
             if (z2) {
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.framework.c {
 
     @Override // com.baidu.swan.apps.framework.c
     protected void St() {
-        f.WS().cg(this.biK);
+        f.WS().cg(this.biL);
     }
 
     @Override // com.baidu.swan.apps.framework.c
@@ -76,7 +76,7 @@ public class b extends com.baidu.swan.apps.framework.c {
     protected void onDestroy() {
         h.release();
         d.b(RGState.METHOD_NAME_EXIT, GE());
-        f.WS().ch(this.biK);
+        f.WS().ch(this.biL);
         f.release();
         com.baidu.swan.games.z.a.apS().release();
         SwanInspectorEndpoint.aoF().close();
@@ -105,7 +105,7 @@ public class b extends com.baidu.swan.apps.framework.c {
                 }
             });
             if (a.anY().aoc() && a.anY().aoe()) {
-                a.anY().l(this.biK);
+                a.anY().l(this.biL);
             }
         }
     }
@@ -135,8 +135,8 @@ public class b extends com.baidu.swan.apps.framework.c {
                     case 102:
                         boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState();
                         com.baidu.swan.apps.w.a.Us().bU(nightModeSwitcherState);
-                        if (b.this.biK != null) {
-                            b.this.biK.i(nightModeSwitcherState, false);
+                        if (b.this.biL != null) {
+                            b.this.biL.j(nightModeSwitcherState, false);
                             return true;
                         }
                         return true;
@@ -170,11 +170,11 @@ public class b extends com.baidu.swan.apps.framework.c {
 
     @Override // com.baidu.swan.apps.framework.c
     public void onBackPressed() {
-        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bvx.Oq());
+        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bvy.Oq());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "back";
         a(fVar);
-        com.baidu.swan.apps.core.d.b On = this.bvx.On();
+        com.baidu.swan.apps.core.d.b On = this.bvy.On();
         if (On == null || !On.IK()) {
             if (SU()) {
                 e acF = e.acF();
@@ -184,7 +184,7 @@ public class b extends com.baidu.swan.apps.framework.c {
                 d.b("back", GE());
                 return;
             }
-            this.bvx.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boh, com.baidu.swan.apps.core.d.e.bog).Ov().commit();
+            this.bvy.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boi, com.baidu.swan.apps.core.d.e.boh).Ov().commit();
         }
     }
 
@@ -194,22 +194,22 @@ public class b extends com.baidu.swan.apps.framework.c {
     }
 
     private void kY() {
-        this.coj = 0L;
+        this.cok = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.framework.c
     public void SV() {
         super.SV();
-        a.anY().aa(this.biK);
+        a.anY().aa(this.biL);
     }
 
     public boolean aoj() {
-        return this.coj > 0;
+        return this.cok > 0;
     }
 
     public long aok() {
-        return this.coj;
+        return this.cok;
     }
 
     public void onFirstFrameFinished() {
@@ -219,9 +219,9 @@ public class b extends com.baidu.swan.apps.framework.c {
                 if (b.DEBUG) {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime SwanGamePreloadManager onFirstFrameFinished");
                 }
-                b.this.coj = System.currentTimeMillis();
+                b.this.cok = System.currentTimeMillis();
                 d.d(b.this.GE());
-                b.this.biK.GI();
+                b.this.biL.GI();
                 com.baidu.swan.apps.performance.f.bd("preload", "startup");
                 int Pg = a.anY().Pg();
                 HybridUbcFlow jP = com.baidu.swan.apps.performance.f.jP("startup");

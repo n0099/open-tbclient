@@ -12,12 +12,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bEK;
+    protected String bEL;
 
     public abstract boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public g(@NonNull String str) {
-        this.bEK = str;
+        this.bEL = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {

@@ -14,7 +14,7 @@ import java.util.Arrays;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] cde = {"BLA-AL00", "R7Plus"};
+    private static final String[] cdf = {"BLA-AL00", "R7Plus"};
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -56,7 +56,7 @@ public class b {
     }
 
     public static void dj(Context context) {
-        if (!Arrays.asList(cde).contains(Build.MODEL)) {
+        if (!Arrays.asList(cdf).contains(Build.MODEL)) {
             Intent intent = new Intent();
             intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
             if (Build.VERSION.SDK_INT >= 26) {

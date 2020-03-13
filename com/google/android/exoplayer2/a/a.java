@@ -7,15 +7,15 @@ public abstract class a {
         this.flags = 0;
     }
 
-    public final boolean dut() {
+    public final boolean duu() {
         return Jn(Integer.MIN_VALUE);
     }
 
-    public final boolean duu() {
+    public final boolean duv() {
         return Jn(4);
     }
 
-    public final boolean duv() {
+    public final boolean duw() {
         return Jn(1);
     }
 

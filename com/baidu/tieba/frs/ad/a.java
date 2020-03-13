@@ -10,47 +10,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private FrsADFragment gsP;
-    private BdTypeRecyclerView gsQ;
-    private d gsR;
-    private m gsS;
+    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
+    private FrsADFragment gtc;
+    private BdTypeRecyclerView gtd;
+    private d gte;
+    private m gtf;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gsP = frsADFragment;
-        this.gsQ = bdTypeRecyclerView;
+        this.gtc = frsADFragment;
+        this.gtd = bdTypeRecyclerView;
         wM();
     }
 
     private void wM() {
-        this.gsR = new d(this.gsP.getPageContext(), c.gtf, this.gsP.getUniqueId());
-        this.gsS = new m(this.gsP.getPageContext(), n.gra);
-        this.asE.add(this.gsR);
-        this.asE.add(this.gsS);
-        bFU();
-        this.gsQ.addAdapters(this.asE);
+        this.gte = new d(this.gtc.getPageContext(), c.gts, this.gtc.getUniqueId());
+        this.gtf = new m(this.gtc.getPageContext(), n.grn);
+        this.asF.add(this.gte);
+        this.asF.add(this.gtf);
+        bFV();
+        this.gtd.addAdapters(this.asF);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.gsQ.setData(arrayList);
+        this.gtd.setData(arrayList);
     }
 
-    private void bFU() {
-        if (!v.isEmpty(this.asE) && this.gsP != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
+    private void bFV() {
+        if (!v.isEmpty(this.asF) && this.gtc != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
                 if (aVar instanceof h) {
-                    ((h) aVar).a(this.gsP.getTbPageTag());
+                    ((h) aVar).a(this.gtc.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.gsQ.getAdapter().notifyDataSetChanged();
+        this.gtd.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
             if (aVar instanceof h) {
                 ((h) aVar).release();
             }
@@ -58,8 +58,8 @@ public class a {
     }
 
     public void a(s sVar) {
-        if (this.asE != null && this.asE.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.asE) {
+        if (this.asF != null && this.asF.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
                 if (aVar != null && (aVar instanceof h)) {
                     aVar.a(sVar);
                 }

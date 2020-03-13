@@ -4,13 +4,13 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class a {
-    private a bXE = null;
-    private long bXF = 0;
+    private a bXF = null;
     private long bXG = 0;
-    private long bXH = 2;
+    private long bXH = 0;
+    private long bXI = 2;
     private String mDesc = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean bXI = false;
+    private boolean bXJ = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
@@ -29,30 +29,30 @@ public final class a {
     }
 
     public a aH(long j) {
-        this.bXH = a(j, 9L, "platform");
+        this.bXI = a(j, 9L, "platform");
         return this;
     }
 
     public long agf() {
-        return this.bXH;
+        return this.bXI;
     }
 
     public a aI(long j) {
-        this.bXF = a(j, 999L, "feature");
+        this.bXG = a(j, 999L, "feature");
         return this;
     }
 
     public long agg() {
-        return this.bXF;
+        return this.bXG;
     }
 
     public a aJ(long j) {
-        this.bXG = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+        this.bXH = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
     public long agh() {
-        return this.bXG;
+        return this.bXH;
     }
 
     public a my(String str) {
@@ -89,11 +89,11 @@ public final class a {
     }
 
     public boolean agl() {
-        return this.bXI;
+        return this.bXJ;
     }
 
     public void agm() {
-        this.bXI = true;
+        this.bXJ = true;
     }
 
     private long a(long j, long j2, String str) {

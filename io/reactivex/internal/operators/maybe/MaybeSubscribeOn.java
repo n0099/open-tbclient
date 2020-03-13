@@ -19,17 +19,17 @@ public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.m
 
     /* loaded from: classes7.dex */
     static final class a<T> implements Runnable {
-        final m<? super T> nxI;
+        final m<? super T> nxT;
         final o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.nxI = mVar;
+            this.nxT = mVar;
             this.source = oVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.source.a(this.nxI);
+            this.source.a(this.nxT);
         }
     }
 

@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tieba.ala.person.adapter.a;
 /* loaded from: classes3.dex */
 public abstract class c {
-    protected a.InterfaceC0473a fqu;
-    protected a.c fqv;
-    protected a.b fqw;
+    protected a.InterfaceC0473a fqH;
+    protected a.c fqI;
+    protected a.b fqJ;
     protected int mFromType;
     protected View mRootView;
 
@@ -28,14 +28,14 @@ public abstract class c {
     }
 
     public void a(a.InterfaceC0473a interfaceC0473a) {
-        this.fqu = interfaceC0473a;
+        this.fqH = interfaceC0473a;
     }
 
     public void a(a.c cVar) {
-        this.fqv = cVar;
+        this.fqI = cVar;
     }
 
     public void a(a.b bVar) {
-        this.fqw = bVar;
+        this.fqJ = bVar;
     }
 }

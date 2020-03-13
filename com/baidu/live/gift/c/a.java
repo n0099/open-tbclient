@@ -12,16 +12,16 @@ import com.baidu.live.utils.q;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private c.a aoa;
-    private HttpMessageListener aob;
+    private c.a aob;
     private HttpMessageListener aoc;
+    private HttpMessageListener aod;
 
     public a() {
         registerListener();
     }
 
     public void a(c.a aVar) {
-        this.aoa = aVar;
+        this.aob = aVar;
     }
 
     @Override // com.baidu.live.gift.c.c
@@ -49,7 +49,7 @@ public class a implements c {
 
     @Override // com.baidu.live.gift.c.c
     public void release() {
-        this.aoa = null;
+        this.aob = null;
         unregisterListener();
     }
 
@@ -59,39 +59,39 @@ public class a implements c {
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aob);
         MessageManager.getInstance().unRegisterListener(this.aoc);
+        MessageManager.getInstance().unRegisterListener(this.aod);
     }
 
     private void uO() {
-        this.aob = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
+        this.aoc = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.aoa != null) {
-                        a.this.aoa.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.uG(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.uH());
-                    }
-                }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.aob);
-    }
-
-    private void uP() {
-        this.aoc = new HttpMessageListener(1021151) { // from class: com.baidu.live.gift.c.a.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
-                    GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.aoa != null) {
-                        a.this.aoa.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.anS, giftPackageConsumeHttpResponsedMessage.anT);
+                    if (a.this.aob != null) {
+                        a.this.aob.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.uG(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.uH());
                     }
                 }
             }
         };
         MessageManager.getInstance().registerListener(this.aoc);
+    }
+
+    private void uP() {
+        this.aod = new HttpMessageListener(1021151) { // from class: com.baidu.live.gift.c.a.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
+                    GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
+                    if (a.this.aob != null) {
+                        a.this.aob.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.anT, giftPackageConsumeHttpResponsedMessage.anU);
+                    }
+                }
+            }
+        };
+        MessageManager.getInstance().registerListener(this.aod);
     }
 }

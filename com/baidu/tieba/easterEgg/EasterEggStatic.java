@@ -12,17 +12,17 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class EasterEggStatic {
     static {
-        bxg();
         bxh();
+        bxi();
     }
 
-    private static void bxg() {
+    private static void bxh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RN_SYNC, TbConfig.SERVER_ADDRESS + TbConfig.GET_RN_SYNC_ADDRESS);
         tbHttpMessageTask.setResponsedClass(RnSyncResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bxh() {
+    private static void bxi() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.easterEgg.EasterEggStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

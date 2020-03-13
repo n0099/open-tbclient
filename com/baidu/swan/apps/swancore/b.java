@@ -58,9 +58,9 @@ public final class b {
             return aF(swanCoreVersion.swanCoreVersion);
         }
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + com.baidu.swan.apps.swancore.d.a.gH(i).bWe);
+            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + com.baidu.swan.apps.swancore.d.a.gH(i).bWf);
         }
-        return com.baidu.swan.apps.swancore.d.a.gH(i).bWe;
+        return com.baidu.swan.apps.swancore.d.a.gH(i).bWf;
     }
 
     public static SwanCoreVersion gz(int i) {

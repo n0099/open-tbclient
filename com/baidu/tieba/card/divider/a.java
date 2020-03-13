@@ -28,10 +28,10 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.bvK() == null) {
+        if (aVar == null || aVar.bvL() == null) {
             return null;
         }
-        aVar.bvK().a(bVar);
+        aVar.bvL().a(bVar);
         return aVar.getView();
     }
 }

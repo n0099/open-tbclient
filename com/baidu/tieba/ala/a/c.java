@@ -32,11 +32,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends d {
-    private a exQ;
-    private e exR;
-    private ArrayList<e> exS;
-    private RelativeLayout exw;
-    private TextView exx;
+    private RelativeLayout exJ;
+    private TextView exK;
+    private a eyd;
+    private e eyf;
+    private ArrayList<e> eyg;
     private BdListView mListView;
 
     public c(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -50,24 +50,24 @@ public class c extends d {
 
     @Override // com.baidu.tieba.ala.a.d
     protected void initView() {
-        this.exw = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.exw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
+        this.exJ = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.exJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bby();
+                c.this.bbz();
             }
         });
-        this.exx = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.exx.setText(a.i.sdk_choose_custom_number_tip);
+        this.exK = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.exK.setText(a.i.sdk_choose_custom_number_tip);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.a.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < c.this.exS.size()) {
-                    c.this.exR = (e) c.this.exS.get(i);
-                    if (c.this.exR != null) {
-                        c.this.exX = c.this.exR.getNumber();
-                        c.this.exQ.pg(c.this.exX);
+                if (i >= 0 && i < c.this.eyg.size()) {
+                    c.this.eyf = (e) c.this.eyg.get(i);
+                    if (c.this.eyf != null) {
+                        c.this.eyl = c.this.eyf.getNumber();
+                        c.this.eyd.pg(c.this.eyl);
                     }
                 }
             }
@@ -97,32 +97,32 @@ public class c extends d {
 
     private void d(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         if (alaSdkGetGiftListHttpResponseMessage != null) {
-            this.exS = alaSdkGetGiftListHttpResponseMessage.uH();
+            this.eyg = alaSdkGetGiftListHttpResponseMessage.uH();
         }
-        if (ListUtils.isEmpty(this.exS)) {
-            beb();
+        if (ListUtils.isEmpty(this.eyg)) {
+            bec();
         }
-        if (this.exX > 0) {
-            Iterator<e> it = this.exS.iterator();
+        if (this.eyl > 0) {
+            Iterator<e> it = this.eyg.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 e next = it.next();
-                if (next != null && this.exX == next.getNumber()) {
-                    this.exR = next;
+                if (next != null && this.eyl == next.getNumber()) {
+                    this.eyf = next;
                     break;
                 }
             }
         }
-        this.exQ = new a(this.exU.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.exQ);
-        this.exQ.setGiftNum(this.exX);
-        this.exQ.setData(this.exS);
+        this.eyd = new a(this.eyi.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.eyd);
+        this.eyd.setGiftNum(this.eyl);
+        this.eyd.setData(this.eyg);
     }
 
-    private void beb() {
-        this.exS = new ArrayList<>();
+    private void bec() {
+        this.eyg = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             e eVar = new e();
             switch (i) {
@@ -151,16 +151,16 @@ public class c extends d {
                     eVar.name = "一生一世";
                     break;
             }
-            this.exS.add(eVar);
+            this.eyg.add(eVar);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.d
     public void confirm() {
-        if (this.exR != null) {
-            f(this.exR.number, this.exR.name, false);
+        if (this.eyf != null) {
+            f(this.eyf.number, this.eyf.name, false);
         } else {
-            this.exU.finish();
+            this.eyi.finish();
         }
     }
 
@@ -174,10 +174,10 @@ public class c extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 9999) {
-            this.egL.getEditView().setText("9999");
-            this.egL.getEditView().setSelection(this.egL.getEditView().getText().length());
+            this.egY.getEditView().setText("9999");
+            this.egY.getEditView().setSelection(this.egY.getEditView().getText().length());
         }
-        this.egL.setSendEnabled(true);
+        this.egY.setSendEnabled(true);
     }
 
     private void f(int i, String str, boolean z) {
@@ -191,8 +191,8 @@ public class c extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.exU.setResult(-1, intent);
-        this.exU.finish();
+        this.eyi.setResult(-1, intent);
+        this.eyi.finish();
     }
 
     @Override // com.baidu.tieba.ala.a.d
@@ -256,9 +256,9 @@ public class c extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.exE = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.exF = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.exG = (ImageView) view.findViewById(a.g.item_num_arrow);
+                bVar2.exR = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.exS = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.exT = (ImageView) view.findViewById(a.g.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -266,11 +266,11 @@ public class c extends d {
             }
             e item = getItem(i);
             if (item != null) {
-                bVar.exF.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
+                bVar.exS.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
                 if (item.getNumber() == this.mGiftNum) {
-                    bVar.exG.setVisibility(0);
+                    bVar.exT.setVisibility(0);
                 } else {
-                    bVar.exG.setVisibility(8);
+                    bVar.exT.setVisibility(8);
                 }
             }
             return view;
@@ -279,9 +279,9 @@ public class c extends d {
 
     /* loaded from: classes3.dex */
     private class b {
-        public RelativeLayout exE;
-        public TextView exF;
-        public ImageView exG;
+        public RelativeLayout exR;
+        public TextView exS;
+        public ImageView exT;
 
         private b() {
         }

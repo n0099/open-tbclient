@@ -11,16 +11,16 @@ public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.e.b cka;
+    private com.baidu.swan.games.e.b ckb;
 
     public e(com.baidu.swan.games.e.b bVar) {
-        this.cka = bVar;
+        this.ckb = bVar;
         aoZ();
         apa();
     }
 
     private boolean aoZ() {
-        return bS(this.cka.getInitBasePath(), "swan-game-open-data.js");
+        return bS(this.ckb.getInitBasePath(), "swan-game-open-data.js");
     }
 
     private boolean apa() {
@@ -35,19 +35,19 @@ public class e {
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.cka.anu().anG();
+        this.ckb.anu().anG();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.cka.anx().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.ckb.anx().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean bS(String str, String str2) {
         if (!f.apb().apc() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.cka.anu().bF(str, str2);
+        this.ckb.anu().bF(str, str2);
         return true;
     }
 }

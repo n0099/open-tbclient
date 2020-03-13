@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cmE;
+    private static volatile d cmF;
     private final Lock mLock = new ReentrantLock();
     private ArrayList<j> mListeners = new ArrayList<>();
 
@@ -14,14 +14,14 @@ public final class d {
     }
 
     public static d anC() {
-        if (cmE == null) {
+        if (cmF == null) {
             synchronized (d.class) {
-                if (cmE == null) {
-                    cmE = new d();
+                if (cmF == null) {
+                    cmF = new d();
                 }
             }
         }
-        return cmE;
+        return cmF;
     }
 
     private Object[] anD() {

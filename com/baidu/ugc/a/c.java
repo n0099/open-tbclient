@@ -15,15 +15,15 @@ public interface c {
 
     void a(Context context, String str, RequestOptions requestOptions, ImageView imageView);
 
-    String cSD();
+    String cSA();
 
-    void cSE();
+    String cSE();
 
-    String cSF();
+    void cSF();
 
-    void cSG();
+    String cSG();
 
-    String cSz();
+    void cSH();
 
     void e(Context context, int i, String str);
 

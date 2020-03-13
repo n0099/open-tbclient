@@ -88,32 +88,32 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     private String S;
     private ImageView Z;
     private String ab;
-    private String mPC;
-    private FrescoThumbnailView mPD;
-    private FrameLayout mPE;
-    public com.kascend.chushou.player.feedback.a mPM;
-    private a mPO;
-    private CSTVWifiReceiver mPP;
-    private c mPj;
-    b mPo;
-    public PrivilegeInfo mPp;
-    com.kascend.chushou.widget.a.b mPt;
-    private KPSwitchRootRelativeLayout mPv;
-    private FrameLayout mPw;
-    private LinearLayout mPx;
-    private com.kascend.chushou.toolkit.d mPy;
-    com.kascend.chushou.view.b.a.a mPz;
+    public PrivilegeInfo mPA;
+    com.kascend.chushou.widget.a.b mPE;
+    private KPSwitchRootRelativeLayout mPG;
+    private FrameLayout mPH;
+    private LinearLayout mPI;
+    private com.kascend.chushou.toolkit.d mPJ;
+    com.kascend.chushou.view.b.a.a mPK;
+    private String mPN;
+    private FrescoThumbnailView mPO;
+    private FrameLayout mPP;
+    public com.kascend.chushou.player.feedback.a mPX;
+    private a mPZ;
+    private c mPw;
+    b mPz;
+    private CSTVWifiReceiver mQa;
     private boolean B = true;
     private boolean C = false;
-    private Uri mPf = null;
-    private tv.chushou.common.player.a mPg = null;
-    public tv.chushou.common.player.a mPh = null;
-    public tv.chushou.common.player.a mPi = null;
+    private Uri mPs = null;
+    private tv.chushou.common.player.a mPt = null;
+    public tv.chushou.common.player.a mPu = null;
+    public tv.chushou.common.player.a mPv = null;
     public boolean d = false;
     public boolean e = false;
-    private e mPk = null;
+    private e mPx = null;
     private boolean H = false;
-    private com.kascend.chushou.view.user.b mPl = null;
+    private com.kascend.chushou.view.user.b mPy = null;
     private boolean J = false;
     private boolean K = false;
     private boolean L = false;
@@ -121,20 +121,20 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     private long N = 0;
     private int O = 0;
     public boolean g = false;
-    private ImageView mPq = null;
-    private TextView mPr = null;
-    private AnimationImageView mPs = null;
-    private View aUB = null;
+    private ImageView mPB = null;
+    private TextView mPC = null;
+    private AnimationImageView mPD = null;
+    private View aUC = null;
     public boolean j = false;
     public float k = 0.0f;
     public float l = 0.0f;
     public boolean m = false;
-    public AudioManager mPu = null;
-    private d.a mPA = new d.a() { // from class: com.kascend.chushou.player.VideoPlayer.1
+    public AudioManager mPF = null;
+    private d.a mPL = new d.a() { // from class: com.kascend.chushou.player.VideoPlayer.1
         @Override // com.kascend.chushou.toolkit.d.a
         public void a() {
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPQ != null) {
-                VideoPlayer.this.mPQ.Of(4);
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mQb != null) {
+                VideoPlayer.this.mQb.Of(4);
             }
         }
     };
@@ -142,59 +142,59 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     public boolean q = true;
     public long r = -1;
     public long s = -1;
-    private PowerManager.WakeLock mPB = null;
+    private PowerManager.WakeLock mPM = null;
     public String t = null;
-    private final com.kascend.chushou.player.ui.h5.redpacket.a mPF = new com.kascend.chushou.player.ui.h5.redpacket.a(this);
-    private final com.kascend.chushou.player.ui.h5.b.b mPG = new com.kascend.chushou.player.ui.h5.b.b(this);
-    private final com.kascend.chushou.player.ui.h5.d.a mPH = new com.kascend.chushou.player.ui.h5.d.a(this);
-    private final com.kascend.chushou.player.ui.a.a mPI = new com.kascend.chushou.player.ui.a.a(this);
-    private final com.kascend.chushou.player.e.a mPJ = new com.kascend.chushou.player.e.a();
-    private final com.kascend.chushou.player.ui.h5.a.a mPK = new com.kascend.chushou.player.ui.h5.a.a(this);
-    private String mPL = "1";
+    private final com.kascend.chushou.player.ui.h5.redpacket.a mPQ = new com.kascend.chushou.player.ui.h5.redpacket.a(this);
+    private final com.kascend.chushou.player.ui.h5.b.b mPR = new com.kascend.chushou.player.ui.h5.b.b(this);
+    private final com.kascend.chushou.player.ui.h5.d.a mPS = new com.kascend.chushou.player.ui.h5.d.a(this);
+    private final com.kascend.chushou.player.ui.a.a mPT = new com.kascend.chushou.player.ui.a.a(this);
+    private final com.kascend.chushou.player.e.a mPU = new com.kascend.chushou.player.e.a();
+    private final com.kascend.chushou.player.ui.h5.a.a mPV = new com.kascend.chushou.player.ui.h5.a.a(this);
+    private String mPW = "1";
     private String aq = "2";
-    private io.reactivex.disposables.a mPN = new io.reactivex.disposables.a();
-    private tv.chushou.zues.c mPQ = new tv.chushou.zues.c(new Handler.Callback() { // from class: com.kascend.chushou.player.VideoPlayer.6
+    private io.reactivex.disposables.a mPY = new io.reactivex.disposables.a();
+    private tv.chushou.zues.c mQb = new tv.chushou.zues.c(new Handler.Callback() { // from class: com.kascend.chushou.player.VideoPlayer.6
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
                 if (!VideoPlayer.this.isFinishing()) {
                     switch (message.what) {
                         case 1:
-                            VideoPlayer.this.mPQ.removeMessages(1);
-                            com.kascend.chushou.c.c.dBQ().a(VideoPlayer.this.P, VideoPlayer.this.mPo != null ? VideoPlayer.this.mPo.h : null, System.currentTimeMillis());
-                            VideoPlayer.this.mPQ.K(1, VideoPlayer.A);
+                            VideoPlayer.this.mQb.removeMessages(1);
+                            com.kascend.chushou.c.c.dBR().a(VideoPlayer.this.P, VideoPlayer.this.mPz != null ? VideoPlayer.this.mPz.h : null, System.currentTimeMillis());
+                            VideoPlayer.this.mQb.K(1, VideoPlayer.A);
                             break;
                         case 2:
                             VideoPlayer.this.a(true, (Uri) null, false);
                             break;
                         case 3:
-                            VideoPlayer.this.cXu();
+                            VideoPlayer.this.cXv();
                             break;
                         case 4:
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.a(true);
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.a(true);
                             }
-                            if (VideoPlayer.this.mPy != null) {
-                                VideoPlayer.this.mPy.d();
-                                VideoPlayer.this.mPy = null;
+                            if (VideoPlayer.this.mPJ != null) {
+                                VideoPlayer.this.mPJ.d();
+                                VideoPlayer.this.mPJ = null;
                                 break;
                             }
                             break;
                         case 5:
                             int i = message.arg1;
                             if (i == 1) {
-                                if (VideoPlayer.this.mPk != null) {
-                                    VideoPlayer.this.mPk.p();
+                                if (VideoPlayer.this.mPx != null) {
+                                    VideoPlayer.this.mPx.p();
                                     break;
                                 }
-                            } else if (i == 2 && VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.e(message.arg2);
+                            } else if (i == 2 && VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.e(message.arg2);
                                 break;
                             }
                             break;
                         case 6:
-                            if (!com.kascend.chushou.b.dBN().a && !com.kascend.chushou.b.dBN().b && VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.g(true);
+                            if (!com.kascend.chushou.b.dBO().a && !com.kascend.chushou.b.dBO().b && VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.g(true);
                                 break;
                             } else {
                                 VideoPlayer.this.c();
@@ -203,8 +203,8 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                             break;
                         case 7:
                             tv.chushou.zues.utils.e.d(VideoPlayer.this.v, "MSG_BUFFER_DEALY: ");
-                            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null && VideoPlayer.this.M && !VideoPlayer.this.e) {
-                                VideoPlayer.this.mPk.h(true);
+                            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null && VideoPlayer.this.M && !VideoPlayer.this.e) {
+                                VideoPlayer.this.mPx.h(true);
                                 VideoPlayer.this.N = 0L;
                                 VideoPlayer.this.O = 0;
                                 VideoPlayer.this.M = false;
@@ -219,16 +219,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             return false;
         }
     });
-    private boolean mPR = false;
-    private boolean mPS = true;
-    private boolean mPT = false;
-    private tv.chushou.common.player.b mPU = new tv.chushou.common.player.b() { // from class: com.kascend.chushou.player.VideoPlayer.14
+    private boolean mQc = false;
+    private boolean mQd = true;
+    private boolean mQe = false;
+    private tv.chushou.common.player.b mQf = new tv.chushou.common.player.b() { // from class: com.kascend.chushou.player.VideoPlayer.14
         @Override // tv.chushou.common.player.b
-        public void dCt() {
+        public void dCu() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onSetVideoViewLayout");
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.y();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.y();
                 }
             }
         }
@@ -236,65 +236,65 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         @Override // tv.chushou.common.player.b
         public void MI(int i) {
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.g(i);
-                }
-            }
-        }
-
-        @Override // tv.chushou.common.player.b
-        public void dCu() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onCompletePlayback");
-            if (!VideoPlayer.this.isFinishing()) {
-                if (!h.isEmpty(VideoPlayer.this.P)) {
-                    j.dBZ().a(VideoPlayer.this.P, 0);
-                }
-                VideoPlayer.this.K = false;
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(1);
-                }
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                    VideoPlayer.this.mPQ.removeMessages(7);
-                    VideoPlayer.this.M = false;
-                    VideoPlayer.this.mPk.z();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.g(i);
                 }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCv() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onVideoRenderingStart");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null) {
-                VideoPlayer.this.mPk.G();
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onCompletePlayback");
+            if (!VideoPlayer.this.isFinishing()) {
+                if (!h.isEmpty(VideoPlayer.this.P)) {
+                    j.dCa().a(VideoPlayer.this.P, 0);
+                }
+                VideoPlayer.this.K = false;
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(1);
+                }
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                    VideoPlayer.this.mQb.removeMessages(7);
+                    VideoPlayer.this.M = false;
+                    VideoPlayer.this.mPx.z();
+                }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCw() {
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onVideoRenderingStart");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null) {
+                VideoPlayer.this.mPx.G();
+            }
+        }
+
+        @Override // tv.chushou.common.player.b
+        public void dCx() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPreparedPlayback");
             if (!VideoPlayer.this.isFinishing()) {
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    VideoPlayer.this.mPQ.removeMessages(6);
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    VideoPlayer.this.mQb.removeMessages(6);
                     VideoPlayer.this.N = 0L;
                     VideoPlayer.this.O = 0;
-                    if (VideoPlayer.this.mPg != null && VideoPlayer.this.mPk != null) {
-                        VideoPlayer.this.mPg.setVolume(VideoPlayer.this.mPk.J, VideoPlayer.this.mPk.J);
+                    if (VideoPlayer.this.mPt != null && VideoPlayer.this.mPx != null) {
+                        VideoPlayer.this.mPt.setVolume(VideoPlayer.this.mPx.J, VideoPlayer.this.mPx.J);
                     }
-                    if (VideoPlayer.this.mPo != null) {
+                    if (VideoPlayer.this.mPz != null) {
                         VideoPlayer.this.K = false;
-                        FullRoomInfo dCE = VideoPlayer.this.ol() ? null : VideoPlayer.this.mPo.dCE();
-                        if (VideoPlayer.this.L || dCE != null) {
-                            if (VideoPlayer.this.mPo.e) {
-                                VideoPlayer.this.mPo.e = false;
-                                VideoPlayer.this.mPo.d = !VideoPlayer.this.mPo.d;
+                        FullRoomInfo dCF = VideoPlayer.this.ol() ? null : VideoPlayer.this.mPz.dCF();
+                        if (VideoPlayer.this.L || dCF != null) {
+                            if (VideoPlayer.this.mPz.e) {
+                                VideoPlayer.this.mPz.e = false;
+                                VideoPlayer.this.mPz.d = !VideoPlayer.this.mPz.d;
                             }
-                            if (VideoPlayer.this.mPk != null) {
+                            if (VideoPlayer.this.mPx != null) {
                                 VideoPlayer.this.c("1", (String) null);
                                 if (!VideoPlayer.this.d) {
-                                    VideoPlayer.this.mPk.i(true);
+                                    VideoPlayer.this.mPx.i(true);
                                 } else if (VideoPlayer.this.e) {
                                     VideoPlayer.this.e = false;
-                                    VideoPlayer.this.mPk.B();
+                                    VideoPlayer.this.mPx.B();
                                 }
                             }
                         }
@@ -309,58 +309,58 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             if (!VideoPlayer.this.isFinishing()) {
                 VideoPlayer.this.c();
                 VideoPlayer.this.K = false;
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(7);
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(7);
                 }
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(1);
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(1);
                 }
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && !VideoPlayer.this.dCb()) {
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && !VideoPlayer.this.dCc()) {
                     if (!"10004".equals(VideoPlayer.this.t)) {
-                        if (VideoPlayer.this.mPk != null) {
+                        if (VideoPlayer.this.mPx != null) {
                             if (VideoPlayer.this.d) {
-                                VideoPlayer.this.mPh.stop();
-                                VideoPlayer.this.mPh.release();
+                                VideoPlayer.this.mPu.stop();
+                                VideoPlayer.this.mPu.release();
                                 VideoPlayer.this.e = false;
-                                VideoPlayer.this.mPk.C();
+                                VideoPlayer.this.mPx.C();
                             }
-                            if (!com.kascend.chushou.b.dBN().a && !com.kascend.chushou.b.dBN().b) {
-                                VideoPlayer.this.mPk.g(true);
+                            if (!com.kascend.chushou.b.dBO().a && !com.kascend.chushou.b.dBO().b) {
+                                VideoPlayer.this.mPx.g(true);
                             } else if (VideoPlayer.this.d) {
-                                VideoPlayer.this.mPk.a(i, true);
+                                VideoPlayer.this.mPx.a(i, true);
                             } else {
-                                VideoPlayer.this.mPk.a(i, false);
+                                VideoPlayer.this.mPx.a(i, false);
                             }
                             VideoPlayer.this.c("2", (String) null);
                             return;
                         }
                         return;
                     }
-                    dCu();
+                    dCv();
                 }
             }
         }
 
         @Override // tv.chushou.common.player.b
-        public void dCx() {
+        public void dCy() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onBufferingStart");
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.E();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.E();
                     VideoPlayer.this.M = true;
                     long currentTimeMillis = System.currentTimeMillis();
-                    VideoPlayer.this.mPQ.removeMessages(7);
+                    VideoPlayer.this.mQb.removeMessages(7);
                     if (!VideoPlayer.this.g) {
                         VideoPlayer.y(VideoPlayer.this);
                     }
                     tv.chushou.zues.utils.e.d(VideoPlayer.this.v, "currentTime: -- >" + currentTimeMillis + "  bufferTime-->" + VideoPlayer.this.N + "  bufferCount-->" + VideoPlayer.this.O);
-                    if (currentTimeMillis - VideoPlayer.this.N >= 20000 || VideoPlayer.this.O < 2 || VideoPlayer.this.mPk.H) {
+                    if (currentTimeMillis - VideoPlayer.this.N >= 20000 || VideoPlayer.this.O < 2 || VideoPlayer.this.mPx.H) {
                         if (VideoPlayer.this.O == 1) {
                             VideoPlayer.this.N = currentTimeMillis;
                         }
-                        VideoPlayer.this.mPQ.K(7, 5000L);
+                        VideoPlayer.this.mQb.K(7, 5000L);
                     } else {
-                        VideoPlayer.this.mPQ.Of(7);
+                        VideoPlayer.this.mQb.Of(7);
                     }
                     if (VideoPlayer.this.g) {
                         VideoPlayer.this.g = false;
@@ -370,37 +370,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         }
 
         @Override // tv.chushou.common.player.b
-        public void dCy() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onBufferingEnd");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                VideoPlayer.this.mPQ.removeMessages(7);
-                VideoPlayer.this.M = false;
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    if (VideoPlayer.this.mPg == null) {
-                        VideoPlayer.this.mPk.a(false, true, false);
-                    } else {
-                        VideoPlayer.this.mPk.a(true, VideoPlayer.this.mPg.getPlayState() == 4, VideoPlayer.this.mPg.getPlayState() == 5);
-                    }
-                }
-            }
-        }
-
-        @Override // tv.chushou.common.player.b
         public void dCz() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPlayerStart");
-            if (!VideoPlayer.this.isFinishing()) {
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    if (VideoPlayer.this.mPk != null && !VideoPlayer.this.d) {
-                        if (VideoPlayer.this.mPg != null) {
-                            VideoPlayer.this.mPk.F();
-                            VideoPlayer.this.mPk.a(true, VideoPlayer.this.mPg.getPlayState() == 4, VideoPlayer.this.mPg.getPlayState() == 5);
-                        } else {
-                            VideoPlayer.this.mPk.a(false, true, false);
-                        }
-                    }
-                    if (VideoPlayer.this.mPQ != null && !VideoPlayer.this.ol()) {
-                        VideoPlayer.this.mPQ.removeMessages(1);
-                        VideoPlayer.this.mPQ.K(1, VideoPlayer.A);
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onBufferingEnd");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                VideoPlayer.this.mQb.removeMessages(7);
+                VideoPlayer.this.M = false;
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    if (VideoPlayer.this.mPt == null) {
+                        VideoPlayer.this.mPx.a(false, true, false);
+                    } else {
+                        VideoPlayer.this.mPx.a(true, VideoPlayer.this.mPt.getPlayState() == 4, VideoPlayer.this.mPt.getPlayState() == 5);
                     }
                 }
             }
@@ -408,27 +387,48 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
         @Override // tv.chushou.common.player.b
         public void dCA() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPlayerPause");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPQ != null) {
-                VideoPlayer.this.mPQ.removeMessages(1);
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPlayerStart");
+            if (!VideoPlayer.this.isFinishing()) {
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    if (VideoPlayer.this.mPx != null && !VideoPlayer.this.d) {
+                        if (VideoPlayer.this.mPt != null) {
+                            VideoPlayer.this.mPx.F();
+                            VideoPlayer.this.mPx.a(true, VideoPlayer.this.mPt.getPlayState() == 4, VideoPlayer.this.mPt.getPlayState() == 5);
+                        } else {
+                            VideoPlayer.this.mPx.a(false, true, false);
+                        }
+                    }
+                    if (VideoPlayer.this.mQb != null && !VideoPlayer.this.ol()) {
+                        VideoPlayer.this.mQb.removeMessages(1);
+                        VideoPlayer.this.mQb.K(1, VideoPlayer.A);
+                    }
+                }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCB() {
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPlayerPause");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mQb != null) {
+                VideoPlayer.this.mQb.removeMessages(1);
+            }
+        }
+
+        @Override // tv.chushou.common.player.b
+        public void dCC() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerACallback onPlayerStop");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.ol() && VideoPlayer.this.mPh != null && !h.isEmpty(VideoPlayer.this.P) && VideoPlayer.this.mPh.getCurrentPos() > 0) {
-                j.dBZ().a(VideoPlayer.this.P, VideoPlayer.this.mPh.getCurrentPos());
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.ol() && VideoPlayer.this.mPu != null && !h.isEmpty(VideoPlayer.this.P) && VideoPlayer.this.mPu.getCurrentPos() > 0) {
+                j.dCa().a(VideoPlayer.this.P, VideoPlayer.this.mPu.getCurrentPos());
             }
         }
     };
-    private tv.chushou.common.player.b mPV = new tv.chushou.common.player.b() { // from class: com.kascend.chushou.player.VideoPlayer.15
+    private tv.chushou.common.player.b mQg = new tv.chushou.common.player.b() { // from class: com.kascend.chushou.player.VideoPlayer.15
         @Override // tv.chushou.common.player.b
-        public void dCt() {
+        public void dCu() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onSetVideoViewLayout");
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.y();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.y();
                 }
             }
         }
@@ -436,65 +436,65 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         @Override // tv.chushou.common.player.b
         public void MI(int i) {
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.g(i);
-                }
-            }
-        }
-
-        @Override // tv.chushou.common.player.b
-        public void dCu() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onCompletePlayback");
-            if (!VideoPlayer.this.isFinishing()) {
-                if (!h.isEmpty(VideoPlayer.this.P)) {
-                    j.dBZ().a(VideoPlayer.this.P, 0);
-                }
-                VideoPlayer.this.K = false;
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(1);
-                }
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                    VideoPlayer.this.mPQ.removeMessages(7);
-                    VideoPlayer.this.M = false;
-                    VideoPlayer.this.mPk.z();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.g(i);
                 }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCv() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onVideoRenderingStart");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null) {
-                VideoPlayer.this.mPk.G();
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onCompletePlayback");
+            if (!VideoPlayer.this.isFinishing()) {
+                if (!h.isEmpty(VideoPlayer.this.P)) {
+                    j.dCa().a(VideoPlayer.this.P, 0);
+                }
+                VideoPlayer.this.K = false;
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(1);
+                }
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                    VideoPlayer.this.mQb.removeMessages(7);
+                    VideoPlayer.this.M = false;
+                    VideoPlayer.this.mPx.z();
+                }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCw() {
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onVideoRenderingStart");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null) {
+                VideoPlayer.this.mPx.G();
+            }
+        }
+
+        @Override // tv.chushou.common.player.b
+        public void dCx() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPreparedPlayback");
             if (!VideoPlayer.this.isFinishing()) {
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    VideoPlayer.this.mPQ.removeMessages(6);
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    VideoPlayer.this.mQb.removeMessages(6);
                     VideoPlayer.this.N = 0L;
                     VideoPlayer.this.O = 0;
-                    if (VideoPlayer.this.mPg != null && VideoPlayer.this.mPk != null) {
-                        VideoPlayer.this.mPg.setVolume(VideoPlayer.this.mPk.J, VideoPlayer.this.mPk.J);
+                    if (VideoPlayer.this.mPt != null && VideoPlayer.this.mPx != null) {
+                        VideoPlayer.this.mPt.setVolume(VideoPlayer.this.mPx.J, VideoPlayer.this.mPx.J);
                     }
-                    if (VideoPlayer.this.mPo != null) {
+                    if (VideoPlayer.this.mPz != null) {
                         VideoPlayer.this.K = false;
-                        FullRoomInfo dCE = VideoPlayer.this.ol() ? null : VideoPlayer.this.mPo.dCE();
-                        if (VideoPlayer.this.L || dCE != null) {
-                            if (VideoPlayer.this.mPo.e) {
-                                VideoPlayer.this.mPo.e = false;
-                                VideoPlayer.this.mPo.d = !VideoPlayer.this.mPo.d;
+                        FullRoomInfo dCF = VideoPlayer.this.ol() ? null : VideoPlayer.this.mPz.dCF();
+                        if (VideoPlayer.this.L || dCF != null) {
+                            if (VideoPlayer.this.mPz.e) {
+                                VideoPlayer.this.mPz.e = false;
+                                VideoPlayer.this.mPz.d = !VideoPlayer.this.mPz.d;
                             }
-                            if (VideoPlayer.this.mPk != null) {
+                            if (VideoPlayer.this.mPx != null) {
                                 VideoPlayer.this.c("1", (String) null);
                                 if (VideoPlayer.this.d) {
-                                    VideoPlayer.this.mPk.i(true);
+                                    VideoPlayer.this.mPx.i(true);
                                 } else if (VideoPlayer.this.e) {
                                     VideoPlayer.this.e = false;
-                                    VideoPlayer.this.mPk.B();
+                                    VideoPlayer.this.mPx.B();
                                 }
                             }
                         }
@@ -509,60 +509,60 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             if (!VideoPlayer.this.isFinishing()) {
                 VideoPlayer.this.c();
                 VideoPlayer.this.K = false;
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(7);
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(7);
                 }
-                if (VideoPlayer.this.mPQ != null) {
-                    VideoPlayer.this.mPQ.removeMessages(1);
+                if (VideoPlayer.this.mQb != null) {
+                    VideoPlayer.this.mQb.removeMessages(1);
                 }
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && !VideoPlayer.this.dCb()) {
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && !VideoPlayer.this.dCc()) {
                     if (!"10004".equals(VideoPlayer.this.t)) {
-                        if (VideoPlayer.this.mPk != null) {
+                        if (VideoPlayer.this.mPx != null) {
                             if (!VideoPlayer.this.d) {
-                                VideoPlayer.this.mPi.stop();
-                                VideoPlayer.this.mPi.release();
-                                VideoPlayer.this.mPk.C();
+                                VideoPlayer.this.mPv.stop();
+                                VideoPlayer.this.mPv.release();
+                                VideoPlayer.this.mPx.C();
                                 VideoPlayer.this.e = false;
                             }
-                            if (!com.kascend.chushou.b.dBN().a && !com.kascend.chushou.b.dBN().b) {
-                                VideoPlayer.this.mPk.g(true);
+                            if (!com.kascend.chushou.b.dBO().a && !com.kascend.chushou.b.dBO().b) {
+                                VideoPlayer.this.mPx.g(true);
                             } else if (VideoPlayer.this.d) {
-                                VideoPlayer.this.mPk.a(i, false);
+                                VideoPlayer.this.mPx.a(i, false);
                             } else {
-                                VideoPlayer.this.mPk.a(i, true);
+                                VideoPlayer.this.mPx.a(i, true);
                             }
                             VideoPlayer.this.c("2", (String) null);
                             return;
                         }
                         return;
                     }
-                    dCu();
+                    dCv();
                 }
             }
         }
 
         @Override // tv.chushou.common.player.b
-        public void dCx() {
+        public void dCy() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onBufferingStart");
             if (!VideoPlayer.this.isFinishing()) {
-                if ((VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) && VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                    VideoPlayer.this.mPk.E();
+                if ((VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) && VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                    VideoPlayer.this.mPx.E();
                     VideoPlayer.this.M = true;
-                    VideoPlayer.this.mPQ.removeMessages(7);
+                    VideoPlayer.this.mQb.removeMessages(7);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (!VideoPlayer.this.g) {
                         VideoPlayer.y(VideoPlayer.this);
                     }
                     tv.chushou.zues.utils.e.d(VideoPlayer.this.v, "currentTime: -- >" + currentTimeMillis + "  bufferTime-->" + VideoPlayer.this.N + "  bufferCount-->" + VideoPlayer.this.O);
-                    if (currentTimeMillis - VideoPlayer.this.N >= 20000 || VideoPlayer.this.O < 2 || VideoPlayer.this.mPk.H) {
+                    if (currentTimeMillis - VideoPlayer.this.N >= 20000 || VideoPlayer.this.O < 2 || VideoPlayer.this.mPx.H) {
                         if (VideoPlayer.this.O == 1) {
                             VideoPlayer.this.N = currentTimeMillis;
                         }
-                        VideoPlayer.this.mPQ.K(7, 5000L);
+                        VideoPlayer.this.mQb.K(7, 5000L);
                     } else {
                         VideoPlayer.this.N = 0L;
                         VideoPlayer.this.O = 0;
-                        VideoPlayer.this.mPQ.Of(7);
+                        VideoPlayer.this.mQb.Of(7);
                     }
                     if (VideoPlayer.this.g) {
                         VideoPlayer.this.g = false;
@@ -572,37 +572,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         }
 
         @Override // tv.chushou.common.player.b
-        public void dCy() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onBufferingEnd");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                VideoPlayer.this.M = false;
-                VideoPlayer.this.mPQ.removeMessages(7);
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    if (VideoPlayer.this.mPg == null) {
-                        VideoPlayer.this.mPk.a(false, true, false);
-                    } else {
-                        VideoPlayer.this.mPk.a(true, VideoPlayer.this.mPg.getPlayState() == 4, VideoPlayer.this.mPg.getPlayState() == 5);
-                    }
-                }
-            }
-        }
-
-        @Override // tv.chushou.common.player.b
         public void dCz() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPlayerStart");
-            if (!VideoPlayer.this.isFinishing()) {
-                if (VideoPlayer.this.mPk == null || !VideoPlayer.this.mPk.H) {
-                    if (VideoPlayer.this.mPk != null && VideoPlayer.this.d) {
-                        if (VideoPlayer.this.mPg != null) {
-                            VideoPlayer.this.mPk.F();
-                            VideoPlayer.this.mPk.a(true, VideoPlayer.this.mPg.getPlayState() == 4, VideoPlayer.this.mPg.getPlayState() == 5);
-                        } else {
-                            VideoPlayer.this.mPk.a(false, true, false);
-                        }
-                    }
-                    if (VideoPlayer.this.mPQ != null && !VideoPlayer.this.ol()) {
-                        VideoPlayer.this.mPQ.removeMessages(1);
-                        VideoPlayer.this.mPQ.K(1, VideoPlayer.A);
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onBufferingEnd");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                VideoPlayer.this.M = false;
+                VideoPlayer.this.mQb.removeMessages(7);
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    if (VideoPlayer.this.mPt == null) {
+                        VideoPlayer.this.mPx.a(false, true, false);
+                    } else {
+                        VideoPlayer.this.mPx.a(true, VideoPlayer.this.mPt.getPlayState() == 4, VideoPlayer.this.mPt.getPlayState() == 5);
                     }
                 }
             }
@@ -610,17 +589,38 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
         @Override // tv.chushou.common.player.b
         public void dCA() {
-            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPlayerPause");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPQ != null) {
-                VideoPlayer.this.mPQ.removeMessages(1);
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPlayerStart");
+            if (!VideoPlayer.this.isFinishing()) {
+                if (VideoPlayer.this.mPx == null || !VideoPlayer.this.mPx.H) {
+                    if (VideoPlayer.this.mPx != null && VideoPlayer.this.d) {
+                        if (VideoPlayer.this.mPt != null) {
+                            VideoPlayer.this.mPx.F();
+                            VideoPlayer.this.mPx.a(true, VideoPlayer.this.mPt.getPlayState() == 4, VideoPlayer.this.mPt.getPlayState() == 5);
+                        } else {
+                            VideoPlayer.this.mPx.a(false, true, false);
+                        }
+                    }
+                    if (VideoPlayer.this.mQb != null && !VideoPlayer.this.ol()) {
+                        VideoPlayer.this.mQb.removeMessages(1);
+                        VideoPlayer.this.mQb.K(1, VideoPlayer.A);
+                    }
+                }
             }
         }
 
         @Override // tv.chushou.common.player.b
         public void dCB() {
+            tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPlayerPause");
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mQb != null) {
+                VideoPlayer.this.mQb.removeMessages(1);
+            }
+        }
+
+        @Override // tv.chushou.common.player.b
+        public void dCC() {
             tv.chushou.zues.utils.e.i(VideoPlayer.this.v, "mPlayerBCallback onPlayerStop");
-            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.ol() && VideoPlayer.this.mPi != null && !h.isEmpty(VideoPlayer.this.P) && VideoPlayer.this.mPi.getCurrentPos() > 0) {
-                j.dBZ().a(VideoPlayer.this.P, VideoPlayer.this.mPi.getCurrentPos());
+            if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.ol() && VideoPlayer.this.mPv != null && !h.isEmpty(VideoPlayer.this.P) && VideoPlayer.this.mPv.getCurrentPos() > 0) {
+                j.dCa().a(VideoPlayer.this.P, VideoPlayer.this.mPv.getCurrentPos());
             }
         }
     };
@@ -636,19 +636,19 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         tv.chushou.zues.utils.e.d(this.v, "VideoPlayer onCreate");
         super.onCreate(bundle);
         Intent intent = getIntent();
-        this.mPf = intent.getData();
-        if (this.mPf == null) {
+        this.mPs = intent.getData();
+        if (this.mPs == null) {
             finish();
             return;
         }
         com.kascend.chushou.d.e.j();
-        if (this.mPP == null) {
-            this.mPP = new CSTVWifiReceiver();
-            registerReceiver(this.mPP, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        if (this.mQa == null) {
+            this.mQa = new CSTVWifiReceiver();
+            registerReceiver(this.mQa, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
-        com.kascend.chushou.toolkit.d.a.dEn().b();
-        tv.chushou.zues.utils.e.i(this.v, "intent.getData=" + this.mPf.toString());
-        String scheme = this.mPf.getScheme();
+        com.kascend.chushou.toolkit.d.a.dEo().b();
+        tv.chushou.zues.utils.e.i(this.v, "intent.getData=" + this.mPs.toString());
+        String scheme = this.mPs.getScheme();
         if (scheme == null || !scheme.equals("chushou")) {
             tv.chushou.zues.utils.e.e(this.v, "not support scheme :" + scheme);
             finish();
@@ -658,18 +658,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     private void a(Intent intent) {
-        this.P = this.mPf.getQueryParameter("roomId");
+        this.P = this.mPs.getQueryParameter("roomId");
         this.Q = this.P;
-        this.S = this.mPf.getQueryParameter(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-        this.aq = this.mPf.getQueryParameter("liveType");
+        this.S = this.mPs.getQueryParameter(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+        this.aq = this.mPs.getQueryParameter("liveType");
         if ("2".equals(this.aq) || "3".equals(this.aq) || "4".equals(this.aq)) {
-            this.mPL = "2";
-            this.mPM = new com.kascend.chushou.player.feedback.a();
-            if (this.mPM.mYn != null) {
-                this.mPM.mYn.reset();
-                this.mPM.mYn.roomId = this.P;
-                this.mPM.mYn.enterType = 1;
-                this.mPM.b = System.currentTimeMillis();
+            this.mPW = "2";
+            this.mPX = new com.kascend.chushou.player.feedback.a();
+            if (this.mPX.mYy != null) {
+                this.mPX.mYy.reset();
+                this.mPX.mYy.roomId = this.P;
+                this.mPX.mYy.enterType = 1;
+                this.mPX.b = System.currentTimeMillis();
             }
         }
         if (h.isEmpty(this.P) || h.isEmpty(this.S)) {
@@ -677,14 +677,14 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             finish();
             return;
         }
-        if (com.kascend.chushou.b.dBN().d == -1) {
-            com.kascend.chushou.b.dBN().d = com.kascend.chushou.d.g.b() ? 1 : 0;
+        if (com.kascend.chushou.b.dBO().d == -1) {
+            com.kascend.chushou.b.dBO().d = com.kascend.chushou.d.g.b() ? 1 : 0;
         }
-        this.mPB = ((PowerManager) getSystemService("power")).newWakeLock(536870938, this.v);
-        this.mPB.acquire();
-        this.mPo = new b(this.P);
-        this.mPo.d = intent.getBooleanExtra("room_play_audio", false);
-        this.mPt = new com.kascend.chushou.widget.a.b();
+        this.mPM = ((PowerManager) getSystemService("power")).newWakeLock(536870938, this.v);
+        this.mPM.acquire();
+        this.mPz = new b(this.P);
+        this.mPz.d = intent.getBooleanExtra("room_play_audio", false);
+        this.mPE = new com.kascend.chushou.widget.a.b();
         String stringExtra = intent.getStringExtra("json_str");
         this.R = "1";
         if (stringExtra != null && stringExtra.length() > 0) {
@@ -708,30 +708,30 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         tv.chushou.zues.a.a.register(this);
         super.setContentView(a.h.activity_fragment_video);
         getWindow().setBackgroundDrawable(null);
-        this.mPv = (KPSwitchRootRelativeLayout) findViewById(a.f.rlRoot);
-        if (!"2".equals(this.mPL) && com.kascend.chushou.b.dBN().d == 1) {
-            this.mPv.setFitsSystemWindows(true);
+        this.mPG = (KPSwitchRootRelativeLayout) findViewById(a.f.rlRoot);
+        if (!"2".equals(this.mPW) && com.kascend.chushou.b.dBO().d == 1) {
+            this.mPG.setFitsSystemWindows(true);
         }
-        this.mPw = (FrameLayout) this.mPv.findViewById(a.f.fl_fragment);
-        this.aUB = this.mPv.findViewById(a.f.rl_empty);
-        this.mPq = (ImageView) this.aUB.findViewById(a.f.iv_empty);
-        this.mPr = (TextView) this.aUB.findViewById(a.f.tv_empty);
-        this.mPx = (LinearLayout) this.mPv.findViewById(a.f.rl_title);
-        this.Z = (ImageView) this.mPx.findViewById(a.f.back_icon);
+        this.mPH = (FrameLayout) this.mPG.findViewById(a.f.fl_fragment);
+        this.aUC = this.mPG.findViewById(a.f.rl_empty);
+        this.mPB = (ImageView) this.aUC.findViewById(a.f.iv_empty);
+        this.mPC = (TextView) this.aUC.findViewById(a.f.tv_empty);
+        this.mPI = (LinearLayout) this.mPG.findViewById(a.f.rl_title);
+        this.Z = (ImageView) this.mPI.findViewById(a.f.back_icon);
         this.Z.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.VideoPlayer.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayer.this.finish();
             }
         });
-        this.mPs = (AnimationImageView) this.aUB.findViewById(a.f.iv_loading);
-        this.mPD = (FrescoThumbnailView) this.mPv.findViewById(a.f.live_cover);
-        this.mPE = (FrameLayout) this.mPv.findViewById(a.f.fl_cover);
-        this.k = dCa();
+        this.mPD = (AnimationImageView) this.aUC.findViewById(a.f.iv_loading);
+        this.mPO = (FrescoThumbnailView) this.mPG.findViewById(a.f.live_cover);
+        this.mPP = (FrameLayout) this.mPG.findViewById(a.f.fl_cover);
+        this.k = dCb();
         try {
-            this.mPu = (AudioManager) getApplicationContext().getSystemService("audio");
-            n = this.mPu.getStreamVolume(3);
-            this.mPu.requestAudioFocus(null, 3, 1);
+            this.mPF = (AudioManager) getApplicationContext().getSystemService("audio");
+            n = this.mPF.getStreamVolume(3);
+            this.mPF.requestAudioFocus(null, 3, 1);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -740,17 +740,17 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         } else {
             r();
         }
-        if (com.kascend.chushou.b.dBN().b && !com.kascend.chushou.b.dBN().a) {
-            RxExecutor.postDelayed(this.mPN, EventThread.MAIN_THREAD, 60L, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.5
+        if (com.kascend.chushou.b.dBO().b && !com.kascend.chushou.b.dBO().a) {
+            RxExecutor.postDelayed(this.mPY, EventThread.MAIN_THREAD, 60L, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!VideoPlayer.this.isFinishing() && com.kascend.chushou.b.dBN().b && !com.kascend.chushou.b.dBN().a) {
+                    if (!VideoPlayer.this.isFinishing() && com.kascend.chushou.b.dBO().b && !com.kascend.chushou.b.dBO().a) {
                         tv.chushou.zues.utils.g.c(VideoPlayer.this.w, VideoPlayer.this.getString(a.i.str_monet_notify));
                     }
                 }
             });
         }
-        com.kascend.chushou.c.c.dBQ().a(this.P, stringExtra, System.currentTimeMillis());
+        com.kascend.chushou.c.c.dBR().a(this.P, stringExtra, System.currentTimeMillis());
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
@@ -764,19 +764,19 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.mPO == null) {
-            this.mPO = new a();
+        if (this.mPZ == null) {
+            this.mPZ = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            registerReceiver(this.mPO, intentFilter);
+            registerReceiver(this.mPZ, intentFilter);
         }
     }
 
     @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     protected void onStop() {
-        if (this.mPO != null) {
-            unregisterReceiver(this.mPO);
-            this.mPO = null;
+        if (this.mPZ != null) {
+            unregisterReceiver(this.mPZ);
+            this.mPZ = null;
         }
         super.onStop();
     }
@@ -784,14 +784,14 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Subscribe
     public void onHideGiftEffectEvent(com.kascend.chushou.b.a.a.f fVar) {
         if (fVar.b) {
-            this.mPk.k();
+            this.mPx.k();
             return;
         }
-        this.mPk.m();
-        this.mPk.l();
+        this.mPx.m();
+        this.mPx.l();
     }
 
-    private float dCa() {
+    private float dCb() {
         int i = 0;
         try {
             i = Settings.System.getInt(getContentResolver(), "screen_brightness");
@@ -803,7 +803,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     private void a(String str, boolean z) {
         JSONObject jSONObject;
-        this.mPC = str;
+        this.mPN = str;
         R();
         try {
             if (h.isEmpty(str)) {
@@ -812,7 +812,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                 jSONObject = new JSONObject(str);
             }
             jSONObject.put("_fbroomid", this.P);
-            this.mPo.h = jSONObject.toString();
+            this.mPz.h = jSONObject.toString();
             String optString = jSONObject.optString("_thumb");
             jSONObject.optBoolean("tag_from_game_mic", false);
             if (!h.isEmpty(optString)) {
@@ -820,7 +820,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            this.mPo.h = str;
+            this.mPz.h = str;
         }
         if (ol()) {
             a(this.P, str);
@@ -829,119 +829,119 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         }
         a = this.P;
         b(this.P, str);
-        a(this.P, dCq(), z);
+        a(this.P, dCr(), z);
         w();
     }
 
     private void O() {
         this.m = true;
         j();
-        if (this.mPk != null) {
-            this.mPk.r();
+        if (this.mPx != null) {
+            this.mPx.r();
         }
         s();
     }
 
     @Subscribe
     public void onStartRoomEvent(o oVar) {
-        if (!isFinishing() && oVar.mON != null && oVar.c != null && !h.isEmpty(oVar.mON.mTargetKey)) {
+        if (!isFinishing() && oVar.mOY != null && oVar.c != null && !h.isEmpty(oVar.mOY.mTargetKey)) {
             if (oVar.c != this) {
                 tv.chushou.zues.utils.e.e(this.v, "different player!");
                 return;
             }
-            if (this.mPo != null) {
-                this.mPo.a();
-                this.mPo.a = oVar.mON.mTargetKey;
-                this.mPo.d = oVar.d;
-                if (this.mPo.mQO != null) {
-                    this.mPo.mQO.e();
+            if (this.mPz != null) {
+                this.mPz.a();
+                this.mPz.a = oVar.mOY.mTargetKey;
+                this.mPz.d = oVar.d;
+                if (this.mPz.mQZ != null) {
+                    this.mPz.mQZ.e();
                 }
-                if (this.mPo.mQO != null) {
-                    this.mPo.mQO.b();
+                if (this.mPz.mQZ != null) {
+                    this.mPz.mQZ.b();
                 }
-                this.mPo.mQS = null;
-                this.mPo.mQR = null;
-                this.mPo.mQV = null;
-                this.mPo.mQU = null;
-                this.mPo.mQY = null;
-                this.mPo.mQW = null;
-                this.mPo.mQX = null;
+                this.mPz.mRe = null;
+                this.mPz.mRd = null;
+                this.mPz.mRh = null;
+                this.mPz.mRg = null;
+                this.mPz.mRk = null;
+                this.mPz.mRi = null;
+                this.mPz.mRj = null;
             }
-            if (this.mPu != null) {
-                n = this.mPu.getStreamVolume(3);
+            if (this.mPF != null) {
+                n = this.mPF.getStreamVolume(3);
             }
-            if (!h.isEmpty(oVar.mON.mType) && oVar.mON.mType.equals("3")) {
+            if (!h.isEmpty(oVar.mOY.mType) && oVar.mOY.mType.equals("3")) {
                 this.B = false;
-                this.mPL = "1";
+                this.mPW = "1";
                 r();
-                this.P = oVar.mON.mTargetKey;
+                this.P = oVar.mOY.mTargetKey;
                 this.R = "3";
-                if (this.mPt != null) {
-                    this.mPt.a();
+                if (this.mPE != null) {
+                    this.mPE.a();
                 }
-                if (this.mPo != null) {
-                    this.mPo.a((PlayUrl) null);
-                    this.mPo.f();
-                    if (this.mPo.c() != null) {
-                        this.mPo.c().clear();
+                if (this.mPz != null) {
+                    this.mPz.a((PlayUrl) null);
+                    this.mPz.f();
+                    if (this.mPz.c() != null) {
+                        this.mPz.c().clear();
                     }
-                    this.mPo.i.clear();
+                    this.mPz.i.clear();
                 }
-                if (this.mPk != null) {
-                    this.mPk.j();
+                if (this.mPx != null) {
+                    this.mPx.j();
                 }
                 s();
-                if (this.mPy != null) {
-                    this.mPy.d();
-                    this.mPy = null;
+                if (this.mPJ != null) {
+                    this.mPJ.d();
+                    this.mPJ = null;
                 }
-                if (this.mPN != null) {
-                    this.mPN.dispose();
-                    this.mPN = new io.reactivex.disposables.a();
+                if (this.mPY != null) {
+                    this.mPY.dispose();
+                    this.mPY = new io.reactivex.disposables.a();
                 }
                 a(oVar.e, false);
                 return;
             }
             boolean z = this.R != null && this.R.equals("1");
             this.R = "1";
-            this.mPI.a();
-            this.mPH.a();
-            this.mPG.a();
-            this.mPF.c();
-            this.mPK.a();
-            if (this.mPN != null) {
-                this.mPN.dispose();
-                this.mPN = new io.reactivex.disposables.a();
+            this.mPT.a();
+            this.mPS.a();
+            this.mPR.a();
+            this.mPQ.c();
+            this.mPV.a();
+            if (this.mPY != null) {
+                this.mPY.dispose();
+                this.mPY = new io.reactivex.disposables.a();
             }
             if ("1".equals(oVar.f)) {
                 this.H = false;
-                if (this.mPo != null && !h.isEmpty(this.mPo.t)) {
-                    this.mPo.t.clear();
+                if (this.mPz != null && !h.isEmpty(this.mPz.t)) {
+                    this.mPz.t.clear();
                 }
-                this.ab = oVar.mON.mCover;
-                this.mPE.setVisibility(0);
-                this.mPD.setBlur(true);
-                this.mPD.i(oVar.mON.mCover, 0, 0, 0);
+                this.ab = oVar.mOY.mCover;
+                this.mPP.setVisibility(0);
+                this.mPO.setBlur(true);
+                this.mPO.i(oVar.mOY.mCover, 0, 0, 0);
             }
-            if (!oVar.mON.mTargetKey.equals(this.P)) {
+            if (!oVar.mOY.mTargetKey.equals(this.P)) {
                 this.aq = oVar.g;
                 if (!z) {
                     this.B = false;
                     r();
-                } else if (!"2".equals(this.mPL) && ("2".equals(this.aq) || "3".equals(this.aq) || "4".equals(this.aq))) {
-                    this.mPL = "2";
-                    this.mPM = new com.kascend.chushou.player.feedback.a();
-                    if (this.mPM.mYn != null) {
-                        this.mPM.mYn.reset();
-                        this.mPM.mYn.roomId = oVar.mON.mTargetKey;
-                        this.mPM.mYn.enterType = 1;
-                        this.mPM.b = System.currentTimeMillis();
+                } else if (!"2".equals(this.mPW) && ("2".equals(this.aq) || "3".equals(this.aq) || "4".equals(this.aq))) {
+                    this.mPW = "2";
+                    this.mPX = new com.kascend.chushou.player.feedback.a();
+                    if (this.mPX.mYy != null) {
+                        this.mPX.mYy.reset();
+                        this.mPX.mYy.roomId = oVar.mOY.mTargetKey;
+                        this.mPX.mYy.enterType = 1;
+                        this.mPX.b = System.currentTimeMillis();
                     }
                 }
                 this.B = false;
-                this.P = oVar.mON.mTargetKey;
+                this.P = oVar.mOY.mTargetKey;
                 this.Q = this.P;
-                this.ab = oVar.mON.mCover;
+                this.ab = oVar.mOY.mCover;
                 String str = "8";
                 if (oVar.b != null) {
                     if (oVar.b.equals("recommend")) {
@@ -953,22 +953,22 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                 if ("1".equals(oVar.f)) {
                     str = "73";
                 }
-                JSONObject M = com.kascend.chushou.d.e.M("_fromView", str, "_sc", oVar.mON.mSC);
+                JSONObject M = com.kascend.chushou.d.e.M("_fromView", str, "_sc", oVar.mOY.mSC);
                 com.kascend.chushou.toolkit.a.c.a(this.w, M);
-                if (this.mPt != null) {
-                    this.mPt.a();
-                    this.mPt.a(this.P);
+                if (this.mPE != null) {
+                    this.mPE.a();
+                    this.mPE.a(this.P);
                 }
-                if (this.mPo != null) {
-                    this.mPo.a((PlayUrl) null);
-                    this.mPo.f();
-                    if (this.mPo.c() != null) {
-                        this.mPo.c().clear();
+                if (this.mPz != null) {
+                    this.mPz.a((PlayUrl) null);
+                    this.mPz.f();
+                    if (this.mPz.c() != null) {
+                        this.mPz.c().clear();
                     }
-                    this.mPo.i.clear();
+                    this.mPz.i.clear();
                 }
-                if (this.mPk != null) {
-                    this.mPk.j();
+                if (this.mPx != null) {
+                    this.mPx.j();
                 }
                 a(M.toString(), false);
                 return;
@@ -978,18 +978,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dCb() {
-        FullRoomInfo dCE;
+    public boolean dCc() {
+        FullRoomInfo dCF;
         String str;
         RoomInfo roomInfo;
         if (ol()) {
             str = null;
-            dCE = null;
+            dCF = null;
         } else {
-            dCE = this.mPo.dCE();
-            str = (dCE == null || (roomInfo = dCE.mRoominfo) == null) ? null : roomInfo.mGameId;
+            dCF = this.mPz.dCF();
+            str = (dCF == null || (roomInfo = dCF.mRoominfo) == null) ? null : roomInfo.mGameId;
         }
-        return !this.L && (dCE == null || h.isEmpty(str));
+        return !this.L && (dCF == null || h.isEmpty(str));
     }
 
     @Subscribe
@@ -998,34 +998,34 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             if (iVar.a == 0 && (iVar.b instanceof Boolean)) {
                 if (((Boolean) iVar.b).booleanValue() && !isFinishing()) {
                     w();
-                    if (this.mPk != null) {
-                        this.mPk.f();
+                    if (this.mPx != null) {
+                        this.mPx.f();
                     }
                 }
             } else if (iVar.a == 46) {
-                if ((iVar.b instanceof String) && this.mPk != null) {
-                    this.mPk.c((String) iVar.b);
+                if ((iVar.b instanceof String) && this.mPx != null) {
+                    this.mPx.c((String) iVar.b);
                 }
             } else if (iVar.a == 54) {
                 if (iVar.b instanceof String) {
-                    this.mPG.a((String) iVar.b);
+                    this.mPR.a((String) iVar.b);
                 }
             } else if (iVar.a == 55) {
-                if (this.mPk != null) {
-                    this.mPk.O();
+                if (this.mPx != null) {
+                    this.mPx.O();
                 }
-            } else if (iVar.a == 56 && this.mPk != null) {
-                this.mPk.P();
+            } else if (iVar.a == 56 && this.mPx != null) {
+                this.mPx.P();
             }
         }
     }
 
     @Subscribe
     public void onRefreshSubscribeEvent(m mVar) {
-        if (isFinishing() && this.mPo != null && this.mPo.dCG() != null) {
-            RoomInfo dCG = this.mPo.dCG();
-            if (mVar.a(dCG.mCreatorUID, dCG.mRoomID)) {
-                dCG.mIsSubscribed = mVar.c;
+        if (isFinishing() && this.mPz != null && this.mPz.dCH() != null) {
+            RoomInfo dCH = this.mPz.dCH();
+            if (mVar.a(dCH.mCreatorUID, dCH.mRoomID)) {
+                dCH.mIsSubscribed = mVar.c;
             }
         }
     }
@@ -1048,18 +1048,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         tv.chushou.zues.utils.e.d(this.v, MissionEvent.MESSAGE_RESUME);
-        if (this.m || this.mPh == null || this.mPi == null) {
+        if (this.m || this.mPu == null || this.mPv == null) {
             R();
         }
-        if (this.mPt != null) {
-            this.mPt.d();
+        if (this.mPE != null) {
+            this.mPE.d();
         }
         if (!ol()) {
-            if (this.mPy != null && !this.mPy.c()) {
-                this.mPy.a();
+            if (this.mPJ != null && !this.mPJ.c()) {
+                this.mPJ.a();
             }
             v();
-            if (this.mPo != null && this.mPo.dCE() != null && this.mPo.dCE().cycleLiveRoomInfo != null && !h.isEmpty(this.mPo.dCE().cycleLiveRoomInfo.roomId)) {
+            if (this.mPz != null && this.mPz.dCF() != null && this.mPz.dCF().cycleLiveRoomInfo != null && !h.isEmpty(this.mPz.dCF().cycleLiveRoomInfo.roomId)) {
                 u();
             }
         }
@@ -1070,77 +1070,77 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         tv.chushou.zues.utils.e.e(this.v, MissionEvent.MESSAGE_DESTROY);
-        if (this.mPo != null && this.mPo.dCE() != null && this.mPo.dCE().cycleLiveRoomInfo != null && !h.isEmpty(this.mPo.dCE().cycleLiveRoomInfo.eventName)) {
-            j.dBZ().a(this.P + dCq());
+        if (this.mPz != null && this.mPz.dCF() != null && this.mPz.dCF().cycleLiveRoomInfo != null && !h.isEmpty(this.mPz.dCF().cycleLiveRoomInfo.eventName)) {
+            j.dCa().a(this.P + dCr());
         }
-        if ("2".equals(this.mPL) && this.mPM != null && this.mPM.mYn != null) {
-            this.mPM.mYn.time = System.currentTimeMillis() - this.mPM.b;
-            this.mPM.a();
-            this.mPM.b();
+        if ("2".equals(this.mPW) && this.mPX != null && this.mPX.mYy != null) {
+            this.mPX.mYy.time = System.currentTimeMillis() - this.mPX.b;
+            this.mPX.a();
+            this.mPX.b();
         }
-        this.mPF.d();
-        this.mPG.b();
-        this.mPH.b();
+        this.mPQ.d();
+        this.mPR.b();
+        this.mPS.b();
         O();
-        this.mPC = null;
+        this.mPN = null;
         a = null;
-        if (this.mPQ != null) {
-            this.mPQ.cq(null);
-            this.mPQ = null;
+        if (this.mQb != null) {
+            this.mQb.cq(null);
+            this.mQb = null;
         }
-        if (this.mPy != null) {
-            this.mPy.d();
-            this.mPy = null;
+        if (this.mPJ != null) {
+            this.mPJ.d();
+            this.mPJ = null;
         }
-        if (this.mPt != null) {
-            this.mPt.c();
-            this.mPt = null;
+        if (this.mPE != null) {
+            this.mPE.c();
+            this.mPE = null;
         }
-        if (this.mPo != null) {
-            this.mPo.mQS = null;
-            this.mPo.mQR = null;
+        if (this.mPz != null) {
+            this.mPz.mRe = null;
+            this.mPz.mRd = null;
         }
-        if (this.mPo != null) {
-            this.mPo.b();
-            this.mPo = null;
+        if (this.mPz != null) {
+            this.mPz.b();
+            this.mPz = null;
         }
-        this.mPf = null;
-        this.mPk = null;
-        this.mPl = null;
-        this.mPp = null;
-        this.mPq = null;
-        this.mPr = null;
         this.mPs = null;
-        this.aUB = null;
-        this.mPu = null;
-        this.mPv = null;
-        this.mPw = null;
-        this.Z = null;
         this.mPx = null;
-        if (this.mPB != null && this.mPB.isHeld()) {
-            this.mPB.release();
-            this.mPB = null;
+        this.mPy = null;
+        this.mPA = null;
+        this.mPB = null;
+        this.mPC = null;
+        this.mPD = null;
+        this.aUC = null;
+        this.mPF = null;
+        this.mPG = null;
+        this.mPH = null;
+        this.Z = null;
+        this.mPI = null;
+        if (this.mPM != null && this.mPM.isHeld()) {
+            this.mPM.release();
+            this.mPM = null;
         }
-        if (this.mPP != null) {
-            unregisterReceiver(this.mPP);
-            this.mPP = null;
+        if (this.mQa != null) {
+            unregisterReceiver(this.mQa);
+            this.mQa = null;
         }
-        h.dQv();
+        h.dQw();
         tv.chushou.zues.a.a.cr(this);
-        this.mPN.dispose();
-        this.mPH.b();
-        this.mPI.b();
-        this.mPF.d();
-        this.mPG.b();
-        this.mPK.b();
+        this.mPY.dispose();
+        this.mPS.b();
+        this.mPT.b();
+        this.mPQ.d();
+        this.mPR.b();
+        this.mPV.b();
         super.onDestroy();
         System.gc();
     }
 
     @Subscribe
     public void onSendGameGiftEvent(n nVar) {
-        if (!isFinishing() && this.mPk != null) {
-            this.mPk.a(nVar);
+        if (!isFinishing() && this.mPx != null) {
+            this.mPx.a(nVar);
         }
     }
 
@@ -1148,11 +1148,11 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         tv.chushou.zues.utils.e.d(this.v, MissionEvent.MESSAGE_PAUSE);
-        if (this.mPy != null) {
-            this.mPy.b();
+        if (this.mPJ != null) {
+            this.mPJ.b();
         }
-        if (this.mPt != null) {
-            this.mPt.b(false);
+        if (this.mPE != null) {
+            this.mPE.b(false);
         }
         k();
         this.m = true;
@@ -1161,56 +1161,56 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.mPk != null ? this.mPk.a(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.mPx != null ? this.mPx.a(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     public void c() {
         if ("1".equals(this.R)) {
-            j.dBZ().a(this.P + dCq());
+            j.dCa().a(this.P + dCr());
         } else {
-            j.dBZ().b(this.P);
+            j.dCa().b(this.P);
         }
     }
 
     private void a(boolean z, boolean z2) {
         int i = 0;
         tv.chushou.zues.utils.e.i(this.v, "startLoadingVideo <------------- mbPrepareingVideo = " + this.K);
-        if (this.mPh != null) {
-            this.mPh.setHardwearDecod(com.kascend.chushou.d.h.dBU().a);
+        if (this.mPu != null) {
+            this.mPu.setHardwearDecod(com.kascend.chushou.d.h.dBV().a);
         }
-        if (this.mPi != null) {
-            this.mPi.setHardwearDecod(com.kascend.chushou.d.h.dBU().a);
+        if (this.mPv != null) {
+            this.mPv.setHardwearDecod(com.kascend.chushou.d.h.dBV().a);
         }
-        if (this.mPg != null) {
-            this.mPg.setHardwearDecod(com.kascend.chushou.d.h.dBU().a);
+        if (this.mPt != null) {
+            this.mPt.setHardwearDecod(com.kascend.chushou.d.h.dBV().a);
         }
         if (!this.K) {
-            if (z && this.mPk != null) {
+            if (z && this.mPx != null) {
                 if (!z2) {
                     this.t = null;
-                    this.mPk.e();
+                    this.mPx.e();
                 }
-            } else if (this.mPk != null && !z2) {
+            } else if (this.mPx != null && !z2) {
                 this.t = null;
-                this.mPk.H = false;
+                this.mPx.H = false;
                 RxExecutor.post(null, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        VideoPlayer.this.mPk.x();
+                        VideoPlayer.this.mPx.x();
                     }
                 });
             }
             this.K = true;
-            if (this.mPo != null && this.mPo.dCF() != null) {
-                PlayUrl dCF = this.mPo.dCF();
+            if (this.mPz != null && this.mPz.dCG() != null) {
+                PlayUrl dCG = this.mPz.dCG();
                 while (true) {
                     int i2 = i;
-                    if (i2 >= dCF.mUrlDetails.size()) {
+                    if (i2 >= dCG.mUrlDetails.size()) {
                         break;
                     }
-                    UrlDetails urlDetails = dCF.mUrlDetails.get(i2);
-                    if (urlDetails.mUrl.equals(dCF.mSelectedUrl)) {
-                        String str = dCF.mUrlDetails.get(i2).mDefinitionType;
+                    UrlDetails urlDetails = dCG.mUrlDetails.get(i2);
+                    if (urlDetails.mUrl.equals(dCG.mSelectedUrl)) {
+                        String str = dCG.mUrlDetails.get(i2).mDefinitionType;
                         String str2 = urlDetails.mBitrate;
                     }
                     i = i2 + 1;
@@ -1218,16 +1218,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             }
             if (z2) {
                 if (this.d) {
-                    this.mPh.setVideoURI(this.mPf);
-                    this.mPh.open();
+                    this.mPu.setVideoURI(this.mPs);
+                    this.mPu.open();
                     return;
                 }
-                this.mPi.setVideoURI(this.mPf);
-                this.mPi.open();
+                this.mPv.setVideoURI(this.mPs);
+                this.mPv.open();
                 return;
             }
-            this.mPg.setVideoURI(this.mPf);
-            this.mPg.open();
+            this.mPt.setVideoURI(this.mPs);
+            this.mPt.open();
         }
     }
 
@@ -1235,13 +1235,13 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         try {
             if (motionEvent.getAction() == 0) {
-                if (this.mPk != null && this.mPk.b(motionEvent)) {
+                if (this.mPx != null && this.mPx.b(motionEvent)) {
                     return true;
                 }
-                if ("2".equals(this.mPL) && this.mPk != null) {
-                    this.mPk.a(motionEvent);
+                if ("2".equals(this.mPW) && this.mPx != null) {
+                    this.mPx.a(motionEvent);
                 }
-            } else if (this.mPk != null && this.mPk.b(motionEvent)) {
+            } else if (this.mPx != null && this.mPx.b(motionEvent)) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -1252,7 +1252,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.mPk != null && this.mPk.a(i, keyEvent)) {
+        if (i == 4 && this.mPx != null && this.mPx.a(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -1267,30 +1267,30 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void d() {
-        if (this.mPo != null && this.mPo.dCE() != null && this.mPo.dCE().cycleLiveRoomInfo != null && !h.isEmpty(this.mPo.dCE().cycleLiveRoomInfo.roomId)) {
-            this.mPE.setVisibility(0);
-            this.mPD.setBlur(true);
-            this.mPD.i(this.mPo.dCE().cycleLiveRoomInfo.avatar, 0, 0, 0);
-            this.mPD.setVisibility(0);
-            j.dBZ().a(this.P + dCq());
-            this.mPf = null;
+        if (this.mPz != null && this.mPz.dCF() != null && this.mPz.dCF().cycleLiveRoomInfo != null && !h.isEmpty(this.mPz.dCF().cycleLiveRoomInfo.roomId)) {
+            this.mPP.setVisibility(0);
+            this.mPO.setBlur(true);
+            this.mPO.i(this.mPz.dCF().cycleLiveRoomInfo.avatar, 0, 0, 0);
+            this.mPO.setVisibility(0);
+            j.dCa().a(this.P + dCr());
+            this.mPs = null;
             R();
-            this.Q = this.mPo.dCE().cycleLiveRoomInfo.roomId;
-            a(this.P, dCq(), false);
+            this.Q = this.mPz.dCF().cycleLiveRoomInfo.roomId;
+            a(this.P, dCr(), false);
         }
     }
 
     public void a(boolean z) {
-        if (this.mPk != null) {
-            this.mPk.j(z);
+        if (this.mPx != null) {
+            this.mPx.j(z);
         }
     }
 
     public void a(boolean z, Uri uri, boolean z2) {
         tv.chushou.zues.utils.e.d(this.v, "loadIfNecessary reload=" + z + " isChangeLines-->" + z2);
-        if (this.mPh != null && this.mPi != null) {
+        if (this.mPu != null && this.mPv != null) {
             if (uri != null) {
-                this.mPf = uri;
+                this.mPs = uri;
             }
             if (z2) {
                 this.e = z2;
@@ -1298,66 +1298,66 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             this.M = false;
             this.N = 0L;
             this.O = 0;
-            this.mPQ.removeMessages(7);
+            this.mQb.removeMessages(7);
             if (z) {
                 if (z2) {
                     if (!this.d) {
-                        this.mPi.setOnActivityCallBack(this.mPV);
+                        this.mPv.setOnActivityCallBack(this.mQg);
                     } else {
-                        this.mPh.setOnActivityCallBack(this.mPU);
+                        this.mPu.setOnActivityCallBack(this.mQf);
                     }
                 } else if (this.d) {
-                    this.mPi.setOnActivityCallBack(this.mPV);
+                    this.mPv.setOnActivityCallBack(this.mQg);
                 } else {
-                    this.mPh.setOnActivityCallBack(this.mPU);
+                    this.mPu.setOnActivityCallBack(this.mQf);
                 }
                 this.K = false;
                 b(true, z2);
             } else if (!this.J) {
                 b(true, z2);
             }
-            this.mPQ.K(6, 3000L);
+            this.mQb.K(6, 3000L);
         }
     }
 
     private void b(boolean z, boolean z2) {
         VideoPlayInfo O;
         if ("1".equals(this.R)) {
-            O = j.dBZ().N(this.P + dCq(), KeepJobService.JOB_CHECK_PERIODIC);
+            O = j.dCa().N(this.P + dCr(), KeepJobService.JOB_CHECK_PERIODIC);
         } else {
-            O = j.dBZ().O(this.P, KeepJobService.JOB_CHECK_PERIODIC);
+            O = j.dCa().O(this.P, KeepJobService.JOB_CHECK_PERIODIC);
         }
         if (O != null) {
             a(z, z2);
         } else if ("1".equals(this.R)) {
-            a(this.P, dCq(), false);
+            a(this.P, dCr(), false);
         } else {
             aO(this.P, false);
         }
     }
 
-    public tv.chushou.common.player.a dCc() {
-        return this.mPg;
-    }
-
     public tv.chushou.common.player.a dCd() {
-        return this.mPh;
+        return this.mPt;
     }
 
     public tv.chushou.common.player.a dCe() {
-        return this.mPi;
+        return this.mPu;
+    }
+
+    public tv.chushou.common.player.a dCf() {
+        return this.mPv;
     }
 
     public void a(tv.chushou.common.player.a aVar) {
-        this.mPg = aVar;
+        this.mPt = aVar;
     }
 
-    public b dCf() {
-        return this.mPo;
+    public b dCg() {
+        return this.mPz;
     }
 
-    public com.kascend.chushou.widget.a.b dCg() {
-        return this.mPt;
+    public com.kascend.chushou.widget.a.b dCh() {
+        return this.mPE;
     }
 
     public void a(int i, String str) {
@@ -1378,28 +1378,28 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     public void a(int i, String str, boolean z, boolean z2, boolean z3, boolean z4) {
         boolean z5;
-        FullRoomInfo dCE;
+        FullRoomInfo dCF;
         this.r = -1L;
         if (this.s != -1 && this.s != 0) {
             this.r = this.s;
             this.s = -1L;
         }
-        if (ol() && this.mPg != null && this.mPg.getPlayState() == 4) {
-            this.r = this.mPg.getCurrentPos();
+        if (ol() && this.mPt != null && this.mPt.getPlayState() == 4) {
+            this.r = this.mPt.getCurrentPos();
         }
-        this.mPR = false;
+        this.mQc = false;
         tv.chushou.zues.utils.e.d(this.v, "screenChange()<-----");
         tv.chushou.zues.widget.kpswitch.b.d.hideKeyboard(this);
         if (str != null) {
             this.R = str;
         }
-        if (!this.C || !z3 || "3".equals(this.R) || this.mPo == null || (dCE = this.mPo.dCE()) == null || dCE.mRoominfo == null || dCE.mRoominfo.mStyle != 1) {
+        if (!this.C || !z3 || "3".equals(this.R) || this.mPz == null || (dCF = this.mPz.dCF()) == null || dCF.mRoominfo == null || dCF.mRoominfo.mStyle != 1) {
             z5 = false;
         } else {
             z5 = true;
             i = 0;
         }
-        if ("2".equals(this.mPL)) {
+        if ("2".equals(this.mPW)) {
             setRequestedOrientation(1);
             ((VideoPlayer) this.w).f(true);
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -1416,7 +1416,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         } else if (1 == i) {
             setRequestedOrientation(1);
             ((VideoPlayer) this.w).f(true);
-            if (com.kascend.chushou.b.dBN().d == 1) {
+            if (com.kascend.chushou.b.dBO().d == 1) {
                 WindowManager.LayoutParams attributes2 = getWindow().getAttributes();
                 attributes2.flags &= -1025;
                 getWindow().setAttributes(attributes2);
@@ -1445,59 +1445,59 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             getWindow().addFlags(512);
             getWindow().addFlags(256);
         }
-        if (this.mPt == null) {
-            this.mPt = new com.kascend.chushou.widget.a.b();
+        if (this.mPE == null) {
+            this.mPE = new com.kascend.chushou.widget.a.b();
         }
-        if (this.mPt != null) {
-            this.mPt.a(this.P);
+        if (this.mPE != null) {
+            this.mPE.a(this.P);
         }
         if (this.R.equals("5")) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            if (this.mPk != null) {
-                beginTransaction.remove(this.mPk);
-                this.mPk = null;
+            if (this.mPx != null) {
+                beginTransaction.remove(this.mPx);
+                this.mPx = null;
             }
-            if (this.mPl != null) {
-                beginTransaction.remove(this.mPl);
-                this.mPl = null;
+            if (this.mPy != null) {
+                beginTransaction.remove(this.mPy);
+                this.mPy = null;
             }
-            this.mPl = new com.kascend.chushou.view.user.b();
-            beginTransaction.add(a.f.fl_fragment, this.mPl);
+            this.mPy = new com.kascend.chushou.view.user.b();
+            beginTransaction.add(a.f.fl_fragment, this.mPy);
             beginTransaction.commitAllowingStateLoss();
         } else {
             FragmentTransaction beginTransaction2 = getSupportFragmentManager().beginTransaction();
-            if (this.mPk != null) {
-                beginTransaction2.remove(this.mPk);
-                this.mPk = null;
+            if (this.mPx != null) {
+                beginTransaction2.remove(this.mPx);
+                this.mPx = null;
             }
-            if (this.mPl != null) {
-                beginTransaction2.remove(this.mPl);
-                this.mPl = null;
+            if (this.mPy != null) {
+                beginTransaction2.remove(this.mPy);
+                this.mPy = null;
             }
-            if ("2".equals(this.mPL)) {
-                this.mPk = com.kascend.chushou.player.e.e.a(this.ab, z2, this.aq, this.P);
+            if ("2".equals(this.mPW)) {
+                this.mPx = com.kascend.chushou.player.e.e.a(this.ab, z2, this.aq, this.P);
             } else if (1 == i) {
                 if (!this.R.equals("3")) {
                     if (z4) {
                         v();
                     }
-                    this.mPk = new com.kascend.chushou.player.d.a();
+                    this.mPx = new com.kascend.chushou.player.d.a();
                     Bundle bundle = new Bundle();
                     bundle.putString("mCover", this.ab);
                     bundle.putBoolean("mInitViewAsync", z2);
-                    this.mPk.setArguments(bundle);
+                    this.mPx.setArguments(bundle);
                 }
             } else {
-                this.mPk = new com.kascend.chushou.player.d.b();
+                this.mPx = new com.kascend.chushou.player.d.b();
                 Bundle bundle2 = new Bundle();
                 if (z5) {
                     i = 1;
                 }
                 bundle2.putInt("mExtraOrientation", i);
                 bundle2.putString("mViewType", this.R);
-                this.mPk.setArguments(bundle2);
+                this.mPx.setArguments(bundle2);
             }
-            beginTransaction2.add(a.f.fl_fragment, this.mPk);
+            beginTransaction2.add(a.f.fl_fragment, this.mPx);
             beginTransaction2.commitAllowingStateLoss();
             this.H = true;
         }
@@ -1510,76 +1510,76 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     private void R() {
-        if (this.mPk != null) {
-            this.mPk.mUu = null;
+        if (this.mPx != null) {
+            this.mPx.mUF = null;
         }
-        if (this.mPg != null) {
-            this.mPg.release();
-            this.mPg = null;
+        if (this.mPt != null) {
+            this.mPt.release();
+            this.mPt = null;
             this.K = false;
         }
-        if (this.mPh != null) {
-            this.mPh.release();
-            this.mPh = null;
+        if (this.mPu != null) {
+            this.mPu.release();
+            this.mPu = null;
         }
-        if (this.mPi != null) {
-            this.mPi.release();
-            this.mPi = null;
+        if (this.mPv != null) {
+            this.mPv.release();
+            this.mPv = null;
         }
-        if (this.mPj != null) {
-            this.mPj.c();
+        if (this.mPw != null) {
+            this.mPw.c();
         }
         this.d = false;
         this.e = false;
         this.M = false;
-        this.mPj = new c();
-        this.mPh = this.mPj.dCI();
-        this.mPh.setOnActivityCallBack(this.mPU);
-        this.mPi = this.mPj.dCJ();
-        this.mPi.setOnActivityCallBack(this.mPV);
+        this.mPw = new c();
+        this.mPu = this.mPw.dCJ();
+        this.mPu.setOnActivityCallBack(this.mQf);
+        this.mPv = this.mPw.dCK();
+        this.mPv.setOnActivityCallBack(this.mQg);
         if (!this.d) {
-            this.mPg = this.mPh;
+            this.mPt = this.mPu;
         } else {
-            this.mPg = this.mPi;
+            this.mPt = this.mPv;
         }
-        if (this.mPk != null) {
-            this.mPk.mUu = this.mPg;
+        if (this.mPx != null) {
+            this.mPx.mUF = this.mPt;
         }
     }
 
     public void j() {
-        if (this.mPg != null) {
-            this.mPg.pause();
-            this.mPg.stop();
-            this.mPg.release();
-            this.mPg = null;
+        if (this.mPt != null) {
+            this.mPt.pause();
+            this.mPt.stop();
+            this.mPt.release();
+            this.mPt = null;
         }
-        if (this.mPh != null) {
-            this.mPh.stop();
-            this.mPh.release();
-            this.mPh = null;
+        if (this.mPu != null) {
+            this.mPu.stop();
+            this.mPu.release();
+            this.mPu = null;
         }
-        if (this.mPi != null) {
-            this.mPi.stop();
-            this.mPi.release();
-            this.mPi = null;
+        if (this.mPv != null) {
+            this.mPv.stop();
+            this.mPv.release();
+            this.mPv = null;
         }
-        if (this.mPj != null) {
-            this.mPj.c();
+        if (this.mPw != null) {
+            this.mPw.c();
         }
     }
 
     public void k() {
-        tv.chushou.common.player.a aVar = this.mPg;
+        tv.chushou.common.player.a aVar = this.mPt;
         if (aVar != null) {
             aVar.pause();
             aVar.stop();
         }
-        tv.chushou.common.player.a aVar2 = this.mPh;
+        tv.chushou.common.player.a aVar2 = this.mPu;
         if (aVar2 != null) {
             aVar2.stop();
         }
-        tv.chushou.common.player.a aVar3 = this.mPi;
+        tv.chushou.common.player.a aVar3 = this.mPv;
         if (aVar3 != null) {
             aVar3.stop();
         }
@@ -1605,18 +1605,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXu() {
-        if (this.mPR) {
-            if (this.mPk != null) {
-                this.mPk.s();
+    public void cXv() {
+        if (this.mQc) {
+            if (this.mPx != null) {
+                this.mPx.s();
             }
-        } else if (this.mPQ != null) {
-            this.mPQ.a(this.mPQ.Oh(3), 20L);
+        } else if (this.mQb != null) {
+            this.mQb.a(this.mQb.Oh(3), 20L);
         }
     }
 
     private void b(final String str, String str2) {
-        com.kascend.chushou.c.c.dBQ().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.8
+        com.kascend.chushou.c.c.dBR().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.8
             @Override // com.kascend.chushou.c.b
             public void a() {
                 VideoPlayer.this.L = true;
@@ -1632,15 +1632,15 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                         return;
                     }
                     FullRoomInfo fullRoomInfo = (FullRoomInfo) s.mData;
-                    VideoPlayer.this.dCo().a(fullRoomInfo.mBangMap);
+                    VideoPlayer.this.dCp().a(fullRoomInfo.mBangMap);
                     if (h.isEmpty(fullRoomInfo.mRoominfo.mRoomID)) {
                         fullRoomInfo.mRoominfo.mRoomID = VideoPlayer.this.P;
                     }
                     if (!h.isEmpty(fullRoomInfo.mGeneralTabGifts)) {
-                        com.kascend.chushou.d.e.a(VideoPlayer.this.mPN, new ArrayList(fullRoomInfo.mGeneralTabGifts));
+                        com.kascend.chushou.d.e.a(VideoPlayer.this.mPY, new ArrayList(fullRoomInfo.mGeneralTabGifts));
                     }
-                    if (VideoPlayer.this.mPo != null) {
-                        VideoPlayer.this.mPo.a(fullRoomInfo);
+                    if (VideoPlayer.this.mPz != null) {
+                        VideoPlayer.this.mPz.a(fullRoomInfo);
                     }
                     VideoPlayer.this.L = false;
                     if (VideoPlayer.this.B) {
@@ -1648,43 +1648,43 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                             z = true;
                         }
                         if (!z) {
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.a(VideoPlayer.this.mPo);
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.a(VideoPlayer.this.mPz);
                             }
                             if (!h.isEmpty(fullRoomInfo.mRoominfo.mGameId)) {
-                                VideoPlayer.this.cXu();
+                                VideoPlayer.this.cXv();
                             } else {
-                                if (VideoPlayer.this.mPo != null) {
-                                    VideoPlayer.this.mPo.f = null;
+                                if (VideoPlayer.this.mPz != null) {
+                                    VideoPlayer.this.mPz.f = null;
                                 }
-                                VideoPlayer.this.cXu();
+                                VideoPlayer.this.cXv();
                             }
                         } else {
                             VideoPlayer.this.a(1, "1", true);
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.a(VideoPlayer.this.mPo);
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.a(VideoPlayer.this.mPz);
                             }
                         }
                     } else {
                         if (h.isEmpty(fullRoomInfo.mRoominfo.mGameId)) {
-                            if (VideoPlayer.this.mPo != null) {
-                                VideoPlayer.this.mPo.f = null;
+                            if (VideoPlayer.this.mPz != null) {
+                                VideoPlayer.this.mPz.f = null;
                             }
                             VideoPlayer.this.a(1, "1");
                         } else {
                             VideoPlayer.this.a(1, "1", true);
                         }
-                        if (VideoPlayer.this.mPk != null) {
-                            VideoPlayer.this.mPk.a(VideoPlayer.this.mPo);
+                        if (VideoPlayer.this.mPx != null) {
+                            VideoPlayer.this.mPx.a(VideoPlayer.this.mPz);
                         }
                     }
-                    if (VideoPlayer.this.mPo != null && !VideoPlayer.this.mPo.m()) {
-                        if (VideoPlayer.this.mPy != null) {
-                            VideoPlayer.this.mPy.d();
-                            VideoPlayer.this.mPy = null;
+                    if (VideoPlayer.this.mPz != null && !VideoPlayer.this.mPz.m()) {
+                        if (VideoPlayer.this.mPJ != null) {
+                            VideoPlayer.this.mPJ.d();
+                            VideoPlayer.this.mPJ = null;
                         }
-                        VideoPlayer.this.mPy = new com.kascend.chushou.toolkit.d(900000L, VideoPlayer.this.mPA, VideoPlayer.this.mPQ);
-                        VideoPlayer.this.mPy.a();
+                        VideoPlayer.this.mPJ = new com.kascend.chushou.toolkit.d(900000L, VideoPlayer.this.mPL, VideoPlayer.this.mQb);
+                        VideoPlayer.this.mPJ.a();
                     }
                 }
             }
@@ -1700,19 +1700,19 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bM(String str, int i) {
-        if (this.mPo != null) {
-            this.mPo.a((FullRoomInfo) null);
+        if (this.mPz != null) {
+            this.mPz.a((FullRoomInfo) null);
         }
         this.L = false;
         bN(str, i);
-        if (this.mPg != null) {
-            this.mPg.stop();
+        if (this.mPt != null) {
+            this.mPt.stop();
         }
-        if (this.mPh != null) {
-            this.mPh.stop();
+        if (this.mPu != null) {
+            this.mPu.stop();
         }
-        if (this.mPi != null) {
-            this.mPi.stop();
+        if (this.mPv != null) {
+            this.mPv.stop();
         }
     }
 
@@ -1722,22 +1722,22 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         if (ol()) {
             aO(this.P, false);
         } else {
-            a(this.P, dCq(), false);
+            a(this.P, dCr(), false);
         }
     }
 
     public void m() {
-        a(this.mPC, false);
+        a(this.mPN, false);
     }
 
     private void a(final String str, String str2, boolean z) {
         this.J = true;
-        VideoPlayInfo N = j.dBZ().N(str + str2, KeepJobService.JOB_CHECK_PERIODIC);
+        VideoPlayInfo N = j.dCa().N(str + str2, KeepJobService.JOB_CHECK_PERIODIC);
         if (N != null) {
             a((ArrayList) N.mPlayUrls);
             this.J = false;
         } else if (z) {
-            ParserRet fu = com.kascend.chushou.player.c.a.dCK().fu(str, str2);
+            ParserRet fu = com.kascend.chushou.player.c.a.dCL().fu(str, str2);
             if (fu.mRc != 0) {
                 tv.chushou.zues.utils.e.e(this.v, "getPlayUrlSync fail, try to getPlaylist");
                 a(str, str2, false);
@@ -1745,7 +1745,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             }
             a(fu, str);
         } else {
-            com.kascend.chushou.player.c.a.dCK().a(str, str2, new a.InterfaceC0695a() { // from class: com.kascend.chushou.player.VideoPlayer.9
+            com.kascend.chushou.player.c.a.dCL().a(str, str2, new a.InterfaceC0695a() { // from class: com.kascend.chushou.player.VideoPlayer.9
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0695a
                 public void a(ParserRet parserRet) {
                     VideoPlayer.this.a(parserRet, str);
@@ -1762,20 +1762,20 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     private void aO(final String str, boolean z) {
         boolean equals;
         this.J = true;
-        VideoPlayInfo O = j.dBZ().O(str, KeepJobService.JOB_CHECK_PERIODIC);
+        VideoPlayInfo O = j.dCa().O(str, KeepJobService.JOB_CHECK_PERIODIC);
         if (O != null) {
             a((ArrayList) O.mPlayUrls);
             this.J = false;
             return;
         }
-        if (!h.isEmpty(this.mPC)) {
+        if (!h.isEmpty(this.mPN)) {
             try {
-                equals = "1".equals(new JSONObject(this.mPC).optString("auto"));
+                equals = "1".equals(new JSONObject(this.mPN).optString("auto"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             if (!z) {
-                ParserRet aP = com.kascend.chushou.player.c.a.dCK().aP(str, equals);
+                ParserRet aP = com.kascend.chushou.player.c.a.dCL().aP(str, equals);
                 if (aP.mRc != 0) {
                     tv.chushou.zues.utils.e.e(this.v, "getVideoPlayUrlSync fail, try to getVideoPlaylist");
                     aO(str, false);
@@ -1784,7 +1784,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                 a(aP, str);
                 return;
             }
-            com.kascend.chushou.player.c.a.dCK().a(str, new a.InterfaceC0695a() { // from class: com.kascend.chushou.player.VideoPlayer.10
+            com.kascend.chushou.player.c.a.dCL().a(str, new a.InterfaceC0695a() { // from class: com.kascend.chushou.player.VideoPlayer.10
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0695a
                 public void a(ParserRet parserRet) {
                     VideoPlayer.this.a(parserRet, str);
@@ -1803,35 +1803,35 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             this.J = false;
             if (parserRet.mRc == 0 && parserRet.mData != null) {
                 ArrayList<PlayUrl> arrayList = (ArrayList) parserRet.mData;
-                if (this.mPo.f == null) {
-                    this.mPo.f = new ArrayList<>();
+                if (this.mPz.f == null) {
+                    this.mPz.f = new ArrayList<>();
                 }
-                this.mPo.f.clear();
-                this.mPo.f.addAll(arrayList);
+                this.mPz.f.clear();
+                this.mPz.f.addAll(arrayList);
                 if ("1".equals(this.R)) {
-                    j.dBZ().a(str + dCq(), arrayList);
+                    j.dCa().a(str + dCr(), arrayList);
                 } else {
-                    j.dBZ().s(str, arrayList);
+                    j.dCa().s(str, arrayList);
                 }
                 a(arrayList);
                 return;
             }
-            if (this.mPo != null) {
-                this.mPo.f = null;
+            if (this.mPz != null) {
+                this.mPz.f = null;
             }
-            if (this.mPQ != null) {
-                Message Oh = this.mPQ.Oh(5);
+            if (this.mQb != null) {
+                Message Oh = this.mQb.Oh(5);
                 Oh.arg1 = 2;
                 Oh.arg2 = parserRet.mRc;
-                this.mPQ.O(Oh);
+                this.mQb.O(Oh);
             }
         }
     }
 
     private void bN(String str, int i) {
         s();
-        if (this.mPt != null) {
-            this.mPt.a();
+        if (this.mPE != null) {
+            this.mPE.a();
         }
         if (h.isEmpty(str)) {
             str = getString(a.i.str_load_data_failed);
@@ -1840,75 +1840,75 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void n() {
-        if (this.mPw != null && this.aUB != null && this.mPx != null) {
-            this.mPw.setVisibility(0);
-            this.aUB.setVisibility(8);
-            this.mPx.setVisibility(8);
+        if (this.mPH != null && this.aUC != null && this.mPI != null) {
+            this.mPH.setVisibility(0);
+            this.aUC.setVisibility(8);
+            this.mPI.setVisibility(8);
         }
     }
 
     public void o() {
-        if (this.mPD != null && this.mPD.getVisibility() == 0) {
-            this.mPD.xo(0);
-            this.mPD.setVisibility(8);
+        if (this.mPO != null && this.mPO.getVisibility() == 0) {
+            this.mPO.xo(0);
+            this.mPO.setVisibility(8);
         }
     }
 
     public void p() {
-        if (this.mPE != null && this.mPE.getVisibility() == 0) {
-            this.mPE.setVisibility(8);
+        if (this.mPP != null && this.mPP.getVisibility() == 0) {
+            this.mPP.setVisibility(8);
         }
     }
 
     public void q() {
-        this.mPR = true;
+        this.mQc = true;
     }
 
     protected void r() {
-        this.mPw.setVisibility(8);
-        this.mPx.setVisibility(0);
-        this.aUB.setVisibility(0);
-        if (this.mPs != null) {
-            this.mPq.setVisibility(8);
-            this.mPs.setVisibility(0);
-            this.mPr.setText(getString(a.i.str_dialog_loading_content));
-            this.mPr.setVisibility(8);
+        this.mPH.setVisibility(8);
+        this.mPI.setVisibility(0);
+        this.aUC.setVisibility(0);
+        if (this.mPD != null) {
+            this.mPB.setVisibility(8);
+            this.mPD.setVisibility(0);
+            this.mPC.setText(getString(a.i.str_dialog_loading_content));
+            this.mPC.setVisibility(8);
         }
     }
 
     protected void a(String str, int i) {
-        this.mPw.setVisibility(8);
-        this.mPx.setVisibility(0);
-        this.aUB.setVisibility(0);
-        if (this.mPs != null) {
+        this.mPH.setVisibility(8);
+        this.mPI.setVisibility(0);
+        this.aUC.setVisibility(0);
+        if (this.mPD != null) {
             if (str == null) {
                 str = getString(a.i.str_nodata);
             }
             if (str != null) {
-                this.mPr.setText(str);
+                this.mPC.setText(str);
                 if (str.equals(getString(a.i.s_no_available_network))) {
-                    this.mPq.setImageResource(a.e.commonres_pagestatus_net_error);
+                    this.mPB.setImageResource(a.e.commonres_pagestatus_net_error);
                 } else if (str.equals(getString(a.i.str_nodata)) || str.equals(getString(a.i.str_nohistory)) || str.equals(getString(a.i.str_nolive)) || str.equals(getString(a.i.str_nosubscribe))) {
-                    this.mPq.setClickable(true);
-                    this.mPq.setImageResource(a.e.commonres_pagestatus_empty);
+                    this.mPB.setClickable(true);
+                    this.mPB.setImageResource(a.e.commonres_pagestatus_empty);
                 } else if (str.equals(getString(a.i.str_inbox_login_notify)) || str.equals(getString(a.i.push_login)) || str.equals(getString(a.i.str_login_timeout))) {
-                    this.mPq.setImageResource(a.e.commonres_pagestatus_need_login);
-                    this.mPq.setClickable(true);
+                    this.mPB.setImageResource(a.e.commonres_pagestatus_need_login);
+                    this.mPB.setClickable(true);
                 } else {
-                    this.mPq.setImageResource(a.e.commonres_pagestatus_unknown_error);
-                    this.mPq.setClickable(true);
+                    this.mPB.setImageResource(a.e.commonres_pagestatus_unknown_error);
+                    this.mPB.setClickable(true);
                 }
             }
             if (i == 4001) {
-                this.mPq.setImageResource(a.e.commonres_pagestatus_net_error);
-                this.mPq.setClickable(false);
-                this.mPr.setVisibility(0);
-                this.mPr.setText(getString(a.i.str_dissubscribe_btn));
-                this.mPr.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.VideoPlayer.11
+                this.mPB.setImageResource(a.e.commonres_pagestatus_net_error);
+                this.mPB.setClickable(false);
+                this.mPC.setVisibility(0);
+                this.mPC.setText(getString(a.i.str_dissubscribe_btn));
+                this.mPC.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.VideoPlayer.11
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (!VideoPlayer.this.j) {
-                            com.kascend.chushou.c.c.dBQ().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.11.1
+                            com.kascend.chushou.c.c.dBR().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.11.1
                                 @Override // com.kascend.chushou.c.b
                                 public void a() {
                                     VideoPlayer.this.j = true;
@@ -1929,58 +1929,58 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                                         tv.chushou.zues.utils.g.M(VideoPlayer.this, a.i.subscribe_failed);
                                     }
                                 }
-                            }, VideoPlayer.this.P, (String) null, VideoPlayer.this.mPo.h);
+                            }, VideoPlayer.this.P, (String) null, VideoPlayer.this.mPz.h);
                         }
                     }
                 });
             } else if (i == 404) {
-                this.mPr.setText(str);
-                this.mPr.setVisibility(0);
-                this.mPq.setClickable(false);
-                this.mPq.setImageResource(a.e.commonres_pagestatus_empty);
+                this.mPC.setText(str);
+                this.mPC.setVisibility(0);
+                this.mPB.setClickable(false);
+                this.mPB.setImageResource(a.e.commonres_pagestatus_empty);
             } else if (i == 4002) {
                 if (h.isEmpty(str)) {
-                    this.mPr.setVisibility(8);
+                    this.mPC.setVisibility(8);
                 } else {
-                    this.mPr.setVisibility(0);
-                    this.mPr.setText(str);
+                    this.mPC.setVisibility(0);
+                    this.mPC.setText(str);
                 }
             } else {
-                this.mPr.setVisibility(8);
+                this.mPC.setVisibility(8);
             }
-            this.mPq.setVisibility(0);
-            this.mPs.setVisibility(8);
-            this.mPE.setVisibility(8);
+            this.mPB.setVisibility(0);
+            this.mPD.setVisibility(8);
+            this.mPP.setVisibility(8);
         }
     }
 
     public void s() {
-        if (this.mPQ != null) {
-            this.mPQ.removeMessages(1);
+        if (this.mQb != null) {
+            this.mQb.removeMessages(1);
         }
     }
 
     private void a(ArrayList<PlayUrl> arrayList) {
         boolean z;
-        if (this.mPo.f == null) {
-            this.mPo.f = new ArrayList<>();
+        if (this.mPz.f == null) {
+            this.mPz.f = new ArrayList<>();
         }
-        this.mPo.f.clear();
-        this.mPo.f.addAll(arrayList);
+        this.mPz.f.clear();
+        this.mPz.f.addAll(arrayList);
         if (com.kascend.chushou.d.e.b() && !"4".equals(this.aq)) {
             int c = com.kascend.chushou.d.e.c();
             if (c == -1) {
                 b(arrayList);
                 return;
-            } else if (this.mPS) {
-                this.mPS = false;
+            } else if (this.mQd) {
+                this.mQd = false;
                 if (c == 0) {
-                    this.mPo.d = false;
+                    this.mPz.d = false;
                     f(arrayList, true);
                     return;
                 }
-                if (this.mPo != null && this.mPo.f != null) {
-                    Iterator<PlayUrl> it = this.mPo.f.iterator();
+                if (this.mPz != null && this.mPz.f != null) {
+                    Iterator<PlayUrl> it = this.mPz.f.iterator();
                     while (it.hasNext()) {
                         if ("2".equals(it.next().mType)) {
                             z = true;
@@ -1989,52 +1989,52 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     }
                 }
                 z = false;
-                this.mPo.d = z;
+                this.mPz.d = z;
                 f(arrayList, true);
                 return;
             } else {
-                if (this.mPo.e) {
-                    this.mPo.d = !this.mPo.d;
-                    this.mPo.e = false;
-                    this.mPT = true;
+                if (this.mPz.e) {
+                    this.mPz.d = !this.mPz.d;
+                    this.mPz.e = false;
+                    this.mQe = true;
                 } else if ("4".equals(this.aq)) {
-                    this.mPo.d = true;
+                    this.mPz.d = true;
                 }
                 f(arrayList, true);
                 return;
             }
         }
-        if (this.mPo.e) {
-            this.mPo.d = !this.mPo.d;
-            this.mPo.e = false;
-            this.mPT = true;
+        if (this.mPz.e) {
+            this.mPz.d = !this.mPz.d;
+            this.mPz.e = false;
+            this.mQe = true;
         } else if ("4".equals(this.aq)) {
-            this.mPo.d = true;
+            this.mPz.d = true;
         }
         f(arrayList, true);
     }
 
     private void b(ArrayList<PlayUrl> arrayList) {
         if ("1".equals(this.R)) {
-            if ("2".equals(this.mPL)) {
+            if ("2".equals(this.mPW)) {
                 d(false, arrayList);
-            } else if (this.mPk != null) {
-                this.mPk.f(arrayList, false);
+            } else if (this.mPx != null) {
+                this.mPx.f(arrayList, false);
             }
-        } else if (this.mPk != null) {
-            this.mPk.f(arrayList, false);
+        } else if (this.mPx != null) {
+            this.mPx.f(arrayList, false);
         }
     }
 
     public void b(boolean z) {
-        this.mPo.d = false;
+        this.mPz.d = false;
         com.kascend.chushou.d.e.a(0);
-        ArrayList<PlayUrl> arrayList = this.mPo.f;
+        ArrayList<PlayUrl> arrayList = this.mPz.f;
         if (!h.isEmpty(arrayList)) {
             if (z) {
                 f(arrayList, false);
-                if (this.mPQ != null) {
-                    this.mPQ.Of(2);
+                if (this.mQb != null) {
+                    this.mQb.Of(2);
                     return;
                 }
                 return;
@@ -2044,14 +2044,14 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void c(boolean z) {
-        this.mPo.d = true;
+        this.mPz.d = true;
         com.kascend.chushou.d.e.a(1);
-        ArrayList<PlayUrl> arrayList = this.mPo.f;
+        ArrayList<PlayUrl> arrayList = this.mPz.f;
         if (!h.isEmpty(arrayList)) {
             if (z) {
                 f(arrayList, false);
-                if (this.mPQ != null) {
-                    this.mPQ.Of(2);
+                if (this.mQb != null) {
+                    this.mQb.Of(2);
                     return;
                 }
                 return;
@@ -2062,42 +2062,42 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     @Subscribe
     public void onNotifyEvent(com.kascend.chushou.b.a.a.j jVar) {
-        if (!isFinishing() && jVar.a == 1 && !"5".equals(this.R) && !dCb()) {
-            tv.chushou.zues.utils.e.d(this.v, "onNetworkChangeEvent 3G=" + com.kascend.chushou.b.dBN().b + "  wifi=" + com.kascend.chushou.b.dBN().a);
+        if (!isFinishing() && jVar.a == 1 && !"5".equals(this.R) && !dCc()) {
+            tv.chushou.zues.utils.e.d(this.v, "onNetworkChangeEvent 3G=" + com.kascend.chushou.b.dBO().b + "  wifi=" + com.kascend.chushou.b.dBO().a);
             if (com.kascend.chushou.d.e.b() && !"4".equals(this.aq)) {
                 if (com.kascend.chushou.d.e.c() == -1) {
-                    if (this.mPk != null) {
-                        this.mPk.e(false);
+                    if (this.mPx != null) {
+                        this.mPx.e(false);
                     }
                     if ("1".equals(this.R)) {
-                        if ("2".equals(this.mPL)) {
+                        if ("2".equals(this.mPW)) {
                             d(true, null);
                             return;
-                        } else if (this.mPk != null) {
-                            this.mPk.f(this.mPo.f, true);
+                        } else if (this.mPx != null) {
+                            this.mPx.f(this.mPz.f, true);
                             return;
                         } else {
                             return;
                         }
-                    } else if (this.mPk != null) {
-                        this.mPk.f(this.mPo.f, true);
+                    } else if (this.mPx != null) {
+                        this.mPx.f(this.mPz.f, true);
                         return;
                     } else {
                         return;
                     }
                 }
-                RxExecutor.postDelayed(this.mPN, EventThread.MAIN_THREAD, 10L, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.12
+                RxExecutor.postDelayed(this.mPY, EventThread.MAIN_THREAD, 10L, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.12
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!VideoPlayer.this.isFinishing() && com.kascend.chushou.b.dBN().b && !com.kascend.chushou.b.dBN().a) {
+                        if (!VideoPlayer.this.isFinishing() && com.kascend.chushou.b.dBO().b && !com.kascend.chushou.b.dBO().a) {
                             tv.chushou.zues.utils.g.c(VideoPlayer.this.w, VideoPlayer.this.getString(a.i.str_monet_notify));
                         }
                     }
                 });
-            } else if (com.kascend.chushou.b.dBN().a || com.kascend.chushou.b.dBN().b) {
+            } else if (com.kascend.chushou.b.dBO().a || com.kascend.chushou.b.dBO().b) {
                 t();
-                if (this.mPQ != null) {
-                    this.mPQ.Of(2);
+                if (this.mQb != null) {
+                    this.mQb.Of(2);
                 }
             }
         }
@@ -2117,7 +2117,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         boolean z2;
         PlayUrl playUrl3;
         if (arrayList.size() > 0) {
-            if (this.mPo.d) {
+            if (this.mPz.d) {
                 Iterator<PlayUrl> it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -2158,9 +2158,9 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     playUrl2 = playUrl == null ? arrayList.get(0) : playUrl;
                 }
             }
-            String d = com.kascend.chushou.d.h.dBU().d();
+            String d = com.kascend.chushou.d.h.dBV().d();
             String str3 = h.isEmpty(d) ? "2" : d;
-            if (this.mPo.d) {
+            if (this.mPz.d) {
                 str2 = playUrl2.mUrlDetails.get(0).mUrl;
                 playUrl2.mSelectedSourceId = playUrl2.mUrlDetails.get(0).mSourceId;
                 playUrl2.mSelectedType = playUrl2.mUrlDetails.get(0).mDefinitionType;
@@ -2186,24 +2186,24 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             tv.chushou.zues.utils.e.d(this.v, "definition=" + str3 + " url=" + str2);
             if (!h.isEmpty(str2)) {
                 playUrl2.mSelectedUrl = str2;
-                if (this.mPo != null) {
-                    this.mPo.a(playUrl2);
-                    if (this.mPQ != null) {
-                        Message Oh = this.mPQ.Oh(5);
+                if (this.mPz != null) {
+                    this.mPz.a(playUrl2);
+                    if (this.mQb != null) {
+                        Message Oh = this.mQb.Oh(5);
                         Oh.arg1 = 1;
-                        this.mPQ.O(Oh);
+                        this.mQb.O(Oh);
                     }
                 }
                 String b = com.kascend.chushou.player.c.a.b(playUrl2);
                 if (!h.isEmpty(b)) {
-                    this.mPf = Uri.parse(b);
-                    if (this.mPT) {
-                        this.mPT = false;
+                    this.mPs = Uri.parse(b);
+                    if (this.mQe) {
+                        this.mQe = false;
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    if (z && this.mPg != null) {
+                    if (z && this.mPt != null) {
                         a(false, z2);
                     }
                 }
@@ -2212,16 +2212,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void d(final boolean z, ArrayList<PlayUrl> arrayList) {
-        if (this.mPz == null || this.mPz.a <= 0) {
-            this.mPz = com.kascend.chushou.view.b.a.a.dEo();
-            this.mPz.a(new a.InterfaceC0714a() { // from class: com.kascend.chushou.player.VideoPlayer.13
+        if (this.mPK == null || this.mPK.a <= 0) {
+            this.mPK = com.kascend.chushou.view.b.a.a.dEp();
+            this.mPK.a(new a.InterfaceC0714a() { // from class: com.kascend.chushou.player.VideoPlayer.13
                 @Override // com.kascend.chushou.view.b.a.a.InterfaceC0714a
                 public void a(int i) {
                     if (i == a.f.tv_play_video) {
-                        VideoPlayer.this.mPz.dismissAllowingStateLoss();
+                        VideoPlayer.this.mPK.dismissAllowingStateLoss();
                         VideoPlayer.this.b(z);
                     } else if (i == a.f.tv_play_audio) {
-                        VideoPlayer.this.mPz.dismissAllowingStateLoss();
+                        VideoPlayer.this.mPK.dismissAllowingStateLoss();
                         VideoPlayer.this.c(z);
                     } else if (i == a.f.iv_close) {
                         VideoPlayer.this.finish();
@@ -2231,21 +2231,21 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     }
                 }
             });
-            this.mPz.show(getSupportFragmentManager(), "showRoom");
+            this.mPK.show(getSupportFragmentManager(), "showRoom");
         }
     }
 
     public void t() {
-        if (this.mPz != null) {
-            this.mPz.dismissAllowingStateLoss();
+        if (this.mPK != null) {
+            this.mPK.dismissAllowingStateLoss();
         }
-        if (this.mPk != null) {
-            this.mPk.v();
+        if (this.mPx != null) {
+            this.mPx.v();
         }
     }
 
     public void u() {
-        com.kascend.chushou.c.c.dBQ().c(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.16
+        com.kascend.chushou.c.c.dBR().c(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.16
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -2256,16 +2256,16 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     ParserRet dA = com.kascend.chushou.c.e.dA(jSONObject);
                     if (dA.mRc == 0 && dA.mData != null) {
                         CycleLiveRoomInfo cycleLiveRoomInfo = (CycleLiveRoomInfo) dA.mData;
-                        if (VideoPlayer.this.mPo != null && cycleLiveRoomInfo != null && !h.isEmpty(cycleLiveRoomInfo.roomId)) {
-                            FullRoomInfo dCE = VideoPlayer.this.mPo.dCE();
-                            if (dCE.cycleLiveRoomInfo == null) {
-                                dCE.cycleLiveRoomInfo = cycleLiveRoomInfo;
+                        if (VideoPlayer.this.mPz != null && cycleLiveRoomInfo != null && !h.isEmpty(cycleLiveRoomInfo.roomId)) {
+                            FullRoomInfo dCF = VideoPlayer.this.mPz.dCF();
+                            if (dCF.cycleLiveRoomInfo == null) {
+                                dCF.cycleLiveRoomInfo = cycleLiveRoomInfo;
                                 VideoPlayer.this.d();
-                            } else if (dCE.cycleLiveRoomInfo != null && !cycleLiveRoomInfo.roomId.equals(dCE.cycleLiveRoomInfo.roomId)) {
-                                dCE.cycleLiveRoomInfo.copyCycleLiveRoomInfo(cycleLiveRoomInfo);
+                            } else if (dCF.cycleLiveRoomInfo != null && !cycleLiveRoomInfo.roomId.equals(dCF.cycleLiveRoomInfo.roomId)) {
+                                dCF.cycleLiveRoomInfo.copyCycleLiveRoomInfo(cycleLiveRoomInfo);
                                 VideoPlayer.this.d();
                             } else {
-                                dCE.cycleLiveRoomInfo.copyCycleLiveRoomInfo(cycleLiveRoomInfo);
+                                dCF.cycleLiveRoomInfo.copyCycleLiveRoomInfo(cycleLiveRoomInfo);
                             }
                             VideoPlayer.this.T();
                         }
@@ -2281,13 +2281,13 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
 
     /* JADX INFO: Access modifiers changed from: private */
     public void T() {
-        if (this.mPk != null) {
-            this.mPk.N();
+        if (this.mPx != null) {
+            this.mPx.N();
         }
     }
 
     public void v() {
-        com.kascend.chushou.c.c.dBQ().a(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.17
+        com.kascend.chushou.c.c.dBR().a(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.17
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -2298,11 +2298,11 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     ParserRet dB = com.kascend.chushou.c.e.dB(jSONObject);
                     if (dB.mRc == 0 && dB.mData != null) {
                         PkNotifyInfo pkNotifyInfo = (PkNotifyInfo) dB.mData;
-                        VideoPlayer.this.mPJ.b = VideoPlayer.this.P;
+                        VideoPlayer.this.mPU.b = VideoPlayer.this.P;
                         if (pkNotifyInfo != null) {
-                            VideoPlayer.this.mPJ.mUv = pkNotifyInfo;
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.a(pkNotifyInfo, VideoPlayer.this.P);
+                            VideoPlayer.this.mPU.mUG = pkNotifyInfo;
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.a(pkNotifyInfo, VideoPlayer.this.P);
                             }
                         }
                     }
@@ -2316,11 +2316,11 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void w() {
-        if (this.mPp != null) {
-            this.mPp.release();
-            this.mPp = null;
+        if (this.mPA != null) {
+            this.mPA.release();
+            this.mPA = null;
         }
-        com.kascend.chushou.c.c.dBQ().a(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.18
+        com.kascend.chushou.c.c.dBR().a(this.P, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.VideoPlayer.18
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -2331,17 +2331,17 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                     ParserRet dC = com.kascend.chushou.c.e.dC(jSONObject);
                     if (dC.mRc == 0 && dC.mData != null) {
                         RoomExpandInfo roomExpandInfo = (RoomExpandInfo) dC.mData;
-                        if (VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.mQT = roomExpandInfo.mTopWebAdItem;
-                            if (VideoPlayer.this.mPo.s == null) {
-                                VideoPlayer.this.mPo.s = new ArrayList();
+                        if (VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.mRf = roomExpandInfo.mTopWebAdItem;
+                            if (VideoPlayer.this.mPz.s == null) {
+                                VideoPlayer.this.mPz.s = new ArrayList();
                             }
-                            VideoPlayer.this.mPo.s.clear();
-                            VideoPlayer.this.mPo.s.addAll(roomExpandInfo.mGiftTopRightIcons);
-                            tv.chushou.zues.a.a.post(new i(50, VideoPlayer.this.mPo.mQT));
+                            VideoPlayer.this.mPz.s.clear();
+                            VideoPlayer.this.mPz.s.addAll(roomExpandInfo.mGiftTopRightIcons);
+                            tv.chushou.zues.a.a.post(new i(50, VideoPlayer.this.mPz.mRf));
                         }
-                        if (VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.fm(roomExpandInfo.mExpandNavList);
+                        if (VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.fm(roomExpandInfo.mExpandNavList);
                         }
                         VideoPlayer.this.a(roomExpandInfo.mExpandNavList);
                         com.kascend.chushou.player.ui.h5.c.a aVar = roomExpandInfo.mH5Tips;
@@ -2353,35 +2353,35 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                         }
                         List<com.kascend.chushou.player.ui.h5.c.e> list = roomExpandInfo.mRedpacketBeanList;
                         if (!h.isEmpty(list)) {
-                            VideoPlayer.this.mPF.a(list);
+                            VideoPlayer.this.mPQ.a(list);
                         }
                         List<com.kascend.chushou.player.ui.h5.c.c> list2 = roomExpandInfo.mLuckList;
                         if (!h.isEmpty(list2)) {
-                            VideoPlayer.this.mPG.a(list2);
+                            VideoPlayer.this.mPR.a(list2);
                         }
                         com.kascend.chushou.player.ui.h5.c.c cVar = roomExpandInfo.mVoteItem;
                         if (cVar != null) {
-                            VideoPlayer.this.mPH.a(cVar);
+                            VideoPlayer.this.mPS.a(cVar);
                         }
                         List<com.kascend.chushou.player.ui.h5.c.b> list3 = roomExpandInfo.mInteractH5Item;
                         if (!h.isEmpty(list3)) {
-                            VideoPlayer.this.mPK.a(list3);
+                            VideoPlayer.this.mPV.a(list3);
                         }
                         List<com.kascend.chushou.player.ui.h5.c.b> list4 = roomExpandInfo.mInteractNavItem;
                         if (!h.isEmpty(list4)) {
-                            VideoPlayer.this.mPK.a(list4);
+                            VideoPlayer.this.mPV.a(list4);
                         }
-                        VideoPlayer.this.mPp = (PrivilegeInfo) dC.mData1;
-                        if (VideoPlayer.this.mPp != null) {
+                        VideoPlayer.this.mPA = (PrivilegeInfo) dC.mData1;
+                        if (VideoPlayer.this.mPA != null) {
                             tv.chushou.zues.a.a.post(new l());
                         }
-                        if (VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.mQZ = roomExpandInfo.mIconConfig;
-                            VideoPlayer.this.dCo().a(roomExpandInfo.mIconConfig.bangConfig);
+                        if (VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.mRl = roomExpandInfo.mIconConfig;
+                            VideoPlayer.this.dCp().a(roomExpandInfo.mIconConfig.bangConfig);
                         }
                         List<SkinConfig> list5 = roomExpandInfo.skinConfig;
-                        if (list5 != null && VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.mRe.clear();
+                        if (list5 != null && VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.mRp.clear();
                             int i = 0;
                             while (true) {
                                 int i2 = i;
@@ -2389,68 +2389,68 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                                     break;
                                 }
                                 SkinConfig skinConfig = list5.get(i2);
-                                VideoPlayer.this.mPo.mRe.put(skinConfig.position, skinConfig.resource);
+                                VideoPlayer.this.mPz.mRp.put(skinConfig.position, skinConfig.resource);
                                 i = i2 + 1;
                             }
                             VideoPlayer.this.C();
                         }
-                        VideoPlayer.this.a(roomExpandInfo.mIconConfig, VideoPlayer.this.mPo != null ? VideoPlayer.this.mPo.mRe : null);
-                        if (roomExpandInfo.mColorMap != null && roomExpandInfo.mColorMap.size() > 0 && com.kascend.chushou.b.dBN().c != null && com.kascend.chushou.b.dBN().c.size() <= 0) {
-                            com.kascend.chushou.b.dBN().c.putAll(roomExpandInfo.mColorMap);
+                        VideoPlayer.this.a(roomExpandInfo.mIconConfig, VideoPlayer.this.mPz != null ? VideoPlayer.this.mPz.mRp : null);
+                        if (roomExpandInfo.mColorMap != null && roomExpandInfo.mColorMap.size() > 0 && com.kascend.chushou.b.dBO().c != null && com.kascend.chushou.b.dBO().c.size() <= 0) {
+                            com.kascend.chushou.b.dBO().c.putAll(roomExpandInfo.mColorMap);
                             tv.chushou.zues.a.a.post(new i(52, null));
                         }
                         AutoBang autoBang = roomExpandInfo.mAutoBang;
                         if (autoBang != null && autoBang.currentTime != 0 && autoBang.bangTime != 0) {
-                            VideoPlayer.this.dCo().a(autoBang);
+                            VideoPlayer.this.dCp().a(autoBang);
                         }
-                        if (!h.isEmpty(roomExpandInfo.mRelatedRoomList) && VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.t = roomExpandInfo.mRelatedRoomList;
-                            if (VideoPlayer.this.mPk != null && VideoPlayer.this.H) {
-                                VideoPlayer.this.mPk.w();
+                        if (!h.isEmpty(roomExpandInfo.mRelatedRoomList) && VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.t = roomExpandInfo.mRelatedRoomList;
+                            if (VideoPlayer.this.mPx != null && VideoPlayer.this.H) {
+                                VideoPlayer.this.mPx.w();
                             }
                         }
-                        if (roomExpandInfo.mRoomNewUserInfo != null && roomExpandInfo.mRoomNewUserInfo.mBarrierNoviceGuide && !com.kascend.chushou.d.h.dBU().k() && VideoPlayer.this.mPk != null) {
-                            VideoPlayer.this.mPk.J();
+                        if (roomExpandInfo.mRoomNewUserInfo != null && roomExpandInfo.mRoomNewUserInfo.mBarrierNoviceGuide && !com.kascend.chushou.d.h.dBV().k() && VideoPlayer.this.mPx != null) {
+                            VideoPlayer.this.mPx.J();
                         }
-                        if (roomExpandInfo.mRoomNewUserInfo != null && roomExpandInfo.mRoomNewUserInfo.mRewardNoviceGuide && !com.kascend.chushou.d.h.dBU().l() && VideoPlayer.this.mPk != null) {
-                            VideoPlayer.this.mPk.K();
+                        if (roomExpandInfo.mRoomNewUserInfo != null && roomExpandInfo.mRoomNewUserInfo.mRewardNoviceGuide && !com.kascend.chushou.d.h.dBV().l() && VideoPlayer.this.mPx != null) {
+                            VideoPlayer.this.mPx.K();
                         }
                         if (!h.isEmpty(roomExpandInfo.mShopWindowInfos)) {
-                            if (VideoPlayer.this.mPo != null) {
-                                if (VideoPlayer.this.mPo.mRa == null) {
-                                    VideoPlayer.this.mPo.mRa = new ArrayList();
+                            if (VideoPlayer.this.mPz != null) {
+                                if (VideoPlayer.this.mPz.mRm == null) {
+                                    VideoPlayer.this.mPz.mRm = new ArrayList();
                                 }
-                                VideoPlayer.this.mPo.mRa.addAll(roomExpandInfo.mShopWindowInfos);
+                                VideoPlayer.this.mPz.mRm.addAll(roomExpandInfo.mShopWindowInfos);
                             }
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.L();
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.L();
                             }
                         }
-                        VideoPlayer.this.mPJ.b = VideoPlayer.this.P;
+                        VideoPlayer.this.mPU.b = VideoPlayer.this.P;
                         if (roomExpandInfo.mPkNotifyInfo != null) {
-                            VideoPlayer.this.mPJ.mUv = roomExpandInfo.mPkNotifyInfo;
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.a(roomExpandInfo.mPkNotifyInfo, VideoPlayer.this.P);
+                            VideoPlayer.this.mPU.mUG = roomExpandInfo.mPkNotifyInfo;
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.a(roomExpandInfo.mPkNotifyInfo, VideoPlayer.this.P);
                             }
                         } else {
-                            VideoPlayer.this.mPJ.mUv = null;
+                            VideoPlayer.this.mPU.mUG = null;
                         }
-                        if (roomExpandInfo.mTrumpetPocket != null && VideoPlayer.this.mPo != null) {
-                            VideoPlayer.this.mPo.mRd = roomExpandInfo.mTrumpetPocket;
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.M();
+                        if (roomExpandInfo.mTrumpetPocket != null && VideoPlayer.this.mPz != null) {
+                            VideoPlayer.this.mPz.mRo = roomExpandInfo.mTrumpetPocket;
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.M();
                             }
                         }
                         if (!h.isEmpty(roomExpandInfo.hotwordContentList)) {
-                            if (VideoPlayer.this.mPo != null) {
-                                if (VideoPlayer.this.mPo.mRb == null) {
-                                    VideoPlayer.this.mPo.mRb = new ArrayList();
+                            if (VideoPlayer.this.mPz != null) {
+                                if (VideoPlayer.this.mPz.mRn == null) {
+                                    VideoPlayer.this.mPz.mRn = new ArrayList();
                                 }
-                                VideoPlayer.this.mPo.mRb.clear();
-                                VideoPlayer.this.mPo.mRb.addAll(roomExpandInfo.hotwordContentList);
+                                VideoPlayer.this.mPz.mRn.clear();
+                                VideoPlayer.this.mPz.mRn.addAll(roomExpandInfo.hotwordContentList);
                             }
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.b(roomExpandInfo.hotwordContentList);
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.b(roomExpandInfo.hotwordContentList);
                             }
                         }
                         VideoPlayer.this.U();
@@ -2464,60 +2464,60 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
             public void a(int i, String str) {
                 tv.chushou.zues.utils.e.e(VideoPlayer.this.v, "get room gift popup list failed, rc =" + i + ", errorMsg=" + str);
             }
-        }, this.mPC, this.mPL);
+        }, this.mPN, this.mPW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void U() {
-        if (!h.isEmpty(com.kascend.chushou.a.a.dBO().z)) {
+        if (!h.isEmpty(com.kascend.chushou.a.a.dBP().z)) {
             StringBuilder sb = new StringBuilder();
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.f)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.f)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.f);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.g)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.g)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.g);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.i)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.i)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.i);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.h)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.h)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.h);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.j)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.j)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.j);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.l)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.l)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.l);
             }
-            if (com.kascend.chushou.a.a.dBO().z.contains(com.kascend.chushou.a.a.m)) {
+            if (com.kascend.chushou.a.a.dBP().z.contains(com.kascend.chushou.a.a.m)) {
                 if (sb.length() > 0) {
                     sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 sb.append(com.kascend.chushou.a.a.m);
             }
             if (sb.length() != 0) {
-                com.kascend.chushou.a.a.dBO().a(sb.toString(), this.P, new a.c() { // from class: com.kascend.chushou.player.VideoPlayer.19
+                com.kascend.chushou.a.a.dBP().a(sb.toString(), this.P, new a.c() { // from class: com.kascend.chushou.player.VideoPlayer.19
                     @Override // com.kascend.chushou.a.a.c
                     public void a(List<ListItem> list) {
-                        if (VideoPlayer.this.mPo != null && list != null) {
+                        if (VideoPlayer.this.mPz != null && list != null) {
                             int i = 0;
                             while (true) {
                                 int i2 = i;
@@ -2526,25 +2526,25 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
                                 }
                                 if (list.get(i2).mAdExtraInfo != null) {
                                     if (com.kascend.chushou.a.a.f.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQS = list.get(i2);
+                                        VideoPlayer.this.mPz.mRe = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.g.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQR = list.get(i2);
+                                        VideoPlayer.this.mPz.mRd = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.i.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQU = list.get(i2);
+                                        VideoPlayer.this.mPz.mRg = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.h.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQV = list.get(i2);
+                                        VideoPlayer.this.mPz.mRh = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.j.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQY = list.get(i2);
+                                        VideoPlayer.this.mPz.mRk = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.l.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQW = list.get(i2);
+                                        VideoPlayer.this.mPz.mRi = list.get(i2);
                                     } else if (com.kascend.chushou.a.a.m.equals(list.get(i2).mAdExtraInfo.mCode)) {
-                                        VideoPlayer.this.mPo.mQX = list.get(i2);
+                                        VideoPlayer.this.mPz.mRj = list.get(i2);
                                     }
                                 }
                                 i = i2 + 1;
                             }
-                            if (VideoPlayer.this.mPk != null) {
-                                VideoPlayer.this.mPk.H();
+                            if (VideoPlayer.this.mPx != null) {
+                                VideoPlayer.this.mPx.H();
                             }
                         }
                     }
@@ -2561,25 +2561,26 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void d(boolean z) {
+        Window window;
         int i;
-        if (Build.VERSION.SDK_INT >= 11 && this.mPv != null) {
+        if (Build.VERSION.SDK_INT >= 11 && (window = getWindow()) != null && window.getDecorView() != null) {
             if (!z) {
                 if (Build.VERSION.SDK_INT >= 19) {
                     i = 5894;
                 } else {
                     i = 1799;
                 }
-                this.mPv.setSystemUiVisibility(i);
+                this.mPG.setSystemUiVisibility(i);
                 return;
             }
-            this.mPv.setSystemUiVisibility(1792);
+            this.mPG.setSystemUiVisibility(1792);
         }
     }
 
     public void e(boolean z) {
         Window window;
         View decorView;
-        if (com.kascend.chushou.b.dBN().d != 1 && (window = getWindow()) != null && (decorView = window.getDecorView()) != null) {
+        if (com.kascend.chushou.b.dBO().d != 1 && (window = getWindow()) != null && (decorView = window.getDecorView()) != null) {
             if (!z) {
                 decorView.setSystemUiVisibility(1796);
                 window.clearFlags(67108864);
@@ -2602,13 +2603,13 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.mPk != null) {
-            this.mPk.a(i, i2, intent);
+        if (this.mPx != null) {
+            this.mPx.a(i, i2, intent);
         }
     }
 
-    public Uri dCh() {
-        return this.mPf;
+    public Uri dCi() {
+        return this.mPs;
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
@@ -2617,18 +2618,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void wh(boolean z) {
-        if (this.mPv != null) {
-            this.mPv.nZI = z;
+        if (this.mPG != null) {
+            this.mPG.nZT = z;
         }
     }
 
-    public void dCi() {
-        if (this.mPv != null) {
-            this.mPv.dCi();
+    public void dCj() {
+        if (this.mPG != null) {
+            this.mPG.dCj();
         }
     }
 
-    public boolean dCj() {
+    public boolean dCk() {
         return this.ae;
     }
 
@@ -2637,148 +2638,148 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
     }
 
     public void g(boolean z) {
-        if (this.mPv != null) {
-            this.mPv.setIsTranslucentStatus(z);
+        if (this.mPG != null) {
+            this.mPG.setIsTranslucentStatus(z);
         }
     }
 
     public void z() {
-        if (this.mPv != null) {
-            this.mPv.dQQ();
+        if (this.mPG != null) {
+            this.mPG.dQR();
         }
     }
 
     @Override // com.kascend.chushou.widget.gifts.RoomSendGiftView.a
     public void A() {
-        if (this.mPt != null) {
-            this.mPt.b();
+        if (this.mPE != null) {
+            this.mPE.b();
         }
     }
 
     @Override // com.kascend.chushou.widget.gifts.RoomSendGiftView.a
     public void B() {
-        if (this.mPt != null) {
-            this.mPt.b();
+        if (this.mPE != null) {
+            this.mPE.b();
         }
     }
 
     public void a(List<ListItem> list) {
-        if (this.mPk != null) {
-            this.mPk.a(list);
+        if (this.mPx != null) {
+            this.mPx.a(list);
         }
     }
 
     public void a(IconConfig iconConfig, Map<String, SkinConfig.SkinRes> map) {
-        if (this.mPk != null) {
-            this.mPk.a(iconConfig, map);
+        if (this.mPx != null) {
+            this.mPx.a(iconConfig, map);
         }
     }
 
     public void C() {
-        if (this.mPk != null) {
-            this.mPk.I();
+        if (this.mPx != null) {
+            this.mPx.I();
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0706a
     public void a(int i) {
-        if (this.mPk != null) {
-            this.mPk.a(i);
+        if (this.mPx != null) {
+            this.mPx.a(i);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0706a
     public void D() {
-        if (!isFinishing() && this.mPk != null) {
-            this.mPk.D();
+        if (!isFinishing() && this.mPx != null) {
+            this.mPx.D();
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.b.b.a
     public void a(long j) {
-        if (!isFinishing() && this.mPk != null) {
-            this.mPk.a(j);
+        if (!isFinishing() && this.mPx != null) {
+            this.mPx.a(j);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.b.b.a
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (aVar != null && this.mPk != null) {
-            this.mPk.a(aVar);
+        if (aVar != null && this.mPx != null) {
+            this.mPx.a(aVar);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.b.b.a
     public void b(int i) {
-        if (this.mPk != null) {
-            this.mPk.b(i);
+        if (this.mPx != null) {
+            this.mPx.b(i);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0705a
     public void b(long j) {
-        if (!isFinishing() && this.mPk != null) {
-            this.mPk.b(j);
+        if (!isFinishing() && this.mPx != null) {
+            this.mPx.b(j);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.a.a.InterfaceC0703a
     public void c(int i) {
-        if (!isFinishing() && this.mPk != null) {
-            this.mPk.c(i);
+        if (!isFinishing() && this.mPx != null) {
+            this.mPx.c(i);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0705a
     public void b(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (aVar != null && this.mPk != null) {
-            this.mPk.b(aVar);
+        if (aVar != null && this.mPx != null) {
+            this.mPx.b(aVar);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.a.a.InterfaceC0700a
     public void a(IconConfig.Config config) {
-        if (this.mPk != null) {
-            this.mPk.a(config);
+        if (this.mPx != null) {
+            this.mPx.a(config);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.a.a.InterfaceC0700a
     public void a(BangInfo bangInfo, String str) {
-        if (this.mPk != null) {
-            this.mPk.a(bangInfo, str);
+        if (this.mPx != null) {
+            this.mPx.a(bangInfo, str);
         }
     }
 
     @Override // com.kascend.chushou.player.ui.a.a.InterfaceC0700a
     public void a(long j, BangInfo bangInfo, String str) {
-        if (this.mPk != null) {
-            this.mPk.a(j, bangInfo, str);
+        if (this.mPx != null) {
+            this.mPx.a(j, bangInfo, str);
         }
     }
 
-    public com.kascend.chushou.player.ui.h5.redpacket.a dCk() {
-        return this.mPF;
+    public com.kascend.chushou.player.ui.h5.redpacket.a dCl() {
+        return this.mPQ;
     }
 
-    public com.kascend.chushou.player.ui.h5.b.b dCl() {
-        return this.mPG;
+    public com.kascend.chushou.player.ui.h5.b.b dCm() {
+        return this.mPR;
     }
 
-    public com.kascend.chushou.player.ui.h5.d.a dCm() {
-        return this.mPH;
+    public com.kascend.chushou.player.ui.h5.d.a dCn() {
+        return this.mPS;
     }
 
-    public com.kascend.chushou.player.ui.h5.a.a dCn() {
-        return this.mPK;
+    public com.kascend.chushou.player.ui.h5.a.a dCo() {
+        return this.mPV;
     }
 
-    public com.kascend.chushou.player.ui.a.a dCo() {
-        return this.mPI;
+    public com.kascend.chushou.player.ui.a.a dCp() {
+        return this.mPT;
     }
 
-    public com.kascend.chushou.player.e.a dCp() {
-        return this.mPJ;
+    public com.kascend.chushou.player.e.a dCq() {
+        return this.mPU;
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.app.Activity
@@ -2805,33 +2806,33 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         if (aVar.d < 0) {
             aVar.d = 0;
         }
-        RxExecutor.postDelayed(this.mPN, EventThread.MAIN_THREAD, aVar.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.2
+        RxExecutor.postDelayed(this.mPY, EventThread.MAIN_THREAD, aVar.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.2
             @Override // java.lang.Runnable
             public void run() {
-                if (VideoPlayer.this.mPk != null) {
-                    VideoPlayer.this.mPk.c(aVar);
+                if (VideoPlayer.this.mPx != null) {
+                    VideoPlayer.this.mPx.c(aVar);
                 }
             }
         });
     }
 
     private void e(final com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (!com.kascend.chushou.d.h.dBU().dBX().contains(aVar.b)) {
+        if (!com.kascend.chushou.d.h.dBV().dBY().contains(aVar.b)) {
             if (aVar.d < 0) {
                 aVar.d = 0;
             }
-            RxExecutor.postDelayed(this.mPN, EventThread.MAIN_THREAD, aVar.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.3
+            RxExecutor.postDelayed(this.mPY, EventThread.MAIN_THREAD, aVar.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.VideoPlayer.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPk != null) {
-                        VideoPlayer.this.mPk.c(aVar);
+                    if (!VideoPlayer.this.isFinishing() && VideoPlayer.this.mPx != null) {
+                        VideoPlayer.this.mPx.c(aVar);
                     }
                 }
             });
         }
     }
 
-    private String dCq() {
+    private String dCr() {
         if ("4".equals(this.aq)) {
             return TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY;
         }
@@ -2846,18 +2847,18 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction())) {
-                if (VideoPlayer.this.mPu != null && !VideoPlayer.this.isFinishing()) {
-                    VideoPlayer.n = VideoPlayer.this.mPu.getStreamVolume(3);
+                if (VideoPlayer.this.mPF != null && !VideoPlayer.this.isFinishing()) {
+                    VideoPlayer.n = VideoPlayer.this.mPF.getStreamVolume(3);
                 }
-                if (!VideoPlayer.this.isFinishing() && (VideoPlayer.this.mPk instanceof f)) {
-                    ((f) VideoPlayer.this.mPk).ab();
+                if (!VideoPlayer.this.isFinishing() && (VideoPlayer.this.mPx instanceof f)) {
+                    ((f) VideoPlayer.this.mPx).ab();
                 }
             }
         }
     }
 
     public String a(String str) {
-        HashMap hashMap = new HashMap(tv.chushou.zues.utils.d.SU(str));
+        HashMap hashMap = new HashMap(tv.chushou.zues.utils.d.SV(str));
         if ("1".equals(this.R)) {
             hashMap.put("roomId", this.P);
         } else if ("3".equals(this.R)) {
@@ -2866,11 +2867,11 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0700a, a.In
         return tv.chushou.zues.utils.d.toJson(hashMap);
     }
 
-    public boolean dCr() {
-        if (this.mPk instanceof com.kascend.chushou.player.d.a) {
-            return ((com.kascend.chushou.player.d.a) this.mPk).dDx();
+    public boolean dCs() {
+        if (this.mPx instanceof com.kascend.chushou.player.d.a) {
+            return ((com.kascend.chushou.player.d.a) this.mPx).dDy();
         }
-        if (this.mPk instanceof com.kascend.chushou.player.e.e) {
+        if (this.mPx instanceof com.kascend.chushou.player.e.e) {
             return true;
         }
         return false;

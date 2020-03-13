@@ -10,10 +10,10 @@ import com.baidu.swan.apps.y.f;
 import com.baidu.swan.games.utils.d;
 /* loaded from: classes11.dex */
 public class b {
-    private static final int ctL = d.S(42.0f);
-    private static volatile b ctN = null;
-    private int ctM;
-    private ViewTreeObserver.OnGlobalLayoutListener ctO = null;
+    private static final int ctM = d.S(42.0f);
+    private static volatile b ctO = null;
+    private int ctN;
+    private ViewTreeObserver.OnGlobalLayoutListener ctP = null;
     private int mBottomNavigationKeyHeight;
     private int mInputMethodHeight;
     private boolean mIsFirstGlobalLayout;
@@ -23,14 +23,14 @@ public class b {
     }
 
     public static b aqT() {
-        if (ctN == null) {
+        if (ctO == null) {
             synchronized (b.class) {
-                if (ctN == null) {
-                    ctN = new b();
+                if (ctO == null) {
+                    ctO = new b();
                 }
             }
         }
-        return ctN;
+        return ctO;
     }
 
     public boolean f(a aVar) {
@@ -48,7 +48,7 @@ public class b {
     private void a(final View view, final a aVar) {
         if (view != null && aVar != null) {
             this.mLastVisibleHeight = view.getHeight();
-            this.ctO = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
+            this.ctP = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Rect rect = new Rect();
@@ -74,16 +74,16 @@ public class b {
                                 return;
                             }
                             b.this.mLastVisibleHeight = i;
-                            b.this.ctM = i - b.ctL;
+                            b.this.ctN = i - b.ctM;
                             b.this.mInputMethodHeight = ((displayHeight - i) - statusBarHeight) - b.this.mBottomNavigationKeyHeight;
-                            if (b.this.mInputMethodHeight > 0 && !b.this.a(aVar, b.this.mInputMethodHeight, b.this.ctM)) {
+                            if (b.this.mInputMethodHeight > 0 && !b.this.a(aVar, b.this.mInputMethodHeight, b.this.ctN)) {
                                 b.this.g(aVar);
                             }
                         }
                     }
                 }
             };
-            view.getViewTreeObserver().addOnGlobalLayoutListener(this.ctO);
+            view.getViewTreeObserver().addOnGlobalLayoutListener(this.ctP);
         }
     }
 
@@ -103,13 +103,13 @@ public class b {
             return false;
         }
         FrameLayout aqs = WU.aqs();
-        if (aqs != null && this.ctO != null) {
-            aqs.getViewTreeObserver().removeOnGlobalLayoutListener(this.ctO);
+        if (aqs != null && this.ctP != null) {
+            aqs.getViewTreeObserver().removeOnGlobalLayoutListener(this.ctP);
         }
         aVar.hideKeyboard();
-        this.ctO = null;
+        this.ctP = null;
         this.mInputMethodHeight = -1;
-        this.ctM = -1;
+        this.ctN = -1;
         this.mBottomNavigationKeyHeight = -1;
         this.mIsFirstGlobalLayout = false;
         this.mLastVisibleHeight = -1;

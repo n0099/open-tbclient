@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f fCh;
-    protected d fFR;
+    protected f fCu;
+    protected d fGe;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e bui;
-        this.fCh = fVar;
-        if (this.fCh != null && this.fCh.bui() != null && (bui = this.fCh.bui()) != null) {
-            int status = bui.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.fGk) {
-                if (i == VoteCandidateCard.fGu) {
-                    this.status = a.fGi;
-                    this.fFR = this.fCh.buh();
+        e buj;
+        this.fCu = fVar;
+        if (this.fCu != null && this.fCu.buj() != null && (buj = this.fCu.buj()) != null) {
+            int status = buj.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.fGx) {
+                if (i == VoteCandidateCard.fGH) {
+                    this.status = a.fGv;
+                    this.fGe = this.fCu.bui();
                     return;
                 }
-                this.status = a.fGf;
-                List<d> bug = this.fCh.bug();
-                if (bug != null && bug.size() > i) {
-                    this.fFR = bug.get(i);
+                this.status = a.fGs;
+                List<d> buh = this.fCu.buh();
+                if (buh != null && buh.size() > i) {
+                    this.fGe = buh.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.fGl) {
-                if (i == VoteCandidateCard.fGu) {
-                    this.status = a.fGh;
-                    List<d> bug2 = this.fCh.bug();
-                    if (bug2 != null && bug2.size() > 0) {
-                        for (d dVar : bug2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.fGy) {
+                if (i == VoteCandidateCard.fGH) {
+                    this.status = a.fGu;
+                    List<d> buh2 = this.fCu.buh();
+                    if (buh2 != null && buh2.size() > 0) {
+                        for (d dVar : buh2) {
                             if (dVar.getRank() == 1) {
-                                this.fFR = dVar;
+                                this.fGe = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.fGg;
-                List<d> bug3 = this.fCh.bug();
-                if (bug3 != null && bug3.size() > i) {
-                    this.fFR = bug3.get(i);
-                    if (this.fFR.getRank() == 1 && i == 0) {
-                        this.status = a.fGh;
+                this.status = a.fGt;
+                List<d> buh3 = this.fCu.buh();
+                if (buh3 != null && buh3.size() > i) {
+                    this.fGe = buh3.get(i);
+                    if (this.fGe.getRank() == 1 && i == 0) {
+                        this.status = a.fGu;
                     }
                 }
             }

@@ -21,10 +21,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class j extends d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e bHc;
-    private com.baidu.swan.apps.process.messaging.client.a bPo;
-    private boolean bPp = false;
-    private SwanAppActivity biK;
+    private e bHd;
+    private com.baidu.swan.apps.process.messaging.client.a bPp;
+    private boolean bPq = false;
+    private SwanAppActivity biL;
 
     @Override // com.baidu.swan.apps.runtime.h
     public SwanAppProcessInfo abh() {
@@ -33,7 +33,7 @@ public final class j extends d {
 
     @Override // com.baidu.swan.apps.runtime.h
     public String getAppId() {
-        return this.bHc == null ? "" : this.bHc.getAppId();
+        return this.bHd == null ? "" : this.bHd.getAppId();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -59,45 +59,45 @@ public final class j extends d {
     @Override // com.baidu.swan.apps.runtime.h
     @NonNull
     public e acz() {
-        if (this.bHc == null) {
-            this.bHc = new e(this, "");
+        if (this.bHd == null) {
+            this.bHd = new e(this, "");
         }
-        return this.bHc;
+        return this.bHd;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     @Nullable
     public com.baidu.swan.apps.process.messaging.client.a acy() {
-        if (this.bPo == null) {
-            this.bPo = new com.baidu.swan.apps.process.messaging.client.a(this);
+        if (this.bPp == null) {
+            this.bPp = new com.baidu.swan.apps.process.messaging.client.a(this);
         }
-        return this.bPo;
+        return this.bPp;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public synchronized String v(String... strArr) {
         String str;
-        if (this.bPp) {
+        if (this.bPq) {
             str = "";
         } else {
-            this.bPp = true;
+            this.bPq = true;
             str = "";
-            if (this.bHc != null && this.bHc.abj()) {
-                String w = this.bHc.w(strArr);
-                this.bHc = null;
+            if (this.bHd != null && this.bHd.abj()) {
+                String w = this.bHd.w(strArr);
+                this.bHd = null;
                 d((i.a) new i.a("event_on_app_reseted").d("event_params_reset_flags", strArr));
                 com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(2));
                 str = w;
             }
-            this.bPp = false;
+            this.bPq = false;
         }
         return str;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void acA() {
-        if (this.bHc != null && this.bHc.abj()) {
-            this.bHc.acA();
+        if (this.bHd != null && this.bHd.abj()) {
+            this.bHd.acA();
             v("flag_finish_activity", "flag_remove_task");
             ai.l(new Runnable() { // from class: com.baidu.swan.apps.runtime.j.1
                 @Override // java.lang.Runnable
@@ -118,9 +118,9 @@ public final class j extends d {
             String string = bundle.getString("mAppId");
             if (kV(str)) {
                 if (!TextUtils.equals(string, getAppId())) {
-                    this.bHc = new e(this, string);
+                    this.bHd = new e(this, string);
                 }
-                this.bHc.N(bundle);
+                this.bHd.N(bundle);
             } else {
                 boolean kW = kW(str);
                 boolean z = false;
@@ -138,7 +138,7 @@ public final class j extends d {
                         com.baidu.swan.apps.statistic.e.gr(3);
                     }
                     kW = true;
-                    this.bHc = new e(this, string);
+                    this.bHd = new e(this, string);
                     z2 = true;
                 }
                 if (abj()) {
@@ -154,9 +154,9 @@ public final class j extends d {
                     if (j2 > 0) {
                         jP.f(new UbcFlowEvent("swan_app_update_reset_ok").au(j2).dg(true));
                     }
-                    boolean b = this.bHc.b(bundle, str, z2 || !this.bHc.available());
+                    boolean b = this.bHd.b(bundle, str, z2 || !this.bHd.available());
                     jP.f(new UbcFlowEvent("swan_app_update_end").dg(true));
-                    if (!b && this.bHc.available()) {
+                    if (!b && this.bHd.available()) {
                         Bundle bundle2 = new Bundle();
                         bundle2.putString("app_update_tag", str);
                         d("event_on_app_updated", bundle2);
@@ -171,7 +171,7 @@ public final class j extends d {
     }
 
     private boolean kW(String str) {
-        return bPn.contains(str);
+        return bPo.contains(str);
     }
 
     private void b(@NonNull Bundle bundle, boolean z) {
@@ -206,8 +206,8 @@ public final class j extends d {
             }
             bb.bb("abtest", bundle2.getString("aiapp_abtest_info", ""));
         }
-        this.bHc.acI().aj(j3);
-        this.bHc.acI().al(j3);
+        this.bHd.acI().aj(j3);
+        this.bHd.acI().al(j3);
         long j6 = bundle.getLong("launch_flag_for_statistic");
         long j7 = bundle.getLong("page_display_flag_for_statistic");
         if (j6 < 1 || j7 < 1 || currentTimeMillis - j6 > millis || currentTimeMillis - j7 > millis) {
@@ -235,21 +235,21 @@ public final class j extends d {
 
     @Override // com.baidu.swan.apps.runtime.h
     public SwanAppActivity acB() {
-        return this.biK;
+        return this.biL;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void j(SwanAppActivity swanAppActivity) {
-        if (swanAppActivity != null && this.biK != swanAppActivity) {
-            if (this.biK != null) {
-                k(this.biK);
+        if (swanAppActivity != null && this.biL != swanAppActivity) {
+            if (this.biL != null) {
+                k(this.biL);
             }
-            this.biK = swanAppActivity;
+            this.biL = swanAppActivity;
         }
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void k(SwanAppActivity swanAppActivity) {
-        this.biK = null;
+        this.biL = null;
     }
 }

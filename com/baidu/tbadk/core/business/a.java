@@ -13,18 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a cMe;
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> cMf = new ArrayList<>();
+    private static a cMf;
+    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> cMg = new ArrayList<>();
 
     public static a aAa() {
-        if (cMe == null) {
+        if (cMf == null) {
             synchronized (a.class) {
-                if (cMe == null) {
-                    cMe = new a();
+                if (cMf == null) {
+                    cMf = new a();
                 }
             }
         }
-        return cMe;
+        return cMf;
     }
 
     public void K(JSONArray jSONArray) {
@@ -37,7 +37,7 @@ public class a {
         JSONObject jSONObject;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount) && jSONArray != null) {
-            this.cMf.clear();
+            this.cMg.clear();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     jSONObject = jSONArray.getJSONObject(i);
@@ -58,12 +58,12 @@ public class a {
                     putInt("business_count_hint" + currentAccount + aVar.activityId, aVar.showNum);
                     putLong("business_update_time" + currentAccount + aVar.activityId, System.currentTimeMillis());
                 }
-                aVar.cJs = jSONObject.optInt("show_time_begin");
-                aVar.cJt = jSONObject.optInt("show_time_end");
+                aVar.cJt = jSONObject.optInt("show_time_begin");
+                aVar.cJu = jSONObject.optInt("show_time_end");
                 JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     try {
-                        aVar.cJv.add((String) optJSONArray.get(i2));
+                        aVar.cJw.add((String) optJSONArray.get(i2));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -71,12 +71,12 @@ public class a {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     try {
-                        aVar.cJu.add((String) optJSONArray2.get(i3));
+                        aVar.cJv.add((String) optJSONArray2.get(i3));
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
                 }
-                this.cMf.add(aVar);
+                this.cMg.add(aVar);
             }
         }
     }
@@ -106,7 +106,7 @@ public class a {
     }
 
     private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> aAb() {
-        return this.cMf;
+        return this.cMg;
     }
 
     public void co(String str, String str2) {
@@ -122,10 +122,10 @@ public class a {
                         int i4 = aAb.get(i2).missionId;
                         int i5 = aAb.get(i2).showType;
                         int i6 = getInt("business_count_hint" + currentAccount + i3);
-                        long j = aAb.get(i2).cJs;
-                        long j2 = aAb.get(i2).cJt;
-                        ArrayList<String> arrayList = aAb.get(i2).cJu;
-                        ArrayList<String> arrayList2 = aAb.get(i2).cJv;
+                        long j = aAb.get(i2).cJt;
+                        long j2 = aAb.get(i2).cJu;
+                        ArrayList<String> arrayList = aAb.get(i2).cJv;
+                        ArrayList<String> arrayList2 = aAb.get(i2).cJw;
                         if (i6 != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
                             int i7 = 0;
                             boolean z = false;

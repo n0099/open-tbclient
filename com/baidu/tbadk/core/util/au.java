@@ -44,7 +44,7 @@ public final class au {
             bj aAg = aVar.aAg();
             String aCa = com.baidu.tieba.card.l.aCa();
             if (i == 3) {
-                aCa = com.baidu.tieba.card.l.buY();
+                aCa = com.baidu.tieba.card.l.buZ();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aAg, null, aCa, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(aAg.getFid()));
@@ -77,7 +77,7 @@ public final class au {
             }
             createFromThreadCfg.setThreadData(aAg);
             createFromThreadCfg.setVideoOriginArea(rect);
-            com.baidu.tieba.card.l.zS(aAg.getTid());
+            com.baidu.tieba.card.l.zT(aAg.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }

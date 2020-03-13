@@ -13,17 +13,17 @@ import com.baidu.tieba.ala.liveroom.turntable.lucky.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.c;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private int dOg;
-    private CountDownTimer ewj;
-    private a.InterfaceC0467a flc;
-    private ViewGroup fld;
-    private int fle;
-    private FrameLayout flf;
-    private TurnTableLuckyBubbleView flg;
-    private Handler flh;
-    private com.baidu.tieba.ala.liveroom.turntable.a fli;
-    private long flj;
-    private boolean flk;
+    private int dOt;
+    private CountDownTimer eww;
+    private a.InterfaceC0467a flp;
+    private ViewGroup flq;
+    private int flr;
+    private FrameLayout fls;
+    private TurnTableLuckyBubbleView flt;
+    private Handler flu;
+    private com.baidu.tieba.ala.liveroom.turntable.a flv;
+    private long flw;
+    private boolean flx;
     private Context mContext;
     private String mLiveId;
 
@@ -32,74 +32,74 @@ public class b implements a {
     }
 
     public void d(ViewGroup viewGroup, int i, int i2) {
-        this.fld = viewGroup;
-        this.dOg = i;
-        this.fle = i2;
+        this.flq = viewGroup;
+        this.dOt = i;
+        this.flr = i2;
     }
 
     public void a(String str, a.InterfaceC0467a interfaceC0467a) {
         sL();
-        this.flk = true;
+        this.flx = true;
         this.mLiveId = str;
-        this.flc = interfaceC0467a;
-        bqD();
+        this.flp = interfaceC0467a;
+        bqE();
     }
 
     public void br(int i, int i2) {
-        if (i != this.dOg || i2 != this.fle) {
-            this.dOg = i;
-            this.fle = i2;
-            if (this.flf != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.flf.getLayoutParams();
+        if (i != this.dOt || i2 != this.flr) {
+            this.dOt = i;
+            this.flr = i2;
+            if (this.fls != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fls.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = this.dOg * 2;
-                    layoutParams.bottomMargin = this.fle;
+                    layoutParams.width = this.dOt * 2;
+                    layoutParams.bottomMargin = this.flr;
                 }
-                this.flf.setLayoutParams(layoutParams);
+                this.fls.setLayoutParams(layoutParams);
             }
         }
     }
 
     public void jM(boolean z) {
-        this.flk = z;
-        if (this.flf != null && this.flf.getParent() != null) {
-            this.flf.setVisibility(z ? 0 : 8);
+        this.flx = z;
+        if (this.fls != null && this.fls.getParent() != null) {
+            this.fls.setVisibility(z ? 0 : 8);
         }
     }
 
     public void sL() {
         this.mLiveId = "";
-        bdU();
-        this.flc = null;
-        if (this.flh != null) {
-            this.flh.removeCallbacksAndMessages(null);
+        bdV();
+        this.flp = null;
+        if (this.flu != null) {
+            this.flu.removeCallbacksAndMessages(null);
         }
-        if (this.flf != null) {
-            this.flf.removeAllViews();
-            if (this.fld != null) {
-                this.fld.removeView(this.flf);
+        if (this.fls != null) {
+            this.fls.removeAllViews();
+            if (this.flq != null) {
+                this.flq.removeView(this.fls);
             }
-            this.flf = null;
-            this.flg = null;
+            this.fls = null;
+            this.flt = null;
         }
     }
 
     public void release() {
         sL();
-        if (this.fli != null) {
-            this.fli.release();
-            this.fli = null;
+        if (this.flv != null) {
+            this.flv.release();
+            this.flv = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqD() {
-        ap apVar = com.baidu.live.v.a.zl().axC;
+    public void bqE() {
+        ap apVar = com.baidu.live.v.a.zl().axD;
         if (apVar == null || apVar.acV == null || apVar.acV.aeB) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
-                if (this.fli == null) {
-                    this.fli = new com.baidu.tieba.ala.liveroom.turntable.c();
-                    this.fli.a(new com.baidu.tieba.ala.liveroom.turntable.b() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.1
+                if (this.flv == null) {
+                    this.flv = new com.baidu.tieba.ala.liveroom.turntable.c();
+                    this.flv.a(new com.baidu.tieba.ala.liveroom.turntable.b() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.1
                         @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0466a
                         public void a(String str, c cVar) {
                             super.a(str, cVar);
@@ -113,7 +113,7 @@ public class b implements a {
                         }
                     });
                 }
-                this.fli.zv(this.mLiveId);
+                this.flv.zw(this.mLiveId);
             }
         }
     }
@@ -121,44 +121,44 @@ public class b implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, c cVar) {
         if (!z) {
-            bqE();
+            bqF();
         } else if (TextUtils.isEmpty(this.mLiveId)) {
         } else {
             if (TextUtils.isEmpty(str) || this.mLiveId.equals(str)) {
-                if (cVar != null && cVar.flp == 1 && cVar.flq - cVar.currentTime > 0) {
+                if (cVar != null && cVar.flC == 1 && cVar.flD - cVar.currentTime > 0) {
                     a(cVar);
-                    if (this.flg != null && cVar.flr != null) {
-                        this.flg.setContent(cVar.flr.giftName, cVar.flr.fls);
+                    if (this.flt != null && cVar.flE != null) {
+                        this.flt.setContent(cVar.flE.giftName, cVar.flE.flF);
                     }
                 } else {
-                    bdU();
-                    bco();
+                    bdV();
+                    bcp();
                 }
-                bqE();
+                bqF();
             }
         }
     }
 
-    private void bqE() {
-        if (this.flh == null) {
-            this.flh = new Handler();
+    private void bqF() {
+        if (this.flu == null) {
+            this.flu = new Handler();
         }
-        this.flh.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
+        this.flu.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.bqD();
+                b.this.bqE();
             }
         }, 5000L);
     }
 
     private void a(c cVar) {
-        if (this.flj != cVar.flq) {
-            bdU();
-            this.flj = cVar.flq;
-            long j = cVar.flq - cVar.currentTime;
-            a(cVar.flr, j);
+        if (this.flw != cVar.flD) {
+            bdV();
+            this.flw = cVar.flD;
+            long j = cVar.flD - cVar.currentTime;
+            a(cVar.flE, j);
             final long j2 = 100 + (j * 1000);
-            this.ewj = new CountDownTimer(j2, 1000L) { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.3
+            this.eww = new CountDownTimer(j2, 1000L) { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.3
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
                     b.this.y(j3, j2);
@@ -166,84 +166,84 @@ public class b implements a {
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    b.this.bqF();
+                    b.this.bqG();
                 }
             };
-            this.ewj.start();
+            this.eww.start();
         }
     }
 
-    private void bdU() {
-        this.flj = 0L;
-        if (this.ewj != null) {
-            this.ewj.cancel();
-            this.ewj = null;
+    private void bdV() {
+        this.flw = 0L;
+        if (this.eww != null) {
+            this.eww.cancel();
+            this.eww = null;
         }
     }
 
     private void a(c.a aVar, long j) {
         String str = aVar.giftName;
-        if (this.fld != null && !TextUtils.isEmpty(str)) {
-            if (this.flg == null) {
-                this.flg = new TurnTableLuckyBubbleView(this.mContext);
+        if (this.flq != null && !TextUtils.isEmpty(str)) {
+            if (this.flt == null) {
+                this.flt = new TurnTableLuckyBubbleView(this.mContext);
             }
-            if (this.flf == null) {
-                this.flf = new FrameLayout(this.mContext);
-                this.flf.setBackgroundColor(0);
+            if (this.fls == null) {
+                this.fls = new FrameLayout(this.mContext);
+                this.fls.setBackgroundColor(0);
             }
-            if (this.flf.indexOfChild(this.flg) < 0) {
+            if (this.fls.indexOfChild(this.flt) < 0) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 1;
-                this.flf.addView(this.flg, layoutParams);
+                this.fls.addView(this.flt, layoutParams);
             }
-            if (this.fld.indexOfChild(this.flf) < 0) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.dOg * 2, -2);
+            if (this.flq.indexOfChild(this.fls) < 0) {
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.dOt * 2, -2);
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(12);
-                layoutParams2.bottomMargin = this.fle;
-                this.fld.addView(this.flf, layoutParams2);
+                layoutParams2.bottomMargin = this.flr;
+                this.flq.addView(this.fls, layoutParams2);
             }
-            this.flf.setVisibility(this.flk ? 0 : 8);
-            this.flg.setContent(str, aVar.fls);
+            this.fls.setVisibility(this.flx ? 0 : 8);
+            this.flt.setContent(str, aVar.flF);
         }
-        if (this.flc != null) {
-            this.flc.a(100.0f, j + "s");
+        if (this.flp != null) {
+            this.flp.a(100.0f, j + "s");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y(long j, long j2) {
-        if (this.flc != null) {
+        if (this.flp != null) {
             long j3 = j / 1000;
             if (j3 >= 1) {
-                this.flc.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
+                this.flp.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
             } else {
-                bqF();
+                bqG();
             }
         }
     }
 
-    private void bco() {
-        if (this.flf != null) {
-            this.flf.removeAllViews();
-            if (this.fld != null) {
-                this.fld.removeView(this.flf);
+    private void bcp() {
+        if (this.fls != null) {
+            this.fls.removeAllViews();
+            if (this.flq != null) {
+                this.flq.removeView(this.fls);
             }
-            this.flf = null;
-            this.flg = null;
+            this.fls = null;
+            this.flt = null;
         }
-        if (this.flc != null) {
-            this.flc.a(0.0f, "");
+        if (this.flp != null) {
+            this.flp.a(0.0f, "");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqF() {
-        bdU();
-        bco();
-        if (this.flh != null) {
-            this.flh.removeCallbacksAndMessages(null);
+    public void bqG() {
+        bdV();
+        bcp();
+        if (this.flu != null) {
+            this.flu.removeCallbacksAndMessages(null);
         }
-        bqD();
+        bqE();
     }
 }

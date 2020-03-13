@@ -29,7 +29,7 @@ import org.json.JSONObject;
 public class d extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context) {
-        super(context, com.baidu.live.im.a.aqx);
+        super(context, com.baidu.live.im.a.aqy);
     }
 
     @Override // com.baidu.live.im.a.b
@@ -353,7 +353,7 @@ public class d extends b {
     private static class a extends ClickableSpan {
         private String adB;
         private String adC;
-        private boolean atm;
+        private boolean atn;
         private boolean isHost;
         private String liveId;
         private String url;
@@ -371,7 +371,7 @@ public class d extends b {
         }
 
         public void setClickable(boolean z) {
-            this.atm = z;
+            this.atn = z;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -381,9 +381,9 @@ public class d extends b {
             } else if ("wish_list_finish".equals(this.url) || "wish_list_success".equals(this.url)) {
                 textPaint.setColor(Color.parseColor("#84E2FF"));
             } else {
-                if (1 == b.asP) {
+                if (1 == b.asQ) {
                     textPaint.setColor(Color.parseColor("#84E2FF"));
-                } else if (2 == b.asP) {
+                } else if (2 == b.asQ) {
                     textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_link_tip_a));
                 }
                 textPaint.setUnderlineText(true);
@@ -429,7 +429,7 @@ public class d extends b {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, auVar));
                     return;
                 case 1:
-                    if (this.atm) {
+                    if (this.atn) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913153));
                         return;
                     }

@@ -10,19 +10,19 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes10.dex */
 public class e implements ae, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> iWL;
-    public String iWM;
+    private ArrayList<PreLoadImageInfo> iWX;
+    public String iWY;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.iWL = new ArrayList<>(1);
+            this.iWX = new ArrayList<>(1);
             this.src = excContent.src;
-            this.iWM = excContent.bsize;
-            if (this.iWM != null) {
+            this.iWY = excContent.bsize;
+            if (this.iWY != null) {
                 try {
-                    String[] split = this.iWM.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.iWY.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.iWL.add(preLoadImageInfo);
+            this.iWX.add(preLoadImageInfo);
         }
     }
 
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.iWL;
+        return this.iWX;
     }
 }

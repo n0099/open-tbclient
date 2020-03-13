@@ -13,10 +13,12 @@ import android.view.animation.LinearInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.widget.TbImageView;
@@ -64,6 +66,13 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
         setRequestedOrientation(1);
         registerListener(this.agU);
         registerListener(this.agT);

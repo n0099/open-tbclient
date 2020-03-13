@@ -6,14 +6,14 @@ public final class c {
 
     /* loaded from: classes11.dex */
     private static class a {
-        public static final c bbz = new c();
+        public static final c bbA = new c();
     }
 
     private c() {
     }
 
     public static c IY() {
-        return a.bbz;
+        return a.bbA;
     }
 
     public j IZ() {

@@ -38,8 +38,8 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
             unitedSchemeEntity.result = eb(1001);
         } else {
-            String str = d.bil;
-            com.baidu.swan.apps.model.a.a.a aVar = d.biq;
+            String str = d.bim;
+            com.baidu.swan.apps.model.a.a.a aVar = d.bir;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
                 unitedSchemeEntity.result = eb(202);

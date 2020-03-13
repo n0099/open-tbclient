@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes9.dex */
 public class c extends RecyclerView.ItemDecoration {
-    private int gap;
-    private int gaq;
+    private int gaC;
+    private int gaD;
     private int mEnd;
 
     public c(int i, int i2, int i3) {
-        this.gap = i;
-        this.gaq = i2;
+        this.gaC = i;
+        this.gaD = i2;
         this.mEnd = i3;
     }
 
@@ -21,9 +21,9 @@ public class c extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.gap;
+                rect.top = this.gaC;
             } else {
-                rect.top = this.gaq;
+                rect.top = this.gaD;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.bottom = this.mEnd;
@@ -32,9 +32,9 @@ public class c extends RecyclerView.ItemDecoration {
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.gap;
+            rect.left = this.gaC;
         } else {
-            rect.left = this.gaq;
+            rect.left = this.gaD;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
             rect.right = this.mEnd;

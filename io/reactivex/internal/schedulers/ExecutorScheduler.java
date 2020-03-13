@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ExecutorScheduler extends v {
-    static final v nzd = io.reactivex.f.a.dJP();
+    static final v nzo = io.reactivex.f.a.dJQ();
     final Executor executor;
 
     public ExecutorScheduler(Executor executor) {
@@ -25,7 +25,7 @@ public final class ExecutorScheduler extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dJh() {
+    public v.c dJi() {
         return new ExecutorWorker(this.executor);
     }
 
@@ -65,7 +65,7 @@ public final class ExecutorScheduler extends v {
             }
         }
         DelayedRunnable delayedRunnable = new DelayedRunnable(F);
-        delayedRunnable.timed.replace(nzd.b(new a(delayedRunnable), j, timeUnit));
+        delayedRunnable.timed.replace(nzo.b(new a(delayedRunnable), j, timeUnit));
         return delayedRunnable;
     }
 
@@ -89,7 +89,7 @@ public final class ExecutorScheduler extends v {
         volatile boolean disposed;
         final Executor executor;
         final AtomicInteger wip = new AtomicInteger();
-        final io.reactivex.disposables.a nzg = new io.reactivex.disposables.a();
+        final io.reactivex.disposables.a nzr = new io.reactivex.disposables.a();
         final MpscLinkedQueue<Runnable> queue = new MpscLinkedQueue<>();
 
         public ExecutorWorker(Executor executor) {
@@ -127,8 +127,8 @@ public final class ExecutorScheduler extends v {
             }
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.F(runnable)), this.nzg);
-            this.nzg.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.F(runnable)), this.nzr);
+            this.nzr.a(scheduledRunnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     scheduledRunnable.setFuture(((ScheduledExecutorService) this.executor).schedule((Callable) scheduledRunnable, j, timeUnit));
@@ -138,7 +138,7 @@ public final class ExecutorScheduler extends v {
                     return EmptyDisposable.INSTANCE;
                 }
             } else {
-                scheduledRunnable.setFuture(new b(ExecutorScheduler.nzd.b(scheduledRunnable, j, timeUnit)));
+                scheduledRunnable.setFuture(new b(ExecutorScheduler.nzo.b(scheduledRunnable, j, timeUnit)));
             }
             sequentialDisposable.replace(scheduledRunnable);
             return sequentialDisposable2;
@@ -148,7 +148,7 @@ public final class ExecutorScheduler extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nzg.dispose();
+                this.nzr.dispose();
                 if (this.wip.getAndIncrement() == 0) {
                     this.queue.clear();
                 }
@@ -240,16 +240,16 @@ public final class ExecutorScheduler extends v {
         /* loaded from: classes7.dex */
         final class a implements Runnable {
             private final Runnable decoratedRun;
-            private final SequentialDisposable nzh;
+            private final SequentialDisposable nzs;
 
             a(SequentialDisposable sequentialDisposable, Runnable runnable) {
-                this.nzh = sequentialDisposable;
+                this.nzs = sequentialDisposable;
                 this.decoratedRun = runnable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.nzh.replace(ExecutorWorker.this.D(this.decoratedRun));
+                this.nzs.replace(ExecutorWorker.this.D(this.decoratedRun));
             }
         }
     }
@@ -295,21 +295,21 @@ public final class ExecutorScheduler extends v {
 
         public Runnable getWrappedRunnable() {
             Runnable runnable = get();
-            return runnable != null ? runnable : Functions.nvY;
+            return runnable != null ? runnable : Functions.nwj;
         }
     }
 
     /* loaded from: classes7.dex */
     final class a implements Runnable {
-        private final DelayedRunnable nze;
+        private final DelayedRunnable nzp;
 
         a(DelayedRunnable delayedRunnable) {
-            this.nze = delayedRunnable;
+            this.nzp = delayedRunnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nze.direct.replace(ExecutorScheduler.this.C(this.nze));
+            this.nzp.direct.replace(ExecutorScheduler.this.C(this.nzp));
         }
     }
 }

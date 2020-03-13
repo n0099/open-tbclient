@@ -16,12 +16,12 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class SwanAppBgMusicPlayerImpl implements i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private MediaPlayer bbj;
-    private com.baidu.swan.apps.media.audio.service.a bbl;
-    private boolean bbm;
-    private PlayerStatus eds = PlayerStatus.NONE;
-    private a edt;
-    private c edu;
+    private MediaPlayer bbk;
+    private com.baidu.swan.apps.media.audio.service.a bbm;
+    private boolean bbn;
+    private PlayerStatus edF = PlayerStatus.NONE;
+    private a edG;
+    private c edH;
     private AudioManager mAudioManager;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,19 +36,19 @@ public class SwanAppBgMusicPlayerImpl implements i {
     @Override // com.baidu.swan.apps.adaptation.a.i
     public void a(String str, com.baidu.swan.apps.media.audio.service.a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            this.bbl = aVar;
+            this.bbm = aVar;
             try {
                 com.baidu.swan.apps.media.audio.a a2 = com.baidu.swan.apps.media.audio.a.a(new JSONObject(str), new com.baidu.swan.apps.media.audio.a());
-                if (this.eds != PlayerStatus.NONE) {
+                if (this.edF != PlayerStatus.NONE) {
                     HB().reset();
                 }
                 HB().setDataSource(a2.mUrl);
-                this.eds = PlayerStatus.IDLE;
-                this.bbl.onGetCurrentSong(a2.mUrl);
+                this.edF = PlayerStatus.IDLE;
+                this.bbm.onGetCurrentSong(a2.mUrl);
                 play();
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
-                this.bbl.onInvokeFailed();
+                this.bbm.onInvokeFailed();
             }
         }
     }
@@ -57,24 +57,24 @@ public class SwanAppBgMusicPlayerImpl implements i {
     public void onRelease() {
         HD();
         HB().release();
-        this.bbj = null;
-        this.eds = PlayerStatus.NONE;
-        if (this.edu != null) {
-            this.edu.removeMessages(0);
-            this.edu = null;
+        this.bbk = null;
+        this.edF = PlayerStatus.NONE;
+        if (this.edH != null) {
+            this.edH.removeMessages(0);
+            this.edH = null;
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
     public void play() {
-        if (this.eds == PlayerStatus.PREPARED) {
+        if (this.edF == PlayerStatus.PREPARED) {
             HC();
             HB().start();
-            this.bbl.onStateChanged(BgMusicPlayState.PLAY);
-            if (this.edu != null) {
-                this.edu.sendEmptyMessage(0);
+            this.bbm.onStateChanged(BgMusicPlayState.PLAY);
+            if (this.edH != null) {
+                this.edH.sendEmptyMessage(0);
             }
-        } else if (this.eds == PlayerStatus.IDLE) {
+        } else if (this.edF == PlayerStatus.IDLE) {
             prepare();
         }
     }
@@ -82,10 +82,10 @@ public class SwanAppBgMusicPlayerImpl implements i {
     private void prepare() {
         try {
             HB().prepareAsync();
-            this.eds = PlayerStatus.PREPARING;
+            this.edF = PlayerStatus.PREPARING;
         } catch (IllegalStateException e) {
             e.printStackTrace();
-            this.bbl.onInvokeFailed();
+            this.bbm.onInvokeFailed();
             onRelease();
         }
     }
@@ -94,24 +94,24 @@ public class SwanAppBgMusicPlayerImpl implements i {
     public void pause() {
         if (HB().isPlaying()) {
             HB().pause();
-            this.bbl.onStateChanged(BgMusicPlayState.PAUSE);
-            if (this.edu != null) {
-                this.edu.removeMessages(0);
+            this.bbm.onStateChanged(BgMusicPlayState.PAUSE);
+            if (this.edH != null) {
+                this.edH.removeMessages(0);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
     public void stop() {
-        if (this.eds == PlayerStatus.PREPARED) {
+        if (this.edF == PlayerStatus.PREPARED) {
             if (DEBUG) {
                 Log.d("AudioPlayerListener", "===stop");
             }
             HB().stop();
-            this.eds = PlayerStatus.IDLE;
-            this.bbl.onStateChanged(BgMusicPlayState.STOP);
-            if (this.edu != null) {
-                this.edu.removeMessages(0);
+            this.edF = PlayerStatus.IDLE;
+            this.bbm.onStateChanged(BgMusicPlayState.STOP);
+            if (this.edH != null) {
+                this.edH.removeMessages(0);
             }
         }
     }
@@ -133,17 +133,17 @@ public class SwanAppBgMusicPlayerImpl implements i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public MediaPlayer HB() {
-        if (this.bbj == null) {
-            this.bbj = new MediaPlayer();
+        if (this.bbk == null) {
+            this.bbk = new MediaPlayer();
             b bVar = new b();
-            this.bbj.setOnPreparedListener(bVar);
-            this.bbj.setOnCompletionListener(bVar);
-            this.bbj.setOnErrorListener(bVar);
-            this.bbj.setOnBufferingUpdateListener(bVar);
-            this.bbj.setAudioStreamType(3);
-            this.edu = new c();
+            this.bbk.setOnPreparedListener(bVar);
+            this.bbk.setOnCompletionListener(bVar);
+            this.bbk.setOnErrorListener(bVar);
+            this.bbk.setOnBufferingUpdateListener(bVar);
+            this.bbk.setAudioStreamType(3);
+            this.edH = new c();
         }
-        return this.bbj;
+        return this.bbk;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -157,8 +157,8 @@ public class SwanAppBgMusicPlayerImpl implements i {
             if (SwanAppBgMusicPlayerImpl.DEBUG) {
                 Log.d("AudioPlayerListener", "--onPrepared");
             }
-            SwanAppBgMusicPlayerImpl.this.eds = PlayerStatus.PREPARED;
-            SwanAppBgMusicPlayerImpl.this.bbl.onStateChanged(BgMusicPlayState.READY);
+            SwanAppBgMusicPlayerImpl.this.edF = PlayerStatus.PREPARED;
+            SwanAppBgMusicPlayerImpl.this.bbm.onStateChanged(BgMusicPlayState.READY);
             SwanAppBgMusicPlayerImpl.this.play();
         }
 
@@ -167,10 +167,10 @@ public class SwanAppBgMusicPlayerImpl implements i {
             if (SwanAppBgMusicPlayerImpl.DEBUG) {
                 Log.d("AudioPlayerListener", "--onCompletion");
             }
-            SwanAppBgMusicPlayerImpl.this.eds = PlayerStatus.PREPARED;
-            SwanAppBgMusicPlayerImpl.this.bbl.onStateChanged(BgMusicPlayState.END);
-            if (SwanAppBgMusicPlayerImpl.this.edu != null) {
-                SwanAppBgMusicPlayerImpl.this.edu.removeMessages(0);
+            SwanAppBgMusicPlayerImpl.this.edF = PlayerStatus.PREPARED;
+            SwanAppBgMusicPlayerImpl.this.bbm.onStateChanged(BgMusicPlayState.END);
+            if (SwanAppBgMusicPlayerImpl.this.edH != null) {
+                SwanAppBgMusicPlayerImpl.this.edH.removeMessages(0);
             }
         }
 
@@ -188,9 +188,9 @@ public class SwanAppBgMusicPlayerImpl implements i {
             if (SwanAppBgMusicPlayerImpl.DEBUG) {
                 Log.d("AudioPlayerListener", "--onBufferUpdate -> " + i + "%");
             }
-            SwanAppBgMusicPlayerImpl.this.bbl.onGetDownloadProgress(i);
-            if (SwanAppBgMusicPlayerImpl.this.eds == PlayerStatus.PREPARED && (SwanAppBgMusicPlayerImpl.this.HB().getDuration() * i) / 100 <= SwanAppBgMusicPlayerImpl.this.HB().getCurrentPosition()) {
-                SwanAppBgMusicPlayerImpl.this.bbl.onStateChanged(BgMusicPlayState.LOADING);
+            SwanAppBgMusicPlayerImpl.this.bbm.onGetDownloadProgress(i);
+            if (SwanAppBgMusicPlayerImpl.this.edF == PlayerStatus.PREPARED && (SwanAppBgMusicPlayerImpl.this.HB().getDuration() * i) / 100 <= SwanAppBgMusicPlayerImpl.this.HB().getCurrentPosition()) {
+                SwanAppBgMusicPlayerImpl.this.bbm.onStateChanged(BgMusicPlayState.LOADING);
             }
         }
     }
@@ -206,8 +206,8 @@ public class SwanAppBgMusicPlayerImpl implements i {
             if (message.what == 0) {
                 int duration = SwanAppBgMusicPlayerImpl.this.HB().getDuration();
                 int currentPosition = SwanAppBgMusicPlayerImpl.this.HB().getCurrentPosition();
-                SwanAppBgMusicPlayerImpl.this.bbl.onGetDuration(duration);
-                SwanAppBgMusicPlayerImpl.this.bbl.onGetPosition(currentPosition, W(duration, currentPosition));
+                SwanAppBgMusicPlayerImpl.this.bbm.onGetDuration(duration);
+                SwanAppBgMusicPlayerImpl.this.bbm.onGetPosition(currentPosition, W(duration, currentPosition));
                 sendEmptyMessageDelayed(0, 200L);
             }
         }
@@ -252,17 +252,17 @@ public class SwanAppBgMusicPlayerImpl implements i {
     }
 
     private void HC() {
-        if (!this.bbm) {
+        if (!this.bbn) {
             if (this.mAudioManager == null) {
                 this.mAudioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
                 if (this.mAudioManager == null) {
                     return;
                 }
             }
-            if (this.edt == null) {
-                this.edt = new a();
+            if (this.edG == null) {
+                this.edG = new a();
             }
-            this.bbm = this.mAudioManager.requestAudioFocus(this.edt, 3, 1) == 1;
+            this.bbn = this.mAudioManager.requestAudioFocus(this.edG, 3, 1) == 1;
             if (DEBUG) {
                 Log.d("AudioPlayerListener", "   requestAudioFocus");
             }
@@ -271,13 +271,13 @@ public class SwanAppBgMusicPlayerImpl implements i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void HD() {
-        if (this.bbm) {
-            if (this.mAudioManager != null && this.edt != null) {
-                this.mAudioManager.abandonAudioFocus(this.edt);
+        if (this.bbn) {
+            if (this.mAudioManager != null && this.edG != null) {
+                this.mAudioManager.abandonAudioFocus(this.edG);
                 this.mAudioManager = null;
-                this.edt = null;
+                this.edG = null;
             }
-            this.bbm = false;
+            this.bbn = false;
             if (DEBUG) {
                 Log.d("AudioPlayerListener", "   abandonAudioFocus");
             }

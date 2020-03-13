@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CompletableTakeUntilCompletable extends a {
-    final a nwq;
+    final a nwB;
     final e other;
 
     @Override // io.reactivex.a
@@ -17,7 +17,7 @@ public final class CompletableTakeUntilCompletable extends a {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(cVar);
         cVar.onSubscribe(takeUntilMainObserver);
         this.other.a(takeUntilMainObserver.other);
-        this.nwq.a(takeUntilMainObserver);
+        this.nwB.a(takeUntilMainObserver);
     }
 
     /* loaded from: classes7.dex */

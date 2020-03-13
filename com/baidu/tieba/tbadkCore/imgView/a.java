@@ -9,16 +9,16 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a {
-    public float bLb;
-    private DragLayer kie;
-    private d kif;
-    private c kig;
-    public boolean kih;
-    private float kii;
-    private b kij;
-    private Rect kik;
-    private int kil;
-    private int kim;
+    public float bLc;
+    private DragLayer kiq;
+    private d kir;
+    private c kis;
+    public boolean kit;
+    private float kiu;
+    private b kiv;
+    private Rect kiw;
+    private int kix;
+    private int kiy;
     private Context mContext;
     private Rect mTempRect = new Rect();
     private Vibrator mVibrator;
@@ -26,52 +26,52 @@ public class a {
     public a(Context context) {
         this.mContext = context;
         this.mVibrator = (Vibrator) context.getSystemService("vibrator");
-        this.kii = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        this.kiu = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a(DragLayer dragLayer) {
-        this.kie = dragLayer;
+        this.kiq = dragLayer;
         dragLayer.setDragController(this);
-        this.kil = this.kie.getPaddingLeft();
-        this.kim = this.kie.getPaddingRight();
+        this.kix = this.kiq.getPaddingLeft();
+        this.kiy = this.kiq.getPaddingRight();
     }
 
     public void b(View view, Bundle bundle) {
-        if (this.kie != null && view != null && view.getDrawingCache() != null) {
-            this.kih = true;
-            this.kij = new b(this.mContext);
+        if (this.kiq != null && view != null && view.getDrawingCache() != null) {
+            this.kit = true;
+            this.kiv = new b(this.mContext);
             Rect rect = new Rect();
             view.getDrawingRect(rect);
-            this.kie.offsetDescendantRectToMyCoords(view, rect);
+            this.kiq.offsetDescendantRectToMyCoords(view, rect);
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
-            this.kij.bm = Bitmap.createBitmap(view.getDrawingCache());
+            this.kiv.bm = Bitmap.createBitmap(view.getDrawingCache());
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            this.kij.rect = rect;
-            this.kij.kiM = bundle;
+            this.kiv.rect = rect;
+            this.kiv.kiY = bundle;
             view.setVisibility(4);
-            a(this.kij);
-            this.kie.setDragObject(this.kij);
+            a(this.kiv);
+            this.kiq.setDragObject(this.kiv);
             this.mVibrator.vibrate(300L);
         }
     }
 
     public void endDrag() {
-        if (this.kih) {
-            this.kih = false;
-            this.kij = null;
-            this.kif.cLz();
-            this.kif.cLA();
-            this.kie.cLC();
-            this.kie.invalidate();
+        if (this.kit) {
+            this.kit = false;
+            this.kiv = null;
+            this.kir.cLA();
+            this.kir.cLB();
+            this.kiq.cLD();
+            this.kiq.invalidate();
         }
     }
 
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.bLb = motionEvent.getX(0);
+                this.bLc = motionEvent.getX(0);
                 break;
             case 1:
             case 3:
@@ -80,22 +80,22 @@ public class a {
                 endDrag();
                 break;
         }
-        return this.kih;
+        return this.kit;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.kih) {
-            if (this.kik == null) {
-                this.kik = new Rect();
-                this.kie.getDrawingRect(this.kik);
-                Rect rect = this.kik;
-                rect.top = (int) (rect.top - this.kii);
-                Rect rect2 = this.kik;
-                rect2.bottom = (int) (rect2.bottom + this.kii);
+        if (this.kit) {
+            if (this.kiw == null) {
+                this.kiw = new Rect();
+                this.kiq.getDrawingRect(this.kiw);
+                Rect rect = this.kiw;
+                rect.top = (int) (rect.top - this.kiu);
+                Rect rect2 = this.kiw;
+                rect2.bottom = (int) (rect2.bottom + this.kiu);
             }
             switch (motionEvent.getAction() & 255) {
                 case 0:
-                    this.bLb = motionEvent.getX(0);
+                    this.bLc = motionEvent.getX(0);
                     break;
                 case 1:
                 case 3:
@@ -105,10 +105,10 @@ public class a {
                     break;
                 case 2:
                     float x = motionEvent.getX(0);
-                    this.bLb = x;
-                    this.kij.rect.offset((int) (x - this.bLb), 0);
-                    a(this.kij);
-                    cLv();
+                    this.bLc = x;
+                    this.kiv.rect.offset((int) (x - this.bLc), 0);
+                    a(this.kiv);
+                    cLw();
                     break;
             }
             return true;
@@ -116,50 +116,50 @@ public class a {
         return false;
     }
 
-    public void cLv() {
-        this.mTempRect.set(this.kij.rect);
-        this.kie.offsetRectIntoDescendantCoords((View) this.kif, this.mTempRect);
-        this.kif.j(this.mTempRect);
-        this.kie.invalidate();
-        if (this.kij.kiN) {
-            this.kif.cLx();
-        } else if (this.kij.kiO) {
-            this.kif.cLy();
+    public void cLw() {
+        this.mTempRect.set(this.kiv.rect);
+        this.kiq.offsetRectIntoDescendantCoords((View) this.kir, this.mTempRect);
+        this.kir.j(this.mTempRect);
+        this.kiq.invalidate();
+        if (this.kiv.kiZ) {
+            this.kir.cLy();
+        } else if (this.kiv.kja) {
+            this.kir.cLz();
         } else {
-            this.kif.cLz();
+            this.kir.cLA();
         }
     }
 
     private void a(b bVar) {
-        bVar.kiN = false;
-        bVar.kiO = false;
+        bVar.kiZ = false;
+        bVar.kja = false;
         Rect rect = bVar.rect;
         int width = rect.width();
-        int width2 = (this.kie.getWidth() - this.kil) - this.kim;
-        if (rect.left < this.kil) {
-            rect.left = this.kil;
+        int width2 = (this.kiq.getWidth() - this.kix) - this.kiy;
+        if (rect.left < this.kix) {
+            rect.left = this.kix;
             rect.right = rect.left + width;
         }
-        if (rect.right > this.kil + width2) {
-            rect.right = this.kil + width2;
+        if (rect.right > this.kix + width2) {
+            rect.right = this.kix + width2;
             rect.left = rect.right - width;
         }
-        if (rect.left < this.kil + this.kii) {
-            bVar.kiN = true;
-            bVar.kiO = false;
+        if (rect.left < this.kix + this.kiu) {
+            bVar.kiZ = true;
+            bVar.kja = false;
         }
-        if (rect.right > (this.kil + width2) - this.kii) {
-            bVar.kiN = false;
-            bVar.kiO = true;
+        if (rect.right > (this.kix + width2) - this.kiu) {
+            bVar.kiZ = false;
+            bVar.kja = true;
         }
     }
 
     public void a(d dVar) {
-        this.kif = dVar;
+        this.kir = dVar;
     }
 
     public void a(c cVar) {
-        this.kig = cVar;
-        this.kig.setDragController(this);
+        this.kis = cVar;
+        this.kis.setDragController(this);
     }
 }

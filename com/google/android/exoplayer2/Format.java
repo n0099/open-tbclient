@@ -228,7 +228,7 @@ public final class Format implements Parcelable {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, metadata);
     }
 
-    public int dty() {
+    public int dtz() {
         if (this.width == -1 || this.height == -1) {
             return -1;
         }
@@ -237,7 +237,7 @@ public final class Format implements Parcelable {
 
     @SuppressLint({"InlinedApi"})
     @TargetApi(16)
-    public final MediaFormat dtz() {
+    public final MediaFormat dtA() {
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, this.sampleMimeType);
         a(mediaFormat, IjkMediaMeta.IJKM_KEY_LANGUAGE, this.language);

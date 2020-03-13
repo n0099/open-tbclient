@@ -14,18 +14,18 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class a extends SQLiteOpenHelper {
     private static final int DB_VERSION = 6;
-    private static volatile a cAO;
-    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> cAN;
+    private static volatile a cAP;
+    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> cAO;
 
     private void atB() {
-        this.cAN = new ConcurrentHashMap<>();
-        this.cAN.put(f.class, new e());
-        this.cAN.put(g.class, new com.baidu.swan.pms.database.b.f());
-        this.cAN.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
-        this.cAN.put(d.class, new com.baidu.swan.pms.database.b.d());
-        this.cAN.put(com.baidu.swan.pms.model.b.class, new c());
-        this.cAN.put(h.class, new com.baidu.swan.pms.database.b.g());
-        this.cAN.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
+        this.cAO = new ConcurrentHashMap<>();
+        this.cAO.put(f.class, new e());
+        this.cAO.put(g.class, new com.baidu.swan.pms.database.b.f());
+        this.cAO.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
+        this.cAO.put(d.class, new com.baidu.swan.pms.database.b.d());
+        this.cAO.put(com.baidu.swan.pms.model.b.class, new c());
+        this.cAO.put(h.class, new com.baidu.swan.pms.database.b.g());
+        this.cAO.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
     }
 
     private a() {
@@ -38,31 +38,31 @@ public class a extends SQLiteOpenHelper {
     }
 
     public static a atC() {
-        if (cAO == null) {
+        if (cAP == null) {
             synchronized (a.class) {
-                if (cAO == null) {
-                    cAO = new a();
+                if (cAP == null) {
+                    cAP = new a();
                 }
             }
         }
-        return cAO;
+        return cAP;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.cAN.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.cAO.values()) {
             aVar.onCreate(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.cAN.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.cAO.values()) {
             aVar.onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 
     public void release() {
-        cAO = null;
+        cAP = null;
     }
 }

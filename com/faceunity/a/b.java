@@ -6,21 +6,21 @@ import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class b {
-    private static b lXC;
-    private boolean lXD;
+    private static b lXN;
+    private boolean lXO;
     private AudioRecord mAudioRecord;
     private static final int[] AUDIO_SOURCES = {1, 0, 5, 7, 6};
-    public static int lXA = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    public static int lXL = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int lXB = 24;
+    public static int lXM = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(lXA, 16, 2);
-        int i = SAMPLES_PER_FRAME * lXB;
+        int minBufferSize = AudioRecord.getMinBufferSize(lXL, 16, 2);
+        int i = SAMPLES_PER_FRAME * lXM;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
         for (int i2 : AUDIO_SOURCES) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, lXA, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, lXL, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.lXD) {
-            this.lXD = true;
+        if (!this.lXO) {
+            this.lXO = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void Dd() {
         if (this.mAudioRecord != null) {
-            if (lXC != null && !lXC.isReleased()) {
-                lXC.release();
+            if (lXN != null && !lXN.isReleased()) {
+                lXN.release();
             }
             this.mAudioRecord.startRecording();
-            lXC = this;
+            lXN = this;
         }
     }
 
@@ -64,10 +64,10 @@ public class b {
     }
 
     public boolean isReleased() {
-        return this.lXD;
+        return this.lXO;
     }
 
-    public AudioRecord dsF() {
+    public AudioRecord dsG() {
         return this.mAudioRecord;
     }
 }

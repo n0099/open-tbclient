@@ -26,9 +26,9 @@ public class l implements ag {
     public String ab(long j) {
         if (!com.baidu.swan.apps.w.a.UI().ID()) {
             if (com.baidu.swan.apps.core.j.a.Qb()) {
-                return com.baidu.swan.apps.core.j.a.brg + File.separator + GlobalConstants.LIB_ZEUS;
+                return com.baidu.swan.apps.core.j.a.brh + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.j.a.bri + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.j.a.brj + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }

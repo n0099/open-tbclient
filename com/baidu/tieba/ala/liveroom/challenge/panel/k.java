@@ -1,8 +1,6 @@
 package com.baidu.tieba.ala.liveroom.challenge.panel;
 /* loaded from: classes3.dex */
 public interface k {
-    void bkL();
-
     void bkM();
 
     void bkN();
@@ -10,6 +8,8 @@ public interface k {
     void bkO();
 
     void bkP();
+
+    void bkQ();
 
     void bl(int i);
 

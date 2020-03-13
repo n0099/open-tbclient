@@ -13,25 +13,25 @@ public class n implements j, l, a.InterfaceC0738a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
     @Nullable
-    private r npI;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npK;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npL;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> npZ;
+    private r npT;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npV;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npW;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqk;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
     public n(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar2) {
         this.name = fVar2.getName();
         this.lottieDrawable = fVar;
-        this.npL = fVar2.dGS().dGP();
-        this.npK = fVar2.dGZ().dGP();
-        this.npZ = fVar2.dHr().dGP();
-        aVar.a(this.npL);
-        aVar.a(this.npK);
-        aVar.a(this.npZ);
-        this.npL.b(this);
-        this.npK.b(this);
-        this.npZ.b(this);
+        this.npW = fVar2.dGT().dGQ();
+        this.npV = fVar2.dHa().dGQ();
+        this.nqk = fVar2.dHs().dGQ();
+        aVar.a(this.npW);
+        aVar.a(this.npV);
+        aVar.a(this.nqk);
+        this.npW.b(this);
+        this.npV.b(this);
+        this.nqk.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC0738a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dGF() == ShapeTrimPath.Type.Simultaneously) {
-                    this.npI = (r) bVar;
-                    this.npI.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dGG() == ShapeTrimPath.Type.Simultaneously) {
+                    this.npT = (r) bVar;
+                    this.npT.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -73,15 +73,15 @@ public class n implements j, l, a.InterfaceC0738a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.npK.getValue();
+        PointF value = this.npV.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.npZ == null ? 0.0f : this.npZ.getValue().floatValue();
+        float floatValue = this.nqk == null ? 0.0f : this.nqk.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.npL.getValue();
+        PointF value2 = this.npW.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,7 +104,7 @@ public class n implements j, l, a.InterfaceC0738a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.npI);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.npT);
         this.fZ = true;
         return this.path;
     }

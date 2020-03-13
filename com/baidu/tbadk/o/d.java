@@ -23,8 +23,8 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
     private static final String ADDRESS = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a dFt;
-    private boolean dFu;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a dFG;
+    private boolean dFH;
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
     public void a(boolean z, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
@@ -35,9 +35,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             }
             return;
         }
-        this.dFt = aVar;
-        if (!this.dFu) {
-            this.dFu = true;
+        this.dFG = aVar;
+        if (!this.dFH) {
+            this.dFH = true;
             new b(cVar, z).execute(new Void[0]);
         }
         try {
@@ -63,14 +63,14 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
-        private x cLE;
-        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c dFw;
-        private boolean dFx;
+        private x cLF;
+        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c dFJ;
+        private boolean dFK;
 
         public b(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, boolean z) {
-            this.dFx = false;
-            this.dFw = cVar;
-            this.dFx = z;
+            this.dFK = false;
+            this.dFJ = cVar;
+            this.dFK = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,20 +90,20 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             boolean z2;
             String str2;
             PluginNetConfigInfos pluginNetConfigInfos;
-            if (this.dFw == null) {
+            if (this.dFJ == null) {
                 publishProgress(null);
                 return null;
             }
-            if (this.dFw.jO() == null || this.dFw.jO().size() <= 0) {
+            if (this.dFJ.jO() == null || this.dFJ.jO().size() <= 0) {
                 str = "";
             } else {
                 StringBuilder sb = new StringBuilder(50);
-                int size = this.dFw.jO().size();
+                int size = this.dFJ.jO().size();
                 for (int i = 0; i < size; i++) {
                     if (i != 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
-                    BasicNameValuePair basicNameValuePair = this.dFw.jO().get(i);
+                    BasicNameValuePair basicNameValuePair = this.dFJ.jO().get(i);
                     if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                         sb.append(basicNameValuePair.getName());
                         sb.append(":");
@@ -115,7 +115,7 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             BdCacheService ac = BdCacheService.ac("baidu_plugin.db");
             l<String> a = ac.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
             String str3 = a.get("time");
-            if (!this.dFx && str3 != null) {
+            if (!this.dFK && str3 != null) {
                 long j = com.baidu.adp.lib.f.b.toLong(str3, -1L);
                 if (j != -1 && System.currentTimeMillis() - j < 86400000) {
                     z = false;
@@ -176,9 +176,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
                 return null;
             }
-            this.cLE = new x(d.ADDRESS);
-            this.cLE.addPostData("plugin_upload_config", str);
-            return this.cLE.postNetData();
+            this.cLF = new x(d.ADDRESS);
+            this.cLF.addPostData("plugin_upload_config", str);
+            return this.cLF.postNetData();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -187,25 +187,25 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         /* renamed from: a */
         public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
             super.onProgressUpdate(pluginNetConfigInfosArr);
-            d.this.dFu = false;
+            d.this.dFH = false;
             boolean z = pluginNetConfigInfosArr[0] != null;
             String str = null;
-            if (this.cLE != null && !this.cLE.isNetSuccess()) {
-                str = this.cLE.aGh();
-                if (this.cLE.getServerErrorCode() != 0) {
-                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cLE.getErrorString();
+            if (this.cLF != null && !this.cLF.isNetSuccess()) {
+                str = this.cLF.aGh();
+                if (this.cLF.getServerErrorCode() != 0) {
+                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cLF.getErrorString();
                 }
             }
-            d.this.dFt.a(z, this.dFw, pluginNetConfigInfosArr[0], str);
+            d.this.dFG.a(z, this.dFJ, pluginNetConfigInfosArr[0], str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_NETCONFIG_GET));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            d.this.dFu = false;
-            this.cLE.cancelNetConnect();
-            this.cLE = null;
+            d.this.dFH = false;
+            this.cLF.cancelNetConnect();
+            this.cLF = null;
         }
     }
 

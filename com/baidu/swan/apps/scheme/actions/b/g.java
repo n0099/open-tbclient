@@ -20,10 +20,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class g extends ab implements a.InterfaceC0220a {
-    private Bitmap bdr;
-    private long bds;
+    private Bitmap bds;
     private long bdt;
     private long bdu;
+    private long bdv;
     private CallbackHandler mCallbackHandler;
     private String mCallbackKey;
 
@@ -73,17 +73,17 @@ public class g extends ab implements a.InterfaceC0220a {
                     j = Long.parseLong(split[1]);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                g.this.bds = afr.getLong("swan_favorite_guide_duration", 3L);
-                g.this.bdt = afr.getLong("swan_favorite_guide_intervalDays", 3L);
-                g.this.bdu = afr.getLong("swan_favorite_guide_maxTimes", 3L);
-                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.bds + ", mIntervalDays=" + g.this.bdt + ", mMaxTimes=" + g.this.bdu + " ,storageValue=" + string2);
-                if (i < g.this.bdu && currentTimeMillis - j > g.this.bdt * 86400000) {
+                g.this.bdt = afr.getLong("swan_favorite_guide_duration", 3L);
+                g.this.bdu = afr.getLong("swan_favorite_guide_intervalDays", 3L);
+                g.this.bdv = afr.getLong("swan_favorite_guide_maxTimes", 3L);
+                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.bdt + ", mIntervalDays=" + g.this.bdu + ", mMaxTimes=" + g.this.bdv + " ,storageValue=" + string2);
+                if (i < g.this.bdv && currentTimeMillis - j > g.this.bdu * 86400000) {
                     h.afr().putString(str2, (i + 1) + "#" + currentTimeMillis);
-                    g.this.bdr = ai.a((com.baidu.swan.apps.x.b.b) eVar.GE(), "ShowFavoriteGuideAction", false);
+                    g.this.bds = ai.a((com.baidu.swan.apps.x.b.b) eVar.GE(), "ShowFavoriteGuideAction", false);
                     ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.api.module.favorite.a.JH().a(g.this, (Activity) context, eVar, parse, string, g.this.bdr, g.this.bds);
+                            com.baidu.swan.apps.api.module.favorite.a.JH().a(g.this, (Activity) context, eVar, parse, string, g.this.bds, g.this.bdt);
                         }
                     });
                     return;

@@ -3,45 +3,45 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes8.dex */
 public class e {
-    private long fDt;
-    private long fDu;
-    private long fDv;
-    private long fDw;
-    private int fDx;
-    private int fDy;
-    private boolean fDz;
+    private long fDG;
+    private long fDH;
+    private long fDI;
+    private long fDJ;
+    private int fDK;
+    private int fDL;
+    private boolean fDM;
     private int status = 0;
 
-    public int btZ() {
-        return this.fDx;
+    public int bua() {
+        return this.fDK;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int bua() {
-        return this.fDy;
-    }
-
-    public long bub() {
-        return this.fDt;
+    public int bub() {
+        return this.fDL;
     }
 
     public long buc() {
-        return this.fDv;
+        return this.fDG;
     }
 
     public long bud() {
-        return this.fDw;
+        return this.fDI;
     }
 
     public long bue() {
-        return this.fDu;
+        return this.fDJ;
     }
 
-    public boolean buf() {
-        return this.fDz;
+    public long buf() {
+        return this.fDH;
+    }
+
+    public boolean bug() {
+        return this.fDM;
     }
 
     public static e a(Basic basic) {
@@ -49,18 +49,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.dj(zO(basic.remind_time));
+        eVar.dj(zP(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
         eVar.rf(basic.candidate_num.intValue());
         eVar.rg(basic.total_vote_num.intValue());
-        eVar.dh(zO(basic.begin_apply_time));
-        eVar.dk(zO(basic.begin_vote_time));
-        eVar.di(zO(basic.begin_public_time));
+        eVar.dh(zP(basic.begin_apply_time));
+        eVar.dk(zP(basic.begin_vote_time));
+        eVar.di(zP(basic.begin_public_time));
         eVar.ke(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long zO(String str) {
+    private static long zP(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -70,19 +70,19 @@ public class e {
     }
 
     public void rf(int i) {
-        this.fDx = i;
+        this.fDK = i;
     }
 
     public void dh(long j) {
-        this.fDt = j;
+        this.fDG = j;
     }
 
     public void di(long j) {
-        this.fDv = j;
+        this.fDI = j;
     }
 
     public void dj(long j) {
-        this.fDw = j;
+        this.fDJ = j;
     }
 
     public void setStatus(int i) {
@@ -90,14 +90,14 @@ public class e {
     }
 
     public void rg(int i) {
-        this.fDy = i;
+        this.fDL = i;
     }
 
     public void dk(long j) {
-        this.fDu = j;
+        this.fDH = j;
     }
 
     public void ke(boolean z) {
-        this.fDz = z;
+        this.fDM = z;
     }
 }

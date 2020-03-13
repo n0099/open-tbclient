@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> azC = new ArrayList<>(5);
-    public int azG;
+    private static ArrayList<a> azD = new ArrayList<>(5);
     public int azH;
-    int azI;
+    public int azI;
+    int azJ;
     public int type;
 
     private void resetState() {
-        this.azG = 0;
         this.azH = 0;
         this.azI = 0;
+        this.azJ = 0;
         this.type = 0;
     }
 
@@ -22,7 +22,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long zQ() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azG, this.azH) : ExpandableListView.getPackedPositionForGroup(this.azG);
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.azH, this.azI) : ExpandableListView.getPackedPositionForGroup(this.azH);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,19 +32,19 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a A(int i, int i2, int i3, int i4) {
-        a bPL = bPL();
-        bPL.type = i;
-        bPL.azG = i2;
-        bPL.azH = i3;
-        bPL.azI = i4;
-        return bPL;
+        a bPM = bPM();
+        bPM.type = i;
+        bPM.azH = i2;
+        bPM.azI = i3;
+        bPM.azJ = i4;
+        return bPM;
     }
 
-    private static a bPL() {
+    private static a bPM() {
         a aVar;
-        synchronized (azC) {
-            if (azC.size() > 0) {
-                aVar = azC.remove(0);
+        synchronized (azD) {
+            if (azD.size() > 0) {
+                aVar = azD.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (azC) {
-            if (azC.size() < 5) {
-                azC.add(this);
+        synchronized (azD) {
+            if (azD.size() < 5) {
+                azD.add(this);
             }
         }
     }

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.live.data.g> cVR = new ArrayList<>();
-    private View.OnClickListener ewU;
+    private ArrayList<com.baidu.live.data.g> cVS = new ArrayList<>();
+    private View.OnClickListener exh;
     private TbPageContext mPageContext;
 
     public f(TbPageContext tbPageContext, int i) {
@@ -19,33 +19,33 @@ public class f extends BaseAdapter {
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.ewU = onClickListener;
+        this.exh = onClickListener;
     }
 
     public void setData(List<com.baidu.live.data.g> list) {
         if (list != null) {
-            this.cVR.clear();
-            this.cVR.addAll(list);
+            this.cVS.clear();
+            this.cVS.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVR == null) {
+        if (this.cVS == null) {
             return 0;
         }
-        return this.cVR.size();
+        return this.cVS.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: pc */
     public com.baidu.live.data.g getItem(int i) {
-        if (this.cVR == null) {
+        if (this.cVS == null) {
             return null;
         }
-        return this.cVR.get(i);
+        return this.cVS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class f extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.online_item_layout, (ViewGroup) null);
             gVar = new g(view);
-            gVar.p(this.ewU);
+            gVar.p(this.exh);
             view.setTag(gVar);
         } else {
             gVar = (g) view.getTag();

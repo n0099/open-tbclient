@@ -9,19 +9,19 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.g.f;
 /* loaded from: classes11.dex */
 public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeView, c> {
-    private a biB;
-    private SwanAppComponentContainerView biC;
-    private SimpleDraweeView biD;
+    private a biC;
+    private SwanAppComponentContainerView biD;
+    private SimpleDraweeView biE;
 
     public b(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
         ee(4);
-        this.biC = new SwanAppComponentContainerView(context);
-        this.biD = new SimpleDraweeView(context);
+        this.biD = new SwanAppComponentContainerView(context);
+        this.biE = new SimpleDraweeView(context);
     }
 
     public void a(a aVar) {
-        this.biB = aVar;
+        this.biC = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     @NonNull
     /* renamed from: bO */
     public SimpleDraweeView bn(@NonNull Context context) {
-        return this.biD;
+        return this.biE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     /* renamed from: a */
     public void ac(@NonNull SimpleDraweeView simpleDraweeView) {
         super.ac(simpleDraweeView);
-        simpleDraweeView.getHierarchy().b(p.b.lMN);
+        simpleDraweeView.getHierarchy().b(p.b.lMY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull c cVar, @NonNull c cVar2) {
         com.baidu.swan.apps.component.d.b a = super.a(cVar, cVar2);
-        if (cVar.biH != cVar2.biH) {
+        if (cVar.biI != cVar2.biI) {
             a.ei(9);
         }
         return a;
@@ -69,13 +69,13 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     }
 
     private com.facebook.drawee.controller.b<f> b(@NonNull final SimpleDraweeView simpleDraweeView, @NonNull c cVar) {
-        final boolean z = cVar.biH;
+        final boolean z = cVar.biI;
         return new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.swan.apps.component.components.e.b.b.1
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void onFailure(String str, Throwable th) {
                 super.onFailure(str, th);
-                if (z && b.this.biB != null) {
-                    b.this.biB.a(0, simpleDraweeView, null);
+                if (z && b.this.biC != null) {
+                    b.this.biC.a(0, simpleDraweeView, null);
                 }
             }
 
@@ -83,8 +83,8 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void onFinalImageSet(String str, f fVar, Animatable animatable) {
                 super.onFinalImageSet(str, (String) fVar, animatable);
-                if (z && b.this.biB != null) {
-                    b.this.biB.a(1, simpleDraweeView, null);
+                if (z && b.this.biC != null) {
+                    b.this.biC.a(1, simpleDraweeView, null);
                 }
             }
         };
@@ -93,6 +93,6 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
     protected SwanAppComponentContainerView bJ(@NonNull Context context) {
-        return this.biC;
+        return this.biD;
     }
 }

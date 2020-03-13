@@ -9,94 +9,94 @@ import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes6.dex */
 public final class j implements e {
     private final Context context;
-    private final q<? super e> mFJ;
-    private final e mGl;
-    private e mGm;
-    private e mGn;
-    private e mGo;
-    private e mGp;
-    private e mGq;
-    private e mdW;
+    private final q<? super e> mFU;
+    private e mGA;
+    private e mGB;
+    private final e mGw;
+    private e mGx;
+    private e mGy;
+    private e mGz;
+    private e meh;
 
     public j(Context context, q<? super e> qVar, e eVar) {
         this.context = context.getApplicationContext();
-        this.mFJ = qVar;
-        this.mGl = (e) com.google.android.exoplayer2.util.a.checkNotNull(eVar);
+        this.mFU = qVar;
+        this.mGw = (e) com.google.android.exoplayer2.util.a.checkNotNull(eVar);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public long a(g gVar) throws IOException {
-        com.google.android.exoplayer2.util.a.checkState(this.mdW == null);
+        com.google.android.exoplayer2.util.a.checkState(this.meh == null);
         String scheme = gVar.uri.getScheme();
         if (v.isLocalFileUri(gVar.uri)) {
             if (gVar.uri.getPath().startsWith("/android_asset/")) {
-                this.mdW = dza();
+                this.meh = dzb();
             } else {
-                this.mdW = dyZ();
+                this.meh = dza();
             }
         } else if ("asset".equals(scheme)) {
-            this.mdW = dza();
+            this.meh = dzb();
         } else if ("content".equals(scheme)) {
-            this.mdW = dzb();
+            this.meh = dzc();
         } else if ("rtmp".equals(scheme)) {
-            this.mdW = dzc();
+            this.meh = dzd();
         } else if ("data".equals(scheme)) {
-            this.mdW = dzd();
+            this.meh = dze();
         } else {
-            this.mdW = this.mGl;
+            this.meh = this.mGw;
         }
-        return this.mdW.a(gVar);
+        return this.meh.a(gVar);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.mdW.read(bArr, i, i2);
+        return this.meh.read(bArr, i, i2);
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public Uri getUri() {
-        if (this.mdW == null) {
+        if (this.meh == null) {
             return null;
         }
-        return this.mdW.getUri();
+        return this.meh.getUri();
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public void close() throws IOException {
-        if (this.mdW != null) {
+        if (this.meh != null) {
             try {
-                this.mdW.close();
+                this.meh.close();
             } finally {
-                this.mdW = null;
+                this.meh = null;
             }
         }
     }
 
-    private e dyZ() {
-        if (this.mGm == null) {
-            this.mGm = new FileDataSource(this.mFJ);
-        }
-        return this.mGm;
-    }
-
     private e dza() {
-        if (this.mGn == null) {
-            this.mGn = new AssetDataSource(this.context, this.mFJ);
+        if (this.mGx == null) {
+            this.mGx = new FileDataSource(this.mFU);
         }
-        return this.mGn;
+        return this.mGx;
     }
 
     private e dzb() {
-        if (this.mGo == null) {
-            this.mGo = new ContentDataSource(this.context, this.mFJ);
+        if (this.mGy == null) {
+            this.mGy = new AssetDataSource(this.context, this.mFU);
         }
-        return this.mGo;
+        return this.mGy;
     }
 
     private e dzc() {
-        if (this.mGp == null) {
+        if (this.mGz == null) {
+            this.mGz = new ContentDataSource(this.context, this.mFU);
+        }
+        return this.mGz;
+    }
+
+    private e dzd() {
+        if (this.mGA == null) {
             try {
-                this.mGp = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                this.mGA = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
             } catch (ClassNotFoundException e) {
                 Log.w("DefaultDataSource", "Attempting to play RTMP stream without depending on the RTMP extension");
             } catch (IllegalAccessException e2) {
@@ -108,17 +108,17 @@ public final class j implements e {
             } catch (InvocationTargetException e5) {
                 Log.e("DefaultDataSource", "Error instantiating RtmpDataSource", e5);
             }
-            if (this.mGp == null) {
-                this.mGp = this.mGl;
+            if (this.mGA == null) {
+                this.mGA = this.mGw;
             }
         }
-        return this.mGp;
+        return this.mGA;
     }
 
-    private e dzd() {
-        if (this.mGq == null) {
-            this.mGq = new d();
+    private e dze() {
+        if (this.mGB == null) {
+            this.mGB = new d();
         }
-        return this.mGq;
+        return this.mGB;
     }
 }

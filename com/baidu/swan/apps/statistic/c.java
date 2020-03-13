@@ -11,24 +11,24 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile boolean bUL = false;
     private static volatile boolean bUM = false;
     private static volatile boolean bUN = false;
     private static volatile boolean bUO = false;
     private static volatile boolean bUP = false;
-    private static HashMap<String, String> bUQ;
-    private static String bUR;
+    private static volatile boolean bUQ = false;
+    private static HashMap<String, String> bUR;
+    private static String bUS;
 
     public static synchronized void dR(boolean z) {
         synchronized (c.class) {
-            bUL = z;
+            bUM = z;
         }
     }
 
     public static synchronized boolean aeN() {
         boolean z;
         synchronized (c.class) {
-            z = bUL;
+            z = bUM;
         }
         return z;
     }
@@ -50,17 +50,17 @@ public final class c {
         if (GC != null) {
             com.baidu.swan.apps.core.d.b On = GC.On();
             if ((On instanceof com.baidu.swan.apps.core.d.d) && (Od = ((com.baidu.swan.apps.core.d.d) On).Od()) != null) {
-                bUR = Od.IR();
+                bUS = Od.IR();
             }
         }
     }
 
     public static void bn(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (bUQ == null) {
-                bUQ = new HashMap<>();
+            if (bUR == null) {
+                bUR = new HashMap<>();
             }
-            bUQ.put(str, str2);
+            bUR.put(str, str2);
         }
     }
 
@@ -81,7 +81,7 @@ public final class c {
 
     public static synchronized void dS(boolean z) {
         synchronized (c.class) {
-            bUM = z;
+            bUN = z;
         }
     }
 
@@ -98,12 +98,12 @@ public final class c {
 
     private static synchronized void dT(boolean z) {
         synchronized (c.class) {
-            bUN = z;
+            bUO = z;
         }
     }
 
     private static boolean aeT() {
-        return bUN;
+        return bUO;
     }
 
     public static void aeU() {
@@ -143,7 +143,7 @@ public final class c {
             }
             dS(true);
             dT(true);
-            a(acI, dVar.bbB, "0", dVar.bbC, TextUtils.equals(dVar.bbD, "1") ? "2" : "0", false);
+            a(acI, dVar.bbC, "0", dVar.bbD, TextUtils.equals(dVar.bbE, "1") ? "2" : "0", false);
         }
     }
 
@@ -155,22 +155,22 @@ public final class c {
     }
 
     public static void dU(boolean z) {
-        bUO = z;
+        bUP = z;
     }
 
     public static boolean aeV() {
-        return bUO;
+        return bUP;
     }
 
     public static void b(b.a aVar) {
-        if (aVar != null && !bUO) {
+        if (aVar != null && !bUP) {
             dU(true);
             a(aVar, "naarrsuccess");
         }
     }
 
     public static boolean aeW() {
-        return bUM;
+        return bUN;
     }
 
     private static void a(b.a aVar, String str) {
@@ -217,7 +217,7 @@ public final class c {
         if (DEBUG) {
             Log.d("SwanAppLaunchUbc", "handle relaunch arrival");
         }
-        com.baidu.swan.apps.ac.e.jC(bUR);
+        com.baidu.swan.apps.ac.e.jC(bUS);
         if (!aeW() && !aeT()) {
             a(aVar, -1L, "1", -1L, "1", true);
         }
@@ -225,8 +225,8 @@ public final class c {
 
     public static void a(String str, b.a aVar) {
         String str2 = "";
-        if (bUQ != null) {
-            str2 = bUQ.get(bUR);
+        if (bUR != null) {
+            str2 = bUR.get(bUS);
         }
         if (DEBUG) {
             Log.d("SwanAppLaunchUbc", "handle relaunch , launchPage : " + str + " lastSlavePath ：" + (str2 == null ? "" : str2));
@@ -236,18 +236,18 @@ public final class c {
             return;
         }
         aeR();
-        bUP = true;
+        bUQ = true;
     }
 
     public static void lG(String str) {
-        if (bUP) {
+        if (bUQ) {
             Log.d("SwanAppLaunchUbc", "handle record slave id case relaunch");
             com.baidu.swan.apps.ac.e.jC(str);
-            bUP = false;
+            bUQ = false;
         }
     }
 
     public static boolean aeX() {
-        return bUP;
+        return bUQ;
     }
 }

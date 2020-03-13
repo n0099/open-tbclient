@@ -12,17 +12,17 @@ public final class a {
 
     /* loaded from: classes.dex */
     public static final class b {
-        public static final int exo_controls_fastforward = 2130839950;
-        public static final int exo_controls_next = 2130839951;
-        public static final int exo_controls_pause = 2130839952;
-        public static final int exo_controls_play = 2130839953;
-        public static final int exo_controls_previous = 2130839954;
-        public static final int exo_controls_repeat_all = 2130839955;
-        public static final int exo_controls_repeat_off = 2130839956;
-        public static final int exo_controls_repeat_one = 2130839957;
-        public static final int exo_controls_rewind = 2130839958;
-        public static final int exo_controls_shuffle = 2130839959;
-        public static final int exo_edit_mode_logo = 2130839960;
+        public static final int exo_controls_fastforward = 2130839953;
+        public static final int exo_controls_next = 2130839954;
+        public static final int exo_controls_pause = 2130839955;
+        public static final int exo_controls_play = 2130839956;
+        public static final int exo_controls_previous = 2130839957;
+        public static final int exo_controls_repeat_all = 2130839958;
+        public static final int exo_controls_repeat_off = 2130839959;
+        public static final int exo_controls_repeat_one = 2130839960;
+        public static final int exo_controls_rewind = 2130839961;
+        public static final int exo_controls_shuffle = 2130839962;
+        public static final int exo_edit_mode_logo = 2130839963;
     }
 
     /* loaded from: classes.dex */
@@ -56,8 +56,8 @@ public final class a {
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int exo_playback_control_view = 2130903860;
-        public static final int exo_simple_player_view = 2130903861;
+        public static final int exo_playback_control_view = 2130903861;
+        public static final int exo_simple_player_view = 2130903862;
     }
 
     /* loaded from: classes.dex */

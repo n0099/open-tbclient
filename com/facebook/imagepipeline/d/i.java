@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes12.dex */
 public class i {
-    private final boolean lSE;
-    private final b.a lSF;
-    private final boolean lSG;
-    private final com.facebook.common.g.b lSH;
-    private final boolean lSI;
-    private final boolean lSJ;
-    private final int lSK;
-    private final int lSL;
-    private boolean lSM;
-    private final boolean lSN;
-    private final c lSO;
-    private final com.facebook.common.internal.j<Boolean> lSe;
+    private final boolean lSP;
+    private final b.a lSQ;
+    private final boolean lSR;
+    private final com.facebook.common.g.b lSS;
+    private final boolean lST;
+    private final boolean lSU;
+    private final int lSV;
+    private final int lSW;
+    private boolean lSX;
+    private final boolean lSY;
+    private final c lSZ;
+    private final com.facebook.common.internal.j<Boolean> lSp;
 
     /* loaded from: classes12.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.lSE = aVar.lSE;
-        this.lSF = aVar.lSF;
-        this.lSG = aVar.lSG;
-        this.lSH = aVar.lSH;
-        this.lSI = aVar.lSI;
-        this.lSJ = aVar.lSJ;
-        this.lSK = aVar.lSK;
-        this.lSL = aVar.lSL;
-        this.lSM = aVar.lSM;
-        this.lSN = aVar.lSN;
-        if (aVar.lSO == null) {
-            this.lSO = new b();
+        this.lSP = aVar.lSP;
+        this.lSQ = aVar.lSQ;
+        this.lSR = aVar.lSR;
+        this.lSS = aVar.lSS;
+        this.lST = aVar.lST;
+        this.lSU = aVar.lSU;
+        this.lSV = aVar.lSV;
+        this.lSW = aVar.lSW;
+        this.lSX = aVar.lSX;
+        this.lSY = aVar.lSY;
+        if (aVar.lSZ == null) {
+            this.lSZ = new b();
         } else {
-            this.lSO = aVar.lSO;
+            this.lSZ = aVar.lSZ;
         }
-        this.lSe = aVar.lSe;
-    }
-
-    public boolean dpj() {
-        return this.lSI;
+        this.lSp = aVar.lSp;
     }
 
     public boolean dpk() {
-        return this.lSE;
+        return this.lST;
     }
 
     public boolean dpl() {
-        return this.lSG;
+        return this.lSP;
     }
 
-    public b.a dpm() {
-        return this.lSF;
+    public boolean dpm() {
+        return this.lSR;
     }
 
-    public com.facebook.common.g.b dpn() {
-        return this.lSH;
+    public b.a dpn() {
+        return this.lSQ;
     }
 
-    public boolean dpo() {
-        return this.lSJ;
+    public com.facebook.common.g.b dpo() {
+        return this.lSS;
     }
 
-    public int dpp() {
-        return this.lSK;
+    public boolean dpp() {
+        return this.lSU;
     }
 
     public int dpq() {
-        return this.lSL;
+        return this.lSV;
     }
 
-    public boolean dpr() {
-        return this.lSN;
+    public int dpr() {
+        return this.lSW;
     }
 
-    public c dps() {
-        return this.lSO;
+    public boolean dps() {
+        return this.lSY;
     }
 
-    public boolean dpt() {
-        return this.lSM;
+    public c dpt() {
+        return this.lSZ;
     }
 
-    public com.facebook.common.internal.j<Boolean> dpu() {
-        return this.lSe;
+    public boolean dpu() {
+        return this.lSX;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dpv() {
+        return this.lSp;
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private b.a lSF;
-        private com.facebook.common.g.b lSH;
-        private c lSO;
-        private final h.a lSP;
-        public com.facebook.common.internal.j<Boolean> lSe;
-        private boolean lSE = false;
-        private boolean lSG = false;
-        private boolean lSI = false;
-        private boolean lSJ = false;
-        private int lSK = 0;
-        private int lSL = 0;
-        public boolean lSM = false;
-        private boolean lSN = false;
+        private b.a lSQ;
+        private com.facebook.common.g.b lSS;
+        private c lSZ;
+        public com.facebook.common.internal.j<Boolean> lSp;
+        private final h.a lTa;
+        private boolean lSP = false;
+        private boolean lSR = false;
+        private boolean lST = false;
+        private boolean lSU = false;
+        private int lSV = 0;
+        private int lSW = 0;
+        public boolean lSX = false;
+        private boolean lSY = false;
 
         public a(h.a aVar) {
-            this.lSP = aVar;
+            this.lTa = aVar;
         }
 
-        public i dpv() {
+        public i dpw() {
             return new i(this);
         }
     }

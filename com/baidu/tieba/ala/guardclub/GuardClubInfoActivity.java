@@ -10,10 +10,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
@@ -25,8 +27,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     private long WZ;
     private boolean Yr;
     private String agZ;
-    private d eEd;
-    private boolean eEe;
+    private d eEq;
+    private boolean eEr;
     private boolean isFullScreen;
     private long liveId;
     private View mRootView;
@@ -62,6 +64,13 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
             setTheme(a.j.DialogStyleBottom);
         }
         super.onCreate(bundle);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
         this.WZ = getIntent().getLongExtra("anchor_id", 0L);
         this.liveId = getIntent().getLongExtra("live_id", 0L);
         this.roomId = getIntent().getLongExtra("room_id", 0L);
@@ -69,14 +78,14 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
         this.Yr = getIntent().getBooleanExtra("is_live_owner", false);
         this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
         this.isFullScreen = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_FULLSCREEN, true);
-        this.eEe = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_CLUB_MEMBER, true);
+        this.eEr = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_CLUB_MEMBER, true);
         String stringExtra = getIntent().getStringExtra(GuardClubInfoActivityConfig.FROM_LOC_INFO);
-        this.eEd = new d(this, this.WZ, this.liveId, this.roomId, this.agZ, this.Yr, this.otherParams, this.isFullScreen, this.eEe, getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_HIDE_RANK, false), stringExtra, booleanExtra);
-        if (this.eEd.getView() != null) {
+        this.eEq = new d(this, this.WZ, this.liveId, this.roomId, this.agZ, this.Yr, this.otherParams, this.isFullScreen, this.eEr, getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_HIDE_RANK, false), stringExtra, booleanExtra);
+        if (this.eEq.getView() != null) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.mRootView = e(this.eEd.getView(), this.isFullScreen);
+                this.mRootView = e(this.eEq.getView(), this.isFullScreen);
             } else {
-                this.mRootView = this.eEd.getView();
+                this.mRootView = this.eEq.getView();
             }
             setContentView(this.mRootView);
         }
@@ -85,7 +94,7 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
         }
         registerListener(this.notifyDialogDismissListener);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            com.baidu.live.utils.h.S(this.eEd.getView());
+            com.baidu.live.utils.h.S(this.eEq.getView());
         }
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         this.ajy = false;
@@ -190,8 +199,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.eEd.getView() != null) {
-            this.eEd.ta();
+        if (this.eEq.getView() != null) {
+            this.eEq.ta();
         }
     }
 
@@ -209,8 +218,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.eEd != null) {
-            this.eEd.onDestroy();
+        if (this.eEq != null) {
+            this.eEq.onDestroy();
         }
     }
 
@@ -219,8 +228,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            if ((i == 25045 || i == 25046) && this.eEd != null) {
-                this.eEd.bfb();
+            if ((i == 25045 || i == 25046) && this.eEq != null) {
+                this.eEq.bfc();
             }
             if (i == 25046 && intent != null) {
                 if (intent.getBooleanExtra("guard_club_rank_hit", false)) {

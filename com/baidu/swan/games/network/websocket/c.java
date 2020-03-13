@@ -19,13 +19,13 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends WebSocketEventTarget {
-    private b cqC;
+    private b cqD;
     private String taskId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.swan.games.e.b bVar2) {
         super(bVar2);
-        this.cqC = bVar;
+        this.cqD = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,7 +38,7 @@ public class c extends WebSocketEventTarget {
         } else {
             String optString = i.optString("url");
             String optString2 = i.optString("__plugin__");
-            if (!this.cqC.Za()) {
+            if (!this.cqD.Za()) {
                 a(i, "connectSocket", "up to max connect count");
             } else if (!bR(optString, optString2)) {
                 a(i, "connectSocket", String.format("invalid url \"%s\"", optString));
@@ -48,7 +48,7 @@ public class c extends WebSocketEventTarget {
                 try {
                     WebSocketTask connect = WebSocketManager.INSTANCE.connect(b, this);
                     this.taskId = connect.getTaskId();
-                    this.cqC.a(connect);
+                    this.cqD.a(connect);
                     com.baidu.swan.games.utils.b.a(i, true, new e.c(this.taskId, String.format("%s:ok", "connectSocket")));
                 } catch (Exception e) {
                     a(i, "connectSocket", e.getMessage());
@@ -63,7 +63,7 @@ public class c extends WebSocketEventTarget {
         String str;
         JsArrayBuffer jsArrayBuffer = null;
         com.baidu.swan.games.binding.model.c i = i(jsObject);
-        switch (this.cqF) {
+        switch (this.cqG) {
             case IDLE:
                 a(i, "SocketTask.send", "SocketTask.readyState is not OPEN");
                 return;
@@ -112,7 +112,7 @@ public class c extends WebSocketEventTarget {
     @JavascriptInterface
     public void close(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
-        if (this.cqF == WebSocketEventTarget.SocketTaskState.CLOSE) {
+        if (this.cqG == WebSocketEventTarget.SocketTaskState.CLOSE) {
             a(i, "SocketTask.close", "SocketTask.readyState is CLOSED");
             return;
         }
@@ -122,10 +122,10 @@ public class c extends WebSocketEventTarget {
         } catch (Exception e) {
             a(i, "SocketTask.close", e.getMessage());
         } finally {
-            this.cqC.jH(this.taskId);
+            this.cqD.jH(this.taskId);
         }
         if (!(optInt == 1000 || (optInt >= 3000 && optInt <= 4999))) {
-            a(i, "SocketTask.close", d.cqE);
+            a(i, "SocketTask.close", d.cqF);
             return;
         }
         WebSocketManager.INSTANCE.close(this.taskId, optInt, optString);
@@ -149,7 +149,7 @@ public class c extends WebSocketEventTarget {
         com.baidu.swan.games.binding.model.c oG = cVar.oG(WebSocketRequest.PARAM_KEY_HEADER);
         if (oG != null) {
             for (String str2 : oG.keySet()) {
-                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.beG.contains(str2.toUpperCase())) {
+                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.beH.contains(str2.toUpperCase())) {
                     builder.addHeader(str2, oG.toString(str2));
                 }
             }
@@ -191,16 +191,16 @@ public class c extends WebSocketEventTarget {
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         super.onClose(jSONObject);
-        if (this.cqC != null && jSONObject != null) {
-            this.cqC.jH(jSONObject.optString("taskID"));
+        if (this.cqD != null && jSONObject != null) {
+            this.cqD.jH(jSONObject.optString("taskID"));
         }
     }
 
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         super.onError(th, jSONObject);
-        if (this.cqC != null && jSONObject != null) {
-            this.cqC.jH(jSONObject.optString("taskID"));
+        if (this.cqD != null && jSONObject != null) {
+            this.cqD.jH(jSONObject.optString("taskID"));
         }
     }
 

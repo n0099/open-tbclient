@@ -1,7 +1,7 @@
 package com.facebook.common.e;
 /* loaded from: classes13.dex */
 public class a {
-    private static volatile b lIM = new C0652a();
+    private static volatile b lIX = new C0652a();
 
     /* loaded from: classes13.dex */
     public interface b {
@@ -18,6 +18,6 @@ public class a {
     }
 
     public static void loadLibrary(String str) {
-        lIM.loadLibrary(str);
+        lIX.loadLibrary(str);
     }
 }

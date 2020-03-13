@@ -15,19 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private List<String> bQW;
-    private AtomicBoolean bQX;
+    private List<String> bQX;
+    private AtomicBoolean bQY;
 
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadPackages");
-        this.bQX = new AtomicBoolean(false);
+        this.bQY = new AtomicBoolean(false);
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "call DownloadPackagesAction, thread=" + Thread.currentThread().getName());
-        if (this.bQW == null) {
-            this.bQW = Collections.synchronizedList(new ArrayList());
+        if (this.bQX == null) {
+            this.bQX = Collections.synchronizedList(new ArrayList());
         }
         JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
@@ -82,14 +82,14 @@ public class h extends ab {
             for (int i = 0; i < jSONArray.length(); i++) {
                 String optString = jSONArray.optString(i);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.bQW.add(optString);
+                    this.bQX.add(optString);
                 }
             }
-            if (!this.bQX.getAndSet(true)) {
+            if (!this.bQY.getAndSet(true)) {
                 com.baidu.swan.apps.as.m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b(h.this.bQW);
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b(h.this.bQX);
                         bVar.qD(str);
                         bVar.qC("1");
                         com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d());

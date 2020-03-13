@@ -40,11 +40,11 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class a extends b implements View.OnClickListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppRoundedImageView bng;
-    private BdBaseImageView bnh;
-    private TextView bni;
-    private com.baidu.swan.apps.view.a bnj;
-    private long[] bnk = new long[5];
+    private SwanAppRoundedImageView bnh;
+    private BdBaseImageView bni;
+    private TextView bnj;
+    private com.baidu.swan.apps.view.a bnk;
+    private long[] bnl = new long[5];
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -65,12 +65,12 @@ public class a extends b implements View.OnClickListener {
     @Override // com.baidu.swan.apps.core.d.b, com.baidu.swan.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.bnj != null) {
-            this.bnj.ahr();
+        if (this.bnk != null) {
+            this.bnk.ahr();
         }
         setRequestedOrientation(1);
-        if (this.bnx != null && this.bnx.isShowing()) {
-            this.bnx.eT(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
+        if (this.bny != null && this.bny.isShowing()) {
+            this.bny.eT(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
         }
     }
 
@@ -88,7 +88,7 @@ public class a extends b implements View.OnClickListener {
         final com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
         if (acF != null && acF.GE() != null) {
             final b.a GE = acF.GE();
-            this.bng = (SwanAppRoundedImageView) view.findViewById(a.f.aiapps_icon);
+            this.bnh = (SwanAppRoundedImageView) view.findViewById(a.f.aiapps_icon);
             ((TextView) view.findViewById(a.f.aiapps_title)).setText(GE.Rb());
             ((TextView) view.findViewById(a.f.aiapps_description)).setText(GE.Vu());
             ((TextView) view.findViewById(a.f.service_category_value)).setText(GE.Vz());
@@ -104,13 +104,13 @@ public class a extends b implements View.OnClickListener {
                     }
                 });
             }
-            this.bni = (TextView) view.findViewById(a.f.aiapps_label_tv);
-            this.bnh = (BdBaseImageView) view.findViewById(a.f.aiapps_label_bg);
-            this.bng.setImageBitmap(ai.a((com.baidu.swan.apps.x.b.b) GE, "SwanAppAboutFragment", false));
+            this.bnj = (TextView) view.findViewById(a.f.aiapps_label_tv);
+            this.bni = (BdBaseImageView) view.findViewById(a.f.aiapps_label_bg);
+            this.bnh.setImageBitmap(ai.a((com.baidu.swan.apps.x.b.b) GE, "SwanAppAboutFragment", false));
             ((Button) view.findViewById(a.f.into_aiapps_button)).setOnClickListener(this);
             SwanAppBearInfo VB = GE.VB();
             if (VB != null && VB.isValid()) {
-                this.bnj = new com.baidu.swan.apps.view.a(this.mActivity, view, VB, a.f.bear_layout);
+                this.bnk = new com.baidu.swan.apps.view.a(this.mActivity, view, VB, a.f.bear_layout);
             }
             es(GE.getType());
             Ny();
@@ -121,14 +121,14 @@ public class a extends b implements View.OnClickListener {
                     ((Button) inflate).setText(GE.VV() ? a.h.aiapps_close_debug_mode : a.h.aiapps_open_debug_mode);
                 }
                 inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.2
-                    FullScreenFloatView bnn;
+                    FullScreenFloatView bno;
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (a.this.mActivity != null) {
                             if (a.DEBUG) {
-                                if (this.bnn == null) {
-                                    this.bnn = com.baidu.swan.apps.y.f.WS().O(a.this.mActivity);
+                                if (this.bno == null) {
+                                    this.bno = com.baidu.swan.apps.y.f.WS().O(a.this.mActivity);
                                 }
                                 if (a.this.NL()) {
                                     if (com.baidu.swan.apps.console.a.Lr()) {
@@ -148,7 +148,7 @@ public class a extends b implements View.OnClickListener {
                                         return;
                                     }
                                 }
-                                this.bnn.setVisibility(this.bnn.getVisibility() == 0 ? 8 : 0);
+                                this.bno.setVisibility(this.bno.getVisibility() == 0 ? 8 : 0);
                             } else if (a.this.NL()) {
                                 a.this.Nu();
                             } else {
@@ -159,14 +159,14 @@ public class a extends b implements View.OnClickListener {
                 });
                 if (!NL()) {
                     ((ViewStub) view.findViewById(a.f.ai_app_property)).inflate().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.3
-                        SwanAppPropertyWindow bnp;
+                        SwanAppPropertyWindow bnq;
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (this.bnp == null) {
-                                this.bnp = com.baidu.swan.apps.y.f.WS().P(a.this.mActivity);
+                            if (this.bnq == null) {
+                                this.bnq = com.baidu.swan.apps.y.f.WS().P(a.this.mActivity);
                             }
-                            this.bnp.setVisibility(this.bnp.getVisibility() == 0 ? 8 : 0);
+                            this.bnq.setVisibility(this.bnq.getVisibility() == 0 ? 8 : 0);
                         }
                     });
                 }
@@ -297,22 +297,22 @@ public class a extends b implements View.OnClickListener {
     }
 
     private void es(int i) {
-        af.a(this.bnh, this.bni, String.valueOf(i));
+        af.a(this.bni, this.bnj, String.valueOf(i));
     }
 
     @Override // com.baidu.swan.apps.core.d.b
     protected void Ji() {
         FragmentActivity auA = auA();
-        if (auA != null && this.bnx == null) {
-            this.bnx = new com.baidu.swan.menu.h(auA, this.bnw, 13, com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bnx, this).Yk();
+        if (auA != null && this.bny == null) {
+            this.bny = new com.baidu.swan.menu.h(auA, this.bnx, 13, com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.aa.a(this.bny, this).Yk();
         }
     }
 
     @Override // com.baidu.swan.apps.core.d.b
     protected void Nv() {
         Ji();
-        this.bnx.show(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
+        this.bny.show(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
     }
 
     @Override // com.baidu.swan.apps.core.d.b
@@ -344,7 +344,7 @@ public class a extends b implements View.OnClickListener {
             if (GC == null) {
                 com.baidu.swan.apps.res.widget.b.d.q(this.mActivity, a.h.aiapps_open_fragment_failed_toast).showToast();
             } else {
-                GC.hb("navigateBack").Y(0, e.bog).Ov().commit();
+                GC.hb("navigateBack").Y(0, e.boh).Ov().commit();
             }
         } else if (id == a.f.open_app_button && (acF = com.baidu.swan.apps.runtime.e.acF()) != null && acF.GE() != null) {
             b.a GE = acF.GE();
@@ -370,13 +370,13 @@ public class a extends b implements View.OnClickListener {
     }
 
     private void Ny() {
-        if (this.bng != null) {
-            this.bng.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.9
+        if (this.bnh != null) {
+            this.bnh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.9
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    System.arraycopy(a.this.bnk, 1, a.this.bnk, 0, a.this.bnk.length - 1);
-                    a.this.bnk[a.this.bnk.length - 1] = SystemClock.uptimeMillis();
-                    if (a.this.bnk[0] >= SystemClock.uptimeMillis() - 1000) {
+                    System.arraycopy(a.this.bnl, 1, a.this.bnl, 0, a.this.bnl.length - 1);
+                    a.this.bnl[a.this.bnl.length - 1] = SystemClock.uptimeMillis();
+                    if (a.this.bnl[0] >= SystemClock.uptimeMillis() - 1000) {
                         a.this.ul();
                     }
                 }
@@ -454,7 +454,7 @@ public class a extends b implements View.OnClickListener {
                 sb.append("jsNativeEnble: ").append(!TextUtils.isEmpty(o(0, com.baidu.swan.apps.core.k.d.Qw().QK()))).append("\n");
             }
             com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), sb.toString()).showMultiToast();
-            this.bnk = new long[5];
+            this.bnl = new long[5];
         }
     }
 

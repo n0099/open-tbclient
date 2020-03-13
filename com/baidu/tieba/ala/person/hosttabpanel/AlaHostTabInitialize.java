@@ -13,7 +13,7 @@ import com.baidu.tieba.ala.person.hosttabpanel.message.AlaNewHostTabHttpResponse
 public class AlaHostTabInitialize {
     static {
         te();
-        brX();
+        brY();
     }
 
     private static void te() {
@@ -27,15 +27,15 @@ public class AlaHostTabInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void brX() {
+    private static void brY() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.hosttabpanel.AlaHostTabInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof a)) {
                     a aVar = (a) customResponsedMessage.getData();
-                    if (aVar.avW != null && aVar.avW.context != null) {
-                        aVar.a(new com.baidu.tieba.ala.person.hosttabpanel.d.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.avW.context)));
+                    if (aVar.avX != null && aVar.avX.context != null) {
+                        aVar.a(new com.baidu.tieba.ala.person.hosttabpanel.d.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.avX.context)));
                     }
                 }
             }

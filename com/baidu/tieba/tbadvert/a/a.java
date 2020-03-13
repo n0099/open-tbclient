@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class a {
-    public List<b> kkE;
-    public List<b> kkF;
+    public List<b> kkQ;
+    public List<b> kkR;
 
     public void parserJsonStr(String str) {
         JSONObject jSONObject;
@@ -32,20 +32,20 @@ public class a {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("splash_schedule")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("current");
             if (optJSONArray != null) {
-                this.kkE = new ArrayList();
+                this.kkQ = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     b bVar = new b();
                     bVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.kkE.add(bVar);
+                    this.kkQ.add(bVar);
                 }
             }
             JSONArray optJSONArray2 = optJSONObject.optJSONArray(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (optJSONArray != null) {
-                this.kkF = new ArrayList();
+                this.kkR = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     b bVar2 = new b();
                     bVar2.parserJson(optJSONArray2.optJSONObject(i2));
-                    this.kkF.add(bVar2);
+                    this.kkR.add(bVar2);
                 }
             }
         }

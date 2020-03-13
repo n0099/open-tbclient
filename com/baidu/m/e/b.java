@@ -28,7 +28,7 @@ import rx.j;
 public class b extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private j bfI;
+    private j bfJ;
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {
@@ -190,8 +190,8 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "parse insert params, but invalid");
                 return false;
             } else {
-                this.bfI = new com.baidu.m.b.a(context, t).KG();
-                if (this.bfI == null) {
+                this.bfJ = new com.baidu.m.b.a(context, t).KG();
+                if (this.bfJ == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     c.e(TAG, "RTC component insert delayed fail");
                     return false;
@@ -575,11 +575,11 @@ public class b extends UnitedSchemeBaseDispatcher {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, RtcConfig rtcConfig, String str, String str2) {
         com.baidu.m.d.b.awT().a(context, rtcConfig, str, str2);
-        if (this.bfI == null) {
+        if (this.bfJ == null) {
             com.baidu.swan.apps.component.e.a.au(TAG, "doInsert with a null subscriber");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
         }
-        this.bfI.onCompleted();
+        this.bfJ.onCompleted();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

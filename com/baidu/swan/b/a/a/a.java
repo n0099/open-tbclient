@@ -129,35 +129,35 @@ public class a extends com.baidu.swan.b.d.a {
     /* renamed from: com.baidu.swan.b.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0312a extends com.baidu.swan.apps.process.a.b.c.c {
-        private String cjk;
-        private com.baidu.swan.apps.p.b cjl;
+        private String cjl;
+        private com.baidu.swan.apps.p.b cjm;
         private String mPackageName;
 
         C0312a(String str, String str2, com.baidu.swan.apps.p.b bVar) {
             this.mPackageName = str;
-            this.cjk = str2;
-            this.cjl = bVar;
+            this.cjl = str2;
+            this.cjm = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.a.b.c.a
         public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
             Bundle result = bVar.getResult();
-            if (this.cjl != null) {
+            if (this.cjm != null) {
                 if (result != null) {
-                    a.a(result, this.cjl);
+                    a.a(result, this.cjm);
                 } else {
-                    this.cjl.onFail(1001, "");
+                    this.cjm.onFail(1001, "");
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void aba() {
-            if (this.cjl != null) {
-                this.cjl.onFail(31018, "download process is killed");
-                a.h(this.mPackageName, this.cjk, 31018);
-                this.cjl = null;
+            if (this.cjm != null) {
+                this.cjm.onFail(31018, "download process is killed");
+                a.h(this.mPackageName, this.cjl, 31018);
+                this.cjm = null;
             }
         }
 
@@ -174,10 +174,10 @@ public class a extends com.baidu.swan.b.d.a {
 
     /* loaded from: classes11.dex */
     private static class b implements Runnable {
-        private WeakReference<C0312a> cjm;
+        private WeakReference<C0312a> cjn;
 
         b(C0312a c0312a) {
-            this.cjm = new WeakReference<>(c0312a);
+            this.cjn = new WeakReference<>(c0312a);
         }
 
         @Override // java.lang.Runnable
@@ -185,8 +185,8 @@ public class a extends com.baidu.swan.b.d.a {
             if (a.DEBUG) {
                 Log.d("appManagerAction", "onConnectionDown");
             }
-            if (this.cjm.get() != null) {
-                this.cjm.get().aba();
+            if (this.cjn.get() != null) {
+                this.cjn.get().aba();
             }
         }
     }

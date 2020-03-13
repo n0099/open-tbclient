@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
-    private String dmQ;
-    private long dmR;
-    private long dmS;
-    private long dmT;
-    private String dmU;
-    private String dmV;
+    private String dnd;
+    private long dne;
+    private long dnf;
+    private long dng;
+    private String dnh;
+    private String dni;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.dmQ = jSONObject.optString("splash_video_url");
-                this.dmR = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.dmS = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.dmT = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.dmU = jSONObject.optString("splash_video_h5_url");
-                this.dmV = jSONObject.optString("splash_video_h5_text");
+                this.dnd = jSONObject.optString("splash_video_url");
+                this.dne = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.dnf = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.dng = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.dnh = jSONObject.optString("splash_video_h5_url");
+                this.dni = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String aJH() {
-        return this.dmQ;
-    }
-
-    public long aJI() {
-        return this.dmR;
+    public String aJI() {
+        return this.dnd;
     }
 
     public long aJJ() {
-        return this.dmS;
+        return this.dne;
     }
 
     public long aJK() {
-        return this.dmT;
+        return this.dnf;
     }
 
-    public String aJL() {
-        return this.dmU;
+    public long aJL() {
+        return this.dng;
     }
 
     public String aJM() {
-        return this.dmV;
+        return this.dnh;
+    }
+
+    public String aJN() {
+        return this.dni;
     }
 }

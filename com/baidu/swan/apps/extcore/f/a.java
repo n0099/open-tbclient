@@ -19,11 +19,11 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
     }
 
     public long Sb() {
-        return h.afr().getLong(this.buD.RW(), 0L);
+        return h.afr().getLong(this.buE.RW(), 0L);
     }
 
     public void ag(long j) {
-        h.afr().putLong(this.buD.RW(), j);
+        h.afr().putLong(this.buE.RW(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
@@ -47,17 +47,17 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.bvh)) {
+        if (TextUtils.isEmpty(aVar.bvi)) {
             if (DEBUG) {
                 Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             }
             return false;
         }
-        C0260a t = t(aVar.versionName, aVar.bvh, aVar.sign);
+        C0260a t = t(aVar.versionName, aVar.bvi, aVar.sign);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + t);
         }
-        hO(aVar.bvh);
+        hO(aVar.bvi);
         return t.isOk();
     }
 

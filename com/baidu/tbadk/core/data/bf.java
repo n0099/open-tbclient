@@ -4,9 +4,9 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bf implements com.baidu.tbadk.core.view.commonLike.forum.b {
     public String avatar;
-    private boolean cQN;
     private boolean cQO;
-    public w cQP;
+    private boolean cQP;
+    public w cQQ;
     public String forumId;
     private int forumLevel;
     public String forumName;
@@ -26,11 +26,11 @@ public class bf implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
     public void fy(boolean z) {
-        this.cQO = z;
+        this.cQP = z;
     }
 
     public boolean aBE() {
-        return this.cQO;
+        return this.cQP;
     }
 
     public String getAvatar() {
@@ -43,12 +43,12 @@ public class bf implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.cQN;
+        return this.cQO;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.cQN = z;
+        this.cQO = z;
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
@@ -56,11 +56,11 @@ public class bf implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.cQN = simpleForum.is_liked.intValue() == 1;
+            this.cQO = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.cQP = new w();
-                this.cQP.a(simpleForum.multi_forum_perm);
+                this.cQQ = new w();
+                this.cQQ.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
             this.memberNum = simpleForum.member_num.intValue();

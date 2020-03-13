@@ -261,27 +261,27 @@ public class a extends com.baidu.swan.apps.network.a implements f {
     /* renamed from: com.baidu.swan.bdprivate.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0319a extends RequestBody {
-        private final File bGe;
+        private final File bGf;
 
         public C0319a(File file) {
-            this.bGe = file;
+            this.bGf = file;
         }
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.bGe.length();
+            return this.bGf.length();
         }
 
         @Override // okhttp3.RequestBody
         public MediaType contentType() {
-            return MediaType.parse(getMimeType(this.bGe.getPath()));
+            return MediaType.parse(getMimeType(this.bGf.getPath()));
         }
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
             Source source = null;
             try {
-                source = Okio.source(this.bGe);
+                source = Okio.source(this.bGf);
                 int i = 0;
                 while (true) {
                     long read = source.read(bufferedSink.buffer(), 2048L);

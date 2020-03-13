@@ -58,7 +58,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.bil;
+            String str2 = "can't find button component:#" + j.bim;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.bil;
+            String str2 = "can't find button component:#" + j.bim;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;

@@ -1,18 +1,18 @@
 package com.baidu.g.a.b.a;
 /* loaded from: classes3.dex */
 public class c {
-    public String aHF;
     public String aHG;
     public String aHH;
-    public String aHK;
-    public C0073c aHM;
-    public String aHN;
-    public String aHP;
-    public String aHS;
+    public String aHI;
+    public String aHL;
+    public C0073c aHN;
+    public String aHO;
+    public String aHQ;
     public String aHT;
-    public C0073c aHU;
-    public a aHV;
-    public String aHW;
+    public String aHU;
+    public C0073c aHV;
+    public a aHW;
+    public String aHX;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String aHI = "0";
-    public String aHJ = "1005";
-    public String aHL = "0";
-    public String aHO = "0";
-    public String aHQ = "0";
-    public String aHR = "1005";
+    public String aHJ = "0";
+    public String aHK = "1005";
+    public String aHM = "0";
+    public String aHP = "0";
+    public String aHR = "0";
+    public String aHS = "1005";
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int aIe;
         public int aIf;
-        public c aIg;
-        public long[] aIh;
-        public int aIi;
-        public String aIj;
+        public int aIg;
+        public c aIh;
+        public long[] aIi;
+        public int aIj;
         public String aIk;
+        public String aIl;
         public int feedback = 0;
-        public String aHX = "";
-        public int aHY = 0;
+        public String aHY = "";
+        public int aHZ = 0;
         public String duration = "";
-        public String aHZ = "";
         public String aIa = "";
         public String aIb = "";
         public String aIc = "";
         public String aId = "";
+        public String aIe = "";
     }
 
     /* loaded from: classes3.dex */
@@ -56,16 +56,16 @@ public class c {
     /* renamed from: com.baidu.g.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0073c {
-        public e aIl;
-        public d aIm;
-        public f aIn;
-        public b aIo;
+        public e aIm;
+        public d aIn;
+        public f aIo;
+        public b aIp;
     }
 
     /* loaded from: classes3.dex */
     public static class d {
-        public a aIp;
         public a aIq;
+        public a aIr;
 
         /* loaded from: classes3.dex */
         public static class a {
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.aHF + "}";
+        return "LiveMessageBean:{" + this.aHG + "}";
     }
 }

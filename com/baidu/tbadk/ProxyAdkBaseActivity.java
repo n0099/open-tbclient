@@ -37,8 +37,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.e;
-import com.baidu.tbadk.core.util.g.c;
-import com.baidu.tbadk.core.util.g.d;
+import com.baidu.tbadk.core.util.f.c;
+import com.baidu.tbadk.core.util.f.d;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.k.g;
 import com.baidu.tbadk.k.h;
@@ -193,7 +193,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            com.baidu.tbadk.core.view.e.ae(getPageContext().getPageActivity());
+            com.baidu.tbadk.core.view.e.ag(getPageContext().getPageActivity());
         }
     }
 
@@ -870,12 +870,12 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.mUseStyleImmersiveSticky = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.g.c
+    @Override // com.baidu.tbadk.core.util.f.c
     public boolean videoNeedPreload() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.g.c
+    @Override // com.baidu.tbadk.core.util.f.c
     public boolean isCyberVideoUsedThisPage() {
         return false;
     }

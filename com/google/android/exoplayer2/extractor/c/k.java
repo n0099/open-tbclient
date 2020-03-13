@@ -5,23 +5,23 @@ import android.util.Log;
 import com.google.android.exoplayer2.extractor.m;
 /* loaded from: classes6.dex */
 public final class k {
-    public final m.a mgb;
-    public final boolean mkE;
-    public final int mkF;
-    public final byte[] mkG;
+    public final m.a mgm;
+    public final boolean mkP;
+    public final int mkQ;
+    public final byte[] mkR;
     @Nullable
     public final String schemeType;
 
     public k(boolean z, @Nullable String str, int i, byte[] bArr, int i2, int i3, @Nullable byte[] bArr2) {
         com.google.android.exoplayer2.util.a.checkArgument((bArr2 == null) ^ (i == 0));
-        this.mkE = z;
+        this.mkP = z;
         this.schemeType = str;
-        this.mkF = i;
-        this.mkG = bArr2;
-        this.mgb = new m.a(Pt(str), bArr, i2, i3);
+        this.mkQ = i;
+        this.mkR = bArr2;
+        this.mgm = new m.a(Pu(str), bArr, i2, i3);
     }
 
-    private static int Pt(@Nullable String str) {
+    private static int Pu(@Nullable String str) {
         if (str == null) {
             return 1;
         }

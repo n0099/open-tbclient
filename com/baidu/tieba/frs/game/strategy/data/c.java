@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    public int gzM;
-    public List<m> gzN;
+    public int gzY;
+    public List<m> gzZ;
     public boolean hasMore;
     public String key;
     public int labelId;
@@ -19,9 +19,9 @@ public class c {
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.gzN)) {
-            this.gzN = new LinkedList();
-            this.gzN.addAll(list);
+        if (v.isEmpty(this.gzZ)) {
+            this.gzZ = new LinkedList();
+            this.gzZ.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,11 +29,11 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.gzN.size()) {
+                if (i2 >= this.gzZ.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.gzN.get(i2);
+                m mVar2 = this.gzZ.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
                     bj aAg = ((b) mVar).aAg();
                     bj aAg2 = ((b) mVar2).aAg();
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.gzN, 0, linkedList);
+            v.addAll(this.gzZ, 0, linkedList);
         }
         return linkedList.size();
     }

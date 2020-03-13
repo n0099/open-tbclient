@@ -50,8 +50,8 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "loadState");
-                            jSONObject.put("parentId", cVar.bin);
-                            jSONObject.put("viewId", cVar.bil);
+                            jSONObject.put("parentId", cVar.bip);
+                            jSONObject.put("viewId", cVar.bim);
                             jSONObject.put("loadState", i == 1 ? "finish" : BdStatsConstant.StatsType.ERROR);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", "loadState callback error", e);
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.bil;
+            String str2 = "can't find imageCoverView component:#" + l.bim;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -114,7 +114,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.bil;
+            String str2 = "can't find imageCoverView component:#" + l.bim;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;

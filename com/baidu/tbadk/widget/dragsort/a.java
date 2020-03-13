@@ -28,36 +28,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.widget.dragsort.c {
-    private int bKW;
-    private int dIA;
-    private int dIE;
-    private int dIF;
-    private int dIG;
-    private int dII;
-    private int dIJ;
-    private int dIK;
-    private b dIL;
-    private g dIM;
-    private l dIN;
-    private int dIP;
-    private d dIR;
-    private int dIU;
+    private int bKX;
+    private View dIK;
+    private int dIN;
+    private int dIR;
+    private int dIS;
+    private int dIT;
     private int dIV;
-    private float dIW;
-    private float dIX;
-    private float dIY;
-    private float dIZ;
-    private View dIx;
+    private int dIW;
+    private int dIX;
+    private b dIY;
+    private g dIZ;
+    private e dJA;
+    private k dJD;
+    private j dJE;
+    private f dJF;
+    private boolean dJG;
+    private com.baidu.tbadk.widget.dragsort.d dJI;
+    private com.baidu.tbadk.widget.dragsort.b dJJ;
+    private l dJa;
     private int dJc;
-    private MotionEvent dJh;
-    private C0397a dJl;
-    private e dJn;
-    private k dJq;
-    private j dJr;
-    private f dJs;
-    private boolean dJt;
-    private com.baidu.tbadk.widget.dragsort.d dJv;
-    private com.baidu.tbadk.widget.dragsort.b dJw;
+    private d dJe;
+    private int dJh;
+    private int dJi;
+    private float dJj;
+    private float dJk;
+    private float dJl;
+    private float dJm;
+    private int dJp;
+    private MotionEvent dJu;
+    private C0397a dJy;
     private int mLastX;
     private int mLastY;
     private ListView mListView;
@@ -66,40 +66,40 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     private int mOffsetY;
     private int mX;
     private int mY;
-    private Point dIy = new Point();
-    private Point dIz = new Point();
-    private boolean dIB = false;
-    private float dIC = 1.0f;
-    private float dID = 1.0f;
-    private boolean dIH = false;
+    private Point dIL = new Point();
+    private Point dIM = new Point();
+    private boolean dIO = false;
+    private float dIP = 1.0f;
+    private float dIQ = 1.0f;
+    private boolean dIU = false;
     private boolean mDragEnabled = true;
     private int mDragState = 0;
-    private int dIO = 1;
+    private int dJb = 1;
     private int mWidthMeasureSpec = 0;
-    private View[] dIQ = new View[1];
-    private float dIS = 0.33333334f;
-    private float dIT = 0.33333334f;
-    private float dJa = 0.5f;
-    private c dJb = new c() { // from class: com.baidu.tbadk.widget.dragsort.a.1
+    private View[] dJd = new View[1];
+    private float dJf = 0.33333334f;
+    private float dJg = 0.33333334f;
+    private float dJn = 0.5f;
+    private c dJo = new c() { // from class: com.baidu.tbadk.widget.dragsort.a.1
         @Override // com.baidu.tbadk.widget.dragsort.a.c
         public float b(float f2, long j2) {
-            return a.this.dJa * f2;
+            return a.this.dJn * f2;
         }
     };
-    private int dJd = 0;
-    private boolean dJe = false;
-    private boolean dJf = false;
-    private h dJg = null;
-    private int dJi = 0;
-    private float dJj = 0.25f;
-    private float dJk = 0.0f;
-    private boolean dJm = false;
+    private int dJq = 0;
+    private boolean dJr = false;
+    private boolean dJs = false;
+    private h dJt = null;
+    private int dJv = 0;
+    private float dJw = 0.25f;
+    private float dJx = 0.0f;
+    private boolean dJz = false;
     private boolean mBlockLayoutRequests = false;
-    private boolean dJo = false;
-    private i dJp = new i(3);
-    private float dJu = 0.0f;
-    private boolean dJx = false;
-    private boolean dJy = false;
+    private boolean dJB = false;
+    private i dJC = new i(3);
+    private float dJH = 0.0f;
+    private boolean dJK = false;
+    private boolean dJL = false;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -131,14 +131,14 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     }
 
     public a(ListView listView, com.baidu.tbadk.widget.dragsort.d dVar) {
-        this.dJv = dVar;
+        this.dJI = dVar;
         this.mListView = listView;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void setAdapter(ListAdapter listAdapter) {
         if (listAdapter != null) {
-            this.dJl = new C0397a(listAdapter);
+            this.dJy = new C0397a(listAdapter);
             listAdapter.registerDataSetObserver(this.mObserver);
             if (listAdapter instanceof g) {
                 a((g) listAdapter);
@@ -150,9 +150,9 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 a((l) listAdapter);
             }
         } else {
-            this.dJl = null;
+            this.dJy = null;
         }
-        this.dJv.setAdapter(this.dJl);
+        this.dJI.setAdapter(this.dJy);
     }
 
     private void b(int i2, Canvas canvas) {
@@ -165,7 +165,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             int paddingLeft = this.mListView.getPaddingLeft();
             int width = this.mListView.getWidth() - this.mListView.getPaddingRight();
             int height = viewGroup.getChildAt(0).getHeight();
-            if (i2 > this.dII) {
+            if (i2 > this.dIV) {
                 i3 = height + viewGroup.getTop();
                 bottom = i3 + dividerHeight;
             } else {
@@ -194,36 +194,36 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             return i3;
         }
         int dividerHeight = this.mListView.getDividerHeight();
-        int i4 = this.bKW - this.dIO;
+        int i4 = this.bKX - this.dJb;
         int mX = mX(i2);
         int mV = mV(i2);
-        if (this.dIG <= this.dII) {
-            if (i2 == this.dIG && this.dIF != this.dIG) {
-                if (i2 == this.dII) {
-                    i3 = (i3 + mV) - this.bKW;
+        if (this.dIT <= this.dIV) {
+            if (i2 == this.dIT && this.dIS != this.dIT) {
+                if (i2 == this.dIV) {
+                    i3 = (i3 + mV) - this.bKX;
                 } else {
                     i3 = ((mV - mX) + i3) - i4;
                 }
-            } else if (i2 > this.dIG && i2 <= this.dII) {
+            } else if (i2 > this.dIT && i2 <= this.dIV) {
                 i3 -= i4;
             }
-        } else if (i2 > this.dII && i2 <= this.dIF) {
+        } else if (i2 > this.dIV && i2 <= this.dIS) {
             i3 += i4;
-        } else if (i2 == this.dIG && this.dIF != this.dIG) {
+        } else if (i2 == this.dIT && this.dIS != this.dIT) {
             i3 += mV - mX;
         }
-        if (i2 <= this.dII) {
-            return (((this.bKW - dividerHeight) - mX(i2 - 1)) / 2) + i3;
+        if (i2 <= this.dIV) {
+            return (((this.bKX - dividerHeight) - mX(i2 - 1)) / 2) + i3;
         }
-        return (((mX - dividerHeight) - this.bKW) / 2) + i3;
+        return (((mX - dividerHeight) - this.bKX) / 2) + i3;
     }
 
-    private boolean aTa() {
+    private boolean aTb() {
         int i2;
         int i3;
         int i4;
         int firstVisiblePosition = this.mListView.getFirstVisiblePosition();
-        int i5 = this.dIF;
+        int i5 = this.dIS;
         View childAt = this.mListView.getChildAt(i5 - firstVisiblePosition);
         if (childAt == null) {
             i5 = firstVisiblePosition + (this.mListView.getChildCount() / 2);
@@ -233,7 +233,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         int height = childAt.getHeight();
         int aL = aL(i5, top2);
         int dividerHeight = this.mListView.getDividerHeight();
-        if (this.dIA >= aL) {
+        if (this.dIN >= aL) {
             int count = this.mListView.getCount();
             int i6 = height;
             int i7 = top2;
@@ -249,7 +249,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                     i7 += dividerHeight + i6;
                     i6 = mV(i3 + 1);
                     i2 = aL(i3 + 1, i7);
-                    if (this.dIA < i2) {
+                    if (this.dIN < i2) {
                         break;
                     }
                     i3++;
@@ -275,7 +275,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 }
                 i8 -= mV + dividerHeight;
                 i2 = aL(i3, i8);
-                if (this.dIA >= i2) {
+                if (this.dIN >= i2) {
                     break;
                 }
                 i4 = i2;
@@ -283,58 +283,58 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         }
         int headerViewsCount = this.mListView.getHeaderViewsCount();
         int footerViewsCount = this.mListView.getFooterViewsCount();
-        int i9 = this.dIF;
-        int i10 = this.dIG;
-        float f2 = this.dJk;
-        if (this.dIH) {
+        int i9 = this.dIS;
+        int i10 = this.dIT;
+        float f2 = this.dJx;
+        if (this.dIU) {
             int abs = Math.abs(i2 - i4);
-            if (this.dIA >= i2) {
+            if (this.dIN >= i2) {
                 int i11 = i4;
                 i4 = i2;
                 i2 = i11;
             }
-            int i12 = (int) (abs * this.dJj * 0.5f);
+            int i12 = (int) (abs * this.dJw * 0.5f);
             float f3 = i12;
             int i13 = i4 + i12;
             int i14 = i2 - i12;
-            if (this.dIA < i13) {
-                this.dIF = i3 - 1;
-                this.dIG = i3;
-                this.dJk = ((i13 - this.dIA) * 0.5f) / f3;
-            } else if (this.dIA < i14) {
-                this.dIF = i3;
-                this.dIG = i3;
+            if (this.dIN < i13) {
+                this.dIS = i3 - 1;
+                this.dIT = i3;
+                this.dJx = ((i13 - this.dIN) * 0.5f) / f3;
+            } else if (this.dIN < i14) {
+                this.dIS = i3;
+                this.dIT = i3;
             } else {
-                this.dIF = i3;
-                this.dIG = i3 + 1;
-                this.dJk = (1.0f + ((i2 - this.dIA) / f3)) * 0.5f;
+                this.dIS = i3;
+                this.dIT = i3 + 1;
+                this.dJx = (1.0f + ((i2 - this.dIN) / f3)) * 0.5f;
             }
         } else {
-            this.dIF = i3;
-            this.dIG = i3;
+            this.dIS = i3;
+            this.dIT = i3;
         }
-        if (this.dIF < headerViewsCount) {
-            this.dIF = headerViewsCount;
-            this.dIG = headerViewsCount;
+        if (this.dIS < headerViewsCount) {
+            this.dIS = headerViewsCount;
+            this.dIT = headerViewsCount;
             i3 = headerViewsCount;
-        } else if (this.dIG >= this.mListView.getCount() - footerViewsCount) {
+        } else if (this.dIT >= this.mListView.getCount() - footerViewsCount) {
             i3 = (this.mListView.getCount() - footerViewsCount) - 1;
-            this.dIF = i3;
-            this.dIG = i3;
+            this.dIS = i3;
+            this.dIT = i3;
         }
-        boolean z = (this.dIF == i9 && this.dIG == i10 && this.dJk == f2) ? false : true;
-        if (i3 != this.dIE) {
-            if (this.dIL != null) {
-                this.dIL.drag(this.dIE - headerViewsCount, i3 - headerViewsCount);
+        boolean z = (this.dIS == i9 && this.dIT == i10 && this.dJx == f2) ? false : true;
+        if (i3 != this.dIR) {
+            if (this.dIY != null) {
+                this.dIY.drag(this.dIR - headerViewsCount, i3 - headerViewsCount);
             }
-            this.dIE = i3;
+            this.dIR = i3;
             return true;
         }
         return z;
     }
 
     public void removeItem(int i2) {
-        this.dJt = false;
+        this.dJG = false;
         removeItem(i2, 0.0f);
     }
 
@@ -346,18 +346,18 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             i2 = 150;
         } else {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.DragSort, 0, 0);
-            this.dIO = Math.max(1, obtainStyledAttributes.getDimensionPixelSize(12, 1));
-            this.dJm = obtainStyledAttributes.getBoolean(6, false);
-            if (this.dJm) {
-                this.dJn = new e();
+            this.dJb = Math.max(1, obtainStyledAttributes.getDimensionPixelSize(12, 1));
+            this.dJz = obtainStyledAttributes.getBoolean(6, false);
+            if (this.dJz) {
+                this.dJA = new e();
             }
-            this.dIC = obtainStyledAttributes.getFloat(10, this.dIC);
-            this.dID = this.dIC;
+            this.dIP = obtainStyledAttributes.getFloat(10, this.dIP);
+            this.dIQ = this.dIP;
             this.mDragEnabled = obtainStyledAttributes.getBoolean(13, this.mDragEnabled);
-            this.dJj = Math.max(0.0f, Math.min(1.0f, 1.0f - obtainStyledAttributes.getFloat(2, 0.75f)));
-            this.dIH = this.dJj > 0.0f;
-            setDragScrollStart(obtainStyledAttributes.getFloat(14, this.dIS));
-            this.dJa = obtainStyledAttributes.getFloat(0, this.dJa);
+            this.dJw = Math.max(0.0f, Math.min(1.0f, 1.0f - obtainStyledAttributes.getFloat(2, 0.75f)));
+            this.dIU = this.dJw > 0.0f;
+            setDragScrollStart(obtainStyledAttributes.getFloat(14, this.dJf));
+            this.dJn = obtainStyledAttributes.getFloat(0, this.dJn);
             int i4 = obtainStyledAttributes.getInt(11, 150);
             int i5 = obtainStyledAttributes.getInt(15, 150);
             if (obtainStyledAttributes.getBoolean(17, true)) {
@@ -372,21 +372,21 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 bVar.hi(z);
                 bVar.hh(z2);
                 bVar.setBackgroundColor(color);
-                this.dJg = bVar;
+                this.dJt = bVar;
                 a(bVar);
             }
             obtainStyledAttributes.recycle();
             i2 = i5;
             i3 = i4;
         }
-        this.dIR = new d();
+        this.dJe = new d();
         if (i3 > 0) {
-            this.dJq = new k(0.5f, i3);
+            this.dJD = new k(0.5f, i3);
         }
         if (i2 > 0) {
-            this.dJs = new f(0.5f, i2);
+            this.dJF = new f(0.5f, i2);
         }
-        this.dJh = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
+        this.dJu = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
         this.mObserver = new DataSetObserver() { // from class: com.baidu.tbadk.widget.dragsort.a.2
             private void cancel() {
                 if (a.this.mDragState == 4) {
@@ -407,26 +407,26 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     }
 
     public void a(com.baidu.tbadk.widget.dragsort.b bVar) {
-        this.dJw = bVar;
+        this.dJJ = bVar;
         this.mListView.setOnTouchListener(bVar);
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void dispatchDraw(Canvas canvas) {
         float f2;
-        this.dJv.dispatchDraw(canvas);
+        this.dJI.dispatchDraw(canvas);
         if (this.mDragState != 0) {
-            if (this.dIF != this.dII) {
-                b(this.dIF, canvas);
+            if (this.dIS != this.dIV) {
+                b(this.dIS, canvas);
             }
-            if (this.dIG != this.dIF && this.dIG != this.dII) {
-                b(this.dIG, canvas);
+            if (this.dIT != this.dIS && this.dIT != this.dIV) {
+                b(this.dIT, canvas);
             }
         }
-        if (this.dIx != null) {
-            int width = this.dIx.getWidth();
-            int height = this.dIx.getHeight();
-            int i2 = this.dIy.x;
+        if (this.dIK != null) {
+            int width = this.dIK.getWidth();
+            int height = this.dIK.getHeight();
+            int i2 = this.dIL.x;
             int width2 = this.mListView.getWidth();
             if (i2 < 0) {
                 i2 = -i2;
@@ -437,12 +437,12 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             } else {
                 f2 = 0.0f;
             }
-            int i3 = (int) (f2 * 255.0f * this.dID);
+            int i3 = (int) (f2 * 255.0f * this.dIQ);
             canvas.save();
-            canvas.translate(this.dIy.x, this.dIy.y);
+            canvas.translate(this.dIL.x, this.dIL.y);
             canvas.clipRect(0, 0, width, height);
             canvas.saveLayerAlpha(0.0f, 0.0f, width, height, i3, 31);
-            this.dIx.draw(canvas);
+            this.dIK.draw(canvas);
             canvas.restore();
             canvas.restore();
         }
@@ -450,23 +450,23 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void onDraw(Canvas canvas) {
-        this.dJv.onDraw(canvas);
-        if (this.dJm) {
-            this.dJn.aTn();
+        this.dJI.onDraw(canvas);
+        if (this.dJz) {
+            this.dJA.aTo();
         }
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (this.dJo) {
-            this.dJo = false;
+        if (this.dJB) {
+            this.dJB = false;
             return false;
         } else if (!this.mDragEnabled) {
-            return this.dJv.onTouchEvent(motionEvent);
+            return this.dJI.onTouchEvent(motionEvent);
         } else {
-            boolean z2 = this.dJe;
-            this.dJe = false;
+            boolean z2 = this.dJr;
+            this.dJr = false;
             if (!z2) {
                 s(motionEvent);
             }
@@ -474,18 +474,18 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 onDragTouchEvent(motionEvent);
                 return true;
             }
-            if (this.mDragState == 0 && this.dJv.onTouchEvent(motionEvent)) {
+            if (this.mDragState == 0 && this.dJI.onTouchEvent(motionEvent)) {
                 z = true;
             }
             switch (motionEvent.getAction() & 255) {
                 case 1:
                 case 3:
-                    aTf();
+                    aTg();
                     return z;
                 case 2:
                 default:
                     if (z) {
-                        this.dJi = 1;
+                        this.dJv = 1;
                         return z;
                     }
                     return z;
@@ -497,24 +497,24 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z;
         if (!this.mDragEnabled) {
-            return this.dJv.onInterceptTouchEvent(motionEvent);
+            return this.dJI.onInterceptTouchEvent(motionEvent);
         }
-        if (this.dJw != null) {
-            this.dJw.aTp().onTouchEvent(motionEvent);
+        if (this.dJJ != null) {
+            this.dJJ.aTq().onTouchEvent(motionEvent);
         }
         s(motionEvent);
-        this.dJe = true;
+        this.dJr = true;
         int action = motionEvent.getAction() & 255;
         if (action == 0) {
             if (this.mDragState != 0) {
-                this.dJo = true;
+                this.dJB = true;
                 return true;
             }
-            this.dJf = true;
+            this.dJs = true;
         }
-        if (this.dIx == null) {
-            if (this.dJv.onInterceptTouchEvent(motionEvent)) {
-                this.dJx = true;
+        if (this.dIK == null) {
+            if (this.dJI.onInterceptTouchEvent(motionEvent)) {
+                this.dJK = true;
                 z = true;
             } else {
                 z = false;
@@ -522,15 +522,15 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             switch (action) {
                 case 1:
                 case 3:
-                    aTf();
+                    aTg();
                     break;
                 case 2:
                 default:
                     if (z) {
-                        this.dJi = 1;
+                        this.dJv = 1;
                         break;
                     } else {
-                        this.dJi = 2;
+                        this.dJv = 2;
                         break;
                     }
             }
@@ -538,74 +538,74 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             z = true;
         }
         if (action == 1 || action == 3) {
-            this.dJf = false;
+            this.dJs = false;
         }
         return z;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        this.dJv.onSizeChanged(i2, i3, i4, i5);
-        aTg();
+        this.dJI.onSizeChanged(i2, i3, i4, i5);
+        aTh();
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void requestLayout() {
         if (!this.mBlockLayoutRequests) {
-            this.dJv.requestLayout();
+            this.dJI.requestLayout();
         }
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void onMeasure(int i2, int i3) {
-        this.dJv.onMeasure(i2, i3);
-        if (this.dIx != null) {
-            if (this.dIx.isLayoutRequested()) {
-                aTi();
+        this.dJI.onMeasure(i2, i3);
+        if (this.dIK != null) {
+            if (this.dIK.isLayoutRequested()) {
+                aTj();
             }
-            this.dIB = true;
+            this.dIO = true;
         }
         this.mWidthMeasureSpec = i2;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void layoutChildren() {
-        this.dJv.layoutChildren();
-        if (this.dIx != null) {
-            if (this.dIx.isLayoutRequested() && !this.dIB) {
-                aTi();
+        this.dJI.layoutChildren();
+        if (this.dIK != null) {
+            if (this.dIK.isLayoutRequested() && !this.dIO) {
+                aTj();
             }
-            this.dIx.layout(0, 0, this.dIx.getMeasuredWidth(), this.dIx.getMeasuredHeight());
-            this.dIB = false;
+            this.dIK.layout(0, 0, this.dIK.getMeasuredWidth(), this.dIK.getMeasuredHeight());
+            this.dIO = false;
         }
     }
 
     public void removeItem(int i2, float f2) {
         if (this.mDragState == 0 || this.mDragState == 4) {
             if (this.mDragState == 0) {
-                this.dII = this.mListView.getHeaderViewsCount() + i2;
-                this.dIF = this.dII;
-                this.dIG = this.dII;
-                this.dIE = this.dII;
-                View childAt = this.mListView.getChildAt(this.dII - this.mListView.getFirstVisiblePosition());
+                this.dIV = this.mListView.getHeaderViewsCount() + i2;
+                this.dIS = this.dIV;
+                this.dIT = this.dIV;
+                this.dIR = this.dIV;
+                View childAt = this.mListView.getChildAt(this.dIV - this.mListView.getFirstVisiblePosition());
                 if (childAt != null) {
                     childAt.setVisibility(4);
                 }
             }
             this.mDragState = 1;
-            this.dJu = f2;
-            if (this.dJf) {
-                switch (this.dJi) {
+            this.dJH = f2;
+            if (this.dJs) {
+                switch (this.dJv) {
                     case 1:
-                        this.dJv.onTouchEvent(this.dJh);
+                        this.dJI.onTouchEvent(this.dJu);
                         break;
                     case 2:
-                        this.dJv.onInterceptTouchEvent(this.dJh);
+                        this.dJI.onInterceptTouchEvent(this.dJu);
                         break;
                 }
             }
-            if (this.dJq != null) {
-                this.dJq.start();
+            if (this.dJD != null) {
+                this.dJD.start();
             } else {
                 mW(i2);
             }
@@ -614,11 +614,11 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     public void cancelDrag() {
         if (this.mDragState == 4) {
-            this.dIR.hg(true);
-            aTk();
-            aTb();
-            aTh();
-            if (this.dJf) {
+            this.dJe.hg(true);
+            aTl();
+            aTc();
+            aTi();
+            if (this.dJs) {
                 this.mDragState = 3;
             } else {
                 this.mDragState = 0;
@@ -626,81 +626,81 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         }
     }
 
-    private void aTb() {
-        this.dII = -1;
-        this.dIF = -1;
-        this.dIG = -1;
-        this.dIE = -1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aTc() {
-        this.mDragState = 2;
-        if (this.dIM != null && this.dIE >= 0 && this.dIE < this.mListView.getCount()) {
-            int headerViewsCount = this.mListView.getHeaderViewsCount();
-            this.dIM.drop(this.dII - headerViewsCount, this.dIE - headerViewsCount);
-        }
-        aTk();
-        aTe();
-        aTb();
-        aTh();
-        if (this.dJf) {
-            this.mDragState = 3;
-        } else {
-            this.mDragState = 0;
-        }
+    private void aTc() {
+        this.dIV = -1;
+        this.dIS = -1;
+        this.dIT = -1;
+        this.dIR = -1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aTd() {
-        mW(this.dII - this.mListView.getHeaderViewsCount());
-    }
-
-    private void mW(int i2) {
-        this.mDragState = 1;
-        if (this.dIN != null) {
-            this.dIN.remove(i2);
+        this.mDragState = 2;
+        if (this.dIZ != null && this.dIR >= 0 && this.dIR < this.mListView.getCount()) {
+            int headerViewsCount = this.mListView.getHeaderViewsCount();
+            this.dIZ.drop(this.dIV - headerViewsCount, this.dIR - headerViewsCount);
         }
-        aTk();
-        aTe();
-        aTb();
-        if (this.dJf) {
+        aTl();
+        aTf();
+        aTc();
+        aTi();
+        if (this.dJs) {
             this.mDragState = 3;
         } else {
             this.mDragState = 0;
         }
     }
 
-    private void aTe() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aTe() {
+        mW(this.dIV - this.mListView.getHeaderViewsCount());
+    }
+
+    private void mW(int i2) {
+        this.mDragState = 1;
+        if (this.dJa != null) {
+            this.dJa.remove(i2);
+        }
+        aTl();
+        aTf();
+        aTc();
+        if (this.dJs) {
+            this.mDragState = 3;
+        } else {
+            this.mDragState = 0;
+        }
+    }
+
+    private void aTf() {
         int firstVisiblePosition = this.mListView.getFirstVisiblePosition();
-        if (this.dII < firstVisiblePosition) {
+        if (this.dIV < firstVisiblePosition) {
             View childAt = this.mListView.getChildAt(0);
             this.mListView.setSelectionFromTop(firstVisiblePosition - 1, (childAt != null ? childAt.getTop() : 0) - this.mListView.getPaddingTop());
         }
     }
 
     public boolean stopDrag(boolean z) {
-        this.dJt = false;
+        this.dJG = false;
         return stopDrag(z, 0.0f);
     }
 
     public boolean stopDragWithVelocity(boolean z, float f2) {
-        this.dJt = true;
+        this.dJG = true;
         return stopDrag(z, f2);
     }
 
     public boolean stopDrag(boolean z, float f2) {
-        if (this.dIx != null) {
-            this.dIR.hg(true);
+        if (this.dIK != null) {
+            this.dJe.hg(true);
             if (z) {
-                removeItem(this.dII - this.mListView.getHeaderViewsCount(), f2);
-            } else if (this.dJs != null) {
-                this.dJs.start();
+                removeItem(this.dIV - this.mListView.getHeaderViewsCount(), f2);
+            } else if (this.dJF != null) {
+                this.dJF.start();
             } else {
-                aTc();
+                aTd();
             }
-            if (this.dJm) {
-                this.dJn.stopTracking();
+            if (this.dJz) {
+                this.dJA.stopTracking();
                 return true;
             }
             return true;
@@ -708,15 +708,15 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         return false;
     }
 
-    private void aTf() {
-        this.dJi = 0;
-        this.dJf = false;
+    private void aTg() {
+        this.dJv = 0;
+        this.dJs = false;
         if (this.mDragState == 3) {
             this.mDragState = 0;
         }
-        this.dID = this.dIC;
-        this.dJx = false;
-        this.dJp.clear();
+        this.dIQ = this.dIP;
+        this.dJK = false;
+        this.dJC.clear();
     }
 
     private void s(MotionEvent motionEvent) {
@@ -736,7 +736,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     }
 
     public boolean listViewIntercepted() {
-        return this.dJx;
+        return this.dJK;
     }
 
     public void setDragScrollStart(float f2) {
@@ -745,55 +745,55 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     public void setDragScrollStarts(float f2, float f3) {
         if (f3 > 0.5f) {
-            this.dIT = 0.5f;
+            this.dJg = 0.5f;
         } else {
-            this.dIT = f3;
+            this.dJg = f3;
         }
         if (f2 > 0.5f) {
-            this.dIS = 0.5f;
+            this.dJf = 0.5f;
         } else {
-            this.dIS = f2;
+            this.dJf = f2;
         }
         if (this.mListView.getHeight() != 0) {
-            aTg();
+            aTh();
         }
     }
 
     private void aM(int i2, int i3) {
-        this.dIy.x = i2 - this.dIJ;
-        this.dIy.y = i3 - this.dIK;
+        this.dIL.x = i2 - this.dIW;
+        this.dIL.y = i3 - this.dIX;
         hf(true);
-        int min = Math.min(i3, this.dIA + this.dIP);
-        int max = Math.max(i3, this.dIA - this.dIP);
-        int aTl = this.dIR.aTl();
-        if (min > this.mLastY && min > this.dIV && aTl != 1) {
-            if (aTl != -1) {
-                this.dIR.hg(true);
+        int min = Math.min(i3, this.dIN + this.dJc);
+        int max = Math.max(i3, this.dIN - this.dJc);
+        int aTm = this.dJe.aTm();
+        if (min > this.mLastY && min > this.dJi && aTm != 1) {
+            if (aTm != -1) {
+                this.dJe.hg(true);
             }
-            this.dIR.mY(1);
-        } else if (max < this.mLastY && max < this.dIU && aTl != 0) {
-            if (aTl != -1) {
-                this.dIR.hg(true);
+            this.dJe.mY(1);
+        } else if (max < this.mLastY && max < this.dJh && aTm != 0) {
+            if (aTm != -1) {
+                this.dJe.hg(true);
             }
-            this.dIR.mY(0);
-        } else if (max >= this.dIU && min <= this.dIV && this.dIR.isScrolling()) {
-            this.dIR.hg(true);
+            this.dJe.mY(0);
+        } else if (max >= this.dJh && min <= this.dJi && this.dJe.isScrolling()) {
+            this.dJe.hg(true);
         }
     }
 
-    private void aTg() {
+    private void aTh() {
         int height;
         int paddingTop = this.mListView.getPaddingTop();
         float height2 = (this.mListView.getHeight() - paddingTop) - this.mListView.getPaddingBottom();
-        this.dIX = paddingTop + (this.dIS * height2);
-        this.dIW = (height2 * (1.0f - this.dIT)) + paddingTop;
-        this.dIU = (int) this.dIX;
-        this.dIV = (int) this.dIW;
-        this.dIY = this.dIX - paddingTop;
-        this.dIZ = (paddingTop + height) - this.dIW;
+        this.dJk = paddingTop + (this.dJf * height2);
+        this.dJj = (height2 * (1.0f - this.dJg)) + paddingTop;
+        this.dJh = (int) this.dJk;
+        this.dJi = (int) this.dJj;
+        this.dJl = this.dJk - paddingTop;
+        this.dJm = (paddingTop + height) - this.dJj;
     }
 
-    private void aTh() {
+    private void aTi() {
         int firstVisiblePosition = this.mListView.getFirstVisiblePosition();
         int lastVisiblePosition = this.mListView.getLastVisiblePosition();
         int min = Math.min(lastVisiblePosition - firstVisiblePosition, ((this.mListView.getCount() - 1) - this.mListView.getFooterViewsCount()) - firstVisiblePosition);
@@ -809,7 +809,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     public void e(int i2, View view, boolean z) {
         int g2;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (i2 != this.dII && i2 != this.dIF && i2 != this.dIG) {
+        if (i2 != this.dIV && i2 != this.dIS && i2 != this.dIT) {
             g2 = -2;
         } else {
             g2 = g(i2, view, z);
@@ -818,16 +818,16 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             layoutParams.height = g2;
             view.setLayoutParams(layoutParams);
         }
-        if (i2 == this.dIF || i2 == this.dIG) {
-            if (i2 < this.dII) {
+        if (i2 == this.dIS || i2 == this.dIT) {
+            if (i2 < this.dIV) {
                 ((DragSortItemView) view).setGravity(80);
-            } else if (i2 > this.dII) {
+            } else if (i2 > this.dIV) {
                 ((DragSortItemView) view).setGravity(48);
             }
         }
         int visibility = view.getVisibility();
         int i3 = 0;
-        if (i2 == this.dII && this.dIx != null) {
+        if (i2 == this.dIV && this.dIK != null) {
             i3 = 4;
         }
         if (i3 != visibility) {
@@ -838,33 +838,33 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* JADX INFO: Access modifiers changed from: private */
     public int mX(int i2) {
         View view;
-        if (i2 == this.dII) {
+        if (i2 == this.dIV) {
             return 0;
         }
         View childAt = this.mListView.getChildAt(i2 - this.mListView.getFirstVisiblePosition());
         if (childAt != null) {
             return f(i2, childAt, false);
         }
-        int i3 = this.dJp.get(i2);
+        int i3 = this.dJC.get(i2);
         if (i3 == -1) {
             ListAdapter adapter = this.mListView.getAdapter();
             int itemViewType = adapter.getItemViewType(i2);
             int viewTypeCount = adapter.getViewTypeCount();
-            if (viewTypeCount != this.dIQ.length) {
-                this.dIQ = new View[viewTypeCount];
+            if (viewTypeCount != this.dJd.length) {
+                this.dJd = new View[viewTypeCount];
             }
             if (itemViewType >= 0) {
-                if (this.dIQ[itemViewType] == null) {
+                if (this.dJd[itemViewType] == null) {
                     view = adapter.getView(i2, null, this.mListView);
-                    this.dIQ[itemViewType] = view;
+                    this.dJd[itemViewType] = view;
                 } else {
-                    view = adapter.getView(i2, this.dIQ[itemViewType], this.mListView);
+                    view = adapter.getView(i2, this.dJd[itemViewType], this.mListView);
                 }
             } else {
                 view = adapter.getView(i2, null, this.mListView);
             }
             int f2 = f(i2, view, true);
-            this.dJp.aO(i2, f2);
+            this.dJC.aO(i2, f2);
             return f2;
         }
         return i3;
@@ -872,7 +872,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int f(int i2, View view, boolean z) {
-        if (i2 == this.dII) {
+        if (i2 == this.dIV) {
             return 0;
         }
         if (i2 >= this.mListView.getHeaderViewsCount() && i2 < this.mListView.getCount() - this.mListView.getFooterViewsCount()) {
@@ -896,26 +896,26 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     private int aN(int i2, int i3) {
         this.mListView.getDividerHeight();
-        boolean z = this.dIH && this.dIF != this.dIG;
-        int i4 = this.bKW - this.dIO;
-        int i5 = (int) (this.dJk * i4);
-        if (i2 == this.dII) {
-            if (this.dII == this.dIF) {
+        boolean z = this.dIU && this.dIS != this.dIT;
+        int i4 = this.bKX - this.dJb;
+        int i5 = (int) (this.dJx * i4);
+        if (i2 == this.dIV) {
+            if (this.dIV == this.dIS) {
                 if (z) {
-                    return i5 + this.dIO;
+                    return i5 + this.dJb;
                 }
-                return this.bKW;
-            } else if (this.dII == this.dIG) {
-                return this.bKW - i5;
+                return this.bKX;
+            } else if (this.dIV == this.dIT) {
+                return this.bKX - i5;
             } else {
-                return this.dIO;
+                return this.dJb;
             }
-        } else if (i2 == this.dIF) {
+        } else if (i2 == this.dIS) {
             if (z) {
                 return i3 + i5;
             }
             return i3 + i4;
-        } else if (i2 == this.dIG) {
+        } else if (i2 == this.dIT) {
             return (i3 + i4) - i5;
         } else {
             return i3;
@@ -928,33 +928,33 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         int mX = mX(i2);
         int height = view.getHeight();
         int aN = aN(i2, mX);
-        if (i2 != this.dII) {
+        if (i2 != this.dIV) {
             i6 = height - mX;
             i5 = aN - mX;
         } else {
             i5 = aN;
             i6 = height;
         }
-        int i7 = this.bKW;
-        if (this.dII != this.dIF && this.dII != this.dIG) {
-            i7 -= this.dIO;
+        int i7 = this.bKX;
+        if (this.dIV != this.dIS && this.dIV != this.dIT) {
+            i7 -= this.dJb;
         }
         if (i2 <= i3) {
-            if (i2 > this.dIF) {
+            if (i2 > this.dIS) {
                 return (i7 - i5) + 0;
             }
         } else if (i2 == i4) {
-            if (i2 <= this.dIF) {
+            if (i2 <= this.dIS) {
                 return (i6 - i7) + 0;
             }
-            if (i2 == this.dIG) {
+            if (i2 == this.dIT) {
                 return (height - aN) + 0;
             }
             return 0 + i6;
-        } else if (i2 <= this.dIF) {
+        } else if (i2 <= this.dIS) {
             return 0 - i7;
         } else {
-            if (i2 == this.dIG) {
+            if (i2 == this.dIT) {
                 return 0 - i5;
             }
         }
@@ -977,11 +977,11 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    private void aTi() {
-        if (this.dIx != null) {
-            measureItem(this.dIx);
-            this.bKW = this.dIx.getMeasuredHeight();
-            this.dIP = this.bKW / 2;
+    private void aTj() {
+        if (this.dIK != null) {
+            measureItem(this.dIK);
+            this.bKX = this.dIK.getMeasuredHeight();
+            this.dJc = this.bKX / 2;
         }
     }
 
@@ -992,7 +992,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 if (this.mDragState == 4) {
                     stopDrag(false);
                 }
-                aTf();
+                aTg();
                 return true;
             case 2:
                 aM((int) motionEvent.getX(), (int) motionEvent.getY());
@@ -1001,7 +1001,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 if (this.mDragState == 4) {
                     cancelDrag();
                 }
-                aTf();
+                aTg();
                 return true;
             default:
                 return true;
@@ -1010,50 +1010,50 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     public boolean startDrag(int i2, int i3, int i4, int i5) {
         View mZ;
-        if (!this.dJf || this.dJg == null || (mZ = this.dJg.mZ(i2)) == null) {
+        if (!this.dJs || this.dJt == null || (mZ = this.dJt.mZ(i2)) == null) {
             return false;
         }
         return startDrag(i2, mZ, i3, i4, i5);
     }
 
     public boolean startDrag(int i2, View view, int i3, int i4, int i5) {
-        if (this.mDragState == 0 && this.dJf && this.dIx == null && view != null && this.mDragEnabled) {
+        if (this.mDragState == 0 && this.dJs && this.dIK == null && view != null && this.mDragEnabled) {
             if (this.mListView.getParent() != null) {
                 this.mListView.getParent().requestDisallowInterceptTouchEvent(true);
             }
             int headerViewsCount = this.mListView.getHeaderViewsCount() + i2;
-            this.dIF = headerViewsCount;
-            this.dIG = headerViewsCount;
-            this.dII = headerViewsCount;
-            this.dIE = headerViewsCount;
+            this.dIS = headerViewsCount;
+            this.dIT = headerViewsCount;
+            this.dIV = headerViewsCount;
+            this.dIR = headerViewsCount;
             this.mDragState = 4;
-            this.dJd = 0;
-            this.dJd |= i3;
-            this.dIx = view;
-            aTi();
-            this.dIJ = i4;
-            this.dIK = i5;
-            this.dJc = this.mY;
-            this.dIy.x = this.mX - this.dIJ;
-            this.dIy.y = this.mY - this.dIK;
-            View childAt = this.mListView.getChildAt(this.dII - this.mListView.getFirstVisiblePosition());
+            this.dJq = 0;
+            this.dJq |= i3;
+            this.dIK = view;
+            aTj();
+            this.dIW = i4;
+            this.dIX = i5;
+            this.dJp = this.mY;
+            this.dIL.x = this.mX - this.dIW;
+            this.dIL.y = this.mY - this.dIX;
+            View childAt = this.mListView.getChildAt(this.dIV - this.mListView.getFirstVisiblePosition());
             if (childAt != null) {
                 childAt.setVisibility(4);
             }
-            if (this.dJm) {
-                this.dJn.aTm();
+            if (this.dJz) {
+                this.dJA.aTn();
             }
-            switch (this.dJi) {
+            switch (this.dJv) {
                 case 1:
-                    this.dJv.onTouchEvent(this.dJh);
+                    this.dJI.onTouchEvent(this.dJu);
                     break;
                 case 2:
-                    this.dJv.onInterceptTouchEvent(this.dJh);
+                    this.dJI.onInterceptTouchEvent(this.dJu);
                     break;
             }
             this.mListView.requestLayout();
-            if (this.dJr != null) {
-                this.dJr.start();
+            if (this.dJE != null) {
+                this.dJE.start();
                 return true;
             }
             return true;
@@ -1073,33 +1073,33 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void h(int i2, View view, boolean z) {
         this.mBlockLayoutRequests = true;
-        aTj();
-        int i3 = this.dIF;
-        int i4 = this.dIG;
-        boolean aTa = aTa();
-        if (aTa) {
-            aTh();
+        aTk();
+        int i3 = this.dIS;
+        int i4 = this.dIT;
+        boolean aTb = aTb();
+        if (aTb) {
+            aTi();
             this.mListView.setSelectionFromTop(i2, (b(i2, view, i3, i4) + view.getTop()) - this.mListView.getPaddingTop());
             layoutChildren();
         }
-        if (aTa || z) {
+        if (aTb || z) {
             this.mListView.invalidate();
         }
         this.mBlockLayoutRequests = false;
     }
 
-    private void aTj() {
-        if (this.dJg != null) {
-            this.dIz.set(this.mX, this.mY);
-            this.dJg.b(this.dIx, this.dIy, this.dIz);
+    private void aTk() {
+        if (this.dJt != null) {
+            this.dIM.set(this.mX, this.mY);
+            this.dJt.b(this.dIK, this.dIL, this.dIM);
         }
-        int i2 = this.dIy.x;
-        int i3 = this.dIy.y;
+        int i2 = this.dIL.x;
+        int i3 = this.dIL.y;
         int paddingLeft = this.mListView.getPaddingLeft();
-        if ((this.dJd & 1) == 0 && i2 > paddingLeft) {
-            this.dIy.x = paddingLeft;
-        } else if ((this.dJd & 2) == 0 && i2 < paddingLeft) {
-            this.dIy.x = paddingLeft;
+        if ((this.dJq & 1) == 0 && i2 > paddingLeft) {
+            this.dIL.x = paddingLeft;
+        } else if ((this.dJq & 2) == 0 && i2 < paddingLeft) {
+            this.dIL.x = paddingLeft;
         }
         int headerViewsCount = this.mListView.getHeaderViewsCount();
         int footerViewsCount = this.mListView.getFooterViewsCount();
@@ -1109,42 +1109,42 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         if (firstVisiblePosition < headerViewsCount) {
             paddingTop = this.mListView.getChildAt((headerViewsCount - firstVisiblePosition) - 1).getBottom();
         }
-        if ((this.dJd & 8) == 0 && firstVisiblePosition <= this.dII) {
-            paddingTop = Math.max(this.mListView.getChildAt(this.dII - firstVisiblePosition).getTop(), paddingTop);
+        if ((this.dJq & 8) == 0 && firstVisiblePosition <= this.dIV) {
+            paddingTop = Math.max(this.mListView.getChildAt(this.dIV - firstVisiblePosition).getTop(), paddingTop);
         }
         int height = this.mListView.getHeight() - this.mListView.getPaddingBottom();
         if (lastVisiblePosition >= (this.mListView.getCount() - footerViewsCount) - 1) {
             height = this.mListView.getChildAt(((this.mListView.getCount() - footerViewsCount) - 1) - firstVisiblePosition).getBottom();
         }
-        if ((this.dJd & 4) == 0 && lastVisiblePosition >= this.dII) {
-            height = Math.min(this.mListView.getChildAt(this.dII - firstVisiblePosition).getBottom(), height);
+        if ((this.dJq & 4) == 0 && lastVisiblePosition >= this.dIV) {
+            height = Math.min(this.mListView.getChildAt(this.dIV - firstVisiblePosition).getBottom(), height);
         }
         if (i3 < paddingTop) {
-            this.dIy.y = paddingTop;
-        } else if (this.bKW + i3 > height) {
-            this.dIy.y = height - this.bKW;
+            this.dIL.y = paddingTop;
+        } else if (this.bKX + i3 > height) {
+            this.dIL.y = height - this.bKX;
         }
-        this.dIA = this.dIy.y + this.dIP;
+        this.dIN = this.dIL.y + this.dJc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTk() {
-        if (this.dIx != null) {
-            this.dIx.setVisibility(8);
-            if (this.dJg != null) {
-                this.dJg.bj(this.dIx);
+    public void aTl() {
+        if (this.dIK != null) {
+            this.dIK.setVisibility(8);
+            if (this.dJt != null) {
+                this.dJt.bj(this.dIK);
             }
-            this.dIx = null;
+            this.dIK = null;
             this.mListView.invalidate();
         }
     }
 
     public void a(h hVar) {
-        this.dJg = hVar;
+        this.dJt = hVar;
     }
 
     public void a(b bVar) {
-        this.dIL = bVar;
+        this.dIY = bVar;
     }
 
     public void setDragEnabled(boolean z) {
@@ -1156,48 +1156,48 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     }
 
     public void a(g gVar) {
-        this.dIM = gVar;
+        this.dIZ = gVar;
     }
 
     public void a(l lVar) {
-        this.dIN = lVar;
+        this.dJa = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class i {
-        private SparseIntArray dJR;
-        private ArrayList<Integer> dJS;
+        private SparseIntArray dKe;
+        private ArrayList<Integer> dKf;
         private int mMaxSize;
 
         public i(int i) {
-            this.dJR = new SparseIntArray(i);
-            this.dJS = new ArrayList<>(i);
+            this.dKe = new SparseIntArray(i);
+            this.dKf = new ArrayList<>(i);
             this.mMaxSize = i;
         }
 
         public void aO(int i, int i2) {
-            int i3 = this.dJR.get(i, -1);
+            int i3 = this.dKe.get(i, -1);
             if (i3 != i2) {
                 if (i3 == -1) {
-                    if (this.dJR.size() == this.mMaxSize) {
-                        this.dJR.delete(this.dJS.remove(0).intValue());
+                    if (this.dKe.size() == this.mMaxSize) {
+                        this.dKe.delete(this.dKf.remove(0).intValue());
                     }
                 } else {
-                    this.dJS.remove(Integer.valueOf(i));
+                    this.dKf.remove(Integer.valueOf(i));
                 }
-                this.dJR.put(i, i2);
-                this.dJS.add(Integer.valueOf(i));
+                this.dKe.put(i, i2);
+                this.dKf.add(Integer.valueOf(i));
             }
         }
 
         public int get(int i) {
-            return this.dJR.get(i, -1);
+            return this.dKe.get(i, -1);
         }
 
         public void clear() {
-            this.dJR.clear();
-            this.dJS.clear();
+            this.dKe.clear();
+            this.dKf.clear();
         }
     }
 
@@ -1299,33 +1299,33 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class m implements Runnable {
-        private float bhg;
         private float bhh;
         private float bhi;
         private float bhj;
-        private float dKc;
+        private float bhk;
+        private float dKp;
         private float mAlpha;
         private boolean mCanceled;
         protected long mStartTime;
 
         public m(float f, int i) {
             this.mAlpha = f;
-            this.dKc = i;
+            this.dKp = i;
             float f2 = 1.0f / ((this.mAlpha * 2.0f) * (1.0f - this.mAlpha));
-            this.bhj = f2;
-            this.bhg = f2;
-            this.bhh = this.mAlpha / ((this.mAlpha - 1.0f) * 2.0f);
-            this.bhi = 1.0f / (1.0f - this.mAlpha);
+            this.bhk = f2;
+            this.bhh = f2;
+            this.bhi = this.mAlpha / ((this.mAlpha - 1.0f) * 2.0f);
+            this.bhj = 1.0f / (1.0f - this.mAlpha);
         }
 
         public float ar(float f) {
             if (f < this.mAlpha) {
-                return this.bhg * f * f;
+                return this.bhh * f * f;
             }
             if (f < 1.0f - this.mAlpha) {
-                return this.bhh + (this.bhi * f);
+                return this.bhi + (this.bhj * f);
             }
-            return 1.0f - ((this.bhj * (f - 1.0f)) * (f - 1.0f));
+            return 1.0f - ((this.bhk * (f - 1.0f)) * (f - 1.0f));
         }
 
         public void start() {
@@ -1351,7 +1351,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
         @Override // java.lang.Runnable
         public void run() {
             if (!this.mCanceled) {
-                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.mStartTime)) / this.dKc;
+                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.mStartTime)) / this.dKp;
                 if (uptimeMillis >= 1.0f) {
                     t(1.0f, 1.0f);
                     onStop();
@@ -1366,10 +1366,10 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class f extends m {
-        private int dJN;
-        private int dJO;
-        private float dJP;
-        private float dJQ;
+        private int dKa;
+        private int dKb;
+        private float dKc;
+        private float dKd;
 
         public f(float f, int i) {
             super(f, i);
@@ -1377,23 +1377,23 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
         @Override // com.baidu.tbadk.widget.dragsort.a.m
         public void onStart() {
-            this.dJN = a.this.dIE;
-            this.dJO = a.this.dII;
+            this.dKa = a.this.dIR;
+            this.dKb = a.this.dIV;
             a.this.mDragState = 2;
-            this.dJP = a.this.dIy.y - aTo();
-            this.dJQ = a.this.dIy.x - a.this.mListView.getPaddingLeft();
+            this.dKc = a.this.dIL.y - aTp();
+            this.dKd = a.this.dIL.x - a.this.mListView.getPaddingLeft();
         }
 
-        private int aTo() {
+        private int aTp() {
             int firstVisiblePosition = a.this.mListView.getFirstVisiblePosition();
-            int dividerHeight = (a.this.dIO + a.this.mListView.getDividerHeight()) / 2;
-            View childAt = a.this.mListView.getChildAt(this.dJN - firstVisiblePosition);
+            int dividerHeight = (a.this.dJb + a.this.mListView.getDividerHeight()) / 2;
+            View childAt = a.this.mListView.getChildAt(this.dKa - firstVisiblePosition);
             if (childAt != null) {
-                if (this.dJN == this.dJO) {
+                if (this.dKa == this.dKb) {
                     return childAt.getTop();
                 }
-                if (this.dJN >= this.dJO) {
-                    return (childAt.getBottom() + dividerHeight) - a.this.bKW;
+                if (this.dKa >= this.dKb) {
+                    return (childAt.getBottom() + dividerHeight) - a.this.bKX;
                 }
                 return childAt.getTop() - dividerHeight;
             }
@@ -1403,111 +1403,13 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
         @Override // com.baidu.tbadk.widget.dragsort.a.m
         public void t(float f, float f2) {
-            int aTo = aTo();
-            float paddingLeft = a.this.dIy.x - a.this.mListView.getPaddingLeft();
+            int aTp = aTp();
+            float paddingLeft = a.this.dIL.x - a.this.mListView.getPaddingLeft();
             float f3 = 1.0f - f2;
-            if (f3 < Math.abs((a.this.dIy.y - aTo) / this.dJP) || f3 < Math.abs(paddingLeft / this.dJQ)) {
-                a.this.dIy.y = aTo + ((int) (this.dJP * f3));
-                a.this.dIy.x = a.this.mListView.getPaddingLeft() + ((int) (this.dJQ * f3));
+            if (f3 < Math.abs((a.this.dIL.y - aTp) / this.dKc) || f3 < Math.abs(paddingLeft / this.dKd)) {
+                a.this.dIL.y = aTp + ((int) (this.dKc * f3));
+                a.this.dIL.x = a.this.mListView.getPaddingLeft() + ((int) (this.dKd * f3));
                 a.this.hf(true);
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.dragsort.a.m
-        public void onStop() {
-            a.this.aTc();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class k extends m {
-        private int dJO;
-        private float dJV;
-        private float dJW;
-        private float dJX;
-        private int dJY;
-        private int dJZ;
-        private int dKa;
-        private int dKb;
-
-        public k(float f, int i) {
-            super(f, i);
-            this.dJY = -1;
-            this.dJZ = -1;
-        }
-
-        @Override // com.baidu.tbadk.widget.dragsort.a.m
-        public void onStart() {
-            this.dJY = -1;
-            this.dJZ = -1;
-            this.dKa = a.this.dIF;
-            this.dKb = a.this.dIG;
-            this.dJO = a.this.dII;
-            a.this.mDragState = 1;
-            this.dJV = a.this.dIy.x;
-            if (a.this.dJt) {
-                float width = a.this.mListView.getWidth() * 2.0f;
-                if (a.this.dJu == 0.0f) {
-                    a.this.dJu = (this.dJV >= 0.0f ? 1 : -1) * width;
-                    return;
-                }
-                float f = width * 2.0f;
-                if (a.this.dJu >= 0.0f || a.this.dJu <= (-f)) {
-                    if (a.this.dJu > 0.0f && a.this.dJu < f) {
-                        a.this.dJu = f;
-                        return;
-                    }
-                    return;
-                }
-                a.this.dJu = -f;
-                return;
-            }
-            a.this.aTk();
-        }
-
-        @Override // com.baidu.tbadk.widget.dragsort.a.m
-        public void t(float f, float f2) {
-            View childAt;
-            float f3 = 1.0f - f2;
-            int firstVisiblePosition = a.this.mListView.getFirstVisiblePosition();
-            View childAt2 = a.this.mListView.getChildAt(this.dKa - firstVisiblePosition);
-            if (a.this.dJt) {
-                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.mStartTime)) / 1000.0f;
-                if (uptimeMillis != 0.0f) {
-                    float f4 = a.this.dJu * uptimeMillis;
-                    int width = a.this.mListView.getWidth();
-                    a.this.dJu = ((a.this.dJu > 0.0f ? 1 : -1) * uptimeMillis * width) + a.this.dJu;
-                    this.dJV += f4;
-                    a.this.dIy.x = (int) this.dJV;
-                    if (this.dJV < width && this.dJV > (-width)) {
-                        this.mStartTime = SystemClock.uptimeMillis();
-                        a.this.hf(true);
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            if (childAt2 != null) {
-                if (this.dJY == -1) {
-                    this.dJY = a.this.f(this.dKa, childAt2, false);
-                    this.dJW = childAt2.getHeight() - this.dJY;
-                }
-                int max = Math.max((int) (this.dJW * f3), 1);
-                ViewGroup.LayoutParams layoutParams = childAt2.getLayoutParams();
-                layoutParams.height = max + this.dJY;
-                childAt2.setLayoutParams(layoutParams);
-            }
-            if (this.dKb != this.dKa && (childAt = a.this.mListView.getChildAt(this.dKb - firstVisiblePosition)) != null) {
-                if (this.dJZ == -1) {
-                    this.dJZ = a.this.f(this.dKb, childAt, false);
-                    this.dJX = childAt.getHeight() - this.dJZ;
-                }
-                int max2 = Math.max((int) (this.dJX * f3), 1);
-                ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
-                layoutParams2.height = max2 + this.dJZ;
-                childAt.setLayoutParams(layoutParams2);
             }
         }
 
@@ -1519,26 +1421,124 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class j extends m {
-        private float dJT;
-        private float dJU;
-        final /* synthetic */ a dJz;
+    public class k extends m {
+        private int dKb;
+        private float dKi;
+        private float dKj;
+        private float dKk;
+        private int dKl;
+        private int dKm;
+        private int dKn;
+        private int dKo;
+
+        public k(float f, int i) {
+            super(f, i);
+            this.dKl = -1;
+            this.dKm = -1;
+        }
 
         @Override // com.baidu.tbadk.widget.dragsort.a.m
         public void onStart() {
-            this.dJT = this.dJz.dIK;
-            this.dJU = this.dJz.dIP;
+            this.dKl = -1;
+            this.dKm = -1;
+            this.dKn = a.this.dIS;
+            this.dKo = a.this.dIT;
+            this.dKb = a.this.dIV;
+            a.this.mDragState = 1;
+            this.dKi = a.this.dIL.x;
+            if (a.this.dJG) {
+                float width = a.this.mListView.getWidth() * 2.0f;
+                if (a.this.dJH == 0.0f) {
+                    a.this.dJH = (this.dKi >= 0.0f ? 1 : -1) * width;
+                    return;
+                }
+                float f = width * 2.0f;
+                if (a.this.dJH >= 0.0f || a.this.dJH <= (-f)) {
+                    if (a.this.dJH > 0.0f && a.this.dJH < f) {
+                        a.this.dJH = f;
+                        return;
+                    }
+                    return;
+                }
+                a.this.dJH = -f;
+                return;
+            }
+            a.this.aTl();
         }
 
         @Override // com.baidu.tbadk.widget.dragsort.a.m
         public void t(float f, float f2) {
-            if (this.dJz.mDragState != 4) {
+            View childAt;
+            float f3 = 1.0f - f2;
+            int firstVisiblePosition = a.this.mListView.getFirstVisiblePosition();
+            View childAt2 = a.this.mListView.getChildAt(this.dKn - firstVisiblePosition);
+            if (a.this.dJG) {
+                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.mStartTime)) / 1000.0f;
+                if (uptimeMillis != 0.0f) {
+                    float f4 = a.this.dJH * uptimeMillis;
+                    int width = a.this.mListView.getWidth();
+                    a.this.dJH = ((a.this.dJH > 0.0f ? 1 : -1) * uptimeMillis * width) + a.this.dJH;
+                    this.dKi += f4;
+                    a.this.dIL.x = (int) this.dKi;
+                    if (this.dKi < width && this.dKi > (-width)) {
+                        this.mStartTime = SystemClock.uptimeMillis();
+                        a.this.hf(true);
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+            if (childAt2 != null) {
+                if (this.dKl == -1) {
+                    this.dKl = a.this.f(this.dKn, childAt2, false);
+                    this.dKj = childAt2.getHeight() - this.dKl;
+                }
+                int max = Math.max((int) (this.dKj * f3), 1);
+                ViewGroup.LayoutParams layoutParams = childAt2.getLayoutParams();
+                layoutParams.height = max + this.dKl;
+                childAt2.setLayoutParams(layoutParams);
+            }
+            if (this.dKo != this.dKn && (childAt = a.this.mListView.getChildAt(this.dKo - firstVisiblePosition)) != null) {
+                if (this.dKm == -1) {
+                    this.dKm = a.this.f(this.dKo, childAt, false);
+                    this.dKk = childAt.getHeight() - this.dKm;
+                }
+                int max2 = Math.max((int) (this.dKk * f3), 1);
+                ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
+                layoutParams2.height = max2 + this.dKm;
+                childAt.setLayoutParams(layoutParams2);
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.dragsort.a.m
+        public void onStop() {
+            a.this.aTe();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class j extends m {
+        final /* synthetic */ a dJM;
+        private float dKg;
+        private float dKh;
+
+        @Override // com.baidu.tbadk.widget.dragsort.a.m
+        public void onStart() {
+            this.dKg = this.dJM.dIX;
+            this.dKh = this.dJM.dJc;
+        }
+
+        @Override // com.baidu.tbadk.widget.dragsort.a.m
+        public void t(float f, float f2) {
+            if (this.dJM.mDragState != 4) {
                 cancel();
                 return;
             }
-            this.dJz.dIK = (int) ((this.dJU * f2) + ((1.0f - f2) * this.dJT));
-            this.dJz.dIy.y = this.dJz.mY - this.dJz.dIK;
-            this.dJz.hf(true);
+            this.dJM.dIX = (int) ((this.dKh * f2) + ((1.0f - f2) * this.dKg));
+            this.dJM.dIL.y = this.dJM.mY - this.dJM.dIX;
+            this.dJM.hf(true);
         }
     }
 
@@ -1546,9 +1546,9 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* loaded from: classes.dex */
     public class e {
         StringBuilder mBuilder = new StringBuilder();
-        private int dJK = 0;
-        private int dJL = 0;
-        private boolean dJM = false;
+        private int dJX = 0;
+        private int dJY = 0;
+        private boolean dJZ = false;
         File mFile = new File(Environment.getExternalStorageDirectory(), "dslv_state.txt");
 
         public e() {
@@ -1563,14 +1563,14 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
             }
         }
 
-        public void aTm() {
+        public void aTn() {
             this.mBuilder.append("<DSLVStates>\n");
-            this.dJL = 0;
-            this.dJM = true;
+            this.dJY = 0;
+            this.dJZ = true;
         }
 
-        public void aTn() {
-            if (this.dJM) {
+        public void aTo() {
+            if (this.dJZ) {
                 this.mBuilder.append("<DSLVState>\n");
                 int childCount = a.this.mListView.getChildCount();
                 int firstVisiblePosition = a.this.mListView.getFirstVisiblePosition();
@@ -1589,48 +1589,48 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                     this.mBuilder.append(a.this.mListView.getChildAt(i3).getBottom()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 this.mBuilder.append("</Bottoms>\n");
-                this.mBuilder.append("    <FirstExpPos>").append(a.this.dIF).append("</FirstExpPos>\n");
-                this.mBuilder.append("    <FirstExpBlankHeight>").append(a.this.mV(a.this.dIF) - a.this.mX(a.this.dIF)).append("</FirstExpBlankHeight>\n");
-                this.mBuilder.append("    <SecondExpPos>").append(a.this.dIG).append("</SecondExpPos>\n");
-                this.mBuilder.append("    <SecondExpBlankHeight>").append(a.this.mV(a.this.dIG) - a.this.mX(a.this.dIG)).append("</SecondExpBlankHeight>\n");
-                this.mBuilder.append("    <SrcPos>").append(a.this.dII).append("</SrcPos>\n");
-                this.mBuilder.append("    <SrcHeight>").append(a.this.bKW + a.this.mListView.getDividerHeight()).append("</SrcHeight>\n");
+                this.mBuilder.append("    <FirstExpPos>").append(a.this.dIS).append("</FirstExpPos>\n");
+                this.mBuilder.append("    <FirstExpBlankHeight>").append(a.this.mV(a.this.dIS) - a.this.mX(a.this.dIS)).append("</FirstExpBlankHeight>\n");
+                this.mBuilder.append("    <SecondExpPos>").append(a.this.dIT).append("</SecondExpPos>\n");
+                this.mBuilder.append("    <SecondExpBlankHeight>").append(a.this.mV(a.this.dIT) - a.this.mX(a.this.dIT)).append("</SecondExpBlankHeight>\n");
+                this.mBuilder.append("    <SrcPos>").append(a.this.dIV).append("</SrcPos>\n");
+                this.mBuilder.append("    <SrcHeight>").append(a.this.bKX + a.this.mListView.getDividerHeight()).append("</SrcHeight>\n");
                 this.mBuilder.append("    <ViewHeight>").append(a.this.mListView.getHeight()).append("</ViewHeight>\n");
                 this.mBuilder.append("    <LastY>").append(a.this.mLastY).append("</LastY>\n");
-                this.mBuilder.append("    <FloatY>").append(a.this.dIA).append("</FloatY>\n");
+                this.mBuilder.append("    <FloatY>").append(a.this.dIN).append("</FloatY>\n");
                 this.mBuilder.append("    <ShuffleEdges>");
                 for (int i4 = 0; i4 < childCount; i4++) {
                     this.mBuilder.append(a.this.aL(firstVisiblePosition + i4, a.this.mListView.getChildAt(i4).getTop())).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 this.mBuilder.append("</ShuffleEdges>\n");
                 this.mBuilder.append("</DSLVState>\n");
-                this.dJK++;
-                if (this.dJK > 1000) {
+                this.dJX++;
+                if (this.dJX > 1000) {
                     flush();
-                    this.dJK = 0;
+                    this.dJX = 0;
                 }
             }
         }
 
         public void flush() {
-            if (this.dJM) {
+            if (this.dJZ) {
                 try {
-                    FileWriter fileWriter = new FileWriter(this.mFile, this.dJL != 0);
+                    FileWriter fileWriter = new FileWriter(this.mFile, this.dJY != 0);
                     fileWriter.write(this.mBuilder.toString());
                     this.mBuilder.delete(0, this.mBuilder.length());
                     fileWriter.flush();
                     fileWriter.close();
-                    this.dJL++;
+                    this.dJY++;
                 } catch (IOException e) {
                 }
             }
         }
 
         public void stopTracking() {
-            if (this.dJM) {
+            if (this.dJZ) {
                 this.mBuilder.append("</DSLVStates>\n");
                 flush();
-                this.dJM = false;
+                this.dJZ = false;
             }
         }
     }
@@ -1638,23 +1638,23 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d implements Runnable {
-        private boolean dJC;
-        private long dJD;
-        private long dJE;
-        private int dJF;
-        private float dJG;
-        private long dJH;
-        private int dJI;
-        private float dJJ;
+        private boolean dJP;
+        private long dJQ;
+        private long dJR;
+        private int dJS;
+        private float dJT;
+        private long dJU;
+        private int dJV;
+        private float dJW;
         private boolean mScrolling = false;
 
         public boolean isScrolling() {
             return this.mScrolling;
         }
 
-        public int aTl() {
+        public int aTm() {
             if (this.mScrolling) {
-                return this.dJI;
+                return this.dJV;
             }
             return -1;
         }
@@ -1664,11 +1664,11 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
         public void mY(int i) {
             if (!this.mScrolling) {
-                this.dJC = false;
+                this.dJP = false;
                 this.mScrolling = true;
-                this.dJH = SystemClock.uptimeMillis();
-                this.dJD = this.dJH;
-                this.dJI = i;
+                this.dJU = SystemClock.uptimeMillis();
+                this.dJQ = this.dJU;
+                this.dJV = i;
                 a.this.mListView.post(this);
             }
         }
@@ -1679,20 +1679,20 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 this.mScrolling = false;
                 return;
             }
-            this.dJC = true;
+            this.dJP = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.dJC) {
+            if (!this.dJP) {
                 int firstVisiblePosition = a.this.mListView.getFirstVisiblePosition();
                 int lastVisiblePosition = a.this.mListView.getLastVisiblePosition();
                 int count = a.this.mListView.getCount();
                 int paddingTop = a.this.mListView.getPaddingTop();
                 int height = (a.this.mListView.getHeight() - paddingTop) - a.this.mListView.getPaddingBottom();
-                int min = Math.min(a.this.mY, a.this.dIA + a.this.dIP);
-                int max = Math.max(a.this.mY, a.this.dIA - a.this.dIP);
-                if (this.dJI == 0) {
+                int min = Math.min(a.this.mY, a.this.dIN + a.this.dJc);
+                int max = Math.max(a.this.mY, a.this.dIN - a.this.dJc);
+                if (this.dJV == 0) {
                     View childAt = a.this.mListView.getChildAt(0);
                     if (childAt == null) {
                         this.mScrolling = false;
@@ -1701,7 +1701,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                         this.mScrolling = false;
                         return;
                     } else {
-                        this.dJJ = a.this.dJb.b((a.this.dIX - max) / a.this.dIY, this.dJD);
+                        this.dJW = a.this.dJo.b((a.this.dJk - max) / a.this.dJl, this.dJQ);
                     }
                 } else {
                     View childAt2 = a.this.mListView.getChildAt(lastVisiblePosition - firstVisiblePosition);
@@ -1712,20 +1712,20 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                         this.mScrolling = false;
                         return;
                     } else {
-                        this.dJJ = -a.this.dJb.b((min - a.this.dIW) / a.this.dIZ, this.dJD);
+                        this.dJW = -a.this.dJo.b((min - a.this.dJj) / a.this.dJm, this.dJQ);
                     }
                 }
-                this.dJE = SystemClock.uptimeMillis();
-                this.dJG = (float) (this.dJE - this.dJD);
-                this.dJF = Math.round(this.dJJ * this.dJG);
-                if (this.dJF >= 0) {
-                    this.dJF = Math.min(height, this.dJF);
+                this.dJR = SystemClock.uptimeMillis();
+                this.dJT = (float) (this.dJR - this.dJQ);
+                this.dJS = Math.round(this.dJW * this.dJT);
+                if (this.dJS >= 0) {
+                    this.dJS = Math.min(height, this.dJS);
                     lastVisiblePosition = firstVisiblePosition;
                 } else {
-                    this.dJF = Math.max(-height, this.dJF);
+                    this.dJS = Math.max(-height, this.dJS);
                 }
                 View childAt3 = a.this.mListView.getChildAt(lastVisiblePosition - firstVisiblePosition);
-                int top2 = childAt3.getTop() + this.dJF;
+                int top2 = childAt3.getTop() + this.dJS;
                 if (lastVisiblePosition == 0 && top2 > paddingTop) {
                     top2 = paddingTop;
                 }
@@ -1735,7 +1735,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
                 a.this.mListView.invalidate();
                 a.this.mBlockLayoutRequests = false;
                 a.this.h(lastVisiblePosition, childAt3, false);
-                this.dJD = this.dJE;
+                this.dJQ = this.dJR;
                 a.this.mListView.post(this);
                 return;
             }

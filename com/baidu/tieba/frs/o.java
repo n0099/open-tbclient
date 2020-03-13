@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class o extends v.a {
-    public static BdUniqueId grc = BdUniqueId.gen();
-    private int dBb;
-    private LinearLayout dtk;
-    public TextView grd;
-    public ImageView gre;
-    private int grf;
-    private CustomMessageListener grg;
+    public static BdUniqueId grp = BdUniqueId.gen();
+    private int dBo;
+    private LinearLayout dtx;
+    public TextView grq;
+    public ImageView grr;
+    private int grs;
+    private CustomMessageListener grt;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -29,7 +29,7 @@ public class o extends v.a {
     public o(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.grg = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.o.1
+        this.grt = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -41,16 +41,16 @@ public class o extends v.a {
         };
         this.mRootView = view;
         this.mParent = viewGroup;
-        this.dtk = (LinearLayout) view.findViewById(R.id.container);
-        this.gre = (ImageView) view.findViewById(R.id.emotion_view);
-        this.grd = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.setImageResource(this.gre, R.drawable.new_pic_emotion_06);
-        this.grg.setTag(grc);
-        MessageManager.getInstance().registerListener(this.grg);
-        bFr();
+        this.dtx = (LinearLayout) view.findViewById(R.id.container);
+        this.grr = (ImageView) view.findViewById(R.id.emotion_view);
+        this.grq = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.am.setImageResource(this.grr, R.drawable.new_pic_emotion_06);
+        this.grt.setTag(grp);
+        MessageManager.getInstance().registerListener(this.grt);
+        bFs();
     }
 
-    private void bFr() {
+    private void bFs() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.o.2
                 @Override // android.view.View.OnLayoutChangeListener
@@ -74,35 +74,35 @@ public class o extends v.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void mD(int i) {
         if (this.mRootView != null && this.mParent != null) {
-            if (this.dBb <= 0) {
-                this.dBb = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+            if (this.dBo <= 0) {
+                this.dBo = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.grf != Integer.MAX_VALUE) {
-                this.grf = i;
+            if (i != Integer.MAX_VALUE || this.grs != Integer.MAX_VALUE) {
+                this.grs = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
-                    int abs = Math.abs(this.dtk.getTop());
-                    int abs2 = i2 - Math.abs(this.dtk.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.dtk.getLayoutParams();
+                    int abs = Math.abs(this.dtx.getTop());
+                    int abs2 = i2 - Math.abs(this.dtx.getBottom());
+                    ViewGroup.LayoutParams layoutParams = this.dtx.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.dBb) {
-                            marginLayoutParams.topMargin = this.dBb;
-                            this.dtk.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.dBb) {
-                            if (abs2 > this.dBb) {
-                                marginLayoutParams.topMargin = ((abs2 - this.dBb) / 2) + this.dBb;
-                                this.dtk.setLayoutParams(marginLayoutParams);
+                        if (abs < this.dBo) {
+                            marginLayoutParams.topMargin = this.dBo;
+                            this.dtx.setLayoutParams(marginLayoutParams);
+                        } else if (abs == this.dBo) {
+                            if (abs2 > this.dBo) {
+                                marginLayoutParams.topMargin = ((abs2 - this.dBo) / 2) + this.dBo;
+                                this.dtx.setLayoutParams(marginLayoutParams);
                             }
-                        } else if (abs > this.dBb) {
-                            if (abs2 < this.dBb) {
-                                marginLayoutParams.topMargin = this.dBb;
-                            } else if (abs2 == this.dBb) {
-                                marginLayoutParams.topMargin = this.dBb;
-                            } else if (abs2 > this.dBb) {
+                        } else if (abs > this.dBo) {
+                            if (abs2 < this.dBo) {
+                                marginLayoutParams.topMargin = this.dBo;
+                            } else if (abs2 == this.dBo) {
+                                marginLayoutParams.topMargin = this.dBo;
+                            } else if (abs2 > this.dBo) {
                                 marginLayoutParams.topMargin = (abs + abs2) / 2;
                             }
-                            this.dtk.setLayoutParams(marginLayoutParams);
+                            this.dtx.setLayoutParams(marginLayoutParams);
                         }
                     }
                 }

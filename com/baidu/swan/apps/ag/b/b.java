@@ -29,11 +29,11 @@ public class b {
             if (aVar != null && aVar.isValid()) {
                 String str = aVar.xU;
                 long c = c(e.m26if(str), str);
-                long mp = com.baidu.swan.apps.swancore.b.mp(aVar.bIL);
+                long mp = com.baidu.swan.apps.swancore.b.mp(aVar.bIM);
                 File aI = c > mp ? e.aI(str, String.valueOf(c)) : null;
                 if (aI == null) {
                     try {
-                        jSONObject.put(str, aVar.bIN);
+                        jSONObject.put(str, aVar.bIO);
                         com.baidu.swan.apps.ag.d.a.print("apply path inner swan app, name = " + str);
                     } catch (JSONException e) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e));
@@ -48,7 +48,7 @@ public class b {
                     } catch (CloneNotSupportedException e2) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e2));
                     }
-                    aVar.bIL = com.baidu.swan.apps.swancore.b.aF(c);
+                    aVar.bIM = com.baidu.swan.apps.swancore.b.aF(c);
                 }
                 if (z) {
                     a(aVar, true);
@@ -66,12 +66,12 @@ public class b {
             return;
         }
         final String str = aVar.xU;
-        String str2 = aVar.bIL;
+        String str2 = aVar.bIM;
         h cd = com.baidu.swan.pms.database.a.atv().cd(str, str2);
         if (cd != null && !cd.atK()) {
             com.baidu.swan.apps.ag.d.a.print("plugin is new, not yet expired");
         } else {
-            c.a(new d(str, str2, aVar.bIM), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
+            c.a(new d(str, str2, aVar.bIN), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.core.f.b
                 /* renamed from: d */

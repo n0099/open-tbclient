@@ -7,7 +7,7 @@ import com.baidu.rtc.camera.engine.b.b;
 public class a implements com.baidu.rtc.camera.engine.b.a, b {
     public a(Context context, boolean z, com.baidu.rtc.camera.b.a aVar) {
         com.baidu.rtc.camera.engine.a.b.Fn().bO(z);
-        com.baidu.rtc.camera.a.b.Fl().aWf = aVar;
+        com.baidu.rtc.camera.a.b.Fl().aWg = aVar;
         com.baidu.rtc.camera.engine.d.b.Ft().a(this).a(this).aZ(context);
     }
 

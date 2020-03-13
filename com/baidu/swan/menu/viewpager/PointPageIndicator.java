@@ -10,47 +10,47 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class PointPageIndicator extends View {
-    protected Drawable czJ;
     protected Drawable czK;
-    protected Rect czL;
+    protected Drawable czL;
     protected Rect czM;
-    private int czN;
+    protected Rect czN;
     private int czO;
+    private int czP;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.czJ = null;
         this.czK = null;
-        this.czL = new Rect();
+        this.czL = null;
         this.czM = new Rect();
-        this.czN = 0;
-        this.mPosition = 0;
+        this.czN = new Rect();
         this.czO = 0;
+        this.mPosition = 0;
+        this.czP = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.czJ = null;
         this.czK = null;
-        this.czL = new Rect();
+        this.czL = null;
         this.czM = new Rect();
-        this.czN = 0;
-        this.mPosition = 0;
+        this.czN = new Rect();
         this.czO = 0;
+        this.mPosition = 0;
+        this.czP = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.czJ = null;
         this.czK = null;
-        this.czL = new Rect();
+        this.czL = null;
         this.czM = new Rect();
-        this.czN = 0;
-        this.mPosition = 0;
+        this.czN = new Rect();
         this.czO = 0;
+        this.mPosition = 0;
+        this.czP = 0;
         init(context);
     }
 
@@ -58,15 +58,15 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator iy(int i) {
-        if (this.czO != i) {
-            this.czO = i;
+        if (this.czP != i) {
+            this.czP = i;
             invalidate();
         }
         return this;
     }
 
     public PointPageIndicator iz(int i) {
-        this.czN = i;
+        this.czO = i;
         return this;
     }
 
@@ -82,13 +82,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.czJ = drawable;
-        this.czK = drawable2;
+        this.czK = drawable;
+        this.czL = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.czL.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.czM.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.czM.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.czN.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.czO > 0) {
-            int i = this.czO;
-            int i2 = this.czN;
+        if (this.czP > 0) {
+            int i = this.czP;
+            int i2 = this.czO;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.czL;
-            Rect rect2 = this.czM;
-            Drawable drawable = this.czJ;
-            Drawable drawable2 = this.czK;
+            Rect rect = this.czM;
+            Rect rect2 = this.czN;
+            Drawable drawable = this.czK;
+            Drawable drawable2 = this.czL;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i eri;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i erj;
+    private i erw;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.i erx;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.etp);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.etC);
         this.mPageContext = tbPageContext;
     }
 
@@ -26,25 +26,25 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: M */
     public j b(ViewGroup viewGroup) {
-        this.eri = new i(this.mPageContext, viewGroup);
-        if (this.erj != null) {
-            this.eri.d(this.erj);
+        this.erw = new i(this.mPageContext, viewGroup);
+        if (this.erx != null) {
+            this.erw.d(this.erx);
         }
-        return new j(this.eri);
+        return new j(this.erw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.eri.a(bVar, this.mFrom);
+        jVar.erw.a(bVar, this.mFrom);
         return jVar.getView();
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.erj = iVar;
-        if (this.eri != null) {
-            this.eri.d(this.erj);
+        this.erx = iVar;
+        if (this.erw != null) {
+            this.erw.d(this.erx);
         }
     }
 }

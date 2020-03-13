@@ -16,8 +16,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
     private static final String SPLASH = File.separator;
-    private static final String cGa = "zeus" + SPLASH + "libs" + SPLASH;
-    private Method cGc;
+    private static final String cGb = "zeus" + SPLASH + "libs" + SPLASH;
+    private Method cGd;
     private Context mContext;
     private JSONObject mJson_elf;
     private JSONObject mJson_meta;
@@ -34,12 +34,12 @@ public class d {
     private int mOffset_7z = 0;
     private boolean mHooked = false;
     private String mTempPath = null;
-    private boolean cGb = false;
+    private boolean cGc = false;
 
     private void init() {
         try {
             System.load(awN() + "libzeuslzma.so");
-            this.cGb = true;
+            this.cGc = true;
         } catch (Throwable th) {
         }
     }
@@ -61,7 +61,7 @@ public class d {
 
     public boolean awH() {
         if (awG()) {
-            if (this.cGb && awI() && isEnoughSpace(this.m7zTotal)) {
+            if (this.cGc && awI() && isEnoughSpace(this.m7zTotal)) {
                 hook(true);
                 return awJ() && awL() && awK();
             }
@@ -240,7 +240,7 @@ public class d {
     }
 
     private String awN() {
-        return this.mContext.getFilesDir() + SPLASH + cGa;
+        return this.mContext.getFilesDir() + SPLASH + cGb;
     }
 
     private boolean deleteDir(File file) {
@@ -291,16 +291,16 @@ public class d {
 
     private void a(AssetManager assetManager, String str, int i, int i2, int i3) {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        if (this.cGc == null) {
+        if (this.cGd == null) {
             try {
-                this.cGc = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.cGd = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             } catch (Exception e) {
             }
         }
-        if (this.cGc != null) {
+        if (this.cGd != null) {
             try {
-                this.cGc.setAccessible(true);
-                this.cGc.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+                this.cGd.setAccessible(true);
+                this.cGd.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             } catch (Exception e2) {
             }
         }

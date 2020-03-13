@@ -4,59 +4,59 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes11.dex */
 public final class a {
-    public JsFunction clR;
     public JsFunction clS;
     public JsFunction clT;
+    public JsFunction clU;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.clR = cVar.oF("success");
-        aVar.clS = cVar.oF(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.clT = cVar.oF(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.clS = cVar.oF("success");
+        aVar.clT = cVar.oF(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.clU = cVar.oF(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.clR != null) {
-            this.clR.call(obj);
-        }
-        if (this.clT != null) {
-            this.clT.call(obj);
-        }
-        a(this.clS);
-    }
-
-    public void S(Object obj) {
         if (this.clS != null) {
             this.clS.call(obj);
         }
+        if (this.clU != null) {
+            this.clU.call(obj);
+        }
+        a(this.clT);
+    }
+
+    public void S(Object obj) {
         if (this.clT != null) {
             this.clT.call(obj);
         }
-        a(this.clR);
-    }
-
-    public void onSuccess() {
-        if (this.clR != null) {
-            this.clR.call();
-        }
-        if (this.clT != null) {
-            this.clT.call();
+        if (this.clU != null) {
+            this.clU.call(obj);
         }
         a(this.clS);
     }
 
-    public void onFail() {
+    public void onSuccess() {
         if (this.clS != null) {
             this.clS.call();
         }
+        if (this.clU != null) {
+            this.clU.call();
+        }
+        a(this.clT);
+    }
+
+    public void onFail() {
         if (this.clT != null) {
             this.clT.call();
         }
-        a(this.clR);
+        if (this.clU != null) {
+            this.clU.call();
+        }
+        a(this.clS);
     }
 
     private void a(JsFunction jsFunction) {

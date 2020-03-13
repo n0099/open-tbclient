@@ -7,12 +7,12 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class d {
-    private ArrayList<a> csX = new ArrayList<>();
-    private FrameLayout csY;
-    private boolean csZ;
+    private ArrayList<a> csY = new ArrayList<>();
+    private FrameLayout csZ;
+    private boolean cta;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.csY = frameLayout;
+        this.csZ = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -22,7 +22,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.csY.addView(view, layoutParams);
+        this.csZ.addView(view, layoutParams);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class d {
         if (!ax(view)) {
             return false;
         }
-        this.csY.removeView(view);
+        this.csZ.removeView(view);
         return true;
     }
 
@@ -41,57 +41,57 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.csY.updateViewLayout(view, layoutParams);
+        this.csZ.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.csZ;
+        return this.cta;
     }
 
     public void eJ(boolean z) {
-        this.csZ = z;
+        this.cta = z;
     }
 
     public boolean ax(View view) {
-        return view != null && view.getParent() == this.csY && this.csY.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.csZ && this.csZ.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.csY.getContext();
+        return this.csZ.getContext();
     }
 
     public FrameLayout aqs() {
-        return this.csY;
+        return this.csZ;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.csX.contains(aVar)) {
-                this.csX.add(aVar);
+            if (!this.csY.contains(aVar)) {
+                this.csY.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.csX.remove(aVar);
+            this.csY.remove(aVar);
         }
     }
 
     private synchronized a[] aqt() {
         a[] aVarArr;
-        if (this.csX.isEmpty()) {
+        if (this.csY.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.csX.size()];
-            this.csX.toArray(aVarArr);
+            aVarArr = new a[this.csY.size()];
+            this.csY.toArray(aVarArr);
         }
         return aVarArr;
     }
 
     private synchronized void aqu() {
-        this.csX.clear();
+        this.csY.clear();
     }
 
     public void aqv() {

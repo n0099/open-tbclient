@@ -5,63 +5,63 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private int dkA;
-    private List<bj> dkG;
-    private List<bj> dkH;
-    private boolean dkI;
-    private boolean dkJ;
-    private int dkK = 2;
-    private int dkL = 1;
+    private int dkN;
+    private List<bj> dkT;
+    private List<bj> dkU;
+    private boolean dkV;
+    private boolean dkW;
+    private int dkX = 2;
+    private int dkY = 1;
 
     public b(List<bj> list, boolean z, int i) {
-        this.dkA = 2;
-        this.dkJ = z;
-        this.dkA = i;
+        this.dkN = 2;
+        this.dkW = z;
+        this.dkN = i;
         ac(list);
     }
 
     public void ac(List<bj> list) {
         if (list != null) {
-            this.dkG = list;
-            if (list != null && list.size() >= this.dkK && list.size() <= this.dkA) {
-                this.dkI = true;
-            } else if (list.size() > this.dkA && this.dkJ) {
-                this.dkI = true;
+            this.dkT = list;
+            if (list != null && list.size() >= this.dkX && list.size() <= this.dkN) {
+                this.dkV = true;
+            } else if (list.size() > this.dkN && this.dkW) {
+                this.dkV = true;
             } else {
-                this.dkI = false;
+                this.dkV = false;
             }
-            this.dkH = aIC();
+            this.dkU = aID();
         }
     }
 
-    private List<bj> aIC() {
+    private List<bj> aID() {
         ArrayList arrayList = new ArrayList();
-        if (this.dkG != null) {
-            if (this.dkI) {
-                if (this.dkG.size() > this.dkA && this.dkG.size() >= this.dkL) {
-                    arrayList.addAll(this.dkG.subList(0, this.dkA));
-                    arrayList.addAll(0, this.dkG.subList(this.dkA - this.dkL, this.dkA));
-                    arrayList.addAll(this.dkG.subList(0, this.dkL));
+        if (this.dkT != null) {
+            if (this.dkV) {
+                if (this.dkT.size() > this.dkN && this.dkT.size() >= this.dkY) {
+                    arrayList.addAll(this.dkT.subList(0, this.dkN));
+                    arrayList.addAll(0, this.dkT.subList(this.dkN - this.dkY, this.dkN));
+                    arrayList.addAll(this.dkT.subList(0, this.dkY));
                 } else {
-                    arrayList.addAll(this.dkG);
-                    arrayList.addAll(0, this.dkG.subList(this.dkG.size() - this.dkL, this.dkG.size()));
-                    arrayList.addAll(this.dkG.subList(0, this.dkL));
+                    arrayList.addAll(this.dkT);
+                    arrayList.addAll(0, this.dkT.subList(this.dkT.size() - this.dkY, this.dkT.size()));
+                    arrayList.addAll(this.dkT.subList(0, this.dkY));
                 }
-            } else if (this.dkG != null && this.dkG.size() > 0 && this.dkG.size() >= this.dkL) {
-                arrayList.addAll(this.dkG.subList(0, this.dkL));
+            } else if (this.dkT != null && this.dkT.size() > 0 && this.dkT.size() >= this.dkY) {
+                arrayList.addAll(this.dkT.subList(0, this.dkY));
             }
         }
         return arrayList;
     }
 
     public int lB(int i) {
-        if (this.dkI) {
-            int size = this.dkH.size();
+        if (this.dkV) {
+            int size = this.dkU.size();
             if (i == 0) {
-                return (size - 1) - this.dkL;
+                return (size - 1) - this.dkY;
             }
-            if (i == size - this.dkL) {
-                return this.dkL;
+            if (i == size - this.dkY) {
+                return this.dkY;
             }
             return i;
         }
@@ -69,42 +69,42 @@ public class b {
     }
 
     public int lC(int i) {
-        if (this.dkI) {
-            return i - this.dkL;
+        if (this.dkV) {
+            return i - this.dkY;
         }
         return i;
     }
 
-    public int aID() {
-        if (this.dkG == null) {
+    public int aIE() {
+        if (this.dkT == null) {
             return 0;
         }
-        return this.dkG.size();
+        return this.dkT.size();
     }
 
-    public int aIE() {
-        if (this.dkI) {
-            return this.dkL;
+    public int aIF() {
+        if (this.dkV) {
+            return this.dkY;
         }
         return 0;
     }
 
     public void lD(int i) {
-        this.dkA = i;
-        ac(this.dkG);
+        this.dkN = i;
+        ac(this.dkT);
     }
 
     public void lE(int i) {
-        this.dkK = i;
-        ac(this.dkG);
+        this.dkX = i;
+        ac(this.dkT);
     }
 
-    public List<bj> aIF() {
-        return this.dkH;
+    public List<bj> aIG() {
+        return this.dkU;
     }
 
     public void lF(int i) {
-        this.dkL = i;
-        ac(this.dkG);
+        this.dkY = i;
+        ac(this.dkT);
     }
 }

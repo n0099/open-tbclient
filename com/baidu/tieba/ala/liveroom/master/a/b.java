@@ -5,13 +5,13 @@ public interface b {
 
     void b(com.baidu.tieba.ala.liveroom.data.e eVar);
 
-    void blN();
-
     void blO();
 
     void blP();
 
     void blQ();
+
+    void blR();
 
     void f(short s);
 

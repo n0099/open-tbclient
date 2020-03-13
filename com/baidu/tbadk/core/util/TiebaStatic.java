@@ -92,9 +92,9 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.aGJ().daN.qO <= 180000) {
+        if (aVar != null && aVar.aGJ().daO.qO <= 180000) {
             try {
-                if (aVar.aGJ().daN.qO >= 0 && aVar.aGJ().daN.connectTime >= 0 && aVar.aGJ().daN.qN >= 0) {
+                if (aVar.aGJ().daO.qO >= 0 && aVar.aGJ().daO.connectTime >= 0 && aVar.aGJ().daO.qN >= 0) {
                     int i = aVar.aGI().mServerErrorCode;
                     if (!aVar.aGI().isNetSuccess()) {
                         i = aVar.aGI().mNetErrorCode;
@@ -105,9 +105,9 @@ public class TiebaStatic {
                         str = aVar.aGI().mErrorString;
                     }
                     if (aVar.aGH().mIsRequestImage) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.aGH().getApiName(), currentActivity, aVar.aGJ().daN.downloadSize, aVar.aGJ().daN.qM, aVar.aGJ().daN.qO, aVar.aGJ().daN.connectTime, aVar.aGJ().daN.qN, aVar.aGJ().daN.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.aGH().getApiName(), currentActivity, aVar.aGJ().daO.downloadSize, aVar.aGJ().daO.qM, aVar.aGJ().daO.qO, aVar.aGJ().daO.connectTime, aVar.aGJ().daO.qN, aVar.aGJ().daO.retry, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.aGH().getApiName(), currentActivity, aVar.aGJ().daN.downloadSize, aVar.aGJ().daN.qM, aVar.aGJ().daN.qO, aVar.aGJ().daN.connectTime, aVar.aGJ().daN.qN, aVar.aGJ().daN.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.aGH().getApiName(), currentActivity, aVar.aGJ().daO.downloadSize, aVar.aGJ().daO.qM, aVar.aGJ().daO.qO, aVar.aGJ().daO.connectTime, aVar.aGJ().daO.qN, aVar.aGJ().daO.retry, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -291,7 +291,7 @@ public class TiebaStatic {
             s.aFQ();
             s.aFR();
             s.aFS();
-            com.baidu.tbadk.n.j.aRj();
+            com.baidu.tbadk.n.j.aRk();
             com.baidu.adp.lib.e.d.gt();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();
@@ -436,11 +436,11 @@ public class TiebaStatic {
             if (!StringUtils.isNull(sampleId)) {
                 anVar.cy("sample_id", sampleId);
             }
-            String aRM = com.baidu.tbadk.util.a.aRL().aRM();
-            if (!StringUtils.isNull(aRM)) {
-                anVar.cy("newabtest_result", aRM);
+            String aRN = com.baidu.tbadk.util.a.aRM().aRN();
+            if (!StringUtils.isNull(aRN)) {
+                anVar.cy("newabtest_result", aRN);
             }
-            com.baidu.tbadk.l.e.aQT().c(anVar);
+            com.baidu.tbadk.l.e.aQU().c(anVar);
         }
     }
 

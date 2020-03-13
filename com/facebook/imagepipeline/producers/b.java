@@ -5,11 +5,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public abstract class b<T> implements k<T> {
-    private boolean lVc = false;
+    private boolean lVn = false;
 
     protected abstract void B(Throwable th);
 
-    protected abstract void dqh();
+    protected abstract void dqi();
 
     protected abstract void f(T t, int i);
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.lVc) {
-            this.lVc = IJ(i);
+        if (!this.lVn) {
+            this.lVn = IJ(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void C(Throwable th) {
-        if (!this.lVc) {
-            this.lVc = true;
+        if (!this.lVn) {
+            this.lVn = true;
             try {
                 B(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dkE() {
-        if (!this.lVc) {
-            this.lVc = true;
+    public synchronized void dkF() {
+        if (!this.lVn) {
+            this.lVn = true;
             try {
-                dqh();
+                dqi();
             } catch (Exception e) {
                 m(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void aK(float f) {
-        if (!this.lVc) {
+        if (!this.lVn) {
             try {
                 bs(f);
             } catch (Exception e) {

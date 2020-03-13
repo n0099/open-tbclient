@@ -87,6 +87,6 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nwc;
+        return this.onError != Functions.nwn;
     }
 }

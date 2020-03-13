@@ -6,10 +6,10 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes11.dex */
 public class b implements ZeusPluginFactory {
-    private String bci;
+    private String bcj;
 
     public b(@NonNull String str) {
-        this.bci = str;
+        this.bcj = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,7 +19,7 @@ public class b implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.bci);
+        c cVar = new c(invoker, this.bcj);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(" [[InlineTextAreaFactory]] ", "Factory 「Hash:" + hashCode() + "」 is creating inline textArea「Hash:" + cVar.hashCode() + "」");
         }

@@ -16,8 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class a {
-    private TbPageContext cVh;
-    private CustomMessageListener gJk = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private TbPageContext cVi;
+    private CustomMessageListener gJw = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,11 +34,11 @@ public class a {
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
                         b.aFD().putString("key_match_id_list_" + optString4, string + str2);
                     }
-                    Intent intent = new Intent(a.this.cVh.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(a.this.cVi.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.cVh.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.cVi.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
@@ -46,7 +46,7 @@ public class a {
                     if (j > 0) {
                         calendar.add(14, (int) j);
                     }
-                    ((AlarmManager) a.this.cVh.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                    ((AlarmManager) a.this.cVi.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -55,7 +55,7 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.cVh = tbPageContext;
-        this.cVh.registerListener(this.gJk);
+        this.cVi = tbPageContext;
+        this.cVi.registerListener(this.gJw);
     }
 }

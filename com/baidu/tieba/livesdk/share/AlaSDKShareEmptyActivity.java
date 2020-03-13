@@ -15,8 +15,8 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.share.ImplicitShareMessage;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
-    private String cOA;
-    private String idR;
+    private String cOB;
+    private String ied;
     private String mContent;
     private ShareItem mShareItem;
     private String mTitle;
@@ -31,8 +31,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
-            this.idR = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.cOA = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.ied = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.cOB = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = bundle.getInt("channel");
             this.mAction = bundle.getInt("action");
         } else if (getIntent() == null) {
@@ -41,28 +41,28 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         } else {
             this.mTitle = getIntent().getStringExtra("title");
             this.mContent = getIntent().getStringExtra("content");
-            this.idR = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.cOA = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.ied = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.cOB = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = getIntent().getIntExtra("channel", 0);
             this.mAction = getIntent().getIntExtra("action", 0);
         }
-        this.mShareItem = cdI();
+        this.mShareItem = cdJ();
         if (this.mAction == 1) {
-            cdH();
+            cdI();
         } else if (this.mAction == 2) {
-            cdG();
+            cdH();
         } else {
             finish();
         }
     }
 
-    private void cdG() {
+    private void cdH() {
         if (this.mShareItem != null) {
             MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.mChannel, this.mShareItem, true));
         }
     }
 
-    private void cdH() {
+    private void cdI() {
         if (this.mShareItem != null) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this, this.mShareItem, true);
             shareDialogConfig.setAlaLiveRoomShare(true);
@@ -78,18 +78,18 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         }
     }
 
-    private ShareItem cdI() {
+    private ShareItem cdJ() {
         ShareItem shareItem = new ShareItem();
         shareItem.title = this.mTitle;
         shareItem.content = this.mContent;
-        if (!StringUtils.isNull(this.idR)) {
-            if (this.idR.startsWith("file://")) {
-                shareItem.localFile = this.idR.substring(7);
+        if (!StringUtils.isNull(this.ied)) {
+            if (this.ied.startsWith("file://")) {
+                shareItem.localFile = this.ied.substring(7);
             } else {
-                shareItem.imageUri = Uri.parse(this.idR);
+                shareItem.imageUri = Uri.parse(this.ied);
             }
         }
-        shareItem.linkUrl = this.cOA;
+        shareItem.linkUrl = this.cOB;
         return shareItem;
     }
 
@@ -110,8 +110,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         super.onSaveInstanceState(bundle);
         bundle.putString("title", this.mTitle);
         bundle.putString("content", this.mContent);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.idR);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.cOA);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.ied);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.cOB);
         bundle.putInt("channel", this.mChannel);
         bundle.putInt("action", this.mAction);
     }

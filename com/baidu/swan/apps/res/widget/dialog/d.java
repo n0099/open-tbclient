@@ -10,11 +10,11 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 /* loaded from: classes11.dex */
 public class d extends h {
-    private Date bJY;
     private Date bJZ;
-    private String bKh;
-    private boolean bKi;
-    private BdDatePicker bNO;
+    private Date bKa;
+    private String bKi;
+    private boolean bKj;
+    private BdDatePicker bNP;
     private int zD;
     private int zE;
     private int zF;
@@ -28,7 +28,7 @@ public class d extends h {
     }
 
     public int getYear() {
-        return this.bNO.getYear();
+        return this.bNP.getYear();
     }
 
     public void setMonth(int i) {
@@ -36,7 +36,7 @@ public class d extends h {
     }
 
     public int getMonth() {
-        return this.bNO.getMonth();
+        return this.bNP.getMonth();
     }
 
     public void setDay(int i) {
@@ -44,11 +44,11 @@ public class d extends h {
     }
 
     public int getDay() {
-        return this.bNO.getDay();
+        return this.bNP.getDay();
     }
 
     private boolean kC(String str) {
-        return this.bNO.kC(str);
+        return this.bNP.kC(str);
     }
 
     public String acg() {
@@ -70,25 +70,25 @@ public class d extends h {
     }
 
     private void ach() {
-        this.bNO = new BdDatePicker(getContext());
+        this.bNP = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.bNO.setLayoutParams(layoutParams);
-        this.bNO.setScrollCycle(true);
-        this.bNO.setStartDate(this.bJY);
-        this.bNO.setEndDate(this.bJZ);
-        this.bNO.setYear(this.zD);
-        this.bNO.setMonth(this.zE);
-        this.bNO.setDay(this.zF);
-        this.bNO.abD();
-        this.bNO.setFields(this.bKh);
-        this.bNO.setDisabled(this.bKi);
+        this.bNP.setLayoutParams(layoutParams);
+        this.bNP.setScrollCycle(true);
+        this.bNP.setStartDate(this.bJZ);
+        this.bNP.setEndDate(this.bKa);
+        this.bNP.setYear(this.zD);
+        this.bNP.setMonth(this.zE);
+        this.bNP.setDay(this.zF);
+        this.bNP.abD();
+        this.bNP.setFields(this.bKi);
+        this.bNP.setDisabled(this.bKj);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         ach();
-        acq().ao(this.bNO);
+        acq().ao(this.bNP);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -97,28 +97,28 @@ public class d extends h {
     }
 
     public void setFields(String str) {
-        this.bKh = str;
+        this.bKi = str;
     }
 
     public void setDisabled(boolean z) {
-        this.bKi = z;
+        this.bKj = z;
     }
 
     public void setStartDate(Date date) {
-        this.bJY = date;
+        this.bJZ = date;
     }
 
     public void setEndDate(Date date) {
-        this.bJZ = date;
+        this.bKa = date;
     }
 
     /* loaded from: classes11.dex */
     public static class a extends h.a {
-        public Date bNP;
         public Date bNQ;
         public Date bNR;
-        private String bNS;
-        private boolean bNT;
+        public Date bNS;
+        private String bNT;
+        private boolean bNU;
 
         public a(Context context) {
             super(context);
@@ -130,45 +130,45 @@ public class d extends h {
         }
 
         public a d(Date date) {
-            this.bNP = date;
-            return this;
-        }
-
-        public a e(Date date) {
             this.bNQ = date;
             return this;
         }
 
-        public a f(Date date) {
+        public a e(Date date) {
             this.bNR = date;
             return this;
         }
 
+        public a f(Date date) {
+            this.bNS = date;
+            return this;
+        }
+
         public a kI(String str) {
-            this.bNS = str;
+            this.bNT = str;
             return this;
         }
 
         public a dy(boolean z) {
-            this.bNT = z;
+            this.bNU = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
         public h aci() {
             d dVar = (d) super.aci();
-            dVar.setFields(this.bNS);
-            dVar.setDisabled(this.bNT);
-            if (this.bNR != null) {
-                dVar.setYear(this.bNR.getYear() + 1900);
-                dVar.setMonth(this.bNR.getMonth() + 1);
-                dVar.setDay(this.bNR.getDate());
-            }
-            if (this.bNP != null) {
-                dVar.setStartDate(this.bNP);
+            dVar.setFields(this.bNT);
+            dVar.setDisabled(this.bNU);
+            if (this.bNS != null) {
+                dVar.setYear(this.bNS.getYear() + 1900);
+                dVar.setMonth(this.bNS.getMonth() + 1);
+                dVar.setDay(this.bNS.getDate());
             }
             if (this.bNQ != null) {
-                dVar.setEndDate(this.bNQ);
+                dVar.setStartDate(this.bNQ);
+            }
+            if (this.bNR != null) {
+                dVar.setEndDate(this.bNR);
             }
             return dVar;
         }

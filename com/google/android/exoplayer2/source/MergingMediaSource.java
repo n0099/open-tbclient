@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class MergingMediaSource implements l {
-    private final x.b lbG;
-    private final l[] mrg;
-    private l.a mrm;
-    private final ArrayList<l> msn;
-    private x mso;
-    private Object msp;
-    private int msq;
-    private IllegalMergeException msr;
+    private final x.b lbS;
+    private final l[] mrr;
+    private l.a mrx;
+    private Object msA;
+    private int msB;
+    private IllegalMergeException msC;
+    private final ArrayList<l> msy;
+    private x msz;
 
     /* loaded from: classes6.dex */
     public static final class IllegalMergeException extends IOException {
@@ -28,9 +28,9 @@ public final class MergingMediaSource implements l {
 
     @Override // com.google.android.exoplayer2.source.l
     public void a(com.google.android.exoplayer2.g gVar, boolean z, l.a aVar) {
-        this.mrm = aVar;
-        for (final int i = 0; i < this.mrg.length; i++) {
-            this.mrg[i].a(gVar, false, new l.a() { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
+        this.mrx = aVar;
+        for (final int i = 0; i < this.mrr.length; i++) {
+            this.mrr[i].a(gVar, false, new l.a() { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
                 @Override // com.google.android.exoplayer2.source.l.a
                 public void a(l lVar, x xVar, Object obj) {
                     MergingMediaSource.this.a(i, xVar, obj);
@@ -40,20 +40,20 @@ public final class MergingMediaSource implements l {
     }
 
     @Override // com.google.android.exoplayer2.source.l
-    public void dwm() throws IOException {
-        if (this.msr != null) {
-            throw this.msr;
+    public void dwn() throws IOException {
+        if (this.msC != null) {
+            throw this.msC;
         }
-        for (l lVar : this.mrg) {
-            lVar.dwm();
+        for (l lVar : this.mrr) {
+            lVar.dwn();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public k a(l.b bVar, com.google.android.exoplayer2.upstream.b bVar2) {
-        k[] kVarArr = new k[this.mrg.length];
+        k[] kVarArr = new k[this.mrr.length];
         for (int i = 0; i < kVarArr.length; i++) {
-            kVarArr[i] = this.mrg[i].a(bVar, bVar2);
+            kVarArr[i] = this.mrr[i].a(bVar, bVar2);
         }
         return new m(kVarArr);
     }
@@ -61,45 +61,45 @@ public final class MergingMediaSource implements l {
     @Override // com.google.android.exoplayer2.source.l
     public void e(k kVar) {
         m mVar = (m) kVar;
-        for (int i = 0; i < this.mrg.length; i++) {
-            this.mrg[i].e(mVar.msi[i]);
+        for (int i = 0; i < this.mrr.length; i++) {
+            this.mrr[i].e(mVar.mst[i]);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.l
     public void releaseSource() {
-        for (l lVar : this.mrg) {
+        for (l lVar : this.mrr) {
             lVar.releaseSource();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, x xVar, Object obj) {
-        if (this.msr == null) {
-            this.msr = b(xVar);
+        if (this.msC == null) {
+            this.msC = b(xVar);
         }
-        if (this.msr == null) {
-            this.msn.remove(this.mrg[i]);
+        if (this.msC == null) {
+            this.msy.remove(this.mrr[i]);
             if (i == 0) {
-                this.mso = xVar;
-                this.msp = obj;
+                this.msz = xVar;
+                this.msA = obj;
             }
-            if (this.msn.isEmpty()) {
-                this.mrm.a(this, this.mso, this.msp);
+            if (this.msy.isEmpty()) {
+                this.mrx.a(this, this.msz, this.msA);
             }
         }
     }
 
     private IllegalMergeException b(x xVar) {
-        int dtB = xVar.dtB();
-        for (int i = 0; i < dtB; i++) {
-            if (xVar.a(i, this.lbG, false).isDynamic) {
+        int dtC = xVar.dtC();
+        for (int i = 0; i < dtC; i++) {
+            if (xVar.a(i, this.lbS, false).isDynamic) {
                 return new IllegalMergeException(0);
             }
         }
-        if (this.msq == -1) {
-            this.msq = xVar.dtC();
-        } else if (xVar.dtC() != this.msq) {
+        if (this.msB == -1) {
+            this.msB = xVar.dtD();
+        } else if (xVar.dtD() != this.msB) {
             return new IllegalMergeException(1);
         }
         return null;

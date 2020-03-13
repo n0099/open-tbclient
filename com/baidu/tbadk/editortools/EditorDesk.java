@@ -12,48 +12,48 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends FrameLayout {
-    private LinkedList<g> dwB;
-    private LinkedList<m> dwC;
-    private m dwD;
-    private boolean dwE;
-    private boolean dwF;
-    private EditorTools dwG;
-    private Runnable dwH;
+    private LinkedList<g> dwO;
+    private LinkedList<m> dwP;
+    private m dwQ;
+    private boolean dwR;
+    private boolean dwS;
+    private EditorTools dwT;
+    private Runnable dwU;
     private int mBgColor;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
         this.mBgColor = R.color.cp_bg_line_h;
-        this.dwD = null;
-        this.dwE = true;
-        this.dwF = false;
-        this.dwH = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.dwQ = null;
+        this.dwR = true;
+        this.dwS = false;
+        this.dwU = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.dwD != null) {
-                    EditorDesk.this.dwD.display();
+                if (EditorDesk.this.dwQ != null) {
+                    EditorDesk.this.dwQ.display();
                 }
             }
         };
-        this.dwB = new LinkedList<>();
-        this.dwC = new LinkedList<>();
-        this.dwG = editorTools;
+        this.dwO = new LinkedList<>();
+        this.dwP = new LinkedList<>();
+        this.dwT = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar) {
-        this.dwB.add(gVar);
+        this.dwO.add(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(m mVar) {
-        this.dwC.add(mVar);
+        this.dwP.add(mVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void build() {
-        Iterator<m> it = this.dwC.iterator();
+        Iterator<m> it = this.dwP.iterator();
         while (it.hasNext()) {
             m next = it.next();
             if (next.getToolId() == 2) {
@@ -71,16 +71,16 @@ public class EditorDesk extends FrameLayout {
 
     private void b(m mVar) {
         if (mVar instanceof MoreDeskView) {
-            ((MoreDeskView) mVar).g(this.dwB);
+            ((MoreDeskView) mVar).g(this.dwO);
             mVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.dwD = null;
-        this.dwB.clear();
-        this.dwC.clear();
+        this.dwQ = null;
+        this.dwO.clear();
+        this.dwP.clear();
     }
 
     protected void display() {
@@ -89,23 +89,23 @@ public class EditorDesk extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.dwD != null) {
-            this.dwD.hide();
+        if (this.dwQ != null) {
+            this.dwQ.hide();
         }
-        this.dwD = null;
+        this.dwQ = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void mk(int i) {
         if (mo(i)) {
-            if (aOw()) {
-                this.dwE = true;
+            if (aOx()) {
+                this.dwR = true;
             } else {
-                this.dwE = false;
+                this.dwR = false;
             }
-            boolean z = this.dwF;
-            Iterator<m> it = this.dwC.iterator();
+            boolean z = this.dwS;
+            Iterator<m> it = this.dwP.iterator();
             while (it.hasNext()) {
                 m next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class EditorDesk extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.dwF = true;
+                    this.dwS = true;
                 }
                 if (next.getToolId() == i) {
-                    this.dwD = next;
-                    if (this.dwE) {
+                    this.dwQ = next;
+                    if (this.dwR) {
                         next.display();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.dwE && (getContext() instanceof Activity)) {
-                if (this.dwG != null) {
-                    this.dwG.aOA();
+            if (!this.dwR && (getContext() instanceof Activity)) {
+                if (this.dwT != null) {
+                    this.dwT.aOB();
                 } else {
                     com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.f.e.gx().postDelayed(this.dwH, 250L);
+                com.baidu.adp.lib.f.e.gx().postDelayed(this.dwU, 250L);
             }
             display();
         }
     }
 
     private boolean mo(int i) {
-        Iterator<m> it = this.dwC.iterator();
+        Iterator<m> it = this.dwP.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -147,7 +147,7 @@ public class EditorDesk extends FrameLayout {
     }
 
     public g mm(int i) {
-        Iterator<g> it = this.dwB.iterator();
+        Iterator<g> it = this.dwO.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next.getToolId() == i) {
@@ -161,11 +161,11 @@ public class EditorDesk extends FrameLayout {
         if (this.mBgColor > 0) {
             am.setBackgroundColor(this, this.mBgColor, i);
         }
-        Iterator<g> it = this.dwB.iterator();
+        Iterator<g> it = this.dwO.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<m> it2 = this.dwC.iterator();
+        Iterator<m> it2 = this.dwP.iterator();
         while (it2.hasNext()) {
             m next = it2.next();
             if (next != null) {
@@ -174,12 +174,12 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean aOv() {
-        return getVisibility() == 0 && aOw();
+    public boolean aOw() {
+        return getVisibility() == 0 && aOx();
     }
 
-    private boolean aOw() {
-        Iterator<m> it = this.dwC.iterator();
+    private boolean aOx() {
+        Iterator<m> it = this.dwP.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;

@@ -1,17 +1,17 @@
 package com.caverock.androidsvg;
 /* loaded from: classes12.dex */
 public class PreserveAspectRatio {
-    public static final PreserveAspectRatio lDj = new PreserveAspectRatio(null, null);
-    public static final PreserveAspectRatio lDk = new PreserveAspectRatio(Alignment.None, null);
-    public static final PreserveAspectRatio lDl = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
-    public static final PreserveAspectRatio lDm = new PreserveAspectRatio(Alignment.XMinYMin, Scale.Meet);
-    public static final PreserveAspectRatio lDn = new PreserveAspectRatio(Alignment.XMaxYMax, Scale.Meet);
-    public static final PreserveAspectRatio lDo = new PreserveAspectRatio(Alignment.XMidYMin, Scale.Meet);
-    public static final PreserveAspectRatio lDp = new PreserveAspectRatio(Alignment.XMidYMax, Scale.Meet);
-    public static final PreserveAspectRatio lDq = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Slice);
-    public static final PreserveAspectRatio lDr = new PreserveAspectRatio(Alignment.XMinYMin, Scale.Slice);
-    private Alignment lDh;
-    private Scale lDi;
+    private Alignment lDs;
+    private Scale lDt;
+    public static final PreserveAspectRatio lDu = new PreserveAspectRatio(null, null);
+    public static final PreserveAspectRatio lDv = new PreserveAspectRatio(Alignment.None, null);
+    public static final PreserveAspectRatio lDw = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+    public static final PreserveAspectRatio lDx = new PreserveAspectRatio(Alignment.XMinYMin, Scale.Meet);
+    public static final PreserveAspectRatio lDy = new PreserveAspectRatio(Alignment.XMaxYMax, Scale.Meet);
+    public static final PreserveAspectRatio lDz = new PreserveAspectRatio(Alignment.XMidYMin, Scale.Meet);
+    public static final PreserveAspectRatio lDA = new PreserveAspectRatio(Alignment.XMidYMax, Scale.Meet);
+    public static final PreserveAspectRatio lDB = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Slice);
+    public static final PreserveAspectRatio lDC = new PreserveAspectRatio(Alignment.XMinYMin, Scale.Slice);
 
     /* loaded from: classes12.dex */
     public enum Alignment {
@@ -34,16 +34,16 @@ public class PreserveAspectRatio {
     }
 
     public PreserveAspectRatio(Alignment alignment, Scale scale) {
-        this.lDh = alignment;
-        this.lDi = scale;
+        this.lDs = alignment;
+        this.lDt = scale;
     }
 
-    public Alignment diq() {
-        return this.lDh;
+    public Alignment dir() {
+        return this.lDs;
     }
 
-    public Scale dir() {
-        return this.lDi;
+    public Scale dis() {
+        return this.lDt;
     }
 
     public boolean equals(Object obj) {
@@ -52,7 +52,7 @@ public class PreserveAspectRatio {
         }
         if (obj != null && getClass() == obj.getClass()) {
             PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-            return this.lDh == preserveAspectRatio.lDh && this.lDi == preserveAspectRatio.lDi;
+            return this.lDs == preserveAspectRatio.lDs && this.lDt == preserveAspectRatio.lDt;
         }
         return false;
     }

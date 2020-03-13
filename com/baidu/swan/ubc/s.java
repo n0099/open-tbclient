@@ -11,7 +11,7 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes7.dex */
 public class s {
-    private static volatile IRemoteUBCService cFx;
+    private static volatile IRemoteUBCService cFy;
 
     public static final k avT() {
         return com.baidu.swan.apps.ad.b.Zt();
@@ -84,19 +84,19 @@ public class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IRemoteUBCService avJ() throws RemoteException {
-        if (cFx == null) {
+        if (cFy == null) {
             synchronized (s.class) {
-                if (cFx == null) {
+                if (cFy == null) {
                     IBinder o = IPCServiceManager.o("open_log", true);
                     if (o == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
                     if (o != null) {
-                        cFx = IRemoteUBCService.Stub.asInterface(o);
+                        cFy = IRemoteUBCService.Stub.asInterface(o);
                     }
                 }
             }
         }
-        return cFx;
+        return cFy;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.x.b.b baU;
+    private com.baidu.swan.apps.x.b.b baV;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -35,11 +35,11 @@ public class c extends b {
         eu(ViewCompat.MEASURED_STATE_MASK);
         cq(true);
         setRightZoneVisibility(false);
-        String Rb = this.baU == null ? "" : this.baU.Rb();
+        String Rb = this.baV == null ? "" : this.baV.Rb();
         if (!TextUtils.isEmpty(Rb)) {
             gT(Rb);
         }
-        this.bnw.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
+        this.bnx.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 c.this.onActionBarBackPressed();
@@ -55,8 +55,8 @@ public class c extends b {
             }
             return;
         }
-        this.baU = ((SwanAppErrorActivity) auA()).GS();
-        if (this.baU == null) {
+        this.baV = ((SwanAppErrorActivity) auA()).GS();
+        if (this.baV == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorFragment", "launchInfo is null,error");
                 return;
@@ -65,10 +65,10 @@ public class c extends b {
         }
         ((LinearLayout) view.findViewById(a.f.error_layout)).setBackgroundColor(getResources().getColor(a.c.aiapps_error_fragment_background));
         TextView textView = (TextView) view.findViewById(a.f.ai_apps_error_msg);
-        textView.setText(this.baU.Vx());
+        textView.setText(this.baV.Vx());
         textView.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
         TextView textView2 = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
-        textView2.setText(this.baU.Vw());
+        textView2.setText(this.baV.Vw());
         textView2.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
     }
 

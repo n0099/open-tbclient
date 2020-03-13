@@ -3,14 +3,14 @@ package rx.subscriptions;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class e {
-    private static final a nUo = new a();
-
-    public static k dPB() {
-        return rx.subscriptions.a.dPv();
-    }
+    private static final a nUz = new a();
 
     public static k dPC() {
-        return nUo;
+        return rx.subscriptions.a.dPw();
+    }
+
+    public static k dPD() {
+        return nUz;
     }
 
     public static k l(rx.functions.a aVar) {

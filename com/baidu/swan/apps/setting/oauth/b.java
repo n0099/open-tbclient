@@ -10,11 +10,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> bTa = new h<>();
-    private final Set<com.baidu.swan.apps.as.d.b<h<ResultDataT>>> bJN = new HashSet();
-    private final LinkedList<d> bTb = new LinkedList<>();
-    private boolean bTc = false;
+    public final h<ResultDataT> bTb = new h<>();
+    private final Set<com.baidu.swan.apps.as.d.b<h<ResultDataT>>> bJO = new HashSet();
+    private final LinkedList<d> bTc = new LinkedList<>();
     private boolean bTd = false;
+    private boolean bTe = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract ResultDataT aN(JSONObject jSONObject) throws JSONException;
@@ -32,7 +32,7 @@ public abstract class b<ResultDataT> {
                 throw new OAuthException(10001);
             }
         }.a(this).aem();
-        this.bTc = true;
+        this.bTd = true;
     }
 
     private void aee() {
@@ -46,7 +46,7 @@ public abstract class b<ResultDataT> {
                 throw new OAuthException(10001);
             }
         }.a(this).aem();
-        this.bTd = true;
+        this.bTe = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,19 +59,19 @@ public abstract class b<ResultDataT> {
     }
 
     public b<ResultDataT> h(com.baidu.swan.apps.as.d.b<h<ResultDataT>> bVar) {
-        if (this.bTa.bTN.isCallbackAvailable()) {
-            this.bJN.add(bVar);
+        if (this.bTb.bTO.isCallbackAvailable()) {
+            this.bJO.add(bVar);
         }
         return this;
     }
 
     private void aeh() {
-        for (final com.baidu.swan.apps.as.d.b<h<ResultDataT>> bVar : this.bJN) {
+        for (final com.baidu.swan.apps.as.d.b<h<ResultDataT>> bVar : this.bJO) {
             c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.D(b.this.bTa);
+                        bVar.D(b.this.bTb);
                     }
                 }
             });
@@ -88,18 +88,18 @@ public abstract class b<ResultDataT> {
     }
 
     public TaskState aej() {
-        return this.bTa.bTN;
+        return this.bTb.bTO;
     }
 
     public void kY() {
-        this.bTa.bTN = TaskState.INIT;
-        this.bTc = false;
+        this.bTb.bTO = TaskState.INIT;
         this.bTd = false;
+        this.bTe = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.bTb.offer(dVar);
+        this.bTc.offer(dVar);
         return this;
     }
 
@@ -117,11 +117,11 @@ public abstract class b<ResultDataT> {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.bTc) {
-            aed();
-        } else if (!this.bTb.isEmpty()) {
-            this.bTb.poll().aem();
         } else if (!this.bTd) {
+            aed();
+        } else if (!this.bTc.isEmpty()) {
+            this.bTc.poll().aem();
+        } else if (!this.bTe) {
             aee();
         } else {
             exec();
@@ -134,11 +134,11 @@ public abstract class b<ResultDataT> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void N(ResultDataT resultdatat) {
-        this.bTa.mData = resultdatat;
+        this.bTb.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.bTa.bTN = taskState;
+        this.bTb.bTO = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,16 +149,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void k(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.bTa.bTO = (OAuthException) exc;
+            this.bTb.bTP = (OAuthException) exc;
         } else if (exc != null) {
-            this.bTa.bTO = new OAuthException(exc, 10001);
+            this.bTb.bTP = new OAuthException(exc, 10001);
         }
-        if (!this.bTa.isOk() && DEBUG && exc != null) {
+        if (!this.bTb.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
         aeh();
-        this.bJN.clear();
+        this.bJO.clear();
     }
 }

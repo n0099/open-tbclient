@@ -12,21 +12,21 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.h;
 import com.baidu.tieba.card.z;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a, h> {
-    private boolean ena;
-    private z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a> enb;
+    private boolean eno;
+    private z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a> enp;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.eng);
-        this.ena = false;
-        this.enb = new z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.d.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.ent);
+        this.eno = false;
+        this.enp = new z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a aVar) {
                 if (view.getId() == R.id.id_tab_live_sub_notification_close_btn) {
-                    if (!d.this.ena) {
-                        d.this.ena = true;
+                    if (!d.this.eno) {
+                        d.this.eno = true;
                         AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
                     }
@@ -44,7 +44,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* renamed from: D */
     public h b(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.g gVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.g(this.mPageContext, viewGroup);
-        gVar.c(this.enb);
+        gVar.c(this.enp);
         return new h(gVar);
     }
 
@@ -52,11 +52,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a aVar, h hVar) {
-        if (hVar == null || hVar.eoe == null) {
+        if (hVar == null || hVar.eos == null) {
             return null;
         }
-        this.ena = false;
-        hVar.eoe.a(aVar);
+        this.eno = false;
+        hVar.eos.a(aVar);
         return hVar.getView();
     }
 }

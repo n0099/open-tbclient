@@ -22,7 +22,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
     private View d;
     private boolean e;
     private boolean f;
-    private a njX;
+    private a nki;
 
     public PaoGuideView(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         this.b = null;
         this.e = false;
         this.f = false;
-        this.njX = null;
+        this.nki = null;
         this.c = null;
         this.d = null;
     }
@@ -70,10 +70,10 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
             this.c = LayoutInflater.from(context).inflate(a.h.web_guide_view, (ViewGroup) null, false);
         }
         removeAllViews();
-        this.njX = new a();
+        this.nki = new a();
         Bundle bundle = new Bundle();
-        bundle.putString("mH5Url", (tv.chushou.common.a.dPY() + "play-help/bang-guide.htm?") + "roomId=" + str);
-        this.njX.setArguments(bundle);
+        bundle.putString("mH5Url", (tv.chushou.common.a.dPZ() + "play-help/bang-guide.htm?") + "roomId=" + str);
+        this.nki.setArguments(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -1);
         layoutParams.addRule(11);
         this.d.setOnClickListener(this);
@@ -83,13 +83,13 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         addView(this.d, layoutParams2);
         addView(this.c, layoutParams);
         FragmentTransaction beginTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.guide_fragment, this.njX);
+        beginTransaction.add(a.f.guide_fragment, this.nki);
         beginTransaction.commitAllowingStateLoss();
     }
 
     public void c() {
-        if (this.njX != null && this.njX.isAdded()) {
-            this.njX.a();
+        if (this.nki != null && this.nki.isAdded()) {
+            this.nki.a();
         }
     }
 

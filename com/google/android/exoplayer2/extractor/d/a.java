@@ -8,24 +8,24 @@ import java.io.IOException;
 public final class a implements f {
     private long end;
     private final long endPosition;
-    private final e mla = new e();
-    private final h mlb;
-    private long mlc;
-    private long mld;
-    private long mle;
-    private long mlf;
-    private long mlg;
+    private final e mll = new e();
+    private final h mlm;
+    private long mln;
+    private long mlo;
+    private long mlp;
+    private long mlq;
+    private long mlr;
     private long start;
     private final long startPosition;
     private int state;
 
     public a(long j, long j2, h hVar, int i, long j3) {
         com.google.android.exoplayer2.util.a.checkArgument(j >= 0 && j2 > j);
-        this.mlb = hVar;
+        this.mlm = hVar;
         this.startPosition = j;
         this.endPosition = j2;
         if (i == j2 - j) {
-            this.mlc = j3;
+            this.mln = j3;
             this.state = 3;
             return;
         }
@@ -38,22 +38,22 @@ public final class a implements f {
         long j = 0;
         switch (this.state) {
             case 0:
-                this.mld = fVar.getPosition();
+                this.mlo = fVar.getPosition();
                 this.state = 1;
                 long j2 = this.endPosition - 65307;
-                if (j2 > this.mld) {
+                if (j2 > this.mlo) {
                     return j2;
                 }
                 break;
             case 1:
                 break;
             case 2:
-                if (this.mle != 0) {
-                    long a = a(this.mle, fVar);
+                if (this.mlp != 0) {
+                    long a = a(this.mlp, fVar);
                     if (a >= 0) {
                         return a;
                     }
-                    j = a(fVar, this.mle, -(a + 2));
+                    j = a(fVar, this.mlp, -(a + 2));
                 }
                 this.state = 3;
                 return -(j + 2);
@@ -62,40 +62,40 @@ public final class a implements f {
             default:
                 throw new IllegalStateException();
         }
-        this.mlc = w(fVar);
+        this.mln = w(fVar);
         this.state = 3;
-        return this.mld;
+        return this.mlo;
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.f
     public long fS(long j) {
         com.google.android.exoplayer2.util.a.checkArgument(this.state == 3 || this.state == 2);
-        this.mle = j == 0 ? 0L : this.mlb.fV(j);
+        this.mlp = j == 0 ? 0L : this.mlm.fV(j);
         this.state = 2;
-        dvi();
-        return this.mle;
+        dvj();
+        return this.mlp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.extractor.d.f
-    /* renamed from: dvh */
-    public C0676a dvj() {
-        if (this.mlc != 0) {
+    /* renamed from: dvi */
+    public C0676a dvk() {
+        if (this.mln != 0) {
             return new C0676a();
         }
         return null;
     }
 
-    public void dvi() {
+    public void dvj() {
         this.start = this.startPosition;
         this.end = this.endPosition;
-        this.mlf = 0L;
-        this.mlg = this.mlc;
+        this.mlq = 0L;
+        this.mlr = this.mln;
     }
 
     public long a(long j, com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         if (this.start == this.end) {
-            return -(this.mlf + 2);
+            return -(this.mlq + 2);
         }
         long position = fVar.getPosition();
         if (!a(fVar, this.end)) {
@@ -104,35 +104,35 @@ public final class a implements f {
             }
             return this.start;
         }
-        this.mla.c(fVar, false);
-        fVar.duR();
-        long j2 = j - this.mla.mlx;
-        int i = this.mla.mgR + this.mla.mlC;
+        this.mll.c(fVar, false);
+        fVar.duS();
+        long j2 = j - this.mll.mlI;
+        int i = this.mll.mhc + this.mll.mlN;
         if (j2 < 0 || j2 > 72000) {
             if (j2 < 0) {
                 this.end = position;
-                this.mlg = this.mla.mlx;
+                this.mlr = this.mll.mlI;
             } else {
                 this.start = fVar.getPosition() + i;
-                this.mlf = this.mla.mlx;
+                this.mlq = this.mll.mlI;
                 if ((this.end - this.start) + i < 100000) {
                     fVar.Jv(i);
-                    return -(this.mlf + 2);
+                    return -(this.mlq + 2);
                 }
             }
             if (this.end - this.start < 100000) {
                 this.end = this.start;
                 return this.start;
             }
-            return Math.min(Math.max((fVar.getPosition() - ((j2 <= 0 ? 2 : 1) * i)) + ((j2 * (this.end - this.start)) / (this.mlg - this.mlf)), this.start), this.end - 1);
+            return Math.min(Math.max((fVar.getPosition() - ((j2 <= 0 ? 2 : 1) * i)) + ((j2 * (this.end - this.start)) / (this.mlr - this.mlq)), this.start), this.end - 1);
         }
         fVar.Jv(i);
-        return -(this.mla.mlx + 2);
+        return -(this.mll.mlI + 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public long f(long j, long j2, long j3) {
-        long j4 = ((((this.endPosition - this.startPosition) * j2) / this.mlc) - j3) + j;
+        long j4 = ((((this.endPosition - this.startPosition) * j2) / this.mln) - j3) + j;
         if (j4 < this.startPosition) {
             j4 = this.startPosition;
         }
@@ -150,7 +150,7 @@ public final class a implements f {
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public boolean duQ() {
+        public boolean duR() {
             return true;
         }
 
@@ -159,12 +159,12 @@ public final class a implements f {
             if (j == 0) {
                 return a.this.startPosition;
             }
-            return a.this.f(a.this.startPosition, a.this.mlb.fV(j), 30000L);
+            return a.this.f(a.this.startPosition, a.this.mlm.fV(j), 30000L);
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
         public long getDurationUs() {
-            return a.this.mlb.fU(a.this.mlc);
+            return a.this.mlm.fU(a.this.mln);
         }
     }
 
@@ -195,22 +195,22 @@ public final class a implements f {
 
     long w(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         v(fVar);
-        this.mla.reset();
-        while ((this.mla.type & 4) != 4 && fVar.getPosition() < this.endPosition) {
-            this.mla.c(fVar, false);
-            fVar.Jv(this.mla.mgR + this.mla.mlC);
+        this.mll.reset();
+        while ((this.mll.type & 4) != 4 && fVar.getPosition() < this.endPosition) {
+            this.mll.c(fVar, false);
+            fVar.Jv(this.mll.mhc + this.mll.mlN);
         }
-        return this.mla.mlx;
+        return this.mll.mlI;
     }
 
     long a(com.google.android.exoplayer2.extractor.f fVar, long j, long j2) throws IOException, InterruptedException {
-        this.mla.c(fVar, false);
-        while (this.mla.mlx < j) {
-            fVar.Jv(this.mla.mgR + this.mla.mlC);
-            j2 = this.mla.mlx;
-            this.mla.c(fVar, false);
+        this.mll.c(fVar, false);
+        while (this.mll.mlI < j) {
+            fVar.Jv(this.mll.mhc + this.mll.mlN);
+            j2 = this.mll.mlI;
+            this.mll.c(fVar, false);
         }
-        fVar.duR();
+        fVar.duS();
         return j2;
     }
 }

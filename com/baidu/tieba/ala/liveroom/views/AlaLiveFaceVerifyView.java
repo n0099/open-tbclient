@@ -20,13 +20,13 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.liveroom.data.h;
 /* loaded from: classes3.dex */
 public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickListener {
-    private h fgP;
-    private ImageView fmk;
-    private TextView fml;
-    private TextView fmm;
-    private Button fmn;
-    private a fmo;
-    private int fmp;
+    private h fhc;
+    private Button fmA;
+    private a fmB;
+    private int fmC;
+    private ImageView fmx;
+    private TextView fmy;
+    private TextView fmz;
     private TextView mHelp;
 
     /* loaded from: classes3.dex */
@@ -36,67 +36,67 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
 
     public AlaLiveFaceVerifyView(Context context) {
         super(context);
-        this.fmp = 0;
+        this.fmC = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fmp = 0;
+        this.fmC = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fmp = 0;
+        this.fmC = 0;
         init();
     }
 
     private void init() {
         View.inflate(getContext(), a.h.ala_live_face_verify_layout, this);
-        this.fmn = (Button) findViewById(a.g.ala_live_face_btn);
-        this.fmk = (ImageView) findViewById(a.g.ala_live_face_verify_pre);
+        this.fmA = (Button) findViewById(a.g.ala_live_face_btn);
+        this.fmx = (ImageView) findViewById(a.g.ala_live_face_verify_pre);
         this.mHelp = (TextView) findViewById(a.g.ala_live_face_help);
-        this.fml = (TextView) findViewById(a.g.ala_live_face_error_tips);
-        this.fmm = (TextView) findViewById(a.g.ala_live_face_questions_text);
-        this.fmm.setMovementMethod(ScrollingMovementMethod.getInstance());
-        this.fmn.setOnClickListener(this);
-        this.fmk.setOnClickListener(this);
+        this.fmy = (TextView) findViewById(a.g.ala_live_face_error_tips);
+        this.fmz = (TextView) findViewById(a.g.ala_live_face_questions_text);
+        this.fmz.setMovementMethod(ScrollingMovementMethod.getInstance());
+        this.fmA.setOnClickListener(this);
+        this.fmx.setOnClickListener(this);
         this.mHelp.setOnClickListener(this);
     }
 
-    private void bqR() {
-        if (this.fmp <= 0) {
-            this.fmp = 0;
-        } else if (this.fmp > this.fgP.faW.faX.size()) {
-            this.fmp = this.fgP.faW.faX.size();
+    private void bqS() {
+        if (this.fmC <= 0) {
+            this.fmC = 0;
+        } else if (this.fmC > this.fhc.fbj.fbk.size()) {
+            this.fmC = this.fhc.fbj.fbk.size();
         }
-        if (this.fmp == 0) {
-            this.fmk.setVisibility(4);
-            this.fml.setVisibility(0);
+        if (this.fmC == 0) {
+            this.fmx.setVisibility(4);
+            this.fmy.setVisibility(0);
         } else {
-            this.fmk.setVisibility(0);
-            this.fml.setVisibility(8);
+            this.fmx.setVisibility(0);
+            this.fmy.setVisibility(8);
         }
-        if (TextUtils.isEmpty(this.fgP.faW.notify)) {
-            this.fml.setText(a.i.ala_live_face_question_tips);
+        if (TextUtils.isEmpty(this.fhc.fbj.notify)) {
+            this.fmy.setText(a.i.ala_live_face_question_tips);
         } else {
-            this.fml.setText(this.fgP.faW.notify);
+            this.fmy.setText(this.fhc.fbj.notify);
         }
-        if (this.fmp < this.fgP.faW.faX.size()) {
+        if (this.fmC < this.fhc.fbj.fbk.size()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.valueOf(this.fmp + 1)).append("/").append(this.fgP.faW.faX.size()).append(HanziToPinyin.Token.SEPARATOR);
-            sb.append(this.fgP.faW.faX.get(this.fmp));
-            this.fmm.setText(sb.toString());
+            sb.append(String.valueOf(this.fmC + 1)).append("/").append(this.fhc.fbj.fbk.size()).append(HanziToPinyin.Token.SEPARATOR);
+            sb.append(this.fhc.fbj.fbk.get(this.fmC));
+            this.fmz.setText(sb.toString());
         } else {
-            this.fmm.setText(a.i.ala_live_face_done_tips);
+            this.fmz.setText(a.i.ala_live_face_done_tips);
         }
-        this.fmm.scrollTo(0, 0);
-        this.fmn.setText(a.i.ala_live_face_next);
-        if (this.fgP.faW.faX.size() - 1 == this.fmp) {
-            this.fmn.setText(a.i.ala_live_face_done);
-        } else if (this.fgP.faW.faX.size() == this.fmp) {
-            this.fmn.setText(a.i.sdk_dialog_ok);
+        this.fmz.scrollTo(0, 0);
+        this.fmA.setText(a.i.ala_live_face_next);
+        if (this.fhc.fbj.fbk.size() - 1 == this.fmC) {
+            this.fmA.setText(a.i.ala_live_face_done);
+        } else if (this.fhc.fbj.fbk.size() == this.fmC) {
+            this.fmA.setText(a.i.sdk_dialog_ok);
         }
     }
 
@@ -106,10 +106,10 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
     }
 
     public void setData(h hVar) {
-        this.fgP = hVar;
-        if (this.fgP != null && this.fgP.faW != null && this.fgP.faW.faX != null && this.fgP.faW.faX.size() > 0) {
-            this.fmp = 0;
-            bqR();
+        this.fhc = hVar;
+        if (this.fhc != null && this.fhc.fbj != null && this.fhc.fbj.fbk != null && this.fhc.fbj.fbk.size() > 0) {
+            this.fmC = 0;
+            bqS();
         }
     }
 
@@ -120,23 +120,23 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
             if (bbPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.b(bbPageContext.getPageActivity())));
             }
-        } else if (view == this.fmk) {
-            this.fmp--;
-            bqR();
-        } else if (view == this.fmn) {
-            if (this.fmp == this.fgP.faW.faX.size()) {
-                if (this.fmo != null) {
-                    this.fmo.onFinished();
+        } else if (view == this.fmx) {
+            this.fmC--;
+            bqS();
+        } else if (view == this.fmA) {
+            if (this.fmC == this.fhc.fbj.fbk.size()) {
+                if (this.fmB != null) {
+                    this.fmB.onFinished();
                     return;
                 }
                 return;
             }
-            this.fmp++;
-            bqR();
+            this.fmC++;
+            bqS();
         }
     }
 
     public void setOnFinishedListener(a aVar) {
-        this.fmo = aVar;
+        this.fmB = aVar;
     }
 }

@@ -17,7 +17,7 @@ public class d {
         if (this.afB == null) {
             this.afB = new ArrayList();
         }
-        if (d(aVar) || this.afB.size() < com.baidu.live.v.a.zl().awB.aaN) {
+        if (d(aVar) || this.afB.size() < com.baidu.live.v.a.zl().awC.aaN) {
             this.afB.add(aVar);
         }
     }

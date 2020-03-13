@@ -49,11 +49,11 @@ public class d {
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
-                int aVo = com.baidu.tieba.a.aVn().aVo();
+                int aVp = com.baidu.tieba.a.aVo().aVp();
                 Uri parse = Uri.parse(appendVersionCode);
                 String queryParameter = parse.getQueryParameter(LegoListActivityConfig.AD_ID);
                 boolean equals = "1".equals(parse.getQueryParameter(LegoListActivityConfig.DOWNLOAD_MIDDLE_KEY));
-                if (aVo == 1 || equals) {
+                if (aVp == 1 || equals) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewAdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3, queryParameter)));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));

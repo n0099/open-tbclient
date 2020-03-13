@@ -187,16 +187,16 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
     /* loaded from: classes7.dex */
     static final class a<T, B> extends io.reactivex.observers.a<B> {
         boolean done;
-        final WindowBoundaryMainObserver<T, B> nyo;
+        final WindowBoundaryMainObserver<T, B> nyz;
 
         a(WindowBoundaryMainObserver<T, B> windowBoundaryMainObserver) {
-            this.nyo = windowBoundaryMainObserver;
+            this.nyz = windowBoundaryMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onNext(B b) {
             if (!this.done) {
-                this.nyo.innerNext();
+                this.nyz.innerNext();
             }
         }
 
@@ -207,14 +207,14 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
                 return;
             }
             this.done = true;
-            this.nyo.innerError(th);
+            this.nyz.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nyo.innerComplete();
+                this.nyz.innerComplete();
             }
         }
     }

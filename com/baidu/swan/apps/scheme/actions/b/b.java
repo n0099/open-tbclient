@@ -14,7 +14,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 /* loaded from: classes11.dex */
 public abstract class b extends ab {
-    protected String bRw;
+    protected String bRx;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -24,7 +24,7 @@ public abstract class b extends ab {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.bRw = null;
+        this.bRx = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab

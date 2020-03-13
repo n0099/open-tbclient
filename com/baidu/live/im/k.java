@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k {
-    private List<AlaLiveMarkData> arS;
-    private boolean ass;
-    private String ast;
+    private List<AlaLiveMarkData> arT;
+    private boolean ast;
+    private String asu;
 
     public static k wA() {
-        return a.asu;
+        return a.asv;
     }
 
     public bb[] wB() {
@@ -34,13 +34,13 @@ public class k {
 
     public bb[] aT(boolean z) {
         List<bb> list;
-        ap apVar = com.baidu.live.v.a.zl().axC;
+        ap apVar = com.baidu.live.v.a.zl().axD;
         if (apVar == null || apVar.acV == null || !apVar.acV.aex || apVar.acS == null) {
             list = null;
         } else {
             bb[] bbVarArr = apVar.acS.adM;
             list = (bbVarArr == null || bbVarArr.length <= 0) ? null : new ArrayList<>(Arrays.asList(bbVarArr));
-            if (com.baidu.live.v.a.zl().awB != null && com.baidu.live.v.a.zl().awB.aaS && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
+            if (com.baidu.live.v.a.zl().awC != null && com.baidu.live.v.a.zl().awC.aaS && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
                 list = a(z, list, apVar.acS.adS);
             }
         }
@@ -51,49 +51,49 @@ public class k {
     }
 
     public boolean wC() {
-        return this.ass;
-    }
-
-    public void setSwitchStatus(boolean z) {
-        this.ass = z;
-    }
-
-    public String wD() {
         return this.ast;
     }
 
+    public void setSwitchStatus(boolean z) {
+        this.ast = z;
+    }
+
+    public String wD() {
+        return this.asu;
+    }
+
     public void setSelectId(String str) {
-        this.ast = str;
+        this.asu = str;
     }
 
     public List<AlaLiveMarkData> wE() {
-        return this.arS;
+        return this.arT;
     }
 
     public void C(List<AlaLiveMarkData> list) {
-        if (this.arS == null) {
-            this.arS = new ArrayList();
+        if (this.arT == null) {
+            this.arT = new ArrayList();
         }
-        this.arS.clear();
+        this.arT.clear();
         if (list != null && !list.isEmpty()) {
-            this.arS.addAll(list);
+            this.arT.addAll(list);
         }
     }
 
     public void release() {
-        this.ass = false;
-        this.ast = null;
-        if (this.arS != null) {
-            this.arS.clear();
+        this.ast = false;
+        this.asu = null;
+        if (this.arT != null) {
+            this.arT.clear();
         }
     }
 
     private k() {
-        this.ass = false;
+        this.ast = false;
     }
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final k asu = new k();
+        private static final k asv = new k();
     }
 }

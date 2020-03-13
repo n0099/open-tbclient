@@ -21,7 +21,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private String LC;
     private boolean NJ;
     private com.baidu.adp.widget.ListView.r OR;
-    public BdUniqueId dBk;
+    public BdUniqueId dBx;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -67,7 +67,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad a = aVar.a(false, viewGroup, this.OR);
         a.aQ(1);
         af afVar = new af(a);
-        afVar.setPageId(this.dBk);
+        afVar.setPageId(this.dBx);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.concern.a.e.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -90,11 +90,11 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, af<com.baidu.tieba.card.data.k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRg == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
-        com.baidu.tieba.card.r.bvg().d(kVar.zY("c12351"));
+        com.baidu.tieba.card.r.bvh().d(kVar.zZ("c12351"));
         afVar.nk().setPosition(i);
         if (afVar.nk() instanceof com.baidu.tieba.a.e) {
             afVar.nk().setPage(this.LC);
@@ -104,8 +104,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         afVar.nk().a(this.JZ);
         com.baidu.card.u uVar = (com.baidu.card.u) afVar.nk().nd();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) uVar.KU.Ow.getLayoutParams();
-        layoutParams.width = kVar.cRg;
-        layoutParams.height = kVar.cRh;
+        layoutParams.width = kVar.cRh;
+        layoutParams.height = kVar.cRi;
         if (uVar.KU.Ow.getVisibility() != 8) {
             uVar.KU.Ow.setLayoutParams(layoutParams);
         }
@@ -113,7 +113,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wO(String str) {
+    public void wP(String str) {
         this.LC = str;
     }
 }

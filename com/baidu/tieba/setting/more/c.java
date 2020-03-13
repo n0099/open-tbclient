@@ -17,44 +17,44 @@ import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReq
 import java.util.ArrayList;
 /* loaded from: classes13.dex */
 public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
-    private TbSettingTextTipView jSA;
-    private TbSettingTextTipView jSB;
-    private MsgSettingItemView jSC;
-    private com.baidu.tbadk.core.dialog.e jSD;
-    private com.baidu.tbadk.core.dialog.e jSE;
-    private com.baidu.tbadk.core.dialog.e jSF;
-    private com.baidu.tbadk.core.dialog.e jSG;
-    private ArrayList<m> jSH;
-    private ArrayList<m> jSI;
-    private ArrayList<m> jSJ;
-    private ArrayList<m> jSK;
-    private final AdapterView.OnItemClickListener jSL;
-    private final AdapterView.OnItemClickListener jSM;
-    private final AdapterView.OnItemClickListener jSN;
-    private final AdapterView.OnItemClickListener jSO;
-    private BrowseSettingActivity jSx;
-    private TbSettingTextTipView jSy;
-    private TbSettingTextTipView jSz;
+    private BrowseSettingActivity jSJ;
+    private TbSettingTextTipView jSK;
+    private TbSettingTextTipView jSL;
+    private TbSettingTextTipView jSM;
+    private TbSettingTextTipView jSN;
+    private MsgSettingItemView jSO;
+    private com.baidu.tbadk.core.dialog.e jSP;
+    private com.baidu.tbadk.core.dialog.e jSQ;
+    private com.baidu.tbadk.core.dialog.e jSR;
+    private com.baidu.tbadk.core.dialog.e jSS;
+    private ArrayList<m> jST;
+    private ArrayList<m> jSU;
+    private ArrayList<m> jSV;
+    private ArrayList<m> jSW;
+    private final AdapterView.OnItemClickListener jSX;
+    private final AdapterView.OnItemClickListener jSY;
+    private final AdapterView.OnItemClickListener jSZ;
+    private final AdapterView.OnItemClickListener jTa;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public c(BrowseSettingActivity browseSettingActivity) {
         super(browseSettingActivity.getPageContext());
-        this.jSx = null;
+        this.jSJ = null;
         this.mParent = null;
         this.mNavigationBar = null;
-        this.jSy = null;
-        this.jSz = null;
-        this.jSA = null;
-        this.jSB = null;
-        this.jSD = null;
-        this.jSE = null;
-        this.jSF = null;
-        this.jSG = null;
-        this.jSL = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.2
+        this.jSK = null;
+        this.jSL = null;
+        this.jSM = null;
+        this.jSN = null;
+        this.jSP = null;
+        this.jSQ = null;
+        this.jSR = null;
+        this.jSS = null;
+        this.jSX = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                c.this.jSD.refresh(i);
+                c.this.jSP.refresh(i);
                 switch (i) {
                     case 0:
                         com.baidu.tbadk.core.i.azO().setShowImages(true);
@@ -74,15 +74,15 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         com.baidu.tbadk.core.i.azO().setShowImages(false);
                         break;
                 }
-                c.this.jSD.dismiss();
-                c.this.cFG();
+                c.this.jSP.dismiss();
+                c.this.cFH();
             }
         };
-        this.jSM = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.3
+        this.jSY = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 int i2 = 1;
-                c.this.jSE.refresh(i);
+                c.this.jSQ.refresh(i);
                 switch (i) {
                     case 0:
                         TiebaStatic.log(new an("c10411").X("obj_type", 1));
@@ -100,16 +100,16 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         break;
                 }
                 SetImageWatermarkTypeReqMsg setImageWatermarkTypeReqMsg = new SetImageWatermarkTypeReqMsg(i2);
-                setImageWatermarkTypeReqMsg.setTag(c.this.jSx.getUniqueId());
+                setImageWatermarkTypeReqMsg.setTag(c.this.jSJ.getUniqueId());
                 MessageManager.getInstance().sendMessage(setImageWatermarkTypeReqMsg);
                 com.baidu.tbadk.core.i.azO().setImageWaterType(i2);
                 c.this.BG(i2);
             }
         };
-        this.jSN = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.4
+        this.jSZ = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                c.this.jSF.refresh(i);
+                c.this.jSR.refresh(i);
                 switch (i) {
                     case 0:
                         TbadkCoreApplication.getInst().setFontSize(0);
@@ -124,13 +124,13 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         TbadkCoreApplication.getInst().setFontSize(3);
                         break;
                 }
-                c.this.cFI();
+                c.this.cFJ();
             }
         };
-        this.jSO = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.5
+        this.jTa = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.5
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                c.this.jSG.refresh(i);
+                c.this.jSS.refresh(i);
                 switch (i) {
                     case 0:
                         TbadkCoreApplication.getInst().setVideoAutoPlay(2);
@@ -145,10 +145,10 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         TiebaStatic.log(new an("c11281").X("obj_type", 3));
                         break;
                 }
-                c.this.cFJ();
+                c.this.cFK();
             }
         };
-        this.jSx = browseSettingActivity;
+        this.jSJ = browseSettingActivity;
         initUI();
         updateAll();
         initListener();
@@ -158,82 +158,82 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
-        this.jSx.getLayoutMode().setNightMode(i == 1);
-        this.jSx.getLayoutMode().onModeChanged(this.mParent);
+        this.jSJ.getLayoutMode().setNightMode(i == 1);
+        this.jSJ.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.jSC.onChangeSkinType(this.jSx.getPageContext(), i);
-        if (this.jSD != null) {
-            this.jSD.onChangeSkinType();
+        this.jSO.onChangeSkinType(this.jSJ.getPageContext(), i);
+        if (this.jSP != null) {
+            this.jSP.onChangeSkinType();
         }
-        if (this.jSE != null) {
-            this.jSE.onChangeSkinType();
+        if (this.jSQ != null) {
+            this.jSQ.onChangeSkinType();
         }
-        if (this.jSF != null) {
-            this.jSF.onChangeSkinType();
+        if (this.jSR != null) {
+            this.jSR.onChangeSkinType();
         }
-        if (this.jSG != null) {
-            this.jSG.onChangeSkinType();
+        if (this.jSS != null) {
+            this.jSS.onChangeSkinType();
         }
-    }
-
-    public TbSettingTextTipView cFu() {
-        return this.jSz;
     }
 
     public TbSettingTextTipView cFv() {
-        return this.jSy;
+        return this.jSL;
     }
 
     public TbSettingTextTipView cFw() {
-        return this.jSA;
+        return this.jSK;
     }
 
     public TbSettingTextTipView cFx() {
-        return this.jSB;
+        return this.jSM;
     }
 
-    public void cFy() {
-        cFD();
-        this.jSE.aEF();
+    public TbSettingTextTipView cFy() {
+        return this.jSN;
     }
 
     public void cFz() {
-        cFC();
-        this.jSD.aEF();
+        cFE();
+        this.jSQ.aEF();
     }
 
     public void cFA() {
-        cFE();
-        this.jSF.aEF();
+        cFD();
+        this.jSP.aEF();
     }
 
     public void cFB() {
         cFF();
-        this.jSG.aEF();
+        this.jSR.aEF();
+    }
+
+    public void cFC() {
+        cFG();
+        this.jSS.aEF();
     }
 
     private void initUI() {
-        this.jSx.setContentView(R.layout.browse_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.jSx.findViewById(R.id.view_navigation_bar);
+        this.jSJ.setContentView(R.layout.browse_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.jSJ.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.jSx.getPageContext().getString(R.string.browse_setting));
-        this.jSy = (TbSettingTextTipView) this.jSx.findViewById(R.id.img_browser);
-        this.jSy.setBottomLineVisibility(true);
-        this.jSz = (TbSettingTextTipView) this.jSx.findViewById(R.id.add_img_water);
-        this.jSz.setBottomLineVisibility(true);
-        this.jSA = (TbSettingTextTipView) this.jSx.findViewById(R.id.font_size);
-        this.jSA.setBottomLineVisibility(true);
-        this.jSB = (TbSettingTextTipView) this.jSx.findViewById(R.id.video_auto_play);
+        this.mNavigationBar.setTitleText(this.jSJ.getPageContext().getString(R.string.browse_setting));
+        this.jSK = (TbSettingTextTipView) this.jSJ.findViewById(R.id.img_browser);
+        this.jSK.setBottomLineVisibility(true);
+        this.jSL = (TbSettingTextTipView) this.jSJ.findViewById(R.id.add_img_water);
+        this.jSL.setBottomLineVisibility(true);
+        this.jSM = (TbSettingTextTipView) this.jSJ.findViewById(R.id.font_size);
+        this.jSM.setBottomLineVisibility(true);
+        this.jSN = (TbSettingTextTipView) this.jSJ.findViewById(R.id.video_auto_play);
         if (RichTextGifViewSwitch.isOn()) {
-            this.jSB.setText(R.string.video_gif_auto_play);
+            this.jSN.setText(R.string.video_gif_auto_play);
         } else {
-            this.jSB.setText(R.string.video_auto_play);
+            this.jSN.setText(R.string.video_auto_play);
         }
-        this.jSB.setBottomLineVisibility(true);
-        this.jSC = (MsgSettingItemView) this.jSx.findViewById(R.id.slide_anim_switch);
-        this.jSC.setText(R.string.slide_anim_switch);
-        this.jSC.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
-        this.jSC.setOnSwitchStateChangeListener(new BdSwitchView.a() { // from class: com.baidu.tieba.setting.more.c.1
+        this.jSN.setBottomLineVisibility(true);
+        this.jSO = (MsgSettingItemView) this.jSJ.findViewById(R.id.slide_anim_switch);
+        this.jSO.setText(R.string.slide_anim_switch);
+        this.jSO.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
+        this.jSO.setOnSwitchStateChangeListener(new BdSwitchView.a() { // from class: com.baidu.tieba.setting.more.c.1
             @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
             public void a(View view, BdSwitchView.SwitchState switchState) {
                 com.baidu.tbadk.core.sharedPref.b.aFD().putInt("slide_local_switch_is_clicked", 1);
@@ -246,89 +246,89 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                 TiebaStatic.log(new an("c13396").X("obj_type", 2));
             }
         });
-        this.mParent = this.jSx.findViewById(R.id.parent);
+        this.mParent = this.jSJ.findViewById(R.id.parent);
     }
 
     private void initListener() {
-        this.jSy.setOnClickListener(this.jSx);
-        this.jSz.setOnClickListener(this.jSx);
-        this.jSA.setOnClickListener(this.jSx);
-        this.jSB.setOnClickListener(this.jSx);
-    }
-
-    private void cFC() {
-        this.jSI = new ArrayList<>();
-        int viewImageQuality = com.baidu.tbadk.core.i.azO().getViewImageQuality();
-        boolean isShowImages = com.baidu.tbadk.core.i.azO().isShowImages();
-        this.jSI.add(new m(this.jSx.getPageContext().getString(R.string.view_image_quality_auto_menu), this.jSx.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), isShowImages && viewImageQuality == 0));
-        this.jSI.add(new m(this.jSx.getPageContext().getString(R.string.view_high), this.jSx.getPageContext().getString(R.string.view_image_quality_high_menu_desc), isShowImages && viewImageQuality == 1));
-        this.jSI.add(new m(this.jSx.getPageContext().getString(R.string.view_low), this.jSx.getPageContext().getString(R.string.view_image_quality_low_menu_desc), isShowImages && viewImageQuality == 2));
-        this.jSI.add(new m(this.jSx.getPageContext().getString(R.string.close), this.jSx.getPageContext().getString(R.string.view_image_quality_close_menu_desc), isShowImages ? false : true));
-        this.jSD = new com.baidu.tbadk.core.dialog.e(this.jSx.getPageContext());
-        this.jSD.kd(R.string.browser_image_quality);
-        this.jSD.a(this.jSI, this.jSL).aEE();
+        this.jSK.setOnClickListener(this.jSJ);
+        this.jSL.setOnClickListener(this.jSJ);
+        this.jSM.setOnClickListener(this.jSJ);
+        this.jSN.setOnClickListener(this.jSJ);
     }
 
     private void cFD() {
-        this.jSJ = new ArrayList<>();
-        int imageWaterType = com.baidu.tbadk.core.i.azO().getImageWaterType();
-        this.jSJ.add(new m(this.jSx.getPageContext().getString(R.string.image_water_show_user_name), null, imageWaterType == 1));
-        this.jSJ.add(new m(this.jSx.getPageContext().getString(R.string.image_water_show_forum_name), null, imageWaterType == 2));
-        this.jSJ.add(new m(this.jSx.getPageContext().getString(R.string.image_water_show_none), null, imageWaterType == 0));
-        this.jSE = new com.baidu.tbadk.core.dialog.e(this.jSx.getPageContext()).kd(R.string.add_image_water);
-        this.jSE.a(this.jSJ, this.jSM).aEE();
+        this.jSU = new ArrayList<>();
+        int viewImageQuality = com.baidu.tbadk.core.i.azO().getViewImageQuality();
+        boolean isShowImages = com.baidu.tbadk.core.i.azO().isShowImages();
+        this.jSU.add(new m(this.jSJ.getPageContext().getString(R.string.view_image_quality_auto_menu), this.jSJ.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), isShowImages && viewImageQuality == 0));
+        this.jSU.add(new m(this.jSJ.getPageContext().getString(R.string.view_high), this.jSJ.getPageContext().getString(R.string.view_image_quality_high_menu_desc), isShowImages && viewImageQuality == 1));
+        this.jSU.add(new m(this.jSJ.getPageContext().getString(R.string.view_low), this.jSJ.getPageContext().getString(R.string.view_image_quality_low_menu_desc), isShowImages && viewImageQuality == 2));
+        this.jSU.add(new m(this.jSJ.getPageContext().getString(R.string.close), this.jSJ.getPageContext().getString(R.string.view_image_quality_close_menu_desc), isShowImages ? false : true));
+        this.jSP = new com.baidu.tbadk.core.dialog.e(this.jSJ.getPageContext());
+        this.jSP.kd(R.string.browser_image_quality);
+        this.jSP.a(this.jSU, this.jSX).aEE();
     }
 
     private void cFE() {
-        this.jSF = new com.baidu.tbadk.core.dialog.e(this.jSx.getPageContext());
-        this.jSH = new ArrayList<>();
-        int fontSize = TbadkCoreApplication.getInst().getFontSize();
-        this.jSH.add(new m(this.jSx.getPageContext().getString(R.string.font_size_xlarge), null, fontSize == 0));
-        this.jSH.add(new m(this.jSx.getPageContext().getString(R.string.font_size_big), null, fontSize == 1));
-        this.jSH.add(new m(this.jSx.getPageContext().getString(R.string.font_size_mid), null, fontSize == 2));
-        this.jSH.add(new m(this.jSx.getPageContext().getString(R.string.font_size_small), null, fontSize == 3));
-        this.jSF.kd(R.string.font_size);
-        this.jSF.a(this.jSH, this.jSN);
-        this.jSF.aEE();
+        this.jSV = new ArrayList<>();
+        int imageWaterType = com.baidu.tbadk.core.i.azO().getImageWaterType();
+        this.jSV.add(new m(this.jSJ.getPageContext().getString(R.string.image_water_show_user_name), null, imageWaterType == 1));
+        this.jSV.add(new m(this.jSJ.getPageContext().getString(R.string.image_water_show_forum_name), null, imageWaterType == 2));
+        this.jSV.add(new m(this.jSJ.getPageContext().getString(R.string.image_water_show_none), null, imageWaterType == 0));
+        this.jSQ = new com.baidu.tbadk.core.dialog.e(this.jSJ.getPageContext()).kd(R.string.add_image_water);
+        this.jSQ.a(this.jSV, this.jSY).aEE();
     }
 
     private void cFF() {
-        this.jSG = new com.baidu.tbadk.core.dialog.e(this.jSx.getPageContext());
-        this.jSK = new ArrayList<>();
+        this.jSR = new com.baidu.tbadk.core.dialog.e(this.jSJ.getPageContext());
+        this.jST = new ArrayList<>();
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        this.jST.add(new m(this.jSJ.getPageContext().getString(R.string.font_size_xlarge), null, fontSize == 0));
+        this.jST.add(new m(this.jSJ.getPageContext().getString(R.string.font_size_big), null, fontSize == 1));
+        this.jST.add(new m(this.jSJ.getPageContext().getString(R.string.font_size_mid), null, fontSize == 2));
+        this.jST.add(new m(this.jSJ.getPageContext().getString(R.string.font_size_small), null, fontSize == 3));
+        this.jSR.kd(R.string.font_size);
+        this.jSR.a(this.jST, this.jSZ);
+        this.jSR.aEE();
+    }
+
+    private void cFG() {
+        this.jSS = new com.baidu.tbadk.core.dialog.e(this.jSJ.getPageContext());
+        this.jSW = new ArrayList<>();
         int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
-        this.jSK.add(new m(this.jSx.getPageContext().getString(R.string.video_auto_play_always), null, homePageAutoPlay == 2));
-        this.jSK.add(new m(this.jSx.getPageContext().getString(R.string.video_auto_play_in_wifi), null, homePageAutoPlay == 0));
-        this.jSK.add(new m(this.jSx.getPageContext().getString(R.string.close), null, homePageAutoPlay == 1));
+        this.jSW.add(new m(this.jSJ.getPageContext().getString(R.string.video_auto_play_always), null, homePageAutoPlay == 2));
+        this.jSW.add(new m(this.jSJ.getPageContext().getString(R.string.video_auto_play_in_wifi), null, homePageAutoPlay == 0));
+        this.jSW.add(new m(this.jSJ.getPageContext().getString(R.string.close), null, homePageAutoPlay == 1));
         if (RichTextGifViewSwitch.isOn()) {
-            this.jSG.kd(R.string.video_gif_auto_play);
+            this.jSS.kd(R.string.video_gif_auto_play);
         } else {
-            this.jSG.kd(R.string.video_auto_play);
+            this.jSS.kd(R.string.video_auto_play);
         }
-        this.jSG.a(this.jSK, this.jSO);
-        this.jSG.aEE();
+        this.jSS.a(this.jSW, this.jTa);
+        this.jSS.aEE();
     }
 
     public void updateAll() {
-        cFG();
         cFH();
         cFI();
         cFJ();
+        cFK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cFG() {
+    public void cFH() {
         if (!com.baidu.tbadk.core.i.azO().isShowImages()) {
-            this.jSy.setTip(this.mContext.getString(R.string.close));
+            this.jSK.setTip(this.mContext.getString(R.string.close));
         } else if (com.baidu.tbadk.core.i.azO().getViewImageQuality() == 1) {
-            this.jSy.setTip(this.mContext.getString(R.string.view_high));
+            this.jSK.setTip(this.mContext.getString(R.string.view_high));
         } else if (com.baidu.tbadk.core.i.azO().getViewImageQuality() == 2) {
-            this.jSy.setTip(this.mContext.getString(R.string.view_low));
+            this.jSK.setTip(this.mContext.getString(R.string.view_low));
         } else {
-            this.jSy.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
+            this.jSK.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
         }
     }
 
-    private void cFH() {
+    private void cFI() {
         BG(com.baidu.tbadk.core.i.azO().getImageWaterType());
     }
 
@@ -336,38 +336,38 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
     public void BG(int i) {
         switch (i) {
             case 0:
-                this.jSz.setTip(this.mContext.getString(R.string.image_water_show_none));
+                this.jSL.setTip(this.mContext.getString(R.string.image_water_show_none));
                 return;
             case 1:
-                this.jSz.setTip(this.mContext.getString(R.string.image_water_show_user_name));
+                this.jSL.setTip(this.mContext.getString(R.string.image_water_show_user_name));
                 return;
             case 2:
-                this.jSz.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
+                this.jSL.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
                 return;
             default:
                 return;
         }
     }
 
-    public void cFI() {
+    public void cFJ() {
         if (TbadkCoreApplication.getInst().getFontSize() == 0) {
-            this.jSA.setTip(this.mContext.getString(R.string.font_size_xlarge));
+            this.jSM.setTip(this.mContext.getString(R.string.font_size_xlarge));
         } else if (TbadkCoreApplication.getInst().getFontSize() == 1) {
-            this.jSA.setTip(this.mContext.getString(R.string.font_size_big));
+            this.jSM.setTip(this.mContext.getString(R.string.font_size_big));
         } else if (TbadkCoreApplication.getInst().getFontSize() == 2) {
-            this.jSA.setTip(this.mContext.getString(R.string.font_size_mid));
+            this.jSM.setTip(this.mContext.getString(R.string.font_size_mid));
         } else {
-            this.jSA.setTip(this.mContext.getString(R.string.font_size_small));
+            this.jSM.setTip(this.mContext.getString(R.string.font_size_small));
         }
     }
 
-    public void cFJ() {
+    public void cFK() {
         if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) {
-            this.jSB.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
+            this.jSN.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
         } else if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
-            this.jSB.setTip(this.mContext.getString(R.string.close));
+            this.jSN.setTip(this.mContext.getString(R.string.close));
         } else if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) {
-            this.jSB.setTip(this.mContext.getString(R.string.video_auto_play_always));
+            this.jSN.setTip(this.mContext.getString(R.string.video_auto_play_always));
         }
     }
 }

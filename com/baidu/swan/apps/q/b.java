@@ -12,9 +12,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private boolean bvR;
     private boolean bvS;
-    private JSONObject bvT;
+    private boolean bvT;
+    private JSONObject bvU;
     private String mImageUrl;
 
     public String getImageUrl() {
@@ -22,14 +22,14 @@ public class b {
     }
 
     public b Tf() {
-        this.bvR = false;
         this.bvS = false;
+        this.bvT = false;
         this.mImageUrl = null;
-        this.bvT = Ti();
-        if (this.bvT != null) {
-            this.bvR = Th();
-            if (!this.bvR) {
-                this.bvS = Tg();
+        this.bvU = Ti();
+        if (this.bvU != null) {
+            this.bvS = Th();
+            if (!this.bvS) {
+                this.bvT = Tg();
             }
         }
         return this;
@@ -37,16 +37,16 @@ public class b {
 
     private boolean Tg() {
         if (com.baidu.swan.apps.runtime.d.acC().Gu() == 0) {
-            return k(this.bvT, "swan_guide_");
+            return k(this.bvU, "swan_guide_");
         }
         if (com.baidu.swan.apps.runtime.d.acC().Gu() == 1) {
-            return k(this.bvT, "swangame_guide_");
+            return k(this.bvU, "swangame_guide_");
         }
         return false;
     }
 
     private boolean Th() {
-        JSONArray optJSONArray = this.bvT.optJSONArray("custom_guide_list");
+        JSONArray optJSONArray = this.bvU.optJSONArray("custom_guide_list");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return false;
         }
@@ -94,7 +94,7 @@ public class b {
                             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.q.b.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.afr().putString("swan_guide_toast", b.this.bvT.toString());
+                                    h.afr().putString("swan_guide_toast", b.this.bvU.toString());
                                 }
                             }, "swanCloseGuideRunnable");
                         } catch (JSONException e) {
@@ -136,14 +136,14 @@ public class b {
     }
 
     public boolean isShow() {
-        return this.bvS || this.bvR;
+        return this.bvT || this.bvS;
     }
 
     public String Tj() {
-        if (this.bvR) {
+        if (this.bvS) {
             return "special";
         }
-        if (this.bvS) {
+        if (this.bvT) {
             return "normal";
         }
         return null;

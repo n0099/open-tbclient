@@ -4,45 +4,45 @@ import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class h implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-    private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lJU;
-    private final com.facebook.imagepipeline.c.f lSa;
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> lVb;
+    private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lKf;
+    private final com.facebook.imagepipeline.c.f lSl;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> lVm;
 
     public h(com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        this.lJU = pVar;
-        this.lSa = fVar;
-        this.lVb = ajVar;
+        this.lKf = pVar;
+        this.lSl = fVar;
+        this.lVm = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        am dry = akVar.dry();
+        am drz = akVar.drz();
         String id = akVar.getId();
-        dry.fm(id, drH());
-        com.facebook.cache.common.b a = this.lSa.a(akVar.drx(), akVar.dmf());
-        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bn = this.lJU.bn(a);
+        drz.fm(id, drI());
+        com.facebook.cache.common.b a = this.lSl.a(akVar.dry(), akVar.dmg());
+        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bn = this.lKf.bn(a);
         if (bn != null) {
-            boolean dqG = bn.get().dqs().dqG();
-            if (dqG) {
-                dry.a(id, drH(), dry.Pd(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                dry.D(id, drH(), true);
+            boolean dqH = bn.get().dqt().dqH();
+            if (dqH) {
+                drz.a(id, drI(), drz.Pe(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                drz.D(id, drI(), true);
                 kVar.aK(1.0f);
             }
-            kVar.g(bn, b.vr(dqG));
+            kVar.g(bn, b.vr(dqH));
             bn.close();
-            if (dqG) {
+            if (dqH) {
                 return;
             }
         }
-        if (akVar.drz().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
-            dry.a(id, drH(), dry.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-            dry.D(id, drH(), false);
+        if (akVar.drA().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
+            drz.a(id, drI(), drz.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+            drz.D(id, drI(), false);
             kVar.g(null, 1);
             return;
         }
-        k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a2 = a(kVar, a, akVar.drx().dsx());
-        dry.a(id, drH(), dry.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-        this.lVb.c(a2, akVar);
+        k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a2 = a(kVar, a, akVar.dry().dsy());
+        drz.a(id, drI(), drz.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        this.lVm.c(a2, akVar);
     }
 
     protected k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, final com.facebook.cache.common.b bVar, final boolean z) {
@@ -55,42 +55,42 @@ public class h implements aj<com.facebook.common.references.a<com.facebook.image
                 boolean IJ = IJ(i);
                 if (aVar == null) {
                     if (IJ) {
-                        drJ().g(null, i);
+                        drK().g(null, i);
                     }
                 } else if (aVar.get().isStateful() || dA(i, 8)) {
-                    drJ().g(aVar, i);
+                    drK().g(aVar, i);
                 } else {
-                    if (!IJ && (bn = h.this.lJU.bn(bVar)) != null) {
+                    if (!IJ && (bn = h.this.lKf.bn(bVar)) != null) {
                         try {
-                            com.facebook.imagepipeline.g.h dqs = aVar.get().dqs();
-                            com.facebook.imagepipeline.g.h dqs2 = bn.get().dqs();
-                            if (dqs2.dqG() || dqs2.dqE() >= dqs.dqE()) {
-                                drJ().g(bn, i);
+                            com.facebook.imagepipeline.g.h dqt = aVar.get().dqt();
+                            com.facebook.imagepipeline.g.h dqt2 = bn.get().dqt();
+                            if (dqt2.dqH() || dqt2.dqF() >= dqt.dqF()) {
+                                drK().g(bn, i);
                                 return;
                             }
                         } finally {
                             com.facebook.common.references.a.c(bn);
                         }
                     }
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> a = z ? h.this.lJU.a(bVar, aVar) : null;
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> a = z ? h.this.lKf.a(bVar, aVar) : null;
                     if (IJ) {
                         try {
-                            drJ().aK(1.0f);
+                            drK().aK(1.0f);
                         } finally {
                             com.facebook.common.references.a.c(a);
                         }
                     }
-                    k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> drJ = drJ();
+                    k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> drK = drK();
                     if (a != null) {
                         aVar = a;
                     }
-                    drJ.g(aVar, i);
+                    drK.g(aVar, i);
                 }
             }
         };
     }
 
-    protected String drH() {
+    protected String drI() {
         return "BitmapMemoryCacheProducer";
     }
 }

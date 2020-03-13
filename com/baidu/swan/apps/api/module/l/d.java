@@ -21,14 +21,14 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject bfx;
+    private static JSONObject bfy;
 
     public static synchronized void Kf() {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            bfx = null;
+            bfy = null;
         }
     }
 
@@ -39,11 +39,11 @@ public class d {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
             if (com.baidu.swan.apps.w.a.TZ().Hv()) {
-                if (bfx == null && context != null) {
+                if (bfy == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    bfx = bG(context);
+                    bfy = bG(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -57,16 +57,16 @@ public class d {
     public static synchronized JSONObject bF(Context context) {
         JSONObject jSONObject;
         synchronized (d.class) {
-            if (bfx == null && context != null) {
+            if (bfy == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                bfx = bG(context);
+                bfy = bG(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = bfx;
+            jSONObject = bfy;
         }
         return jSONObject;
     }

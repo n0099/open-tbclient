@@ -20,7 +20,7 @@ public class c {
         /* renamed from: com.baidu.swan.games.view.recommend.popview.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
         public static class C0353a {
-            private static final a cuK = new a();
+            private static final a cuL = new a();
         }
 
         private a() {
@@ -28,7 +28,7 @@ public class c {
         }
 
         public static final a ari() {
-            return C0353a.cuK;
+            return C0353a.cuL;
         }
     }
 

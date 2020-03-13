@@ -13,30 +13,30 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes9.dex */
 public class c extends a {
-    private OriginalThreadCardView fLb;
-    private int fsJ;
-    private int iGP;
+    private OriginalThreadCardView fLo;
+    private int fsW;
+    private int iHb;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.fsJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.iGP = i;
+        this.fsW = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.iHb = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.fLb == null) {
-            this.fLb = new OriginalThreadCardView(this.cVh.getPageActivity());
-            this.fLb.fLL = this.iGP;
-            this.fLb.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
+        if (this.fLo == null) {
+            this.fLo = new OriginalThreadCardView(this.cVi.getPageActivity());
+            this.fLo.fLY = this.iHb;
+            this.fLo.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.iSV != null) {
-                        c.this.iSV.a(c.this.fLb, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.iTh != null) {
+                        c.this.iTh.a(c.this.fLo, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.a
                             public bj aAg() {
-                                if (c.this.iSW != null) {
-                                    return c.this.iSW.aAW();
+                                if (c.this.iTi != null) {
+                                    return c.this.iTi.aAW();
                                 }
                                 return null;
                             }
@@ -55,20 +55,20 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.fsJ;
-            layoutParams.leftMargin = this.fsJ;
-            layoutParams.rightMargin = this.fsJ;
-            this.fLb.setLayoutParams(layoutParams);
-            this.fLb.onChangeSkinType();
+            layoutParams.bottomMargin = this.fsW;
+            layoutParams.leftMargin = this.fsW;
+            layoutParams.rightMargin = this.fsW;
+            this.fLo.setLayoutParams(layoutParams);
+            this.fLo.onChangeSkinType();
         }
-        return this.fLb;
+        return this.fLo;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.iSW = originalThreadInfo;
-        if (this.fLb != null) {
-            this.fLb.b(this.iSW);
+        this.iTi = originalThreadInfo;
+        if (this.fLo != null) {
+            this.fLo.b(this.iTi);
         }
     }
 
@@ -76,8 +76,8 @@ public class c extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.fLb != null) {
-                this.fLb.onChangeSkinType();
+            if (this.fLo != null) {
+                this.fLo.onChangeSkinType();
             }
         }
     }

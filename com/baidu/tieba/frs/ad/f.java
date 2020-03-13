@@ -26,31 +26,31 @@ import java.util.Date;
 /* loaded from: classes9.dex */
 public class f {
     private com.baidu.tbadk.core.dialog.a FR;
-    private ForumData dyQ;
-    private RoundLinearLayout gtA;
-    private h gtB;
-    private TbImageView gty;
-    private TextView gtz;
+    private TextView dbH;
+    private ForumData dzd;
+    private TbImageView gtL;
+    private RoundLinearLayout gtM;
+    private h gtN;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 11;
-            if (view == f.this.gtz) {
+            if (view == f.this.dbH) {
                 if (f.this.FR != null && f.this.FR.isShowing()) {
                     f.this.FR.dismiss();
                 }
-            } else if (view == f.this.gty && f.this.gtB != null && !StringUtils.isNull(f.this.gtB.getUrl())) {
-                ba.aGG().a(f.this.mPageContext, new String[]{f.this.gtB.getUrl()}, true);
+            } else if (view == f.this.gtL && f.this.gtN != null && !StringUtils.isNull(f.this.gtN.getUrl())) {
+                ba.aGG().a(f.this.mPageContext, new String[]{f.this.gtN.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.gtB.getId());
+                httpMessage.addParam("id", f.this.gtN.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 f.this.FR.dismiss();
                 an anVar = new an("common_click");
                 anVar.cy("page_type", PageStayDurationConstants.PageName.FRS);
                 anVar.cy("obj_isad", "1");
-                if (f.this.gtB.getType() != 1) {
-                    if (f.this.gtB.getType() != 2) {
-                        if (f.this.gtB.getType() == 3) {
+                if (f.this.gtN.getType() != 1) {
+                    if (f.this.gtN.getType() != 2) {
+                        if (f.this.gtN.getType() == 3) {
                             i = 13;
                         }
                     } else {
@@ -58,17 +58,17 @@ public class f {
                     }
                 }
                 anVar.X("obj_adlocate", i);
-                anVar.s("obj_id", f.this.gtB.getId());
+                anVar.s("obj_id", f.this.gtN.getId());
                 anVar.X("obj_floor", 1);
                 anVar.X("obj_locate", 3);
-                if (f.this.dyQ != null) {
-                    anVar.cy("fid", f.this.dyQ.getId());
-                    anVar.cy("first_dir", f.this.dyQ.getFirst_class());
-                    anVar.cy("second_dir", f.this.dyQ.getSecond_class());
+                if (f.this.dzd != null) {
+                    anVar.cy("fid", f.this.dzd.getId());
+                    anVar.cy("first_dir", f.this.dzd.getFirst_class());
+                    anVar.cy("second_dir", f.this.dzd.getSecond_class());
                 }
-                if (f.this.gtB.getType() == 1) {
-                    anVar.cy("tid", f.this.gtB.getThreadId());
-                    anVar.X("thread_type", f.this.gtB.getThreadType());
+                if (f.this.gtN.getType() == 1) {
+                    anVar.cy("tid", f.this.gtN.getThreadId());
+                    anVar.X("thread_type", f.this.gtN.getThreadType());
                 }
                 TiebaStatic.log(anVar);
             }
@@ -83,8 +83,8 @@ public class f {
 
     public void a(l lVar) {
         if (lVar != null && lVar.getForum() != null && lVar.getBusinessPromot() != null) {
-            this.dyQ = lVar.getForum();
-            this.gtB = lVar.getBusinessPromot();
+            this.dzd = lVar.getForum();
+            this.gtN = lVar.getBusinessPromot();
             String str = "key_frs_dialog_ad_last_show_time" + lVar.getForum().getId();
             long j = com.baidu.tbadk.core.sharedPref.b.aFD().getLong(str, 0L);
             if (j < 0 || !az.b(new Date(j), new Date(System.currentTimeMillis()))) {
@@ -117,42 +117,42 @@ public class f {
         an anVar = new an("common_exp");
         anVar.cy("page_type", PageStayDurationConstants.PageName.FRS);
         anVar.cy("obj_isad", "1");
-        if (this.gtB.getType() == 1) {
+        if (this.gtN.getType() == 1) {
             i = 11;
-        } else if (this.gtB.getType() == 2) {
+        } else if (this.gtN.getType() == 2) {
             i = 12;
         } else {
-            i = this.gtB.getType() == 3 ? 13 : 11;
+            i = this.gtN.getType() == 3 ? 13 : 11;
         }
         anVar.X("obj_floor", 1);
         anVar.X("obj_adlocate", i);
-        anVar.s("obj_id", this.gtB.getId());
-        if (this.dyQ != null) {
-            anVar.cy("fid", this.dyQ.getId());
-            anVar.cy("first_dir", this.dyQ.getFirst_class());
-            anVar.cy("second_dir", this.dyQ.getSecond_class());
+        anVar.s("obj_id", this.gtN.getId());
+        if (this.dzd != null) {
+            anVar.cy("fid", this.dzd.getId());
+            anVar.cy("first_dir", this.dzd.getFirst_class());
+            anVar.cy("second_dir", this.dzd.getSecond_class());
         }
-        if (this.gtB.getType() == 1) {
-            anVar.cy("tid", this.gtB.getThreadId());
-            anVar.X("thread_type", this.gtB.getThreadType());
+        if (this.gtN.getType() == 1) {
+            anVar.cy("tid", this.gtN.getThreadId());
+            anVar.X("thread_type", this.gtN.getThreadType());
         }
         TiebaStatic.log(anVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.gtA = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.gtA.setRoundCount(8);
-        this.gty = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.gty.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gty.getLayoutParams();
+        this.gtM = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.gtM.setRoundCount(8);
+        this.gtL = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.gtL.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gtL.getLayoutParams();
         layoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.gty.setLayoutParams(layoutParams);
-        this.gtz = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
-        this.gtz.setOnClickListener(this.mClickListener);
-        if (this.gtB != null) {
-            this.gty.startLoad(this.gtB.cKd(), 10, false);
+        this.gtL.setLayoutParams(layoutParams);
+        this.dbH = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
+        this.dbH.setOnClickListener(this.mClickListener);
+        if (this.gtN != null) {
+            this.gtL.startLoad(this.gtN.cKe(), 10, false);
         }
     }
 }

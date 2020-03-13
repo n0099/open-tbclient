@@ -25,8 +25,8 @@ import com.baidu.swan.apps.res.ui.BdBaseImageView;
 /* loaded from: classes11.dex */
 public class af {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final DisplayMetrics bYC = com.baidu.swan.apps.w.a.TW().getResources().getDisplayMetrics();
-    private static final float bYD = bYC.density;
+    private static final DisplayMetrics bYD = com.baidu.swan.apps.w.a.TW().getResources().getDisplayMetrics();
+    private static final float bYE = bYD.density;
     private static DisplayMetrics sDisplayMetrics;
 
     public static int cI(Context context) {
@@ -308,7 +308,7 @@ public class af {
             }
         }
         if (i == 0) {
-            return (int) (25.0f * bYD);
+            return (int) (25.0f * bYE);
         }
         return i;
     }

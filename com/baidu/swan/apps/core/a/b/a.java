@@ -7,25 +7,25 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static a bmI;
-    private boolean bmJ = false;
+    private static a bmJ;
     private boolean bmK = false;
-    private boolean mIsCanceled = false;
     private boolean bmL = false;
+    private boolean mIsCanceled = false;
     private boolean bmM = false;
-    private int bmN = 3000;
-    private HashMap<String, Long> bmO = new HashMap<>();
-    private boolean bmP = false;
+    private boolean bmN = false;
+    private int bmO = 3000;
+    private HashMap<String, Long> bmP = new HashMap<>();
+    private boolean bmQ = false;
 
     public static a Nf() {
-        if (bmI == null) {
+        if (bmJ == null) {
             synchronized (a.class) {
-                if (bmI == null) {
-                    bmI = new a();
+                if (bmJ == null) {
+                    bmJ = new a();
                 }
             }
         }
-        return bmI;
+        return bmJ;
     }
 
     private a() {
@@ -36,12 +36,12 @@ public final class a {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.bmO == null || !this.bmO.containsKey(str) || currentTimeMillis - this.bmO.get(str).longValue() > 18000000) {
+        if (this.bmP == null || !this.bmP.containsKey(str) || currentTimeMillis - this.bmP.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.bmO == null || !this.bmO.containsKey(str)) {
+                if (this.bmP == null || !this.bmP.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.bmO.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.bmP.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -53,6 +53,6 @@ public final class a {
     }
 
     public boolean Ng() {
-        return this.bmK;
+        return this.bmL;
     }
 }

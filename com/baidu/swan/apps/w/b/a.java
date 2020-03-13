@@ -21,7 +21,7 @@ public abstract class a implements o {
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String It() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bjE));
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bjF));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o

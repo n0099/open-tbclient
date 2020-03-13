@@ -161,10 +161,10 @@ public class PMSAppInfo implements Parcelable {
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.cAY;
+            this.appId = fVar.cAZ;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.cBi;
+            this.type = fVar.cBj;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.cBi;
+            this.type = gVar.cBj;
             this.pkgSize = gVar.size;
         }
     }

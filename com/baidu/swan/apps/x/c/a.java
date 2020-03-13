@@ -10,16 +10,16 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> byY = new HashMap();
-    private Map<String, String> byZ = new HashMap();
-    public final b bza = new b().iO("SwanLaunch").b(Wl());
+    private static final Map<String, a> byZ = new HashMap();
+    private Map<String, String> bza = new HashMap();
+    public final b bzb = new b().iO("SwanLaunch").b(Wl());
     public final String id;
 
     public static a iM(String str) {
-        a aVar = byY.get(str);
+        a aVar = byZ.get(str);
         if (aVar == null) {
             a aVar2 = new a(str);
-            byY.put(str, aVar2);
+            byZ.put(str, aVar2);
             return aVar2;
         }
         return aVar;
@@ -30,19 +30,19 @@ public final class a {
     }
 
     public b.a Wj() {
-        return this.bza.Wj();
+        return this.bzb.Wj();
     }
 
     public b.a iN(String str) {
-        return this.bza.iN(str);
+        return this.bzb.iN(str);
     }
 
     public b.a aT(String str, String str2) {
-        return this.bza.aT(str, str2);
+        return this.bzb.aT(str, str2);
     }
 
     public synchronized a Wk() {
-        this.bza.Wp();
+        this.bzb.Wp();
         return this;
     }
 
@@ -61,16 +61,16 @@ public final class a {
                 z("SwanLaunch", "\n\n\n");
                 z("SwanLaunch", ">>>>>> SWAN Launch Log For " + a.this.id);
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : a.this.byZ.entrySet()) {
+                for (Map.Entry entry : a.this.bza.entrySet()) {
                     sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
                 }
-                for (b.a aVar : a.this.bza.Wo()) {
+                for (b.a aVar : a.this.bzb.Wo()) {
                     StringBuilder sb2 = new StringBuilder();
-                    for (String str : aVar.bzd) {
+                    for (String str : aVar.bze) {
                         sb2.append(str).append(HanziToPinyin.Token.SEPARATOR);
                     }
                     for (String str2 : aVar.msgs) {
-                        String Wn = a.this.bza.Wn();
+                        String Wn = a.this.bzb.Wn();
                         z(TextUtils.isEmpty(aVar.tag) ? Wn : aVar.tag, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", Wn, sb, sb2, str2));
                     }
                 }

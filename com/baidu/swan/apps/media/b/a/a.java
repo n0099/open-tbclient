@@ -104,7 +104,7 @@ public class a extends ab {
                 unitedSchemeEntity.result = XS;
                 return false;
             }
-            final b a2 = b.a(callbackHandler, unitedSchemeEntity, a.bDy, com.baidu.swan.apps.media.b.c.a.XT().XZ());
+            final b a2 = b.a(callbackHandler, unitedSchemeEntity, a.bDz, com.baidu.swan.apps.media.b.c.a.XT().XZ());
             final String lY = com.baidu.swan.apps.storage.b.lY(eVar.id);
             if (TextUtils.isEmpty(lY)) {
                 c.e("record", "none tmp path");
@@ -245,7 +245,7 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.media.b.b bVar, int i, String str) {
-        if (bVar == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bDD)) {
+        if (bVar == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.bDE)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", i);

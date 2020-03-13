@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<d> dWs = new ArrayList();
-    private long dWt = 0;
+    private List<d> dWF = new ArrayList();
+    private long dWG = 0;
 
-    public List<d> aWV() {
-        return this.dWs;
+    public List<d> aWW() {
+        return this.dWF;
     }
 
-    public long aWW() {
-        return this.dWt;
+    public long aWX() {
+        return this.dWG;
     }
 
     public void a(d dVar) {
-        if (this.dWs != null) {
-            this.dWs.add(dVar);
+        if (this.dWF != null) {
+            this.dWF.add(dVar);
             if (dVar != null) {
-                this.dWt += dVar.getCurrentSize();
+                this.dWG += dVar.getCurrentSize();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.dWs != null) {
-            this.dWs.remove(dVar);
+        if (this.dWF != null) {
+            this.dWF.remove(dVar);
             if (dVar != null) {
-                this.dWt -= dVar.getCurrentSize();
+                this.dWG -= dVar.getCurrentSize();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.dWs != null) {
-            d dVar = this.dWs.get(i);
+        if (this.dWF != null) {
+            d dVar = this.dWF.get(i);
             if (dVar != null) {
-                this.dWt -= dVar.getCurrentSize();
+                this.dWG -= dVar.getCurrentSize();
             }
-            this.dWs.remove(i);
+            this.dWF.remove(i);
         }
     }
 
-    public int aWX() {
-        if (this.dWs != null) {
-            return this.dWs.size();
+    public int aWY() {
+        if (this.dWF != null) {
+            return this.dWF.size();
         }
         return 0;
     }
 
     public d nX(int i) {
-        if (this.dWs != null) {
-            return this.dWs.get(i);
+        if (this.dWF != null) {
+            return this.dWF.get(i);
         }
         return null;
     }

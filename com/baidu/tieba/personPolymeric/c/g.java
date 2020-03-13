@@ -9,11 +9,11 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId joP = BdUniqueId.gen();
+    public static final BdUniqueId jpb = BdUniqueId.gen();
     public int giftNum = 0;
-    public boolean joQ;
-    public String joR;
-    public List<com.baidu.adp.widget.ListView.m> joS;
+    public boolean jpc;
+    public String jpd;
+    public List<com.baidu.adp.widget.ListView.m> jpe;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.sI = user.name;
-            this.joR = user.name_show;
+            this.jpd = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.joQ = false;
+                this.jpc = false;
             } else {
-                this.joQ = true;
+                this.jpc = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.joS = new ArrayList();
+            this.jpe = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.joS.add(oVar);
+                    this.jpe.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.isEmpty(this.joS);
+        return !v.isEmpty(this.jpe);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return joP;
+        return jpb;
     }
 }

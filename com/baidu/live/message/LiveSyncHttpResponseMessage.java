@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LiveSyncHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ap awO;
+    private ap awP;
 
     public ap yX() {
-        return this.awO;
+        return this.awP;
     }
 
     public LiveSyncHttpResponseMessage() {
@@ -19,8 +19,8 @@ public class LiveSyncHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awO = new ap();
-            this.awO.parserJson(jSONObject);
+            this.awP = new ap();
+            this.awP.parserJson(jSONObject);
             if (getError() == 0) {
                 com.baidu.live.c.pr().putString("key_live_sync_data", jSONObject.toString());
             }

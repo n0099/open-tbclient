@@ -24,11 +24,11 @@ import java.util.LinkedList;
 public class RecentlyVisitedForumModel extends BdBaseModel {
     public static final String CACHE_KEY = "recently_visited_forum";
     public static final String LOCAL_ACCOUNT = "local";
-    a fVZ;
+    a fWm;
     private boolean isFromCache;
-    private boolean fWa = false;
+    private boolean fWn = false;
     private boolean isLoading = false;
-    CustomMessageListener fWb = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.1
+    CustomMessageListener fWo = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,11 +42,11 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                RecentlyVisitedForumModel.this.byH();
+                RecentlyVisitedForumModel.this.byI();
             }
         }
     };
-    com.baidu.adp.framework.listener.a fWc = new com.baidu.adp.framework.listener.a(1003394, CmdConfigSocket.CMD_GET_HISTORY_FORUM) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.3
+    com.baidu.adp.framework.listener.a fWp = new com.baidu.adp.framework.listener.a(1003394, CmdConfigSocket.CMD_GET_HISTORY_FORUM) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RecentlyVisitedForumModel.this.isLoading = false;
@@ -59,7 +59,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             }
         }
     };
-    RecentlyVisitedForumData fVY = new RecentlyVisitedForumData();
+    RecentlyVisitedForumData fWl = new RecentlyVisitedForumData();
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -73,65 +73,65 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public RecentlyVisitedForumModel() {
         te();
         registerListener();
-        byH();
+        byI();
     }
 
     public void a(a aVar) {
-        this.fVZ = aVar;
+        this.fWm = aVar;
     }
 
     public void a(LinkedList<VisitedForumData> linkedList, boolean z) {
         if (linkedList != null) {
-            this.fVY.setForumData(linkedList);
-            this.fVY.rN(20);
+            this.fWl.setForumData(linkedList);
+            this.fWl.rN(20);
             this.isFromCache = z;
-            if (this.fVZ != null) {
-                this.fVZ.b(this.fVY.getForumData(), z);
+            if (this.fWm != null) {
+                this.fWm.b(this.fWl.getForumData(), z);
             }
         }
     }
 
     public void refresh() {
-        if (this.fVZ != null) {
-            this.fVZ.b(this.fVY.getForumData(), this.isFromCache);
+        if (this.fWm != null) {
+            this.fWm.b(this.fWl.getForumData(), this.isFromCache);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(VisitedForumData visitedForumData) {
         if (visitedForumData != null) {
-            this.fVY.a(visitedForumData);
-            this.fVY.rN(20);
+            this.fWl.a(visitedForumData);
+            this.fWl.rN(20);
             refresh();
         }
     }
 
     public void d(VisitedForumData visitedForumData) {
         int b;
-        if (visitedForumData != null && (b = this.fVY.b(visitedForumData)) >= 0) {
-            if (this.fVZ != null) {
-                this.fVZ.rS(b);
+        if (visitedForumData != null && (b = this.fWl.b(visitedForumData)) >= 0) {
+            if (this.fWm != null) {
+                this.fWm.rS(b);
             }
             e(visitedForumData);
         }
     }
 
     public void onPrimary() {
-        if (this.fVZ != null) {
-            this.fVZ.onNotify();
+        if (this.fWm != null) {
+            this.fWm.onNotify();
         }
         LoadData();
     }
 
     public void onPause() {
-        if (!this.fWa) {
-            byI();
+        if (!this.fWn) {
+            byJ();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fWc);
-        MessageManager.getInstance().unRegisterListener(this.fWb);
+        MessageManager.getInstance().unRegisterListener(this.fWp);
+        MessageManager.getInstance().unRegisterListener(this.fWo);
         MessageManager.getInstance().unRegisterListener(this.mAccountChangeListener);
     }
 
@@ -156,7 +156,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         }
         this.isLoading = true;
         RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-        recentlyVisitedForumRequestMessage.setForumData(this.fVY.getForumData());
+        recentlyVisitedForumRequestMessage.setForumData(this.fWl.getForumData());
         sendMessage(recentlyVisitedForumRequestMessage);
         return true;
     }
@@ -176,8 +176,8 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.fWc);
-        MessageManager.getInstance().registerListener(this.fWb);
+        MessageManager.getInstance().registerListener(this.fWp);
+        MessageManager.getInstance().registerListener(this.fWo);
         MessageManager.getInstance().registerListener(this.mAccountChangeListener);
     }
 
@@ -188,8 +188,8 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byH() {
-        this.fWa = true;
+    public void byI() {
+        this.fWn = true;
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.4
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -228,7 +228,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
             public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
-                RecentlyVisitedForumModel.this.fWa = false;
+                RecentlyVisitedForumModel.this.fWn = false;
                 if (recentlyVisitedForumData != null) {
                     RecentlyVisitedForumModel.this.a(recentlyVisitedForumData.getForumData(), true);
                 }
@@ -238,13 +238,13 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void byI() {
+    private void byJ() {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.5
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
                 l<String> cr = com.baidu.tbadk.core.c.a.aEB().cr("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? RecentlyVisitedForumModel.LOCAL_ACCOUNT : TbadkCoreApplication.getCurrentAccount());
-                if (cr != null && RecentlyVisitedForumModel.this.fVY != null) {
-                    cr.setForever(RecentlyVisitedForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(RecentlyVisitedForumModel.this.fVY));
+                if (cr != null && RecentlyVisitedForumModel.this.fWl != null) {
+                    cr.setForever(RecentlyVisitedForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(RecentlyVisitedForumModel.this.fWl));
                 }
                 return null;
             }

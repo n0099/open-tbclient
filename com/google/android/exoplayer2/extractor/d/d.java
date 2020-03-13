@@ -6,77 +6,77 @@ import java.io.IOException;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 final class d {
-    private final e mla = new e();
-    private final l mlr = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
-    private int mls = -1;
-    private int mlt;
-    private boolean mlu;
+    private int mlE;
+    private boolean mlF;
+    private final e mll = new e();
+    private final l mlC = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
+    private int mlD = -1;
 
     public void reset() {
-        this.mla.reset();
-        this.mlr.reset();
-        this.mls = -1;
-        this.mlu = false;
+        this.mll.reset();
+        this.mlC.reset();
+        this.mlD = -1;
+        this.mlF = false;
     }
 
     public boolean y(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         int i;
         com.google.android.exoplayer2.util.a.checkState(fVar != null);
-        if (this.mlu) {
-            this.mlu = false;
-            this.mlr.reset();
+        if (this.mlF) {
+            this.mlF = false;
+            this.mlC.reset();
         }
-        while (!this.mlu) {
-            if (this.mls < 0) {
-                if (!this.mla.c(fVar, true)) {
+        while (!this.mlF) {
+            if (this.mlD < 0) {
+                if (!this.mll.c(fVar, true)) {
                     return false;
                 }
-                int i2 = this.mla.mgR;
-                if ((this.mla.type & 1) == 1 && this.mlr.dzu() == 0) {
+                int i2 = this.mll.mhc;
+                if ((this.mll.type & 1) == 1 && this.mlC.dzv() == 0) {
                     i2 += JT(0);
-                    i = this.mlt + 0;
+                    i = this.mlE + 0;
                 } else {
                     i = 0;
                 }
                 fVar.Jv(i2);
-                this.mls = i;
+                this.mlD = i;
             }
-            int JT = JT(this.mls);
-            int i3 = this.mls + this.mlt;
+            int JT = JT(this.mlD);
+            int i3 = this.mlD + this.mlE;
             if (JT > 0) {
-                if (this.mlr.capacity() < this.mlr.dzu() + JT) {
-                    this.mlr.data = Arrays.copyOf(this.mlr.data, this.mlr.dzu() + JT);
+                if (this.mlC.capacity() < this.mlC.dzv() + JT) {
+                    this.mlC.data = Arrays.copyOf(this.mlC.data, this.mlC.dzv() + JT);
                 }
-                fVar.readFully(this.mlr.data, this.mlr.dzu(), JT);
-                this.mlr.setLimit(JT + this.mlr.dzu());
-                this.mlu = this.mla.mlD[i3 + (-1)] != 255;
+                fVar.readFully(this.mlC.data, this.mlC.dzv(), JT);
+                this.mlC.setLimit(JT + this.mlC.dzv());
+                this.mlF = this.mll.mlO[i3 + (-1)] != 255;
             }
-            this.mls = i3 == this.mla.mlB ? -1 : i3;
+            this.mlD = i3 == this.mll.mlM ? -1 : i3;
         }
         return true;
     }
 
-    public e dvk() {
-        return this.mla;
+    public e dvl() {
+        return this.mll;
     }
 
-    public l dvl() {
-        return this.mlr;
+    public l dvm() {
+        return this.mlC;
     }
 
-    public void dvm() {
-        if (this.mlr.data.length != 65025) {
-            this.mlr.data = Arrays.copyOf(this.mlr.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mlr.dzu()));
+    public void dvn() {
+        if (this.mlC.data.length != 65025) {
+            this.mlC.data = Arrays.copyOf(this.mlC.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mlC.dzv()));
         }
     }
 
     private int JT(int i) {
         int i2 = 0;
-        this.mlt = 0;
-        while (this.mlt + i < this.mla.mlB) {
-            int[] iArr = this.mla.mlD;
-            int i3 = this.mlt;
-            this.mlt = i3 + 1;
+        this.mlE = 0;
+        while (this.mlE + i < this.mll.mlM) {
+            int[] iArr = this.mll.mlO;
+            int i3 = this.mlE;
+            this.mlE = i3 + 1;
             int i4 = iArr[i3 + i];
             i2 += i4;
             if (i4 != 255) {

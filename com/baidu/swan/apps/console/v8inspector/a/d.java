@@ -13,17 +13,17 @@ public class d {
             return null;
         }
         if (com.baidu.swan.apps.console.v8inspector.websocket.a.o(aVar.headers)) {
-            aVar.blq = true;
+            aVar.blr = true;
             return new a(aVar);
         }
-        aVar.blq = false;
+        aVar.blr = false;
         return new b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b extends c.b {
-        private String bls;
+        private String blt;
 
         b(c.a aVar) {
             super(aVar);
@@ -45,10 +45,10 @@ public class d {
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
         protected String getContent() {
-            if (this.bls == null) {
-                this.bls = new com.baidu.swan.apps.console.v8inspector.b().toString();
+            if (this.blt == null) {
+                this.blt = new com.baidu.swan.apps.console.v8inspector.b().toString();
             }
-            return this.bls;
+            return this.blt;
         }
     }
 
@@ -67,7 +67,7 @@ public class d {
             hashMap.put("Upgrade", "websocket");
             hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
             try {
-                hashMap.put("Sec-WebSocket-Accept", com.baidu.swan.apps.console.v8inspector.websocket.a.gI(this.blr.headers.get("sec-websocket-key")));
+                hashMap.put("Sec-WebSocket-Accept", com.baidu.swan.apps.console.v8inspector.websocket.a.gI(this.bls.headers.get("sec-websocket-key")));
             } catch (NoSuchAlgorithmException e) {
                 if (DEBUG) {
                     Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);

@@ -10,10 +10,10 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId gYd = BdUniqueId.gen();
-    public static final Integer gYe = 6;
-    private boolean gYf;
-    private List<MetaData> gYg = new ArrayList();
+    public static final BdUniqueId gYp = BdUniqueId.gen();
+    public static final Integer gYq = 6;
+    private boolean gYr;
+    private List<MetaData> gYs = new ArrayList();
 
     public void bK(List<User> list) {
         if (list != null) {
@@ -21,7 +21,7 @@ public class b extends com.baidu.tbadk.core.data.a {
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.gYg.add(metaData);
+                this.gYs.add(metaData);
             }
         }
     }
@@ -30,16 +30,16 @@ public class b extends com.baidu.tbadk.core.data.a {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(gYe);
+        return concernData.recom_type.equals(gYq);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gYd;
+        return gYp;
     }
 
-    public List<MetaData> bNn() {
-        return this.gYg;
+    public List<MetaData> bNo() {
+        return this.gYs;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -52,11 +52,11 @@ public class b extends com.baidu.tbadk.core.data.a {
         return new al();
     }
 
-    public boolean bNo() {
-        return this.gYf;
+    public boolean bNp() {
+        return this.gYr;
     }
 
     public void my(boolean z) {
-        this.gYf = z;
+        this.gYr = z;
     }
 }

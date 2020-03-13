@@ -34,7 +34,7 @@ import com.baidu.tieba.R;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean cKF = true;
+    public static boolean cKG = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -80,7 +80,7 @@ public class d {
                 if (str.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str.substring(4));
                     return 0;
-                } else if (ag.vY(str) && str.toLowerCase().endsWith(".apk")) {
+                } else if (ag.vZ(str) && str.toLowerCase().endsWith(".apk")) {
                     d.ax(tbPageContext.getPageActivity(), str);
                     return 0;
                 } else if (str.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {

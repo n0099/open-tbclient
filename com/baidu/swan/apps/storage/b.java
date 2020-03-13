@@ -18,7 +18,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bVE = "/aiapp";
+    private static String bVF = "/aiapp";
 
     @Nullable
     public static String bp(String str, String str2) {
@@ -159,7 +159,7 @@ public final class b {
             if (DEBUG) {
                 Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
             }
-            return AppRuntime.getAppContext().getExternalFilesDir(null) + bVE;
+            return AppRuntime.getAppContext().getExternalFilesDir(null) + bVF;
         }
         return null;
     }
@@ -171,7 +171,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
         }
-        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + bVE + "/store" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + bVF + "/store" + File.separator + "aiapp_" + str;
         mb(str2);
         return str2;
     }
@@ -191,7 +191,7 @@ public final class b {
         }
         String lX = lX(absolutePath);
         if (lX != null) {
-            String str2 = absolutePath + bVE + "/usr" + File.separator + lX + File.separator + "aiapp_" + str;
+            String str2 = absolutePath + bVF + "/usr" + File.separator + lX + File.separator + "aiapp_" + str;
             mb(str2);
             return str2;
         }
@@ -215,7 +215,7 @@ public final class b {
         }
         if (!TextUtils.isEmpty(str2)) {
             String md5 = com.baidu.swan.d.d.toMd5(str2.getBytes(), false);
-            if (lW(str + bVE + File.separator + md5)) {
+            if (lW(str + bVF + File.separator + md5)) {
                 if (DEBUG) {
                     Log.d("StorageUtil", "the filesystem base path is under UID ");
                     return md5;
@@ -234,7 +234,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        return AppRuntime.getAppContext().getExternalCacheDir() + bVE;
+        return AppRuntime.getAppContext().getExternalCacheDir() + bVF;
     }
 
     public static String lY(String str) {
@@ -244,7 +244,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + bVE + "/tmp" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + bVF + "/tmp" + File.separator + "aiapp_" + str;
         mb(str2);
         return str2;
     }

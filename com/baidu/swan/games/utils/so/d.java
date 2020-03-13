@@ -8,7 +8,7 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long csT = -1;
+    private static long csU = -1;
 
     public static void aqh() {
         if (!com.baidu.swan.apps.w.a.UI().ID()) {
@@ -16,7 +16,7 @@ public final class d {
         } else if (!aql()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         } else {
-            com.baidu.swan.apps.w.a.UM().aa(a.csU);
+            com.baidu.swan.apps.w.a.UM().aa(a.csV);
         }
     }
 
@@ -34,12 +34,12 @@ public final class d {
         } else if (!aql()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext(), false);
         } else {
-            com.baidu.swan.apps.w.a.UM().aa(a.csU);
+            com.baidu.swan.apps.w.a.UM().aa(a.csV);
         }
     }
 
     private static boolean aql() {
-        boolean z = a.csU > -1;
+        boolean z = a.csV > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
@@ -68,7 +68,7 @@ public final class d {
     }
 
     public static String aqo() {
-        return com.baidu.swan.apps.w.a.UM().ab(a.csU);
+        return com.baidu.swan.apps.w.a.UM().ab(a.csV);
     }
 
     public static void S(Bundle bundle) {
@@ -77,25 +77,25 @@ public final class d {
 
     public static void P(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            csT = intent.getLongExtra("bundle_key_new_v8_so_switch", csT);
+            csU = intent.getLongExtra("bundle_key_new_v8_so_switch", csU);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + csT);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + csU);
         }
     }
 
     public static long HN() {
-        return a.csU;
+        return a.csV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final long csU = d.csT;
+        private static final long csV = d.csU;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + csU);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + csV);
             }
         }
     }

@@ -20,13 +20,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private final int ccY;
-    private final String ccZ;
+    private final int ccZ;
+    private final String cda;
 
     public h(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.ccY = 10008;
-        this.ccZ = "app not installed";
+        this.ccZ = 10008;
+        this.cda = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab

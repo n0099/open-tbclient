@@ -14,9 +14,8 @@ public class b {
         this.I = new HashMap<>(10);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
-    public static class a {
+    private static class a {
         private static b K = new b();
     }
 

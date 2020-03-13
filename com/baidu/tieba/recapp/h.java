@@ -28,5 +28,5 @@ public interface h {
 
     boolean c(Context context, String[] strArr);
 
-    boolean wS(String str);
+    boolean wT(String str);
 }

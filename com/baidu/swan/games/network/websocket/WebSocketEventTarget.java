@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected SocketTaskState cqF;
+    protected SocketTaskState cqG;
 
     /* loaded from: classes11.dex */
     protected enum SocketTaskState {
@@ -27,7 +27,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.cqF = SocketTaskState.IDLE;
+        this.cqG = SocketTaskState.IDLE;
     }
 
     private void o(String str, Object obj) {
@@ -39,7 +39,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.cqF = SocketTaskState.OPEN;
+        this.cqG = SocketTaskState.OPEN;
         o("open", new e.C0341e(new JSONObject(map)));
     }
 
@@ -57,13 +57,13 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.cqF = SocketTaskState.CLOSE;
+        this.cqG = SocketTaskState.CLOSE;
         o("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString(TiebaInitialize.LogFields.REASON)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.cqF == SocketTaskState.IDLE) {
+        if (this.cqG == SocketTaskState.IDLE) {
             o(BdStatsConstant.StatsType.ERROR, new e.b(th.getMessage()));
         }
     }

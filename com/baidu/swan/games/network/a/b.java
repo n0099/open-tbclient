@@ -27,17 +27,17 @@ import org.json.JSONException;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.games.network.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static AtomicLong bQO = new AtomicLong(System.currentTimeMillis());
+    private static AtomicLong bQP = new AtomicLong(System.currentTimeMillis());
     private long mTime;
 
     public b(com.baidu.swan.games.e.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.cqe = 2;
+        this.cqf = 2;
     }
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        if (this.cqf != null) {
+        if (this.cqg != null) {
             final String aoP = aoP();
             if (!TextUtils.isEmpty(aoP)) {
                 if (e.acF() == null) {
@@ -45,7 +45,7 @@ public class b extends com.baidu.swan.games.network.a {
                     return;
                 }
                 final com.baidu.swan.games.network.b acS = e.acF().acS();
-                String optString = this.cqf.optString("filePath");
+                String optString = this.cqg.optString("filePath");
                 if (!TextUtils.isEmpty(optString)) {
                     if (com.baidu.swan.d.c.ri(optString)) {
                         i(aoP, -1, "downloadFile:filePath is invalid");
@@ -65,7 +65,7 @@ public class b extends com.baidu.swan.games.network.a {
                 }
                 HashMap hashMap = new HashMap();
                 Request.Builder builder = new Request.Builder();
-                a(builder, this.cqf.oG(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
+                a(builder, this.cqg.oG(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
                 builder.url(aoP).tag(this.mTaskId).build();
                 String rh = com.baidu.swan.d.c.rh(aoP);
                 this.mTime = 0L;
@@ -216,9 +216,9 @@ public class b extends com.baidu.swan.games.network.a {
         String header = response.header("Content-Type", null);
         String str2 = "";
         if (!TextUtils.isEmpty(header)) {
-            str2 = o.bYy.containsKey(header) ? o.bYy.get(header) : str;
+            str2 = o.bYz.containsKey(header) ? o.bYz.get(header) : str;
         }
-        return f.WS().Wz().ml(String.valueOf(bQO.getAndIncrement()) + (TextUtils.isEmpty(str2) ? "" : "." + str2));
+        return f.WS().Wz().ml(String.valueOf(bQP.getAndIncrement()) + (TextUtils.isEmpty(str2) ? "" : "." + str2));
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x004a */

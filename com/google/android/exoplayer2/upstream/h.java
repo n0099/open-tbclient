@@ -4,14 +4,14 @@ import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 public final class h implements b {
-    private int lYq;
-    private final boolean mFR;
-    private final int mFS;
-    private final byte[] mFT;
-    private final a[] mFU;
-    private int mFV;
-    private int mFW;
-    private a[] mFX;
+    private int lYB;
+    private final boolean mGc;
+    private final int mGd;
+    private final byte[] mGe;
+    private final a[] mGf;
+    private int mGg;
+    private int mGh;
+    private a[] mGi;
 
     public h(boolean z, int i) {
         this(z, i, 0);
@@ -20,75 +20,75 @@ public final class h implements b {
     public h(boolean z, int i, int i2) {
         com.google.android.exoplayer2.util.a.checkArgument(i > 0);
         com.google.android.exoplayer2.util.a.checkArgument(i2 >= 0);
-        this.mFR = z;
-        this.mFS = i;
-        this.mFW = i2;
-        this.mFX = new a[i2 + 100];
+        this.mGc = z;
+        this.mGd = i;
+        this.mGh = i2;
+        this.mGi = new a[i2 + 100];
         if (i2 > 0) {
-            this.mFT = new byte[i2 * i];
+            this.mGe = new byte[i2 * i];
             for (int i3 = 0; i3 < i2; i3++) {
-                this.mFX[i3] = new a(this.mFT, i3 * i);
+                this.mGi[i3] = new a(this.mGe, i3 * i);
             }
         } else {
-            this.mFT = null;
+            this.mGe = null;
         }
-        this.mFU = new a[1];
+        this.mGf = new a[1];
     }
 
     public synchronized void reset() {
-        if (this.mFR) {
+        if (this.mGc) {
             LR(0);
         }
     }
 
     public synchronized void LR(int i) {
-        boolean z = i < this.lYq;
-        this.lYq = i;
+        boolean z = i < this.lYB;
+        this.lYB = i;
         if (z) {
             trim();
         }
     }
 
     @Override // com.google.android.exoplayer2.upstream.b
-    public synchronized a dyS() {
+    public synchronized a dyT() {
         a aVar;
-        this.mFV++;
-        if (this.mFW > 0) {
-            a[] aVarArr = this.mFX;
-            int i = this.mFW - 1;
-            this.mFW = i;
+        this.mGg++;
+        if (this.mGh > 0) {
+            a[] aVarArr = this.mGi;
+            int i = this.mGh - 1;
+            this.mGh = i;
             aVar = aVarArr[i];
-            this.mFX[this.mFW] = null;
+            this.mGi[this.mGh] = null;
         } else {
-            aVar = new a(new byte[this.mFS], 0);
+            aVar = new a(new byte[this.mGd], 0);
         }
         return aVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.b
     public synchronized void a(a aVar) {
-        this.mFU[0] = aVar;
-        a(this.mFU);
+        this.mGf[0] = aVar;
+        a(this.mGf);
     }
 
     @Override // com.google.android.exoplayer2.upstream.b
     public synchronized void a(a[] aVarArr) {
-        if (this.mFW + aVarArr.length >= this.mFX.length) {
-            this.mFX = (a[]) Arrays.copyOf(this.mFX, Math.max(this.mFX.length * 2, this.mFW + aVarArr.length));
+        if (this.mGh + aVarArr.length >= this.mGi.length) {
+            this.mGi = (a[]) Arrays.copyOf(this.mGi, Math.max(this.mGi.length * 2, this.mGh + aVarArr.length));
         }
         for (a aVar : aVarArr) {
-            com.google.android.exoplayer2.util.a.checkArgument(aVar.data == this.mFT || aVar.data.length == this.mFS);
-            a[] aVarArr2 = this.mFX;
-            int i = this.mFW;
-            this.mFW = i + 1;
+            com.google.android.exoplayer2.util.a.checkArgument(aVar.data == this.mGe || aVar.data.length == this.mGd);
+            a[] aVarArr2 = this.mGi;
+            int i = this.mGh;
+            this.mGh = i + 1;
             aVarArr2[i] = aVar;
         }
-        this.mFV -= aVarArr.length;
+        this.mGg -= aVarArr.length;
         notifyAll();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0051, code lost:
-        if (r0 < r7.mFW) goto L31;
+        if (r0 < r7.mGh) goto L31;
      */
     @Override // com.google.android.exoplayer2.upstream.b
     /*
@@ -98,21 +98,21 @@ public final class h implements b {
         int i;
         int i2 = 0;
         synchronized (this) {
-            int max = Math.max(0, v.dZ(this.lYq, this.mFS) - this.mFV);
-            if (max < this.mFW) {
-                if (this.mFT != null) {
-                    int i3 = this.mFW - 1;
+            int max = Math.max(0, v.dZ(this.lYB, this.mGd) - this.mGg);
+            if (max < this.mGh) {
+                if (this.mGe != null) {
+                    int i3 = this.mGh - 1;
                     while (i2 <= i3) {
-                        a aVar = this.mFX[i2];
-                        if (aVar.data == this.mFT) {
+                        a aVar = this.mGi[i2];
+                        if (aVar.data == this.mGe) {
                             i2++;
                         } else {
-                            a aVar2 = this.mFX[i3];
-                            if (aVar2.data != this.mFT) {
+                            a aVar2 = this.mGi[i3];
+                            if (aVar2.data != this.mGe) {
                                 i3--;
                             } else {
-                                this.mFX[i2] = aVar2;
-                                this.mFX[i3] = aVar;
+                                this.mGi[i2] = aVar2;
+                                this.mGi[i3] = aVar;
                                 i3--;
                                 i2++;
                             }
@@ -122,18 +122,18 @@ public final class h implements b {
                 } else {
                     i = max;
                 }
-                Arrays.fill(this.mFX, i, this.mFW, (Object) null);
-                this.mFW = i;
+                Arrays.fill(this.mGi, i, this.mGh, (Object) null);
+                this.mGh = i;
             }
         }
     }
 
-    public synchronized int dyY() {
-        return this.mFV * this.mFS;
+    public synchronized int dyZ() {
+        return this.mGg * this.mGd;
     }
 
     @Override // com.google.android.exoplayer2.upstream.b
-    public int dyT() {
-        return this.mFS;
+    public int dyU() {
+        return this.mGd;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     protected static final boolean DEBUG = b.DEBUG;
-    private ScrollView bjx;
+    private ScrollView bjy;
     private View mTargetView;
 
     public SwanAppComponentContainerView(@NonNull Context context) {
@@ -39,19 +39,19 @@ public class SwanAppComponentContainerView extends FrameLayout {
     /* JADX WARN: Type inference failed for: r1v2, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v3 */
     public void setHidden(boolean z) {
-        ScrollView scrollView = this.bjx;
+        ScrollView scrollView = this.bjy;
         ?? r1 = this;
         if (scrollView != null) {
-            r1 = this.bjx;
+            r1 = this.bjy;
         }
         r1.setVisibility(z ? 8 : 0);
     }
 
     public ScrollView getScrollView() {
-        return this.bjx;
+        return this.bjy;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.bjx = scrollView;
+        this.bjy = scrollView;
     }
 }

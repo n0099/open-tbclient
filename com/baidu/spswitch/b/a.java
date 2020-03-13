@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class a {
-    private static a bae;
-    private FragmentActivity bac;
-    private EditText bad;
+    private static a baf;
+    private FragmentActivity bad;
+    private EditText bae;
     private boolean isNightMode;
     private List<Fragment> mFragments;
 
@@ -34,14 +34,14 @@ public class a {
     }
 
     public static a Gq() {
-        if (bae == null) {
+        if (baf == null) {
             synchronized (a.class) {
-                if (bae == null) {
-                    bae = new a();
+                if (baf == null) {
+                    baf = new a();
                 }
             }
         }
-        return bae;
+        return baf;
     }
 
     public void a(Activity activity, ViewGroup viewGroup, View view, boolean z) {
@@ -54,14 +54,14 @@ public class a {
         if (!(activity instanceof FragmentActivity)) {
             throw new IllegalArgumentException("host activity must be fragment activity");
         }
-        this.bac = (FragmentActivity) activity;
+        this.bad = (FragmentActivity) activity;
         this.isNightMode = z;
         l(viewGroup);
         this.mFragments = new ArrayList();
         this.mFragments.add(new EmotionClassicFragment());
         ((ViewPager) viewGroup.findViewById(c.C0195c.vp_emotion_type)).setAdapter(new NoHorizontalScrollerVPAdapter(getFragmentManager(), this.mFragments));
-        this.bad = (EditText) view;
-        com.baidu.spswitch.emotion.c.bf(this.bac.getApplicationContext()).a(this.bad);
+        this.bae = (EditText) view;
+        com.baidu.spswitch.emotion.c.bf(this.bad.getApplicationContext()).a(this.bae);
     }
 
     private void l(ViewGroup viewGroup) {
@@ -77,7 +77,7 @@ public class a {
     }
 
     public void a(InterfaceC0194a interfaceC0194a) {
-        com.baidu.spswitch.emotion.c.bf(this.bac.getApplicationContext()).a(interfaceC0194a);
+        com.baidu.spswitch.emotion.c.bf(this.bad.getApplicationContext()).a(interfaceC0194a);
     }
 
     public boolean isNightMode() {
@@ -85,18 +85,18 @@ public class a {
     }
 
     private FragmentManager getFragmentManager() {
-        for (Fragment fragment : this.bac.getSupportFragmentManager().getFragments()) {
+        for (Fragment fragment : this.bad.getSupportFragmentManager().getFragments()) {
             if (fragment instanceof DialogFragment) {
                 return fragment.getChildFragmentManager();
             }
         }
-        return this.bac.getSupportFragmentManager();
+        return this.bad.getSupportFragmentManager();
     }
 
     public void dismiss() {
-        if (this.bac != null) {
-            com.baidu.spswitch.emotion.c.bf(this.bac.getApplicationContext()).dismiss();
+        if (this.bad != null) {
+            com.baidu.spswitch.emotion.c.bf(this.bad.getApplicationContext()).dismiss();
         }
-        bae = null;
+        baf = null;
     }
 }

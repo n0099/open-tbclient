@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GiftPanelTabView extends LinearLayout {
-    private static final String[] apn = {"礼物", "背包"};
-    private a apo;
-    private int apq;
+    private static final String[] apo = {"礼物", "背包"};
+    private a apq;
+    private int apr;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes3.dex */
@@ -29,13 +29,13 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.apo = aVar;
+        this.apq = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null) {
-            this.apq = i;
+            this.apr = i;
             Drawable background = childAt.getBackground();
             if (background instanceof GradientDrawable) {
                 ((GradientDrawable) background).setColor(-13815746);
@@ -63,8 +63,8 @@ public class GiftPanelTabView extends LinearLayout {
         }
         View findChild = findChild((int) this.mMotionEvent.getX(), (int) this.mMotionEvent.getY());
         this.mMotionEvent = null;
-        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.apq && this.apo != null) {
-            this.apo.bP(findPosByView);
+        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.apr && this.apq != null) {
+            this.apq.bP(findPosByView);
         }
         return true;
     }
@@ -96,7 +96,7 @@ public class GiftPanelTabView extends LinearLayout {
         textView.setIncludeFontPadding(false);
         textView.setPadding(i2, 0, i2, 0);
         textView.setSelected(false);
-        textView.setText(apn[i]);
+        textView.setText(apo[i]);
         textView.setTextColor(-13289398);
         textView.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds26);

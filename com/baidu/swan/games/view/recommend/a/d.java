@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class d {
-    private float ctZ;
     private float cua;
-    private a cub;
+    private float cub;
+    private a cuc;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -30,8 +30,8 @@ public class d {
         this.f1014top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);
         this.height = b(resources, a.d.swangame_recommend_button_default_height);
-        this.ctZ = this.width;
-        this.cua = this.height;
+        this.cua = this.width;
+        this.cub = this.height;
     }
 
     private float b(Resources resources, int i) {
@@ -42,14 +42,14 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.cub = aVar;
+        this.cuc = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.ctZ;
-        this.height = this.cua;
-        if (this.cub != null) {
-            this.cub.nS(str);
+        this.width = this.cua;
+        this.height = this.cub;
+        if (this.cuc != null) {
+            this.cuc.nS(str);
         }
     }
 

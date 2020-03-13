@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c axL;
-    private HttpMessageListener axJ = new HttpMessageListener(1021124) { // from class: com.baidu.live.v.c.1
+    private static volatile c axM;
+    private HttpMessageListener axK = new HttpMessageListener(1021124) { // from class: com.baidu.live.v.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -19,28 +19,28 @@ public class c {
                 if (httpResponsedMessage.getError() == 0) {
                     GetQuickGiftHttpResponseMessage getQuickGiftHttpResponseMessage = (GetQuickGiftHttpResponseMessage) httpResponsedMessage;
                     if (getQuickGiftHttpResponseMessage.yW() != null) {
-                        c.this.axM = getQuickGiftHttpResponseMessage.yW();
+                        c.this.axN = getQuickGiftHttpResponseMessage.yW();
                     }
                 }
             }
         }
     };
-    public o axM;
+    public o axN;
 
     public static c zq() {
-        if (axL == null) {
+        if (axM == null) {
             synchronized (c.class) {
-                if (axL == null) {
-                    axL = new c();
+                if (axM == null) {
+                    axM = new c();
                 }
             }
         }
-        return axL;
+        return axM;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.axJ);
-        this.axM = new o();
+        MessageManager.getInstance().registerListener(this.axK);
+        this.axN = new o();
     }
 
     public void zr() {

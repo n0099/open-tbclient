@@ -9,9 +9,9 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
     public int adJ;
     public int adK;
     public int adL;
-    public g apr;
-    public String aps;
-    public int apt;
+    public g aps;
+    public String apt;
+    public int apu;
     public long dubi;
     public String iconId;
     public long nonMemberT;
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.apr = new g();
-                this.apr.parseJson(optJSONObject3);
+                this.aps = new g();
+                this.aps.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -44,8 +44,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.dubi = optJSONObject.optLong("dubi");
             this.photoWidth = optJSONObject.optInt("photo_width");
             this.photoHeight = optJSONObject.optInt("photo_height");
-            this.aps = optJSONObject.optString("back_ground");
-            this.apt = optJSONObject.optInt("premium_user");
+            this.apt = optJSONObject.optString("back_ground");
+            this.apu = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
                 this.adJ = optJSONObject2.optInt("show_times_daily");
                 this.adK = optJSONObject2.optInt("continue_show_times");

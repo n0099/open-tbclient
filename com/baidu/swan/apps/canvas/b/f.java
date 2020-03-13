@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends a {
-    private int bhu;
     private int bhv;
-    private String bhw;
-    private float bhx;
+    private int bhw;
+    private String bhx;
+    private float bhy;
     public int mHeight;
     private int mWidth;
     private int mX;
@@ -24,18 +24,18 @@ public class f extends a {
 
     public f(String str) {
         super(str);
-        this.bhw = "png";
-        this.bhx = 1.0f;
+        this.bhx = "png";
+        this.bhy = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             this.mY = af.S((float) jSONObject.optDouble("y"));
             this.mWidth = af.S((float) jSONObject.optDouble("width"));
             this.mHeight = af.S((float) jSONObject.optDouble("height"));
-            this.bhu = af.S((float) jSONObject.optDouble("destWidth"));
-            this.bhv = af.S((float) jSONObject.optDouble("destHeight"));
-            this.bhw = jSONObject.optString("fileType");
-            this.bhx = (float) jSONObject.optDouble("quality");
+            this.bhv = af.S((float) jSONObject.optDouble("destWidth"));
+            this.bhw = af.S((float) jSONObject.optDouble("destHeight"));
+            this.bhx = jSONObject.optString("fileType");
+            this.bhy = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -59,10 +59,10 @@ public class f extends a {
             this.mY = (this.mY < 0 || this.mY >= height) ? 0 : this.mY;
             this.mWidth = (this.mWidth <= 0 || this.mX + this.mWidth > width) ? width - this.mX : this.mWidth;
             this.mHeight = (this.mHeight <= 0 || this.mY + this.mHeight > height) ? height - this.mY : this.mHeight;
-            this.bhu = this.bhu <= 0 ? this.mWidth : this.bhu;
-            this.bhv = this.bhv <= 0 ? this.mHeight : this.bhv;
-            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhu, this.bhv, createBitmap.getConfig());
-            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhu, this.bhv), new Paint());
+            this.bhv = this.bhv <= 0 ? this.mWidth : this.bhv;
+            this.bhw = this.bhw <= 0 ? this.mHeight : this.bhw;
+            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhv, this.bhw, createBitmap.getConfig());
+            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhv, this.bhw), new Paint());
             Bitmap.CompressFormat compressFormat = Kw() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
@@ -73,7 +73,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap2.compress(compressFormat, (int) (this.bhx * 100.0f), fileOutputStream);
+            createBitmap2.compress(compressFormat, (int) (this.bhy * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.d.c.closeSafely(fileOutputStream);
             return true;
@@ -91,7 +91,7 @@ public class f extends a {
     }
 
     public boolean Kw() {
-        return TextUtils.equals(this.bhw, "jpg");
+        return TextUtils.equals(this.bhx, "jpg");
     }
 
     public String Kx() {

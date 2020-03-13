@@ -9,10 +9,10 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes8.dex */
 public class b {
-    private TbPageContext cVh;
+    private TbPageContext cVi;
 
     public b(TbPageContext tbPageContext) {
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_CARD_INFO, TbConfig.SERVER_ADDRESS + "c/c/bawu/verifyIdentityInfo");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

@@ -9,7 +9,7 @@ import java.util.List;
 public class f {
     private static LinkedList<Integer> xS;
 
-    public static int aRW() {
+    public static int aRX() {
         return aM(null);
     }
 

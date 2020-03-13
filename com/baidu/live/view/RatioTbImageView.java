@@ -8,31 +8,31 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class RatioTbImageView extends TbImageView {
-    private float aEP;
+    private float aEQ;
 
     public RatioTbImageView(Context context) {
         super(context);
-        this.aEP = 1.7777778f;
+        this.aEQ = 1.7777778f;
     }
 
     public RatioTbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aEP = 1.7777778f;
+        this.aEQ = 1.7777778f;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_MHRatioTbImageView);
-        this.aEP = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
+        this.aEQ = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
         obtainStyledAttributes.recycle();
     }
 
     public RatioTbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aEP = 1.7777778f;
+        this.aEQ = 1.7777778f;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_MHRatioTbImageView);
-        this.aEP = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
+        this.aEQ = obtainStyledAttributes.getFloat(a.k.sdk_MHRatioTbImageView_sdk_wh_ratio, 1.7777778f);
         obtainStyledAttributes.recycle();
     }
 
     public void setWidthHeightRatio(float f) {
-        this.aEP = f;
+        this.aEQ = f;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,6 +42,6 @@ public class RatioTbImageView extends TbImageView {
         View.MeasureSpec.getMode(i2);
         int size = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
         int size2 = (View.MeasureSpec.getSize(i2) - getPaddingBottom()) - getPaddingTop();
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec((int) ((size / this.aEP) + 0.5f), 1073741824));
+        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec((int) ((size / this.aEQ) + 0.5f), 1073741824));
     }
 }

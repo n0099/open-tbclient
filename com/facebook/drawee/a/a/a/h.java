@@ -4,61 +4,61 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class h {
+    private boolean lKG;
     @Nullable
-    private String lKi;
+    private String lKt;
     @Nullable
-    private Object lKk;
+    private Object lKv;
     @Nullable
-    private ImageRequest lKl;
+    private ImageRequest lKw;
     @Nullable
-    private com.facebook.imagepipeline.g.f lKm;
-    private boolean lKv;
+    private com.facebook.imagepipeline.g.f lKx;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
     private boolean zA;
-    private long lKn = -1;
-    private long lKo = -1;
-    private long lKp = -1;
-    private long lKq = -1;
-    private long lKr = -1;
-    private long lKs = -1;
-    private long lKt = -1;
-    private int lKu = -1;
-    private int lKw = -1;
-    private int lKx = -1;
-    private int lKG = -1;
+    private long lKy = -1;
+    private long lKz = -1;
+    private long lKA = -1;
+    private long lKB = -1;
+    private long lKC = -1;
+    private long lKD = -1;
+    private long lKE = -1;
+    private int lKF = -1;
+    private int lKH = -1;
+    private int lKI = -1;
+    private int lKR = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.lKl = null;
-        this.lKk = null;
-        this.lKm = null;
-        this.lKn = -1L;
-        this.lKp = -1L;
-        this.lKq = -1L;
-        this.lKr = -1L;
-        this.lKs = -1L;
-        this.lKt = -1L;
-        this.lKu = -1;
+        this.lKw = null;
+        this.lKv = null;
+        this.lKx = null;
+        this.lKy = -1L;
+        this.lKA = -1L;
+        this.lKB = -1L;
+        this.lKC = -1L;
+        this.lKD = -1L;
+        this.lKE = -1L;
+        this.lKF = -1;
         this.mIsCanceled = false;
         this.zA = false;
-        this.lKv = false;
-        this.lKw = -1;
-        this.lKx = -1;
-        this.lKG = -1;
+        this.lKG = false;
+        this.lKH = -1;
+        this.lKI = -1;
+        this.lKR = -1;
     }
 
     public void Hy(int i) {
-        this.lKG = i;
+        this.lKR = i;
     }
 
-    public int dlQ() {
-        return this.lKG;
+    public int dlR() {
+        return this.lKR;
     }
 
-    public void OX(@Nullable String str) {
-        this.lKi = str;
+    public void OY(@Nullable String str) {
+        this.lKt = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,43 +66,43 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.lKl = imageRequest;
+        this.lKw = imageRequest;
     }
 
     public void bd(@Nullable Object obj) {
-        this.lKk = obj;
+        this.lKv = obj;
     }
 
     public void eY(long j) {
-        this.lKn = j;
+        this.lKy = j;
     }
 
     public void eZ(long j) {
-        this.lKo = j;
+        this.lKz = j;
     }
 
     public void fa(long j) {
-        this.lKp = j;
+        this.lKA = j;
     }
 
     public void fb(long j) {
-        this.lKq = j;
+        this.lKB = j;
     }
 
     public void fc(long j) {
-        this.lKr = j;
+        this.lKC = j;
     }
 
     public void fd(long j) {
-        this.lKs = j;
+        this.lKD = j;
     }
 
     public void fe(long j) {
-        this.lKt = j;
+        this.lKE = j;
     }
 
     public void Hz(int i) {
-        this.lKu = i;
+        this.lKF = i;
     }
 
     public void vb(boolean z) {
@@ -114,22 +114,22 @@ public class h {
     }
 
     public void vd(boolean z) {
-        this.lKv = z;
+        this.lKG = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.lKm = fVar;
+        this.lKx = fVar;
     }
 
     public void HA(int i) {
-        this.lKw = i;
+        this.lKH = i;
     }
 
     public void HB(int i) {
-        this.lKx = i;
+        this.lKI = i;
     }
 
-    public e dlR() {
-        return new e(this.lKi, this.mRequestId, this.lKl, this.lKk, this.lKm, this.lKn, this.lKo, this.lKp, this.lKq, this.lKr, this.lKs, this.lKt, this.lKu, this.mIsCanceled, this.zA, this.lKv, this.lKw, this.lKx);
+    public e dlS() {
+        return new e(this.lKt, this.mRequestId, this.lKw, this.lKv, this.lKx, this.lKy, this.lKz, this.lKA, this.lKB, this.lKC, this.lKD, this.lKE, this.lKF, this.mIsCanceled, this.zA, this.lKG, this.lKH, this.lKI);
     }
 }

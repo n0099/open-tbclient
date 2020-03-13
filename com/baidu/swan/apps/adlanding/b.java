@@ -19,21 +19,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a bbG;
-    private JSONObject bbH;
+    private com.baidu.swan.apps.media.c.a bbH;
+    private JSONObject bbI;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
         this.mContext = context;
-        this.bbH = jSONObject;
-        this.bbG = aVar;
+        this.bbI = jSONObject;
+        this.bbH = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bbG != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bbG.getDuration() / 1000));
+        if (this.bbH != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bbH.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -67,7 +67,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bbH != null ? this.bbH.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bbI != null ? this.bbI.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);

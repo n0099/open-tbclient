@@ -1,24 +1,24 @@
 package com.baidu.live.r;
 /* loaded from: classes3.dex */
 public class a {
-    private b axy;
-    private c axz;
+    private c axA;
+    private b axz;
 
     public static a zh() {
-        return C0093a.axA;
+        return C0093a.axB;
     }
 
     public void a(c cVar) {
-        this.axz = cVar;
+        this.axA = cVar;
     }
 
     public b zi() {
-        return this.axy;
+        return this.axz;
     }
 
     /* renamed from: com.baidu.live.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0093a {
-        private static final a axA = new a();
+        private static final a axB = new a();
     }
 }

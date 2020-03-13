@@ -13,11 +13,11 @@ import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.apps.runtime.e bqt;
+    private final com.baidu.swan.apps.runtime.e bqu;
 
     public g(com.baidu.swan.apps.runtime.e eVar) {
         super(eVar.id);
-        this.bqt = eVar;
+        this.bqu = eVar;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
@@ -65,8 +65,8 @@ public class g extends f {
                     com.baidu.swan.apps.performance.f.jP("startup").f(new UbcFlowEvent(str2));
                     return;
                 case 1:
-                    if (this.bqd != null) {
-                        this.bqd.add(new UbcFlowEvent(str2));
+                    if (this.bqe != null) {
+                        this.bqe.add(new UbcFlowEvent(str2));
                         return;
                     }
                     return;
@@ -88,7 +88,7 @@ public class g extends f {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle a = super.a(bundle, set);
         if (set.contains("get_launch_id")) {
-            a.putString("launch_id", this.bqt.acI().Wc());
+            a.putString("launch_id", this.bqu.acI().Wc());
         }
         return a;
     }
@@ -102,7 +102,7 @@ public class g extends f {
         com.baidu.swan.apps.ap.a my = new com.baidu.swan.apps.ap.a().aI(10L).aJ(aVar.errorNo).my(aVar.errorMsg);
         if (aVar.errorNo == 1013 && com.baidu.swan.apps.w.a.UD().a(this.mAppId, my)) {
             a(my, false);
-            a(this.bqt.acI(), my);
+            a(this.bqu.acI(), my);
             return;
         }
         a(my, true);
@@ -111,7 +111,7 @@ public class g extends f {
     @Override // com.baidu.swan.pms.a.g
     public void Pi() {
         super.Pi();
-        if (this.bqc != null) {
+        if (this.bqd != null) {
             Py();
         }
         a(new com.baidu.swan.apps.ap.a().aI(10L).aJ(2901L).my("同步获取-> Server无包"), true);
@@ -123,35 +123,35 @@ public class g extends f {
             Log.i("SwanAppPkgSyncDownloadCallback", "onDownloadProcessComplete: ");
         }
         com.baidu.swan.apps.performance.f.jP("startup").f(new UbcFlowEvent("aps_end_download")).k("type", "0");
-        this.bqd.add(new UbcFlowEvent("na_start_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.ap.a Px = Px();
-        this.bqd.add(new UbcFlowEvent("na_end_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_end_update_db"));
         if (Px == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgSyncDownloadCallback", "同步获取-> DB 存储成功");
             }
             com.baidu.swan.apps.x.b.b PA = PA();
-            if (this.bqa != null && this.bqa.category == 0) {
+            if (this.bqb != null && this.bqb.category == 0) {
                 PA.b(com.baidu.swan.apps.swancore.b.gA(0));
                 PA.fl(1);
             }
-            if (this.bqa != null && this.bqa.category == 1) {
+            if (this.bqb != null && this.bqb.category == 1) {
                 PA.b(com.baidu.swan.apps.swancore.b.gA(1));
                 PA.fl(1);
             }
-            if (this.bqb != null && this.bqb.category == 0) {
+            if (this.bqc != null && this.bqc.category == 0) {
                 PA.c(com.baidu.swan.apps.extcore.b.eO(0));
                 PA.fl(2);
             }
-            if (this.bqb != null && this.bqb.category == 1) {
+            if (this.bqc != null && this.bqc.category == 1) {
                 PA.c(com.baidu.swan.apps.extcore.b.eO(1));
                 PA.fl(2);
             }
-            if (this.bqf != null) {
-                PA.cO(this.bqf.independent);
-                PA.iI(this.bqf.pkgName);
+            if (this.bqg != null) {
+                PA.cO(this.bqg.independent);
+                PA.iI(this.bqg.pkgName);
             }
-            c(this.bqc);
+            c(this.bqd);
             aB("main_download", "0");
             return;
         }
@@ -190,7 +190,7 @@ public class g extends f {
     }
 
     public com.baidu.swan.apps.x.b.b PA() {
-        return this.bqt.acI();
+        return this.bqu.acI();
     }
 
     private void a(com.baidu.swan.apps.x.b.b bVar, com.baidu.swan.apps.ap.a aVar) {

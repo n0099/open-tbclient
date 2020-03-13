@@ -21,11 +21,11 @@ import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
 /* loaded from: classes8.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private RoundAndShadowLinearLayout fFY;
-    private View fFZ;
-    private TextView fGa;
-    private TrapezoidButton fGb;
-    private TextView fGc;
+    private RoundAndShadowLinearLayout fGl;
+    private View fGm;
+    private TextView fGn;
+    private TrapezoidButton fGo;
+    private TextView fGp;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -50,31 +50,31 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     private void ns() {
-        this.fFY = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.fFY.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
-        this.fGa = (TextView) findViewById(R.id.vote_num);
-        this.fGb = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.fGc = (TextView) findViewById(R.id.vote_button_tv);
-        this.fFZ = findViewById(R.id.button_container);
+        this.fGl = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.fGl.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
+        this.fGn = (TextView) findViewById(R.id.vote_num);
+        this.fGo = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.fGp = (TextView) findViewById(R.id.vote_button_tv);
+        this.fGm = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.fCh == null || this.fFR == null || this.status < 0) {
+        if (this.fCu == null || this.fGe == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.fGa.setText(aq.numFormatOverWan(this.fFR.btW()) + "票");
-        this.fGc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.fGn.setText(aq.numFormatOverWan(this.fGe.btX()) + "票");
+        this.fGp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bc.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
                     new an("c13441").aGz();
-                    if (VoteAreaLayout.this.fFR != null && fVar != null && fVar.bui() != null) {
-                        if (fVar.bui().buf()) {
+                    if (VoteAreaLayout.this.fGe != null && fVar != null && fVar.buj() != null) {
+                        if (fVar.buj().bug()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.fFR.getUid(), fVar.getFid(), VoteAreaLayout.this.fFR.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.fGe.getUid(), fVar.getFid(), VoteAreaLayout.this.fGe.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.fFR.btY()) {
-            this.fGc.setEnabled(false);
+        if (this.fGe.btZ()) {
+            this.fGp.setEnabled(false);
         } else {
-            this.fGc.setEnabled(true);
+            this.fGp.setEnabled(true);
         }
     }
 
     public void pk(int i) {
-        am.setViewTextColor(this.fGa, R.color.cp_link_tip_b, 1, i);
-        am.a(this.fFZ, (int) R.color.cp_link_tip_b, 0.2f, i);
-        am.setViewTextColor(this.fGc, R.color.cp_cont_a, 1, i);
-        am.setBackgroundResource(this.fGc, R.drawable.bar_select_bg_gradient, i);
+        am.setViewTextColor(this.fGn, R.color.cp_link_tip_b, 1, i);
+        am.a(this.fGm, (int) R.color.cp_link_tip_b, 0.2f, i);
+        am.setViewTextColor(this.fGp, R.color.cp_cont_a, 1, i);
+        am.setBackgroundResource(this.fGp, R.drawable.bar_select_bg_gradient, i);
     }
 }

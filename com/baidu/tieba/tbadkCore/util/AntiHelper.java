@@ -123,7 +123,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            cLQ();
+            cLR();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -321,7 +321,7 @@ public class AntiHelper {
         }
     }
 
-    private static void cLQ() {
+    private static void cLR() {
         com.baidu.tbadk.core.sharedPref.b.aFD().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
     }
 
@@ -350,7 +350,7 @@ public class AntiHelper {
     }
 
     public static boolean aY(bj bjVar) {
-        return bjVar != null && bjVar.cTL && bjVar.aEi();
+        return bjVar != null && bjVar.cTM && bjVar.aEi();
     }
 
     public static boolean d(Context context, bj bjVar) {

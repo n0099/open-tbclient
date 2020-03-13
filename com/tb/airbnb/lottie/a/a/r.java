@@ -8,23 +8,23 @@ import java.util.List;
 public class r implements b, a.InterfaceC0738a {
     private final List<a.InterfaceC0738a> listeners = new ArrayList();
     private final String name;
-    private final ShapeTrimPath.Type nqf;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqg;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqh;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqi;
+    private final ShapeTrimPath.Type nqq;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqr;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqs;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nqt;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.nqf = shapeTrimPath.dGF();
-        this.nqg = shapeTrimPath.dHy().dGP();
-        this.nqh = shapeTrimPath.dHx().dGP();
-        this.nqi = shapeTrimPath.dHt().dGP();
-        aVar.a(this.nqg);
-        aVar.a(this.nqh);
-        aVar.a(this.nqi);
-        this.nqg.b(this);
-        this.nqh.b(this);
-        this.nqi.b(this);
+        this.nqq = shapeTrimPath.dGG();
+        this.nqr = shapeTrimPath.dHz().dGQ();
+        this.nqs = shapeTrimPath.dHy().dGQ();
+        this.nqt = shapeTrimPath.dHu().dGQ();
+        aVar.a(this.nqr);
+        aVar.a(this.nqs);
+        aVar.a(this.nqt);
+        this.nqr.b(this);
+        this.nqs.b(this);
+        this.nqt.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0738a
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0738a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dGF() {
-        return this.nqf;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dGG() {
-        return this.nqg;
+    public ShapeTrimPath.Type dGG() {
+        return this.nqq;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> dGH() {
-        return this.nqh;
+        return this.nqr;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> dGI() {
-        return this.nqi;
+        return this.nqs;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dGJ() {
+        return this.nqt;
     }
 }

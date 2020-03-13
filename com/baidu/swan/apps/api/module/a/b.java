@@ -137,19 +137,19 @@ public class b extends c {
 
     /* loaded from: classes11.dex */
     public static class a {
-        public final boolean bcX;
-        public final long bcY;
+        public final boolean bcY;
+        public final long bcZ;
 
         public a(@NonNull JSONObject jSONObject) {
-            this.bcX = jSONObject.has("timeout");
-            this.bcY = jSONObject.optLong("timeout", 0L);
-            if (this.bcY < 0) {
+            this.bcY = jSONObject.has("timeout");
+            this.bcZ = jSONObject.optLong("timeout", 0L);
+            if (this.bcZ < 0) {
                 com.baidu.swan.apps.console.c.w("Api-Login", "timeout is a minus：" + toString());
             }
         }
 
         public String toString() {
-            return "LoginTimeoutConfig{enableTimeout=" + this.bcX + ", timeoutMills=" + this.bcY + '}';
+            return "LoginTimeoutConfig{enableTimeout=" + this.bcY + ", timeoutMills=" + this.bcZ + '}';
         }
     }
 

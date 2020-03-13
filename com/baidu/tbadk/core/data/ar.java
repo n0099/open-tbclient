@@ -5,7 +5,7 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class ar {
-    private ArrayList<a> cPR;
+    private ArrayList<a> cPS;
     private int total;
 
     /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class ar {
         if (pbPresent != null) {
             this.total = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.cPR = new ArrayList<>();
+                this.cPS = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
@@ -28,7 +28,7 @@ public class ar {
                         aVar.giftName = pbPresentList.gift_name;
                         aVar.thumbnailUrl = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.cPR.add(aVar);
+                        this.cPS.add(aVar);
                     }
                 }
             }
@@ -44,10 +44,10 @@ public class ar {
     }
 
     public ArrayList<a> aBm() {
-        return this.cPR;
+        return this.cPS;
     }
 
     public void w(ArrayList<a> arrayList) {
-        this.cPR = arrayList;
+        this.cPS = arrayList;
     }
 }

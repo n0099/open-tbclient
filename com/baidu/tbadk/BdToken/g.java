@@ -8,19 +8,19 @@ import org.json.JSONObject;
 import tbclient.DecryptCode.DataRes;
 /* loaded from: classes.dex */
 public class g {
-    public String cIB;
-    public Integer cIC;
+    public String cIC;
+    public Integer cID;
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(R.string.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
-    private static final String cIx = TbadkCoreApplication.getInst().getString(R.string.cancel);
-    private static final String cIy = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
+    private static final String cIy = TbadkCoreApplication.getInst().getString(R.string.cancel);
+    private static final String cIz = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String cIz = "";
     private String cIA = "";
+    private String cIB = "";
     public String appId = "";
     public String appName = "";
 
@@ -36,15 +36,15 @@ public class g {
                     this.appId = jSONObject.optString("appid");
                     this.appName = jSONObject.optString("appname");
                     String optString = jSONObject.optString("url");
-                    this.cIC = Integer.valueOf(jSONObject.optInt("is_game"));
-                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.cIC);
-                    this.cIB = jSONObject.optString("swan_app_id");
+                    this.cID = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.cID);
+                    this.cIC = jSONObject.optString("swan_app_id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-            this.cIz = StringUtils.isNull(dataRes.btn_sure) ? cIy : dataRes.btn_sure;
-            this.cIA = StringUtils.isNull(dataRes.btn_cancel) ? cIx : dataRes.btn_cancel;
+            this.cIA = StringUtils.isNull(dataRes.btn_sure) ? cIz : dataRes.btn_sure;
+            this.cIB = StringUtils.isNull(dataRes.btn_cancel) ? cIy : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -53,8 +53,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.cIz = dataRes.btn_sure;
-            this.cIA = dataRes.btn_cancel;
+            this.cIA = dataRes.btn_sure;
+            this.cIB = dataRes.btn_cancel;
         }
     }
 
@@ -75,11 +75,11 @@ public class g {
     }
 
     public String axR() {
-        return this.cIz;
+        return this.cIA;
     }
 
     public String axS() {
-        return this.cIA;
+        return this.cIB;
     }
 
     public int axT() {

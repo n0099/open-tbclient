@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cqv;
+    private a cqw;
     private final Object mLock = new Object();
-    private boolean cqt = true;
-    private List<b> cqu = new ArrayList(3);
+    private boolean cqu = true;
+    private List<b> cqv = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.cqv = aVar;
+        this.cqw = aVar;
     }
 
     public void aoU() {
         synchronized (this.mLock) {
-            this.cqt = false;
+            this.cqu = false;
             aoV();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.cqt) {
+            if (this.cqu) {
                 f(1, obj);
             } else {
-                this.cqv.a(new b(1, obj));
+                this.cqw.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.cqt) {
+            if (this.cqu) {
                 f(2, bVar);
             } else {
-                this.cqv.a(new b(2, bVar));
+                this.cqw.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.cqt) {
+            if (this.cqu) {
                 f(3, jSEvent);
             } else {
-                this.cqv.a(new b(3, jSEvent));
+                this.cqw.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
     private void aoV() {
-        for (b bVar : this.cqu) {
-            this.cqv.a(bVar);
+        for (b bVar : this.cqv) {
+            this.cqw.a(bVar);
         }
-        this.cqu.clear();
+        this.cqv.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.cqu.add(new b(i, obj));
+            this.cqv.add(new b(i, obj));
         }
     }
 }

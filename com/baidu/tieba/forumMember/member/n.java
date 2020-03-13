@@ -14,19 +14,19 @@ import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes10.dex */
 public class n extends v.a {
-    public LinearLayout glc;
-    public LinearLayout gld;
-    public LinearLayout gle;
-    public LinearLayout glf;
-    public HeadImageView glg;
-    public HeadImageView glh;
-    public HeadImageView gli;
-    public HeadImageView glj;
-    public TextView glk;
-    public TextView gll;
-    public TextView glm;
-    public TextView gln;
-    public NoPressedLinearLayout glo;
+    public TextView glA;
+    public NoPressedLinearLayout glB;
+    public LinearLayout glp;
+    public LinearLayout glq;
+    public LinearLayout glr;
+    public LinearLayout gls;
+    public HeadImageView glt;
+    public HeadImageView glu;
+    public HeadImageView glv;
+    public HeadImageView glw;
+    public TextView glx;
+    public TextView gly;
+    public TextView glz;
     public TextView mTitleView;
 
     public n(View view, View.OnClickListener onClickListener) {
@@ -35,35 +35,35 @@ public class n extends v.a {
         int color = am.getColor(R.color.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.glc = (LinearLayout) view.findViewById(R.id.member1);
-        this.glg = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.glk = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.glg.setIsRound(true);
-        this.glg.setBorderColor(color);
-        this.glg.setBorderWidth(dimens);
-        this.glg.setOnClickListener(onClickListener);
-        this.gld = (LinearLayout) view.findViewById(R.id.member2);
-        this.glh = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.gll = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.glh.setIsRound(true);
-        this.glh.setBorderColor(color);
-        this.glh.setBorderWidth(dimens);
-        this.glh.setOnClickListener(onClickListener);
-        this.gle = (LinearLayout) view.findViewById(R.id.member3);
-        this.gli = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.glm = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.gli.setIsRound(true);
-        this.gli.setBorderColor(color);
-        this.gli.setBorderWidth(dimens);
-        this.gli.setOnClickListener(onClickListener);
-        this.glf = (LinearLayout) view.findViewById(R.id.member4);
-        this.glj = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.gln = (TextView) view.findViewById(R.id.textview_user_name4);
-        this.glj.setIsRound(true);
-        this.glj.setBorderColor(color);
-        this.glj.setBorderWidth(dimens);
-        this.glj.setOnClickListener(onClickListener);
-        this.glo = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.glp = (LinearLayout) view.findViewById(R.id.member1);
+        this.glt = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.glx = (TextView) view.findViewById(R.id.textview_user_name1);
+        this.glt.setIsRound(true);
+        this.glt.setBorderColor(color);
+        this.glt.setBorderWidth(dimens);
+        this.glt.setOnClickListener(onClickListener);
+        this.glq = (LinearLayout) view.findViewById(R.id.member2);
+        this.glu = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.gly = (TextView) view.findViewById(R.id.textview_user_name2);
+        this.glu.setIsRound(true);
+        this.glu.setBorderColor(color);
+        this.glu.setBorderWidth(dimens);
+        this.glu.setOnClickListener(onClickListener);
+        this.glr = (LinearLayout) view.findViewById(R.id.member3);
+        this.glv = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.glz = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.glv.setIsRound(true);
+        this.glv.setBorderColor(color);
+        this.glv.setBorderWidth(dimens);
+        this.glv.setOnClickListener(onClickListener);
+        this.gls = (LinearLayout) view.findViewById(R.id.member4);
+        this.glw = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.glA = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.glw.setIsRound(true);
+        this.glw.setBorderColor(color);
+        this.glw.setBorderWidth(dimens);
+        this.glw.setOnClickListener(onClickListener);
+        this.glB = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -76,32 +76,32 @@ public class n extends v.a {
             }
             switch (i) {
                 case 0:
-                    this.glg.startLoad(str, 12, false);
-                    this.glg.setTag(bawuRoleInfoPub);
-                    this.glg.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.glk.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.glc.setVisibility(0);
+                    this.glt.startLoad(str, 12, false);
+                    this.glt.setTag(bawuRoleInfoPub);
+                    this.glt.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.glx.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.glp.setVisibility(0);
                     return;
                 case 1:
-                    this.glh.startLoad(str, 12, false);
-                    this.glh.setTag(bawuRoleInfoPub);
-                    this.glh.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gll.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.gld.setVisibility(0);
+                    this.glu.startLoad(str, 12, false);
+                    this.glu.setTag(bawuRoleInfoPub);
+                    this.glu.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.gly.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.glq.setVisibility(0);
                     return;
                 case 2:
-                    this.gli.startLoad(str, 12, false);
-                    this.gli.setTag(bawuRoleInfoPub);
-                    this.gli.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.glm.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.gle.setVisibility(0);
+                    this.glv.startLoad(str, 12, false);
+                    this.glv.setTag(bawuRoleInfoPub);
+                    this.glv.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.glz.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.glr.setVisibility(0);
                     return;
                 case 3:
-                    this.glj.startLoad(str, 12, false);
-                    this.glj.setTag(bawuRoleInfoPub);
-                    this.glj.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gln.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.glf.setVisibility(0);
+                    this.glw.startLoad(str, 12, false);
+                    this.glw.setTag(bawuRoleInfoPub);
+                    this.glw.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.glA.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.gls.setVisibility(0);
                     return;
                 default:
                     return;
@@ -110,21 +110,21 @@ public class n extends v.a {
     }
 
     public void kX(boolean z) {
-        if (this.glg.getVisibility() == 0) {
-            this.glg.setIsNight(z);
-            this.glg.refresh();
+        if (this.glt.getVisibility() == 0) {
+            this.glt.setIsNight(z);
+            this.glt.refresh();
         }
-        if (this.glh.getVisibility() == 0) {
-            this.glh.setIsNight(z);
-            this.glh.refresh();
+        if (this.glu.getVisibility() == 0) {
+            this.glu.setIsNight(z);
+            this.glu.refresh();
         }
-        if (this.gli.getVisibility() == 0) {
-            this.gli.setIsNight(z);
-            this.gli.refresh();
+        if (this.glv.getVisibility() == 0) {
+            this.glv.setIsNight(z);
+            this.glv.refresh();
         }
-        if (this.glj.getVisibility() == 0) {
-            this.glj.setIsNight(z);
-            this.glj.refresh();
+        if (this.glw.getVisibility() == 0) {
+            this.glw.setIsNight(z);
+            this.glw.refresh();
         }
     }
 }

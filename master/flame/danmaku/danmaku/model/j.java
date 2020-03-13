@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class j {
-    public int nGa = 0;
-    public int nGb = 0;
-    public int nGc = 0;
-    public int nGd = 0;
-    public int nGe = 0;
-    public int nGf = 0;
+    public int nGl = 0;
+    public int nGm = 0;
+    public int nGn = 0;
+    public int nGo = 0;
+    public int nGp = 0;
+    public int nGq = 0;
 
     public void resetAll() {
-        this.nGb = 0;
-        this.nGa = 0;
-        this.nGc = 0;
-        this.nGd = 0;
-        this.nGe = 0;
-        this.nGf = 0;
-    }
-
-    public void dLU() {
-        this.nGb++;
+        this.nGm = 0;
+        this.nGl = 0;
+        this.nGn = 0;
+        this.nGo = 0;
+        this.nGp = 0;
+        this.nGq = 0;
     }
 
     public void dLV() {
-        this.nGa++;
+        this.nGm++;
     }
 
     public void dLW() {
-        this.nGc++;
+        this.nGl++;
     }
 
     public void dLX() {
-        this.nGd++;
+        this.nGn++;
     }
 
     public void dLY() {
-        this.nGe++;
+        this.nGo++;
     }
 
     public void dLZ() {
-        this.nGf++;
+        this.nGp++;
+    }
+
+    public void dMa() {
+        this.nGq++;
     }
 }

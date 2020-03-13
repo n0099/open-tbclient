@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nqJ;
-    private final m<PointF, PointF> nqK;
-    private final g nqL;
-    private final b nqM;
-    private final d nqN;
+    private final e nqU;
+    private final m<PointF, PointF> nqV;
+    private final g nqW;
+    private final b nqX;
+    private final d nqY;
     @Nullable
-    private final b nqO;
+    private final b nqZ;
     @Nullable
-    private final b nqP;
+    private final b nra;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nqJ = eVar;
-        this.nqK = mVar;
-        this.nqL = gVar;
-        this.nqM = bVar;
-        this.nqN = dVar;
-        this.nqO = bVar2;
-        this.nqP = bVar3;
+        this.nqU = eVar;
+        this.nqV = mVar;
+        this.nqW = gVar;
+        this.nqX = bVar;
+        this.nqY = dVar;
+        this.nqZ = bVar2;
+        this.nra = bVar3;
     }
 
-    public e dGR() {
-        return this.nqJ;
+    public e dGS() {
+        return this.nqU;
     }
 
-    public m<PointF, PointF> dGS() {
-        return this.nqK;
+    public m<PointF, PointF> dGT() {
+        return this.nqV;
     }
 
-    public g dGT() {
-        return this.nqL;
+    public g dGU() {
+        return this.nqW;
     }
 
-    public b dGU() {
-        return this.nqM;
+    public b dGV() {
+        return this.nqX;
     }
 
-    public d dGV() {
-        return this.nqN;
-    }
-
-    @Nullable
-    public b dGW() {
-        return this.nqO;
+    public d dGW() {
+        return this.nqY;
     }
 
     @Nullable
     public b dGX() {
-        return this.nqP;
+        return this.nqZ;
     }
 
-    public o dGY() {
+    @Nullable
+    public b dGY() {
+        return this.nra;
+    }
+
+    public o dGZ() {
         return new o(this);
     }
 

@@ -3,24 +3,24 @@ package com.baidu.mobads;
 import com.baidu.mobads.VideoAdView;
 /* loaded from: classes10.dex */
 public class VideoAdRequest {
-    private VideoAdView.VideoDuration aOU;
-    private VideoAdView.VideoSize aOV;
+    private VideoAdView.VideoDuration aOV;
+    private VideoAdView.VideoSize aOW;
     private boolean b;
 
     private VideoAdRequest(Builder builder) {
-        this.aOU = builder.aOU;
-        this.b = builder.b;
         this.aOV = builder.aOV;
+        this.b = builder.b;
+        this.aOW = builder.aOW;
     }
 
     /* loaded from: classes10.dex */
     public static class Builder {
-        private VideoAdView.VideoDuration aOU;
-        private VideoAdView.VideoSize aOV;
+        private VideoAdView.VideoDuration aOV;
+        private VideoAdView.VideoSize aOW;
         private boolean b = false;
 
         public Builder setVideoDuration(VideoAdView.VideoDuration videoDuration) {
-            this.aOU = videoDuration;
+            this.aOV = videoDuration;
             return this;
         }
 
@@ -30,7 +30,7 @@ public class VideoAdRequest {
         }
 
         public Builder setVideoSize(VideoAdView.VideoSize videoSize) {
-            this.aOV = videoSize;
+            this.aOW = videoSize;
             return this;
         }
 

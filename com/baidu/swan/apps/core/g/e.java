@@ -11,22 +11,22 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 public class e implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d bpD;
-    private String bpE;
+    private d bpE;
     private String bpF;
-    private boolean bpG;
+    private String bpG;
     private boolean bpH;
+    private boolean bpI;
 
     public e(Context context) {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void loadUrl(String str) {
-        if (this.bpD == null) {
+        if (this.bpE == null) {
             final String QG = com.baidu.swan.apps.core.k.d.Qw().QG();
-            this.bpD = new d(QG, "runtime/index.js");
-            this.bpE = str;
-            this.bpD.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
+            this.bpE = new d(QG, "runtime/index.js");
+            this.bpF = str;
+            this.bpE.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
                 @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
                 public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
                     if (e.DEBUG) {
@@ -36,9 +36,9 @@ public class e implements a {
                         File file = new File(cacheInfo.jsPath);
                         try {
                             if (file.getPath().startsWith(new File(QG).getCanonicalPath())) {
-                                e.this.bpG = true;
-                            } else if (!TextUtils.isEmpty(e.this.bpF) && file.getCanonicalPath().startsWith(new File(e.this.bpF).getCanonicalPath())) {
                                 e.this.bpH = true;
+                            } else if (!TextUtils.isEmpty(e.this.bpG) && file.getCanonicalPath().startsWith(new File(e.this.bpG).getCanonicalPath())) {
+                                e.this.bpI = true;
                             }
                         } catch (IOException e) {
                             if (e.DEBUG) {
@@ -55,12 +55,12 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(final com.baidu.swan.apps.core.b bVar) {
-        if (this.bpD != null) {
-            this.bpD.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
+        if (this.bpE != null) {
+            this.bpE.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
                 @Override // com.baidu.swan.apps.core.g.d.b
                 public void c(com.baidu.swan.games.e.a aVar) {
                     if (bVar != null) {
-                        bVar.em(e.this.bpE);
+                        bVar.em(e.this.bpF);
                     }
                 }
             });
@@ -69,19 +69,19 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void destroy() {
-        if (this.bpD != null) {
-            this.bpD.finish();
+        if (this.bpE != null) {
+            this.bpE.finish();
         }
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void H(Activity activity) {
-        this.bpD.H(activity);
+        this.bpE.H(activity);
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public com.baidu.swan.apps.core.container.a JD() {
-        return this.bpD.getV8Engine();
+        return this.bpE.getV8Engine();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
@@ -90,12 +90,12 @@ public class e implements a {
             if (DEBUG) {
                 Log.d("V8MasterAdapter", "pathList item: " + aVar.appPath);
             }
-            this.bpF = aVar.appPath;
-            this.bpD.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ax("appjs", aVar.appPath));
+            this.bpG = aVar.appPath;
+            this.bpE.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.ax("appjs", aVar.appPath));
         }
     }
 
     public int Pg() {
-        return com.baidu.swan.apps.core.b.a.j(this.bpG, this.bpH);
+        return com.baidu.swan.apps.core.b.a.k(this.bpH, this.bpI);
     }
 }

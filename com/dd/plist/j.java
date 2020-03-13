@@ -6,16 +6,16 @@ import java.util.TreeSet;
 /* loaded from: classes7.dex */
 public class j extends i {
     private Set<i> JP;
-    private boolean lGK;
+    private boolean lGV;
 
     public j() {
-        this.lGK = false;
+        this.lGV = false;
         this.JP = new LinkedHashSet();
     }
 
     public j(boolean z) {
-        this.lGK = false;
-        this.lGK = z;
+        this.lGV = false;
+        this.lGV = z;
         if (!z) {
             this.JP = new LinkedHashSet();
         } else {

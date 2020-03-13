@@ -7,13 +7,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, String, String> {
-    private int fDD;
-    private com.baidu.tieba.barselect.data.c fDE;
+    private int fDQ;
+    private com.baidu.tieba.barselect.data.c fDR;
     private String imagePath;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.fDD = i;
-        this.fDE = cVar;
+        this.fDQ = i;
+        this.fDR = cVar;
         this.imagePath = str;
     }
 
@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return zP(this.imagePath);
+        return zQ(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +32,13 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.fDE != null && str != null) {
-            this.fDE.p("", this.fDD, str);
+        if (this.fDR != null && str != null) {
+            this.fDR.p("", this.fDQ, str);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String zP(String str) {
+    public String zQ(String str) {
         FileInputStream fileInputStream;
         String str2 = null;
         try {

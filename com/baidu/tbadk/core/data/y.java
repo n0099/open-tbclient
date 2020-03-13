@@ -8,24 +8,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class y {
-    private int cOO;
-    private String cOP;
-    private int cOQ;
-    private String cOR;
-    public String cOS;
-    public float cOT;
-    public boolean cOU = true;
+    private int cOP;
+    private String cOQ;
+    private int cOR;
+    private String cOS;
+    public String cOT;
+    public float cOU;
+    public boolean cOV = true;
     private String mDesc;
     private String mTagName;
     private int mType;
     private String mValue;
 
     public int aAH() {
-        return this.cOO;
+        return this.cOP;
     }
 
     public String aAI() {
-        return this.cOP;
+        return this.cOQ;
     }
 
     public String getValue() {
@@ -37,21 +37,21 @@ public class y {
     }
 
     public String aAy() {
-        return this.cOR;
+        return this.cOS;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.cOO = jSONObject.optInt("bannerType");
-                this.cOP = jSONObject.optString("bannerUrl");
+                this.cOP = jSONObject.optInt("bannerType");
+                this.cOQ = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
                 this.mDesc = jSONObject.optString("desc");
-                this.cOQ = jSONObject.optInt("template_id");
-                this.cOR = jSONObject.optString("obj_id");
+                this.cOR = jSONObject.optInt("template_id");
+                this.cOS = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
-                this.cOS = jSONObject.optString("tag_name_url");
+                this.cOT = jSONObject.optString("tag_name_url");
                 sw(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -61,15 +61,15 @@ public class y {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.cOO = banner.banner_type.intValue();
-            this.cOP = banner.banner_url;
+            this.cOP = banner.banner_type.intValue();
+            this.cOQ = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
             this.mDesc = banner.desc;
-            this.cOQ = banner.template_id.intValue();
-            this.cOR = banner.obj_id;
+            this.cOR = banner.template_id.intValue();
+            this.cOS = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.cOS = banner.tag_name_url;
+            this.cOT = banner.tag_name_url;
             sw(banner.tag_name_wh);
         }
     }
@@ -82,7 +82,7 @@ public class y {
                     int i = com.baidu.adp.lib.f.b.toInt(split[0], 1);
                     int i2 = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                     if (i2 != 0) {
-                        this.cOT = i / i2;
+                        this.cOU = i / i2;
                     }
                 }
             } catch (Exception e) {
@@ -95,6 +95,6 @@ public class y {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.cOO == 1 || this.cOO == 4 || this.cOO == 2 || this.cOO == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
+        return this.mType == 1 ? this.cOP == 1 || this.cOP == 4 || this.cOP == 2 || this.cOP == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
     }
 }

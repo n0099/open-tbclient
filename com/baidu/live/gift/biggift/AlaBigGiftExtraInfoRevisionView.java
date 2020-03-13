@@ -35,8 +35,8 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
         if (!TextUtils.isEmpty(cVar.userName)) {
             this.ahJ.setText(cVar.userName);
         }
-        if (cVar.alw != null) {
-            this.ahK.setText(getResources().getString(a.i.donate) + cVar.alw.ry());
+        if (cVar.alx != null) {
+            this.ahK.setText(getResources().getString(a.i.donate) + cVar.alx.ry());
         }
     }
 

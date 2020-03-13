@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes11.dex */
 public class a implements Cloneable {
-    protected boolean bFn = false;
     protected boolean bFo = false;
-    private boolean bFp = false;
-    private boolean bFq;
+    protected boolean bFp = false;
+    private boolean bFq = false;
+    private boolean bFr;
     protected int height;
     protected int left;
 
@@ -36,19 +36,19 @@ public class a implements Cloneable {
     }
 
     public void db(boolean z) {
-        this.bFn = z;
-    }
-
-    public void dc(boolean z) {
         this.bFo = z;
     }
 
+    public void dc(boolean z) {
+        this.bFp = z;
+    }
+
     public boolean isFixed() {
-        return this.bFq;
+        return this.bFr;
     }
 
     public void dd(boolean z) {
-        this.bFq = z;
+        this.bFr = z;
     }
 
     public int getLeft() {
@@ -85,8 +85,8 @@ public class a implements Cloneable {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.bFn || this.width >= 0;
-        if (this.bFo || this.height >= 0) {
+        boolean z2 = this.bFo || this.width >= 0;
+        if (this.bFp || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -98,16 +98,16 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.left == aVar.left && this.f1006top == aVar.f1006top && this.height == aVar.height && this.width == aVar.width && this.bFq == aVar.bFq;
+            return this.left == aVar.left && this.f1006top == aVar.f1006top && this.height == aVar.height && this.width == aVar.width && this.bFr == aVar.bFr;
         }
         return false;
     }
 
     public boolean a(a aVar) {
-        return !equals(aVar) || this.bFp;
+        return !equals(aVar) || this.bFq;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.f1006top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFn + ", HAuto=" + this.bFo + ", fixed=" + this.bFq + '}';
+        return "Position{l=" + this.left + ", t=" + this.f1006top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFo + ", HAuto=" + this.bFp + ", fixed=" + this.bFr + '}';
     }
 }

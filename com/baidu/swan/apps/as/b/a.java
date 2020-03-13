@@ -19,17 +19,17 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.swan.apps.as.d.b<String> bYK;
+    private com.baidu.swan.apps.as.d.b<String> bYL;
     private ExecutorService mExecutorService;
-    private final Set<com.baidu.swan.apps.as.d.b<Pipe.SourceChannel>> bYH = new HashSet();
-    private int bYI = 8192;
+    private final Set<com.baidu.swan.apps.as.d.b<Pipe.SourceChannel>> bYI = new HashSet();
+    private int bYJ = 8192;
     private long mTimeout = -1;
-    private TimeUnit bYJ = TimeUnit.NANOSECONDS;
-    private final c.a bYL = new c.a();
+    private TimeUnit bYK = TimeUnit.NANOSECONDS;
+    private final c.a bYM = new c.a();
     private float mProgress = 0.0f;
 
     public a Q(Bundle bundle) {
-        this.bYL.B(bundle);
+        this.bYM.B(bundle);
         return this;
     }
 
@@ -44,13 +44,13 @@ public class a {
     }
 
     private void mW(String str) {
-        if (this.bYK != null) {
-            this.bYK.D(str);
+        if (this.bYL != null) {
+            this.bYL.D(str);
         }
     }
 
     public a k(com.baidu.swan.apps.as.d.b<String> bVar) {
-        this.bYK = bVar;
+        this.bYL = bVar;
         return this;
     }
 
@@ -59,7 +59,7 @@ public class a {
         if (i < 1) {
             i = 8192;
         }
-        this.bYI = i;
+        this.bYJ = i;
         return this;
     }
 
@@ -69,13 +69,13 @@ public class a {
             j = -1;
         }
         this.mTimeout = j;
-        this.bYJ = timeUnit;
+        this.bYK = timeUnit;
         return this;
     }
 
     @NonNull
     public a a(@NonNull com.baidu.swan.apps.as.d.b<Pipe.SourceChannel>... bVarArr) {
-        this.bYH.addAll(Arrays.asList(bVarArr));
+        this.bYI.addAll(Arrays.asList(bVarArr));
         return this;
     }
 
@@ -91,10 +91,10 @@ public class a {
             mW("pump_finish");
             log("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
             try {
-                log("main await for timeout: " + this.bYJ.toMillis(this.mTimeout));
+                log("main await for timeout: " + this.bYK.toMillis(this.mTimeout));
                 if (this.mTimeout < 0) {
                     countDownLatch.await();
-                } else if (!countDownLatch.await(this.mTimeout, this.bYJ)) {
+                } else if (!countDownLatch.await(this.mTimeout, this.bYK)) {
                     z = true;
                 }
                 log("main await finish by " + (z ? "time's up" : "count down"));
@@ -121,7 +121,7 @@ public class a {
                 } catch (IOException e) {
                 }
             }
-        }, this.bYH);
+        }, this.bYI);
         return arrayList;
     }
 
@@ -144,7 +144,7 @@ public class a {
     }
 
     private float ahm() {
-        float f = this.bYL.getFloat("progress_granularity", 0.01f);
+        float f = this.bYM.getFloat("progress_granularity", 0.01f);
         float f2 = f >= 0.0f ? f : 0.0f;
         if (f2 > 1.0f) {
             return 1.0f;
@@ -157,8 +157,8 @@ public class a {
         float ahm = ahm();
         long j = 0;
         int i = 0;
-        long j2 = this.bYL.getLong("length");
-        final ByteBuffer allocate = ByteBuffer.allocate(this.bYI);
+        long j2 = this.bYM.getLong("length");
+        final ByteBuffer allocate = ByteBuffer.allocate(this.bYJ);
         while (true) {
             try {
                 long read = readableByteChannel.read(allocate);
@@ -173,9 +173,9 @@ public class a {
                     /* renamed from: a */
                     public void D(RunnableC0227a runnableC0227a) {
                         try {
-                            if (runnableC0227a.bYU.isOpen() && runnableC0227a.bYT.isOpen()) {
+                            if (runnableC0227a.bYV.isOpen() && runnableC0227a.bYU.isOpen()) {
                                 allocate.rewind();
-                                runnableC0227a.bYU.write(allocate);
+                                runnableC0227a.bYV.write(allocate);
                             }
                         } catch (IOException e) {
                         }
@@ -207,7 +207,7 @@ public class a {
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
                     public void D(RunnableC0227a runnableC0227a) {
-                        a.a(runnableC0227a.bYU, runnableC0227a.toString() + " by[PumpingFinish]");
+                        a.a(runnableC0227a.bYV, runnableC0227a.toString() + " by[PumpingFinish]");
                     }
                 }, list);
             }
@@ -238,34 +238,34 @@ public class a {
     /* renamed from: com.baidu.swan.apps.as.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class RunnableC0227a implements Runnable {
-        private final com.baidu.swan.apps.as.d.b<Pipe.SourceChannel> bYR;
-        private CountDownLatch bYV;
-        private String bYW;
-        private final Pipe bYS = Pipe.open();
-        private final Pipe.SinkChannel bYU = this.bYS.sink();
-        private final Pipe.SourceChannel bYT = this.bYS.source();
+        private final com.baidu.swan.apps.as.d.b<Pipe.SourceChannel> bYS;
+        private CountDownLatch bYW;
+        private String bYX;
+        private final Pipe bYT = Pipe.open();
+        private final Pipe.SinkChannel bYV = this.bYT.sink();
+        private final Pipe.SourceChannel bYU = this.bYT.source();
 
         RunnableC0227a(com.baidu.swan.apps.as.d.b<Pipe.SourceChannel> bVar) throws IOException {
-            this.bYR = bVar;
+            this.bYS = bVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(CountDownLatch countDownLatch) {
-            this.bYV = countDownLatch;
+            this.bYW = countDownLatch;
         }
 
         private void ahn() {
-            if (this.bYV != null) {
-                this.bYV.countDown();
+            if (this.bYW != null) {
+                this.bYW.countDown();
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.bYW = Thread.currentThread().toString();
+            this.bYX = Thread.currentThread().toString();
             a.log(" >> run on " + toString());
             try {
-                this.bYR.D(this.bYT);
+                this.bYS.D(this.bYU);
             } catch (Exception e) {
             } finally {
                 close();
@@ -275,12 +275,12 @@ public class a {
         }
 
         private void close() {
-            a.a(this.bYU, "sink for " + toString());
-            a.a(this.bYT, "source for " + toString());
+            a.a(this.bYV, "sink for " + toString());
+            a.a(this.bYU, "source for " + toString());
         }
 
         public String toString() {
-            return "PipeLine: " + this.bYW + " consumer=" + this.bYR.toString();
+            return "PipeLine: " + this.bYX + " consumer=" + this.bYS.toString();
         }
     }
 }

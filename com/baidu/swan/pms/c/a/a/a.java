@@ -14,10 +14,10 @@ import java.util.List;
 public class a {
     public static synchronized void a(b bVar, g gVar) {
         synchronized (a.class) {
-            f<d> b = h.b(bVar.cBU, gVar);
-            f<com.baidu.swan.pms.model.f> a = h.a(bVar.cBQ, gVar);
-            f<com.baidu.swan.pms.model.b> b2 = h.b(bVar.cBW, gVar);
-            List<f<com.baidu.swan.pms.model.g>> b3 = h.b(bVar.cBT, gVar);
+            f<d> b = h.b(bVar.cBV, gVar);
+            f<com.baidu.swan.pms.model.f> a = h.a(bVar.cBR, gVar);
+            f<com.baidu.swan.pms.model.b> b2 = h.b(bVar.cBX, gVar);
+            List<f<com.baidu.swan.pms.model.g>> b3 = h.b(bVar.cBU, gVar);
             i iVar = new i(gVar);
             iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(b));
             iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(a));
@@ -31,7 +31,7 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.c.c.a aVar, g gVar) {
         synchronized (a.class) {
-            List<f<a.C0364a>> a = h.a(aVar.cBP, gVar);
+            List<f<a.C0364a>> a = h.a(aVar.cBQ, gVar);
             i iVar = new i(gVar);
             for (f<a.C0364a> fVar : a) {
                 iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(fVar));
@@ -42,8 +42,8 @@ public class a {
 
     public static synchronized void a(e eVar, g gVar) {
         synchronized (a.class) {
-            f<d> b = h.b(eVar.cBU, gVar);
-            f<com.baidu.swan.pms.model.b> b2 = h.b(eVar.cBW, gVar);
+            f<d> b = h.b(eVar.cBV, gVar);
+            f<com.baidu.swan.pms.model.b> b2 = h.b(eVar.cBX, gVar);
             i iVar = new i(gVar);
             iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(b));
             iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(b2));
@@ -53,7 +53,7 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.c.c.d dVar, g gVar) {
         synchronized (a.class) {
-            List<f<com.baidu.swan.pms.model.g>> b = h.b(dVar.cBT, gVar);
+            List<f<com.baidu.swan.pms.model.g>> b = h.b(dVar.cBU, gVar);
             i iVar = new i(gVar);
             for (f<com.baidu.swan.pms.model.g> fVar : b) {
                 iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(fVar));
@@ -64,7 +64,7 @@ public class a {
 
     public static synchronized void a(c cVar, g gVar) {
         synchronized (a.class) {
-            f<com.baidu.swan.pms.model.h> a = h.a(cVar.cBX, gVar);
+            f<com.baidu.swan.pms.model.h> a = h.a(cVar.cBY, gVar);
             i iVar = new i(gVar);
             iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(a));
             iVar.startDownload();

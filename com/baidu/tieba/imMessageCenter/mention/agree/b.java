@@ -20,20 +20,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes9.dex */
 public class b {
-    private a hQf;
-    private ArrayList<m> hQg;
+    private a hQr;
+    private ArrayList<m> hQs;
     public boolean hasMore;
     private BdUniqueId uniqueId;
-    private boolean hQe = false;
+    private boolean hQq = false;
     private long lastId = 0;
-    private com.baidu.adp.framework.listener.a hQh = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private com.baidu.adp.framework.listener.a hQt = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.hQf != null) {
-                        b.this.hQf.onFailed(responsedMessage.getErrorString());
+                    if (b.this.hQr != null) {
+                        b.this.hQr.onFailed(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -69,22 +69,22 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.hQh);
-            this.hQf = aVar;
+            tbPageContext.registerListener(this.hQt);
+            this.hQr = aVar;
         }
     }
 
-    public void bMZ() {
+    public void bNa() {
         azY();
         azX();
     }
 
-    public void bGz() {
+    public void bGA() {
         this.lastId = 0L;
         azX();
     }
 
-    public void bcf() {
+    public void bcg() {
         azX();
     }
 
@@ -139,41 +139,41 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.hQe) {
-            if (v.isEmpty(this.hQg)) {
-                this.hQg = new ArrayList<>();
+        if (!this.hQq) {
+            if (v.isEmpty(this.hQs)) {
+                this.hQs = new ArrayList<>();
             } else {
-                this.hQg.clear();
+                this.hQs.clear();
             }
-            this.hQg.addAll(arrayList);
-            m mVar = (m) v.getItem(this.hQg, this.hQg.size() - 1);
+            this.hQs.addAll(arrayList);
+            m mVar = (m) v.getItem(this.hQs, this.hQs.size() - 1);
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
             }
-            if (this.hQf != null && !v.isEmpty(this.hQg)) {
-                this.hQf.al(this.hQg);
+            if (this.hQr != null && !v.isEmpty(this.hQs)) {
+                this.hQr.al(this.hQs);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.hQe = true;
-        if (v.isEmpty(this.hQg)) {
-            this.hQg = new ArrayList<>();
+        this.hQq = true;
+        if (v.isEmpty(this.hQs)) {
+            this.hQs = new ArrayList<>();
         }
         if (!z) {
-            this.hQg.addAll(arrayList);
+            this.hQs.addAll(arrayList);
         } else {
-            this.hQg.clear();
-            this.hQg.addAll(0, arrayList);
+            this.hQs.clear();
+            this.hQs.addAll(0, arrayList);
         }
-        m mVar = (m) v.getItem(this.hQg, this.hQg.size() - 1);
+        m mVar = (m) v.getItem(this.hQs, this.hQs.size() - 1);
         if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
             this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
         }
-        if (this.hQf != null) {
-            this.hQf.al(this.hQg);
+        if (this.hQr != null) {
+            this.hQr.al(this.hQs);
         }
     }
 }

@@ -11,7 +11,7 @@ public interface s {
 
     void a(BasePool basePool);
 
-    void drc();
-
     void drd();
+
+    void dre();
 }

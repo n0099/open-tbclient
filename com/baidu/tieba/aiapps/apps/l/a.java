@@ -105,7 +105,7 @@ public class a extends ab {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
-                jSONObject2.put("srcAppPage", bbe());
+                jSONObject2.put("srcAppPage", bbf());
                 jSONObject2.put("params", jSONObject);
                 request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
@@ -128,7 +128,7 @@ public class a extends ab {
         return Uri.parse(str);
     }
 
-    private String bbe() {
+    private String bbf() {
         com.baidu.swan.apps.core.d.e GC = f.WS().GC();
         if (GC == null || GC.Oo() == null) {
             return "";

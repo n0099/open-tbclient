@@ -7,34 +7,34 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public abstract class h {
-    private static final HashMap<String, h> aVN = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> aVO = new ConcurrentHashMap<>();
+    private static final HashMap<String, h> aVO = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> aVP = new ConcurrentHashMap<>();
 
     public abstract IBinder Fa();
 
     /* loaded from: classes.dex */
     private static class a {
-        public IBinder aVP;
-        public boolean aVQ;
+        public IBinder aVQ;
+        public boolean aVR;
 
         private a() {
-            this.aVQ = false;
+            this.aVR = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        h hVar = aVN.get(str);
+        h hVar = aVO.get(str);
         if (hVar != null) {
             hVar.Fb();
             return hVar.Fa();
         }
-        a aVar = aVO.get(str);
+        a aVar = aVP.get(str);
         if (aVar != null) {
-            if (!aVar.aVQ && Binder.getCallingUid() != Process.myUid()) {
+            if (!aVar.aVR && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.aVP;
+            return aVar.aVQ;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return aVO.remove(str) != null;
+        return aVP.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,13 +52,13 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (aVN.get(str) != null) {
+        if (aVO.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.aVP = iBinder;
-        aVar.aVQ = z;
-        aVO.put(str, aVar);
+        aVar.aVQ = iBinder;
+        aVar.aVR = z;
+        aVP.put(str, aVar);
     }
 
     public void Fb() {

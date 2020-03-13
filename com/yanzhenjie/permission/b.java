@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes6.dex */
 public class b {
-    private static final c nsg;
+    private static final c nsr;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            nsg = new C0756b();
+            nsr = new C0756b();
         } else {
-            nsg = new a();
+            nsr = new a();
         }
     }
 
     @NonNull
     public static h gE(@NonNull Context context) {
-        return nsg.a(new com.yanzhenjie.permission.b.a(context));
+        return nsr.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes6.dex */

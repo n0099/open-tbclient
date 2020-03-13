@@ -24,7 +24,7 @@ public class OpenSettingButton extends ApiButton {
         if (GC == null) {
             d.q(AppRuntime.getAppContext(), a.h.aiapps_open_fragment_failed_toast).showToast();
         } else {
-            GC.hb("navigateTo").Y(e.bof, e.boh).a("setting", null).commit();
+            GC.hb("navigateTo").Y(e.bog, e.boi).a("setting", null).commit();
         }
     }
 }

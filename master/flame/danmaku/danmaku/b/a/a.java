@@ -11,31 +11,31 @@ import master.flame.danmaku.danmaku.model.m;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes5.dex */
 public class a extends master.flame.danmaku.danmaku.b.b {
-    private final DanmakuContext nEt;
-    private f nIK;
-    private b.f nIL;
-    private final b nIN;
-    private k nIO;
-    private a.InterfaceC0776a nIP;
-    private final b.f nIM = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
+    private final DanmakuContext nEE;
+    private f nIV;
+    private b.f nIW;
+    private final b nIY;
+    private k nIZ;
+    private a.InterfaceC0776a nJa;
+    private final b.f nIX = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
         @Override // master.flame.danmaku.danmaku.b.a.b.f
         public boolean a(d dVar, float f, int i, boolean z) {
-            if (dVar.nFB == 0 && a.this.nEt.nHC.b(dVar, i, 0, a.this.nIK, z, a.this.nEt)) {
+            if (dVar.nFM == 0 && a.this.nEE.nHN.b(dVar, i, 0, a.this.nIV, z, a.this.nEE)) {
                 dVar.setVisibility(false);
                 return true;
             }
             return false;
         }
     };
-    private C0777a nIQ = new C0777a();
+    private C0777a nJb = new C0777a();
 
     /* renamed from: master.flame.danmaku.danmaku.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     private class C0777a extends l.c<d> {
-        private d nIS;
-        public m nIT;
-        public a.b nIU;
-        public long nIV;
+        private d nJd;
+        public m nJe;
+        public a.b nJf;
+        public long nJg;
 
         private C0777a() {
         }
@@ -44,54 +44,54 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         @Override // master.flame.danmaku.danmaku.model.l.b
         /* renamed from: e */
         public int bV(d dVar) {
-            this.nIS = dVar;
+            this.nJd = dVar;
             if (dVar.isTimeOut()) {
-                this.nIT.o(dVar);
+                this.nJe.o(dVar);
                 return 0;
-            } else if (this.nIU.nIt || !dVar.dLT()) {
-                if (!dVar.dLL()) {
-                    a.this.nEt.nHC.a(dVar, this.nIU.nIu, this.nIU.nIv, this.nIU.nEy, false, a.this.nEt);
+            } else if (this.nJf.nIE || !dVar.dLU()) {
+                if (!dVar.dLM()) {
+                    a.this.nEE.nHN.a(dVar, this.nJf.nIF, this.nJf.nIG, this.nJf.nEJ, false, a.this.nEE);
                 }
-                if (dVar.dLS() >= this.nIV) {
-                    if (dVar.nFB == 0 && dVar.dLM()) {
+                if (dVar.dLT() >= this.nJg) {
+                    if (dVar.nFM == 0 && dVar.dLN()) {
                         return 0;
                     }
-                    if (dVar.dLK()) {
-                        n<?> dLI = dVar.dLI();
-                        if (a.this.nIO != null && (dLI == null || dLI.get() == null)) {
-                            a.this.nIO.a(dVar);
+                    if (dVar.dLL()) {
+                        n<?> dLJ = dVar.dLJ();
+                        if (a.this.nIZ != null && (dLJ == null || dLJ.get() == null)) {
+                            a.this.nIZ.a(dVar);
                         }
                         return 1;
                     }
                     if (dVar.getType() == 1) {
-                        this.nIU.nIu++;
+                        this.nJf.nIF++;
                     }
-                    if (!dVar.dLH()) {
-                        dVar.a(this.nIT, false);
+                    if (!dVar.dLI()) {
+                        dVar.a(this.nJe, false);
                     }
                     if (!dVar.isPrepared()) {
-                        dVar.b(this.nIT, false);
+                        dVar.b(this.nJe, false);
                     }
-                    a.this.nIN.a(dVar, this.nIT, a.this.nIL);
+                    a.this.nIY.a(dVar, this.nJe, a.this.nIW);
                     if (dVar.isShown()) {
-                        if (dVar.nFx != null || dVar.dLQ() <= this.nIT.getHeight()) {
-                            int a = dVar.a(this.nIT);
+                        if (dVar.nFI != null || dVar.dLR() <= this.nJe.getHeight()) {
+                            int a = dVar.a(this.nJe);
                             if (a == 1) {
-                                this.nIU.nIG++;
+                                this.nJf.nIR++;
                             } else if (a == 2) {
-                                this.nIU.nIH++;
-                                if (a.this.nIO != null) {
-                                    a.this.nIO.a(dVar);
+                                this.nJf.nIS++;
+                                if (a.this.nIZ != null) {
+                                    a.this.nIZ.a(dVar);
                                 }
                             }
-                            this.nIU.eB(dVar.getType(), 1);
-                            this.nIU.NN(1);
-                            this.nIU.v(dVar);
-                            if (a.this.nIP == null || dVar.nFR == a.this.nEt.nHB.nGd) {
+                            this.nJf.eB(dVar.getType(), 1);
+                            this.nJf.NN(1);
+                            this.nJf.v(dVar);
+                            if (a.this.nJa == null || dVar.nGc == a.this.nEE.nHM.nGo) {
                                 return 0;
                             }
-                            dVar.nFR = a.this.nEt.nHB.nGd;
-                            a.this.nIP.i(dVar);
+                            dVar.nGc = a.this.nEE.nHM.nGo;
+                            a.this.nJa.i(dVar);
                             return 0;
                         }
                         return 0;
@@ -105,62 +105,62 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         }
 
         @Override // master.flame.danmaku.danmaku.model.l.b
-        public void dMd() {
-            this.nIU.nIw = this.nIS;
-            super.dMd();
+        public void dMe() {
+            this.nJf.nIH = this.nJd;
+            super.dMe();
         }
     }
 
     public a(DanmakuContext danmakuContext) {
-        this.nEt = danmakuContext;
-        this.nIN = new b(danmakuContext.dMs());
+        this.nEE = danmakuContext;
+        this.nIY = new b(danmakuContext.dMt());
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void clear() {
-        dMM();
-        this.nEt.nHC.clear();
+        dMN();
+        this.nEE.nHN.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void dMM() {
-        this.nIN.clear();
+    public void dMN() {
+        this.nIY.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void release() {
-        this.nIN.release();
-        this.nEt.nHC.clear();
+        this.nIY.release();
+        this.nEE.nHN.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void wQ(boolean z) {
-        this.nIL = z ? this.nIM : null;
+        this.nIW = z ? this.nIX : null;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(m mVar, l lVar, long j, a.b bVar) {
-        this.nIK = bVar.nEy;
-        this.nIQ.nIT = mVar;
-        this.nIQ.nIU = bVar;
-        this.nIQ.nIV = j;
-        lVar.a(this.nIQ);
+        this.nIV = bVar.nEJ;
+        this.nJb.nJe = mVar;
+        this.nJb.nJf = bVar;
+        this.nJb.nJg = j;
+        lVar.a(this.nJb);
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(k kVar) {
-        this.nIO = kVar;
+        this.nIZ = kVar;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(a.InterfaceC0776a interfaceC0776a) {
-        this.nIP = interfaceC0776a;
+        this.nJa = interfaceC0776a;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void wR(boolean z) {
-        if (this.nIN != null) {
-            this.nIN.wR(z);
+        if (this.nIY != null) {
+            this.nIY.wR(z);
         }
     }
 }

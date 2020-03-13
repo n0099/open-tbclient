@@ -5,13 +5,6 @@ import com.baidu.ala.player.StreamConfig;
 import org.apache.http.HttpStatus;
 /* loaded from: classes6.dex */
 public final class j {
-    private static final String[] mek = {"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
-    private static final int[] mel = {StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
-    private static final int[] mem = {32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE, 448};
-    private static final int[] men = {32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, 224, 256};
-    private static final int[] meo = {32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384};
-    private static final int[] mep = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320};
-    private static final int[] meq = {8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160};
     public int bitrate;
     public int channels;
     public int frameSize;
@@ -19,6 +12,13 @@ public final class j {
     public int sampleRate;
     public int samplesPerFrame;
     public int version;
+    private static final String[] mev = {"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
+    private static final int[] mew = {StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
+    private static final int[] mex = {32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE, 448};
+    private static final int[] mey = {32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, 224, 256};
+    private static final int[] mez = {32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384};
+    private static final int[] meA = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320};
+    private static final int[] meB = {8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160};
 
     public static int JC(int i) {
         int i2;
@@ -30,7 +30,7 @@ public final class j {
         if ((i & (-2097152)) != -2097152 || (i2 = (i >>> 19) & 3) == 1 || (i3 = (i >>> 17) & 3) == 0 || (i4 = (i >>> 12) & 15) == 0 || i4 == 15 || (i5 = (i >>> 10) & 3) == 3) {
             return -1;
         }
-        int i8 = mel[i5];
+        int i8 = mew[i5];
         if (i2 == 2) {
             i6 = i8 / 2;
         } else {
@@ -38,12 +38,12 @@ public final class j {
         }
         int i9 = (i >>> 9) & 1;
         if (i3 == 3) {
-            return ((((i2 == 3 ? mem[i4 - 1] : men[i4 - 1]) * 12000) / i6) + i9) * 4;
+            return ((((i2 == 3 ? mex[i4 - 1] : mey[i4 - 1]) * 12000) / i6) + i9) * 4;
         }
         if (i2 == 3) {
-            i7 = i3 == 2 ? meo[i4 - 1] : mep[i4 - 1];
+            i7 = i3 == 2 ? mez[i4 - 1] : meA[i4 - 1];
         } else {
-            i7 = meq[i4 - 1];
+            i7 = meB[i4 - 1];
         }
         if (i2 == 3) {
             return ((144000 * i7) / i6) + i9;
@@ -66,7 +66,7 @@ public final class j {
             if (i8 == 3) {
                 return false;
             }
-            int i9 = mel[i8];
+            int i9 = mew[i8];
             if (i2 == 2) {
                 i9 /= 2;
             } else if (i2 == 0) {
@@ -74,20 +74,20 @@ public final class j {
             }
             int i10 = (i >>> 9) & 1;
             if (i3 == 3) {
-                i6 = i2 == 3 ? mem[i7 - 1] : men[i7 - 1];
+                i6 = i2 == 3 ? mex[i7 - 1] : mey[i7 - 1];
                 i5 = (((i6 * 12000) / i9) + i10) * 4;
                 i4 = 384;
             } else if (i2 == 3) {
-                i6 = i3 == 2 ? meo[i7 - 1] : mep[i7 - 1];
+                i6 = i3 == 2 ? mez[i7 - 1] : meA[i7 - 1];
                 i4 = 1152;
                 i5 = i10 + ((144000 * i6) / i9);
             } else {
-                int i11 = meq[i7 - 1];
+                int i11 = meB[i7 - 1];
                 i4 = i3 == 1 ? 576 : 1152;
                 i5 = i10 + (((i3 == 1 ? 72000 : 144000) * i11) / i9);
                 i6 = i11;
             }
-            jVar.a(i2, mek[3 - i3], i5, i9, ((i >> 6) & 3) == 3 ? 1 : 2, i6 * 1000, i4);
+            jVar.a(i2, mev[3 - i3], i5, i9, ((i >> 6) & 3) == 3 ? 1 : 2, i6 * 1000, i4);
             return true;
         }
         return false;

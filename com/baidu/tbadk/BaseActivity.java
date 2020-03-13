@@ -54,7 +54,8 @@ import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.e;
-import com.baidu.tbadk.core.util.g.c;
+import com.baidu.tbadk.core.util.f.c;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.k.g;
@@ -114,7 +115,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     private int mMaxHeight = 0;
     private int mPreHeight = 0;
     private int mAboveKeyboardHeight = 0;
-    protected com.baidu.tbadk.core.util.b.a mCurrentPermissionJudgePolicy = null;
+    protected PermissionJudgePolicy mCurrentPermissionJudgePolicy = null;
     private final CustomMessageListener nightResourcesChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.BaseActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -334,7 +335,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ae(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ag(getPageContext().getPageActivity());
         }
     }
 
@@ -680,7 +681,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.aQX().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.aQY().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         this.customToast.onPause();
         TbadkCoreApplication.getInst().DelResumeNum();
@@ -873,7 +874,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     public void onPreLoad(p pVar) {
         super.onPreLoad(pVar);
         ad.a(pVar, getUniqueId());
-        com.baidu.tbadk.core.util.g.d.a(pVar, getUniqueId(), this);
+        com.baidu.tbadk.core.util.f.d.a(pVar, getUniqueId(), this);
     }
 
     public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
@@ -1064,7 +1065,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
                 this.loadingView = new g(getPageContext().getContext());
             } else {
                 this.loadingView = new g(getPageContext().getContext(), i);
-                this.loadingView.aPT();
+                this.loadingView.aPU();
             }
             this.loadingView.onChangeSkinType();
         }
@@ -1350,8 +1351,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
         }
     }
 
-    public void setCurrentPermissionJudgePolicy(com.baidu.tbadk.core.util.b.a aVar) {
-        this.mCurrentPermissionJudgePolicy = aVar;
+    public void setCurrentPermissionJudgePolicy(PermissionJudgePolicy permissionJudgePolicy) {
+        this.mCurrentPermissionJudgePolicy = permissionJudgePolicy;
     }
 
     public int getPageId() {
@@ -1362,12 +1363,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.g.c
+    @Override // com.baidu.tbadk.core.util.f.c
     public boolean videoNeedPreload() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.g.c
+    @Override // com.baidu.tbadk.core.util.f.c
     public boolean isCyberVideoUsedThisPage() {
         return false;
     }
@@ -1421,10 +1422,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.aQf().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQg().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.aQf().k(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQg().k(getUniqueId());
     }
 }

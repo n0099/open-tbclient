@@ -9,17 +9,17 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 /* loaded from: classes5.dex */
 public class f {
-    private static SoftReference<Properties> nWI;
+    private static SoftReference<Properties> nWT;
 
     public static String get(@NonNull String str) {
-        Object obj = dQs().get(str);
+        Object obj = dQt().get(str);
         if (obj == null) {
-            obj = SV(str);
+            obj = SW(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String SV(String str) {
+    private static String SW(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties dQs() {
+    private static synchronized Properties dQt() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = nWI != null ? nWI.get() : null;
+            properties = nWT != null ? nWT.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    nWI = new SoftReference<>(properties);
+                    nWT = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                nWI = new SoftReference<>(properties);
+                nWT = new SoftReference<>(properties);
             }
         }
         return properties;

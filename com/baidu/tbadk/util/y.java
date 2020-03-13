@@ -7,19 +7,19 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class y {
-    private View dGL;
-    private int dGM;
-    private boolean dGN;
+    private View dGY;
+    private int dGZ;
+    private boolean dHa;
     private final Handler mHandler;
 
-    public void aSm() {
+    public void aSn() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aSn() {
+    public void aSo() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -27,29 +27,29 @@ public class y {
     }
 
     public void hc(boolean z) {
-        if (this.dGL != null) {
-            if (z || this.dGL.getVisibility() != 8) {
-                aSn();
+        if (this.dGY != null) {
+            if (z || this.dGY.getVisibility() != 8) {
+                aSo();
             }
         }
     }
 
     public void hd(boolean z) {
-        if (this.dGL != null) {
-            if (z || this.dGL.getVisibility() != 0) {
-                aSm();
+        if (this.dGY != null) {
+            if (z || this.dGY.getVisibility() != 0) {
+                aSn();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.dGL != null) {
-            if (i != 0 && i2 > i && this.dGL.getVisibility() != 8) {
+        if (this.dGY != null) {
+            if (i != 0 && i2 > i && this.dGY.getVisibility() != 8) {
                 hc(false);
-            } else if ((i == 0 || i2 < i) && this.dGL.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.dGY.getVisibility() != 0) {
                 hd(false);
             }
-            this.dGM = i;
+            this.dGZ = i;
         }
     }
 
@@ -63,12 +63,12 @@ public class y {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.dGM) {
+            if (firstVisiblePosition > this.dGZ) {
                 hc(true);
-            } else if (firstVisiblePosition < this.dGM) {
+            } else if (firstVisiblePosition < this.dGZ) {
                 hd(true);
-            } else if (firstVisiblePosition == this.dGM) {
-                if (firstVisiblePosition == 0 || !this.dGN) {
+            } else if (firstVisiblePosition == this.dGZ) {
+                if (firstVisiblePosition == 0 || !this.dHa) {
                     hd(true);
                 } else {
                     hc(true);

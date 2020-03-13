@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class e extends BdBaseModel<AlaGuardianListActivity> {
-    public HttpMessageListener eLY;
-    private a eMD;
-    private AlaGuardianListActivity eMF;
+    private a eMQ;
+    private AlaGuardianListActivity eMS;
+    public HttpMessageListener eMl;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,12 +21,12 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
     public interface a {
         c b(c cVar);
 
-        void yH(String str);
+        void yI(String str);
     }
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.eLY = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
+        this.eMl = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,35 +35,35 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (e.this.eMD != null) {
+                        if (e.this.eMQ != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = e.this.eMF.getResources().getString(a.i.sdk_neterror);
+                                errorString = e.this.eMS.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.eMD.yH(errorString);
+                            e.this.eMQ.yI(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (e.this.eMD != null) {
-                        e.this.eMD.b(alaGuardianListHttpResponseMessage.bgS());
+                    if (e.this.eMQ != null) {
+                        e.this.eMQ.b(alaGuardianListHttpResponseMessage.bgT());
                     }
                 }
             }
         };
-        this.eMF = alaGuardianListActivity;
-        this.eMD = aVar;
-        bgT();
-        registerListener(this.eLY);
+        this.eMS = alaGuardianListActivity;
+        this.eMQ = aVar;
+        bgU();
+        registerListener(this.eMl);
     }
 
-    public void yJ(String str) {
+    public void yK(String str) {
         this.mUserId = str;
     }
 
-    private void bgT() {
+    private void bgU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,20 +74,20 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        bgU();
+        bgV();
         return false;
     }
 
-    private void bgU() {
+    private void bgV() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.eMF.getUniqueId());
+        httpMessage.setTag(this.eMS.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eLY);
+        MessageManager.getInstance().unRegisterListener(this.eMl);
         return false;
     }
 

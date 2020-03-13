@@ -16,33 +16,33 @@ import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private m ald;
-    private b fjZ;
-    private View fka;
+    private m ale;
+    private b fkm;
+    private View fkn;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public a(@NonNull Context context, TbPageContext tbPageContext, m mVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.fjZ = bVar;
+        this.fkm = bVar;
         this.mPageContext = tbPageContext;
-        this.ald = mVar;
+        this.ale = mVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity w = w(this.ald);
+        ShareEntity w = w(this.ale);
         if (w != null) {
-            this.fka = new AlaLandscapeShareView(this.mPageContext, w, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+            this.fkn = new AlaLandscapeShareView(this.mPageContext, w, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.fjZ != null) {
-                        a.this.fjZ.dismiss();
+                    if (a.this.fkm != null) {
+                        a.this.fkm.dismiss();
                     }
                 }
             });
-            setContentView(this.fka);
+            setContentView(this.fkn);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -62,7 +62,7 @@ public class a extends Dialog {
     private void tN() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.fka.startAnimation(translateAnimation);
+        this.fkn.startAnimation(translateAnimation);
     }
 
     private ShareEntity w(m mVar) {

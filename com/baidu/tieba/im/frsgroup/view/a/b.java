@@ -19,70 +19,70 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b {
-    private TbPageContext<?> cVh;
-    private BdTypeListView ekb;
-    private PbListView elj;
-    private g etX;
-    private h hBC;
+    private TbPageContext<?> cVi;
+    private BdTypeListView eko;
+    private PbListView elw;
+    private g euk;
+    private h hBO;
     private View mHeaderView;
     private com.baidu.tbadk.core.view.h mPullView;
     private ViewGroup mRootView;
 
     public b(TbPageContext<?> tbPageContext, c cVar) {
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
         this.mRootView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.ekb = new BdTypeListView(tbPageContext.getPageActivity());
-        this.ekb.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.ekb.setSelector(17170445);
-        this.ekb.setDividerHeight(0);
-        this.mPullView = new com.baidu.tbadk.core.view.h(this.cVh);
-        this.mPullView.setTag(this.cVh.getUniqueId());
+        this.eko = new BdTypeListView(tbPageContext.getPageActivity());
+        this.eko.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        this.eko.setSelector(17170445);
+        this.eko.setDividerHeight(0);
+        this.mPullView = new com.baidu.tbadk.core.view.h(this.cVi);
+        this.mPullView.setTag(this.cVi.getUniqueId());
         this.mPullView.setListPullRefreshListener(cVar);
-        this.ekb.setOnSrollToBottomListener(cVar);
-        this.ekb.setPullRefresh(this.mPullView);
-        this.mHeaderView = BdListViewHelper.a(tbPageContext.getPageActivity(), this.ekb, BdListViewHelper.HeadType.HASTAB);
+        this.eko.setOnSrollToBottomListener(cVar);
+        this.eko.setPullRefresh(this.mPullView);
+        this.mHeaderView = BdListViewHelper.a(tbPageContext.getPageActivity(), this.eko, BdListViewHelper.HeadType.HASTAB);
         BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, j.isNetWorkAvailable());
-        this.mRootView.addView(this.ekb);
+        this.mRootView.addView(this.eko);
     }
 
     public void nE(boolean z) {
-        if (this.mHeaderView != null && this.ekb != null) {
+        if (this.mHeaderView != null && this.eko != null) {
             BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, z);
         }
     }
 
     public void cZ(List<com.baidu.adp.widget.ListView.a> list) {
         if (!v.isEmpty(list)) {
-            this.ekb.addAdapters(list);
+            this.eko.addAdapters(list);
         }
     }
 
     public void cz(List<m> list) {
         if (list != null) {
-            this.ekb.setData(list);
+            this.eko.setData(list);
         }
     }
 
     public void completePullRefresh() {
-        this.ekb.completePullRefreshPostDelayed(0L);
-    }
-
-    public void bMA() {
-        bVy();
-        this.elj.startLoadData();
+        this.eko.completePullRefreshPostDelayed(0L);
     }
 
     public void bMB() {
-        bVy();
-        this.elj.setText(this.cVh.getResources().getString(R.string.network_ungeilivable));
-        this.elj.endLoadData();
+        bVz();
+        this.elw.startLoadData();
     }
 
     public void bMC() {
-        bVy();
-        this.elj.setText(this.cVh.getResources().getString(R.string.list_no_more));
-        this.elj.endLoadData();
+        bVz();
+        this.elw.setText(this.cVi.getResources().getString(R.string.network_ungeilivable));
+        this.elw.endLoadData();
+    }
+
+    public void bMD() {
+        bVz();
+        this.elw.setText(this.cVi.getResources().getString(R.string.list_no_more));
+        this.elw.endLoadData();
     }
 
     public View getRootView() {
@@ -90,77 +90,77 @@ public class b {
     }
 
     public void onChangeSkinType(int i) {
-        am.setBackgroundColor(this.ekb, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.eko, R.color.cp_bg_line_c);
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.elj != null) {
-            this.elj.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-            this.elj.setTextColor(am.getColor(R.color.cp_cont_d));
-            this.elj.changeSkin(i);
+        if (this.elw != null) {
+            this.elw.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+            this.elw.setTextColor(am.getColor(R.color.cp_cont_d));
+            this.elw.changeSkin(i);
         }
-        if (this.hBC != null) {
-            this.hBC.onChangeSkinType();
+        if (this.hBO != null) {
+            this.hBO.onChangeSkinType();
         }
-        if (this.etX != null) {
-            this.etX.onChangeSkinType();
-        }
-    }
-
-    public void bVx() {
-        if (this.ekb != null) {
-            this.ekb.setNextPage(null);
-            this.elj = null;
+        if (this.euk != null) {
+            this.euk.onChangeSkinType();
         }
     }
 
-    private void bVy() {
-        if (this.ekb != null && this.elj == null) {
-            this.elj = new PbListView(this.cVh.getPageActivity());
-            this.elj.createView();
-            this.ekb.setNextPage(this.elj);
+    public void bVy() {
+        if (this.eko != null) {
+            this.eko.setNextPage(null);
+            this.elw = null;
+        }
+    }
+
+    private void bVz() {
+        if (this.eko != null && this.elw == null) {
+            this.elw = new PbListView(this.cVi.getPageActivity());
+            this.elw.createView();
+            this.eko.setNextPage(this.elw);
         }
     }
 
     public void showLoadingView() {
-        if (this.etX == null) {
-            this.etX = new g(this.cVh.getPageActivity(), BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
-            this.etX.onChangeSkinType();
+        if (this.euk == null) {
+            this.euk = new g(this.cVi.getPageActivity(), BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
+            this.euk.onChangeSkinType();
         }
-        if (!this.etX.isViewAttached()) {
-            this.ekb.setVisibility(8);
-            this.etX.attachView(this.mRootView, true);
+        if (!this.euk.isViewAttached()) {
+            this.eko.setVisibility(8);
+            this.euk.attachView(this.mRootView, true);
         }
     }
 
     public void hideLoadingView() {
-        if (this.etX != null && this.etX.isViewAttached()) {
-            this.ekb.setVisibility(0);
-            this.etX.dettachView(this.mRootView);
+        if (this.euk != null && this.euk.isViewAttached()) {
+            this.eko.setVisibility(0);
+            this.euk.dettachView(this.mRootView);
         }
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.hBC == null) {
-            this.hBC = new h(this.cVh.getPageActivity(), onClickListener);
-            this.hBC.setLayoutMargin(BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
-            this.hBC.onChangeSkinType();
+        if (this.hBO == null) {
+            this.hBO = new h(this.cVi.getPageActivity(), onClickListener);
+            this.hBO.setLayoutMargin(BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);
+            this.hBO.onChangeSkinType();
         }
-        if (!this.hBC.isViewAttached()) {
-            this.ekb.setVisibility(8);
+        if (!this.hBO.isViewAttached()) {
+            this.eko.setVisibility(8);
             if (StringUtils.isNull(str)) {
-                str = this.cVh.getString(R.string.invite_friend_no_data_now);
+                str = this.cVi.getString(R.string.invite_friend_no_data_now);
             }
-            this.hBC.setTitle(str);
-            this.hBC.attachView(this.mRootView, true);
-            this.hBC.showRefreshButton();
+            this.hBO.setTitle(str);
+            this.hBO.attachView(this.mRootView, true);
+            this.hBO.showRefreshButton();
         }
     }
 
-    public void bcx() {
-        if (this.hBC != null && this.hBC.isViewAttached()) {
-            this.ekb.setVisibility(0);
-            this.hBC.dettachView(this.mRootView);
+    public void bcy() {
+        if (this.hBO != null && this.hBO.isViewAttached()) {
+            this.eko.setVisibility(0);
+            this.hBO.dettachView(this.mRootView);
         }
     }
 }

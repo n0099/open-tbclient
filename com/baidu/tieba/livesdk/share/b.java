@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannelBuild;
 /* loaded from: classes3.dex */
 public class b implements IShareChannelBuild {
-    private IShareChannel idT;
+    private IShareChannel ief;
 
     public b(IShareChannel iShareChannel) {
-        this.idT = iShareChannel;
+        this.ief = iShareChannel;
     }
 
     @Override // com.baidu.live.tbadk.share.single.interfaces.IShareChannelBuild
     public IShareChannel build() {
-        return this.idT;
+        return this.ief;
     }
 }

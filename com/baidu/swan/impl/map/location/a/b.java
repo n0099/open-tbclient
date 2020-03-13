@@ -29,9 +29,9 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class b extends com.baidu.swan.impl.map.a.a<g> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private WeakReference<d> cxu;
-    private String cxv;
+    private WeakReference<d> cxv;
     private String cxw;
+    private String cxx;
 
     public static b aso() {
         return new b();
@@ -48,23 +48,23 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
             c.e("map", "cb is empty");
             return false;
         }
-        this.cxv = gVar.bAi;
-        if (DEBUG) {
-            Log.e("WalkNavigationAction", "mGuideDownloadKey = " + this.cxv);
-        }
         this.cxw = gVar.bAj;
         if (DEBUG) {
-            Log.e("WalkNavigationAction", "mGuideIconPath = " + this.cxw);
+            Log.e("WalkNavigationAction", "mGuideDownloadKey = " + this.cxw);
         }
-        if (com.baidu.swan.apps.storage.b.ma(this.cxw) == PathType.BD_FILE) {
-            this.cxw = com.baidu.swan.apps.storage.b.bp(this.cxw, e.acH());
+        this.cxx = gVar.bAk;
+        if (DEBUG) {
+            Log.e("WalkNavigationAction", "mGuideIconPath = " + this.cxx);
+        }
+        if (com.baidu.swan.apps.storage.b.ma(this.cxx) == PathType.BD_FILE) {
+            this.cxx = com.baidu.swan.apps.storage.b.bp(this.cxx, e.acH());
         }
         if (!SwanAppNetworkUtils.isNetworkConnected(context)) {
             c.w("map", "no network");
             bVar.g(str, 1003, "no network");
             return false;
         }
-        this.cxu = new WeakReference<>(f.WS().Oo());
+        this.cxv = new WeakReference<>(f.WS().Oo());
         com.baidu.swan.impl.map.a.b.d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.b.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
@@ -169,7 +169,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, LatLng latLng, final com.baidu.swan.apps.z.b bVar, final g gVar) {
-        com.baidu.swan.impl.map.location.b.b.a(activity, latLng, new LatLng(gVar.bAh.latitude, gVar.bAh.longitude), new b.a() { // from class: com.baidu.swan.impl.map.location.a.b.5
+        com.baidu.swan.impl.map.location.b.b.a(activity, latLng, new LatLng(gVar.bAi.latitude, gVar.bAi.longitude), new b.a() { // from class: com.baidu.swan.impl.map.location.a.b.5
             @Override // com.baidu.swan.impl.map.location.b.b.a
             public void asp() {
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareStart ");
@@ -181,17 +181,17 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
                 Bundle bundle;
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareSuccess ");
                 com.baidu.swan.apps.core.d.d Oo = com.baidu.swan.apps.y.f.WS().Oo();
-                if (b.this.cxu == null || Oo != b.this.cxu.get()) {
+                if (b.this.cxv == null || Oo != b.this.cxv.get()) {
                     bVar.g(gVar.callBack, 1001, "open navigation canceled on another page");
                     return;
                 }
                 SDKInitializer.setCoordType(CoordType.GCJ02);
-                if (TextUtils.isEmpty(b.this.cxv) && TextUtils.isEmpty(b.this.cxw)) {
+                if (TextUtils.isEmpty(b.this.cxw) && TextUtils.isEmpty(b.this.cxx)) {
                     bundle = null;
                 } else {
                     bundle = new Bundle();
-                    bundle.putString("guideKey", b.this.cxv);
-                    bundle.putString("guideIcon", b.this.cxw);
+                    bundle.putString("guideKey", b.this.cxw);
+                    bundle.putString("guideIcon", b.this.cxx);
                 }
                 com.baidu.swan.impl.map.location.b.a.W(bundle).arS();
                 bVar.c(gVar.callBack, null);

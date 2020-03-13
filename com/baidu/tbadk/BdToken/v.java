@@ -5,7 +5,7 @@ import tbclient.GetToken.DataRes;
 public class v {
     private String btn_cancel;
     private String btn_sure;
-    private a cJe;
+    private a cJf;
     private String img;
     private String tips;
     private String title;
@@ -28,11 +28,11 @@ public class v {
             this.btn_sure = dataRes.btn_sure;
             this.btn_cancel = dataRes.btn_cancel;
             if (dataRes.activity_done != null) {
-                this.cJe = new a();
-                this.cJe.url = dataRes.activity_done.url;
-                this.cJe.btntext = dataRes.activity_done.btntext;
-                this.cJe.message = dataRes.activity_done.message;
-                this.cJe.sharetoken = dataRes.activity_done.sharetoken;
+                this.cJf = new a();
+                this.cJf.url = dataRes.activity_done.url;
+                this.cJf.btntext = dataRes.activity_done.btntext;
+                this.cJf.message = dataRes.activity_done.message;
+                this.cJf.sharetoken = dataRes.activity_done.sharetoken;
             }
         }
     }
@@ -46,6 +46,6 @@ public class v {
     }
 
     public a ayl() {
-        return this.cJe;
+        return this.cJf;
     }
 }

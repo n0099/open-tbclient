@@ -19,88 +19,88 @@ public class c extends TypeAdapter.ViewHolder {
     public int abq;
     public int abr;
     public String abt;
-    private ViewGroup aqN;
-    public TextView aqO;
-    public TbImageView aqP;
-    private boolean aqQ;
-    public boolean aqR;
-    private static final int aqC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds4);
-    private static final int aqD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds6);
-    private static final int aqE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
-    private static final int aqF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
-    private static final int aqG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds12);
-    private static final int aqH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds26);
-    private static final int aqI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds6);
-    private static final int aqJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds10);
-    private static final int aqK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds18);
+    private ViewGroup aqO;
+    public TextView aqP;
+    public TbImageView aqQ;
+    private boolean aqR;
+    public boolean aqS;
+    private static final int aqD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds4);
+    private static final int aqE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds6);
+    private static final int aqF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
+    private static final int aqG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
+    private static final int aqH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds12);
+    private static final int aqI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds26);
+    private static final int aqJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds6);
+    private static final int aqK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds10);
+    private static final int aqL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds18);
     private static final int NV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-    private static final int aqL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds34);
-    private static final int aqM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds48);
+    private static final int aqM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds34);
+    private static final int aqN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds48);
 
     public c(Context context, boolean z) {
         super(LayoutInflater.from(context).inflate(a.h.ala_msg_item_layout, (ViewGroup) null));
-        this.aqQ = z;
-        this.aqN = (ViewGroup) getView().findViewById(a.g.ala_msg_root_layout);
-        this.aqO = (TextView) getView().findViewById(a.g.ala_msg_content);
-        this.aqP = (TbImageView) getView().findViewById(a.g.iv_tail);
-        this.aqP.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.aqP.setDefaultErrorResource(a.f.sdk_shape_transparent);
-        this.aqP.setAutoChangeStyle(false);
-        if (this.aqQ) {
-            this.aqO.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-            this.aqN.setBackgroundDrawable(null);
-            this.aqN.setPadding(0, 0, 0, 0);
+        this.aqR = z;
+        this.aqO = (ViewGroup) getView().findViewById(a.g.ala_msg_root_layout);
+        this.aqP = (TextView) getView().findViewById(a.g.ala_msg_content);
+        this.aqQ = (TbImageView) getView().findViewById(a.g.iv_tail);
+        this.aqQ.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.aqQ.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.aqQ.setAutoChangeStyle(false);
+        if (this.aqR) {
+            this.aqP.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+            this.aqO.setBackgroundDrawable(null);
+            this.aqO.setPadding(0, 0, 0, 0);
         }
     }
 
     public void a(Context context, boolean z, boolean z2, boolean z3, boolean z4) {
-        if (!this.aqQ) {
-            this.aqP.stopLoad();
+        if (!this.aqR) {
+            this.aqQ.stopLoad();
             if (!TextUtils.isEmpty(this.abt)) {
-                this.aqP.startLoad(this.abt, 10, false, false);
-                this.aqP.setVisibility(0);
+                this.aqQ.startLoad(this.abt, 10, false, false);
+                this.aqQ.setVisibility(0);
             } else {
-                this.aqP.setVisibility(8);
+                this.aqQ.setVisibility(8);
             }
             if (z) {
-                this.aqO.setPadding(NV, aqC, NV, aqD);
-                if (this.aqR) {
+                this.aqP.setPadding(NV, aqD, NV, aqE);
+                if (this.aqS) {
                     aD(context);
                 } else if (z3) {
-                    this.aqO.setBackgroundResource(a.f.ala_im_msg_redpacket_bg);
+                    this.aqP.setBackgroundResource(a.f.ala_im_msg_redpacket_bg);
                 } else if (z4) {
-                    this.aqO.setBackgroundResource(a.f.ala_im_msg_throne_bg);
+                    this.aqP.setBackgroundResource(a.f.ala_im_msg_throne_bg);
                 } else {
-                    this.aqO.setBackgroundResource(a.f.ala_im_msg_normal_bg);
+                    this.aqP.setBackgroundResource(a.f.ala_im_msg_normal_bg);
                 }
             } else if (z2) {
-                this.aqO.setBackgroundDrawable(null);
-                this.aqO.setPadding(aqJ, 0, aqJ, 0);
+                this.aqP.setBackgroundDrawable(null);
+                this.aqP.setPadding(aqK, 0, aqK, 0);
             } else {
-                this.aqO.setBackgroundDrawable(null);
-                this.aqO.setPadding(0, 0, 0, 0);
+                this.aqP.setBackgroundDrawable(null);
+                this.aqP.setPadding(0, 0, 0, 0);
             }
         }
     }
 
     public void g(Context context, boolean z) {
-        if (!this.aqQ) {
+        if (!this.aqR) {
             if (z) {
-                this.aqO.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.d.sdk_black_alpha30));
+                this.aqP.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.d.sdk_black_alpha30));
             } else {
-                this.aqO.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                this.aqP.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
             }
         }
     }
 
     public void aQ(boolean z) {
         if (z) {
-            if (this.aqO != null) {
-                this.aqO.setTextSize(0, aqM);
-                this.aqO.setTypeface(Typeface.defaultFromStyle(1));
+            if (this.aqP != null) {
+                this.aqP.setTextSize(0, aqN);
+                this.aqP.setTypeface(Typeface.defaultFromStyle(1));
             }
-        } else if (this.aqO != null) {
-            this.aqO.setTextSize(0, aqH);
+        } else if (this.aqP != null) {
+            this.aqP.setTextSize(0, aqI);
         }
     }
 
@@ -114,7 +114,7 @@ public class c extends TypeAdapter.ViewHolder {
         } else {
             gVar.G(this.abn, this.abo);
         }
-        this.aqO.setBackgroundDrawable(gVar);
+        this.aqP.setBackgroundDrawable(gVar);
     }
 
     public void reset() {

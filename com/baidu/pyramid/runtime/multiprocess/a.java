@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile int aVE = 0;
+    private static volatile int aVF = 0;
     private static volatile String sProcessName;
 
     public static int EQ() {
-        int i = aVE;
+        int i = aVF;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,7 +26,7 @@ public class a {
             } else {
                 i |= 4;
             }
-            aVE = i;
+            aVF = i;
         }
         return i;
     }

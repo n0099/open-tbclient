@@ -19,26 +19,26 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class j extends PopupWindow implements View.OnClickListener {
-    private FrameLayout csY;
-    private View czt;
-    private BaseMenuView czu;
-    private View czv;
-    private MainMenuView czw;
-    private boolean czx;
-    private a czy;
-    private int czz;
+    private FrameLayout csZ;
+    private int czA;
+    private View czu;
+    private BaseMenuView czv;
+    private View czw;
+    private MainMenuView czx;
+    private boolean czy;
+    private a czz;
     private Context mContext;
     private boolean mImmersionEnabled;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Context context, View view, @Nullable a aVar) {
         super(context);
-        this.czx = true;
+        this.czy = true;
         this.mImmersionEnabled = true;
-        this.czz = 0;
+        this.czA = 0;
         this.mContext = context;
-        this.czv = view;
-        this.czy = aVar;
+        this.czw = view;
+        this.czz = aVar;
         setClippingEnabled(false);
         setFocusable(true);
         setOutsideTouchable(true);
@@ -49,35 +49,35 @@ public class j extends PopupWindow implements View.OnClickListener {
     }
 
     private void initViews() {
-        this.csY = (FrameLayout) LayoutInflater.from(this.mContext).inflate(g.e.aiapp_menu_layout, (ViewGroup) null);
-        this.czt = this.csY.findViewById(g.d.mask);
-        this.czw = (MainMenuView) this.csY.findViewById(g.d.aiapp_menu_body);
-        this.czt.setOnClickListener(this);
-        this.czw.setClickListener(this);
-        this.csY.measure(0, 0);
-        setContentView(this.csY);
+        this.csZ = (FrameLayout) LayoutInflater.from(this.mContext).inflate(g.e.aiapp_menu_layout, (ViewGroup) null);
+        this.czu = this.csZ.findViewById(g.d.mask);
+        this.czx = (MainMenuView) this.csZ.findViewById(g.d.aiapp_menu_body);
+        this.czu.setOnClickListener(this);
+        this.czx.setClickListener(this);
+        this.csZ.measure(0, 0);
+        setContentView(this.csZ);
     }
 
     private void showView() {
         if (!isShowing()) {
             asU();
-            this.czw.reset();
-            this.czu = this.czw;
+            this.czx.reset();
+            this.czv = this.czx;
             if (this.mImmersionEnabled) {
                 setFocusable(false);
             }
-            showAtLocation(this.czv, 81, 0, 0);
+            showAtLocation(this.czw, 81, 0, 0);
             if (this.mImmersionEnabled) {
-                getContentView().setSystemUiVisibility(this.czz | 1024 | 4096);
+                getContentView().setSystemUiVisibility(this.czA | 1024 | 4096);
                 setFocusable(true);
                 update();
             }
-            final View contentView = this.czw.getContentView();
+            final View contentView = this.czx.getContentView();
             if (contentView.getHeight() == 0) {
                 contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.j.1
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
-                        j.this.czw.im(contentView.getHeight());
+                        j.this.czx.im(contentView.getHeight());
                         j.this.asV();
                         contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
@@ -89,13 +89,13 @@ public class j extends PopupWindow implements View.OnClickListener {
     }
 
     public void asU() {
-        if (this.czy != null) {
-            this.czy.a(this.czw);
+        if (this.czz != null) {
+            this.czz.a(this.czx);
         }
     }
 
     public void b(List<List<i>> list, View view, boolean z, int i) {
-        this.czw.a(list, view, z, i);
+        this.czx.a(list, view, z, i);
         showView();
     }
 
@@ -116,8 +116,8 @@ public class j extends PopupWindow implements View.OnClickListener {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator aJ = c.aJ(this.czt);
-            ObjectAnimator b = c.b(this.czu);
+            ObjectAnimator aJ = c.aJ(this.czu);
+            ObjectAnimator b = c.b(this.czv);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.j.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -125,8 +125,8 @@ public class j extends PopupWindow implements View.OnClickListener {
                     Context context = j.this.mContext;
                     if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                         j.super.dismiss();
-                        if (j.this.czu != j.this.czw) {
-                            j.this.czu.setVisibility(8);
+                        if (j.this.czv != j.this.czx) {
+                            j.this.czv.setVisibility(8);
                         }
                     }
                 }
@@ -138,15 +138,15 @@ public class j extends PopupWindow implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void asN() {
-        this.czw.asN();
+        this.czx.asN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void asV() {
-        this.czt.setAlpha(0.0f);
-        this.czw.setTranslationY(this.czw.getHeight());
-        ObjectAnimator a = c.a(this.czt, this.czw);
-        ObjectAnimator a2 = c.a(this.czw);
+        this.czu.setAlpha(0.0f);
+        this.czx.setTranslationY(this.czx.getHeight());
+        ObjectAnimator a = c.a(this.czu, this.czx);
+        ObjectAnimator a2 = c.a(this.czx);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a);
         arrayList.add(a2);
@@ -156,6 +156,6 @@ public class j extends PopupWindow implements View.OnClickListener {
     }
 
     public void iq(int i) {
-        this.czz = i;
+        this.czA = i;
     }
 }

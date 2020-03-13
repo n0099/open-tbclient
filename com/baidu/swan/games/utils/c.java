@@ -8,35 +8,35 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static c csN = new c();
-    private static String csO = "banner_ad_close_btn_show_key";
-    private static String csP = "banner_ad_close_duration_key";
-    private long csQ;
+    private static c csO = new c();
+    private static String csP = "banner_ad_close_btn_show_key";
+    private static String csQ = "banner_ad_close_duration_key";
     private long csR;
+    private long csS;
 
     private c() {
     }
 
     public static c apV() {
-        return csN;
+        return csO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pM(String str) {
-        h.afr().putBoolean(csO, "1".equals(str));
+        h.afr().putBoolean(csP, "1".equals(str));
     }
 
     public boolean apW() {
-        return h.afr().getBoolean(csO, true);
+        return h.afr().getBoolean(csP, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pN(String str) {
-        h.afr().putString(csP, str);
+        h.afr().putString(csQ, str);
     }
 
     private long apX() {
-        String string = h.afr().getString(csP, "1");
+        String string = h.afr().getString(csQ, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : BdKVCache.MILLS_1Hour;
     }
 
@@ -80,11 +80,11 @@ public class c {
     }
 
     public void aqb() {
-        this.csQ = System.currentTimeMillis();
+        this.csR = System.currentTimeMillis();
     }
 
     public void aqc() {
-        this.csR = System.currentTimeMillis();
+        this.csS = System.currentTimeMillis();
     }
 
     public boolean pP(String str) {
@@ -92,11 +92,11 @@ public class c {
     }
 
     public boolean aqd() {
-        return this.csQ != 0 && System.currentTimeMillis() - this.csQ <= apY();
+        return this.csR != 0 && System.currentTimeMillis() - this.csR <= apY();
     }
 
     public boolean aqe() {
-        return this.csR != 0 && System.currentTimeMillis() - this.csR <= apZ();
+        return this.csS != 0 && System.currentTimeMillis() - this.csS <= apZ();
     }
 
     public void aqf() {

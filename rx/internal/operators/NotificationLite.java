@@ -3,14 +3,14 @@ package rx.internal.operators;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class NotificationLite {
-    private static final Object nNS = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object nOd = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object nNT = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object nOe = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -34,13 +34,13 @@ public final class NotificationLite {
 
     public static <T> Object next(T t) {
         if (t == null) {
-            return nNT;
+            return nOe;
         }
         return t;
     }
 
-    public static Object dOj() {
-        return nNS;
+    public static Object dOk() {
+        return nOd;
     }
 
     public static Object error(Throwable th) {
@@ -48,10 +48,10 @@ public final class NotificationLite {
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == nNS) {
+        if (obj == nOd) {
             eVar.onCompleted();
             return true;
-        } else if (obj == nNT) {
+        } else if (obj == nOe) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -67,7 +67,7 @@ public final class NotificationLite {
     }
 
     public static boolean ce(Object obj) {
-        return obj == nNS;
+        return obj == nOd;
     }
 
     public static boolean isError(Object obj) {
@@ -77,7 +77,7 @@ public final class NotificationLite {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T getValue(Object obj) {
-        if (obj == nNT) {
+        if (obj == nOe) {
             return null;
         }
         return obj;

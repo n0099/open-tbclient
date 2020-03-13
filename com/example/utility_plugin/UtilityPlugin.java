@@ -97,7 +97,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DEL_OFFICIAL_DB, String.valueOf(str6)));
             }
         } else if (methodCall.method.equals("getIsOfficalForumLetterReminderOpen")) {
-            OfficialSettingItemData dF = d.bYb().dF(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+            OfficialSettingItemData dF = d.bYc().dF(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
             if (dF != null) {
                 result.success(Boolean.valueOf(dF.isAcceptNotify()));
             } else {
@@ -112,7 +112,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     if (!TextUtils.isEmpty(str7)) {
-                        d.bYb().y(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
+                        d.bYc().y(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
                     }
                     return null;
                 }
@@ -122,7 +122,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             if (methodCall.method.equals("postSignProcess")) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    f.aLG().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                    f.aLH().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
                 }
             } else if (methodCall.method.equals("redirectTo")) {
                 String str8 = (String) methodCall.argument("url");
@@ -183,26 +183,26 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     result.success(true);
                 } else if (methodCall.method.equals("readNewMessage")) {
                     HashMap hashMap5 = new HashMap();
-                    hashMap5.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cDP().cDM() ? 1 : 0));
-                    hashMap5.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cDP().cDL() ? 1 : 0));
+                    hashMap5.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cDQ().cDN() ? 1 : 0));
+                    hashMap5.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cDQ().cDM() ? 1 : 0));
                     result.success(hashMap5);
                 } else if (methodCall.method.equals("clearNewMessage")) {
                     String str12 = (String) methodCall.arguments;
                     if (!StringUtils.isNull(str12)) {
                         if ("bookmarkNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDP().g(3, false, true);
+                            com.baidu.tieba.p.a.cDQ().g(3, false, true);
                         } else if ("fansNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDP().g(2, false, true);
+                            com.baidu.tieba.p.a.cDQ().g(2, false, true);
                         } else if ("giftNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDP().g(1, false, true);
+                            com.baidu.tieba.p.a.cDQ().g(1, false, true);
                         }
                     }
                 } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDP().cDN()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDQ().cDO()));
                 } else if (methodCall.method.equals("showLoginAwardCell")) {
                     result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                 } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDP().cDO()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDQ().cDP()));
                 } else if (methodCall.method.equals("getThemeMode")) {
                     result.success(am.aGv());
                 } else {

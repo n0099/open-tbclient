@@ -30,7 +30,7 @@ public class b implements h {
 
     @Override // com.baidu.swan.apps.w.b.h
     public void e(Activity activity, String str, final com.baidu.j.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(f.WS().WD(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xE(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
+        DelegateUtils.callOnMainWithActivity(f.WS().WD(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xF(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -40,7 +40,7 @@ public class b implements h {
 
     @Override // com.baidu.swan.apps.w.b.h
     public void f(Activity activity, String str, final com.baidu.j.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.aRa().isWalletOk()) {
+        if (!com.baidu.tbadk.pay.c.aRb().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
             return;
         }
@@ -49,7 +49,7 @@ public class b implements h {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.ah(acF.getActivity());
+            aVar2.aj(acF.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.j.a.a() { // from class: com.baidu.tieba.aiapps.apps.j.b.2
                 @Override // com.baidu.tieba.aiapps.apps.j.a.a
                 public void ab(Bundle bundle) {

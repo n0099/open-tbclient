@@ -27,13 +27,13 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class DeliveryEditActivity extends BaseActivity implements b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.bdprivate.address.c.b cbl;
-    private EditAddressView cbm;
-    private g cbn;
-    private com.baidu.swan.bdprivate.widget.b cbo;
-    private boolean cbp;
-    private String cbq;
-    private SwanAppBdActionBar cbr;
+    private com.baidu.swan.bdprivate.address.c.b cbm;
+    private EditAddressView cbn;
+    private g cbo;
+    private com.baidu.swan.bdprivate.widget.b cbp;
+    private boolean cbq;
+    private String cbr;
+    private SwanAppBdActionBar cbt;
     private String mType;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,14 +46,14 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
     }
 
     private void init() {
-        this.cbm = new EditAddressView(this, this.cbl);
-        setContentView(this.cbm);
+        this.cbn = new EditAddressView(this, this.cbm);
+        setContentView(this.cbn);
         af.W(this);
-        this.cbo = new com.baidu.swan.bdprivate.widget.b(this);
-        this.cbo.setMessage("加载中...");
-        this.cbo.setCancelable(true);
+        this.cbp = new com.baidu.swan.bdprivate.widget.b(this);
+        this.cbp.setMessage("加载中...");
+        this.cbp.setCancelable(true);
         ahS();
-        this.cbm.setDeliveryEditChangedListener(this);
+        this.cbn.setDeliveryEditChangedListener(this);
         if (!c.aik().ail()) {
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.1
                 @Override // java.lang.Runnable
@@ -66,41 +66,41 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
 
     @Override // com.baidu.swan.bdprivate.address.a.b.a
     public void el(boolean z) {
-        if (z == this.cbp) {
+        if (z == this.cbq) {
             en(!z);
         }
     }
 
     private void ahS() {
-        this.cbr = this.cbm.getBdActionBar();
-        this.cbr.setLeftFirstViewVisibility(false);
-        this.cbr.setRightMenuVisibility(false);
-        this.cbr.setLeftSecondViewVisibility(0);
-        this.cbr.setLeftSecondViewText(getString(b.g.delivery_cancel));
-        this.cbr.setLeftSecondViewTextSize(14);
-        this.cbr.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.2
+        this.cbt = this.cbn.getBdActionBar();
+        this.cbt.setLeftFirstViewVisibility(false);
+        this.cbt.setRightMenuVisibility(false);
+        this.cbt.setLeftSecondViewVisibility(0);
+        this.cbt.setLeftSecondViewText(getString(b.g.delivery_cancel));
+        this.cbt.setLeftSecondViewTextSize(14);
+        this.cbt.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 DeliveryEditActivity.this.ahU();
             }
         });
-        this.cbr.setRightTxtZone1Visibility(0);
-        this.cbr.setRightTxtZone1Text(b.g.delivery_save);
+        this.cbt.setRightTxtZone1Visibility(0);
+        this.cbt.setRightTxtZone1Text(b.g.delivery_save);
         en(false);
         if (TextUtils.equals(this.mType, IMTrack.DbBuilder.ACTION_UPDATE)) {
-            this.cbr.setTitle(b.g.delivery_title_edit);
+            this.cbt.setTitle(b.g.delivery_title_edit);
         } else if (TextUtils.equals(this.mType, "add")) {
-            this.cbr.setTitle(b.g.delivery_title_add);
+            this.cbt.setTitle(b.g.delivery_title_add);
         }
     }
 
     private boolean ahT() {
-        return this.cbm.getEditAdapter().ahT();
+        return this.cbn.getEditAdapter().ahT();
     }
 
     public void ahU() {
         if (ahT()) {
-            this.cbn = new g.a(this).kJ("退出后已编辑的信息不会保存").e("退出编辑").a("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.3
+            this.cbo = new g.a(this).kJ("退出后已编辑的信息不会保存").e("退出编辑").a("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     DeliveryEditActivity.this.em(false);
@@ -121,41 +121,41 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
 
     public void en(boolean z) {
         if (z) {
-            this.cbr.setRightTxtZone1OnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.4
+            this.cbt.setRightTxtZone1OnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     DeliveryEditActivity.this.ahV();
                 }
             });
         } else {
-            this.cbr.setRightTxtZone1OnClickListener(null);
+            this.cbt.setRightTxtZone1OnClickListener(null);
         }
-        this.cbp = z;
+        this.cbq = z;
         eo(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState());
     }
 
     private void eo(boolean z) {
         int parseColor;
         if (z) {
-            if (this.cbp) {
+            if (this.cbq) {
                 parseColor = Color.parseColor("#1D3A7F");
             } else {
                 parseColor = Color.parseColor("#555555");
             }
-        } else if (this.cbp) {
+        } else if (this.cbq) {
             parseColor = Color.parseColor("#3C76FF");
         } else {
             parseColor = Color.parseColor("#33666666");
         }
-        this.cbr.setRightTxtZone1TextColor(parseColor);
+        this.cbt.setRightTxtZone1TextColor(parseColor);
     }
 
     public void ahV() {
-        Map<String, Object> deliveryEditData = this.cbm.getDeliveryEditData();
+        Map<String, Object> deliveryEditData = this.cbn.getDeliveryEditData();
         if (q(deliveryEditData)) {
             final com.baidu.swan.bdprivate.address.c.b t = com.baidu.swan.bdprivate.address.c.b.t(deliveryEditData);
-            if (!TextUtils.isEmpty(this.cbl.id)) {
-                t.id = this.cbl.id;
+            if (!TextUtils.isEmpty(this.cbm.id)) {
+                t.id = this.cbm.id;
             }
             if (t != null) {
                 a.C0316a c0316a = new a.C0316a() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.5
@@ -203,12 +203,12 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
     }
 
     private void showLoading() {
-        this.cbo.show();
+        this.cbp.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ahW() {
-        this.cbo.dismiss();
+        this.cbp.dismiss();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,7 +218,7 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
         List<com.baidu.swan.bdprivate.address.c.b> aii = com.baidu.swan.bdprivate.address.b.a.aif().aii();
         if (TextUtils.equals(str, "add")) {
             if (aii.size() == 0) {
-                bVar.ccr = true;
+                bVar.cct = true;
             }
             aii.add(0, bVar);
             z = true;
@@ -261,13 +261,13 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
 
     private void C(Intent intent) {
         if (intent != null) {
-            this.cbq = intent.getStringExtra("openSource");
+            this.cbr = intent.getStringExtra("openSource");
             Bundle bundleExtra = intent.getBundleExtra("data");
             if (bundleExtra != null) {
                 String string = bundleExtra.getString("addrInfo");
                 if (!TextUtils.isEmpty(string)) {
                     try {
-                        this.cbl = com.baidu.swan.bdprivate.address.c.b.bc(new JSONObject(string));
+                        this.cbm = com.baidu.swan.bdprivate.address.c.b.bc(new JSONObject(string));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

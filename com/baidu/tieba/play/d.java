@@ -3,23 +3,23 @@ package com.baidu.tieba.play;
 public interface d {
     void Ap(int i);
 
-    void GY(String str);
+    void GZ(String str);
 
     boolean cyA();
 
     boolean cyB();
 
-    int cyC();
+    boolean cyC();
 
-    void cyD();
+    int cyD();
 
-    j cyE();
+    void cyE();
 
-    String cyw();
+    j cyF();
 
-    void cyx();
+    String cyx();
 
-    boolean cyy();
+    void cyy();
 
     boolean cyz();
 
@@ -33,7 +33,7 @@ public interface d {
 
     void onStart();
 
-    String wE(String str);
+    String wF(String str);
 
-    void wJ(String str);
+    void wK(String str);
 }

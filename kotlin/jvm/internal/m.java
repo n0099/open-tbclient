@@ -6,25 +6,25 @@ import kotlin.jvm.KotlinReflectionNotSupportedError;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> nCp;
+    private final Class<?> nCA;
 
     public m(Class<?> cls) {
         q.j(cls, "jClass");
-        this.nCp = cls;
+        this.nCA = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dKt() {
-        return this.nCp;
+    public Class<?> dKu() {
+        return this.nCA;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        dKu();
+        dKv();
         throw null;
     }
 
-    private final Void dKu() {
+    private final Void dKv() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -37,6 +37,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return dKt().toString() + " (Kotlin reflection is not available)";
+        return dKu().toString() + " (Kotlin reflection is not available)";
     }
 }

@@ -10,30 +10,30 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private FrameLayout bow;
-    private a bpx;
+    private FrameLayout box;
+    private a bpy;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.bpx = aVar;
+        this.bpy = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.bow = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        this.box = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
         Pb();
         return inflate;
     }
 
     private void Pb() {
-        if (this.bpx == null) {
+        if (this.bpy == null) {
             return;
         }
-        this.bow.addView(this.bpx.contentView);
+        this.box.addView(this.bpy.contentView);
     }
 
     /* loaded from: classes11.dex */

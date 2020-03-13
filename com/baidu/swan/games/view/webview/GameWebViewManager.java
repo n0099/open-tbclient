@@ -24,11 +24,11 @@ import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWebView>, com.baidu.swan.games.view.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private NetworkErrorView bsd;
-    private FrameLayout cve;
-    private View.OnClickListener cvf;
-    private ImageView cvg;
+    private NetworkErrorView bse;
+    private FrameLayout cvf;
+    private View.OnClickListener cvg;
     private ImageView cvh;
+    private ImageView cvi;
 
     public GameWebViewManager(Context context) {
         super(context);
@@ -46,63 +46,63 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     }
 
     private void initView() {
-        this.cve = new FrameLayout(this.mContext);
-        this.cve.addView(IP(), -1, -1);
+        this.cvf = new FrameLayout(this.mContext);
+        this.cvf.addView(IP(), -1, -1);
         arp();
         arq();
         arr();
     }
 
     private void arp() {
-        if (this.cvh == null) {
-            this.cvh = new ImageView(this.mContext);
+        if (this.cvi == null) {
+            this.cvi = new ImageView(this.mContext);
             Resources resources = this.mContext.getResources();
             int dimension = (int) resources.getDimension(a.d.swangame_webview_button_size);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.topMargin = (int) resources.getDimension(a.d.swangame_webview_button_top_margin);
             layoutParams.leftMargin = (int) resources.getDimension(a.d.swangame_webview_button_left_margin);
-            this.cvh.setLayoutParams(layoutParams);
-            this.cvh.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.cvh.setImageResource(a.e.swangame_webview_close_button);
-            this.cvh.setClickable(true);
-            this.cvh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.1
+            this.cvi.setLayoutParams(layoutParams);
+            this.cvi.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            this.cvi.setImageResource(a.e.swangame_webview_close_button);
+            this.cvi.setClickable(true);
+            this.cvi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (GameWebViewManager.this.cvf != null) {
-                        GameWebViewManager.this.cvf.onClick(view);
+                    if (GameWebViewManager.this.cvg != null) {
+                        GameWebViewManager.this.cvg.onClick(view);
                     }
                 }
             });
-            this.cve.addView(this.cvh);
+            this.cvf.addView(this.cvi);
         }
     }
 
     private void arq() {
-        this.bsd = new NetworkErrorView(this.mContext);
-        this.bsd.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_white));
-        IP().addView(this.bsd, -1, -1);
-        this.bsd.setVisibility(8);
+        this.bse = new NetworkErrorView(this.mContext);
+        this.bse.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_white));
+        IP().addView(this.bse, -1, -1);
+        this.bse.setVisibility(8);
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (SwanAppNetworkUtils.isNetworkConnected(GameWebViewManager.this.mContext) && com.baidu.swan.apps.aj.a.b.lh(GameWebViewManager.this.IP().getUrl())) {
                     GameWebViewManager.this.IP().reload();
-                    GameWebViewManager.this.bsd.setVisibility(8);
+                    GameWebViewManager.this.bse.setVisibility(8);
                 }
             }
         };
-        this.bsd.setOnClickListener(onClickListener);
-        this.bsd.setReloadClickListener(onClickListener);
+        this.bse.setOnClickListener(onClickListener);
+        this.bse.setReloadClickListener(onClickListener);
     }
 
     private void arr() {
-        this.cvg = new ImageView(this.mContext);
+        this.cvh = new ImageView(this.mContext);
         int dimension = (int) this.mContext.getResources().getDimension(a.d.swangame_webview_loading_size);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
         layoutParams.gravity = 17;
-        this.cvg.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.cvg.setImageResource(a.e.swangame_webview_loading);
-        this.cve.addView(this.cvg, layoutParams);
+        this.cvh.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        this.cvh.setImageResource(a.e.swangame_webview_loading);
+        this.cvf.addView(this.cvh, layoutParams);
     }
 
     private void ars() {
@@ -169,50 +169,50 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
 
     @Override // com.baidu.swan.apps.adaptation.b.g
     public void d(View.OnClickListener onClickListener) {
-        this.cvf = onClickListener;
+        this.cvg = onClickListener;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
     public void IU() {
-        com.baidu.swan.games.view.c.c(this.cve, com.baidu.swan.apps.model.a.a.a.Yw());
+        com.baidu.swan.games.view.c.c(this.cvf, com.baidu.swan.apps.model.a.a.a.Yw());
         com.baidu.swan.games.view.c.a(this);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
     public boolean IH() {
-        return this.cve.getParent() != null;
+        return this.cvf.getParent() != null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
     public void IV() {
         IP().stopLoading();
         IP().clearView();
-        com.baidu.swan.games.view.c.au(this.cve);
+        com.baidu.swan.games.view.c.au(this.cvf);
         com.baidu.swan.games.view.c.b(this);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
     public void bX(boolean z) {
-        if (this.cvh != null) {
+        if (this.cvi != null) {
             if (z) {
-                this.cvh.setVisibility(0);
+                this.cvi.setVisibility(0);
             } else {
-                this.cvh.setVisibility(8);
+                this.cvi.setVisibility(8);
             }
         }
     }
 
     private void showLoadingView() {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0197a.swangame_webview_loading);
-        this.cvg.setVisibility(0);
-        this.cvg.startAnimation(loadAnimation);
+        this.cvh.setVisibility(0);
+        this.cvh.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.cvg.getVisibility() == 0) {
-            this.cvg.clearAnimation();
-            this.cvg.setVisibility(8);
+        if (this.cvh.getVisibility() == 0) {
+            this.cvh.clearAnimation();
+            this.cvh.setVisibility(8);
         }
     }
 
@@ -228,7 +228,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
             if (i != -10) {
-                GameWebViewManager.this.bsd.setVisibility(0);
+                GameWebViewManager.this.bse.setVisibility(0);
             }
         }
 

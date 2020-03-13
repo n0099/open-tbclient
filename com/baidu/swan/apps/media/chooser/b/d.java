@@ -28,33 +28,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public static boolean bBu;
-    private static ArrayList<MediaModel> bCS;
-    public static String bCT;
-    public static int bCU;
-    public static String bCV;
-    public static String bCq = "album";
+    public static boolean bBv;
+    private static ArrayList<MediaModel> bCT;
+    public static String bCU;
+    public static int bCV;
+    public static String bCW;
+    public static String bCr = "album";
     public static int mMaxSelected = 9;
     public static String mMode = "single";
     public static boolean mIsShowCamera = true;
     public static boolean mIsFrontCamera = false;
 
     public static void o(ArrayList<MediaModel> arrayList) {
-        if (bCS == null) {
-            bCS = new ArrayList<>();
+        if (bCT == null) {
+            bCT = new ArrayList<>();
         }
-        bCS.clear();
-        bCS.addAll(arrayList);
+        bCT.clear();
+        bCT.addAll(arrayList);
     }
 
     public static ArrayList<MediaModel> XI() {
-        return bCS;
+        return bCT;
     }
 
     public static void clear() {
-        if (bCS != null) {
-            bCS.clear();
-            bCS = null;
+        if (bCT != null) {
+            bCT.clear();
+            bCT = null;
         }
     }
 

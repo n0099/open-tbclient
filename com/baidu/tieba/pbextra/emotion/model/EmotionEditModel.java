@@ -26,45 +26,45 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes9.dex */
 public class EmotionEditModel extends BdBaseModel {
-    private boolean gdj;
-    private a jdL;
-    private f jdM;
-    private b jdN;
-    private EmotionEditActivity jdO;
-    private Thread jdP;
-    private Handler jdQ = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.3
+    private boolean gdw;
+    private a jdX;
+    private f jdY;
+    private b jdZ;
+    private EmotionEditActivity jea;
+    private Thread jeb;
+    private Handler jec = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.3
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message != null) {
                 try {
-                    EmotionEditModel.this.jdL.Gz((String) message.obj);
+                    EmotionEditModel.this.jdX.GA((String) message.obj);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
     };
-    private final HttpMessageListener jdR = new HttpMessageListener(1003348) { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.4
+    private final HttpMessageListener jed = new HttpMessageListener(1003348) { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
                 String status = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    EmotionEditModel.this.jdL.cur();
+                    EmotionEditModel.this.jdX.cus();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = EmotionEditModel.this.jdO.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
+                        msg = EmotionEditModel.this.jea.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
                     }
-                    EmotionEditModel.this.jdL.Gy(msg);
+                    EmotionEditModel.this.jdX.Gz(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = EmotionEditModel.this.jdO.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
+                        errorString = EmotionEditModel.this.jea.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
                     }
-                    EmotionEditModel.this.jdL.Gy(errorString);
+                    EmotionEditModel.this.jdX.Gz(errorString);
                 }
             }
         }
@@ -72,36 +72,36 @@ public class EmotionEditModel extends BdBaseModel {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void Gy(String str);
+        void GA(String str);
 
         void Gz(String str);
 
         void c(ImageUploadResult imageUploadResult);
 
-        void cur();
+        void cus();
     }
 
     public EmotionEditModel(EmotionEditActivity emotionEditActivity, a aVar) {
-        this.jdO = emotionEditActivity;
-        this.jdL = aVar;
+        this.jea = emotionEditActivity;
+        this.jdX = aVar;
         te();
-        this.jdR.setTag(getUniqueId());
-        this.jdR.setSelfListener(true);
-        registerListener(this.jdR);
+        this.jed.setTag(getUniqueId());
+        this.jed.setSelfListener(true);
+        registerListener(this.jed);
     }
 
     public void setCancel(boolean z) {
-        this.gdj = z;
-        if (this.gdj) {
-            cuB();
+        this.gdw = z;
+        if (this.gdw) {
+            cuC();
         }
     }
 
     public boolean isCancel() {
-        return this.gdj;
+        return this.gdw;
     }
 
-    public void GA(String str) {
+    public void GB(String str) {
         HttpMessage httpMessage = new HttpMessage(1003348);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
@@ -114,7 +114,7 @@ public class EmotionEditModel extends BdBaseModel {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public String doInBackground(Void[] voidArr) {
-                    if (EmotionEditModel.this.gdj) {
+                    if (EmotionEditModel.this.gdw) {
                         return null;
                     }
                     File c = EmotionEditModel.this.c(bitmap, str);
@@ -127,7 +127,7 @@ public class EmotionEditModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass1) str2);
-                    EmotionEditModel.this.jdL.Gz(str2);
+                    EmotionEditModel.this.jdX.GA(str2);
                 }
             }.execute(new Void[0]);
         }
@@ -135,12 +135,12 @@ public class EmotionEditModel extends BdBaseModel {
 
     public void a(final com.baidu.adp.gif.b bVar) {
         if (bVar != null) {
-            if (this.jdP == null || !this.jdP.isAlive()) {
-                this.jdP = new Thread(new Runnable() { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.2
+            if (this.jeb == null || !this.jeb.isAlive()) {
+                this.jeb = new Thread(new Runnable() { // from class: com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            if (!EmotionEditModel.this.gdj) {
+                            if (!EmotionEditModel.this.gdw) {
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                 com.baidu.tieba.pbextra.emotion.model.a aVar = new com.baidu.tieba.pbextra.emotion.model.a();
                                 aVar.b(byteArrayOutputStream);
@@ -152,13 +152,13 @@ public class EmotionEditModel extends BdBaseModel {
                                 while (true) {
                                     if (i >= bVar.getFrameCount()) {
                                         break;
-                                    } else if (EmotionEditModel.this.gdj) {
+                                    } else if (EmotionEditModel.this.gdw) {
                                         EmotionEditModel.this.a(createBitmap, bitmap);
                                         break;
                                     } else {
                                         bVar.E(i);
                                         bVar.a(createBitmap, null);
-                                        bitmap = EmotionEditModel.this.jdO.z(createBitmap);
+                                        bitmap = EmotionEditModel.this.jea.z(createBitmap);
                                         aVar.A(bitmap);
                                         int F = bVar.F(i);
                                         if (F == 100) {
@@ -170,24 +170,24 @@ public class EmotionEditModel extends BdBaseModel {
                                         i++;
                                     }
                                 }
-                                if (EmotionEditModel.this.gdj) {
+                                if (EmotionEditModel.this.gdw) {
                                     EmotionEditModel.this.a(createBitmap, bitmap);
                                     return;
                                 }
-                                aVar.cus();
+                                aVar.cut();
                                 File a2 = EmotionEditModel.this.a(byteArrayOutputStream, str);
                                 EmotionEditModel.this.a(createBitmap, bitmap);
                                 Message obtain = Message.obtain();
                                 obtain.what = 0;
                                 obtain.obj = a2.getAbsolutePath();
-                                EmotionEditModel.this.jdQ.sendMessage(obtain);
+                                EmotionEditModel.this.jec.sendMessage(obtain);
                             }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 });
-                this.jdP.start();
+                this.jeb.start();
             }
         }
     }
@@ -209,23 +209,23 @@ public class EmotionEditModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.jdR);
+        MessageManager.getInstance().unRegisterListener(this.jed);
         MessageManager.getInstance().unRegisterTask(1003348);
-        cuB();
+        cuC();
         return false;
     }
 
-    private void cuB() {
-        if (this.jdM != null) {
-            this.jdM.cancel();
+    private void cuC() {
+        if (this.jdY != null) {
+            this.jdY.cancel();
         }
-        if (this.jdN != null) {
-            this.jdN.cancel();
+        if (this.jdZ != null) {
+            this.jdZ.cancel();
         }
-        if (this.jdP != null) {
-            this.jdP.interrupt();
+        if (this.jeb != null) {
+            this.jeb.interrupt();
         }
-        this.gdj = true;
+        this.gdw = true;
     }
 
     private void te() {
@@ -365,20 +365,20 @@ public class EmotionEditModel extends BdBaseModel {
         if (!TextUtils.isEmpty(str)) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(str);
-            this.jdN = new b(imageFileInfo, z);
-            this.jdN.execute(new String[0]);
+            this.jdZ = new b(imageFileInfo, z);
+            this.jdZ.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        private ImageFileInfo jdU;
-        private boolean jdV;
+        private ImageFileInfo jeg;
+        private boolean jeh;
 
         public b(ImageFileInfo imageFileInfo, boolean z) {
-            this.jdU = imageFileInfo;
-            this.jdV = z;
+            this.jeg = imageFileInfo;
+            this.jeh = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -386,8 +386,8 @@ public class EmotionEditModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: B */
         public ImageUploadResult doInBackground(String... strArr) {
-            EmotionEditModel.this.jdM = new f(null);
-            return EmotionEditModel.this.jdM.a(this.jdU, this.jdV, false);
+            EmotionEditModel.this.jdY = new f(null);
+            return EmotionEditModel.this.jdY.a(this.jeg, this.jeh, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -395,7 +395,7 @@ public class EmotionEditModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
-            EmotionEditModel.this.jdL.c(imageUploadResult);
+            EmotionEditModel.this.jdX.c(imageUploadResult);
         }
     }
 }

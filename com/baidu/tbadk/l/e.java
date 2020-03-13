@@ -11,44 +11,44 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e dCS;
-    private List<String> dCR;
+    private static e dDf;
+    private List<String> dDe;
 
-    public static e aQT() {
-        if (dCS == null) {
+    public static e aQU() {
+        if (dDf == null) {
             synchronized (e.class) {
-                if (dCS == null) {
-                    dCS = new e();
+                if (dDf == null) {
+                    dDf = new e();
                 }
             }
         }
-        return dCS;
+        return dDf;
     }
 
     public e() {
-        vC(com.baidu.tbadk.core.sharedPref.b.aFD().getString("key_need_add_source_stat_list", ""));
+        vD(com.baidu.tbadk.core.sharedPref.b.aFD().getString("key_need_add_source_stat_list", ""));
     }
 
-    public void vB(String str) {
-        this.dCR = vC(str);
+    public void vC(String str) {
+        this.dDe = vD(str);
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.sharedPref.b.aFD().putString("key_need_add_source_stat_list", str);
     }
 
-    private List<String> vC(String str) {
+    private List<String> vD(String str) {
         if (aq.isEmpty(str)) {
             return null;
         }
         return Arrays.asList(str.split(Constants.ACCEPT_TIME_SEPARATOR_SP));
     }
 
-    public boolean vD(String str) {
-        if (v.isEmpty(this.dCR) || aq.isEmpty(str)) {
+    public boolean vE(String str) {
+        if (v.isEmpty(this.dDe) || aq.isEmpty(str)) {
             return false;
         }
-        for (String str2 : this.dCR) {
+        for (String str2 : this.dDe) {
             if (str.equals(str2)) {
                 return true;
             }
@@ -59,12 +59,12 @@ public class e {
     public void c(an anVar) {
         Activity currentActivity;
         b ea;
-        if (anVar != null && !anVar.tu("page_source") && vD(anVar.getKey()) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (ea = c.ea(currentActivity)) != null) {
+        if (anVar != null && !anVar.tu("page_source") && vE(anVar.getKey()) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (ea = c.ea(currentActivity)) != null) {
             String currentPageKey = ea.getCurrentPageKey();
             if (!TextUtils.isEmpty(currentPageKey)) {
                 anVar.cy("page_key", currentPageKey);
             }
-            String b = d.b(ea.aQQ(), currentPageKey, 6);
+            String b = d.b(ea.aQR(), currentPageKey, 6);
             if (!TextUtils.isEmpty(b)) {
                 anVar.cy("page_source", b);
             }

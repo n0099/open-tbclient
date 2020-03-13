@@ -41,20 +41,20 @@ import org.json.JSONObject;
 public class a {
     private m Yw;
     private az adP;
-    private Dialog apB;
+    private Dialog apC;
     private Context context;
-    private AnimatorSet fbH;
+    private AnimatorSet fbU;
     private View mContentView;
     private String otherParams;
-    private boolean fbI = false;
+    private boolean fbV = false;
     private Handler handler = new Handler();
-    private boolean fbJ = false;
-    private boolean fbK = false;
-    private boolean fbL = false;
+    private boolean fbW = false;
+    private boolean fbX = false;
+    private boolean fbY = false;
 
     public void sN() {
-        if (this.apB != null && this.apB.isShowing()) {
-            Context context = this.apB.getContext();
+        if (this.apC != null && this.apC.isShowing()) {
+            Context context = this.apC.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -66,12 +66,12 @@ public class a {
                         return;
                     }
                 }
-                this.apB.dismiss();
+                this.apC.dismiss();
             } else {
                 return;
             }
         }
-        this.apB = null;
+        this.apC = null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x00d8  */
@@ -102,8 +102,8 @@ public class a {
                 if (booleanValue) {
                     this.Yw.Ye.isNewUser = true;
                 }
-                this.fbJ = this.Yw.Ye.isNewUser;
-                if (this.fbJ && !this.fbI && TbadkCoreApplication.isLogin() && (apVar = com.baidu.live.v.a.zl().axC) != null && apVar.acV != null && apVar.acV.aeA && (ayVar = apVar.acS) != null) {
+                this.fbW = this.Yw.Ye.isNewUser;
+                if (this.fbW && !this.fbV && TbadkCoreApplication.isLogin() && (apVar = com.baidu.live.v.a.zl().axD) != null && apVar.acV != null && apVar.acV.aeA && (ayVar = apVar.acS) != null) {
                     this.adP = ayVar.adP;
                     if (this.adP != null && !TextUtils.isEmpty(this.adP.adW)) {
                         int i4 = this.adP.adJ;
@@ -169,7 +169,7 @@ public class a {
                                         }
                                     }
                                 }, i2 * 1000);
-                                this.fbI = true;
+                                this.fbV = true;
                             }
                             return;
                         }
@@ -209,7 +209,7 @@ public class a {
                                 }
                             }
                         }, i2 * 1000);
-                        this.fbI = true;
+                        this.fbV = true;
                     }
                 }
             }
@@ -226,8 +226,8 @@ public class a {
         dialog.setContentView(inflate);
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
-        this.apB = dialog;
-        bmd();
+        this.apC = dialog;
+        bme();
         inflate.findViewById(a.g.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -271,26 +271,26 @@ public class a {
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.fbH = new AnimatorSet();
-        this.fbH.play(ofFloat).with(ofFloat2);
-        this.fbH.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fbH.setDuration(2000L);
-        this.fbH.setStartDelay(0L);
+        this.fbU = new AnimatorSet();
+        this.fbU.play(ofFloat).with(ofFloat2);
+        this.fbU.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fbU.setDuration(2000L);
+        this.fbU.setStartDelay(0L);
         dialog.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.fbH != null) {
-                    a.this.fbH.start();
+                if (a.this.fbU != null) {
+                    a.this.fbU.start();
                 }
             }
         });
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.fbH != null) {
-                    a.this.fbH.cancel();
+                if (a.this.fbU != null) {
+                    a.this.fbU.cancel();
                 }
-                a.this.fbI = false;
+                a.this.fbV = false;
             }
         });
         tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.i.a.6
@@ -360,53 +360,53 @@ public class a {
     }
 
     public void onResume() {
-        if (!this.fbK && this.fbJ && this.context != null && this.Yw != null && this.Yw.Ye != null && !this.Yw.Ye.isNewUser) {
+        if (!this.fbX && this.fbW && this.context != null && this.Yw != null && this.Yw.Ye != null && !this.Yw.Ye.isNewUser) {
             sN();
-            if (this.fbJ && this.adP != null) {
+            if (this.fbW && this.adP != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.adP.adT));
             }
-            this.fbK = true;
-            bmc();
-        }
-    }
-
-    public void s(m mVar) {
-        if (!this.fbL && this.fbJ && mVar != null && mVar.Ye != null) {
-            boolean z = mVar.Ye.isNewUser;
-            this.Yw = mVar;
-            if (!z && this.fbJ) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
-                this.fbL = true;
-                bmc();
-            }
-        }
-    }
-
-    private void bmc() {
-        if (this.fbK && this.fbL) {
-            this.fbJ = false;
-        }
-    }
-
-    public void release() {
-        this.fbI = false;
-        this.Yw = null;
-        this.handler.removeCallbacksAndMessages(null);
-        sN();
-        if (this.fbH != null) {
-            this.fbH.cancel();
-            this.fbH = null;
-        }
-    }
-
-    public void sm() {
-        if (this.apB != null && this.apB.isShowing() && this.mContentView != null) {
-            this.apB.show();
+            this.fbX = true;
             bmd();
         }
     }
 
+    public void s(m mVar) {
+        if (!this.fbY && this.fbW && mVar != null && mVar.Ye != null) {
+            boolean z = mVar.Ye.isNewUser;
+            this.Yw = mVar;
+            if (!z && this.fbW) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
+                this.fbY = true;
+                bmd();
+            }
+        }
+    }
+
     private void bmd() {
+        if (this.fbX && this.fbY) {
+            this.fbW = false;
+        }
+    }
+
+    public void release() {
+        this.fbV = false;
+        this.Yw = null;
+        this.handler.removeCallbacksAndMessages(null);
+        sN();
+        if (this.fbU != null) {
+            this.fbU.cancel();
+            this.fbU = null;
+        }
+    }
+
+    public void sm() {
+        if (this.apC != null && this.apC.isShowing() && this.mContentView != null) {
+            this.apC.show();
+            bme();
+        }
+    }
+
+    private void bme() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.g.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.f.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.g.recharge_imageView);
@@ -415,19 +415,19 @@ public class a {
         int dimension2 = (int) this.context.getResources().getDimension(a.e.sdk_ds720);
         int dimension3 = (int) this.context.getResources().getDimension(a.e.sdk_ds176);
         int dimension4 = (int) this.context.getResources().getDimension(a.e.sdk_ds474);
-        if (UtilHelper.getRealScreenOrientation(this.apB.getContext()) == 2) {
+        if (UtilHelper.getRealScreenOrientation(this.apC.getContext()) == 2) {
             int dimension5 = (int) (BdUtilHelper.getScreenDimensions(this.context)[1] - this.context.getResources().getDimension(a.e.sdk_ds120));
             tbImageView.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension) / (dimension + dimension3));
             tbImageView.getLayoutParams().width = (int) (((tbImageView.getLayoutParams().height * dimension2) * 1.0f) / dimension);
             tbImageView2.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension3) / (dimension + dimension3));
             tbImageView2.getLayoutParams().width = (int) (((tbImageView2.getLayoutParams().height * dimension4) * 1.0f) / dimension3);
-            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.apB.getWindow(), true, false);
+            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.apC.getWindow(), true, false);
             return;
         }
         tbImageView.getLayoutParams().height = dimension;
         tbImageView.getLayoutParams().width = dimension2;
         tbImageView2.getLayoutParams().height = dimension3;
         tbImageView2.getLayoutParams().width = dimension4;
-        UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.apB.getWindow(), true, false);
+        UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.apC.getWindow(), true, false);
     }
 }

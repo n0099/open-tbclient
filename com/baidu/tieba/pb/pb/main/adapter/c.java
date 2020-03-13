@@ -16,17 +16,17 @@ import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class c extends l<k, a> {
     private static int Yv;
-    private View.OnClickListener dgC;
-    private d iQq;
-    private final LinkedList<a> iQr;
+    private View.OnClickListener dgP;
+    private d iQC;
+    private final LinkedList<a> iQD;
 
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.iQr = new LinkedList<>();
-        if (bVar != null && bVar.clB() != null) {
-            Yv = bVar.clB().coh();
+        this.iQD = new LinkedList<>();
+        if (bVar != null && bVar.clC() != null) {
+            Yv = bVar.clC().coi();
         }
-        this.iQq = new d(bVar);
+        this.iQC = new d(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends l<k, a> {
     /* renamed from: bM */
     public a b(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.iQr.add(aVar);
+        this.iQD.add(aVar);
         return aVar;
     }
 
@@ -43,79 +43,79 @@ public class c extends l<k, a> {
     public View a(int i, View view, ViewGroup viewGroup, k kVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) kVar, (k) aVar);
         if (kVar != null && aVar != null) {
-            aVar.iQs.setOnClickOutListener(this.dgC);
-            aVar.iQs.setPostId(getPostId());
-            aVar.iQs.setForumId(getForumId());
+            aVar.iQE.setOnClickOutListener(this.dgP);
+            aVar.iQE.setPostId(getPostId());
+            aVar.iQE.setForumId(getForumId());
             aVar.b(kVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        cqD();
-        if (this.iQq != null) {
-            this.iQq.onDestroy();
+        cqE();
+        if (this.iQC != null) {
+            this.iQC.onDestroy();
         }
     }
 
-    private void cqD() {
-        Iterator<a> it = this.iQr.iterator();
+    private void cqE() {
+        Iterator<a> it = this.iQD.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.iQs != null) {
-                next.iQs.onDestroy();
+            if (next != null && next.iQE != null) {
+                next.iQE.onDestroy();
             }
         }
     }
 
-    public void tX(String str) {
-        Iterator<a> it = this.iQr.iterator();
+    public void tY(String str) {
+        Iterator<a> it = this.iQD.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.iQs != null) {
-                next.iQs.tX(str);
+            if (next != null && next.iQE != null) {
+                next.iQE.tY(str);
             }
         }
     }
 
     private String getPostId() {
-        bj cqE = cqE();
-        return cqE != null ? cqE.aCE() : "";
+        bj cqF = cqF();
+        return cqF != null ? cqF.aCE() : "";
     }
 
     private String getForumId() {
-        return this.iGg.clB() != null ? this.iGg.clB().getForumId() : "";
+        return this.iGs.clC() != null ? this.iGs.clC().getForumId() : "";
     }
 
-    private bj cqE() {
-        if (this.iGg.clB() == null || this.iGg.clB().getPbData() == null) {
+    private bj cqF() {
+        if (this.iGs.clC() == null || this.iGs.clC().getPbData() == null) {
             return null;
         }
-        return this.iGg.clB().getPbData().cku();
+        return this.iGs.clC().getPbData().ckv();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dgC = onClickListener;
+        this.dgP = onClickListener;
     }
 
     /* loaded from: classes9.dex */
     public static class a extends v.a {
-        public PbThreadCommentAndPraiseInfoLayout iQs;
-        public View iQt;
-        private int iQu;
+        public PbThreadCommentAndPraiseInfoLayout iQE;
+        public View iQF;
+        private int iQG;
 
         public a(View view) {
             super(view);
             if (view != null) {
-                this.iQs = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+                this.iQE = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
                 com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-                dVar.cNB = 4;
-                dVar.cNH = 7;
-                dVar.cNC = this.iQu;
-                dVar.cNF = c.Yv;
-                this.iQs.setAgreeStatisticData(dVar);
-                this.iQt = view.findViewById(R.id.bottom_divider_line);
-                this.iQt.setVisibility(0);
+                dVar.cNC = 4;
+                dVar.cNI = 7;
+                dVar.cND = this.iQG;
+                dVar.cNG = c.Yv;
+                this.iQE.setAgreeStatisticData(dVar);
+                this.iQF = view.findViewById(R.id.bottom_divider_line);
+                this.iQF.setVisibility(0);
             }
         }
 
@@ -125,14 +125,14 @@ public class c extends l<k, a> {
                 if (aAg.aEa() != null) {
                     aAg.aEa().postId = aAg.aCE();
                 }
-                this.iQs.a(aAg, kVar.getAnti());
-                this.iQt.setVisibility(kVar.cld() ? 0 : 8);
+                this.iQE.a(aAg, kVar.getAnti());
+                this.iQF.setVisibility(kVar.cle() ? 0 : 8);
                 if (aAg.aBb() && aAg.aCF() != null) {
-                    this.iQu = 2;
+                    this.iQG = 2;
                 } else {
-                    this.iQu = 1;
+                    this.iQG = 1;
                 }
-                if (kVar.iCL) {
+                if (kVar.iCX) {
                     getView().setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getView().getContext(), R.dimen.tbds32));
                 }
             }
@@ -140,8 +140,8 @@ public class c extends l<k, a> {
         }
 
         public void onChangeSkinType() {
-            am.setBackgroundColor(this.iQt, R.color.cp_bg_line_b);
-            this.iQs.onChangeSkinType();
+            am.setBackgroundColor(this.iQF, R.color.cp_bg_line_b);
+            this.iQE.onChangeSkinType();
         }
     }
 }

@@ -56,7 +56,7 @@ public class AlaBigGiftUserInfoView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void sS() {
         if (this.ahQ != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.ahQ.userId), this.ahQ.userName, this.ahQ.portrait, this.ahQ.sex, this.ahQ.aly, this.ahQ.location, this.ahQ.description, 0L, this.ahQ.fansCount, this.ahQ.alz, this.ahQ.userStatus, this.ahQ.liveId, this.ahQ.groupId, this.ahQ.alC, this.ahQ.alD, this.ahQ.appId, this.ahQ.userName, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.ahQ.userId), this.ahQ.userName, this.ahQ.portrait, this.ahQ.sex, this.ahQ.alz, this.ahQ.location, this.ahQ.description, 0L, this.ahQ.fansCount, this.ahQ.alA, this.ahQ.userStatus, this.ahQ.liveId, this.ahQ.groupId, this.ahQ.alD, this.ahQ.alE, this.ahQ.appId, this.ahQ.userName, "")));
         }
     }
 
@@ -67,8 +67,8 @@ public class AlaBigGiftUserInfoView extends RelativeLayout {
                 this.ahN.startLoad(cVar.portrait, 12, false);
             }
             du(cVar.userName);
-            if (cVar.alw != null) {
-                this.ahP.setText(cVar.alw.ry());
+            if (cVar.alx != null) {
+                this.ahP.setText(cVar.alx.ry());
             }
         }
     }

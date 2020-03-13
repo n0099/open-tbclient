@@ -11,23 +11,23 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class e {
-    private static e dCY = null;
+    private static e dDl = null;
     private int maxCost;
     private boolean isSmallFlowOpen = false;
-    private boolean dCZ = false;
+    private boolean dDm = false;
 
     private e() {
     }
 
-    public static e aQX() {
-        if (dCY == null) {
+    public static e aQY() {
+        if (dDl == null) {
             synchronized (e.class) {
-                if (dCY == null) {
-                    dCY = new e();
+                if (dDl == null) {
+                    dDl = new e();
                 }
             }
         }
-        return dCY;
+        return dDl;
     }
 
     public void a(Context context, d dVar, b bVar) {
@@ -92,38 +92,38 @@ public class e {
                 if (!StringUtils.isNull(dVar.isVertical)) {
                     anVar2.cy("is_vertical", dVar.isVertical);
                 }
-                if (!StringUtils.isNull(dVar.dCX)) {
-                    anVar2.cy("is_dynamic", dVar.dCX);
+                if (!StringUtils.isNull(dVar.dDk)) {
+                    anVar2.cy("is_dynamic", dVar.dDk);
                 }
                 if (!aq.isEmpty(dVar.getTaskId())) {
                     anVar2.cy("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!aq.isEmpty(dVar.aQV())) {
-                    anVar2.cy(TiebaInitialize.Params.AB_TAG, dVar.aQV());
+                if (!aq.isEmpty(dVar.aQW())) {
+                    anVar2.cy(TiebaInitialize.Params.AB_TAG, dVar.aQW());
                 }
-                if (aQY()) {
+                if (aQZ()) {
                     if (!StringUtils.isNull(dVar.objID)) {
                         anVar2.cy("obj_id", dVar.objID);
                     }
-                    if (!StringUtils.isNull(dVar.dCV)) {
-                        anVar2.cy("obj_name", dVar.dCV);
+                    if (!StringUtils.isNull(dVar.dDi)) {
+                        anVar2.cy("obj_name", dVar.dDi);
                     }
                     anVar2.cy("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.aQW())) {
-                    anVar2.cy("obj_location", dVar.aQW());
+                if (!StringUtils.isNull(dVar.aQX())) {
+                    anVar2.cy("obj_location", dVar.aQX());
                 }
                 TiebaStatic.log(anVar2);
             }
         }
     }
 
-    public boolean aQY() {
-        return this.dCZ;
+    public boolean aQZ() {
+        return this.dDm;
     }
 
     public void gS(boolean z) {
-        this.dCZ = z;
+        this.dDm = z;
     }
 
     public boolean isSmallFlowOpen() {

@@ -27,12 +27,12 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
-    private static AtomicLong bQO = new AtomicLong(System.currentTimeMillis());
-    private int bQP;
+    private static AtomicLong bQP = new AtomicLong(System.currentTimeMillis());
+    private int bQQ;
 
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadFile");
-        this.bQP = 0;
+        this.bQQ = 0;
     }
 
     @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.ab
@@ -65,7 +65,7 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         final String fI = com.baidu.swan.apps.api.module.g.c.fI(acH);
         Request n = n(b, fI);
         if (n == null) {
-            unitedSchemeEntity.result = fC(this.bQP);
+            unitedSchemeEntity.result = fC(this.bQQ);
             return false;
         }
         final String httpUrl = n.url().toString();
@@ -83,7 +83,7 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         }
         bVar.m(c);
         final String valueOf = String.valueOf(System.currentTimeMillis());
-        this.bGd.put(valueOf, 0L);
+        this.bGe.put(valueOf, 0L);
         com.baidu.swan.apps.network.a.a aVar = new com.baidu.swan.apps.network.a.a();
         aVar.a(new a.InterfaceC0267a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
             @Override // com.baidu.swan.apps.network.a.a.InterfaceC0267a
@@ -120,7 +120,7 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                             }
                         }
                     }
-                    g.this.bGd.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+                    g.this.bGe.put(valueOf, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         });
@@ -215,8 +215,8 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         if (TextUtils.isEmpty(httpUrl)) {
             return null;
         }
-        this.bQP = com.baidu.swan.apps.aj.a.b.D("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
-        if (this.bQP == 0) {
+        this.bQQ = com.baidu.swan.apps.aj.a.b.D("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
+        if (this.bQQ == 0) {
             return new Request.Builder().url(httpUrl).tag(str).build();
         }
         return null;
@@ -234,10 +234,10 @@ public class g extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         } else {
             String header2 = response.header("Content-Type", null);
             if (!TextUtils.isEmpty(header2)) {
-                str = com.baidu.swan.apps.as.o.bYy.containsKey(header2) ? com.baidu.swan.apps.as.o.bYy.get(header2) : str;
+                str = com.baidu.swan.apps.as.o.bYz.containsKey(header2) ? com.baidu.swan.apps.as.o.bYz.get(header2) : str;
             }
         }
-        return com.baidu.swan.apps.y.f.WS().Wz().ml(bQO.getAndIncrement() + (TextUtils.isEmpty(str) ? "" : "." + str));
+        return com.baidu.swan.apps.y.f.WS().Wz().ml(bQP.getAndIncrement() + (TextUtils.isEmpty(str) ? "" : "." + str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

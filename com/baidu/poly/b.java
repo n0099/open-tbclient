@@ -66,46 +66,46 @@ public final class b {
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int channel_checked = 2130839567;
-        public static final int channel_close = 2130839568;
-        public static final int channel_closenew = 2130839569;
-        public static final int coupon_selector = 2130839711;
-        public static final int cut = 2130839733;
-        public static final int ic_pay_back = 2130840445;
-        public static final int icon_back = 2130840698;
-        public static final int ksw_md_thumb = 2130842725;
-        public static final int loading = 2130842880;
-        public static final int miui_back_drawable = 2130843004;
-        public static final int miui_thumb_drawable = 2130843005;
-        public static final int more = 2130843006;
-        public static final int oval_top_left_right = 2130843163;
-        public static final int pay_success = 2130843195;
-        public static final int pay_view_bg = 2130843196;
-        public static final int pop_window_bg = 2130843551;
-        public static final int popup_view_bg = 2130843552;
-        public static final int success = 2130844511;
-        public static final int tip_view_bg = 2130844717;
-        public static final int tips_loading = 2130844720;
-        public static final int toast_loading_view_bg = 2130844742;
-        public static final int unchecked = 2130845200;
+        public static final int channel_checked = 2130839570;
+        public static final int channel_close = 2130839571;
+        public static final int channel_closenew = 2130839572;
+        public static final int coupon_selector = 2130839714;
+        public static final int cut = 2130839736;
+        public static final int ic_pay_back = 2130840448;
+        public static final int icon_back = 2130840701;
+        public static final int ksw_md_thumb = 2130842728;
+        public static final int loading = 2130842883;
+        public static final int miui_back_drawable = 2130843007;
+        public static final int miui_thumb_drawable = 2130843008;
+        public static final int more = 2130843009;
+        public static final int oval_top_left_right = 2130843166;
+        public static final int pay_success = 2130843198;
+        public static final int pay_view_bg = 2130843199;
+        public static final int pop_window_bg = 2130843554;
+        public static final int popup_view_bg = 2130843555;
+        public static final int success = 2130844514;
+        public static final int tip_view_bg = 2130844720;
+        public static final int tips_loading = 2130844723;
+        public static final int toast_loading_view_bg = 2130844745;
+        public static final int unchecked = 2130845203;
     }
 
     /* loaded from: classes.dex */
     public static final class e {
         public static final int back = 2131690008;
-        public static final int bg_view = 2131698746;
-        public static final int bt_pay_already_finish = 2131696270;
-        public static final int bt_pay_meet_problems = 2131696269;
-        public static final int bt_radio = 2131698865;
-        public static final int channel_desc_view = 2131698760;
-        public static final int channel_icon_view = 2131698758;
-        public static final int channel_list_container = 2131698748;
-        public static final int channel_list_scroll_view = 2131698750;
-        public static final int channel_list_view = 2131698756;
-        public static final int channel_name_view = 2131698759;
-        public static final int channel_select_view = 2131698761;
-        public static final int close_button = 2131694248;
-        public static final int coupon = 2131698754;
+        public static final int bg_view = 2131698750;
+        public static final int bt_pay_already_finish = 2131696274;
+        public static final int bt_pay_meet_problems = 2131696273;
+        public static final int bt_radio = 2131698869;
+        public static final int channel_desc_view = 2131698764;
+        public static final int channel_icon_view = 2131698762;
+        public static final int channel_list_container = 2131698752;
+        public static final int channel_list_scroll_view = 2131698754;
+        public static final int channel_list_view = 2131698760;
+        public static final int channel_name_view = 2131698763;
+        public static final int channel_select_view = 2131698765;
+        public static final int close_button = 2131694252;
+        public static final int coupon = 2131698758;
         public static final int coupon_description = 2131693096;
         public static final int coupon_icon = 2131693095;
         public static final int coupon_layout = 2131693101;
@@ -113,36 +113,36 @@ public final class b {
         public static final int coupon_subtitle = 2131693098;
         public static final int coupon_text = 2131693099;
         public static final int coupon_title = 2131693097;
-        public static final int cut = 2131698753;
-        public static final int cut_text = 2131694601;
-        public static final int finish_payment = 2131698762;
-        public static final int hostmarket = 2131698755;
+        public static final int cut = 2131698757;
+        public static final int cut_text = 2131694605;
+        public static final int finish_payment = 2131698766;
+        public static final int hostmarket = 2131698759;
         public static final int icon = 2131690090;
         public static final int icon_more = 2131693100;
         public static final int iv_pay_back = 2131690375;
         public static final int line = 2131692938;
-        public static final int money = 2131698752;
-        public static final int pay_button = 2131698757;
-        public static final int pay_money_layout = 2131698751;
-        public static final int pay_text = 2131698749;
+        public static final int money = 2131698756;
+        public static final int pay_button = 2131698761;
+        public static final int pay_money_layout = 2131698755;
+        public static final int pay_text = 2131698753;
         public static final int pop_button = 2131693208;
         public static final int pop_tips = 2131693207;
         public static final int pop_title = 2131693206;
-        public static final int popup_view = 2131698747;
+        public static final int popup_view = 2131698751;
         public static final int progress_bar = 2131689675;
-        public static final int repayment = 2131698763;
+        public static final int repayment = 2131698767;
         public static final int root_layout = 2131690237;
         public static final int select_icon = 2131692002;
-        public static final int sub_text = 2131698864;
+        public static final int sub_text = 2131698868;
         public static final int subtitle = 2131692547;
-        public static final int switch_button = 2131694600;
+        public static final int switch_button = 2131694604;
         public static final int text_view = 2131691264;
-        public static final int tip_loading_view = 2131698905;
-        public static final int tip_text_view = 2131698906;
-        public static final int tip_view = 2131693389;
+        public static final int tip_loading_view = 2131698909;
+        public static final int tip_text_view = 2131698910;
+        public static final int tip_view = 2131693393;
         public static final int title = 2131689809;
-        public static final int toast_loading_view = 2131698907;
-        public static final int toast_text_view = 2131698908;
+        public static final int toast_loading_view = 2131698911;
+        public static final int toast_text_view = 2131698912;
         public static final int webView = 2131690376;
     }
 
@@ -155,35 +155,35 @@ public final class b {
         public static final int coupon_list = 2130903701;
         public static final int coupon_list_item = 2130903702;
         public static final int default_pop_window = 2130903732;
-        public static final int hostmarket_item = 2130904092;
-        public static final int pay_confirm = 2130904532;
-        public static final int pay_success = 2130904533;
-        public static final int view_channel_list = 2130905183;
-        public static final int view_channel_list_item = 2130905184;
-        public static final int view_confirm_finish = 2130905185;
-        public static final int view_radio_window = 2130905227;
-        public static final int view_tip = 2130905241;
-        public static final int view_toast_loading = 2130905242;
+        public static final int hostmarket_item = 2130904093;
+        public static final int pay_confirm = 2130904533;
+        public static final int pay_success = 2130904534;
+        public static final int view_channel_list = 2130905184;
+        public static final int view_channel_list_item = 2130905185;
+        public static final int view_confirm_finish = 2130905186;
+        public static final int view_radio_window = 2130905228;
+        public static final int view_tip = 2130905242;
+        public static final int view_toast_loading = 2130905243;
     }
 
     /* loaded from: classes.dex */
     public static final class g {
         public static final int app_name = 2131231744;
-        public static final int calculate_price_default_error = 2131232150;
-        public static final int coupon_calculate_error = 2131232376;
-        public static final int finish = 2131233174;
-        public static final int finish_already = 2131233175;
-        public static final int host_market_calculate_error = 2131233653;
-        public static final int order_tracking = 2131234417;
-        public static final int pay_confirm = 2131234513;
-        public static final int pay_confirm_sub_text = 2131234514;
-        public static final int pay_failed = 2131234515;
-        public static final int pay_failed_sub_text = 2131234516;
-        public static final int pay_meet_problems = 2131234517;
-        public static final int paying = 2131234522;
-        public static final int repayment = 2131235072;
-        public static final int user_know = 2131236905;
-        public static final int wechat_not_available = 2131237414;
+        public static final int calculate_price_default_error = 2131232151;
+        public static final int coupon_calculate_error = 2131232377;
+        public static final int finish = 2131233175;
+        public static final int finish_already = 2131233176;
+        public static final int host_market_calculate_error = 2131233654;
+        public static final int order_tracking = 2131234418;
+        public static final int pay_confirm = 2131234514;
+        public static final int pay_confirm_sub_text = 2131234515;
+        public static final int pay_failed = 2131234516;
+        public static final int pay_failed_sub_text = 2131234517;
+        public static final int pay_meet_problems = 2131234518;
+        public static final int paying = 2131234523;
+        public static final int repayment = 2131235073;
+        public static final int user_know = 2131236912;
+        public static final int wechat_not_available = 2131237421;
     }
 
     /* loaded from: classes.dex */

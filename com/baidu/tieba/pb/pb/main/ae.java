@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ad;
 /* loaded from: classes9.dex */
 public class ae extends l<ab, ad> {
-    private com.baidu.tieba.pb.data.e iEI;
-    private ad.a iME;
+    private com.baidu.tieba.pb.data.e iEU;
+    private ad.a iMQ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ae(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.iME = new ad.a() { // from class: com.baidu.tieba.pb.pb.main.ae.1
+        this.iMQ = new ad.a() { // from class: com.baidu.tieba.pb.pb.main.ae.1
             @Override // com.baidu.tieba.pb.pb.main.ad.a
             public void b(ab abVar) {
                 if (abVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ae.this.iEI, abVar, abVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ae.this.iEU, abVar, abVar.locate, 5);
                 }
             }
         };
@@ -30,7 +30,7 @@ public class ae extends l<ab, ad> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bI */
     public ad b(ViewGroup viewGroup) {
-        return new ad(this.iDY.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.iME);
+        return new ad(this.iEk.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.iMQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class ae extends l<ab, ad> {
         super.a(i, view, viewGroup, (ViewGroup) abVar, (ab) adVar);
         if (abVar != null) {
             abVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.iDY.getUniqueId(), this.iEI, abVar, abVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.iEk.getUniqueId(), this.iEU, abVar, abVar.locate, 5);
             adVar.a(abVar);
             adVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class ae extends l<ab, ad> {
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.iEI = eVar;
+        this.iEU = eVar;
     }
 }

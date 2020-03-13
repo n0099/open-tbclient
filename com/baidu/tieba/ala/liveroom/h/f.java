@@ -10,5 +10,5 @@ public interface f {
 
     boolean isDownloading();
 
-    void za(String str);
+    void zb(String str);
 }

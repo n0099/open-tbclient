@@ -11,79 +11,79 @@ public interface w {
     public interface c {
         w a(int i, b bVar);
 
-        SparseArray<w> dvw();
+        SparseArray<w> dvx();
     }
 
     void a(com.google.android.exoplayer2.util.l lVar, boolean z) throws ParserException;
 
     void a(com.google.android.exoplayer2.util.s sVar, com.google.android.exoplayer2.extractor.g gVar, d dVar);
 
-    void czd();
+    void cze();
 
     /* loaded from: classes6.dex */
     public static final class b {
         public final String language;
-        public final List<a> mpb;
-        public final byte[] mpc;
+        public final List<a> mpm;
+        public final byte[] mpn;
         public final int streamType;
 
         public b(int i, String str, List<a> list, byte[] bArr) {
             this.streamType = i;
             this.language = str;
-            this.mpb = list == null ? Collections.emptyList() : Collections.unmodifiableList(list);
-            this.mpc = bArr;
+            this.mpm = list == null ? Collections.emptyList() : Collections.unmodifiableList(list);
+            this.mpn = bArr;
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
         public final String language;
-        public final byte[] mpa;
+        public final byte[] mpl;
         public final int type;
 
         public a(String str, int i, byte[] bArr) {
             this.language = str;
             this.type = i;
-            this.mpa = bArr;
+            this.mpl = bArr;
         }
     }
 
     /* loaded from: classes6.dex */
     public static final class d {
-        private String mmI;
-        private final String mpd;
-        private final int mpe;
-        private final int mpf;
-        private int mpg;
+        private String mmT;
+        private final String mpo;
+        private final int mpp;
+        private final int mpq;
+        private int mpr;
 
         public d(int i, int i2) {
             this(Integer.MIN_VALUE, i, i2);
         }
 
         public d(int i, int i2, int i3) {
-            this.mpd = i != Integer.MIN_VALUE ? i + "/" : "";
-            this.mpe = i2;
-            this.mpf = i3;
-            this.mpg = Integer.MIN_VALUE;
+            this.mpo = i != Integer.MIN_VALUE ? i + "/" : "";
+            this.mpp = i2;
+            this.mpq = i3;
+            this.mpr = Integer.MIN_VALUE;
         }
 
-        public void dvE() {
-            this.mpg = this.mpg == Integer.MIN_VALUE ? this.mpe : this.mpg + this.mpf;
-            this.mmI = this.mpd + this.mpg;
+        public void dvF() {
+            this.mpr = this.mpr == Integer.MIN_VALUE ? this.mpp : this.mpr + this.mpq;
+            this.mmT = this.mpo + this.mpr;
         }
 
-        public int dvF() {
-            dvH();
-            return this.mpg;
+        public int dvG() {
+            dvI();
+            return this.mpr;
         }
 
-        public String dvG() {
-            dvH();
-            return this.mmI;
+        public String dvH() {
+            dvI();
+            return this.mmT;
         }
 
-        private void dvH() {
-            if (this.mpg == Integer.MIN_VALUE) {
+        private void dvI() {
+            if (this.mpr == Integer.MIN_VALUE) {
                 throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
             }
         }

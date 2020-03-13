@@ -11,21 +11,21 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a fpl;
-    private HttpMessageListener fpm = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.e.b.1
+    private HttpMessageListener fpA = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.e.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.fpl != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.fpz != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    b.this.fpl.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    b.this.fpz.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.fpl.b(alaSdkGetGiftListHttpResponseMessage);
+                    b.this.fpz.b(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
     };
+    private a fpz;
     private TbPageContext mPageContext;
 
     /* loaded from: classes3.dex */
@@ -45,9 +45,9 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.fpl = aVar;
+        this.fpz = aVar;
         rp();
-        registerListener(this.fpm);
+        registerListener(this.fpA);
     }
 
     public void request() {
@@ -66,7 +66,7 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.fpm);
+        MessageManager.getInstance().unRegisterListener(this.fpA);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

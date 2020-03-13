@@ -8,24 +8,24 @@ public class i extends l {
     public i(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.dxm = R.drawable.icon_pure_post_more24_svg;
-        this.dxn = R.drawable.icon_mask_post_more24_selection_svg;
-        this.dxo = true;
-        this.dwA = new MoreDeskView(context);
-        this.dxs = true;
-        this.dxr = 6;
-        this.dxt = new int[]{1};
+        this.dxz = R.drawable.icon_pure_post_more24_svg;
+        this.dxA = R.drawable.icon_mask_post_more24_selection_svg;
+        this.dxB = true;
+        this.dwN = new MoreDeskView(context);
+        this.dxF = true;
+        this.dxE = 6;
+        this.dxG = new int[]{1};
     }
 
     public i(Context context, boolean z) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.dxm = R.drawable.icon_pure_post_more24_svg;
-        this.dxn = R.drawable.icon_mask_post_more24_selection_svg;
-        this.dxo = true;
-        this.dwA = new MoreDeskView(context, !z);
-        this.dxs = true;
-        this.dxr = 6;
-        this.dxt = new int[]{1};
+        this.dxz = R.drawable.icon_pure_post_more24_svg;
+        this.dxA = R.drawable.icon_mask_post_more24_selection_svg;
+        this.dxB = true;
+        this.dwN = new MoreDeskView(context, !z);
+        this.dxF = true;
+        this.dxE = 6;
+        this.dxG = new int[]{1};
     }
 }

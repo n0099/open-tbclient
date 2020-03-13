@@ -14,23 +14,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cjY = new HashMap<>();
+    private static final HashMap<String, String> cjZ = new HashMap<>();
 
     static {
-        cjY.put("494433", ".mp3");
-        cjY.put("524946", ".wav");
+        cjZ.put("494433", ".mp3");
+        cjZ.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bAz = gVar.bAz;
-        dVar.bAH = gVar.autoplay;
+        dVar.bAA = gVar.bAA;
+        dVar.bAI = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cjV = gVar.startTime;
-        dVar.bAI = gVar.obeyMuteSwitch;
+        dVar.cjW = gVar.startTime;
+        dVar.bAJ = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bAE = alu().toString();
+        dVar.bAF = alu().toString();
         return dVar;
     }
 
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cjY.get(bytesToHexString(bArr2));
+        return cjZ.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

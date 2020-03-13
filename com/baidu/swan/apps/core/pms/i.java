@@ -54,7 +54,7 @@ public class i extends k {
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bvh = bVar.filePath;
+        aVar.bvi = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(0, aVar)) {
             if (DEBUG) {

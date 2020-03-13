@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar dax = null;
+    private static ar daz = null;
     private boolean mIsWifiCache = false;
-    private boolean daz = false;
+    private boolean daA = false;
     private int mPostImageSize = 1500;
     private String mUrlQuality = String.valueOf(45);
 
     public static ar aGD() {
-        if (dax == null) {
+        if (daz == null) {
             synchronized (ar.class) {
-                if (dax == null) {
-                    dax = new ar();
+                if (daz == null) {
+                    daz = new ar();
                 }
             }
         }
-        return dax;
+        return daz;
     }
 
     public ar() {
@@ -30,11 +30,11 @@ public class ar {
     }
 
     public void fM(boolean z) {
-        this.daz = z;
+        this.daA = z;
     }
 
     public boolean aGE() {
-        return this.daz;
+        return this.daA;
     }
 
     public void setNetworkIsWifi(boolean z) {

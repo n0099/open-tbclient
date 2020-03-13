@@ -21,7 +21,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private z<com.baidu.tieba.card.data.k> JZ;
     private String LC;
     private com.baidu.adp.widget.ListView.r OR;
-    public BdUniqueId dBk;
+    public BdUniqueId dBx;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.v$a] */
@@ -63,8 +63,8 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNB = 9;
-        dVar.cNH = 9;
+        dVar.cNC = 9;
+        dVar.cNI = 9;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(4);
         agVar.setStType("personalize_page");
@@ -75,7 +75,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         ad a = aVar.a(true, viewGroup, this.OR);
         a.aQ(1);
         af afVar = new af(a);
-        afVar.setPageId(this.dBk);
+        afVar.setPageId(this.dBx);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.concern.a.p.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -96,7 +96,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, af afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRg == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
@@ -122,7 +122,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wO(String str) {
+    public void wP(String str) {
         this.LC = str;
     }
 }

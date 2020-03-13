@@ -60,10 +60,10 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                                 bVar2.setName(subMenu.name);
                                 bVar2.wj(subMenu.parent_id.intValue());
                                 bVar2.setUpdate_time(subMenu.update_time.intValue());
-                                bVar.bUe().add(bVar2);
+                                bVar.bUf().add(bVar2);
                             }
                         }
-                        getOfficialBarMenuDatas().bUg().add(bVar);
+                        getOfficialBarMenuDatas().bUh().add(bVar);
                     }
                 }
             }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long cLs = 604800000;
+    private static long cLt = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(File file) {
@@ -50,7 +50,7 @@ public class a {
                     b.aFD().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.cLs) {
+                if (currentTimeMillis - j > a.cLt) {
                     new Thread() { // from class: com.baidu.tbadk.j.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {

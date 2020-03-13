@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes8.dex */
 public class f extends k {
-    public static final BdUniqueId fMA = BdUniqueId.gen();
+    public static final BdUniqueId fMN = BdUniqueId.gen();
 
     public f(bj bjVar) {
-        this.cRf = bjVar;
+        this.cRg = bjVar;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fMA;
+        return fMN;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
     public bj aAg() {
-        return this.cRf;
+        return this.cRg;
     }
 
     public static boolean ab(bj bjVar) {

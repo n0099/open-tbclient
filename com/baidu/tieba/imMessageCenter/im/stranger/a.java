@@ -11,14 +11,14 @@ public class a {
     /* loaded from: classes9.dex */
     public static class C0541a {
         public String fName;
-        public String gDE;
-        public int hNG;
-        public String hNH;
-        public String hNI;
-        public int hNJ;
-        public String hNK;
-        public String hNL;
-        public String hNk;
+        public String gDQ;
+        public int hNS;
+        public String hNT;
+        public String hNU;
+        public int hNV;
+        public String hNW;
+        public String hNX;
+        public String hNw;
         public String postId;
         public String threadId;
         public int threadType;
@@ -26,7 +26,7 @@ public class a {
         public int type;
     }
 
-    public static C0541a DJ(String str) {
+    public static C0541a DK(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -35,9 +35,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0541a.hNH = optJSONObject.optString("title");
-                c0541a.hNk = optJSONObject.optString("content");
-                c0541a.hNK = optJSONObject.optString("quote_content");
+                c0541a.hNT = optJSONObject.optString("title");
+                c0541a.hNw = optJSONObject.optString("content");
+                c0541a.hNW = optJSONObject.optString("quote_content");
                 c0541a.fName = optJSONObject.optString("fname");
                 c0541a.threadId = optJSONObject.optString("thread_id");
                 c0541a.postId = optJSONObject.optString("post_id");
@@ -46,14 +46,14 @@ public class a {
                 c0541a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0541a.hNI = optJSONObject2.optString("id");
-                    c0541a.hNL = optJSONObject2.optString("portrait");
-                    c0541a.hNJ = optJSONObject2.optInt("gender");
+                    c0541a.hNU = optJSONObject2.optString("id");
+                    c0541a.hNX = optJSONObject2.optString("portrait");
+                    c0541a.hNV = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0541a.gDE = optJSONObject3.optString("id");
-                    c0541a.hNG = optJSONObject3.optInt("gender");
+                    c0541a.gDQ = optJSONObject3.optString("id");
+                    c0541a.hNS = optJSONObject3.optInt("gender");
                 }
             }
             return c0541a;

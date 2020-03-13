@@ -32,9 +32,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
     private View g;
     private TextView h;
     private boolean j;
-    private CSWebView ncE;
-    private com.kascend.chushou.widget.cswebview.a ncF;
-    private com.kascend.chushou.widget.cswebview.d ncG;
+    private CSWebView ncP;
+    private com.kascend.chushou.widget.cswebview.a ncQ;
+    private com.kascend.chushou.widget.cswebview.d ncR;
 
     public d(Context context, H5Options h5Options, com.kascend.chushou.widget.cswebview.a aVar) {
         super(context);
@@ -42,9 +42,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.c = context;
         this.a = h5Options.a;
         this.b = h5Options.b;
-        this.ncF = aVar;
-        if (this.ncF != null) {
-            this.ncG = aVar.dEx();
+        this.ncQ = aVar;
+        if (this.ncQ != null) {
+            this.ncR = aVar.dEy();
         }
         a();
     }
@@ -58,13 +58,13 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.f = (ImageView) inflate.findViewById(a.f.iv_empty);
         this.h = (TextView) inflate.findViewById(a.f.tv_refresh);
         this.h.setOnClickListener(this);
-        this.ncE = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.ncE.setBackgroundColor(0);
-        if (this.ncF == null) {
-            this.ncF = new com.kascend.chushou.widget.cswebview.a();
+        this.ncP = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.ncP.setBackgroundColor(0);
+        if (this.ncQ == null) {
+            this.ncQ = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.ncF.a(this.ncG);
-        CSWebView.a(this.ncE, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
+        this.ncQ.a(this.ncR);
+        CSWebView.a(this.ncP, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -80,7 +80,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 if (!d.this.c()) {
                     d.this.j = false;
                     String str2 = (String) webView.getTag();
-                    if (!tv.chushou.zues.utils.a.dQp()) {
+                    if (!tv.chushou.zues.utils.a.dQq()) {
                         d.this.a(3);
                     } else if (str2 == null || !str2.equals(BdStatsConstant.StatsType.ERROR)) {
                         d.this.a(2);
@@ -104,9 +104,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.ncF);
-        this.ncE.resumeTimers();
-        this.ncE.onResume();
+        }, this.ncQ);
+        this.ncP.resumeTimers();
+        this.ncP.onResume();
         b();
     }
 
@@ -115,8 +115,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
         int id = view.getId();
         if (id == a.f.tv_refresh) {
             b();
-        } else if (id == a.f.iv_close && this.ncG != null) {
-            this.ncG.a((Object) null);
+        } else if (id == a.f.iv_close && this.ncR != null) {
+            this.ncR.a((Object) null);
         }
     }
 
@@ -129,11 +129,11 @@ public class d extends RelativeLayout implements View.OnClickListener {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         tv.chushou.zues.a.a.cr(this);
-        if (this.ncE != null) {
-            this.ncE.loadUrl("");
-            this.ncE.removeAllViews();
-            this.ncE.destroy();
-            this.ncE = null;
+        if (this.ncP != null) {
+            this.ncP.loadUrl("");
+            this.ncP.removeAllViews();
+            this.ncP.destroy();
+            this.ncP = null;
         }
         super.onDetachedFromWindow();
     }
@@ -147,8 +147,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.ncE != null && this.b && this.ncE.canGoBack()) {
-            this.ncE.goBack();
+        if (i == 4 && this.ncP != null && this.b && this.ncP.canGoBack()) {
+            this.ncP.goBack();
             return true;
         }
         return false;
@@ -158,7 +158,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
     public void a(int i) {
         switch (i) {
             case 1:
-                this.ncE.setVisibility(8);
+                this.ncP.setVisibility(8);
                 this.d.setVisibility(0);
                 this.d.setBackgroundResource(a.c.transparent);
                 this.e.setVisibility(8);
@@ -166,13 +166,13 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 return;
             case 2:
                 this.d.setVisibility(8);
-                this.ncE.setVisibility(0);
+                this.ncP.setVisibility(0);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.ncE.setVisibility(8);
+                this.ncP.setVisibility(8);
                 this.d.setVisibility(0);
                 this.d.setBackgroundResource(a.e.powindow_circle_bg);
                 this.g.setVisibility(8);
@@ -191,14 +191,14 @@ public class d extends RelativeLayout implements View.OnClickListener {
     }
 
     private void b() {
-        if (this.ncE != null) {
-            this.ncE.setTag(null);
-            if (tv.chushou.zues.utils.a.dQp()) {
+        if (this.ncP != null) {
+            this.ncP.setTag(null);
+            if (tv.chushou.zues.utils.a.dQq()) {
                 if (this.a != null && this.a.length() > 0) {
-                    this.ncE.loadUrl(this.a);
+                    this.ncP.loadUrl(this.a);
                     return;
                 } else {
-                    this.ncE.loadUrl("");
+                    this.ncP.loadUrl("");
                     return;
                 }
             }

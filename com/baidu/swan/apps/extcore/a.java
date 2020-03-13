@@ -11,18 +11,18 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.extcore.f.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a buz;
+    private static volatile a buA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a RJ() {
-        if (buz == null) {
+        if (buA == null) {
             synchronized (a.class) {
-                if (buz == null) {
-                    buz = new a();
+                if (buA == null) {
+                    buA = new a();
                 }
             }
         }
-        return buz;
+        return buA;
     }
 
     private a() {

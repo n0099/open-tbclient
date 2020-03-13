@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 /* loaded from: classes5.dex */
 public class CBLoopViewPager extends RecyclerView {
-    private static boolean nih = true;
+    private static boolean nis = true;
 
     public CBLoopViewPager(Context context) {
         super(context);
@@ -22,7 +22,7 @@ public class CBLoopViewPager extends RecyclerView {
 
     @Override // android.support.v7.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        if (nih) {
+        if (nis) {
             i = oV(i);
             i2 = oV(i2);
         }

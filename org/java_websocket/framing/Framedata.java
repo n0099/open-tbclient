@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean Mp();
 
-    ByteBuffer dNA();
-
-    boolean dNB();
+    ByteBuffer dNB();
 
     boolean dNC();
 
     boolean dND();
 
-    Opcode dNE();
+    boolean dNE();
+
+    Opcode dNF();
 }

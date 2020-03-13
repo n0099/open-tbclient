@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a jLu;
-    private String jLs;
-    private String jLt = b.aFD().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
+    private static a jLG;
+    private String jLE;
+    private String jLF = b.aFD().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
     private String latitude;
     private String longitude;
     private long saveTime;
@@ -21,22 +21,22 @@ public class a {
     private a() {
     }
 
-    public static a cDk() {
-        if (jLu == null) {
+    public static a cDl() {
+        if (jLG == null) {
             synchronized (c.class) {
-                if (jLu == null) {
-                    jLu = new a();
+                if (jLG == null) {
+                    jLG = new a();
                 }
             }
         }
-        return jLu;
-    }
-
-    public void CD(String str) {
-        this.longitude = str;
+        return jLG;
     }
 
     public void CE(String str) {
+        this.longitude = str;
+    }
+
+    public void CF(String str) {
         this.latitude = str;
     }
 
@@ -44,39 +44,39 @@ public class a {
         this.saveTime = j;
     }
 
-    private String cDl() {
-        if (TextUtils.isEmpty(this.jLs)) {
+    private String cDm() {
+        if (TextUtils.isEmpty(this.jLE)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.jLs = connectionInfo.getBSSID();
+                this.jLE = connectionInfo.getBSSID();
             } else {
-                this.jLs = "";
+                this.jLE = "";
             }
         }
-        return this.jLs;
-    }
-
-    public void HX(String str) {
-        this.jLs = str;
+        return this.jLE;
     }
 
     public void HY(String str) {
-        this.jLt = str;
+        this.jLE = str;
     }
 
-    public void cDm() {
-        b.aFD().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.jLt);
+    public void HZ(String str) {
+        this.jLF = str;
     }
 
-    public AppPosInfo cDn() {
+    public void cDn() {
+        b.aFD().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.jLF);
+    }
+
+    public AppPosInfo cDo() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = cDl();
+        builder.ap_mac = cDm();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.jLt;
+        builder.asp_shown_info = this.jLF;
         return builder.build(false);
     }
 }

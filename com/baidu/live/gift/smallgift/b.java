@@ -10,11 +10,11 @@ import com.baidu.live.gift.smallgift.AlaSmallGiftView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class b {
-    private AlaSmallGiftView apc;
-    private c apd;
-    private a ape;
-    private int apf;
-    private AlaSmallGiftView.a amw = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
+    private AlaSmallGiftView apd;
+    private c ape;
+    private a apf;
+    private int apg;
+    private AlaSmallGiftView.a amx = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
         public void uf() {
             b.this.mHandler.sendEmptyMessage(2);
@@ -24,9 +24,9 @@ public class b {
         public void N(View view) {
             view.setVisibility(4);
             view.clearAnimation();
-            b.this.apd = null;
-            if (b.this.ape != null) {
-                b.this.ape.vg();
+            b.this.ape = null;
+            if (b.this.apf != null) {
+                b.this.apf.vg();
             }
         }
 
@@ -53,12 +53,12 @@ public class b {
             }
         }
     });
-    private Runnable apg = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
+    private Runnable aph = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.apd != null) {
-                if (System.currentTimeMillis() - b.this.apd.tP() < b.this.apf || b.this.apd.alB < b.this.apd.alA) {
-                    b.this.mHandler.postDelayed(b.this.apg, 1000L);
+            if (b.this.ape != null) {
+                if (System.currentTimeMillis() - b.this.ape.tP() < b.this.apg || b.this.ape.alC < b.this.ape.alB) {
+                    b.this.mHandler.postDelayed(b.this.aph, 1000L);
                     return;
                 }
                 b.this.mHandler.removeMessages(2);
@@ -76,152 +76,152 @@ public class b {
     }
 
     public b(AlaSmallGiftView alaSmallGiftView) {
-        this.apc = alaSmallGiftView;
-        this.apc.setSmallAnimCallBack(this.amw);
+        this.apd = alaSmallGiftView;
+        this.apd.setSmallAnimCallBack(this.amx);
     }
 
     public boolean isReady() {
-        return this.apd == null;
+        return this.ape == null;
     }
 
     public boolean vu() {
-        if (this.apd == null || StringUtils.isNull(this.apd.userId)) {
+        if (this.ape == null || StringUtils.isNull(this.ape.userId)) {
             return false;
         }
-        return this.apd.userId.equals(TbadkCoreApplication.getCurrentAccount());
+        return this.ape.userId.equals(TbadkCoreApplication.getCurrentAccount());
     }
 
     public boolean q(c cVar) {
-        return (cVar == null || this.apd == null || cVar.priority <= this.apd.priority) ? false : true;
+        return (cVar == null || this.ape == null || cVar.priority <= this.ape.priority) ? false : true;
     }
 
     public boolean r(c cVar) {
-        if (this.apc == null || this.apc.getVisibility() == 0 || this.apd != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
+        if (this.apd == null || this.apd.getVisibility() == 0 || this.ape != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
             return false;
         }
-        this.apd = cVar;
+        this.ape = cVar;
         vv();
         this.mHandler.sendEmptyMessage(1);
-        this.mHandler.postDelayed(this.apg, 1000L);
+        this.mHandler.postDelayed(this.aph, 1000L);
         return true;
     }
 
     public void s(c cVar) {
         vw();
-        if (this.ape != null) {
-            this.ape.p(this.apd);
-            this.apd = null;
+        if (this.apf != null) {
+            this.apf.p(this.ape);
+            this.ape = null;
         }
-        this.apd = cVar;
+        this.ape = cVar;
         vv();
-        this.apc.setVisibility(0);
-        this.apc.setTag(this.apd.tR());
-        this.apc.setData(this.apd, false);
-        this.mHandler.postDelayed(this.apg, 1000L);
+        this.apd.setVisibility(0);
+        this.apd.setTag(this.ape.tR());
+        this.apd.setData(this.ape, false);
+        this.mHandler.postDelayed(this.aph, 1000L);
         this.mHandler.sendEmptyMessage(2);
     }
 
     private void vv() {
-        this.apf = this.apd.alA > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
+        this.apg = this.ape.alB > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
     }
 
     public void sg() {
-        if (this.apd != null) {
+        if (this.ape != null) {
             vw();
-            this.apc.setVisibility(4);
-            if (this.ape != null) {
-                this.ape.p(this.apd);
-                this.apd = null;
+            this.apd.setVisibility(4);
+            if (this.apf != null) {
+                this.apf.p(this.ape);
+                this.ape = null;
             }
         }
     }
 
     public void sh() {
-        if (this.ape != null) {
-            this.ape.vg();
+        if (this.apf != null) {
+            this.apf.vg();
         }
     }
 
     public void onDestroy() {
         vw();
-        if (this.apc != null) {
-            this.apc.onDestroy();
+        if (this.apd != null) {
+            this.apd.onDestroy();
         }
     }
 
     private void vw() {
-        this.mHandler.removeCallbacks(this.apg);
+        this.mHandler.removeCallbacks(this.aph);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
     }
 
     public boolean t(c cVar) {
-        if (this.apd == null || StringUtils.isNull(this.apd.userId) || StringUtils.isNull(this.apd.giftId) || !b(this.apd, cVar)) {
+        if (this.ape == null || StringUtils.isNull(this.ape.userId) || StringUtils.isNull(this.ape.giftId) || !b(this.ape, cVar)) {
             return false;
         }
-        c(this.apd, cVar);
+        c(this.ape, cVar);
         return true;
     }
 
     private boolean b(c cVar, c cVar2) {
-        return cVar != null && !StringUtils.isNull(cVar.alx) && cVar.alx.equals(cVar2.alx) && Math.abs(cVar2.tP() - cVar.tP()) <= 3000 && cVar2.alA <= 10;
+        return cVar != null && !StringUtils.isNull(cVar.aly) && cVar.aly.equals(cVar2.aly) && Math.abs(cVar2.tP() - cVar.tP()) <= 3000 && cVar2.alB <= 10;
     }
 
     private void c(c cVar, c cVar2) {
-        cVar.alA += cVar2.alA;
+        cVar.alB += cVar2.alB;
         cVar.B(cVar2.tP());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vn() {
-        if (this.apd != null) {
-            this.apc.setVisibility(0);
-            this.apc.setTag(this.apd.tR());
-            this.apc.setData(this.apd, false);
-            this.apc.vn();
+        if (this.ape != null) {
+            this.apd.setVisibility(0);
+            this.apd.setTag(this.ape.tR());
+            this.apd.setData(this.ape, false);
+            this.apd.vn();
             vx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vo() {
-        this.apc.vo();
+        this.apd.vo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vx() {
         long j;
-        if (this.apc.getVisibility() == 0) {
-            this.apc.clearAnimation();
-            if (this.apd != null) {
-                if (this.apd.alB >= this.apd.alA) {
+        if (this.apd.getVisibility() == 0) {
+            this.apd.clearAnimation();
+            if (this.ape != null) {
+                if (this.ape.alC >= this.ape.alB) {
                     this.mHandler.sendEmptyMessageDelayed(2, 240L);
                     return;
                 }
-                this.apd.B(System.currentTimeMillis());
-                boolean z = this.apd.alA > 10;
-                c cVar = this.apd;
+                this.ape.B(System.currentTimeMillis());
+                boolean z = this.ape.alB > 10;
+                c cVar = this.ape;
                 if (z) {
-                    j = this.apd.alA;
+                    j = this.ape.alB;
                 } else {
-                    c cVar2 = this.apd;
-                    j = cVar2.alB + 1;
-                    cVar2.alB = j;
+                    c cVar2 = this.ape;
+                    j = cVar2.alC + 1;
+                    cVar2.alC = j;
                 }
-                cVar.alB = j;
-                this.apc.e(this.apd.alA, this.apd.alB);
+                cVar.alC = j;
+                this.apd.e(this.ape.alB, this.ape.alC);
             }
         }
     }
 
     public void ta() {
-        if (this.apd != null && this.apd.alA == this.apd.alB) {
-            this.mHandler.postDelayed(this.apg, 1000L);
+        if (this.ape != null && this.ape.alB == this.ape.alC) {
+            this.mHandler.postDelayed(this.aph, 1000L);
         }
     }
 
     public void a(a aVar) {
-        this.ape = aVar;
+        this.apf = aVar;
     }
 }

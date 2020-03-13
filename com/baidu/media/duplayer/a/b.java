@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class b {
     private static final Object b = new Object();
-    a aLP;
-    private c aLQ;
+    a aLQ;
+    private c aLR;
     private ArrayList<com.baidu.media.duplayer.a.a> c;
     private ArrayList<com.baidu.media.duplayer.a.a> d;
 
@@ -43,7 +43,7 @@ public class b {
     /* renamed from: com.baidu.media.duplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0125b {
-        private static b aLR = new b();
+        private static b aLS = new b();
     }
 
     /* loaded from: classes.dex */
@@ -70,16 +70,16 @@ public class b {
     private b() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.aLP = new a("duplayer-t");
-        this.aLQ = new c(Looper.getMainLooper());
+        this.aLQ = new a("duplayer-t");
+        this.aLR = new c(Looper.getMainLooper());
     }
 
     public static b DJ() {
-        return C0125b.aLR;
+        return C0125b.aLS;
     }
 
     private com.baidu.media.duplayer.a.a DK() {
-        com.baidu.media.duplayer.a.a DM = this.aLP.DM();
+        com.baidu.media.duplayer.a.a DM = this.aLQ.DM();
         DM.start();
         return DM;
     }
@@ -146,10 +146,10 @@ public class b {
             aVar.a(-1L);
             this.d.add(aVar);
             if (this.c.size() <= 0) {
-                this.aLQ.removeMessages(100);
+                this.aLR.removeMessages(100);
             }
             if (this.c.size() <= 3) {
-                this.aLQ.removeMessages(101);
+                this.aLR.removeMessages(101);
             }
             CyberLog.d("DuplayerHandlerThreadPool", " obtain handlerThread:" + aVar);
             d();
@@ -168,10 +168,10 @@ public class b {
             this.d.remove(aVar);
             this.c.add(aVar);
             if (this.c.size() > 0) {
-                this.aLQ.sendEmptyMessageDelayed(100, 900000L);
+                this.aLR.sendEmptyMessageDelayed(100, 900000L);
             }
             if (this.c.size() > 3) {
-                this.aLQ.sendEmptyMessageDelayed(101, 120000L);
+                this.aLR.sendEmptyMessageDelayed(101, 120000L);
             }
             d();
         }

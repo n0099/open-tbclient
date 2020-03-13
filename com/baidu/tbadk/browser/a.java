@@ -31,7 +31,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String cKz;
+    public static String cKA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -48,7 +48,7 @@ public class a {
     }
 
     public static void rL(String str) {
-        cKz = str;
+        cKA = str;
     }
 
     public static void startWebActivity(Context context, String str) {

@@ -8,26 +8,26 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
 /* loaded from: classes.dex */
 public class LargeImageView extends DragImageView {
-    private b dLm;
+    private b dLz;
 
     public LargeImageView(Context context) {
         super(context);
-        this.dLm = new b(this);
+        this.dLz = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dLm = new b(this);
+        this.dLz = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dLm = new b(this);
+        this.dLz = new b(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.dLm.onTouchEvent(motionEvent)) {
+        if (this.dLz.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -36,39 +36,39 @@ public class LargeImageView extends DragImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!this.dLm.onDraw(canvas)) {
+        if (!this.dLz.onDraw(canvas)) {
             super.onDraw(canvas);
         }
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void computeScroll() {
-        this.dLm.computeScroll();
+        this.dLz.computeScroll();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float reInitScaleValue(Bitmap bitmap) {
-        return this.dLm.reInitScaleValue();
+        return this.dLz.reInitScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float getMinScaleValue() {
-        return this.dLm.getMinScaleValue();
+        return this.dLz.getMinScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float getMaxScaleValue(Bitmap bitmap) {
-        return this.dLm.getMaxScaleValue();
+        return this.dLz.getMaxScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public void createLargeImageDelegate() {
-        this.dLm.setImageDatas(getImageBitmap(), getImageData());
+        this.dLz.setImageDatas(getImageBitmap(), getImageData());
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        this.dLm.release();
+        this.dLz.release();
         super.onDetachedFromWindow();
     }
 }

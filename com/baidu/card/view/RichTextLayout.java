@@ -46,15 +46,15 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     public void A(com.baidu.tbadk.core.data.a aVar) {
         if (aVar != null && aVar.aAg() != null) {
             bj aAg = aVar.aAg();
-            OriginalThreadInfo originalThreadInfo = aAg.cTQ;
+            OriginalThreadInfo originalThreadInfo = aAg.cTR;
             if (originalThreadInfo != null && this.OC) {
                 this.mTitle.setVisibility(8);
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
-                if (originalThreadInfo.cOK) {
+                if (originalThreadInfo.cOL) {
                     au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAg, this.OA, this.OC);
                     am.setViewTextColor(this.KA, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.KA, this.mTitle, originalThreadInfo.cPL, aAg, this.OA, this.OC);
+                    au.a(this.KA, this.mTitle, originalThreadInfo.cPM, aAg, this.OA, this.OC);
                 }
             } else {
                 au.a(this.mTitle, aAg);
@@ -64,7 +64,7 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
             if (!this.OC) {
                 this.KA.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.cOK) {
+            } else if (originalThreadInfo != null && originalThreadInfo.cOL) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {

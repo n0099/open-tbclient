@@ -28,21 +28,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final long bGI = TimeUnit.HOURS.toMillis(5);
-    private static volatile a bGJ;
-    private List<com.baidu.swan.apps.network.c.b.b> bGK;
-    private AtomicInteger bGL;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> bGM;
+    private static final long bGJ = TimeUnit.HOURS.toMillis(5);
+    private static volatile a bGK;
+    private List<com.baidu.swan.apps.network.c.b.b> bGL;
+    private AtomicInteger bGM;
+    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> bGN;
 
     public static a Zb() {
-        if (bGJ == null) {
+        if (bGK == null) {
             synchronized (a.class) {
-                if (bGJ == null) {
-                    bGJ = new a();
+                if (bGK == null) {
+                    bGK = new a();
                 }
             }
         }
-        return bGJ;
+        return bGK;
     }
 
     private a() {
@@ -51,14 +51,14 @@ public final class a {
 
     private void init() {
         Zc();
-        this.bGL = new AtomicInteger(0);
-        this.bGM = new CopyOnWriteArrayList<>();
+        this.bGM = new AtomicInteger(0);
+        this.bGN = new CopyOnWriteArrayList<>();
     }
 
     private void Zc() {
-        this.bGK = new ArrayList();
-        this.bGK.add(new com.baidu.swan.apps.network.c.b.a());
-        this.bGK.add(new c());
+        this.bGL = new ArrayList();
+        this.bGL.add(new com.baidu.swan.apps.network.c.b.a());
+        this.bGL.add(new c());
     }
 
     public void Zd() {
@@ -87,9 +87,9 @@ public final class a {
 
     public void b(@Nullable com.baidu.swan.apps.network.c.a.a aVar) {
         if (aVar != null) {
-            this.bGM.add(aVar);
+            this.bGN.add(aVar);
         }
-        V(this.bGK);
+        V(this.bGL);
     }
 
     public void a(com.baidu.swan.apps.network.c.b.b bVar) {
@@ -114,9 +114,9 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "release: ");
         }
-        if (bGJ != null) {
-            this.bGM.clear();
-            bGJ = null;
+        if (bGK != null) {
+            this.bGN.clear();
+            bGK = null;
         }
     }
 
@@ -131,14 +131,14 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "doUpdate: start => nodes size " + list.size());
         }
-        if (this.bGL.incrementAndGet() > 1) {
+        if (this.bGM.incrementAndGet() > 1) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "doUpdate: pending => wait previous request");
                 return;
             }
             return;
         }
-        ArrayMap<String, String> Y = Y(this.bGK);
+        ArrayMap<String, String> Y = Y(this.bGL);
         JSONObject a = a(list, Y);
         if (a == null) {
             if (DEBUG) {
@@ -300,11 +300,11 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "onRequestFinish: request finish");
         }
-        if (this.bGL.decrementAndGet() > 0) {
+        if (this.bGM.decrementAndGet() > 0) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "onRequestFinish: do pending request");
             }
-            this.bGL.set(0);
+            this.bGM.set(0);
             update();
             return;
         }
@@ -315,8 +315,8 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "onUpdateFinish: real finish update");
         }
-        this.bGL.set(0);
-        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.bGM.iterator();
+        this.bGM.set(0);
+        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.bGN.iterator();
         while (it.hasNext()) {
             final com.baidu.swan.apps.network.c.a.a next = it.next();
             com.baidu.swan.apps.setting.oauth.c.g(new Runnable() { // from class: com.baidu.swan.apps.network.c.a.2
@@ -326,7 +326,7 @@ public final class a {
                 }
             });
         }
-        this.bGM.clear();
+        this.bGN.clear();
     }
 
     private void X(@NonNull List<com.baidu.swan.apps.network.c.b.b> list) {
@@ -404,7 +404,7 @@ public final class a {
 
     private boolean Zg() {
         long Zj = Zj();
-        return Zj <= 0 || System.currentTimeMillis() - Zj > bGI;
+        return Zj <= 0 || System.currentTimeMillis() - Zj > bGJ;
     }
 
     public void Zh() {

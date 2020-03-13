@@ -27,7 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends ab {
-    private String bBw;
+    private String bBx;
     private String mCallback;
     private int mCount;
 
@@ -64,10 +64,10 @@ public class b extends ab {
                 com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
                 this.mCount = 9;
             }
-            this.bBw = w(parseString.optJSONArray("sizeType"));
+            this.bBx = w(parseString.optJSONArray("sizeType"));
             JSONArray optJSONArray = parseString.optJSONArray("sourceType");
             String x = x(optJSONArray);
-            com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.bBw + ",sourceType: " + x);
+            com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.bBx + ",sourceType: " + x);
             if (TextUtils.equals(x, "album")) {
                 a(context, unitedSchemeEntity, callbackHandler, eVar, y(optJSONArray));
             } else {
@@ -153,7 +153,7 @@ public class b extends ab {
                 com.baidu.swan.apps.media.chooser.b.e.e(imageModel);
                 Bundle bundle = new Bundle();
                 bundle.putString("swanTmpPath", f.WS().Wz().afp());
-                bundle.putBoolean("compressed", TextUtils.equals(b.this.bBw, "compressed"));
+                bundle.putBoolean("compressed", TextUtils.equals(b.this.bBx, "compressed"));
                 bundle.putString("swanAppId", eVar.id);
                 bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.XJ());
                 com.baidu.swan.apps.media.chooser.b.d.b(eVar.acB(), bundle, dVar);
@@ -173,7 +173,7 @@ public class b extends ab {
         bundle.putBoolean("isShowCamera", z);
         bundle.putInt("count", this.mCount);
         bundle.putString("mode", "single");
-        bundle.putBoolean("compressed", TextUtils.equals(this.bBw, "compressed"));
+        bundle.putBoolean("compressed", TextUtils.equals(this.bBx, "compressed"));
         bundle.putString("swanAppId", eVar.id);
         bundle.putString("swanTmpPath", f.WS().Wz().afp());
         com.baidu.swan.apps.media.chooser.b.d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.b.6

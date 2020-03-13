@@ -28,8 +28,8 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
         if (!TextUtils.isEmpty(cVar.userName)) {
             this.ahJ.setText(cVar.userName);
         }
-        if (cVar.alw != null) {
-            this.ahK.setText(getResources().getString(a.i.gift_name_prefix) + cVar.alw.ry());
+        if (cVar.alx != null) {
+            this.ahK.setText(getResources().getString(a.i.gift_name_prefix) + cVar.alx.ry());
         }
     }
 

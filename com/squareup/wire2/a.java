@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label noV;
-    private final String noW;
-    private final String noX;
-    public final boolean noY;
-    private final Field noZ;
-    private final Method npa;
-    private ProtoAdapter<?> npb;
-    private ProtoAdapter<?> npc;
+    public final WireField.Label npg;
+    private final String nph;
+    private final String npi;
+    public final boolean npj;
+    private final Field npk;
+    private final Method npl;
+    private ProtoAdapter<?> npm;
+    private ProtoAdapter<?> npn;
     public final int tag;
 
     private static Field i(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.noV = wireField.dGx();
+        this.npg = wireField.dGy();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.noW = wireField.dGv();
-        this.noX = wireField.dGw();
-        this.noY = wireField.dGy();
+        this.nph = wireField.dGw();
+        this.npi = wireField.dGx();
+        this.npj = wireField.dGz();
         this.messageField = field;
-        this.noZ = i(cls, this.name);
-        this.npa = a(cls, this.name, field.getType());
+        this.npk = i(cls, this.name);
+        this.npl = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dGl() {
-        return !this.noW.isEmpty();
+    public boolean dGm() {
+        return !this.nph.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> dGm() {
-        ProtoAdapter<?> protoAdapter = this.npb;
+    public ProtoAdapter<?> dGn() {
+        ProtoAdapter<?> protoAdapter = this.npm;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.noX);
-        this.npb = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.npi);
+        this.npm = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> dGn() {
-        ProtoAdapter<?> protoAdapter = this.npc;
+    ProtoAdapter<?> dGo() {
+        ProtoAdapter<?> protoAdapter = this.npn;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.noW);
-        this.npc = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.nph);
+        this.npn = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (dGl()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dGn(), dGm());
+            if (dGm()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dGo(), dGn());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = dGm().withLabel(this.noV);
+            ProtoAdapter<?> withLabel = dGn().withLabel(this.npg);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b, Object obj) {
-        if (this.noV.isRepeated()) {
+        if (this.npg.isRepeated()) {
             ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.noW.isEmpty()) {
+        } else if (!this.nph.isEmpty()) {
             ((Map) a((a<M, B>) b)).putAll((Map) obj);
         } else {
             b(b, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b, Object obj) {
         try {
-            if (this.noV.isOneOf()) {
-                this.npa.invoke(b, obj);
+            if (this.npg.isOneOf()) {
+                this.npl.invoke(b, obj);
             } else {
-                this.noZ.set(b, obj);
+                this.npk.set(b, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b) {
         try {
-            return this.noZ.get(b);
+            return this.npk.get(b);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

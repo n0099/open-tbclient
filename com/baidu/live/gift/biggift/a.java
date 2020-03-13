@@ -61,8 +61,8 @@ public class a {
 
     public void f(com.baidu.live.gift.a.c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            long j = cVar.alA;
-            cVar.alA = 1L;
+            long j = cVar.alB;
+            cVar.alB = 1L;
             for (int i = 0; i < j; i++) {
                 com.baidu.live.gift.a.c clone = cVar.clone();
                 if (clone != null) {
@@ -71,7 +71,7 @@ public class a {
                     } else {
                         this.ahU.add(clone);
                     }
-                    if (clone.alC) {
+                    if (clone.alD) {
                         LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, clone.XX, clone.XY, clone.giftId, "");
                     }
                 }
@@ -86,7 +86,7 @@ public class a {
 
     private void sT() {
         if (this.ahU != null) {
-            int i = com.baidu.live.v.a.zl().awB != null ? com.baidu.live.v.a.zl().awB.aaO : 0;
+            int i = com.baidu.live.v.a.zl().awC != null ? com.baidu.live.v.a.zl().awC.aaO : 0;
             if (i > 0 && this.ahU.size() >= i) {
                 Collections.sort(this.ahU, new c.a());
                 int max = Math.max((int) (i * 0.7f), 1);
@@ -94,7 +94,7 @@ public class a {
                 while (true) {
                     int i2 = max;
                     if (i2 < this.ahU.size()) {
-                        if (this.ahU.get(i2) == null || !this.ahU.get(i2).alF) {
+                        if (this.ahU.get(i2) == null || !this.ahU.get(i2).alG) {
                             max = i2 + 1;
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
@@ -158,18 +158,18 @@ public class a {
 
     private void g(com.baidu.live.gift.a.c cVar) {
         if (cVar != null) {
-            if (cVar.alF) {
+            if (cVar.alG) {
                 h(cVar);
                 return;
             }
             boolean z = UtilHelper.getRealScreenOrientation(this.mContext) == 2;
-            if (this.ahf && z && !cVar.alv) {
+            if (this.ahf && z && !cVar.alw) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913138, cVar));
                 sW();
                 return;
             }
             try {
-                if (cVar.alw != null && com.baidu.live.gift.b.b.uu().mo19do(cVar.alw.rx())) {
+                if (cVar.alx != null && com.baidu.live.gift.b.b.uu().mo19do(cVar.alx.rx())) {
                     com.baidu.live.gift.c dH = com.baidu.live.gift.b.b.uu().dH(cVar.giftId);
                     if (com.baidu.live.alphavideo.a.pv().pw() && dH != null && dH.afL != null && dH.afL.rf() && !TextUtils.isEmpty(dH.ri())) {
                         a(dH, cVar);
@@ -194,17 +194,17 @@ public class a {
                         this.ahZ.setBigGiftCallBack(this.aia);
                         this.ahZ.startAnim();
                     }
-                    if (cVar.alC) {
+                    if (cVar.alD) {
                         LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.XX, cVar.XY, cVar.giftId, "");
                     }
-                } else if (cVar.alC) {
+                } else if (cVar.alD) {
                     LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.XX, cVar.XY, cVar.giftId, "不在大礼物列表");
                 }
             } catch (OutOfMemoryError e) {
                 log(BdStatsConstant.StatsType.ERROR, "showbiggift", TiebaInitialize.LogFields.REASON, "oom");
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 System.gc();
-                if (cVar.alC) {
+                if (cVar.alD) {
                     LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.XX, cVar.XY, cVar.giftId, "OOM");
                 }
                 if (this.ahW < 1) {

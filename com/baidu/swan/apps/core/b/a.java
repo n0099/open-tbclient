@@ -52,7 +52,7 @@ public final class a {
         return codeCacheSetting;
     }
 
-    public static int j(boolean z, boolean z2) {
+    public static int k(boolean z, boolean z2) {
         if (z && z2) {
             return 3;
         }
@@ -68,10 +68,10 @@ public final class a {
     /* loaded from: classes11.dex */
     public static class b {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static int bmQ = -1;
         private static int bmR = -1;
         private static int bmS = -1;
         private static int bmT = -1;
+        private static int bmU = -1;
 
         public static String Nh() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
@@ -91,29 +91,29 @@ public final class a {
         private static boolean Ni() {
             boolean aam = com.baidu.swan.apps.ah.a.a.aam();
             if (aam) {
-                bmQ = 1;
+                bmR = 1;
             }
-            if (bmQ < 0) {
-                bmQ = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_app_v8_code_cache", 1);
+            if (bmR < 0) {
+                bmR = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_app_v8_code_cache", 1);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bmQ + (aam ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bmR + (aam ? " forceAb" : ""));
             }
-            return bmQ == 1;
+            return bmR == 1;
         }
 
         private static boolean Nj() {
             boolean aam = com.baidu.swan.apps.ah.a.a.aam();
             if (aam) {
-                bmR = 1;
+                bmS = 1;
             }
-            if (bmR < 0) {
-                bmR = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_game_v8_code_cache", 2);
+            if (bmS < 0) {
+                bmS = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_game_v8_code_cache", 2);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bmR + (aam ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bmS + (aam ? " forceAb" : ""));
             }
-            return bmR == 1;
+            return bmS == 1;
         }
 
         public static boolean dT(int i) {
@@ -163,17 +163,17 @@ public final class a {
         }
 
         private static int Nl() {
-            if (bmS < 0) {
-                bmS = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_max_count", 5);
+            if (bmT < 0) {
+                bmT = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_max_count", 5);
             }
-            return bmS;
+            return bmT;
         }
 
         private static int Nm() {
-            if (bmT < 0) {
-                bmT = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_size_limit", 100);
+            if (bmU < 0) {
+                bmU = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_size_limit", 100);
             }
-            return bmT * 1024;
+            return bmU * 1024;
         }
     }
 }

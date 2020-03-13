@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes11.dex */
 public class b {
-    protected a bOA;
-    private com.baidu.swan.apps.res.widget.a.a bOB;
+    protected a bOB;
+    private com.baidu.swan.apps.res.widget.a.a bOC;
     protected Context mContext;
     protected Drawable mIconDrawable;
     protected final int mId;
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
-        this.bOB = aVar;
+        this.bOC = aVar;
     }
 
     public int getItemId() {
@@ -72,10 +72,10 @@ public class b {
     }
 
     public a acv() {
-        return this.bOA;
+        return this.bOB;
     }
 
     public void b(a aVar) {
-        this.bOA = aVar;
+        this.bOB = aVar;
     }
 }

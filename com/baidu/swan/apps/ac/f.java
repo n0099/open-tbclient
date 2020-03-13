@@ -7,9 +7,9 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.x.b.b;
 /* loaded from: classes11.dex */
 public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core.f.e {
-    private static f bFQ;
-    private boolean bFR;
-    private a bFS = new b();
+    private static f bFR;
+    private boolean bFS;
+    private a bFT = new b();
     public static final String TAG = f.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
 
@@ -26,19 +26,19 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
 
     @NonNull
     public static f YO() {
-        if (bFQ == null) {
+        if (bFR == null) {
             synchronized (f.class) {
-                if (bFQ == null) {
-                    bFQ = new f();
+                if (bFR == null) {
+                    bFR = new f();
                 }
             }
         }
-        return bFQ;
+        return bFR;
     }
 
     public void df(boolean z) {
-        this.bFR = z;
-        if (this.bFR) {
+        this.bFS = z;
+        if (this.bFS) {
             e.YJ();
             com.baidu.swan.apps.statistic.c.aeS();
         }
@@ -51,7 +51,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
         if (DEBUG) {
             Log.d(TAG, "start page monitoring");
         }
-        if (this.bFR) {
+        if (this.bFS) {
             boolean z = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_white_screen_forward", false);
             if (DEBUG) {
                 Log.d(TAG, "WhiteScreenForward: switch=" + z);
@@ -68,7 +68,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
                 }
             }
             cVar = new com.baidu.swan.apps.ac.a.c(1, null, j, true);
-            this.bFR = false;
+            this.bFS = false;
         } else {
             cVar = null;
         }
@@ -120,7 +120,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.ac.a.c cVar) {
-        this.bFS.a(cVar);
+        this.bFT.a(cVar);
     }
 
     public static void YD() {

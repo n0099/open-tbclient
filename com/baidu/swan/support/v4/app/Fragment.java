@@ -28,14 +28,14 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes11.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
-    Fragment cCH;
-    l cCI;
-    j cCJ;
-    l cCK;
-    Fragment cCL;
-    p cCM;
-    boolean cCN;
+    Fragment cCI;
+    l cCJ;
+    j cCK;
+    l cCL;
+    Fragment cCM;
+    p cCN;
     boolean cCO;
+    boolean cCP;
     boolean mAdded;
     Boolean mAllowEnterTransitionOverlap;
     Boolean mAllowReturnTransitionOverlap;
@@ -66,7 +66,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     int mTargetRequestCode;
     View mView;
     String mWho;
-    private static final com.baidu.swan.support.v4.b.f<String, Class<?>> cCG = new com.baidu.swan.support.v4.b.f<>();
+    private static final com.baidu.swan.support.v4.b.f<String, Class<?>> cCH = new com.baidu.swan.support.v4.b.f<>();
     static final Object USE_DEFAULT_TRANSITION = new Object();
     int mState = 0;
     int mIndex = -1;
@@ -79,8 +79,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     Object mReenterTransition = USE_DEFAULT_TRANSITION;
     Object mSharedElementEnterTransition = null;
     Object mSharedElementReturnTransition = USE_DEFAULT_TRANSITION;
-    SharedElementCallback cCP = null;
     SharedElementCallback cCQ = null;
+    SharedElementCallback cCR = null;
 
     /* loaded from: classes11.dex */
     public static class SavedState implements Parcelable {
@@ -132,10 +132,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public static Fragment b(Context context, String str, @Nullable Bundle bundle) {
         try {
-            Class<?> cls = cCG.get(str);
+            Class<?> cls = cCH.get(str);
             if (cls == null) {
                 cls = context.getClassLoader().loadClass(str);
-                cCG.put(str, cls);
+                cCH.put(str, cls);
             }
             Fragment fragment = (Fragment) cls.newInstance();
             if (bundle != null) {
@@ -155,10 +155,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean isSupportFragmentClass(Context context, String str) {
         try {
-            Class<?> cls = cCG.get(str);
+            Class<?> cls = cCH.get(str);
             if (cls == null) {
                 cls = context.getClassLoader().loadClass(str);
-                cCG.put(str, cls);
+                cCH.put(str, cls);
             }
             return Fragment.class.isAssignableFrom(cls);
         } catch (ClassNotFoundException e) {
@@ -233,12 +233,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void a(Fragment fragment, int i) {
-        this.cCH = fragment;
+        this.cCI = fragment;
         this.mTargetRequestCode = i;
     }
 
     public final Fragment auz() {
-        return this.cCH;
+        return this.cCI;
     }
 
     public final int getTargetRequestCode() {
@@ -246,24 +246,24 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public Context getContext() {
-        if (this.cCJ == null) {
+        if (this.cCK == null) {
             return null;
         }
-        return this.cCJ.getContext();
+        return this.cCK.getContext();
     }
 
     public final FragmentActivity auA() {
-        if (this.cCJ == null) {
+        if (this.cCK == null) {
             return null;
         }
-        return (FragmentActivity) this.cCJ.getActivity();
+        return (FragmentActivity) this.cCK.getActivity();
     }
 
     public final Resources getResources() {
-        if (this.cCJ == null) {
+        if (this.cCK == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
-        return this.cCJ.getContext().getResources();
+        return this.cCK.getContext().getResources();
     }
 
     public final String getString(@StringRes int i) {
@@ -275,23 +275,23 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final k auB() {
-        if (this.cCK == null) {
+        if (this.cCL == null) {
             instantiateChildFragmentManager();
             if (this.mState >= 5) {
-                this.cCK.dispatchResume();
+                this.cCL.dispatchResume();
             } else if (this.mState >= 4) {
-                this.cCK.dispatchStart();
+                this.cCL.dispatchStart();
             } else if (this.mState >= 2) {
-                this.cCK.dispatchActivityCreated();
+                this.cCL.dispatchActivityCreated();
             } else if (this.mState >= 1) {
-                this.cCK.dispatchCreate();
+                this.cCL.dispatchCreate();
             }
         }
-        return this.cCK;
+        return this.cCL;
     }
 
     public final boolean isAdded() {
-        return this.cCJ != null && this.mAdded;
+        return this.cCK != null && this.mAdded;
     }
 
     public final boolean isDetached() {
@@ -307,7 +307,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void setUserVisibleHint(boolean z) {
         if (!this.mUserVisibleHint && z && this.mState < 4) {
-            this.cCI.g(this);
+            this.cCJ.g(this);
         }
         this.mUserVisibleHint = z;
         this.mDeferStart = !z;
@@ -321,25 +321,25 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final void requestPermissions(@NonNull String[] strArr, int i) {
-        if (this.cCJ == null) {
+        if (this.cCK == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
-        this.cCJ.b(this, strArr, i);
+        this.cCK.b(this, strArr, i);
     }
 
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
     }
 
     public LayoutInflater getLayoutInflater(Bundle bundle) {
-        LayoutInflater onGetLayoutInflater = this.cCJ.onGetLayoutInflater();
+        LayoutInflater onGetLayoutInflater = this.cCK.onGetLayoutInflater();
         auB();
-        com.baidu.swan.support.v4.c.a.a(onGetLayoutInflater, this.cCK.auH());
+        com.baidu.swan.support.v4.c.a.a(onGetLayoutInflater, this.cCL.auH());
         return onGetLayoutInflater;
     }
 
     public void onInflate(Context context, AttributeSet attributeSet, Bundle bundle) {
         this.mCalled = true;
-        Activity activity = this.cCJ == null ? null : this.cCJ.getActivity();
+        Activity activity = this.cCK == null ? null : this.cCK.getActivity();
         if (activity != null) {
             this.mCalled = false;
             onInflate(activity, attributeSet, bundle);
@@ -353,7 +353,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void onAttach(Context context) {
         this.mCalled = true;
-        Activity activity = this.cCJ == null ? null : this.cCJ.getActivity();
+        Activity activity = this.cCK == null ? null : this.cCK.getActivity();
         if (activity != null) {
             this.mCalled = false;
             onAttach(activity);
@@ -396,14 +396,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void onStart() {
         this.mCalled = true;
-        if (!this.cCN) {
-            this.cCN = true;
-            if (!this.cCO) {
-                this.cCO = true;
-                this.cCM = this.cCJ.d(this.mWho, this.cCN, false);
+        if (!this.cCO) {
+            this.cCO = true;
+            if (!this.cCP) {
+                this.cCP = true;
+                this.cCN = this.cCK.d(this.mWho, this.cCO, false);
             }
-            if (this.cCM != null) {
-                this.cCM.auI();
+            if (this.cCN != null) {
+                this.cCN.auI();
             }
         }
     }
@@ -439,12 +439,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void onDestroy() {
         this.mCalled = true;
-        if (!this.cCO) {
-            this.cCO = true;
-            this.cCM = this.cCJ.d(this.mWho, this.cCN, false);
+        if (!this.cCP) {
+            this.cCP = true;
+            this.cCN = this.cCK.d(this.mWho, this.cCO, false);
         }
-        if (this.cCM != null) {
-            this.cCM.doDestroy();
+        if (this.cCN != null) {
+            this.cCN.doDestroy();
         }
     }
 
@@ -459,18 +459,18 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mInLayout = false;
         this.mRestored = false;
         this.mBackStackNesting = 0;
-        this.cCI = null;
-        this.cCK = null;
         this.cCJ = null;
+        this.cCL = null;
+        this.cCK = null;
         this.mFragmentId = 0;
         this.mContainerId = 0;
         this.mTag = null;
         this.mHidden = false;
         this.mDetached = false;
         this.mRetaining = false;
-        this.cCM = null;
-        this.cCN = false;
+        this.cCN = null;
         this.cCO = false;
+        this.cCP = false;
     }
 
     public void onDetach() {
@@ -584,20 +584,20 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         printWriter.print(this.mRetaining);
         printWriter.print(" mUserVisibleHint=");
         printWriter.println(this.mUserVisibleHint);
-        if (this.cCI != null) {
-            printWriter.print(str);
-            printWriter.print("mFragmentManager=");
-            printWriter.println(this.cCI);
-        }
         if (this.cCJ != null) {
             printWriter.print(str);
-            printWriter.print("mHost=");
+            printWriter.print("mFragmentManager=");
             printWriter.println(this.cCJ);
         }
-        if (this.cCL != null) {
+        if (this.cCK != null) {
+            printWriter.print(str);
+            printWriter.print("mHost=");
+            printWriter.println(this.cCK);
+        }
+        if (this.cCM != null) {
             printWriter.print(str);
             printWriter.print("mParentFragment=");
-            printWriter.println(this.cCL);
+            printWriter.println(this.cCM);
         }
         if (this.mArguments != null) {
             printWriter.print(str);
@@ -614,10 +614,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mSavedViewState=");
             printWriter.println(this.mSavedViewState);
         }
-        if (this.cCH != null) {
+        if (this.cCI != null) {
             printWriter.print(str);
             printWriter.print("mTarget=");
-            printWriter.print(this.cCH);
+            printWriter.print(this.cCI);
             printWriter.print(" mTargetRequestCode=");
             printWriter.println(this.mTargetRequestCode);
         }
@@ -649,21 +649,21 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mStateAfterAnimating=");
             printWriter.println(this.mStateAfterAnimating);
         }
-        if (this.cCM != null) {
+        if (this.cCN != null) {
             printWriter.print(str);
             printWriter.println("Loader Manager:");
-            this.cCM.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            this.cCN.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
-        if (this.cCK != null) {
+        if (this.cCL != null) {
             printWriter.print(str);
-            printWriter.println("Child " + this.cCK + ":");
-            this.cCK.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            printWriter.println("Child " + this.cCL + ":");
+            this.cCL.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 
     void instantiateChildFragmentManager() {
-        this.cCK = new l();
-        this.cCK.a(this.cCJ, new h() { // from class: com.baidu.swan.support.v4.app.Fragment.1
+        this.cCL = new l();
+        this.cCL.a(this.cCK, new h() { // from class: com.baidu.swan.support.v4.app.Fragment.1
             @Override // com.baidu.swan.support.v4.app.h
             @Nullable
             public View onFindViewById(int i) {
@@ -683,8 +683,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performCreate(Bundle bundle) {
         Parcelable parcelable;
-        if (this.cCK != null) {
-            this.cCK.noteStateNotSaved();
+        if (this.cCL != null) {
+            this.cCL.noteStateNotSaved();
         }
         this.mCalled = false;
         onCreate(bundle);
@@ -692,86 +692,86 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onCreate()");
         }
         if (bundle != null && (parcelable = bundle.getParcelable("android:support:fragments")) != null) {
-            if (this.cCK == null) {
+            if (this.cCL == null) {
                 instantiateChildFragmentManager();
             }
-            this.cCK.restoreAllState(parcelable, null);
-            this.cCK.dispatchCreate();
+            this.cCL.restoreAllState(parcelable, null);
+            this.cCL.dispatchCreate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View performCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.cCK != null) {
-            this.cCK.noteStateNotSaved();
+        if (this.cCL != null) {
+            this.cCL.noteStateNotSaved();
         }
         return onCreateView(layoutInflater, viewGroup, bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performActivityCreated(Bundle bundle) {
-        if (this.cCK != null) {
-            this.cCK.noteStateNotSaved();
+        if (this.cCL != null) {
+            this.cCL.noteStateNotSaved();
         }
         this.mCalled = false;
         onActivityCreated(bundle);
         if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onActivityCreated()");
         }
-        if (this.cCK != null) {
-            this.cCK.dispatchActivityCreated();
+        if (this.cCL != null) {
+            this.cCL.dispatchActivityCreated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performStart() {
-        if (this.cCK != null) {
-            this.cCK.noteStateNotSaved();
-            this.cCK.execPendingActions();
+        if (this.cCL != null) {
+            this.cCL.noteStateNotSaved();
+            this.cCL.execPendingActions();
         }
         this.mCalled = false;
         onStart();
         if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onStart()");
         }
-        if (this.cCK != null) {
-            this.cCK.dispatchStart();
+        if (this.cCL != null) {
+            this.cCL.dispatchStart();
         }
-        if (this.cCM != null) {
-            this.cCM.auM();
+        if (this.cCN != null) {
+            this.cCN.auM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performResume() {
-        if (this.cCK != null) {
-            this.cCK.noteStateNotSaved();
-            this.cCK.execPendingActions();
+        if (this.cCL != null) {
+            this.cCL.noteStateNotSaved();
+            this.cCL.execPendingActions();
         }
         this.mCalled = false;
         onResume();
         if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onResume()");
         }
-        if (this.cCK != null) {
-            this.cCK.dispatchResume();
-            this.cCK.execPendingActions();
+        if (this.cCL != null) {
+            this.cCL.dispatchResume();
+            this.cCL.execPendingActions();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performConfigurationChanged(Configuration configuration) {
         onConfigurationChanged(configuration);
-        if (this.cCK != null) {
-            this.cCK.dispatchConfigurationChanged(configuration);
+        if (this.cCL != null) {
+            this.cCL.dispatchConfigurationChanged(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performLowMemory() {
         onLowMemory();
-        if (this.cCK != null) {
-            this.cCK.dispatchLowMemory();
+        if (this.cCL != null) {
+            this.cCL.dispatchLowMemory();
         }
     }
 
@@ -785,8 +785,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             z = true;
             onCreateOptionsMenu(menu, menuInflater);
         }
-        if (this.cCK != null) {
-            return z | this.cCK.dispatchCreateOptionsMenu(menu, menuInflater);
+        if (this.cCL != null) {
+            return z | this.cCL.dispatchCreateOptionsMenu(menu, menuInflater);
         }
         return z;
     }
@@ -801,8 +801,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             z = true;
             onPrepareOptionsMenu(menu);
         }
-        if (this.cCK != null) {
-            return z | this.cCK.dispatchPrepareOptionsMenu(menu);
+        if (this.cCL != null) {
+            return z | this.cCL.dispatchPrepareOptionsMenu(menu);
         }
         return z;
     }
@@ -813,7 +813,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (this.mHasMenu && this.mMenuVisible && onOptionsItemSelected(menuItem)) {
                 return true;
             }
-            if (this.cCK != null && this.cCK.dispatchOptionsItemSelected(menuItem)) {
+            if (this.cCL != null && this.cCL.dispatchOptionsItemSelected(menuItem)) {
                 return true;
             }
         }
@@ -826,7 +826,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (onContextItemSelected(menuItem)) {
                 return true;
             }
-            if (this.cCK != null && this.cCK.dispatchContextItemSelected(menuItem)) {
+            if (this.cCL != null && this.cCL.dispatchContextItemSelected(menuItem)) {
                 return true;
             }
         }
@@ -839,8 +839,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (this.mHasMenu && this.mMenuVisible) {
                 onOptionsMenuClosed(menu);
             }
-            if (this.cCK != null) {
-                this.cCK.dispatchOptionsMenuClosed(menu);
+            if (this.cCL != null) {
+                this.cCL.dispatchOptionsMenuClosed(menu);
             }
         }
     }
@@ -849,15 +849,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void performSaveInstanceState(Bundle bundle) {
         Parcelable saveAllState;
         onSaveInstanceState(bundle);
-        if (this.cCK != null && (saveAllState = this.cCK.saveAllState()) != null) {
+        if (this.cCL != null && (saveAllState = this.cCL.saveAllState()) != null) {
             bundle.putParcelable("android:support:fragments", saveAllState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performPause() {
-        if (this.cCK != null) {
-            this.cCK.dispatchPause();
+        if (this.cCL != null) {
+            this.cCL.dispatchPause();
         }
         this.mCalled = false;
         onPause();
@@ -868,8 +868,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performStop() {
-        if (this.cCK != null) {
-            this.cCK.dispatchStop();
+        if (this.cCL != null) {
+            this.cCL.dispatchStop();
         }
         this.mCalled = false;
         onStop();
@@ -880,20 +880,20 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performReallyStop() {
-        if (this.cCK != null) {
-            this.cCK.dispatchReallyStop();
+        if (this.cCL != null) {
+            this.cCL.dispatchReallyStop();
         }
-        if (this.cCN) {
-            this.cCN = false;
-            if (!this.cCO) {
-                this.cCO = true;
-                this.cCM = this.cCJ.d(this.mWho, this.cCN, false);
+        if (this.cCO) {
+            this.cCO = false;
+            if (!this.cCP) {
+                this.cCP = true;
+                this.cCN = this.cCK.d(this.mWho, this.cCO, false);
             }
-            if (this.cCM != null) {
+            if (this.cCN != null) {
                 if (!this.mRetaining) {
-                    this.cCM.doStop();
+                    this.cCN.doStop();
                 } else {
-                    this.cCM.auJ();
+                    this.cCN.auJ();
                 }
             }
         }
@@ -901,23 +901,23 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performDestroyView() {
-        if (this.cCK != null) {
-            this.cCK.dispatchDestroyView();
+        if (this.cCL != null) {
+            this.cCL.dispatchDestroyView();
         }
         this.mCalled = false;
         onDestroyView();
         if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onDestroyView()");
         }
-        if (this.cCM != null) {
-            this.cCM.auL();
+        if (this.cCN != null) {
+            this.cCN.auL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void performDestroy() {
-        if (this.cCK != null) {
-            this.cCK.dispatchDestroy();
+        if (this.cCL != null) {
+            this.cCL.dispatchDestroy();
         }
         this.mCalled = false;
         onDestroy();

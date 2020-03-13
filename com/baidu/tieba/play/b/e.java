@@ -43,7 +43,7 @@ public class e {
         TiebaStatic.log(new an("c12029").X("obj_type", i2).X("obj_param1", j.isWifiNet() ? 0 : 1).X(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void Hh(String str) {
+    public static void Hi(String str) {
         TiebaStatic.log(new an("c12026").cy("tid", str));
     }
 

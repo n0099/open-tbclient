@@ -37,7 +37,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aWM();
+        aWN();
         te();
     }
 
@@ -119,7 +119,7 @@ public class SignStatic {
         }
     }
 
-    private static void aWM() {
+    private static void aWN() {
         ba.aGG().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

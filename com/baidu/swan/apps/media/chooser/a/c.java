@@ -103,7 +103,7 @@ public class c extends ab {
                 com.baidu.swan.apps.media.chooser.b.e.e(com.baidu.swan.apps.media.chooser.b.b.t(file));
                 Bundle bundle = new Bundle();
                 bundle.putString("swanTmpPath", com.baidu.swan.apps.y.f.WS().Wz().afp());
-                bundle.putBoolean("compressed", fVar.bCY);
+                bundle.putBoolean("compressed", fVar.bCZ);
                 bundle.putString("swanAppId", eVar.id);
                 bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.XJ());
                 com.baidu.swan.apps.media.chooser.b.d.b(eVar.acB(), bundle, dVar);
@@ -114,7 +114,7 @@ public class c extends ab {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), fVar.callback);
             }
         };
-        com.baidu.swan.apps.media.chooser.b.b.a(eVar.acB(), eVar.id, fVar.bDa, TextUtils.equals(fVar.bCZ, "front"), bVar);
+        com.baidu.swan.apps.media.chooser.b.b.a(eVar.acB(), eVar.id, fVar.bDb, TextUtils.equals(fVar.bDa, "front"), bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,11 +122,11 @@ public class c extends ab {
         Bundle bundle = new Bundle();
         bundle.putString("launchType", "video");
         bundle.putBoolean("isShowCamera", fVar.sourceType == 3);
-        bundle.putBoolean("isFrontCamera", TextUtils.equals(fVar.bCZ, "front"));
-        bundle.putInt("maxDuration", fVar.bDa);
+        bundle.putBoolean("isFrontCamera", TextUtils.equals(fVar.bDa, "front"));
+        bundle.putInt("maxDuration", fVar.bDb);
         bundle.putInt("count", 1);
         bundle.putString("mode", "single");
-        bundle.putBoolean("compressed", fVar.bCY);
+        bundle.putBoolean("compressed", fVar.bCZ);
         bundle.putString("swanAppId", eVar.id);
         bundle.putString("swanTmpPath", com.baidu.swan.apps.y.f.WS().Wz().afp());
         com.baidu.swan.apps.media.chooser.b.d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.c.5

@@ -14,9 +14,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private InterfaceC0473a fqu;
-    private c fqv;
-    private b fqw;
+    private InterfaceC0473a fqH;
+    private c fqI;
+    private b fqJ;
     private int mFromType;
     private List mList;
     private int mSkinType;
@@ -94,9 +94,9 @@ public class a extends BaseAdapter {
                     cVar = new com.baidu.tieba.ala.person.view.b(view, this.mFromType);
                 }
                 if (cVar != null) {
-                    cVar.a(this.fqu);
-                    cVar.a(this.fqw);
-                    cVar.a(this.fqv);
+                    cVar.a(this.fqH);
+                    cVar.a(this.fqJ);
+                    cVar.a(this.fqI);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -119,9 +119,9 @@ public class a extends BaseAdapter {
                     com.baidu.tieba.ala.person.a.b bVar = (com.baidu.tieba.ala.person.a.b) obj;
                     if (str.equals(bVar.id)) {
                         if (z) {
-                            bVar.eLB = 1;
+                            bVar.eLO = 1;
                         } else {
-                            bVar.eLB = 0;
+                            bVar.eLO = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -136,14 +136,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0473a interfaceC0473a) {
-        this.fqu = interfaceC0473a;
+        this.fqH = interfaceC0473a;
     }
 
     public void a(c cVar) {
-        this.fqv = cVar;
+        this.fqI = cVar;
     }
 
     public void a(b bVar) {
-        this.fqw = bVar;
+        this.fqJ = bVar;
     }
 }

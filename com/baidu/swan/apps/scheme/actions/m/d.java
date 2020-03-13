@@ -40,6 +40,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bim);
+        return !TextUtils.isEmpty(this.bin);
     }
 }

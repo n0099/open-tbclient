@@ -14,49 +14,49 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class f extends e {
-    private static final float[] eVD = {AlaChallengeWaveView.eWb, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWb, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ};
-    private static final float[] eVE = {AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eWb, AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eWb};
-    private static final float[] eVF = {AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eWb, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ};
-    private AlaChallengeWaveView eUP;
-    private AlaChallengeWaveView eUQ;
-    private HeadImageView eVA;
-    private FrameLayout eVB;
-    private FrameLayout eVC;
-    private boolean eVG;
-    private boolean eVH;
-    private TextView eVx;
-    private TextView eVy;
-    private HeadImageView eVz;
-    private CountDownTimer ewj;
+    private static final float[] eVQ = {AlaChallengeWaveView.eWo, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWm, AlaChallengeWaveView.eWo, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWm};
+    private static final float[] eVR = {AlaChallengeWaveView.eWm, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWo, AlaChallengeWaveView.eWm, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWo};
+    private static final float[] eVS = {AlaChallengeWaveView.eWm, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWo, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWm};
+    private TextView eVK;
+    private TextView eVL;
+    private HeadImageView eVM;
+    private HeadImageView eVN;
+    private FrameLayout eVO;
+    private FrameLayout eVP;
+    private boolean eVT;
+    private boolean eVU;
+    private AlaChallengeWaveView eVc;
+    private AlaChallengeWaveView eVd;
+    private CountDownTimer eww;
     private TextView mTipView;
 
     public f(Context context, k kVar) {
         super(context, kVar);
-        this.eVG = false;
-        this.eVH = false;
-        this.eVx = (TextView) this.mRootView.findViewById(a.g.ala_challenge_panel_random_status);
+        this.eVT = false;
+        this.eVU = false;
+        this.eVK = (TextView) this.mRootView.findViewById(a.g.ala_challenge_panel_random_status);
         this.mTipView = (TextView) this.mRootView.findViewById(a.g.ala_challenge_panel_random_tip);
-        this.eVy = (TextView) this.mRootView.findViewById(a.g.ala_challenge_panel_random_ops);
-        this.eVy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.f.1
+        this.eVL = (TextView) this.mRootView.findViewById(a.g.ala_challenge_panel_random_ops);
+        this.eVL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.eVv != null) {
-                    if (f.this.eVH) {
-                        f.this.eVv.bkO();
+                if (f.this.eVI != null) {
+                    if (f.this.eVU) {
+                        f.this.eVI.bkP();
                     } else {
-                        f.this.eVv.bkM();
+                        f.this.eVI.bkN();
                     }
                 }
             }
         });
-        this.eVz = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_random_my_header);
-        this.eVz.setIsRound(true);
-        this.eVB = (FrameLayout) this.mRootView.findViewById(a.g.ala_challenge_random_my_header_layout);
-        this.eVA = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_random_opponent_header);
-        this.eVA.setIsRound(true);
-        this.eVC = (FrameLayout) this.mRootView.findViewById(a.g.ala_challenge_random_opponent_header_layout);
-        this.eUP = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_random_wave_left);
-        this.eUQ = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_random_wave_right);
+        this.eVM = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_random_my_header);
+        this.eVM.setIsRound(true);
+        this.eVO = (FrameLayout) this.mRootView.findViewById(a.g.ala_challenge_random_my_header_layout);
+        this.eVN = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_random_opponent_header);
+        this.eVN.setIsRound(true);
+        this.eVP = (FrameLayout) this.mRootView.findViewById(a.g.ala_challenge_random_opponent_header_layout);
+        this.eVc = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_random_wave_left);
+        this.eVd = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_random_wave_right);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
@@ -67,19 +67,19 @@ public class f extends e {
     /* JADX INFO: Access modifiers changed from: protected */
     public void f(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.eVG = false;
+            this.eVT = false;
             if (aVar.pM()) {
                 g(aVar);
                 return;
             }
-            this.eVH = true;
-            bkT();
+            this.eVU = true;
+            bkU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    public int bkF() {
+    public int bkG() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 
@@ -87,56 +87,56 @@ public class f extends e {
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     public void xm() {
         super.xm();
-        bkS();
+        bkT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     public void hide() {
         super.hide();
-        if (this.eUP != null) {
-            this.eUP.endAnimation();
+        if (this.eVc != null) {
+            this.eVc.endAnimation();
         }
-        if (this.eUQ != null) {
-            this.eUQ.endAnimation();
+        if (this.eVd != null) {
+            this.eVd.endAnimation();
         }
-        bdU();
+        bdV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     public boolean onBackKeyDown() {
-        if (this.eVv == null) {
+        if (this.eVI == null) {
             return false;
         }
-        if (this.eVG) {
-            this.eVv.bkM();
+        if (this.eVT) {
+            this.eVI.bkN();
         } else {
-            this.eVv.removeView();
+            this.eVI.removeView();
         }
         return true;
     }
 
-    private void bkS() {
-        this.eVG = true;
-        this.eVx.setText(a.i.ala_challenge_panel_random_wait_title);
+    private void bkT() {
+        this.eVT = true;
+        this.eVK.setText(a.i.ala_challenge_panel_random_wait_title);
         this.mTipView.setText("");
-        this.eVy.setVisibility(0);
-        this.eVy.setText(a.i.ala_challenge_panel_random_cancel);
-        this.eVy.setBackgroundResource(a.f.ala_challenge_panel_random_ops_cancel_bg_shape);
-        this.eVy.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_c));
-        this.eVz.setDrawBorder(false);
-        this.eVz.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eVz.setAutoChangeStyle(false);
-        this.eVz.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eVz.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.eVC.setVisibility(8);
-        this.eUP.setWaveArray(eVD);
-        this.eUQ.setWaveArray(eVE);
-        this.eUP.startAnimation();
-        this.eUQ.startAnimation();
+        this.eVL.setVisibility(0);
+        this.eVL.setText(a.i.ala_challenge_panel_random_cancel);
+        this.eVL.setBackgroundResource(a.f.ala_challenge_panel_random_ops_cancel_bg_shape);
+        this.eVL.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_c));
+        this.eVM.setDrawBorder(false);
+        this.eVM.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eVM.setAutoChangeStyle(false);
+        this.eVM.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eVM.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.eVP.setVisibility(8);
+        this.eVc.setWaveArray(eVQ);
+        this.eVd.setWaveArray(eVR);
+        this.eVc.startAnimation();
+        this.eVd.startAnimation();
         this.mTipView.setText(String.format(this.mContext.getString(a.i.ala_challenge_panel_random_wait_tip), com.baidu.live.utils.j.M(120000L)));
-        this.ewj = new CountDownTimer(120000L, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.f.2
+        this.eww = new CountDownTimer(120000L, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.f.2
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
                 f.this.mTipView.setText(String.format(f.this.mContext.getString(a.i.ala_challenge_panel_random_wait_tip), com.baidu.live.utils.j.M(Math.round(j / 1000.0d) * 1000)));
@@ -145,48 +145,48 @@ public class f extends e {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 BdUtilHelper.showToast(f.this.mContext, "没有匹配上哦，请稍后再试");
-                if (f.this.eVv != null) {
-                    f.this.eVv.bkM();
+                if (f.this.eVI != null) {
+                    f.this.eVI.bkN();
                 }
             }
         };
-        this.ewj.start();
+        this.eww.start();
     }
 
     private void g(com.baidu.live.challenge.a aVar) {
-        this.eVx.setText(a.i.ala_challenge_panel_random_succ_title);
+        this.eVK.setText(a.i.ala_challenge_panel_random_succ_title);
         this.mTipView.setText(a.i.ala_challenge_panel_random_succ_tip);
-        this.eVy.setVisibility(4);
-        this.eVC.setVisibility(0);
-        this.eVA.setDrawBorder(false);
-        this.eVA.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eVA.setAutoChangeStyle(false);
-        this.eVA.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eVA.startLoad(aVar.WU, 25, false);
-        this.eUP.setEndWaveArray(eVF);
-        this.eUQ.setEndWaveArray(eVF);
-        this.eUP.endAnimation();
-        this.eUQ.endAnimation();
-        bdU();
+        this.eVL.setVisibility(4);
+        this.eVP.setVisibility(0);
+        this.eVN.setDrawBorder(false);
+        this.eVN.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eVN.setAutoChangeStyle(false);
+        this.eVN.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eVN.startLoad(aVar.WU, 25, false);
+        this.eVc.setEndWaveArray(eVS);
+        this.eVd.setEndWaveArray(eVS);
+        this.eVc.endAnimation();
+        this.eVd.endAnimation();
+        bdV();
     }
 
-    private void bkT() {
-        this.eVx.setText(a.i.ala_challenge_panel_random_fail_title);
+    private void bkU() {
+        this.eVK.setText(a.i.ala_challenge_panel_random_fail_title);
         this.mTipView.setText(a.i.ala_challenge_panel_random_fail_tip);
-        this.eVy.setVisibility(0);
-        this.eVy.setText(a.i.ala_challenge_panel_random_retry);
-        this.eVy.setBackgroundResource(a.f.ala_challenge_panel_random_ops_retry_bg_shape);
-        this.eVy.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-        this.eUP.setEndWaveArray(eVD);
-        this.eUQ.setEndWaveArray(eVE);
-        this.eUP.endAnimation();
-        this.eUQ.endAnimation();
-        bdU();
+        this.eVL.setVisibility(0);
+        this.eVL.setText(a.i.ala_challenge_panel_random_retry);
+        this.eVL.setBackgroundResource(a.f.ala_challenge_panel_random_ops_retry_bg_shape);
+        this.eVL.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
+        this.eVc.setEndWaveArray(eVQ);
+        this.eVd.setEndWaveArray(eVR);
+        this.eVc.endAnimation();
+        this.eVd.endAnimation();
+        bdV();
     }
 
-    private void bdU() {
-        if (this.ewj != null) {
-            this.ewj.cancel();
+    private void bdV() {
+        if (this.eww != null) {
+            this.eww.cancel();
         }
     }
 }

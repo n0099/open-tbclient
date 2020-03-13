@@ -13,17 +13,17 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class b extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CookieManager bmd;
+    private CookieManager bme;
 
     public b() {
-        this.bmd = null;
-        this.bmd = new c();
+        this.bme = null;
+        this.bme = new c();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldAcceptCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.bmd.shouldAcceptCookie(str, str2);
+            return this.bme.shouldAcceptCookie(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, c(str, str2, 1));
         if (!callOnMainWithContentProvider.isOk()) {
@@ -35,7 +35,7 @@ public class b extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldSendCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.bmd.shouldSendCookie(str, str2);
+            return this.bme.shouldSendCookie(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, c(str, str2, 2));
         if (!callOnMainWithContentProvider.isOk()) {
@@ -47,7 +47,7 @@ public class b extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public void storeCookie(String str, List<String> list) {
         if (ProcessUtils.isMainProcess()) {
-            this.bmd.storeCookie(str, list);
+            this.bme.storeCookie(str, list);
             return;
         }
         Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public class b extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         if (ProcessUtils.isMainProcess()) {
-            return this.bmd.getCookie(str);
+            return this.bme.getCookie(str);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, c(str, "", 4));
         if (!callOnMainWithContentProvider.isOk()) {

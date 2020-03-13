@@ -10,10 +10,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private BdTypeRecyclerView BK;
-    private List<com.baidu.adp.widget.ListView.a> asE;
-    private d eln;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b elo;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a elp;
+    private List<com.baidu.adp.widget.ListView.a> asF;
+    private d elA;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b elB;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a elC;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -27,14 +27,14 @@ public class a {
     }
 
     private void wM() {
-        this.asE = new ArrayList();
-        this.eln = new d(this.mPageContext, this.tabType);
-        this.elo = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.elp = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.asE.add(this.eln);
-        this.asE.add(this.elo);
-        this.asE.add(this.elp);
-        this.BK.addAdapters(this.asE);
+        this.asF = new ArrayList();
+        this.elA = new d(this.mPageContext, this.tabType);
+        this.elB = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.elC = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.asF.add(this.elA);
+        this.asF.add(this.elB);
+        this.asF.add(this.elC);
+        this.BK.addAdapters(this.asF);
     }
 
     public void setData(List<m> list) {

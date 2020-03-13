@@ -6,17 +6,17 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a buG;
+    private static volatile a buH;
 
     public static a RR() {
-        if (buG == null) {
+        if (buH == null) {
             synchronized (a.class) {
-                if (buG == null) {
-                    buG = new a();
+                if (buH == null) {
+                    buH = new a();
                 }
             }
         }
-        return buG;
+        return buH;
     }
 
     public void a(@Nullable final com.baidu.swan.apps.extcore.c.a aVar, final int i) {

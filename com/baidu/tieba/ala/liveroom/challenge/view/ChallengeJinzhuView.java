@@ -24,110 +24,110 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class ChallengeJinzhuView extends FrameLayout {
-    private static final int aqE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
-    private static final int aqF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
-    private static final int eZb = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds52);
-    private static final int eZc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds20);
-    private static final int eZd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds24);
-    private HeadImageView eZe;
-    private ImageView eZf;
-    private TextView eZg;
-    private ab eZh;
-    private boolean eZi;
-    private boolean eZj;
-    private FrameLayout.LayoutParams eZk;
+    private static final int aqF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds8);
+    private static final int aqG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
+    private static final int eZo = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds52);
+    private static final int eZp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds20);
+    private static final int eZq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds24);
+    private HeadImageView eZr;
+    private ImageView eZs;
+    private TextView eZt;
+    private ab eZu;
+    private boolean eZv;
+    private boolean eZw;
+    private FrameLayout.LayoutParams eZx;
 
     public ChallengeJinzhuView(@NonNull Context context) {
         super(context);
-        this.eZi = false;
+        this.eZv = false;
         initView();
     }
 
     public ChallengeJinzhuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eZi = false;
+        this.eZv = false;
         initView();
     }
 
     public ChallengeJinzhuView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eZi = false;
+        this.eZv = false;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_jinzhu_item, (ViewGroup) this, true);
-        this.eZe = (HeadImageView) findViewById(a.g.ala_challenge_jinzhu_header);
-        this.eZe.setIsRound(true);
-        this.eZe.setAutoChangeStyle(false);
-        this.eZe.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds2));
-        this.eZe.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha20));
-        this.eZe.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eZe.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eZe.setDefaultResource(a.f.icon_challenge_default_avatar);
-        this.eZf = (ImageView) findViewById(a.g.ala_challenge_jinzhu_headwear);
-        this.eZg = (TextView) findViewById(a.g.ala_challenge_jinzhu_tv);
+        this.eZr = (HeadImageView) findViewById(a.g.ala_challenge_jinzhu_header);
+        this.eZr.setIsRound(true);
+        this.eZr.setAutoChangeStyle(false);
+        this.eZr.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds2));
+        this.eZr.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha20));
+        this.eZr.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eZr.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eZr.setDefaultResource(a.f.icon_challenge_default_avatar);
+        this.eZs = (ImageView) findViewById(a.g.ala_challenge_jinzhu_headwear);
+        this.eZt = (TextView) findViewById(a.g.ala_challenge_jinzhu_tv);
     }
 
     public void a(boolean z, ab abVar, final String str) {
         if (abVar == null) {
-            if (!this.eZj || this.eZi != z) {
-                D(true, false);
-                this.eZi = z;
-                this.eZj = true;
-                k.a(this.eZe, HanziToPinyin.Token.SEPARATOR, false, false);
-                this.eZg.setText(a.i.ala_challenge_jinzhu_def_tip);
-                this.eZf.setVisibility(0);
+            if (!this.eZw || this.eZv != z) {
+                E(true, false);
+                this.eZv = z;
+                this.eZw = true;
+                k.a(this.eZr, HanziToPinyin.Token.SEPARATOR, false, false);
+                this.eZt.setText(a.i.ala_challenge_jinzhu_def_tip);
+                this.eZs.setVisibility(0);
                 if (z) {
-                    this.eZg.setBackgroundResource(a.f.ala_challenge_anchor_jinzhu_num_bg);
-                    this.eZf.setImageResource(a.f.pic_live_pk_frameorange);
+                    this.eZt.setBackgroundResource(a.f.ala_challenge_anchor_jinzhu_num_bg);
+                    this.eZs.setImageResource(a.f.pic_live_pk_frameorange);
                 } else {
-                    this.eZg.setBackgroundResource(a.f.ala_challenge_rival_jinzhu_num_bg);
-                    this.eZf.setImageResource(a.f.pic_live_pk_framepurple);
+                    this.eZt.setBackgroundResource(a.f.ala_challenge_rival_jinzhu_num_bg);
+                    this.eZs.setImageResource(a.f.pic_live_pk_framepurple);
                 }
-                this.eZg.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds16));
+                this.eZt.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds16));
             }
         } else if (abVar.abx != null) {
-            boolean z2 = z && abVar.a(this.eZh);
-            this.eZi = z2;
+            boolean z2 = z && abVar.a(this.eZu);
+            this.eZv = z2;
             if (!z2) {
-                this.eZj = false;
+                this.eZw = false;
                 if (abVar.abx != null) {
-                    k.a(this.eZe, abVar.abx.portrait, false, false);
+                    k.a(this.eZr, abVar.abx.portrait, false, false);
                 }
-                this.eZh = abVar;
-                this.eZi = z;
+                this.eZu = abVar;
+                this.eZv = z;
                 if (abVar.qF()) {
-                    D(false, true);
-                    this.eZg.setText((CharSequence) null);
-                    this.eZg.setBackgroundResource(a.f.icon_live_pkmvp);
-                    this.eZf.setVisibility(0);
-                    this.eZf.setImageResource(a.f.pic_live_pk_framemvp);
+                    E(false, true);
+                    this.eZt.setText((CharSequence) null);
+                    this.eZt.setBackgroundResource(a.f.icon_live_pkmvp);
+                    this.eZs.setVisibility(0);
+                    this.eZs.setImageResource(a.f.pic_live_pk_framemvp);
                 } else {
-                    D(false, false);
-                    this.eZg.setText("" + abVar.rank);
-                    this.eZg.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds18));
+                    E(false, false);
+                    this.eZt.setText("" + abVar.rank);
+                    this.eZt.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds18));
                     if (z) {
-                        this.eZg.setBackgroundResource(a.f.ala_challenge_anchor_jinzhu_num_bg);
+                        this.eZt.setBackgroundResource(a.f.ala_challenge_anchor_jinzhu_num_bg);
                     } else {
-                        this.eZg.setBackgroundResource(a.f.ala_challenge_rival_jinzhu_num_bg);
+                        this.eZt.setBackgroundResource(a.f.ala_challenge_rival_jinzhu_num_bg);
                     }
                     if (abVar.isFirst()) {
-                        this.eZf.setVisibility(0);
+                        this.eZs.setVisibility(0);
                         if (z) {
-                            this.eZf.setImageResource(a.f.pic_live_pk_frameorange);
+                            this.eZs.setImageResource(a.f.pic_live_pk_frameorange);
                         } else {
-                            this.eZf.setImageResource(a.f.pic_live_pk_framepurple);
+                            this.eZs.setImageResource(a.f.pic_live_pk_framepurple);
                         }
                     } else {
-                        this.eZf.setVisibility(8);
+                        this.eZs.setVisibility(8);
                     }
                 }
                 setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.ChallengeJinzhuView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (!ChallengeJinzhuView.this.eZj && ChallengeJinzhuView.this.eZh != null && ChallengeJinzhuView.this.eZh.abx != null) {
-                            AlaLiveUserInfoData alaLiveUserInfoData = ChallengeJinzhuView.this.eZh.abx;
+                        if (!ChallengeJinzhuView.this.eZw && ChallengeJinzhuView.this.eZu != null && ChallengeJinzhuView.this.eZu.abx != null) {
+                            AlaLiveUserInfoData alaLiveUserInfoData = ChallengeJinzhuView.this.eZu.abx;
                             AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(ChallengeJinzhuView.this.getContext(), alaLiveUserInfoData.userId + "", alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, 0, 0, null, null, 0L, 0L, 0L, 0, null, str, false, null, null, alaLiveUserInfoData.userName, "");
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
@@ -138,23 +138,23 @@ public class ChallengeJinzhuView extends FrameLayout {
         }
     }
 
-    private void D(boolean z, boolean z2) {
+    private void E(boolean z, boolean z2) {
         if (z) {
-            this.eZk = (FrameLayout.LayoutParams) this.eZg.getLayoutParams();
-            this.eZk.width = -2;
-            this.eZk.height = eZd;
-            this.eZg.setLayoutParams(this.eZk);
-            this.eZg.setPadding(aqE, 0, aqE, 0);
+            this.eZx = (FrameLayout.LayoutParams) this.eZt.getLayoutParams();
+            this.eZx.width = -2;
+            this.eZx.height = eZq;
+            this.eZt.setLayoutParams(this.eZx);
+            this.eZt.setPadding(aqF, 0, aqF, 0);
             return;
         }
-        this.eZk = (FrameLayout.LayoutParams) this.eZg.getLayoutParams();
-        this.eZk.width = z2 ? eZb : -2;
-        this.eZk.height = eZc;
-        this.eZg.setLayoutParams(this.eZk);
+        this.eZx = (FrameLayout.LayoutParams) this.eZt.getLayoutParams();
+        this.eZx.width = z2 ? eZo : -2;
+        this.eZx.height = eZp;
+        this.eZt.setLayoutParams(this.eZx);
         if (z2) {
-            this.eZg.setPadding(0, 0, 0, 0);
+            this.eZt.setPadding(0, 0, 0, 0);
         } else {
-            this.eZg.setPadding(aqF, 0, aqF, 0);
+            this.eZt.setPadding(aqG, 0, aqG, 0);
         }
     }
 }

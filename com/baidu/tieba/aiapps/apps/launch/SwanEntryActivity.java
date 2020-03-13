@@ -12,14 +12,14 @@ public class SwanEntryActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!r.checkActivityRefuseServiceAndFinish(this)) {
-            aZP();
+            aZQ();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        aZP();
+        aZQ();
     }
 
     @Override // android.app.Activity
@@ -33,7 +33,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void aZP() {
+    private void aZQ() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {

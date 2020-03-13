@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean aQS() {
+    private static boolean aQT() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void d(Object obj, String str) {
-        if (aQS()) {
+        if (aQT()) {
             if (obj != null) {
                 str = str + " : " + obj.getClass().getSimpleName();
             }
@@ -31,7 +31,7 @@ public class c {
     }
 
     private static final void a(Fragment fragment, List<Fragment> list) {
-        if (aQS()) {
+        if (aQT()) {
             d((Object) null, "--------------------------------------------------");
             d((Object) null, "ParentFragment:" + fragment);
             d((Object) null, "Print All ChildFragments=" + v.getCount(list));
@@ -45,14 +45,14 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (aQS() && bVar != null) {
+        if (aQT() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            ArrayList<String> aQQ = bVar.aQQ();
             ArrayList<String> aQR = bVar.aQR();
+            ArrayList<String> aQS = bVar.aQS();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(aQQ.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(aQR.toString());
+            sb.append("preList=").append(aQR.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(aQS.toString());
             d(bVar, sb.toString());
         }
     }

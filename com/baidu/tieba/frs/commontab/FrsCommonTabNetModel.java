@@ -33,12 +33,12 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aQB() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aQC() {
         return FrsCommonTabHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> aQC() {
+    protected Class<? extends MvcSocketResponsedMessage> aQD() {
         return FrsCommonTabSocketResponseMessage.class;
     }
 }

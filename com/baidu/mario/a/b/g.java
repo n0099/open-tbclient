@@ -54,7 +54,7 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aKO = eVar;
+            this.aKP = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.Ds(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Dt());
@@ -64,18 +64,18 @@ public class g extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.Ds());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.aKQ = true;
+                this.aKR = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aKP == null) {
-                this.aKP.bC(z);
+            if (this.aKQ == null) {
+                this.aKQ.bC(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aKP == null) {
+        if (this.aKQ == null) {
         }
     }
 
@@ -85,12 +85,12 @@ public class g extends b {
 
     @Override // com.baidu.mario.a.b.b
     protected void Dl() {
-        if (this.aKR == 0) {
-            this.aKR = this.mBufferInfo.presentationTimeUs;
-            aKS = 0L;
+        if (this.aKS == 0) {
+            this.aKS = this.mBufferInfo.presentationTimeUs;
+            aKT = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aKR;
-        aKS = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.CL().X(aKS / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.aKS;
+        aKT = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.a.d.CL().X(aKT / 1000);
     }
 }

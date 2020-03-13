@@ -11,46 +11,46 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.live.im.data.a {
-    public static final BdUniqueId aqv = BdUniqueId.gen();
+    private String aqB;
+    public SpannableStringBuilder aqC;
     public static final BdUniqueId aqw = BdUniqueId.gen();
     public static final BdUniqueId aqx = BdUniqueId.gen();
     public static final BdUniqueId aqy = BdUniqueId.gen();
     public static final BdUniqueId aqz = BdUniqueId.gen();
-    private String aqA;
-    public SpannableStringBuilder aqB;
+    public static final BdUniqueId aqA = BdUniqueId.gen();
 
     public String vP() {
-        return this.aqA;
+        return this.aqB;
     }
 
     public void dI(String str) {
-        this.aqA = str;
+        this.aqB = str;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
         if (getMsgType() == 24) {
-            return aqw;
+            return aqx;
         }
         if (getMsgType() == 13) {
-            return aqx;
-        }
-        if (getMsgType() == 26) {
-            return aqx;
-        }
-        if (getMsgType() == 125) {
             return aqy;
         }
-        if (getMsgType() == 27) {
-            return aqx;
+        if (getMsgType() == 26) {
+            return aqy;
         }
-        if (getMsgType() == 12) {
-            return aqx;
-        }
-        if (getMsgType() == 28) {
+        if (getMsgType() == 125) {
             return aqz;
         }
-        return aqv;
+        if (getMsgType() == 27) {
+            return aqy;
+        }
+        if (getMsgType() == 12) {
+            return aqy;
+        }
+        if (getMsgType() == 28) {
+            return aqA;
+        }
+        return aqw;
     }
 
     public boolean t(JSONObject jSONObject) {

@@ -11,17 +11,17 @@ import com.baidu.swan.games.bdtls.model.j;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class d {
-    private static volatile d ckJ;
+    private static volatile d ckK;
 
     public static d alI() {
-        if (ckJ == null) {
+        if (ckK == null) {
             synchronized (d.class) {
-                if (ckJ == null) {
-                    ckJ = new d();
+                if (ckK == null) {
+                    ckK = new d();
                 }
             }
         }
-        return ckJ;
+        return ckK;
     }
 
     private d() {
@@ -34,7 +34,7 @@ public class d {
         try {
             byte[] a = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a != null) {
-                h amG = h.cld.amG();
+                h amG = h.cle.amG();
                 amG.b((byte) 22);
                 amG.c((short) a.length);
                 amG.H(a);
@@ -56,7 +56,7 @@ public class d {
             return null;
         }
         try {
-            h amG = h.cld.amG();
+            h amG = h.cle.amG();
             amG.b((byte) 23);
             byte[] amS = jVar.amS();
             if (amS != null && amS.length > 0 && amS.length <= 32767) {

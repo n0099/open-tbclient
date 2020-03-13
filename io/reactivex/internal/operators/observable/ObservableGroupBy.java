@@ -131,7 +131,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, T> extends io.reactivex.d.b<K, T> {
-        final State<T, K> nxV;
+        final State<T, K> nyg;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,24 +139,24 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.nxV = state;
+            this.nyg = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.nxV.subscribe(uVar);
+            this.nyg.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.nxV.onNext(t);
+            this.nyg.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nxV.onError(th);
+            this.nyg.onError(th);
         }
 
         public void onComplete() {
-            this.nxV.onComplete();
+            this.nyg.onComplete();
         }
     }
 

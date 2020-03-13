@@ -21,9 +21,9 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class b {
     protected int a;
-    private final SparseArray<AEffectParams> aNE;
-    private AEffectAnimatorGroup aNF;
+    private final SparseArray<AEffectParams> aNF;
     private AEffectAnimatorGroup aNG;
+    private AEffectAnimatorGroup aNH;
     protected float[] b;
     protected float[] c;
     private final LinkedList<Runnable> d;
@@ -54,7 +54,7 @@ public class b {
         this.a = 3553;
         this.d = new LinkedList<>();
         this.n = new SparseArray<>();
-        this.aNE = new SparseArray<>();
+        this.aNF = new SparseArray<>();
         this.e = str;
         this.f = str2;
         if (TextUtils.isEmpty(str2) || !str2.contains("samplerExternalOES")) {
@@ -271,7 +271,7 @@ public class b {
     public void r() {
         AEffectParams aEffectParams;
         if (this.n.size() != 0) {
-            AEffectParams aEffectParams2 = this.aNE.get(this.n.keyAt(0));
+            AEffectParams aEffectParams2 = this.aNF.get(this.n.keyAt(0));
             if (aEffectParams2 != null && aEffectParams2.values != null && aEffectParams2.values.length > 0) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (aEffectParams2.timeInterval == 0.0f || ((float) (currentTimeMillis - this.q)) > aEffectParams2.timeInterval * 1000.0f) {
@@ -284,7 +284,7 @@ public class b {
             }
             for (int i = 0; i < this.n.size(); i++) {
                 int keyAt = this.n.keyAt(i);
-                if (this.aNE.size() > 0 && (aEffectParams = this.aNE.get(keyAt)) != null) {
+                if (this.aNF.size() > 0 && (aEffectParams = this.aNF.get(keyAt)) != null) {
                     if (AEffectParams.VALUE_TYPE_FLOAT.equals(aEffectParams.type)) {
                         if (aEffectParams.values != null && aEffectParams.values.length > this.p) {
                             GLES20.glUniform1f(keyAt, aEffectParams.values[this.p]);
@@ -317,11 +317,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         boolean z;
-        if (this.v == 0 || this.aNF == null || this.aNF.sceneGroup == null) {
+        if (this.v == 0 || this.aNG == null || this.aNG.sceneGroup == null) {
             return;
         }
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
-        for (AEffectOneAnimator aEffectOneAnimator : this.aNF.sceneGroup) {
+        for (AEffectOneAnimator aEffectOneAnimator : this.aNG.sceneGroup) {
             if (aEffectOneAnimator.animParams == null || aEffectOneAnimator.beginTime * 1000.0f > ((float) currentTimeMillis) || aEffectOneAnimator.endTime * 1000.0f <= ((float) currentTimeMillis)) {
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(n(), "alpha"), 1.0f);
             } else {
@@ -359,15 +359,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
         boolean z;
-        if (this.v == 0 || this.aNF == null || this.aNF.transitionGroup == null || this.aNF.transitionGroup.size() <= this.y) {
+        if (this.v == 0 || this.aNG == null || this.aNG.transitionGroup == null || this.aNG.transitionGroup.size() <= this.y) {
             return;
         }
-        long j = this.aNF.transitionDuration * 1000.0f;
+        long j = this.aNG.transitionDuration * 1000.0f;
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
         if (currentTimeMillis < 0 || currentTimeMillis >= j) {
             return;
         }
-        AEffectOneAnimator aEffectOneAnimator = this.aNF.transitionGroup.get(this.y);
+        AEffectOneAnimator aEffectOneAnimator = this.aNG.transitionGroup.get(this.y);
         float f = ((float) ((currentTimeMillis - 0) % j)) / (1.0f * ((float) j));
         if (f < 0.0f || f > 1.0f) {
             return;
@@ -378,8 +378,8 @@ public class b {
         }
         float[] fArr = new float[16];
         Matrix.setIdentityM(fArr, 0);
-        if (this.aNG != null && this.aNG.sceneGroup != null && this.y == 0) {
-            AEffectOneAnimator aEffectOneAnimator2 = this.aNG.sceneGroup.get(this.aNG.sceneGroup.size() - 1);
+        if (this.aNH != null && this.aNH.sceneGroup != null && this.y == 0) {
+            AEffectOneAnimator aEffectOneAnimator2 = this.aNH.sceneGroup.get(this.aNH.sceneGroup.size() - 1);
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -454,20 +454,20 @@ public class b {
 
     public void a(int i, long j) {
         this.v = j;
-        if (this.aNF != null) {
-            this.aNG = this.aNF;
+        if (this.aNG != null) {
+            this.aNH = this.aNG;
         }
         if (this.u == null || this.u.size() <= 0) {
             return;
         }
         if (this.u.size() == 1) {
-            this.aNF = this.u.get(0);
+            this.aNG = this.u.get(0);
             return;
         }
         if (this.u.size() <= i) {
             i = 0;
         }
-        this.aNF = this.u.get(i);
+        this.aNG = this.u.get(i);
     }
 
     public void a(int i, String str, AEffectParams aEffectParams) {
@@ -475,7 +475,7 @@ public class b {
             return;
         }
         this.n.put(i, str);
-        this.aNE.put(i, aEffectParams);
+        this.aNF.put(i, aEffectParams);
     }
 
     public void a(int i, float[] fArr) {
@@ -667,11 +667,11 @@ public class b {
     }
 
     public boolean o() {
-        if (this.u == null || this.aNF == null || this.aNF.transitionGroup == null || this.v == 0) {
+        if (this.u == null || this.aNG == null || this.aNG.transitionGroup == null || this.v == 0) {
             return false;
         }
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
-        return currentTimeMillis >= 0 && ((float) currentTimeMillis) < this.aNF.transitionDuration * 1000.0f;
+        return currentTimeMillis >= 0 && ((float) currentTimeMillis) < this.aNG.transitionDuration * 1000.0f;
     }
 
     public void p() {

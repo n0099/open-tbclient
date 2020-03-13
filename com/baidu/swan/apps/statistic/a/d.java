@@ -8,9 +8,9 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bHK = 35;
-    private boolean bHM = false;
-    private JSONObject bVk;
+    private static int bHL = 35;
+    private boolean bHN = false;
+    private JSONObject bVl;
 
     public d() {
         this.mSource = "NA";
@@ -23,7 +23,7 @@ public class d extends f {
     }
 
     public d dV(boolean z) {
-        this.bHM = z;
+        this.bHN = z;
         return this;
     }
 
@@ -49,11 +49,11 @@ public class d extends f {
 
     public d bo(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.bVk == null) {
-                this.bVk = new JSONObject();
+            if (this.bVl == null) {
+                this.bVl = new JSONObject();
             }
             try {
-                this.bVk.put(str, str2);
+                this.bVl.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -73,7 +73,7 @@ public class d extends f {
                 this.mScheme = eVar.VL();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.bVu = eVar.getPage();
+                this.bVv = eVar.getPage();
             }
         }
         return this;
@@ -81,18 +81,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.bVl == null) {
-            this.bVl = new JSONObject();
+        if (this.bVm == null) {
+            this.bVm = new JSONObject();
         }
         try {
-            if (this.bVk != null) {
-                if (this.bHM) {
-                    String hf = ai.hf(bHK);
+            if (this.bVl != null) {
+                if (this.bHN) {
+                    String hf = ai.hf(bHL);
                     if (!TextUtils.isEmpty(hf)) {
-                        this.bVk.put("stacktrace", hf);
+                        this.bVl.put("stacktrace", hf);
                     }
                 }
-                this.bVl.put("info", this.bVk);
+                this.bVm.put("info", this.bVl);
             }
         } catch (JSONException e) {
             if (DEBUG) {

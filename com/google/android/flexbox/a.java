@@ -16,11 +16,9 @@ interface a {
 
     int ao(int i, int i2, int i3);
 
-    boolean dAl();
+    boolean dAm();
 
     int ds(View view);
-
-    int g(View view, int i, int i2);
 
     int getAlignContent();
 
@@ -51,6 +49,8 @@ interface a {
     int getPaddingTop();
 
     int getSumOfCrossSize();
+
+    int h(View view, int i, int i2);
 
     void m(int i, View view);
 

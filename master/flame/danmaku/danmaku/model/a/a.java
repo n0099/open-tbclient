@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> nIh;
-    private final int nIi;
-    private T nIj;
-    private int nIk;
+    private final d<T> nIs;
+    private final int nIt;
+    private T nIu;
+    private int nIv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nIh = dVar;
-        this.nIi = i;
+        this.nIs = dVar;
+        this.nIt = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dMH() {
-        T dMG;
-        if (this.nIj != null) {
-            T t = this.nIj;
-            this.nIj = (T) t.dMD();
-            this.nIk--;
-            dMG = t;
+    public T dMI() {
+        T dMH;
+        if (this.nIu != null) {
+            T t = this.nIu;
+            this.nIu = (T) t.dME();
+            this.nIv--;
+            dMH = t;
         } else {
-            dMG = this.nIh.dMG();
+            dMH = this.nIs.dMH();
         }
-        if (dMG != null) {
-            dMG.bX(null);
-            dMG.wP(false);
-            this.nIh.b(dMG);
+        if (dMH != null) {
+            dMH.bX(null);
+            dMH.wP(false);
+            this.nIs.b(dMH);
         }
-        return dMG;
+        return dMH;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dMB()) {
-            if (this.mInfinite || this.nIk < this.nIi) {
-                this.nIk++;
-                t.bX(this.nIj);
+        if (!t.dMC()) {
+            if (this.mInfinite || this.nIv < this.nIt) {
+                this.nIv++;
+                t.bX(this.nIu);
                 t.wP(true);
-                this.nIj = t;
+                this.nIu = t;
             }
-            this.nIh.a(t);
+            this.nIs.a(t);
         }
     }
 }

@@ -7,34 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private static r fLt;
-    private List<an> dXF;
+    private static r fLG;
+    private List<an> dXS;
 
-    public static r bvg() {
-        if (fLt == null) {
+    public static r bvh() {
+        if (fLG == null) {
             synchronized (r.class) {
-                if (fLt == null) {
-                    fLt = new r();
+                if (fLG == null) {
+                    fLG = new r();
                 }
             }
         }
-        return fLt;
+        return fLG;
     }
 
     public void d(an anVar) {
         if (anVar != null) {
-            if (this.dXF == null) {
-                this.dXF = new ArrayList();
+            if (this.dXS == null) {
+                this.dXS = new ArrayList();
             }
-            this.dXF.add(anVar);
+            this.dXS.add(anVar);
         }
     }
 
     public void ib(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.getCount(this.dXF) != 0) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.dXS) != 0) {
             int i2 = -1;
-            for (an anVar : this.dXF) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     if (i2 != anVar.getPosition()) {
                         int position = anVar.getPosition();
@@ -47,30 +47,30 @@ public class r {
                     i2 = i;
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 
     public void kp(boolean z) {
-        if (com.baidu.tbadk.core.util.v.getCount(this.dXF) != 0) {
-            for (an anVar : this.dXF) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.dXS) != 0) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     anVar.X("obj_type", z ? 1 : 0);
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 
-    public void bbR() {
-        if (com.baidu.tbadk.core.util.v.getCount(this.dXF) != 0) {
-            for (an anVar : this.dXF) {
+    public void bbS() {
+        if (com.baidu.tbadk.core.util.v.getCount(this.dXS) != 0) {
+            for (an anVar : this.dXS) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dXF.clear();
+            this.dXS.clear();
         }
     }
 }

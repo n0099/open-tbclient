@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class f implements j<e> {
-    private final g lJL;
-    private final com.facebook.imagepipeline.d.g lKa;
-    private final Set<com.facebook.drawee.controller.c> lKd;
+    private final g lJW;
+    private final com.facebook.imagepipeline.d.g lKl;
+    private final Set<com.facebook.drawee.controller.c> lKo;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dpw(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dpx(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.lKa = jVar.dlA();
-        if (bVar != null && bVar.dlu() != null) {
-            this.lJL = bVar.dlu();
+        this.lKl = jVar.dlB();
+        if (bVar != null && bVar.dlv() != null) {
+            this.lJW = bVar.dlv();
         } else {
-            this.lJL = new g();
+            this.lJW = new g();
         }
-        this.lJL.a(context.getResources(), com.facebook.drawee.components.a.dlS(), jVar.gm(context), i.dkF(), this.lKa.doK(), bVar != null ? bVar.dlt() : null, bVar != null ? bVar.dlw() : null);
-        this.lKd = set;
+        this.lJW.a(context.getResources(), com.facebook.drawee.components.a.dlT(), jVar.gm(context), i.dkG(), this.lKl.doL(), bVar != null ? bVar.dlu() : null, bVar != null ? bVar.dlx() : null);
+        this.lKo = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dlL */
+    /* renamed from: dlM */
     public e get() {
-        return new e(this.mContext, this.lJL, this.lKa, this.lKd);
+        return new e(this.mContext, this.lJW, this.lKl, this.lKo);
     }
 }

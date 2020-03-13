@@ -33,13 +33,13 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class i extends BaseAdapter {
     private boolean Yr;
-    private BaseActivity eET;
-    private BdUniqueId eEU;
-    private boolean eFv;
-    private com.baidu.live.guardclub.f eFw;
-    private b eFx;
-    private List<com.baidu.live.guardclub.f> eFy;
-    private CustomMessageListener evz = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.guardclub.i.4
+    private boolean eFI;
+    private com.baidu.live.guardclub.f eFJ;
+    private b eFK;
+    private List<com.baidu.live.guardclub.f> eFL;
+    private BaseActivity eFg;
+    private BdUniqueId eFh;
+    private CustomMessageListener evM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.guardclub.i.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -49,24 +49,24 @@ public class i extends BaseAdapter {
                     if (updateAttentionMessage.getData().isSucc) {
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
                         if (message != null && message.getTag() != null && !TextUtils.isEmpty(updateAttentionMessage.getData().toUid)) {
-                            Iterator it = i.this.eFy.iterator();
+                            Iterator it = i.this.eFL.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
                                     break;
                                 }
                                 com.baidu.live.guardclub.f fVar = (com.baidu.live.guardclub.f) it.next();
                                 if (updateAttentionMessage.getData().toUid.equals(fVar.userId)) {
-                                    fVar.aqm = updateAttentionMessage.getData().isAttention;
+                                    fVar.aqn = updateAttentionMessage.getData().isAttention;
                                     break;
                                 }
                             }
                             i.this.notifyDataSetChanged();
-                            if (message.getTag().equals(i.this.eEU)) {
+                            if (message.getTag().equals(i.this.eFh)) {
                                 if (updateAttentionMessage.getData().isAttention) {
-                                    i.this.eET.getPageContext().showToast(i.this.eET.getResources().getString(a.i.sdk_attention_success_toast));
+                                    i.this.eFg.getPageContext().showToast(i.this.eFg.getResources().getString(a.i.sdk_attention_success_toast));
                                     return;
                                 } else {
-                                    i.this.eET.getPageContext().showToast(i.this.eET.getResources().getString(a.i.sdk_unfollow_success_toast));
+                                    i.this.eFg.getPageContext().showToast(i.this.eFg.getResources().getString(a.i.sdk_unfollow_success_toast));
                                     return;
                                 }
                             }
@@ -75,8 +75,8 @@ public class i extends BaseAdapter {
                         return;
                     }
                     Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(i.this.eEU)) {
-                        i.this.eET.showToast(updateAttentionMessage.getData().errorString);
+                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(i.this.eFh)) {
+                        i.this.eFg.showToast(updateAttentionMessage.getData().errorString);
                     }
                 }
             }
@@ -92,11 +92,11 @@ public class i extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(@NonNull BaseActivity baseActivity, BdUniqueId bdUniqueId, boolean z, boolean z2) {
-        this.eET = baseActivity;
-        this.eEU = bdUniqueId;
+        this.eFg = baseActivity;
+        this.eFh = bdUniqueId;
         this.Yr = z;
-        this.eFv = z2;
-        MessageManager.getInstance().registerListener(this.evz);
+        this.eFI = z2;
+        MessageManager.getInstance().registerListener(this.evM);
     }
 
     public void setOtherParams(String str) {
@@ -104,19 +104,19 @@ public class i extends BaseAdapter {
     }
 
     public void a(com.baidu.live.guardclub.f fVar) {
-        this.eFw = fVar;
+        this.eFJ = fVar;
     }
 
     public void a(b bVar) {
-        this.eFx = bVar;
+        this.eFK = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eFy == null) {
+        if (this.eFL == null) {
             return 0;
         }
-        return this.eFy.size();
+        return this.eFL.size();
     }
 
     @Override // android.widget.Adapter
@@ -133,25 +133,25 @@ public class i extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eET.getPageContext().getPageActivity()).inflate(a.h.item_guard_member_list, viewGroup, false);
+            view = LayoutInflater.from(this.eFg.getPageContext().getPageActivity()).inflate(a.h.item_guard_member_list, viewGroup, false);
             aVar = new a();
-            aVar.eFB = (RelativeLayout) view.findViewById(a.g.layout_guard_member_list_rank);
-            aVar.eFC = view.findViewById(a.g.view_guard_club_list_rank);
-            aVar.eFD = (ImageView) view.findViewById(a.g.img_guard_club_list_rank);
-            aVar.eFE = (TextView) view.findViewById(a.g.tv_guard_club_list_rank);
-            aVar.eFa = (HeadImageView) view.findViewById(a.g.img_guard_club_list_header);
-            aVar.eFF = (TbImageView) view.findViewById(a.g.img_guard_club_list_medal);
-            aVar.eFG = (TextView) view.findViewById(a.g.tv_guard_club_list_name);
-            aVar.eFc = (TextView) view.findViewById(a.g.tv_guard_club_list_num);
-            aVar.eFH = (GradientTextView) view.findViewById(a.g.tv_guard_club_list_followed);
-            aVar.eFI = (TextView) view.findViewById(a.g.tv_guard_club_list_un_followed);
+            aVar.eFO = (RelativeLayout) view.findViewById(a.g.layout_guard_member_list_rank);
+            aVar.eFP = view.findViewById(a.g.view_guard_club_list_rank);
+            aVar.eFQ = (ImageView) view.findViewById(a.g.img_guard_club_list_rank);
+            aVar.eFR = (TextView) view.findViewById(a.g.tv_guard_club_list_rank);
+            aVar.eFn = (HeadImageView) view.findViewById(a.g.img_guard_club_list_header);
+            aVar.eFS = (TbImageView) view.findViewById(a.g.img_guard_club_list_medal);
+            aVar.eFT = (TextView) view.findViewById(a.g.tv_guard_club_list_name);
+            aVar.eFp = (TextView) view.findViewById(a.g.tv_guard_club_list_num);
+            aVar.eFU = (GradientTextView) view.findViewById(a.g.tv_guard_club_list_followed);
+            aVar.eFV = (TextView) view.findViewById(a.g.tv_guard_club_list_un_followed);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.live.guardclub.f fVar = this.eFy.get(i);
+        final com.baidu.live.guardclub.f fVar = this.eFL.get(i);
         if (fVar != null) {
-            if (!this.eFv) {
+            if (!this.eFI) {
                 try {
                     if (i == 0) {
                         a(aVar, a.f.gcb_icon_contribution_first);
@@ -160,59 +160,59 @@ public class i extends BaseAdapter {
                     } else if (i == 2) {
                         a(aVar, a.f.gcb_icon_contribution_third);
                     } else {
-                        aVar.eFE.setText(String.valueOf(i + 1));
-                        aVar.eFD.setVisibility(8);
-                        aVar.eFE.setVisibility(0);
+                        aVar.eFR.setText(String.valueOf(i + 1));
+                        aVar.eFQ.setVisibility(8);
+                        aVar.eFR.setVisibility(0);
                     }
-                    aVar.eFC.setVisibility(8);
-                    aVar.eFB.setVisibility(0);
+                    aVar.eFP.setVisibility(8);
+                    aVar.eFO.setVisibility(0);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
-                    aVar.eFB.setVisibility(8);
-                    aVar.eFC.setVisibility(0);
+                    aVar.eFO.setVisibility(8);
+                    aVar.eFP.setVisibility(0);
                 }
             } else {
-                aVar.eFB.setVisibility(8);
-                aVar.eFC.setVisibility(0);
+                aVar.eFO.setVisibility(8);
+                aVar.eFP.setVisibility(0);
             }
-            aVar.eFa.setIsRound(true);
-            aVar.eFa.setAutoChangeStyle(false);
-            aVar.eFa.startLoad(fVar.aqo, 12, false);
-            String bR = com.baidu.live.guardclub.g.vH().bR(fVar.apQ);
+            aVar.eFn.setIsRound(true);
+            aVar.eFn.setAutoChangeStyle(false);
+            aVar.eFn.startLoad(fVar.aqp, 12, false);
+            String bR = com.baidu.live.guardclub.g.vH().bR(fVar.apR);
             if (!TextUtils.isEmpty(bR)) {
-                aVar.eFF.startLoad(bR, 10, false);
-                aVar.eFF.setVisibility(0);
+                aVar.eFS.startLoad(bR, 10, false);
+                aVar.eFS.setVisibility(0);
             } else {
-                aVar.eFF.setVisibility(4);
+                aVar.eFS.setVisibility(4);
             }
-            aVar.eFa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.1
+            aVar.eFn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     i.this.b(fVar);
                 }
             });
-            aVar.eFG.setText(fVar.userName);
-            aVar.eFc.setText(String.format(this.eET.getResources().getString(a.i.guard_member_list_contribution), fVar.score));
+            aVar.eFT.setText(fVar.userName);
+            aVar.eFp.setText(String.format(this.eFg.getResources().getString(a.i.guard_member_list_contribution), fVar.score));
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                aVar.eFI.setBackgroundResource(a.f.gcb_attention_bg_bd_s);
-                aVar.eFH.setBackgroundResource(a.f.gcb_attention_bg_bd_selector);
-                aVar.eFI.setTextColor(this.eET.getResources().getColor(a.d.sdk_white_alpha20));
-                aVar.eFH.setTextColor(this.eET.getResources().getColor(a.d.sdk_white_alpha70));
+                aVar.eFV.setBackgroundResource(a.f.gcb_attention_bg_bd_s);
+                aVar.eFU.setBackgroundResource(a.f.gcb_attention_bg_bd_selector);
+                aVar.eFV.setTextColor(this.eFg.getResources().getColor(a.d.sdk_white_alpha20));
+                aVar.eFU.setTextColor(this.eFg.getResources().getColor(a.d.sdk_white_alpha70));
             }
-            a(aVar, fVar.aqm, fVar.userId);
-            aVar.eFH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.2
+            a(aVar, fVar.aqn, fVar.userId);
+            aVar.eFU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     i.this.c(fVar);
                     if (!i.this.Yr && TbadkCoreApplication.getInst().isQuanmin()) {
-                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, i.this.eFv ? LogConfig.VALUE_LIVE_GUARD_MEMBER : "liveroom", i.this.eFv ? "guard_member" : "guard", i.this.otherParams);
+                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, i.this.eFI ? LogConfig.VALUE_LIVE_GUARD_MEMBER : "liveroom", i.this.eFI ? "guard_member" : "guard", i.this.otherParams);
                     }
                     if (TbadkCoreApplication.getInst().isHaokan()) {
-                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, null, i.this.eFv ? "guardian_members_tooltip" : LogConfig.VALUE_LIVE_GUARDIAN_TOOLTIP, i.this.otherParams);
+                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, null, i.this.eFI ? "guardian_members_tooltip" : LogConfig.VALUE_LIVE_GUARDIAN_TOOLTIP, i.this.otherParams);
                     }
                 }
             });
-            aVar.eFI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.3
+            aVar.eFV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     i.this.c(fVar);
@@ -224,8 +224,8 @@ public class i extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.live.guardclub.f fVar) {
-        if (this.eFx != null) {
-            this.eFx.d(fVar);
+        if (this.eFK != null) {
+            this.eFK.d(fVar);
         }
     }
 
@@ -233,44 +233,44 @@ public class i extends BaseAdapter {
     public void c(com.baidu.live.guardclub.f fVar) {
         if (fVar != null) {
             if (!BdUtilHelper.isNetOk()) {
-                BdUtilHelper.showToast(this.eET, this.eET.getResources().getString(a.i.sdk_neterror));
+                BdUtilHelper.showToast(this.eFg, this.eFg.getResources().getString(a.i.sdk_neterror));
             } else if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.eET);
-            } else if (fVar.aqm) {
-                com.baidu.live.view.a.Bj().a(fVar.userId, new com.baidu.live.data.b(fVar.portrait, fVar.userId, "1", false, this.eEU));
+                ViewHelper.skipToLoginActivity(this.eFg);
+            } else if (fVar.aqn) {
+                com.baidu.live.view.a.Bj().a(fVar.userId, new com.baidu.live.data.b(fVar.portrait, fVar.userId, "1", false, this.eFh));
             } else {
-                com.baidu.live.view.a.Bj().a(fVar.userId, new com.baidu.live.data.b(fVar.portrait, fVar.userId, "1", true, this.eEU));
+                com.baidu.live.view.a.Bj().a(fVar.userId, new com.baidu.live.data.b(fVar.portrait, fVar.userId, "1", true, this.eFh));
             }
         }
     }
 
     private void a(a aVar, boolean z, String str) {
-        if (this.eFw == null || !TextUtils.equals(str, this.eFw.userId)) {
+        if (this.eFJ == null || !TextUtils.equals(str, this.eFJ.userId)) {
             if (z) {
-                aVar.eFH.setVisibility(8);
-                aVar.eFI.setVisibility(0);
+                aVar.eFU.setVisibility(8);
+                aVar.eFV.setVisibility(0);
                 return;
             }
-            aVar.eFI.setVisibility(8);
-            aVar.eFH.setVisibility(0);
+            aVar.eFV.setVisibility(8);
+            aVar.eFU.setVisibility(0);
             return;
         }
-        aVar.eFH.setVisibility(8);
-        aVar.eFI.setVisibility(4);
+        aVar.eFU.setVisibility(8);
+        aVar.eFV.setVisibility(4);
     }
 
     private void a(a aVar, int i) {
-        aVar.eFD.setImageResource(i);
-        aVar.eFE.setVisibility(8);
-        aVar.eFD.setVisibility(0);
+        aVar.eFQ.setImageResource(i);
+        aVar.eFR.setVisibility(8);
+        aVar.eFQ.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bu(List<com.baidu.live.guardclub.f> list) {
         if (list != null && !list.isEmpty()) {
-            this.eFy = new ArrayList(list);
+            this.eFL = new ArrayList(list);
         } else {
-            this.eFy = new ArrayList();
+            this.eFL = new ArrayList();
         }
         notifyDataSetChanged();
     }
@@ -278,32 +278,32 @@ public class i extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bv(List<com.baidu.live.guardclub.f> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.eFy == null) {
-                this.eFy = new ArrayList();
+            if (this.eFL == null) {
+                this.eFL = new ArrayList();
             }
-            this.eFy.addAll(list);
+            this.eFL.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfj() {
-        MessageManager.getInstance().unRegisterListener(this.evz);
+    public void bfk() {
+        MessageManager.getInstance().unRegisterListener(this.evM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
-        private RelativeLayout eFB;
-        private View eFC;
-        private ImageView eFD;
-        private TextView eFE;
-        private TbImageView eFF;
-        private TextView eFG;
-        private GradientTextView eFH;
-        private TextView eFI;
-        private HeadImageView eFa;
-        private TextView eFc;
+        private RelativeLayout eFO;
+        private View eFP;
+        private ImageView eFQ;
+        private TextView eFR;
+        private TbImageView eFS;
+        private TextView eFT;
+        private GradientTextView eFU;
+        private TextView eFV;
+        private HeadImageView eFn;
+        private TextView eFp;
 
         private a() {
         }

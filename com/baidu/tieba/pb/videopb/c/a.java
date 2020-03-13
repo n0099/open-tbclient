@@ -5,7 +5,7 @@ import com.baidu.tieba.card.data.b;
 import tbclient.Promotion;
 /* loaded from: classes9.dex */
 public class a extends b {
-    public static final BdUniqueId jao = BdUniqueId.gen();
+    public static final BdUniqueId jaA = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     private String link;
@@ -15,14 +15,14 @@ public class a extends b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jao;
+        return jaA;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String ctJ() {
+    public String ctK() {
         return this.sub_title;
     }
 
@@ -34,11 +34,11 @@ public class a extends b {
         return this.link;
     }
 
-    public String ctK() {
+    public String ctL() {
         return this.link_text;
     }
 
-    public Long ctL() {
+    public Long ctM() {
         return this.appear_time;
     }
 

@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes6.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] nAH = new Object[0];
-    private final SubjectSubscriptionManager<T> nTO;
+    private static final Object[] nAS = new Object[0];
+    private final SubjectSubscriptionManager<T> nTZ;
 
-    public static <T> a<T> dPq() {
+    public static <T> a<T> dPr() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.nTO = subjectSubscriptionManager;
+        this.nTZ = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.nTO.getLatest() == null || this.nTO.active) {
-            Object dOj = NotificationLite.dOj();
-            for (SubjectSubscriptionManager.b<T> bVar : this.nTO.terminate(dOj)) {
-                bVar.co(dOj);
+        if (this.nTZ.getLatest() == null || this.nTZ.active) {
+            Object dOk = NotificationLite.dOk();
+            for (SubjectSubscriptionManager.b<T> bVar : this.nTZ.terminate(dOk)) {
+                bVar.co(dOk);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.nTO.getLatest() == null || this.nTO.active) {
+        if (this.nTZ.getLatest() == null || this.nTZ.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.nTO.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nTZ.terminate(error)) {
                 try {
                     bVar.co(error);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.nTO.getLatest() == null || this.nTO.active) {
+        if (this.nTZ.getLatest() == null || this.nTZ.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.nTO.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nTZ.next(next)) {
                 bVar.co(next);
             }
         }

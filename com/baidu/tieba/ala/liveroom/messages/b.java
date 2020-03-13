@@ -4,10 +4,10 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class b extends HttpMessage {
-    private long aws;
+    private long awt;
 
     public void setLiveId(long j) {
-        this.aws = j;
+        this.awt = j;
     }
 
     public b() {
@@ -15,7 +15,7 @@ public class b extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("live_id", this.aws);
+        addParam("live_id", this.awt);
         addParam("subapp_type", TbConfig.getSubappType());
     }
 }

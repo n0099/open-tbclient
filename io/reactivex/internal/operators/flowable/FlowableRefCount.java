@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableRefCount<T> extends io.reactivex.g<T> {
     RefConnection connection;
     final int n;
-    final io.reactivex.b.a<T> nxa;
+    final io.reactivex.b.a<T> nxl;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -38,9 +38,9 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
                 refConnection.connected = true;
             }
         }
-        this.nxa.a((j) new RefCountSubscriber(cVar, this, refConnection));
+        this.nxl.a((j) new RefCountSubscriber(cVar, this, refConnection));
         if (z) {
-            this.nxa.c(refConnection);
+            this.nxl.c(refConnection);
         }
     }
 
@@ -69,8 +69,8 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
                 if (refConnection.timer != null) {
                     refConnection.timer.dispose();
                 }
-                if (this.nxa instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxa).dispose();
+                if (this.nxl instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nxl).dispose();
                 }
             }
         }
@@ -81,8 +81,8 @@ public final class FlowableRefCount<T> extends io.reactivex.g<T> {
             if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
                 this.connection = null;
                 DisposableHelper.dispose(refConnection);
-                if (this.nxa instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nxa).dispose();
+                if (this.nxl instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nxl).dispose();
                 }
             }
         }

@@ -8,24 +8,24 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static JSONObject bWb;
+    private static JSONObject bWc;
 
     public static synchronized JSONObject afw() {
         JSONObject jSONObject;
         synchronized (a.class) {
-            if (bWb != null) {
+            if (bWc != null) {
                 if (DEBUG) {
-                    Log.d("SwanCoreConfigHelper", "return cache obj : " + bWb.toString());
+                    Log.d("SwanCoreConfigHelper", "return cache obj : " + bWc.toString());
                 }
-                jSONObject = bWb;
+                jSONObject = bWc;
             } else {
                 JSONObject rawSwitch = com.baidu.swan.apps.w.a.TZ().getRawSwitch();
                 if (rawSwitch == null) {
-                    bWb = new JSONObject();
+                    bWc = new JSONObject();
                     if (DEBUG) {
                         Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
                     }
-                    jSONObject = bWb;
+                    jSONObject = bWc;
                 } else {
                     Iterator<String> keys = rawSwitch.keys();
                     while (keys.hasNext()) {
@@ -33,11 +33,11 @@ public class a {
                             keys.remove();
                         }
                     }
-                    bWb = rawSwitch;
+                    bWc = rawSwitch;
                     if (DEBUG) {
-                        Log.d("SwanCoreConfigHelper", "return new obj : " + bWb.toString());
+                        Log.d("SwanCoreConfigHelper", "return new obj : " + bWc.toString());
                     }
-                    jSONObject = bWb;
+                    jSONObject = bWc;
                 }
             }
         }
@@ -49,7 +49,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "release cache ab obj ");
             }
-            bWb = null;
+            bWc = null;
         }
     }
 

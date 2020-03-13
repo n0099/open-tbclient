@@ -16,12 +16,12 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d extends Dialog implements View.OnClickListener {
-    private ImageView aEG;
-    private TextView aEH;
+    private ImageView aEH;
     private TextView aEI;
+    private TextView aEJ;
     private HeadImageView ahI;
-    private View baa;
-    private a fcL;
+    private View bab;
+    private a fcY;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,28 +36,28 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.fcL = aVar;
+        this.fcY = aVar;
     }
 
     public void show(String str) {
-        bmO();
+        bmP();
         this.ahI.startLoad(str, 25, false, false);
         show();
     }
 
-    public String bmM() {
-        return this.aEH.getText().toString();
+    public String bmN() {
+        return this.aEI.getText().toString();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.baa || view == this.aEG) {
+        if (view == this.bab || view == this.aEH) {
             dismiss();
-        } else if (this.fcL != null) {
-            if (view == this.aEH) {
-                this.fcL.onConfirm();
-            } else if (view == this.aEI) {
-                this.fcL.onCancel();
+        } else if (this.fcY != null) {
+            if (view == this.aEI) {
+                this.fcY.onConfirm();
+            } else if (view == this.aEJ) {
+                this.fcY.onCancel();
             }
         }
     }
@@ -75,11 +75,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            bmN();
+            bmO();
         }
     }
 
-    public void bmN() {
+    public void bmO() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -97,7 +97,7 @@ public class d extends Dialog implements View.OnClickListener {
     private void initView() {
         ColorStateList colorStateList;
         setContentView(a.h.ala_guide_follow_pop);
-        this.baa = findViewById(a.g.layout_root);
+        this.bab = findViewById(a.g.layout_root);
         this.ahI = (HeadImageView) findViewById(a.g.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             this.ahI.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
@@ -109,22 +109,22 @@ public class d extends Dialog implements View.OnClickListener {
         this.ahI.setIsRound(true);
         this.ahI.setAutoChangeStyle(false);
         this.ahI.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.aEH = (TextView) findViewById(a.g.tv_confirm);
-        this.aEI = (TextView) findViewById(a.g.tv_cancel);
-        this.aEG = (ImageView) findViewById(a.g.iv_close);
+        this.aEI = (TextView) findViewById(a.g.tv_confirm);
+        this.aEJ = (TextView) findViewById(a.g.tv_cancel);
+        this.aEH = (ImageView) findViewById(a.g.iv_close);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             colorStateList = getContext().getResources().getColorStateList(a.f.ala_live_custom_dialog_btn_text_color_s_shoubai);
         } else {
             colorStateList = getContext().getResources().getColorStateList(a.f.ala_live_custom_dialog_btn_text_color_s);
         }
-        this.aEH.setTextColor(colorStateList);
-        this.baa.setOnClickListener(this);
-        this.aEH.setOnClickListener(this);
+        this.aEI.setTextColor(colorStateList);
+        this.bab.setOnClickListener(this);
         this.aEI.setOnClickListener(this);
-        this.aEG.setOnClickListener(this);
+        this.aEJ.setOnClickListener(this);
+        this.aEH.setOnClickListener(this);
     }
 
-    private void bmO() {
+    private void bmP() {
         if (this.ahI != null) {
             this.ahI.stopLoad();
         }

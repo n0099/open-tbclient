@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements v {
-    private com.baidu.live.gift.c.a aoe;
+    private com.baidu.live.gift.c.a aof;
     private Context mContext;
 
     public a(Context context) {
@@ -24,7 +24,7 @@ public class a implements v {
 
     @Override // com.baidu.live.gift.v
     public void sK() {
-        this.aoe.uN();
+        this.aof.uN();
     }
 
     @Override // com.baidu.live.gift.v
@@ -33,14 +33,14 @@ public class a implements v {
 
     @Override // com.baidu.live.gift.v
     public void release() {
-        if (this.aoe != null) {
-            this.aoe.release();
+        if (this.aof != null) {
+            this.aof.release();
         }
     }
 
     private void dQ() {
-        this.aoe = new com.baidu.live.gift.c.a();
-        this.aoe.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.aof = new com.baidu.live.gift.c.a();
+        this.aof.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<d> arrayList2, ArrayList<e> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -72,10 +72,10 @@ public class a implements v {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aoe == null) {
-                this.aoe = new com.baidu.live.gift.c.a();
+            if (this.aof == null) {
+                this.aof = new com.baidu.live.gift.c.a();
             }
-            this.aoe.uN();
+            this.aof.uN();
         }
     }
 

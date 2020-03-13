@@ -62,11 +62,11 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                     com.baidu.tieba.card.l.a(al.this.mTitle, al.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 } else if (c0052a.getActionType() == 2) {
                     if (al.this.MN != null) {
-                        al.this.MN.bfI();
+                        al.this.MN.bfJ();
                     }
                 } else if (c0052a.getActionType() == 3) {
                     if (al.this.MN != null) {
-                        al.this.MN.ctV();
+                        al.this.MN.ctW();
                     }
                 } else if (c0052a.getActionType() == 6) {
                     if (al.this.MN != null) {
@@ -103,7 +103,7 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.MK = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.MN = mZ();
-            this.MN.cyr().setBackgroundResource(R.color.transparent);
+            this.MN.cys().setBackgroundResource(R.color.transparent);
             this.MN.setUniqueId(this.MO);
             this.MN.setFrom(this.mFrom);
         }
@@ -164,12 +164,12 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                 }
             } else {
                 if (this.Kc.aAg().aCF().is_vertical.intValue() == 1) {
-                    com.baidu.tieba.play.u cyZ = this.MN.cyZ();
-                    if (cyZ != null) {
+                    com.baidu.tieba.play.u cza = this.MN.cza();
+                    if (cza != null) {
                         int i3 = (MF / 9) * 16;
                         int i4 = MG;
-                        int videoWidth = cyZ.getVideoWidth();
-                        int videoHeight = cyZ.getVideoHeight();
+                        int videoWidth = cza.getVideoWidth();
+                        int videoHeight = cza.getVideoHeight();
                         layoutParams.width = MF;
                         boolean z3 = i != layoutParams.width;
                         if (videoWidth == 0 || videoHeight == 0) {
@@ -265,7 +265,7 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if ((this.mContext instanceof com.baidu.tbadk.core.util.g.c) && ((com.baidu.tbadk.core.util.g.c) this.mContext).videoNeedPreload()) {
+        if ((this.mContext instanceof com.baidu.tbadk.core.util.f.c) && ((com.baidu.tbadk.core.util.f.c) this.mContext).videoNeedPreload()) {
             this.MN.startPlay();
         }
     }

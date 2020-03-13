@@ -57,7 +57,7 @@ public class d extends ab {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
         com.baidu.swan.apps.as.d.b(GC, context);
-        GC.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boh, com.baidu.swan.apps.core.d.e.bog).ey(optInt).commit();
+        GC.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boi, com.baidu.swan.apps.core.d.e.boh).ey(optInt).commit();
         com.baidu.swan.apps.performance.f.aY("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
         com.baidu.swan.apps.performance.g.A(1, uuid);
         com.baidu.swan.apps.performance.g.kc(uuid);

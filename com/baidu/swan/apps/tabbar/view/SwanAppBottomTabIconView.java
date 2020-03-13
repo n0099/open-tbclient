@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int bXq = 5;
-    private static int bXr = 0;
-    private TextView bXo;
-    private boolean bXp;
+    private static int bXr = 5;
+    private static int bXs = 0;
+    private TextView bXp;
+    private boolean bXq;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -25,7 +25,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.bXo = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.bXp = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > bXq) {
-            str = str.substring(bXr, bXq);
+        if (str.length() > bXr) {
+            str = str.substring(bXs, bXr);
         }
         this.mTextView.setText(str);
     }
@@ -52,15 +52,15 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public boolean agc() {
-        return this.bXp;
+        return this.bXq;
     }
 
     public void setmIsSelect(boolean z) {
-        this.bXp = z;
+        this.bXq = z;
     }
 
     public void setBadgeText(String str) {
-        this.bXo.setText(str);
+        this.bXp.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +73,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.bXo.setVisibility(0);
+            this.bXp.setVisibility(0);
         } else {
-            this.bXo.setVisibility(8);
+            this.bXp.setVisibility(8);
         }
     }
 }

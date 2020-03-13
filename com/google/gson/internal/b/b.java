@@ -4,15 +4,15 @@ import com.google.gson.internal.d;
 import java.lang.reflect.AccessibleObject;
 /* loaded from: classes7.dex */
 public abstract class b {
-    private static final b mNf;
+    private static final b mNq;
 
     public abstract void b(AccessibleObject accessibleObject);
 
     static {
-        mNf = d.dAG() < 9 ? new a() : new c();
+        mNq = d.dAH() < 9 ? new a() : new c();
     }
 
-    public static b dBj() {
-        return mNf;
+    public static b dBk() {
+        return mNq;
     }
 }

@@ -10,35 +10,35 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private View fqg;
-    private View fqh;
-    private InterfaceC0472a fqi;
-    private boolean fqj;
+    private View fqt;
+    private View fqu;
+    private InterfaceC0472a fqv;
+    private boolean fqw;
 
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0472a {
-        void brS();
+        void brT();
     }
 
     public a(Context context) {
         super(context, a.j.Theme_Report_Dialog);
-        this.fqj = false;
+        this.fqw = false;
         this.context = context;
     }
 
     public a(Context context, boolean z) {
         super(context, a.j.Theme_Report_Dialog);
-        this.fqj = false;
+        this.fqw = false;
         this.context = context;
-        this.fqj = z;
+        this.fqw = z;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.h.ala_person_dialog_report);
-        if (this.fqj) {
+        if (this.fqw) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -49,22 +49,22 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.fqg = findViewById(a.g.report);
-        this.fqh = findViewById(a.g.report_cancel);
-        this.fqg.setOnClickListener(this);
-        this.fqh.setOnClickListener(this);
+        this.fqt = findViewById(a.g.report);
+        this.fqu = findViewById(a.g.report_cancel);
+        this.fqt.setOnClickListener(this);
+        this.fqu.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.report && this.fqi != null) {
-            this.fqi.brS();
+        if (view.getId() == a.g.report && this.fqv != null) {
+            this.fqv.brT();
         }
         dismiss();
     }
 
     public void a(InterfaceC0472a interfaceC0472a) {
-        this.fqi = interfaceC0472a;
+        this.fqv = interfaceC0472a;
     }
 
     public void resize() {

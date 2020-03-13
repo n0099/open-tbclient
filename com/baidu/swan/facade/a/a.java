@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b ajo() {
-        return com.baidu.tieba.aiapps.apps.m.d.bbf();
+        return com.baidu.tieba.aiapps.apps.m.d.bbg();
     }
 }

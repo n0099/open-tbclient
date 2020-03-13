@@ -8,37 +8,37 @@ import okhttp3.HttpUrl;
 /* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cqr;
-    private HashMap<String, com.baidu.swan.games.network.a> cqs = new HashMap<>();
+    private static volatile d cqs;
+    private HashMap<String, com.baidu.swan.games.network.a> cqt = new HashMap<>();
 
     private d() {
     }
 
     public static d aoT() {
-        if (cqr == null) {
+        if (cqs == null) {
             synchronized (d.class) {
-                if (cqr == null) {
-                    cqr = new d();
+                if (cqs == null) {
+                    cqs = new d();
                 }
             }
         }
-        return cqr;
+        return cqs;
     }
 
     public void a(com.baidu.swan.games.e.b bVar, a.b bVar2) {
-        if (bVar != null && bVar2 != null && bVar2.cps != null && bVar2.cps.cro != null) {
+        if (bVar != null && bVar2 != null && bVar2.cpt != null && bVar2.cpt.crp != null) {
             release();
             if (com.baidu.swan.apps.w.a.TZ().getSwitch("swan_game_resource_preload", 0) == 1) {
-                bVar2.cps.cro.a(bVar);
+                bVar2.cpt.crp.a(bVar);
             }
         }
     }
 
     public synchronized void a(String str, com.baidu.swan.games.network.a aVar) {
         if (aVar != null) {
-            String N = N(str, aVar.cqe);
+            String N = N(str, aVar.cqf);
             if (!TextUtils.isEmpty(N)) {
-                this.cqs.put(N, aVar);
+                this.cqt.put(N, aVar);
                 if (DEBUG) {
                     Log.d("SwanGamePreloadManager", "addRequestTask url:" + str);
                 }
@@ -53,7 +53,7 @@ public class d {
                 String optString = cVar.optString("url");
                 String N = N(optString, i);
                 if (!TextUtils.isEmpty(N)) {
-                    aVar = this.cqs.remove(N);
+                    aVar = this.cqt.remove(N);
                     if (aVar != null) {
                         a(bVar, "preload used, url = " + optString);
                     }
@@ -67,7 +67,7 @@ public class d {
     }
 
     public synchronized void release() {
-        this.cqs.clear();
+        this.cqt.clear();
     }
 
     private String N(String str, int i) {

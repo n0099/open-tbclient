@@ -19,23 +19,23 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.e, a {
-    private PersonPostModel jod;
-    private com.baidu.tieba.personPolymeric.tab.view.a jqk;
-    private User jqm;
-    private b jqp;
+    private PersonPostModel jop;
+    private b jqB;
+    private com.baidu.tieba.personPolymeric.tab.view.a jqw;
+    private User jqy;
     private long mUserId;
-    private static boolean jqq = true;
-    private static CustomMessageListener cXE = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.1
+    private static boolean jqC = true;
+    private static CustomMessageListener cXF = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean unused = PersonCenterThreadTabFragment.jqq = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                boolean unused = PersonCenterThreadTabFragment.jqC = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
     private boolean isHost = false;
-    private boolean jqn = false;
+    private boolean jqz = false;
     private boolean mHasInit = false;
     private boolean mHasMore = false;
     private PersonPostModel.b mOnResult = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.2
@@ -44,7 +44,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
         }
     };
-    private PersonPostModel.a jqw = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
+    private PersonPostModel.a jqI = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
@@ -57,7 +57,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         bundle.putLong("uid", j);
         bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, z);
         personCenterThreadTabFragment.setArguments(bundle);
-        personCenterThreadTabFragment.registerListener(cXE);
+        personCenterThreadTabFragment.registerListener(cXF);
         return personCenterThreadTabFragment;
     }
 
@@ -65,32 +65,32 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.jod = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
-        this.jqp = new b(getPageContext(), getUniqueId(), this, getTabType());
+        this.jop = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
+        this.jqB = new b(getPageContext(), getUniqueId(), this, getTabType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(PersonPostModel personPostModel, boolean z) {
-        this.jqn = false;
-        hideLoadingView(this.jqk.getRootView());
-        hideNetRefreshView(this.jqk.getRootView());
-        if (personPostModel != null && this.jod != null) {
+        this.jqz = false;
+        hideLoadingView(this.jqw.getRootView());
+        hideNetRefreshView(this.jqw.getRootView());
+        if (personPostModel != null && this.jop != null) {
             if (z) {
-                this.jod.threadList.clear();
+                this.jop.threadList.clear();
             }
-            this.jod.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.dS(personPostModel.threadList));
+            this.jop.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.dS(personPostModel.threadList));
         }
         this.mHasMore = d(personPostModel, z);
-        if (v.isEmpty(this.jod.threadList) && !j.isNetWorkAvailable()) {
-            showNetRefreshView(this.jqk.getRootView(), null, false);
+        if (v.isEmpty(this.jop.threadList) && !j.isNetWorkAvailable()) {
+            showNetRefreshView(this.jqw.getRootView(), null, false);
             return;
         }
         if (this.mHasMore) {
-            this.jqk.bdr();
+            this.jqw.bds();
         } else {
-            this.jqk.bds();
+            this.jqw.bdt();
         }
-        setData(this.jod.threadList);
+        setData(this.jop.threadList);
     }
 
     private boolean d(PersonPostModel personPostModel, boolean z) {
@@ -102,15 +102,15 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void b(User user) {
-        this.jqm = user;
+        this.jqy = user;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.jqk = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.jqk.b(this);
+        this.jqw = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.jqw.b(this);
         return inflate;
     }
 
@@ -137,8 +137,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void setData(List<m> list) {
-        if (this.jqk != null) {
-            this.jqk.dV(list);
+        if (this.jqw != null) {
+            this.jqw.dV(list);
         }
     }
 
@@ -154,24 +154,24 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void rx(boolean z) {
-        if (this.jod != null && this.jqk != null && this.mHasInit) {
-            hideNetRefreshView(this.jqk.getRootView());
+        if (this.jop != null && this.jqw != null && this.mHasInit) {
+            hideNetRefreshView(this.jqw.getRootView());
             if (j.isNetWorkAvailable()) {
-                if (z && jqq) {
-                    showLoadingView(this.jqk.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
+                if (z && jqC) {
+                    showLoadingView(this.jqw.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
                 rz(true);
                 scrollToTop();
                 return;
             }
-            showNetRefreshView(this.jqk.getRootView(), null, false);
+            showNetRefreshView(this.jqw.getRootView(), null, false);
         }
     }
 
     private void rz(boolean z) {
-        if (!this.jqn) {
-            this.jqn = true;
-            this.jod.fetchPost(getPageContext(), this.jqw, z, String.valueOf(this.mUserId), true, 0, false, true, this.jqm);
+        if (!this.jqz) {
+            this.jqz = true;
+            this.jop.fetchPost(getPageContext(), this.jqI, z, String.valueOf(this.mUserId), true, 0, false, true, this.jqy);
         }
     }
 
@@ -183,14 +183,14 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void scrollToTop() {
-        if (this.jqk != null && this.mHasInit) {
-            this.jqk.scrollToTop();
+        if (this.jqw != null && this.mHasInit) {
+            this.jqw.scrollToTop();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.jod != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
+        if (this.jop != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
             rz(false);
         }
     }
@@ -198,8 +198,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jqk != null) {
-            this.jqk.onChangeSkinType(i);
+        if (this.jqw != null) {
+            this.jqw.onChangeSkinType(i);
         }
     }
 
@@ -215,27 +215,27 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         super.onDestroy();
         this.mHasMore = false;
         this.mHasInit = false;
-        this.jqn = false;
-        if (this.jqk != null) {
-            this.jqk.onDestroy();
+        this.jqz = false;
+        if (this.jqw != null) {
+            this.jqw.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a cxG() {
-        return this.jqk;
+    public com.baidu.tieba.personPolymeric.tab.view.a cxH() {
+        return this.jqw;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<m> ceO() {
-        if (this.jod != null) {
-            return this.jod.threadList;
+    public List<m> ceP() {
+        if (this.jop != null) {
+            return this.jop.threadList;
         }
         return null;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean cxH() {
-        return this.isHost && isPrimary() && !this.jqn;
+    public boolean cxI() {
+        return this.isHost && isPrimary() && !this.jqz;
     }
 }

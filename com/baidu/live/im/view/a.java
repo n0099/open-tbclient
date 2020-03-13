@@ -16,11 +16,11 @@ import android.text.style.ReplacementSpan;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends ReplacementSpan {
-    private Resources auG;
-    private float auH;
+    private Resources auH;
     private float auI;
-    private Paint auJ;
-    private float auK;
+    private float auJ;
+    private Paint auK;
+    private float auL;
     private String mText;
     private Paint mTextPaint;
     private int mTextSize;
@@ -31,26 +31,26 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return (int) this.auH;
+        return (int) this.auI;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        float f2 = (((fontMetrics.descent - fontMetrics.ascent) - this.auI) * 0.5f) + i4 + fontMetrics.ascent;
-        this.auJ.setShader(new LinearGradient(f, 0.0f, f + this.auH, 0.0f, Color.parseColor("#FFFED33B"), Color.parseColor("#FFFEAF01"), Shader.TileMode.CLAMP));
-        canvas.drawRoundRect(new RectF(f, f2, this.auH + f, this.auI + f2), this.auK, this.auK, this.auJ);
+        float f2 = (((fontMetrics.descent - fontMetrics.ascent) - this.auJ) * 0.5f) + i4 + fontMetrics.ascent;
+        this.auK.setShader(new LinearGradient(f, 0.0f, f + this.auI, 0.0f, Color.parseColor("#FFFED33B"), Color.parseColor("#FFFEAF01"), Shader.TileMode.CLAMP));
+        canvas.drawRoundRect(new RectF(f, f2, this.auI + f, this.auJ + f2), this.auL, this.auL, this.auK);
         Paint.FontMetrics fontMetrics2 = this.mTextPaint.getFontMetrics();
-        canvas.drawText(this.mText, (this.auH * 0.5f) + f, (((this.auI - (fontMetrics2.bottom - fontMetrics2.top)) * 0.5f) + f2) - fontMetrics2.top, this.mTextPaint);
+        canvas.drawText(this.mText, (this.auI * 0.5f) + f, (((this.auJ - (fontMetrics2.bottom - fontMetrics2.top)) * 0.5f) + f2) - fontMetrics2.top, this.mTextPaint);
     }
 
     private void init(Context context, String str) {
-        this.auG = context.getResources();
-        this.mTextSize = this.auG.getDimensionPixelSize(a.e.sdk_fontsize24);
+        this.auH = context.getResources();
+        this.mTextSize = this.auH.getDimensionPixelSize(a.e.sdk_fontsize24);
         this.mText = str;
         xY();
         lQ();
-        this.auK = this.auG.getDimensionPixelOffset(a.e.sdk_ds6);
+        this.auL = this.auH.getDimensionPixelOffset(a.e.sdk_ds6);
     }
 
     private void xY() {
@@ -58,8 +58,8 @@ public class a extends ReplacementSpan {
         Paint paint = new Paint();
         paint.setTextSize(this.mTextSize);
         paint.getTextBounds(this.mText, 0, this.mText.length(), rect);
-        this.auH = rect.width() + (this.auG.getDimensionPixelOffset(a.e.sdk_ds6) * 2);
-        this.auI = rect.height() + (this.auG.getDimensionPixelOffset(a.e.sdk_ds4) * 2);
+        this.auI = rect.width() + (this.auH.getDimensionPixelOffset(a.e.sdk_ds6) * 2);
+        this.auJ = rect.height() + (this.auH.getDimensionPixelOffset(a.e.sdk_ds4) * 2);
     }
 
     private void lQ() {
@@ -68,9 +68,9 @@ public class a extends ReplacementSpan {
     }
 
     private void xZ() {
-        this.auJ = new Paint();
-        this.auJ.setAntiAlias(true);
-        this.auJ.setStyle(Paint.Style.FILL);
+        this.auK = new Paint();
+        this.auK.setAntiAlias(true);
+        this.auK.setStyle(Paint.Style.FILL);
     }
 
     private void ya() {

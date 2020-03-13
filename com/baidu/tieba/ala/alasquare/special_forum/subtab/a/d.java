@@ -23,27 +23,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.f> {
-    private a esH;
-    private int esI;
+    private a esU;
+    private int esV;
     private TbPageContext mTbPageContext;
 
     public d(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.esI = 28;
+        this.esV = 28;
         this.mTbPageContext = tbPageContext;
-        this.esH = new a(this);
+        this.esU = new a(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setViewTextColor(this.esH.esL, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.esH.esM, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.esH.esN, (int) R.color.cp_cont_d);
-        am.setViewTextColor(this.esH.eqn, (int) R.color.common_color_10140);
-        am.setViewTextColor(this.esH.eqg, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.esU.esY, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.esU.esZ, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.esU.eta, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.esU.eqA, (int) R.color.common_color_10140);
+        am.setViewTextColor(this.esU.eqt, (int) R.color.cp_cont_d);
         am.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        this.esH.eqg.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.setBackgroundColor(this.esH.cVT, R.color.cp_bg_line_c);
+        this.esU.eqt.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setBackgroundColor(this.esU.cVU, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -56,42 +56,42 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.f fVar) {
         if (fVar.mUserData != null) {
             if (!StringUtils.isNull(fVar.mUserData.getPortrait())) {
-                this.esH.esK.startLoad(fVar.mUserData.getPortrait(), 12, false);
+                this.esU.esX.startLoad(fVar.mUserData.getPortrait(), 12, false);
             }
             if (!StringUtils.isNull(fVar.mUserData.getName_show())) {
-                this.esH.esL.setText(fVar.mUserData.getName_show());
+                this.esU.esY.setText(fVar.mUserData.getName_show());
             }
-            if (fVar.ert) {
+            if (fVar.erG) {
                 if (fVar.mUserData.hadConcerned()) {
-                    this.esH.eqn.setVisibility(8);
-                    this.esH.esN.setVisibility(0);
+                    this.esU.eqA.setVisibility(8);
+                    this.esU.eta.setVisibility(0);
                 } else {
-                    this.esH.eqn.setVisibility(0);
-                    this.esH.esN.setVisibility(8);
+                    this.esU.eqA.setVisibility(0);
+                    this.esU.eta.setVisibility(8);
                 }
             } else {
-                this.esH.eqn.setVisibility(8);
-                this.esH.esN.setVisibility(8);
+                this.esU.eqA.setVisibility(8);
+                this.esU.eta.setVisibility(8);
             }
-            this.esH.eqn.setTag(fVar.mUserData);
+            this.esU.eqA.setTag(fVar.mUserData);
         }
-        if (fVar.ers != null) {
-            this.esH.cuf.setTag(fVar.ers);
-            if (!StringUtils.isNull(fVar.ers.description)) {
-                String str = fVar.ers.description;
-                int i = this.esI;
-                if (fVar.ert) {
+        if (fVar.erF != null) {
+            this.esU.cug.setTag(fVar.erF);
+            if (!StringUtils.isNull(fVar.erF.description)) {
+                String str = fVar.erF.description;
+                int i = this.esV;
+                if (fVar.erG) {
                     i -= 9;
                 }
-                this.esH.esM.setText(k.byteLength(str) > i ? aq.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
+                this.esU.esZ.setText(k.byteLength(str) > i ? aq.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
             }
         }
-        if (fVar.ert) {
+        if (fVar.erG) {
             TiebaStatic.log(new an("c12895"));
         } else {
             TiebaStatic.log(new an("c12893"));
         }
-        this.esH.eqn.setTag(fVar.mUserData);
+        this.esU.eqA.setTag(fVar.mUserData);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -101,15 +101,15 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes3.dex */
     public class a extends v.a {
-        public View cVT;
-        public View cuf;
-        public TextView eqg;
-        public TextView eqn;
-        public d esJ;
-        public TbImageView esK;
-        public TextView esL;
-        public TextView esM;
-        public TextView esN;
+        public View cVU;
+        public View cug;
+        public TextView eqA;
+        public TextView eqt;
+        public d esW;
+        public TbImageView esX;
+        public TextView esY;
+        public TextView esZ;
+        public TextView eta;
         private View.OnClickListener mOnClickListener;
 
         public a(d dVar) {
@@ -124,29 +124,29 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
                         }
                         UserData userData = (UserData) view.getTag();
                         AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                        d.this.esH.eqn.setVisibility(8);
-                        d.this.esH.esN.setVisibility(0);
+                        d.this.esU.eqA.setVisibility(8);
+                        d.this.esU.eta.setVisibility(0);
                         TiebaStatic.log(new an("c12897"));
                     }
                 }
             };
-            this.esJ = dVar;
-            this.cuf = dVar.getView();
-            this.esK = (TbImageView) this.cuf.findViewById(R.id.protrait);
-            this.esK.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            this.esK.setIsRound(true);
-            this.esK.setAutoChangeStyle(false);
-            this.esK.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.esL = (TextView) this.cuf.findViewById(R.id.live_title);
-            this.eqg = (TextView) this.cuf.findViewById(R.id.living_tag);
-            this.cVT = this.cuf.findViewById(R.id.devider_line);
+            this.esW = dVar;
+            this.cug = dVar.getView();
+            this.esX = (TbImageView) this.cug.findViewById(R.id.protrait);
+            this.esX.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+            this.esX.setIsRound(true);
+            this.esX.setAutoChangeStyle(false);
+            this.esX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.esY = (TextView) this.cug.findViewById(R.id.live_title);
+            this.eqt = (TextView) this.cug.findViewById(R.id.living_tag);
+            this.cVU = this.cug.findViewById(R.id.devider_line);
             Drawable drawable = am.getDrawable(d.this.mContext.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.eqg.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.esM = (TextView) this.cuf.findViewById(R.id.user_name);
-            this.eqn = (TextView) this.cuf.findViewById(R.id.follow_btn);
-            this.esN = (TextView) this.cuf.findViewById(R.id.followed_btn);
-            this.eqn.setOnClickListener(this.mOnClickListener);
+            this.eqt.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.esZ = (TextView) this.cug.findViewById(R.id.user_name);
+            this.eqA = (TextView) this.cug.findViewById(R.id.follow_btn);
+            this.eta = (TextView) this.cug.findViewById(R.id.followed_btn);
+            this.eqA.setOnClickListener(this.mOnClickListener);
         }
     }
 }

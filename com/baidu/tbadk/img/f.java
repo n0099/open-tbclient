@@ -23,9 +23,9 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a dAR;
-    private e dAS;
-    public boolean dAT;
+    private a dBe;
+    private e dBf;
+    public boolean dBg;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -52,7 +52,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.dAR = aVar;
+        this.dBe = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -85,7 +85,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.dAT;
+                        uploadedPicInfo.isBJH = this.dBg;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -127,10 +127,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.dAS == null) {
-            this.dAS = new e();
+        if (this.dBf == null) {
+            this.dBf = new e();
         }
-        return f(this.dAS.c(imageFileInfo, z), z, z2);
+        return f(this.dBf.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -338,7 +338,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.dAT) {
+                                            if (this.dBg) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -392,8 +392,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.dAR != null) {
-                                                        this.dAR.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.dBe != null) {
+                                                        this.dBe.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

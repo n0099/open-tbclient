@@ -7,8 +7,8 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class d {
-    boolean bFG;
-    private WeakReference<Bitmap> bFJ;
+    boolean bFH;
+    private WeakReference<Bitmap> bFK;
     String id;
     boolean isFirstPage;
     Rect rect;
@@ -16,9 +16,9 @@ public class d {
     String url;
     private static final String TAG = f.TAG;
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    int bFI = 0;
+    int bFJ = 0;
     long startTime = System.currentTimeMillis();
-    int bFH = 0;
+    int bFI = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
@@ -53,21 +53,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void YG() {
-        this.bFH = 1;
+        this.bFI = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void YH() {
-        this.bFH = 2;
+        this.bFI = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.bFH == 2;
+        return this.bFI == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(Bitmap bitmap) {
-        this.bFJ = new WeakReference<>(bitmap);
+        this.bFK = new WeakReference<>(bitmap);
     }
 }

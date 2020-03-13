@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.b> amF;
+    private ArrayList<com.baidu.live.gift.b> amG;
 
     public AlaDynamicGiftListHttpResponseMessage(int i) {
         super(i);
@@ -23,8 +23,8 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.amF = r(optJSONObject);
-                if (this.amF.size() <= 0) {
+                this.amG = r(optJSONObject);
+                if (this.amG.size() <= 0) {
                     com.baidu.live.gift.b.a.us();
                     c.pr().putString("dynamic_cache_data_list", "");
                     return;
@@ -63,8 +63,8 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
 
     private void up() {
         if (!BdNetTypeUtil.isMobileNet() || !k.Ba()) {
-            for (int i = 0; i < this.amF.size(); i++) {
-                com.baidu.live.gift.b bVar = this.amF.get(i);
+            for (int i = 0; i < this.amG.size(); i++) {
+                com.baidu.live.gift.b bVar = this.amG.get(i);
                 if (bVar.afJ != null && bVar.afJ.rh()) {
                     com.baidu.live.gift.b.a.a(bVar, false);
                 }
@@ -79,8 +79,8 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
         if (TextUtils.isEmpty(bVar.afJ.videoMd5) && TextUtils.isEmpty(bVar.afJ.zipMD5)) {
             return false;
         }
-        for (int i = 0; i < this.amF.size(); i++) {
-            com.baidu.live.gift.b bVar2 = this.amF.get(i);
+        for (int i = 0; i < this.amG.size(); i++) {
+            com.baidu.live.gift.b bVar2 = this.amG.get(i);
             if ((!TextUtils.isEmpty(bVar2.afJ.videoMd5) && bVar2.afJ.videoMd5.equals(bVar.afJ.videoMd5)) || (!TextUtils.isEmpty(bVar2.afJ.zipMD5) && bVar2.afJ.zipMD5.equals(bVar.afJ.zipMD5))) {
                 return true;
             }
@@ -105,6 +105,6 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
     }
 
     public ArrayList<com.baidu.live.gift.b> uq() {
-        return this.amF;
+        return this.amG;
     }
 }

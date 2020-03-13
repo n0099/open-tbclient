@@ -19,35 +19,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class VideoTabFragment extends BaseFragment implements af {
-    private a hiZ;
-    private boolean hja = false;
+    private a hjl;
+    private boolean hjm = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.hiZ == null) {
-            this.hiZ = new a(getPageContext(), getUniqueId());
+        if (this.hjl == null) {
+            this.hjl = new a(getPageContext(), getUniqueId());
         }
-        this.hiZ.init();
+        this.hjl.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.hiZ == null || this.hiZ.getView() == null) {
+        if (this.hjl == null || this.hjl.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.hiZ.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.hiZ.getView().getParent()).removeView(this.hiZ.getView());
+        if (this.hjl.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.hjl.getView().getParent()).removeView(this.hjl.getView());
         }
-        return this.hiZ.getView();
+        return this.hjl.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.hiZ != null) {
-            this.hiZ.loadData();
+        if (this.hjl != null) {
+            this.hjl.loadData();
         }
     }
 
@@ -55,30 +55,30 @@ public class VideoTabFragment extends BaseFragment implements af {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.hja) {
-                this.hja = true;
+            if (!this.hjm) {
+                this.hjm = true;
                 TiebaStatic.log(new an("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.hiZ != null) {
-            this.hiZ.setPrimary(isPrimary());
+        if (this.hjl != null) {
+            this.hjl.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.af
     public void AC() {
-        if (this.hiZ != null) {
-            this.hiZ.AC();
+        if (this.hjl != null) {
+            this.hjl.AC();
         }
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void bcz() {
+    public void bcA() {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void bcA() {
+    public void bcB() {
     }
 
     @Override // com.baidu.tieba.frs.af
@@ -90,15 +90,15 @@ public class VideoTabFragment extends BaseFragment implements af {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aHN() {
+    public void aHO() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hiZ != null) {
-            this.hiZ.aHN();
+        if (this.hjl != null) {
+            this.hjl.aHO();
         }
     }
 
@@ -119,16 +119,16 @@ public class VideoTabFragment extends BaseFragment implements af {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.hiZ != null) {
-            this.hiZ.onPause();
+        if (this.hjl != null) {
+            this.hjl.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.hiZ != null) {
-            this.hiZ.onDestroy();
+        if (this.hjl != null) {
+            this.hjl.onDestroy();
         }
     }
 

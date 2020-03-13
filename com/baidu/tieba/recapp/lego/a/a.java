@@ -6,20 +6,20 @@ import android.os.Build;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 /* loaded from: classes13.dex */
 public class a {
-    public static boolean aq(Activity activity) {
+    public static boolean as(Activity activity) {
         Resources resources;
         int identifier;
-        if (!ccd() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
+        if (!cce() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean ccd() {
-        return cce() >= 14;
+    public static boolean cce() {
+        return ccf() >= 14;
     }
 
-    public static int cce() {
+    public static int ccf() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

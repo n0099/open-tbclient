@@ -18,15 +18,15 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public final class c implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int bxa = af.S(38.0f);
-    private String bci;
+    private static final int bxb = af.S(38.0f);
+    private String bcj;
     @Nullable
-    private com.baidu.swan.apps.core.d.d biL;
-    private int biN;
-    private ShowConfirmBarLayout bja;
+    private com.baidu.swan.apps.core.d.d biM;
+    private int biO;
+    private ShowConfirmBarLayout bjb;
     @Nullable
-    private String bwC;
-    private a bxb;
+    private String bwD;
+    private a bxc;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -36,10 +36,10 @@ public final class c implements d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.bwC = (String) invoker.get("id");
+            this.bwD = (String) invoker.get("id");
         }
-        this.bci = str;
-        this.biL = TB();
+        this.bcj = str;
+        this.biM = TB();
     }
 
     @Override // com.baidu.swan.apps.r.d
@@ -54,12 +54,12 @@ public final class c implements d {
     @Override // com.baidu.swan.apps.r.d
     @Nullable
     public String Tu() {
-        return this.bwC;
+        return this.bwD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull a aVar) {
-        this.bxb = aVar;
+        this.bxc = aVar;
     }
 
     public void k(final int i, final int i2, final int i3, final int i4) {
@@ -73,17 +73,17 @@ public final class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(int i, int i2, int i3, int i4) {
-        if (this.biL != null) {
+        if (this.biM != null) {
             com.baidu.swan.apps.adaptation.b.d WE = f.WS().WE();
-            if (this.biN != i3 && WE != null) {
-                this.biN = i3;
-                int i5 = this.bja == null ? 0 : bxa;
-                int webViewScrollY = WE.getWebViewScrollY() + ((this.biL.getWebViewContainer().getHeight() - i) - i2);
+            if (this.biO != i3 && WE != null) {
+                this.biO = i3;
+                int i5 = this.bjb == null ? 0 : bxb;
+                int webViewScrollY = WE.getWebViewScrollY() + ((this.biM.getWebViewContainer().getHeight() - i) - i2);
                 if (webViewScrollY - i4 < i3) {
                     if (i4 > webViewScrollY) {
-                        this.biL.getWebViewContainer().setScrollY(i5 + i3);
+                        this.biM.getWebViewContainer().setScrollY(i5 + i3);
                     } else {
-                        this.biL.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
+                        this.biM.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
                     }
                 }
             }
@@ -101,10 +101,10 @@ public final class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Tz() {
-        if (this.biL != null && this.biN != 0) {
-            this.biN = 0;
-            if (this.biL.getWebViewContainer().getScrollY() > 0) {
-                this.biL.getWebViewContainer().setScrollY(0);
+        if (this.biM != null && this.biO != 0) {
+            this.biO = 0;
+            if (this.biM.getWebViewContainer().getScrollY() > 0) {
+                this.biM.getWebViewContainer().setScrollY(0);
             }
         }
     }
@@ -124,19 +124,19 @@ public final class c implements d {
         if (TA != null) {
             View decorView = TA.getWindow().getDecorView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            if (this.bja == null) {
-                this.bja = new ShowConfirmBarLayout(TA);
-                this.bja.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.r.c.c.4
+            if (this.bjb == null) {
+                this.bjb = new ShowConfirmBarLayout(TA);
+                this.bjb.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.r.c.c.4
                     @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.a
                     public void onClick(View view) {
                         c.this.aH("onConfirmBtnClick", null);
-                        if (c.this.bxb != null) {
-                            c.this.bxb.TC();
+                        if (c.this.bxc != null) {
+                            c.this.bxc.TC();
                         }
                     }
                 });
-                layoutParams.topMargin = ((decorView.getHeight() - i) - bxa) - af.getNavigationBarHeight();
-                ((FrameLayout) decorView.findViewById(16908290)).addView(this.bja, layoutParams);
+                layoutParams.topMargin = ((decorView.getHeight() - i) - bxb) - af.getNavigationBarHeight();
+                ((FrameLayout) decorView.findViewById(16908290)).addView(this.bjb, layoutParams);
             }
         }
     }
@@ -155,9 +155,9 @@ public final class c implements d {
         Activity TA = TA();
         if (TA != null) {
             View decorView = TA.getWindow().getDecorView();
-            if (this.bja != null && this.bja.getVisibility() == 0) {
-                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.bja);
-                this.bja = null;
+            if (this.bjb != null && this.bjb.getVisibility() == 0) {
+                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.bjb);
+                this.bjb = null;
             }
         }
     }
@@ -176,7 +176,7 @@ public final class c implements d {
             com.baidu.swan.apps.core.d.b ew = GC.ew(i);
             if (ew instanceof com.baidu.swan.apps.core.d.d) {
                 com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) ew;
-                if (TextUtils.equals(dVar.NZ(), this.bci)) {
+                if (TextUtils.equals(dVar.NZ(), this.bcj)) {
                     return dVar;
                 }
             }

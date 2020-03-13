@@ -58,7 +58,7 @@ public class PersonInfoDelegateStatic extends b {
         cVar.type = 8;
         cVar.textResId = R.string.mine;
         cVar.animationResId = R.raw.lottie_tab_my;
-        cVar.showIconType = c.dBn;
+        cVar.showIconType = c.dBA;
         return cVar;
     }
 
@@ -67,7 +67,7 @@ public class PersonInfoDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dBC = this.mIndicator;
+        aVar.dBP = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
@@ -88,7 +88,7 @@ public class PersonInfoDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).dBg);
+                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).dBt);
                     if (PersonInfoDelegateStatic.this.isNew.booleanValue()) {
                         PersonInfoDelegateStatic.this.tipView.refresh(0);
                         PersonInfoDelegateStatic.this.tipView.setVisibility(0);

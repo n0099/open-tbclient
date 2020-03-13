@@ -7,7 +7,7 @@ public class v {
     private String link_url;
     private long start_time;
 
-    public String aJy() {
+    public String aJz() {
         return this.link_url;
     }
 

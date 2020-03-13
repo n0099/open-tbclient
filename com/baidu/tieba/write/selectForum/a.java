@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity kOM;
+    private HotTopicChangeFourmActivity kOY;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.kOM = hotTopicChangeFourmActivity;
-        this.mContext = this.kOM.getPageContext().getContext();
+        this.kOY = hotTopicChangeFourmActivity;
+        this.mContext = this.kOY.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String KS(String str) {
+    private String KT(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -84,29 +84,29 @@ public class a extends BaseAdapter {
     private C0633a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0633a c0633a;
         if (obj == null) {
-            c0633a = cUV();
+            c0633a = cUW();
         } else {
             c0633a = (C0633a) obj;
         }
-        c0633a.kOO.setText(KS(hotTopicBussinessData.mForumName));
-        c0633a.kON.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0633a.kPa.setText(KT(hotTopicBussinessData.mForumName));
+        c0633a.kOZ.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         am.setBackgroundResource(c0633a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0633a.kOO, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(c0633a.gyw, R.color.cp_bg_line_e);
+        am.setViewTextColor(c0633a.kPa, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(c0633a.gyI, R.color.cp_bg_line_e);
         return c0633a;
     }
 
-    private C0633a cUV() {
+    private C0633a cUW() {
         C0633a c0633a = new C0633a();
         c0633a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         am.setBackgroundResource(c0633a.mRootView, R.drawable.select_forum_item_bg);
-        am.setViewTextColor(c0633a.kOO, (int) R.color.cp_cont_b);
-        c0633a.kOO = (TextView) c0633a.mRootView.findViewById(R.id.fourm_tv);
-        c0633a.gyw = c0633a.mRootView.findViewById(R.id.line_view);
-        c0633a.kON = (TbImageView) c0633a.mRootView.findViewById(R.id.icon_img);
-        c0633a.kON.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0633a.kON.setDefaultResource(R.drawable.transparent_bg);
-        c0633a.kON.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        am.setViewTextColor(c0633a.kPa, (int) R.color.cp_cont_b);
+        c0633a.kPa = (TextView) c0633a.mRootView.findViewById(R.id.fourm_tv);
+        c0633a.gyI = c0633a.mRootView.findViewById(R.id.line_view);
+        c0633a.kOZ = (TbImageView) c0633a.mRootView.findViewById(R.id.icon_img);
+        c0633a.kOZ.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0633a.kOZ.setDefaultResource(R.drawable.transparent_bg);
+        c0633a.kOZ.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0633a.mRootView.setTag(c0633a);
         return c0633a;
     }
@@ -115,9 +115,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public class C0633a {
-        public View gyw;
-        public TbImageView kON;
-        public TextView kOO;
+        public View gyI;
+        public TbImageView kOZ;
+        public TextView kPa;
         public View mRootView;
 
         private C0633a() {

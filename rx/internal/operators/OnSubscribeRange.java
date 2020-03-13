@@ -5,13 +5,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class OnSubscribeRange implements d.a<Integer> {
-    private final int aDD;
     private final int aDE;
+    private final int aDF;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     public void call(rx.j<? super Integer> jVar) {
-        jVar.setProducer(new RangeProducer(jVar, this.aDD, this.aDE));
+        jVar.setProducer(new RangeProducer(jVar, this.aDE, this.aDF));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

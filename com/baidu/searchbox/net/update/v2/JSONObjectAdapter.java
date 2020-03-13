@@ -11,13 +11,13 @@ public class JSONObjectAdapter extends TypeAdapter<JSONObject> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, JSONObject jSONObject) throws IOException {
-        bVar.QQ(jSONObject.toString());
+        bVar.QR(jSONObject.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public JSONObject read(a aVar) throws IOException {
-        if (aVar.dAT() == JsonToken.BEGIN_OBJECT) {
+        if (aVar.dAU() == JsonToken.BEGIN_OBJECT) {
             return JSONParser.readJSONObject(aVar);
         }
         return null;

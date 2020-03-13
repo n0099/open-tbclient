@@ -17,12 +17,12 @@ import java.util.UUID;
 @Deprecated
 /* loaded from: classes11.dex */
 public class e extends ab {
-    private static final int beW = com.baidu.swan.apps.w.a.TZ().Hg();
+    private static final int beX = com.baidu.swan.apps.w.a.TZ().Hg();
     private Context mContext;
 
     static {
         if (DEBUG) {
-            Log.d("NavigateToAction", "NavigateToAction max count: " + beW);
+            Log.d("NavigateToAction", "NavigateToAction max count: " + beX);
         }
     }
 
@@ -69,7 +69,7 @@ public class e extends ab {
             Log.d("NavigateToAction", "PreloadSlaveManager start.");
         }
         final b.a K = com.baidu.swan.apps.core.slave.b.K(WS.WD());
-        final String IR = K.brK.IR();
+        final String IR = K.brL.IR();
         if (DEBUG) {
             Log.d("NavigateToAction", "slave webView id: " + IR);
         }
@@ -108,7 +108,7 @@ public class e extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final b.a aVar, final com.baidu.swan.apps.model.b bVar, final com.baidu.swan.apps.core.d.e eVar, final String str) {
-        boolean z = aVar != null && aVar.brL;
+        boolean z = aVar != null && aVar.brM;
         com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_check")).bb("preload", z ? "1" : "0");
         if (DEBUG) {
             Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + z);
@@ -120,7 +120,7 @@ public class e extends ab {
                     Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.g.a(aVar, str);
-                e.this.a(aVar.brK, bVar, eVar, str);
+                e.this.a(aVar.brL, bVar, eVar, str);
                 if (e.DEBUG) {
                     Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
                 }
@@ -134,8 +134,8 @@ public class e extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.adaptation.b.c cVar, com.baidu.swan.apps.model.b bVar, com.baidu.swan.apps.core.d.e eVar, String str) {
         a.a(cVar, bVar, str);
-        if (eVar.Oq() < beW) {
-            eVar.hb("navigateTo").Y(com.baidu.swan.apps.core.d.e.bof, com.baidu.swan.apps.core.d.e.boh).a("normal", bVar).Oz();
+        if (eVar.Oq() < beX) {
+            eVar.hb("navigateTo").Y(com.baidu.swan.apps.core.d.e.bog, com.baidu.swan.apps.core.d.e.boi).a("normal", bVar).Oz();
             com.baidu.swan.apps.as.d.a(eVar, this.mContext);
             com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("na_push_page_end"));
             com.baidu.swan.apps.performance.g.A(0, str);

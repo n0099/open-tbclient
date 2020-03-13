@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.cdy) ? "unknown" : bVar.cdy;
+            String str = TextUtils.isEmpty(bVar.cdz) ? "unknown" : bVar.cdz;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,9 +136,9 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.cdo.coordType = i;
-            aVar.cdo.latitude = bVar.latitude;
-            aVar.cdo.longitude = bVar.longitude;
+            aVar.cdp.coordType = i;
+            aVar.cdp.latitude = bVar.latitude;
+            aVar.cdp.longitude = bVar.longitude;
         }
     }
 

@@ -58,16 +58,16 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.eMS.setIsRound(true);
-            aVar2.eMS.setDrawBorder(false);
-            aVar2.eMS.setAutoChangeStyle(true);
-            aVar2.eMS.setGifIconSupport(false);
+            aVar2.eNf.setIsRound(true);
+            aVar2.eNf.setDrawBorder(false);
+            aVar2.eNf.setAutoChangeStyle(true);
+            aVar2.eNf.setGifIconSupport(false);
             int equipmentWidth = (l.getEquipmentWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i2 = (equipmentWidth * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.eMU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.eNh.getLayoutParams();
             layoutParams.height = equipmentWidth;
             layoutParams.width = i2;
-            aVar2.eMU.setLayoutParams(layoutParams);
+            aVar2.eNh.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             layoutParams2.width = i2;
             view.setLayoutParams(layoutParams2);
@@ -78,12 +78,12 @@ public class b extends BaseAdapter {
         }
         bj item = getItem(i);
         if (item != null && (aCH = item.aCH()) != null) {
-            aVar.eMS.startLoad(aCH.cover, 10, false);
-            aVar.eMT.setData(item);
-            aVar.eMT.setUserHeadImgVisible(8);
-            aVar.eMV.setText(item.getTitle());
-            aVar.eMT.onChangeSkinType(this.mPageContext);
-            am.setViewTextColor(aVar.eMV, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
+            aVar.eNf.startLoad(aCH.cover, 10, false);
+            aVar.eNg.setData(item);
+            aVar.eNg.setUserHeadImgVisible(8);
+            aVar.eNi.setText(item.getTitle());
+            aVar.eNg.onChangeSkinType(this.mPageContext);
+            am.setViewTextColor(aVar.eNi, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }
@@ -97,18 +97,18 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TbImageView eMS;
-        public AlaCardBottomUserInfoLayout eMT;
-        public RelativeLayout eMU;
-        public TextView eMV;
+        public TbImageView eNf;
+        public AlaCardBottomUserInfoLayout eNg;
+        public RelativeLayout eNh;
+        public TextView eNi;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.eMS = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.eMT = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.eMU = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.eMV = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.eNf = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.eNg = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.eNh = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.eNi = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 }

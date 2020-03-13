@@ -14,7 +14,7 @@ import com.baidu.live.u.a;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class m {
-    private com.baidu.live.data.m ald;
+    private com.baidu.live.data.m ale;
 
     public void g(com.baidu.live.data.m mVar) {
         wI();
@@ -22,11 +22,11 @@ public class m {
     }
 
     public void a(com.baidu.live.data.m mVar) {
-        this.ald = mVar;
+        this.ale = mVar;
     }
 
     public void sL() {
-        this.ald = null;
+        this.ale = null;
         wJ();
     }
 
@@ -70,7 +70,7 @@ public class m {
     private void b(ImSendMsgData imSendMsgData) {
         Map<String, Integer> sz = r.sx().sz();
         if (sz != null && sz.containsKey(imSendMsgData.barrageId) && sz.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.ald.XQ.userId), String.valueOf(this.ald.mLiveInfo.live_id));
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.ale.XQ.userId), String.valueOf(this.ale.mLiveInfo.live_id));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
     }

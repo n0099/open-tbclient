@@ -9,7 +9,7 @@ import java.util.zip.ZipFile;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String csV = null;
+    private static String csW = null;
 
     public static boolean a(@NonNull Context context, @NonNull SoLoader soLoader) {
         boolean z = true;
@@ -27,7 +27,7 @@ public class e {
     private static boolean a(@NonNull SoLoader soLoader, @NonNull File file) {
         try {
             System.loadLibrary("v8.engine");
-            csV = file.getAbsolutePath();
+            csW = file.getAbsolutePath();
             return true;
         } catch (Throwable th) {
             soLoader.appendErrorLog("loadV8EngineSo: " + Log.getStackTraceString(th));
@@ -36,7 +36,7 @@ public class e {
     }
 
     private static boolean b(@NonNull Context context, @NonNull SoLoader soLoader) {
-        csV = null;
+        csW = null;
         d.aqj();
         HashMap<String, String> a = a(context, soLoader, new String[]{"v8.engine", "zeusv8"});
         String str = a.get("v8.engine");
@@ -98,7 +98,7 @@ public class e {
     }
 
     public static String getV8SoDependentFilePath() {
-        return csV;
+        return csW;
     }
 
     public static String aqp() {

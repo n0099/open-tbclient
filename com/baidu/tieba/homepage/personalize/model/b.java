@@ -29,7 +29,7 @@ public class b {
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.bvw()) {
+                    if (pVar.bvx()) {
                         pVar2.ks(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.kt(false);
@@ -60,7 +60,7 @@ public class b {
                 if ((mVar instanceof com.baidu.tieba.card.data.c) && (aAg = (cVar = (com.baidu.tieba.card.data.c) mVar).aAg()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(aAg.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zU(threadPersonalized.abtest_tag);
+                    cVar.zV(threadPersonalized.abtest_tag);
                     aAg.mRecomAbTag = threadPersonalized.abtest_tag;
                     aAg.mRecomSource = threadPersonalized.source;
                     aAg.mRecomWeight = threadPersonalized.weight;

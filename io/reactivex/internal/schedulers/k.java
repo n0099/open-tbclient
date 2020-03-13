@@ -7,14 +7,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class k extends v {
-    private static final k nzU = new k();
+    private static final k nAf = new k();
 
-    public static k dJD() {
-        return nzU;
+    public static k dJE() {
+        return nAf;
     }
 
     @Override // io.reactivex.v
-    public v.c dJh() {
+    public v.c dJi() {
         return new c();
     }
 
@@ -42,9 +42,9 @@ public final class k extends v {
     /* loaded from: classes7.dex */
     static final class c extends v.c implements io.reactivex.disposables.b {
         volatile boolean disposed;
-        final PriorityBlockingQueue<b> nzX = new PriorityBlockingQueue<>();
+        final PriorityBlockingQueue<b> nAi = new PriorityBlockingQueue<>();
         private final AtomicInteger wip = new AtomicInteger();
-        final AtomicInteger nzY = new AtomicInteger();
+        final AtomicInteger nAj = new AtomicInteger();
 
         c() {
         }
@@ -64,15 +64,15 @@ public final class k extends v {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            b bVar = new b(runnable, Long.valueOf(j), this.nzY.incrementAndGet());
-            this.nzX.add(bVar);
+            b bVar = new b(runnable, Long.valueOf(j), this.nAj.incrementAndGet());
+            this.nAi.add(bVar);
             if (this.wip.getAndIncrement() == 0) {
                 int i = 1;
                 while (!this.disposed) {
-                    b poll = this.nzX.poll();
+                    b poll = this.nAi.poll();
                     if (poll != null) {
                         if (!poll.disposed) {
-                            poll.nvJ.run();
+                            poll.nvU.run();
                         }
                     } else {
                         int addAndGet = this.wip.addAndGet(-i);
@@ -82,7 +82,7 @@ public final class k extends v {
                         i = addAndGet;
                     }
                 }
-                this.nzX.clear();
+                this.nAi.clear();
                 return EmptyDisposable.INSTANCE;
             }
             return io.reactivex.disposables.c.E(new a(bVar));
@@ -101,16 +101,16 @@ public final class k extends v {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes7.dex */
         public final class a implements Runnable {
-            final b nzZ;
+            final b nAk;
 
             a(b bVar) {
-                this.nzZ = bVar;
+                this.nAk = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.nzZ.disposed = true;
-                c.this.nzX.remove(this.nzZ);
+                this.nAk.disposed = true;
+                c.this.nAi.remove(this.nAk);
             }
         }
     }
@@ -120,12 +120,12 @@ public final class k extends v {
     public static final class b implements Comparable<b> {
         final int count;
         volatile boolean disposed;
-        final Runnable nvJ;
-        final long nzW;
+        final long nAh;
+        final Runnable nvU;
 
         b(Runnable runnable, Long l, int i) {
-            this.nvJ = runnable;
-            this.nzW = l.longValue();
+            this.nvU = runnable;
+            this.nAh = l.longValue();
             this.count = i;
         }
 
@@ -133,7 +133,7 @@ public final class k extends v {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            int ac = io.reactivex.internal.functions.a.ac(this.nzW, bVar.nzW);
+            int ac = io.reactivex.internal.functions.a.ac(this.nAh, bVar.nAh);
             if (ac == 0) {
                 return io.reactivex.internal.functions.a.compare(this.count, bVar.count);
             }
@@ -143,31 +143,31 @@ public final class k extends v {
 
     /* loaded from: classes7.dex */
     static final class a implements Runnable {
-        private final Runnable nvJ;
-        private final c nzV;
-        private final long nzW;
+        private final c nAg;
+        private final long nAh;
+        private final Runnable nvU;
 
         a(Runnable runnable, c cVar, long j) {
-            this.nvJ = runnable;
-            this.nzV = cVar;
-            this.nzW = j;
+            this.nvU = runnable;
+            this.nAg = cVar;
+            this.nAh = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.nzV.disposed) {
-                long a = this.nzV.a(TimeUnit.MILLISECONDS);
-                if (this.nzW > a) {
+            if (!this.nAg.disposed) {
+                long a = this.nAg.a(TimeUnit.MILLISECONDS);
+                if (this.nAh > a) {
                     try {
-                        Thread.sleep(this.nzW - a);
+                        Thread.sleep(this.nAh - a);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                         io.reactivex.e.a.onError(e);
                         return;
                     }
                 }
-                if (!this.nzV.disposed) {
-                    this.nvJ.run();
+                if (!this.nAg.disposed) {
+                    this.nvU.run();
                 }
             }
         }

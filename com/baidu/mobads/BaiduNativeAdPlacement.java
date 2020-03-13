@@ -6,7 +6,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes10.dex */
 public class BaiduNativeAdPlacement {
     private String a;
-    private IXAdResponseInfo aOI;
+    private IXAdResponseInfo aOJ;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -52,24 +52,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.aOI = iXAdResponseInfo;
+        this.aOJ = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.aOI != null && Ei();
+        return this.aOJ != null && Ei();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo Eh() {
-        return this.aOI;
+        return this.aOJ;
     }
 
     protected boolean Ei() {
         boolean z;
-        if (this.aOI == null || this.aOI.getPrimaryAdInstanceInfo() == null) {
+        if (this.aOJ == null || this.aOJ.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.aOI.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.aOJ.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }

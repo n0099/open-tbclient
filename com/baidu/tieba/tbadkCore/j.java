@@ -7,11 +7,11 @@ import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes8.dex */
 public class j implements com.baidu.adp.widget.ListView.m {
-    public static final String keF = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
-    private int iCs;
+    public static final String keR = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    private int iCE;
     private String icon;
-    private String keG;
-    private int keH;
+    private String keS;
+    private int keT;
     private String obj_id;
     private int time;
     private String title;
@@ -19,20 +19,20 @@ public class j implements com.baidu.adp.widget.ListView.m {
     private String url;
     private int weight;
 
-    public int cKi() {
-        return this.keH;
+    public int cKj() {
+        return this.keT;
     }
 
     public void Cn(int i) {
-        this.keH = i;
+        this.keT = i;
     }
 
-    public int cKj() {
-        return this.iCs;
+    public int cKk() {
+        return this.iCE;
     }
 
     public void Co(int i) {
-        this.iCs = i;
+        this.iCE = i;
     }
 
     public void setIcon(String str) {
@@ -51,7 +51,7 @@ public class j implements com.baidu.adp.widget.ListView.m {
         this.title = str;
     }
 
-    public int cKk() {
+    public int cKl() {
         return this.type;
     }
 
@@ -71,12 +71,12 @@ public class j implements com.baidu.adp.widget.ListView.m {
         this.time = i;
     }
 
-    public String cKl() {
+    public String cKm() {
         return this.obj_id;
     }
 
-    public String cKm() {
-        return this.keG;
+    public String cKn() {
+        return this.keS;
     }
 
     public void a(StarEnter starEnter) {
@@ -88,11 +88,11 @@ public class j implements com.baidu.adp.widget.ListView.m {
         setWeight(starEnter.weight.intValue());
         Co(starEnter.rank_num.intValue());
         Cn(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.keH == 1) {
-            this.title = keF;
+        if (StringUtils.isNull(this.title) && this.keT == 1) {
+            this.title = keR;
         }
         this.obj_id = starEnter.obj_id;
-        this.keG = starEnter.text;
+        this.keS = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes3.dex */
 public class l implements ILoginListener {
-    private static volatile l asx;
-    private boolean asv = false;
-    private a asw;
+    private static volatile l asy;
+    private boolean asw = false;
+    private a asx;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -26,14 +26,14 @@ public class l implements ILoginListener {
     }
 
     public static l wG() {
-        if (asx == null) {
+        if (asy == null) {
             synchronized (l.class) {
-                if (asx == null) {
-                    asx = new l();
+                if (asy == null) {
+                    asy = new l();
                 }
             }
         }
-        return asx;
+        return asy;
     }
 
     public void init(Context context) {
@@ -49,12 +49,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.asv = true;
+        this.asw = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.asw = aVar;
+        this.asx = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -70,9 +70,9 @@ public class l implements ILoginListener {
     }
 
     public void aU(boolean z) {
-        if (this.asv) {
-            if (z && this.asw != null) {
-                a(this.asw);
+        if (this.asw) {
+            if (z && this.asx != null) {
+                a(this.asx);
             } else if (!z) {
                 a(null);
             }
@@ -85,9 +85,9 @@ public class l implements ILoginListener {
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.asw != null) {
-            this.asw.n(i, str);
-            this.asw = null;
+        if (this.asx != null) {
+            this.asx.n(i, str);
+            this.asx = null;
         }
     }
 

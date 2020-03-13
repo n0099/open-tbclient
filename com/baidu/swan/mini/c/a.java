@@ -12,7 +12,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> cAt = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> cAu = new ConcurrentHashMap<>();
 
     public static void a(@NonNull final com.baidu.swan.pms.b.a aVar, @NonNull c.a aVar2) {
         File b;
@@ -20,7 +20,7 @@ public class a {
         if (DEBUG) {
             Log.d("Mini-Pm", "==========开始获取mini小程序包 " + a + " ========== pkg: " + aVar.Ra());
         }
-        if (cAt.containsKey(Integer.valueOf(a))) {
+        if (cAu.containsKey(Integer.valueOf(a))) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "==========重复获取 hash: " + a + " ========== pkg: " + aVar);
             }
@@ -88,7 +88,7 @@ public class a {
     }
 
     private static void a(int i, @NonNull c.a aVar) {
-        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = cAt.get(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = cAu.get(Integer.valueOf(i));
         if (copyOnWriteArrayList == null) {
             copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         }
@@ -96,7 +96,7 @@ public class a {
             Log.d("Mini-Pm", "addCallback: " + i);
         }
         copyOnWriteArrayList.add(aVar);
-        cAt.put(Integer.valueOf(i), copyOnWriteArrayList);
+        cAu.put(Integer.valueOf(i), copyOnWriteArrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,7 +107,7 @@ public class a {
             }
             Log.d("Mini-Pm", bVar.toString());
         }
-        CopyOnWriteArrayList<c.a> remove = cAt.remove(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> remove = cAu.remove(Integer.valueOf(i));
         if (remove == null || remove.isEmpty()) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "notifyCallbacks: callbacks is empty");

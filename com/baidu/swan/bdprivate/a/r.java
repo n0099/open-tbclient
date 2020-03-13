@@ -45,7 +45,7 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.bUf = jSONObject;
+        this.bUg = jSONObject;
         bl("data", jSONObject.toString());
         return true;
     }
@@ -62,7 +62,7 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bp + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bp) {
-                r.this.adb().acQ().a(r.this.mActivity, r.this.bUe, this);
+                r.this.adb().acQ().a(r.this.mActivity, r.this.bUf, this);
                 return false;
             }
             r.this.a(new b());
@@ -95,12 +95,12 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
     /* loaded from: classes11.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (r.this.bUd != null && r.this.bUc != null && r.this.bUc.bcX) {
-                long j = r.this.bUc.bcY;
+            if (r.this.bUe != null && r.this.bUd != null && r.this.bUd.bcY) {
+                long j = r.this.bUd.bcZ;
                 if (r.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                r.this.bUd.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                r.this.bUe.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 

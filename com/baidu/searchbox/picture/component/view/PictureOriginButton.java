@@ -197,7 +197,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
 
     private void loadOriginImage(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mOriginLoadDataSource = c.dlA().e(ImageRequestBuilder.Y(Uri.parse(str)).dsC(), getContext().getApplicationContext());
+            this.mOriginLoadDataSource = c.dlB().e(ImageRequestBuilder.Y(Uri.parse(str)).dsD(), getContext().getApplicationContext());
             this.mOriginLoadDataSource.a(new a<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>>() { // from class: com.baidu.searchbox.picture.component.view.PictureOriginButton.4
                 @Override // com.facebook.datasource.a
                 protected void onNewResultImpl(b<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>> bVar) {
@@ -206,8 +206,8 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                         com.facebook.common.references.a<com.facebook.imagepipeline.g.b> result = bVar.getResult();
                         try {
                             if (result != null) {
-                                Bitmap dqr = result.get().dqr();
-                                if (dqr != null && !dqr.isRecycled() && PictureOriginButton.this.mImageListener != null) {
+                                Bitmap dqs = result.get().dqs();
+                                if (dqs != null && !dqs.isRecycled() && PictureOriginButton.this.mImageListener != null) {
                                     PictureOriginButton.this.mSuccess = true;
                                     PictureOriginButton.this.mImageListener.success(str);
                                 }
@@ -239,7 +239,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                     obtainMessage.obj = bundle;
                     PictureOriginButton.this.handlerHolder.sendMessage(obtainMessage);
                 }
-            }, i.dkF());
+            }, i.dkG());
         }
     }
 

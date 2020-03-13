@@ -24,7 +24,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aQL();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aQM();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
                 l<byte[]> cq = com.baidu.tbadk.core.c.a.aEB().cq(this.tableName, str);
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String aQj = ((f) dVar5).aQj();
-                    if (aQj != null) {
-                        cr.setForever(dVar5.getCacheKey(), aQj);
+                    String aQk = ((f) dVar5).aQk();
+                    if (aQk != null) {
+                        cr.setForever(dVar5.getCacheKey(), aQk);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

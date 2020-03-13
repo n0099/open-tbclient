@@ -21,12 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    public static final Set<String> beG = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> bGd;
+    public static final Set<String> beH = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> bGe;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.bGd = new ConcurrentHashMap<>();
+        this.bGe = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -40,7 +40,7 @@ public class a extends ab {
             return 0L;
         }
         try {
-            j = this.bGd.get(str).longValue();
+            j = this.bGe.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
@@ -48,8 +48,8 @@ public class a extends ab {
     }
 
     public final void jG(String str) {
-        if (this.bGd != null && !TextUtils.isEmpty(str)) {
-            this.bGd.remove(str);
+        if (this.bGe != null && !TextUtils.isEmpty(str)) {
+            this.bGe.remove(str);
         }
     }
 
@@ -61,7 +61,7 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !beG.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !beH.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);

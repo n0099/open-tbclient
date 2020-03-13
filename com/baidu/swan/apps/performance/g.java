@@ -15,10 +15,10 @@ public class g {
     public static void a(b.a aVar, String str) {
         f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_ok"));
         if (aVar != null) {
-            if (aVar.brK != null) {
-                aVar.brK.fb(str);
+            if (aVar.brL != null) {
+                aVar.brL.fb(str);
             }
-            f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").au(aVar.brN)).f(new UbcFlowEvent("na_pre_load_slave_end").au(aVar.brO));
+            f.aY("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").au(aVar.brO)).f(new UbcFlowEvent("na_pre_load_slave_end").au(aVar.brP));
         }
     }
 

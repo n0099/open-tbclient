@@ -9,7 +9,7 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private BdContextMenuView cfc;
+    private BdContextMenuView cfd;
 
     public a(View view) {
         super(view);
@@ -21,12 +21,12 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         BdContextMenuView bdContextMenuView = new BdContextMenuView(context);
-        this.cfc = bdContextMenuView;
+        this.cfd = bdContextMenuView;
         return bdContextMenuView;
     }
 
     public void setLayoutInCenter(boolean z) {
-        this.cfc.setLayoutInCenter(z);
+        this.cfd.setLayoutInCenter(z);
     }
 
     @Override // com.baidu.swan.apps.res.widget.a.a

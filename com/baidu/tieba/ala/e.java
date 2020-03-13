@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private ArrayList<l> cVR = new ArrayList<>();
+    private ArrayList<l> cVS = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -26,21 +26,21 @@ public class e extends BaseAdapter {
     }
 
     public void setData(List<l> list) {
-        if (list != null && this.cVR.size() < 4) {
-            this.cVR.clear();
-            this.cVR.addAll(list);
+        if (list != null && this.cVS.size() < 4) {
+            this.cVS.clear();
+            this.cVS.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cVR.size();
+        return this.cVS.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.cVR.get(i);
+        return this.cVS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,7 +55,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((l) getItem(i)).ber();
+        return ((l) getItem(i)).bes();
     }
 
     @Override // android.widget.Adapter
@@ -98,7 +98,7 @@ public class e extends BaseAdapter {
         }
         final l lVar = (l) getItem(i);
         if (lVar != null) {
-            switch (lVar.ber()) {
+            switch (lVar.bes()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.1
@@ -113,21 +113,21 @@ public class e extends BaseAdapter {
                 case 1:
                     if (bVar != null) {
                         bVar.aiY.setText(lVar.getmName());
-                        bVar.ejj.setText(lVar.bes() + "个");
-                        bVar.ejk.setText(lVar.beu() + "小时");
+                        bVar.ejw.setText(lVar.bet() + "个");
+                        bVar.ejx.setText(lVar.bev() + "小时");
                         String string = this.mPageContext.getResources().getString(a.i.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(lVar.bev())) {
-                            string = lVar.bev();
+                        if (!TextUtils.isEmpty(lVar.bew())) {
+                            string = lVar.bew();
                         }
-                        bVar.ejl.setText(string);
-                        bVar.ejm.startLoad(lVar.bet(), 10, false);
-                        if (lVar.ber() == 1) {
+                        bVar.ejy.setText(string);
+                        bVar.ejz.startLoad(lVar.beu(), 10, false);
+                        if (lVar.bes() == 1) {
                             if (getItemId(i) == 0) {
-                                bVar.ejo.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
+                                bVar.ejB.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
-                                bVar.ejo.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
+                                bVar.ejB.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
                             } else if (getItemId(i) == 2) {
-                                bVar.ejo.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
+                                bVar.ejB.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
                             }
                         }
                         if (bVar != null && bVar.rootView != null) {
@@ -137,10 +137,10 @@ public class e extends BaseAdapter {
                                 }
                             });
                         }
-                        bVar.ejn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.3
+                        bVar.ejA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.d(e.this.mPageContext.getPageActivity(), lVar.bew(), 1001, e.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.d(e.this.mPageContext.getPageActivity(), lVar.bex(), 1001, e.this.getItemId(i))));
                             }
                         });
                         break;
@@ -163,23 +163,23 @@ public class e extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class b {
         public TextView aiY;
-        public TextView ejj;
-        public TextView ejk;
-        public TextView ejl;
-        public TbImageView ejm;
-        public TbImageView ejn;
-        public TbImageView ejo;
+        public TbImageView ejA;
+        public TbImageView ejB;
+        public TextView ejw;
+        public TextView ejx;
+        public TextView ejy;
+        public TbImageView ejz;
         public View rootView;
 
         public b(View view) {
             this.rootView = view;
             this.aiY = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
-            this.ejj = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
-            this.ejk = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
-            this.ejl = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
-            this.ejm = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
-            this.ejn = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
-            this.ejo = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
+            this.ejw = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
+            this.ejx = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
+            this.ejy = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
+            this.ejz = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
+            this.ejA = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
+            this.ejB = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
         }
     }
 }

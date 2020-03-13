@@ -10,7 +10,7 @@ public interface b {
 
     void bd(boolean z);
 
-    void e(boolean z, boolean z2);
+    void f(boolean z, boolean z2);
 
     void j(ArrayList<AlaLiveInfoData> arrayList);
 }

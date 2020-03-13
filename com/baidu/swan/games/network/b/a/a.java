@@ -14,24 +14,24 @@ import okhttp3.Request;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e cqw;
+    private e cqx;
 
     public a(com.baidu.swan.games.e.b bVar, c cVar) {
         super(bVar, cVar);
-        this.cqw = new e(this);
+        this.cqx = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.cqw.aoU();
+        this.cqx.aoU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b
     public void a(Request request, String str, String str2, com.baidu.swan.games.network.b bVar, d dVar) {
-        if (this.cqf != null && !ps(str)) {
-            String optString = this.cqf.optString("url");
+        if (this.cqg != null && !ps(str)) {
+            String optString = this.cqg.optString("url");
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
@@ -57,18 +57,18 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.cqw.onSuccess(obj);
+        this.cqx.onSuccess(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b, com.baidu.swan.games.network.a
     public void i(String str, int i, String str2) {
-        this.cqw.i(str, i, str2);
+        this.cqx.i(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.cqw.b(jSEvent);
+        return this.cqx.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a

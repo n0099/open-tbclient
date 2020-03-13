@@ -9,7 +9,7 @@ public interface b {
 
     void dCB();
 
-    void dCt();
+    void dCC();
 
     void dCu();
 

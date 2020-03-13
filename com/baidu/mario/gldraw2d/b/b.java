@@ -6,25 +6,25 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class b {
     protected static final String TAG = b.class.getSimpleName();
-    protected a aJd;
+    protected a aJe;
     private EGLSurface mEGLSurface = EGL14.EGL_NO_SURFACE;
     private int mWidth = -1;
     private int mHeight = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(a aVar) {
-        this.aJd = aVar;
+        this.aJe = aVar;
     }
 
     public void createWindowSurface(Object obj) {
         if (this.mEGLSurface != EGL14.EGL_NO_SURFACE) {
             throw new IllegalStateException("surface already created");
         }
-        this.mEGLSurface = this.aJd.createWindowSurface(obj);
+        this.mEGLSurface = this.aJe.createWindowSurface(obj);
     }
 
     public void releaseEglSurface() {
-        this.aJd.releaseSurface(this.mEGLSurface);
+        this.aJe.releaseSurface(this.mEGLSurface);
         this.mEGLSurface = EGL14.EGL_NO_SURFACE;
         this.mHeight = -1;
         this.mWidth = -1;
@@ -37,7 +37,7 @@ public class b {
     }
 
     public boolean swapBuffers() {
-        boolean swapBuffers = this.aJd.swapBuffers(this.mEGLSurface);
+        boolean swapBuffers = this.aJe.swapBuffers(this.mEGLSurface);
         if (!swapBuffers) {
             Log.d(TAG, "WARNING: swapBuffers() failed");
         }
@@ -45,6 +45,6 @@ public class b {
     }
 
     public void setPresentationTime(long j) {
-        this.aJd.setPresentationTime(this.mEGLSurface, j);
+        this.aJe.setPresentationTime(this.mEGLSurface, j);
     }
 }

@@ -31,7 +31,7 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class j extends UnitedSchemeBaseDispatcher {
     private static final String TAG = j.class.getSimpleName();
-    protected final Map<String, ab> bQK = new HashMap();
+    protected final Map<String, ab> bQL = new HashMap();
 
     public j() {
         adJ();
@@ -67,7 +67,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
                     return false;
                 }
-                ab abVar = this.bQK.get(str2);
+                ab abVar = this.bQL.get(str2);
                 if (abVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
@@ -87,7 +87,7 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     protected void adJ() {
-        this.bQK.clear();
+        this.bQL.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ae(this));
@@ -154,6 +154,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(ab abVar) {
-        this.bQK.put(abVar.name, abVar);
+        this.bQL.put(abVar.name, abVar);
     }
 }

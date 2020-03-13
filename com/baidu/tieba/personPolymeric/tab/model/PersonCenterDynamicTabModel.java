@@ -16,15 +16,15 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
-    private TbPageContext cVh;
-    private User jqm;
-    private a jqy;
+    private TbPageContext cVi;
+    private a jqK;
+    private User jqy;
     private long mUid;
     private long mCursor = 0;
     private boolean mHasMore = false;
     private final List<bj> mThreadDataList = new ArrayList();
     private BdUniqueId mTag = BdUniqueId.gen();
-    private final com.baidu.adp.framework.listener.a jqz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
+    private final com.baidu.adp.framework.listener.a jqL = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
@@ -46,8 +46,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     j = 0;
                 }
                 if (responsedMessage.getError() != 0) {
-                    if (PersonCenterDynamicTabModel.this.jqy != null) {
-                        PersonCenterDynamicTabModel.this.jqy.ry(PersonCenterDynamicTabModel.this.mCursor == 0);
+                    if (PersonCenterDynamicTabModel.this.jqK != null) {
+                        PersonCenterDynamicTabModel.this.jqK.ry(PersonCenterDynamicTabModel.this.mCursor == 0);
                         return;
                     }
                     return;
@@ -56,8 +56,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     PersonCenterDynamicTabModel.this.mThreadDataList.addAll(list);
                 }
                 PersonCenterDynamicTabModel.this.mHasMore = z;
-                if (PersonCenterDynamicTabModel.this.jqy != null) {
-                    PersonCenterDynamicTabModel.this.jqy.c(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
+                if (PersonCenterDynamicTabModel.this.jqK != null) {
+                    PersonCenterDynamicTabModel.this.jqK.c(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
                 }
                 PersonCenterDynamicTabModel.this.mCursor = j;
             }
@@ -72,10 +72,10 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j) {
-        this.cVh = tbPageContext;
+        this.cVi = tbPageContext;
         this.mUid = j;
-        this.jqz.setTag(this.mTag);
-        MessageManager.getInstance().registerListener(this.jqz);
+        this.jqL.setTag(this.mTag);
+        MessageManager.getInstance().registerListener(this.jqL);
     }
 
     public void AC() {
@@ -84,7 +84,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         ev(this.mCursor);
     }
 
-    public void bcF() {
+    public void bcG() {
         ev(this.mCursor);
     }
 
@@ -98,13 +98,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         this.mCursor = 0L;
         this.mHasMore = false;
         this.mThreadDataList.clear();
-        if (this.jqz != null) {
-            MessageManager.getInstance().unRegisterListener(this.jqz);
+        if (this.jqL != null) {
+            MessageManager.getInstance().unRegisterListener(this.jqL);
         }
     }
 
     public void a(a aVar) {
-        this.jqy = aVar;
+        this.jqK = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -118,7 +118,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void b(User user) {
-        this.jqm = user;
+        this.jqy = user;
     }
 
     public boolean isHasMore() {

@@ -6,32 +6,32 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public class c {
-    static Timer fEB = null;
-    private static int fEC = Runtime.getRuntime().availableProcessors();
-    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(fEC);
+    static Timer fEO = null;
+    private static int fEP = Runtime.getRuntime().availableProcessors();
+    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(fEP);
 
     public static void execute(Runnable runnable) {
         fixedThreadPool.execute(runnable);
     }
 
     public static Timer o(final Runnable runnable) {
-        if (fEB != null) {
-            return fEB;
+        if (fEO != null) {
+            return fEO;
         }
-        fEB = new Timer();
-        fEB.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
+        fEO = new Timer();
+        fEO.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 runnable.run();
             }
         }, 0L, 2000L);
-        return fEB;
+        return fEO;
     }
 
-    public static void buE() {
-        if (fEB != null) {
-            fEB.cancel();
-            fEB = null;
+    public static void buF() {
+        if (fEO != null) {
+            fEO.cancel();
+            fEO = null;
         }
     }
 }

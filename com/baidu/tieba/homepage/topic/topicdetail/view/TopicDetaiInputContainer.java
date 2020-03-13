@@ -30,19 +30,19 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private EditorTools FO;
     private int FP;
     private int Ni;
-    private boolean dxZ;
-    private EditText dyD;
-    private LinearLayout dyH;
-    private boolean dyL;
-    private int[] dyM;
-    private boolean dya;
-    private boolean dyb;
-    private int dyc;
+    private EditText dyQ;
+    private LinearLayout dyU;
+    private boolean dyY;
+    private int[] dyZ;
+    private boolean dym;
+    private boolean dyn;
+    private boolean dyo;
+    private int dyp;
     private boolean[] flags;
     private View mBottomLine;
     private TextView mSendView;
     private int mType;
-    public static int dyN = 1;
+    public static int dza = 1;
     public static int ALL = 0;
 
     public TopicDetaiInputContainer(Context context) {
@@ -55,23 +55,23 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
 
     public TopicDetaiInputContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dxZ = false;
-        this.dya = true;
-        this.dyb = true;
-        this.dyc = -1;
-        this.dyL = true;
+        this.dym = false;
+        this.dyn = true;
+        this.dyo = true;
+        this.dyp = -1;
+        this.dyY = true;
         this.flags = new boolean[]{false, false, false, false, false};
-        this.dyM = new int[]{0, 0};
+        this.dyZ = new int[]{0, 0};
         this.Ni = 0;
         this.mType = ALL;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setOrientation(1);
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(R.dimen.ds90));
-        this.dyH = new LinearLayout(getContext());
-        this.dyH.setOrientation(0);
-        this.dyH.setMinimumHeight(l.getDimens(context, R.dimen.ds90));
-        addView(this.dyH, new LinearLayout.LayoutParams(-1, -2));
+        this.dyU = new LinearLayout(getContext());
+        this.dyU.setOrientation(0);
+        this.dyU.setMinimumHeight(l.getDimens(context, R.dimen.ds90));
+        addView(this.dyU, new LinearLayout.LayoutParams(-1, -2));
         dZ(context);
         dY(context);
         this.mBottomLine = new View(getContext());
@@ -94,33 +94,33 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.getDimens(context, R.dimen.tbds14), 0);
-        this.dyH.addView(this.mSendView, layoutParams);
+        this.dyU.addView(this.mSendView, layoutParams);
     }
 
     private void dZ(Context context) {
-        this.dyD = new EditText(context);
-        this.dyD.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds32));
-        this.dyD.setMaxLines(4);
-        this.dyD.setGravity(16);
-        this.dyD.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
-        this.dyD.setTextColor(getResources().getColor(R.color.cp_cont_b));
-        this.dyD.setHintTextColor(getResources().getColor(R.color.cp_cont_e));
-        this.dyD.setBackgroundResource(R.color.common_color_10022);
-        e(this.dyD, R.drawable.edittext_cursor);
-        this.dyD.setPadding(0, l.getDimens(context, R.dimen.ds24), l.getDimens(context, R.dimen.ds54), l.getDimens(context, R.dimen.ds24));
-        this.dyD.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        this.dyD.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer.2
+        this.dyQ = new EditText(context);
+        this.dyQ.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.dyQ.setMaxLines(4);
+        this.dyQ.setGravity(16);
+        this.dyQ.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.dyQ.setTextColor(getResources().getColor(R.color.cp_cont_b));
+        this.dyQ.setHintTextColor(getResources().getColor(R.color.cp_cont_e));
+        this.dyQ.setBackgroundResource(R.color.common_color_10022);
+        e(this.dyQ, R.drawable.edittext_cursor);
+        this.dyQ.setPadding(0, l.getDimens(context, R.dimen.ds24), l.getDimens(context, R.dimen.ds54), l.getDimens(context, R.dimen.ds24));
+        this.dyQ.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        this.dyQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!TopicDetaiInputContainer.this.dyb) {
-                    TopicDetaiInputContainer.this.dyb = true;
-                    if (TopicDetaiInputContainer.this.dyc != -1) {
-                        TopicDetaiInputContainer.this.dyD.setSelection(TopicDetaiInputContainer.this.dyc);
-                        TopicDetaiInputContainer.this.dyc = -1;
+                if (!TopicDetaiInputContainer.this.dyo) {
+                    TopicDetaiInputContainer.this.dyo = true;
+                    if (TopicDetaiInputContainer.this.dyp != -1) {
+                        TopicDetaiInputContainer.this.dyQ.setSelection(TopicDetaiInputContainer.this.dyp);
+                        TopicDetaiInputContainer.this.dyp = -1;
                     }
                 }
             }
@@ -128,16 +128,16 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null && editable.toString().trim() != null) {
-                    TopicDetaiInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, TopicDetaiInputContainer.this.dyD.getText().toString()));
+                    TopicDetaiInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, TopicDetaiInputContainer.this.dyQ.getText().toString()));
                 }
             }
         });
-        this.dyD.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer.3
+        this.dyQ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
                     TopicDetaiInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                    TopicDetaiInputContainer.this.dyD.requestFocus();
+                    TopicDetaiInputContainer.this.dyQ.requestFocus();
                 }
                 return false;
             }
@@ -145,7 +145,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.setMargins(l.getDimens(context, R.dimen.ds14), 0, 0, 0);
-        this.dyH.addView(this.dyD, layoutParams);
+        this.dyU.addView(this.dyQ, layoutParams);
     }
 
     private void e(EditText editText, int i) {
@@ -161,7 +161,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void d(com.baidu.tbadk.editortools.a aVar) {
         if (aVar != null && aVar.data != null && (aVar.data instanceof q)) {
             q qVar = (q) aVar.data;
-            if (qVar.aJw() == EmotionGroupType.NET_SUG) {
+            if (qVar.aJx() == EmotionGroupType.NET_SUG) {
                 a(qVar);
             } else {
                 b(qVar);
@@ -171,28 +171,28 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
 
     private void a(q qVar) {
         if (qVar != null && !TextUtils.isEmpty(qVar.getName()) && !TextUtils.isEmpty(qVar.getUrl())) {
-            String obj = this.dyD.getText().toString();
-            if (this.dya && com.baidu.tieba.face.a.Ar(obj) >= 10 && getContext() != null) {
+            String obj = this.dyQ.getText().toString();
+            if (this.dyn && com.baidu.tieba.face.a.As(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFL().showToast(R.string.too_many_face);
             } else {
-                com.baidu.tieba.face.b.a(getContext(), qVar, this.dyD);
+                com.baidu.tieba.face.b.a(getContext(), qVar, this.dyQ);
             }
         }
     }
 
     private void b(q qVar) {
-        if (!this.dxZ || qVar.aJw() == EmotionGroupType.LOCAL) {
-            String obj = this.dyD.getText().toString();
-            if (this.dya && com.baidu.tieba.face.a.Ar(obj) >= 10 && getContext() != null) {
+        if (!this.dym || qVar.aJx() == EmotionGroupType.LOCAL) {
+            String obj = this.dyQ.getText().toString();
+            if (this.dyn && com.baidu.tieba.face.a.As(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFL().showToast(R.string.too_many_face);
             } else {
-                com.baidu.tieba.face.b.b(getContext(), qVar, this.dyD);
+                com.baidu.tieba.face.b.b(getContext(), qVar, this.dyQ);
             }
         }
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.dxZ = z;
+        this.dym = z;
     }
 
     @Override // com.baidu.tbadk.editortools.m
@@ -223,11 +223,11 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
 
     @Override // com.baidu.tbadk.editortools.m
     public void display() {
-        if (this.dyD != null && this.dyH.getVisibility() == 0) {
-            this.dyD.setFocusable(true);
-            this.dyD.setFocusableInTouchMode(true);
-            this.dyD.requestFocus();
-            l.showSoftKeyPad(getContext(), this.dyD);
+        if (this.dyQ != null && this.dyU.getVisibility() == 0) {
+            this.dyQ.setFocusable(true);
+            this.dyQ.setFocusableInTouchMode(true);
+            this.dyQ.requestFocus();
+            l.showSoftKeyPad(getContext(), this.dyQ);
         }
         setVisibility(0);
     }
@@ -239,15 +239,15 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
 
     @Override // com.baidu.tbadk.editortools.m
     public void onChangeSkinType(int i) {
-        am.setViewTextColor(this.dyD, R.color.cp_cont_b, 2, i);
+        am.setViewTextColor(this.dyQ, R.color.cp_cont_b, 2, i);
         am.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_h);
         am.setBackgroundColor(this, R.color.cp_bg_line_d);
         if (i == 0) {
-            e(this.dyD, R.drawable.edittext_cursor);
-            this.dyD.setHintTextColor(getContext().getResources().getColor(R.color.cp_cont_e));
+            e(this.dyQ, R.drawable.edittext_cursor);
+            this.dyQ.setHintTextColor(getContext().getResources().getColor(R.color.cp_cont_e));
         } else {
-            e(this.dyD, R.drawable.edittext_cursor_1);
-            this.dyD.setHintTextColor(am.getColor(i, R.color.cp_cont_e));
+            e(this.dyQ, R.drawable.edittext_cursor_1);
+            this.dyQ.setHintTextColor(am.getColor(i, R.color.cp_cont_e));
         }
         am.setBackgroundResource(this.mSendView, R.drawable.topic_discuss_send_bg);
         if (i == 1 || i == 4) {
@@ -262,30 +262,30 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
         if (aVar != null) {
             switch (aVar.code) {
                 case 3:
-                    if (this.dyD.getSelectionStart() > 0) {
-                        String substring = this.dyD.getText().toString().substring(0, this.dyD.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.gau.matcher(substring);
+                    if (this.dyQ.getSelectionStart() > 0) {
+                        String substring = this.dyQ.getText().toString().substring(0, this.dyQ.getSelectionStart());
+                        Matcher matcher = com.baidu.tieba.face.a.gaH.matcher(substring);
                         if (matcher.find()) {
-                            this.dyD.getText().delete(this.dyD.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.dyD.getSelectionStart());
+                            this.dyQ.getText().delete(this.dyQ.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.dyQ.getSelectionStart());
                             break;
                         } else {
-                            this.dyD.getText().delete(this.dyD.getSelectionStart() - 1, this.dyD.getSelectionStart());
+                            this.dyQ.getText().delete(this.dyQ.getSelectionStart() - 1, this.dyQ.getSelectionStart());
                             break;
                         }
                     }
                     break;
                 case 6:
                     if (aVar.data == null) {
-                        this.dyD.setText((CharSequence) null);
+                        this.dyQ.setText((CharSequence) null);
                     } else if (aVar.data instanceof String) {
                         if (TextUtils.isEmpty((String) aVar.data)) {
-                            this.dyD.setText((CharSequence) null);
+                            this.dyQ.setText((CharSequence) null);
                         } else {
                             com.baidu.tieba.face.b.a(getContext(), (String) aVar.data, new b.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer.4
                                 @Override // com.baidu.tieba.face.b.a
                                 public void b(SpannableStringBuilder spannableStringBuilder) {
-                                    TopicDetaiInputContainer.this.dyD.setText(spannableStringBuilder);
-                                    TopicDetaiInputContainer.this.dyD.setSelection(TopicDetaiInputContainer.this.dyD.getText().length());
+                                    TopicDetaiInputContainer.this.dyQ.setText(spannableStringBuilder);
+                                    TopicDetaiInputContainer.this.dyQ.setSelection(TopicDetaiInputContainer.this.dyQ.getText().length());
                                     TopicDetaiInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     TopicDetaiInputContainer.this.requestFocus();
                                 }
@@ -303,27 +303,27 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
                     break;
                 case 9:
                     if (((Boolean) aVar.data).booleanValue()) {
-                        this.dyD.setText((CharSequence) null);
+                        this.dyQ.setText((CharSequence) null);
                     }
                     this.flags[0] = false;
                     this.flags[1] = false;
                     this.flags[2] = false;
                     this.flags[3] = false;
                     this.flags[4] = false;
-                    this.dyM[0] = 0;
-                    this.dyM[1] = 0;
+                    this.dyZ[0] = 0;
+                    this.dyZ[1] = 0;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.dxA != null) {
-                            if (aVar2.dxA.getChosedFiles() != null) {
-                                this.dyM[0] = aVar2.dxA.getChosedFiles().size();
+                        if (aVar2.dxN != null) {
+                            if (aVar2.dxN.getChosedFiles() != null) {
+                                this.dyZ[0] = aVar2.dxN.getChosedFiles().size();
                             } else {
-                                this.dyM[0] = 0;
+                                this.dyZ[0] = 0;
                             }
                         }
-                        if (this.dyM[0] > 0) {
+                        if (this.dyZ[0] > 0) {
                             this.flags[1] = true;
                             break;
                         } else {
@@ -334,9 +334,9 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
                         return;
                     }
                 case 13:
-                    int[] iArr = this.dyM;
+                    int[] iArr = this.dyZ;
                     iArr[0] = iArr[0] - 1;
-                    if (this.dyM[0] > 0) {
+                    if (this.dyZ[0] > 0) {
                         this.flags[1] = true;
                         break;
                     } else {
@@ -362,7 +362,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
             } else {
                 this.mSendView.setEnabled(false);
             }
-        } else if (i == dyN) {
+        } else if (i == dza) {
             if (this.flags[1]) {
                 this.mSendView.setEnabled(true);
             } else {
@@ -372,23 +372,23 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     }
 
     public void setHasHint(boolean z) {
-        this.dyL = z;
+        this.dyY = z;
     }
 
     public void setHint(int i) {
-        if (this.dyD != null) {
-            this.dyD.setHint(getContext().getString(i));
+        if (this.dyQ != null) {
+            this.dyQ.setHint(getContext().getString(i));
         }
     }
 
     public void setHint(CharSequence charSequence) {
-        if (this.dyD != null) {
-            this.dyD.setHint(charSequence);
+        if (this.dyQ != null) {
+            this.dyQ.setHint(charSequence);
         }
     }
 
     public EditText getInputView() {
-        return this.dyD;
+        return this.dyQ;
     }
 
     public TextView getSendView() {
@@ -396,7 +396,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     }
 
     public LinearLayout getInputLayout() {
-        return this.dyH;
+        return this.dyU;
     }
 
     @Override // android.view.View.OnClickListener

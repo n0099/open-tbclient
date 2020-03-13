@@ -7,7 +7,7 @@ import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class af {
-    private static boolean dGU = false;
+    private static boolean dHh = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
@@ -22,12 +22,12 @@ public class af {
 
     public static void b(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            dGU = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+            dHh = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 
-    public static boolean aSv() {
-        return dGU;
+    public static boolean aSw() {
+        return dHh;
     }
 
     public static boolean mT(int i) {
@@ -60,7 +60,7 @@ public class af {
         return mT(i);
     }
 
-    public static boolean aSw() {
+    public static boolean aSx() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

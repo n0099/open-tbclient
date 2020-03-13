@@ -138,10 +138,10 @@ public class PhotoChooseAdapter extends BaseAdapter {
                 } else {
                     UiBaseUtils.setVisibility(viewHolder.photoTypeBg, 8);
                 }
-                c.dlA().O(item);
-                ImageRequest dsC = ImageRequestBuilder.Y(item).c(new d((int) (displayWidth2 / 2.0f), (int) (displayWidth3 / 2.0f))).a(b.don().vo(true).dov()).dsC();
+                c.dlB().O(item);
+                ImageRequest dsD = ImageRequestBuilder.Y(item).c(new d((int) (displayWidth2 / 2.0f), (int) (displayWidth3 / 2.0f))).a(b.doo().vo(true).dow()).dsD();
                 if (viewHolder.img != null) {
-                    viewHolder.img.setController(c.dly().vh(false).c(viewHolder.img.getController()).bg(dsC).dmp());
+                    viewHolder.img.setController(c.dlz().vh(false).c(viewHolder.img.getController()).bg(dsD).dmq());
                 }
             }
         }

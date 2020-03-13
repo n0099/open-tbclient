@@ -3,29 +3,29 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class p {
-    private o kVV = new o();
+    private o kWh = new o();
 
     public final void c(n nVar) {
-        this.kVV.a(nVar);
+        this.kWh.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.kVV.b(nVar);
+        this.kWh.b(nVar);
     }
 
-    public final List<n> cXp() {
-        return this.kVV.cXp();
+    public final List<n> cXq() {
+        return this.kWh.cXq();
     }
 
-    public final void Lm(String str) {
-        this.kVV.Lm(str);
+    public final void Ln(String str) {
+        this.kWh.Ln(str);
     }
 
-    public final void Lo(String str) {
-        this.kVV.Lm(str);
+    public final void Lp(String str) {
+        this.kWh.Ln(str);
     }
 
-    public final boolean Ln(String str) {
-        return this.kVV.Ln(str);
+    public final boolean Lo(String str) {
+        return this.kWh.Lo(str);
     }
 }

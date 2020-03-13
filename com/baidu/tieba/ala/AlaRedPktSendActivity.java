@@ -7,34 +7,36 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.ViewTreeObserver;
 import android.view.Window;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaRedPktSendActivity extends BaseFragmentActivity {
-    private com.baidu.tieba.ala.b.a eip;
-    private int eiq;
+    private com.baidu.tieba.ala.b.a eiC;
+    private int eiD;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private boolean ajw = false;
-    private boolean eir = true;
-    ViewTreeObserver.OnGlobalLayoutListener eis = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRedPktSendActivity.1
+    private boolean eiE = true;
+    ViewTreeObserver.OnGlobalLayoutListener eiF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRedPktSendActivity.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
             AlaRedPktSendActivity.this.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
             int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaRedPktSendActivity.this.getPageContext().getPageActivity());
             int[] screenFullSize = ViewCommonUtil.getScreenFullSize(AlaRedPktSendActivity.this.getPageContext().getPageActivity());
-            boolean z = AlaRedPktSendActivity.this.eiq != rect.bottom;
-            AlaRedPktSendActivity.this.eiq = rect.bottom;
+            boolean z = AlaRedPktSendActivity.this.eiD != rect.bottom;
+            AlaRedPktSendActivity.this.eiD = rect.bottom;
             if (AlaRedPktSendActivity.this.mLastScreenHeight != screenFullSize[1]) {
                 AlaRedPktSendActivity.this.mLastScreenHeight = screenFullSize[1];
             } else if (AlaRedPktSendActivity.this.mLastScreenWidth != screenFullSize[0]) {
                 AlaRedPktSendActivity.this.mLastScreenWidth = screenFullSize[0];
             }
-            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.ajw || z) && AlaRedPktSendActivity.this.eir)) {
+            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.ajw || z) && AlaRedPktSendActivity.this.eiE)) {
                 AlaRedPktSendActivity.this.ajw = true;
                 TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                 AlaRedPktSendActivity.this.onKeyboardVisibilityChanged(true);
@@ -55,26 +57,33 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
             getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
         }
         super.onCreate(bundle);
-        this.eip = new com.baidu.tieba.ala.b.a(getPageContext().getPageActivity());
-        setContentView(this.eip.getView());
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
+        this.eiC = new com.baidu.tieba.ala.b.a(getPageContext().getPageActivity());
+        setContentView(this.eiC.getView());
         Window window = getWindow();
         if (window != null) {
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.eis);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.eiF);
         }
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.eip != null) {
-            this.eip.ta();
+        if (this.eiC != null) {
+            this.eiC.ta();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.eip != null) {
-            this.eip.onKeyboardVisibilityChanged(z);
+        if (this.eiC != null) {
+            this.eiC.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -82,22 +91,22 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eir = true;
+        this.eiE = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eir = false;
+        this.eiE = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eip != null) {
-            this.eip.destroy();
+        if (this.eiC != null) {
+            this.eiC.destroy();
         }
     }
 

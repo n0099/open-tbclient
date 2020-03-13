@@ -22,13 +22,13 @@ public class AlaLivePushRemindDialog {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                d.aLl().lP(300);
-                d.aLl().gi(true);
-                d.aLl().gj(true);
-                d.aLl().gh(true);
-                d.aLl().fZ(true);
-                d.aLl().ga(true);
-                d.aLl().fY(true);
+                d.aLm().lP(300);
+                d.aLm().gi(true);
+                d.aLm().gj(true);
+                d.aLm().gh(true);
+                d.aLm().fZ(true);
+                d.aLm().ga(true);
+                d.aLm().fY(true);
                 AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
             }
         }

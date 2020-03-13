@@ -14,10 +14,10 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dXp;
+    private static a dXC;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dXq = false;
+    private boolean dXD = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -106,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dXq) {
+            while (!a.this.dXD) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -114,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dXq) {
-                    String aXs = a.this.aXs();
-                    if (aXs != null && !aXs.isEmpty()) {
-                        File file = new File(c.dXf + b.wC(aXs) + "/header_downloaded");
+                if (!a.this.dXD) {
+                    String aXt = a.this.aXt();
+                    if (aXt != null && !aXt.isEmpty()) {
+                        File file = new File(c.dXs + b.wD(aXt) + "/header_downloaded");
                         if (file.exists()) {
-                            d.z(a.TAG, "header exists " + aXs);
+                            d.z(a.TAG, "header exists " + aXt);
                         } else {
-                            d.z(a.TAG, "client preload start: " + aXs);
+                            d.z(a.TAG, "client preload start: " + aXt);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aXs);
-                                    int port = b.aXt().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aXt);
+                                    int port = b.aXu().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.z(a.TAG, "client preload check1: " + aXs);
+                                            d.z(a.TAG, "client preload check1: " + aXt);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.z(a.TAG, "client preload end: " + aXs);
+                            d.z(a.TAG, "client preload end: " + aXt);
                         }
                     }
                 } else {
@@ -293,23 +293,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aXr() {
-        if (dXp == null) {
+    public static a aXs() {
+        if (dXC == null) {
             synchronized (a.class) {
-                if (dXp == null) {
-                    dXp = new a();
+                if (dXC == null) {
+                    dXC = new a();
                 }
             }
         }
-        return dXp;
+        return dXC;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aXs() {
+    public synchronized String aXt() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void wD(String str) {
+    public synchronized void wE(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

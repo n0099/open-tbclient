@@ -38,7 +38,7 @@ public class a extends c implements e.a {
     }
 
     @Override // com.baidu.swan.apps.framework.c
-    protected void l(boolean z, boolean z2) {
+    protected void m(boolean z, boolean z2) {
         if (DEBUG) {
             Log.d("SwanAppFrame", "onNewIntent");
         }
@@ -95,8 +95,8 @@ public class a extends c implements e.a {
 
     @Override // com.baidu.swan.apps.framework.c
     protected void onCreate() {
-        this.biK.setRequestedOrientation(1);
-        com.baidu.swan.apps.as.c.V(this.biK);
+        this.biL.setRequestedOrientation(1);
+        com.baidu.swan.apps.as.c.V(this.biL);
         if (com.baidu.swan.apps.core.a.HV()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
@@ -112,7 +112,7 @@ public class a extends c implements e.a {
     @Override // com.baidu.swan.apps.framework.c
     protected void St() {
         com.baidu.swan.apps.ak.b.adQ();
-        com.baidu.swan.apps.y.f.WS().cg(this.biK);
+        com.baidu.swan.apps.y.f.WS().cg(this.biL);
     }
 
     @Override // com.baidu.swan.apps.framework.c
@@ -138,7 +138,7 @@ public class a extends c implements e.a {
         com.baidu.swan.apps.ak.b.adR();
         f.YO().YP();
         com.baidu.swan.apps.w.a.TY().HJ();
-        com.baidu.swan.apps.y.f.WS().ch(this.biK);
+        com.baidu.swan.apps.y.f.WS().ch(this.biL);
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
@@ -236,10 +236,10 @@ public class a extends c implements e.a {
 
     @Override // com.baidu.swan.apps.framework.c
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.bvx.Oq() == 1) {
+        if (i == 4 && this.bvy.Oq() == 1) {
             com.baidu.swan.apps.q.b Tf = new com.baidu.swan.apps.q.b().Tf();
             if (Tf.isShow()) {
-                com.baidu.swan.apps.q.c.Tk().a(this.biK, Tf.getImageUrl(), Tf.Tj(), Nz());
+                com.baidu.swan.apps.q.c.Tk().a(this.biL, Tf.getImageUrl(), Tf.Tj(), Nz());
                 return true;
             }
         }
@@ -250,8 +250,8 @@ public class a extends c implements e.a {
         return new c.a() { // from class: com.baidu.swan.apps.framework.a.a.2
             @Override // com.baidu.swan.apps.q.c.a
             public void NT() {
-                if (a.this.biK != null) {
-                    a.this.biK.moveTaskToBack(true);
+                if (a.this.biL != null) {
+                    a.this.biL.moveTaskToBack(true);
                 }
             }
         };
@@ -259,11 +259,11 @@ public class a extends c implements e.a {
 
     @Override // com.baidu.swan.apps.framework.c
     public void onBackPressed() {
-        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bvx.Oq());
+        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bvy.Oq());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "back";
         a(fVar);
-        com.baidu.swan.apps.core.d.b On = this.bvx.On();
+        com.baidu.swan.apps.core.d.b On = this.bvy.On();
         if (On == null || !On.IK()) {
             if (SU()) {
                 com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
@@ -277,8 +277,8 @@ public class a extends c implements e.a {
                 com.baidu.swan.apps.console.c.d("SwanAppFrame", "onBack");
                 return;
             }
-            com.baidu.swan.apps.as.d.b(GC(), this.biK);
-            this.bvx.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boh, com.baidu.swan.apps.core.d.e.bog).Ov().commit();
+            com.baidu.swan.apps.as.d.b(GC(), this.biL);
+            this.bvy.hb("navigateBack").Y(com.baidu.swan.apps.core.d.e.boi, com.baidu.swan.apps.core.d.e.boh).Ov().commit();
         }
     }
 
@@ -297,8 +297,8 @@ public class a extends c implements e.a {
                     case 102:
                         boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState();
                         com.baidu.swan.apps.w.a.Us().bU(nightModeSwitcherState);
-                        if (a.this.biK != null) {
-                            a.this.biK.i(nightModeSwitcherState, false);
+                        if (a.this.biL != null) {
+                            a.this.biL.j(nightModeSwitcherState, false);
                             return true;
                         }
                         return true;
@@ -337,7 +337,7 @@ public class a extends c implements e.a {
         com.baidu.swan.apps.statistic.search.b.o(GE());
         if (z) {
             SearchFlowEvent searchFlowEvent = new SearchFlowEvent("dom_first_paint");
-            searchFlowEvent.bVA = SearchFlowEvent.EventType.END;
+            searchFlowEvent.bVB = SearchFlowEvent.EventType.END;
             com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
         }
     }
@@ -394,7 +394,7 @@ public class a extends c implements e.a {
 
     @Override // com.baidu.swan.apps.framework.c
     protected void ST() {
-        this.bvx.a(this);
+        this.bvy.a(this);
     }
 
     @Override // com.baidu.swan.apps.core.d.e.a
@@ -406,7 +406,7 @@ public class a extends c implements e.a {
     public void SV() {
         super.SV();
         if (com.baidu.swan.apps.core.k.d.Qw().QL() != null) {
-            com.baidu.swan.apps.core.k.d.Qw().QL().H(this.biK);
+            com.baidu.swan.apps.core.k.d.Qw().QL().H(this.biL);
         }
     }
 }

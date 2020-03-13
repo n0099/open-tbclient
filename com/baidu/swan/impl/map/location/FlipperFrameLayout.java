@@ -13,8 +13,8 @@ import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes12.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
     private float BF;
-    private h cwJ;
-    private boolean cwR;
+    private h cwK;
+    private boolean cwS;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.cwJ = hVar;
+        this.cwK = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.cwR || this.cwJ == null) {
+        if (this.cwS || this.cwK == null) {
             this.BF = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.BF;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.cwJ.isFlipped() && ad(rawY)) {
-                    this.cwJ.eQ(true);
+                if (z && !this.cwK.isFlipped() && ad(rawY)) {
+                    this.cwK.eQ(true);
                     return true;
-                } else if (!z && ash() && this.cwJ.isFlipped() && ad(rawY)) {
-                    this.cwJ.eQ(false);
+                } else if (!z && ash() && this.cwK.isFlipped() && ad(rawY)) {
+                    this.cwK.eQ(false);
                     return true;
                 }
                 break;
@@ -75,11 +75,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void eO(boolean z) {
-        this.cwR = false;
+        this.cwS = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void eP(boolean z) {
-        this.cwR = true;
+        this.cwS = true;
     }
 }

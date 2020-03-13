@@ -7,17 +7,17 @@ final class d {
     /* loaded from: classes6.dex */
     public static final class a {
         public final int maximumSize;
-        public final int[] mdR;
-        public final long[] mdS;
-        public final long[] mjg;
-        public final int[] mjh;
+        public final int[] mec;
+        public final long[] med;
+        public final long[] mjr;
+        public final int[] mjs;
 
         private a(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2) {
-            this.mdS = jArr;
-            this.mdR = iArr;
+            this.med = jArr;
+            this.mec = iArr;
             this.maximumSize = i;
-            this.mjg = jArr2;
-            this.mjh = iArr2;
+            this.mjr = jArr2;
+            this.mjs = iArr2;
         }
     }
 

@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean dcq;
+    private boolean dcE;
 
     public e() {
-        this.dcq = false;
-        this.djG = true;
-        this.djA = R.color.cp_cont_a;
-        this.djC = R.color.cp_link_tip_a;
-        this.dcq = false;
-        this.djK = this.bjp;
-        this.djJ = this.djI;
+        this.dcE = false;
+        this.djT = true;
+        this.djN = R.color.cp_cont_a;
+        this.djP = R.color.cp_link_tip_a;
+        this.dcE = false;
+        this.djX = this.bjq;
+        this.djW = this.djV;
     }
 
     public void lw(@ColorRes int i) {
-        this.djA = i;
-        this.djC = R.color.cp_btn_j;
-        this.dcq = false;
-        if (this.djM != null) {
-            this.djM.aIq();
+        this.djN = i;
+        this.djP = R.color.cp_btn_j;
+        this.dcE = false;
+        if (this.djZ != null) {
+            this.djZ.aIr();
         }
     }
 
@@ -37,8 +37,8 @@ public class e extends a {
     }
 
     public void w(@DrawableRes int i, boolean z) {
-        this.djD[0] = i;
-        this.cVi = z;
+        this.djQ[0] = i;
+        this.cVj = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,12 +48,12 @@ public class e extends a {
     }
 
     private Drawable an(float f) {
-        return this.dcq ? al(f) : ao(f);
+        return this.dcE ? al(f) : ao(f);
     }
 
     private Drawable ao(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(am.getColor(this.djC));
+        gradientDrawable.setColor(am.getColor(this.djP));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;
@@ -61,7 +61,7 @@ public class e extends a {
 
     private Drawable al(float f) {
         GradientDrawable gradientDrawable;
-        int color = am.getColor(this.djC);
+        int color = am.getColor(this.djP);
         int[] iArr = {com.baidu.tieba.tbadkCore.c.Cm(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();

@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private final h cmX;
-    private AtomicBoolean cnM = new AtomicBoolean(false);
-    private List<g> cnN = Collections.synchronizedList(new ArrayList());
+    private final h cmY;
+    private AtomicBoolean cnN = new AtomicBoolean(false);
+    private List<g> cnO = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.cmX = hVar;
+        this.cmY = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -26,7 +26,7 @@ public class g implements Runnable {
         try {
             anK();
         } finally {
-            this.cmX.c(this);
+            this.cmY.c(this);
         }
     }
 
@@ -47,24 +47,24 @@ public class g implements Runnable {
     }
 
     public boolean anN() {
-        return this.cnM.get();
+        return this.cnN.get();
     }
 
     public void anO() {
-        this.cnM.set(true);
+        this.cnN.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cnN.contains(gVar)) {
-            this.cnN.add(gVar);
+        if (!this.cnO.contains(gVar)) {
+            this.cnO.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cnN.remove(gVar);
+        this.cnO.remove(gVar);
     }
 
     public boolean anP() {
-        return this.cnN.isEmpty();
+        return this.cnO.isEmpty();
     }
 }

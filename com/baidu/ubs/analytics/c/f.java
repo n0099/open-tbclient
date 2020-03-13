@@ -5,8 +5,8 @@ public final class f {
     private static boolean al = false;
     private static long am = 30000;
     private static boolean ap = false;
-    private static long kWe;
-    private static long kWf;
+    private static long kWq;
+    private static long kWr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -14,22 +14,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cXz() {
+    public static long cXA() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cXA() {
-        return kWe;
+    public static long cXB() {
+        return kWq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        kWe = j;
+        kWq = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cXB() {
+    public static boolean cXC() {
         return ak;
     }
 
@@ -44,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        kWf = j;
+        kWr = j;
     }
 
-    public static long cXC() {
-        return kWf;
+    public static long cXD() {
+        return kWr;
     }
 }

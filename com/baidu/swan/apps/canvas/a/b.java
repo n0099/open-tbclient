@@ -38,16 +38,16 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(d.bil)) {
+        if (TextUtils.isEmpty(d.bim)) {
             com.baidu.swan.apps.component.e.a.au("SwanAppAction", "canvasId is empty ");
             unitedSchemeEntity.result = eb(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.bim)) {
+        if (TextUtils.isEmpty(d.bin)) {
             com.baidu.swan.apps.component.e.a.au("SwanAppAction", "drawCanvas slaveId is empty");
             com.baidu.swan.apps.core.d.d Oo = com.baidu.swan.apps.y.f.WS().Oo();
             if (Oo != null) {
-                d.bim = Oo.NZ();
+                d.bin = Oo.NZ();
             }
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);

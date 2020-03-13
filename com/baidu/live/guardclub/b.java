@@ -6,21 +6,21 @@ import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class b extends HttpMessage {
     private long WZ;
-    private boolean apV;
-    private int apW;
+    private boolean apW;
+    private int apX;
 
     public b() {
         super(1021137);
-        this.apW = 2;
-        this.apV = false;
+        this.apX = 2;
+        this.apW = false;
     }
 
     public boolean vD() {
-        return this.apV;
+        return this.apW;
     }
 
     public void vE() {
-        this.apV = true;
+        this.apW = true;
     }
 
     public void D(long j) {
@@ -30,6 +30,6 @@ public class b extends HttpMessage {
     public void setParams() {
         addParam("scene_from", q.sI());
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.WZ + ""));
-        addParam("client_type", this.apW);
+        addParam("client_type", this.apX);
     }
 }

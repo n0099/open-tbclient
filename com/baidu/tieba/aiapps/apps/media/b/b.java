@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final SparseArray<Integer> edY = new SparseArray<>(32);
-    private static final SparseArray<String> edZ = new SparseArray<>();
+    private static final SparseArray<Integer> eel = new SparseArray<>(32);
+    private static final SparseArray<String> eem = new SparseArray<>();
 
     static {
-        edZ.put(-2022, "MEDIA_ERR_NETWORK");
-        edZ.put(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, "MEDIA_ERR_NETWORK");
-        edZ.put(3005, "MEDIA_ERR_NETWORK");
+        eem.put(-2022, "MEDIA_ERR_NETWORK");
+        eem.put(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, "MEDIA_ERR_NETWORK");
+        eem.put(3005, "MEDIA_ERR_NETWORK");
     }
 
     private static JSONObject r(String str, Object obj) {
@@ -34,6 +34,6 @@ public final class b {
     }
 
     private static String or(int i) {
-        return edZ.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
+        return eem.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 }

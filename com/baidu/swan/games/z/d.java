@@ -8,10 +8,10 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class d {
-    private b csL;
+    private b csM;
 
     public d(JsObject jsObject) {
-        this.csL = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
+        this.csM = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
         a.apS().a(this);
     }
 
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.csL != null && JSEvent.isValid(cVar)) {
+        if (this.csM != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.csL.b(cVar);
+                    this.csM.b(cVar);
                     return;
                 case true:
-                    this.csL.apU();
+                    this.csM.apU();
                     return;
                 case true:
-                    this.csL.PE();
+                    this.csM.PE();
                     return;
                 default:
                     return;

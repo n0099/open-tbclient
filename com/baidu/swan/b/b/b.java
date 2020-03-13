@@ -9,8 +9,8 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements ak {
-    private HashMap<String, Boolean> cjz = new HashMap<>();
-    private a cjA = new a();
+    private HashMap<String, Boolean> cjA = new HashMap<>();
+    private a cjB = new a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     @Nullable
@@ -19,17 +19,17 @@ public class b implements ak {
             bVar.K(null);
             return null;
         }
-        return this.cjA.b(jSONObject, a(bVar));
+        return this.cjB.b(jSONObject, a(bVar));
     }
 
     public boolean oj(String str) {
-        return TextUtils.equals(this.cjA.name, str);
+        return TextUtils.equals(this.cjB.name, str);
     }
 
     public boolean alg() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.cjz.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.cjA.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
@@ -55,7 +55,7 @@ public class b implements ak {
     public void ex(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.cjz.put(appKey, Boolean.valueOf(z));
+            this.cjA.put(appKey, Boolean.valueOf(z));
         }
     }
 

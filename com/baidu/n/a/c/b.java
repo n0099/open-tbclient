@@ -3,14 +3,14 @@ package com.baidu.n.a.c;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class b {
-    private String lCJ;
-    private boolean lCK;
-    private boolean lCL;
+    private String lCU;
+    private boolean lCV;
+    private boolean lCW;
 
     public b(String str, boolean z, boolean z2) {
-        this.lCJ = str;
-        this.lCK = z;
-        this.lCL = z2;
+        this.lCU = str;
+        this.lCV = z;
+        this.lCW = z2;
     }
 
     private static int Hf(int i) {
@@ -54,13 +54,13 @@ public class b {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - Hf; i4++) {
-                char charAt = this.lCJ.charAt(iArr[i4]);
-                if (this.lCL) {
+                char charAt = this.lCU.charAt(iArr[i4]);
+                if (this.lCW) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.lCK) {
+            if (this.lCV) {
                 for (int length = iArr.length - Hf; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }

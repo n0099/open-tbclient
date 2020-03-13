@@ -61,13 +61,13 @@ public class j extends ab {
                 com.baidu.swan.apps.core.d.d Op = GC.Op();
                 if (Op == null || TextUtils.isEmpty(Op.gX(aX.mPage))) {
                     final b.a K = com.baidu.swan.apps.core.slave.b.K(WS.WD());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lt(K.brK.IR()), 0));
-                    com.baidu.swan.apps.performance.f.aY("route", uuid).f(new UbcFlowEvent("na_pre_load_slave_check")).bb("preload", K.brL ? "1" : "0");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lt(K.brL.IR()), 0));
+                    com.baidu.swan.apps.performance.f.aY("route", uuid).f(new UbcFlowEvent("na_pre_load_slave_check")).bb("preload", K.brM ? "1" : "0");
                     com.baidu.swan.apps.core.slave.b.a(K, new b.InterfaceC0255b() { // from class: com.baidu.swan.apps.scheme.actions.k.j.1.1
                         @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0255b
                         public void onReady() {
                             com.baidu.swan.apps.performance.g.a(K, uuid);
-                            a.a(K.brK, aX, uuid);
+                            a.a(K.brL, aX, uuid);
                             com.baidu.swan.apps.performance.g.A(5, uuid);
                             j.this.d(GC, aX, uuid);
                         }

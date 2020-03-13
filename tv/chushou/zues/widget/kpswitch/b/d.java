@@ -12,9 +12,9 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class d {
-    private static int nZB = 0;
-    private static int nZC = 0;
-    private static int nZD = 0;
+    private static int nZM = 0;
+    private static int nZN = 0;
+    private static int nZO = 0;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -50,16 +50,16 @@ public class d {
         if (i < 0) {
             return false;
         }
-        nZB = i;
+        nZM = i;
         tv.chushou.zues.utils.e.k("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.j(context, i);
     }
 
     public static int ho(Context context) {
-        if (nZB == 0) {
-            nZB = b.k(context, a(context.getResources()));
+        if (nZM == 0) {
+            nZM = b.k(context, a(context.getResources()));
         }
-        return nZB;
+        return nZM;
     }
 
     public static int bl(Context context) {
@@ -67,17 +67,17 @@ public class d {
     }
 
     public static int b(Resources resources) {
-        if (nZC == 0) {
-            nZC = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (nZN == 0) {
+            nZN = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return nZC;
+        return nZN;
     }
 
     public static int a(Resources resources) {
-        if (nZD == 0) {
-            nZD = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (nZO == 0) {
+            nZO = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return nZD;
+        return nZO;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.nZp = null;
+        tv.chushou.zues.widget.kpswitch.b.a.nZA = null;
     }
 }

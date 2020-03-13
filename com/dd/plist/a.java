@@ -12,12 +12,12 @@ import java.util.LinkedList;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class a {
-    private static CharsetEncoder lGx;
+    private static CharsetEncoder lGI;
     private byte[] data;
     private int index;
 
     public static i ad(byte[] bArr) throws ParseException {
-        return new a(bArr).djt();
+        return new a(bArr).dju();
     }
 
     protected a() {
@@ -79,7 +79,7 @@ public class a {
         this.index += i;
     }
 
-    private void djs() {
+    private void djt() {
         boolean z;
         do {
             z = false;
@@ -123,87 +123,87 @@ public class a {
         return str;
     }
 
-    public i djt() throws ParseException {
+    public i dju() throws ParseException {
         this.index = 0;
         if (this.data.length >= 3 && (this.data[0] & 255) == 239 && (this.data[1] & 255) == 187 && (this.data[2] & 255) == 191) {
             Hk(3);
         }
-        djs();
+        djt();
         d('{', '(', '/');
         try {
-            return dju();
+            return djv();
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new ParseException("Reached end of input unexpectedly.", this.index);
         }
     }
 
-    private i dju() throws ParseException {
+    private i djv() throws ParseException {
         switch (this.data[this.index]) {
             case 34:
-                String djA = djA();
-                if (djA.length() == 20 && djA.charAt(4) == '-') {
+                String djB = djB();
+                if (djB.length() == 20 && djB.charAt(4) == '-') {
                     try {
-                        return new f(djA);
+                        return new f(djB);
                     } catch (Exception e) {
-                        return new k(djA);
+                        return new k(djB);
                     }
                 }
-                return new k(djA);
+                return new k(djB);
             case 40:
-                return djv();
-            case 60:
-                return djx();
-            case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
                 return djw();
+            case 60:
+                return djy();
+            case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
+                return djx();
             default:
                 if (this.data[this.index] > 47 && this.data[this.index] < 58) {
-                    return djy();
+                    return djz();
                 }
-                return new k(djz());
+                return new k(djA());
         }
     }
 
-    private d djv() throws ParseException {
+    private d djw() throws ParseException {
         skip();
-        djs();
+        djt();
         LinkedList linkedList = new LinkedList();
         while (!i(')')) {
-            linkedList.add(dju());
-            djs();
+            linkedList.add(djv());
+            djt();
             if (!i(',')) {
                 break;
             }
             skip();
-            djs();
+            djt();
         }
         k(')');
         return new d((i[]) linkedList.toArray(new i[linkedList.size()]));
     }
 
-    private g djw() throws ParseException {
-        String djz;
+    private g djx() throws ParseException {
+        String djA;
         skip();
-        djs();
+        djt();
         g gVar = new g();
         while (!i('}')) {
             if (i('\"')) {
-                djz = djA();
+                djA = djB();
             } else {
-                djz = djz();
+                djA = djA();
             }
-            djs();
+            djt();
             k('=');
-            djs();
-            gVar.put(djz, dju());
-            djs();
+            djt();
+            gVar.put(djA, djv());
+            djt();
             k(';');
-            djs();
+            djt();
         }
         skip();
         return gVar;
     }
 
-    private i djx() throws ParseException {
+    private i djy() throws ParseException {
         i iVar = null;
         skip();
         if (i('*')) {
@@ -238,22 +238,22 @@ public class a {
         return eVar;
     }
 
-    private i djy() {
-        String djz = djz();
-        if (djz.length() > 4 && djz.charAt(4) == '-') {
+    private i djz() {
+        String djA = djA();
+        if (djA.length() > 4 && djA.charAt(4) == '-') {
             try {
-                return new f(djz);
+                return new f(djA);
             } catch (Exception e) {
             }
         }
-        return new k(djz);
+        return new k(djA);
     }
 
-    private String djz() {
+    private String djA() {
         return e(' ', '\t', '\n', '\r', ',', ';', '=', ')');
     }
 
-    private String djA() throws ParseException {
+    private String djB() throws ParseException {
         skip();
         String str = "";
         boolean z = true;
@@ -266,9 +266,9 @@ public class a {
                 skip();
             } else {
                 try {
-                    String OD = OD(str);
+                    String OE = OE(str);
                     skip();
-                    return OD;
+                    return OE;
                 } catch (Exception e) {
                     throw new ParseException("The quoted string could not be parsed.", this.index);
                 }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    public static synchronized String OD(String str) throws UnsupportedEncodingException, CharacterCodingException {
+    public static synchronized String OE(String str) throws UnsupportedEncodingException, CharacterCodingException {
         String str2;
         synchronized (a.class) {
             LinkedList<Byte> linkedList = new LinkedList();
@@ -304,11 +304,11 @@ public class a {
             }
             str2 = new String(bArr, "UTF-8");
             CharBuffer wrap = CharBuffer.wrap(str2);
-            if (lGx == null) {
-                lGx = Charset.forName(HTTP.ASCII).newEncoder();
+            if (lGI == null) {
+                lGI = Charset.forName(HTTP.ASCII).newEncoder();
             }
-            if (lGx.canEncode(wrap)) {
-                str2 = lGx.encode(wrap).asCharBuffer().toString();
+            if (lGI.canEncode(wrap)) {
+                str2 = lGI.encode(wrap).asCharBuffer().toString();
             }
         }
         return str2;

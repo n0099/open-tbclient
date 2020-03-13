@@ -39,7 +39,7 @@ public class a extends c implements b.a {
         if (fC == null || !fC.isValid()) {
             com.baidu.swan.apps.console.c.e("Api-GetLocationAction", "params is invalid");
             return new com.baidu.swan.apps.api.b.b(201, "params is invalid");
-        } else if (TextUtils.isEmpty(fC.bex)) {
+        } else if (TextUtils.isEmpty(fC.bey)) {
             com.baidu.swan.apps.console.c.e("Api-GetLocationAction", "empty cb");
             return new com.baidu.swan.apps.api.b.b(201, "empty cb");
         } else {
@@ -63,7 +63,7 @@ public class a extends c implements b.a {
             return;
         }
         int errorCode = hVar.getErrorCode();
-        a(c0218a.bex, new com.baidu.swan.apps.api.b.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)));
+        a(c0218a.bey, new com.baidu.swan.apps.api.b.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
@@ -71,25 +71,25 @@ public class a extends c implements b.a {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "convert info : " + bVar.toJSON());
         }
-        a(c0218a.bex, new com.baidu.swan.apps.api.b.b(0, "success", bVar.toJSON()));
+        a(c0218a.bey, new com.baidu.swan.apps.api.b.b(0, "success", bVar.toJSON()));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(C0218a c0218a, int i) {
         com.baidu.swan.apps.console.c.e("Api-GetLocationAction", "request location error code : " + i);
-        a(c0218a.bex, new com.baidu.swan.apps.api.b.b(1001, String.valueOf(i)));
+        a(c0218a.bey, new com.baidu.swan.apps.api.b.b(1001, String.valueOf(i)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(C0218a c0218a, String str) {
-        a(c0218a.bex, new com.baidu.swan.apps.api.b.b(10005, "system deny"));
+        a(c0218a.bey, new com.baidu.swan.apps.api.b.b(10005, "system deny"));
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0218a {
-        boolean bew;
-        public String bex;
+        boolean bex;
+        public String bey;
         public String mType;
 
         public static C0218a fC(String str) {
@@ -103,9 +103,9 @@ public class a extends c implements b.a {
                 if (TextUtils.isEmpty(c0218a.mType)) {
                     c0218a.mType = CoordinateType.WGS84;
                 }
-                c0218a.bew = jSONObject.optBoolean("altitude");
-                c0218a.bex = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0218a.bex)) {
+                c0218a.bex = jSONObject.optBoolean("altitude");
+                c0218a.bey = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0218a.bey)) {
                     return null;
                 }
                 return c0218a;
@@ -119,7 +119,7 @@ public class a extends c implements b.a {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.bex);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.bey);
         }
     }
 }

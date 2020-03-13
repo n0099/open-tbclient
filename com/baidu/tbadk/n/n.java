@@ -3,24 +3,11 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n dEJ = null;
-    private boolean dEh = false;
-    private boolean dEi = false;
-    private boolean dEj = false;
-    private boolean dEk = false;
-    private long dEl = -1;
-    private long dEm = -1;
-    private long dEn = -1;
-    private long dEo = -1;
-    private long dEp = -1;
-    private long dEq = -1;
-    private long dEr = -1;
-    private long dEs = -1;
-    private long dEt = -1;
-    private long dEu = -1;
-    private long dEv = -1;
-    private long dEw = -1;
-    private long dEx = -1;
+    private static n dEW = null;
+    private boolean dEu = false;
+    private boolean dEv = false;
+    private boolean dEw = false;
+    private boolean dEx = false;
     private long dEy = -1;
     private long dEz = -1;
     private long dEA = -1;
@@ -32,174 +19,187 @@ public class n extends l {
     private long dEG = -1;
     private long dEH = -1;
     private long dEI = -1;
+    private long dEJ = -1;
+    private long dEK = -1;
+    private long dEL = -1;
+    private long dEM = -1;
+    private long dEN = -1;
+    private long dEO = -1;
+    private long dEP = -1;
+    private long dEQ = -1;
+    private long dER = -1;
+    private long dES = -1;
+    private long dET = -1;
+    private long dEU = -1;
+    private long dEV = -1;
 
-    public boolean aRo() {
-        return this.dEi;
+    public boolean aRp() {
+        return this.dEv;
     }
 
     public void gV(boolean z) {
-        this.dEh = z;
+        this.dEu = z;
     }
 
     public void bL(long j) {
-        this.dEl = j;
-    }
-
-    public long aRp() {
-        return this.dEl;
-    }
-
-    public void gW(boolean z) {
-        this.dEk = z;
-    }
-
-    public void bM(long j) {
-        this.dEm = j;
-    }
-
-    public void bN(long j) {
-        this.dEn = j;
-    }
-
-    public void bO(long j) {
-        this.dEo = j;
-    }
-
-    public void bP(long j) {
-        this.dEs = j;
-    }
-
-    public void bQ(long j) {
-        this.dEr = j;
-    }
-
-    public void bR(long j) {
-        this.dEp = j;
-    }
-
-    public void bS(long j) {
-        this.dEq = j;
-    }
-
-    public void bT(long j) {
-        this.dEG = j;
-    }
-
-    public void bU(long j) {
-        this.dEB = j;
-    }
-
-    public void bV(long j) {
-        this.dEC = j;
-    }
-
-    public void bW(long j) {
-        this.dED = j;
-    }
-
-    public void bX(long j) {
-        this.dEE = j;
-    }
-
-    public void bY(long j) {
-        this.dEH = j;
-    }
-
-    public void bZ(long j) {
-        this.dEI = j;
-        this.dEi = true;
-    }
-
-    public void ca(long j) {
-        this.dEt = j;
-    }
-
-    public void cb(long j) {
-        this.dEu = j;
-    }
-
-    public void cc(long j) {
-        this.dEw = j;
-    }
-
-    public void cd(long j) {
-        this.dEv = j;
-    }
-
-    public void ce(long j) {
-        this.dEx = j;
-    }
-
-    public void cf(long j) {
         this.dEy = j;
     }
 
-    public void cg(long j) {
+    public long aRq() {
+        return this.dEy;
+    }
+
+    public void gW(boolean z) {
+        this.dEx = z;
+    }
+
+    public void bM(long j) {
         this.dEz = j;
     }
 
-    public void ch(long j) {
+    public void bN(long j) {
         this.dEA = j;
     }
 
-    public static n aRq() {
-        if (dEJ == null) {
+    public void bO(long j) {
+        this.dEB = j;
+    }
+
+    public void bP(long j) {
+        this.dEF = j;
+    }
+
+    public void bQ(long j) {
+        this.dEE = j;
+    }
+
+    public void bR(long j) {
+        this.dEC = j;
+    }
+
+    public void bS(long j) {
+        this.dED = j;
+    }
+
+    public void bT(long j) {
+        this.dET = j;
+    }
+
+    public void bU(long j) {
+        this.dEO = j;
+    }
+
+    public void bV(long j) {
+        this.dEP = j;
+    }
+
+    public void bW(long j) {
+        this.dEQ = j;
+    }
+
+    public void bX(long j) {
+        this.dER = j;
+    }
+
+    public void bY(long j) {
+        this.dEU = j;
+    }
+
+    public void bZ(long j) {
+        this.dEV = j;
+        this.dEv = true;
+    }
+
+    public void ca(long j) {
+        this.dEG = j;
+    }
+
+    public void cb(long j) {
+        this.dEH = j;
+    }
+
+    public void cc(long j) {
+        this.dEJ = j;
+    }
+
+    public void cd(long j) {
+        this.dEI = j;
+    }
+
+    public void ce(long j) {
+        this.dEK = j;
+    }
+
+    public void cf(long j) {
+        this.dEL = j;
+    }
+
+    public void cg(long j) {
+        this.dEM = j;
+    }
+
+    public void ch(long j) {
+        this.dEN = j;
+    }
+
+    public static n aRr() {
+        if (dEW == null) {
             synchronized (n.class) {
-                if (dEJ == null) {
-                    dEJ = new n();
+                if (dEW == null) {
+                    dEW = new n();
                 }
             }
         }
-        return dEJ;
+        return dEW;
     }
 
-    public void aRr() {
-        if (this.dEI - this.dEl > 0 && !this.dEj && m.aRl().aRm()) {
-            this.dEj = true;
-            long j = this.dEm - this.dEl;
+    public void aRs() {
+        if (this.dEV - this.dEy > 0 && !this.dEw && m.aRm().aRn()) {
+            this.dEw = true;
+            long j = this.dEz - this.dEy;
             long j2 = -1;
-            if (this.dED > 0) {
-                j2 = this.dEE - this.dED;
+            if (this.dEQ > 0) {
+                j2 = this.dER - this.dEQ;
             }
-            long j3 = this.dEI - this.dEH;
+            long j3 = this.dEV - this.dEU;
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("procname", "main");
             gs.append("appc", String.valueOf(j));
-            gs.append("loadclass", String.valueOf(this.dEn));
-            gs.append("sapiinit", String.valueOf(this.dEo));
-            gs.append("acctinit", String.valueOf(this.dEp));
-            gs.append("iminit", String.valueOf(this.dEq));
-            gs.append("plugininit", String.valueOf(this.dEr));
-            gs.append("patchloaded", String.valueOf(this.dEs));
-            gs.append("naslibinit", String.valueOf(this.dEt));
-            gs.append("websocketinit", String.valueOf(this.dEu));
-            gs.append("settinginit", String.valueOf(this.dEv));
-            gs.append("toastinit", String.valueOf(this.dEw));
-            gs.append("tiebastaticinit", String.valueOf(this.dEx));
-            gs.append("locationinit", String.valueOf(this.dEy));
-            gs.append("cdninit", String.valueOf(this.dEz));
-            gs.append("messagesetinit", String.valueOf(this.dEA));
-            gs.append("logores", String.valueOf(this.dEG));
-            if (this.dEB > 0 && this.dED > 0 && j2 > 0) {
-                gs.append("adc", String.valueOf(this.dEB + this.dEC));
+            gs.append("loadclass", String.valueOf(this.dEA));
+            gs.append("sapiinit", String.valueOf(this.dEB));
+            gs.append("acctinit", String.valueOf(this.dEC));
+            gs.append("iminit", String.valueOf(this.dED));
+            gs.append("plugininit", String.valueOf(this.dEE));
+            gs.append("patchloaded", String.valueOf(this.dEF));
+            gs.append("naslibinit", String.valueOf(this.dEG));
+            gs.append("websocketinit", String.valueOf(this.dEH));
+            gs.append("settinginit", String.valueOf(this.dEI));
+            gs.append("toastinit", String.valueOf(this.dEJ));
+            gs.append("tiebastaticinit", String.valueOf(this.dEK));
+            gs.append("locationinit", String.valueOf(this.dEL));
+            gs.append("cdninit", String.valueOf(this.dEM));
+            gs.append("messagesetinit", String.valueOf(this.dEN));
+            gs.append("logores", String.valueOf(this.dET));
+            if (this.dEO > 0 && this.dEQ > 0 && j2 > 0) {
+                gs.append("adc", String.valueOf(this.dEO + this.dEP));
                 gs.append("adshow", String.valueOf(j2));
-                gs.append("adrequest", String.valueOf(this.dEC));
+                gs.append("adrequest", String.valueOf(this.dEP));
                 gs.append("hasad", "1");
             } else {
                 gs.append("hasad", "0");
             }
             gs.append("tabc", String.valueOf(j3));
-            gs.append("costt", String.valueOf(j2 + j + this.dEB + this.dEC + j3 + this.dEF));
-            gs.append("newinst", this.dEh ? "1" : "0");
-            gs.append("pluginloadsync", Boolean.valueOf(this.dEk));
-            gs.append("hptotal", String.valueOf(this.dEF));
+            gs.append("costt", String.valueOf(j2 + j + this.dEO + this.dEP + j3 + this.dES));
+            gs.append("newinst", this.dEu ? "1" : "0");
+            gs.append("pluginloadsync", Boolean.valueOf(this.dEx));
+            gs.append("hptotal", String.valueOf(this.dES));
             BdStatisticsManager.getInstance().performance("startt", gs);
             ayY();
         }
     }
 
     public void ci(long j) {
-        if (m.aRl().aRm() && j > 0) {
+        if (m.aRm().aRn() && j > 0) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("procname", "remote");
             gs.append("costt", String.valueOf(j));
@@ -208,35 +208,35 @@ public class n extends l {
     }
 
     private void ayY() {
-        this.dEh = false;
-        this.dEi = false;
-        this.dEl = -1L;
-        this.dEm = -1L;
-        this.dEn = -1L;
-        this.dEo = -1L;
-        this.dEp = -1L;
-        this.dEq = -1L;
-        this.dEr = -1L;
-        this.dEs = -1L;
-        this.dEG = -1L;
-        this.dED = -1L;
-        this.dEE = -1L;
-        this.dEB = -1L;
-        this.dEH = -1L;
-        this.dEI = -1L;
-        this.dEt = -1L;
-        this.dEu = -1L;
-        this.dEv = -1L;
-        this.dEw = -1L;
-        this.dEx = -1L;
+        this.dEu = false;
+        this.dEv = false;
         this.dEy = -1L;
         this.dEz = -1L;
         this.dEA = -1L;
+        this.dEB = -1L;
         this.dEC = -1L;
+        this.dED = -1L;
+        this.dEE = -1L;
         this.dEF = -1L;
+        this.dET = -1L;
+        this.dEQ = -1L;
+        this.dER = -1L;
+        this.dEO = -1L;
+        this.dEU = -1L;
+        this.dEV = -1L;
+        this.dEG = -1L;
+        this.dEH = -1L;
+        this.dEI = -1L;
+        this.dEJ = -1L;
+        this.dEK = -1L;
+        this.dEL = -1L;
+        this.dEM = -1L;
+        this.dEN = -1L;
+        this.dEP = -1L;
+        this.dES = -1L;
     }
 
     public void cj(long j) {
-        this.dEF = j;
+        this.dES = j;
     }
 }

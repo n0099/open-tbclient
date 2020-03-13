@@ -18,12 +18,12 @@ public class a {
         e.f fVar = new e.f();
         File file2 = new File(LC(), "app.json");
         SwanAppConfigData l = SwanAppConfigData.l(c.readFileData(file2), LC());
-        fVar.bxz = LC().getPath() + File.separator;
-        fVar.bxA = l;
+        fVar.bxA = LC().getPath() + File.separator;
+        fVar.bxB = l;
         if (DEBUG) {
             Log.d("ADBDebugBundleHelper", "configFile path: " + file2.getPath());
             Log.d("ADBDebugBundleHelper", "configFile exist: " + file2.exists());
-            Log.d("ADBDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bxz);
+            Log.d("ADBDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bxA);
         }
         return fVar;
     }

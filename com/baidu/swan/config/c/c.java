@@ -14,30 +14,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static volatile c cfs;
-    private volatile boolean cfu = false;
-    private a cft = new a();
+    private static volatile c cft;
+    private volatile boolean cfv = false;
+    private a cfu = new a();
 
     public static c aje() {
-        if (cfs == null) {
+        if (cft == null) {
             synchronized (c.class) {
-                if (cfs == null) {
-                    cfs = new c();
+                if (cft == null) {
+                    cft = new c();
                 }
             }
         }
-        return cfs;
+        return cft;
     }
 
     private c() {
     }
 
     public int ajf() {
-        if (this.cft.contains("version")) {
-            return this.cft.getInt("version", 0);
+        if (this.cfu.contains("version")) {
+            return this.cfu.getInt("version", 0);
         }
         if (ajh()) {
-            return this.cft.getInt("version", 0);
+            return this.cfu.getInt("version", 0);
         }
         return 0;
     }
@@ -65,10 +65,10 @@ public class c {
     }
 
     public Set<String> ajg() {
-        Set<String> stringSet = this.cft.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+        Set<String> stringSet = this.cfu.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
             if (ajh()) {
-                return this.cft.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+                return this.cfu.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -96,7 +96,7 @@ public class c {
 
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cft.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cfu.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -108,10 +108,10 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cft.getString(str, "");
+        String string = this.cfu.getString(str, "");
         if (TextUtils.isEmpty(string)) {
             if (ajh()) {
-                String string2 = this.cft.getString(str, "");
+                String string2 = this.cfu.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -126,7 +126,7 @@ public class c {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cfu) {
+            if (this.cfv) {
                 z = true;
             } else {
                 String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -151,7 +151,7 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cfu = true;
+                        this.cfv = true;
                         z = true;
                     } catch (JSONException e) {
                         if (e.DEBUG) {

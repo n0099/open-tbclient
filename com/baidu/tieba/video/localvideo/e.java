@@ -90,7 +90,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && Kk(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && Kl(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -133,11 +133,11 @@ public class e {
         return arrayList;
     }
 
-    public static int JS(String str) {
-        return VideoConvertUtil.JS(str);
+    public static int JT(String str) {
+        return VideoConvertUtil.JT(str);
     }
 
-    public static d Ki(String str) {
+    public static d Kj(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -182,7 +182,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d Kj(String str) {
+    public static d Kk(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -216,13 +216,13 @@ public class e {
         return dVar;
     }
 
-    public static String JR(String str) {
-        return VideoConvertUtil.JR(str);
+    public static String JS(String str) {
+        return VideoConvertUtil.JS(str);
     }
 
     public static void b(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d Ki;
+        d Kj;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -232,8 +232,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (Ki = Ki(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && Ki.getDuration() >= 1000 && Kk(Ki.getMimeType())) {
-                            list.add(Ki);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (Kj = Kj(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && Kj.getDuration() >= 1000 && Kl(Kj.getMimeType())) {
+                            list.add(Kj);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         b(path, list, z);
@@ -264,7 +264,7 @@ public class e {
         }
     }
 
-    public static boolean Kk(String str) {
+    public static boolean Kl(String str) {
         return MimeType.Video.MP4.equals(str) || "video/ext-mp4".equals(str);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes5.dex */
 class b {
-    private static volatile SharedPreferences nZs;
+    private static volatile SharedPreferences nZD;
 
     b() {
     }
@@ -14,14 +14,14 @@ class b {
     }
 
     private static SharedPreferences bh(Context context) {
-        if (nZs == null) {
+        if (nZD == null) {
             synchronized (b.class) {
-                if (nZs == null) {
-                    nZs = context.getSharedPreferences("keyboard.common", 0);
+                if (nZD == null) {
+                    nZD = context.getSharedPreferences("keyboard.common", 0);
                 }
             }
         }
-        return nZs;
+        return nZD;
     }
 
     public static int k(Context context, int i) {

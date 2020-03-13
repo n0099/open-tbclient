@@ -14,18 +14,18 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
     private k ahT;
-    private b anF;
-    private AlaGiftGraffitiShowView anG;
+    private b anG;
+    private AlaGiftGraffitiShowView anH;
     private Context mContext;
-    private boolean anD = false;
+    private boolean anE = false;
     private boolean ahf = false;
-    private b.a anH = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
+    private b.a anI = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
         @Override // com.baidu.live.gift.graffitiGift.b.a
         public void onEnd() {
             a.this.sW();
         }
     };
-    private ArrayList<c> anE = new ArrayList<>();
+    private ArrayList<c> anF = new ArrayList<>();
 
     public a(Context context, k kVar) {
         this.mContext = context;
@@ -34,29 +34,29 @@ public class a {
     }
 
     private void initView() {
-        this.anG = new AlaGiftGraffitiShowView(this.mContext);
-        this.anF = new b(this.anG, this.mContext);
-        this.anF.a(this.anH);
+        this.anH = new AlaGiftGraffitiShowView(this.mContext);
+        this.anG = new b(this.anH, this.mContext);
+        this.anG.a(this.anI);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(10);
-        this.anG.setLayoutParams(layoutParams);
-        this.ahT.K(this.anG);
+        this.anH.setLayoutParams(layoutParams);
+        this.ahT.K(this.anH);
     }
 
     public void sh() {
-        this.anD = false;
-        this.ahT.K(this.anG);
+        this.anE = false;
+        this.ahT.K(this.anH);
         sW();
     }
 
     public void e(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.anE.add(0, cVar);
-            } else if (this.anE.size() < com.baidu.live.v.a.zl().awB.aaQ) {
-                this.anE.add(cVar);
+                this.anF.add(0, cVar);
+            } else if (this.anF.size() < com.baidu.live.v.a.zl().awC.aaQ) {
+                this.anF.add(cVar);
             }
-            if (cVar.alC) {
+            if (cVar.alD) {
                 LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.XX, cVar.XY, cVar.giftId, "");
             }
             sW();
@@ -65,8 +65,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sW() {
-        if (!this.anE.isEmpty() && !this.anD && this.anF.isReady()) {
-            c remove = this.anE.remove(0);
+        if (!this.anF.isEmpty() && !this.anE && this.anG.isReady()) {
+            c remove = this.anF.remove(0);
             if (remove != null) {
                 remove.B(System.currentTimeMillis());
                 i(remove);
@@ -78,25 +78,25 @@ public class a {
     }
 
     private void i(c cVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.ahf) && this.anF.isReady()) {
-            this.anF.j(cVar);
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.ahf) && this.anG.isReady()) {
+            this.anG.j(cVar);
         }
     }
 
     public void sg() {
-        this.anD = true;
+        this.anE = true;
     }
 
     public void onDestroy() {
-        if (this.anF != null) {
-            this.anF.destory();
+        if (this.anG != null) {
+            this.anG.destory();
         }
-        this.anD = false;
+        this.anE = false;
     }
 
     public void uB() {
-        if (this.anF != null) {
-            this.anF.uB();
+        if (this.anG != null) {
+            this.anG.uB();
         }
     }
 
@@ -105,8 +105,8 @@ public class a {
     }
 
     public void sn() {
-        if (this.anF != null) {
-            this.anF.sn();
+        if (this.anG != null) {
+            this.anG.sn();
         }
     }
 }

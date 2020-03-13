@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.n.a.e;
 /* loaded from: classes6.dex */
 public class c {
-    private static c lCi;
+    private static c lCt;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -16,15 +16,15 @@ public class c {
     }
 
     public static c gc(Context context) {
-        if (lCi == null) {
+        if (lCt == null) {
             synchronized (c.class) {
-                if (lCi == null) {
-                    lCi = new c(context);
+                if (lCt == null) {
+                    lCt = new c(context);
                     com.baidu.n.a.a.ge(context);
                 }
             }
         }
-        return lCi;
+        return lCt;
     }
 
     public void a(b bVar) {
@@ -32,7 +32,7 @@ public class c {
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dhW().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
+        e.dhX().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
             @Override // com.baidu.n.a.a.b
             public void a(com.baidu.n.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dhQ(), cVar.isSupport(), cVar.dib(), cVar.dic(), cVar.did(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dhR(), cVar.isSupport(), cVar.dic(), cVar.did(), cVar.die(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dhS() {
-        com.baidu.n.a.a.c gg = e.dhW().gg(this.mCtx);
+    public a dhT() {
+        com.baidu.n.a.a.c gg = e.dhX().gg(this.mCtx);
         if (DEBUG) {
             Log.d(TAG, "同步 结果:" + gg);
         }
         if (gg == null) {
             return null;
         }
-        return new a(gg.dhQ(), gg.isSupport(), gg.dib(), gg.dic(), gg.did(), gg.getStatusCode());
+        return new a(gg.dhR(), gg.isSupport(), gg.dic(), gg.did(), gg.die(), gg.getStatusCode());
     }
 }

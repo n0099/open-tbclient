@@ -1,37 +1,37 @@
 package tv.chushou.zues.utils;
 /* loaded from: classes5.dex */
 public class e {
-    private static final tv.chushou.a.a.c.b nWH = tv.chushou.a.a.c.a.dQf();
+    private static final tv.chushou.a.a.c.b nWS = tv.chushou.a.a.c.a.dQg();
 
-    public static boolean dQr() {
-        return nWH.dQg();
+    public static boolean dQs() {
+        return nWS.dQh();
     }
 
     public static void v(String str, String str2) {
-        nWH.v(str, str2);
+        nWS.v(str, str2);
     }
 
     public static void d(String str, String str2) {
-        nWH.d(str, str2);
+        nWS.d(str, str2);
     }
 
     public static void i(String str, String str2) {
-        nWH.i(str, str2);
+        nWS.i(str, str2);
     }
 
     public static void w(String str, String str2) {
-        nWH.w(str, str2);
+        nWS.w(str, str2);
     }
 
     public static void e(String str, String str2) {
-        nWH.e(str, str2);
+        nWS.e(str, str2);
     }
 
     public static void e(String str, String str2, Throwable th) {
-        nWH.e(str, str2, th);
+        nWS.e(str, str2, th);
     }
 
     public static void k(String str, String str2, Object... objArr) {
-        nWH.d(str, tv.chushou.a.a.a.b.format(str2, objArr));
+        nWS.d(str, tv.chushou.a.a.a.b.format(str2, objArr));
     }
 }

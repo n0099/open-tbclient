@@ -10,9 +10,9 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a aPK = null;
-    private static com.baidu.poly.c.a.a aPL = null;
-    private static int aPM = 1;
+    private static com.baidu.poly.a aPL = null;
+    private static com.baidu.poly.c.a.a aPM = null;
+    private static int aPN = 1;
 
     public boolean a(Activity activity, String str, com.baidu.j.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
@@ -106,13 +106,13 @@ public class a {
     }
 
     private static com.baidu.poly.a B(Activity activity) {
-        if (aPK != null) {
-            return aPK;
+        if (aPL != null) {
+            return aPL;
         }
-        aPK = new a.C0153a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.j.a.2
+        aPL = new a.C0153a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.j.a.2
             @Override // com.baidu.poly.c.a.c
             public void a(Activity activity2, com.baidu.poly.c.a.b bVar, final com.baidu.poly.c.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.aSe == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.aSf == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -146,7 +146,7 @@ public class a {
                 }
                 switch (c) {
                     case 0:
-                        c.Eu().d(activity2, bVar.aSe.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.1
+                        c.Eu().d(activity2, bVar.aSf.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.1
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -154,7 +154,7 @@ public class a {
                         });
                         break;
                     case 1:
-                        c.Eu().a(activity2, bVar.aSe, new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.2
+                        c.Eu().a(activity2, bVar.aSf, new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.2
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -162,7 +162,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.Eu().c(activity2, bVar.aSe.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.3
+                        c.Eu().c(activity2, bVar.aSf.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.3
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -170,9 +170,9 @@ public class a {
                         });
                         break;
                     case 3:
-                        com.baidu.poly.c.a.a unused = a.aPL = aVar;
+                        com.baidu.poly.c.a.a unused = a.aPM = aVar;
                         d.Ev();
-                        c.Eu().f(activity2, bVar.aSe);
+                        c.Eu().f(activity2, bVar.aSf);
                         break;
                     default:
                         aVar.onResult(3, "未知的支付方式");
@@ -180,14 +180,14 @@ public class a {
                 }
                 activity2.finish();
             }
-        }).dt(aPM).aV(activity.getApplicationContext()).bN(false).Ey();
-        return aPK;
+        }).dt(aPN).aV(activity.getApplicationContext()).bN(false).Ey();
+        return aPL;
     }
 
     public static void s(int i, String str) {
-        if (aPL != null) {
-            aPL.onResult(i, str);
-            aPL = null;
+        if (aPM != null) {
+            aPM.onResult(i, str);
+            aPM = null;
         }
     }
 

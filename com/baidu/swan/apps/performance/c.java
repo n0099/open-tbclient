@@ -23,9 +23,9 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
         long s;
         String optString;
         com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
-        if (hybridUbcFlow != null && !hybridUbcFlow.bHv.isEmpty() && DEBUG && acF != null) {
+        if (hybridUbcFlow != null && !hybridUbcFlow.bHw.isEmpty() && DEBUG && acF != null) {
             HybridUbcFlow.SubmitStrategy ZO = hybridUbcFlow.ZO();
-            if (!hybridUbcFlow.bHt.contains("fe_route_start")) {
+            if (!hybridUbcFlow.bHu.contains("fe_route_start")) {
                 str = "na_first_receive_action";
             } else {
                 str = "fe_route_start";
@@ -49,8 +49,8 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
             }
             Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
             long j = 0;
-            long ZW = hybridUbcFlow.bHv.get(0).ZW();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.bHv) {
+            long ZW = hybridUbcFlow.bHw.get(0).ZW();
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.bHw) {
                 long s2 = hybridUbcFlow.s(ubcFlowEvent.id, str);
                 boolean z = s2 < 0;
                 boolean z2 = s2 > s;
@@ -91,7 +91,7 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
                 Log.i("RouteReporter", sb2.toString());
                 j = s2;
             }
-            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.bHv.size());
+            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.bHw.size());
             StringBuilder sb3 = new StringBuilder();
             sb3.append("\n\n小程序路由总时长：========> " + s);
             sb3.append("\nsub_state :" + (TextUtils.equals(hybridUbcFlow.jT("sub_state"), "0") ? "无需下载分包" : "需要下载分包")).append("\npreload :" + (TextUtils.equals(hybridUbcFlow.jT("preload"), "0") ? "未完成" : "已完成")).append("\nhasWebViewWidget :" + (TextUtils.equals(hybridUbcFlow.jT("web_widget_state"), "0") ? "无webview组件" : "有webview组件")).append("\ntype ：" + (TextUtils.isEmpty(hybridUbcFlow.Zz().optString("type")) ? "" : optString));

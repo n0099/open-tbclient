@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String ebL = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, ebL);
-    private int jjS;
+    private static final String ebY = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, ebY);
+    private int jke;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean bXu() {
+    public boolean bXv() {
         return this.mIsHost;
     }
 
     public void setCurrentPageIndex(int i) {
-        this.jjS = i;
+        this.jke = i;
     }
 
-    public b cwa() {
+    public b cwb() {
         return this.mData;
     }
 
-    public void cvY() {
+    public void cvZ() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!bXu()) {
+        if (!bXv()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,8 +81,8 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void GM(String str) {
-        if (this.jjS == 1 && this.mIsHost) {
+    public void GN(String str) {
+        if (this.jke == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

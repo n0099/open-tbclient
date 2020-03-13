@@ -17,13 +17,13 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends f {
     private static final String TAG = b.class.getSimpleName();
-    private final com.baidu.swan.apps.as.c.c bba;
-    private String bbb;
+    private final com.baidu.swan.apps.as.c.c bbb;
+    private String bbc;
 
     public b(e eVar) {
         super(eVar);
         b.a GE;
-        this.bba = new com.baidu.swan.apps.as.c.c();
+        this.bbb = new com.baidu.swan.apps.as.c.c();
         String str = "";
         if (eVar != null && (GE = eVar.GE()) != null) {
             str = GE.VP().getString("extra_data_uid_key", "");
@@ -32,7 +32,7 @@ public class b extends f {
     }
 
     private void a(a aVar) {
-        this.bba.b(aVar);
+        this.bbb.b(aVar);
     }
 
     public void a(final Activity activity, final Bundle bundle, com.baidu.swan.apps.a.a aVar) {
@@ -56,15 +56,15 @@ public class b extends f {
 
     @NonNull
     public String GU() {
-        return TextUtils.isEmpty(this.bbb) ? "" : this.bbb;
+        return TextUtils.isEmpty(this.bbc) ? "" : this.bbc;
     }
 
     public void setUid(String str) {
-        this.bbb = str;
+        this.bbc = str;
     }
 
     public synchronized void clear() {
-        this.bba.clear();
+        this.bbb.clear();
     }
 
     public static void a(String str, final e.a aVar) {
@@ -106,12 +106,12 @@ public class b extends f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public abstract class a extends com.baidu.swan.apps.as.c.a implements com.baidu.swan.apps.a.a {
-        private final com.baidu.swan.apps.a.a bbf;
+        private final com.baidu.swan.apps.a.a bbg;
 
         protected abstract void a(com.baidu.swan.apps.a.a aVar);
 
         private a(com.baidu.swan.apps.a.a aVar) {
-            this.bbf = aVar;
+            this.bbg = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -121,8 +121,8 @@ public class b extends f {
 
         @Override // com.baidu.swan.apps.a.a
         public void onResult(int i) {
-            if (this.bbf != null) {
-                this.bbf.onResult(i);
+            if (this.bbg != null) {
+                this.bbg.onResult(i);
             }
             finish();
         }

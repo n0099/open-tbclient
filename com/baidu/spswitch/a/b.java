@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.spswitch.b.g;
 /* loaded from: classes13.dex */
 public class b implements com.baidu.spswitch.a {
-    private final View aZV;
-    private boolean aZX = false;
+    private final View aZW;
     private boolean aZY = false;
+    private boolean aZZ = false;
 
     public b(View view) {
-        this.aZV = view;
+        this.aZW = view;
     }
 
     public int[] S(int i, int i2) {
-        if (this.aZX) {
-            this.aZV.setVisibility(8);
+        if (this.aZY) {
+            this.aZW.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
@@ -23,24 +23,24 @@ public class b implements com.baidu.spswitch.a {
 
     public boolean dN(int i) {
         if (i == 0) {
-            this.aZX = false;
+            this.aZY = false;
         }
-        if (i == this.aZV.getVisibility()) {
+        if (i == this.aZW.getVisibility()) {
             return true;
         }
         return Gp() && i == 0;
     }
 
     public void bP(boolean z) {
-        this.aZY = z;
+        this.aZZ = z;
     }
 
     public void dO(int i) {
-        g.f(this.aZV, i);
+        g.f(this.aZW, i);
     }
 
     public boolean Gp() {
-        return this.aZY;
+        return this.aZZ;
     }
 
     @Override // com.baidu.spswitch.a
@@ -50,6 +50,6 @@ public class b implements com.baidu.spswitch.a {
 
     @Override // com.baidu.spswitch.a
     public void Gi() {
-        this.aZX = true;
+        this.aZY = true;
     }
 }

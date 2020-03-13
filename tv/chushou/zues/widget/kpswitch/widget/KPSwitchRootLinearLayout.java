@@ -8,43 +8,43 @@ import android.widget.LinearLayout;
 import tv.chushou.zues.widget.kpswitch.a.c;
 /* loaded from: classes5.dex */
 public class KPSwitchRootLinearLayout extends LinearLayout {
-    public boolean nZI;
-    private c nZJ;
+    public boolean nZT;
+    private c nZU;
 
     public KPSwitchRootLinearLayout(Context context) {
         super(context);
-        this.nZI = true;
+        this.nZT = true;
         init();
     }
 
     public KPSwitchRootLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nZI = true;
+        this.nZT = true;
         init();
     }
 
     @TargetApi(11)
     public KPSwitchRootLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nZI = true;
+        this.nZT = true;
         init();
     }
 
     private void init() {
-        this.nZJ = new c(this);
+        this.nZU = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.nZI) {
-            this.nZJ.T(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        if (this.nZT) {
+            this.nZU.T(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         }
         super.onMeasure(i, i2);
     }
 
     public void setIsTranslucentStatus(boolean z) {
-        if (this.nZJ != null) {
-            this.nZJ.setIsTranslucentStatus(z);
+        if (this.nZU != null) {
+            this.nZU.setIsTranslucentStatus(z);
         }
     }
 }

@@ -80,22 +80,22 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bgr() {
+    public void bgs() {
         HttpMessage httpMessage = new HttpMessage(1001505);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bgs());
+        httpMessage.addParam("pay_id", bgt());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void yF(String str) {
+    public void yG(String str) {
         cT("channel", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetOrderHttpResponsedMessage getOrderHttpResponsedMessage) {
         String errorString;
-        as bgq = getOrderHttpResponsedMessage.bgq();
+        as bgr = getOrderHttpResponsedMessage.bgr();
         if (getOrderHttpResponsedMessage.hasError() || getOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
@@ -103,10 +103,10 @@ public class c extends a {
                 errorString = getOrderHttpResponsedMessage.getErrorString();
             }
             a(getOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bgq == null) {
+        } else if (bgr == null) {
             a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), bgq.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(bgq), bgq.pay_channel, "url".equalsIgnoreCase(bgq.call_type));
+            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), bgr.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(bgr), bgr.pay_channel, "url".equalsIgnoreCase(bgr.call_type));
         }
     }
 

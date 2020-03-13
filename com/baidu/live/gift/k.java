@@ -30,7 +30,7 @@ public class k implements u {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.gift.a.c)) {
                 com.baidu.live.gift.a.c cVar = (com.baidu.live.gift.a.c) customResponsedMessage.getData();
-                k.this.a(cVar, cVar.alv);
+                k.this.a(cVar, cVar.alw);
             }
         }
     };
@@ -71,12 +71,12 @@ public class k implements u {
     public void a(com.baidu.live.gift.a.c cVar, boolean z) {
         boolean z2 = false;
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            boolean z3 = a(cVar) || cVar.alF;
-            if (!z3 || cVar.alF || z || !this.ahf || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
+            boolean z3 = a(cVar) || cVar.alG;
+            if (!z3 || cVar.alG || z || !this.ahf || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
                 z2 = z3;
             }
             if (z2) {
-                if (!cVar.alF || cVar.priority == 1) {
+                if (!cVar.alG || cVar.priority == 1) {
                     if (z) {
                         cVar.priority = 9;
                     } else {
@@ -93,7 +93,7 @@ public class k implements u {
             }
             if (z2) {
                 c(cVar);
-            } else if (cVar.alw.ags != null && cVar.alA >= 2 && !ListUtils.isEmpty(cVar.alw.ags.ahr)) {
+            } else if (cVar.alx.ags != null && cVar.alB >= 2 && !ListUtils.isEmpty(cVar.alx.ags.ahr)) {
                 e(cVar);
             } else {
                 d(cVar);
@@ -109,10 +109,10 @@ public class k implements u {
     }
 
     private boolean b(com.baidu.live.gift.a.c cVar) {
-        if (cVar == null || cVar.alw == null) {
+        if (cVar == null || cVar.alx == null) {
             return false;
         }
-        return com.baidu.live.gift.b.b.uu().mo19do(cVar.alw.rx());
+        return com.baidu.live.gift.b.b.uu().mo19do(cVar.alx.rx());
     }
 
     private void c(com.baidu.live.gift.a.c cVar) {

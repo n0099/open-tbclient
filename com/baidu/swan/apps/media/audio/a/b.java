@@ -151,37 +151,37 @@ public class b extends ab {
             }
             switch (c) {
                 case 0:
-                    c.i("audio", "open, audio id:" + a.bAz);
+                    c.i("audio", "open, audio id:" + a.bAA);
                     a(context, callbackHandler, ja, a);
                     z = true;
                     break;
                 case 1:
-                    c.i("audio", "update, audio id:" + a.bAz);
+                    c.i("audio", "update, audio id:" + a.bAA);
                     a(context, ja, a);
                     z = true;
                     break;
                 case 2:
-                    c.i("audio", "play, audio id:" + a.bAz);
+                    c.i("audio", "play, audio id:" + a.bAA);
                     ja.a(callbackHandler);
                     z = true;
                     break;
                 case 3:
-                    c.i("audio", "pause, audio id:" + a.bAz);
+                    c.i("audio", "pause, audio id:" + a.bAA);
                     ja.pause();
                     z = true;
                     break;
                 case 4:
-                    c.i("audio", "seek, audio id:" + a.bAz);
+                    c.i("audio", "seek, audio id:" + a.bAA);
                     ja.seekTo(a.mPos);
                     z = true;
                     break;
                 case 5:
-                    c.i("audio", "stop, audio id:" + a.bAz);
+                    c.i("audio", "stop, audio id:" + a.bAA);
                     ja.stop();
                     z = true;
                     break;
                 case 6:
-                    c.i("audio", "release, audio id:" + a.bAz);
+                    c.i("audio", "release, audio id:" + a.bAA);
                     ja.release();
                     z = true;
                     break;

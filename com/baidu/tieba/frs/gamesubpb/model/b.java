@@ -5,13 +5,13 @@ import com.baidu.adp.widget.ListView.m;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class b implements m {
-    public static final BdUniqueId gDw = BdUniqueId.gen();
+    public static final BdUniqueId gDI = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
-    public String gDx;
-    public int gDy;
-    public boolean gDz;
+    public String gDJ;
+    public int gDK;
+    public boolean gDL;
     public String id;
     public String portrait;
     public String score;
@@ -25,10 +25,10 @@ public class b implements m {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString("score");
             this.createTime = jSONObject.optString("create_time");
-            this.gDx = jSONObject.optString("time_passed");
+            this.gDJ = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.gDy = jSONObject.optInt("zan_num");
-            this.gDz = jSONObject.optInt("is_zan", 0) == 1;
+            this.gDK = jSONObject.optInt("zan_num");
+            this.gDL = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
@@ -36,6 +36,6 @@ public class b implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gDw;
+        return gDI;
     }
 }

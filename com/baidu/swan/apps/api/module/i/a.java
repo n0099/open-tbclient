@@ -273,9 +273,9 @@ public class a extends c {
                     com.baidu.swan.apps.api.b.b bVar;
                     com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
                     if (aVar.aeF()) {
-                        bVar = new com.baidu.swan.apps.api.b.b(0, aVar.bTC);
+                        bVar = new com.baidu.swan.apps.api.b.b(0, aVar.bTD);
                     } else {
-                        int agk = (int) aVar.bUs.agk();
+                        int agk = (int) aVar.bUt.agk();
                         bVar = new com.baidu.swan.apps.api.b.b(agk, com.baidu.swan.apps.setting.oauth.c.gn(agk));
                         com.baidu.swan.games.u.c.h(a.this.JE().JC(), bVar.toJsonString());
                     }

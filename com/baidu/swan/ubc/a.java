@@ -26,24 +26,24 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class a {
-    private final C0369a cDR;
-    private final n cDS;
+    private final C0369a cDS;
+    private final n cDT;
     private long mTotalLength;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.cDR = new C0369a(context, "bdbehavior.db");
-        this.cDS = new n(context);
+        this.cDS = new C0369a(context, "bdbehavior.db");
+        this.cDT = new n(context);
     }
 
     /* renamed from: com.baidu.swan.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0369a {
-        private String cEf;
+        private String cEg;
         private Context mContext;
 
         C0369a(Context context, String str) {
-            this.cEf = str;
+            this.cEg = str;
             this.mContext = context.getApplicationContext();
         }
 
@@ -92,7 +92,7 @@ public class a {
                 protected boolean B(SQLiteDatabase sQLiteDatabase) {
                     return a.this.a(Zy, id, avv, sQLiteDatabase) && sQLiteDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, contentValues) != -1;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -137,7 +137,7 @@ public class a {
                     }
                     return z;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -195,7 +195,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(j jVar) {
         if (jVar != null && !TextUtils.isEmpty(jVar.getId())) {
-            SQLiteDatabase writableDatabase = this.cDR.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.cDS.getWritableDatabase();
             if (writableDatabase != null) {
             }
             final ContentValues contentValues = new ContentValues();
@@ -236,7 +236,7 @@ public class a {
             if (writableDatabase != null && !jVar.avB()) {
                 bVar.C(writableDatabase);
             }
-            bVar.C(this.cDS.getWritableDatabase());
+            bVar.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -258,7 +258,7 @@ public class a {
                 protected boolean B(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -284,7 +284,7 @@ public class a {
                 protected boolean B(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -306,7 +306,7 @@ public class a {
                     sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, "flowhandle = " + i, null);
                     return true;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -408,7 +408,7 @@ public class a {
                 }
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
         qI("flow");
         qI(NotificationCompat.CATEGORY_EVENT);
     }
@@ -424,7 +424,7 @@ public class a {
         RuntimeException runtimeException;
         Cursor cursor2 = null;
         final int i = 0;
-        SQLiteDatabase writableDatabase = this.cDS.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.cDT.getWritableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT COUNT(*), MIN(").append(IMConstants.MSG_ROW_ID).append("), MAX(").append(IMConstants.MSG_ROW_ID).append(") FROM ").append(str);
         try {
@@ -488,7 +488,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         RuntimeException e;
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         if (readableDatabase == null) {
             return;
         }
@@ -580,7 +580,7 @@ public class a {
     public void a(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ").append("eventid").append(" , ").append("type").append(" , ").append("cycle").append(" FROM ").append("config").append(" WHERE ").append("switch").append("=\"").append("1").append("\"");
         try {
@@ -670,7 +670,7 @@ public class a {
         int i = 0;
         ArrayList<j> arrayList = new ArrayList<>();
         Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         long j = Format.OFFSET_SAMPLE_RELATIVE;
         long j2 = 0;
         try {
@@ -792,7 +792,7 @@ public class a {
     private void b(ArrayList<j> arrayList, v vVar) {
         Cursor cursor;
         JSONObject jSONObject = new JSONObject();
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         Cursor cursor2 = null;
         try {
             Iterator<j> it = arrayList.iterator();
@@ -871,7 +871,7 @@ public class a {
         String string;
         int i = 0;
         Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         long j = Format.OFFSET_SAMPLE_RELATIVE;
         long j2 = 0;
         try {
@@ -1035,7 +1035,7 @@ public class a {
                     }
                     return true;
                 }
-            }.C(this.cDS.getWritableDatabase());
+            }.C(this.cDT.getWritableDatabase());
         }
     }
 
@@ -1081,7 +1081,7 @@ public class a {
                 return true;
             }
         };
-        bVar.C(this.cDS.getWritableDatabase());
+        bVar.C(this.cDT.getWritableDatabase());
         return bVar.auW();
     }
 
@@ -1091,7 +1091,7 @@ public class a {
         Cursor cursor;
         i iVar;
         StringBuilder sb = new StringBuilder();
-        SQLiteDatabase readableDatabase = this.cDS.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.cDT.getReadableDatabase();
         sb.append("SELECT ").append("state").append(" , ").append("reserve1").append(" FROM ").append("file").append(" WHERE ").append("filename").append("=\"").append(str).append("\"");
         try {
             cursor = readableDatabase.rawQuery(sb.toString(), null);
@@ -1154,7 +1154,7 @@ public class a {
                 sQLiteDatabase.replace("file", null, contentValues);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1172,7 +1172,7 @@ public class a {
                 sQLiteDatabase.delete("file", sb.toString(), null);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1183,7 +1183,7 @@ public class a {
                 sQLiteDatabase.delete("file", null, null);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1203,7 +1203,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1223,7 +1223,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1236,7 +1236,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, null, null);
                 return true;
             }
-        }.C(this.cDS.getWritableDatabase());
+        }.C(this.cDT.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1252,33 +1252,33 @@ public class a {
     }
 
     final long auU() {
-        return this.cDS.auU();
+        return this.cDT.auU();
     }
 
     final long auV() {
-        return this.cDS.auV();
+        return this.cDT.auV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public abstract class b {
-        private boolean cEg;
+        private boolean cEh;
 
         protected abstract boolean B(SQLiteDatabase sQLiteDatabase);
 
         private b() {
-            this.cEg = false;
+            this.cEh = false;
         }
 
         public void C(SQLiteDatabase sQLiteDatabase) {
             if (sQLiteDatabase != null) {
-                this.cEg = false;
+                this.cEh = false;
                 sQLiteDatabase.beginTransaction();
                 try {
                     try {
                         if (B(sQLiteDatabase)) {
                             sQLiteDatabase.setTransactionSuccessful();
-                            this.cEg = true;
+                            this.cEh = true;
                         }
                         try {
                             sQLiteDatabase.endTransaction();
@@ -1311,7 +1311,7 @@ public class a {
         }
 
         protected boolean auW() {
-            return this.cEg;
+            return this.cEh;
         }
     }
 }

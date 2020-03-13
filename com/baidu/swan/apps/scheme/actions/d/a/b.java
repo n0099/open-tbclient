@@ -24,9 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends ab {
-    private FloatButton bRJ;
-    private com.baidu.swan.apps.scheme.actions.d.a bRK;
-    private e bRL;
+    private FloatButton bRK;
+    private com.baidu.swan.apps.scheme.actions.d.a bRL;
+    private e bRM;
     private String mPackageName;
 
     public b(j jVar) {
@@ -56,10 +56,10 @@ public class b extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "packageName is empty");
                 return false;
             }
-            this.bRK = com.baidu.swan.apps.scheme.actions.d.a.adN();
-            this.bRK.ls(this.mPackageName);
-            if (this.bRK.adP() != null) {
-                this.bRJ = l(context, b);
+            this.bRL = com.baidu.swan.apps.scheme.actions.d.a.adN();
+            this.bRL.ls(this.mPackageName);
+            if (this.bRL.adP() != null) {
+                this.bRK = l(context, b);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
@@ -75,17 +75,17 @@ public class b extends ab {
                 /* renamed from: c */
                 public void D(e eVar2) {
                     if (eVar2 == null || eVar2.forbidden) {
-                        FloatButton adP = b.this.bRK.adP();
+                        FloatButton adP = b.this.bRL.adP();
                         if (adP != null) {
                             adP.setVisibility(8);
                         }
                         c.a(10005, callbackHandler, optString);
                     } else if (b.this.b(eVar2, b.optString(SuspensionBallEntity.KEY_SCHEME))) {
-                        b.this.bRL = eVar2;
+                        b.this.bRM = eVar2;
                         SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-                        b.this.bRK = com.baidu.swan.apps.scheme.actions.d.a.adN();
-                        if (b.this.bRK.adP() == null) {
-                            b.this.bRJ = b.this.l(context, b);
+                        b.this.bRL = com.baidu.swan.apps.scheme.actions.d.a.adN();
+                        if (b.this.bRL.adP() == null) {
+                            b.this.bRK = b.this.l(context, b);
                             b.this.a(optString, b, callbackHandler, swanAppActivity);
                         }
                         eVar.acV().a(VJ, (Boolean) true);
@@ -101,8 +101,8 @@ public class b extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public FloatButton l(Context context, JSONObject jSONObject) {
-        this.bRK.a((SwanAppActivity) context, jSONObject);
-        return this.bRK.adO();
+        this.bRL.a((SwanAppActivity) context, jSONObject);
+        return this.bRL.adO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,7 +110,7 @@ public class b extends ab {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : eVar.bTo) {
+        for (String str2 : eVar.bTp) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -121,13 +121,13 @@ public class b extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final JSONObject jSONObject, final CallbackHandler callbackHandler, final Activity activity) {
         if (callbackHandler != null && !TextUtils.isEmpty(str)) {
-            this.bRJ.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.2
+            this.bRK.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.2
                 @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
                 public void onClick() {
                     boolean z;
                     if (ai.isAppInstalled(activity, b.this.mPackageName)) {
                         String optString = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-                        b.this.a(activity, optString, b.this.bj(b.this.bRL.bTp.get(0), optString), callbackHandler, str);
+                        b.this.a(activity, optString, b.this.bj(b.this.bRM.bTq.get(0), optString), callbackHandler, str);
                         return;
                     }
                     try {

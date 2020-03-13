@@ -20,6 +20,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
@@ -29,6 +30,7 @@ import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.data.AlaLiveWishListData;
 import com.baidu.live.data.m;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
@@ -41,14 +43,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes3.dex */
 public class AlaWishListActivity extends BaseFragmentActivity implements View.OnTouchListener {
-    private String awo;
-    private h eht;
-    private ImageView eiW;
-    private BdListView eiX;
-    private TextView eiY;
-    private ArrayList<AlaLiveWishListData> eja;
-    private long ejb;
-    private com.baidu.tieba.ala.livewishlist.a.b ejc;
+    private String awp;
+    private h ehG;
+    private ImageView ejj;
+    private BdListView ejk;
+    private TextView ejl;
+    private ArrayList<AlaLiveWishListData> ejn;
+    private long ejo;
+    private com.baidu.tieba.ala.livewishlist.a.b ejp;
     private String mLiveId;
     private View mRootView;
     private int mScreenWidth;
@@ -56,8 +58,8 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
     private boolean agD = false;
     private boolean ajy = false;
     private boolean ajz = false;
-    private boolean eiZ = true;
-    private CustomMessageListener ejd = new CustomMessageListener(2913155) { // from class: com.baidu.tieba.ala.AlaWishListActivity.1
+    private boolean ejm = true;
+    private CustomMessageListener ejq = new CustomMessageListener(2913155) { // from class: com.baidu.tieba.ala.AlaWishListActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -78,7 +80,7 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             AlaWishListActivity.this.closeActivity();
         }
     };
-    private CustomMessageListener eje = new CustomMessageListener(2913151) { // from class: com.baidu.tieba.ala.AlaWishListActivity.7
+    private CustomMessageListener ejr = new CustomMessageListener(2913151) { // from class: com.baidu.tieba.ala.AlaWishListActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -90,24 +92,24 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             }
         }
     };
-    private h.a ehA = new h.a() { // from class: com.baidu.tieba.ala.AlaWishListActivity.8
+    private h.a ehN = new h.a() { // from class: com.baidu.tieba.ala.AlaWishListActivity.8
         @Override // com.baidu.tieba.ala.e.h.a
         public void a(ArrayList<com.baidu.tieba.ala.data.c> arrayList, String str, long j) {
-            if (AlaWishListActivity.this.ejc == null || ListUtils.isEmpty(arrayList)) {
-                if (AlaWishListActivity.this.eiY != null) {
-                    AlaWishListActivity.this.eiY.setVisibility(8);
+            if (AlaWishListActivity.this.ejp == null || ListUtils.isEmpty(arrayList)) {
+                if (AlaWishListActivity.this.ejl != null) {
+                    AlaWishListActivity.this.ejl.setVisibility(8);
                 }
             } else {
-                AlaWishListActivity.this.ejc.setData(arrayList);
-                AlaWishListActivity.this.ejb = j;
-                AlaWishListActivity.this.ejc.db(AlaWishListActivity.this.ejb);
+                AlaWishListActivity.this.ejp.setData(arrayList);
+                AlaWishListActivity.this.ejo = j;
+                AlaWishListActivity.this.ejp.db(AlaWishListActivity.this.ejo);
             }
-            if (!ListUtils.isEmpty(AlaWishListActivity.this.eja)) {
-                AlaWishListActivity.this.R(AlaWishListActivity.this.eja);
+            if (!ListUtils.isEmpty(AlaWishListActivity.this.ejn)) {
+                AlaWishListActivity.this.R(AlaWishListActivity.this.ejn);
             }
-            if (AlaWishListActivity.this.eiY != null && !TextUtils.isEmpty(str)) {
-                AlaWishListActivity.this.eiY.setVisibility(0);
-                AlaWishListActivity.this.eiY.setText(str);
+            if (AlaWishListActivity.this.ejl != null && !TextUtils.isEmpty(str)) {
+                AlaWishListActivity.this.ejl.setVisibility(0);
+                AlaWishListActivity.this.ejl.setText(str);
             }
         }
 
@@ -147,37 +149,44 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
         parserIntent();
-        this.eht = new h(getPageContext(), this.ehA);
-        this.eht.zy(this.awo);
+        this.ehG = new h(getPageContext(), this.ehN);
+        this.ehG.zz(this.awp);
         MessageManager.getInstance().registerListener(this.agU);
         MessageManager.getInstance().registerListener(this.agT);
-        MessageManager.getInstance().registerListener(this.eje);
-        MessageManager.getInstance().registerListener(this.ejd);
+        MessageManager.getInstance().registerListener(this.ejr);
+        MessageManager.getInstance().registerListener(this.ejq);
         initView();
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         this.ajy = false;
-        bbS();
+        bbT();
     }
 
-    private void bbS() {
+    private void bbT() {
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tieba.ala.AlaWishListActivity.9
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                AlaWishListActivity.this.ejb++;
-                AlaWishListActivity.this.ejc.db(AlaWishListActivity.this.ejb);
+                AlaWishListActivity.this.ejo++;
+                AlaWishListActivity.this.ejp.db(AlaWishListActivity.this.ejo);
             }
         }, 1000L, 1000L);
     }
 
     private void parserIntent() {
         this.mLiveId = getIntent().getStringExtra("live_id");
-        this.awo = getIntent().getStringExtra("anchor_id");
-        this.eiZ = getIntent().getBooleanExtra("is_guest_state", true);
+        this.awp = getIntent().getStringExtra("anchor_id");
+        this.ejm = getIntent().getBooleanExtra("is_guest_state", true);
         String stringExtra = getIntent().getStringExtra("ala_wish_list_data");
         if (!TextUtils.isEmpty(stringExtra)) {
-            this.eja = AlaLiveWishListData.toWishListData(stringExtra);
+            this.ejn = AlaLiveWishListData.toWishListData(stringExtra);
         }
     }
 
@@ -189,14 +198,14 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             this.mRootView.setBackgroundResource(a.f.ala_wish_list_bg);
         }
         setContentView(this.mRootView);
-        this.eiW = (ImageView) findViewById(a.g.wish_list_title_tv);
-        this.eiX = (BdListView) findViewById(a.g.wish_list_view);
+        this.ejj = (ImageView) findViewById(a.g.wish_list_title_tv);
+        this.ejk = (BdListView) findViewById(a.g.wish_list_view);
         View findViewById = findViewById(a.g.ala_wish_list_my_assist_tv);
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaWishListActivity.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(AlaWishListActivity.this, AlaMyAssistWishActivity.class);
-                intent.putExtra("anchor_id", AlaWishListActivity.this.awo);
+                intent.putExtra("anchor_id", AlaWishListActivity.this.awp);
                 AlaWishListActivity.this.startActivity(intent);
             }
         });
@@ -206,18 +215,18 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
                 BdLog.e("is rootview");
             }
         });
-        this.ejc = new com.baidu.tieba.ala.livewishlist.a.b(getPageContext().getPageActivity());
-        this.ejc.Z(this.eja);
-        this.ejc.jS(this.eiZ);
-        this.eiX.setAdapter((ListAdapter) this.ejc);
-        this.eiX.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.AlaWishListActivity.12
+        this.ejp = new com.baidu.tieba.ala.livewishlist.a.b(getPageContext().getPageActivity());
+        this.ejp.Z(this.ejn);
+        this.ejp.jS(this.ejm);
+        this.ejk.setAdapter((ListAdapter) this.ejp);
+        this.ejk.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.AlaWishListActivity.12
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (AlaWishListActivity.this.ejc != null && !ListUtils.isEmpty(AlaWishListActivity.this.ejc.getData()) && AlaWishListActivity.this.ejc.getData().size() > i) {
-                    com.baidu.tieba.ala.data.c cVar = AlaWishListActivity.this.ejc.getData().get(i);
-                    if (cVar.ezy < cVar.ezz && cVar.rt > AlaWishListActivity.this.ejb) {
+                if (AlaWishListActivity.this.ejp != null && !ListUtils.isEmpty(AlaWishListActivity.this.ejp.getData()) && AlaWishListActivity.this.ejp.getData().size() > i) {
+                    com.baidu.tieba.ala.data.c cVar = AlaWishListActivity.this.ejp.getData().get(i);
+                    if (cVar.ezL < cVar.ezM && cVar.rt > AlaWishListActivity.this.ejo) {
                         com.baidu.live.data.r rVar = new com.baidu.live.data.r();
-                        rVar.Yu = cVar.ezv;
+                        rVar.Yu = cVar.ezI;
                         rVar.Yt = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
                         rVar.Yv = 111;
                         AlaWishListActivity.this.a(rVar);
@@ -227,9 +236,9 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             }
         });
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_wish_tips_list_item_view, (ViewGroup) null);
-        this.eiY = (TextView) inflate.findViewById(a.g.wish_tips_tv);
-        this.eiX.addFooterView(inflate);
-        if (!this.eiZ) {
+        this.ejl = (TextView) inflate.findViewById(a.g.wish_tips_tv);
+        this.ejk.addFooterView(inflate);
+        if (!this.ejm) {
             findViewById.setVisibility(8);
         }
     }
@@ -241,8 +250,8 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(ArrayList<AlaLiveWishListData> arrayList) {
-        if (this.ejc != null && !ListUtils.isEmpty(arrayList)) {
-            this.ejc.Z(arrayList);
+        if (this.ejp != null && !ListUtils.isEmpty(arrayList)) {
+            this.ejp.Z(arrayList);
         }
     }
 
@@ -262,17 +271,17 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             } else {
                 this.mRootView.setBackgroundResource(a.f.ala_wish_list_bg);
             }
-            bbu();
+            bbv();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bbu();
+        bbv();
     }
 
-    private void bbu() {
+    private void bbv() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -336,11 +345,11 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eht != null) {
-            this.eht.onDestroy();
+        if (this.ehG != null) {
+            this.ehG.onDestroy();
         }
-        if (this.ejc != null) {
-            this.ejc.bry();
+        if (this.ejp != null) {
+            this.ejp.brz();
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -348,8 +357,8 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
         }
         MessageManager.getInstance().unRegisterListener(this.agU);
         MessageManager.getInstance().unRegisterListener(this.agT);
-        MessageManager.getInstance().unRegisterListener(this.eje);
-        MessageManager.getInstance().unRegisterListener(this.ejd);
+        MessageManager.getInstance().unRegisterListener(this.ejr);
+        MessageManager.getInstance().unRegisterListener(this.ejq);
         super.onDestroy();
     }
 

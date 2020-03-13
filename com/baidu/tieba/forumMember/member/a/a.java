@@ -17,37 +17,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private BdTypeListView ekb;
-    private o glC;
-    private r glD;
+    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
+    private BdTypeListView eko;
+    private o glP;
+    private r glQ;
 
-    public List<com.baidu.adp.widget.ListView.a> bcE() {
-        return this.asE;
+    public List<com.baidu.adp.widget.ListView.a> bcF() {
+        return this.asF;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.ekb = bdTypeListView;
-        this.asE.add(new i(baseActivity.getPageContext(), j.gkO));
-        this.asE.add(new l(baseActivity.getPageContext(), m.gla));
-        this.asE.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.j.gnV));
-        this.asE.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.gkq));
-        this.asE.add(new d(baseActivity.getPageContext(), e.gkt));
-        this.asE.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.glC = new o(baseActivity.getPageContext(), p.glq);
-        this.asE.add(this.glC);
-        this.glD = new r(baseActivity.getPageContext(), s.glA);
-        this.asE.add(this.glD);
+        this.eko = bdTypeListView;
+        this.asF.add(new i(baseActivity.getPageContext(), j.glb));
+        this.asF.add(new l(baseActivity.getPageContext(), m.gln));
+        this.asF.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.j.goi));
+        this.asF.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.gkD));
+        this.asF.add(new d(baseActivity.getPageContext(), e.gkG));
+        this.asF.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.glP = new o(baseActivity.getPageContext(), p.glD);
+        this.asF.add(this.glP);
+        this.glQ = new r(baseActivity.getPageContext(), s.glN);
+        this.asF.add(this.glQ);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ekb != null && (this.ekb.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.ekb.getAdapter().notifyDataSetChanged();
+        if (this.eko != null && (this.eko.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.eko.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.glC.onDestroy();
-        this.glD.onDestroy();
+        this.glP.onDestroy();
+        this.glQ.onDestroy();
     }
 }

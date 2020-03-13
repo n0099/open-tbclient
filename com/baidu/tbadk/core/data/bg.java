@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 public class bg {
     protected String img_url = null;
     protected String link = null;
-    protected String cQQ = null;
+    protected String cQR = null;
 
     public String aAG() {
         return this.img_url;
@@ -22,10 +22,10 @@ public class bg {
     }
 
     public String aBG() {
-        return this.cQQ;
+        return this.cQR;
     }
 
     public void sC(String str) {
-        this.cQQ = str;
+        this.cQR = str;
     }
 }

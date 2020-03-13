@@ -214,10 +214,10 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
     /* loaded from: classes7.dex */
     public static final class a<T, B> extends io.reactivex.observers.a<B> {
         boolean done;
-        final WindowBoundaryMainObserver<T, B> nyp;
+        final WindowBoundaryMainObserver<T, B> nyA;
 
         a(WindowBoundaryMainObserver<T, B> windowBoundaryMainObserver) {
-            this.nyp = windowBoundaryMainObserver;
+            this.nyA = windowBoundaryMainObserver;
         }
 
         @Override // io.reactivex.u
@@ -225,7 +225,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.nyp.innerNext(this);
+                this.nyA.innerNext(this);
             }
         }
 
@@ -236,14 +236,14 @@ public final class ObservableWindowBoundarySupplier<T, B> extends io.reactivex.i
                 return;
             }
             this.done = true;
-            this.nyp.innerError(th);
+            this.nyA.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nyp.innerComplete();
+                this.nyA.innerComplete();
             }
         }
     }

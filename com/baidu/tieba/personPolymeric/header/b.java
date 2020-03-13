@@ -33,37 +33,37 @@ import com.baidu.tieba.R;
 import tbclient.BaijiahaoInfo;
 /* loaded from: classes11.dex */
 public class b {
-    private TextView cbK;
-    private AnimatorSet fcm;
-    private com.baidu.tieba.i.a joq;
-    private ImageView jpA;
-    private TBLottieAnimationView jpB;
-    private View jpC;
-    private View jpD;
-    private TextView jpE;
+    private TextView cbL;
+    private AnimatorSet fcz;
+    private com.baidu.tieba.i.a joC;
+    private FrameLayout jpA;
+    private TextView jpB;
+    private TextView jpC;
+    private ImageView jpD;
+    private ImageView jpE;
     private ImageView jpF;
-    private TextView jpe;
-    private ImageView jpf;
-    private ImageView jpg;
-    private UserIconBox jph;
-    private FrameLayout jpi;
-    private TextView jpj;
-    private TextView jpk;
-    private FrameLayout jpl;
-    private TextView jpm;
-    private TextView jpn;
-    private FrameLayout jpo;
-    private TextView jpp;
+    private TBSpecificationBtn jpG;
+    private TBSpecificationBtn jpH;
+    private TbImageView jpI;
+    private ImageView jpJ;
+    private HeadPendantView jpK;
+    private RelativeLayout jpL;
+    private ImageView jpM;
+    private TBLottieAnimationView jpN;
+    private View jpO;
+    private View jpP;
+    private TextView jpQ;
+    private ImageView jpR;
     private TextView jpq;
     private ImageView jpr;
     private ImageView jps;
-    private ImageView jpt;
-    private TBSpecificationBtn jpu;
-    private TBSpecificationBtn jpv;
-    private TbImageView jpw;
-    private ImageView jpx;
-    private HeadPendantView jpy;
-    private RelativeLayout jpz;
+    private UserIconBox jpt;
+    private FrameLayout jpu;
+    private TextView jpv;
+    private TextView jpw;
+    private FrameLayout jpx;
+    private TextView jpy;
+    private TextView jpz;
     private View.OnClickListener mClickListener;
     private boolean mIsHost;
     private TbPageContext mPageContext;
@@ -79,69 +79,69 @@ public class b {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.person_header_layout, (ViewGroup) null);
-        this.cbK = (TextView) this.mRootView.findViewById(R.id.person_user_name);
-        this.cbK.setOnClickListener(this.mClickListener);
-        this.jpe = (TextView) this.mRootView.findViewById(R.id.person_introduction);
-        this.jpe.setAlpha(0.85f);
-        this.jpe.setOnClickListener(this.mClickListener);
-        this.jpf = (ImageView) this.mRootView.findViewById(R.id.person_header_intro_more_icon);
-        this.jpf.setOnClickListener(this.mClickListener);
-        this.jph = (UserIconBox) this.mRootView.findViewById(R.id.person_header_label_box);
-        this.jph.setOnClickListener(this.mClickListener);
-        this.jpj = (TextView) this.mRootView.findViewById(R.id.person_header_fans_num);
-        this.jpi = (FrameLayout) this.mRootView.findViewById(R.id.person_header_fans_layout);
-        this.jpi.setOnClickListener(this.mClickListener);
-        this.jpk = (TextView) this.mRootView.findViewById(R.id.person_header_fans_suffix);
-        this.jpk.setAlpha(0.8f);
-        this.jps = (ImageView) this.mRootView.findViewById(R.id.person_header_fans_icon);
-        this.jpg = (ImageView) this.mRootView.findViewById(R.id.person_header_fans_red_tip);
-        this.jpm = (TextView) this.mRootView.findViewById(R.id.person_header_attention_num);
-        this.jpl = (FrameLayout) this.mRootView.findViewById(R.id.person_header_attention_layout);
-        this.jpl.setOnClickListener(this.mClickListener);
-        this.jpn = (TextView) this.mRootView.findViewById(R.id.person_header_attention_suffix);
-        this.jpn.setAlpha(0.8f);
-        this.jpt = (ImageView) this.mRootView.findViewById(R.id.person_header_attention_icon);
-        this.jpp = (TextView) this.mRootView.findViewById(R.id.person_header_forum_num);
-        this.jpo = (FrameLayout) this.mRootView.findViewById(R.id.person_header_forum_layout);
-        this.jpo.setOnClickListener(this.mClickListener);
-        this.jpq = (TextView) this.mRootView.findViewById(R.id.person_header_forum_suffix);
-        this.jpq.setAlpha(0.8f);
-        this.jpr = (ImageView) this.mRootView.findViewById(R.id.person_header_forum_icon);
-        this.jpu = (TBSpecificationBtn) this.mRootView.findViewById(R.id.person_attention_btn);
+        this.cbL = (TextView) this.mRootView.findViewById(R.id.person_user_name);
+        this.cbL.setOnClickListener(this.mClickListener);
+        this.jpq = (TextView) this.mRootView.findViewById(R.id.person_introduction);
+        this.jpq.setAlpha(0.85f);
+        this.jpq.setOnClickListener(this.mClickListener);
+        this.jpr = (ImageView) this.mRootView.findViewById(R.id.person_header_intro_more_icon);
+        this.jpr.setOnClickListener(this.mClickListener);
+        this.jpt = (UserIconBox) this.mRootView.findViewById(R.id.person_header_label_box);
+        this.jpt.setOnClickListener(this.mClickListener);
+        this.jpv = (TextView) this.mRootView.findViewById(R.id.person_header_fans_num);
+        this.jpu = (FrameLayout) this.mRootView.findViewById(R.id.person_header_fans_layout);
         this.jpu.setOnClickListener(this.mClickListener);
+        this.jpw = (TextView) this.mRootView.findViewById(R.id.person_header_fans_suffix);
+        this.jpw.setAlpha(0.8f);
+        this.jpE = (ImageView) this.mRootView.findViewById(R.id.person_header_fans_icon);
+        this.jps = (ImageView) this.mRootView.findViewById(R.id.person_header_fans_red_tip);
+        this.jpy = (TextView) this.mRootView.findViewById(R.id.person_header_attention_num);
+        this.jpx = (FrameLayout) this.mRootView.findViewById(R.id.person_header_attention_layout);
+        this.jpx.setOnClickListener(this.mClickListener);
+        this.jpz = (TextView) this.mRootView.findViewById(R.id.person_header_attention_suffix);
+        this.jpz.setAlpha(0.8f);
+        this.jpF = (ImageView) this.mRootView.findViewById(R.id.person_header_attention_icon);
+        this.jpB = (TextView) this.mRootView.findViewById(R.id.person_header_forum_num);
+        this.jpA = (FrameLayout) this.mRootView.findViewById(R.id.person_header_forum_layout);
+        this.jpA.setOnClickListener(this.mClickListener);
+        this.jpC = (TextView) this.mRootView.findViewById(R.id.person_header_forum_suffix);
+        this.jpC.setAlpha(0.8f);
+        this.jpD = (ImageView) this.mRootView.findViewById(R.id.person_header_forum_icon);
+        this.jpG = (TBSpecificationBtn) this.mRootView.findViewById(R.id.person_attention_btn);
+        this.jpG.setOnClickListener(this.mClickListener);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar.lt(R.color.cp_cont_b);
-        this.jpu.setConfig(cVar);
-        this.jpu.setText(this.mPageContext.getString(R.string.person_attention_tip));
-        this.jpv = (TBSpecificationBtn) this.mRootView.findViewById(R.id.person_gift_icon_btn);
-        this.jpv.setOnClickListener(this.mClickListener);
+        this.jpG.setConfig(cVar);
+        this.jpG.setText(this.mPageContext.getString(R.string.person_attention_tip));
+        this.jpH = (TBSpecificationBtn) this.mRootView.findViewById(R.id.person_gift_icon_btn);
+        this.jpH.setOnClickListener(this.mClickListener);
         e eVar = new e();
         eVar.lw(R.color.cp_cont_a);
         eVar.lr(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds62));
         eVar.w(R.drawable.icon_mask_wo_list_gift24_svg, true);
-        this.jpv.setConfig(eVar);
-        this.jpw = (TbImageView) this.mRootView.findViewById(R.id.person_user_vip_icon);
-        this.jpw.setOnClickListener(this.mClickListener);
-        this.jpx = (ImageView) this.mRootView.findViewById(R.id.person_user_sex_icon);
-        this.jpy = (HeadPendantView) this.mRootView.findViewById(R.id.person_header_header_view);
-        this.jpy.setHasPendantStyle();
-        this.jpy.setDefalutResid(R.drawable.pic_mycenter_avatar_def_i);
-        this.jpy.getHeadView().setIsRound(true);
-        this.jpy.getHeadView().setDrawBorder(false);
-        this.jpy.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jpy.setOnClickListener(this.mClickListener);
-        this.jpy.setBigVDimenSize(R.dimen.tbds57);
-        this.jpy.setAuthIconType(3);
-        this.jpy.setBigVIconResId(R.drawable.ic_icon_mask_shen20_n);
-        this.jpC = this.mRootView.findViewById(R.id.person_header_ring);
-        this.jpC.setAlpha(0.33f);
-        this.jpD = this.mRootView.findViewById(R.id.person_center_my_store_layout);
-        this.jpE = (TextView) this.mRootView.findViewById(R.id.btn_person_center_my_store_text);
-        this.jpF = (ImageView) this.mRootView.findViewById(R.id.btn_person_center_my_store_img);
-        this.jpD.setOnClickListener(this.mClickListener);
-        this.jpA = (ImageView) this.mRootView.findViewById(R.id.person_header_ala_live);
-        this.jpB = (TBLottieAnimationView) this.mRootView.findViewById(R.id.living_bg_lottie);
-        this.jpz = (RelativeLayout) this.mRootView.findViewById(R.id.userheaderview_container);
+        this.jpH.setConfig(eVar);
+        this.jpI = (TbImageView) this.mRootView.findViewById(R.id.person_user_vip_icon);
+        this.jpI.setOnClickListener(this.mClickListener);
+        this.jpJ = (ImageView) this.mRootView.findViewById(R.id.person_user_sex_icon);
+        this.jpK = (HeadPendantView) this.mRootView.findViewById(R.id.person_header_header_view);
+        this.jpK.setHasPendantStyle();
+        this.jpK.setDefalutResid(R.drawable.pic_mycenter_avatar_def_i);
+        this.jpK.getHeadView().setIsRound(true);
+        this.jpK.getHeadView().setDrawBorder(false);
+        this.jpK.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jpK.setOnClickListener(this.mClickListener);
+        this.jpK.setBigVDimenSize(R.dimen.tbds57);
+        this.jpK.setAuthIconType(3);
+        this.jpK.setBigVIconResId(R.drawable.ic_icon_mask_shen20_n);
+        this.jpO = this.mRootView.findViewById(R.id.person_header_ring);
+        this.jpO.setAlpha(0.33f);
+        this.jpP = this.mRootView.findViewById(R.id.person_center_my_store_layout);
+        this.jpQ = (TextView) this.mRootView.findViewById(R.id.btn_person_center_my_store_text);
+        this.jpR = (ImageView) this.mRootView.findViewById(R.id.btn_person_center_my_store_img);
+        this.jpP.setOnClickListener(this.mClickListener);
+        this.jpM = (ImageView) this.mRootView.findViewById(R.id.person_header_ala_live);
+        this.jpN = (TBLottieAnimationView) this.mRootView.findViewById(R.id.living_bg_lottie);
+        this.jpL = (RelativeLayout) this.mRootView.findViewById(R.id.userheaderview_container);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -154,11 +154,11 @@ public class b {
         int i;
         if (userData != null) {
             this.mUserData = userData;
-            this.joq = aVar;
+            this.joC = aVar;
             if (!aq.isEmpty(this.mUserData.getName_show())) {
-                this.cbK.setText(this.mUserData.getName_show());
+                this.cbL.setText(this.mUserData.getName_show());
             }
-            this.jpe.setVisibility(0);
+            this.jpq.setVisibility(0);
             final BaijiahaoInfo baijiahaoInfo = this.mUserData.getBaijiahaoInfo();
             if (baijiahaoInfo != null && !aq.isEmpty(baijiahaoInfo.auth_desc)) {
                 intro = this.mPageContext.getResources().getString(R.string.person_auth_perfix, baijiahaoInfo.auth_desc);
@@ -171,87 +171,87 @@ public class b {
                 }
             }
             if (!aq.isEmpty(intro)) {
-                this.jpe.setVisibility(0);
-                this.jpe.setText(intro);
-                this.jpe.setEnabled(true);
+                this.jpq.setVisibility(0);
+                this.jpq.setText(intro);
+                this.jpq.setEnabled(true);
                 com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.header.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        Layout layout = b.this.jpe.getLayout();
+                        Layout layout = b.this.jpq.getLayout();
                         if (layout != null) {
                             int lineCount = layout.getLineCount();
                             if (lineCount <= 0 || layout.getEllipsisCount(lineCount - 1) <= 0) {
                                 if (!b.this.mIsHost) {
-                                    b.this.jpe.setEnabled(false);
+                                    b.this.jpq.setEnabled(false);
                                 } else if (baijiahaoInfo != null && !aq.isEmpty(baijiahaoInfo.auth_desc)) {
-                                    b.this.jpe.setEnabled(false);
+                                    b.this.jpq.setEnabled(false);
                                 }
-                                b.this.jpf.setVisibility(8);
+                                b.this.jpr.setVisibility(8);
                                 return;
                             }
-                            b.this.jpf.setVisibility(0);
+                            b.this.jpr.setVisibility(0);
                         }
                     }
                 });
             } else {
-                this.jpe.setVisibility(8);
+                this.jpq.setVisibility(8);
             }
-            this.jph.a(this.mUserData.getIconInfo(), 9, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds42), this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds42), this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
-            this.jpj.setText(aq.numFormatOverWanNa(this.mUserData.getFansNum()));
-            this.jpp.setText(aq.numFormatOverWanNa(this.mUserData.getLike_bars()));
-            this.jpm.setText(aq.numFormatOverWanNa(this.mUserData.getConcernNum()));
+            this.jpt.a(this.mUserData.getIconInfo(), 9, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds42), this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds42), this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
+            this.jpv.setText(aq.numFormatOverWanNa(this.mUserData.getFansNum()));
+            this.jpB.setText(aq.numFormatOverWanNa(this.mUserData.getLike_bars()));
+            this.jpy.setText(aq.numFormatOverWanNa(this.mUserData.getConcernNum()));
             if (this.mIsHost) {
-                this.jpu.setVisibility(8);
-                this.jpv.setVisibility(8);
+                this.jpG.setVisibility(8);
+                this.jpH.setVisibility(8);
             } else {
-                this.jpv.setVisibility(0);
-                this.jpu.setVisibility(0);
+                this.jpH.setVisibility(0);
+                this.jpG.setVisibility(0);
                 ru(this.mUserData.getHave_attention() == 1);
             }
             UserVipInfoData userVipInfo = this.mUserData.getUserVipInfo();
             if (this.mUserData.getIsMem() > 0 && userVipInfo != null && !TextUtils.isEmpty(userVipInfo.getVipIconUrl())) {
-                this.jpw.startLoad(userVipInfo.getVipIconUrl(), 10, false);
-                this.jpw.setVisibility(0);
+                this.jpI.startLoad(userVipInfo.getVipIconUrl(), 10, false);
+                this.jpI.setVisibility(0);
             } else if (this.mIsHost) {
-                this.jpw.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
-                this.jpw.setVisibility(0);
+                this.jpI.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
+                this.jpI.setVisibility(0);
             } else {
-                this.jpw.setVisibility(8);
+                this.jpI.setVisibility(8);
             }
             if (this.mUserData != null) {
                 i = this.mUserData.getSex() == 2 ? R.drawable.icon_mask_girl16_svg : R.drawable.icon_mask_boy16_svg;
             } else {
                 i = R.drawable.icon_mask_boy16_svg;
             }
-            SvgManager.aGC().a(this.jpx, i, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.aGC().a(this.jpJ, i, SvgManager.SvgResourceStateType.NORMAL);
             if (this.mUserData.getSex() == 0) {
-                this.jpx.setVisibility(8);
+                this.jpJ.setVisibility(8);
             } else {
-                this.jpx.setVisibility(0);
+                this.jpJ.setVisibility(0);
             }
             AlaUserInfoData alaUserData = this.mUserData.getAlaUserData();
             if (alaUserData != null && alaUserData.live_status == 1) {
-                this.jpB.setVisibility(0);
-                this.jpB.loop(true);
-                this.jpB.post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.header.b.2
+                this.jpN.setVisibility(0);
+                this.jpN.loop(true);
+                this.jpN.post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.header.b.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.jpB.playAnimation();
+                        b.this.jpN.playAnimation();
                     }
                 });
-                this.jpC.setVisibility(8);
-                cL(this.jpz);
-                this.jpA.setVisibility(0);
-                this.jpy.setIsclearmode(true);
-                this.jpy.tT(this.mUserData.getAvater());
+                this.jpO.setVisibility(8);
+                cL(this.jpL);
+                this.jpM.setVisibility(0);
+                this.jpK.setIsclearmode(true);
+                this.jpK.tU(this.mUserData.getAvater());
             } else {
-                this.jpy.a(this.mUserData);
-                this.jpA.setVisibility(8);
-                this.jpy.setIsclearmode(false);
-                this.jpC.setVisibility(0);
+                this.jpK.a(this.mUserData);
+                this.jpM.setVisibility(8);
+                this.jpK.setIsclearmode(false);
+                this.jpO.setVisibility(0);
             }
-            if (this.joq != null && this.joq.bMD() && !TextUtils.isEmpty(this.joq.goods_url)) {
-                this.jpD.setVisibility(0);
+            if (this.joC != null && this.joC.bME() && !TextUtils.isEmpty(this.joC.goods_url)) {
+                this.jpP.setVisibility(0);
                 if (this.mIsHost) {
                     TiebaStatic.log(new an("c13612").cy("obj_param1", "0"));
                     return;
@@ -260,7 +260,7 @@ public class b {
                     return;
                 }
             }
-            this.jpD.setVisibility(8);
+            this.jpP.setVisibility(8);
         }
     }
 
@@ -275,139 +275,139 @@ public class b {
         ofFloat2.setInterpolator(new AccelerateDecelerateInterpolator());
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        this.fcm = new AnimatorSet();
-        this.fcm.play(ofFloat).with(ofFloat2);
-        this.fcm.start();
+        this.fcz = new AnimatorSet();
+        this.fcz.play(ofFloat).with(ofFloat2);
+        this.fcz.start();
     }
 
-    public void GU(String str) {
-        this.jpy.tS(str);
+    public void GV(String str) {
+        this.jpK.tT(str);
     }
 
     public void ru(boolean z) {
         if (z) {
-            this.jpu.setText(this.mPageContext.getString(R.string.person_attention_has_attention));
-            if (this.jpu.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
-                ((com.baidu.tbadk.core.view.commonBtn.c) this.jpu.getStyleConfig()).aIt();
+            this.jpG.setText(this.mPageContext.getString(R.string.person_attention_has_attention));
+            if (this.jpG.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
+                ((com.baidu.tbadk.core.view.commonBtn.c) this.jpG.getStyleConfig()).aIu();
                 return;
             }
             return;
         }
-        this.jpu.setText(this.mPageContext.getString(R.string.person_attention_tip));
-        if (this.jpu.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
-            ((com.baidu.tbadk.core.view.commonBtn.c) this.jpu.getStyleConfig()).lt(R.color.cp_cont_b);
+        this.jpG.setText(this.mPageContext.getString(R.string.person_attention_tip));
+        if (this.jpG.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
+            ((com.baidu.tbadk.core.view.commonBtn.c) this.jpG.getStyleConfig()).lt(R.color.cp_cont_b);
         }
     }
 
     public void rv(boolean z) {
         if (z) {
-            this.jpg.setVisibility(0);
+            this.jps.setVisibility(0);
         } else {
-            this.jpg.setVisibility(8);
+            this.jps.setVisibility(8);
         }
     }
 
     public void onChangeSkinType(int i) {
-        SvgManager.aGC().a(this.jpr, R.drawable.ic_icon_pure_gerenba_ba_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.aGC().a(this.jps, R.drawable.ic_icon_pure_gerenba_fans_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.aGC().a(this.jpt, R.drawable.ic_icon_pure_gerenba_concern_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        this.jpv.aHN();
-        this.jpu.aHN();
-        SvgManager.aGC().a(this.jpf, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        this.jpA.setImageDrawable(new com.baidu.tbadk.core.util.e.b(R.drawable.ic_pic_live_mine).getDrawable());
-        SvgManager.aGC().a(this.jpF, R.drawable.ic_icon_pure_personalba_shop_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        am.setViewTextColor(this.cbK, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpe, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpj, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpk, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpm, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpn, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpp, R.color.cp_cont_a, 1, i);
+        SvgManager.aGC().a(this.jpD, R.drawable.ic_icon_pure_gerenba_ba_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aGC().a(this.jpE, R.drawable.ic_icon_pure_gerenba_fans_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aGC().a(this.jpF, R.drawable.ic_icon_pure_gerenba_concern_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        this.jpH.aHO();
+        this.jpG.aHO();
+        SvgManager.aGC().a(this.jpr, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        this.jpM.setImageDrawable(new com.baidu.tbadk.core.util.d.b(R.drawable.ic_pic_live_mine).getDrawable());
+        SvgManager.aGC().a(this.jpR, R.drawable.ic_icon_pure_personalba_shop_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        am.setViewTextColor(this.cbL, R.color.cp_cont_a, 1, i);
         am.setViewTextColor(this.jpq, R.color.cp_cont_a, 1, i);
-        am.setViewTextColor(this.jpE, R.color.cp_cont_a, 1, i);
-        am.setImageResource(this.jpg, R.drawable.icon_news_down_bar_one);
-        am.setBackgroundResource(this.jpC, R.drawable.person_header_bg, i);
+        am.setViewTextColor(this.jpv, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpw, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpy, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpz, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpB, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpC, R.color.cp_cont_a, 1, i);
+        am.setViewTextColor(this.jpQ, R.color.cp_cont_a, 1, i);
+        am.setImageResource(this.jps, R.drawable.icon_news_down_bar_one);
+        am.setBackgroundResource(this.jpO, R.drawable.person_header_bg, i);
         if (this.mUserData != null) {
-            SvgManager.aGC().a(this.jpx, this.mUserData.getSex() == 2 ? R.drawable.icon_mask_girl16_svg : R.drawable.icon_mask_boy16_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.aGC().a(this.jpJ, this.mUserData.getSex() == 2 ? R.drawable.icon_mask_girl16_svg : R.drawable.icon_mask_boy16_svg, SvgManager.SvgResourceStateType.NORMAL);
         }
         if (i == 4) {
-            if (this.jpB != null) {
-                this.jpB.setAnimation("live/personcenter_live_bg_black.json");
+            if (this.jpN != null) {
+                this.jpN.setAnimation("live/personcenter_live_bg_black.json");
             }
-            if (this.jpA != null) {
-                this.jpA.setImageDrawable(new com.baidu.tbadk.core.util.e.b(R.drawable.ic_pic_live_mine_2).getDrawable());
+            if (this.jpM != null) {
+                this.jpM.setImageDrawable(new com.baidu.tbadk.core.util.d.b(R.drawable.ic_pic_live_mine_2).getDrawable());
             }
         } else if (i == 1) {
-            if (this.jpB != null) {
-                this.jpB.setAnimation("live/personcenter_live_bg_night.json");
+            if (this.jpN != null) {
+                this.jpN.setAnimation("live/personcenter_live_bg_night.json");
             }
-            if (this.jpA != null) {
-                this.jpA.setImageDrawable(new com.baidu.tbadk.core.util.e.b(R.drawable.ic_pic_live_mine_1).getDrawable());
+            if (this.jpM != null) {
+                this.jpM.setImageDrawable(new com.baidu.tbadk.core.util.d.b(R.drawable.ic_pic_live_mine_1).getDrawable());
             }
         } else {
-            if (this.jpB != null) {
-                this.jpB.setAnimation("live/personcenter_live_bg.json");
+            if (this.jpN != null) {
+                this.jpN.setAnimation("live/personcenter_live_bg.json");
             }
-            if (this.jpA != null) {
-                this.jpA.setImageDrawable(new com.baidu.tbadk.core.util.e.b(R.drawable.ic_pic_live_mine).getDrawable());
+            if (this.jpM != null) {
+                this.jpM.setImageDrawable(new com.baidu.tbadk.core.util.d.b(R.drawable.ic_pic_live_mine).getDrawable());
             }
         }
     }
 
-    public TbImageView cxi() {
-        return this.jpw;
-    }
-
-    public View cxj() {
-        return this.jpu;
+    public TbImageView cxj() {
+        return this.jpI;
     }
 
     public View cxk() {
-        return this.jpv;
+        return this.jpG;
+    }
+
+    public View cxl() {
+        return this.jpH;
     }
 
     public TextView getUserName() {
-        return this.cbK;
+        return this.cbL;
     }
 
-    public TextView cxl() {
-        return this.jpe;
+    public TextView cxm() {
+        return this.jpq;
     }
 
-    public UserIconBox cxm() {
-        return this.jph;
-    }
-
-    public FrameLayout cxn() {
-        return this.jpi;
+    public UserIconBox cxn() {
+        return this.jpt;
     }
 
     public FrameLayout cxo() {
-        return this.jpl;
+        return this.jpu;
     }
 
     public FrameLayout cxp() {
-        return this.jpo;
+        return this.jpx;
     }
 
-    public HeadPendantView cxq() {
-        return this.jpy;
+    public FrameLayout cxq() {
+        return this.jpA;
     }
 
-    public View cxr() {
-        return this.jpD;
+    public HeadPendantView cxr() {
+        return this.jpK;
     }
 
-    public ImageView cxs() {
-        return this.jpf;
+    public View cxs() {
+        return this.jpP;
+    }
+
+    public ImageView cxt() {
+        return this.jpr;
     }
 
     public void onDestroy() {
-        if (this.fcm != null) {
-            this.fcm.cancel();
+        if (this.fcz != null) {
+            this.fcz.cancel();
         }
-        if (this.jpB != null) {
-            this.jpB.cancelAnimation();
+        if (this.jpN != null) {
+            this.jpN.cancelAnimation();
         }
     }
 }

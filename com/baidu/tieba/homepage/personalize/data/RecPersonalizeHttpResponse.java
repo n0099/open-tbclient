@@ -27,11 +27,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            g.heX = false;
+            g.hfj = false;
             if (g.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = g.bPg();
-                g.heX = true;
-                g.bPh();
+                this.resultData = g.bPh();
+                g.hfj = true;
+                g.bPi();
                 return;
             }
             this.resultData = personalizedResIdl.data;

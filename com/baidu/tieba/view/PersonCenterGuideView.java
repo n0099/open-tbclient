@@ -21,47 +21,47 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class PersonCenterGuideView extends RelativeLayout {
-    private boolean kIG;
-    private TbImageView kIH;
-    private RotateAnimation kII;
-    private AlphaAnimation kIJ;
-    private AnimationSet kIK;
-    private ObjectAnimator kIL;
-    private ObjectAnimator kIM;
-    private AnimatorSet kIN;
-    private Animation.AnimationListener kIO;
-    private final CustomMessageListener kIP;
-    private View kuU;
+    private boolean kIS;
+    private TbImageView kIT;
+    private RotateAnimation kIU;
+    private AlphaAnimation kIV;
+    private AnimationSet kIW;
+    private ObjectAnimator kIX;
+    private ObjectAnimator kIY;
+    private AnimatorSet kIZ;
+    private Animation.AnimationListener kJa;
+    private final CustomMessageListener kJb;
+    private View kvg;
     private ImageView mCloseBtn;
     private TextView mTip;
 
     public PersonCenterGuideView(Context context) {
         super(context);
-        this.kIG = false;
-        this.kIO = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.kIS = false;
+        this.kJa = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.cTx();
+                PersonCenterGuideView.this.cTy();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.kIP = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.kJb = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.kIG) {
-                    PersonCenterGuideView.this.kIG = true;
+                if (!PersonCenterGuideView.this.kIS) {
+                    PersonCenterGuideView.this.kIS = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.kuU.setVisibility(4);
-                    PersonCenterGuideView.this.kIH.startAnimation(PersonCenterGuideView.this.kIK);
-                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIG);
+                    PersonCenterGuideView.this.kvg.setVisibility(4);
+                    PersonCenterGuideView.this.kIT.startAnimation(PersonCenterGuideView.this.kIW);
+                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIS);
                 }
             }
         };
@@ -70,31 +70,31 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kIG = false;
-        this.kIO = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.kIS = false;
+        this.kJa = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.cTx();
+                PersonCenterGuideView.this.cTy();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.kIP = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.kJb = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.kIG) {
-                    PersonCenterGuideView.this.kIG = true;
+                if (!PersonCenterGuideView.this.kIS) {
+                    PersonCenterGuideView.this.kIS = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.kuU.setVisibility(4);
-                    PersonCenterGuideView.this.kIH.startAnimation(PersonCenterGuideView.this.kIK);
-                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIG);
+                    PersonCenterGuideView.this.kvg.setVisibility(4);
+                    PersonCenterGuideView.this.kIT.startAnimation(PersonCenterGuideView.this.kIW);
+                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIS);
                 }
             }
         };
@@ -103,31 +103,31 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kIG = false;
-        this.kIO = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.kIS = false;
+        this.kJa = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.cTx();
+                PersonCenterGuideView.this.cTy();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.kIP = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.kJb = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.kIG) {
-                    PersonCenterGuideView.this.kIG = true;
+                if (!PersonCenterGuideView.this.kIS) {
+                    PersonCenterGuideView.this.kIS = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.kuU.setVisibility(4);
-                    PersonCenterGuideView.this.kIH.startAnimation(PersonCenterGuideView.this.kIK);
-                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIG);
+                    PersonCenterGuideView.this.kvg.setVisibility(4);
+                    PersonCenterGuideView.this.kIT.startAnimation(PersonCenterGuideView.this.kIW);
+                    com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.kIS);
                 }
             }
         };
@@ -136,75 +136,75 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.person_center_header_guide_layout, this);
-        this.kIH = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
-        this.kIH.setIsRound(true);
-        this.kuU = findViewById(R.id.person_center_header_guide_tip_container);
+        this.kIT = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
+        this.kIT.setIsRound(true);
+        this.kvg = findViewById(R.id.person_center_header_guide_tip_container);
         this.mTip = (TextView) findViewById(R.id.person_center_header_guide_tip);
         this.mCloseBtn = (ImageView) findViewById(R.id.person_center_header_guide_close);
-        this.kII = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-        this.kII.setDuration(660L);
-        this.kII.setAnimationListener(this.kIO);
-        this.kIJ = new AlphaAnimation(0.0f, 1.0f);
-        this.kIJ.setDuration(660L);
-        this.kIK = new AnimationSet(true);
-        this.kIK.addAnimation(this.kII);
-        this.kIK.addAnimation(this.kIJ);
-        this.kIG = com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean("has_shown_person_center_guide", false);
+        this.kIU = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+        this.kIU.setDuration(660L);
+        this.kIU.setAnimationListener(this.kJa);
+        this.kIV = new AlphaAnimation(0.0f, 1.0f);
+        this.kIV.setDuration(660L);
+        this.kIW = new AnimationSet(true);
+        this.kIW.addAnimation(this.kIU);
+        this.kIW.addAnimation(this.kIV);
+        this.kIS = com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean("has_shown_person_center_guide", false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cTx() {
-        this.kuU.setVisibility(0);
-        if (this.kIL == null) {
-            this.kIL = ObjectAnimator.ofFloat(this.kuU, "translationX", -this.mTip.getWidth(), 0.0f);
+    public void cTy() {
+        this.kvg.setVisibility(0);
+        if (this.kIX == null) {
+            this.kIX = ObjectAnimator.ofFloat(this.kvg, "translationX", -this.mTip.getWidth(), 0.0f);
         }
-        if (this.kIN == null) {
-            this.kIM = ObjectAnimator.ofFloat(this.kuU, "alpha", 0.0f, 1.0f);
+        if (this.kIZ == null) {
+            this.kIY = ObjectAnimator.ofFloat(this.kvg, "alpha", 0.0f, 1.0f);
         }
-        if (this.kIN == null) {
-            this.kIN = new AnimatorSet();
-            this.kIN.setDuration(500L);
+        if (this.kIZ == null) {
+            this.kIZ = new AnimatorSet();
+            this.kIZ.setDuration(500L);
         }
-        this.kIN.play(this.kIL).with(this.kIM);
-        this.kIN.start();
+        this.kIZ.play(this.kIX).with(this.kIY);
+        this.kIZ.start();
     }
 
     public void onChangeSkinType() {
-        am.setImageResource(this.kIH, R.drawable.person_center_head_guide_circle);
+        am.setImageResource(this.kIT, R.drawable.person_center_head_guide_circle);
         am.setImageResource(this.mCloseBtn, R.drawable.icon_topbar_close_white_n);
         am.setViewTextColor(this.mTip, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.kuU, R.drawable.person_center_header_guide_tip_bg);
+        am.setBackgroundResource(this.kvg, R.drawable.person_center_header_guide_tip_bg);
     }
 
     private void clearAnim() {
-        if (this.kIN != null) {
-            this.kIN.cancel();
+        if (this.kIZ != null) {
+            this.kIZ.cancel();
         }
-        if (this.kIK != null) {
-            this.kIK.cancel();
+        if (this.kIW != null) {
+            this.kIW.cancel();
         }
-        if (this.kII != null) {
-            this.kII.cancel();
+        if (this.kIU != null) {
+            this.kIU.cancel();
         }
-        if (this.kIJ != null) {
-            this.kIJ.cancel();
+        if (this.kIV != null) {
+            this.kIV.cancel();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.kIP);
+        MessageManager.getInstance().registerListener(this.kJb);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.kIP);
+        MessageManager.getInstance().unRegisterListener(this.kJb);
         clearAnim();
     }
 
-    public void cTy() {
+    public void cTz() {
         clearAnim();
         setVisibility(8);
     }

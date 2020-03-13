@@ -12,9 +12,9 @@ import java.io.InputStream;
 public final class RawResourceDataSource implements e {
     private long bytesRemaining;
     private InputStream inputStream;
-    private final q<? super RawResourceDataSource> mFJ;
-    private boolean mFK;
-    private AssetFileDescriptor mFM;
+    private final q<? super RawResourceDataSource> mFU;
+    private boolean mFV;
+    private AssetFileDescriptor mFX;
     private final Resources resources;
     private Uri uri;
 
@@ -37,21 +37,21 @@ public final class RawResourceDataSource implements e {
                 throw new RawResourceDataSourceException("URI must use scheme rawresource");
             }
             try {
-                this.mFM = this.resources.openRawResourceFd(Integer.parseInt(this.uri.getLastPathSegment()));
-                this.inputStream = new FileInputStream(this.mFM.getFileDescriptor());
-                this.inputStream.skip(this.mFM.getStartOffset());
-                if (this.inputStream.skip(gVar.fOb) < gVar.fOb) {
+                this.mFX = this.resources.openRawResourceFd(Integer.parseInt(this.uri.getLastPathSegment()));
+                this.inputStream = new FileInputStream(this.mFX.getFileDescriptor());
+                this.inputStream.skip(this.mFX.getStartOffset());
+                if (this.inputStream.skip(gVar.fOo) < gVar.fOo) {
                     throw new EOFException();
                 }
                 if (gVar.length != -1) {
                     this.bytesRemaining = gVar.length;
                 } else {
-                    long length = this.mFM.getLength();
-                    this.bytesRemaining = length != -1 ? length - gVar.fOb : -1L;
+                    long length = this.mFX.getLength();
+                    this.bytesRemaining = length != -1 ? length - gVar.fOo : -1L;
                 }
-                this.mFK = true;
-                if (this.mFJ != null) {
-                    this.mFJ.a(this, gVar);
+                this.mFV = true;
+                if (this.mFU != null) {
+                    this.mFU.a(this, gVar);
                 }
                 return this.bytesRemaining;
             } catch (NumberFormatException e) {
@@ -82,8 +82,8 @@ public final class RawResourceDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     this.bytesRemaining -= read;
                 }
-                if (this.mFJ != null) {
-                    this.mFJ.h(this, read);
+                if (this.mFU != null) {
+                    this.mFU.h(this, read);
                 }
                 return read;
             } catch (IOException e) {
@@ -112,18 +112,18 @@ public final class RawResourceDataSource implements e {
                 this.inputStream = null;
                 try {
                     try {
-                        if (this.mFM != null) {
-                            this.mFM.close();
+                        if (this.mFX != null) {
+                            this.mFX.close();
                         }
                     } catch (IOException e) {
                         throw new RawResourceDataSourceException(e);
                     }
                 } finally {
-                    this.mFM = null;
-                    if (this.mFK) {
-                        this.mFK = false;
-                        if (this.mFJ != null) {
-                            this.mFJ.bB(this);
+                    this.mFX = null;
+                    if (this.mFV) {
+                        this.mFV = false;
+                        if (this.mFU != null) {
+                            this.mFU.bB(this);
                         }
                     }
                 }
@@ -134,14 +134,14 @@ public final class RawResourceDataSource implements e {
             this.inputStream = null;
             try {
                 try {
-                    if (this.mFM != null) {
-                        this.mFM.close();
+                    if (this.mFX != null) {
+                        this.mFX.close();
                     }
-                    this.mFM = null;
-                    if (this.mFK) {
-                        this.mFK = false;
-                        if (this.mFJ != null) {
-                            this.mFJ.bB(this);
+                    this.mFX = null;
+                    if (this.mFV) {
+                        this.mFV = false;
+                        if (this.mFU != null) {
+                            this.mFU.bB(this);
                         }
                     }
                     throw th;
@@ -149,11 +149,11 @@ public final class RawResourceDataSource implements e {
                     throw new RawResourceDataSourceException(e3);
                 }
             } finally {
-                this.mFM = null;
-                if (this.mFK) {
-                    this.mFK = false;
-                    if (this.mFJ != null) {
-                        this.mFJ.bB(this);
+                this.mFX = null;
+                if (this.mFV) {
+                    this.mFV = false;
+                    if (this.mFU != null) {
+                        this.mFU.bB(this);
                     }
                 }
             }

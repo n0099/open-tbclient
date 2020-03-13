@@ -7,19 +7,19 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b bWf;
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> bWg = new ArrayList<>();
+    public static volatile b bWg;
     private ArrayList<com.baidu.swan.apps.swancore.a.a> bWh = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> bWi = new ArrayList<>();
 
     public static b afD() {
-        if (bWf == null) {
+        if (bWg == null) {
             synchronized (b.class) {
-                if (bWf == null) {
-                    bWf = new b();
+                if (bWg == null) {
+                    bWg = new b();
                 }
             }
         }
-        return bWf;
+        return bWg;
     }
 
     public void gO(int i) {
@@ -43,9 +43,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.bWh;
+                arrayList = this.bWi;
             } else {
-                arrayList = this.bWg;
+                arrayList = this.bWh;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.1
@@ -73,17 +73,17 @@ public final class b {
     public void gP(int i) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bWg.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bWh.iterator();
                 while (it.hasNext()) {
                     a(it.next());
                 }
-                this.bWg.clear();
+                this.bWh.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bWh.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bWi.iterator();
                 while (it2.hasNext()) {
                     a(it2.next());
                 }
-                this.bWh.clear();
+                this.bWi.clear();
             }
         }
     }

@@ -20,39 +20,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class h extends j {
-    private String gFg;
-    private final CustomMessageListener gFo;
-    private bj gHQ;
-    private boolean gHR;
-    private PraiseModel gHS;
+    private final CustomMessageListener gFA;
+    private String gFs;
+    private bj gIc;
+    private boolean gId;
+    private PraiseModel gIe;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
-        this.gFo = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
+        this.gFA = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bj)) {
                     bj bjVar = (bj) customResponsedMessage.getData();
-                    h.this.gFg = bjVar.getId();
-                    if (!TextUtils.isEmpty(h.this.gFg) && bjVar.aBZ() != null) {
+                    h.this.gFs = bjVar.getId();
+                    if (!TextUtils.isEmpty(h.this.gFs) && bjVar.aBZ() != null) {
                         h.this.tI(bjVar.aBZ().getIsLike());
                     }
                 }
             }
         };
-        this.gGF.registerListener(this.gFo);
-        this.gHS = bJz();
+        this.gGR.registerListener(this.gFA);
+        this.gIe = bJA();
     }
 
-    public final PraiseModel bJz() {
-        if (this.gHS == null) {
-            this.gHS = new PraiseModel(this.gGF.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+    public final PraiseModel bJA() {
+        if (this.gIe == null) {
+            this.gIe = new PraiseModel(this.gGR.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void xq(String str) {
+                public void xr(String str) {
                     int i = 1;
-                    if (h.this.gHR) {
-                        if (h.this.gHQ != null && h.this.gHQ.aBZ().getIsLike() == 1) {
+                    if (h.this.gId) {
+                        if (h.this.gIc != null && h.this.gIc.aBZ().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.tI(i);
@@ -62,23 +62,23 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.gGF != null && h.this.gGF.getPageContext() != null && h.this.gHR && !TextUtils.isEmpty(str)) {
+                    if (h.this.gGR != null && h.this.gGR.getPageContext() != null && h.this.gId && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.bb(i, str)) {
-                            AntiHelper.bn(h.this.gGF.getPageContext().getPageActivity(), str);
+                            AntiHelper.bn(h.this.gGR.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.gGF.showToast(str);
+                            h.this.gGR.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.gHS;
+        return this.gIe;
     }
 
     public void tI(int i) {
         ArrayList<m> threadList;
-        FrsViewData bEp = this.gGF.bEp();
-        if (bEp != null && this.gom != null && (threadList = bEp.getThreadList()) != null) {
+        FrsViewData bEq = this.gGR.bEq();
+        if (bEq != null && this.goz != null && (threadList = bEq.getThreadList()) != null) {
             Iterator<m> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -86,20 +86,20 @@ public class h extends j {
                 }
                 m next = it.next();
                 if (next instanceof bi) {
-                    bj bjVar = ((bi) next).cRf;
-                    if (bjVar == this.gHQ) {
+                    bj bjVar = ((bi) next).cRg;
+                    if (bjVar == this.gIc) {
                         c(bjVar, i);
-                        this.gHQ = null;
+                        this.gIc = null;
                         break;
-                    } else if (bjVar.getId() != null && bjVar.getId().equals(this.gFg)) {
+                    } else if (bjVar.getId() != null && bjVar.getId().equals(this.gFs)) {
                         c(bjVar, i);
-                        this.gFg = null;
+                        this.gFs = null;
                         break;
                     }
                 }
             }
-            this.gom.bFf().b(threadList, bEp);
-            this.gom.bFf().notifyDataSetChanged();
+            this.goz.bFg().b(threadList, bEq);
+            this.goz.bFg().notifyDataSetChanged();
         }
     }
 
@@ -144,6 +144,6 @@ public class h extends j {
     }
 
     public void lZ(boolean z) {
-        this.gHR = z;
+        this.gId = z;
     }
 }

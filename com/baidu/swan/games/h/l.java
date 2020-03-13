@@ -29,12 +29,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes11.dex */
 public class l {
-    private static String cnY;
     private static String cnZ;
-    private static final ReadWriteLock cnV = new ReentrantReadWriteLock();
-    private static String cnW = "0123456789abcdef";
-    private static String cnX = "/aigames/sandbox/";
-    private static long coa = 0;
+    private static String coa;
+    private static final ReadWriteLock cnW = new ReentrantReadWriteLock();
+    private static String cnX = "0123456789abcdef";
+    private static String cnY = "/aigames/sandbox/";
+    private static long cob = 0;
 
     public static boolean oS(String str) {
         boolean z = true;
@@ -302,7 +302,7 @@ public class l {
             if (!TextUtils.isEmpty(str)) {
                 oZ(str);
             }
-            String str2 = dv + File.separator + cnZ + cnX;
+            String str2 = dv + File.separator + coa + cnY;
             if (!TextUtils.isEmpty(str2)) {
                 oZ(str2);
             }
@@ -398,10 +398,10 @@ public class l {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(cnY) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            cnY = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(cnZ) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            cnZ = externalFilesDir.getAbsolutePath();
         }
-        return cnY;
+        return cnZ;
     }
 
     public static String dw(Context context) {
@@ -560,25 +560,25 @@ public class l {
         if (bVar2 == null || bVar == null) {
             return false;
         }
-        Map<String, Object> map2 = bVar.cmU;
-        if (bVar.cmU == null) {
+        Map<String, Object> map2 = bVar.cmV;
+        if (bVar.cmV == null) {
             return false;
         }
-        c cVar = bVar.cmS;
+        c cVar = bVar.cmT;
         JsFunction d = d(LivenessStat.TYPE_FACE_MATCH_FAIL, map2);
         JsFunction d2 = d(com.baidu.mobads.openad.c.b.COMPLETE, map2);
         JsFunction d3 = d("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            bVar2.errMsg = bVar.cmT + str;
+            bVar2.errMsg = bVar.cmU + str;
             a(aVar, bVar2.errMsg);
             a(d, d2, bVar2, d3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.cmT + "unknown error";
+            bVar2.errMsg = bVar.cmU + "unknown error";
             a(d, d2, bVar2, d3);
             return false;
         } else {
-            bVar2.errMsg = bVar.cmT + cVar.errMsg;
+            bVar2.errMsg = bVar.cmU + cVar.errMsg;
             if (cVar.errCode != 0) {
                 a(d, d2, bVar2, d3);
                 return false;
@@ -593,14 +593,14 @@ public class l {
 
     public static b a(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.cmS = cVar;
-        bVar.cmT = str;
-        bVar.cmU = map;
+        bVar.cmT = cVar;
+        bVar.cmU = str;
+        bVar.cmV = map;
         return bVar;
     }
 
     public static void aY(long j) {
-        cnV.writeLock().lock();
+        cnW.writeLock().lock();
         try {
             File file = new File(getBasePath() + File.separator + "record.pro");
             if (!file.exists()) {
@@ -612,16 +612,16 @@ public class l {
                 e.printStackTrace();
             }
         } finally {
-            cnV.writeLock().unlock();
+            cnW.writeLock().unlock();
         }
     }
 
     public static boolean aZ(long j) {
-        cnV.readLock().lock();
+        cnW.readLock().lock();
         try {
             return anW() + j > Config.RAVEN_LOG_LIMIT;
         } finally {
-            cnV.readLock().unlock();
+            cnW.readLock().unlock();
         }
     }
 
@@ -1061,7 +1061,7 @@ public class l {
     }
 
     public static String bN(String str, String str2) {
-        return dv(AppRuntime.getAppContext()) + File.separator + str + cnX + str2;
+        return dv(AppRuntime.getAppContext()) + File.separator + str + cnY + str2;
     }
 
     public static String pe(String str) {
@@ -1080,10 +1080,10 @@ public class l {
     }
 
     public static long anX() {
-        return coa;
+        return cob;
     }
 
     public static void ba(long j) {
-        coa = j;
+        cob = j;
     }
 }

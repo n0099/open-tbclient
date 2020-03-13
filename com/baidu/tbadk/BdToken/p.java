@@ -10,13 +10,13 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static p cIL;
-    private b cIK;
+    private static p cIM;
+    private b cIL;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tbadk.BdToken.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (p.this.cIK != null && customResponsedMessage != null) {
+            if (p.this.cIL != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
                     p.this.ayb();
@@ -34,14 +34,14 @@ public class p {
     };
 
     public static p aya() {
-        if (cIL == null) {
+        if (cIM == null) {
             synchronized (p.class) {
-                if (cIL == null) {
-                    cIL = new p();
+                if (cIM == null) {
+                    cIM = new p();
                 }
             }
         }
-        return cIL;
+        return cIM;
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -52,20 +52,20 @@ public class p {
     }
 
     public void q(b bVar) {
-        this.cIK = bVar;
+        this.cIL = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ayb() {
-        if (this.cIK != null && this.cIK.getActivityId() != 0 && this.cIK.axj() != 0 && this.cIK.getTaskType() == 9) {
+        if (this.cIL != null && this.cIL.getActivityId() != 0 && this.cIL.axj() != 0 && this.cIL.getTaskType() == 9) {
             try {
-                String valueOf = String.valueOf(this.cIK.getActivityId());
-                String valueOf2 = String.valueOf(this.cIK.axj());
+                String valueOf = String.valueOf(this.cIL.getActivityId());
+                String valueOf2 = String.valueOf(this.cIL.axj());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
                 completeTaskReqMsg.completeId = jSONObject.toString();
-                JSONObject a = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.cIK.getActivityId(), this.cIK.axj(), this.cIK.getToken());
+                JSONObject a = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.cIL.getActivityId(), this.cIL.axj(), this.cIL.getToken());
                 if (a != null) {
                     completeTaskReqMsg.setToken(a.toString());
                 }

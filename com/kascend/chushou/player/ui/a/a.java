@@ -11,12 +11,12 @@ import java.util.concurrent.TimeUnit;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class a {
-    private BangInfo nat;
-    private AutoBang nau;
-    private final SparseArrayCompat<BangListInfo> nav = new SparseArrayCompat<>();
-    private IconConfig.Config naw = new IconConfig.Config();
-    private InterfaceC0700a nax;
-    private b nay;
+    private BangInfo naE;
+    private AutoBang naF;
+    private final SparseArrayCompat<BangListInfo> naG = new SparseArrayCompat<>();
+    private IconConfig.Config naH = new IconConfig.Config();
+    private InterfaceC0700a naI;
+    private b naJ;
 
     /* renamed from: com.kascend.chushou.player.ui.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -29,17 +29,17 @@ public class a {
     }
 
     public a(InterfaceC0700a interfaceC0700a) {
-        this.nax = interfaceC0700a;
+        this.naI = interfaceC0700a;
     }
 
     public void a() {
-        this.naw = new IconConfig.Config();
-        this.nat = null;
-        this.nau = null;
-        this.nav.clear();
-        if (this.nay != null) {
-            this.nay.dispose();
-            this.nay = null;
+        this.naH = new IconConfig.Config();
+        this.naE = null;
+        this.naF = null;
+        this.naG.clear();
+        if (this.naJ != null) {
+            this.naJ.dispose();
+            this.naJ = null;
         }
     }
 
@@ -49,45 +49,45 @@ public class a {
 
     public void a(SparseArrayCompat<BangListInfo> sparseArrayCompat) {
         if (sparseArrayCompat != null) {
-            this.nav.clear();
+            this.naG.clear();
             for (int i = 0; i < sparseArrayCompat.size(); i++) {
-                this.nav.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
+                this.naG.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
             }
         }
     }
 
     public void a(IconConfig.Config config) {
         if (config != null) {
-            this.naw = config;
-            if (this.nax != null) {
-                this.nax.a(config);
+            this.naH = config;
+            if (this.naI != null) {
+                this.naI.a(config);
             }
         }
     }
 
     public void a(BangInfo bangInfo) {
         if (bangInfo != null) {
-            this.nat = bangInfo;
-            if (this.nax != null) {
-                this.nax.a(bangInfo, a(bangInfo.mLevel));
+            this.naE = bangInfo;
+            if (this.naI != null) {
+                this.naI.a(bangInfo, a(bangInfo.mLevel));
             }
         }
     }
 
     public void a(AutoBang autoBang) {
         if (autoBang != null && autoBang.bangTime != 0) {
-            AutoBang autoBang2 = this.nau;
+            AutoBang autoBang2 = this.naF;
             if (autoBang.isDone) {
                 if (autoBang2 != null) {
-                    if (autoBang.bangTime >= autoBang2.currentTime && this.nay != null) {
-                        this.nay.dispose();
-                        this.nay = null;
+                    if (autoBang.bangTime >= autoBang2.currentTime && this.naJ != null) {
+                        this.naJ.dispose();
+                        this.naJ = null;
                         return;
                     }
                     return;
-                } else if (this.nay != null) {
-                    this.nay.dispose();
-                    this.nay = null;
+                } else if (this.naJ != null) {
+                    this.naJ.dispose();
+                    this.naJ = null;
                     return;
                 } else {
                     return;
@@ -103,41 +103,41 @@ public class a {
             }
             final long j = (autoBang3.bangTime - autoBang3.currentTime) / 1000;
             if (j <= 0) {
-                if (this.nay != null) {
-                    this.nay.dispose();
-                    this.nay = null;
+                if (this.naJ != null) {
+                    this.naJ.dispose();
+                    this.naJ = null;
                     return;
                 }
                 return;
             }
-            if (this.nay != null) {
-                this.nay.dispose();
-                this.nay = null;
+            if (this.naJ != null) {
+                this.naJ.dispose();
+                this.naJ = null;
             }
-            this.nau = autoBang3;
-            this.nay = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dJM()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
+            this.naF = autoBang3;
+            this.naJ = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dJN()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.nax != null) {
-                        a.this.nax.a(0L, a.this.nat, a.this.d());
+                    if (a.this.naI != null) {
+                        a.this.naI.a(0L, a.this.naE, a.this.d());
                     }
-                    a.this.nau = null;
+                    a.this.naF = null;
                 }
             }).a(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.3
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.nax != null) {
-                        a.this.nax.a(0L, a.this.nat, a.this.d());
+                    if (a.this.naI != null) {
+                        a.this.naI.a(0L, a.this.naE, a.this.d());
                     }
                 }
-            }).b(io.reactivex.a.b.a.dJi()).a(io.reactivex.a.b.a.dJi()).c(io.reactivex.a.b.a.dJi()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
+            }).b(io.reactivex.a.b.a.dJj()).a(io.reactivex.a.b.a.dJj()).c(io.reactivex.a.b.a.dJj()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
                 public void accept(Long l) throws Exception {
                     long longValue = j - l.longValue();
-                    if (a.this.nax != null) {
-                        a.this.nax.a(longValue, a.this.nat, a.this.d());
+                    if (a.this.naI != null) {
+                        a.this.naI.a(longValue, a.this.naE, a.this.d());
                     }
                 }
             }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.a.a.2
@@ -151,23 +151,23 @@ public class a {
         }
     }
 
-    public IconConfig.Config dDV() {
-        return this.naw;
+    public IconConfig.Config dDW() {
+        return this.naH;
     }
 
     public String d() {
-        if (this.nat == null) {
+        if (this.naE == null) {
             return null;
         }
-        return a(this.nat.mLevel);
+        return a(this.naE.mLevel);
     }
 
-    public BangInfo dDW() {
-        return this.nat;
+    public BangInfo dDX() {
+        return this.naE;
     }
 
     private String a(int i) {
-        BangListInfo bangListInfo = this.nav.get(i);
+        BangListInfo bangListInfo = this.naG.get(i);
         if (bangListInfo != null) {
             return bangListInfo.icon;
         }

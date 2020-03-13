@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class i {
-    private static i cLH;
+    private static i cLI;
     private int mIsAbstractOn = 1;
     private int mUploadImageQuality = 0;
     private int mAddImageWater = 0;
@@ -14,16 +14,16 @@ public class i {
 
     public static i azO() {
         i iVar;
-        if (cLH == null) {
+        if (cLI == null) {
             synchronized (i.class) {
-                if (cLH == null) {
-                    cLH = new i();
+                if (cLI == null) {
+                    cLI = new i();
                 }
-                iVar = cLH;
+                iVar = cLI;
             }
             return iVar;
         }
-        return cLH;
+        return cLI;
     }
 
     private i() {

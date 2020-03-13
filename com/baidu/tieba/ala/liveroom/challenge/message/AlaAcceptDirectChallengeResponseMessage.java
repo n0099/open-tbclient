@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaAcceptDirectChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private int eUm;
-    private com.baidu.live.challenge.a eUn;
+    private com.baidu.live.challenge.a eUA;
+    private int eUz;
 
     public AlaAcceptDirectChallengeResponseMessage() {
         super(1021109);
@@ -16,17 +16,17 @@ public class AlaAcceptDirectChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eUm = optJSONObject.optInt("accept_status");
-            this.eUn = new com.baidu.live.challenge.a();
-            this.eUn.parseJson(optJSONObject.optJSONObject("match_info"));
+            this.eUz = optJSONObject.optInt("accept_status");
+            this.eUA = new com.baidu.live.challenge.a();
+            this.eUA.parseJson(optJSONObject.optJSONObject("match_info"));
         }
     }
 
-    public com.baidu.live.challenge.a bkn() {
-        return this.eUn;
+    public com.baidu.live.challenge.a bko() {
+        return this.eUA;
     }
 
-    public boolean bko() {
-        return this.eUm == 1;
+    public boolean bkp() {
+        return this.eUz == 1;
     }
 }

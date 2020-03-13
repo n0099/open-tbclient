@@ -14,8 +14,8 @@ import com.baidu.swan.apps.x.b.b;
 /* loaded from: classes11.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile String bFK = "";
-    private static volatile boolean bFL = true;
+    private static volatile String bFL = "";
+    private static volatile boolean bFM = true;
 
     public static void YI() {
     }
@@ -32,7 +32,7 @@ public final class e {
             return;
         }
         if (z) {
-            bFL = false;
+            bFM = false;
         }
         if (!z) {
             YL();
@@ -46,19 +46,19 @@ public final class e {
     }
 
     public static void YJ() {
-        bFK = "";
-        bFL = true;
+        bFL = "";
+        bFM = true;
     }
 
     public static void jC(String str) {
-        bFK = str;
+        bFL = str;
     }
 
     public static boolean f(com.baidu.swan.apps.core.d.d dVar) {
         if (dVar == null) {
             return false;
         }
-        boolean equals = TextUtils.equals(bFK, dVar.NZ());
+        boolean equals = TextUtils.equals(bFL, dVar.NZ());
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
             return equals;
@@ -87,7 +87,7 @@ public final class e {
                     return;
                 }
             }
-            if (dVar != null && dVar.bbB > 0) {
+            if (dVar != null && dVar.bbC > 0) {
                 com.baidu.swan.apps.statistic.c.a(dVar);
             }
         }
@@ -151,6 +151,6 @@ public final class e {
     }
 
     public static boolean YN() {
-        return bFL;
+        return bFM;
     }
 }

@@ -13,18 +13,18 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class b {
-    private ImageViewerBottomLayout drZ;
-    private AbsFloorImageTextView dsa;
-    private LinearLayout dsb;
-    private RelativeLayout dsc;
+    private ImageViewerBottomLayout dsm;
+    private AbsFloorImageTextView dsn;
+    private LinearLayout dso;
+    private RelativeLayout dsp;
     private Context mContext;
-    private int dsd = 0;
-    private boolean dse = true;
-    private final ImageViewerBottomLayout.a dsf = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.b.1
+    private int dsq = 0;
+    private boolean dsr = true;
+    private final ImageViewerBottomLayout.a dss = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.b.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            b.this.dse = z;
-            b.this.w(z, true);
+            b.this.dsr = z;
+            b.this.x(z, true);
         }
     };
     private final Animator.AnimatorListener mAnimatorListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.coreExtra.view.b.2
@@ -34,62 +34,62 @@ public class b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            b.this.aMI();
+            b.this.aMJ();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            b.this.aMI();
+            b.this.aMJ();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
             b.b(b.this);
-            if (b.this.dsd >= 3) {
-                b.this.dsd = 0;
-                b.this.aMI();
+            if (b.this.dsq >= 3) {
+                b.this.dsq = 0;
+                b.this.aMJ();
             }
         }
     };
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.aMI();
+            b.this.aMJ();
         }
     };
 
     static /* synthetic */ int b(b bVar) {
-        int i = bVar.dsd;
-        bVar.dsd = i + 1;
+        int i = bVar.dsq;
+        bVar.dsq = i + 1;
         return i;
     }
 
     public b(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.dsb = new LinearLayout(context);
-        this.dsb.setOrientation(1);
-        this.dsb.setVisibility(8);
+        this.dso = new LinearLayout(context);
+        this.dso.setOrientation(1);
+        this.dso.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.dsb, layoutParams);
-        boolean aMG = aMG();
-        go(aMG);
-        gn(aMG);
-        a(relativeLayout, aMG);
+        relativeLayout.addView(this.dso, layoutParams);
+        boolean aMH = aMH();
+        go(aMH);
+        gn(aMH);
+        a(relativeLayout, aMH);
     }
 
     private void a(RelativeLayout relativeLayout, boolean z) {
-        if (this.dsc == null && relativeLayout != null && z && com.baidu.tbadk.core.sharedPref.b.aFD().getInt("anim_image_viewer_drag", 0) == 0) {
-            this.dsc = new RelativeLayout(this.mContext);
-            this.dsc.setOnClickListener(this.mOnClickListener);
-            am.setBackgroundColor(this.dsc, R.color.black_alpha65);
-            relativeLayout.addView(this.dsc, new RelativeLayout.LayoutParams(-1, -1));
+        if (this.dsp == null && relativeLayout != null && z && com.baidu.tbadk.core.sharedPref.b.aFD().getInt("anim_image_viewer_drag", 0) == 0) {
+            this.dsp = new RelativeLayout(this.mContext);
+            this.dsp.setOnClickListener(this.mOnClickListener);
+            am.setBackgroundColor(this.dsp, R.color.black_alpha65);
+            relativeLayout.addView(this.dsp, new RelativeLayout.LayoutParams(-1, -1));
             TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(this.mContext);
             tBLottieAnimationView.addAnimatorListener(this.mAnimatorListener);
             tBLottieAnimationView.setAnimation(R.raw.imageviewer_drag);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.mContext) / 2, l.getEquipmentHeight(this.mContext) / 2);
             layoutParams.addRule(13);
-            this.dsc.addView(tBLottieAnimationView, layoutParams);
+            this.dsp.addView(tBLottieAnimationView, layoutParams);
             tBLottieAnimationView.loop(true);
             tBLottieAnimationView.setFrame(0);
             tBLottieAnimationView.playAnimation();
@@ -97,55 +97,55 @@ public class b {
     }
 
     private void gn(boolean z) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.dsh);
-        this.drZ = new ImageViewerBottomLayout(this.mContext, !z);
-        this.dsb.addView(this.drZ, layoutParams);
-        this.drZ.setExpandButtonListener(this.dsf);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.dsv);
+        this.dsm = new ImageViewerBottomLayout(this.mContext, !z);
+        this.dso.addView(this.dsm, layoutParams);
+        this.dsm.setExpandButtonListener(this.dss);
     }
 
     private void go(boolean z) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.dsa = new FloorImageTextViewNew(this.mContext);
-        this.dsb.addView(this.dsa, layoutParams);
+        this.dsn = new FloorImageTextViewNew(this.mContext);
+        this.dso.addView(this.dsn, layoutParams);
     }
 
-    private boolean aMG() {
+    private boolean aMH() {
         if (!(this.mContext instanceof a)) {
             return false;
         }
-        return ((a) this.mContext).aMG();
+        return ((a) this.mContext).aMH();
     }
 
-    public void w(boolean z, boolean z2) {
-        if (this.dsa != null) {
-            this.dsa.w(z, z2);
+    public void x(boolean z, boolean z2) {
+        if (this.dsn != null) {
+            this.dsn.x(z, z2);
         }
-        if (this.drZ != null) {
-            this.drZ.gp(!z);
+        if (this.dsm != null) {
+            this.dsm.gp(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.dsa != null) {
-            this.dsa.setUserId(str);
+        if (this.dsn != null) {
+            this.dsn.setUserId(str);
         }
-        if (this.drZ != null) {
-            this.drZ.setUserId(str);
+        if (this.dsm != null) {
+            this.dsm.setUserId(str);
         }
     }
 
     public void setIsBjhDynamic(boolean z) {
-        if (this.drZ != null) {
-            this.drZ.setIsBjhDynamic(z);
+        if (this.dsm != null) {
+            this.dsm.setIsBjhDynamic(z);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.dsa != null) {
-            this.dsa.a(imageUrlData);
+        if (this.dsn != null) {
+            this.dsn.a(imageUrlData);
         }
-        if (this.drZ != null) {
-            this.drZ.b(imageUrlData);
+        if (this.dsm != null) {
+            this.dsm.b(imageUrlData);
         }
     }
 
@@ -154,32 +154,32 @@ public class b {
     }
 
     public boolean isShown() {
-        return bd(this.dsb);
+        return bd(this.dso);
     }
 
-    public boolean aMH() {
-        return this.dse;
+    public boolean aMI() {
+        return this.dsr;
     }
 
     public void setVisibility(int i) {
-        if (this.dsb != null) {
-            this.dsb.clearAnimation();
-            this.dsb.setVisibility(i);
+        if (this.dso != null) {
+            this.dso.clearAnimation();
+            this.dso.setVisibility(i);
         }
     }
 
     public void aH(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.w(this.dsb, i2);
+            com.baidu.tieba.v.a.w(this.dso, i2);
         } else {
-            com.baidu.tieba.v.a.v(this.dsb, i2);
+            com.baidu.tieba.v.a.v(this.dso, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMI() {
-        if (this.dsc != null) {
-            this.dsc.setVisibility(8);
+    public void aMJ() {
+        if (this.dsp != null) {
+            this.dsp.setVisibility(8);
         }
         com.baidu.tbadk.core.sharedPref.b.aFD().putInt("anim_image_viewer_drag", 1);
     }

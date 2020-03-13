@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.anchortask.b.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetAnchorTaskInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    public b euL;
+    public b euY;
 
     public GetAnchorTaskInfoHttpResponseMessage() {
         super(1021172);
@@ -16,8 +16,8 @@ public class GetAnchorTaskInfoHttpResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.euL = new b();
-            this.euL.parseJson(optJSONObject);
+            this.euY = new b();
+            this.euY.parseJson(optJSONObject);
         }
     }
 }

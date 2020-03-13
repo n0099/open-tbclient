@@ -29,12 +29,12 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class af {
-    private static af cZO;
-    private a[] cZM;
+    private static af cZP;
+    private a[] cZN;
     private Drawable[] drawables;
     private boolean hasDayDefault;
     private boolean hasNightDefault;
-    private boolean cZN = true;
+    private boolean cZO = true;
     private int pullview_backgroundColor_day = -1315344;
     private int pullview_backgroundColor_night = -14670029;
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
@@ -47,16 +47,16 @@ public class af {
     }
 
     private af() {
-        fL(com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.cZN));
+        fL(com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.cZO));
     }
 
     public static af aGo() {
         synchronized (af.class) {
-            if (cZO == null) {
-                cZO = new af();
+            if (cZP == null) {
+                cZP = new af();
             }
         }
-        return cZO;
+        return cZP;
     }
 
     public void saveOrUpdateImages(final String str, final String str2, String str3, String str4, String str5) {
@@ -163,27 +163,27 @@ public class af {
 
     public AnimationDrawable getDefaultAnimationDrawable(int i) {
         a[] aVarArr;
-        if (this.cZM == null) {
-            this.cZM = new a[this.defaultResources.length];
+        if (this.cZN == null) {
+            this.cZN = new a[this.defaultResources.length];
             for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
-                this.cZM[i2] = new a();
+                this.cZN[i2] = new a();
             }
         }
         boolean z = i == 1 || i == 4;
         if (z && !this.hasNightDefault) {
             this.hasNightDefault = true;
             for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
-                this.cZM[i3].nightDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i3]));
+                this.cZN[i3].nightDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i3]));
             }
         }
         if (!z && !this.hasDayDefault) {
             this.hasDayDefault = true;
             for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
-                this.cZM[i4].dayDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i4]));
+                this.cZN[i4].dayDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (a aVar : this.cZM) {
+        for (a aVar : this.cZN) {
             if (aVar != null) {
                 Drawable drawable = z ? aVar.nightDrawable : aVar.dayDrawable;
                 if (drawable != null) {
@@ -539,10 +539,10 @@ public class af {
     }
 
     public boolean aGp() {
-        return this.cZN;
+        return this.cZO;
     }
 
     public void fL(boolean z) {
-        this.cZN = z;
+        this.cZO = z;
     }
 }

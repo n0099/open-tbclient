@@ -32,20 +32,20 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class ALAImEnterView extends LinearLayout {
     private static int MC;
-    private TbImageView atW;
-    private TextView atX;
-    private ObjectAnimator atY;
-    private int atZ;
-    private boolean aua;
+    private TbImageView atX;
+    private TextView atY;
+    private ObjectAnimator atZ;
+    private int aua;
+    private boolean aub;
 
     public ALAImEnterView(Context context) {
         super(context);
-        this.aua = false;
+        this.aub = false;
         init();
     }
 
     public void r(com.baidu.live.im.data.a aVar) {
-        if (!d.ra().rb() && !d.ra().hasMsg() && !this.aua) {
+        if (!d.ra().rb() && !d.ra().hasMsg() && !this.aub) {
             d.ra().c(aVar);
             xE();
             return;
@@ -58,14 +58,14 @@ public class ALAImEnterView extends LinearLayout {
     }
 
     public void release() {
-        this.aua = false;
+        this.aub = false;
         d.ra().release();
         setVisibility(4);
-        if (this.atY != null) {
-            this.atY.cancel();
+        if (this.atZ != null) {
+            this.atZ.cancel();
         }
-        if (this.atW != null) {
-            this.atW.stopLoad();
+        if (this.atX != null) {
+            this.atX.stopLoad();
         }
         xD();
     }
@@ -73,8 +73,8 @@ public class ALAImEnterView extends LinearLayout {
     @Override // android.view.View
     protected void onVisibilityChanged(@NonNull View view, int i) {
         super.onVisibilityChanged(view, i);
-        if (i != 0 && this.atW != null) {
-            this.atW.stopLoad();
+        if (i != 0 && this.atX != null) {
+            this.atX.stopLoad();
         }
     }
 
@@ -83,7 +83,7 @@ public class ALAImEnterView extends LinearLayout {
         initView();
         setVisibility(4);
         MC = BdUtilHelper.getEquipmentWidth(getContext());
-        this.atZ = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
+        this.aua = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
     }
 
     private void xB() {
@@ -103,10 +103,10 @@ public class ALAImEnterView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_im_enter, (ViewGroup) this, true);
-        this.atW = (TbImageView) findViewById(a.g.iv_icon);
-        this.atX = (TextView) findViewById(a.g.tv_content);
-        this.atW.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.atW.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.atX = (TbImageView) findViewById(a.g.iv_icon);
+        this.atY = (TextView) findViewById(a.g.tv_content);
+        this.atX.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.atX.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
     private void xC() {
@@ -281,18 +281,18 @@ public class ALAImEnterView extends LinearLayout {
     }
 
     private void a(b bVar) {
-        if (this.atW != null) {
-            this.atW.stopLoad();
+        if (this.atX != null) {
+            this.atX.stopLoad();
             if (!TextUtils.isEmpty(bVar.iconUrl) && bVar.afo > 0 && bVar.afp > 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.atW.getLayoutParams();
-                layoutParams.height = this.atZ;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.atX.getLayoutParams();
+                layoutParams.height = this.aua;
                 layoutParams.width = (int) (((layoutParams.height * 1.0f) / bVar.afp) * bVar.afo);
-                this.atW.setLayoutParams(layoutParams);
-                this.atW.startLoad(bVar.iconUrl, 10, false, false);
-                this.atW.setVisibility(0);
+                this.atX.setLayoutParams(layoutParams);
+                this.atX.startLoad(bVar.iconUrl, 10, false, false);
+                this.atX.setVisibility(0);
                 return;
             }
-            this.atW.setVisibility(8);
+            this.atX.setVisibility(8);
         }
     }
 
@@ -318,36 +318,36 @@ public class ALAImEnterView extends LinearLayout {
             }
             sb.append(bVar.afn);
         }
-        this.atX.setText(sb.toString());
+        this.atY.setText(sb.toString());
         try {
             parseColor = Color.parseColor(bVar.acA);
         } catch (Exception e) {
             parseColor = Color.parseColor("#FFFFFFFF");
         }
-        this.atX.setTextColor(parseColor);
+        this.atY.setTextColor(parseColor);
     }
 
     private void xG() {
-        this.aua = true;
-        this.atY = ObjectAnimator.ofFloat(this, "TranslationX", MC, -MC);
-        this.atY.setDuration(4600L);
-        this.atY.setEvaluator(new a());
-        this.atY.setInterpolator(new TimeInterpolator() { // from class: com.baidu.live.im.view.ALAImEnterView.2
+        this.aub = true;
+        this.atZ = ObjectAnimator.ofFloat(this, "TranslationX", MC, -MC);
+        this.atZ.setDuration(4600L);
+        this.atZ.setEvaluator(new a());
+        this.atZ.setInterpolator(new TimeInterpolator() { // from class: com.baidu.live.im.view.ALAImEnterView.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return f;
             }
         });
-        this.atY.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ALAImEnterView.3
+        this.atZ.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ALAImEnterView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 ALAImEnterView.this.setVisibility(4);
-                ALAImEnterView.this.aua = false;
+                ALAImEnterView.this.aub = false;
                 ALAImEnterView.this.xE();
             }
         });
-        this.atY.start();
+        this.atZ.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

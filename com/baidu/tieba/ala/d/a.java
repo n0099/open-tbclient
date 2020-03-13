@@ -20,9 +20,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    public TextView eJZ;
-    public TextView eKa;
-    public TextView eKb;
+    public TextView eKm;
+    public TextView eKn;
+    public TextView eKo;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
@@ -35,7 +35,7 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable eKc = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
+    private Runnable eKp = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
@@ -48,19 +48,19 @@ public class a implements View.OnClickListener {
         this.mContext = context;
         this.closeImg.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.eJZ = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.eKa = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.eKb = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
+        this.eKm = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
+        this.eKn = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
+        this.eKo = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
     }
 
-    private void bgo() {
+    private void bgp() {
         MessageManager.getInstance().registerListener(this.agU);
     }
 
     public void x(String str, String str2, boolean z) {
-        this.eKb.setVisibility(z ? 0 : 8);
-        this.eJZ.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.eKa.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
+        this.eKo.setVisibility(z ? 0 : 8);
+        this.eKm.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
+        this.eKn.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -74,7 +74,7 @@ public class a implements View.OnClickListener {
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.eKc, 5000L);
+            this.handler.postDelayed(this.eKp, 5000L);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
@@ -82,12 +82,12 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        bgo();
+        bgp();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.eKc);
+            this.handler.removeCallbacks(this.eKp);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

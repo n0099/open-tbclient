@@ -29,15 +29,15 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bnw.setRightZoneVisibility(true);
+        this.bnx.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void Ji() {
         FragmentActivity auA = auA();
-        if (auA != null && this.bnx == null) {
-            this.bnx = new com.baidu.swan.menu.h(auA, this.bnw, Jj(), com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bnx, this).Yk();
+        if (auA != null && this.bny == null) {
+            this.bny = new com.baidu.swan.menu.h(auA, this.bnx, Jj(), com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.aa.a(this.bny, this).Yk();
         }
     }
 
@@ -50,12 +50,12 @@ public class c extends h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.boE = IJ();
-        this.boE.a(Je());
-        this.baX = this.boE.IP();
-        this.boE.loadUrl(this.mUrl);
+        this.boF = IJ();
+        this.boF.a(Je());
+        this.baY = this.boF.IP();
+        this.boF.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.boE.a(frameLayout, this.baX.covertToView());
+        this.boF.a(frameLayout, this.baY.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
@@ -67,8 +67,8 @@ public class c extends h {
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     public boolean IK() {
-        if (this.baX != null && this.baX.canGoBack()) {
-            this.baX.goBack();
+        if (this.baY != null && this.baY.canGoBack()) {
+            this.baY.goBack();
             return true;
         }
         d.Jz().dX(1);

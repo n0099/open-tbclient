@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a nBF = new a(null);
+    public static final a nBQ = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -57,29 +57,29 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     private static final class C0769d<E> extends d<E> implements RandomAccess {
-        private int nBH;
-        private final d<E> nBI;
-        private final int nBJ;
+        private int nBS;
+        private final d<E> nBT;
+        private final int nBU;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
         public C0769d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.j(dVar, "list");
-            this.nBI = dVar;
-            this.nBJ = i;
-            d.nBF.as(this.nBJ, i2, this.nBI.size());
-            this.nBH = i2 - this.nBJ;
+            this.nBT = dVar;
+            this.nBU = i;
+            d.nBQ.as(this.nBU, i2, this.nBT.size());
+            this.nBS = i2 - this.nBU;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.nBF.en(i, this.nBH);
-            return this.nBI.get(this.nBJ + i);
+            d.nBQ.en(i, this.nBS);
+            return this.nBT.get(this.nBU + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nBH;
+            return this.nBS;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return nBF.a(this, (Collection) obj);
+            return nBQ.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return nBF.j(this);
+        return nBQ.j(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.nBF.eo(i, d.this.size());
+            d.nBQ.eo(i, d.this.size());
             setIndex(i);
         }
 

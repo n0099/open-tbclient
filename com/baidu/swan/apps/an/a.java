@@ -10,26 +10,26 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bUB;
-    private com.baidu.swan.apps.an.a.b bUC = new com.baidu.swan.apps.an.a.b();
-    private c bUD = new c();
+    private static a bUC;
+    private com.baidu.swan.apps.an.a.b bUD = new com.baidu.swan.apps.an.a.b();
+    private c bUE = new c();
 
     private a() {
     }
 
     public static a aeH() {
-        if (bUB == null) {
+        if (bUC == null) {
             synchronized (a.class) {
-                if (bUB == null) {
-                    bUB = new a();
+                if (bUC == null) {
+                    bUC = new a();
                 }
             }
         }
-        return bUB;
+        return bUC;
     }
 
     public void aW(JSONObject jSONObject) {
-        this.bUC.aY(jSONObject);
+        this.bUD.aY(jSONObject);
     }
 
     public void lC(String str) {
@@ -37,15 +37,15 @@ public final class a {
     }
 
     public void bm(String str, String str2) {
-        this.bUC.add(str, str2);
+        this.bUD.add(str, str2);
     }
 
     public void aX(JSONObject jSONObject) {
-        this.bUD.aY(jSONObject);
+        this.bUE.aY(jSONObject);
     }
 
     public JSONObject aeI() {
-        JSONObject aeM = this.bUC.aeM();
+        JSONObject aeM = this.bUD.aeM();
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "LaunchTraces: " + aeM);
         }
@@ -53,7 +53,7 @@ public final class a {
     }
 
     public JSONObject aeJ() {
-        JSONObject aeM = this.bUD.aeM();
+        JSONObject aeM = this.bUE.aeM();
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "WhiteTraces: " + aeM);
         }
@@ -61,8 +61,8 @@ public final class a {
     }
 
     public void clear() {
-        this.bUC.clear();
         this.bUD.clear();
+        this.bUE.clear();
     }
 
     public File aeK() {

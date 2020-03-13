@@ -95,7 +95,7 @@ public class l extends h {
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
                 if (l.this.Kc != null && l.this.Kc.aAg() != null && !l.this.mU().booleanValue()) {
-                    com.baidu.tieba.card.l.zS(l.this.Kc.aAg().getId());
+                    com.baidu.tieba.card.l.zT(l.this.Kc.aAg().getId());
                     com.baidu.tieba.card.l.a(l.this.Kw.mTitle, l.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                     com.baidu.tieba.card.l.a(l.this.Kw.KA, l.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }

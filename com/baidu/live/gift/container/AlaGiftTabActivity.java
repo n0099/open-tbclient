@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
@@ -21,6 +22,7 @@ import com.baidu.live.gift.panel.GiftPanelFragmentPagerAdapter;
 import com.baidu.live.gift.panel.GiftPanelTabBaseFragment;
 import com.baidu.live.gift.panel.b;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
@@ -38,6 +40,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     private boolean agD = false;
     private boolean ajy = false;
     private boolean ajz = false;
+    private boolean ajA = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -45,6 +48,13 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme")) {
             getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
@@ -111,7 +121,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     public void onKeyboardVisibilityChanged(boolean z) {
         GiftPanelTabBaseFragment tr = tr();
         if (tr != null) {
-            tr.onKeyboardVisibilityChanged(z);
+            tr.e(z, this.ajA);
         }
     }
 
@@ -186,6 +196,20 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.ajA = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.ajA = true;
+    }
+
     private void tn() {
         Animation loadAnimation;
         this.ajy = true;
@@ -253,7 +277,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     private GiftPanelTabBaseFragment tr() {
         PagerAdapter adapter = this.ajt.getAdapter();
         if (adapter instanceof GiftPanelFragmentPagerAdapter) {
-            Fragment fragment = ((GiftPanelFragmentPagerAdapter) adapter).aon;
+            Fragment fragment = ((GiftPanelFragmentPagerAdapter) adapter).aoo;
             return fragment instanceof GiftPanelTabBaseFragment ? (GiftPanelTabBaseFragment) fragment : null;
         }
         return null;

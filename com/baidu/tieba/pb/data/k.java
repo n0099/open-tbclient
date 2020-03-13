@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes9.dex */
 public class k implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId iCJ = BdUniqueId.gen();
+    public static final BdUniqueId iCV = BdUniqueId.gen();
     private bj NQ;
-    private AntiData dgB;
-    private boolean iCK = false;
-    public boolean iCL = false;
+    private AntiData dgO;
+    private boolean iCW = false;
+    public boolean iCX = false;
 
     public k(bj bjVar, AntiData antiData) {
         this.NQ = bjVar;
-        this.dgB = antiData;
+        this.dgO = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iCJ;
+        return iCV;
     }
 
     public int aDK() {
@@ -28,12 +28,12 @@ public class k implements com.baidu.adp.widget.ListView.m {
         return 0;
     }
 
-    public boolean clc() {
+    public boolean cld() {
         return this.NQ != null && this.NQ.aDJ() == 1;
     }
 
     public AntiData getAnti() {
-        return this.dgB;
+        return this.dgO;
     }
 
     public bj aAg() {
@@ -41,10 +41,10 @@ public class k implements com.baidu.adp.widget.ListView.m {
     }
 
     public void pv(boolean z) {
-        this.iCK = z;
+        this.iCW = z;
     }
 
-    public boolean cld() {
-        return this.iCK;
+    public boolean cle() {
+        return this.iCW;
     }
 }

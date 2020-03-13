@@ -7,72 +7,72 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes10.dex */
 public class BestStringsFitTextView extends TextView {
-    private String kdq;
-    private float kdr;
-    private String kds;
-    private boolean kdt;
+    private String kdC;
+    private float kdD;
+    private String kdE;
+    private boolean kdF;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.kdq = HanziToPinyin.Token.SEPARATOR;
-        this.kdr = 0.0f;
-        this.kds = "";
-        this.kdt = false;
+        this.kdC = HanziToPinyin.Token.SEPARATOR;
+        this.kdD = 0.0f;
+        this.kdE = "";
+        this.kdF = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kdq = HanziToPinyin.Token.SEPARATOR;
-        this.kdr = 0.0f;
-        this.kds = "";
-        this.kdt = false;
+        this.kdC = HanziToPinyin.Token.SEPARATOR;
+        this.kdD = 0.0f;
+        this.kdE = "";
+        this.kdF = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kdq = HanziToPinyin.Token.SEPARATOR;
-        this.kdr = 0.0f;
-        this.kds = "";
-        this.kdt = false;
+        this.kdC = HanziToPinyin.Token.SEPARATOR;
+        this.kdD = 0.0f;
+        this.kdE = "";
+        this.kdF = false;
     }
 
-    protected void cJX() {
-        this.kdr = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void cJY() {
+        this.kdD = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.kdq);
+                sb.append(this.kdC);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
-            if (this.kdr < getPaint().measureText(sb2)) {
+            if (this.kdD < getPaint().measureText(sb2)) {
                 break;
             }
-            this.kdt = true;
-            this.kds = sb2;
+            this.kdF = true;
+            this.kdE = sb2;
         }
-        setText(this.kds);
+        setText(this.kdE);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.kdt) {
-            cJX();
+        if (this.textArray != null && !this.kdF) {
+            cJY();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        cJX();
+        cJY();
     }
 
     public String getSeperator() {
-        return this.kdq;
+        return this.kdC;
     }
 
     public void setSeperator(String str) {
-        this.kdq = str;
+        this.kdC = str;
     }
 }

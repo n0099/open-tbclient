@@ -13,37 +13,37 @@ import com.baidu.tieba.ad.play.a;
 import com.baidu.tieba.recapp.view.IVrPlayView;
 /* loaded from: classes13.dex */
 public abstract class a {
-    public TbPageContext<?> cVh;
-    public MediaPlayer.OnErrorListener ckA;
-    public MediaPlayer.OnPreparedListener cky;
-    public a.InterfaceC0405a dZJ;
-    public IVrPlayView jFo;
-    public com.b.a.g jFp;
-    public com.baidu.tieba.ad.play.a jFq;
-    public MediaPlayer.OnCompletionListener jFr;
-    public a.b jFs;
+    public TbPageContext<?> cVi;
+    public MediaPlayer.OnErrorListener ckB;
+    public MediaPlayer.OnPreparedListener ckz;
+    public a.InterfaceC0405a dZW;
+    public IVrPlayView jFA;
+    public com.b.a.g jFB;
+    public com.baidu.tieba.ad.play.a jFC;
+    public MediaPlayer.OnCompletionListener jFD;
+    public a.b jFE;
     public int mStatus = -1;
     public String mVideoPath;
 
     public a(IVrPlayView iVrPlayView) {
-        this.jFo = iVrPlayView;
-        this.cVh = this.jFo.getPageContext();
-        cCf();
+        this.jFA = iVrPlayView;
+        this.cVi = this.jFA.getPageContext();
+        cCg();
         initListener();
     }
 
-    private void cCf() {
+    private void cCg() {
         if (this.mStatus == -1) {
-            this.jFp = com.b.a.g.m(this.cVh.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.jFB = com.b.a.g.m(this.cVi.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.jFq = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.jFo.setPlayer(a.this.jFq);
+                    a.this.jFC = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.jFA.setPlayer(a.this.jFC);
                 }
             }).s(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.jFo.getGLView());
-            this.jFp.onResume(this.cVh.getPageActivity());
+            }).b(this.jFA.getGLView());
+            this.jFB.onResume(this.cVi.getPageActivity());
         }
     }
 
@@ -53,7 +53,7 @@ public abstract class a {
     public void startPlay(String str) {
         if (this.mStatus == -1) {
             if (aq.isEmpty(str)) {
-                this.cVh.showToast((int) R.string.invalid_resource);
+                this.cVi.showToast((int) R.string.invalid_resource);
                 return;
             }
             this.mVideoPath = str;
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.jFq != null && !StringUtils.isNull(this.mVideoPath)) {
-            this.jFq.a(this.dZJ);
-            this.jFq.setVideoPath(this.mVideoPath);
-            this.jFq.start();
-            this.jFq.a(this.cky);
-            this.jFq.setOnErrorListener(this.ckA);
-            this.jFq.a(this.jFr);
+        if (this.jFC != null && !StringUtils.isNull(this.mVideoPath)) {
+            this.jFC.a(this.dZW);
+            this.jFC.setVideoPath(this.mVideoPath);
+            this.jFC.start();
+            this.jFC.a(this.ckz);
+            this.jFC.setOnErrorListener(this.ckB);
+            this.jFC.a(this.jFD);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.jFq != null) {
-            this.jFq.seekTo(0);
-            this.jFq.onDestroy();
-            this.jFo.onDestroy();
+        if (this.mStatus != -1 && this.jFC != null) {
+            this.jFC.seekTo(0);
+            this.jFC.onDestroy();
+            this.jFA.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.jFo.onDestroy();
-        if (this.jFq != null && this.mStatus != -1) {
-            this.jFq.onDestroy();
-            this.jFq = null;
+        this.jFA.onDestroy();
+        if (this.jFC != null && this.mStatus != -1) {
+            this.jFC.onDestroy();
+            this.jFC = null;
         }
-        if (this.jFp != null) {
-            this.jFp.onDestroy();
-            this.jFp = null;
+        if (this.jFB != null) {
+            this.jFB.onDestroy();
+            this.jFB = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.jFq == null) {
+        if (this.jFC == null) {
             return 0L;
         }
-        return this.jFq.getCurrentPosition();
+        return this.jFC.getCurrentPosition();
     }
 }

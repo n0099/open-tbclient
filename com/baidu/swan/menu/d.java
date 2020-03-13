@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private List<i> cyJ = new ArrayList();
     private List<i> cyK = new ArrayList();
+    private List<i> cyL = new ArrayList();
     private Context mContext;
     private int mItemWidth;
 
@@ -24,14 +24,14 @@ public class d extends RecyclerView.Adapter<a> {
         int max;
         List<i> list2;
         List<i> list3;
-        this.cyJ.clear();
         this.cyK.clear();
+        this.cyL.clear();
         if (list != null) {
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.cyJ.addAll(list3);
+                this.cyK.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.cyK.addAll(list2);
+                this.cyL.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             if (i == 0) {
@@ -45,7 +45,7 @@ public class d extends RecyclerView.Adapter<a> {
     }
 
     private boolean eS(boolean z) {
-        return z || this.cyJ.size() > 5 || this.cyK.size() > 5;
+        return z || this.cyK.size() > 5 || this.cyL.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,39 +72,39 @@ public class d extends RecyclerView.Adapter<a> {
             layoutParams.width = this.mItemWidth;
             aVar.itemView.setLayoutParams(layoutParams);
         }
-        if (i < this.cyJ.size()) {
-            aVar.cyL.setVisibility(0);
-            aVar.cyL.g(this.cyJ.get(i));
-            aVar.cyL.setOnClickListener(null);
-        } else {
-            aVar.cyL.setVisibility(this.cyJ.size() == 0 ? 8 : 4);
-            aVar.cyL.setOnClickListener(null);
-        }
         if (i < this.cyK.size()) {
             aVar.cyM.setVisibility(0);
             aVar.cyM.g(this.cyK.get(i));
             aVar.cyM.setOnClickListener(null);
+        } else {
+            aVar.cyM.setVisibility(this.cyK.size() == 0 ? 8 : 4);
+            aVar.cyM.setOnClickListener(null);
+        }
+        if (i < this.cyL.size()) {
+            aVar.cyN.setVisibility(0);
+            aVar.cyN.g(this.cyL.get(i));
+            aVar.cyN.setOnClickListener(null);
             return;
         }
-        aVar.cyM.setVisibility(this.cyK.size() != 0 ? 4 : 8);
-        aVar.cyM.setOnClickListener(null);
+        aVar.cyN.setVisibility(this.cyL.size() != 0 ? 4 : 8);
+        aVar.cyN.setOnClickListener(null);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.cyJ.size(), this.cyK.size());
+        return Math.max(this.cyK.size(), this.cyL.size());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView cyL;
         SwanAppMenuItemView cyM;
+        SwanAppMenuItemView cyN;
 
         public a(View view) {
             super(view);
-            this.cyL = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
-            this.cyM = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
+            this.cyM = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
+            this.cyN = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
         }
     }
 }

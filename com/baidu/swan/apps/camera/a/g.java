@@ -71,8 +71,8 @@ public class g extends a {
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Model is null");
         } else {
-            String str = aVar.bfZ;
-            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.biq;
+            String str = aVar.bga;
+            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.bir;
             if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (aVar2 == null));
             } else {

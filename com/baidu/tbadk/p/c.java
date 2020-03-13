@@ -117,9 +117,9 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String aSl = w.aSl();
-        if (!TextUtils.isEmpty(aSl)) {
-            httpMessage.addParam("oaid", aSl);
+        String aSm = w.aSm();
+        if (!TextUtils.isEmpty(aSm)) {
+            httpMessage.addParam("oaid", aSm);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -132,8 +132,8 @@ public class c extends com.baidu.adp.framework.a.d {
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.aIU().aIV()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aIU().aIW()));
+        if (com.baidu.tbadk.coreExtra.b.a.aIV().aIW()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aIV().aIX()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -182,7 +182,7 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.wn(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.wo(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }

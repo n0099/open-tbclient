@@ -12,7 +12,7 @@ public class c extends ProviderDelegation {
         } else {
             z = bundle.getBoolean("status");
         }
-        com.baidu.swan.apps.a.c Jm = e.bcn.Jm();
+        com.baidu.swan.apps.a.c Jm = e.bco.Jm();
         if (Jm != null) {
             Jm.bS(z);
             return null;

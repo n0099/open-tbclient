@@ -81,7 +81,7 @@ public class TbConfig {
     private static String LIVE_ENTER_FROM = "";
     private static String FROM = null;
     public static boolean IM_ENV_DEBUG = false;
-    public static boolean IM_LOG = true;
+    public static boolean IM_LOG = false;
     public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
     private static String TMPDIRNAME = "tieba";
     private static String CURRENT_FROM = null;

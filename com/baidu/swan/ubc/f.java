@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes11.dex */
 class f {
-    private String cEE;
     private String cEF;
-    private int cEG;
-    private String cEH;
-    private int cEI;
+    private String cEG;
+    private int cEH;
+    private String cEI;
     private int cEJ;
-    private String cEK;
+    private int cEK;
+    private String cEL;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cEE = str2;
-        this.cEF = str3;
-        this.cEG = i;
+        this.cEF = str2;
+        this.cEG = str3;
+        this.cEH = i;
         this.mType = str4;
-        this.cEH = str5;
+        this.cEI = str5;
     }
 
     public void iU(int i) {
@@ -31,11 +31,11 @@ class f {
     }
 
     public void iV(int i) {
-        this.cEI = i;
+        this.cEJ = i;
     }
 
     public void iW(int i) {
-        this.cEJ = i;
+        this.cEK = i;
     }
 
     public String getId() {
@@ -43,15 +43,15 @@ class f {
     }
 
     public String avm() {
-        return this.cEE;
-    }
-
-    public String avn() {
         return this.cEF;
     }
 
-    public int getTimeout() {
+    public String avn() {
         return this.cEG;
+    }
+
+    public int getTimeout() {
+        return this.cEH;
     }
 
     public String getType() {
@@ -59,7 +59,7 @@ class f {
     }
 
     public String avo() {
-        return this.cEH;
+        return this.cEI;
     }
 
     public int avp() {
@@ -71,18 +71,18 @@ class f {
     }
 
     public int avq() {
-        return this.cEI;
-    }
-
-    public int avr() {
         return this.cEJ;
     }
 
+    public int avr() {
+        return this.cEK;
+    }
+
     public void qW(String str) {
-        this.cEK = str;
+        this.cEL = str;
     }
 
     public String avs() {
-        return this.cEK;
+        return this.cEL;
     }
 }

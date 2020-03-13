@@ -16,7 +16,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.x.b.a.c<SelfT> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Pair<String, JSONObject> byp;
+    private Pair<String, JSONObject> byq;
 
     public boolean VH() {
         return getBoolean("cts_launch_mode", false);
@@ -345,28 +345,28 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.x.b.
 
     public JSONObject Wb() {
         String VL = VL();
-        if (this.byp != null && TextUtils.equals((CharSequence) this.byp.first, VL)) {
-            return (JSONObject) this.byp.second;
+        if (this.byq != null && TextUtils.equals((CharSequence) this.byq.first, VL)) {
+            return (JSONObject) this.byq.second;
         }
-        this.byp = null;
+        this.byq = null;
         if (TextUtils.isEmpty(VL)) {
-            this.byp = null;
+            this.byq = null;
             return null;
         }
         String queryParameter = Uri.parse(VL).getQueryParameter("_baiduboxapp");
         if (!TextUtils.isEmpty(queryParameter)) {
             try {
-                this.byp = new Pair<>(VL, new JSONObject(queryParameter).optJSONObject("ext"));
+                this.byq = new Pair<>(VL, new JSONObject(queryParameter).optJSONObject("ext"));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        if (this.byp == null) {
+        if (this.byq == null) {
             return null;
         }
-        return (JSONObject) this.byp.second;
+        return (JSONObject) this.byq.second;
     }
 
     public String Wc() {

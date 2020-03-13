@@ -18,7 +18,7 @@ public interface r {
 
         void a(x xVar, Object obj);
 
-        void dah();
+        void dai();
 
         void onRepeatModeChanged(int i);
 
@@ -37,15 +37,13 @@ public interface r {
 
     void b(b bVar);
 
-    int cZP();
-
-    boolean dsT();
+    int cZQ();
 
     boolean dsU();
 
-    q dsV();
+    boolean dsV();
 
-    int dsX();
+    q dsW();
 
     int dsY();
 
@@ -53,13 +51,15 @@ public interface r {
 
     int dta();
 
-    boolean dtb();
+    int dtb();
 
-    long dtc();
+    boolean dtc();
 
-    com.google.android.exoplayer2.b.g dtd();
+    long dtd();
 
-    x dte();
+    com.google.android.exoplayer2.b.g dte();
+
+    x dtf();
 
     long getBufferedPosition();
 
@@ -118,7 +118,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void dah() {
+        public void dai() {
         }
     }
 }

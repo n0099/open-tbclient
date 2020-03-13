@@ -16,34 +16,34 @@ public final class u {
         if (str2 == null) {
             str2 = "";
         }
-        int[] Qx = Qx(str2);
-        if (Qx[0] != -1) {
+        int[] Qy = Qy(str2);
+        if (Qy[0] != -1) {
             sb.append(str2);
-            a(sb, Qx[1], Qx[2]);
+            a(sb, Qy[1], Qy[2]);
             return sb.toString();
         }
-        int[] Qx2 = Qx(str);
-        if (Qx[3] == 0) {
-            return sb.append((CharSequence) str, 0, Qx2[3]).append(str2).toString();
+        int[] Qy2 = Qy(str);
+        if (Qy[3] == 0) {
+            return sb.append((CharSequence) str, 0, Qy2[3]).append(str2).toString();
         }
-        if (Qx[2] == 0) {
-            return sb.append((CharSequence) str, 0, Qx2[2]).append(str2).toString();
+        if (Qy[2] == 0) {
+            return sb.append((CharSequence) str, 0, Qy2[2]).append(str2).toString();
         }
-        if (Qx[1] != 0) {
-            int i = Qx2[0] + 1;
+        if (Qy[1] != 0) {
+            int i = Qy2[0] + 1;
             sb.append((CharSequence) str, 0, i).append(str2);
-            return a(sb, Qx[1] + i, i + Qx[2]);
-        } else if (str2.charAt(Qx[1]) == '/') {
-            sb.append((CharSequence) str, 0, Qx2[1]).append(str2);
-            return a(sb, Qx2[1], Qx[2] + Qx2[1]);
-        } else if (Qx2[0] + 2 < Qx2[1] && Qx2[1] == Qx2[2]) {
-            sb.append((CharSequence) str, 0, Qx2[1]).append('/').append(str2);
-            return a(sb, Qx2[1], Qx[2] + Qx2[1] + 1);
+            return a(sb, Qy[1] + i, i + Qy[2]);
+        } else if (str2.charAt(Qy[1]) == '/') {
+            sb.append((CharSequence) str, 0, Qy2[1]).append(str2);
+            return a(sb, Qy2[1], Qy[2] + Qy2[1]);
+        } else if (Qy2[0] + 2 < Qy2[1] && Qy2[1] == Qy2[2]) {
+            sb.append((CharSequence) str, 0, Qy2[1]).append('/').append(str2);
+            return a(sb, Qy2[1], Qy[2] + Qy2[1] + 1);
         } else {
-            int lastIndexOf = str.lastIndexOf(47, Qx2[2] - 1);
-            int i2 = lastIndexOf == -1 ? Qx2[1] : lastIndexOf + 1;
+            int lastIndexOf = str.lastIndexOf(47, Qy2[2] - 1);
+            int i2 = lastIndexOf == -1 ? Qy2[1] : lastIndexOf + 1;
             sb.append((CharSequence) str, 0, i2).append(str2);
-            return a(sb, Qx2[1], i2 + Qx[2]);
+            return a(sb, Qy2[1], i2 + Qy[2]);
         }
     }
 
@@ -84,7 +84,7 @@ public final class u {
         return sb.toString();
     }
 
-    private static int[] Qx(String str) {
+    private static int[] Qy(String str) {
         int i;
         int[] iArr = new int[4];
         if (TextUtils.isEmpty(str)) {

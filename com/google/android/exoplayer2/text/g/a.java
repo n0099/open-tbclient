@@ -8,18 +8,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 final class a {
-    private static final Pattern mBR = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
-    private final l mBS = new l();
-    private final StringBuilder mBT = new StringBuilder();
+    private static final Pattern mCc = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+    private final l mCd = new l();
+    private final StringBuilder mCe = new StringBuilder();
 
     public d W(l lVar) {
-        this.mBT.setLength(0);
+        this.mCe.setLength(0);
         int position = lVar.getPosition();
         aa(lVar);
-        this.mBS.I(lVar.data, lVar.getPosition());
-        this.mBS.setPosition(position);
-        String a = a(this.mBS, this.mBT);
-        if (a == null || !"{".equals(b(this.mBS, this.mBT))) {
+        this.mCd.I(lVar.data, lVar.getPosition());
+        this.mCd.setPosition(position);
+        String a = a(this.mCd, this.mCe);
+        if (a == null || !"{".equals(b(this.mCd, this.mCe))) {
             return null;
         }
         d dVar = new d();
@@ -27,12 +27,12 @@ final class a {
         boolean z = false;
         String str = null;
         while (!z) {
-            int position2 = this.mBS.getPosition();
-            str = b(this.mBS, this.mBT);
+            int position2 = this.mCd.getPosition();
+            str = b(this.mCd, this.mCe);
             z = str == null || "}".equals(str);
             if (!z) {
-                this.mBS.setPosition(position2);
-                a(this.mBS, dVar, this.mBT);
+                this.mCd.setPosition(position2);
+                a(this.mCd, dVar, this.mCe);
             }
         }
         if ("}".equals(str)) {
@@ -43,7 +43,7 @@ final class a {
 
     private static String a(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dzt() >= 5 && "::cue".equals(lVar.LU(5))) {
+        if (lVar.dzu() >= 5 && "::cue".equals(lVar.LU(5))) {
             int position = lVar.getPosition();
             String b = b(lVar, sb);
             if (b != null) {
@@ -65,10 +65,10 @@ final class a {
 
     private static String X(l lVar) {
         int position = lVar.getPosition();
-        int dzu = lVar.dzu();
+        int dzv = lVar.dzv();
         int i = position;
         boolean z = false;
-        while (i < dzu && !z) {
+        while (i < dzv && !z) {
             int i2 = i + 1;
             z = ((char) lVar.data[i]) == ')';
             i = i2;
@@ -93,15 +93,15 @@ final class a {
                     }
                 }
                 if ("color".equals(d)) {
-                    dVar.LB(com.google.android.exoplayer2.util.d.Qn(c));
+                    dVar.LB(com.google.android.exoplayer2.util.d.Qo(c));
                 } else if ("background-color".equals(d)) {
-                    dVar.LC(com.google.android.exoplayer2.util.d.Qn(c));
+                    dVar.LC(com.google.android.exoplayer2.util.d.Qo(c));
                 } else if ("text-decoration".equals(d)) {
                     if ("underline".equals(c)) {
                         dVar.vP(true);
                     }
                 } else if ("font-family".equals(d)) {
-                    dVar.Qf(c);
+                    dVar.Qg(c);
                 } else if ("font-weight".equals(d)) {
                     if ("bold".equals(c)) {
                         dVar.vQ(true);
@@ -115,14 +115,14 @@ final class a {
 
     static void Y(l lVar) {
         boolean z = true;
-        while (lVar.dzt() > 0 && z) {
+        while (lVar.dzu() > 0 && z) {
             z = Z(lVar) || ab(lVar);
         }
     }
 
     static String b(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dzt() == 0) {
+        if (lVar.dzu() == 0) {
             return null;
         }
         String d = d(lVar, sb);
@@ -173,23 +173,23 @@ final class a {
 
     private static boolean ab(l lVar) {
         int position = lVar.getPosition();
-        int dzu = lVar.dzu();
+        int dzv = lVar.dzv();
         byte[] bArr = lVar.data;
-        if (position + 2 <= dzu) {
+        if (position + 2 <= dzv) {
             int i = position + 1;
             if (bArr[position] == 47) {
                 int i2 = i + 1;
                 if (bArr[i] == 42) {
                     while (true) {
                         int i3 = i2;
-                        if (i3 + 1 < dzu) {
+                        if (i3 + 1 < dzv) {
                             i2 = i3 + 1;
                             if (((char) bArr[i3]) == '*' && ((char) bArr[i2]) == '/') {
-                                dzu = i2 + 1;
-                                i2 = dzu;
+                                dzv = i2 + 1;
+                                i2 = dzv;
                             }
                         } else {
-                            lVar.skipBytes(dzu - lVar.getPosition());
+                            lVar.skipBytes(dzv - lVar.getPosition());
                             return true;
                         }
                     }
@@ -203,8 +203,8 @@ final class a {
         boolean z = false;
         sb.setLength(0);
         int position = lVar.getPosition();
-        int dzu = lVar.dzu();
-        while (position < dzu && !z) {
+        int dzv = lVar.dzv();
+        while (position < dzv && !z) {
             char c = (char) lVar.data[position];
             if ((c >= 'A' && c <= 'Z') || ((c >= 'a' && c <= 'z') || ((c >= '0' && c <= '9') || c == '#' || c == '-' || c == '.' || c == '_'))) {
                 position++;
@@ -221,9 +221,9 @@ final class a {
         if (!"".equals(str)) {
             int indexOf = str.indexOf(91);
             if (indexOf != -1) {
-                Matcher matcher = mBR.matcher(str.substring(indexOf));
+                Matcher matcher = mCc.matcher(str.substring(indexOf));
                 if (matcher.matches()) {
-                    dVar.Qe(matcher.group(1));
+                    dVar.Qf(matcher.group(1));
                 }
                 str = str.substring(0, indexOf);
             }
@@ -231,10 +231,10 @@ final class a {
             String str2 = split[0];
             int indexOf2 = str2.indexOf(35);
             if (indexOf2 != -1) {
-                dVar.Qd(str2.substring(0, indexOf2));
-                dVar.Qc(str2.substring(indexOf2 + 1));
+                dVar.Qe(str2.substring(0, indexOf2));
+                dVar.Qd(str2.substring(indexOf2 + 1));
             } else {
-                dVar.Qd(str2);
+                dVar.Qe(str2);
             }
             if (split.length > 1) {
                 dVar.T((String[]) Arrays.copyOfRange(split, 1, split.length));

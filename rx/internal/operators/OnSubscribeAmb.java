@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> nwo;
+    final Iterable<? extends rx.d<? extends T>> nwz;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -16,13 +16,13 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> nNW;
-        private boolean nNX;
+        private final Selection<T> nOh;
+        private boolean nOi;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.nNW = selection;
+            this.nOh = selection;
             request(j);
         }
 
@@ -53,18 +53,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.nNX) {
+            if (this.nOi) {
                 return true;
             }
-            if (this.nNW.get() == this) {
-                this.nNX = true;
+            if (this.nOh.get() == this) {
+                this.nOi = true;
                 return true;
-            } else if (this.nNW.compareAndSet(null, this)) {
-                this.nNW.unsubscribeOthers(this);
-                this.nNX = true;
+            } else if (this.nOh.compareAndSet(null, this)) {
+                this.nOh.unsubscribeOthers(this);
+                this.nOi = true;
                 return true;
             } else {
-                this.nNW.unsubscribeLosers();
+                this.nOh.unsubscribeLosers();
                 return false;
             }
         }
@@ -107,7 +107,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.q(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.nwo) {
+        for (rx.d<? extends T> dVar : this.nwz) {
             if (jVar.isUnsubscribed()) {
                 break;
             }

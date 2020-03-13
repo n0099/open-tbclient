@@ -12,8 +12,8 @@ import com.baidu.swan.apps.database.SwanAppDbControl;
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     @Nullable
     private SQLiteDatabase mDatabase;
-    private static final String btu = com.baidu.swan.apps.w.a.TW().getPackageName() + ".swan.subscribe_msg";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + btu);
+    private static final String btv = com.baidu.swan.apps.w.a.TW().getPackageName() + ".swan.subscribe_msg";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + btv);
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -50,7 +50,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@Nullable Uri uri) {
-        return btu;
+        return btv;
     }
 
     @Override // android.content.ContentProvider

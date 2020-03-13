@@ -57,7 +57,7 @@ public class a {
                 if (a.this.Wj != null && !StringUtils.isNull(a.this.Wj.wf())) {
                     UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.Wj.wf()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.zl().awB.ZJ}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.zl().awC.ZJ}, true);
                 }
             }
         });

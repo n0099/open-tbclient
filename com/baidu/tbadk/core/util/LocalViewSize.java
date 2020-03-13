@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize cZk = null;
+    private static LocalViewSize cZl = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -14,10 +14,10 @@ public class LocalViewSize {
     }
 
     public static LocalViewSize aGd() {
-        if (cZk == null) {
-            cZk = new LocalViewSize();
+        if (cZl == null) {
+            cZl = new LocalViewSize();
         }
-        return cZk;
+        return cZl;
     }
 
     private LocalViewSize() {

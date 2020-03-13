@@ -4,64 +4,64 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
 class h {
-    static h nKo = new h();
-    static h nKp;
-    static h nKq;
-    boolean nKf = true;
-    boolean nKg = true;
-    boolean nKh = false;
-    boolean nKi = false;
-    boolean nKj = false;
-    boolean nKk = true;
-    boolean nKl = true;
-    boolean nKm = true;
-    int nKn;
+    static h nKA;
+    static h nKB;
+    static h nKz = new h();
+    boolean nKq = true;
+    boolean nKr = true;
+    boolean nKs = false;
+    boolean nKt = false;
+    boolean nKu = false;
+    boolean nKv = true;
+    boolean nKw = true;
+    boolean nKx = true;
+    int nKy;
 
     h() {
     }
 
     static {
-        nKo.nKf = true;
-        nKo.nKg = false;
-        nKo.nKh = false;
-        nKo.nKi = false;
-        nKo.nKj = true;
-        nKo.nKk = false;
-        nKo.nKl = false;
-        nKo.nKn = 0;
-        nKp = new h();
-        nKp.nKf = true;
-        nKp.nKg = true;
-        nKp.nKh = false;
-        nKp.nKi = false;
-        nKp.nKj = false;
-        nKo.nKn = 1;
-        nKq = new h();
-        nKq.nKf = false;
-        nKq.nKg = true;
-        nKq.nKh = false;
-        nKq.nKi = true;
-        nKq.nKj = false;
-        nKq.nKm = false;
-        nKq.nKn = 2;
+        nKz.nKq = true;
+        nKz.nKr = false;
+        nKz.nKs = false;
+        nKz.nKt = false;
+        nKz.nKu = true;
+        nKz.nKv = false;
+        nKz.nKw = false;
+        nKz.nKy = 0;
+        nKA = new h();
+        nKA.nKq = true;
+        nKA.nKr = true;
+        nKA.nKs = false;
+        nKA.nKt = false;
+        nKA.nKu = false;
+        nKz.nKy = 1;
+        nKB = new h();
+        nKB.nKq = false;
+        nKB.nKr = true;
+        nKB.nKs = false;
+        nKB.nKt = true;
+        nKB.nKu = false;
+        nKB.nKx = false;
+        nKB.nKy = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String So(String str) {
+    public String Sp(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String NU(int i) {
-        if (this.nKi) {
+        if (this.nKt) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(HanziToPinyin.Token.SEPARATOR).toString();
         }
         return "";
     }
 
-    String Sp(String str) {
+    String Sq(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -74,18 +74,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Sp(str).replace('$', '.');
+            return Sq(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.nKf);
+        return b(cls, cls.getName(), this.nKq);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nKj);
+        return b(cls, str, this.nKu);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -99,7 +99,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nKg) {
+            if (!this.nKr) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -115,7 +115,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nKh && clsArr != null && clsArr.length != 0) {
+        if (this.nKs && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

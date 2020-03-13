@@ -5,7 +5,7 @@ import com.baidu.swan.pms.c.a.d.f;
 import com.baidu.swan.pms.d;
 /* loaded from: classes11.dex */
 public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
-    private volatile f cBr;
+    private volatile f cBs;
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
         if (r6.aue() > r0.aue()) goto L21;
@@ -15,7 +15,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
     */
     public synchronized void f(f fVar) {
         if (fVar != null) {
-            if (this.cBr != null && this.cBr.k(fVar)) {
+            if (this.cBs != null && this.cBs.k(fVar)) {
                 fVar.atW().J(fVar.atX());
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "enQueue: 要入队的任务和当前正在运行的任务相同->" + fVar);
@@ -108,13 +108,13 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void d(f<T> fVar) {
-        this.cBr = fVar;
+        this.cBs = fVar;
     }
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (this.cBr == fVar) {
-            this.cBr = null;
+        if (this.cBs == fVar) {
+            this.cBs = null;
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "notifyTaskEnd mCurrentTask == null:" + fVar);
             }
@@ -137,7 +137,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     private void h(f fVar) {
         f fVar2;
-        if (fVar.aue() == 300 && (fVar2 = this.cBr) != null) {
+        if (fVar.aue() == 300 && (fVar2 = this.cBs) != null) {
             if (fVar2.aue() == 300) {
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "Hi-priority task is working, can't stop:" + fVar2);
@@ -146,7 +146,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
                 return;
             }
             fVar2.auf();
-            for (int i = 0; i < 500 && this.cBr != null; i++) {
+            for (int i = 0; i < 500 && this.cBs != null; i++) {
                 try {
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {

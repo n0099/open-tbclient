@@ -22,7 +22,7 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 public class RecommendView extends LinearLayout {
     protected Context a;
     private ArrayList<ListItem> b;
-    private a nhe;
+    private a nhp;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -45,7 +45,7 @@ public class RecommendView extends LinearLayout {
     }
 
     public void a(String str, a aVar) {
-        this.nhe = aVar;
+        this.nhp = aVar;
         a(str);
     }
 
@@ -73,7 +73,7 @@ public class RecommendView extends LinearLayout {
                             ListItem listItem2 = (ListItem) tag;
                             if (listItem2.mType != null && listItem2.mType.equals("1")) {
                                 o oVar = new o();
-                                oVar.mON = listItem2;
+                                oVar.mOY = listItem2;
                                 oVar.b = "recommend";
                                 oVar.c = RecommendView.this.a;
                                 oVar.g = listItem2.mLiveType;
@@ -89,8 +89,8 @@ public class RecommendView extends LinearLayout {
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dQp()) {
-            c.dBQ().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
+        if (tv.chushou.zues.utils.a.dQq()) {
+            c.dBR().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -123,8 +123,8 @@ public class RecommendView extends LinearLayout {
                                     }
                                 }
                                 String optString = optJSONObject.optString("background");
-                                if (!h.isEmpty(optString) && RecommendView.this.nhe != null) {
-                                    RecommendView.this.nhe.a(optString);
+                                if (!h.isEmpty(optString) && RecommendView.this.nhp != null) {
+                                    RecommendView.this.nhp.a(optString);
                                 }
                                 if (!h.isEmpty(arrayList)) {
                                     RecommendView.this.b = arrayList;
@@ -162,7 +162,7 @@ public class RecommendView extends LinearLayout {
             this.b.clear();
             this.b = null;
         }
-        this.nhe = null;
+        this.nhp = null;
         this.a = null;
     }
 }

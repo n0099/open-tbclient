@@ -6,8 +6,8 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 /* loaded from: classes12.dex */
 public class b extends com.baidu.swan.apps.w.b.a {
-    private String aZL() {
-        return d.bjE;
+    private String aZM() {
+        return d.bjF;
     }
 
     @Override // com.baidu.swan.apps.w.b.a, com.baidu.swan.apps.adaptation.a.o
@@ -17,12 +17,12 @@ public class b extends com.baidu.swan.apps.w.b.a {
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String HW() {
-        return d.processCommonParams(String.format("%s/ma/reset", aZL()));
+        return d.processCommonParams(String.format("%s/ma/reset", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String HX() {
-        return d.processCommonParams(String.format("%s/ma/update", aZL()));
+        return d.processCommonParams(String.format("%s/ma/update", aZM()));
     }
 
     @Override // com.baidu.swan.apps.w.b.a, com.baidu.swan.apps.adaptation.a.o
@@ -31,12 +31,12 @@ public class b extends com.baidu.swan.apps.w.b.a {
     }
 
     private Request j(String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse(aZL());
+        HttpUrl parse = HttpUrl.parse(aZM());
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.h.a.baI().bjD.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.h.a.baJ().bjE.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
@@ -78,32 +78,32 @@ public class b extends com.baidu.swan.apps.w.b.a {
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String If() {
-        return d.processCommonParams(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String Ig() {
-        return d.processCommonParams(String.format("%s/ma/game/od/get_user_info", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/od/get_user_info", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String Ih() {
-        return d.processCommonParams(String.format("%s/ma/game/od/remove_user_cloud_storage", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/od/remove_user_cloud_storage", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String Ii() {
-        return d.processCommonParams(String.format("%s/ma/game/od/get_user_cloud_storage", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/od/get_user_cloud_storage", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String Ij() {
-        return d.processCommonParams(String.format("%s/ma/game/od/set_user_cloud_storage", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/od/set_user_cloud_storage", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
     public String Ik() {
-        return d.processCommonParams(String.format("%s/ma/game/od/get_friend_cloud_storage", aZL()));
+        return d.processCommonParams(String.format("%s/ma/game/od/get_friend_cloud_storage", aZM()));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
@@ -118,12 +118,12 @@ public class b extends com.baidu.swan.apps.w.b.a {
 
     @Override // com.baidu.swan.apps.w.b.a, com.baidu.swan.apps.adaptation.a.o
     public String In() {
-        return d.processCommonParams(String.format("%s/api/subscribe/v1/relation/get", aZL()));
+        return d.processCommonParams(String.format("%s/api/subscribe/v1/relation/get", aZM()));
     }
 
     @Override // com.baidu.swan.apps.w.b.a, com.baidu.swan.apps.adaptation.a.o
     public String Io() {
-        return d.processCommonParams(String.format("%s/api/subscribe/v1/relation/receive", aZL()));
+        return d.processCommonParams(String.format("%s/api/subscribe/v1/relation/receive", aZM()));
     }
 
     @Override // com.baidu.swan.apps.w.b.a, com.baidu.swan.apps.adaptation.a.o

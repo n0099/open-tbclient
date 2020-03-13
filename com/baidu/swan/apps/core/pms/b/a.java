@@ -11,17 +11,17 @@ import java.util.HashSet;
 /* loaded from: classes11.dex */
 public class a extends f {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0243a bqA;
+    private a.InterfaceC0243a bqB;
 
     public a(String str, a.InterfaceC0243a interfaceC0243a) {
         super(str);
-        this.bqA = interfaceC0243a;
+        this.bqB = interfaceC0243a;
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void Pi() {
         super.Pi();
-        if (this.bqc != null) {
+        if (this.bqd != null) {
             Py();
         }
     }
@@ -32,11 +32,11 @@ public class a extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bqA != null) {
+        if (this.bqB != null) {
             if (aVar.errorNo == 1010) {
-                this.bqA.Ne();
+                this.bqB.Ne();
             } else {
-                this.bqA.eq(0);
+                this.bqB.eq(0);
             }
         }
         eH(aVar.errorNo);
@@ -44,17 +44,17 @@ public class a extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void Po() {
-        this.bqd.add(new UbcFlowEvent("na_start_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.ap.a Px = Px();
-        this.bqd.add(new UbcFlowEvent("na_end_update_db"));
+        this.bqe.add(new UbcFlowEvent("na_end_update_db"));
         if (Px == null) {
-            if (this.bqA != null) {
-                this.bqA.Ne();
+            if (this.bqB != null) {
+                this.bqB.Ne();
             }
-        } else if (this.bqA != null) {
-            this.bqA.eq(5);
+        } else if (this.bqB != null) {
+            this.bqB.eq(5);
         }
-        aB("main_pre_download", this.bqe);
+        aB("main_pre_download", this.bqf);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
         e.RD().RE().c(hashSet);
@@ -62,8 +62,8 @@ public class a extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void m(Throwable th) {
-        if (this.bqA != null) {
-            this.bqA.eq(0);
+        if (this.bqB != null) {
+            this.bqB.eq(0);
         }
     }
 

@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.Ai).iWE.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.Ai).iWQ.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.Ai).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes9.dex */
     public static class a extends v.a {
-        private View fKj;
-        private TextView iWE;
+        private View fKw;
+        private TextView iWQ;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.iWE = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.fKj = view.findViewById(R.id.floor_reply_top_line);
+            this.iWQ = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.fKw = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                am.setViewTextColor(this.iWE, (int) R.color.cp_cont_b);
-                am.setBackgroundColor(this.fKj, R.color.cp_bg_line_c);
-                am.setBackgroundColor(this.iWE, R.color.cp_bg_line_d);
+                am.setViewTextColor(this.iWQ, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.fKw, R.color.cp_bg_line_c);
+                am.setBackgroundColor(this.iWQ, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac cZF;
-    private static final BdUniqueId cZG = BdUniqueId.gen();
+    private static ac cZG;
+    private static final BdUniqueId cZH = BdUniqueId.gen();
 
     public static synchronized ac aGm() {
         ac acVar;
         synchronized (ac.class) {
-            if (cZF == null) {
-                cZF = new ac();
+            if (cZG == null) {
+                cZG = new ac();
             }
-            acVar = cZF;
+            acVar = cZG;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String cZH;
-        private final boolean cZI;
+        private final String cZI;
         private final boolean cZJ;
         private final boolean cZK;
+        private final boolean cZL;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.cZH = str2;
-            this.cZI = z;
-            this.cZJ = z2;
-            this.cZK = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.cZG));
+            this.cZI = str2;
+            this.cZJ = z;
+            this.cZK = z2;
+            this.cZL = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.cZH));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.b(this.imageUrl, this.cZH, this.cZI, this.cZJ, this.cZK);
+                ac.this.b(this.imageUrl, this.cZI, this.cZJ, this.cZK, this.cZL);
             } finally {
                 return null;
             }
@@ -61,7 +61,7 @@ public class ac {
                     if (tx > 0) {
                         if (z) {
                             Bitmap image = ap.aGA().getImage(nameMd5FromUrl);
-                            com.baidu.tbadk.imageManager.c.aPQ().freePicCache(tx);
+                            com.baidu.tbadk.imageManager.c.aPR().freePicCache(tx);
                             if (image != null) {
                                 a(str, image, z2, ap.aGA().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                             }
@@ -82,7 +82,7 @@ public class ac {
 
     public Bitmap a(Bitmap bitmap, boolean z) {
         try {
-            com.baidu.tbadk.core.util.c.a h = h(bitmap.getWidth(), bitmap.getHeight(), z);
+            com.baidu.tbadk.core.util.b.a h = h(bitmap.getWidth(), bitmap.getHeight(), z);
             int i = h.width;
             int i2 = h.height;
             if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.aPQ().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.aPR().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -133,7 +133,7 @@ public class ac {
         }
     }
 
-    public com.baidu.tbadk.core.util.c.a h(int i, int i2, boolean z) {
+    public com.baidu.tbadk.core.util.b.a h(int i, int i2, boolean z) {
         boolean z2;
         int i3;
         int i4;
@@ -168,7 +168,7 @@ public class ac {
             } else {
                 i5 = 70;
             }
-            return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
+            return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
         }
         z2 = false;
         i3 = i2;
@@ -186,6 +186,6 @@ public class ac {
         }
         i6 = i3;
         i5 = msgSPicMaxSizeInt;
-        return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
+        return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
     }
 }

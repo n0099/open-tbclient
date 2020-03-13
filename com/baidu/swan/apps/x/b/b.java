@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
-    private long byo;
+    private long byp;
 
     /* loaded from: classes11.dex */
     public static final class a extends b<a> {
@@ -415,17 +415,17 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.x.b.e
     public long VD() {
-        return this.byo;
+        return this.byp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.x.b.e
     /* renamed from: ai */
     public SelfT aj(long j) {
-        if (this.byo >= 1 || j <= 0) {
+        if (this.byp >= 1 || j <= 0) {
             return (SelfT) VF();
         }
-        this.byo = j;
+        this.byp = j;
         return (SelfT) super.aj(j);
     }
 }

@@ -8,40 +8,40 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cfv;
-    private a cfw = new a();
-    private String cfx = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
-    private String cfy = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
+    private static c cfw;
+    private a cfx = new a();
+    private String cfy = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
+    private String cfz = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
 
     public static c aji() {
-        if (cfv == null) {
+        if (cfw == null) {
             synchronized (c.class) {
-                if (cfv == null) {
-                    cfv = new c();
+                if (cfw == null) {
+                    cfw = new c();
                 }
             }
         }
-        return cfv;
+        return cfw;
     }
 
     private c() {
     }
 
     public int getVersion() {
-        return this.cfw.getInt("tips_config_version", 0);
+        return this.cfx.getInt("tips_config_version", 0);
     }
 
     public String aT(long j) {
-        return this.cfw.getString(String.format("%04d", Long.valueOf(j)), this.cfx);
+        return this.cfx.getString(String.format("%04d", Long.valueOf(j)), this.cfy);
     }
 
     public String aU(long j) {
-        return this.cfw.getString(String.format("%04d", Long.valueOf(j)), this.cfy);
+        return this.cfx.getString(String.format("%04d", Long.valueOf(j)), this.cfz);
     }
 
     public void c(HashMap<String, String> hashMap, int i) {
         if (hashMap != null && !hashMap.isEmpty() && i > 0) {
-            SharedPreferences.Editor edit = this.cfw.edit();
+            SharedPreferences.Editor edit = this.cfx.edit();
             edit.clear();
             edit.putInt("tips_config_version", i);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {

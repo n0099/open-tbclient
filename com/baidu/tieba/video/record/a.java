@@ -67,20 +67,20 @@ public class a {
         return i2;
     }
 
-    public static int g(Activity activity, int i) {
+    public static int k(Activity activity, int i) {
         if (Build.VERSION.SDK_INT <= 8) {
             return 0;
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int au = au(activity);
+        int aw = aw(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + au) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + aw) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - au) + 360) % 360;
+        return ((cameraInfo.orientation - aw) + 360) % 360;
     }
 
-    public static int au(Activity activity) {
+    public static int aw(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:

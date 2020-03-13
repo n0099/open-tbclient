@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class a {
-    private final int hMB;
-    private final com.facebook.common.references.c<Bitmap> lUj;
+    private final int hMN;
+    private final com.facebook.common.references.c<Bitmap> lUu;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
@@ -15,9 +15,9 @@ public class a {
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.hMB = i;
+        this.hMN = i;
         this.mMaxSize = i2;
-        this.lUj = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.lUu = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(Bitmap bitmap) {
@@ -33,7 +33,7 @@ public class a {
     public synchronized boolean V(Bitmap bitmap) {
         boolean z;
         int ad = com.facebook.d.a.ad(bitmap);
-        if (this.mCount < this.hMB) {
+        if (this.mCount < this.hMN) {
             if (this.mSize + ad <= this.mMaxSize) {
                 this.mCount++;
                 this.mSize = ad + this.mSize;
@@ -62,15 +62,15 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int dqO() {
-        return this.hMB;
+    public synchronized int dqP() {
+        return this.hMN;
     }
 
     public synchronized int getMaxSize() {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> dqP() {
-        return this.lUj;
+    public com.facebook.common.references.c<Bitmap> dqQ() {
+        return this.lUu;
     }
 }

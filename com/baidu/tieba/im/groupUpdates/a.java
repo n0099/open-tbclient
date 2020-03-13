@@ -9,14 +9,14 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class a extends BaseAdapter {
     private List<UpdatesItemData> acz = new ArrayList();
-    private UpdatesActivity hEW;
+    private UpdatesActivity hFi;
 
     public a(UpdatesActivity updatesActivity) {
-        this.hEW = updatesActivity;
+        this.hFi = updatesActivity;
     }
 
     public void destroy() {
-        this.hEW = null;
+        this.hFi = null;
     }
 
     public List<UpdatesItemData> getDatas() {
@@ -44,7 +44,7 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.hEW) : bVar;
+        b bVar2 = bVar == null ? new b(this.hFi) : bVar;
         bVar2.b(this.acz.get(i));
         return bVar2.getConvertView();
     }

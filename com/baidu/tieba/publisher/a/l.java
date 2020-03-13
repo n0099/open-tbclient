@@ -51,7 +51,7 @@ public class l implements IUgcHostInterface<CookieManager> {
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
     public void openVideoPublisherActivity(Context context, UgcSchemeModel ugcSchemeModel) {
         com.baidu.tbadk.data.h af;
-        if (PluginCheckUtil.vM("com.baidu.tieba.pluginPublisher") && (af = com.baidu.tbadk.data.h.af(ugcSchemeModel)) != null) {
+        if (PluginCheckUtil.vN("com.baidu.tieba.pluginPublisher") && (af = com.baidu.tbadk.data.h.af(ugcSchemeModel)) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2921429, af));
         }
     }

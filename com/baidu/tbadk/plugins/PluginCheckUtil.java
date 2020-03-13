@@ -28,7 +28,7 @@ public class PluginCheckUtil {
         Disabled
     }
 
-    public static boolean vM(String str) {
+    public static boolean vN(String str) {
         if (k.isEmpty(str)) {
             return false;
         }

@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap cvL;
-    private List<OverlayOptions> cyc;
-    List<Overlay> cyd;
+    BaiduMap cvM;
+    private List<OverlayOptions> cyd;
+    List<Overlay> cye;
 
     public abstract List<OverlayOptions> asy();
 
     public c(BaiduMap baiduMap) {
-        this.cvL = null;
-        this.cyc = null;
+        this.cvM = null;
         this.cyd = null;
-        this.cvL = baiduMap;
-        if (this.cyc == null) {
-            this.cyc = new ArrayList();
-        }
+        this.cye = null;
+        this.cvM = baiduMap;
         if (this.cyd == null) {
             this.cyd = new ArrayList();
+        }
+        if (this.cye == null) {
+            this.cye = new ArrayList();
         }
     }
 
     public final void asA() {
-        if (this.cvL != null) {
+        if (this.cvM != null) {
             asB();
             if (asy() != null) {
-                this.cyc.addAll(asy());
+                this.cyd.addAll(asy());
             }
-            for (OverlayOptions overlayOptions : this.cyc) {
-                this.cyd.add(this.cvL.addOverlay(overlayOptions));
+            for (OverlayOptions overlayOptions : this.cyd) {
+                this.cye.add(this.cvM.addOverlay(overlayOptions));
             }
         }
     }
 
     public final void asB() {
-        if (this.cvL != null) {
-            for (Overlay overlay : this.cyd) {
+        if (this.cvM != null) {
+            for (Overlay overlay : this.cye) {
                 overlay.remove();
             }
-            this.cyc.clear();
             this.cyd.clear();
+            this.cye.clear();
         }
     }
 
     public void asC() {
-        if (this.cvL != null && this.cyd.size() > 0) {
+        if (this.cvM != null && this.cye.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.cyd) {
+            for (Overlay overlay : this.cye) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.cvL.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.cvM.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

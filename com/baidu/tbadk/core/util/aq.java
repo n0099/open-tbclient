@@ -43,11 +43,11 @@ public class aq extends com.baidu.adp.lib.util.k {
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat dap = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat daq = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat dar = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat das = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat dat = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat daq = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat dar = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat das = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat dat = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat dau = new SimpleDateFormat("MM-dd");
     private static Date date = new Date();
 
     static {
@@ -69,8 +69,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String bA(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (das) {
-            format = das.format(date2);
+        synchronized (dat) {
+            format = dat.format(date2);
         }
         return format;
     }
@@ -78,8 +78,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String bB(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (dat) {
-            format = dat.format(date2);
+        synchronized (dau) {
+            format = dau.format(date2);
         }
         return format;
     }
@@ -368,13 +368,13 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (str.length() != 10) {
             return false;
         }
-        return dar.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return das.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String k(Date date2) {
         String format;
-        synchronized (dar) {
-            format = dar.format(date2);
+        synchronized (das) {
+            format = das.format(date2);
         }
         return format;
     }

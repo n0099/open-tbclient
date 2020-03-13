@@ -20,12 +20,12 @@ import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adaptation.b.a<NgWebView> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean bmV;
+    private boolean bmW;
     private Context mContext;
 
     public d(Context context) {
         super(context);
-        this.bmV = false;
+        this.bmW = false;
         this.mContext = context;
         No();
     }
@@ -48,7 +48,7 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
         if (DEBUG) {
             Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
         }
-        if (!this.bmV || z) {
+        if (!this.bmW || z) {
             com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.anj(), 2), new com.baidu.swan.games.b.a.a(new com.baidu.swan.games.b.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
                 @Override // com.baidu.swan.games.b.b.a
                 @NonNull
@@ -68,7 +68,7 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
                     }
                 }
             }));
-            this.bmV = true;
+            this.bmW = true;
         }
     }
 

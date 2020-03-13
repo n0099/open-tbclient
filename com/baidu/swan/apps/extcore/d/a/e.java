@@ -10,7 +10,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends ab {
-    private static final String buM = e.class.getSimpleName();
+    private static final String buN = e.class.getSimpleName();
 
     public e(j jVar) {
         super(jVar, "/swanAPI/debug/setDebugConfig");
@@ -20,13 +20,13 @@ public class e extends ab {
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
-            com.baidu.swan.apps.console.c.e(buM, "params is null");
+            com.baidu.swan.apps.console.c.e(buN, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         final JSONObject optJSONObject = b.optJSONObject("config");
         if (optJSONObject == null) {
-            com.baidu.swan.apps.console.c.e(buM, "config is null");
+            com.baidu.swan.apps.console.c.e(buN, "config is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
@@ -68,7 +68,7 @@ public class e extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             } else if (!b.optString("category").equals("swanGame")) {
-                com.baidu.swan.apps.console.c.e(buM, "params is not swangame");
+                com.baidu.swan.apps.console.c.e(buN, "params is not swangame");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
@@ -85,7 +85,7 @@ public class e extends ab {
                 com.baidu.swan.apps.ah.a.a.NF();
             }
         } else {
-            com.baidu.swan.apps.console.c.e(buM, "frame type error");
+            com.baidu.swan.apps.console.c.e(buN, "frame type error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

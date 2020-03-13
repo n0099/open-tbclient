@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0430a eBe;
-    private HttpMessageListener fpj;
+    private InterfaceC0430a eBr;
+    private HttpMessageListener fpx;
 
     /* renamed from: com.baidu.tieba.ala.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -23,18 +23,18 @@ public class a extends BdBaseModel {
 
     public a(TbPageContext tbPageContext, InterfaceC0430a interfaceC0430a) {
         super(tbPageContext);
-        this.fpj = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.e.a.1
+        this.fpx = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.e.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.eBe.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    a.this.eBr.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.eBe = interfaceC0430a;
+        this.eBr = interfaceC0430a;
         te();
-        registerListener(this.fpj);
+        registerListener(this.fpx);
     }
 
     private void te() {
@@ -46,7 +46,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zx(String str) {
+    public void zy(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

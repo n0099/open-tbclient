@@ -15,7 +15,7 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends ab {
-    private static final String buM = c.class.getSimpleName();
+    private static final String buN = c.class.getSimpleName();
 
     public c(j jVar) {
         super(jVar, "/swanAPI/debug/replaceGameCore");
@@ -64,7 +64,7 @@ public class c extends ab {
                 File RV = com.baidu.swan.games.j.a.b.RV();
                 File RT = com.baidu.swan.games.j.a.b.RT();
                 if (c.DEBUG) {
-                    Log.d(c.buM, "gameCoreZipFile: " + RV + " gameCoreDir: " + RT);
+                    Log.d(c.buN, "gameCoreZipFile: " + RV + " gameCoreDir: " + RT);
                 }
                 if (RV.exists() && com.baidu.swan.d.c.unzipFile(RV.getPath(), RT.getPath())) {
                     com.baidu.swan.apps.ah.a.a.dn(true);

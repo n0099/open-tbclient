@@ -24,12 +24,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String crY = "";
+    private static String crZ = "";
     private static String mUrl = "";
-    private com.baidu.swan.games.binding.model.c cqf;
+    private com.baidu.swan.games.binding.model.c cqg;
 
     public a(JsObject jsObject) {
-        this.cqf = com.baidu.swan.games.binding.model.c.c(jsObject);
+        this.cqg = com.baidu.swan.games.binding.model.c.c(jsObject);
     }
 
     public void NR() {
@@ -85,12 +85,12 @@ public class a {
 
     private c apy() {
         c cVar = null;
-        if (this.cqf == null) {
+        if (this.cqg == null) {
             apz();
         } else if (com.baidu.swan.apps.runtime.e.acF() == null) {
             px("shareVideo: fail, swanApp is null");
         } else {
-            String optString = this.cqf.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+            String optString = this.cqg.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
             if (TextUtils.isEmpty(optString)) {
                 px("shareVideo: videoPath is invalid");
             } else {
@@ -100,20 +100,20 @@ public class a {
                 } else {
                     cVar = new c();
                     cVar.videoPath = oN;
-                    cVar.title = this.cqf.optString("title");
-                    cVar.query = this.cqf.optString("query");
+                    cVar.title = this.cqg.optString("title");
+                    cVar.query = this.cqg.optString("query");
                     d dVar = new d();
-                    dVar.csd = this.cqf.optLong("clipMaxDuration", 30L);
-                    dVar.cse = this.cqf.optLong("clipMinDuration", 3L);
-                    dVar.csf = this.cqf.optString("topicSource");
-                    dVar.csg = this.cqf.optString("publishTitle", com.baidu.swan.apps.w.a.TW().getResources().getString(a.h.swangame_publish_video));
-                    dVar.csh = this.cqf.optString("publishURL", "/searchbox?action=ugc&cmd=177");
-                    dVar.sourceType = this.cqf.optInt("sourceType", 1);
-                    dVar.sourceFrom = this.cqf.optString("sourceFrom", "tiny");
-                    dVar.csj = this.cqf.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                    dVar.csi = this.cqf.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                    dVar.csk = this.cqf.optString("topicURL", "baiduboxapp://v1/easybrowse/open?url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dsearch&style=%7b%22menumode%22%3a%222%22%2c%22showtoolbar%22%3a%221%22%7d&newbrowser=1");
-                    dVar.publishType = this.cqf.optString("publishType", "9");
+                    dVar.cse = this.cqg.optLong("clipMaxDuration", 30L);
+                    dVar.csf = this.cqg.optLong("clipMinDuration", 3L);
+                    dVar.csg = this.cqg.optString("topicSource");
+                    dVar.csh = this.cqg.optString("publishTitle", com.baidu.swan.apps.w.a.TW().getResources().getString(a.h.swangame_publish_video));
+                    dVar.csi = this.cqg.optString("publishURL", "/searchbox?action=ugc&cmd=177");
+                    dVar.sourceType = this.cqg.optInt("sourceType", 1);
+                    dVar.sourceFrom = this.cqg.optString("sourceFrom", "tiny");
+                    dVar.csk = this.cqg.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                    dVar.csj = this.cqg.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                    dVar.csl = this.cqg.optString("topicURL", "baiduboxapp://v1/easybrowse/open?url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dsearch&style=%7b%22menumode%22%3a%222%22%2c%22showtoolbar%22%3a%221%22%7d&newbrowser=1");
+                    dVar.publishType = this.cqg.optString("publishType", "9");
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.acH());
@@ -128,10 +128,10 @@ public class a {
                         }
                     }
                     dVar.swan = jSONObject.toString();
-                    if (!TextUtils.isEmpty(crY)) {
+                    if (!TextUtils.isEmpty(crZ)) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("id", crY);
+                            jSONObject2.put("id", crZ);
                             if (com.baidu.swan.apps.runtime.e.acF() != null && com.baidu.swan.apps.runtime.e.acF().GE() != null) {
                                 jSONObject2.put("name", com.baidu.swan.apps.runtime.e.acF().GE().Rb());
                             }
@@ -157,7 +157,7 @@ public class a {
                     } else {
                         dVar.showToast = 0;
                     }
-                    cVar.csc = dVar;
+                    cVar.csd = dVar;
                 }
             }
         }
@@ -166,10 +166,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void px(String str) {
-        if (this.cqf != null) {
+        if (this.cqg != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
             bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-            com.baidu.swan.games.utils.b.a(this.cqf, false, bVar);
+            com.baidu.swan.games.utils.b.a(this.cqg, false, bVar);
             apz();
         }
     }
@@ -208,7 +208,7 @@ public class a {
                 try {
                     JSONObject jSONObject2 = (JSONObject) new JSONObject(response.body().string()).opt("data");
                     if (jSONObject2 != null) {
-                        String unused = a.crY = jSONObject2.optString("community_id");
+                        String unused = a.crZ = jSONObject2.optString("community_id");
                         String unused2 = a.mUrl = jSONObject2.optString("url");
                     } else {
                         a.apB();
@@ -225,7 +225,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void apB() {
-        crY = "";
+        crZ = "";
         mUrl = "";
     }
 }

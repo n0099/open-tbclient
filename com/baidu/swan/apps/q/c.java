@@ -23,7 +23,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g bvV;
+    private g bvW;
     private SharedPreferences.Editor mEditor;
 
     /* loaded from: classes11.dex */
@@ -32,18 +32,18 @@ public class c {
     }
 
     private c() {
-        this.bvV = new g("aiapps_guide_dialog_sp");
-        this.mEditor = this.bvV.edit();
+        this.bvW = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.bvW.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static final class b {
-        private static final c bwb = new c();
+        private static final c bwc = new c();
     }
 
     public static c Tk() {
-        return b.bwb;
+        return b.bwc;
     }
 
     private int cd(@NonNull Context context) {
@@ -91,7 +91,7 @@ public class c {
                 SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
                 simpleDraweeView.setVisibility(0);
                 cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
-                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dly().vh(true).OV(str).dmp());
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dlz().vh(true).OW(str).dmq());
             }
             TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
             textView.setOnTouchListener(new d());

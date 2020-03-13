@@ -17,16 +17,16 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.widget.ScrollTextView;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.i.a, ScrollTextView.c {
-    private m ald;
-    private ViewGroup ewe;
-    private ViewGroup.LayoutParams ewf;
-    private ViewGroup ewg;
-    protected WishListEntryView fou;
+    private m ale;
+    private ViewGroup ewr;
+    private ViewGroup.LayoutParams ews;
+    private ViewGroup ewt;
+    protected WishListEntryView foH;
     private Context mContext;
-    private BdUniqueId ewI = BdUniqueId.gen();
-    private boolean ewk = true;
-    private boolean fov = true;
-    private boolean fow = true;
+    private BdUniqueId ewV = BdUniqueId.gen();
+    private boolean ewx = true;
+    private boolean foI = true;
+    private boolean foJ = true;
 
     public a(Context context) {
         this.mContext = context;
@@ -35,44 +35,44 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
     @Override // com.baidu.live.i.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         reset(true);
-        this.ewe = viewGroup;
-        this.ewf = layoutParams;
-        bdS();
+        this.ewr = viewGroup;
+        this.ews = layoutParams;
+        bdT();
     }
 
-    private void bdS() {
-        this.ewg = new FrameLayout(this.ewe.getContext());
-        this.ewg.setBackgroundColor(0);
-        this.ewe.addView(this.ewg, this.ewf);
+    private void bdT() {
+        this.ewt = new FrameLayout(this.ewr.getContext());
+        this.ewt.setBackgroundColor(0);
+        this.ewr.addView(this.ewt, this.ews);
     }
 
     @Override // com.baidu.live.i.a
     public void a(m mVar) {
         if (mVar != null && mVar.mLiveInfo != null) {
-            this.ald = mVar;
-            if (this.ewg == null || this.ewe.indexOfChild(this.ewg) < 0) {
-                bdS();
-                this.ewg.setVisibility(this.ewk ? 0 : 8);
+            this.ale = mVar;
+            if (this.ewt == null || this.ewr.indexOfChild(this.ewt) < 0) {
+                bdT();
+                this.ewt.setVisibility(this.ewx ? 0 : 8);
             }
-            if (this.fou == null || (this.ewg != null && this.ewg.indexOfChild(this.fou) < 0)) {
-                this.fou = new WishListEntryView(this.ewg.getContext());
-                this.ewg.addView(this.fou, new FrameLayout.LayoutParams(-2, -2));
-                this.fou.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.a.1
+            if (this.foH == null || (this.ewt != null && this.ewt.indexOfChild(this.foH) < 0)) {
+                this.foH = new WishListEntryView(this.ewt.getContext());
+                this.ewt.addView(this.foH, new FrameLayout.LayoutParams(-2, -2));
+                this.foH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.vO();
                     }
                 });
-                this.fou.setOnScrollTextViewChangeListener(this);
+                this.foH.setOnScrollTextViewChangeListener(this);
             }
-            if (this.fow) {
-                if (this.fou != null) {
-                    this.fou.Y(this.ald.Yg);
+            if (this.foJ) {
+                if (this.foH != null) {
+                    this.foH.Y(this.ale.Yg);
                 }
-                this.fow = false;
+                this.foJ = false;
             }
-            if (ListUtils.isEmpty(this.ald.Yg) || this.ald.Yg.size() == 1) {
-                this.fow = true;
+            if (ListUtils.isEmpty(this.ale.Yg) || this.ale.Yg.size() == 1) {
+                this.foJ = true;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913151, mVar));
         }
@@ -80,8 +80,8 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
 
     @Override // com.baidu.live.i.a
     public void vO() {
-        if (this.ald != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(this.mContext, this.ald, String.valueOf(this.ald.mLiveInfo.live_id), String.valueOf(this.ald.XQ.userId), this.fov)));
+        if (this.ale != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(this.mContext, this.ale, String.valueOf(this.ale.mLiveInfo.live_id), String.valueOf(this.ale.XQ.userId), this.foI)));
         }
     }
 
@@ -91,20 +91,20 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
 
     @Override // com.baidu.live.i.a
     public void aP(boolean z) {
-        this.fov = z;
+        this.foI = z;
     }
 
     @Override // com.baidu.live.i.a
     public void setCanVisible(boolean z) {
-        if (this.fou != null && this.fou.getView() != null) {
-            this.fou.getView().setVisibility(z ? 0 : 8);
+        if (this.foH != null && this.foH.getView() != null) {
+            this.foH.getView().setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.ala.widget.ScrollTextView.c
     public void a(AlaLiveWishListData alaLiveWishListData, int i) {
-        if (this.fou != null && this.ald != null) {
-            this.fou.X(this.ald.Yg);
+        if (this.foH != null && this.ale != null) {
+            this.foH.X(this.ale.Yg);
         }
     }
 
@@ -119,16 +119,16 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
     }
 
     private void reset(boolean z) {
-        this.ewk = true;
+        this.ewx = true;
         hS(z);
     }
 
     private void hS(boolean z) {
-        if (this.fou != null && (this.fou.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.fou.getParent()).removeView(this.fou);
+        if (this.foH != null && (this.foH.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.foH.getParent()).removeView(this.foH);
         }
-        if (z && this.ewg != null && (this.ewg.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.ewg.getParent()).removeView(this.ewg);
+        if (z && this.ewt != null && (this.ewt.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ewt.getParent()).removeView(this.ewt);
         }
     }
 }

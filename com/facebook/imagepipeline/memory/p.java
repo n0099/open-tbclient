@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes12.dex */
 public class p {
-    private final com.facebook.common.memory.c lSp;
-    private final r lUA;
-    private final s lUB;
-    private final r lUC;
-    private final r lUD;
-    private final s lUE;
-    private final r lUF;
-    private final s lUG;
+    private final com.facebook.common.memory.c lSA;
+    private final r lUL;
+    private final s lUM;
+    private final r lUN;
+    private final r lUO;
+    private final s lUP;
+    private final r lUQ;
+    private final s lUR;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.lUA == null) {
-            rVar = e.dqW();
+        if (aVar.lUL == null) {
+            rVar = e.dqX();
         } else {
-            rVar = aVar.lUA;
+            rVar = aVar.lUL;
         }
-        this.lUA = rVar;
-        if (aVar.lUB == null) {
-            sVar = n.drb();
+        this.lUL = rVar;
+        if (aVar.lUM == null) {
+            sVar = n.drc();
         } else {
-            sVar = aVar.lUB;
+            sVar = aVar.lUM;
         }
-        this.lUB = sVar;
-        if (aVar.lUC == null) {
-            rVar2 = g.dqW();
+        this.lUM = sVar;
+        if (aVar.lUN == null) {
+            rVar2 = g.dqX();
         } else {
-            rVar2 = aVar.lUC;
+            rVar2 = aVar.lUN;
         }
-        this.lUC = rVar2;
-        if (aVar.lSp == null) {
-            cVar = com.facebook.common.memory.d.dkM();
+        this.lUN = rVar2;
+        if (aVar.lSA == null) {
+            cVar = com.facebook.common.memory.d.dkN();
         } else {
-            cVar = aVar.lSp;
+            cVar = aVar.lSA;
         }
-        this.lSp = cVar;
-        if (aVar.lUD == null) {
-            rVar3 = h.dqW();
+        this.lSA = cVar;
+        if (aVar.lUO == null) {
+            rVar3 = h.dqX();
         } else {
-            rVar3 = aVar.lUD;
+            rVar3 = aVar.lUO;
         }
-        this.lUD = rVar3;
-        if (aVar.lUE == null) {
-            sVar2 = n.drb();
+        this.lUO = rVar3;
+        if (aVar.lUP == null) {
+            sVar2 = n.drc();
         } else {
-            sVar2 = aVar.lUE;
+            sVar2 = aVar.lUP;
         }
-        this.lUE = sVar2;
-        if (aVar.lUF == null) {
-            rVar4 = f.dqW();
+        this.lUP = sVar2;
+        if (aVar.lUQ == null) {
+            rVar4 = f.dqX();
         } else {
-            rVar4 = aVar.lUF;
+            rVar4 = aVar.lUQ;
         }
-        this.lUF = rVar4;
-        if (aVar.lUG == null) {
-            sVar3 = n.drb();
+        this.lUQ = rVar4;
+        if (aVar.lUR == null) {
+            sVar3 = n.drc();
         } else {
-            sVar3 = aVar.lUG;
+            sVar3 = aVar.lUR;
         }
-        this.lUG = sVar3;
+        this.lUR = sVar3;
     }
 
-    public r dre() {
-        return this.lUA;
+    public r drf() {
+        return this.lUL;
     }
 
-    public s drf() {
-        return this.lUB;
+    public s drg() {
+        return this.lUM;
     }
 
-    public com.facebook.common.memory.c doY() {
-        return this.lSp;
+    public com.facebook.common.memory.c doZ() {
+        return this.lSA;
     }
 
-    public r drg() {
-        return this.lUD;
+    public r drh() {
+        return this.lUO;
     }
 
-    public s drh() {
-        return this.lUE;
-    }
-
-    public r dri() {
-        return this.lUC;
+    public s dri() {
+        return this.lUP;
     }
 
     public r drj() {
-        return this.lUF;
+        return this.lUN;
     }
 
-    public s drk() {
-        return this.lUG;
+    public r drk() {
+        return this.lUQ;
     }
 
-    public static a drl() {
+    public s drl() {
+        return this.lUR;
+    }
+
+    public static a drm() {
         return new a();
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private com.facebook.common.memory.c lSp;
-        private r lUA;
-        private s lUB;
-        private r lUC;
-        private r lUD;
-        private s lUE;
-        private r lUF;
-        private s lUG;
+        private com.facebook.common.memory.c lSA;
+        private r lUL;
+        private s lUM;
+        private r lUN;
+        private r lUO;
+        private s lUP;
+        private r lUQ;
+        private s lUR;
 
         private a() {
         }
 
-        public p drm() {
+        public p drn() {
             return new p(this);
         }
     }

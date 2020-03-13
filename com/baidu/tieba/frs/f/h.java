@@ -23,9 +23,9 @@ import java.util.List;
 public class h {
     public static void a(l lVar, FrsViewData frsViewData, String str, boolean z, bj bjVar) {
         com.baidu.tbadk.coreExtra.data.d adAdSense;
-        if (lVar != null && frsViewData != null && !TextUtils.isEmpty(str) && (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) != null && adAdSense.aJd()) {
-            af bFf = lVar == null ? null : lVar.bFf();
-            List<m> datas = bFf != null ? bFf.getDatas() : null;
+        if (lVar != null && frsViewData != null && !TextUtils.isEmpty(str) && (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) != null && adAdSense.aJe()) {
+            af bFg = lVar == null ? null : lVar.bFg();
+            List<m> datas = bFg != null ? bFg.getDatas() : null;
             List<m> singletonList = bjVar != null ? Collections.singletonList(bjVar) : datas;
             if (singletonList != null && datas != null) {
                 ArrayList arrayList = new ArrayList();
@@ -37,7 +37,7 @@ public class h {
                             if (mVar == mVar2 && (mVar2 instanceof bj)) {
                                 a.b bVar = new a.b();
                                 bVar.Pj = ((bj) mVar2).getTid();
-                                bVar.fMt = i2;
+                                bVar.fMG = i2;
                                 arrayList.add(bVar);
                             }
                         }
@@ -49,11 +49,11 @@ public class h {
                         if (mVar3 instanceof bj) {
                             bj bjVar2 = (bj) mVar3;
                             i3++;
-                            if (bjVar2.cSK == 1 && !TextUtils.isEmpty(bjVar2.getTid())) {
-                                bjVar2.cSK = 2;
+                            if (bjVar2.cSL == 1 && !TextUtils.isEmpty(bjVar2.getTid())) {
+                                bjVar2.cSL = 2;
                                 a.b bVar2 = new a.b();
                                 bVar2.Pj = bjVar2.getTid();
-                                bVar2.fMt = i3;
+                                bVar2.fMG = i3;
                                 arrayList.add(bVar2);
                             }
                         }
@@ -61,7 +61,7 @@ public class h {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    s.sendFRS(z, frsViewData.getForum().getFirst_class(), frsViewData.getForum().getSecond_class(), str, arrayList, adAdSense.aJg());
+                    s.sendFRS(z, frsViewData.getForum().getFirst_class(), frsViewData.getForum().getSecond_class(), str, arrayList, adAdSense.aJh());
                 }
             }
         }
@@ -70,31 +70,31 @@ public class h {
     public static void a(FrsModelController frsModelController, long j) {
         if (frsModelController != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            TiebaStatic.page(TiebaInitialize.OpKey.OP_FRS_ENTER, currentTimeMillis - j, frsModelController.byP() - j, frsModelController.byN(), frsModelController.byO(), currentTimeMillis - frsModelController.byM());
+            TiebaStatic.page(TiebaInitialize.OpKey.OP_FRS_ENTER, currentTimeMillis - j, frsModelController.byQ() - j, frsModelController.byO(), frsModelController.byP(), currentTimeMillis - frsModelController.byN());
         }
     }
 
     public static void a(FrsFragment frsFragment, FrsViewData frsViewData, bj bjVar) {
         if (bjVar != null && frsViewData != null) {
-            FrsModelController bDK = frsFragment.bDK();
-            l bDP = frsFragment.bDP();
-            if (bDP != null && bDK != null) {
+            FrsModelController bDL = frsFragment.bDL();
+            l bDQ = frsFragment.bDQ();
+            if (bDQ != null && bDL != null) {
                 if (bjVar.aCo() != null && bjVar.aCo().getGodInfo() != null) {
                     TiebaStatic.log(new an("c10806").X("obj_locate", 3).cy("tid", bjVar.getId()));
                 }
                 if (frsViewData != null && frsViewData.getForum() != null) {
                     com.baidu.tieba.frs.d.b bVar = new com.baidu.tieba.frs.d.b();
-                    bVar.gJm = frsViewData.needLog == 1;
-                    bVar.gJo = frsViewData.getForum().getId();
-                    bVar.gJn = bDK.bJp();
-                    if (com.baidu.tieba.frs.d.d.gwq != null) {
-                        bVar.gJp = com.baidu.tieba.frs.d.d.gwq.gJp;
-                        bVar.gJq = com.baidu.tieba.frs.d.d.gwq.gJq;
+                    bVar.gJy = frsViewData.needLog == 1;
+                    bVar.gJA = frsViewData.getForum().getId();
+                    bVar.gJz = bDL.bJq();
+                    if (com.baidu.tieba.frs.d.d.gwC != null) {
+                        bVar.gJB = com.baidu.tieba.frs.d.d.gwC.gJB;
+                        bVar.gJC = com.baidu.tieba.frs.d.d.gwC.gJC;
                     }
-                    com.baidu.tieba.frs.d.c.bJJ().a(bVar, bjVar, 1);
+                    com.baidu.tieba.frs.d.c.bJK().a(bVar, bjVar, 1);
                     com.baidu.tieba.frs.d.a.a(bjVar, 1, frsFragment.getUniqueId(), bVar, frsFragment.getTbPageTag());
                 }
-                a(bDP, frsViewData, frsFragment.getForumId(), true, bjVar);
+                a(bDQ, frsViewData, frsFragment.getForumId(), true, bjVar);
             }
         }
     }
@@ -110,9 +110,9 @@ public class h {
     }
 
     public static void a(com.baidu.tieba.frs.d.b bVar, String str) {
-        if (!TextUtils.isEmpty(str) && bVar != null && !TextUtils.isEmpty(bVar.gJo)) {
+        if (!TextUtils.isEmpty(str) && bVar != null && !TextUtils.isEmpty(bVar.gJA)) {
             an anVar = new an("c11942");
-            anVar.cy("fid", bVar.gJo);
+            anVar.cy("fid", bVar.gJA);
             anVar.cy("obj_name", str);
             TiebaStatic.log(anVar);
         }

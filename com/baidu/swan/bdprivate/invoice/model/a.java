@@ -6,18 +6,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements c {
-    public List<InvoiceInfo> cdK;
+    public List<InvoiceInfo> cdL;
 
     @Override // com.baidu.swan.bdprivate.invoice.model.c
     public void bg(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("list")) != null) {
-            this.cdK = new ArrayList();
+            this.cdL = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 InvoiceInfo invoiceInfo = new InvoiceInfo();
                 invoiceInfo.bg(optJSONObject);
-                this.cdK.add(invoiceInfo);
+                this.cdL.add(invoiceInfo);
             }
         }
     }

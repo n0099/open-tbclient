@@ -7,7 +7,7 @@ import android.view.View;
 public class h extends com.baidu.swan.apps.core.c.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
-    private View cml;
+    private View cmm;
 
     public h(Context context) {
         super(context);
@@ -41,7 +41,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void ad(View view) {
-        this.cml = view;
+        this.cmm = view;
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
@@ -52,7 +52,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void IG() {
         i.ch(false);
-        this.cml = null;
+        this.cmm = null;
         super.IG();
     }
 
@@ -65,8 +65,8 @@ public class h extends com.baidu.swan.apps.core.c.d {
             if (z) {
                 com.baidu.swan.apps.y.f.WS().a("console", c.eB(true));
             }
-            if (this.cml != null) {
-                this.cml.setVisibility(z ? 4 : 0);
+            if (this.cmm != null) {
+                this.cmm.setVisibility(z ? 4 : 0);
             }
             super.bW(z);
         }

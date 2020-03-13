@@ -18,8 +18,8 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class NEGFeedBackView extends AppCompatImageView {
     private long aiH;
-    c dUg;
-    private View.OnClickListener dUh;
+    c dUt;
+    private View.OnClickListener dUu;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
@@ -38,10 +38,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
         this.aiH = 0L;
-        this.dUh = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.dUu = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.aWn();
+                NEGFeedBackView.this.aWo();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - NEGFeedBackView.this.aiH > 500) {
                     NEGFeedBackView.this.R(view);
@@ -54,14 +54,14 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     private void i(TbPageContext tbPageContext) {
-        this.dUg = new c(tbPageContext, this);
-        setOnClickListener(this.dUh);
+        this.dUt = new c(tbPageContext, this);
+        setOnClickListener(this.dUu);
         SvgManager.aGC().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.dUg.setUniqueId(bdUniqueId);
+        this.dUt.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -85,11 +85,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(View view) {
-        this.dUg.R(view);
+        this.dUt.R(view);
     }
 
-    public void aWn() {
-        this.dUg.aWn();
+    public void aWo() {
+        this.dUt.aWo();
     }
 
     public void setCWRotateAnimation() {
@@ -101,15 +101,15 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.dUg.onDetachedFromWindow();
+        this.dUt.onDetachedFromWindow();
     }
 
     public void setData(al alVar) {
-        this.dUg.setData(alVar);
+        this.dUt.setData(alVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.dUg.setFirstRowSingleColumn(z);
+        this.dUt.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -117,23 +117,23 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.dUg.setEventCallback(aVar);
+        this.dUt.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.dUg.setAutoProcess(z);
+        this.dUt.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.dUg.setHeadText(str);
+        this.dUt.setHeadText(str);
     }
 
     public void ae(boolean z) {
-        this.dUg.ae(z);
+        this.dUt.ae(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.dUg.setDefaultReasonArray(strArr);
+        this.dUt.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

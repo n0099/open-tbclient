@@ -43,7 +43,7 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
             if (DEBUG) {
                 Log.d("SwanAppMasterManager", "pathList item: " + aVar.appPath);
             }
-            this.bme.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.ay("appjs", aVar.appPath));
+            this.bmf.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.ay("appjs", aVar.appPath));
         }
     }
 

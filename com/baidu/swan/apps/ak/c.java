@@ -29,11 +29,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    public static long bSn;
-    private static ContentObserver bSo;
-    private static PackageManager bSp;
-    private static boolean bSq;
-    private static Runnable bSr;
+    public static long bSo;
+    private static ContentObserver bSp;
+    private static PackageManager bSq;
+    private static boolean bSr;
+    private static Runnable bSs;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
@@ -51,10 +51,10 @@ public class c {
     }
 
     public static void cu(Context context) {
-        bSp = context.getPackageManager();
+        bSq = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        bSo = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
+        bSp = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -65,7 +65,7 @@ public class c {
             }
         };
         if (cv(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSo);
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSp);
         }
     }
 
@@ -74,8 +74,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.bSt + ".*")) {
-            if (adT() && bSq) {
+        if (uri.toString().matches(a.bSu + ".*")) {
+            if (adT() && bSr) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -97,9 +97,9 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
                                 if (a.ly(string) && a.k(valueOf2.longValue(), valueOf.longValue())) {
-                                    bSq = true;
+                                    bSr = true;
                                     final b bVar = new b(string, valueOf);
-                                    bSr = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
+                                    bSs = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             c.adU();
@@ -117,17 +117,17 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.bSr, 100L);
+                                            handler.postDelayed(c.bSs, 100L);
                                         }
                                     };
-                                    handler.post(bSr);
+                                    handler.post(bSs);
                                 } else {
-                                    bSq = false;
+                                    bSr = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (bSp != null) {
-                                List<ProviderInfo> queryContentProviders = bSp.queryContentProviders(null, 0, 131072);
+                            if (bSq != null) {
+                                List<ProviderInfo> queryContentProviders = bSq.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -157,7 +157,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean aA(long j) {
-        return g.WX().isForeground() && System.currentTimeMillis() - bSn > j;
+        return g.WX().isForeground() && System.currentTimeMillis() - bSo > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -205,12 +205,12 @@ public class c {
 
     /* loaded from: classes11.dex */
     public static class b {
-        public Long bSu;
+        public Long bSv;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.bSu = l;
+            this.bSv = l;
         }
     }
 
@@ -218,12 +218,12 @@ public class c {
     /* loaded from: classes11.dex */
     public static class a {
         public static String[] PROJECTION;
-        public static String bSt;
+        public static String bSu;
 
         static {
-            bSt = null;
+            bSu = null;
             PROJECTION = null;
-            bSt = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            bSu = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
             PROJECTION = new String[]{"_display_name", "_data", "date_added"};
         }
 

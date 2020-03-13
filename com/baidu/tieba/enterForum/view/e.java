@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a fZZ;
-    private b gab;
+    private a gam;
+    private b gao;
     private int mScrollState = -1;
-    private int gaa = 0;
+    private int gan = 0;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.gaa != 0 && this.gab != null) {
-                    this.gab.a(absListView, 0, -this.gaa);
+                if (this.gan != 0 && this.gao != null) {
+                    this.gao.a(absListView, 0, -this.gan);
                 }
-                this.gaa = 0;
-                this.fZZ = null;
+                this.gan = 0;
+                this.gam = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.fZZ == null) {
-                this.fZZ = aVar;
-                this.gaa = absListView.getPaddingTop() - childAt.getTop();
-                if (this.gab != null) {
-                    this.gab.a(absListView, this.gaa, 0);
+            if (this.gam == null) {
+                this.gam = aVar;
+                this.gan = absListView.getPaddingTop() - childAt.getTop();
+                if (this.gao != null) {
+                    this.gao.a(absListView, this.gan, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.fZZ.a(aVar);
-            this.fZZ = aVar;
-            this.gaa += a2;
-            if (this.gab != null) {
-                this.gab.a(absListView, this.gaa, a2);
+            int a2 = this.gam.a(aVar);
+            this.gam = aVar;
+            this.gan += a2;
+            if (this.gao != null) {
+                this.gao.a(absListView, this.gan, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.gab = bVar;
+        this.gao = bVar;
     }
 
     /* loaded from: classes9.dex */

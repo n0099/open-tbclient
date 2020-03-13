@@ -5,7 +5,7 @@ import android.graphics.Rect;
 public interface d {
     void cLA();
 
-    void cLx();
+    void cLB();
 
     void cLy();
 

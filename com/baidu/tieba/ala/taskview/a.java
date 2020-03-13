@@ -25,14 +25,14 @@ import com.baidu.tieba.ala.tasklist.model.AlaTaskRewardHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.x.b {
-    private ImageView fzN;
-    private TBLottieAnimationView fzO;
-    private int fzQ;
+    private ImageView fAa;
+    private TBLottieAnimationView fAb;
+    private int fAd;
     private Context mContext;
     private View mRootView;
-    private boolean eTw = true;
-    private boolean fzP = false;
-    private HttpMessageListener fzD = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.2
+    private boolean eTJ = true;
+    private boolean fAc = false;
+    private HttpMessageListener fzQ = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,12 +41,12 @@ public class a implements com.baidu.live.x.b {
                 int error = httpResponsedMessage.getError();
                 AlaTaskRewardHttpResponsedMessage alaTaskRewardHttpResponsedMessage = (AlaTaskRewardHttpResponsedMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    a.this.a(alaTaskRewardHttpResponsedMessage.fzA);
+                    a.this.a(alaTaskRewardHttpResponsedMessage.fzN);
                 }
             }
         }
     };
-    private Animator.AnimatorListener fzR = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.4
+    private Animator.AnimatorListener fAe = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.4
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
@@ -64,7 +64,7 @@ public class a implements com.baidu.live.x.b {
         public void onAnimationRepeat(Animator animator) {
         }
     };
-    private Animator.AnimatorListener fzS = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
+    private Animator.AnimatorListener fAf = new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.taskview.a.5
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
         }
@@ -79,10 +79,10 @@ public class a implements com.baidu.live.x.b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            if (!a.this.fzP) {
-                a.this.fzP = true;
-                a.this.fzO.setMinFrame(31);
-                a.this.fzO.setMaxFrame(80);
+            if (!a.this.fAc) {
+                a.this.fAc = true;
+                a.this.fAb.setMinFrame(31);
+                a.this.fAb.setMaxFrame(80);
             }
         }
     };
@@ -90,27 +90,27 @@ public class a implements com.baidu.live.x.b {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_task_view, (ViewGroup) null);
-        this.fzN = (ImageView) this.mRootView.findViewById(a.g.alaFlowerImg);
-        this.fzO = (TBLottieAnimationView) this.mRootView.findViewById(a.g.animation_view);
-        this.fzO.setAnimation("flower_entry.json");
-        this.fzO.setImageAssetsFolder("images/");
-        this.fzO.setVisibility(4);
-        this.fzO.addAnimatorListener(this.fzS);
+        this.fAa = (ImageView) this.mRootView.findViewById(a.g.alaFlowerImg);
+        this.fAb = (TBLottieAnimationView) this.mRootView.findViewById(a.g.animation_view);
+        this.fAb.setAnimation("flower_entry.json");
+        this.fAb.setImageAssetsFolder("images/");
+        this.fAb.setVisibility(4);
+        this.fAb.addAnimatorListener(this.fAf);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.taskview.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else {
-                    a.this.bmf();
+                    a.this.bmg();
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.fzD);
+        MessageManager.getInstance().registerListener(this.fzQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmf() {
+    public void bmg() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new f(this.mContext)));
     }
 
@@ -144,20 +144,20 @@ public class a implements com.baidu.live.x.b {
 
     @Override // com.baidu.live.x.b
     public void setCanVisible(boolean z) {
-        this.eTw = z;
+        this.eTJ = z;
     }
 
     private void a(int i, v vVar) {
         if (i >= 1 && i <= 3) {
-            this.fzQ = i;
+            this.fAd = i;
         }
         if (vVar != null) {
             if (!ListUtils.isEmpty(vVar.abf)) {
                 if (vVar.qC()) {
-                    if (this.eTw) {
+                    if (this.eTJ) {
                         this.mRootView.setVisibility(0);
                         kb(true);
-                        btz();
+                        btA();
                         return;
                     }
                     kb(false);
@@ -174,13 +174,13 @@ public class a implements com.baidu.live.x.b {
 
     private void a(int i, u uVar) {
         if (i >= 1 && i <= 3) {
-            this.fzQ = i;
+            this.fAd = i;
         }
         if (i == 2) {
-            if (this.eTw) {
+            if (this.eTJ) {
                 this.mRootView.setVisibility(0);
                 kb(true);
-                btz();
+                btA();
                 return;
             }
             kb(false);
@@ -192,7 +192,7 @@ public class a implements com.baidu.live.x.b {
         }
     }
 
-    private void btz() {
+    private void btA() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
             this.mRootView.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.3
                 @Override // java.lang.Runnable
@@ -207,39 +207,39 @@ public class a implements com.baidu.live.x.b {
 
     private void kb(boolean z) {
         if (z) {
-            if (!this.fzO.isAnimating()) {
-                this.fzO.cancelAnimation();
-                this.fzO.loop(true);
-                this.fzO.setMinFrame(0);
-                this.fzO.setMaxFrame(80);
-                this.fzO.addAnimatorListener(this.fzS);
-                this.fzO.removeAnimatorListener(this.fzR);
-                this.fzO.playAnimation();
-                this.fzP = false;
+            if (!this.fAb.isAnimating()) {
+                this.fAb.cancelAnimation();
+                this.fAb.loop(true);
+                this.fAb.setMinFrame(0);
+                this.fAb.setMaxFrame(80);
+                this.fAb.addAnimatorListener(this.fAf);
+                this.fAb.removeAnimatorListener(this.fAe);
+                this.fAb.playAnimation();
+                this.fAc = false;
             }
-        } else if (this.fzO.isAnimating()) {
-            this.fzO.cancelAnimation();
-            this.fzO.loop(false);
-            this.fzO.addAnimatorListener(this.fzR);
-            this.fzO.removeAnimatorListener(this.fzS);
-            this.fzO.setMaxFrame(95);
-            this.fzO.setMinFrame(80);
-            this.fzO.playAnimation();
+        } else if (this.fAb.isAnimating()) {
+            this.fAb.cancelAnimation();
+            this.fAb.loop(false);
+            this.fAb.addAnimatorListener(this.fAe);
+            this.fAb.removeAnimatorListener(this.fAf);
+            this.fAb.setMaxFrame(95);
+            this.fAb.setMinFrame(80);
+            this.fAb.playAnimation();
         } else {
-            this.fzO.cancelAnimation();
+            this.fAb.cancelAnimation();
             this.mRootView.setVisibility(8);
         }
     }
 
     private void qW(int i) {
         if (i == 8) {
-            this.fzN.setImageResource(a.f.icon_liveshow_flowerless);
-            this.fzN.setVisibility(0);
-            this.fzO.setVisibility(4);
+            this.fAa.setImageResource(a.f.icon_liveshow_flowerless);
+            this.fAa.setVisibility(0);
+            this.fAb.setVisibility(4);
         } else if (i == 0) {
-            this.fzN.setImageResource(a.f.icon_liveshow_flower);
-            this.fzN.setVisibility(4);
-            this.fzO.setVisibility(0);
+            this.fAa.setImageResource(a.f.icon_liveshow_flower);
+            this.fAa.setVisibility(4);
+            this.fAb.setVisibility(0);
         }
     }
 
@@ -254,13 +254,13 @@ public class a implements com.baidu.live.x.b {
 
     @Override // com.baidu.live.x.b
     public void zx() {
-        if (this.fzO != null) {
-            this.fzO.cancelAnimation();
+        if (this.fAb != null) {
+            this.fAb.cancelAnimation();
         }
     }
 
     @Override // com.baidu.live.x.b
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fzD);
+        MessageManager.getInstance().unRegisterListener(this.fzQ);
     }
 }

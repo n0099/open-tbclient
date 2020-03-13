@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> beS = i.K("localhost", "127.0.0.1");
+    protected static final Set<String> beT = i.K("localhost", "127.0.0.1");
 
     public static String fI(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
@@ -42,7 +42,7 @@ public class c {
             adG = false;
         }
         if (httpUrl != null) {
-            return (!adG || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !beS.contains(httpUrl.host().toLowerCase());
+            return (!adG || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !beT.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }

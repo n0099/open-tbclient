@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class f {
-    static final k cDP;
+    static final k cDQ;
 
     /* loaded from: classes11.dex */
     interface k {
@@ -84,7 +84,7 @@ public class f {
 
     /* loaded from: classes11.dex */
     static class e extends d {
-        static boolean cDQ = false;
+        static boolean cDR = false;
 
         e() {
         }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            cDP = new j();
+            cDQ = new j();
         } else {
-            cDP = new i();
+            cDQ = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return cDP.canScrollVertically(view, i2);
+        return cDQ.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        cDP.setLayerType(view, i2, paint);
+        cDQ.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return cDP.getLayerType(view);
+        return cDQ.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        cDP.setSaveFromParentEnabled(view, z);
+        cDQ.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return cDP.hasOverlappingRendering(view);
+        return cDQ.hasOverlappingRendering(view);
     }
 }

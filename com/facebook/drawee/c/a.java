@@ -5,22 +5,22 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes13.dex */
 public class a {
-    InterfaceC0657a lNC;
-    final float lND;
-    boolean lNE;
-    boolean lNF;
-    long lNG;
-    float lNH;
-    float lNI;
+    InterfaceC0657a lNN;
+    final float lNO;
+    boolean lNP;
+    boolean lNQ;
+    long lNR;
+    float lNS;
+    float lNT;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public interface InterfaceC0657a {
-        boolean dmd();
+        boolean dme();
     }
 
     public a(Context context) {
-        this.lND = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.lNO = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.lNC = null;
+        this.lNN = null;
         reset();
     }
 
     public void reset() {
-        this.lNE = false;
-        this.lNF = false;
+        this.lNP = false;
+        this.lNQ = false;
     }
 
     public void a(InterfaceC0657a interfaceC0657a) {
-        this.lNC = interfaceC0657a;
+        this.lNN = interfaceC0657a;
     }
 
-    public boolean dng() {
-        return this.lNE;
+    public boolean dnh() {
+        return this.lNP;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.lNE = true;
-                this.lNF = true;
-                this.lNG = motionEvent.getEventTime();
-                this.lNH = motionEvent.getX();
-                this.lNI = motionEvent.getY();
+                this.lNP = true;
+                this.lNQ = true;
+                this.lNR = motionEvent.getEventTime();
+                this.lNS = motionEvent.getX();
+                this.lNT = motionEvent.getY();
                 break;
             case 1:
-                this.lNE = false;
-                if (Math.abs(motionEvent.getX() - this.lNH) > this.lND || Math.abs(motionEvent.getY() - this.lNI) > this.lND) {
-                    this.lNF = false;
+                this.lNP = false;
+                if (Math.abs(motionEvent.getX() - this.lNS) > this.lNO || Math.abs(motionEvent.getY() - this.lNT) > this.lNO) {
+                    this.lNQ = false;
                 }
-                if (this.lNF && motionEvent.getEventTime() - this.lNG <= ViewConfiguration.getLongPressTimeout() && this.lNC != null) {
-                    this.lNC.dmd();
+                if (this.lNQ && motionEvent.getEventTime() - this.lNR <= ViewConfiguration.getLongPressTimeout() && this.lNN != null) {
+                    this.lNN.dme();
                 }
-                this.lNF = false;
+                this.lNQ = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.lNH) > this.lND || Math.abs(motionEvent.getY() - this.lNI) > this.lND) {
-                    this.lNF = false;
+                if (Math.abs(motionEvent.getX() - this.lNS) > this.lNO || Math.abs(motionEvent.getY() - this.lNT) > this.lNO) {
+                    this.lNQ = false;
                     break;
                 }
                 break;
             case 3:
-                this.lNE = false;
-                this.lNF = false;
+                this.lNP = false;
+                this.lNQ = false;
                 break;
         }
         return true;

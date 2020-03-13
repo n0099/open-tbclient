@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FragmentTabSwellingView extends View {
-    private Paint cYj;
-    private Path cYk;
+    private Paint cYk;
     private Path cYl;
-    private int cYm;
+    private Path cYm;
     private int cYn;
     private int cYo;
     private int cYp;
     private int cYq;
     private int cYr;
     private int cYs;
+    private int cYt;
     private Paint mShadowPaint;
 
     public FragmentTabSwellingView(Context context) {
@@ -45,27 +45,27 @@ public class FragmentTabSwellingView extends View {
     }
 
     private void aFF() {
-        this.cYm = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
-        this.cYn = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
-        this.cYo = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
-        this.cYp = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
-        this.cYq = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
-        this.cYr = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds43);
-        this.cYs = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
+        this.cYn = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
+        this.cYo = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
+        this.cYp = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
+        this.cYq = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
+        this.cYr = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
+        this.cYs = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds43);
+        this.cYt = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
     }
 
     private void aFG() {
-        this.cYk = new Path();
         this.cYl = new Path();
+        this.cYm = new Path();
     }
 
     private void aFH() {
-        this.cYj = new Paint();
-        this.cYj.setColor(am.getColor(R.color.cp_bg_line_e));
-        this.cYj.setAntiAlias(true);
-        this.cYj.setStrokeWidth(1.0f);
-        this.cYj.setDither(true);
-        this.cYj.setStyle(Paint.Style.FILL);
+        this.cYk = new Paint();
+        this.cYk.setColor(am.getColor(R.color.cp_bg_line_e));
+        this.cYk.setAntiAlias(true);
+        this.cYk.setStrokeWidth(1.0f);
+        this.cYk.setDither(true);
+        this.cYk.setStyle(Paint.Style.FILL);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setDither(true);
@@ -75,30 +75,30 @@ public class FragmentTabSwellingView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.cYk.moveTo(0.0f, getHeight() - this.cYm);
-        this.cYk.lineTo((getWidth() / 2) - (this.cYn / 2), getHeight() - this.cYm);
-        this.cYk.quadTo(((getWidth() / 2) - (this.cYn / 2)) + this.cYo, getHeight() - this.cYm, ((getWidth() / 2) - (this.cYn / 2)) + this.cYp, (getHeight() - this.cYm) - this.cYq);
-        this.cYk.quadTo(getWidth() / 2, (getHeight() - this.cYm) - this.cYr, ((getWidth() / 2) + (this.cYn / 2)) - this.cYp, (getHeight() - this.cYm) - this.cYq);
-        this.cYk.quadTo(((getWidth() / 2) + (this.cYn / 2)) - this.cYo, getHeight() - this.cYm, (getWidth() / 2) + (this.cYn / 2), getHeight() - this.cYm);
-        this.cYk.lineTo(getWidth(), getHeight() - this.cYm);
-        this.cYk.lineTo(getWidth(), getHeight());
-        this.cYk.lineTo(0.0f, getHeight());
-        this.cYk.close();
-        this.cYl.moveTo(0.0f, (getHeight() - this.cYm) + this.cYs);
-        this.cYl.lineTo((getWidth() / 2) - (this.cYn / 2), (getHeight() - this.cYm) + this.cYs);
-        this.cYl.quadTo(((getWidth() / 2) - (this.cYn / 2)) + this.cYo, (getHeight() - this.cYm) + this.cYs, ((getWidth() / 2) - (this.cYn / 2)) + this.cYp, ((getHeight() - this.cYm) - this.cYq) + this.cYs);
-        this.cYl.quadTo(getWidth() / 2, ((getHeight() - this.cYm) - this.cYr) + this.cYs, ((getWidth() / 2) + (this.cYn / 2)) - this.cYp, ((getHeight() - this.cYm) - this.cYq) + this.cYs);
-        this.cYl.quadTo(((getWidth() / 2) + (this.cYn / 2)) - this.cYo, (getHeight() - this.cYm) + this.cYs, (getWidth() / 2) + (this.cYn / 2), (getHeight() - this.cYm) + this.cYs);
-        this.cYl.lineTo(getWidth(), (getHeight() - this.cYm) + this.cYs);
+        this.cYl.moveTo(0.0f, getHeight() - this.cYn);
+        this.cYl.lineTo((getWidth() / 2) - (this.cYo / 2), getHeight() - this.cYn);
+        this.cYl.quadTo(((getWidth() / 2) - (this.cYo / 2)) + this.cYp, getHeight() - this.cYn, ((getWidth() / 2) - (this.cYo / 2)) + this.cYq, (getHeight() - this.cYn) - this.cYr);
+        this.cYl.quadTo(getWidth() / 2, (getHeight() - this.cYn) - this.cYs, ((getWidth() / 2) + (this.cYo / 2)) - this.cYq, (getHeight() - this.cYn) - this.cYr);
+        this.cYl.quadTo(((getWidth() / 2) + (this.cYo / 2)) - this.cYp, getHeight() - this.cYn, (getWidth() / 2) + (this.cYo / 2), getHeight() - this.cYn);
+        this.cYl.lineTo(getWidth(), getHeight() - this.cYn);
         this.cYl.lineTo(getWidth(), getHeight());
         this.cYl.lineTo(0.0f, getHeight());
         this.cYl.close();
-        canvas.drawPath(this.cYl, this.mShadowPaint);
-        canvas.drawPath(this.cYk, this.cYj);
+        this.cYm.moveTo(0.0f, (getHeight() - this.cYn) + this.cYt);
+        this.cYm.lineTo((getWidth() / 2) - (this.cYo / 2), (getHeight() - this.cYn) + this.cYt);
+        this.cYm.quadTo(((getWidth() / 2) - (this.cYo / 2)) + this.cYp, (getHeight() - this.cYn) + this.cYt, ((getWidth() / 2) - (this.cYo / 2)) + this.cYq, ((getHeight() - this.cYn) - this.cYr) + this.cYt);
+        this.cYm.quadTo(getWidth() / 2, ((getHeight() - this.cYn) - this.cYs) + this.cYt, ((getWidth() / 2) + (this.cYo / 2)) - this.cYq, ((getHeight() - this.cYn) - this.cYr) + this.cYt);
+        this.cYm.quadTo(((getWidth() / 2) + (this.cYo / 2)) - this.cYp, (getHeight() - this.cYn) + this.cYt, (getWidth() / 2) + (this.cYo / 2), (getHeight() - this.cYn) + this.cYt);
+        this.cYm.lineTo(getWidth(), (getHeight() - this.cYn) + this.cYt);
+        this.cYm.lineTo(getWidth(), getHeight());
+        this.cYm.lineTo(0.0f, getHeight());
+        this.cYm.close();
+        canvas.drawPath(this.cYm, this.mShadowPaint);
+        canvas.drawPath(this.cYl, this.cYk);
     }
 
     public void onChangeSkinType(int i) {
-        this.cYj.setColor(am.getColor(R.color.cp_bg_line_e));
+        this.cYk.setColor(am.getColor(R.color.cp_bg_line_e));
         if (i == 1 || i == 4) {
             this.mShadowPaint.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
         } else {

@@ -67,7 +67,7 @@ public class o extends ab {
         if (TextUtils.isEmpty(VJ)) {
             VJ = "NA";
         }
-        JSONObject jSONObject = eVar.bTu;
+        JSONObject jSONObject = eVar.bTv;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }

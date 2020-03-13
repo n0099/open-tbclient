@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class p extends ab implements com.baidu.swan.apps.network.f {
     int RESULT_CODE_SUCCESS;
-    int bRe;
+    int bRf;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
     public p(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/openDocument");
         this.RESULT_CODE_SUCCESS = 1;
-        this.bRe = 3;
+        this.bRf = 3;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab

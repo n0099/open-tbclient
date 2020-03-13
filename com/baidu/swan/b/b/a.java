@@ -28,7 +28,7 @@ public class a extends com.baidu.swan.b.d.a {
                     /* renamed from: c */
                     public void D(com.baidu.swan.apps.setting.oauth.e eVar) {
                         boolean z = true;
-                        if ((eVar == null || eVar.forbidden || eVar.bTq != 1) ? false : false) {
+                        if ((eVar == null || eVar.forbidden || eVar.bTr != 1) ? false : false) {
                             bVar.K(null);
                         } else {
                             bVar.onFail(10001, "authorize fail.");

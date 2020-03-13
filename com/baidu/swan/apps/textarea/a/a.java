@@ -32,7 +32,7 @@ public class a extends ab {
         }
         com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
-            String str = "can't find textarea component:#" + bVar.bil;
+            String str = "can't find textarea component:#" + bVar.bim;
             com.baidu.swan.apps.console.c.e("CloseTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;

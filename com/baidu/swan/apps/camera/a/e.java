@@ -98,7 +98,7 @@ public class e extends a {
         } catch (Exception e3) {
             e = e3;
             cameraPreview.Kn();
-            com.baidu.swan.apps.camera.a.Kg().h(bVar.bim, bVar.bfZ, false);
+            com.baidu.swan.apps.camera.a.Kg().h(bVar.bin, bVar.bga, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

@@ -493,7 +493,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (str != null) {
                 this.mWaitingDialog.setTipString(str);
             } else {
-                this.mWaitingDialog.setTipString(a.i.sdk_Waiting);
+                this.mWaitingDialog.setTipString(a.i.sdk_waiting);
             }
             this.mWaitingDialog.setAutoSetCancelable(false);
             this.mWaitingDialog.setCancelable(false);
@@ -511,7 +511,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (str != null) {
             this.mWaitingDialog.setTipString(str);
         } else {
-            this.mWaitingDialog.setTipString(a.i.sdk_Waiting);
+            this.mWaitingDialog.setTipString(a.i.sdk_waiting);
         }
         this.mWaitingDialog.setAutoSetCancelable(false);
         this.mWaitingDialog.setCancelable(true);

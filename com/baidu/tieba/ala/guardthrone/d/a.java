@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardthrone.messages.AlaGuardThroneResponseMessage;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0445a eJl;
-    private HttpMessageListener eJm;
+    private InterfaceC0445a eJy;
+    private HttpMessageListener eJz;
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -23,25 +23,25 @@ public class a extends BdBaseModel {
 
     public a(BdPageContext<?> bdPageContext, InterfaceC0445a interfaceC0445a) {
         super(bdPageContext);
-        this.eJm = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
+        this.eJz = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021164 && (httpResponsedMessage instanceof AlaGuardThroneResponseMessage)) {
                     AlaGuardThroneResponseMessage alaGuardThroneResponseMessage = (AlaGuardThroneResponseMessage) httpResponsedMessage;
-                    if (a.this.eJl != null) {
+                    if (a.this.eJy != null) {
                         if (alaGuardThroneResponseMessage.getError() != 0 || !alaGuardThroneResponseMessage.isSuccess()) {
-                            a.this.eJl.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
+                            a.this.eJy.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
                         } else {
-                            a.this.eJl.a(alaGuardThroneResponseMessage.bgb());
+                            a.this.eJy.a(alaGuardThroneResponseMessage.bgc());
                         }
                     }
                 }
             }
         };
-        this.eJl = interfaceC0445a;
+        this.eJy = interfaceC0445a;
         te();
-        registerListener(this.eJm);
+        registerListener(this.eJz);
     }
 
     private void te() {
@@ -71,7 +71,7 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eJm);
+        MessageManager.getInstance().unRegisterListener(this.eJz);
         MessageManager.getInstance().unRegisterTask(1021164);
     }
 }

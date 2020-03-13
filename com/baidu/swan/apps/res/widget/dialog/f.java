@@ -18,14 +18,14 @@ public class f extends g.a {
         this.mBtnHeight = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_list_item);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
         layoutParams.addRule(12);
-        this.bOc.mBtnPanelLayout.setLayoutParams(layoutParams);
+        this.bOd.mBtnPanelLayout.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider));
-        layoutParams2.addRule(2, this.bOc.mBtnPanelLayout.getId());
-        this.bOc.mDivider2.setLayoutParams(layoutParams2);
+        layoutParams2.addRule(2, this.bOd.mBtnPanelLayout.getId());
+        this.bOd.mDivider2.setLayoutParams(layoutParams2);
         gc(a.c.aiapps_action_sheet_split_color);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams3.addRule(2, this.bOc.mDivider2.getId());
-        this.bOc.mDialogContentPanel.setLayoutParams(layoutParams3);
+        layoutParams3.addRule(2, this.bOd.mDivider2.getId());
+        this.bOd.mDialogContentPanel.setLayoutParams(layoutParams3);
         return super.Pc();
     }
 }

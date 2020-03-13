@@ -13,18 +13,18 @@ public class a implements i {
     public boolean a(String str, com.baidu.swan.apps.ap.a aVar) {
         an anVar = new an("c13607");
         anVar.cy("obj_id", str);
-        anVar.cy("uid", com.baidu.tieba.aiapps.apps.a.a.aZF().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.aZF().getUid());
+        anVar.cy("uid", com.baidu.tieba.aiapps.apps.a.a.aZG().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.aZG().getUid());
         anVar.s("obj_param1", aVar.agh());
         anVar.cy(TiebaInitialize.Params.OBJ_PARAM2, aVar.agi());
         TiebaStatic.log(anVar);
         if (aVar.agg() == 10 && aVar.agh() == 1013) {
-            bbm();
+            bbn();
             return true;
         }
         return false;
     }
 
-    private void bbm() {
+    private void bbn() {
         SwanAppErrorDialog.ahy().fP(R.string.swan_app_update_title).fQ(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
     }
 }

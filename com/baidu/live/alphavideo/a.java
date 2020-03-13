@@ -11,7 +11,7 @@ public class a {
     }
 
     public boolean pw() {
-        ap apVar = com.baidu.live.v.a.zl().axC;
+        ap apVar = com.baidu.live.v.a.zl().axD;
         return this.VC && apVar != null && apVar.acV != null && apVar.acV.aeE;
     }
 

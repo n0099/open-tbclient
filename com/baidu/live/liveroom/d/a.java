@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public b avW;
+    public b avX;
     private List<d> VW = new LinkedList();
-    private List<e> avX = new LinkedList();
+    private List<e> avY = new LinkedList();
 
     public void a(d dVar) {
         if (dVar != null && !this.VW.contains(dVar)) {
@@ -15,8 +15,8 @@ public class a {
     }
 
     public void a(e eVar) {
-        if (eVar != null && !this.avX.contains(eVar)) {
-            this.avX.add(eVar);
+        if (eVar != null && !this.avY.contains(eVar)) {
+            this.avY.add(eVar);
         }
     }
 }

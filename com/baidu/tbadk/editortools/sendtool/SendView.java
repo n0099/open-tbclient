@@ -15,16 +15,16 @@ public class SendView extends TextView implements m {
     private EditorTools FO;
     private int FP;
     private int Ni;
-    private int[] dyM;
+    private int[] dyZ;
     private boolean[] flags;
     private int mType;
-    public static int dyN = 1;
+    public static int dza = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
         this.flags = new boolean[]{false, false, false, false, false};
-        this.dyM = new int[]{0, 0};
+        this.dyZ = new int[]{0, 0};
         this.Ni = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
@@ -61,8 +61,8 @@ public class SendView extends TextView implements m {
                     this.flags[2] = false;
                     this.flags[3] = false;
                     this.flags[4] = false;
-                    this.dyM[0] = 0;
-                    this.dyM[1] = 0;
+                    this.dyZ[0] = 0;
+                    this.dyZ[1] = 0;
                     break;
                 case 10:
                     this.flags[2] = true;
@@ -73,14 +73,14 @@ public class SendView extends TextView implements m {
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.dxA != null) {
-                            if (aVar2.dxA.getChosedFiles() != null) {
-                                this.dyM[0] = aVar2.dxA.getChosedFiles().size();
+                        if (aVar2.dxN != null) {
+                            if (aVar2.dxN.getChosedFiles() != null) {
+                                this.dyZ[0] = aVar2.dxN.getChosedFiles().size();
                             } else {
-                                this.dyM[0] = 0;
+                                this.dyZ[0] = 0;
                             }
                         }
-                        if (this.dyM[0] > 0) {
+                        if (this.dyZ[0] > 0) {
                             this.flags[1] = true;
                             break;
                         } else {
@@ -91,9 +91,9 @@ public class SendView extends TextView implements m {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.dyM;
+                    int[] iArr = this.dyZ;
                     iArr[0] = iArr[0] - 1;
-                    if (this.dyM[0] > 0) {
+                    if (this.dyZ[0] > 0) {
                         this.flags[1] = true;
                         break;
                     } else {
@@ -167,7 +167,7 @@ public class SendView extends TextView implements m {
             } else {
                 setEnabled(false);
             }
-        } else if (i == dyN) {
+        } else if (i == dza) {
             if (this.flags[1]) {
                 setEnabled(true);
             } else {

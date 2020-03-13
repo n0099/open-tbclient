@@ -57,7 +57,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).X("obj_type", 2).cy("task_id", str).cy(TiebaInitialize.Params.OBJ_TO, str2).X("obj_source", i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list"))) {
-                            if (!Lh(str2)) {
+                            if (!Li(str2)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str2);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
@@ -69,7 +69,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     i = 0;
                     TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).X("obj_type", 2).cy("task_id", str).cy(TiebaInitialize.Params.OBJ_TO, str2).X("obj_source", i));
                     if (!TextUtils.isEmpty(str2)) {
-                        if (!Lh(str2)) {
+                        if (!Li(str2)) {
                         }
                     }
                 }
@@ -79,7 +79,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean Lh(String str) {
+    private boolean Li(String str) {
         Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(str);
         return (matcher.find() && !StringUtils.isNull(matcher.group(1), true)) || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail");
     }

@@ -151,8 +151,8 @@ public final class SwanAppMessengerService extends Service {
                     Bundle bundle = (Bundle) message.obj;
                     if (bundle != null) {
                         com.baidu.swan.apps.ae.a.Zu().appId = bundle.getString("appId");
-                        com.baidu.swan.apps.ae.a.Zu().bGY = bundle.getString("frameType");
-                        com.baidu.swan.apps.ae.a.Zu().bGZ = bundle.getString("params");
+                        com.baidu.swan.apps.ae.a.Zu().bGZ = bundle.getString("frameType");
+                        com.baidu.swan.apps.ae.a.Zu().bHa = bundle.getString("params");
                         return;
                     }
                     return;
@@ -343,7 +343,7 @@ public final class SwanAppMessengerService extends Service {
 
     @Deprecated
     public boolean sendMessageToClient(c cVar, int i, Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(i, bundle).a(cVar.bJz));
+        com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(i, bundle).a(cVar.bJA));
         return true;
     }
 

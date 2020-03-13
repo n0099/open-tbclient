@@ -18,25 +18,25 @@ import com.baidu.tieba.write.write.sticker.a;
 import com.baidu.tieba.write.write.sticker.a.b;
 /* loaded from: classes13.dex */
 public class StickerView extends ImageView {
-    private long dSw;
-    private float grY;
-    private float grZ;
+    private long dSJ;
+    private float gsl;
+    private float gsm;
     private boolean isEdit;
-    private a kVq;
-    private Matrix kVr;
-    private Matrix kVs;
-    private PointF kVt;
-    private b kVu;
-    private boolean kVv;
-    private com.baidu.tieba.write.write.sticker.a.a kVw;
-    private float kVx;
-    private float kVy;
+    private a kVC;
+    private Matrix kVD;
+    private Matrix kVE;
+    private PointF kVF;
+    private b kVG;
+    private boolean kVH;
+    private com.baidu.tieba.write.write.sticker.a.a kVI;
+    private float kVJ;
+    private float kVK;
     private Context mContext;
     private Paint mPaint;
     private int mode;
 
     public void setmOnStickerActionListener(com.baidu.tieba.write.write.sticker.a.a aVar) {
-        this.kVw = aVar;
+        this.kVI = aVar;
     }
 
     public StickerView(Context context) {
@@ -49,19 +49,19 @@ public class StickerView extends ImageView {
 
     public StickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kVr = new Matrix();
-        this.kVs = new Matrix();
-        this.kVt = new PointF();
-        this.kVv = true;
+        this.kVD = new Matrix();
+        this.kVE = new Matrix();
+        this.kVF = new PointF();
+        this.kVH = true;
         this.isEdit = false;
-        this.dSw = 0L;
+        this.dSJ = 0L;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.kVu = new b(context);
+        this.kVG = new b(context);
         this.mPaint = new Paint();
         this.mPaint.setColor(-1);
         this.mPaint.setStrokeWidth(l.getDimens(context, R.dimen.ds4));
@@ -72,15 +72,15 @@ public class StickerView extends ImageView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.kVq.getMatrix().postTranslate((getWidth() - this.kVq.cXf()) / 2, (getHeight() - this.kVq.cXg()) / 2);
+            this.kVC.getMatrix().postTranslate((getWidth() - this.kVC.cXg()) / 2, (getHeight() - this.kVC.cXh()) / 2);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.kVq != null) {
-            this.kVq.draw(canvas);
-            float[] a = g.a(this.kVq.cXh(), this.kVq.getMatrix());
+        if (this.kVC != null) {
+            this.kVC.draw(canvas);
+            float[] a = g.a(this.kVC.cXi(), this.kVC.getMatrix());
             float f = a[0];
             float f2 = a[1];
             float f3 = a[2];
@@ -98,7 +98,7 @@ public class StickerView extends ImageView {
                 canvas.drawPoint(f3, f4, this.mPaint);
                 canvas.drawPoint(f5, f6, this.mPaint);
                 canvas.drawPoint(f7, f8, this.mPaint);
-                this.kVu.a(canvas, f3, f4);
+                this.kVG.a(canvas, f3, f4);
             }
         }
     }
@@ -108,34 +108,34 @@ public class StickerView extends ImageView {
         boolean z = true;
         switch (MotionEventCompat.getActionMasked(motionEvent)) {
             case 0:
-                this.grY = motionEvent.getX();
-                this.grZ = motionEvent.getY();
-                if (this.kVq == null) {
+                this.gsl = motionEvent.getX();
+                this.gsm = motionEvent.getY();
+                if (this.kVC == null) {
                     return false;
                 }
-                if (this.isEdit && this.kVu.L(motionEvent)) {
-                    this.kVv = false;
-                    if (this.kVw != null) {
-                        this.kVw.cXi();
+                if (this.isEdit && this.kVG.L(motionEvent)) {
+                    this.kVH = false;
+                    if (this.kVI != null) {
+                        this.kVI.cXj();
                         break;
                     }
-                } else if (a(this.kVq, motionEvent)) {
-                    this.kVv = true;
-                    if (System.currentTimeMillis() - this.dSw <= 300 && this.kVw != null) {
-                        this.kVw.a(this);
-                        this.kVv = false;
+                } else if (a(this.kVC, motionEvent)) {
+                    this.kVH = true;
+                    if (System.currentTimeMillis() - this.dSJ <= 300 && this.kVI != null) {
+                        this.kVI.a(this);
+                        this.kVH = false;
                     }
-                    this.dSw = System.currentTimeMillis();
+                    this.dSJ = System.currentTimeMillis();
                     this.mode = 1;
-                    this.kVr.set(this.kVq.getMatrix());
+                    this.kVD.set(this.kVC.getMatrix());
                     break;
                 } else {
-                    this.kVv = false;
-                    if (this.kVw == null) {
+                    this.kVH = false;
+                    if (this.kVI == null) {
                         z = false;
                         break;
                     } else {
-                        this.kVw.a(this, this.kVv);
+                        this.kVI.a(this, this.kVH);
                         invalidate();
                         z = false;
                         break;
@@ -145,65 +145,65 @@ public class StickerView extends ImageView {
             case 1:
             case 6:
                 this.mode = 0;
-                this.kVt = null;
-                if (this.kVw != null) {
-                    if (this.kVv) {
-                        this.kVw.b(this);
+                this.kVF = null;
+                if (this.kVI != null) {
+                    if (this.kVH) {
+                        this.kVI.b(this);
                     }
                     if (this.isEdit) {
-                        this.kVv = false;
+                        this.kVH = false;
                     }
-                    this.kVw.a(this, this.kVv);
+                    this.kVI.a(this, this.kVH);
                     invalidate();
                     break;
                 }
                 break;
             case 2:
-                if (!this.kVv || motionEvent.getX() != this.grY || motionEvent.getY() != this.grZ) {
-                    this.kVv = false;
+                if (!this.kVH || motionEvent.getX() != this.gsl || motionEvent.getY() != this.gsm) {
+                    this.kVH = false;
                 }
                 if (this.mode == 2) {
-                    this.kVs.set(this.kVr);
-                    float N = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent) / this.kVx;
-                    float O = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent) - this.kVy;
+                    this.kVE.set(this.kVD);
+                    float N = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent) / this.kVJ;
+                    float O = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent) - this.kVK;
                     PointF M = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
-                    this.kVs.postScale(N, N, this.kVt.x, this.kVt.y);
-                    this.kVs.postRotate(O, this.kVt.x, this.kVt.y);
-                    this.kVs.postTranslate(M.x - this.kVt.x, M.y - this.kVt.y);
-                    this.kVq.getMatrix().set(this.kVs);
+                    this.kVE.postScale(N, N, this.kVF.x, this.kVF.y);
+                    this.kVE.postRotate(O, this.kVF.x, this.kVF.y);
+                    this.kVE.postTranslate(M.x - this.kVF.x, M.y - this.kVF.y);
+                    this.kVC.getMatrix().set(this.kVE);
                 } else if (this.mode == 1) {
-                    this.kVs.set(this.kVr);
-                    this.kVs.postTranslate(motionEvent.getX() - this.grY, motionEvent.getY() - this.grZ);
-                    this.kVq.getMatrix().set(this.kVs);
+                    this.kVE.set(this.kVD);
+                    this.kVE.postTranslate(motionEvent.getX() - this.gsl, motionEvent.getY() - this.gsm);
+                    this.kVC.getMatrix().set(this.kVE);
                 }
-                if (!this.kVv) {
+                if (!this.kVH) {
                     invalidate();
                     break;
                 }
                 break;
             case 5:
                 this.mode = 2;
-                this.kVx = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent);
-                this.kVy = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent);
-                this.kVt = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
-                this.kVr.set(this.kVq.getMatrix());
+                this.kVJ = com.baidu.tieba.write.write.sticker.b.a.N(motionEvent);
+                this.kVK = com.baidu.tieba.write.write.sticker.b.a.O(motionEvent);
+                this.kVF = com.baidu.tieba.write.write.sticker.b.a.M(motionEvent);
+                this.kVD.set(this.kVC.getMatrix());
                 break;
         }
         return z;
     }
 
     private boolean a(a aVar, MotionEvent motionEvent) {
-        return com.baidu.tieba.write.write.sticker.b.a.c(g.a(aVar.cXh(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
+        return com.baidu.tieba.write.write.sticker.b.a.c(g.a(aVar.cXi(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.kVq = new a(BitmapHelper.getResBitmap(this.mContext, i));
+        this.kVC = new a(BitmapHelper.getResBitmap(this.mContext, i));
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.kVq = new a(bitmap);
+        this.kVC = new a(bitmap);
     }
 
     public void setEdit(boolean z) {
@@ -212,6 +212,6 @@ public class StickerView extends ImageView {
     }
 
     public void setRemoveRes(int i) {
-        this.kVu.Ex(i);
+        this.kVG.Ex(i);
     }
 }

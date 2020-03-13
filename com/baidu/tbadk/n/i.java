@@ -4,26 +4,26 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class i extends g {
     public long allDataReadTime;
-    public long dDA;
-    public long dDB;
-    public long dDC;
-    public long dDD;
-    public long dDE;
-    public long dDF;
-    public long dDG;
-    public long dDH;
-    public boolean dDI;
     public long dDJ;
     public long dDK;
-    public boolean dDL;
+    public long dDL;
     public long dDM;
     public long dDN;
     public long dDO;
     public long dDP;
-    public long dDw;
-    public long dDx;
-    public long dDy;
-    public long dDz;
+    public long dDQ;
+    public long dDR;
+    public long dDS;
+    public long dDT;
+    public long dDU;
+    public boolean dDV;
+    public long dDW;
+    public long dDX;
+    public boolean dDY;
+    public long dDZ;
+    public long dEa;
+    public long dEb;
+    public long dEc;
     public int errCode;
     public long firstByteReachTime;
     public boolean isSuccess;
@@ -34,75 +34,75 @@ public class i extends g {
     public i() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.dDD = 0L;
-        this.dDF = 0L;
-        this.dDG = 0L;
-        this.dDH = 0L;
-        this.dDJ = 0L;
-        this.dDK = 0L;
-        this.dDL = false;
+        this.dDQ = 0L;
+        this.dDS = 0L;
+        this.dDT = 0L;
+        this.dDU = 0L;
+        this.dDW = 0L;
+        this.dDX = 0L;
+        this.dDY = false;
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.dDD = 0L;
-        this.dDF = 0L;
-        this.dDG = 0L;
-        this.dDH = 0L;
-        this.dDJ = 0L;
-        this.dDK = 0L;
-        this.dDL = false;
+        this.dDQ = 0L;
+        this.dDS = 0L;
+        this.dDT = 0L;
+        this.dDU = 0L;
+        this.dDW = 0L;
+        this.dDX = 0L;
+        this.dDY = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.dDI = z;
-            if (this.dDI) {
-                this.dDH = responsedMessage.getDownSize();
-                this.dDM = responsedMessage.getOrginalMessage().getClientLogID();
+            this.dDV = z;
+            if (this.dDV) {
+                this.dDU = responsedMessage.getDownSize();
+                this.dDZ = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.dDJ = responsedMessage.performanceData.mHttpRetryNum;
-                this.dDK = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.dDW = responsedMessage.performanceData.mHttpRetryNum;
+                this.dDX = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.dDG = responsedMessage.getDownSize();
+                this.dDT = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.dDw = j;
-            this.dDx = j2;
-            this.dDE = j3;
+            this.dDJ = j;
+            this.dDK = j2;
+            this.dDR = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.dDy = responsedMessage.performanceData.mQueneTime;
-            this.dDz = responsedMessage.performanceData.mNetConTime;
-            this.dDA = responsedMessage.performanceData.mNetRWTime;
+            this.dDL = responsedMessage.performanceData.mQueneTime;
+            this.dDM = responsedMessage.performanceData.mNetConTime;
+            this.dDN = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.dDB = responsedMessage.performanceData.mCompressTime;
-            this.dDC = responsedMessage.performanceData.mAnalysisTime;
-            this.dDD = responsedMessage.performanceData.mTaskWaitTime;
-            this.dDD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.dDO = responsedMessage.performanceData.mCompressTime;
+            this.dDP = responsedMessage.performanceData.mAnalysisTime;
+            this.dDQ = responsedMessage.performanceData.mTaskWaitTime;
+            this.dDQ += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.dDL = z2;
-            this.dDF = j4;
+            this.dDY = z2;
+            this.dDS = j4;
         }
     }
 
-    public void aRi() {
-        o oVar = (o) m.aRl().mN(this.mSubType);
+    public void aRj() {
+        o oVar = (o) m.aRm().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
     public void gT(boolean z) {
-        o oVar = (o) m.aRl().mN(this.mSubType);
+        o oVar = (o) m.aRm().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
     public void mL(int i) {
-        o oVar = (o) m.aRl().mN(this.mSubType);
+        o oVar = (o) m.aRm().mN(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

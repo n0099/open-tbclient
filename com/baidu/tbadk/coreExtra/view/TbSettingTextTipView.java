@@ -17,51 +17,51 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout dtk;
-    protected TextView dtl;
-    private boolean dtn;
-    protected ImageView dto;
+    private boolean dtA;
+    protected ImageView dtB;
+    protected LinearLayout dtx;
+    protected TextView dty;
     protected Context mContext;
     private View mTopLine;
     protected TextView textView;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dtn = true;
+        this.dtA = true;
         this.mContext = context;
-        aMS();
+        aMT();
         d(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.dtn = true;
+        this.dtA = true;
         this.mContext = context;
-        aMS();
+        aMT();
     }
 
     public void displayTip() {
-        if (this.dtl != null) {
-            this.dtl.setVisibility(0);
+        if (this.dty != null) {
+            this.dty.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.dtl != null) {
-            this.dtl.setTextColor(i);
+        if (this.dty != null) {
+            this.dty.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.dtl != null) {
+        if (this.dty != null) {
         }
     }
 
     public void t(int i, int i2, int i3, int i4) {
-        if (this.dtl != null) {
+        if (this.dty != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.dtl.setLayoutParams(layoutParams);
+            this.dty.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,7 +69,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.dto.setVisibility(8);
+        this.dtB.setVisibility(8);
     }
 
     public void setText(String str) {
@@ -81,23 +81,23 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.dtl.setText(str);
+        this.dty.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.dtl.getText();
+        return this.dty.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.dtl.setBackgroundDrawable(drawable);
+        this.dty.setBackgroundDrawable(drawable);
     }
 
-    protected void aMS() {
+    protected void aMT() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.dtk = (LinearLayout) findViewById(R.id.container);
+        this.dtx = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.dtl = (TextView) findViewById(R.id.tip);
-        this.dto = (ImageView) findViewById(R.id.arrow2);
+        this.dty = (TextView) findViewById(R.id.tip);
+        this.dtB = (ImageView) findViewById(R.id.arrow2);
         this.mTopLine = findViewById(R.id.top_line_ll);
     }
 
@@ -110,15 +110,15 @@ public class TbSettingTextTipView extends FrameLayout {
                 this.textView.setText(string);
             }
             if (string2 != null) {
-                this.dtl.setText(string2);
+                this.dty.setText(string2);
             }
-            this.dtn = obtainStyledAttributes.getBoolean(2, true);
+            this.dtA = obtainStyledAttributes.getBoolean(2, true);
             obtainStyledAttributes.recycle();
         }
-        this.dtk.setClickable(false);
-        this.dtk.setFocusable(false);
-        if (!this.dtn) {
-            this.dto.setVisibility(4);
+        this.dtx.setClickable(false);
+        this.dtx.setFocusable(false);
+        if (!this.dtA) {
+            this.dtB.setVisibility(4);
         }
     }
 
@@ -135,28 +135,28 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setTipTextSize(float f) {
-        this.dtl.setTextSize(0, f);
+        this.dty.setTextSize(0, f);
     }
 
-    public void aMT() {
+    public void aMU() {
         int dimens = l.getDimens(this.mContext, R.dimen.tbds42);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds33);
         setMainTextSize(dimens);
         setTipTextSize(dimens2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.dtl.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
-        this.dtk.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.dty.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
+        this.dtx.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_e);
         am.setViewTextColor(this.textView, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dtl, (int) R.color.cp_cont_d);
-        SvgManager.aGC().a(this.dto, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        if (this.dtk != null) {
-            this.dtk.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
+        am.setViewTextColor(this.dty, (int) R.color.cp_cont_d);
+        SvgManager.aGC().a(this.dtB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.dtx != null) {
+            this.dtx.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
         }
     }
 }

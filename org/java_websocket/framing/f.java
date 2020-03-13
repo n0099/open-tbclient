@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode nMB;
-    private ByteBuffer nMC = org.java_websocket.e.b.dNJ();
-    private boolean nMA = true;
-    private boolean nMD = false;
-    private boolean nME = false;
-    private boolean nMF = false;
-    private boolean nMG = false;
+    private Framedata.Opcode nMM;
+    private ByteBuffer nMN = org.java_websocket.e.b.dNK();
+    private boolean nML = true;
+    private boolean nMO = false;
+    private boolean nMP = false;
+    private boolean nMQ = false;
+    private boolean nMR = false;
 
-    public abstract void dNy() throws InvalidDataException;
+    public abstract void dNz() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.nMB = opcode;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean dNB() {
-        return this.nME;
+        this.nMM = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean dNC() {
-        return this.nMF;
+        return this.nMP;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean dND() {
-        return this.nMG;
+        return this.nMQ;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean dNE() {
+        return this.nMR;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean Mp() {
-        return this.nMA;
+        return this.nML;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dNE() {
-        return this.nMB;
+    public Framedata.Opcode dNF() {
+        return this.nMM;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dNA() {
-        return this.nMC;
+    public ByteBuffer dNB() {
+        return this.nMN;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dNE() + ", fin:" + Mp() + ", rsv1:" + dNB() + ", rsv2:" + dNC() + ", rsv3:" + dND() + ", payloadlength:[pos:" + this.nMC.position() + ", len:" + this.nMC.remaining() + "], payload:" + (this.nMC.remaining() > 1000 ? "(too big to display)" : new String(this.nMC.array())) + '}';
+        return "Framedata{ optcode:" + dNF() + ", fin:" + Mp() + ", rsv1:" + dNC() + ", rsv2:" + dND() + ", rsv3:" + dNE() + ", payloadlength:[pos:" + this.nMN.position() + ", len:" + this.nMN.remaining() + "], payload:" + (this.nMN.remaining() > 1000 ? "(too big to display)" : new String(this.nMN.array())) + '}';
     }
 
     public void u(ByteBuffer byteBuffer) {
-        this.nMC = byteBuffer;
+        this.nMN = byteBuffer;
     }
 
     public void cj(boolean z) {
-        this.nMA = z;
+        this.nML = z;
     }
 
     public void wU(boolean z) {
-        this.nME = z;
+        this.nMP = z;
     }
 
     public void wV(boolean z) {
-        this.nMF = z;
+        this.nMQ = z;
     }
 
     public void wW(boolean z) {
-        this.nMG = z;
+        this.nMR = z;
     }
 
     public void wX(boolean z) {
-        this.nMD = z;
+        this.nMO = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.nMA == fVar.nMA && this.nMD == fVar.nMD && this.nME == fVar.nME && this.nMF == fVar.nMF && this.nMG == fVar.nMG && this.nMB == fVar.nMB) {
-            if (this.nMC != null) {
-                z = this.nMC.equals(fVar.nMC);
-            } else if (fVar.nMC != null) {
+        if (this.nML == fVar.nML && this.nMO == fVar.nMO && this.nMP == fVar.nMP && this.nMQ == fVar.nMQ && this.nMR == fVar.nMR && this.nMM == fVar.nMM) {
+            if (this.nMN != null) {
+                z = this.nMN.equals(fVar.nMN);
+            } else if (fVar.nMN != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.nMF ? 1 : 0) + (((this.nME ? 1 : 0) + (((this.nMD ? 1 : 0) + (((this.nMC != null ? this.nMC.hashCode() : 0) + ((((this.nMA ? 1 : 0) * 31) + this.nMB.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nMG ? 1 : 0);
+        return (((this.nMQ ? 1 : 0) + (((this.nMP ? 1 : 0) + (((this.nMO ? 1 : 0) + (((this.nMN != null ? this.nMN.hashCode() : 0) + ((((this.nML ? 1 : 0) * 31) + this.nMM.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nMR ? 1 : 0);
     }
 }

@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    public String gmp;
-    private PostSearchActivity jAI;
-    private String jBb;
-    public ArrayList<String> jBk;
-    public int jBc = 0;
-    public int jBd = 0;
-    public int jBe = 1;
-    public int jBf = 1;
-    public int jBg = 1;
-    public boolean jBh = false;
-    public boolean jBi = false;
-    public boolean jBj = false;
-    private int jBl = 0;
-    private final HttpMessageListener jBm = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
+    public String gmC;
+    private PostSearchActivity jAU;
+    private String jBn;
+    public ArrayList<String> jBw;
+    public int jBo = 0;
+    public int jBp = 0;
+    public int jBq = 1;
+    public int jBr = 1;
+    public int jBs = 1;
+    public boolean jBt = false;
+    public boolean jBu = false;
+    public boolean jBv = false;
+    private int jBx = 0;
+    private final HttpMessageListener jBy = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,123 +41,123 @@ public class d {
                 boolean z = d.this.AD(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.jAI.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.jAU.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.AC(intValue);
-                    d.this.cAM();
-                    d.this.cAP();
+                    d.this.cAN();
+                    d.this.cAQ();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.jAI.getResources().getString(R.string.neterror);
+                    errorString = d.this.jAU.getResources().getString(R.string.neterror);
                 }
-                d.this.jAI.showToast(errorString);
-                d.this.jAI.a(intValue, null, z);
+                d.this.jAU.showToast(errorString);
+                d.this.jAU.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener jBn = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener jBz = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.jBk = (ArrayList) data;
-                d.this.jAI.cAy();
+                d.this.jBw = (ArrayList) data;
+                d.this.jAU.cAz();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.jAI = postSearchActivity;
-        this.jAI.registerListener(this.jBn);
-        this.jAI.registerListener(this.jBm);
+        this.jAU = postSearchActivity;
+        this.jAU.registerListener(this.jBz);
+        this.jAU.registerListener(this.jBy);
     }
 
     public boolean bm(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.gmp)) {
-            cAO();
+        if (!str.equals(this.gmC)) {
+            cAP();
         }
         switch (i) {
             case 1:
-                return Hn(str);
-            case 2:
                 return Ho(str);
-            case 3:
+            case 2:
                 return Hp(str);
+            case 3:
+                return Hq(str);
             default:
                 return false;
         }
     }
 
-    public boolean Hn(String str) {
-        if (this.jBh) {
-            return false;
-        }
-        this.gmp = str;
-        this.jBl = 1;
-        this.jAI.sendMessage(AB(this.jBl));
-        this.jBh = true;
-        return true;
-    }
-
     public boolean Ho(String str) {
-        if (this.jBi) {
+        if (this.jBt) {
             return false;
         }
-        this.gmp = str;
-        this.jBl = 2;
-        this.jAI.sendMessage(AB(this.jBl));
-        this.jBi = true;
+        this.gmC = str;
+        this.jBx = 1;
+        this.jAU.sendMessage(AB(this.jBx));
+        this.jBt = true;
         return true;
     }
 
     public boolean Hp(String str) {
-        if (this.jBj) {
+        if (this.jBu) {
             return false;
         }
-        this.gmp = str;
-        this.jBl = 3;
-        this.jAI.sendMessage(AB(this.jBl));
-        this.jBj = true;
+        this.gmC = str;
+        this.jBx = 2;
+        this.jAU.sendMessage(AB(this.jBx));
+        this.jBu = true;
         return true;
     }
 
-    public void cAL() {
-        this.jAI.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    public boolean Hq(String str) {
+        if (this.jBv) {
+            return false;
+        }
+        this.gmC = str;
+        this.jBx = 3;
+        this.jAU.sendMessage(AB(this.jBx));
+        this.jBv = true;
+        return true;
     }
 
     public void cAM() {
-        if (!StringUtils.isNull(this.gmp) && !this.gmp.equals(this.jBb)) {
-            this.jAI.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.gmp));
-            this.jBb = this.gmp;
-        }
+        this.jAU.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
     public void cAN() {
-        if (this.jBk != null) {
-            this.jBk.clear();
+        if (!StringUtils.isNull(this.gmC) && !this.gmC.equals(this.jBn)) {
+            this.jAU.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.gmC));
+            this.jBn = this.gmC;
         }
-        this.jAI.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
     public void cAO() {
-        this.jBe = 1;
-        this.jBf = 1;
-        this.jBg = 1;
+        if (this.jBw != null) {
+            this.jBw.clear();
+        }
+        this.jAU.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+    }
+
+    public void cAP() {
+        this.jBq = 1;
+        this.jBr = 1;
+        this.jBs = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAP() {
-        if (this.jBk == null) {
-            this.jBk = new ArrayList<>();
+    public void cAQ() {
+        if (this.jBw == null) {
+            this.jBw = new ArrayList<>();
         }
-        this.jBk.remove(this.gmp);
-        this.jBk.add(0, this.gmp);
-        dZ(this.jBk);
+        this.jBw.remove(this.gmC);
+        this.jBw.add(0, this.gmC);
+        dZ(this.jBw);
     }
 
     private void dZ(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage AB(int i) {
         HttpMessage httpMessage = new HttpMessage(1003016);
-        httpMessage.addParam("word", this.gmp);
+        httpMessage.addParam("word", this.gmC);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.jAI.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.jBl));
+        httpMessage.addParam("kw", this.jAU.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.jBx));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.jBe);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.jBq);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.jBf);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.jBr);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.jBg);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.jBs);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void AC(int i) {
         switch (i) {
             case 1:
-                this.jBe++;
+                this.jBq++;
                 return;
             case 2:
-                this.jBf++;
+                this.jBr++;
                 return;
             case 3:
-                this.jBg++;
+                this.jBs++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int AD(int i) {
         switch (i) {
             case 1:
-                return this.jBe;
+                return this.jBq;
             case 2:
-                return this.jBf;
+                return this.jBr;
             case 3:
-                return this.jBg;
+                return this.jBs;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void AE(int i) {
         switch (i) {
             case 1:
-                this.jBh = false;
+                this.jBt = false;
                 return;
             case 2:
-                this.jBi = false;
+                this.jBu = false;
                 return;
             case 3:
-                this.jBj = false;
+                this.jBv = false;
                 return;
             default:
                 return;

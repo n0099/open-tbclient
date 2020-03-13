@@ -30,15 +30,15 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void m(boolean z, int i) {
-        this.djR = z;
+        this.dke = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.djP);
+            setText(this.dkc);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.djQ);
+            setText(this.dkd);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -46,7 +46,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.djR) {
+        if (this.dke) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             am.setViewTextColor(this, R.color.cp_cont_e, 1, i);
             setBackgroundDrawable(null);

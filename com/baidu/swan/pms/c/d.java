@@ -16,8 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d<T> implements StatResponseCallback<String> {
-    protected g cBm;
-    protected f cBn;
+    protected g cBn;
+    protected f cBo;
     private String mRequestUrl;
 
     protected abstract boolean Q(T t);
@@ -29,16 +29,16 @@ public abstract class d<T> implements StatResponseCallback<String> {
     protected abstract T bp(JSONObject jSONObject);
 
     public d(g gVar, f fVar) {
-        this.cBm = gVar;
-        this.cBn = fVar;
+        this.cBn = gVar;
+        this.cBo = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     /* renamed from: b */
     public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        if (this.cBm != null) {
-            this.cBm.a(response, i, networkStatRecord);
+        if (this.cBn != null) {
+            this.cBn.a(response, i, networkStatRecord);
         }
         if (response == null || response.body() == null) {
             return "";
@@ -52,18 +52,18 @@ public abstract class d<T> implements StatResponseCallback<String> {
     public void onSuccess(String str, int i) {
         if (i != 200) {
             com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=" + i);
-            this.cBm.a(aVar);
+            this.cBn.a(aVar);
             a(aVar, str);
             return;
         }
         c qs = c.qs(str);
         if (qs == null) {
             com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.f.d.parseString(str).toString());
-            this.cBm.a(aVar2);
+            this.cBn.a(aVar2);
             a(aVar2, str);
         } else if (qs.getErrorCode() != 0) {
             com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(qs.getErrorCode(), PMSConstants.a.iD(qs.getErrorCode()));
-            this.cBm.a(aVar3);
+            this.cBn.a(aVar3);
             if (qs.getErrorCode() != 1010) {
                 a(aVar3, str);
             }
@@ -71,11 +71,11 @@ public abstract class d<T> implements StatResponseCallback<String> {
             T bp = bp(qs.getData());
             if (bp == null) {
                 com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(2102, "response data empty");
-                this.cBm.a(aVar4);
+                this.cBn.a(aVar4);
                 a(aVar4, str);
             } else if (!Q(bp)) {
                 com.baidu.swan.pms.model.a aVar5 = new com.baidu.swan.pms.model.a(2103, str);
-                this.cBm.a(aVar5);
+                this.cBn.a(aVar5);
                 a(aVar5, str);
             } else {
                 R(bp);
@@ -86,7 +86,7 @@ public abstract class d<T> implements StatResponseCallback<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
         com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2101, exc.getMessage());
-        this.cBm.a(aVar);
+        this.cBn.a(aVar);
         a(aVar, exc.getMessage());
     }
 
@@ -130,7 +130,7 @@ public abstract class d<T> implements StatResponseCallback<String> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void p(PMSAppInfo pMSAppInfo) {
         com.baidu.swan.pms.a.f Pu;
-        if (pMSAppInfo != null && (Pu = this.cBm.Pu()) != null) {
+        if (pMSAppInfo != null && (Pu = this.cBn.Pu()) != null) {
             Pu.b(pMSAppInfo);
         }
     }
@@ -153,10 +153,10 @@ public abstract class d<T> implements StatResponseCallback<String> {
                 e.printStackTrace();
             }
         }
-        if (this.cBn instanceof com.baidu.swan.pms.c.d.c) {
-            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.cBn).getBundleId());
+        if (this.cBo instanceof com.baidu.swan.pms.c.d.c) {
+            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.cBo).getBundleId());
         }
         i = i2;
-        com.baidu.swan.pms.d.a.a(this.cBn.getCategory(), "cs_protocol", ajl(), i, jSONObject);
+        com.baidu.swan.pms.d.a.a(this.cBo.getCategory(), "cs_protocol", ajl(), i, jSONObject);
     }
 }

@@ -16,7 +16,7 @@ public final class FlowableRepeat<T> extends a<T, T> {
         if (this.count != Format.OFFSET_SAMPLE_RELATIVE) {
             j = this.count - 1;
         }
-        new RepeatSubscriber(cVar, j, subscriptionArbiter, this.nwt).subscribeNext();
+        new RepeatSubscriber(cVar, j, subscriptionArbiter, this.nwE).subscribeNext();
     }
 
     /* loaded from: classes7.dex */

@@ -8,7 +8,7 @@ import java.util.Arrays;
 public abstract class j extends c {
     private byte[] data;
     private int limit;
-    private volatile boolean mrU;
+    private volatile boolean msf;
 
     protected abstract void B(byte[] bArr, int i) throws IOException;
 
@@ -17,47 +17,47 @@ public abstract class j extends c {
         this.data = bArr;
     }
 
-    public byte[] dwS() {
+    public byte[] dwT() {
         return this.data;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dwL() {
+    public long dwM() {
         return this.limit;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
-        this.mrU = true;
+        this.msf = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final boolean dwt() {
-        return this.mrU;
+    public final boolean dwu() {
+        return this.msf;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void load() throws IOException, InterruptedException {
         int i = 0;
         try {
-            this.mdW.a(this.dataSpec);
+            this.meh.a(this.dataSpec);
             this.limit = 0;
-            while (i != -1 && !this.mrU) {
-                dwT();
-                i = this.mdW.read(this.data, this.limit, 16384);
+            while (i != -1 && !this.msf) {
+                dwU();
+                i = this.meh.read(this.data, this.limit, 16384);
                 if (i != -1) {
                     this.limit += i;
                 }
             }
-            if (!this.mrU) {
+            if (!this.msf) {
                 B(this.data, this.limit);
             }
         } finally {
-            v.a(this.mdW);
+            v.a(this.meh);
         }
     }
 
-    private void dwT() {
+    private void dwU() {
         if (this.data == null) {
             this.data = new byte[16384];
         } else if (this.data.length < this.limit + 16384) {

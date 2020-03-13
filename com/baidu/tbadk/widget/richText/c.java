@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ReplacementSpan {
-    private static final int dOc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
-    private static final int dOd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-    private static final int dOe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-    private static final int dOf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private int alZ;
-    private int dOg;
-    private int dOh;
+    private static final int dOp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
+    private static final int dOq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
+    private static final int dOr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+    private static final int dOs = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private int ama;
+    private int dOt;
+    private int dOu;
     private int mBgColor;
     private int mHeight;
     private int mOffset;
@@ -26,11 +26,11 @@ public class c extends ReplacementSpan {
     public c(b bVar) {
         this.mTextColor = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
         this.mBgColor = R.color.cp_link_tip_d;
-        this.mRadius = dOc;
-        this.mPadding = dOd;
-        this.mHeight = dOf;
-        this.alZ = 0;
-        this.dOg = dOe;
+        this.mRadius = dOp;
+        this.mPadding = dOq;
+        this.mHeight = dOs;
+        this.ama = 0;
+        this.dOt = dOr;
         this.mOffset = 0;
         if (bVar != null) {
             this.mTextColor = bVar.textColor;
@@ -38,16 +38,16 @@ public class c extends ReplacementSpan {
             this.mRadius = bVar.radius;
             this.mHeight = bVar.height;
             this.mPadding = bVar.padding;
-            this.alZ = bVar.leftMargin;
-            this.dOg = bVar.rightMargin;
+            this.ama = bVar.leftMargin;
+            this.dOt = bVar.rightMargin;
             this.mOffset = bVar.offset;
         }
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        this.dOh = (int) paint.measureText(charSequence, i, i2);
-        return this.dOh + (this.mPadding * 2) + this.alZ + this.dOg;
+        this.dOu = (int) paint.measureText(charSequence, i, i2);
+        return this.dOu + (this.mPadding * 2) + this.ama + this.dOt;
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -57,9 +57,9 @@ public class c extends ReplacementSpan {
         paint.setColor(am.getColor(this.mBgColor));
         paint.setAntiAlias(true);
         float descent = this.mHeight - (paint.descent() - paint.ascent());
-        canvas.drawRoundRect(new RectF(this.alZ + f, (i4 + paint.ascent()) - descent, this.alZ + f + this.dOh + (this.mPadding * 2), i4 + paint.descent()), this.mRadius, this.mRadius, paint);
+        canvas.drawRoundRect(new RectF(this.ama + f, (i4 + paint.ascent()) - descent, this.ama + f + this.dOu + (this.mPadding * 2), i4 + paint.descent()), this.mRadius, this.mRadius, paint);
         paint.setColor(this.mTextColor);
-        canvas.drawText(charSequence, i, i2, this.mPadding + f + this.alZ, i4 - (descent / 2.0f), paint);
+        canvas.drawText(charSequence, i, i2, this.mPadding + f + this.ama, i4 - (descent / 2.0f), paint);
         canvas.restore();
     }
 }

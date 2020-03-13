@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c eZZ;
+    private com.baidu.tieba.ala.liveroom.views.c fam;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,18 +17,18 @@ public class d {
     }
 
     private void init() {
-        this.eZZ = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.mRootView = this.eZZ.getView();
+        this.fam = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.mRootView = this.fam.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.eZZ != null) {
-            this.eZZ.a(iShareCallback);
+        if (this.fam != null) {
+            this.fam.a(iShareCallback);
         }
     }
 
-    private void blB() {
-        this.eZZ.blB();
+    private void blC() {
+        this.fam.blC();
     }
 
     public View getView() {
@@ -36,40 +36,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.eZZ.a(alaLiveRecorder);
-        blB();
-    }
-
-    public boolean blC() {
-        return this.eZZ.blC();
+        this.fam.a(alaLiveRecorder);
+        blC();
     }
 
     public boolean blD() {
-        return this.eZZ.blD();
-    }
-
-    public String getLiveTitle() {
-        return this.eZZ.getLiveTitle();
+        return this.fam.blD();
     }
 
     public boolean blE() {
-        return this.eZZ.blE();
+        return this.fam.blE();
+    }
+
+    public String getLiveTitle() {
+        return this.fam.getLiveTitle();
     }
 
     public boolean blF() {
-        return this.eZZ.blF();
+        return this.fam.blF();
+    }
+
+    public boolean blG() {
+        return this.fam.blG();
     }
 
     public void jm(boolean z) {
-        this.eZZ.jm(z);
+        this.fam.jm(z);
     }
 
-    public void blG() {
-        this.eZZ.flE = false;
+    public void blH() {
+        this.fam.flR = false;
     }
 
-    public String blH() {
-        return this.eZZ.blH();
+    public String blI() {
+        return this.fam.blI();
     }
 
     public void setVisibility(int i) {
@@ -81,56 +81,56 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.eZZ.a(bVar);
+        this.fam.a(bVar);
     }
 
-    public void E(boolean z, boolean z2) {
+    public void e(boolean z, boolean z2) {
         if (z) {
-            this.eZZ.onKeyboardVisibilityChanged(false);
+            this.fam.onKeyboardVisibilityChanged(false);
         } else {
-            this.eZZ.onKeyboardVisibilityChanged(z2);
+            this.fam.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.eZZ.a(aVar);
+        this.fam.a(aVar);
     }
 
-    public void yU(String str) {
-        this.eZZ.yU(str);
+    public void yV(String str) {
+        this.fam.yV(str);
     }
 
     public void onResume() {
-        this.eZZ.onResume();
+        this.fam.onResume();
     }
 
     public void onRefresh() {
-        this.eZZ.onRefresh();
+        this.fam.onRefresh();
     }
 
-    public boolean blI() {
-        return this.eZZ.blI();
-    }
-
-    public void blJ() {
-        this.eZZ.blJ();
-    }
-
-    public void release() {
-        this.eZZ.release();
-    }
-
-    public void destroy() {
-        this.eZZ.destroy();
-    }
-
-    public void jn(boolean z) {
-        this.eZZ.jn(z);
+    public boolean blJ() {
+        return this.fam.blJ();
     }
 
     public void blK() {
-        if (this.eZZ != null) {
-            this.eZZ.blK();
+        this.fam.blK();
+    }
+
+    public void release() {
+        this.fam.release();
+    }
+
+    public void destroy() {
+        this.fam.destroy();
+    }
+
+    public void jn(boolean z) {
+        this.fam.jn(z);
+    }
+
+    public void blL() {
+        if (this.fam != null) {
+            this.fam.blL();
         }
     }
 }

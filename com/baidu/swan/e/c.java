@@ -6,30 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cFW;
-    private boolean cFX = false;
+    private static c cFX;
+    private boolean cFY = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
     public static c awB() {
-        if (cFW == null) {
+        if (cFX == null) {
             synchronized (c.class) {
-                if (cFW == null) {
-                    cFW = new c();
+                if (cFX == null) {
+                    cFX = new c();
                 }
             }
         }
-        return cFW;
+        return cFX;
     }
 
     public synchronized void awC() {
-        if (!this.cFX) {
+        if (!this.cFY) {
             if (b.awv()) {
                 awD();
             } else {
-                this.cFX = true;
+                this.cFY = true;
                 com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.awy(), b.awx()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
@@ -40,7 +40,7 @@ public class c {
 
                     @Override // com.baidu.swan.a.e
                     public void E(int i, String str) {
-                        c.this.cFX = false;
+                        c.this.cFY = false;
                         if (i == 1010) {
                             c.this.awD();
                         } else {
@@ -113,12 +113,12 @@ public class c {
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
                 if (!c.this.awF()) {
-                    c.this.cFX = false;
+                    c.this.cFY = false;
                     c.this.awE();
                     return;
                 }
                 b.U(cVar.versionName, cVar.versionCode);
-                c.this.cFX = false;
+                c.this.cFY = false;
                 c.this.awD();
             }
         });
@@ -130,12 +130,12 @@ public class c {
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.bri)) {
+        if (e.unzipFile(cVar.filePath, b.brj)) {
             b.U(cVar.versionName, cVar.versionCode);
-            this.cFX = false;
+            this.cFY = false;
             awD();
         } else {
-            this.cFX = false;
+            this.cFY = false;
             awE();
         }
     }

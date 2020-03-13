@@ -11,7 +11,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0327a chz;
+    private a.InterfaceC0327a chA;
     private Context mContext;
 
     public a(Context context) {
@@ -52,8 +52,8 @@ public class a {
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.chz != null) {
-                                    a.this.chz.b(akq);
+                                if (a.this.chA != null) {
+                                    a.this.chA.b(akq);
                                 }
                             }
                         });
@@ -84,7 +84,7 @@ public class a {
     }
 
     public void a(a.InterfaceC0327a interfaceC0327a) {
-        this.chz = interfaceC0327a;
+        this.chA = interfaceC0327a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,8 +92,8 @@ public class a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.chz != null) {
-                    a.this.chz.nI(str);
+                if (a.this.chA != null) {
+                    a.this.chA.nI(str);
                 }
             }
         });

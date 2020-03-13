@@ -379,7 +379,7 @@ public class ReplyPublishActivity extends PublishBaseActivity implements Emojico
             ImageRequestBuilder Y = ImageRequestBuilder.Y(UgcUriUtils.getUri(str));
             Y.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
             Y.vw(true);
-            this.mVideoImg.setController(c.dly().vh(true).bg(Y.dsC()).c(this.mVideoImg.getController()).dmp());
+            this.mVideoImg.setController(c.dlz().vh(true).bg(Y.dsD()).c(this.mVideoImg.getController()).dmq());
         }
     }
 

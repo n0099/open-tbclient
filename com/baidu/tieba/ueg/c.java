@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String kun;
-    private a kuo;
+    private a kuA;
+    private String kuz;
 
     /* loaded from: classes.dex */
     public interface a {
-        void caM();
-
         void caN();
 
         void caO();
+
+        void caP();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.kun = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.kuo = aVar;
+        this.kuz = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.kuA = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.kun);
+            x xVar = new x(this.kuz);
             xVar.aGg().aGH().mIsNeedAddCommenParam = false;
             xVar.aGg().aGH().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.kuo != null && num != null) {
+        if (this.kuA != null && num != null) {
             if (num.intValue() == -1) {
-                this.kuo.onError(null);
+                this.kuA.onError(null);
             } else if (num.intValue() == 1) {
-                this.kuo.caM();
+                this.kuA.caN();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.kuo.caN();
+                this.kuA.caO();
             } else {
-                this.kuo.caO();
+                this.kuA.caP();
             }
         }
     }

@@ -11,8 +11,8 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes11.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private Fragment baT;
-    private com.baidu.swan.apps.x.b.b baU;
+    private Fragment baU;
+    private com.baidu.swan.apps.x.b.b baV;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
 
@@ -38,19 +38,19 @@ public class SwanAppErrorActivity extends FragmentActivity {
 
     private void GR() {
         m auF = auC().auF();
-        this.baT = new com.baidu.swan.apps.core.d.c();
-        auF.a(a.f.ai_apps_error_layout, this.baT);
+        this.baU = new com.baidu.swan.apps.core.d.c();
+        auF.a(a.f.ai_apps_error_layout, this.baU);
         auF.commit();
     }
 
     private void C(Intent intent) {
         if (intent != null) {
-            this.baU = com.baidu.swan.apps.x.b.b.G(intent);
+            this.baV = com.baidu.swan.apps.x.b.b.G(intent);
         }
     }
 
     public com.baidu.swan.apps.x.b.b GS() {
-        return this.baU;
+        return this.baV;
     }
 
     private void V(int i, int i2) {

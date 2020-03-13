@@ -8,59 +8,59 @@ import com.baidu.tbadk.core.util.s;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class CDNLogSyncData {
-    private boolean cOc;
-    private int cOd;
+    private boolean cOd;
     private int cOe;
-    private int cOf = 25;
+    private int cOf;
     private int cOg = 25;
-    private int cOh = 10;
+    private int cOh = 25;
+    private int cOi = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.cOf;
-    }
-
-    public void setSuccRank(int i) {
-        this.cOf = i;
-    }
-
-    public int getErrRank() {
         return this.cOg;
     }
 
-    public void setErrRank(int i) {
+    public void setSuccRank(int i) {
         this.cOg = i;
     }
 
-    public int getSlowRank() {
+    public int getErrRank() {
         return this.cOh;
     }
 
-    public void setSlowRank(int i) {
+    public void setErrRank(int i) {
         this.cOh = i;
     }
 
+    public int getSlowRank() {
+        return this.cOi;
+    }
+
+    public void setSlowRank(int i) {
+        this.cOi = i;
+    }
+
     public boolean ismSwitch() {
-        return this.cOc;
+        return this.cOd;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.cOc != z) {
+        if (this.cOd != z) {
             a gs = s.gs();
             gs.append("act", "fallback");
             gs.append("result", z ? "1" : "0");
             gs.append("type", "switch");
             BdStatisticsManager.getInstance().debug("img", gs);
         }
-        this.cOc = z;
+        this.cOd = z;
     }
 
     public int getSlowNumber() {
-        return this.cOd;
+        return this.cOe;
     }
 
     public void setSlowNumber(int i) {
-        this.cOd = i;
+        this.cOe = i;
     }
 
     public int getTime() {
@@ -72,11 +72,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.cOe;
+        return this.cOf;
     }
 
     public void setErrNumber(int i) {
-        this.cOe = i;
+        this.cOf = i;
     }
 
     public void parseJson(String str) {
@@ -85,7 +85,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.cOc = false;
+            this.cOd = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -94,30 +94,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.cOc = true;
+                    this.cOd = true;
                 } else {
-                    this.cOc = false;
+                    this.cOd = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.cOe = optJSONObject.optInt("num");
+                    this.cOf = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.cOd = optJSONObject2.optInt("num");
+                    this.cOe = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.cOf = optJSONObject3.optInt("succ");
-                    this.cOg = optJSONObject3.optInt("err");
-                    this.cOh = optJSONObject3.optInt("slow");
+                    this.cOg = optJSONObject3.optInt("succ");
+                    this.cOh = optJSONObject3.optInt("err");
+                    this.cOi = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.cOd <= 0 || this.cOe <= 0) {
-                    this.cOc = false;
+                if (this.time <= 0 || this.cOe <= 0 || this.cOf <= 0) {
+                    this.cOd = false;
                 }
             } catch (Exception e) {
-                this.cOc = false;
+                this.cOd = false;
                 BdLog.e(e.getMessage());
             }
         }

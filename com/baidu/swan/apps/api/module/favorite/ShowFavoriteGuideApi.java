@@ -22,10 +22,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class ShowFavoriteGuideApi extends c implements a.InterfaceC0220a {
-    private Bitmap bdr;
-    private long bds;
+    private Bitmap bds;
     private long bdt;
     private long bdu;
+    private long bdv;
     private String mCallbackKey;
 
     public ShowFavoriteGuideApi(@NonNull b bVar) {
@@ -85,17 +85,17 @@ public class ShowFavoriteGuideApi extends c implements a.InterfaceC0220a {
                         j = Long.parseLong(split[1]);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
-                    ShowFavoriteGuideApi.this.bds = afr.getLong("swan_favorite_guide_duration", 3L);
-                    ShowFavoriteGuideApi.this.bdt = afr.getLong("swan_favorite_guide_intervalDays", 3L);
-                    ShowFavoriteGuideApi.this.bdu = afr.getLong("swan_favorite_guide_maxTimes", 3L);
-                    com.baidu.swan.apps.console.c.i("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.bds + ", mIntervalDays=" + ShowFavoriteGuideApi.this.bdt + ", mMaxTimes=" + ShowFavoriteGuideApi.this.bdu + " ,storageValue=" + string2);
-                    if (i < ShowFavoriteGuideApi.this.bdu && currentTimeMillis - j > ShowFavoriteGuideApi.this.bdt * 86400000) {
+                    ShowFavoriteGuideApi.this.bdt = afr.getLong("swan_favorite_guide_duration", 3L);
+                    ShowFavoriteGuideApi.this.bdu = afr.getLong("swan_favorite_guide_intervalDays", 3L);
+                    ShowFavoriteGuideApi.this.bdv = afr.getLong("swan_favorite_guide_maxTimes", 3L);
+                    com.baidu.swan.apps.console.c.i("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.bdt + ", mIntervalDays=" + ShowFavoriteGuideApi.this.bdu + ", mMaxTimes=" + ShowFavoriteGuideApi.this.bdv + " ,storageValue=" + string2);
+                    if (i < ShowFavoriteGuideApi.this.bdv && currentTimeMillis - j > ShowFavoriteGuideApi.this.bdu * 86400000) {
                         h.afr().putString(str3, (i + 1) + "#" + currentTimeMillis);
-                        ShowFavoriteGuideApi.this.bdr = ai.a((com.baidu.swan.apps.x.b.b) acG.GE(), "Api-showFavoriteGuide", false);
+                        ShowFavoriteGuideApi.this.bds = ai.a((com.baidu.swan.apps.x.b.b) acG.GE(), "Api-showFavoriteGuide", false);
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.JH().a(ShowFavoriteGuideApi.this, acB, acG, parse, string, ShowFavoriteGuideApi.this.bdr, ShowFavoriteGuideApi.this.bds);
+                                a.JH().a(ShowFavoriteGuideApi.this, acB, acG, parse, string, ShowFavoriteGuideApi.this.bds, ShowFavoriteGuideApi.this.bdt);
                             }
                         });
                         return;

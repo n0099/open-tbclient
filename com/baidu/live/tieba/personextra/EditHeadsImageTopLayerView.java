@@ -9,70 +9,70 @@ import android.view.View;
 import com.alibaba.fastjson.asm.Opcodes;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint aBb;
     private Paint aBc;
-    private int aBd;
+    private Paint aBd;
     private int aBe;
-    private float aBf;
+    private int aBf;
     private float aBg;
-    private int aBh;
+    private float aBh;
+    private int aBi;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.aBb = null;
         this.aBc = null;
-        this.aBd = 0;
+        this.aBd = null;
         this.aBe = 0;
-        this.aBf = 0.42857143f;
-        this.aBg = 1.0f;
-        this.aBh = 1;
+        this.aBf = 0;
+        this.aBg = 0.42857143f;
+        this.aBh = 1.0f;
+        this.aBi = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBb = null;
         this.aBc = null;
-        this.aBd = 0;
+        this.aBd = null;
         this.aBe = 0;
-        this.aBf = 0.42857143f;
-        this.aBg = 1.0f;
-        this.aBh = 1;
+        this.aBf = 0;
+        this.aBg = 0.42857143f;
+        this.aBh = 1.0f;
+        this.aBi = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBb = null;
         this.aBc = null;
-        this.aBd = 0;
+        this.aBd = null;
         this.aBe = 0;
-        this.aBf = 0.42857143f;
-        this.aBg = 1.0f;
-        this.aBh = 1;
+        this.aBf = 0;
+        this.aBg = 0.42857143f;
+        this.aBh = 1.0f;
+        this.aBi = 1;
         init();
     }
 
     private void init() {
-        this.aBb = new Paint();
-        this.aBb.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.aBb.setAlpha(Opcodes.IFEQ);
         this.aBc = new Paint();
-        this.aBc.setStyle(Paint.Style.STROKE);
-        this.aBc.setColor(-1);
+        this.aBc.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.aBc.setAlpha(Opcodes.IFEQ);
+        this.aBd = new Paint();
+        this.aBd.setStyle(Paint.Style.STROKE);
+        this.aBd.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.aBc != null) {
-            this.aBc.setColor(i);
+        if (this.aBd != null) {
+            this.aBd.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.aBh = i;
-        if (this.aBc != null) {
-            this.aBc.setStrokeWidth(i);
+        this.aBi = i;
+        if (this.aBd != null) {
+            this.aBd.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -82,24 +82,24 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.aBd, this.aBb);
-        canvas.drawRect(0.0f, getHeight() - this.aBe, getWidth(), getHeight(), this.aBb);
-        canvas.drawRect(1.0f, this.aBd, getWidth() - 1, getHeight() - this.aBe, this.aBc);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.aBe, this.aBc);
+        canvas.drawRect(0.0f, getHeight() - this.aBf, getWidth(), getHeight(), this.aBc);
+        canvas.drawRect(1.0f, this.aBe, getWidth() - 1, getHeight() - this.aBf, this.aBd);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.aBg * getWidth();
+        float width = this.aBh * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.aBd = (int) (((i4 - i2) - width) * this.aBf);
-        this.aBe = (int) (((i4 - i2) - width) * (1.0f - this.aBf));
+        this.aBe = (int) (((i4 - i2) - width) * this.aBg);
+        this.aBf = (int) (((i4 - i2) - width) * (1.0f - this.aBg));
     }
 
     public void setCutImageHeightScale(float f) {
-        this.aBg = f;
+        this.aBh = f;
         invalidate();
     }
 }

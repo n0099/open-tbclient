@@ -19,7 +19,7 @@ import com.baidu.swan.apps.x.b.b;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cqW;
+    private g cqX;
 
     public void reload(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
@@ -57,7 +57,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Activity activity, @NonNull String str, @NonNull final com.baidu.swan.games.binding.model.c cVar, @NonNull final com.baidu.swan.apps.x.b.b bVar) {
-        if (this.cqW != null && this.cqW.isShowing()) {
+        if (this.cqX != null && this.cqX.isShowing()) {
             b(cVar, "reload failed, the reload dialog has been displayed.");
             return;
         }
@@ -76,7 +76,7 @@ public class a {
                 a.this.q(bVar);
             }
         });
-        this.cqW = aVar.acp();
+        this.cqX = aVar.acp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

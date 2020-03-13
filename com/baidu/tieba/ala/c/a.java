@@ -19,12 +19,12 @@ import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    private BdListView eJT;
-    private LinearLayout eJU;
-    private LinearLayout eJV;
-    private com.baidu.tieba.ala.adapter.a eJW;
-    private AlaChallengeHistoryHeaderView eJX;
-    private TextView eJY;
+    private BdListView eKg;
+    private LinearLayout eKh;
+    private LinearLayout eKi;
+    private com.baidu.tieba.ala.adapter.a eKj;
+    private AlaChallengeHistoryHeaderView eKk;
+    private TextView eKl;
     private Activity mContext;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
@@ -37,41 +37,41 @@ public class a {
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.eJT = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.eJT.setVisibility(4);
-        this.eJU = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.eJV = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.eJY = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.eJW = new com.baidu.tieba.ala.adapter.a(this.mContext);
-        this.eJT.setAdapter((ListAdapter) this.eJW);
-        this.eJX = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.eJT.setEmptyView(this.eJU);
+        this.eKg = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.eKg.setVisibility(4);
+        this.eKh = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.eKi = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.eKl = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.eKj = new com.baidu.tieba.ala.adapter.a(this.mContext);
+        this.eKg.setAdapter((ListAdapter) this.eKj);
+        this.eKk = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.eKg.setEmptyView(this.eKh);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.eJT.setVisibility(0);
+        this.eKg.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.eJX.getParent() == null) {
-                if (this.eJX.getParent() != null) {
-                    ((ViewGroup) this.eJX.getParent()).removeView(this.eJX);
+            if (this.eKk.getParent() == null) {
+                if (this.eKk.getParent() != null) {
+                    ((ViewGroup) this.eKk.getParent()).removeView(this.eKk);
                 }
-                this.eJT.addHeaderView(this.eJX);
-                this.eJX.setData(kVar);
+                this.eKg.addHeaderView(this.eKk);
+                this.eKk.setData(kVar);
             }
-        } else if (this.eJX.getParent() != null) {
-            ((ViewGroup) this.eJX.getParent()).removeView(this.eJX);
+        } else if (this.eKk.getParent() != null) {
+            ((ViewGroup) this.eKk.getParent()).removeView(this.eKk);
         }
-        if (this.eJW != null && arrayList != null) {
-            this.eJW.setData(arrayList);
+        if (this.eKj != null && arrayList != null) {
+            this.eKj.setData(arrayList);
         }
     }
 
-    public void yD(String str) {
+    public void yE(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.eJW != null && this.eJW.getCount() <= 0) {
-                this.eJU.setVisibility(8);
-                this.eJV.setVisibility(0);
-                this.eJY.setText(str);
+            if (this.eKj != null && this.eKj.getCount() <= 0) {
+                this.eKh.setVisibility(8);
+                this.eKi.setVisibility(0);
+                this.eKl.setText(str);
                 return;
             }
             BdUtilHelper.showToast(this.mContext, str, 1);

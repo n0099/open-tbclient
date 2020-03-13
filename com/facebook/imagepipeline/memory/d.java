@@ -7,10 +7,10 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 class d<V> {
-    public final int iuT;
-    final Queue lUo;
-    private final boolean lUp;
-    private int lUq;
+    public final int ivf;
+    private final boolean lUA;
+    private int lUB;
+    final Queue lUz;
     public final int mItemSize;
 
     public d(int i, int i2, int i3, boolean z) {
@@ -18,47 +18,47 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.iuT = i2;
-        this.lUo = new LinkedList();
-        this.lUq = i3;
-        this.lUp = z;
+        this.ivf = i2;
+        this.lUz = new LinkedList();
+        this.lUB = i3;
+        this.lUA = z;
     }
 
-    public boolean dqS() {
-        return this.lUq + dqT() > this.iuT;
+    public boolean dqT() {
+        return this.lUB + dqU() > this.ivf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dqT() {
-        return this.lUo.size();
+    public int dqU() {
+        return this.lUz.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.lUq++;
+            this.lUB++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.lUo.poll();
+        return (V) this.lUz.poll();
     }
 
-    public void dqU() {
-        this.lUq++;
+    public void dqV() {
+        this.lUB++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.lUp) {
-            com.facebook.common.internal.g.checkState(this.lUq > 0);
-            this.lUq--;
+        if (this.lUA) {
+            com.facebook.common.internal.g.checkState(this.lUB > 0);
+            this.lUB--;
             bs(v);
-        } else if (this.lUq > 0) {
-            this.lUq--;
+        } else if (this.lUB > 0) {
+            this.lUB--;
             bs(v);
         } else {
             com.facebook.common.c.a.h("BUCKET", "Tried to release value %s from an empty bucket!", v);
@@ -66,15 +66,15 @@ class d<V> {
     }
 
     void bs(V v) {
-        this.lUo.add(v);
+        this.lUz.add(v);
     }
 
-    public void dqV() {
-        com.facebook.common.internal.g.checkState(this.lUq > 0);
-        this.lUq--;
+    public void dqW() {
+        com.facebook.common.internal.g.checkState(this.lUB > 0);
+        this.lUB--;
     }
 
-    public int dnX() {
-        return this.lUq;
+    public int dnY() {
+        return this.lUB;
     }
 }

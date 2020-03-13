@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class f {
-    private static volatile List<Long> eox = new ArrayList();
+    private static volatile List<Long> eoK = new ArrayList();
 
     public static void dC(long j) {
-        if (eox.size() > 300) {
-            eox.remove(0);
+        if (eoK.size() > 300) {
+            eoK.remove(0);
         }
-        eox.add(Long.valueOf(j));
+        eoK.add(Long.valueOf(j));
     }
 
     public static boolean dD(long j) {
-        return eox.contains(Long.valueOf(j));
+        return eoK.contains(Long.valueOf(j));
     }
 }

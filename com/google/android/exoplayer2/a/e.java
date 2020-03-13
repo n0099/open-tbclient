@@ -4,16 +4,16 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class e extends a {
     public ByteBuffer data;
-    public final b mdC = new b();
-    public long mdD;
-    private final int mdE;
+    public final b mdN = new b();
+    public long mdO;
+    private final int mdP;
 
-    public static e duC() {
+    public static e duD() {
         return new e(0);
     }
 
     public e(int i) {
-        this.mdE = i;
+        this.mdP = i;
     }
 
     public void Jo(int i) throws IllegalStateException {
@@ -35,15 +35,15 @@ public class e extends a {
         }
     }
 
-    public final boolean duD() {
-        return this.data == null && this.mdE == 0;
+    public final boolean duE() {
+        return this.data == null && this.mdP == 0;
     }
 
-    public final boolean duE() {
+    public final boolean duF() {
         return Jn(1073741824);
     }
 
-    public final void duF() {
+    public final void duG() {
         this.data.flip();
     }
 
@@ -56,10 +56,10 @@ public class e extends a {
     }
 
     private ByteBuffer Jp(int i) {
-        if (this.mdE == 1) {
+        if (this.mdP == 1) {
             return ByteBuffer.allocate(i);
         }
-        if (this.mdE == 2) {
+        if (this.mdP == 2) {
             return ByteBuffer.allocateDirect(i);
         }
         throw new IllegalStateException("Buffer too small (" + (this.data == null ? 0 : this.data.capacity()) + " < " + i + ")");

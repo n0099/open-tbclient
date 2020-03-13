@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private TextView hNV;
-    private ImageView hNW;
-    private TextView hNX;
-    private TextView hNY;
+    private TextView hOh;
+    private ImageView hOi;
+    private TextView hOj;
+    private TextView hOk;
     private boolean isVisible;
     private ArrayList<a> networkChangeListeners;
 
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.hNW = (ImageView) findViewById(R.id.no_network_icon);
-        this.hNX = (TextView) findViewById(R.id.no_network_guide1);
-        this.hNY = (TextView) findViewById(R.id.no_network_guide2);
-        this.hNV = (TextView) findViewById(R.id.no_network_showmore);
+        this.hOi = (ImageView) findViewById(R.id.no_network_icon);
+        this.hOj = (TextView) findViewById(R.id.no_network_guide1);
+        this.hOk = (TextView) findViewById(R.id.no_network_guide2);
+        this.hOh = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.hNV != null) {
-            this.hNV.setOnClickListener(onClickListener);
+        if (this.hOh != null) {
+            this.hOh.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        am.setImageResource(this.hNW, R.drawable.icon_error);
+        am.setImageResource(this.hOi, R.drawable.icon_error);
         am.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.hNX.setTextColor(-10523526);
-            this.hNY.setTextColor(-8682095);
-            this.hNV.setTextColor(-10523526);
+            this.hOj.setTextColor(-10523526);
+            this.hOk.setTextColor(-8682095);
+            this.hOh.setTextColor(-10523526);
             return;
         }
-        this.hNX.setTextColor(-14277082);
-        this.hNY.setTextColor(-5065030);
-        this.hNV.setTextColor(-14277082);
+        this.hOj.setTextColor(-14277082);
+        this.hOk.setTextColor(-5065030);
+        this.hOh.setTextColor(-14277082);
     }
 }

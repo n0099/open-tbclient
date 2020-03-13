@@ -26,12 +26,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String dFz = "#";
-    public static String dFA = "＃";
-    private static final Pattern cHP = Pattern.compile("#([^#(]+)#", 2);
+    public static String dFM = "#";
+    public static String dFN = "＃";
+    private static final Pattern cHQ = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean vH(String str) {
-        return dFz.equals(str);
+    public static boolean vI(String str) {
+        return dFM.equals(str);
     }
 
     public static boolean gX(boolean z) {
@@ -47,7 +47,7 @@ public class b {
         return false;
     }
 
-    public static boolean aRD() {
+    public static boolean aRE() {
         return PluginPackageManager.js().bg("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -67,7 +67,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (aRD()) {
+        } else if (aRE()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
@@ -115,16 +115,16 @@ public class b {
         }
     }
 
-    public static SpannableString vI(String str) {
+    public static SpannableString vJ(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = cHP.matcher(str);
+        Matcher matcher = cHQ.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!vK(str.substring(start, end))) {
+            if (!vL(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -136,11 +136,11 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = cHP.matcher(obj);
+                Matcher matcher = cHQ.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!vK(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!vL(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -148,21 +148,21 @@ public class b {
         }
     }
 
-    public static String vJ(String str) {
+    public static String vK(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(dFz).append(str).append(dFz);
+            sb.append(dFM).append(str).append(dFM);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean vK(String str) {
+    public static boolean vL(String str) {
         String substring;
-        return str != null && str.startsWith(dFz) && str.endsWith(dFz) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(dFM) && str.endsWith(dFM) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(l lVar) {
@@ -187,7 +187,7 @@ public class b {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cy("obj_locate", str));
     }
 
-    public static String vL(String str) {
+    public static String vM(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

@@ -15,50 +15,50 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class e {
-    private CustomMessageListener euT;
-    private d.a fkX;
-    private d fkZ;
+    private CustomMessageListener evg;
+    private d.a flk;
+    private d flm;
     private Activity mContext;
 
     public e(Activity activity) {
         this.mContext = activity;
-        bdG();
+        bdH();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.fkZ = new d(this.mContext);
-        this.fkZ.a(this.fkX);
-        this.fkZ.bdH().setBackgroundColor(xK(str));
+        this.flm = new d(this.mContext);
+        this.flm.a(this.flk);
+        this.flm.bdI().setBackgroundColor(xL(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.fkZ).a(this.fkZ.bdH().getSchemeCallback());
+        fVar.y(this.mContext).a(this.flm).a(this.flm.bdI().getSchemeCallback());
         com.baidu.live.view.web.a[] BC = fVar.BC();
         for (com.baidu.live.view.web.a aVar : BC) {
-            this.fkZ.bdH().addJavascriptInterface(aVar, aVar.getName());
+            this.flm.bdI().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fkZ.show(b(str, j, j2, j3));
+        this.flm.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.fkZ != null && this.fkZ.isShowing() && this.fkZ.bdH() != null) {
-            this.fkZ.bdH().onResume();
+        if (this.flm != null && this.flm.isShowing() && this.flm.bdI() != null) {
+            this.flm.bdI().onResume();
         }
     }
 
     public void pause() {
-        if (this.fkZ != null && this.fkZ.isShowing() && this.fkZ.bdH() != null) {
-            this.fkZ.bdH().onPause();
+        if (this.flm != null && this.flm.isShowing() && this.flm.bdI() != null) {
+            this.flm.bdI().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fkZ != null) {
-            this.fkZ.bdI();
+        if (this.flm != null) {
+            this.flm.bdJ();
         }
     }
 
     public void bW(int i) {
-        if (this.fkZ != null && this.fkZ.isShowing()) {
-            this.fkZ.bW(i);
+        if (this.flm != null && this.flm.isShowing()) {
+            this.flm.bW(i);
         }
     }
 
@@ -68,23 +68,23 @@ public class e {
 
     public void release() {
         sL();
-        MessageManager.getInstance().unRegisterListener(this.euT);
+        MessageManager.getInstance().unRegisterListener(this.evg);
     }
 
-    private void bdG() {
-        this.euT = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void bdH() {
+        this.evg = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.fkZ != null && e.this.fkZ.isShowing()) {
-                    e.this.fkZ.dismiss();
+                if (e.this.flm != null && e.this.flm.isShowing()) {
+                    e.this.flm.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.euT);
+        MessageManager.getInstance().registerListener(this.evg);
     }
 
-    private int xK(String str) {
+    private int xL(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -126,10 +126,10 @@ public class e {
     }
 
     public void a(d.a aVar) {
-        this.fkX = aVar;
+        this.flk = aVar;
     }
 
-    public d.a bqC() {
-        return this.fkX;
+    public d.a bqD() {
+        return this.flk;
     }
 }

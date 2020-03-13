@@ -14,8 +14,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0299a bWc;
     private static C0299a bWd;
+    private static C0299a bWe;
 
     public static void h(boolean z, int i) {
         h.afr().putBoolean(gF(i), z);
@@ -38,17 +38,17 @@ public final class a {
     }
 
     private static C0299a afB() {
-        if (bWd == null) {
-            bWd = C0299a.c(gM(1), 1);
+        if (bWe == null) {
+            bWe = C0299a.c(gM(1), 1);
         }
-        return bWd;
+        return bWe;
     }
 
     private static C0299a afC() {
-        if (bWc == null) {
-            bWc = C0299a.c(gM(0), 0);
+        if (bWd == null) {
+            bWd = C0299a.c(gM(0), 0);
         }
-        return bWc;
+        return bWd;
     }
 
     public static synchronized void gI(int i) {
@@ -59,7 +59,7 @@ public final class a {
             if (gE(i)) {
                 C0299a gH = gH(i);
                 long j = h.afr().getLong(gJ(i), 0L);
-                long mp = com.baidu.swan.apps.swancore.b.mp(gH.bWe);
+                long mp = com.baidu.swan.apps.swancore.b.mp(gH.bWf);
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + mp);
                 }
@@ -148,12 +148,12 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0299a {
-        public String bWe;
+        public String bWf;
 
         public static C0299a c(JSONObject jSONObject, int i) {
             C0299a c0299a = new C0299a();
             if (jSONObject != null) {
-                c0299a.bWe = jSONObject.optString(gw(i));
+                c0299a.bWf = jSONObject.optString(gw(i));
             }
             return c0299a;
         }

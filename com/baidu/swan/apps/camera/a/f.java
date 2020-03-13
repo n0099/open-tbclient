@@ -82,7 +82,7 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar, CameraPreview cameraPreview, final com.baidu.swan.apps.camera.d.c cVar, String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "take photo start");
-        cameraPreview.setQuality(cVar.bga);
+        cameraPreview.setQuality(cVar.bgb);
         final String gn = cameraPreview.gn(str);
         try {
             cameraPreview.a(gn, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
@@ -93,7 +93,7 @@ public class f extends a {
                         jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.br(gn, eVar.id));
                     } catch (JSONException e) {
                         com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture onSuccess but json object occur exception");
-                        com.baidu.swan.apps.camera.a.Kg().h(cVar.bim, cVar.bfZ, false);
+                        com.baidu.swan.apps.camera.a.Kg().h(cVar.bin, cVar.bga, false);
                         if (f.DEBUG) {
                             e.printStackTrace();
                         }
@@ -109,7 +109,7 @@ public class f extends a {
             });
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture api occur exception");
-            com.baidu.swan.apps.camera.a.Kg().h(cVar.bim, cVar.bfZ, false);
+            com.baidu.swan.apps.camera.a.Kg().h(cVar.bin, cVar.bga, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

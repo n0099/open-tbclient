@@ -11,24 +11,24 @@ import java.util.Set;
 import okio.BufferedSource;
 /* loaded from: classes11.dex */
 public class c<T> implements com.baidu.swan.pms.a.c<T> {
-    private com.baidu.swan.pms.a.c<T> cBx;
+    private com.baidu.swan.pms.a.c<T> cBy;
     public int mRetryCount = 0;
 
     public c(com.baidu.swan.pms.a.c<T> cVar) {
-        this.cBx = cVar;
+        this.cBy = cVar;
     }
 
     @Override // com.baidu.swan.pms.a.e
     @NonNull
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
-        return this.cBx == null ? new Bundle() : this.cBx.a(bundle, set);
+        return this.cBy == null ? new Bundle() : this.cBy.a(bundle, set);
     }
 
     @Override // com.baidu.swan.pms.a.c
     public String K(T t) {
         String str = null;
-        if (this.cBx != null) {
-            str = this.cBx.K(t);
+        if (this.cBy != null) {
+            str = this.cBy.K(t);
         }
         if (com.baidu.swan.pms.d.DEBUG) {
             Log.d("PMSDownStreamGuard", atU() + ": getDownloadPath:" + str);
@@ -51,9 +51,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void J(T t) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.J(t);
+                this.cBy.J(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloading t=" + t.toString());
@@ -66,9 +66,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void I(T t) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.I(t);
+                this.cBy.I(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadStart t=" + t.toString());
@@ -81,9 +81,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void H(T t) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.H(t);
+                this.cBy.H(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadProgress t=" + t.toString());
@@ -96,9 +96,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void Y(T t) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.Y(t);
+                this.cBy.Y(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadStop t=" + t.toString());
@@ -111,13 +111,13 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void G(T t) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.G(t);
+                this.cBy.G(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadFinish: t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadFinish: cb=" + this.cBx);
+                    Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadFinish: cb=" + this.cBy);
                     Log.e("PMSDownStreamGuard", atU() + ": Except onDownloadFinish: e=" + Log.getStackTraceString(e));
                     throw e;
                 }
@@ -127,9 +127,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void a(T t, com.baidu.swan.pms.model.a aVar) {
-        if (this.cBx != null) {
+        if (this.cBy != null) {
             try {
-                this.cBx.a((com.baidu.swan.pms.a.c<T>) t, aVar);
+                this.cBy.a((com.baidu.swan.pms.a.c<T>) t, aVar);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSDownStreamGuard", atU() + ": notify onDownloadError t=" + t.toString());
@@ -142,12 +142,12 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public Map<String, Object> atr() {
-        return this.cBx.atr();
+        return this.cBy.atr();
     }
 
     @Override // com.baidu.swan.pms.a.c
     public com.baidu.swan.pms.model.a a(T t, BufferedSource bufferedSource, File file, long j) throws IOException {
-        return this.cBx != null ? this.cBx.a(t, bufferedSource, file, j) : new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
+        return this.cBy != null ? this.cBy.a(t, bufferedSource, file, j) : new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
     }
 
     private String atU() {

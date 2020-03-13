@@ -10,7 +10,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private static final String buM = h.class.getSimpleName();
+    private static final String buN = h.class.getSimpleName();
 
     public h(j jVar) {
         super(jVar, "/swanAPI/debug/setReplaceGameCoreConfig");
@@ -20,11 +20,11 @@ public class h extends ab {
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         final JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
-            com.baidu.swan.apps.console.c.e(buM, "params is null");
+            com.baidu.swan.apps.console.c.e(buN, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else if (!b.has("emitReplaceGameCore")) {
-            com.baidu.swan.apps.console.c.e(buM, "emitReplaceGameCore is null");
+            com.baidu.swan.apps.console.c.e(buN, "emitReplaceGameCore is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

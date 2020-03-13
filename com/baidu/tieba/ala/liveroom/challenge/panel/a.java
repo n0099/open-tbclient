@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends e {
-    private AlaChallengeWaveView eUP;
-    private AlaChallengeWaveView eUQ;
-    private HeadImageView eUR;
-    private HeadImageView eUS;
-    private com.baidu.live.challenge.a eUn;
+    private com.baidu.live.challenge.a eUA;
+    private AlaChallengeWaveView eVc;
+    private AlaChallengeWaveView eVd;
+    private HeadImageView eVe;
+    private HeadImageView eVf;
 
     public a(Context context, k kVar) {
         super(context, kVar);
-        this.eUP = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
-        this.eUQ = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
-        this.eUP.setWaveArray(new float[]{AlaChallengeWaveView.eWb, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eVZ});
-        this.eUQ.setWaveArray(new float[]{AlaChallengeWaveView.eVZ, AlaChallengeWaveView.eWa, AlaChallengeWaveView.eWb});
-        this.eUR = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
-        this.eUR.setIsRound(true);
-        this.eUR.setAutoChangeStyle(false);
-        this.eUR.setDrawBorder(false);
-        this.eUR.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eUR.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.eUR.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.eUS = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
-        this.eUS.setIsRound(true);
-        this.eUS.setAutoChangeStyle(false);
-        this.eUS.setDrawBorder(false);
-        this.eUS.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eUS.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eVc = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
+        this.eVd = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
+        this.eVc.setWaveArray(new float[]{AlaChallengeWaveView.eWo, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWm});
+        this.eVd.setWaveArray(new float[]{AlaChallengeWaveView.eWm, AlaChallengeWaveView.eWn, AlaChallengeWaveView.eWo});
+        this.eVe = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
+        this.eVe.setIsRound(true);
+        this.eVe.setAutoChangeStyle(false);
+        this.eVe.setDrawBorder(false);
+        this.eVe.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eVe.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.eVe.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.eVf = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.eVf.setIsRound(true);
+        this.eVf.setAutoChangeStyle(false);
+        this.eVf.setDrawBorder(false);
+        this.eVf.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eVf.setDefaultBgResource(a.f.icon_challenge_default_avatar);
     }
 
     public void d(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.eUn = aVar;
-            this.eUS.startLoad(aVar.WU, 25, false);
+            this.eUA = aVar;
+            this.eVf.startLoad(aVar.WU, 25, false);
         }
     }
 
@@ -50,18 +50,18 @@ public class a extends e {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected int bkF() {
+    protected int bkG() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected void hide() {
         super.hide();
-        if (this.eUP != null) {
-            this.eUP.endAnimation();
+        if (this.eVc != null) {
+            this.eVc.endAnimation();
         }
-        if (this.eUQ != null) {
-            this.eUQ.endAnimation();
+        if (this.eVd != null) {
+            this.eVd.endAnimation();
         }
     }
 }

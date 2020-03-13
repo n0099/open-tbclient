@@ -25,9 +25,9 @@ import tv.chushou.basis.rxjava.annotation.Subscribe;
 public class c extends com.kascend.chushou.view.base.a {
     private View a;
     private View d;
-    private H5Positon nbJ;
-    private com.kascend.chushou.view.h5.b ncR;
-    private ConfigDetail ncS;
+    private H5Positon nbU;
+    private com.kascend.chushou.view.h5.b ndc;
+    private ConfigDetail ndd;
 
     public static c c(@NonNull ConfigDetail configDetail) {
         c cVar = new c();
@@ -60,22 +60,22 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        if (this.ncS == null || this.ncS.mPortrait == null) {
+        if (this.ndd == null || this.ndd.mPortrait == null) {
             dismissAllowingStateLoss();
             return;
         }
-        this.nbJ = this.ncS.mPortrait;
-        if (this.nbJ == null) {
-            this.nbJ = new H5Positon();
-            this.nbJ.mWidth = 84;
-            this.nbJ.mHeight = 80;
+        this.nbU = this.ndd.mPortrait;
+        if (this.nbU == null) {
+            this.nbU = new H5Positon();
+            this.nbU.mWidth = 84;
+            this.nbU.mHeight = 80;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = true;
         h5Options.h = 0;
         h5Options.c = false;
         h5Options.b = true;
-        h5Options.a = this.ncS.mUrl;
+        h5Options.a = this.ndd.mUrl;
         h5Options.d = true;
         h5Options.f = false;
         Point hd = tv.chushou.zues.utils.a.hd(this.b);
@@ -84,12 +84,12 @@ public class c extends com.kascend.chushou.view.base.a {
         int i2 = hd.y - statusBarHeight;
         View findViewById = this.a.findViewById(a.f.view_top);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.nbJ.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.nbU.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams.height = i3;
         findViewById.setLayoutParams(layoutParams);
         View findViewById2 = this.a.findViewById(a.f.dialog_send_redpacket_container);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById2.getLayoutParams();
-        layoutParams2.height = (int) (((this.nbJ.mHeight * 1.0d) / 100.0d) * i2);
+        layoutParams2.height = (int) (((this.nbU.mHeight * 1.0d) / 100.0d) * i2);
         findViewById2.setLayoutParams(layoutParams2);
         View findViewById3 = this.a.findViewById(a.f.fl_bottom);
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) findViewById3.getLayoutParams();
@@ -98,7 +98,7 @@ public class c extends com.kascend.chushou.view.base.a {
         FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.d.setLayoutParams(layoutParams4);
-        this.ncR = com.kascend.chushou.view.h5.b.b(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(this.b)).a(new d() { // from class: com.kascend.chushou.player.ui.h5.redpacket.c.2
+        this.ndc = com.kascend.chushou.view.h5.b.b(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(this.b)).a(new d() { // from class: com.kascend.chushou.player.ui.h5.redpacket.c.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 c.this.dismissAllowingStateLoss();
@@ -108,13 +108,13 @@ public class c extends com.kascend.chushou.view.base.a {
             public void a(String str) {
             }
         }));
-        getChildFragmentManager().beginTransaction().add(a.f.dialog_send_redpacket_container, this.ncR).commitAllowingStateLoss();
+        getChildFragmentManager().beginTransaction().add(a.f.dialog_send_redpacket_container, this.ndc).commitAllowingStateLoss();
         Dialog dialog = getDialog();
         if (dialog != null) {
             dialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.kascend.chushou.player.ui.h5.redpacket.c.3
                 @Override // android.content.DialogInterface.OnKeyListener
                 public boolean onKey(DialogInterface dialogInterface, int i4, KeyEvent keyEvent) {
-                    return i4 == 4 && c.this.ncR != null && c.this.ncR.isAdded() && c.this.ncR.a(i4, keyEvent);
+                    return i4 == 4 && c.this.ndc != null && c.this.ndc.isAdded() && c.this.ndc.a(i4, keyEvent);
                 }
             });
         }
@@ -127,7 +127,7 @@ public class c extends com.kascend.chushou.view.base.a {
         Dialog dialog = getDialog();
         if (dialog != null && (window = dialog.getWindow()) != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.width = (int) (tv.chushou.zues.utils.a.hd(this.b).x * ((1.0d * this.nbJ.mWidth) / 100.0d));
+            attributes.width = (int) (tv.chushou.zues.utils.a.hd(this.b).x * ((1.0d * this.nbU.mWidth) / 100.0d));
             attributes.height = -1;
             window.setAttributes(attributes);
         }
@@ -142,12 +142,12 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Subscribe
     public void onButtonUIEvent(com.kascend.chushou.player.ui.button.b bVar) {
-        if (!b() && bVar.a == 7 && this.ncR != null && this.ncR.isAdded()) {
-            this.ncR.a("closeFloppyDisk()");
+        if (!b() && bVar.a == 7 && this.ndc != null && this.ndc.isAdded()) {
+            this.ndc.a("closeFloppyDisk()");
         }
     }
 
     public void a(ConfigDetail configDetail) {
-        this.ncS = (ConfigDetail) tv.chushou.a.a.a.c.checkNotNull(configDetail);
+        this.ndd = (ConfigDetail) tv.chushou.a.a.a.c.checkNotNull(configDetail);
     }
 }

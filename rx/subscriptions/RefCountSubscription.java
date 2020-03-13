@@ -5,31 +5,31 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class RefCountSubscription implements k {
-    static final a nUl = new a(false, 0);
-    private final k nUk;
-    final AtomicReference<a> nUm = new AtomicReference<>(nUl);
+    static final a nUw = new a(false, 0);
+    private final k nUv;
+    final AtomicReference<a> nUx = new AtomicReference<>(nUw);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class a {
         final boolean isUnsubscribed;
-        final int nUn;
+        final int nUy;
 
         a(boolean z, int i) {
             this.isUnsubscribed = z;
-            this.nUn = i;
-        }
-
-        a dPy() {
-            return new a(this.isUnsubscribed, this.nUn + 1);
+            this.nUy = i;
         }
 
         a dPz() {
-            return new a(this.isUnsubscribed, this.nUn - 1);
+            return new a(this.isUnsubscribed, this.nUy + 1);
         }
 
         a dPA() {
-            return new a(true, this.nUn);
+            return new a(this.isUnsubscribed, this.nUy - 1);
+        }
+
+        a dPB() {
+            return new a(true, this.nUy);
         }
     }
 
@@ -37,57 +37,57 @@ public final class RefCountSubscription implements k {
         if (kVar == null) {
             throw new IllegalArgumentException("s");
         }
-        this.nUk = kVar;
+        this.nUv = kVar;
     }
 
-    public k dPw() {
+    public k dPx() {
         a aVar;
-        AtomicReference<a> atomicReference = this.nUm;
+        AtomicReference<a> atomicReference = this.nUx;
         do {
             aVar = atomicReference.get();
             if (aVar.isUnsubscribed) {
-                return e.dPC();
+                return e.dPD();
             }
-        } while (!atomicReference.compareAndSet(aVar, aVar.dPy()));
+        } while (!atomicReference.compareAndSet(aVar, aVar.dPz()));
         return new InnerSubscription(this);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.nUm.get().isUnsubscribed;
+        return this.nUx.get().isUnsubscribed;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         a aVar;
-        a dPA;
-        AtomicReference<a> atomicReference = this.nUm;
+        a dPB;
+        AtomicReference<a> atomicReference = this.nUx;
         do {
             aVar = atomicReference.get();
             if (!aVar.isUnsubscribed) {
-                dPA = aVar.dPA();
+                dPB = aVar.dPB();
             } else {
                 return;
             }
-        } while (!atomicReference.compareAndSet(aVar, dPA));
-        a(dPA);
+        } while (!atomicReference.compareAndSet(aVar, dPB));
+        a(dPB);
     }
 
     private void a(a aVar) {
-        if (aVar.isUnsubscribed && aVar.nUn == 0) {
-            this.nUk.unsubscribe();
+        if (aVar.isUnsubscribed && aVar.nUy == 0) {
+            this.nUv.unsubscribe();
         }
     }
 
-    void dPx() {
+    void dPy() {
         a aVar;
-        a dPz;
-        AtomicReference<a> atomicReference = this.nUm;
+        a dPA;
+        AtomicReference<a> atomicReference = this.nUx;
         do {
             aVar = atomicReference.get();
-            dPz = aVar.dPz();
-        } while (!atomicReference.compareAndSet(aVar, dPz));
-        a(dPz);
+            dPA = aVar.dPA();
+        } while (!atomicReference.compareAndSet(aVar, dPA));
+        a(dPA);
     }
 
     /* loaded from: classes6.dex */
@@ -102,7 +102,7 @@ public final class RefCountSubscription implements k {
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
-                this.parent.dPx();
+                this.parent.dPy();
             }
         }
 

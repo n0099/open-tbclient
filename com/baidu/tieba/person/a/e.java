@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private HTypeListView jfR;
-    private c jfS;
-    private b jfT;
-    private a jfU;
+    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
+    private HTypeListView jgd;
+    private c jge;
+    private b jgf;
+    private a jgg;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.jfR = hTypeListView;
+        this.jgd = hTypeListView;
         wM();
     }
 
     private void wM() {
-        this.jfS = new c(this.mTbPageContext, n.MO);
-        this.jfT = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jgc);
-        this.jfU = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfH);
-        this.asE.add(this.jfS);
-        this.asE.add(this.jfT);
-        this.asE.add(this.jfU);
-        this.jfR.addAdapters(this.asE);
+        this.jge = new c(this.mTbPageContext, n.MO);
+        this.jgf = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jgo);
+        this.jgg = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfT);
+        this.asF.add(this.jge);
+        this.asF.add(this.jgf);
+        this.asF.add(this.jgg);
+        this.jgd.addAdapters(this.asF);
     }
 
     public void setDatas(List<m> list) {
-        if (this.jfR != null) {
-            this.jfR.setData(list);
+        if (this.jgd != null) {
+            this.jgd.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.jfR != null && (this.jfR.getAdapter() instanceof v)) {
-            ((v) this.jfR.getAdapter()).notifyDataSetChanged();
+        if (this.jgd != null && (this.jgd.getAdapter() instanceof v)) {
+            ((v) this.jgd.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.jfS.D(onClickListener);
-        this.jfT.D(onClickListener);
+        this.jge.D(onClickListener);
+        this.jgf.D(onClickListener);
     }
 }

@@ -44,7 +44,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
-        if (!TextUtils.equals(m.bhM, m2.bhM)) {
+        if (!TextUtils.equals(m.bhN, m2.bhN)) {
             a.ei(9);
         }
         return a;
@@ -65,26 +65,26 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(@NonNull V v, @NonNull M m, @Nullable com.facebook.drawee.controller.b<f> bVar) {
         Uri gp;
-        if (m.bhU != null) {
+        if (m.bhV != null) {
             if (DEBUG) {
                 Log.d("Component-SimpleDrawee", "renderImageStyle");
             }
-            String str = m.bhM;
+            String str = m.bhN;
             if (!TextUtils.isEmpty(str) && (gp = gp(str)) != null) {
                 c.d("Component-SimpleDrawee", "Image Uri:" + gp);
-                e b = com.facebook.drawee.a.a.c.dly().c(v.getController());
+                e b = com.facebook.drawee.a.a.c.dlz().c(v.getController());
                 if (bVar != null) {
                     b.c(bVar);
                 }
                 b.K(gp);
-                com.facebook.drawee.controller.a dml = b.dmp();
+                com.facebook.drawee.controller.a dmm = b.dmq();
                 RoundingParams roundingParams = new RoundingParams();
-                roundingParams.bo(m.bhV);
-                com.facebook.drawee.generic.a dmY = new com.facebook.drawee.generic.b(v.getResources()).dmY();
-                dmY.a(roundingParams);
-                dmY.b(p.b.lMN);
-                v.setHierarchy(dmY);
-                v.setController(dml);
+                roundingParams.bo(m.bhW);
+                com.facebook.drawee.generic.a dmZ = new com.facebook.drawee.generic.b(v.getResources()).dmZ();
+                dmZ.a(roundingParams);
+                dmZ.b(p.b.lMY);
+                v.setHierarchy(dmZ);
+                v.setController(dmm);
             }
         }
     }

@@ -29,7 +29,7 @@ public class c {
         if (ec == null) {
             return null;
         }
-        return ec.aQU();
+        return ec.aQV();
     }
 
     public static TbPageTag ee(Context context) {
@@ -52,7 +52,7 @@ public class c {
     }
 
     public static an a(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aQU());
+        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aQV());
     }
 
     public static an a(an anVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {

@@ -7,14 +7,14 @@ import kotlin.text.l;
 @h
 /* loaded from: classes7.dex */
 public final class b {
-    public static final a nCe;
+    public static final a nCp;
 
     static {
         a aVar;
         Object newInstance;
         Object newInstance2;
-        int dKs = dKs();
-        if (dKs >= 65544) {
+        int dKt = dKt();
+        if (dKt >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.b.a").newInstance();
                 q.i(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -47,9 +47,9 @@ public final class b {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             aVar = (a) newInstance;
-            nCe = aVar;
+            nCp = aVar;
         }
-        if (dKs >= 65543) {
+        if (dKt >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
                 q.i(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -76,7 +76,7 @@ public final class b {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                 }
                 aVar = (a) newInstance2;
-                nCe = aVar;
+                nCp = aVar;
             } catch (ClassCastException e8) {
                 ClassLoader classLoader4 = newInstance2.getClass().getClassLoader();
                 Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader4 + ", base type classloader: " + a.class.getClassLoader()).initCause(e8);
@@ -85,10 +85,10 @@ public final class b {
             }
         }
         aVar = new a();
-        nCe = aVar;
+        nCp = aVar;
     }
 
-    private static final int dKs() {
+    private static final int dKt() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {

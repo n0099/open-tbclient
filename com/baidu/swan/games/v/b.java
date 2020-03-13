@@ -14,7 +14,7 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File bVF;
+    private File bVG;
     private SharedPreferences mPref;
 
     public b() {
@@ -24,9 +24,9 @@ public class b {
         }
         if (apH != null) {
             this.mPref = com.baidu.swan.apps.w.a.TW().getSharedPreferences(apH, 0);
-            this.bVF = new File(apL(), apH + ".xml");
+            this.bVG = new File(apL(), apH + ".xml");
         }
-        e.bXQ.a(new c.a<Long>() { // from class: com.baidu.swan.games.v.b.1
+        e.bXR.a(new c.a<Long>() { // from class: com.baidu.swan.games.v.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.c.a
             /* renamed from: afm */
@@ -50,8 +50,8 @@ public class b {
     }
 
     public long afk() {
-        if (this.bVF != null) {
-            return this.bVF.length();
+        if (this.bVG != null) {
+            return this.bVG.length();
         }
         return 0L;
     }

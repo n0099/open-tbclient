@@ -14,11 +14,11 @@ public final class Pipeline {
     /* renamed from: com.qiniu.android.bigdata.pipeline.Pipeline$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements CompletionHandler {
-        final /* synthetic */ PumpCompleteHandler nms;
+        final /* synthetic */ PumpCompleteHandler nmD;
 
         @Override // com.qiniu.android.http.CompletionHandler
         public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-            this.nms.a(responseInfo);
+            this.nmD.a(responseInfo);
         }
     }
 }

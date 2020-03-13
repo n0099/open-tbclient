@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow fWe;
-    private boolean gLt;
+    private PopupWindow fWr;
+    private boolean gLF;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int gLs = R.string.attention_post_update_tip;
+    private int gLE = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable gLu = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable gLG = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View f = a.this.f(pageActivity, a.this.gLs);
+                View j = a.this.j(pageActivity, a.this.gLE);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.fWe = new PopupWindow(f, -2, dimens);
-                a.this.fWe.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.fWr = new PopupWindow(j, -2, dimens);
+                a.this.fWr.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.fWe != null) {
-                            a.this.bKg();
+                        if (a.this.fWr != null) {
+                            a.this.bKh();
                         }
                     }
                 }, 3000L);
@@ -46,30 +46,30 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.gLt = z;
+        this.gLF = z;
     }
 
     public void bV(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.gLt) {
-                this.gLs = R.string.attention_post_update_tip;
+            if (this.gLF) {
+                this.gLE = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
                 int i = com.baidu.tbadk.core.sharedPref.b.aFD().getInt(str, 0);
                 if (i >= 3) {
-                    this.gLt = false;
+                    this.gLF = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.aFD().putInt(str, i + 1);
-                this.gLt = false;
-                this.mHandler.postDelayed(this.gLu, 500L);
+                this.gLF = false;
+                this.mHandler.postDelayed(this.gLG, 500L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public View f(Activity activity, int i) {
+    public View j(Activity activity, int i) {
         TextView textView = new TextView(activity);
         int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.ds20);
         textView.setPadding(dimens, 0 - activity.getResources().getDimensionPixelSize(R.dimen.ds12), dimens, 0);
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bKg();
+        bKh();
     }
 
-    public void bKg() {
-        if (this.fWe != null) {
-            this.fWe.dismiss();
-            this.fWe = null;
+    public void bKh() {
+        if (this.fWr != null) {
+            this.fWr.dismiss();
+            this.fWr = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bKg();
+        bKh();
     }
 }

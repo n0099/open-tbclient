@@ -8,8 +8,8 @@ import tv.chushou.zues.c;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private InterfaceC0703a ncb;
-    private final c nca = new c(Looper.getMainLooper());
+    private InterfaceC0703a ncm;
+    private final c ncl = new c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.b> c = new ArrayList();
 
     /* renamed from: com.kascend.chushou.player.ui.h5.a.a$a  reason: collision with other inner class name */
@@ -20,21 +20,21 @@ public class a {
 
     public a(Activity activity) {
         try {
-            this.ncb = (InterfaceC0703a) activity;
+            this.ncm = (InterfaceC0703a) activity;
         } catch (Exception e) {
-            this.ncb = null;
+            this.ncm = null;
         }
     }
 
     public void a() {
         this.c.clear();
-        this.nca.cq(null);
+        this.ncl.cq(null);
     }
 
     public void b() {
         this.c.clear();
-        this.nca.cq(null);
-        this.ncb = null;
+        this.ncl.cq(null);
+        this.ncm = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.b> list) {
@@ -48,7 +48,7 @@ public class a {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 final com.kascend.chushou.player.ui.h5.c.b bVar2 = this.c.get(i2);
                 if (bVar2.b > 0) {
-                    this.nca.d(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
+                    this.ncl.d(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b(bVar2);
@@ -56,8 +56,8 @@ public class a {
                     }, bVar2.b * 1000);
                 }
             }
-            if (this.ncb != null) {
-                this.ncb.c(this.c.size());
+            if (this.ncm != null) {
+                this.ncm.c(this.c.size());
             }
         }
     }
@@ -88,8 +88,8 @@ public class a {
         if (bVar != null) {
             this.c.remove(bVar);
         }
-        if (this.ncb != null) {
-            this.ncb.c(this.c.size());
+        if (this.ncm != null) {
+            this.ncm.c(this.c.size());
         }
     }
 

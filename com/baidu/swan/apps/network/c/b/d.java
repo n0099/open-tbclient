@@ -26,19 +26,19 @@ public final class d {
     @h
     /* loaded from: classes11.dex */
     static final class a implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ kotlin.jvm.a.b bGV;
-        final /* synthetic */ String bGW;
+        final /* synthetic */ kotlin.jvm.a.b bGW;
+        final /* synthetic */ String bGX;
 
         a(kotlin.jvm.a.b bVar, String str) {
-            this.bGV = bVar;
-            this.bGW = str;
+            this.bGW = bVar;
+            this.bGX = str;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
         public final void Zf() {
             JSONArray Zo = d.Zo();
             if (Zo == null || Zo.length() == 0) {
-                kotlin.jvm.a.b bVar = this.bGV;
+                kotlin.jvm.a.b bVar = this.bGW;
                 if (bVar != null) {
                     kotlin.l lVar = (kotlin.l) bVar.invoke(true);
                     return;
@@ -47,8 +47,8 @@ public final class d {
             }
             int length = Zo.length();
             for (int i = 0; i < length; i++) {
-                if (q.h(this.bGW, Zo.get(i))) {
-                    kotlin.jvm.a.b bVar2 = this.bGV;
+                if (q.h(this.bGX, Zo.get(i))) {
+                    kotlin.jvm.a.b bVar2 = this.bGW;
                     if (bVar2 != null) {
                         kotlin.l lVar2 = (kotlin.l) bVar2.invoke(true);
                         return;
@@ -56,7 +56,7 @@ public final class d {
                     return;
                 }
             }
-            kotlin.jvm.a.b bVar3 = this.bGV;
+            kotlin.jvm.a.b bVar3 = this.bGW;
             if (bVar3 != null) {
                 kotlin.l lVar3 = (kotlin.l) bVar3.invoke(false);
             }

@@ -44,10 +44,10 @@ import java.lang.reflect.InvocationTargetException;
 public class am {
     private static com.baidu.tbadk.core.dialog.a FR;
     private static String TYPE_ERROR;
-    private static String daj;
-    private static AssetManager dak;
-    private static SparseIntArray dal;
+    private static String dak;
+    private static AssetManager dal;
     private static SparseIntArray dam;
+    private static SparseIntArray dan;
     public static Resources mPluginRes;
     private static Resources mSkinRes;
     private static String sPackagename;
@@ -64,8 +64,8 @@ public class am {
         TYPE_ERROR = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
-        dal = new SparseIntArray();
         dam = new SparseIntArray();
+        dan = new SparseIntArray();
     }
 
     public static void tt(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
@@ -73,14 +73,14 @@ public class am {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    dak = (AssetManager) AssetManager.class.newInstance();
+                    dal = (AssetManager) AssetManager.class.newInstance();
                     File GetFile = m.GetFile(str);
                     if (GetFile == null || !GetFile.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.theme_skin_apk_error);
                     } else {
-                        dak.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(dak, GetFile.getAbsolutePath());
-                        mSkinRes = new Resources(dak, resources.getDisplayMetrics(), resources.getConfiguration());
-                        daj = m.getApkFilePackageName(str);
+                        dal.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(dal, GetFile.getAbsolutePath());
+                        mSkinRes = new Resources(dal, resources.getDisplayMetrics(), resources.getConfiguration());
+                        dak = m.getApkFilePackageName(str);
                     }
                 }
             } catch (Throwable th) {
@@ -203,7 +203,7 @@ public class am {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = dal.get(i, -1);
+        int i3 = dam.get(i, -1);
         if (i3 == -1) {
             try {
                 str = resources.getResourceName(i);
@@ -221,12 +221,12 @@ public class am {
                 i3 = mPluginRes.getIdentifier(str + "_1", null, null);
                 if (i3 <= 0) {
                     i2 = mPluginRes.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
-                    dal.put(i, i2);
+                    dam.put(i, i2);
                     return i2;
                 }
             }
             i2 = i3;
-            dal.put(i, i2);
+            dam.put(i, i2);
             return i2;
         }
         return i3;
@@ -242,7 +242,7 @@ public class am {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = dam.get(i, -1);
+        int i3 = dan.get(i, -1);
         if (i3 != -1) {
             return i3;
         }
@@ -265,14 +265,14 @@ public class am {
                 if (i2 <= 0) {
                     i2 = c(resources, i);
                 }
-                dam.put(i, i2);
+                dan.put(i, i2);
                 return i2;
             }
         }
         i2 = i3;
         if (i2 <= 0) {
         }
-        dam.put(i, i2);
+        dan.put(i, i2);
         return i2;
     }
 
@@ -337,7 +337,7 @@ public class am {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return mSkinRes.getIdentifier(daj + str.substring(str.indexOf(":")), null, null);
+        return mSkinRes.getIdentifier(dak + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void setViewTextColor(View view, int i) {
@@ -870,6 +870,10 @@ public class am {
         }
     }
 
+    public static void b(View view, int i, int i2) {
+        a(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
     public static void b(View view, int i, int i2, int i3) {
         StateListDrawable u;
         if (i != 0 && i2 != 0 && view != null && (u = u(i, i2, i3)) != null) {
@@ -877,7 +881,7 @@ public class am {
         }
     }
 
-    public static void b(View view, int i, int i2) {
+    public static void c(View view, int i, int i2) {
         b(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -970,7 +974,7 @@ public class am {
         return (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true;
     }
 
-    public static void v(boolean z, boolean z2) {
+    public static void w(boolean z, boolean z2) {
         boolean aGw = aGw();
         final Activity currentActivity = com.baidu.adp.base.a.eH().currentActivity();
         if (currentActivity != null) {

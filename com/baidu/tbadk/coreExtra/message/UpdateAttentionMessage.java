@@ -13,8 +13,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c daK;
-        public BlockPopInfoData dnU;
+        public c daL;
+        public BlockPopInfoData doi;
         public String errorString;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
@@ -56,11 +56,11 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
                 if (!aq.isEmpty(optString) && !aq.isEmpty(this.blockUrl) && !aq.isEmpty(optString2) && !aq.isEmpty(optString3)) {
-                    this.dnU = new BlockPopInfoData();
-                    this.dnU.block_info = optString;
-                    this.dnU.ahead_url = this.blockUrl;
-                    this.dnU.ahead_info = optString2;
-                    this.dnU.ok_info = optString3;
+                    this.doi = new BlockPopInfoData();
+                    this.doi.block_info = optString;
+                    this.doi.ahead_url = this.blockUrl;
+                    this.doi.ahead_info = optString2;
+                    this.doi.ok_info = optString3;
                 }
             }
         }

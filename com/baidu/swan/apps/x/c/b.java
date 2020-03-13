@@ -7,30 +7,30 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bzc;
-    public com.baidu.swan.apps.as.d.b<b> bze;
-    private final List<String> bzd = new ArrayList();
-    private final List<a> bzf = new ArrayList();
-    private String bzg = b.class.getPackage().getName();
+    private String bzd;
+    public com.baidu.swan.apps.as.d.b<b> bzf;
+    private final List<String> bze = new ArrayList();
+    private final List<a> bzg = new ArrayList();
+    private String bzh = b.class.getPackage().getName();
 
     public b iO(String str) {
-        this.bzc = str;
+        this.bzd = str;
         return this;
     }
 
     public String Wn() {
-        return this.bzc;
+        return this.bzd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized List<a> Wo() {
-        return new ArrayList(this.bzf);
+        return new ArrayList(this.bzg);
     }
 
     public synchronized a Wj() {
         a aVar;
         aVar = new a();
-        this.bzf.add(aVar);
+        this.bzg.add(aVar);
         return aVar;
     }
 
@@ -43,12 +43,12 @@ public final class b {
     }
 
     public b b(com.baidu.swan.apps.as.d.b<b> bVar) {
-        this.bze = bVar;
+        this.bzf = bVar;
         return this;
     }
 
     public synchronized b Wp() {
-        return c(this.bze);
+        return c(this.bzf);
     }
 
     public synchronized b c(com.baidu.swan.apps.as.d.b<b> bVar) {
@@ -61,23 +61,23 @@ public final class b {
 
     /* loaded from: classes11.dex */
     public class a {
-        final List<String> bzd;
-        private final List<StackTraceElement> bzh;
-        final /* synthetic */ b bzi;
+        final List<String> bze;
+        private final List<StackTraceElement> bzi;
+        final /* synthetic */ b bzj;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.bzi = bVar;
+            this.bzj = bVar;
             this.msgs = new ArrayList();
-            this.bzd = new ArrayList();
-            this.bzh = new ArrayList();
+            this.bze = new ArrayList();
+            this.bzi = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bzg)) {
-                    this.bzh.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bzh)) {
+                    this.bzi.add(stackTraceElement);
                 }
             }
         }
@@ -97,15 +97,15 @@ public final class b {
         }
 
         public synchronized a Wq() {
-            return fm(this.bzh.size());
+            return fm(this.bzi.size());
         }
 
         public synchronized a fm(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.bzh.size() ? this.bzh.size() : i2;
+                int size = i2 > this.bzi.size() ? this.bzi.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.bzi.iN("[Trace]==> " + this.bzh.get(i3).toString());
+                    this.bzj.iN("[Trace]==> " + this.bzi.get(i3).toString());
                 }
             }
             return this;
@@ -128,7 +128,7 @@ public final class b {
         /* renamed from: a */
         public void D(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.bzf) {
+                for (a aVar : bVar.bzg) {
                     for (String str : aVar.msgs) {
                         String Wn = bVar.Wn();
                         z(TextUtils.isEmpty(aVar.tag) ? Wn : aVar.tag, Wn + " >>> " + str);

@@ -8,97 +8,97 @@ import java.util.Arrays;
 import java.util.Collections;
 /* loaded from: classes6.dex */
 public final class i implements h {
-    private static final double[] mmU = {23.976023976023978d, 24.0d, 25.0d, 29.97002997002997d, 30.0d, 50.0d, 59.94005994005994d, 60.0d};
-    private com.google.android.exoplayer2.extractor.m meL;
-    private boolean mev;
-    private String mmI;
-    private long mmT;
-    private long mmV;
-    private final boolean[] mmW = new boolean[4];
-    private final a mmX = new a(128);
-    private boolean mmY;
-    private long mmZ;
-    private long mna;
-    private boolean mnb;
-    private boolean mnc;
+    private static final double[] mnf = {23.976023976023978d, 24.0d, 25.0d, 29.97002997002997d, 30.0d, 50.0d, 59.94005994005994d, 60.0d};
+    private boolean meG;
+    private com.google.android.exoplayer2.extractor.m meW;
+    private String mmT;
+    private long mne;
+    private long mng;
+    private final boolean[] mnh = new boolean[4];
+    private final a mni = new a(128);
+    private boolean mnj;
+    private long mnk;
+    private long mnl;
+    private boolean mnm;
+    private boolean mnn;
     private long totalBytesWritten;
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void czd() {
-        com.google.android.exoplayer2.util.j.b(this.mmW);
-        this.mmX.reset();
+    public void cze() {
+        com.google.android.exoplayer2.util.j.b(this.mnh);
+        this.mni.reset();
         this.totalBytesWritten = 0L;
-        this.mmY = false;
+        this.mnj = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dvE();
-        this.mmI = dVar.dvG();
-        this.meL = gVar.dK(dVar.dvF(), 2);
+        dVar.dvF();
+        this.mmT = dVar.dvH();
+        this.meW = gVar.dK(dVar.dvG(), 2);
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void o(long j, boolean z) {
-        this.mmZ = j;
+        this.mnk = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
         long j;
         int position = lVar.getPosition();
-        int dzu = lVar.dzu();
+        int dzv = lVar.dzv();
         byte[] bArr = lVar.data;
-        this.totalBytesWritten += lVar.dzt();
-        this.meL.a(lVar, lVar.dzt());
+        this.totalBytesWritten += lVar.dzu();
+        this.meW.a(lVar, lVar.dzu());
         while (true) {
-            int a2 = com.google.android.exoplayer2.util.j.a(bArr, position, dzu, this.mmW);
-            if (a2 == dzu) {
+            int a2 = com.google.android.exoplayer2.util.j.a(bArr, position, dzv, this.mnh);
+            if (a2 == dzv) {
                 break;
             }
             int i = lVar.data[a2 + 3] & 255;
-            if (!this.mev) {
+            if (!this.meG) {
                 int i2 = a2 - position;
                 if (i2 > 0) {
-                    this.mmX.u(bArr, position, a2);
+                    this.mni.u(bArr, position, a2);
                 }
-                if (this.mmX.dM(i, i2 < 0 ? -i2 : 0)) {
-                    Pair<Format, Long> a3 = a(this.mmX, this.mmI);
-                    this.meL.h((Format) a3.first);
-                    this.mmV = ((Long) a3.second).longValue();
-                    this.mev = true;
+                if (this.mni.dM(i, i2 < 0 ? -i2 : 0)) {
+                    Pair<Format, Long> a3 = a(this.mni, this.mmT);
+                    this.meW.h((Format) a3.first);
+                    this.mng = ((Long) a3.second).longValue();
+                    this.meG = true;
                 }
             }
             if (i == 0 || i == 179) {
-                int i3 = dzu - a2;
-                if (this.mmY && this.mnc && this.mev) {
-                    this.meL.a(this.mmT, this.mnb ? 1 : 0, ((int) (this.totalBytesWritten - this.mna)) - i3, i3, null);
+                int i3 = dzv - a2;
+                if (this.mnj && this.mnn && this.meG) {
+                    this.meW.a(this.mne, this.mnm ? 1 : 0, ((int) (this.totalBytesWritten - this.mnl)) - i3, i3, null);
                 }
-                if (!this.mmY || this.mnc) {
-                    this.mna = this.totalBytesWritten - i3;
-                    if (this.mmZ != -9223372036854775807L) {
-                        j = this.mmZ;
+                if (!this.mnj || this.mnn) {
+                    this.mnl = this.totalBytesWritten - i3;
+                    if (this.mnk != -9223372036854775807L) {
+                        j = this.mnk;
                     } else {
-                        j = this.mmY ? this.mmT + this.mmV : 0L;
+                        j = this.mnj ? this.mne + this.mng : 0L;
                     }
-                    this.mmT = j;
-                    this.mnb = false;
-                    this.mmZ = -9223372036854775807L;
-                    this.mmY = true;
+                    this.mne = j;
+                    this.mnm = false;
+                    this.mnk = -9223372036854775807L;
+                    this.mnj = true;
                 }
-                this.mnc = i == 0;
+                this.mnn = i == 0;
             } else if (i == 184) {
-                this.mnb = true;
+                this.mnm = true;
             }
             position = a2 + 3;
         }
-        if (!this.mev) {
-            this.mmX.u(bArr, position, dzu);
+        if (!this.meG) {
+            this.mni.u(bArr, position, dzv);
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvp() {
+    public void dvq() {
     }
 
     private static Pair<Format, Long> a(a aVar, String str) {
@@ -122,9 +122,9 @@ public final class i implements h {
         Format a2 = Format.a(str, "video/mpeg2", (String) null, -1, -1, i3, i4, -1.0f, Collections.singletonList(copyOf), -1, f, (DrmInitData) null);
         long j = 0;
         int i5 = (copyOf[7] & 15) - 1;
-        if (i5 >= 0 && i5 < mmU.length) {
-            double d = mmU[i5];
-            int i6 = aVar.mnf;
+        if (i5 >= 0 && i5 < mnf.length) {
+            double d = mnf[i5];
+            int i6 = aVar.mnq;
             int i7 = (copyOf[i6 + 9] & 96) >> 5;
             if (i7 != (copyOf[i6 + 9] & 31)) {
                 d *= (i7 + 1.0d) / (i + 1);
@@ -137,40 +137,40 @@ public final class i implements h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static final class a {
-        private static final byte[] mnd = {0, 0, 1};
+        private static final byte[] mno = {0, 0, 1};
         public byte[] data;
         public int length;
-        private boolean mne;
-        public int mnf;
+        private boolean mnp;
+        public int mnq;
 
         public a(int i) {
             this.data = new byte[i];
         }
 
         public void reset() {
-            this.mne = false;
+            this.mnp = false;
             this.length = 0;
-            this.mnf = 0;
+            this.mnq = 0;
         }
 
         public boolean dM(int i, int i2) {
-            if (this.mne) {
+            if (this.mnp) {
                 this.length -= i2;
-                if (this.mnf == 0 && i == 181) {
-                    this.mnf = this.length;
+                if (this.mnq == 0 && i == 181) {
+                    this.mnq = this.length;
                 } else {
-                    this.mne = false;
+                    this.mnp = false;
                     return true;
                 }
             } else if (i == 179) {
-                this.mne = true;
+                this.mnp = true;
             }
-            u(mnd, 0, mnd.length);
+            u(mno, 0, mno.length);
             return false;
         }
 
         public void u(byte[] bArr, int i, int i2) {
-            if (this.mne) {
+            if (this.mnp) {
                 int i3 = i2 - i;
                 if (this.data.length < this.length + i3) {
                     this.data = Arrays.copyOf(this.data, (this.length + i3) * 2);

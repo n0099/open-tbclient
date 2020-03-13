@@ -25,7 +25,7 @@ public class d {
             fVar.mSource = aVar.VJ();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
-            fVar.bVt = String.valueOf(currentTimeMillis - j);
+            fVar.bVu = String.valueOf(currentTimeMillis - j);
             fVar.lR(VO.getString("ubc"));
             com.baidu.swan.apps.statistic.f.onEvent(fVar);
             VO.remove("page_display_flag_for_statistic");
@@ -43,7 +43,7 @@ public class d {
             fVar.mSource = aVar.VJ();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realcancel";
-            fVar.bVs = String.valueOf(currentTimeMillis - j);
+            fVar.bVt = String.valueOf(currentTimeMillis - j);
             fVar.n(TiebaInitialize.LogFields.REASON, str);
             fVar.n("errorList", b.apD().apE());
             fVar.lR(VO.getString("ubc"));

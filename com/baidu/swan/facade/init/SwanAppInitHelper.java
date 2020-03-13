@@ -55,7 +55,7 @@ public class SwanAppInitHelper {
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dlB()) {
+        if (!c.dlC()) {
             c.initialize(application);
         }
         initWebView(application);

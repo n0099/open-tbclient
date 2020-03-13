@@ -4,36 +4,36 @@ import android.os.SystemClock;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long iqu;
-    private long iqv;
-    private long iqw;
-    private boolean iqx;
-
-    public void cgU() {
-        this.iqu = 0L;
-        this.iqv = 0L;
-        this.iqw = 0L;
-    }
+    private long iqG;
+    private long iqH;
+    private long iqI;
+    private boolean iqJ;
 
     public void cgV() {
-        this.iqx = true;
-        this.iqu = SystemClock.elapsedRealtime();
+        this.iqG = 0L;
+        this.iqH = 0L;
+        this.iqI = 0L;
     }
 
     public void cgW() {
-        this.iqv = SystemClock.elapsedRealtime();
+        this.iqJ = true;
+        this.iqG = SystemClock.elapsedRealtime();
     }
 
     public void cgX() {
-        this.iqw = SystemClock.elapsedRealtime();
+        this.iqH = SystemClock.elapsedRealtime();
+    }
+
+    public void cgY() {
+        this.iqI = SystemClock.elapsedRealtime();
     }
 
     public void a(com.baidu.tieba.play.a.a aVar) {
-        if (this.iqx) {
-            this.iqx = false;
+        if (this.iqJ) {
+            this.iqJ = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.iqv - this.iqu;
-            long j2 = elapsedRealtime - this.iqw;
+            long j = this.iqH - this.iqG;
+            long j2 = elapsedRealtime - this.iqI;
             long j3 = j2 + j;
             if ((com.baidu.adp.lib.util.j.netType() == 2 || j <= 17500) && aVar != null) {
                 aVar.e(j, j2, j3);

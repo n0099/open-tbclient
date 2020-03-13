@@ -8,9 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private long aRe = System.currentTimeMillis();
-    private String aRf = e.getNetworkType();
-    private JSONObject aRg;
+    private long aRf = System.currentTimeMillis();
+    private String aRg = e.getNetworkType();
+    private JSONObject aRh;
     private String action;
     private String content;
 
@@ -26,16 +26,16 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(Config.APP_VERSION_CODE, this.action);
-            jSONObject.put("t", this.aRe);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aRf);
-            if (this.aRg != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aRg);
+            jSONObject.put("t", this.aRf);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aRg);
+            if (this.aRh != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aRh);
             } else if (!TextUtils.isEmpty(this.content)) {
                 jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.content);
             }
             return jSONObject;
         } catch (JSONException e) {
-            if (com.baidu.poly.util.c.aSc) {
+            if (com.baidu.poly.util.c.aSd) {
                 e.printStackTrace();
                 return jSONObject;
             }
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a J(JSONObject jSONObject) {
-        this.aRg = jSONObject;
+        this.aRh = jSONObject;
         return this;
     }
 

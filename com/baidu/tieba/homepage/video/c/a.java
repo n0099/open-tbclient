@@ -35,7 +35,7 @@ public class a {
             }
             createFromThreadCfg.setVideo_source("video_tab");
             createFromThreadCfg.setJumpGodReply(z);
-            l.zS(aAg.getTid());
+            l.zT(aAg.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }

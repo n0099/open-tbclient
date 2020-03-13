@@ -59,6 +59,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
@@ -84,7 +85,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     private ViewGroup mActivityRootView;
     private com.baidu.tbadk.core.dialog.f mClickableTextToast;
     private String mCurAccountId;
-    protected com.baidu.tbadk.core.util.b.a mCurrentPermissionJudgePolicy;
+    protected PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     private boolean mHideStatusImmersiveStyle;
     private com.baidu.tbadk.core.view.e mKeyboardAdjust;
     private int mLastOrientation;
@@ -351,7 +352,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ae(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = com.baidu.tbadk.core.view.e.ag(getPageContext().getPageActivity());
         }
     }
 
@@ -512,7 +513,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.aQX().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.aQY().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -710,7 +711,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 this.loadingView = new com.baidu.tbadk.k.g(getPageContext().getPageActivity());
             } else {
                 this.loadingView = new com.baidu.tbadk.k.g(getPageContext().getPageActivity(), i);
-                this.loadingView.aPT();
+                this.loadingView.aPU();
             }
             this.loadingView.onChangeSkinType();
         }
@@ -1133,8 +1134,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    public void setCurrentPermissionJudgePolicy(com.baidu.tbadk.core.util.b.a aVar) {
-        this.mCurrentPermissionJudgePolicy = aVar;
+    public void setCurrentPermissionJudgePolicy(PermissionJudgePolicy permissionJudgePolicy) {
+        this.mCurrentPermissionJudgePolicy = permissionJudgePolicy;
     }
 
     public int getPageId() {
@@ -1194,11 +1195,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.aQf().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQg().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.aQf().k(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.aQg().k(getUniqueId());
     }
 
     public boolean checkUpIsLogin() {

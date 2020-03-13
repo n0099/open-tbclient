@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b {
-    private View cbQ;
-    private HeadImageView jfc;
-    private TextView jfd;
-    private TextView jfe;
-    private ImageView jff;
+    private View cbR;
+    private HeadImageView jfo;
+    private TextView jfp;
+    private TextView jfq;
+    private ImageView jfr;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.cbQ = null;
-        this.jfc = null;
-        this.jfd = null;
-        this.jfe = null;
-        this.jff = null;
-        this.cbQ = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.jfc = (HeadImageView) this.cbQ.findViewById(R.id.zan_list_item_head);
-        this.jfd = (TextView) this.cbQ.findViewById(R.id.zan_list_item_name);
-        this.jfe = (TextView) this.cbQ.findViewById(R.id.zan_list_item_time);
-        this.jff = (ImageView) this.cbQ.findViewById(R.id.zan_list_item_line_bottom);
-        this.jff.setVisibility(0);
-        this.cbQ.setTag(this);
+        this.cbR = null;
+        this.jfo = null;
+        this.jfp = null;
+        this.jfq = null;
+        this.jfr = null;
+        this.cbR = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.jfo = (HeadImageView) this.cbR.findViewById(R.id.zan_list_item_head);
+        this.jfp = (TextView) this.cbR.findViewById(R.id.zan_list_item_name);
+        this.jfq = (TextView) this.cbR.findViewById(R.id.zan_list_item_time);
+        this.jfr = (ImageView) this.cbR.findViewById(R.id.zan_list_item_line_bottom);
+        this.jfr.setVisibility(0);
+        this.cbR.setTag(this);
     }
 
     public View getView() {
-        return this.cbQ;
+        return this.cbR;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.jfd.setText(str);
-        this.jfc.setImageDrawable(null);
-        this.jfe.setText(aq.getFormatTime(j));
-        this.jfc.startLoad(str2, 28, false);
+        this.jfp.setText(str);
+        this.jfo.setImageDrawable(null);
+        this.jfq.setText(aq.getFormatTime(j));
+        this.jfo.startLoad(str2, 28, false);
     }
 }

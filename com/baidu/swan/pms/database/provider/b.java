@@ -19,24 +19,24 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public class b {
     private Context mContext;
-    public static final String cfG = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri cAP = Uri.parse("content://" + cfG + "/framework");
-    public static final Uri cAQ = Uri.parse("content://" + cfG + "/swan_app");
-    public static final Uri cAR = Uri.parse("content://" + cfG + "/pkg_main");
-    public static final Uri cAS = Uri.parse("content://" + cfG + "/pkg_sub");
-    public static final Uri cAT = Uri.parse("content://" + cfG + "/" + ETAG.KEY_EXTENSION);
-    public static final Uri cAU = Uri.parse("content://" + cfG + "/swan_plugin");
-    public static final Uri cAV = Uri.parse("content://" + cfG + "/swan_mini_pkg");
-    private static UriMatcher cAW = new UriMatcher(-1);
+    public static final String cfH = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri cAQ = Uri.parse("content://" + cfH + "/framework");
+    public static final Uri cAR = Uri.parse("content://" + cfH + "/swan_app");
+    public static final Uri cAS = Uri.parse("content://" + cfH + "/pkg_main");
+    public static final Uri cAT = Uri.parse("content://" + cfH + "/pkg_sub");
+    public static final Uri cAU = Uri.parse("content://" + cfH + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri cAV = Uri.parse("content://" + cfH + "/swan_plugin");
+    public static final Uri cAW = Uri.parse("content://" + cfH + "/swan_mini_pkg");
+    private static UriMatcher cAX = new UriMatcher(-1);
 
     static {
-        cAW.addURI(cfG, "framework", 2);
-        cAW.addURI(cfG, "pkg_main", 0);
-        cAW.addURI(cfG, "pkg_sub", 1);
-        cAW.addURI(cfG, ETAG.KEY_EXTENSION, 3);
-        cAW.addURI(cfG, "swan_app", 4);
-        cAW.addURI(cfG, "swan_plugin", 5);
-        cAW.addURI(cfG, "swan_mini_pkg", 6);
+        cAX.addURI(cfH, "framework", 2);
+        cAX.addURI(cfH, "pkg_main", 0);
+        cAX.addURI(cfH, "pkg_sub", 1);
+        cAX.addURI(cfH, ETAG.KEY_EXTENSION, 3);
+        cAX.addURI(cfH, "swan_app", 4);
+        cAX.addURI(cfH, "swan_plugin", 5);
+        cAX.addURI(cfH, "swan_mini_pkg", 6);
     }
 
     public b(Context context) {
@@ -44,7 +44,7 @@ public class b {
     }
 
     private String m(Uri uri) {
-        switch (cAW.match(uri)) {
+        switch (cAX.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:

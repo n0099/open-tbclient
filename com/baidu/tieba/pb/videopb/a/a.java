@@ -24,65 +24,65 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView gsQ;
-    private e iFb;
-    private DetailInfoFragment iZF;
-    private List<m> iZG;
-    private c iZH;
-    private com.baidu.tieba.pb.pb.main.adapter.c iZI;
-    private b iZJ;
-    private g iZK;
-    private final List<com.baidu.adp.widget.ListView.a> asE = new ArrayList();
-    private View.OnClickListener iZL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
+    private BdTypeRecyclerView gtd;
+    private e iFn;
+    private DetailInfoFragment iZR;
+    private List<m> iZS;
+    private c iZT;
+    private com.baidu.tieba.pb.pb.main.adapter.c iZU;
+    private b iZV;
+    private g iZW;
+    private final List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
+    private View.OnClickListener iZX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.thread_info_commont_container) {
-                if (a.this.iFb == null || a.this.iFb.cku() == null || a.this.iFb.cku().aCf() == 0) {
-                    a.this.iZF.cnh().cmz();
-                    a.this.iZF.cnh().qR(false);
+                if (a.this.iFn == null || a.this.iFn.ckv() == null || a.this.iFn.ckv().aCf() == 0) {
+                    a.this.iZR.cni().cmA();
+                    a.this.iZR.cni().qR(false);
                 } else {
-                    ((com.baidu.tieba.pb.videopb.e) y.b(a.this.iZF.cni()).l(com.baidu.tieba.pb.videopb.e.class)).setCurrentTab(VideoPbFragment.iYm);
+                    ((com.baidu.tieba.pb.videopb.e) y.b(a.this.iZR.cnj()).l(com.baidu.tieba.pb.videopb.e.class)).setCurrentTab(VideoPbFragment.iYy);
                 }
                 String str = "";
-                if (a.this.iFb != null) {
-                    str = a.this.iFb.getThreadId();
+                if (a.this.iFn != null) {
+                    str = a.this.iFn.getThreadId();
                 }
                 TiebaStatic.log(new an("c12942").X("obj_type", 1).X("obj_locate", 4).cy("tid", str));
             } else if (view.getId() == R.id.share_num_container) {
-                a.this.iZF.cnh().qQ(false);
+                a.this.iZR.cni().qQ(false);
             }
         }
     };
 
     public a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iZF = detailInfoFragment;
-        this.gsQ = bdTypeRecyclerView;
+        this.iZR = detailInfoFragment;
+        this.gtd = bdTypeRecyclerView;
         a(detailInfoFragment, bdTypeRecyclerView);
     }
 
     private void a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iZH = new c(detailInfoFragment.cnh(), PostData.kgs);
-        this.iZI = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.cnh(), k.iCJ);
-        this.iZI.setOnClickListener(this.iZL);
-        this.iZJ = new b(detailInfoFragment.getContext(), o.TYPE);
-        this.iZK = new g(detailInfoFragment.cnh(), l.cNU);
-        this.iZK.pG(true);
-        this.asE.add(this.iZH);
-        this.asE.add(this.iZI);
-        this.asE.add(this.iZJ);
-        this.asE.add(this.iZK);
-        bdTypeRecyclerView.addAdapters(this.asE);
+        this.iZT = new c(detailInfoFragment.cni(), PostData.kgE);
+        this.iZU = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.cni(), k.iCV);
+        this.iZU.setOnClickListener(this.iZX);
+        this.iZV = new b(detailInfoFragment.getContext(), o.TYPE);
+        this.iZW = new g(detailInfoFragment.cni(), l.cNV);
+        this.iZW.pG(true);
+        this.asF.add(this.iZT);
+        this.asF.add(this.iZU);
+        this.asF.add(this.iZV);
+        this.asF.add(this.iZW);
+        bdTypeRecyclerView.addAdapters(this.asF);
     }
 
     public void setData(e eVar) {
         if (eVar != null) {
-            this.iFb = eVar;
-            if (this.gsQ != null) {
-                this.gsQ.setVisibility(0);
+            this.iFn = eVar;
+            if (this.gtd != null) {
+                this.gtd.setVisibility(0);
             }
-            this.iZH.setPbData(eVar);
-            this.iZK.setPbData(eVar);
-            this.gsQ.setData(J(eVar));
+            this.iZT.setPbData(eVar);
+            this.iZW.setPbData(eVar);
+            this.gtd.setData(J(eVar));
         }
     }
 
@@ -91,30 +91,30 @@ public class a {
         if (eVar == null) {
             return null;
         }
-        this.iZG = new ArrayList();
-        Iterator<PostData> it = eVar.ckw().iterator();
+        this.iZS = new ArrayList();
+        Iterator<PostData> it = eVar.ckx().iterator();
         while (true) {
             if (!it.hasNext()) {
                 postData = null;
                 break;
             }
             PostData next = it.next();
-            if ((next instanceof PostData) && next.cLa() == 1) {
+            if ((next instanceof PostData) && next.cLb() == 1) {
                 postData = next;
                 break;
             }
         }
-        if (postData == null && eVar.ckB() != null) {
-            postData = eVar.ckB();
+        if (postData == null && eVar.ckC() != null) {
+            postData = eVar.ckC();
         }
         if (postData != null) {
-            this.iZG.add(postData);
+            this.iZS.add(postData);
         }
-        k kVar = new k(eVar.cku(), eVar.getAnti());
+        k kVar = new k(eVar.ckv(), eVar.getAnti());
         kVar.pv(true);
-        kVar.iCL = true;
-        this.iZG.add(kVar);
-        if (eVar.getForum() != null && !StringUtils.isNull(eVar.getForum().getName()) && (!TextUtils.equals(eVar.getForum().getName(), this.iZF.clB().cls()) || !this.iZF.clB().cnA())) {
+        kVar.iCX = true;
+        this.iZS.add(kVar);
+        if (eVar.getForum() != null && !StringUtils.isNull(eVar.getForum().getName()) && (!TextUtils.equals(eVar.getForum().getName(), this.iZR.clC().clt()) || !this.iZR.clC().cnB())) {
             o oVar = new o();
             bj bjVar = new bj();
             bjVar.tid = eVar.getThreadId();
@@ -126,28 +126,28 @@ public class a {
             bfVar.postNum = eVar.getForum().getPost_num();
             bfVar.forumId = eVar.getForumId();
             bjVar.a(bfVar);
-            oVar.cRf = bjVar;
-            this.iZG.add(oVar);
+            oVar.cRg = bjVar;
+            this.iZS.add(oVar);
             kVar.pv(false);
-            kVar.iCL = false;
+            kVar.iCX = false;
         }
-        if (eVar.ckR() != null) {
-            for (l lVar : eVar.ckR()) {
-                this.iZG.add(lVar);
+        if (eVar.ckS() != null) {
+            for (l lVar : eVar.ckS()) {
+                this.iZS.add(lVar);
             }
         }
-        return this.iZG;
+        return this.iZS;
     }
 
     public void notifyDataSetChanged() {
-        if (this.gsQ != null && this.gsQ.getAdapter() != null) {
-            this.gsQ.getListAdapter().notifyDataSetChanged();
+        if (this.gtd != null && this.gtd.getAdapter() != null) {
+            this.gtd.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void ctu() {
-        if (this.iZH != null) {
-            this.iZH.notifyDataSetChanged();
+    public void ctv() {
+        if (this.iZT != null) {
+            this.iZT.notifyDataSetChanged();
         }
     }
 }

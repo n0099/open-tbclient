@@ -24,7 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class b extends ab {
-    public static String efT = "com.baidu.tieba://";
+    public static String egg = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -98,7 +98,7 @@ public class b extends ab {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            xF(optString);
+                            xG(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -115,7 +115,7 @@ public class b extends ab {
         return z;
     }
 
-    private void xF(String str) {
+    private void xG(String str) {
         com.baidu.swan.apps.process.messaging.client.a acy;
         com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
         if (acF != null && (acy = acF.acy()) != null) {
@@ -147,7 +147,7 @@ public class b extends ab {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = efT;
+            String str7 = egg;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;

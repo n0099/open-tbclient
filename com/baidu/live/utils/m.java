@@ -11,47 +11,47 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class m {
-    private static Map<Long, Long> aDJ = new HashMap();
-    private static Map<Long, Set<Long>> aDK = new HashMap();
+    private static Map<Long, Long> aDK = new HashMap();
+    private static Map<Long, Set<Long>> aDL = new HashMap();
 
     public static Long N(long j) {
-        if (aDJ.containsKey(Long.valueOf(j))) {
-            return aDJ.get(Long.valueOf(j));
+        if (aDK.containsKey(Long.valueOf(j))) {
+            return aDK.get(Long.valueOf(j));
         }
         return 0L;
     }
 
     public static void f(long j, long j2) {
-        aDJ.put(Long.valueOf(j), Long.valueOf(j2));
+        aDK.put(Long.valueOf(j), Long.valueOf(j2));
     }
 
     public static boolean g(long j, long j2) {
         Set<Long> set;
-        if (aDK.containsKey(Long.valueOf(j)) && (set = aDK.get(Long.valueOf(j))) != null) {
+        if (aDL.containsKey(Long.valueOf(j)) && (set = aDL.get(Long.valueOf(j))) != null) {
             return set.contains(Long.valueOf(j2));
         }
         return false;
     }
 
     public static void h(long j, long j2) {
-        if (!aDK.containsKey(Long.valueOf(j))) {
+        if (!aDL.containsKey(Long.valueOf(j))) {
             HashSet hashSet = new HashSet();
             hashSet.add(Long.valueOf(j2));
-            aDK.put(Long.valueOf(j), hashSet);
+            aDL.put(Long.valueOf(j), hashSet);
             return;
         }
-        Set<Long> set = aDK.get(Long.valueOf(j));
+        Set<Long> set = aDL.get(Long.valueOf(j));
         if (set != null) {
             set.add(Long.valueOf(j2));
             return;
         }
         HashSet hashSet2 = new HashSet();
         hashSet2.add(Long.valueOf(j2));
-        aDK.put(Long.valueOf(j), hashSet2);
+        aDL.put(Long.valueOf(j), hashSet2);
     }
 
     public static void Bc() {
-        aDK.clear();
+        aDL.clear();
     }
 
     public static void i(long j, long j2) {

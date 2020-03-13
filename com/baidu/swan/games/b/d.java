@@ -15,8 +15,8 @@ import java.util.Date;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
-    private static d clZ;
-    private boolean cma;
+    private static d cma;
+    private boolean cmb;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -24,23 +24,23 @@ public class d {
     }
 
     private d() {
-        this.cma = DEBUG && com.baidu.swan.apps.ah.a.a.aas();
+        this.cmb = DEBUG && com.baidu.swan.apps.ah.a.a.aas();
     }
 
     public static d amX() {
-        if (clZ == null) {
+        if (cma == null) {
             synchronized (d.class) {
-                if (clZ == null) {
-                    clZ = new d();
+                if (cma == null) {
+                    cma = new d();
                 }
             }
         }
-        return clZ;
+        return cma;
     }
 
     private File amY() {
         File file = new File(com.baidu.swan.games.k.a.TN(), "game_core_console");
-        File file2 = (DEBUG && this.cma) ? new File(file, "debug") : file;
+        File file2 = (DEBUG && this.cmb) ? new File(file, "debug") : file;
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -86,8 +86,8 @@ public class d {
 
     public void a(String str, final a aVar) {
         if (DEBUG) {
-            final boolean z = this.cma;
-            this.cma = true;
+            final boolean z = this.cmb;
+            this.cmb = true;
             e.c cVar = new e.c();
             cVar.mDownloadUrl = str;
             final File anb = anb();
@@ -109,13 +109,13 @@ public class d {
                     }
                     com.baidu.swan.d.c.deleteFile(anb);
                     aVar.cn(unzipFile);
-                    d.this.cma = z;
+                    d.this.cmb = z;
                 }
 
                 @Override // com.baidu.swan.apps.t.e.b
                 public void onFailed() {
                     aVar.cn(false);
-                    d.this.cma = z;
+                    d.this.cmb = z;
                 }
             });
         }
@@ -149,7 +149,7 @@ public class d {
     }
 
     public void a(@NonNull final a aVar) {
-        if (DEBUG && this.cma) {
+        if (DEBUG && this.cmb) {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.b.d.2
                 @Override // java.lang.Runnable
                 public void run() {

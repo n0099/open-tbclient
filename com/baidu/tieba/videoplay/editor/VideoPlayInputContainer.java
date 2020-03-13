@@ -34,13 +34,13 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
     private EditorTools FO;
     private int FP;
     private int Ni;
-    private boolean dxZ;
-    private EditText dyD;
-    private LinearLayout dyH;
-    private boolean dya;
-    private boolean dyb;
-    private int dyc;
-    private ImageView gre;
+    private EditText dyQ;
+    private LinearLayout dyU;
+    private boolean dym;
+    private boolean dyn;
+    private boolean dyo;
+    private int dyp;
+    private ImageView grr;
     private View mBottomLine;
     private TextView mSendView;
 
@@ -54,19 +54,19 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
 
     public VideoPlayInputContainer(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dxZ = false;
-        this.dya = true;
-        this.dyb = true;
-        this.dyc = -1;
+        this.dym = false;
+        this.dyn = true;
+        this.dyo = true;
+        this.dyp = -1;
         this.Ni = 0;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setOrientation(1);
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(R.dimen.tbds144));
-        this.dyH = new LinearLayout(getContext());
-        this.dyH.setOrientation(0);
-        this.dyH.setMinimumHeight(l.getDimens(context, R.dimen.ds90));
-        addView(this.dyH, new LinearLayout.LayoutParams(-1, -2));
+        this.dyU = new LinearLayout(getContext());
+        this.dyU.setOrientation(0);
+        this.dyU.setMinimumHeight(l.getDimens(context, R.dimen.ds90));
+        addView(this.dyU, new LinearLayout.LayoutParams(-1, -2));
         fF(context);
         dZ(context);
         dY(context);
@@ -77,10 +77,10 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
     }
 
     private void fF(Context context) {
-        this.gre = new ImageView(context);
-        this.gre.setEnabled(true);
-        this.gre.setPadding(0, 0, l.getDimens(context, R.dimen.tbds30), l.getDimens(context, R.dimen.tbds24));
-        this.gre.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
+        this.grr = new ImageView(context);
+        this.grr.setEnabled(true);
+        this.grr.setPadding(0, 0, l.getDimens(context, R.dimen.tbds30), l.getDimens(context, R.dimen.tbds24));
+        this.grr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(1, 5, null));
@@ -88,31 +88,31 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        this.dyH.addView(this.gre, layoutParams);
+        this.dyU.addView(this.grr, layoutParams);
     }
 
     private void dZ(Context context) {
-        this.dyD = new EditText(context);
-        this.dyD.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds32));
-        this.dyD.setMaxLines(4);
-        this.dyD.setGravity(16);
-        this.dyD.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
-        this.dyD.setBackgroundResource(R.color.common_color_10022);
-        e(this.dyD, R.drawable.edittext_cursor);
-        this.dyD.setPadding(0, l.getDimens(context, R.dimen.ds24), l.getDimens(context, R.dimen.ds54), l.getDimens(context, R.dimen.ds24));
-        this.dyD.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        this.dyD.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.2
+        this.dyQ = new EditText(context);
+        this.dyQ.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.dyQ.setMaxLines(4);
+        this.dyQ.setGravity(16);
+        this.dyQ.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.dyQ.setBackgroundResource(R.color.common_color_10022);
+        e(this.dyQ, R.drawable.edittext_cursor);
+        this.dyQ.setPadding(0, l.getDimens(context, R.dimen.ds24), l.getDimens(context, R.dimen.ds54), l.getDimens(context, R.dimen.ds24));
+        this.dyQ.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        this.dyQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!VideoPlayInputContainer.this.dyb) {
-                    VideoPlayInputContainer.this.dyb = true;
-                    if (VideoPlayInputContainer.this.dyc != -1) {
-                        VideoPlayInputContainer.this.dyD.setSelection(VideoPlayInputContainer.this.dyc);
-                        VideoPlayInputContainer.this.dyc = -1;
+                if (!VideoPlayInputContainer.this.dyo) {
+                    VideoPlayInputContainer.this.dyo = true;
+                    if (VideoPlayInputContainer.this.dyp != -1) {
+                        VideoPlayInputContainer.this.dyQ.setSelection(VideoPlayInputContainer.this.dyp);
+                        VideoPlayInputContainer.this.dyp = -1;
                     }
                 }
             }
@@ -120,26 +120,26 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null && editable.toString().trim() != null) {
-                    VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.dyD.getText().toString()));
+                    VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.dyQ.getText().toString()));
                 }
                 VideoPlayInputContainer.this.mSendView.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
-                VideoPlayInputContainer.this.cTm();
+                VideoPlayInputContainer.this.cTn();
             }
         });
-        this.dyD.setHint(context.getString(R.string.reply_something));
-        this.dyD.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.3
+        this.dyQ.setHint(context.getString(R.string.reply_something));
+        this.dyQ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                    VideoPlayInputContainer.this.dyD.requestFocus();
+                    VideoPlayInputContainer.this.dyQ.requestFocus();
                 }
                 return false;
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
-        this.dyH.addView(this.dyD, layoutParams);
+        this.dyU.addView(this.dyQ, layoutParams);
     }
 
     private void e(EditText editText, int i) {
@@ -168,7 +168,7 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, 0, l.getDimens(context, R.dimen.tbds18));
         layoutParams.gravity = 80;
-        this.dyH.addView(this.mSendView, layoutParams);
+        this.dyU.addView(this.mSendView, layoutParams);
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -176,31 +176,31 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
         if (aVar != null) {
             switch (aVar.code) {
                 case 3:
-                    if (this.dyD.getSelectionStart() > 0) {
-                        String substring = this.dyD.getText().toString().substring(0, this.dyD.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.gau.matcher(substring);
+                    if (this.dyQ.getSelectionStart() > 0) {
+                        String substring = this.dyQ.getText().toString().substring(0, this.dyQ.getSelectionStart());
+                        Matcher matcher = com.baidu.tieba.face.a.gaH.matcher(substring);
                         if (matcher.find()) {
-                            this.dyD.getText().delete(this.dyD.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.dyD.getSelectionStart());
+                            this.dyQ.getText().delete(this.dyQ.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.dyQ.getSelectionStart());
                             return;
                         }
-                        this.dyD.getText().delete(this.dyD.getSelectionStart() - 1, this.dyD.getSelectionStart());
+                        this.dyQ.getText().delete(this.dyQ.getSelectionStart() - 1, this.dyQ.getSelectionStart());
                         return;
                     }
                     return;
                 case 6:
                     if (aVar.data == null) {
-                        this.dyD.setText((CharSequence) null);
+                        this.dyQ.setText((CharSequence) null);
                         return;
                     } else if (aVar.data instanceof String) {
                         if (TextUtils.isEmpty((String) aVar.data)) {
-                            this.dyD.setText((CharSequence) null);
+                            this.dyQ.setText((CharSequence) null);
                             return;
                         } else {
                             com.baidu.tieba.face.b.a(getContext(), (String) aVar.data, new b.a() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.5
                                 @Override // com.baidu.tieba.face.b.a
                                 public void b(SpannableStringBuilder spannableStringBuilder) {
-                                    VideoPlayInputContainer.this.dyD.setText(spannableStringBuilder);
-                                    VideoPlayInputContainer.this.dyD.setSelection(VideoPlayInputContainer.this.dyD.getText().length());
+                                    VideoPlayInputContainer.this.dyQ.setText(spannableStringBuilder);
+                                    VideoPlayInputContainer.this.dyQ.setSelection(VideoPlayInputContainer.this.dyQ.getText().length());
                                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     VideoPlayInputContainer.this.requestFocus();
                                 }
@@ -212,15 +212,15 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
                     }
                 case 9:
                     if (((Boolean) aVar.data).booleanValue()) {
-                        this.dyD.setText((CharSequence) null);
+                        this.dyQ.setText((CharSequence) null);
                     }
                     this.mSendView.setEnabled(false);
-                    cTm();
+                    cTn();
                     return;
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof q)) {
                         q qVar = (q) aVar.data;
-                        if (qVar.aJw() == EmotionGroupType.NET_SUG) {
+                        if (qVar.aJx() == EmotionGroupType.NET_SUG) {
                             a(qVar);
                             return;
                         } else {
@@ -237,22 +237,22 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
 
     private void a(q qVar) {
         if (qVar != null && !TextUtils.isEmpty(qVar.getName()) && !TextUtils.isEmpty(qVar.getUrl())) {
-            String obj = this.dyD.getText().toString();
-            if (this.dya && com.baidu.tieba.face.a.Ar(obj) >= 10 && getContext() != null) {
+            String obj = this.dyQ.getText().toString();
+            if (this.dyn && com.baidu.tieba.face.a.As(obj) >= 10 && getContext() != null) {
                 e.aFL().showToast(R.string.too_many_face);
             } else {
-                com.baidu.tieba.face.b.a(getContext(), qVar, this.dyD);
+                com.baidu.tieba.face.b.a(getContext(), qVar, this.dyQ);
             }
         }
     }
 
     private void b(q qVar) {
-        if (!this.dxZ || qVar.aJw() == EmotionGroupType.LOCAL) {
-            String obj = this.dyD.getText().toString();
-            if (this.dya && com.baidu.tieba.face.a.Ar(obj) >= 10 && getContext() != null) {
+        if (!this.dym || qVar.aJx() == EmotionGroupType.LOCAL) {
+            String obj = this.dyQ.getText().toString();
+            if (this.dyn && com.baidu.tieba.face.a.As(obj) >= 10 && getContext() != null) {
                 e.aFL().showToast(R.string.too_many_face);
             } else {
-                com.baidu.tieba.face.b.b(getContext(), qVar, this.dyD);
+                com.baidu.tieba.face.b.b(getContext(), qVar, this.dyQ);
             }
         }
     }
@@ -285,11 +285,11 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
 
     @Override // com.baidu.tbadk.editortools.m
     public void display() {
-        if (this.dyD != null) {
-            this.dyD.setFocusable(true);
-            this.dyD.setFocusableInTouchMode(true);
-            this.dyD.requestFocus();
-            l.showSoftKeyPad(getContext(), this.dyD);
+        if (this.dyQ != null) {
+            this.dyQ.setFocusable(true);
+            this.dyQ.setFocusableInTouchMode(true);
+            this.dyQ.requestFocus();
+            l.showSoftKeyPad(getContext(), this.dyQ);
         }
         setVisibility(0);
     }
@@ -303,21 +303,21 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
     public void onChangeSkinType(int i) {
         this.Ni = i;
         am.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.dyD, R.color.cp_cont_f, 2, i);
+        am.setViewTextColor(this.dyQ, R.color.cp_cont_f, 2, i);
         am.setBackgroundColor(this, R.color.cp_bg_line_d);
         if (i == 0) {
-            e(this.dyD, R.drawable.edittext_cursor);
-            this.dyD.setHintTextColor(getContext().getResources().getColor(R.color.cp_cont_d));
+            e(this.dyQ, R.drawable.edittext_cursor);
+            this.dyQ.setHintTextColor(getContext().getResources().getColor(R.color.cp_cont_d));
         } else {
-            e(this.dyD, R.drawable.edittext_cursor_1);
-            this.dyD.setHintTextColor(am.getColor(i, R.color.cp_cont_d));
+            e(this.dyQ, R.drawable.edittext_cursor_1);
+            this.dyQ.setHintTextColor(am.getColor(i, R.color.cp_cont_d));
         }
-        cTm();
-        am.setImageResource(this.gre, R.drawable.pbeditor_face_button);
+        cTn();
+        am.setImageResource(this.grr, R.drawable.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cTm() {
+    public void cTn() {
         if (this.mSendView.isEnabled()) {
             am.setViewTextColor(this.mSendView, R.color.cp_link_tip_a, 1, this.Ni);
         } else {
@@ -326,6 +326,6 @@ public class VideoPlayInputContainer extends LinearLayout implements m {
     }
 
     public EditText getInputView() {
-        return this.dyD;
+        return this.dyQ;
     }
 }

@@ -78,9 +78,9 @@ public class a extends ab {
                 com.baidu.swan.games.u.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.getErrorCode()).toString());
             } else {
                 jSONObject.put("code", hVar.mData.code);
-                jSONObject.put("errMsg", hVar.mData.bTm ? "authorize:ok" : "user deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.mData.bTm ? 0 : 10003).toString());
-                if (!hVar.mData.bTm) {
+                jSONObject.put("errMsg", hVar.mData.bTn ? "authorize:ok" : "user deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.mData.bTn ? 0 : 10003).toString());
+                if (!hVar.mData.bTn) {
                     com.baidu.swan.games.u.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.getErrorCode()).toString());
                 }
             }

@@ -13,7 +13,7 @@ public interface e {
 
     void a(a aVar);
 
-    void cgx();
+    void cgA();
 
     void cgy();
 

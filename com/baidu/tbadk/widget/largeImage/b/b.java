@@ -17,7 +17,7 @@ public class b implements com.baidu.adp.lib.d.c<com.baidu.tbadk.widget.largeImag
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    /* renamed from: aTu */
+    /* renamed from: aTv */
     public com.baidu.tbadk.widget.largeImage.a.a makeObject() {
         return new com.baidu.tbadk.widget.largeImage.a.a(this.mBlockSize);
     }

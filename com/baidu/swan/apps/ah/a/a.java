@@ -15,34 +15,34 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class a {
-    private static com.baidu.swan.apps.storage.c.a bIO;
+    private static com.baidu.swan.apps.storage.c.a bIP;
     private static final boolean DEBUG = b.DEBUG;
-    private static final Set<String> bIP = new HashSet();
+    private static final Set<String> bIQ = new HashSet();
 
     static {
-        bIP.add("aiapps_websafe_debug_key");
-        bIP.add("aiapps_server_domains_debug_key");
-        bIP.add("aiapps_use_extension_debug_key");
-        bIP.add("aiapps_emit_live_debug_key");
-        bIP.add("aiapps_emit_https_debug_key");
-        bIP.add("aiapps_emit_wss_debug_key");
-        bIP.add("aiapps_load_cts_debug_key");
-        bIP.add("aiapps_env_data");
-        bIP.add("aiapps_js_native_switch_key");
-        bIP.add("aiapps_emit_game_core_debug_key");
-        bIP.add("aiapps_emit_game_launch_mode_key");
+        bIQ.add("aiapps_websafe_debug_key");
+        bIQ.add("aiapps_server_domains_debug_key");
+        bIQ.add("aiapps_use_extension_debug_key");
+        bIQ.add("aiapps_emit_live_debug_key");
+        bIQ.add("aiapps_emit_https_debug_key");
+        bIQ.add("aiapps_emit_wss_debug_key");
+        bIQ.add("aiapps_load_cts_debug_key");
+        bIQ.add("aiapps_env_data");
+        bIQ.add("aiapps_js_native_switch_key");
+        bIQ.add("aiapps_emit_game_core_debug_key");
+        bIQ.add("aiapps_emit_game_launch_mode_key");
     }
 
     public static com.baidu.swan.apps.storage.c.a aal() {
-        if (bIO == null) {
+        if (bIP == null) {
             synchronized (a.class) {
-                if (bIO == null) {
-                    bIO = new com.baidu.swan.apps.storage.c.a("swan_app_debug");
-                    bIO.bVJ.addAll(bIP);
+                if (bIP == null) {
+                    bIP = new com.baidu.swan.apps.storage.c.a("swan_app_debug");
+                    bIP.bVK.addAll(bIQ);
                 }
             }
         }
-        return bIO;
+        return bIP;
     }
 
     public static boolean aam() {

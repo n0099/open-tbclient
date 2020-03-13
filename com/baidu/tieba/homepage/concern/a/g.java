@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
     public g(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.gYi);
+        super(context, com.baidu.tieba.homepage.concern.b.c.gYu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (cVar.tipString != null) {
             aVar.tipText.setText(cVar.tipString);
         }
-        switch (cVar.gYj) {
+        switch (cVar.gYv) {
             case 2:
                 aVar.bS(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -45,15 +45,15 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes9.dex */
     public static class a extends v.a {
         private int Ni;
-        public ViewGroup gXx;
-        public ImageView gXy;
+        public ViewGroup gXJ;
+        public ImageView gXK;
         public TextView tipText;
 
         public a(View view) {
             super(view);
             this.Ni = 3;
-            this.gXx = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.gXy = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.gXJ = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.gXK = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
@@ -61,7 +61,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             if (this.Ni != i) {
                 am.setViewTextColor(this.tipText, (int) R.color.cp_cont_j);
             }
-            am.setImageResource(this.gXy, i2);
+            am.setImageResource(this.gXK, i2);
             this.Ni = i;
         }
     }

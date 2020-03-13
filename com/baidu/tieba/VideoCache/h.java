@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes9.dex */
 public class h {
-    private String cJQ;
-    private String dWV;
-    private boolean dWW;
-    private long dWX = -1;
-    private long dWY = -1;
-    private long dWZ = 0;
-    private long dXa = 0;
+    private String cJR;
+    private String dXi;
+    private boolean dXj;
+    private long dXk = -1;
+    private long dXl = -1;
+    private long dXm = 0;
+    private long dXn = 0;
 
-    public String aXi() {
-        return this.dWV;
-    }
-
-    public void wx(String str) {
-        this.dWV = str;
-    }
-
-    public String getOriginUrl() {
-        return this.cJQ;
+    public String aXj() {
+        return this.dXi;
     }
 
     public void wy(String str) {
-        this.cJQ = str;
+        this.dXi = str;
     }
 
-    public boolean aXj() {
-        return this.dWW;
+    public String getOriginUrl() {
+        return this.cJR;
+    }
+
+    public void wz(String str) {
+        this.cJR = str;
+    }
+
+    public boolean aXk() {
+        return this.dXj;
     }
 
     public void hB(boolean z) {
-        this.dWW = z;
-    }
-
-    public long aXk() {
-        return this.dWX;
-    }
-
-    public void cn(long j) {
-        this.dWX = j;
+        this.dXj = z;
     }
 
     public long aXl() {
-        return this.dWY;
+        return this.dXk;
     }
 
-    public void co(long j) {
-        this.dWY = j;
-    }
-
-    public long getTotalLength() {
-        return this.dWZ;
-    }
-
-    public void setTotalLength(long j) {
-        this.dWZ = j;
-    }
-
-    public void cp(long j) {
-        this.dXa = j;
+    public void cn(long j) {
+        this.dXk = j;
     }
 
     public long aXm() {
-        return this.dXa;
+        return this.dXl;
+    }
+
+    public void co(long j) {
+        this.dXl = j;
+    }
+
+    public long getTotalLength() {
+        return this.dXm;
+    }
+
+    public void setTotalLength(long j) {
+        this.dXm = j;
+    }
+
+    public void cp(long j) {
+        this.dXn = j;
+    }
+
+    public long aXn() {
+        return this.dXn;
     }
 }

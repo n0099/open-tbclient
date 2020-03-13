@@ -13,12 +13,12 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaUpdateWishListResponseMessage;
 /* loaded from: classes3.dex */
 public class g extends BdBaseModel {
-    private c fpA;
-    private a fpB;
-    private b fpC;
-    private HttpMessageListener fpD;
-    private HttpMessageListener fpE;
-    private HttpMessageListener fpF;
+    private c fpN;
+    private a fpO;
+    private b fpP;
+    private HttpMessageListener fpQ;
+    private HttpMessageListener fpR;
+    private HttpMessageListener fpS;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -43,69 +43,69 @@ public class g extends BdBaseModel {
 
     public g(BdPageContext<?> bdPageContext, c cVar, a aVar, b bVar) {
         super(bdPageContext);
-        this.fpD = new HttpMessageListener(1021168) { // from class: com.baidu.tieba.ala.e.g.1
+        this.fpQ = new HttpMessageListener(1021168) { // from class: com.baidu.tieba.ala.e.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021168 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j brD = alaUpdateWishListResponseMessage.brD();
-                    if (g.this.fpA != null && brD != null) {
+                    com.baidu.tieba.ala.data.j brE = alaUpdateWishListResponseMessage.brE();
+                    if (g.this.fpN != null && brE != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            g.this.fpA.aa(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            g.this.fpN.aa(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.fpA.b(brD);
+                            g.this.fpN.b(brE);
                         }
                     }
                 }
             }
         };
-        this.fpE = new HttpMessageListener(1021169) { // from class: com.baidu.tieba.ala.e.g.2
+        this.fpR = new HttpMessageListener(1021169) { // from class: com.baidu.tieba.ala.e.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021169 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j brD = alaUpdateWishListResponseMessage.brD();
-                    if (g.this.fpB != null && brD != null) {
+                    com.baidu.tieba.ala.data.j brE = alaUpdateWishListResponseMessage.brE();
+                    if (g.this.fpO != null && brE != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            g.this.fpB.Z(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            g.this.fpO.Z(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.fpB.a(brD);
+                            g.this.fpO.a(brE);
                         }
                     }
                 }
             }
         };
-        this.fpF = new HttpMessageListener(1021170) { // from class: com.baidu.tieba.ala.e.g.3
+        this.fpS = new HttpMessageListener(1021170) { // from class: com.baidu.tieba.ala.e.g.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021170 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j brD = alaUpdateWishListResponseMessage.brD();
-                    if (g.this.fpC != null && brD != null) {
+                    com.baidu.tieba.ala.data.j brE = alaUpdateWishListResponseMessage.brE();
+                    if (g.this.fpP != null && brE != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            g.this.fpC.ab(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            g.this.fpP.ab(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.fpC.c(brD);
+                            g.this.fpP.c(brE);
                         }
                     }
                 }
             }
         };
-        this.fpA = cVar;
-        this.fpB = aVar;
-        this.fpC = bVar;
-        brF();
+        this.fpN = cVar;
+        this.fpO = aVar;
+        this.fpP = bVar;
         brG();
         brH();
-        registerListener(this.fpD);
-        registerListener(this.fpE);
-        registerListener(this.fpF);
+        brI();
+        registerListener(this.fpQ);
+        registerListener(this.fpR);
+        registerListener(this.fpS);
     }
 
-    private void brF() {
+    private void brG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021168, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -126,7 +126,7 @@ public class g extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    private void brG() {
+    private void brH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021169, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -136,14 +136,14 @@ public class g extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zz(String str) {
+    public void zA(String str) {
         HttpMessage httpMessage = new HttpMessage(1021169);
         httpMessage.addParam("wish_id", str);
         httpMessage.addParam("status", 2);
         sendMessage(httpMessage);
     }
 
-    private void brH() {
+    private void brI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021170, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -171,17 +171,17 @@ public class g extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fpD);
+        MessageManager.getInstance().unRegisterListener(this.fpQ);
         MessageManager.getInstance().unRegisterTask(1021168);
     }
 
-    public void brI() {
-        MessageManager.getInstance().unRegisterListener(this.fpE);
+    public void brJ() {
+        MessageManager.getInstance().unRegisterListener(this.fpR);
         MessageManager.getInstance().unRegisterTask(1021169);
     }
 
-    public void brJ() {
-        MessageManager.getInstance().unRegisterListener(this.fpF);
+    public void brK() {
+        MessageManager.getInstance().unRegisterListener(this.fpS);
         MessageManager.getInstance().unRegisterTask(1021170);
     }
 }

@@ -10,35 +10,35 @@ import org.json.JSONObject;
 public class h {
     private int errorCode;
     private String errorMsg;
-    private int jXG;
-    private String jXH;
-    private int jZh;
-    private String jZi;
-    private a jYb = new a();
-    private ArrayList<i> jZj = new ArrayList<>();
+    private int jXS;
+    private String jXT;
+    private int jZt;
+    private String jZu;
+    private a jYn = new a();
+    private ArrayList<i> jZv = new ArrayList<>();
 
-    public int cIY() {
-        return this.jXG;
+    public int cIZ() {
+        return this.jXS;
     }
 
-    public String cIw() {
-        return this.jXH;
+    public String cIx() {
+        return this.jXT;
     }
 
-    public a cIy() {
-        return this.jYb;
+    public a cIz() {
+        return this.jYn;
     }
 
-    public ArrayList<i> cIZ() {
-        return this.jZj;
+    public ArrayList<i> cJa() {
+        return this.jZv;
     }
 
-    public int cJa() {
-        return this.jZh;
+    public int cJb() {
+        return this.jZt;
     }
 
-    public String cJb() {
-        return this.jZi;
+    public String cJc() {
+        return this.jZu;
     }
 
     public int getErrorCode() {
@@ -62,11 +62,11 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.jYb.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
-                this.jXG = jSONObject.optInt("show_dialog");
-                this.jXH = jSONObject.optString("sign_notice");
-                this.jZh = jSONObject.optInt("is_timeout");
-                this.jZi = jSONObject.optString("timeout_notice");
+                this.jYn.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+                this.jXS = jSONObject.optInt("show_dialog");
+                this.jXT = jSONObject.optString("sign_notice");
+                this.jZt = jSONObject.optInt("is_timeout");
+                this.jZu = jSONObject.optString("timeout_notice");
                 this.errorCode = jSONObject.optInt("error_code");
                 this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 JSONArray optJSONArray = jSONObject.optJSONArray("info");
@@ -76,7 +76,7 @@ public class h {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.jZj.add(iVar);
+                        this.jZv.add(iVar);
                     }
                 }
             } catch (Exception e) {

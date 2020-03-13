@@ -18,15 +18,15 @@ import java.io.File;
 public class h {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.aJk()) {
+        if (adAdSense != null && !adAdSense.aJl()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.cMX;
-        if (StringUtils.isNull(str) && advertAppInfo.cNf != null) {
-            str = advertAppInfo.cNf.userName;
+        String str = advertAppInfo.cMY;
+        if (StringUtils.isNull(str) && advertAppInfo.cNg != null) {
+            str = advertAppInfo.cNg.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,21 +38,21 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aOh().b(advertAppInfo);
-        String str2 = advertAppInfo.cMX;
+        com.baidu.tbadk.distribute.a.aOi().b(advertAppInfo);
+        String str2 = advertAppInfo.cMY;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.cCH().a(advertAppInfo.cMZ, advertAppInfo.apkUrl, str2, i, i.HN(advertAppInfo.cMZ).intValue(), null, true, false, true, advertAppInfo.cNf.userPortrait, downloadStaticsData, advertAppInfo.cNf.userName);
+        i.cCI().a(advertAppInfo.cNa, advertAppInfo.apkUrl, str2, i, i.HO(advertAppInfo.cNa).intValue(), null, true, false, true, advertAppInfo.cNg.userPortrait, downloadStaticsData, advertAppInfo.cNg.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.aJk()) {
+        if (adAdSense != null && !adAdSense.aJl()) {
             s.f(advertAppInfo);
         } else {
-            i.cCH().A(advertAppInfo.apkUrl, advertAppInfo.cMZ, true);
+            i.cCI().A(advertAppInfo.apkUrl, advertAppInfo.cNa, true);
         }
     }
 

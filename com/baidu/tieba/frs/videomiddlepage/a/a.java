@@ -5,31 +5,31 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes9.dex */
 public class a {
-    private int gON = -1;
-    private long gOO = -1;
-    private int gOK = b.aFD().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> gOL = new HashSet();
-    private Set<String> gOM = new HashSet();
+    private int gOZ = -1;
+    private long gPa = -1;
+    private int gOW = b.aFD().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> gOX = new HashSet();
+    private Set<String> gOY = new HashSet();
 
     public void aF(int i, String str) {
-        this.gOM.add(str);
-        if (this.gON < 0 && this.gOK == this.gOM.size()) {
-            this.gON = i;
+        this.gOY.add(str);
+        if (this.gOZ < 0 && this.gOW == this.gOY.size()) {
+            this.gOZ = i;
         }
     }
 
-    public int bLB() {
-        return this.gON;
+    public int bLC() {
+        return this.gOZ;
     }
 
     public void dy(long j) {
-        this.gOO = j;
+        this.gPa = j;
     }
 
-    public void bLC() {
+    public void bLD() {
         int i = b.aFD().getInt("nani_key_download_show_rate", 2);
-        if (this.gOO > 0 && i != 1) {
-            b.aFD().putLong("key_horizontal_shown_time", this.gOO);
+        if (this.gPa > 0 && i != 1) {
+            b.aFD().putLong("key_horizontal_shown_time", this.gPa);
         }
     }
 }

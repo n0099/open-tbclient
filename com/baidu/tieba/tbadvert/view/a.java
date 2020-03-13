@@ -14,55 +14,55 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes13.dex */
 public class a {
-    private FrameLayout csY;
-    private ImageView kkN;
-    private InterfaceC0616a kkO;
+    private FrameLayout csZ;
+    private ImageView kkZ;
+    private InterfaceC0616a kla;
     private Context mContext;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public interface InterfaceC0616a {
-        void cMu();
-
         void cMv();
+
+        void cMw();
     }
 
     public a(Context context, InterfaceC0616a interfaceC0616a) {
-        this.kkO = interfaceC0616a;
+        this.kla = interfaceC0616a;
         this.mContext = context;
-        this.csY = new FrameLayout(context);
+        this.csZ = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.csY;
+        return this.csZ;
     }
 
     public void e(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             k((com.baidu.adp.widget.ImageView.a) obj);
         }
-        cMB();
+        cMC();
         CL(i);
     }
 
     private void k(com.baidu.adp.widget.ImageView.a aVar) {
-        this.kkN = new ImageView(this.mContext);
-        this.kkN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kkZ = new ImageView(this.mContext);
+        this.kkZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.kkN.setImageBitmap(aVar.getRawBitmap());
+            this.kkZ.setImageBitmap(aVar.getRawBitmap());
         }
-        this.kkN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.kkZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.kkO != null) {
-                    a.this.kkO.cMu();
+                if (a.this.kla != null) {
+                    a.this.kla.cMv();
                 }
             }
         });
-        this.csY.addView(this.kkN);
+        this.csZ.addView(this.kkZ);
     }
 
-    private void cMB() {
+    private void cMC() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -78,7 +78,7 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(R.dimen.ds28));
-        this.csY.addView(textView, layoutParams);
+        this.csZ.addView(textView, layoutParams);
     }
 
     private void CL(int i) {
@@ -100,20 +100,20 @@ public class a {
         countDownTextView.al(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, statusBarHeight, (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
-        this.csY.addView(countDownTextView, layoutParams);
+        this.csZ.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.kkO != null) {
-                    a.this.kkO.cMv();
+                if (a.this.kla != null) {
+                    a.this.kla.cMw();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void bq(View view) {
-                if (a.this.kkO != null) {
-                    a.this.kkO.cMv();
+                if (a.this.kla != null) {
+                    a.this.kla.cMw();
                 }
             }
         });

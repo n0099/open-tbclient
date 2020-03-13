@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.util.ae;
 /* loaded from: classes.dex */
 public class d {
-    public static void cNH() {
+    public static void cNI() {
         try {
             Thread.setDefaultUncaughtExceptionHandler(new ae());
         } catch (Exception e) {

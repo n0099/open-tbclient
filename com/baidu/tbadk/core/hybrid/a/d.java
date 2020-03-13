@@ -13,11 +13,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends n {
-    private l cXp;
+    private l cXq;
 
     public d(l lVar) {
         super(lVar);
-        this.cXp = lVar;
+        this.cXq = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +42,7 @@ public class d extends n {
                 shareItem.imageUri = Uri.parse(optString3);
             }
             shareItem.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cXp.getContext(), shareItem, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cXq.getContext(), shareItem, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

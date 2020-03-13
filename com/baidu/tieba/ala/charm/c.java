@@ -7,48 +7,48 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.charm.model.b;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.live.liveroom.d.d {
-    private boolean asR;
-    private String asS;
-    private ALaCharmCardActivity evJ;
-    private b evY;
-    private com.baidu.tieba.ala.charm.model.b evZ;
-    private long ewa;
-    b.a ewb = new b.a() { // from class: com.baidu.tieba.ala.charm.c.1
+    private boolean asS;
+    private String asT;
+    private ALaCharmCardActivity evW;
+    private b ewl;
+    private com.baidu.tieba.ala.charm.model.b ewm;
+    private long ewn;
+    b.a ewo = new b.a() { // from class: com.baidu.tieba.ala.charm.c.1
         @Override // com.baidu.tieba.ala.charm.model.b.a
         public void c(h hVar) {
-            if (c.this.evY != null) {
+            if (c.this.ewl != null) {
                 if (hVar == null) {
-                    c.this.evY.ij(true);
+                    c.this.ewl.ij(true);
                     return;
                 }
-                c.this.evY.bcx();
-                c.this.evY.bp(hVar.getList());
+                c.this.ewl.bcy();
+                c.this.ewl.bp(hVar.getList());
                 int size = hVar.getList().size();
                 if (size <= 0) {
-                    c.this.evY.ij(true);
-                } else if (size < 100 || (size == 100 && c.this.ewa <= 100)) {
-                    c.this.evY.xV(c.this.evJ.getPageContext().getResources().getString(a.i.online_no_more));
-                } else if (size >= 100 && c.this.ewa > 100) {
-                    c.this.evY.xV(c.this.evJ.getPageContext().getResources().getString(a.i.online_show_100));
+                    c.this.ewl.ij(true);
+                } else if (size < 100 || (size == 100 && c.this.ewn <= 100)) {
+                    c.this.ewl.xW(c.this.evW.getPageContext().getResources().getString(a.i.online_no_more));
+                } else if (size >= 100 && c.this.ewn > 100) {
+                    c.this.ewl.xW(c.this.evW.getPageContext().getResources().getString(a.i.online_show_100));
                 }
             }
         }
 
         @Override // com.baidu.tieba.ala.charm.model.b.a
         public void ad(int i, String str) {
-            if (c.this.evY != null) {
-                c.this.evY.ij(false);
-                c.this.evY.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.c.1.1
+            if (c.this.ewl != null) {
+                c.this.ewl.ij(false);
+                c.this.ewl.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.c.1.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            if (c.this.evZ != null) {
-                                c.this.evZ.t(c.this.mLiveId, 0, 0);
+                            if (c.this.ewm != null) {
+                                c.this.ewm.t(c.this.mLiveId, 0, 0);
                                 return;
                             }
                             return;
                         }
-                        c.this.evJ.getPageContext().showToast(c.this.evJ.getResources().getString(a.i.sdk_no_network_guide));
+                        c.this.evW.getPageContext().showToast(c.this.evW.getResources().getString(a.i.sdk_no_network_guide));
                     }
                 });
             }
@@ -58,59 +58,59 @@ public class c implements com.baidu.live.liveroom.d.d {
     private String mLiveId;
 
     public c(ALaCharmCardActivity aLaCharmCardActivity) {
-        this.evJ = aLaCharmCardActivity;
+        this.evW = aLaCharmCardActivity;
     }
 
     public void createView() {
-        this.evY = new b(this.evJ, this.mGroupId, this.mLiveId, this.asR, this.asS);
+        this.ewl = new b(this.evW, this.mGroupId, this.mLiveId, this.asS, this.asT);
         loadData();
     }
 
     private void loadData() {
-        if (this.evZ == null) {
-            this.evZ = new com.baidu.tieba.ala.charm.model.b(this.evJ.getPageContext(), this.ewb);
+        if (this.ewm == null) {
+            this.ewm = new com.baidu.tieba.ala.charm.model.b(this.evW.getPageContext(), this.ewo);
         }
-        this.evZ.s(this.mLiveId, 0, 100);
+        this.ewm.s(this.mLiveId, 0, 100);
     }
 
     public void cD(long j) {
-        this.ewa = j;
-        if (this.evY != null) {
-            this.evY.cD(j);
+        this.ewn = j;
+        if (this.ewl != null) {
+            this.ewl.cD(j);
         }
     }
 
-    public c xW(String str) {
+    public c xX(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public c xX(String str) {
+    public c xY(String str) {
         this.mLiveId = str;
         return this;
     }
 
     public c ik(boolean z) {
-        this.asR = z;
+        this.asS = z;
         return this;
     }
 
-    public c xY(String str) {
-        this.asS = str;
+    public c xZ(String str) {
+        this.asT = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View we() {
-        if (this.evY == null) {
+        if (this.ewl == null) {
             return null;
         }
-        return this.evY.getRootView();
+        return this.ewl.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.evJ.getResources().getString(a.i.audience_list_title);
+        return this.evW.getResources().getString(a.i.audience_list_title);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -133,8 +133,8 @@ public class c implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.evZ != null) {
-            this.evZ.onDestroy();
+        if (this.ewm != null) {
+            this.ewm.onDestroy();
         }
     }
 

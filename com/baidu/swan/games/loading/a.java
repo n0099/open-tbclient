@@ -11,13 +11,13 @@ import kotlin.reflect.j;
 @SuppressLint({"SwanCommentErr"})
 /* loaded from: classes11.dex */
 public final class a {
-    static final /* synthetic */ j[] cpU = {t.a(new PropertyReference1Impl(t.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
-    private final d cpV = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
-    private int cpW;
+    static final /* synthetic */ j[] cpV = {t.a(new PropertyReference1Impl(t.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
+    private final d cpW = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
+    private int cpX;
 
     private final String[] aoM() {
-        d dVar = this.cpV;
-        j jVar = cpU[0];
+        d dVar = this.cpW;
+        j jVar = cpV[0];
         return (String[]) dVar.getValue();
     }
 
@@ -25,8 +25,8 @@ public final class a {
         String[] aoM = aoM();
         if (aoM != null) {
             if (!(aoM.length == 0)) {
-                String str = aoM[this.cpW % aoM.length];
-                this.cpW++;
+                String str = aoM[this.cpX % aoM.length];
+                this.cpX++;
                 return str;
             }
         }

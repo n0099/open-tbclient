@@ -11,20 +11,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterNetModel {
-    private NetModelType aPp;
-    private c aPq;
-    private d aPr;
-    private String aPs;
-    private int aPt;
+    private NetModelType aPq;
+    private c aPr;
+    private d aPs;
+    private String aPt;
     private int aPu;
-    private HashMap<String, Object> aPv;
-    private Runnable aPx;
+    private int aPv;
+    private HashMap<String, Object> aPw;
+    private Runnable aPy;
     private String identifier;
-    private boolean aPw = true;
+    private boolean aPx = true;
     protected BdUniqueId unique_id = null;
     private int timeout = -1;
     private boolean isLoading = false;
-    private a aPy = null;
+    private a aPz = null;
 
     /* loaded from: classes6.dex */
     public enum NetModelType {
@@ -48,21 +48,21 @@ public class FlutterNetModel {
     }
 
     public FlutterNetModel(NetModelType netModelType, String str) {
-        this.aPp = netModelType;
+        this.aPq = netModelType;
         this.identifier = str;
     }
 
     public boolean loadData() {
-        if (this.aPr == null && this.aPq == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.aPs == null && this.aPr == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.aPw = l.isNetOk();
+        this.aPx = l.isNetOk();
         if (this.timeout >= 10) {
             e.gx().postDelayed(Er(), this.timeout * 1000);
         }
-        switch (this.aPp) {
+        switch (this.aPq) {
             case TYPE_NETWORK:
-                if (!this.aPw) {
+                if (!this.aPx) {
                     e.gx().post(new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -70,9 +70,9 @@ public class FlutterNetModel {
                         }
                     });
                     return false;
-                } else if (this.aPy == null) {
-                    this.aPy = new a(this);
-                    this.aPy.execute(new Object[0]);
+                } else if (this.aPz == null) {
+                    this.aPz = new a(this);
+                    this.aPz.execute(new Object[0]);
                     return true;
                 } else {
                     return false;
@@ -90,62 +90,62 @@ public class FlutterNetModel {
     }
 
     public String Em() {
-        return this.aPs;
-    }
-
-    public void eJ(String str) {
-        this.aPs = str;
-    }
-
-    public int En() {
         return this.aPt;
     }
 
-    public int Eo() {
+    public void eJ(String str) {
+        this.aPt = str;
+    }
+
+    public int En() {
         return this.aPu;
     }
 
-    public void ds(int i) {
-        this.aPt = i;
-    }
-
-    public HashMap<String, Object> Ep() {
+    public int Eo() {
         return this.aPv;
     }
 
+    public void ds(int i) {
+        this.aPu = i;
+    }
+
+    public HashMap<String, Object> Ep() {
+        return this.aPw;
+    }
+
     public void setParams(HashMap<String, Object> hashMap) {
-        this.aPv = hashMap;
+        this.aPw = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Eq() {
-        this.aPy = null;
+        this.aPz = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a extends BdAsyncTask<Object, String, String> {
-        private FlutterNetModel aPB;
-        private com.baidu.tbadk.core.util.a.a aPC;
+        private FlutterNetModel aPC;
+        private com.baidu.tbadk.core.util.a.a aPD;
 
         public a(FlutterNetModel flutterNetModel) {
-            this.aPB = flutterNetModel;
+            this.aPC = flutterNetModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
-            this.aPB.isLoading = true;
-            x xVar = new x(this.aPB.Em());
-            HashMap<String, Object> Ep = this.aPB.Ep();
+            this.aPC.isLoading = true;
+            x xVar = new x(this.aPC.Em());
+            HashMap<String, Object> Ep = this.aPC.Ep();
             if (Ep != null && !Ep.isEmpty()) {
                 for (Map.Entry<String, Object> entry : Ep.entrySet()) {
                     xVar.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
             String postNetData = xVar.postNetData();
-            this.aPC = xVar.aGg();
+            this.aPD = xVar.aGg();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -156,28 +156,28 @@ public class FlutterNetModel {
         public void onProgressUpdate(String... strArr) {
             super.onProgressUpdate((Object[]) strArr);
             if (strArr != null && strArr.length > 0) {
-                this.aPB.isLoading = false;
-                if (this.aPB.aPx != null) {
-                    e.gx().removeCallbacks(this.aPB.aPx);
+                this.aPC.isLoading = false;
+                if (this.aPC.aPy != null) {
+                    e.gx().removeCallbacks(this.aPC.aPy);
                 }
-                if (this.aPC != null && this.aPC.aGI() != null && this.aPB.aPq != null) {
+                if (this.aPD != null && this.aPD.aGI() != null && this.aPC.aPr != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.aPB.Em());
-                    hashMap.put("api", this.aPB.Em());
-                    hashMap.put("state", this.aPC.aGJ().daN.exception);
-                    this.aPB.aPq.a(hashMap, this.aPC.aGI().mServerErrorCode, this.aPC.aGI().mErrorString, strArr[0], this.aPB.identifier);
+                    hashMap.put("server", this.aPC.Em());
+                    hashMap.put("api", this.aPC.Em());
+                    hashMap.put("state", this.aPD.aGJ().daO.exception);
+                    this.aPC.aPr.a(hashMap, this.aPD.aGI().mServerErrorCode, this.aPD.aGI().mErrorString, strArr[0], this.aPC.identifier);
                 }
-                this.aPB.Eq();
+                this.aPC.Eq();
             }
         }
     }
 
     public Runnable Er() {
-        if (this.aPx == null) {
-            this.aPx = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.2
+        if (this.aPy == null) {
+            this.aPy = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    switch (AnonymousClass3.aPA[FlutterNetModel.this.aPp.ordinal()]) {
+                    switch (AnonymousClass3.aPB[FlutterNetModel.this.aPq.ordinal()]) {
                         case 1:
                             FlutterNetModel.this.r(-1, "请求超时");
                             return;
@@ -190,27 +190,27 @@ public class FlutterNetModel {
                 }
             };
         }
-        return this.aPx;
+        return this.aPy;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(int i, String str) {
-        if (this.aPq != null) {
-            this.aPq.a(null, i, str, null, this.identifier);
+        if (this.aPr != null) {
+            this.aPr.a(null, i, str, null, this.identifier);
         }
     }
 
     public void a(b bVar) {
-        this.aPq = bVar;
         this.aPr = bVar;
+        this.aPs = bVar;
     }
 
     public void a(c cVar) {
-        this.aPq = cVar;
+        this.aPr = cVar;
     }
 
     public void a(d dVar) {
-        this.aPr = dVar;
+        this.aPs = dVar;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {

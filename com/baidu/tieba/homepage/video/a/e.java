@@ -20,8 +20,8 @@ import com.baidu.tieba.card.z;
 public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     private z<k> JZ;
     private r OR;
-    private BdUniqueId dBk;
-    private NEGFeedBackView.a dUq;
+    private BdUniqueId dBx;
+    private NEGFeedBackView.a dUD;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,9 +54,9 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNB = 21;
-        dVar.cNC = 2;
-        dVar.cNH = 18;
+        dVar.cNC = 21;
+        dVar.cND = 2;
+        dVar.cNI = 18;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(16);
         agVar.setShareReportFrom(10);
@@ -66,7 +66,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad a = aVar.a(true, viewGroup, this.OR);
         a.aQ(19);
         af<k> afVar = new af<>(a);
-        afVar.setPageId(this.dBk);
+        afVar.setPageId(this.dBx);
         a(new s() { // from class: com.baidu.tieba.homepage.video.a.e.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -89,12 +89,12 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRf == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRg == null) {
             return null;
         }
         kVar.rt(kVar.position + 1);
         afVar.nk().setPosition(i);
-        afVar.ag(false).a(this.dUq);
+        afVar.ag(false).a(this.dUD);
         afVar.b((af<k>) kVar);
         afVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         afVar.nk().a(this.JZ);
@@ -102,10 +102,10 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBk = bdUniqueId;
+        this.dBx = bdUniqueId;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.dUq = aVar;
+        this.dUD = aVar;
     }
 }

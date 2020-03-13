@@ -26,13 +26,13 @@ import java.util.ArrayList;
 public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, af<com.baidu.tieba.homepage.concern.b.b>> implements com.baidu.tieba.a.f {
     private String LC;
     private com.baidu.adp.widget.ListView.r OR;
-    public BdUniqueId dBk;
-    private NEGFeedBackView.a eNz;
+    public BdUniqueId dBx;
+    private NEGFeedBackView.a eNM;
     private TbPageContext<?> mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eNz = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
+        this.eNM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(al alVar) {
             }
@@ -66,15 +66,15 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aM */
     public af b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.d(this.mPageContext, this.dBk));
+        aVar.c(new com.baidu.tieba.homepage.concern.view.d(this.mPageContext, this.dBx));
         aVar.ni().aV(0);
         aVar.ni().aX(0);
         aVar.ni().aW(0);
         aVar.ni().aR(0);
         af afVar = new af(aVar.a(true, viewGroup, this.OR));
-        afVar.setPageId(this.dBk);
+        afVar.setPageId(this.dBx);
         w ag = afVar.ag(false);
-        ag.a(this.eNz);
+        ag.a(this.eNM);
         ag.setAutoProcess(false);
         ag.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         ag.ae(true);
@@ -89,8 +89,8 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         an anVar = new an("c13565");
-        anVar.X("obj_source", bVar.bNo() ? 1 : 2);
-        com.baidu.tieba.card.r.bvg().d(anVar);
+        anVar.X("obj_source", bVar.bNp() ? 1 : 2);
+        com.baidu.tieba.card.r.bvh().d(anVar);
         afVar.nk().setPosition(i);
         if (afVar.nk() instanceof com.baidu.tieba.a.e) {
             afVar.nk().setPage(this.LC);
@@ -143,7 +143,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wO(String str) {
+    public void wP(String str) {
         this.LC = str;
     }
 }

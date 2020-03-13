@@ -5,22 +5,22 @@ import java.util.Collections;
 /* loaded from: classes6.dex */
 public class m extends a<PointF, PointF> {
     private final PointF gO;
-    private final a<Float, Float> nqo;
-    private final a<Float, Float> nqp;
+    private final a<Float, Float> nqA;
+    private final a<Float, Float> nqz;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
         this.gO = new PointF();
-        this.nqo = aVar;
-        this.nqp = aVar2;
+        this.nqz = aVar;
+        this.nqA = aVar2;
         setProgress(getProgress());
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
     public void setProgress(float f) {
-        this.nqo.setProgress(f);
-        this.nqp.setProgress(f);
-        this.gO.set(this.nqo.getValue().floatValue(), this.nqp.getValue().floatValue());
+        this.nqz.setProgress(f);
+        this.nqA.setProgress(f);
+        this.gO.set(this.nqz.getValue().floatValue(), this.nqA.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
