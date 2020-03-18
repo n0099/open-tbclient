@@ -4,47 +4,47 @@ import android.view.View;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class e extends c {
-    private PlayBackItemView ftO;
-    private PlayBackItemView ftP;
+    private PlayBackItemView fun;
+    private PlayBackItemView fuo;
 
     public e(View view, int i) {
         super(view, i);
-        this.ftO = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
-        this.ftP = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
+        this.fun = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
+        this.fuo = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
     }
 
     @Override // com.baidu.tieba.ala.person.view.c
     public void A(Object obj) {
         if (obj instanceof com.baidu.tieba.ala.person.a.a) {
             final com.baidu.tieba.ala.person.a.a aVar = (com.baidu.tieba.ala.person.a.a) obj;
-            if (aVar.fqL != null) {
-                this.ftO.setVisibility(0);
-                this.ftO.setData(aVar.fqL.getMedia_pic(), aVar.fqL.join_count, aVar.fqL.start_time, aVar.fqL.getLiveTitle());
+            if (aVar.frk != null) {
+                this.fun.setVisibility(0);
+                this.fun.setData(aVar.frk.getMedia_pic(), aVar.frk.join_count, aVar.frk.start_time, aVar.frk.getLiveTitle());
             } else {
-                this.ftO.setVisibility(4);
+                this.fun.setVisibility(4);
             }
-            if (aVar.fqM != null) {
-                this.ftP.setVisibility(0);
-                this.ftP.setData(aVar.fqM.getMedia_pic(), aVar.fqM.join_count, aVar.fqM.start_time, aVar.fqM.getLiveTitle());
+            if (aVar.frl != null) {
+                this.fuo.setVisibility(0);
+                this.fuo.setData(aVar.frl.getMedia_pic(), aVar.frl.join_count, aVar.frl.start_time, aVar.frl.getLiveTitle());
             } else {
-                this.ftP.setVisibility(4);
+                this.fuo.setVisibility(4);
             }
-            if (this.ftO != null) {
-                this.ftO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
+            if (this.fun != null) {
+                this.fun.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.fqJ != null) {
-                            e.this.fqJ.a(aVar.fqL, view);
+                        if (e.this.fri != null) {
+                            e.this.fri.a(aVar.frk, view);
                         }
                     }
                 });
             }
-            if (this.ftP != null) {
-                this.ftP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
+            if (this.fuo != null) {
+                this.fuo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.fqJ != null) {
-                            e.this.fqJ.a(aVar.fqM, view);
+                        if (e.this.fri != null) {
+                            e.this.fri.a(aVar.frl, view);
                         }
                     }
                 });

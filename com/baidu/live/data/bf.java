@@ -3,19 +3,19 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bf {
-    public int aeF;
-    public String aeG;
-    public String aeH;
-    public String aeI;
+    public int aeP;
+    public String aeQ;
+    public String aeR;
+    public String aeS;
     public String appKey;
 
     public bf(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aeF = jSONObject.optInt("goods_timeout");
+            this.aeP = jSONObject.optInt("goods_timeout");
             this.appKey = jSONObject.optString("app_key");
-            this.aeG = jSONObject.optString("live_goods_url");
-            this.aeH = jSONObject.optString("add_goods_url");
-            this.aeI = jSONObject.optString("kepler_id");
+            this.aeQ = jSONObject.optString("live_goods_url");
+            this.aeR = jSONObject.optString("add_goods_url");
+            this.aeS = jSONObject.optString("kepler_id");
         }
     }
 }

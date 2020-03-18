@@ -33,8 +33,8 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 public class c extends com.baidu.media.transcoder.c {
     private String c = null;
     private String d = null;
-    private b aMn = null;
-    private e aMo = null;
+    private b aMB = null;
+    private e aMC = null;
     private int g = -1;
     private int h = -1;
     private int i = 520000;
@@ -43,33 +43,33 @@ public class c extends com.baidu.media.transcoder.c {
     private int l = 128000;
     private int m = -1;
     private int n = -1;
-    private MediaMuxer aMp = null;
+    private MediaMuxer aMD = null;
     protected int a = 0;
     protected int b = 0;
-    private a aMq = null;
-    private f aMr = null;
+    private a aME = null;
+    private f aMF = null;
     private int r = 0;
     private boolean s = false;
     private Object t = new Object();
     private ArrayList<Message> u = new ArrayList<>();
-    private InterfaceC0127c aMs = new InterfaceC0127c() { // from class: com.baidu.media.transcoder.a.c.1
+    private InterfaceC0127c aMG = new InterfaceC0127c() { // from class: com.baidu.media.transcoder.a.c.1
         @Override // com.baidu.media.transcoder.a.c.InterfaceC0127c
         public int a(MediaFormat mediaFormat) {
-            int addTrack = c.this.aMp.addTrack(mediaFormat);
+            int addTrack = c.this.aMD.addTrack(mediaFormat);
             c.f(c.this);
-            if (c.this.r > 1 || c.this.aMq == null) {
-                c.this.aMp.start();
-                if (c.this.aMq != null) {
-                    c.this.aMq.b(true);
+            if (c.this.r > 1 || c.this.aME == null) {
+                c.this.aMD.start();
+                if (c.this.aME != null) {
+                    c.this.aME.b(true);
                 }
-                c.this.aMr.b(true);
+                c.this.aMF.b(true);
             }
             return addTrack;
         }
 
         @Override // com.baidu.media.transcoder.a.c.InterfaceC0127c
         public int c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-            c.this.aMp.writeSampleData(i, byteBuffer, bufferInfo);
+            c.this.aMD.writeSampleData(i, byteBuffer, bufferInfo);
             return 0;
         }
     };
@@ -170,24 +170,24 @@ public class c extends com.baidu.media.transcoder.c {
             if (this.o) {
                 return 1001;
             }
-            if (this.aMC == null || this.q) {
+            if (this.aMQ == null || this.q) {
                 try {
                     if (this.t == -1) {
-                        int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.aMz, 10000L);
+                        int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.aMN, 10000L);
                         if (dequeueOutputBuffer == -1) {
                             com.baidu.media.transcoder.d.b("MCTranscoder", "audio process out INFO_TRY_AGAIN_LATER");
                             return 1000;
                         } else if (dequeueOutputBuffer == -3) {
-                            this.aMw = this.c.getOutputBuffers();
+                            this.aMK = this.c.getOutputBuffers();
                             com.baidu.media.transcoder.d.b("MCTranscoder", "audio process out INFO_OUTPUT_BUFFERS_CHANGED");
                             return 1000;
                         } else if (dequeueOutputBuffer == -2) {
-                            this.aMB = this.c.getOutputFormat();
+                            this.aMP = this.c.getOutputFormat();
                             com.baidu.media.transcoder.d.b("MCTranscoder", "audio process out INFO_OUTPUT_FORMAT_CHANGED");
                             return 1000;
                         } else {
-                            ByteBuffer byteBuffer = this.aMw[dequeueOutputBuffer];
-                            if ((this.aMz.flags & 2) != 0) {
+                            ByteBuffer byteBuffer = this.aMK[dequeueOutputBuffer];
+                            if ((this.aMN.flags & 2) != 0) {
                                 this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 com.baidu.media.transcoder.d.b("MCTranscoder", "audio process out BUFFER_FLAG_CODEC_CONFIG");
                                 return 1000;
@@ -202,21 +202,21 @@ public class c extends com.baidu.media.transcoder.c {
                             return 1000;
                         }
                         com.baidu.media.transcoder.d.b("MCTranscoder", "mEncoder.dequeueInputBuffer encoderInputBufferIndex:" + dequeueInputBuffer);
-                        ByteBuffer byteBuffer2 = this.aMx[dequeueInputBuffer];
-                        int i = this.aMz.size;
-                        long j = this.aMz.presentationTimeUs;
+                        ByteBuffer byteBuffer2 = this.aML[dequeueInputBuffer];
+                        int i = this.aMN.size;
+                        long j = this.aMN.presentationTimeUs;
                         if (i >= 0) {
-                            ByteBuffer duplicate = this.aMw[this.t].duplicate();
-                            duplicate.position(this.aMz.offset);
-                            duplicate.limit(this.aMz.offset + i);
+                            ByteBuffer duplicate = this.aMK[this.t].duplicate();
+                            duplicate.position(this.aMN.offset);
+                            duplicate.limit(this.aMN.offset + i);
                             com.baidu.media.transcoder.d.b("MCTranscoder", "mEncoder.dequeueInputBuffer size:" + i);
                             byteBuffer2.position(0);
                             byteBuffer2.put(duplicate);
-                            this.b.queueInputBuffer(dequeueInputBuffer, 0, i, j, this.aMz.flags);
+                            this.b.queueInputBuffer(dequeueInputBuffer, 0, i, j, this.aMN.flags);
                         }
                         this.c.releaseOutputBuffer(this.t, false);
                         this.t = -1;
-                        if ((this.aMz.flags & 4) != 0) {
+                        if ((this.aMN.flags & 4) != 0) {
                             this.o = true;
                         }
                     }
@@ -251,12 +251,12 @@ public class c extends com.baidu.media.transcoder.c {
 
         @Override // com.baidu.media.transcoder.a.c.d
         public int a(boolean z) {
-            MediaCodecInfo eD;
+            MediaCodecInfo eC;
             MediaFormat a;
             try {
-                this.aMu = DO();
+                this.aMI = DV();
                 try {
-                    MediaFormat trackFormat = this.aMu.getTrackFormat(a(this.aMu));
+                    MediaFormat trackFormat = this.aMI.getTrackFormat(a(this.aMI));
                     if (c.this.m < 0) {
                         c.this.m = trackFormat.getInteger("channel-count");
                     }
@@ -266,19 +266,19 @@ public class c extends com.baidu.media.transcoder.c {
                     com.baidu.media.transcoder.d.b("MCTranscoder", "inputAudioFormat mime:" + trackFormat.getString(IMediaFormat.KEY_MIME));
                     com.baidu.media.transcoder.d.b("MCTranscoder", "mAudioChannelCount:" + c.this.m + " mAudioSampleRateHZ:" + c.this.k);
                     if (z) {
-                        eD = eD("audio/mp4a-latm");
-                        a = a(eD);
+                        eC = eC("audio/mp4a-latm");
+                        a = a(eC);
                     } else {
-                        eD = eD(trackFormat.getString(IMediaFormat.KEY_MIME));
-                        a = a(eD, trackFormat);
+                        eC = eC(trackFormat.getString(IMediaFormat.KEY_MIME));
+                        a = a(eC, trackFormat);
                     }
-                    if (a == null || eD == null) {
+                    if (a == null || eC == null) {
                         Log.e("MCTranscoder", "找不到声音编码器");
                         return CyberPlayerManager.MEDIA_ERROR_UNSUPPORTED;
                     }
                     Log.e("MCTranscoder", "inputAudioFormat" + trackFormat);
                     Log.e("MCTranscoder", "outputAudioFormat" + a);
-                    this.b = b(eD, a);
+                    this.b = b(eC, a);
                     if (this.b == null) {
                         com.baidu.media.transcoder.d.d("MCTranscoder", "createAudioEncoder error");
                         return -1101;
@@ -289,10 +289,10 @@ public class c extends com.baidu.media.transcoder.c {
                         return MessageConfig.GITT_NO_DATA;
                     }
                     try {
-                        this.aMv = this.c.getInputBuffers();
-                        this.aMw = this.c.getOutputBuffers();
-                        this.aMx = this.b.getInputBuffers();
-                        this.aMy = this.b.getOutputBuffers();
+                        this.aMJ = this.c.getInputBuffers();
+                        this.aMK = this.c.getOutputBuffers();
+                        this.aML = this.b.getInputBuffers();
+                        this.aMM = this.b.getOutputBuffers();
                         return 0;
                     } catch (IllegalStateException e) {
                         e.printStackTrace();
@@ -384,33 +384,33 @@ public class c extends com.baidu.media.transcoder.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class d {
-        protected MediaCodec.BufferInfo aMA;
-        private InterfaceC0127c aMD;
-        protected MediaCodec.BufferInfo aMz;
+        protected MediaCodec.BufferInfo aMN;
+        protected MediaCodec.BufferInfo aMO;
+        private InterfaceC0127c aMR;
         protected int r;
         protected MediaCodec b = null;
         protected MediaCodec c = null;
-        protected MediaExtractor aMu = null;
-        protected ByteBuffer[] aMv = null;
-        protected ByteBuffer[] aMw = null;
-        protected ByteBuffer[] aMx = null;
-        protected ByteBuffer[] aMy = null;
+        protected MediaExtractor aMI = null;
+        protected ByteBuffer[] aMJ = null;
+        protected ByteBuffer[] aMK = null;
+        protected ByteBuffer[] aML = null;
+        protected ByteBuffer[] aMM = null;
         protected int k = -1;
-        protected MediaFormat aMB = null;
-        protected MediaFormat aMC = null;
+        protected MediaFormat aMP = null;
+        protected MediaFormat aMQ = null;
         protected boolean n = false;
         protected boolean o = false;
         protected boolean p = false;
         protected boolean q = false;
 
         public d() {
-            this.aMz = null;
-            this.aMA = null;
-            this.aMz = new MediaCodec.BufferInfo();
-            this.aMA = new MediaCodec.BufferInfo();
+            this.aMN = null;
+            this.aMO = null;
+            this.aMN = new MediaCodec.BufferInfo();
+            this.aMO = new MediaCodec.BufferInfo();
         }
 
-        protected MediaExtractor DO() {
+        protected MediaExtractor DV() {
             MediaExtractor mediaExtractor = new MediaExtractor();
             mediaExtractor.setDataSource(c.this.c);
             return mediaExtractor;
@@ -429,7 +429,7 @@ public class c extends com.baidu.media.transcoder.c {
         }
 
         public void a(InterfaceC0127c interfaceC0127c) {
-            this.aMD = interfaceC0127c;
+            this.aMR = interfaceC0127c;
         }
 
         public void b() {
@@ -454,8 +454,8 @@ public class c extends com.baidu.media.transcoder.c {
 
         public void c() {
             try {
-                if (this.aMu != null) {
-                    this.aMu.release();
+                if (this.aMI != null) {
+                    this.aMI.release();
                 }
                 if (this.c != null) {
                     this.c.release();
@@ -475,7 +475,7 @@ public class c extends com.baidu.media.transcoder.c {
             return this.p;
         }
 
-        protected MediaCodecInfo eD(String str) {
+        protected MediaCodecInfo eC(String str) {
             int codecCount = MediaCodecList.getCodecCount();
             for (int i = 0; i < codecCount; i++) {
                 MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
@@ -495,20 +495,20 @@ public class c extends com.baidu.media.transcoder.c {
             if (this.n) {
                 return 1001;
             }
-            if (this.aMC == null || this.q) {
+            if (this.aMQ == null || this.q) {
                 try {
                     int dequeueInputBuffer = this.c.dequeueInputBuffer(10000L);
                     if (dequeueInputBuffer != -1) {
-                        ByteBuffer byteBuffer = this.aMv[dequeueInputBuffer];
-                        int readSampleData = this.aMu.readSampleData(byteBuffer, 0);
-                        long sampleTime = this.aMu.getSampleTime();
+                        ByteBuffer byteBuffer = this.aMJ[dequeueInputBuffer];
+                        int readSampleData = this.aMI.readSampleData(byteBuffer, 0);
+                        long sampleTime = this.aMI.getSampleTime();
                         if (readSampleData >= 0) {
                             byteBuffer.position(0);
                             byteBuffer.limit(readSampleData);
-                            this.c.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, this.aMu.getSampleFlags());
+                            this.c.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, this.aMI.getSampleFlags());
                             c.this.b += readSampleData;
                         }
-                        this.n = !this.aMu.advance();
+                        this.n = !this.aMI.advance();
                         if (this.n) {
                             this.c.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         }
@@ -536,31 +536,31 @@ public class c extends com.baidu.media.transcoder.c {
             if (this.p) {
                 return 1001;
             }
-            if (this.aMC == null || this.q) {
+            if (this.aMQ == null || this.q) {
                 try {
-                    int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.aMA, 10000L);
+                    int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.aMO, 10000L);
                     if (dequeueOutputBuffer != -1) {
                         if (dequeueOutputBuffer == -3) {
-                            this.aMy = this.b.getOutputBuffers();
+                            this.aMM = this.b.getOutputBuffers();
                             return 1000;
                         } else if (dequeueOutputBuffer == -2) {
-                            this.aMC = this.b.getOutputFormat();
-                            if (this.aMD != null) {
-                                this.k = this.aMD.a(this.aMC);
+                            this.aMQ = this.b.getOutputFormat();
+                            if (this.aMR != null) {
+                                this.k = this.aMR.a(this.aMQ);
                                 return 1000;
                             }
                             return 1000;
                         } else {
-                            com.baidu.media.transcoder.d.b("MCTranscoder", "EncOutputBufferInfo time:" + this.aMA.presentationTimeUs + " size:" + this.aMA.size + " offset:" + this.aMA.offset + " flag:" + this.aMA.flags);
-                            ByteBuffer byteBuffer = this.aMy[dequeueOutputBuffer];
-                            if ((this.aMA.flags & 2) != 0) {
+                            com.baidu.media.transcoder.d.b("MCTranscoder", "EncOutputBufferInfo time:" + this.aMO.presentationTimeUs + " size:" + this.aMO.size + " offset:" + this.aMO.offset + " flag:" + this.aMO.flags);
+                            ByteBuffer byteBuffer = this.aMM[dequeueOutputBuffer];
+                            if ((this.aMO.flags & 2) != 0) {
                                 this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 return 1000;
                             }
-                            if (this.aMA.size != 0 && this.aMD != null) {
-                                this.aMD.c(this.k, byteBuffer, this.aMA);
+                            if (this.aMO.size != 0 && this.aMR != null) {
+                                this.aMR.c(this.k, byteBuffer, this.aMO);
                             }
-                            if ((this.aMA.flags & 4) != 0) {
+                            if ((this.aMO.flags & 4) != 0) {
                                 this.p = true;
                             }
                             this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
@@ -611,13 +611,13 @@ public class c extends com.baidu.media.transcoder.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class f extends d {
-        private com.baidu.media.transcoder.a.d aMF;
-        private com.baidu.media.transcoder.a.b aMG;
+        private com.baidu.media.transcoder.a.d aMT;
+        private com.baidu.media.transcoder.a.b aMU;
 
         public f() {
             super();
-            this.aMF = null;
-            this.aMG = null;
+            this.aMT = null;
+            this.aMU = null;
             this.r = 1;
         }
 
@@ -681,40 +681,40 @@ public class c extends com.baidu.media.transcoder.c {
             if (this.o) {
                 return 1001;
             }
-            if (this.aMC == null || this.q) {
+            if (this.aMQ == null || this.q) {
                 try {
-                    int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.aMz, 10000L);
+                    int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.aMN, 10000L);
                     if (dequeueOutputBuffer == -1) {
                         com.baidu.media.transcoder.d.b("MCTranscoder", "video process out INFO_TRY_AGAIN_LATER");
                         return 1000;
                     } else if (dequeueOutputBuffer == -3) {
-                        this.aMw = this.c.getOutputBuffers();
+                        this.aMK = this.c.getOutputBuffers();
                         com.baidu.media.transcoder.d.b("MCTranscoder", "video process out INFO_OUTPUT_BUFFERS_CHANGED");
                         return 1000;
                     } else if (dequeueOutputBuffer == -2) {
-                        this.aMB = this.c.getOutputFormat();
+                        this.aMP = this.c.getOutputFormat();
                         com.baidu.media.transcoder.d.b("MCTranscoder", "video process out INFO_OUTPUT_FORMAT_CHANGED");
                         return 1000;
                     } else {
                         com.baidu.media.transcoder.d.b("MCTranscoder", "video process out decoderOutputBufferIndex:" + dequeueOutputBuffer);
-                        ByteBuffer byteBuffer = this.aMw[dequeueOutputBuffer];
-                        if ((this.aMz.flags & 2) != 0) {
+                        ByteBuffer byteBuffer = this.aMK[dequeueOutputBuffer];
+                        if ((this.aMN.flags & 2) != 0) {
                             com.baidu.media.transcoder.d.b("MCTranscoder", "video process out BUFFER_FLAG_CODEC_CONFIG");
                             this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
                             return 1000;
                         }
-                        boolean z = this.aMz.size != 0;
+                        boolean z = this.aMN.size != 0;
                         this.c.releaseOutputBuffer(dequeueOutputBuffer, z);
                         if (z) {
                             com.baidu.media.transcoder.d.b("MCTranscoder", "awaitNewImage start ...");
-                            this.aMF.b();
+                            this.aMT.b();
                             com.baidu.media.transcoder.d.b("MCTranscoder", "awaitNewImage end ...");
-                            this.aMF.c();
-                            com.baidu.media.transcoder.d.b("MCTranscoder", "video DecOutputBufferInfo time:" + this.aMz.presentationTimeUs + " size:" + this.aMz.size + " offset:" + this.aMz.offset + " flag:" + this.aMz.flags);
-                            this.aMG.a(this.aMz.presentationTimeUs * 1000);
-                            this.aMG.b();
+                            this.aMT.c();
+                            com.baidu.media.transcoder.d.b("MCTranscoder", "video DecOutputBufferInfo time:" + this.aMN.presentationTimeUs + " size:" + this.aMN.size + " offset:" + this.aMN.offset + " flag:" + this.aMN.flags);
+                            this.aMU.a(this.aMN.presentationTimeUs * 1000);
+                            this.aMU.b();
                         }
-                        if ((this.aMz.flags & 4) != 0) {
+                        if ((this.aMN.flags & 4) != 0) {
                             this.o = true;
                             this.b.signalEndOfInputStream();
                         }
@@ -759,15 +759,15 @@ public class c extends com.baidu.media.transcoder.c {
 
         @Override // com.baidu.media.transcoder.a.c.d
         public int a(boolean z) {
-            MediaCodecInfo eD = eD("video/avc");
-            if (eD == null) {
+            MediaCodecInfo eC = eC("video/avc");
+            if (eC == null) {
                 com.baidu.media.transcoder.d.d("MCTranscoder", "videoCodecInfo is null");
                 return -1011;
             }
             try {
-                this.aMu = DO();
+                this.aMI = DV();
                 try {
-                    MediaFormat trackFormat = this.aMu.getTrackFormat(a(this.aMu));
+                    MediaFormat trackFormat = this.aMI.getTrackFormat(a(this.aMI));
                     int i = c.this.i;
                     int i2 = c.this.j;
                     Log.i("MCTranscoder", "videoBitRate=" + i);
@@ -783,7 +783,7 @@ public class c extends com.baidu.media.transcoder.c {
                     Log.e("MCTranscoder", "inputvideoFormat=" + trackFormat);
                     Log.e("MCTranscoder", "outputVideoFormat=" + createVideoFormat);
                     AtomicReference<Surface> atomicReference = new AtomicReference<>();
-                    this.b = a(eD, createVideoFormat, atomicReference);
+                    this.b = a(eC, createVideoFormat, atomicReference);
                     if (this.b == null && c.this.n != -1 && c.this.n < 40000) {
                         MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", c.this.g, c.this.h);
                         createVideoFormat2.setInteger("color-format", 2130708361);
@@ -793,23 +793,23 @@ public class c extends com.baidu.media.transcoder.c {
                         createVideoFormat2.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, i);
                         createVideoFormat2.setInteger("frame-rate", i2);
                         createVideoFormat2.setInteger("i-frame-interval", 10);
-                        this.b = a(eD, createVideoFormat2, atomicReference);
+                        this.b = a(eC, createVideoFormat2, atomicReference);
                     }
                     if (this.b == null) {
                         com.baidu.media.transcoder.d.d("MCTranscoder", "createVideoEncoder error");
                         return -1103;
                     }
-                    this.aMG = new com.baidu.media.transcoder.a.b(atomicReference.get());
-                    this.aMG.a();
-                    this.aMF = new com.baidu.media.transcoder.a.d();
-                    this.c = a(trackFormat, this.aMF.a());
+                    this.aMU = new com.baidu.media.transcoder.a.b(atomicReference.get());
+                    this.aMU.a();
+                    this.aMT = new com.baidu.media.transcoder.a.d();
+                    this.c = a(trackFormat, this.aMT.a());
                     if (this.c == null) {
                         com.baidu.media.transcoder.d.d("MCTranscoder", "createVideoDecoder error");
                         return -1102;
                     }
-                    this.aMv = this.c.getInputBuffers();
-                    this.aMw = this.c.getOutputBuffers();
-                    this.aMy = this.b.getOutputBuffers();
+                    this.aMJ = this.c.getInputBuffers();
+                    this.aMK = this.c.getOutputBuffers();
+                    this.aMM = this.b.getOutputBuffers();
                     return 0;
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
@@ -837,7 +837,7 @@ public class c extends com.baidu.media.transcoder.c {
         f();
     }
 
-    private Message DN() {
+    private Message DU() {
         Message message = null;
         synchronized (this.t) {
             if (this.u.isEmpty()) {
@@ -893,8 +893,8 @@ public class c extends com.baidu.media.transcoder.c {
 
     private boolean e() {
         if (this.g <= 0 || this.h <= 0) {
-            if (this.aMn != null) {
-                this.aMn.sendEmptyMessage(100);
+            if (this.aMB != null) {
+                this.aMB.sendEmptyMessage(100);
             }
             return false;
         }
@@ -910,17 +910,17 @@ public class c extends com.baidu.media.transcoder.c {
     private void f() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.aMn = new b(this, myLooper);
+            this.aMB = new b(this, myLooper);
         } else {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper != null) {
-                this.aMn = new b(this, mainLooper);
+                this.aMB = new b(this, mainLooper);
             } else {
-                this.aMn = null;
+                this.aMB = null;
             }
         }
-        this.aMo = new e("MediaCodecTranscoder");
-        this.aMo.start();
+        this.aMC = new e("MediaCodecTranscoder");
+        this.aMC.start();
     }
 
     private int g() {
@@ -931,22 +931,22 @@ public class c extends com.baidu.media.transcoder.c {
         }
         this.a = (int) new File(this.c).length();
         com.baidu.media.transcoder.d.d("MCTranscoder", "input file totalSize: " + this.a);
-        this.aMq = new a();
-        this.aMr = new f();
-        this.aMq.a(this.aMs);
-        this.aMr.a(this.aMs);
-        if (this.aMq.a(false) < 0) {
-            this.aMq.c();
-            this.aMq = null;
+        this.aME = new a();
+        this.aMF = new f();
+        this.aME.a(this.aMG);
+        this.aMF.a(this.aMG);
+        if (this.aME.a(false) < 0) {
+            this.aME.c();
+            this.aME = null;
             com.baidu.media.transcoder.d.c("MCTranscoder", "not found audio stream...");
         }
-        int a2 = this.aMr.a(false);
+        int a2 = this.aMF.a(false);
         if (a2 < 0) {
             com.baidu.media.transcoder.d.b("MCTranscoder", "initVideo failed...");
             return a2;
         }
         try {
-            this.aMp = new MediaMuxer(this.d, 0);
+            this.aMD = new MediaMuxer(this.d, 0);
             return a2;
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -962,20 +962,20 @@ public class c extends com.baidu.media.transcoder.c {
     private int h() {
         int a2;
         int f2;
-        if (this.aMr.d() && (this.aMq == null || this.aMq.d())) {
+        if (this.aMF.d() && (this.aME == null || this.aME.d())) {
             return 1002;
         }
-        int f3 = this.aMr.f();
+        int f3 = this.aMF.f();
         if (f3 >= 0) {
-            if (this.aMq == null || (f2 = this.aMq.f()) >= 0) {
-                int a3 = this.aMr.a();
+            if (this.aME == null || (f2 = this.aME.f()) >= 0) {
+                int a3 = this.aMF.a();
                 if (a3 >= 0) {
-                    if (this.aMq == null || (a2 = this.aMq.a()) >= 0) {
-                        int g = this.aMr.g();
-                        if (g < 0 || this.aMq == null) {
+                    if (this.aME == null || (a2 = this.aME.a()) >= 0) {
+                        int g = this.aMF.g();
+                        if (g < 0 || this.aME == null) {
                             return g;
                         }
-                        int g2 = this.aMq.g();
+                        int g2 = this.aME.g();
                         if (g2 < 0) {
                         }
                         return g2;
@@ -1013,17 +1013,17 @@ public class c extends com.baidu.media.transcoder.c {
 
     private int l() {
         try {
-            if (this.aMq != null) {
-                this.aMq.b();
-                this.aMq = null;
+            if (this.aME != null) {
+                this.aME.b();
+                this.aME = null;
             }
-            if (this.aMr != null) {
-                this.aMr.b();
-                this.aMr = null;
+            if (this.aMF != null) {
+                this.aMF.b();
+                this.aMF = null;
             }
-            if (this.aMp != null) {
-                this.aMp.stop();
-                this.aMp = null;
+            if (this.aMD != null) {
+                this.aMD.stop();
+                this.aMD = null;
             }
             p();
             return 0;
@@ -1040,21 +1040,21 @@ public class c extends com.baidu.media.transcoder.c {
 
     private int m() {
         int i = 0;
-        if (this.aMo != null) {
-            this.aMo.a();
+        if (this.aMC != null) {
+            this.aMC.a();
         }
         try {
-            if (this.aMq != null) {
-                this.aMq.c();
-                this.aMq = null;
+            if (this.aME != null) {
+                this.aME.c();
+                this.aME = null;
             }
-            if (this.aMr != null) {
-                this.aMr.c();
-                this.aMr = null;
+            if (this.aMF != null) {
+                this.aMF.c();
+                this.aMF = null;
             }
-            if (this.aMp != null) {
-                this.aMp.release();
-                this.aMp = null;
+            if (this.aMD != null) {
+                this.aMD.release();
+                this.aMD = null;
             }
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
@@ -1091,9 +1091,9 @@ public class c extends com.baidu.media.transcoder.c {
     private int r() {
         int i = 2;
         int i2 = 0;
-        Message DN = DN();
-        if (DN != null) {
-            switch (DN.what) {
+        Message DU = DU();
+        if (DU != null) {
+            switch (DU.what) {
                 case 0:
                     i2 = i();
                     i = 1;
@@ -1108,14 +1108,14 @@ public class c extends com.baidu.media.transcoder.c {
                     break;
                 case 3:
                     i2 = l();
-                    if (DN.arg1 != 0) {
+                    if (DU.arg1 != 0) {
                         i = 3;
                         break;
                     }
                     break;
                 case 4:
                     i2 = m();
-                    if (DN.arg1 != 0) {
+                    if (DU.arg1 != 0) {
                         i = 3;
                         break;
                     }
@@ -1143,9 +1143,9 @@ public class c extends com.baidu.media.transcoder.c {
                 Message message = new Message();
                 message.what = 100;
                 message.arg1 = i2;
-                this.aMn.sendMessage(message);
+                this.aMB.sendMessage(message);
             } else if (i != 0) {
-                this.aMn.sendEmptyMessage(i);
+                this.aMB.sendEmptyMessage(i);
             }
         }
         return i2;

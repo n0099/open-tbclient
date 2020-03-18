@@ -9,15 +9,15 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k {
-    private List<AlaLiveMarkData> arT;
-    private boolean ast;
-    private String asu;
+    private boolean asD;
+    private String asE;
+    private List<AlaLiveMarkData> asd;
 
-    public static k wA() {
-        return a.asv;
+    public static k wF() {
+        return a.asF;
     }
 
-    public bb[] wB() {
+    public bb[] wG() {
         return aT(false);
     }
 
@@ -34,14 +34,14 @@ public class k {
 
     public bb[] aT(boolean z) {
         List<bb> list;
-        ap apVar = com.baidu.live.v.a.zl().axD;
-        if (apVar == null || apVar.acV == null || !apVar.acV.aex || apVar.acS == null) {
+        ap apVar = com.baidu.live.v.a.zs().axR;
+        if (apVar == null || apVar.adg == null || !apVar.adg.aeH || apVar.adc == null) {
             list = null;
         } else {
-            bb[] bbVarArr = apVar.acS.adM;
+            bb[] bbVarArr = apVar.adc.adW;
             list = (bbVarArr == null || bbVarArr.length <= 0) ? null : new ArrayList<>(Arrays.asList(bbVarArr));
-            if (com.baidu.live.v.a.zl().awC != null && com.baidu.live.v.a.zl().awC.aaS && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
-                list = a(z, list, apVar.acS.adS);
+            if (com.baidu.live.v.a.zs().awM != null && com.baidu.live.v.a.zs().awM.abd && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
+                list = a(z, list, apVar.adc.aec);
             }
         }
         if (list == null || list.isEmpty()) {
@@ -50,50 +50,50 @@ public class k {
         return (bb[]) list.toArray(new bb[list.size()]);
     }
 
-    public boolean wC() {
-        return this.ast;
+    public boolean wH() {
+        return this.asD;
     }
 
     public void setSwitchStatus(boolean z) {
-        this.ast = z;
+        this.asD = z;
     }
 
-    public String wD() {
-        return this.asu;
+    public String wI() {
+        return this.asE;
     }
 
     public void setSelectId(String str) {
-        this.asu = str;
+        this.asE = str;
     }
 
-    public List<AlaLiveMarkData> wE() {
-        return this.arT;
+    public List<AlaLiveMarkData> wJ() {
+        return this.asd;
     }
 
     public void C(List<AlaLiveMarkData> list) {
-        if (this.arT == null) {
-            this.arT = new ArrayList();
+        if (this.asd == null) {
+            this.asd = new ArrayList();
         }
-        this.arT.clear();
+        this.asd.clear();
         if (list != null && !list.isEmpty()) {
-            this.arT.addAll(list);
+            this.asd.addAll(list);
         }
     }
 
     public void release() {
-        this.ast = false;
-        this.asu = null;
-        if (this.arT != null) {
-            this.arT.clear();
+        this.asD = false;
+        this.asE = null;
+        if (this.asd != null) {
+            this.asd.clear();
         }
     }
 
     private k() {
-        this.ast = false;
+        this.asD = false;
     }
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final k asv = new k();
+        private static final k asF = new k();
     }
 }

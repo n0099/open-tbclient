@@ -9,10 +9,10 @@ import java.io.OutputStream;
 public class a {
     protected int height;
     protected Bitmap image;
-    protected byte[] jdN;
-    protected byte[] jdO;
-    protected int jdP;
-    protected byte[] jdQ;
+    protected byte[] jfm;
+    protected byte[] jfn;
+    protected int jfo;
+    protected byte[] jfp;
     protected OutputStream out;
     protected int transIndex;
     protected int width;
@@ -21,60 +21,60 @@ public class a {
     protected int transparent = -1;
     protected int repeat = -1;
     protected int delay = 0;
-    protected boolean jdM = false;
-    protected boolean[] jdR = new boolean[256];
-    protected int jdS = 7;
+    protected boolean jfl = false;
+    protected boolean[] jfq = new boolean[256];
+    protected int jfr = 7;
     protected int dispose = -1;
-    protected boolean jdT = false;
-    protected boolean jdU = true;
-    protected boolean jdV = false;
-    protected int jdW = 10;
+    protected boolean jfs = false;
+    protected boolean jft = true;
+    protected boolean jfu = false;
+    protected int jfv = 10;
 
-    public void zE(int i) {
+    public void zM(int i) {
         if (i >= 0) {
             this.repeat = i;
         }
     }
 
     public boolean A(Bitmap bitmap) {
-        if (bitmap == null || !this.jdM) {
+        if (bitmap == null || !this.jfl) {
             return false;
         }
         try {
-            if (!this.jdV) {
+            if (!this.jfu) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
-            cuv();
-            cuu();
-            if (this.jdU) {
-                cuy();
-                cuA();
+            cuO();
+            cuN();
+            if (this.jft) {
+                cuR();
+                cuT();
                 if (this.repeat >= 0) {
-                    cuz();
+                    cuS();
                 }
             }
-            cuw();
-            cux();
-            if (!this.jdU) {
-                cuA();
+            cuP();
+            cuQ();
+            if (!this.jft) {
+                cuT();
             }
-            cuB();
-            this.jdU = false;
+            cuU();
+            this.jft = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean cut() {
+    public boolean cuM() {
         boolean z;
-        if (this.jdM) {
-            this.jdM = false;
+        if (this.jfl) {
+            this.jfl = false;
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.jdT) {
+                if (this.jfs) {
                     this.out.close();
                 }
                 z = true;
@@ -84,11 +84,11 @@ public class a {
             this.transIndex = 0;
             this.out = null;
             this.image = null;
-            this.jdN = null;
-            this.jdO = null;
-            this.jdQ = null;
-            this.jdT = false;
-            this.jdU = true;
+            this.jfm = null;
+            this.jfn = null;
+            this.jfp = null;
+            this.jfs = false;
+            this.jft = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.jdV = true;
+        this.jfu = true;
     }
 
     public boolean b(OutputStream outputStream) {
@@ -111,67 +111,67 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.jdT = false;
+        this.jfs = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
         } catch (IOException e) {
             z = false;
         }
-        this.jdM = z;
+        this.jfl = z;
         return z;
     }
 
-    protected void cuu() {
-        int length = this.jdN.length;
+    protected void cuN() {
+        int length = this.jfm.length;
         int i = length / 3;
-        this.jdO = new byte[i];
-        c cVar = new c(this.jdN, length, this.jdW);
-        this.jdQ = cVar.cuH();
-        for (int i2 = 0; i2 < this.jdQ.length; i2 += 3) {
-            byte b = this.jdQ[i2];
-            this.jdQ[i2] = this.jdQ[i2 + 2];
-            this.jdQ[i2 + 2] = b;
-            this.jdR[i2 / 3] = false;
+        this.jfn = new byte[i];
+        c cVar = new c(this.jfm, length, this.jfv);
+        this.jfp = cVar.cva();
+        for (int i2 = 0; i2 < this.jfp.length; i2 += 3) {
+            byte b = this.jfp[i2];
+            this.jfp[i2] = this.jfp[i2 + 2];
+            this.jfp[i2 + 2] = b;
+            this.jfq[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int S = cVar.S(this.jdN[i3] & 255, this.jdN[i5] & 255, this.jdN[i6] & 255);
-            this.jdR[S] = true;
-            this.jdO[i4] = (byte) S;
+            int S = cVar.S(this.jfm[i3] & 255, this.jfm[i5] & 255, this.jfm[i6] & 255);
+            this.jfq[S] = true;
+            this.jfn[i4] = (byte) S;
         }
-        this.jdN = null;
-        this.jdP = 8;
-        this.jdS = 7;
+        this.jfm = null;
+        this.jfo = 8;
+        this.jfr = 7;
         if (this.transparent != -1) {
-            this.transIndex = zF(this.transparent);
+            this.transIndex = zN(this.transparent);
         }
     }
 
-    protected int zF(int i) {
+    protected int zN(int i) {
         int i2;
         int i3 = 0;
-        if (this.jdQ == null) {
+        if (this.jfp == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.jdQ.length;
+        int length = this.jfp.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.jdQ[i3] & 255);
+            int i10 = i4 - (this.jfp[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.jdQ[i9] & 255);
-            int i13 = i6 - (this.jdQ[i11] & 255);
+            int i12 = i5 - (this.jfp[i9] & 255);
+            int i13 = i6 - (this.jfp[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.jdR[i15] || i14 >= i7) {
+            if (!this.jfq[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void cuv() {
+    protected void cuO() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -193,14 +193,14 @@ public class a {
             this.image = createBitmap;
         }
         int[] B = B(this.image);
-        this.jdN = new byte[B.length * 3];
+        this.jfm = new byte[B.length * 3];
         for (int i = 0; i < B.length; i++) {
             int i2 = B[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.jdN[i3] = (byte) ((i2 >> 0) & 255);
-            this.jdN[i4] = (byte) ((i2 >> 8) & 255);
-            this.jdN[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.jfm[i3] = (byte) ((i2 >> 0) & 255);
+            this.jfm[i4] = (byte) ((i2 >> 8) & 255);
+            this.jfm[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -212,7 +212,7 @@ public class a {
         return iArr;
     }
 
-    protected void cuw() throws IOException {
+    protected void cuP() throws IOException {
         int i;
         int i2;
         this.out.write(33);
@@ -234,28 +234,28 @@ public class a {
         this.out.write(0);
     }
 
-    protected void cux() throws IOException {
+    protected void cuQ() throws IOException {
         this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.jdU) {
+        if (this.jft) {
             this.out.write(0);
         } else {
-            this.out.write(this.jdS | 128);
+            this.out.write(this.jfr | 128);
         }
     }
 
-    protected void cuy() throws IOException {
+    protected void cuR() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.jdS | 240);
+        this.out.write(this.jfr | 240);
         this.out.write(0);
         this.out.write(0);
     }
 
-    protected void cuz() throws IOException {
+    protected void cuS() throws IOException {
         this.out.write(33);
         this.out.write(255);
         this.out.write(11);
@@ -266,16 +266,16 @@ public class a {
         this.out.write(0);
     }
 
-    protected void cuA() throws IOException {
-        this.out.write(this.jdQ, 0, this.jdQ.length);
-        int length = 768 - this.jdQ.length;
+    protected void cuT() throws IOException {
+        this.out.write(this.jfp, 0, this.jfp.length);
+        int length = 768 - this.jfp.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
-    protected void cuB() throws IOException {
-        new b(this.width, this.height, this.jdO, this.jdP).encode(this.out);
+    protected void cuU() throws IOException {
+        new b(this.width, this.height, this.jfn, this.jfo).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

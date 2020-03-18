@@ -10,24 +10,24 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class h {
     public static String bduss;
-    public static String dvG;
-    public static boolean dvH = false;
-    public static boolean dvI = false;
+    public static String dvT;
+    public static boolean dvU = false;
+    public static boolean dvV = false;
     public Activity activity;
-    public int dvB;
-    public b dvC;
-    public String dvD;
-    public c dvE;
-    public a dvF;
-    public Object dvJ;
+    public int dvO;
+    public b dvP;
+    public String dvQ;
+    public c dvR;
+    public a dvS;
+    public Object dvW;
     public String placeTitle;
     public String placeholder;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public String dvK;
-        public String dvL;
-        public String dvM;
+        public String dvX;
+        public String dvY;
+        public String dvZ;
     }
 
     /* loaded from: classes.dex */
@@ -39,7 +39,7 @@ public class h {
     public static final class c {
         public String avatar;
         public String channel;
-        public String dvN;
+        public String dwa;
         public String id;
         public String nid;
         public String ref_type;
@@ -50,40 +50,40 @@ public class h {
         public String video_duration;
     }
 
-    public static h aNQ() {
+    public static h aNU() {
         h hVar = new h();
-        hVar.dvB = 7;
+        hVar.dvO = 7;
         return hVar;
     }
 
-    public static h aNR() {
+    public static h aNV() {
         h hVar = new h();
-        hVar.dvB = 6;
+        hVar.dvO = 6;
         return hVar;
     }
 
     public static h af(Object obj) {
         h hVar = new h();
-        hVar.dvB = 5;
-        hVar.dvJ = obj;
+        hVar.dvO = 5;
+        hVar.dvW = obj;
         return hVar;
     }
 
-    public static h aNS() {
+    public static h aNW() {
         h hVar = new h();
-        hVar.dvB = 2;
+        hVar.dvO = 2;
         return hVar;
     }
 
-    public static h aNT() {
+    public static h aNX() {
         h hVar = new h();
-        hVar.dvB = 1;
+        hVar.dvO = 1;
         return hVar;
     }
 
-    public static h aNU() {
+    public static h aNY() {
         h hVar = new h();
-        hVar.dvB = 3;
+        hVar.dvO = 3;
         return hVar;
     }
 
@@ -92,7 +92,7 @@ public class h {
             return null;
         }
         h hVar = new h();
-        hVar.dvB = 4;
+        hVar.dvO = 4;
         if (forwardInfo.isShareType) {
             return a(hVar, forwardInfo);
         }
@@ -113,71 +113,71 @@ public class h {
             } else {
                 sb.append(forwardInfo.transmitOriginThreadComment);
             }
-            hVar.dvD = sb.toString();
+            hVar.dvQ = sb.toString();
         } else {
-            hVar.dvD = "";
+            hVar.dvQ = "";
         }
-        hVar.dvE = new c();
+        hVar.dvR = new c();
         if (!TextUtils.isEmpty(forwardInfo.showText)) {
-            hVar.dvE.title = forwardInfo.showText;
+            hVar.dvR.title = forwardInfo.showText;
         } else {
-            hVar.dvE.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
+            hVar.dvR.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
         }
         if (!TextUtils.isEmpty(forwardInfo.showPicUrl)) {
-            hVar.dvE.thumbpic = uS(forwardInfo.showPicUrl);
+            hVar.dvR.thumbpic = uR(forwardInfo.showPicUrl);
         } else {
-            hVar.dvE.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
+            hVar.dvR.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
         }
         if (forwardInfo.isDynamic) {
             if (forwardInfo.originalBaijiahaoData != null && !TextUtils.isEmpty(forwardInfo.originalBaijiahaoData.oriUgcNid)) {
                 if (forwardInfo.originalBaijiahaoData.oriUgcType == 1) {
-                    hVar.dvE.dvN = "";
-                    hVar.dvE.channel = "bjh_details_share_collect_comment";
-                    hVar.dvE.id = "";
-                    hVar.dvE.nid = "news_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "imagetext";
-                    hVar.dvE.url = forwardInfo.originalBaijiahaoData.forwardUrl;
+                    hVar.dvR.dwa = "";
+                    hVar.dvR.channel = "bjh_details_share_collect_comment";
+                    hVar.dvR.id = "";
+                    hVar.dvR.nid = "news_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "imagetext";
+                    hVar.dvR.url = forwardInfo.originalBaijiahaoData.forwardUrl;
                 } else if (forwardInfo.originalBaijiahaoData.oriUgcType == 2) {
-                    hVar.dvE.dvN = "";
-                    hVar.dvE.channel = "sv_shortdetails_share_collect_comment";
-                    hVar.dvE.id = "";
-                    hVar.dvE.nid = "sv_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "video";
-                    hVar.dvE.url = forwardInfo.originalBaijiahaoData.forwardUrl;
-                    hVar.dvE.video_duration = forwardInfo.video_duration;
+                    hVar.dvR.dwa = "";
+                    hVar.dvR.channel = "sv_shortdetails_share_collect_comment";
+                    hVar.dvR.id = "";
+                    hVar.dvR.nid = "sv_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "video";
+                    hVar.dvR.url = forwardInfo.originalBaijiahaoData.forwardUrl;
+                    hVar.dvR.video_duration = forwardInfo.video_duration;
                 } else if (forwardInfo.originalBaijiahaoData.oriUgcType == 3) {
-                    hVar.dvE.dvN = "ugcsimple";
-                    hVar.dvE.channel = "ugc_user_share_collect_comment";
-                    hVar.dvE.id = forwardInfo.originalBaijiahaoData.oriUgcNid;
-                    hVar.dvE.nid = "dt_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "imagetext";
-                    hVar.dvE.avatar = forwardInfo.avatar;
+                    hVar.dvR.dwa = "ugcsimple";
+                    hVar.dvR.channel = "ugc_user_share_collect_comment";
+                    hVar.dvR.id = forwardInfo.originalBaijiahaoData.oriUgcNid;
+                    hVar.dvR.nid = "dt_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "imagetext";
+                    hVar.dvR.avatar = forwardInfo.avatar;
                 } else if (forwardInfo.originalBaijiahaoData.oriUgcType == 4) {
-                    hVar.dvE.dvN = "ugcsimple";
-                    hVar.dvE.channel = "sv_user_share_collect_comment";
-                    hVar.dvE.id = forwardInfo.originalBaijiahaoData.oriUgcVid;
-                    hVar.dvE.nid = "dt_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "video";
-                    hVar.dvE.avatar = forwardInfo.avatar;
+                    hVar.dvR.dwa = "ugcsimple";
+                    hVar.dvR.channel = "sv_user_share_collect_comment";
+                    hVar.dvR.id = forwardInfo.originalBaijiahaoData.oriUgcVid;
+                    hVar.dvR.nid = "dt_" + forwardInfo.originalBaijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "video";
+                    hVar.dvR.avatar = forwardInfo.avatar;
                 }
             }
         } else {
-            hVar.dvE.tid = forwardInfo.originalTid;
-            hVar.dvE.dvN = "swan";
-            hVar.dvE.url = "https://mbd.baidu.com/ma/landingpage?t=smartapp_share&appid=flFqXclepWs7RdugAszy9eERL7G5dS0I&url=/pages/pb/pb?tid=" + forwardInfo.originalTid;
-            hVar.dvE.channel = "swan_details_tieba_post_share_collect_comment";
+            hVar.dvR.tid = forwardInfo.originalTid;
+            hVar.dvR.dwa = "swan";
+            hVar.dvR.url = "https://mbd.baidu.com/ma/landingpage?t=smartapp_share&appid=flFqXclepWs7RdugAszy9eERL7G5dS0I&url=/pages/pb/pb?tid=" + forwardInfo.originalTid;
+            hVar.dvR.channel = "swan_details_tieba_post_share_collect_comment";
             if (forwardInfo.showType == 3) {
-                hVar.dvE.ref_type = "video";
+                hVar.dvR.ref_type = "video";
             } else {
-                hVar.dvE.ref_type = "imagetext";
+                hVar.dvR.ref_type = "imagetext";
             }
         }
-        hVar.dvF = new a();
-        hVar.dvF.dvK = "forward";
+        hVar.dvS = new a();
+        hVar.dvS.dvX = "forward";
         if (forwardInfo.baijiahaoData != null && !TextUtils.isEmpty(forwardInfo.baijiahaoData.oriUgcNid)) {
-            hVar.dvF.dvL = forwardInfo.baijiahaoData.oriUgcNid;
+            hVar.dvS.dvY = forwardInfo.baijiahaoData.oriUgcNid;
         }
-        hVar.dvF.dvM = "0";
+        hVar.dvS.dvZ = "0";
         return hVar;
     }
 
@@ -185,69 +185,69 @@ public class h {
         if (hVar == null) {
             return null;
         }
-        hVar.dvD = "";
-        hVar.dvE = new c();
+        hVar.dvQ = "";
+        hVar.dvR = new c();
         if (!TextUtils.isEmpty(forwardInfo.showText)) {
-            hVar.dvE.title = forwardInfo.showText;
+            hVar.dvR.title = forwardInfo.showText;
         } else {
-            hVar.dvE.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
+            hVar.dvR.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
         }
         if (!TextUtils.isEmpty(forwardInfo.showPicUrl)) {
-            hVar.dvE.thumbpic = uS(forwardInfo.showPicUrl);
+            hVar.dvR.thumbpic = uR(forwardInfo.showPicUrl);
         } else {
-            hVar.dvE.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
+            hVar.dvR.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
         }
         if (forwardInfo.isDynamic) {
             if (forwardInfo.baijiahaoData != null && !TextUtils.isEmpty(forwardInfo.baijiahaoData.oriUgcNid)) {
                 if (forwardInfo.baijiahaoData.oriUgcType == 1) {
-                    hVar.dvE.dvN = "";
-                    hVar.dvE.channel = "bjh_details_share_collect_comment";
-                    hVar.dvE.id = "";
-                    hVar.dvE.nid = "news_" + forwardInfo.baijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "imagetext";
-                    hVar.dvE.url = forwardInfo.baijiahaoData.forwardUrl;
+                    hVar.dvR.dwa = "";
+                    hVar.dvR.channel = "bjh_details_share_collect_comment";
+                    hVar.dvR.id = "";
+                    hVar.dvR.nid = "news_" + forwardInfo.baijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "imagetext";
+                    hVar.dvR.url = forwardInfo.baijiahaoData.forwardUrl;
                 } else if (forwardInfo.baijiahaoData.oriUgcType == 2) {
-                    hVar.dvE.dvN = "";
-                    hVar.dvE.channel = "sv_shortdetails_share_collect_comment";
-                    hVar.dvE.id = "";
-                    hVar.dvE.nid = "sv_" + forwardInfo.baijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "video";
-                    hVar.dvE.url = forwardInfo.baijiahaoData.forwardUrl;
-                    hVar.dvE.video_duration = forwardInfo.video_duration;
+                    hVar.dvR.dwa = "";
+                    hVar.dvR.channel = "sv_shortdetails_share_collect_comment";
+                    hVar.dvR.id = "";
+                    hVar.dvR.nid = "sv_" + forwardInfo.baijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "video";
+                    hVar.dvR.url = forwardInfo.baijiahaoData.forwardUrl;
+                    hVar.dvR.video_duration = forwardInfo.video_duration;
                 } else if (forwardInfo.baijiahaoData.oriUgcType == 3) {
-                    hVar.dvE.dvN = "ugcsimple";
-                    hVar.dvE.channel = "ugc_user_share_collect_comment";
-                    hVar.dvE.id = forwardInfo.baijiahaoData.oriUgcNid;
-                    hVar.dvE.nid = "dt_" + forwardInfo.baijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "imagetext";
-                    hVar.dvE.avatar = forwardInfo.avatar;
+                    hVar.dvR.dwa = "ugcsimple";
+                    hVar.dvR.channel = "ugc_user_share_collect_comment";
+                    hVar.dvR.id = forwardInfo.baijiahaoData.oriUgcNid;
+                    hVar.dvR.nid = "dt_" + forwardInfo.baijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "imagetext";
+                    hVar.dvR.avatar = forwardInfo.avatar;
                 } else if (forwardInfo.baijiahaoData.oriUgcType == 4) {
-                    hVar.dvE.dvN = "ugcsimple";
-                    hVar.dvE.channel = "sv_user_share_collect_comment";
-                    hVar.dvE.id = forwardInfo.baijiahaoData.oriUgcVid;
-                    hVar.dvE.nid = "dt_" + forwardInfo.baijiahaoData.oriUgcNid;
-                    hVar.dvE.ref_type = "video";
-                    hVar.dvE.avatar = forwardInfo.avatar;
+                    hVar.dvR.dwa = "ugcsimple";
+                    hVar.dvR.channel = "sv_user_share_collect_comment";
+                    hVar.dvR.id = forwardInfo.baijiahaoData.oriUgcVid;
+                    hVar.dvR.nid = "dt_" + forwardInfo.baijiahaoData.oriUgcNid;
+                    hVar.dvR.ref_type = "video";
+                    hVar.dvR.avatar = forwardInfo.avatar;
                 }
             }
         } else {
-            hVar.dvE.tid = forwardInfo.originalTid;
-            hVar.dvE.dvN = "swan";
-            hVar.dvE.url = "https://mbd.baidu.com/ma/landingpage?t=smartapp_share&appid=flFqXclepWs7RdugAszy9eERL7G5dS0I&url=/pages/pb/pb?tid=" + forwardInfo.originalTid;
-            hVar.dvE.channel = "swan_details_tieba_post_share_collect_comment";
+            hVar.dvR.tid = forwardInfo.originalTid;
+            hVar.dvR.dwa = "swan";
+            hVar.dvR.url = "https://mbd.baidu.com/ma/landingpage?t=smartapp_share&appid=flFqXclepWs7RdugAszy9eERL7G5dS0I&url=/pages/pb/pb?tid=" + forwardInfo.originalTid;
+            hVar.dvR.channel = "swan_details_tieba_post_share_collect_comment";
             if (forwardInfo.showType == 3) {
-                hVar.dvE.ref_type = "video";
+                hVar.dvR.ref_type = "video";
             } else {
-                hVar.dvE.ref_type = "imagetext";
+                hVar.dvR.ref_type = "imagetext";
             }
         }
-        hVar.dvF = new a();
-        hVar.dvF.dvK = "forward";
-        hVar.dvF.dvM = "0";
+        hVar.dvS = new a();
+        hVar.dvS.dvX = "forward";
+        hVar.dvS.dvZ = "0";
         return hVar;
     }
 
-    public static String uS(String str) {
+    public static String uR(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
             int indexOf = str.indexOf(ETAG.EQUAL);
             int length = str.length();

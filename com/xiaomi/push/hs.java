@@ -108,15 +108,15 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
         int a18;
         int a19;
         if (getClass().equals(hsVar.getClass())) {
-            int compareTo = Boolean.valueOf(m360a()).compareTo(Boolean.valueOf(hsVar.m360a()));
+            int compareTo = Boolean.valueOf(m358a()).compareTo(Boolean.valueOf(hsVar.m358a()));
             if (compareTo == 0) {
-                if (!m360a() || (a19 = is.a(this.f502a, hsVar.f502a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m362b()).compareTo(Boolean.valueOf(hsVar.m362b()));
+                if (!m358a() || (a19 = is.a(this.f502a, hsVar.f502a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m360b()).compareTo(Boolean.valueOf(hsVar.m360b()));
                     if (compareTo2 == 0) {
-                        if (!m362b() || (a18 = is.a(this.f503a, hsVar.f503a)) == 0) {
-                            int compareTo3 = Boolean.valueOf(m363c()).compareTo(Boolean.valueOf(hsVar.m363c()));
+                        if (!m360b() || (a18 = is.a(this.f503a, hsVar.f503a)) == 0) {
+                            int compareTo3 = Boolean.valueOf(m361c()).compareTo(Boolean.valueOf(hsVar.m361c()));
                             if (compareTo3 == 0) {
-                                if (!m363c() || (a17 = is.a(this.f507b, hsVar.f507b)) == 0) {
+                                if (!m361c() || (a17 = is.a(this.f507b, hsVar.f507b)) == 0) {
                                     int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(hsVar.d()));
                                     if (compareTo4 == 0) {
                                         if (!d() || (a16 = is.a(this.f509c, hsVar.f509c)) == 0) {
@@ -244,12 +244,12 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m358a() {
+    public String m356a() {
         return this.f503a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m359a() {
+    public void m357a() {
         if (this.f503a == null) {
             throw new jd("Required field 'id' was not present! Struct: " + toString());
         }
@@ -263,18 +263,18 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
-                m359a();
+                m357a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f502a = new hv();
@@ -282,90 +282,90 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f503a = jcVar.m473a();
+                        this.f503a = jcVar.m471a();
                         break;
                     }
                 case 3:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f507b = jcVar.m473a();
+                        this.f507b = jcVar.m471a();
                         break;
                     }
                 case 4:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f509c = jcVar.m473a();
+                        this.f509c = jcVar.m471a();
                         break;
                     }
                 case 5:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f500a = jcVar.m467a();
+                        this.f500a = jcVar.m465a();
                         a(true);
                         break;
                     }
                 case 6:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f506b = jcVar.m467a();
+                        this.f506b = jcVar.m465a();
                         b(true);
                         break;
                     }
                 case 7:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f510d = jcVar.m473a();
+                        this.f510d = jcVar.m471a();
                         break;
                     }
                 case 8:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f511e = jcVar.m473a();
+                        this.f511e = jcVar.m471a();
                         break;
                     }
                 case 9:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f512f = jcVar.m473a();
+                        this.f512f = jcVar.m471a();
                         break;
                     }
                 case 10:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f513g = jcVar.m473a();
+                        this.f513g = jcVar.m471a();
                         break;
                     }
                 case 11:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f514h = jcVar.m473a();
+                        this.f514h = jcVar.m471a();
                         break;
                     }
                 case 12:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f501a = new ht();
@@ -373,36 +373,36 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 13:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f515i = jcVar.m473a();
+                        this.f515i = jcVar.m471a();
                         break;
                     }
                 case 14:
-                    if (m468a.a != 2) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 2) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f505a = jcVar.m477a();
+                        this.f505a = jcVar.m475a();
                         c(true);
                         break;
                     }
                 case 15:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f516j = jcVar.m473a();
+                        this.f516j = jcVar.m471a();
                         break;
                     }
                 case 16:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f508c = jcVar.m467a();
+                        this.f508c = jcVar.m465a();
                         d(true);
                         break;
                     }
@@ -410,22 +410,22 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
                 case 18:
                 case 19:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 20:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f517k = jcVar.m473a();
+                        this.f517k = jcVar.m471a();
                         break;
                     }
                 case 21:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f518l = jcVar.m473a();
+                        this.f518l = jcVar.m471a();
                         break;
                     }
             }
@@ -438,28 +438,28 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m360a() {
+    public boolean m358a() {
         return this.f502a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m361a(hs hsVar) {
+    public boolean m359a(hs hsVar) {
         if (hsVar == null) {
             return false;
         }
-        boolean m360a = m360a();
-        boolean m360a2 = hsVar.m360a();
-        if ((m360a || m360a2) && !(m360a && m360a2 && this.f502a.m378a(hsVar.f502a))) {
+        boolean m358a = m358a();
+        boolean m358a2 = hsVar.m358a();
+        if ((m358a || m358a2) && !(m358a && m358a2 && this.f502a.m376a(hsVar.f502a))) {
             return false;
         }
-        boolean m362b = m362b();
-        boolean m362b2 = hsVar.m362b();
-        if ((m362b || m362b2) && !(m362b && m362b2 && this.f503a.equals(hsVar.f503a))) {
+        boolean m360b = m360b();
+        boolean m360b2 = hsVar.m360b();
+        if ((m360b || m360b2) && !(m360b && m360b2 && this.f503a.equals(hsVar.f503a))) {
             return false;
         }
-        boolean m363c = m363c();
-        boolean m363c2 = hsVar.m363c();
-        if ((m363c || m363c2) && !(m363c && m363c2 && this.f507b.equals(hsVar.f507b))) {
+        boolean m361c = m361c();
+        boolean m361c2 = hsVar.m361c();
+        if ((m361c || m361c2) && !(m361c && m361c2 && this.f507b.equals(hsVar.f507b))) {
             return false;
         }
         boolean d2 = d();
@@ -504,7 +504,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
         }
         boolean l2 = l();
         boolean l3 = hsVar.l();
-        if ((l2 || l3) && !(l2 && l3 && this.f501a.m370a(hsVar.f501a))) {
+        if ((l2 || l3) && !(l2 && l3 && this.f501a.m368a(hsVar.f501a))) {
             return false;
         }
         boolean m2 = m();
@@ -543,9 +543,9 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m359a();
+        m357a();
         jcVar.a(f499a);
-        if (this.f502a != null && m360a()) {
+        if (this.f502a != null && m358a()) {
             jcVar.a(a);
             this.f502a.b(jcVar);
             jcVar.b();
@@ -636,7 +636,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -644,7 +644,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m362b() {
+    public boolean m360b() {
         return this.f503a != null;
     }
 
@@ -657,7 +657,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m363c() {
+    public boolean m361c() {
         return this.f507b != null;
     }
 
@@ -675,7 +675,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hs)) {
-            return m361a((hs) obj);
+            return m359a((hs) obj);
         }
         return false;
     }
@@ -739,7 +739,7 @@ public class hs implements ir<hs, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("PushMessage(");
         boolean z = true;
-        if (m360a()) {
+        if (m358a()) {
             sb.append("to:");
             if (this.f502a == null) {
                 sb.append("null");

@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class b extends LinearLayoutManager {
-    private static boolean nXx = true;
-    private static Field nXy = null;
-    private final Rect gdo;
-    private int nXA;
-    private boolean nXB;
-    private int nXC;
-    private final int[] nXz;
+    private static boolean nZk = true;
+    private static Field nZl = null;
+    private final Rect gdW;
+    private final int[] nZm;
+    private int nZn;
+    private boolean nZo;
+    private int nZp;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.nXz = new int[2];
-        this.nXA = 100;
-        this.nXC = 0;
-        this.gdo = new Rect();
+        this.nZm = new int[2];
+        this.nZn = 100;
+        this.nZp = 0;
+        this.gdW = new Rect();
         this.view = null;
     }
 
-    public static int dQB() {
+    public static int dRb() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int dQB = dQB();
+        int dRb = dRb();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.nXB) {
+                if (!this.nZo) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, dQB, this.nXz);
+                        a(recycler, i8, size, dRb, this.nZm);
                     } else {
-                        Or(i8);
+                        Ox(i8);
                     }
                 }
-                i5 = this.nXz[1] + i7;
-                i4 = i8 == 0 ? this.nXz[0] : i6;
+                i5 = this.nZm[1] + i7;
+                i4 = i8 == 0 ? this.nZm[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.nXB) {
+                if (!this.nZo) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, dQB, size2, this.nXz);
+                        a(recycler, i8, dRb, size2, this.nZm);
                     } else {
-                        Or(i8);
+                        Ox(i8);
                     }
                 }
-                i4 = i6 + this.nXz[0];
-                i5 = i8 == 0 ? this.nXz[1] : i7;
+                i4 = i6 + this.nZm[0];
+                i5 = i8 == 0 ? this.nZm[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -116,32 +116,32 @@ public class b extends LinearLayoutManager {
             }
         }
         setMeasuredDimension(min, paddingTop);
-        if (this.view != null && this.nXC == 1) {
+        if (this.view != null && this.nZp == 1) {
             ViewCompat.setOverScrollMode(this.view, (z5 && (!z2 || paddingTop < size2)) || (!z5 && (!z || min < size)) ? 2 : 0);
         }
     }
 
-    private void Or(int i) {
+    private void Ox(int i) {
         e.w("WrapContentManager", "Can't measure child #" + i + ", previously used dimensions will be reused.To remove this message either use #setChildSize() method or don't run RecyclerView animations");
     }
 
     private void u(int i, int i2, boolean z) {
-        if (this.nXz[0] == 0 && this.nXz[1] == 0) {
+        if (this.nZm[0] == 0 && this.nZm[1] == 0) {
             if (z) {
-                this.nXz[0] = i;
-                this.nXz[1] = this.nXA;
+                this.nZm[0] = i;
+                this.nZm[1] = this.nZn;
                 return;
             }
-            this.nXz[0] = this.nXA;
-            this.nXz[1] = i2;
+            this.nZm[0] = this.nZn;
+            this.nZm[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.nXz != null && getOrientation() != i) {
-            this.nXz[0] = 0;
-            this.nXz[1] = 0;
+        if (this.nZm != null && getOrientation() != i) {
+            this.nZm[0] = 0;
+            this.nZm[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -155,7 +155,7 @@ public class b extends LinearLayoutManager {
             int i4 = layoutParams.leftMargin + layoutParams.rightMargin;
             int i5 = layoutParams.topMargin + layoutParams.bottomMargin;
             a(layoutParams);
-            calculateItemDecorationsForChild(viewForPosition, this.gdo);
+            calculateItemDecorationsForChild(viewForPosition, this.gdW);
             viewForPosition.measure(getChildMeasureSpec(i2, paddingLeft + i4 + getRightDecorationWidth(viewForPosition) + getLeftDecorationWidth(viewForPosition), layoutParams.width, canScrollHorizontally()), getChildMeasureSpec(i3, paddingTop + i5 + getTopDecorationHeight(viewForPosition) + getBottomDecorationHeight(viewForPosition), layoutParams.height, canScrollVertically()));
             iArr[0] = getDecoratedMeasuredWidth(viewForPosition) + layoutParams.leftMargin + layoutParams.rightMargin;
             iArr[1] = getDecoratedMeasuredHeight(viewForPosition) + layoutParams.bottomMargin + layoutParams.topMargin;
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (nXx) {
+        if (nZk) {
             try {
-                if (nXy == null) {
-                    nXy = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    nXy.setAccessible(true);
+                if (nZl == null) {
+                    nZl = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    nZl.setAccessible(true);
                 }
-                nXy.set(layoutParams, true);
+                nZl.set(layoutParams, true);
             } catch (Exception e) {
-                dQC();
+                dRc();
             }
         }
     }
 
-    private static void dQC() {
-        nXx = false;
+    private static void dRc() {
+        nZk = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

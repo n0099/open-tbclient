@@ -23,7 +23,7 @@ public interface i extends j.c, j.k {
 
     void onDestroy();
 
-    void pK();
+    void pP();
 
-    void pT();
+    void pY();
 }

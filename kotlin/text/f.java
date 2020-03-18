@@ -2,14 +2,14 @@ package kotlin.text;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class f {
-    private final kotlin.b.h nDE;
+    private final kotlin.b.h nFr;
     private final String value;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (!kotlin.jvm.internal.q.h(this.value, fVar.value) || !kotlin.jvm.internal.q.h(this.nDE, fVar.nDE)) {
+                if (!kotlin.jvm.internal.q.h(this.value, fVar.value) || !kotlin.jvm.internal.q.h(this.nFr, fVar.nFr)) {
                 }
             }
             return false;
@@ -20,18 +20,18 @@ public final class f {
     public int hashCode() {
         String str = this.value;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        kotlin.b.h hVar = this.nDE;
+        kotlin.b.h hVar = this.nFr;
         return hashCode + (hVar != null ? hVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "MatchGroup(value=" + this.value + ", range=" + this.nDE + ")";
+        return "MatchGroup(value=" + this.value + ", range=" + this.nFr + ")";
     }
 
     public f(String str, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.j(str, "value");
         kotlin.jvm.internal.q.j(hVar, "range");
         this.value = str;
-        this.nDE = hVar;
+        this.nFr = hVar;
     }
 }

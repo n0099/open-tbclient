@@ -9,7 +9,7 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes13.dex */
 public class a {
     @Nullable
-    private static Pattern lRE;
+    private static Pattern lTk;
     public final int from;
     public final int to;
 
@@ -18,8 +18,8 @@ public class a {
         this.to = i2;
     }
 
-    public String dom() {
-        return String.format(null, "bytes=%s-%s", Ie(this.from), Ie(this.to));
+    public String doJ() {
+        return String.format(null, "bytes=%s-%s", Ik(this.from), Ik(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -27,10 +27,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Ie(this.from), Ie(this.to));
+        return String.format(null, "%s-%s", Ik(this.from), Ik(this.to));
     }
 
-    private static String Ie(int i) {
+    private static String Ik(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -49,25 +49,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a If(int i) {
+    public static a Il(int i) {
         g.checkArgument(i >= 0);
         return new a(i, Integer.MAX_VALUE);
     }
 
-    public static a Ig(int i) {
+    public static a Im(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a Pd(@Nullable String str) throws IllegalArgumentException {
+    public static a Pc(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (lRE == null) {
-                lRE = Pattern.compile("[-/ ]");
+            if (lTk == null) {
+                lTk = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = lRE.split(str);
+                String[] split = lTk.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

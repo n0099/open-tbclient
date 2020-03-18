@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0349a cte;
+    private InterfaceC0349a ctp;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -46,7 +46,7 @@ public class a {
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0349a {
-        void aqK();
+        void aqN();
     }
 
     public a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -79,13 +79,13 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.cte != null) {
-            this.cte.aqK();
+        if (this.ctp != null) {
+            this.ctp.aqN();
         }
     }
 
     public void a(InterfaceC0349a interfaceC0349a) {
-        this.cte = interfaceC0349a;
+        this.ctp = interfaceC0349a;
     }
 
     public static int ia(@ColorInt int i) {

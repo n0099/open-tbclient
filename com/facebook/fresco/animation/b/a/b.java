@@ -6,49 +6,49 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes13.dex */
 public class b implements com.facebook.fresco.animation.b.b {
-    private int lOG = -1;
+    private int lQm = -1;
     @Nullable
-    private b.a lOH;
+    private b.a lQn;
     @GuardedBy("this")
     @Nullable
-    private com.facebook.common.references.a<Bitmap> lOI;
+    private com.facebook.common.references.a<Bitmap> lQo;
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> HU(int i) {
-        return this.lOG == i ? com.facebook.common.references.a.b((com.facebook.common.references.a) this.lOI) : null;
+    public synchronized com.facebook.common.references.a<Bitmap> Ia(int i) {
+        return this.lQm == i ? com.facebook.common.references.a.b((com.facebook.common.references.a) this.lQo) : null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> HV(int i) {
-        return com.facebook.common.references.a.b((com.facebook.common.references.a) this.lOI);
+    public synchronized com.facebook.common.references.a<Bitmap> Ib(int i) {
+        return com.facebook.common.references.a.b((com.facebook.common.references.a) this.lQo);
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized com.facebook.common.references.a<Bitmap> ad(int i, int i2, int i3) {
         com.facebook.common.references.a<Bitmap> b;
-        b = com.facebook.common.references.a.b((com.facebook.common.references.a) this.lOI);
-        dnt();
+        b = com.facebook.common.references.a.b((com.facebook.common.references.a) this.lQo);
+        dnQ();
         return b;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized boolean HW(int i) {
+    public synchronized boolean Ic(int i) {
         boolean z;
-        if (i == this.lOG) {
-            z = com.facebook.common.references.a.a(this.lOI);
+        if (i == this.lQm) {
+            z = com.facebook.common.references.a.a(this.lQo);
         }
         return z;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        dnt();
+        dnQ();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
-        if (r4.get().equals(r2.lOI.get()) != false) goto L12;
+        if (r4.get().equals(r2.lQo.get()) != false) goto L12;
      */
     @Override // com.facebook.fresco.animation.b.b
     /*
@@ -56,30 +56,30 @@ public class b implements com.facebook.fresco.animation.b.b {
     */
     public synchronized void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
         if (aVar != null) {
-            if (this.lOI != null) {
+            if (this.lQo != null) {
             }
         }
-        com.facebook.common.references.a.c(this.lOI);
-        if (this.lOH != null && this.lOG != -1) {
-            this.lOH.b(this, this.lOG);
+        com.facebook.common.references.a.c(this.lQo);
+        if (this.lQn != null && this.lQm != -1) {
+            this.lQn.b(this, this.lQm);
         }
-        this.lOI = com.facebook.common.references.a.b((com.facebook.common.references.a) aVar);
-        if (this.lOH != null) {
-            this.lOH.a(this, i);
+        this.lQo = com.facebook.common.references.a.b((com.facebook.common.references.a) aVar);
+        if (this.lQn != null) {
+            this.lQn.a(this, i);
         }
-        this.lOG = i;
+        this.lQm = i;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
     }
 
-    private synchronized void dnt() {
-        if (this.lOH != null && this.lOG != -1) {
-            this.lOH.b(this, this.lOG);
+    private synchronized void dnQ() {
+        if (this.lQn != null && this.lQm != -1) {
+            this.lQn.b(this, this.lQm);
         }
-        com.facebook.common.references.a.c(this.lOI);
-        this.lOI = null;
-        this.lOG = -1;
+        com.facebook.common.references.a.c(this.lQo);
+        this.lQo = null;
+        this.lQm = -1;
     }
 }

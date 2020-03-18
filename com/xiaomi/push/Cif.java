@@ -86,7 +86,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
         this();
         this.f631b = str;
         this.f630a = z;
-        m418a(true);
+        m416a(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,15 +109,15 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
         int a15;
         int a16;
         if (getClass().equals(cif.getClass())) {
-            int compareTo = Boolean.valueOf(m419a()).compareTo(Boolean.valueOf(cif.m419a()));
+            int compareTo = Boolean.valueOf(m417a()).compareTo(Boolean.valueOf(cif.m417a()));
             if (compareTo == 0) {
-                if (!m419a() || (a16 = is.a(this.f626a, cif.f626a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m422b()).compareTo(Boolean.valueOf(cif.m422b()));
+                if (!m417a() || (a16 = is.a(this.f626a, cif.f626a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m420b()).compareTo(Boolean.valueOf(cif.m420b()));
                     if (compareTo2 == 0) {
-                        if (!m422b() || (a15 = is.a(this.f625a, cif.f625a)) == 0) {
-                            int compareTo3 = Boolean.valueOf(m423c()).compareTo(Boolean.valueOf(cif.m423c()));
+                        if (!m420b() || (a15 = is.a(this.f625a, cif.f625a)) == 0) {
+                            int compareTo3 = Boolean.valueOf(m421c()).compareTo(Boolean.valueOf(cif.m421c()));
                             if (compareTo3 == 0) {
-                                if (!m423c() || (a14 = is.a(this.f631b, cif.f631b)) == 0) {
+                                if (!m421c() || (a14 = is.a(this.f631b, cif.f631b)) == 0) {
                                     int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(cif.d()));
                                     if (compareTo4 == 0) {
                                         if (!d() || (a13 = is.a(this.f633c, cif.f633c)) == 0) {
@@ -236,7 +236,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
 
     public Cif a(boolean z) {
         this.f630a = z;
-        m418a(true);
+        m416a(true);
         return this;
     }
 
@@ -250,12 +250,12 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m416a() {
+    public Map<String, String> m414a() {
         return this.f629a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m417a() {
+    public void m415a() {
         if (this.f631b == null) {
             throw new jd("Required field 'id' was not present! Struct: " + toString());
         }
@@ -263,103 +263,103 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 if (!f()) {
                     throw new jd("Required field 'requireAck' was not found in serialized data! Struct: " + toString());
                 }
-                m417a();
+                m415a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a == 11) {
-                        this.f626a = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f626a = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 2:
-                    if (m468a.a == 12) {
+                    if (m466a.a == 12) {
                         this.f625a = new hv();
                         this.f625a.a(jcVar);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 3:
-                    if (m468a.a == 11) {
-                        this.f631b = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f631b = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 4:
-                    if (m468a.a == 11) {
-                        this.f633c = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f633c = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 5:
-                    if (m468a.a == 11) {
-                        this.f634d = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f634d = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 6:
-                    if (m468a.a == 2) {
-                        this.f630a = jcVar.m477a();
-                        m418a(true);
+                    if (m466a.a == 2) {
+                        this.f630a = jcVar.m475a();
+                        m416a(true);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 7:
-                    if (m468a.a == 11) {
-                        this.f635e = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f635e = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 8:
-                    if (m468a.a == 13) {
-                        jb m470a = jcVar.m470a();
-                        this.f629a = new HashMap(m470a.f792a * 2);
-                        for (int i2 = 0; i2 < m470a.f792a; i2++) {
-                            this.f629a.put(jcVar.m473a(), jcVar.m473a());
+                    if (m466a.a == 13) {
+                        jb m468a = jcVar.m468a();
+                        this.f629a = new HashMap(m468a.f792a * 2);
+                        for (int i2 = 0; i2 < m468a.f792a; i2++) {
+                            this.f629a.put(jcVar.m471a(), jcVar.m471a());
                         }
                         jcVar.h();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 9:
-                    if (m468a.a == 11) {
-                        this.f636f = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f636f = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 10:
-                    if (m468a.a == 11) {
-                        this.f637g = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f637g = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 11:
@@ -368,48 +368,48 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
                 case 18:
                 case 19:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 12:
-                    if (m468a.a == 11) {
-                        this.f638h = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f638h = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 13:
-                    if (m468a.a == 11) {
-                        this.f639i = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f639i = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 14:
-                    if (m468a.a == 11) {
-                        this.f627a = jcVar.m474a();
+                    if (m466a.a == 11) {
+                        this.f627a = jcVar.m472a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 15:
-                    if (m468a.a == 10) {
-                        this.f624a = jcVar.m467a();
+                    if (m466a.a == 10) {
+                        this.f624a = jcVar.m465a();
                         b(true);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 20:
-                    if (m468a.a == 2) {
-                        this.f632b = jcVar.m477a();
+                    if (m466a.a == 2) {
+                        this.f632b = jcVar.m475a();
                         c(true);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
             }
@@ -425,33 +425,33 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m418a(boolean z) {
+    public void m416a(boolean z) {
         this.f628a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m419a() {
+    public boolean m417a() {
         return this.f626a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m420a(Cif cif) {
+    public boolean m418a(Cif cif) {
         if (cif == null) {
             return false;
         }
-        boolean m419a = m419a();
-        boolean m419a2 = cif.m419a();
-        if ((m419a || m419a2) && !(m419a && m419a2 && this.f626a.equals(cif.f626a))) {
+        boolean m417a = m417a();
+        boolean m417a2 = cif.m417a();
+        if ((m417a || m417a2) && !(m417a && m417a2 && this.f626a.equals(cif.f626a))) {
             return false;
         }
-        boolean m422b = m422b();
-        boolean m422b2 = cif.m422b();
-        if ((m422b || m422b2) && !(m422b && m422b2 && this.f625a.m378a(cif.f625a))) {
+        boolean m420b = m420b();
+        boolean m420b2 = cif.m420b();
+        if ((m420b || m420b2) && !(m420b && m420b2 && this.f625a.m376a(cif.f625a))) {
             return false;
         }
-        boolean m423c = m423c();
-        boolean m423c2 = cif.m423c();
-        if ((m423c || m423c2) && !(m423c && m423c2 && this.f631b.equals(cif.f631b))) {
+        boolean m421c = m421c();
+        boolean m421c2 = cif.m421c();
+        if ((m421c || m421c2) && !(m421c && m421c2 && this.f631b.equals(cif.f631b))) {
             return false;
         }
         boolean d2 = d();
@@ -510,7 +510,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m421a() {
+    public byte[] m419a() {
         a(is.a(this.f627a));
         return this.f627a.array();
     }
@@ -526,14 +526,14 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m417a();
+        m415a();
         jcVar.a(f623a);
-        if (this.f626a != null && m419a()) {
+        if (this.f626a != null && m417a()) {
             jcVar.a(a);
             jcVar.a(this.f626a);
             jcVar.b();
         }
-        if (this.f625a != null && m422b()) {
+        if (this.f625a != null && m420b()) {
             jcVar.a(b);
             this.f625a.b(jcVar);
             jcVar.b();
@@ -607,7 +607,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -615,7 +615,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m422b() {
+    public boolean m420b() {
         return this.f625a != null;
     }
 
@@ -633,7 +633,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m423c() {
+    public boolean m421c() {
         return this.f631b != null;
     }
 
@@ -652,7 +652,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof Cif)) {
-            return m420a((Cif) obj);
+            return m418a((Cif) obj);
         }
         return false;
     }
@@ -705,7 +705,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
         boolean z = false;
         StringBuilder sb = new StringBuilder("XmPushActionNotification(");
         boolean z2 = true;
-        if (m419a()) {
+        if (m417a()) {
             sb.append("debug:");
             if (this.f626a == null) {
                 sb.append("null");
@@ -714,7 +714,7 @@ public class Cif implements ir<Cif, Object>, Serializable, Cloneable {
             }
             z2 = false;
         }
-        if (m422b()) {
+        if (m420b()) {
             if (!z2) {
                 sb.append(", ");
             }

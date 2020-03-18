@@ -46,7 +46,7 @@ public class ag {
         try {
             try {
                 File file = new File(c);
-                y.m568a(file);
+                y.m566a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     e = randomAccessFile.getChannel().lock();
@@ -203,7 +203,7 @@ public class ag {
                 }
             } else {
                 r1 = str2;
-                if (!y.m568a(file)) {
+                if (!y.m566a(file)) {
                     return true;
                 }
             }

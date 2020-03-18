@@ -22,7 +22,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class f {
-    private static final Map<String, m<e>> eg = new HashMap();
+    private static final Map<String, m<e>> ef = new HashMap();
 
     public static m<e> E(Context context, String str) {
         return com.airbnb.lottie.network.b.H(context, str);
@@ -141,10 +141,8 @@ public class f {
             e d = t.d(jsonReader);
             com.airbnb.lottie.model.g.cm().a(str, d);
             return new l<>(d);
-        } catch (Error e) {
+        } catch (Exception e) {
             return new l<>(e);
-        } catch (Exception e2) {
-            return new l<>(e2);
         }
     }
 
@@ -225,8 +223,8 @@ public class f {
                 }
             });
         }
-        if (eg.containsKey(str)) {
-            return eg.get(str);
+        if (ef.containsKey(str)) {
+            return ef.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.airbnb.lottie.f.8
@@ -236,17 +234,17 @@ public class f {
                 if (str != null) {
                     com.airbnb.lottie.model.g.cm().a(str, eVar);
                 }
-                f.eg.remove(str);
+                f.ef.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.airbnb.lottie.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.i
             public void onResult(Throwable th) {
-                f.eg.remove(str);
+                f.ef.remove(str);
             }
         });
-        eg.put(str, mVar);
+        ef.put(str, mVar);
         return mVar;
     }
 }

@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class b {
-    private a aoh;
-    private int aoi;
-    private CustomMessageListener aoj;
-    private CustomMessageListener aok;
-    private CustomMessageListener aol;
-    private CustomMessageListener aom;
+    private a aor;
+    private int aos;
+    private CustomMessageListener aot;
+    private CustomMessageListener aou;
+    private CustomMessageListener aov;
+    private CustomMessageListener aow;
     private TbPageContext mContext;
     private Handler mHandler;
 
@@ -44,7 +44,7 @@ public class b {
     }
 
     public void a(Intent intent, a aVar) {
-        this.aoh = aVar;
+        this.aor = aVar;
         registerListener();
         x(intent);
         this.mHandler = new Handler();
@@ -58,69 +58,69 @@ public class b {
     }
 
     public void release() {
-        this.aoh = null;
+        this.aor = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.aoj);
-        MessageManager.getInstance().unRegisterListener(this.aok);
-        MessageManager.getInstance().unRegisterListener(this.aol);
-        MessageManager.getInstance().unRegisterListener(this.aom);
+        MessageManager.getInstance().unRegisterListener(this.aot);
+        MessageManager.getInstance().unRegisterListener(this.aou);
+        MessageManager.getInstance().unRegisterListener(this.aov);
+        MessageManager.getInstance().unRegisterListener(this.aow);
     }
 
     private void registerListener() {
-        uQ();
-        uR();
-        uS();
-        uT();
+        uV();
+        uW();
+        uX();
+        uY();
     }
 
-    private void uQ() {
-        this.aoj = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
+    private void uV() {
+        this.aot = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aoh != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    b.this.aoh.onClose();
+                if (b.this.aor != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    b.this.aor.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aoj);
+        MessageManager.getInstance().registerListener(this.aot);
     }
 
-    private void uR() {
-        this.aok = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
+    private void uW() {
+        this.aou = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 b.this.refreshCurUserScores();
             }
         };
-        MessageManager.getInstance().registerListener(this.aok);
+        MessageManager.getInstance().registerListener(this.aou);
     }
 
-    private void uS() {
-        this.aol = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
+    private void uX() {
+        this.aov = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aoh != null) {
-                    b.this.aoh.onClose();
+                if (b.this.aor != null) {
+                    b.this.aor.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aol);
+        MessageManager.getInstance().registerListener(this.aov);
     }
 
-    private void uT() {
-        this.aom = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+    private void uY() {
+        this.aow = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 b.this.refreshCurUserScores();
             }
         };
-        MessageManager.getInstance().registerListener(this.aom);
+        MessageManager.getInstance().registerListener(this.aow);
     }
 
     private void x(Intent intent) {
@@ -129,9 +129,9 @@ public class b {
         GiftPanelTabBaseFragment bO = GiftPanelTabBaseFragment.bO(0);
         bO.a(new c.a() { // from class: com.baidu.live.gift.panel.b.6
             @Override // com.baidu.live.gift.panel.c.a
-            public void uU() {
-                if (b.this.aoh != null) {
-                    b.this.aoh.bA(1);
+            public void uZ() {
+                if (b.this.aor != null) {
+                    b.this.aor.bA(1);
                 }
             }
         });
@@ -139,14 +139,14 @@ public class b {
         GiftPanelTabBaseFragment bO2 = GiftPanelTabBaseFragment.bO(1);
         bO2.a(new c.a() { // from class: com.baidu.live.gift.panel.b.7
             @Override // com.baidu.live.gift.panel.c.a
-            public void uU() {
-                if (b.this.aoh != null) {
-                    b.this.aoh.bA(0);
+            public void uZ() {
+                if (b.this.aor != null) {
+                    b.this.aor.bA(0);
                 }
             }
         });
         bO2.a(y);
-        switch (this.aoi) {
+        switch (this.aos) {
             case 1:
                 i = 0;
                 break;
@@ -157,8 +157,8 @@ public class b {
                 i = 0;
                 break;
         }
-        if (this.aoh != null) {
-            this.aoh.a(i, bO, bO2);
+        if (this.aor != null) {
+            this.aor.a(i, bO, bO2);
         }
     }
 
@@ -167,26 +167,26 @@ public class b {
         if (intent == null) {
             return dVar;
         }
-        this.aoi = intent.getIntExtra("custom_tab_id", 1);
+        this.aos = intent.getIntExtra("custom_tab_id", 1);
         dVar.mUserName = intent.getStringExtra("user_name");
         dVar.mUserId = intent.getStringExtra("user_id");
         dVar.mLiveId = intent.getStringExtra("live_Id");
         dVar.mRoomId = intent.getStringExtra("room_id");
-        dVar.alH = intent.getStringExtra("feed_id");
-        dVar.alI = intent.getIntExtra("is_block", 0);
-        dVar.alJ = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
+        dVar.alR = intent.getStringExtra("feed_id");
+        dVar.alS = intent.getIntExtra("is_block", 0);
+        dVar.alT = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
         dVar.mAppId = intent.getStringExtra(Constants.APP_ID);
-        dVar.alK = intent.getBooleanExtra("can_graffiti", true);
-        dVar.akB = intent.getIntExtra("custom_category_id", -1);
-        dVar.akC = intent.getIntExtra("custom_gift_id", -1);
-        dVar.aiO = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
-        dVar.aiM = intent.getIntExtra("user_level", -1);
-        dVar.ajK = intent.getBooleanExtra("isJoinGuardClub", false);
+        dVar.alU = intent.getBooleanExtra("can_graffiti", true);
+        dVar.akL = intent.getIntExtra("custom_category_id", -1);
+        dVar.akM = intent.getIntExtra("custom_gift_id", -1);
+        dVar.aiY = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
+        dVar.aiW = intent.getIntExtra("user_level", -1);
+        dVar.ajU = intent.getBooleanExtra("isJoinGuardClub", false);
         dVar.isNewUser = intent.getBooleanExtra("is_new_user", false);
-        dVar.akD = intent.getIntExtra("guard_club_join_amount", 1000);
-        dVar.akN = intent.getBooleanExtra("is_redpkg_unable", false);
-        dVar.alL = intent.getIntExtra(VideoPlayActivityConfig.PAGE_FROM, -1);
-        dVar.aiT = intent.getBooleanExtra("throne_enabled", false);
+        dVar.akN = intent.getIntExtra("guard_club_join_amount", 1000);
+        dVar.akX = intent.getBooleanExtra("is_redpkg_unable", false);
+        dVar.alV = intent.getIntExtra(VideoPlayActivityConfig.PAGE_FROM, -1);
+        dVar.ajd = intent.getBooleanExtra("throne_enabled", false);
         String stringExtra = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
         if (stringExtra == null) {
             stringExtra = "";

@@ -13,9 +13,9 @@ public class e extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.tb.airbnb.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.kq == null || aVar.kr == null) {
+        if (aVar.kp == null || aVar.kq == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.nqu == null || (num = (Integer) this.nqu.b(aVar.ed, aVar.kt.floatValue(), aVar.kq, aVar.kr, f, bT(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.kq.intValue(), aVar.kr.intValue(), f)) : num;
+        return (this.nsh == null || (num = (Integer) this.nsh.b(aVar.ec, aVar.ks.floatValue(), aVar.kp, aVar.kq, f, bT(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.kp.intValue(), aVar.kq.intValue(), f)) : num;
     }
 }

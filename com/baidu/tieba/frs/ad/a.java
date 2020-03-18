@@ -1,56 +1,57 @@
 package com.baidu.tieba.frs.ad;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.frs.h;
-import com.baidu.tieba.frs.m;
 import com.baidu.tieba.frs.n;
+import com.baidu.tieba.frs.o;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private FrsADFragment gtc;
-    private BdTypeRecyclerView gtd;
-    private d gte;
-    private m gtf;
+    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private FrsADFragment gtG;
+    private BdTypeRecyclerView gtH;
+    private d gtI;
+    private n gtJ;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gtc = frsADFragment;
-        this.gtd = bdTypeRecyclerView;
-        wM();
+        this.gtG = frsADFragment;
+        this.gtH = bdTypeRecyclerView;
+        wR();
     }
 
-    private void wM() {
-        this.gte = new d(this.gtc.getPageContext(), c.gts, this.gtc.getUniqueId());
-        this.gtf = new m(this.gtc.getPageContext(), n.grn);
-        this.asF.add(this.gte);
-        this.asF.add(this.gtf);
-        bFV();
-        this.gtd.addAdapters(this.asF);
+    private void wR() {
+        this.gtI = new d(this.gtG.getPageContext(), c.gtW, this.gtG.getUniqueId());
+        this.gtJ = new n(this.gtG.getPageContext(), o.grX);
+        this.asP.add(this.gtI);
+        this.asP.add(this.gtJ);
+        bGg();
+        this.gtH.addAdapters(this.asP);
     }
 
-    public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.gtd.setData(arrayList);
+    public void setData(ArrayList<m> arrayList) {
+        this.gtH.setData(arrayList);
     }
 
-    private void bFV() {
-        if (!v.isEmpty(this.asF) && this.gtc != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+    private void bGg() {
+        if (!v.isEmpty(this.asP) && this.gtG != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof h) {
-                    ((h) aVar).a(this.gtc.getTbPageTag());
+                    ((h) aVar).a(this.gtG.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.gtd.getAdapter().notifyDataSetChanged();
+        this.gtH.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
             if (aVar instanceof h) {
                 ((h) aVar).release();
             }
@@ -58,8 +59,8 @@ public class a {
     }
 
     public void a(s sVar) {
-        if (this.asF != null && this.asF.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        if (this.asP != null && this.asP.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar != null && (aVar instanceof h)) {
                     aVar.a(sVar);
                 }

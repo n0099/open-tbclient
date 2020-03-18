@@ -11,13 +11,13 @@ import tbclient.RecomVideo.DislikeReason;
 import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes9.dex */
 public class a {
-    public static void o(List<ThreadPersonalized> list, List<m> list2) {
-        p(list, list2);
+    public static void n(List<ThreadPersonalized> list, List<m> list2) {
+        o(list, list2);
     }
 
-    private static void p(List<ThreadPersonalized> list, List<m> list2) {
+    private static void o(List<ThreadPersonalized> list, List<m> list2) {
         c cVar;
-        bj aAg;
+        bj aAj;
         ThreadPersonalized threadPersonalized;
         if (list != null && list2 != null) {
             HashMap hashMap = new HashMap();
@@ -29,15 +29,15 @@ public class a {
             int count = v.getCount(list2);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list2, i);
-                if ((mVar instanceof c) && (aAg = (cVar = (c) mVar).aAg()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aAg.getTid())) != null) {
+                if ((mVar instanceof c) && (aAj = (cVar = (c) mVar).aAj()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aAj.getTid())) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zV(threadPersonalized.abtest_tag);
-                    aAg.mRecomAbTag = threadPersonalized.abtest_tag;
-                    aAg.mRecomSource = threadPersonalized.source;
-                    aAg.mRecomWeight = threadPersonalized.weight;
-                    if (aAg.aCF() != null) {
-                        cVar.j(aAg.aCF().is_vertical);
+                    cVar.zW(threadPersonalized.abtest_tag);
+                    aAj.mRecomAbTag = threadPersonalized.abtest_tag;
+                    aAj.mRecomSource = threadPersonalized.source;
+                    aAj.mRecomWeight = threadPersonalized.weight;
+                    if (aAj.aCI() != null) {
+                        cVar.j(aAj.aCI().is_vertical);
                     }
                     List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                     if (list3 != null) {

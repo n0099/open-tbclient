@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bXY;
+    private static String bYj;
 
-    public static String agq() {
-        return mB("swan");
+    public static String agt() {
+        return mA("swan");
     }
 
-    public static String Rw() {
-        return mB("swangame");
+    public static String Rz() {
+        return mA("swangame");
     }
 
-    private static String mB(String str) {
-        String hostName = com.baidu.swan.apps.w.a.UH().getHostName();
+    private static String mA(String str) {
+        String hostName = com.baidu.swan.apps.w.a.UK().getHostName();
         a aVar = new a();
-        aVar.mC(str).mD(c.getVersion()).mE(hostName).mF(getVersionName()).mG(getOSVersion());
-        return aVar.agr();
+        aVar.mB(str).mC(c.getVersion()).mD(hostName).mE(getVersionName()).mF(getOSVersion());
+        return aVar.agu();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.w.a.TW();
+        return com.baidu.swan.apps.w.a.TZ();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(bXY)) {
-            return bXY;
+        if (!TextUtils.isEmpty(bYj)) {
+            return bYj;
         }
         try {
-            bXY = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return bXY;
+            bYj = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return bYj;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,54 +56,54 @@ public class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private static String bYd = "%s/%s";
-        private static String bYe = "%s-%s/%s";
-        private static String bYf = "(Baidu; P1 %s)";
-        private static String bYg = "%s/%s";
-        private String QF;
-        private String bXZ;
-        private String bYa;
-        private String bYb;
-        private String bYc;
+        private static String bYo = "%s/%s";
+        private static String bYp = "%s-%s/%s";
+        private static String bYq = "(Baidu; P1 %s)";
+        private static String bYr = "%s/%s";
+        private String QH;
+        private String bYk;
+        private String bYl;
+        private String bYm;
+        private String bYn;
+
+        public a mB(String str) {
+            this.bYk = str;
+            return this;
+        }
 
         public a mC(String str) {
-            this.bXZ = str;
+            this.bYl = str;
             return this;
         }
 
         public a mD(String str) {
-            this.bYa = str;
+            this.bYm = str;
             return this;
         }
 
         public a mE(String str) {
-            this.bYb = str;
+            this.bYn = str;
             return this;
         }
 
         public a mF(String str) {
-            this.bYc = str;
+            this.QH = str;
             return this;
         }
 
-        public a mG(String str) {
-            this.QF = str;
-            return this;
-        }
-
-        public String agr() {
-            String format = String.format(bYd, this.bXZ, this.bYa);
-            String format2 = String.format(bYe, this.bXZ, this.bYb, this.bYc);
-            String format3 = String.format(bYg, this.bYb, this.bYc);
-            String format4 = String.format(bYf, this.QF);
-            if (ags()) {
+        public String agu() {
+            String format = String.format(bYo, this.bYk, this.bYl);
+            String format2 = String.format(bYp, this.bYk, this.bYm, this.bYn);
+            String format3 = String.format(bYr, this.bYm, this.bYn);
+            String format4 = String.format(bYq, this.QH);
+            if (agv()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean ags() {
-            return TextUtils.equals("baiduboxapp", this.bYb);
+        private boolean agv() {
+            return TextUtils.equals("baiduboxapp", this.bYm);
         }
     }
 }

@@ -31,9 +31,9 @@ public class df extends al.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo220c() {
+    public void mo218c() {
         if (this.a != null) {
-            this.a.mo220c();
+            this.a.mo218c();
         }
     }
 }

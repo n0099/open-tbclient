@@ -41,12 +41,12 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m107a(f fVar) {
+    public static a m105a(f fVar) {
         return a.get(fVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hl m108a(f fVar) {
+    public static hl m106a(f fVar) {
         return hl.AggregatePushSwitch;
     }
 

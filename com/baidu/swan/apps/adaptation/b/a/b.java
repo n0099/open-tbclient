@@ -18,41 +18,41 @@ public class b implements am {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.c bu(Context context) {
+    public com.baidu.swan.apps.adaptation.b.c bt(Context context) {
         return new SwanAppSlaveManager(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.a bv(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a bu(Context context) {
         return new com.baidu.swan.apps.core.c.d(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.a bw(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a bv(Context context) {
         return new h(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f bx(Context context) {
+    public f bw(Context context) {
         return new SwanAppSimpleH5Widget(context);
     }
 
-    public f bB(Context context) {
+    public f bA(Context context) {
         return new SwanAppAdLandingWebViewWidget(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f by(Context context) {
+    public f bx(Context context) {
         return new i(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f bz(Context context) {
+    public f by(Context context) {
         return new com.baidu.swan.apps.c.a.b.a.b(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public g bA(Context context) {
+    public g bz(Context context) {
         return new GameWebViewManager(context);
     }
 }

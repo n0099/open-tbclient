@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 /* loaded from: classes11.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b kad;
-    private a kae;
+    private b kbG;
+    private a kbH;
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
@@ -19,14 +19,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public interface a {
         void c(SignData signData);
 
-        void ew(String str, String str2);
+        void eu(String str, String str2);
     }
 
     public SignSingleModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.kad = null;
+        this.kbG = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void cJq() {
-        if (this.kad != null) {
-            this.kad.cancel();
-            this.kad = null;
+    public void cJK() {
+        if (this.kbG != null) {
+            this.kbG.cancel();
+            this.kbG = null;
         }
     }
 
-    public void ex(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.kad == null) {
+    public void ev(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.kbG == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.kad = new b();
-            this.kad.setPriority(2);
-            this.kad.execute(new Object[0]);
+            this.kbG = new b();
+            this.kbG.setPriority(2);
+            this.kbG.execute(new Object[0]);
         }
     }
 
@@ -74,7 +74,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: D */
         public SignData doInBackground(Object... objArr) {
             Exception e;
             SignData signData;
@@ -83,10 +83,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.aGg().aGH().mIsNeedTbs = true;
-                this.mNetwork.fK(true);
+                this.mNetwork.aGk().aGL().mIsNeedTbs = true;
+                this.mNetwork.fL(true);
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aGg().aGI().isRequestSuccess()) {
+                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aGk().aGM().isRequestSuccess()) {
                     signData = null;
                 } else {
                     SignData signData2 = new SignData();
@@ -121,9 +121,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.kad = null;
+            SignSingleModel.this.kbG = null;
             super.cancel(true);
-            SignSingleModel.this.kae.ew(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.kbH.eu(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,18 +131,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.kad = null;
+            SignSingleModel.this.kbG = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.kae.c(signData);
+                SignSingleModel.this.kbH.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.kae.ew(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.kbH.eu(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.kae = aVar;
+        this.kbH = aVar;
     }
 }

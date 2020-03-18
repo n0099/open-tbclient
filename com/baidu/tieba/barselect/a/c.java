@@ -4,7 +4,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 /* loaded from: classes8.dex */
 public class c {
-    public static int rk(int i) {
+    public static int rm(int i) {
         if (i == 6) {
             return 90;
         }

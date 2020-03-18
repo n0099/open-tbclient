@@ -10,6 +10,6 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public Drawable getDrawable() {
-        return SvgManager.aGC().a(this.cWs, this.dcg);
+        return SvgManager.aGG().a(this.cWF, this.dct);
     }
 }

@@ -55,7 +55,7 @@ public class b implements IPerfProcessor {
                 break;
             }
             str = b + i2;
-            if (be.m159a(this.a, str)) {
+            if (be.m157a(this.a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -66,11 +66,11 @@ public class b implements IPerfProcessor {
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
         be.a(this.a, PerformerBox.TYPE, "perfUploading");
-        File[] m160a = be.m160a(this.a, "perfUploading");
-        if (m160a == null || m160a.length <= 0) {
+        File[] m158a = be.m158a(this.a, "perfUploading");
+        if (m158a == null || m158a.length <= 0) {
             return;
         }
-        for (File file : m160a) {
+        for (File file : m158a) {
             if (file != null) {
                 List<String> a = e.a(this.a, file.getAbsolutePath());
                 file.delete();
@@ -81,7 +81,7 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo52a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo50a(com.xiaomi.clientreport.data.a aVar) {
         if ((aVar instanceof PerfClientReport) && this.f17a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) perfClientReport);

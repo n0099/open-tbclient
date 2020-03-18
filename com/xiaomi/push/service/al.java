@@ -78,7 +78,7 @@ public class al {
         IBinder.DeathRecipient f853a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        final C0755b f857a = new C0755b();
+        final C0756b f857a = new C0756b();
 
         /* loaded from: classes8.dex */
         public interface a {
@@ -88,7 +88,7 @@ public class al {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.xiaomi.push.service.al$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0755b extends XMPushService.i {
+        public class C0756b extends XMPushService.i {
 
             /* renamed from: a  reason: collision with other field name */
             String f865a;
@@ -98,7 +98,7 @@ public class al {
             String f866b;
             int c;
 
-            public C0755b() {
+            public C0756b() {
                 super(0);
             }
 
@@ -205,12 +205,12 @@ public class al {
         private boolean b(int i, int i2, String str) {
             switch (i) {
                 case 1:
-                    if (this.f858a == c.binded || !this.f856a.m506c() || i2 == 21) {
+                    if (this.f858a == c.binded || !this.f856a.m504c() || i2 == 21) {
                         return false;
                     }
                     return (i2 == 7 && "wait".equals(str)) ? false : true;
                 case 2:
-                    return this.f856a.m506c();
+                    return this.f856a.m504c();
                 case 3:
                     return "wait".equals(str) ? false : true;
                 default:
@@ -236,7 +236,7 @@ public class al {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        void m518a() {
+        void m516a() {
             try {
                 Messenger messenger = this.f854a;
                 if (messenger != null && this.f853a != null) {
@@ -249,7 +249,7 @@ public class al {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(Messenger messenger) {
-            m518a();
+            m516a();
             try {
                 if (messenger != null) {
                     this.f854a = messenger;
@@ -279,7 +279,7 @@ public class al {
                 }
             }
             if (this.f858a != cVar) {
-                com.xiaomi.channel.commonutils.logger.b.m47a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", this.f858a, cVar, a(i), ap.a(i2), str, str2, this.g));
+                com.xiaomi.channel.commonutils.logger.b.m45a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", this.f858a, cVar, a(i), ap.a(i2), str, str2, this.g));
                 this.f858a = cVar;
             }
             if (this.f859a == null) {
@@ -337,7 +337,7 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m510a() {
+    public synchronized int m508a() {
         return this.f851a.size();
     }
 
@@ -348,7 +348,7 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<b> m511a() {
+    public synchronized ArrayList<b> m509a() {
         ArrayList<b> arrayList;
         arrayList = new ArrayList<>();
         for (HashMap<String, b> hashMap : this.f851a.values()) {
@@ -358,12 +358,12 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<b> m512a(String str) {
+    public synchronized Collection<b> m510a(String str) {
         return !this.f851a.containsKey(str) ? new ArrayList<>() : ((HashMap) this.f851a.get(str).clone()).values();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<String> m513a(String str) {
+    public synchronized List<String> m511a(String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (HashMap<String, b> hashMap : this.f851a.values()) {
@@ -377,10 +377,10 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m514a() {
-        Iterator<b> it = m511a().iterator();
+    public synchronized void m512a() {
+        Iterator<b> it = m509a().iterator();
         while (it.hasNext()) {
-            it.next().m518a();
+            it.next().m516a();
         }
         this.f851a.clear();
     }
@@ -418,11 +418,11 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m515a(String str) {
+    public synchronized void m513a(String str) {
         HashMap<String, b> hashMap = this.f851a.get(str);
         if (hashMap != null) {
             for (b bVar : hashMap.values()) {
-                bVar.m518a();
+                bVar.m516a();
             }
             hashMap.clear();
             this.f851a.remove(str);
@@ -433,12 +433,12 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m516a(String str, String str2) {
+    public synchronized void m514a(String str, String str2) {
         HashMap<String, b> hashMap = this.f851a.get(str);
         if (hashMap != null) {
             b bVar = hashMap.get(a(str2));
             if (bVar != null) {
-                bVar.m518a();
+                bVar.m516a();
             }
             hashMap.remove(a(str2));
             if (hashMap.isEmpty()) {

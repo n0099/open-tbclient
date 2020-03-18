@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock csH = new ReentrantLock();
-    private static volatile a csI;
-    private d clJ;
-    private List<c> cmB = new ArrayList(3);
+    private static final ReentrantLock csS = new ReentrantLock();
+    private static volatile a csT;
+    private d clU;
+    private List<c> cmM = new ArrayList(3);
 
     private a() {
     }
 
-    public static a apS() {
-        if (csI == null) {
+    public static a apV() {
+        if (csT == null) {
             synchronized (a.class) {
-                if (csI == null) {
-                    csI = new a();
+                if (csT == null) {
+                    csT = new a();
                 }
             }
         }
-        return csI;
+        return csT;
     }
 
     public void a(d dVar) {
-        this.clJ = dVar;
-        apT();
+        this.clU = dVar;
+        apW();
     }
 
     public void O(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.clJ = null;
-        this.cmB.clear();
+        this.clU = null;
+        this.cmM.clear();
     }
 
     private void a(c cVar) {
-        csH.lock();
+        csS.lock();
         try {
-            if (this.clJ != null) {
-                this.clJ.c(cVar);
+            if (this.clU != null) {
+                this.clU.c(cVar);
             } else {
-                this.cmB.add(cVar);
+                this.cmM.add(cVar);
             }
         } finally {
-            csH.unlock();
+            csS.unlock();
         }
     }
 
-    private void apT() {
-        if (!this.cmB.isEmpty() && this.clJ != null) {
-            csH.lock();
+    private void apW() {
+        if (!this.cmM.isEmpty() && this.clU != null) {
+            csS.lock();
             try {
-                for (c cVar : this.cmB) {
-                    this.clJ.c(cVar);
+                for (c cVar : this.cmM) {
+                    this.clU.c(cVar);
                 }
-                this.cmB.clear();
+                this.cmM.clear();
             } finally {
-                csH.unlock();
+                csS.unlock();
             }
         }
     }

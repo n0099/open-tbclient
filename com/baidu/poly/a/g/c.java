@@ -10,12 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    public static String aRi;
-    public static String aRj;
-    public static String aRk;
-    public static String aRl;
-    public static String aRm;
-    private static List<com.baidu.poly.a.g.a> aRn;
+    private static List<com.baidu.poly.a.g.a> aRA;
+    public static String aRv;
+    public static String aRw;
+    public static String aRx;
+    public static String aRy;
+    public static String aRz;
 
     /* loaded from: classes11.dex */
     static class a implements Runnable {
@@ -28,45 +28,45 @@ public class c {
         }
     }
 
-    private static com.baidu.poly.a.a.c EH() {
+    private static com.baidu.poly.a.a.c EM() {
         com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-        if (!TextUtils.isEmpty(aRi)) {
-            cVar.f(SM.COOKIE, "BDUSS=" + aRi);
+        if (!TextUtils.isEmpty(aRv)) {
+            cVar.f(SM.COOKIE, "BDUSS=" + aRv);
         }
         return cVar;
     }
 
-    private static com.baidu.poly.a.a.b EI() {
+    private static com.baidu.poly.a.a.b EN() {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         bVar.f("dm", "cashier");
         bVar.f("os", PraiseDataPassUtil.KEY_FROM_OS);
         bVar.f("v", "2.6.0");
-        if (!TextUtils.isEmpty(aRm)) {
-            bVar.f("n", aRm);
+        if (!TextUtils.isEmpty(aRz)) {
+            bVar.f("n", aRz);
         }
-        if (!TextUtils.isEmpty(aRj)) {
-            bVar.f("d", aRj);
+        if (!TextUtils.isEmpty(aRw)) {
+            bVar.f("d", aRw);
         }
-        if (!TextUtils.isEmpty(aRk)) {
-            bVar.f(SuspensionBallUbc.VALUE_DT, aRk);
+        if (!TextUtils.isEmpty(aRx)) {
+            bVar.f(SuspensionBallUbc.VALUE_DT, aRx);
         }
-        if (!TextUtils.isEmpty(aRl)) {
-            bVar.f("dp", aRl);
+        if (!TextUtils.isEmpty(aRy)) {
+            bVar.f("dp", aRy);
         }
         return bVar;
     }
 
     public static void a(com.baidu.poly.a.g.a aVar) {
-        if (aRn == null) {
-            aRn = new ArrayList();
+        if (aRA == null) {
+            aRA = new ArrayList();
         }
         if (aVar != null) {
-            aRn.add(aVar);
+            aRA.add(aVar);
         }
     }
 
     private static void clear() {
-        List<com.baidu.poly.a.g.a> list = aRn;
+        List<com.baidu.poly.a.g.a> list = aRA;
         if (list != null) {
             list.clear();
         }
@@ -75,18 +75,18 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void doFlush() {
         synchronized (c.class) {
-            List<com.baidu.poly.a.g.a> list = aRn;
+            List<com.baidu.poly.a.g.a> list = aRA;
             if (list != null && !list.isEmpty()) {
-                com.baidu.poly.a.a.b EI = EI();
+                com.baidu.poly.a.a.b EN = EN();
                 JSONArray jSONArray = new JSONArray();
-                for (com.baidu.poly.a.g.a aVar : aRn) {
-                    JSONObject EG = aVar.EG();
-                    if (EG != null) {
-                        jSONArray.put(EG);
+                for (com.baidu.poly.a.g.a aVar : aRA) {
+                    JSONObject EL = aVar.EL();
+                    if (EL != null) {
+                        jSONArray.put(EL);
                     }
                 }
-                EI.f("data", jSONArray.toString());
-                new b().a(EH(), EI);
+                EN.f("data", jSONArray.toString());
+                new b().a(EM(), EN);
                 clear();
             }
         }
@@ -97,11 +97,11 @@ public class c {
     }
 
     public static void o() {
-        aRi = null;
-        aRj = null;
-        aRk = null;
-        aRl = null;
-        aRm = null;
+        aRv = null;
+        aRw = null;
+        aRx = null;
+        aRy = null;
+        aRz = null;
     }
 
     public static void b(int i, String str) {
@@ -114,7 +114,7 @@ public class c {
             aVar = new com.baidu.poly.a.g.a("3");
         }
         if (aVar != null) {
-            aVar.eQ(str);
+            aVar.eP(str);
             a(aVar);
         }
     }

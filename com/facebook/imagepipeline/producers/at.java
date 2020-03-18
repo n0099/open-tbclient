@@ -5,8 +5,8 @@ import java.util.Deque;
 import java.util.concurrent.Executor;
 /* loaded from: classes12.dex */
 public class at {
-    private boolean lXb = false;
-    private final Deque<Runnable> lXc = new ArrayDeque();
+    private boolean lYH = false;
+    private final Deque<Runnable> lYI = new ArrayDeque();
     private final Executor mExecutor;
 
     public at(Executor executor) {
@@ -14,30 +14,30 @@ public class at {
     }
 
     public synchronized void z(Runnable runnable) {
-        if (this.lXb) {
-            this.lXc.add(runnable);
+        if (this.lYH) {
+            this.lYI.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void dsm() {
-        this.lXb = true;
+    public synchronized void dsJ() {
+        this.lYH = true;
     }
 
-    public synchronized void dsn() {
-        this.lXb = false;
-        dso();
+    public synchronized void dsK() {
+        this.lYH = false;
+        dsL();
     }
 
-    private void dso() {
-        while (!this.lXc.isEmpty()) {
-            this.mExecutor.execute(this.lXc.pop());
+    private void dsL() {
+        while (!this.lYI.isEmpty()) {
+            this.mExecutor.execute(this.lYI.pop());
         }
-        this.lXc.clear();
+        this.lYI.clear();
     }
 
     public synchronized void A(Runnable runnable) {
-        this.lXc.remove(runnable);
+        this.lYI.remove(runnable);
     }
 }

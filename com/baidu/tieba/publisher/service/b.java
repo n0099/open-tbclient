@@ -7,7 +7,7 @@ public class b extends com.baidu.pyramid.runtime.service.a<BoxAccountManager> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pyramid.runtime.service.a
-    /* renamed from: cBc */
+    /* renamed from: cBw */
     public BoxAccountManager createService() throws ServiceNotFoundException {
         return new a();
     }

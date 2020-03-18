@@ -5,19 +5,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes11.dex */
 public class c {
-    public int cpK;
-    public String cpL;
-    public String cpH = "";
+    public int cpV;
+    public String cpW;
+    public String cpS = "";
     public int maxLength = Integer.MAX_VALUE;
-    public boolean cpI = false;
-    public boolean cpJ = false;
+    public boolean cpT = false;
+    public boolean cpU = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.cpH = cVar.optString("defaultValue");
+            this.cpS = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.cpI = cVar.optBoolean("multiple");
-            this.cpJ = cVar.optBoolean("confirmHold");
+            this.cpT = cVar.optBoolean("multiple");
+            this.cpU = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -54,28 +54,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.cpK = 6;
-                    this.cpL = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cpV = 6;
+                    this.cpW = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.cpK = 5;
-                    this.cpL = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.cpV = 5;
+                    this.cpW = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.cpK = 3;
-                    this.cpL = "search";
+                    this.cpV = 3;
+                    this.cpW = "search";
                     return true;
                 case 3:
-                    this.cpK = 2;
-                    this.cpL = "go";
+                    this.cpV = 2;
+                    this.cpW = "go";
                     return true;
                 case 4:
-                    this.cpK = 4;
-                    this.cpL = "send";
+                    this.cpV = 4;
+                    this.cpW = "send";
                     return true;
                 default:
-                    this.cpK = 6;
-                    this.cpL = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cpV = 6;
+                    this.cpW = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

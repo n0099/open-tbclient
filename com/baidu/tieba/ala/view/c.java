@@ -13,15 +13,15 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.AlaRankListPKStatusActivity;
 /* loaded from: classes3.dex */
 public class c {
-    private int Yx;
-    private String eia;
-    private boolean eib;
-    private FrameLayout fAA;
-    private HeadImageView fAB;
-    private TextView fAC;
-    private TextView fAz;
-    private TextView fBd;
-    private TextView fBe;
+    private int YH;
+    private String eiq;
+    private boolean eir;
+    private TextView fBL;
+    private TextView fBM;
+    private TextView fBh;
+    private FrameLayout fBi;
+    private HeadImageView fBj;
+    private TextView fBk;
     private Context mContext;
     private String mPortrait;
     private long mUserId;
@@ -29,49 +29,49 @@ public class c {
 
     public c(Context context, String str, boolean z, long j, int i, String str2) {
         this.mContext = context;
-        this.eia = str;
-        this.eib = z;
+        this.eiq = str;
+        this.eir = z;
         this.mUserId = j;
-        this.Yx = i;
+        this.YH = i;
         this.mPortrait = str2;
         initView();
     }
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_pk_bottom_view, (ViewGroup) null);
-        this.fAz = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
-        this.fAA = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
-        this.fAB = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
-        this.fAC = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
-        this.fBd = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
-        this.fBe = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
-        this.fBd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.1
+        this.fBh = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
+        this.fBi = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
+        this.fBj = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
+        this.fBk = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
+        this.fBL = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
+        this.fBM = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
+        this.fBL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(c.this.mContext, AlaRankListPKStatusActivity.class);
-                intent.putExtra("live_type", c.this.Yx);
+                intent.putExtra("live_type", c.this.YH);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, c.this.mUserId);
                 intent.putExtra("rank_list_type", "guard");
-                intent.putExtra("rank_list_from", c.this.eib);
+                intent.putExtra("rank_list_from", c.this.eir);
                 intent.putExtra("portrait", c.this.mPortrait);
                 c.this.mContext.startActivity(intent);
             }
         });
-        this.fBe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.2
+        this.fBM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(c.this.mContext, AlaRankListPKStatusActivity.class);
-                intent.putExtra("live_type", c.this.Yx);
+                intent.putExtra("live_type", c.this.YH);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, c.this.mUserId);
                 intent.putExtra("rank_list_type", "challenge_history");
-                intent.putExtra("rank_list_from", c.this.eib);
+                intent.putExtra("rank_list_from", c.this.eir);
                 intent.putExtra("portrait", c.this.mPortrait);
                 c.this.mContext.startActivity(intent);
             }
         });
-        if (this.fAB != null) {
-            this.fAB.setIsRound(true);
-            this.fAB.setAutoChangeStyle(false);
+        if (this.fBj != null) {
+            this.fBj.setIsRound(true);
+            this.fBj.setAutoChangeStyle(false);
         }
     }
 

@@ -21,44 +21,44 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class aj extends v.a {
     public boolean CF;
-    private CustomMessageListener cLH;
-    public TextLineView iNA;
-    private View iNB;
-    private View iNC;
-    private TextView iND;
-    private List<TextLineView> iNE;
-    private int iNF;
-    private View.OnClickListener iNG;
-    private com.baidu.tieba.pb.data.j iNH;
-    private BdUniqueId iNI;
-    private BdUniqueId iNJ;
-    private View.OnClickListener iNK;
-    private View.OnClickListener iNL;
-    private CustomMessageListener iNM;
-    public TextLineView iNt;
-    public TextLineView iNu;
-    public TextView iNv;
-    public TextView iNw;
-    public View iNx;
-    public View iNy;
-    public View iNz;
+    private CustomMessageListener cLS;
+    public TextLineView iOU;
+    public TextLineView iOV;
+    public TextView iOW;
+    public TextView iOX;
+    public View iOY;
+    public View iOZ;
+    public View iPa;
+    public TextLineView iPb;
+    private View iPc;
+    private View iPd;
+    private TextView iPe;
+    private List<TextLineView> iPf;
+    private int iPg;
+    private View.OnClickListener iPh;
+    private com.baidu.tieba.pb.data.j iPi;
+    private BdUniqueId iPj;
+    private BdUniqueId iPk;
+    private View.OnClickListener iPl;
+    private View.OnClickListener iPm;
+    private CustomMessageListener iPn;
     private View mRootView;
     public int mSkinType;
 
     public aj(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.iNF = 0;
+        this.iPg = 0;
         this.CF = true;
-        this.iNK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.3
+        this.iPl = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (aj.this.iNG != null) {
-                    aj.this.iNG.onClick(view2);
+                if (aj.this.iPh != null) {
+                    aj.this.iPh.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : aj.this.iNE) {
+                        for (TextLineView textLineView : aj.this.iPf) {
                             if (textLineView != null) {
                                 if (textLineView != view2) {
                                     textLineView.setSelected(false);
@@ -71,28 +71,28 @@ public class aj extends v.a {
                 }
             }
         };
-        this.iNL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.4
+        this.iPm = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (aj.this.iNG != null) {
-                    aj.this.iNG.onClick(view2);
+                if (aj.this.iPh != null) {
+                    aj.this.iPh.onClick(view2);
                 }
             }
         };
-        this.cLH = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.aj.5
+        this.cLS = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.aj.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (aj.this.iNH != null && aj.this.iNH.Ag == com.baidu.tieba.pb.data.j.iCP && customResponsedMessage != null && getTag() == aj.this.iNI && (customResponsedMessage.getData() instanceof an.a)) {
-                    ((an.a) customResponsedMessage.getData()).iQh = aj.this;
+                if (aj.this.iPi != null && aj.this.iPi.Ag == com.baidu.tieba.pb.data.j.iEq && customResponsedMessage != null && getTag() == aj.this.iPj && (customResponsedMessage.getData() instanceof an.a)) {
+                    ((an.a) customResponsedMessage.getData()).iRI = aj.this;
                 }
             }
         };
-        this.iNM = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.aj.6
+        this.iPn = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.aj.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (aj.this.iNH == null || aj.this.iNH.Ag != com.baidu.tieba.pb.data.j.iCQ || customResponsedMessage == null || getTag() != aj.this.iNJ || !(customResponsedMessage.getData() instanceof an.a)) {
+                if (aj.this.iPi == null || aj.this.iPi.Ag != com.baidu.tieba.pb.data.j.iEr || customResponsedMessage == null || getTag() != aj.this.iPk || !(customResponsedMessage.getData() instanceof an.a)) {
                 }
             }
         };
@@ -103,27 +103,27 @@ public class aj extends v.a {
                 public void onClick(View view2) {
                 }
             });
-            this.iNt = (TextLineView) view.findViewById(R.id.reply_title);
-            this.iNt.setOnClickListener(this.iNK);
-            this.iNz = view.findViewById(R.id.reply_god_title_group);
-            this.iNA = (TextLineView) view.findViewById(R.id.reply_god_title);
-            this.iNA.setSelected(false);
-            this.iNC = view.findViewById(R.id.reply_all_title_frame);
-            this.iNB = view.findViewById(R.id.reply_all_title);
-            this.iND = (TextView) view.findViewById(R.id.reply_title_dynamic);
-            this.iNu = (TextLineView) view.findViewById(R.id.floor_owner_reply);
-            this.iNu.setOnClickListener(this.iNK);
-            this.iNv = (TextView) view.findViewById(R.id.pb_sort);
-            this.iNv.setOnClickListener(this.iNL);
-            this.iNw = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
-            this.iNt.setSelected(true);
-            this.iNu.setSelected(false);
-            this.iNE = new ArrayList();
-            this.iNE.add(this.iNt);
-            this.iNE.add(this.iNu);
-            this.iNx = view.findViewById(R.id.divider_with_reply_title);
-            this.iNy = view.findViewById(R.id.divider_bottom);
-            if (com.baidu.tbadk.util.a.aRM().aIZ()) {
+            this.iOU = (TextLineView) view.findViewById(R.id.reply_title);
+            this.iOU.setOnClickListener(this.iPl);
+            this.iPa = view.findViewById(R.id.reply_god_title_group);
+            this.iPb = (TextLineView) view.findViewById(R.id.reply_god_title);
+            this.iPb.setSelected(false);
+            this.iPd = view.findViewById(R.id.reply_all_title_frame);
+            this.iPc = view.findViewById(R.id.reply_all_title);
+            this.iPe = (TextView) view.findViewById(R.id.reply_title_dynamic);
+            this.iOV = (TextLineView) view.findViewById(R.id.floor_owner_reply);
+            this.iOV.setOnClickListener(this.iPl);
+            this.iOW = (TextView) view.findViewById(R.id.pb_sort);
+            this.iOW.setOnClickListener(this.iPm);
+            this.iOX = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
+            this.iOU.setSelected(true);
+            this.iOV.setSelected(false);
+            this.iPf = new ArrayList();
+            this.iPf.add(this.iOU);
+            this.iPf.add(this.iOV);
+            this.iOY = view.findViewById(R.id.divider_with_reply_title);
+            this.iOZ = view.findViewById(R.id.divider_bottom);
+            if (com.baidu.tbadk.util.a.aRQ().aJd()) {
                 aV(2, "");
             } else {
                 aV(0, "");
@@ -133,81 +133,81 @@ public class aj extends v.a {
     }
 
     public void aV(int i, String str) {
-        this.iNF = i;
-        this.iNv.setVisibility(0);
+        this.iPg = i;
+        this.iOW.setVisibility(0);
         if (str.length() > 0) {
-            this.iNv.setText(str);
-        } else if (this.iNF == 0) {
-            this.iNv.setText(R.string.default_sort);
-        } else if (this.iNF == 1) {
-            this.iNv.setText(R.string.view_reverse);
-        } else if (this.iNF == 2) {
-            this.iNv.setText(R.string.view_hot);
+            this.iOW.setText(str);
+        } else if (this.iPg == 0) {
+            this.iOW.setText(R.string.default_sort);
+        } else if (this.iPg == 1) {
+            this.iOW.setText(R.string.view_reverse);
+        } else if (this.iPg == 2) {
+            this.iOW.setText(R.string.view_hot);
         }
     }
 
-    public void qe(boolean z) {
+    public void qk(boolean z) {
         if (z) {
-            this.iNu.setSelected(true);
-            this.iNt.setSelected(false);
+            this.iOV.setSelected(true);
+            this.iOU.setSelected(false);
             return;
         }
-        this.iNu.setSelected(false);
-        this.iNt.setSelected(true);
+        this.iOV.setSelected(false);
+        this.iOU.setSelected(true);
     }
 
     public void a(com.baidu.tieba.pb.data.j jVar) {
-        this.iNH = jVar;
+        this.iPi = jVar;
         if (jVar != null) {
-            if (jVar.Ag == com.baidu.tieba.pb.data.j.iCQ) {
-                this.iNz.getContext();
-                if (TextUtils.isEmpty(jVar.iCS)) {
-                    this.iNC.setVisibility(0);
-                    this.iNz.setVisibility(8);
-                    this.iNt.setVisibility(0);
-                    this.iNt.setSelected(false);
-                    this.iNt.setClickable(false);
-                    this.iNt.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
+            if (jVar.Ag == com.baidu.tieba.pb.data.j.iEr) {
+                this.iPa.getContext();
+                if (TextUtils.isEmpty(jVar.iEt)) {
+                    this.iPd.setVisibility(0);
+                    this.iPa.setVisibility(8);
+                    this.iOU.setVisibility(0);
+                    this.iOU.setSelected(false);
+                    this.iOU.setClickable(false);
+                    this.iOU.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
                 } else {
-                    this.iNC.setVisibility(8);
-                    this.iNt.setVisibility(8);
-                    this.iNz.setVisibility(0);
-                    this.iNz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.2
+                    this.iPd.setVisibility(8);
+                    this.iOU.setVisibility(8);
+                    this.iPa.setVisibility(0);
+                    this.iPa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aj.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (aj.this.iNG != null) {
-                                aj.this.iNG.onClick(aj.this.iNz);
+                            if (aj.this.iPh != null) {
+                                aj.this.iPh.onClick(aj.this.iPa);
                             }
                         }
                     });
                 }
-                this.iNv.setVisibility(8);
-                this.iNu.setVisibility(8);
-                this.iNy.setVisibility(8);
-            } else if (jVar.Ag == com.baidu.tieba.pb.data.j.iCP) {
-                this.iNz.setVisibility(8);
-                this.iNC.setVisibility(0);
-                this.iNt.setClickable(true);
-                this.iNt.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.iNv.setVisibility(0);
-                this.iNu.setVisibility(0);
-                qe(jVar.iCU);
-                aV(jVar.sortType, jVar.iCT);
-                this.iNy.setVisibility(0);
+                this.iOW.setVisibility(8);
+                this.iOV.setVisibility(8);
+                this.iOZ.setVisibility(8);
+            } else if (jVar.Ag == com.baidu.tieba.pb.data.j.iEq) {
+                this.iPa.setVisibility(8);
+                this.iPd.setVisibility(0);
+                this.iOU.setClickable(true);
+                this.iOU.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.iOW.setVisibility(0);
+                this.iOV.setVisibility(0);
+                qk(jVar.iEv);
+                aV(jVar.sortType, jVar.iEu);
+                this.iOZ.setVisibility(0);
             }
             if (this.CF) {
-                this.iNy.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNC, R.color.cp_bg_line_h);
+                this.iOZ.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPd, R.color.cp_bg_line_h);
             } else {
-                this.iNy.getLayoutParams().height = 0;
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNC, R.color.cp_bg_line_e);
+                this.iOZ.getLayoutParams().height = 0;
+                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPd, R.color.cp_bg_line_e);
             }
             if (jVar.isDynamic) {
-                this.iND.setVisibility(0);
-                this.iNB.setVisibility(8);
+                this.iPe.setVisibility(0);
+                this.iPc.setVisibility(8);
             } else {
-                this.iND.setVisibility(8);
-                this.iNB.setVisibility(0);
+                this.iPe.setVisibility(8);
+                this.iPc.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -215,45 +215,45 @@ public class aj extends v.a {
 
     private void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNC, R.color.cp_bg_line_d);
-            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNz, R.color.cp_bg_line_d);
-            this.iNt.onChangeSkinType(i);
-            this.iNu.onChangeSkinType(i);
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.iNA, (int) R.color.cp_cont_b);
-            if (this.iNH != null && this.iNH.Ag == com.baidu.tieba.pb.data.j.iCQ) {
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.iNt, R.color.cp_cont_j, 1);
+            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPd, R.color.cp_bg_line_d);
+            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPa, R.color.cp_bg_line_d);
+            this.iOU.onChangeSkinType(i);
+            this.iOV.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.iPb, (int) R.color.cp_cont_b);
+            if (this.iPi != null && this.iPi.Ag == com.baidu.tieba.pb.data.j.iEr) {
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.iOU, R.color.cp_cont_j, 1);
             }
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.iNw, (int) R.color.cp_cont_j);
-            this.iNw.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.am.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.iNv, (int) R.color.cp_cont_j);
-            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNx, R.color.cp_bg_line_b);
-            this.iNv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aGC().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.iOX, (int) R.color.cp_cont_j);
+            this.iOX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.am.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.iOW, (int) R.color.cp_cont_j);
+            com.baidu.tbadk.core.util.am.setBackgroundColor(this.iOY, R.color.cp_bg_line_b);
+            this.iOW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aGG().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
             if (this.CF) {
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iNy, R.drawable.personalize_tab_shadow);
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNC, R.color.cp_bg_line_h);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iOZ, R.drawable.personalize_tab_shadow);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPd, R.color.cp_bg_line_h);
             } else {
-                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iNC, R.color.cp_bg_line_e);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(this.iPd, R.color.cp_bg_line_e);
             }
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.iND, R.color.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.iPe, R.color.cp_cont_b, 1);
         }
         this.mSkinType = i;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.iNI = bdUniqueId;
+        this.iPj = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.cLH.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cLH);
+        this.cLS.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cLS);
     }
 
     public void s(BdUniqueId bdUniqueId) {
-        this.iNJ = bdUniqueId;
+        this.iPk = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.iNM.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iNM);
+        this.iPn.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iPn);
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        this.iNG = onClickListener;
+        this.iPh = onClickListener;
     }
 }

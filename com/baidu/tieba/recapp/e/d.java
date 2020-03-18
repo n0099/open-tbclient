@@ -9,28 +9,28 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes13.dex */
 public class d {
     private final Context context;
-    private final ViewGroup cwi;
+    private final ViewGroup cwt;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.cwi = viewGroup;
+        this.cwt = viewGroup;
     }
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !es(fVar.style, eVar.jMw)) {
-                if (this.cwi == null) {
+            if (eVar == null || !eq(fVar.style, eVar.jNY)) {
+                if (this.cwt == null) {
                     return null;
                 }
-                this.cwi.removeAllViews();
+                this.cwt.removeAllViews();
                 if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(fVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.cwi, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.cwt, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.cwi, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.cwt, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.cwi, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.cwt, true), "apk_download");
                 } else {
                     return null;
                 }
@@ -40,7 +40,7 @@ public class d {
         return eVar;
     }
 
-    private boolean es(String str, String str2) {
+    private boolean eq(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

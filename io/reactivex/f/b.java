@@ -13,11 +13,11 @@ public final class b<T> {
         this.unit = (TimeUnit) io.reactivex.internal.functions.a.h(timeUnit, "unit is null");
     }
 
-    public T dJR() {
+    public T dKr() {
         return this.value;
     }
 
-    public long ZW() {
+    public long ZZ() {
         return this.time;
     }
 

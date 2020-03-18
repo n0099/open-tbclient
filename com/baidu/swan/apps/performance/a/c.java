@@ -8,7 +8,7 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.as.d.b
     /* renamed from: a */
     public void D(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.jS("670").bb("preload_scene", "1").k("from", "swan").c("component_reporter", new com.baidu.swan.apps.performance.a()).c("component_reporter", new com.baidu.swan.apps.performance.d()).c("callback_on_submit", new d()).c("callback_on_submit", new com.baidu.swan.apps.as.d.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.c.1
+        hybridUbcFlow.jR("670").ba("preload_scene", "1").k("from", "swan").c("component_reporter", new com.baidu.swan.apps.performance.a()).c("component_reporter", new com.baidu.swan.apps.performance.d()).c("callback_on_submit", new d()).c("callback_on_submit", new com.baidu.swan.apps.as.d.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -34,7 +34,7 @@ public class c implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
                 }
                 Bundle bundle = new Bundle();
                 bundle.putLong("property_launch_cost", s);
-                com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).ds(true));
+                com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).dt(true));
             }
         });
     }

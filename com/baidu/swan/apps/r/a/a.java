@@ -7,45 +7,45 @@ import com.baidu.swan.apps.r.a.a.e;
 import com.baidu.swan.apps.r.a.c;
 /* loaded from: classes11.dex */
 class a extends com.baidu.swan.apps.r.b<c> {
-    private final c.a bwB;
+    private final c.a bwN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull c cVar) {
         super(cVar);
-        this.bwB = new c.a() { // from class: com.baidu.swan.apps.r.a.a.1
+        this.bwN = new c.a() { // from class: com.baidu.swan.apps.r.a.a.1
             @Override // com.baidu.swan.apps.r.a.c.a
             public void eg(int i) {
-                if (a.this.bwu != null) {
-                    a.this.bwu.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
+                if (a.this.bwG != null) {
+                    a.this.bwG.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
                 }
             }
 
             @Override // com.baidu.swan.apps.r.a.c.a
-            public void KQ() {
-                if (a.this.bwu != null) {
-                    a.this.bwu.onCallback(a.this, "onCustomKeyboardHide", null);
+            public void KT() {
+                if (a.this.bwG != null) {
+                    a.this.bwG.onCallback(a.this, "onCustomKeyboardHide", null);
                 }
             }
 
             @Override // com.baidu.swan.apps.r.a.c.a
-            public void ib(String str) {
-                if (a.this.bwu != null) {
-                    a.this.bwu.onCallback(a.this, "committext", str);
+            public void ia(String str) {
+                if (a.this.bwG != null) {
+                    a.this.bwG.onCallback(a.this, "committext", str);
                 }
             }
 
             @Override // com.baidu.swan.apps.r.a.c.a
-            public void Tv() {
-                if (a.this.bwu != null) {
-                    a.this.bwu.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
+            public void Ty() {
+                if (a.this.bwG != null) {
+                    a.this.bwG.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
                 }
             }
         };
-        cVar.a(this.bwB);
-        this.bwt.a(new e());
-        this.bwt.a(new com.baidu.swan.apps.r.a.a.a());
-        this.bwt.a(new d());
-        this.bwt.a(new com.baidu.swan.apps.r.a.a.c());
-        this.bwt.a(new com.baidu.swan.apps.r.a.a.b());
+        cVar.a(this.bwN);
+        this.bwF.a(new e());
+        this.bwF.a(new com.baidu.swan.apps.r.a.a.a());
+        this.bwF.a(new d());
+        this.bwF.a(new com.baidu.swan.apps.r.a.a.c());
+        this.bwF.a(new com.baidu.swan.apps.r.a.a.b());
     }
 }

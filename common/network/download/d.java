@@ -6,33 +6,33 @@ import org.json.JSONObject;
 public class d {
     private int mEnd;
     private int mStart;
-    private boolean nuY;
-    private boolean nuZ;
-    private boolean nva;
+    private boolean nwL;
+    private boolean nwM;
+    private boolean nwN;
 
     public d(int i) {
         this.mEnd = 0;
-        this.nuY = false;
-        this.nuZ = false;
-        this.nva = false;
+        this.nwL = false;
+        this.nwM = false;
+        this.nwN = false;
         this.mStart = i;
         this.mEnd = (131072 + i) - 1;
     }
 
     public d(int i, boolean z) {
         this.mEnd = 0;
-        this.nuY = false;
-        this.nuZ = false;
-        this.nva = false;
+        this.nwL = false;
+        this.nwM = false;
+        this.nwN = false;
         this.mStart = i;
-        this.nuY = z;
+        this.nwL = z;
     }
 
     public d(int i, int i2) {
         this.mEnd = 0;
-        this.nuY = false;
-        this.nuZ = false;
-        this.nva = false;
+        this.nwL = false;
+        this.nwM = false;
+        this.nwN = false;
         this.mStart = i;
         this.mEnd = i2;
     }
@@ -42,19 +42,19 @@ public class d {
     }
 
     public boolean isLast() {
-        return this.nuY;
+        return this.nwL;
     }
 
-    public void kV(boolean z) {
-        this.nuY = z;
+    public void la(boolean z) {
+        this.nwL = z;
     }
 
     public boolean aW() {
-        return this.nuZ;
+        return this.nwM;
     }
 
-    public void fj(boolean z) {
-        this.nuZ = z;
+    public void fk(boolean z) {
+        this.nwM = z;
     }
 
     public static d dX(JSONObject jSONObject) throws JSONException {
@@ -63,19 +63,19 @@ public class d {
         boolean z = jSONObject.getBoolean("completed");
         if (i2 == 0) {
             d dVar = new d(i, true);
-            dVar.fj(z);
+            dVar.fk(z);
             return dVar;
         }
         d dVar2 = new d(i, i2);
-        dVar2.fj(z);
+        dVar2.fk(z);
         return dVar2;
     }
 
-    public JSONObject dIP() {
+    public JSONObject dJp() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("start", this.mStart);
-            jSONObject.put("completed", this.nuZ);
+            jSONObject.put("completed", this.nwM);
             jSONObject.put("end", isLast() ? 0 : this.mEnd);
             return jSONObject;
         } catch (Exception e) {
@@ -83,18 +83,18 @@ public class d {
         }
     }
 
-    public String dIQ() {
+    public String dJq() {
         Object[] objArr = new Object[2];
         objArr[0] = Integer.valueOf(this.mStart);
-        objArr[1] = this.nuY ? "" : Integer.valueOf(this.mEnd);
+        objArr[1] = this.nwL ? "" : Integer.valueOf(this.mEnd);
         return String.format("bytes=%s-%s", objArr);
     }
 
-    public void wE(boolean z) {
-        this.nva = z;
+    public void wM(boolean z) {
+        this.nwN = z;
     }
 
     public boolean isFailed() {
-        return this.nva;
+        return this.nwN;
     }
 }

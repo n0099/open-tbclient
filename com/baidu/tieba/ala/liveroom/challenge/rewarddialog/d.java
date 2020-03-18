@@ -13,31 +13,31 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.i;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaChallengeRewardData> implements View.OnClickListener {
-    private AlaChallengeRewardData eWQ;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c eWR;
-    private TextView eWS;
-    private TextView eWT;
-    private TextView eWU;
-    private TextView eWV;
-    private TextView eWW;
-    private TextView eWX;
-    private TextView eWY;
-    private ImageView eWZ;
-    private LinearLayout eXa;
-    private LinearLayout eXb;
-    private LinearLayout eXc;
-    private TbImageView eXd;
-    private TextView eXe;
-    private TextView eXf;
-    private TextView eXg;
-    private ProgressBar eXh;
+    private LinearLayout eXA;
+    private TbImageView eXB;
+    private TextView eXC;
+    private TextView eXD;
+    private TextView eXE;
+    private ProgressBar eXF;
+    private AlaChallengeRewardData eXo;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c eXp;
+    private TextView eXq;
+    private TextView eXr;
+    private TextView eXs;
+    private TextView eXt;
+    private TextView eXu;
+    private TextView eXv;
+    private TextView eXw;
+    private ImageView eXx;
+    private LinearLayout eXy;
+    private LinearLayout eXz;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
-        this.eWR = cVar;
+        this.eXp = cVar;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -49,86 +49,86 @@ public class d extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaChall
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaChallengeRewardData alaChallengeRewardData) {
         if (alaChallengeRewardData != null) {
-            this.eWQ = alaChallengeRewardData;
-            if (this.eWQ.isUseAllIn()) {
-                this.eWZ.setVisibility(0);
+            this.eXo = alaChallengeRewardData;
+            if (this.eXo.isUseAllIn()) {
+                this.eXx.setVisibility(0);
             } else {
-                this.eWZ.setVisibility(8);
+                this.eXx.setVisibility(8);
             }
             if (!StringHelper.isEmpty(alaChallengeRewardData.mResultDescription)) {
-                this.eWT.setText(alaChallengeRewardData.mResultDescription);
-                this.eWT.setVisibility(0);
+                this.eXr.setText(alaChallengeRewardData.mResultDescription);
+                this.eXr.setVisibility(0);
             } else {
-                this.eWT.setVisibility(8);
+                this.eXr.setVisibility(8);
             }
-            if (this.eWQ.getChallengeResult() == 2) {
-                this.eWS.setText(getTbPageContext().getResources().getString(a.i.ala_pk_success_reward_tip));
-            } else if (this.eWQ.getChallengeResult() == 0) {
-                this.eWS.setText(getTbPageContext().getResources().getString(a.i.ala_pk_fail_reward_tip));
-            } else if (this.eWQ.getChallengeResult() == 1) {
-                this.eWS.setText(getTbPageContext().getResources().getString(a.i.ala_pk_tie_reward_tip));
+            if (this.eXo.getChallengeResult() == 2) {
+                this.eXq.setText(getTbPageContext().getResources().getString(a.i.ala_pk_success_reward_tip));
+            } else if (this.eXo.getChallengeResult() == 0) {
+                this.eXq.setText(getTbPageContext().getResources().getString(a.i.ala_pk_fail_reward_tip));
+            } else if (this.eXo.getChallengeResult() == 1) {
+                this.eXq.setText(getTbPageContext().getResources().getString(a.i.ala_pk_tie_reward_tip));
             }
-            this.eXb.setVisibility(8);
-            if (JavaTypesHelper.toInt(this.eWQ.streakSuccessNum, 0) > 1) {
-                this.eXb.setVisibility(0);
-                this.eWX.setText(this.eWQ.streakSuccessNum);
+            this.eXz.setVisibility(8);
+            if (JavaTypesHelper.toInt(this.eXo.streakSuccessNum, 0) > 1) {
+                this.eXz.setVisibility(0);
+                this.eXv.setText(this.eXo.streakSuccessNum);
             }
-            this.eWY.setText(String.format("%s%s", this.eWQ.successRateNum, "%"));
-            this.eWU.setText(i.numFormatOverWanNaForAudienceNum(this.eWQ.watcherNum));
-            if (this.eWQ.isUseAllIn() && this.eWQ.getChallengeResult() == 2) {
-                this.eWV.setText(getTbPageContext().getResources().getString(a.i.ala_pk_reward_charm_num_label, i.numFormatOverWanNaForAudienceNum(this.eWQ.charmNum), this.eWQ.charmExt));
+            this.eXw.setText(String.format("%s%s", this.eXo.successRateNum, "%"));
+            this.eXs.setText(i.numFormatOverWanNaForAudienceNum(this.eXo.watcherNum));
+            if (this.eXo.isUseAllIn() && this.eXo.getChallengeResult() == 2) {
+                this.eXt.setText(getTbPageContext().getResources().getString(a.i.ala_pk_reward_charm_num_label, i.numFormatOverWanNaForAudienceNum(this.eXo.charmNum), this.eXo.charmExt));
             } else {
-                this.eWV.setText(i.numFormatOverWanNaForAudienceNum(this.eWQ.charmNum));
+                this.eXt.setText(i.numFormatOverWanNaForAudienceNum(this.eXo.charmNum));
             }
-            this.eWW.setText(i.numFormatOverWanNaForAudienceNum(this.eWQ.giftNum));
-            if (this.eWQ.challengeLevelScore < 0 || this.eWQ.challengeLevelNextScore <= 0 || this.eWQ.challengeLevelScore > this.eWQ.challengeLevelNextScore) {
-                this.eXh.setVisibility(8);
-                this.eXf.setVisibility(8);
-                this.eXg.setVisibility(8);
-                this.eXd.setVisibility(8);
-                this.eXe.setVisibility(8);
+            this.eXu.setText(i.numFormatOverWanNaForAudienceNum(this.eXo.giftNum));
+            if (this.eXo.challengeLevelScore < 0 || this.eXo.challengeLevelNextScore <= 0 || this.eXo.challengeLevelScore > this.eXo.challengeLevelNextScore) {
+                this.eXF.setVisibility(8);
+                this.eXD.setVisibility(8);
+                this.eXE.setVisibility(8);
+                this.eXB.setVisibility(8);
+                this.eXC.setVisibility(8);
                 return;
             }
-            this.eXh.setVisibility(0);
-            this.eXf.setVisibility(0);
-            this.eXg.setVisibility(0);
-            this.eXd.setVisibility(0);
-            this.eXe.setVisibility(0);
-            this.eXd.startLoad(this.eWQ.challengeLevelIcon, 10, false);
-            this.eXe.setText(this.eWQ.challengeLevelName);
-            this.eXh.setProgress((int) ((this.eWQ.challengeLevelScore * 100) / this.eWQ.challengeLevelNextScore));
-            this.eXf.setText(String.valueOf(this.eWQ.challengeLevelScore));
-            this.eXg.setText(String.format("%s%s", "/", Long.valueOf(this.eWQ.challengeLevelNextScore)));
+            this.eXF.setVisibility(0);
+            this.eXD.setVisibility(0);
+            this.eXE.setVisibility(0);
+            this.eXB.setVisibility(0);
+            this.eXC.setVisibility(0);
+            this.eXB.startLoad(this.eXo.challengeLevelIcon, 10, false);
+            this.eXC.setText(this.eXo.challengeLevelName);
+            this.eXF.setProgress((int) ((this.eXo.challengeLevelScore * 100) / this.eXo.challengeLevelNextScore));
+            this.eXD.setText(String.valueOf(this.eXo.challengeLevelScore));
+            this.eXE.setText(String.format("%s%s", "/", Long.valueOf(this.eXo.challengeLevelNextScore)));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.eXb = (LinearLayout) getViewGroup().findViewById(a.g.reward_streak_win_layout);
-        this.eWS = (TextView) getViewGroup().findViewById(a.g.reward_title);
-        this.eWT = (TextView) getViewGroup().findViewById(a.g.reward_desc);
-        this.eWU = (TextView) getViewGroup().findViewById(a.g.watch_cnt_value);
-        this.eWV = (TextView) getViewGroup().findViewById(a.g.charm_value);
-        this.eWW = (TextView) getViewGroup().findViewById(a.g.gift_num_value);
-        this.eWX = (TextView) getViewGroup().findViewById(a.g.reward_streak_success);
-        this.eWY = (TextView) getViewGroup().findViewById(a.g.reward_success_rate);
-        this.eWZ = (ImageView) getViewGroup().findViewById(a.g.reward_all_in_icon);
-        this.eXc = (LinearLayout) getViewGroup().findViewById(a.g.level_layout);
-        this.eXd = (TbImageView) getViewGroup().findViewById(a.g.level_icon);
-        this.eXd.setAutoChangeStyle(false);
-        this.eXd.setIsNight(false);
-        this.eXe = (TextView) getViewGroup().findViewById(a.g.level_name);
-        this.eXf = (TextView) getViewGroup().findViewById(a.g.level_cur_exp);
-        this.eXg = (TextView) getViewGroup().findViewById(a.g.level_max_exp);
-        this.eXh = (ProgressBar) getViewGroup().findViewById(a.g.ala_challenge_level_progress);
-        this.eXa = (LinearLayout) getViewGroup().findViewById(a.g.ok);
-        this.eXa.setOnClickListener(this);
+        this.eXz = (LinearLayout) getViewGroup().findViewById(a.g.reward_streak_win_layout);
+        this.eXq = (TextView) getViewGroup().findViewById(a.g.reward_title);
+        this.eXr = (TextView) getViewGroup().findViewById(a.g.reward_desc);
+        this.eXs = (TextView) getViewGroup().findViewById(a.g.watch_cnt_value);
+        this.eXt = (TextView) getViewGroup().findViewById(a.g.charm_value);
+        this.eXu = (TextView) getViewGroup().findViewById(a.g.gift_num_value);
+        this.eXv = (TextView) getViewGroup().findViewById(a.g.reward_streak_success);
+        this.eXw = (TextView) getViewGroup().findViewById(a.g.reward_success_rate);
+        this.eXx = (ImageView) getViewGroup().findViewById(a.g.reward_all_in_icon);
+        this.eXA = (LinearLayout) getViewGroup().findViewById(a.g.level_layout);
+        this.eXB = (TbImageView) getViewGroup().findViewById(a.g.level_icon);
+        this.eXB.setAutoChangeStyle(false);
+        this.eXB.setIsNight(false);
+        this.eXC = (TextView) getViewGroup().findViewById(a.g.level_name);
+        this.eXD = (TextView) getViewGroup().findViewById(a.g.level_cur_exp);
+        this.eXE = (TextView) getViewGroup().findViewById(a.g.level_max_exp);
+        this.eXF = (ProgressBar) getViewGroup().findViewById(a.g.ala_challenge_level_progress);
+        this.eXy = (LinearLayout) getViewGroup().findViewById(a.g.ok);
+        this.eXy.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.ok && this.eWR != null) {
-            this.eWR.dismiss();
+        if (view.getId() == a.g.ok && this.eXp != null) {
+            this.eXp.dismiss();
         }
     }
 }

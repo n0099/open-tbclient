@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes8.dex */
+/* loaded from: classes.dex */
 public class r {
-    private String cOl;
-    private int cOm;
-    private ArrayList<t> cOn = new ArrayList<>();
+    private ArrayList<t> cOA = new ArrayList<>();
+    private String cOy;
+    private int cOz;
     private int height;
     private String obj_id;
     private int width;
 
-    public ArrayList<t> aAx() {
-        return this.cOn;
+    public ArrayList<t> aAA() {
+        return this.cOA;
     }
 
     public void v(ArrayList<t> arrayList) {
-        this.cOn = arrayList;
+        this.cOA = arrayList;
     }
 
-    public String aAy() {
+    public String aAB() {
         return this.obj_id;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.cOm = activityHead.activity_type.intValue();
-            this.cOl = activityHead.activity_title;
+            this.cOz = activityHead.activity_type.intValue();
+            this.cOy = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
@@ -48,7 +48,7 @@ public class r {
         if (headImgs != null) {
             t tVar = new t();
             tVar.b(headImgs);
-            this.cOn.add(tVar);
+            this.cOA.add(tVar);
         }
     }
 }

@@ -10,15 +10,15 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a bWq;
-    private SensorManager aBk;
-    private SensorEventListener bWr;
-    private Sensor bWs;
-    private InterfaceC0204a bWt;
-    private double[] bWu = new double[3];
-    private boolean bWv = false;
-    private long bWw = 0;
-    private int bWx;
+    private static volatile a bWB;
+    private SensorManager aBy;
+    private SensorEventListener bWC;
+    private Sensor bWD;
+    private InterfaceC0204a bWE;
+    private double[] bWF = new double[3];
+    private boolean bWG = false;
+    private long bWH = 0;
+    private int bWI;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.ao.a.a$a  reason: collision with other inner class name */
@@ -30,37 +30,37 @@ public class a {
     private a() {
     }
 
-    public static a afH() {
-        if (bWq == null) {
+    public static a afK() {
+        if (bWB == null) {
             synchronized (a.class) {
-                if (bWq == null) {
-                    bWq = new a();
+                if (bWB == null) {
+                    bWB = new a();
                 }
             }
         }
-        return bWq;
+        return bWB;
     }
 
     public void init(Context context, int i) {
         this.mContext = context;
-        this.bWx = i;
+        this.bWI = i;
     }
 
     public void a(InterfaceC0204a interfaceC0204a) {
-        this.bWt = interfaceC0204a;
+        this.bWE = interfaceC0204a;
     }
 
-    public void afI() {
+    public void afL() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
-        } else if (this.bWv) {
+        } else if (this.bWG) {
             c.w("accelerometer", "has already start");
         } else {
-            this.aBk = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aBk != null) {
-                this.bWs = this.aBk.getDefaultSensor(1);
-                this.aBk.registerListener(afK(), this.bWs, 1);
-                this.bWv = true;
+            this.aBy = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aBy != null) {
+                this.bWD = this.aBy.getDefaultSensor(1);
+                this.aBy.registerListener(afN(), this.bWD, 1);
+                this.bWG = true;
                 c.i("accelerometer", "start listen");
                 return;
             }
@@ -68,58 +68,58 @@ public class a {
         }
     }
 
-    public void afJ() {
-        if (!this.bWv) {
+    public void afM() {
+        if (!this.bWG) {
             c.w("accelerometer", "has already stop");
             return;
         }
-        if (this.bWr != null && this.aBk != null) {
-            this.aBk.unregisterListener(this.bWr);
-            this.bWr = null;
+        if (this.bWC != null && this.aBy != null) {
+            this.aBy.unregisterListener(this.bWC);
+            this.bWC = null;
         }
-        this.aBk = null;
-        this.bWs = null;
-        this.bWv = false;
+        this.aBy = null;
+        this.bWD = null;
+        this.bWG = false;
     }
 
     public static void release() {
-        if (bWq != null) {
-            bWq.PR();
+        if (bWB != null) {
+            bWB.PU();
         }
     }
 
-    private void PR() {
+    private void PU() {
         c.i("accelerometer", "release");
-        if (this.bWv) {
-            afJ();
+        if (this.bWG) {
+            afM();
         }
-        this.aBk = null;
-        this.bWs = null;
-        this.bWr = null;
-        this.bWu = null;
+        this.aBy = null;
+        this.bWD = null;
+        this.bWC = null;
+        this.bWF = null;
         this.mContext = null;
-        bWq = null;
+        bWB = null;
     }
 
-    private SensorEventListener afK() {
+    private SensorEventListener afN() {
         c.i("accelerometer", "get Accelerometer listener");
-        if (this.bWr != null) {
-            return this.bWr;
+        if (this.bWC != null) {
+            return this.bWC;
         }
-        this.bWr = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.a.a.1
+        this.bWC = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.a.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        if (a.this.bWt != null && System.currentTimeMillis() - a.this.bWw > a.this.bWx) {
-                            a.this.bWu[0] = (-sensorEvent.values[0]) / 9.8d;
-                            a.this.bWu[1] = (-sensorEvent.values[1]) / 9.8d;
-                            a.this.bWu[2] = (-sensorEvent.values[2]) / 9.8d;
-                            a.this.bWt.a(a.this.bWu);
-                            a.this.bWw = System.currentTimeMillis();
+                        if (a.this.bWE != null && System.currentTimeMillis() - a.this.bWH > a.this.bWI) {
+                            a.this.bWF[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.bWF[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.bWF[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.bWE.a(a.this.bWF);
+                            a.this.bWH = System.currentTimeMillis();
                         }
                         if (e.DEBUG) {
-                            Log.d("AccelerometerManager", "current Time : " + a.this.bWw + "current Acc x : " + a.this.bWu[0] + "current Acc y : " + a.this.bWu[1] + "current Acc z : " + a.this.bWu[2]);
+                            Log.d("AccelerometerManager", "current Time : " + a.this.bWH + "current Acc x : " + a.this.bWF[0] + "current Acc y : " + a.this.bWF[1] + "current Acc z : " + a.this.bWF[2]);
                             return;
                         }
                         return;
@@ -132,6 +132,6 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.bWr;
+        return this.bWC;
     }
 }

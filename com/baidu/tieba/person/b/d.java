@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d extends v.a {
-    public int Ni;
-    public TextView cKS;
-    public View jgD;
-    public HTypeListView jgE;
-    public e jgF;
+    public int Nj;
+    public TextView cLd;
+    public View jic;
+    public HTypeListView jie;
+    public e jif;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.Ni = 3;
+        this.Nj = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jgD = view.findViewById(R.id.divider_view_under_photo_album);
-        this.cKS = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.jgE = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.jgF = new e(this.mPageContext, this.jgE);
+        this.jic = view.findViewById(R.id.divider_view_under_photo_album);
+        this.cLd = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.jie = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.jif = new e(this.mPageContext, this.jie);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.jgF.setDatas(dL(fVar.getPhotoAlbum()));
+            this.jif.setDatas(dL(fVar.getPhotoAlbum()));
         }
     }
 
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void cvb() {
-        if (this.Ni != TbadkCoreApplication.getInst().getSkinType()) {
-            this.Ni = TbadkCoreApplication.getInst().getSkinType();
+    public void cvu() {
+        if (this.Nj != TbadkCoreApplication.getInst().getSkinType()) {
+            this.Nj = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.jgD, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.cKS, R.color.cp_cont_d, 1);
-            this.jgF.notifyDataSetChanged();
+            am.setBackgroundColor(this.jic, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.cLd, R.color.cp_cont_d, 1);
+            this.jif.notifyDataSetChanged();
         }
     }
 }

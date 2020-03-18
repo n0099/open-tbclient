@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f extends com.baidu.adp.base.c {
-    TextView cyA;
-    TextView fwO;
-    TextView iLZ;
-    TextView jfV;
-    TextView jfW;
-    TextView jfX;
-    TextView jfY;
+    TextView cyL;
+    TextView fxu;
+    TextView iNA;
+    TextView jhu;
+    TextView jhv;
+    TextView jhw;
+    TextView jhx;
     TbPageContext mPageContext;
     View mView;
 
@@ -28,36 +28,36 @@ public class f extends com.baidu.adp.base.c {
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
-        this.jfV = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
-        this.jfV.setOnClickListener(onClickListener);
-        this.iLZ = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
-        this.iLZ.setOnClickListener(onClickListener);
-        this.jfW = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
-        this.jfW.setOnClickListener(onClickListener);
-        this.jfX = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
-        this.jfX.setOnClickListener(onClickListener);
-        this.cyA = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
-        this.cyA.setOnClickListener(onClickListener);
-        this.fwO = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
-        this.jfY = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
-        this.jfY.setOnClickListener(onClickListener);
+        this.jhu = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
+        this.jhu.setOnClickListener(onClickListener);
+        this.iNA = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
+        this.iNA.setOnClickListener(onClickListener);
+        this.jhv = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
+        this.jhv.setOnClickListener(onClickListener);
+        this.jhw = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
+        this.jhw.setOnClickListener(onClickListener);
+        this.cyL = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
+        this.cyL.setOnClickListener(onClickListener);
+        this.fxu = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
+        this.jhx = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
+        this.jhx.setOnClickListener(onClickListener);
     }
 
     public void j(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.jfV.setText(R.string.remove_friend);
+            this.jhu.setText(R.string.remove_friend);
         } else {
-            this.jfV.setText(R.string.frs_recommend_friend_item_add);
+            this.jhu.setText(R.string.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.jfW.setText(R.string.remove_block_chat);
+            this.jhv.setText(R.string.remove_block_chat);
         } else {
-            this.jfW.setText(R.string.block_chat_message);
+            this.jhv.setText(R.string.block_chat_message);
         }
         if (z3) {
-            this.jfY.setVisibility(0);
+            this.jhx.setVisibility(0);
         } else {
-            this.jfY.setVisibility(8);
+            this.jhx.setVisibility(8);
         }
     }
 
@@ -65,52 +65,52 @@ public class f extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public View cuV() {
-        return this.jfV;
+    public View cvo() {
+        return this.jhu;
     }
 
-    public View cuW() {
-        return this.jfW;
+    public View cvp() {
+        return this.jhv;
     }
 
-    public View cuX() {
-        return this.jfX;
+    public View cvq() {
+        return this.jhw;
     }
 
-    public View cuY() {
-        return this.iLZ;
+    public View cvr() {
+        return this.iNA;
     }
 
-    public View cuZ() {
-        return this.jfY;
+    public View cvs() {
+        return this.jhx;
     }
 
-    public void zM(int i) {
-        this.jfX.setVisibility(0);
+    public void zU(int i) {
+        this.jhw.setVisibility(0);
         if (i == 0) {
-            this.jfX.setText(this.mPageContext.getResources().getString(R.string.mute));
+            this.jhw.setText(this.mPageContext.getResources().getString(R.string.mute));
         } else if (i == 1) {
-            this.jfX.setText(this.mPageContext.getResources().getString(R.string.un_mute));
+            this.jhw.setText(this.mPageContext.getResources().getString(R.string.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fwO.setVisibility(8);
+            this.fxu.setVisibility(8);
             return;
         }
-        this.fwO.setVisibility(0);
-        this.fwO.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
+        this.fxu.setVisibility(0);
+        this.fxu.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
     }
 
     public void onChangeSkinType() {
         am.setBackgroundResource(this.mView, R.color.cp_bg_line_k);
-        am.setViewTextColor(this.jfW, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.jfV, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.iLZ, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.jfX, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.fwO, R.color.cp_cont_c, 1);
-        am.setViewTextColor(this.jfY, (int) R.color.pop_window_item_txt_color_selector);
-        am.setViewTextColor(this.cyA, (int) R.color.pop_window_cancel_txt_color_selector);
+        am.setViewTextColor(this.jhv, (int) R.color.pop_window_item_txt_color_selector);
+        am.setViewTextColor(this.jhu, (int) R.color.pop_window_item_txt_color_selector);
+        am.setViewTextColor(this.iNA, (int) R.color.pop_window_item_txt_color_selector);
+        am.setViewTextColor(this.jhw, (int) R.color.pop_window_item_txt_color_selector);
+        am.setViewTextColor(this.fxu, R.color.cp_cont_c, 1);
+        am.setViewTextColor(this.jhx, (int) R.color.pop_window_item_txt_color_selector);
+        am.setViewTextColor(this.cyL, (int) R.color.pop_window_cancel_txt_color_selector);
     }
 }

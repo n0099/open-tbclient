@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View cen;
-    private int fOq;
-    private int fOr;
+    private View cey;
+    private int fOY;
+    private int fOZ;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fOq = R.color.cp_bg_line_c;
-        this.fOr = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.fOY = R.color.cp_bg_line_c;
+        this.fOZ = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.cen = getView().findViewById(R.id.card_divider);
+        this.cey = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.cen, this.fOq);
+            am.setBackgroundColor(this.cey, this.fOY);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
         if (bVar != null) {
-            this.cen.setVisibility(0);
-            this.fOq = bVar.fOq;
-            this.fOr = bVar.fOr;
-            bvK();
+            this.cey.setVisibility(0);
+            this.fOY = bVar.fOY;
+            this.fOZ = bVar.fOZ;
+            bvP();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bvK() {
-        ViewGroup.LayoutParams layoutParams = this.cen.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.fOr) {
-            layoutParams.height = this.fOr;
-            this.cen.setLayoutParams(layoutParams);
+    private void bvP() {
+        ViewGroup.LayoutParams layoutParams = this.cey.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.fOZ) {
+            layoutParams.height = this.fOZ;
+            this.cey.setLayoutParams(layoutParams);
         }
     }
 

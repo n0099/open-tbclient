@@ -36,6 +36,7 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean isAd;
     private boolean isBJHPost;
     private boolean isBabaoPosted;
+    private int isGeneralTab;
     private boolean isLinkThread;
     private boolean isPrivacy;
     private boolean isShareThread;
@@ -90,6 +91,8 @@ public class WriteData extends OrmObject implements Serializable {
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
     private String mSubPbReplyPrefix;
+    private int mTabId;
+    private String mTabName;
     private int mTakePhotoNum;
     private String mTaskId;
     private String mThreadId;
@@ -1016,5 +1019,29 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setOriBaijiahaoData(BaijiahaoData baijiahaoData) {
         this.mOriBaijiahaoData = baijiahaoData;
+    }
+
+    public int getTabId() {
+        return this.mTabId;
+    }
+
+    public void setTabId(int i) {
+        this.mTabId = i;
+    }
+
+    public String getTabName() {
+        return this.mTabName;
+    }
+
+    public void setTabName(String str) {
+        this.mTabName = str;
+    }
+
+    public int getIsGeneralTab() {
+        return this.isGeneralTab;
+    }
+
+    public void setIsGeneralTab(int i) {
+        this.isGeneralTab = i;
     }
 }

@@ -14,7 +14,7 @@ public interface a {
 
     void release();
 
-    void sL();
+    void sQ();
 
     void setCanVisible(boolean z);
 }

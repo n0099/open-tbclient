@@ -4,11 +4,11 @@ import android.util.SparseArray;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class al {
-    private long cPB;
-    public int cPD;
-    public JSONArray cPE;
-    public String cPF;
-    public int cPG;
+    private long cPO;
+    public int cPQ;
+    public JSONArray cPR;
+    public String cPS;
+    public int cPT;
     public int cardType;
     public String extra;
     private String fid;
@@ -18,7 +18,7 @@ public class al {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> cPC = null;
+    public SparseArray<String> cPP = null;
 
     public String getTid() {
         return this.tid;
@@ -57,26 +57,26 @@ public class al {
     }
 
     public void jy(int i) {
-        this.cPD = i;
+        this.cPQ = i;
     }
 
-    public int aAS() {
-        return this.cPD;
+    public int aAV() {
+        return this.cPQ;
     }
 
     public void M(JSONArray jSONArray) {
-        this.cPE = jSONArray;
+        this.cPR = jSONArray;
     }
 
-    public JSONArray aAT() {
-        return this.cPE;
+    public JSONArray aAW() {
+        return this.cPR;
     }
 
-    public long aAU() {
-        return this.cPB;
+    public long aAX() {
+        return this.cPO;
     }
 
     public void bt(long j) {
-        this.cPB = j;
+        this.cPO = j;
     }
 }

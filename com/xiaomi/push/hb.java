@@ -43,13 +43,13 @@ public class hb implements XMPushService.l {
 
     @Override // com.xiaomi.push.service.XMPushService.l
     /* renamed from: a  reason: collision with other method in class */
-    public void mo330a() {
+    public void mo328a() {
         a(this.f447a);
         if (this.b && a()) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m45a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
             hf a2 = he.a(this.f447a).a();
             if (!a(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m47a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
+                com.xiaomi.channel.commonutils.logger.b.m45a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
                 return;
             }
             a = true;

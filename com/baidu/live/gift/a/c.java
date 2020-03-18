@@ -7,13 +7,13 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements Cloneable {
-    public String XX;
-    public String XY;
-    public long alB;
-    public boolean alD;
-    public String alE;
-    public g alx;
-    public int alz;
+    public String Yh;
+    public String Yi;
+    public g alH;
+    public int alJ;
+    public long alL;
+    public boolean alN;
+    public String alO;
     public String appId;
     public String description;
     public String giftId;
@@ -25,69 +25,69 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean alw = false;
-    public String aly = "";
-    public long alA = 0;
+    public boolean alG = false;
+    public String alI = "";
+    public long alK = 0;
     public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long alC = 0;
-    private boolean alF = true;
-    public boolean alG = false;
-    public List<m> ahu = new ArrayList();
+    public long alM = 0;
+    private boolean alP = true;
+    public boolean alQ = false;
+    public List<m> ahE = new ArrayList();
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8) {
         this.giftId = str;
-        this.alB = j;
-        this.alx = gVar;
+        this.alL = j;
+        this.alH = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.alD = z;
-        this.alE = str7;
+        this.alN = z;
+        this.alO = str7;
         this.appId = str8;
-        tQ();
+        tV();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9) {
         this.giftId = str;
-        this.alB = j;
-        this.alx = gVar;
+        this.alL = j;
+        this.alH = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.alz = i;
+        this.alJ = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.alD = z;
-        this.alE = str8;
+        this.alN = z;
+        this.alO = str8;
         this.appId = str9;
-        tQ();
+        tV();
     }
 
     public void B(long j) {
         this.sendTime = j;
     }
 
-    public long tP() {
+    public long tU() {
         return this.sendTime;
     }
 
-    private void tQ() {
-        this.aly = this.userId + this.giftId + this.userName;
+    private void tV() {
+        this.alI = this.userId + this.giftId + this.userName;
     }
 
-    public String tR() {
-        return this.aly;
+    public String tW() {
+        return this.alI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: tS */
+    /* renamed from: tX */
     public c clone() {
         try {
             return (c) super.clone();
@@ -97,12 +97,12 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean tT() {
-        return this.alF;
+    public boolean tY() {
+        return this.alP;
     }
 
     public void aN(boolean z) {
-        this.alF = z;
+        this.alP = z;
     }
 
     /* loaded from: classes3.dex */
@@ -118,10 +118,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.alx != null && cVar2.alx != null) {
+                if (cVar.alH != null && cVar2.alH != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.alx.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.alx.getPrice());
+                        long parseLong = Long.parseLong(cVar.alH.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.alH.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

@@ -4,9 +4,9 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class a implements Iterable<Character> {
-    public static final C0768a nCM = new C0768a(null);
-    private final char nCK;
-    private final char nCL;
+    public static final C0769a nEz = new C0769a(null);
+    private final char nEx;
+    private final char nEy;
     private final int step;
 
     public a(char c, char c2, int i) {
@@ -16,53 +16,53 @@ public class a implements Iterable<Character> {
         if (i == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nCK = c;
-        this.nCL = (char) kotlin.internal.c.au(c, c2, i);
+        this.nEx = c;
+        this.nEy = (char) kotlin.internal.c.au(c, c2, i);
         this.step = i;
     }
 
-    public final char dKD() {
-        return this.nCK;
+    public final char dLd() {
+        return this.nEx;
     }
 
-    public final char dKE() {
-        return this.nCL;
+    public final char dLe() {
+        return this.nEy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dKF */
+    /* renamed from: dLf */
     public kotlin.collections.n iterator() {
-        return new b(this.nCK, this.nCL, this.step);
+        return new b(this.nEx, this.nEy, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.nCK > this.nCL : this.nCK < this.nCL;
+        return this.step > 0 ? this.nEx > this.nEy : this.nEx < this.nEy;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.nCK == ((a) obj).nCK && this.nCL == ((a) obj).nCL && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.nEx == ((a) obj).nEx && this.nEy == ((a) obj).nEy && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.nCK * 31) + this.nCL) * 31) + this.step;
+        return (((this.nEx * 31) + this.nEy) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.nCK + IStringUtil.TOP_PATH + this.nCL + " step " + this.step : this.nCK + " downTo " + this.nCL + " step " + (-this.step);
+        return this.step > 0 ? this.nEx + IStringUtil.TOP_PATH + this.nEy + " step " + this.step : this.nEx + " downTo " + this.nEy + " step " + (-this.step);
     }
 
     @kotlin.h
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0768a {
-        private C0768a() {
+    public static final class C0769a {
+        private C0769a() {
         }
 
-        public /* synthetic */ C0768a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ C0769a(kotlin.jvm.internal.o oVar) {
             this();
         }
     }

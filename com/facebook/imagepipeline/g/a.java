@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes13.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d lTZ;
+    private com.facebook.imagepipeline.animated.base.d lVF;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.lTZ = dVar;
+        this.lVF = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.lTZ.dnI().getWidth();
+        return isClosed() ? 0 : this.lVF.dof().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.lTZ.dnI().getHeight();
+        return isClosed() ? 0 : this.lVF.dof().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.lTZ != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.lTZ;
-                this.lTZ = null;
+            if (this.lVF != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.lVF;
+                this.lVF = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.lTZ == null;
+        return this.lVF == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.lTZ.dnI().getSizeInBytes();
+        return isClosed() ? 0 : this.lVF.dof().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d dqr() {
-        return this.lTZ;
+    public synchronized com.facebook.imagepipeline.animated.base.d dqO() {
+        return this.lVF;
     }
 }

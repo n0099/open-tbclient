@@ -18,23 +18,23 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private LinkedBlockingQueue<String> bld = new LinkedBlockingQueue<>();
-    private InspectorNativeClient ble;
-    private com.baidu.swan.games.e.a blf;
-    private final a.InterfaceC0238a blg;
-    private org.java_websocket.a.a blk;
+    private LinkedBlockingQueue<String> blq = new LinkedBlockingQueue<>();
+    private InspectorNativeClient blr;
+    private com.baidu.swan.games.e.a bls;
+    private final a.InterfaceC0238a blt;
+    private org.java_websocket.a.a blx;
     private String mUrl;
 
     public b(String str, a.InterfaceC0238a interfaceC0238a) {
         this.mUrl = str;
-        this.blg = interfaceC0238a;
+        this.blt = interfaceC0238a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         try {
-            this.blk = new C0241b(new URI(this.mUrl));
-            this.blk.connect();
+            this.blx = new C0241b(new URI(this.mUrl));
+            this.blx.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -50,22 +50,22 @@ public class b implements a.b {
         @Override // org.java_websocket.a.a
         public void onOpen(h hVar) {
             com.baidu.swan.apps.console.c.d("V8InspectorClient", "V8 inspector opened");
-            b.this.blf = (com.baidu.swan.games.e.a) com.baidu.swan.apps.core.k.d.Qw().QL().JD();
-            b.this.ble = b.this.blf.initInspector(new a());
+            b.this.bls = (com.baidu.swan.games.e.a) com.baidu.swan.apps.core.k.d.Qz().QO().JG();
+            b.this.blr = b.this.bls.initInspector(new a());
         }
 
         @Override // org.java_websocket.a.a
         public void onMessage(String str) {
-            b.this.bld.offer(str);
-            b.this.blf.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.1
+            b.this.blq.offer(str);
+            b.this.bls.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    String str2 = (String) b.this.bld.poll();
+                    String str2 = (String) b.this.blq.poll();
                     while (str2 != null) {
-                        b.this.ble.dispatchProtocolMessage(str2);
+                        b.this.blr.dispatchProtocolMessage(str2);
+                        C0241b.this.gF(str2);
                         C0241b.this.gG(str2);
-                        C0241b.this.gH(str2);
-                        str2 = (String) b.this.bld.poll();
+                        str2 = (String) b.this.blq.poll();
                     }
                 }
             });
@@ -82,17 +82,17 @@ public class b implements a.b {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void gG(String str) {
-            if (!TextUtils.isEmpty(str) && b.this.blg != null) {
+        public void gF(String str) {
+            if (!TextUtils.isEmpty(str) && b.this.blt != null) {
                 try {
                     if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        com.baidu.swan.apps.runtime.d acC = com.baidu.swan.apps.runtime.d.acC();
-                        SwanAppActivity acB = acC.acB();
-                        if (acC.abj() && acB != null) {
-                            acB.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
+                        com.baidu.swan.apps.runtime.d acF = com.baidu.swan.apps.runtime.d.acF();
+                        SwanAppActivity acE = acF.acE();
+                        if (acF.abm() && acE != null) {
+                            acE.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    b.this.blg.onConnected();
+                                    b.this.blt.onConnected();
                                 }
                             });
                         }
@@ -106,7 +106,7 @@ public class b implements a.b {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void gH(String str) {
+        public void gG(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -138,7 +138,7 @@ public class b implements a.b {
                                 return;
                             case 1:
                                 com.baidu.swan.apps.console.c.i("V8InspectorClient", "v8 inspector close");
-                                com.baidu.swan.apps.console.debugger.b.d.LZ();
+                                com.baidu.swan.apps.console.debugger.b.d.Mc();
                                 return;
                             default:
                                 com.baidu.swan.apps.console.c.e("V8InspectorClient", "Undefined command");
@@ -162,8 +162,8 @@ public class b implements a.b {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                if (b.this.blk != null) {
-                    b.this.blk.send(str);
+                if (b.this.blx != null) {
+                    b.this.blx.send(str);
                 }
             } catch (Exception e) {
                 if (b.DEBUG) {
@@ -178,7 +178,7 @@ public class b implements a.b {
                 Log.d("V8InspectorClient", "getInspectorMessage");
             }
             try {
-                return (String) b.this.bld.take();
+                return (String) b.this.blq.take();
             } catch (InterruptedException e) {
                 if (b.DEBUG) {
                     Log.e("V8InspectorClient", "awaitMessage on Debugger", e);

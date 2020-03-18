@@ -43,7 +43,7 @@ public class fh {
     public int a(ff ffVar) {
         int c = ffVar.c();
         if (c > 32768) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + ffVar.a() + " id=" + ffVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m45a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + ffVar.a() + " id=" + ffVar.e());
             return 0;
         }
         this.f364a.clear();
@@ -54,8 +54,8 @@ public class fh {
         this.f364a.putShort((short) 5);
         this.f364a.putInt(c);
         int position = this.f364a.position();
-        this.f364a = ffVar.mo270a(this.f364a);
-        if (!"CONN".equals(ffVar.m269a())) {
+        this.f364a = ffVar.mo268a(this.f364a);
+        if (!"CONN".equals(ffVar.m267a())) {
             if (this.f366a == null) {
                 this.f366a = this.f362a.a();
             }
@@ -68,7 +68,7 @@ public class fh {
         this.f363a.write(this.f367b.array(), 0, 4);
         this.f363a.flush();
         int position2 = this.f364a.position() + 4;
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + ffVar.m269a() + ";chid=" + ffVar.a() + ";len=" + position2 + "}");
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + ffVar.m267a() + ";chid=" + ffVar.a() + ";len=" + position2 + "}");
         return position2;
     }
 
@@ -76,16 +76,16 @@ public class fh {
         ee.e eVar = new ee.e();
         eVar.a(106);
         eVar.a(Build.MODEL);
-        eVar.b(t.m562a());
-        eVar.c(com.xiaomi.push.service.ba.m526a());
+        eVar.b(t.m560a());
+        eVar.c(com.xiaomi.push.service.ba.m524a());
         eVar.b(38);
         eVar.d(this.f362a.b());
         eVar.e(this.f362a.a());
         eVar.f(Locale.getDefault().toString());
         eVar.c(Build.VERSION.SDK_INT);
-        byte[] m292a = this.f362a.a().m292a();
-        if (m292a != null) {
-            eVar.a(ee.b.a(m292a));
+        byte[] m290a = this.f362a.a().m290a();
+        if (m290a != null) {
+            eVar.a(ee.b.a(m290a));
         }
         ff ffVar = new ff();
         ffVar.a(0);
@@ -93,7 +93,7 @@ public class fh {
         ffVar.a(0L, "xiaomi.com", null);
         ffVar.a(eVar.a(), (String) null);
         a(ffVar);
-        com.xiaomi.channel.commonutils.logger.b.m47a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=38 hash=" + com.xiaomi.push.service.ba.m526a() + " tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.m45a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=38 hash=" + com.xiaomi.push.service.ba.m524a() + " tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {

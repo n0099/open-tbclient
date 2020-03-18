@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class k extends i {
-    public static final a nDg = new a(null);
-    private static final k nDf = new k(1, 0);
+    public static final a nET = new a(null);
+    private static final k nES = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return dKM() > dKN();
+        return dLm() > dLn();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dKM() == ((k) obj).dKM() && dKN() == ((k) obj).dKN()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dLm() == ((k) obj).dLm() && dLn() == ((k) obj).dLn()));
     }
 
     @Override // kotlin.b.i
@@ -26,12 +26,12 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (dKM() ^ (dKM() >>> 32))) + (dKN() ^ (dKN() >>> 32)));
+        return (int) ((31 * (dLm() ^ (dLm() >>> 32))) + (dLn() ^ (dLn() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return dKM() + IStringUtil.TOP_PATH + dKN();
+        return dLm() + IStringUtil.TOP_PATH + dLn();
     }
 
     @kotlin.h

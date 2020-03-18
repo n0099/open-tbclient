@@ -42,14 +42,14 @@ public class d extends ab {
                 return false;
             }
             int optInt = optParamsAsJo.optInt("orientationType", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
-            com.baidu.swan.apps.adaptation.b.e hv = f.WS().hv(optParamsAsJo.optString("slaveId"));
-            if (!(hv instanceof SwanAppWebViewManager)) {
+            com.baidu.swan.apps.adaptation.b.e hu = f.WV().hu(optParamsAsJo.optString("slaveId"));
+            if (!(hu instanceof SwanAppWebViewManager)) {
                 com.baidu.swan.apps.console.c.e("setFullscreenOrientationSync", "no WebView with this slaveId");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             int fa = fa(optInt);
-            ((SwanAppWebViewManager) hv).ep(fa);
+            ((SwanAppWebViewManager) hu).ep(fa);
             if (DEBUG) {
                 Log.d("setFullscreenOrientationSync", "orientation set to : " + fa);
             }

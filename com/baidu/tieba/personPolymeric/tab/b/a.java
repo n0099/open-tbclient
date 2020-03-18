@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static final int dOs = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int jqN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int jqO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int dOJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int jsm = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int jsn = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<m> dS(List<m> list) {
         bj bjVar;
-        m aV;
+        m aW;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
@@ -32,15 +32,15 @@ public class a {
                 return arrayList;
             }
             m mVar = (m) v.getItem(list, i2);
-            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).cRg) != null && (aV = aV(bjVar)) != null) {
-                arrayList.add(aV);
+            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).cRt) != null && (aW = aW(bjVar)) != null) {
+                arrayList.add(aW);
             }
             i = i2 + 1;
         }
     }
 
     public static List<m> dT(List<bj> list) {
-        m aV;
+        m aW;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
@@ -52,8 +52,8 @@ public class a {
                 return arrayList;
             }
             bj bjVar = (bj) v.getItem(list, i2);
-            if (bjVar != null && (aV = aV(bjVar)) != null) {
-                arrayList.add(aV);
+            if (bjVar != null && (aW = aW(bjVar)) != null) {
+                arrayList.add(aW);
             }
             i = i2 + 1;
         }
@@ -64,52 +64,52 @@ public class a {
             return null;
         }
         if (mVar instanceof e) {
-            return ((e) mVar).cRg;
+            return ((e) mVar).cRt;
         }
         if (mVar instanceof f) {
-            return ((f) mVar).cRg;
+            return ((f) mVar).cRt;
         }
         if (mVar instanceof k) {
-            return ((k) mVar).cRg;
+            return ((k) mVar).cRt;
         }
         if (mVar instanceof l) {
-            return ((l) mVar).cRg;
+            return ((l) mVar).cRt;
         }
         return null;
     }
 
-    public static m aV(bj bjVar) {
+    public static m aW(bj bjVar) {
         if (bjVar == null) {
             return null;
         }
         if (bjVar.isShareThread) {
             k kVar = new k();
-            kVar.cRg = bjVar;
+            kVar.cRt = bjVar;
             return kVar;
-        } else if (e.aa(bjVar)) {
+        } else if (e.ab(bjVar)) {
             return new e(bjVar);
         } else {
-            if (f.ab(bjVar)) {
+            if (f.ac(bjVar)) {
                 return new f(bjVar);
             }
-            if (k.aa(bjVar) || k.ac(bjVar)) {
+            if (k.ab(bjVar) || k.ad(bjVar)) {
                 k kVar2 = new k();
                 if (bjVar.isLinkThread()) {
                     kVar2.isLinkThread = true;
-                } else if (bjVar.aDn()) {
-                    kVar2.cRf = true;
+                } else if (bjVar.aDr()) {
+                    kVar2.cRs = true;
                 } else {
                     kVar2.isLinkThread = false;
-                    if (bjVar.aCr()) {
-                        kVar2.fNv = true;
+                    if (bjVar.aCu()) {
+                        kVar2.fOd = true;
                     } else {
-                        kVar2.fNv = false;
+                        kVar2.fOd = false;
                     }
                 }
-                kVar2.cRg = bjVar;
-                kVar2.fNw = true;
+                kVar2.cRt = bjVar;
+                kVar2.fOe = true;
                 return kVar2;
-            } else if (l.aa(bjVar)) {
+            } else if (l.ab(bjVar)) {
                 return new l(bjVar);
             } else {
                 return null;
@@ -118,13 +118,13 @@ public class a {
     }
 
     public static List<m> dU(List<bj> list) {
-        m aV;
+        m aW;
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = jqO;
-            kVar.paddingTop = jqN;
-            kVar.paddingLeft = dOs;
+            kVar.paddingBottom = jsn;
+            kVar.paddingTop = jsm;
+            kVar.paddingLeft = dOJ;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             int i = 0;
@@ -134,8 +134,8 @@ public class a {
                     break;
                 }
                 bj bjVar = list.get(i2);
-                if (bjVar != null && (aV = aV(bjVar)) != null) {
-                    arrayList.add(aV);
+                if (bjVar != null && (aW = aW(bjVar)) != null) {
+                    arrayList.add(aW);
                 }
                 i = i2 + 1;
             }

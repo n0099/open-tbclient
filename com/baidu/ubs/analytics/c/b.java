@@ -7,23 +7,23 @@ import java.util.Date;
 /* loaded from: classes8.dex */
 public final class b {
     private static boolean ad = false;
-    private static a.InterfaceC0642a kWk;
-    private static a.InterfaceC0642a kWl;
+    private static a.InterfaceC0643a kXN;
+    private static a.InterfaceC0643a kXO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void c(Context context) {
         synchronized (b.class) {
             if (!ad) {
-                com.baidu.ubs.analytics.d.b.Lt(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                kWk = new c();
-                kWl = new m();
-                a.cXt().cXv();
-                a.cXt().a(kWl);
-                a.cXt().a(kWk);
-                a.cXt().c(context);
+                com.baidu.ubs.analytics.d.b.Ls(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                kXN = new c();
+                kXO = new m();
+                a.cXR().cXT();
+                a.cXR().a(kXO);
+                a.cXR().a(kXN);
+                a.cXR().c(context);
                 ad = true;
             } else {
-                com.baidu.ubs.analytics.d.b.Lt(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+                com.baidu.ubs.analytics.d.b.Ls(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
         }
     }

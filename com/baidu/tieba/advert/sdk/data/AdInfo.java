@@ -78,7 +78,7 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b xA = b.xA(com.baidu.tieba.advert.sdk.c.a.aZq());
+        b xA = b.xA(com.baidu.tieba.advert.sdk.c.a.aZu());
         if (TextUtils.isEmpty(xA.videoLocalPath)) {
             return true;
         }

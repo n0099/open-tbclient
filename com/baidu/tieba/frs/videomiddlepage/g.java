@@ -10,7 +10,7 @@ public interface g {
 
     /* loaded from: classes9.dex */
     public interface b {
-        void Sk();
+        void Sn();
 
         void a(a aVar);
 

@@ -5,11 +5,13 @@ public interface c {
 
     void aE(long j);
 
-    String afp();
+    String afs();
 
-    boolean lU(String str);
+    boolean lT(String str);
 
-    String lZ(String str);
+    String lY(String str);
+
+    String mf(String str);
 
     String mg(String str);
 
@@ -20,6 +22,4 @@ public interface c {
     String mj(String str);
 
     String mk(String str);
-
-    String ml(String str);
 }

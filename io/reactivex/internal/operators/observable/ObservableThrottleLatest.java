@@ -15,7 +15,7 @@ public final class ObservableThrottleLatest<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.source.subscribe(new ThrottleLatestObserver(uVar, this.timeout, this.unit, this.scheduler.dJi(), this.emitLast));
+        this.source.subscribe(new ThrottleLatestObserver(uVar, this.timeout, this.unit, this.scheduler.dJI(), this.emitLast));
     }
 
     /* loaded from: classes7.dex */

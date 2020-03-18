@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class z {
-    public boolean afH;
+    public boolean afR;
     public String fromType;
     public TbPageContext pageContext;
 }

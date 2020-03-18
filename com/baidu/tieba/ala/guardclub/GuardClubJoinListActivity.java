@@ -19,19 +19,19 @@ import com.baidu.live.u.a;
 import com.baidu.live.view.BackBar;
 /* loaded from: classes3.dex */
 public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListActivity> {
-    private TextView aGj;
-    private HttpMessageListener axG = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.ala.guardclub.GuardClubJoinListActivity.3
+    private TextView aGx;
+    private HttpMessageListener axU = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.ala.guardclub.GuardClubJoinListActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).yX() != null && GuardClubJoinListActivity.this.eFe != null) {
-                    GuardClubJoinListActivity.this.eFe.notifyDataSetInvalidated();
+                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).zc() != null && GuardClubJoinListActivity.this.eFA != null) {
+                    GuardClubJoinListActivity.this.eFA.notifyDataSetInvalidated();
                 }
             }
         }
     };
-    private g eFe;
+    private g eFA;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
@@ -55,7 +55,7 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
             findViewById.setVisibility(8);
         }
         FrameLayout frameLayout = (FrameLayout) findViewById(a.g.container_guard_club_join_list);
-        this.aGj = (TextView) findViewById(a.g.tv_guard_club_list_title);
+        this.aGx = (TextView) findViewById(a.g.tv_guard_club_list_title);
         View findViewById2 = findViewById(a.g.img_guard_club_list_back);
         findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubJoinListActivity.1
             @Override // android.view.View.OnClickListener
@@ -77,12 +77,12 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
             findViewById2.setVisibility(0);
             backBar.setVisibility(8);
         }
-        this.eFe = new g(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
-        View view = this.eFe.getView();
+        this.eFA = new g(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
+        View view = this.eFA.getView();
         if (view != null) {
             frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
         }
-        MessageManager.getInstance().registerListener(this.axG);
+        MessageManager.getInstance().registerListener(this.axU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,8 +95,8 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eFe != null) {
-            this.eFe.aqx();
+        if (this.eFA != null) {
+            this.eFA.aqA();
         }
     }
 }

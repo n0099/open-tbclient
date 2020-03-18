@@ -16,11 +16,11 @@ class bo extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m496f;
+        boolean m494f;
         super.onChange(z);
-        m496f = this.a.m496f();
-        com.xiaomi.channel.commonutils.logger.b.m47a("ExtremePowerMode:" + m496f);
-        if (m496f) {
+        m494f = this.a.m494f();
+        com.xiaomi.channel.commonutils.logger.b.m45a("ExtremePowerMode:" + m494f);
+        if (m494f) {
             this.a.a(new XMPushService.f(23, null));
         } else {
             this.a.a(true);

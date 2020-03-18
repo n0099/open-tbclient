@@ -5,58 +5,58 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e hO;
-    private final m<PointF, PointF> hP;
-    private final g hQ;
-    private final b hR;
-    private final d hS;
+    private final e hN;
+    private final m<PointF, PointF> hO;
+    private final g hP;
+    private final b hQ;
+    private final d hR;
+    @Nullable
+    private final b hS;
     @Nullable
     private final b hT;
-    @Nullable
-    private final b hU;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.hO = eVar;
-        this.hP = mVar;
-        this.hQ = gVar;
-        this.hR = bVar;
-        this.hS = dVar;
-        this.hT = bVar2;
-        this.hU = bVar3;
+        this.hN = eVar;
+        this.hO = mVar;
+        this.hP = gVar;
+        this.hQ = bVar;
+        this.hR = dVar;
+        this.hS = bVar2;
+        this.hT = bVar3;
     }
 
     public e cp() {
-        return this.hO;
+        return this.hN;
     }
 
     public m<PointF, PointF> cq() {
-        return this.hP;
+        return this.hO;
     }
 
     public g cr() {
-        return this.hQ;
+        return this.hP;
     }
 
     public b cs() {
-        return this.hR;
+        return this.hQ;
     }
 
     public d ct() {
-        return this.hS;
+        return this.hR;
     }
 
     @Nullable
     public b cu() {
-        return this.hT;
+        return this.hS;
     }
 
     @Nullable
     public b cv() {
-        return this.hU;
+        return this.hT;
     }
 
     public o cw() {

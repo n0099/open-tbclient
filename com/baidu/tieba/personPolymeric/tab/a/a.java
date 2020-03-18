@@ -13,8 +13,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class a {
     private com.baidu.tbadk.core.dialog.a FR;
-    private TbImageView ghJ;
-    private TextView jqp;
+    private TbImageView gis;
+    private TextView jrO;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private TextView mTip;
@@ -27,38 +27,38 @@ public class a {
             }
         }
     };
-    private boolean jqo = com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean jrN = com.baidu.tbadk.core.sharedPref.b.aFH().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void cxF() {
-        if (!this.jqo) {
-            this.jqo = true;
-            com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
+    public void cxY() {
+        if (!this.jrN) {
+            this.jrN = true;
+            com.baidu.tbadk.core.sharedPref.b.aFH().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
             this.FR = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             this.FR.jZ(1);
-            this.FR.fG(true);
-            this.FR.fH(false);
+            this.FR.fH(true);
+            this.FR.fI(false);
             this.FR.aO(this.mRootView);
-            this.FR.b(this.mTbPageContext).aEC();
+            this.FR.b(this.mTbPageContext).aEG();
         }
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
-        this.ghJ = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
-        j(this.ghJ);
-        this.ghJ.setAutoChangeStyle(true);
-        this.ghJ.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
-        this.ghJ.setConrers(3);
-        this.ghJ.setIsBitmapPic(true);
+        this.gis = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
+        j(this.gis);
+        this.gis.setAutoChangeStyle(true);
+        this.gis.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
+        this.gis.setConrers(3);
+        this.gis.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.jqp = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.jqp.setOnClickListener(this.mOnClickListener);
+        this.jrO = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.jrO.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -72,14 +72,14 @@ public class a {
         }
     }
 
-    public boolean cxG() {
-        return this.jqo;
+    public boolean cxZ() {
+        return this.jrN;
     }
 
     private void onChangeSkinType() {
-        am.setImageResource(this.ghJ, R.drawable.pic_person_center_dynamic_guide);
+        am.setImageResource(this.gis, R.drawable.pic_person_center_dynamic_guide);
         am.setViewTextColor(this.mTip, (int) R.color.cp_cont_j);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jqp, (int) R.color.cp_link_tip_a);
+        am.setViewTextColor(this.jrO, (int) R.color.cp_link_tip_a);
     }
 }

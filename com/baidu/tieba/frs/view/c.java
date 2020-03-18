@@ -23,54 +23,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c extends i {
-    private final k fMb;
-    private final List<g> fMe;
-    private final k.c fMj;
-    private FrsViewData gMV;
+    private final k fMJ;
+    private final List<g> fMM;
+    private final k.c fMR;
+    private FrsViewData gOa;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fMj = new k.c() { // from class: com.baidu.tieba.frs.view.c.1
+        this.fMR = new k.c() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 c.this.dismiss();
                 if (!j.isNetWorkAvailable()) {
                     l.showToast(c.this.mContext, (int) R.string.network_not_available);
                 } else if (i == 1) {
-                    if (c.this.gMV != null && c.this.gMV.getForum() != null && !StringUtils.isNull(c.this.gMV.getForum().getId()) && !StringUtils.isNull(c.this.gMV.getForum().getName())) {
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_CLICK).cy("fid", c.this.gMV.getForum().getId()).X("obj_locate", 11));
-                        com.baidu.tieba.frs.f.e.a(c.this.mPageContext, c.this.gMV, c.this.gMV.getForum().getId());
+                    if (c.this.gOa != null && c.this.gOa.getForum() != null && !StringUtils.isNull(c.this.gOa.getForum().getId()) && !StringUtils.isNull(c.this.gOa.getForum().getName())) {
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_CLICK).cx("fid", c.this.gOa.getForum().getId()).X("obj_locate", 11));
+                        com.baidu.tieba.frs.f.e.a(c.this.mPageContext, c.this.gOa, c.this.gOa.getForum().getId());
                     }
                 } else if (i == 2) {
-                    TiebaStatic.log(new an("c12402").cy("fid", c.this.gMV.getForum().getId()).cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("fname", c.this.gMV.getForum().getName()));
-                    if (!StringUtils.isNull(c.this.gMV.getForum().getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(c.this.mContext, c.this.gMV.getForum().getName(), c.this.gMV.getForum().getId())));
+                    TiebaStatic.log(new an("c12402").cx("fid", c.this.gOa.getForum().getId()).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("fname", c.this.gOa.getForum().getName()));
+                    if (!StringUtils.isNull(c.this.gOa.getForum().getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(c.this.mContext, c.this.gOa.getForum().getName(), c.this.gOa.getForum().getId())));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.fMe = new ArrayList();
-        this.fMb = new k(this.mContext);
-        this.fMb.a(this.fMj);
-        a(this.fMb);
+        this.fMM = new ArrayList();
+        this.fMJ = new k(this.mContext);
+        this.fMJ.a(this.fMR);
+        a(this.fMJ);
     }
 
     public void onChangeSkinType() {
-        if (this.fMb != null) {
-            this.fMb.onChangeSkinType();
+        if (this.fMJ != null) {
+            this.fMJ.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.fMe != null && this.fMb != null) {
-            this.fMe.clear();
-            this.fMe.add(new g(1, getString(R.string.share, new Object[0]), this.fMb));
-            this.fMe.add(new g(2, getString(R.string.search, new Object[0]), this.fMb));
-            this.fMb.az(this.fMe);
+        if (this.fMM != null && this.fMJ != null) {
+            this.fMM.clear();
+            this.fMM.add(new g(1, getString(R.string.share, new Object[0]), this.fMJ));
+            this.fMM.add(new g(2, getString(R.string.search, new Object[0]), this.fMJ));
+            this.fMJ.az(this.fMM);
         }
     }
 
@@ -82,7 +82,7 @@ public class c extends i {
     }
 
     public void m(FrsViewData frsViewData) {
-        this.gMV = frsViewData;
+        this.gOa = frsViewData;
         createView();
     }
 }

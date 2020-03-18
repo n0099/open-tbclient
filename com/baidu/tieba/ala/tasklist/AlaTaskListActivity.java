@@ -49,23 +49,23 @@ import com.baidu.megapp.ma.Util;
 import com.baidu.tieba.ala.tasklist.model.a;
 /* loaded from: classes3.dex */
 public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> implements View.OnClickListener, View.OnTouchListener {
-    private View cen;
-    private CommonEmptyView ewe;
-    public TextView fzA;
-    public TextView fzB;
-    private AlertDialog fzD;
-    private LinearLayout fzE;
-    private boolean fzF;
-    private int fzG;
-    private boolean fzH;
-    public a fzw;
-    private com.baidu.tieba.ala.tasklist.view.a fzx;
-    public TextView fzy;
-    public ImageView fzz;
+    private View cey;
+    private CommonEmptyView ewA;
+    public a fAe;
+    private com.baidu.tieba.ala.tasklist.view.a fAf;
+    public TextView fAg;
+    public ImageView fAh;
+    public TextView fAi;
+    public TextView fAj;
+    private AlertDialog fAl;
+    private LinearLayout fAm;
+    private boolean fAn;
+    private int fAo;
+    private boolean fAp;
     public BdListView mListView;
     private View mRootView;
-    private boolean fzC = false;
-    a.InterfaceC0485a fzI = new a.InterfaceC0485a() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3
+    private boolean fAk = false;
+    a.InterfaceC0485a fAq = new a.InterfaceC0485a() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3
         @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0485a
         public void a(AlaLiveUserInfoData alaLiveUserInfoData, v vVar) {
             if (alaLiveUserInfoData != null) {
@@ -76,47 +76,47 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
                 AlaTaskListActivity.this.ad("", false);
             }
             if (vVar != null) {
-                AlaTaskListActivity.this.fzx.setData(vVar.abf);
+                AlaTaskListActivity.this.fAf.setData(vVar.abp);
             }
-            AlaTaskListActivity.this.btr();
+            AlaTaskListActivity.this.btw();
         }
 
         @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0485a
         public void ag(int i, String str) {
-            AlaTaskListActivity.this.ewe.reset();
-            AlaTaskListActivity.this.ewe.setTitle(a.i.ala_task_empty_msg);
+            AlaTaskListActivity.this.ewA.reset();
+            AlaTaskListActivity.this.ewA.setTitle(a.i.ala_task_empty_msg);
             if (BdNetTypeUtil.isNetWorkAvailable()) {
-                AlaTaskListActivity.this.ewe.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+                AlaTaskListActivity.this.ewA.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
             } else {
-                AlaTaskListActivity.this.ewe.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3.1
+                AlaTaskListActivity.this.ewA.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.3.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        AlaTaskListActivity.this.bhU();
+                        AlaTaskListActivity.this.bhZ();
                     }
                 });
-                AlaTaskListActivity.this.ewe.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+                AlaTaskListActivity.this.ewA.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
             }
-            AlaTaskListActivity.this.ewe.setVisibility(0);
+            AlaTaskListActivity.this.ewA.setVisibility(0);
             if (i == 146021) {
-                AlaTaskListActivity.this.btt();
-            } else if (AlaTaskListActivity.this.fzw.btw() != null && ListUtils.getCount(AlaTaskListActivity.this.fzw.btw().abf) > 0) {
+                AlaTaskListActivity.this.bty();
+            } else if (AlaTaskListActivity.this.fAe.btB() != null && ListUtils.getCount(AlaTaskListActivity.this.fAe.btB().abp) > 0) {
                 AlaTaskListActivity.this.showToast(str);
             }
         }
     };
-    CustomMessageListener agU = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.4
+    CustomMessageListener ahe = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaTaskListActivity.this.closeActivity();
         }
     };
-    CustomMessageListener fzJ = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.5
+    CustomMessageListener fAr = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                AlaTaskListActivity.this.fzx.i((Integer) customResponsedMessage.getData());
+                AlaTaskListActivity.this.fAf.i((Integer) customResponsedMessage.getData());
             }
         }
     };
@@ -137,74 +137,74 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             }
             TbConfig.sdkInitCallback.initSdk();
         }
-        this.fzF = getIntent().getBooleanExtra("is_from_flower_guide", false);
+        this.fAn = getIntent().getBooleanExtra("is_from_flower_guide", false);
         initView();
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
         if (screenDimensions[1] > screenDimensions[0]) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fzE.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fAm.getLayoutParams();
             layoutParams.height = (int) (screenDimensions[1] * 0.618d);
-            this.fzE.setLayoutParams(layoutParams);
+            this.fAm.setLayoutParams(layoutParams);
         } else {
             finish();
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 h.S(this.mRootView);
             }
-            this.fzE.setPadding(0, getResources().getDimensionPixelSize(a.e.sdk_ds48), 0, 0);
+            this.fAm.setPadding(0, getResources().getDimensionPixelSize(a.e.sdk_ds48), 0, 0);
         }
-        this.fzw = new com.baidu.tieba.ala.tasklist.model.a(getPageContext());
-        this.fzw.a(this.fzI);
-        registerListener(this.agU);
-        registerListener(this.fzJ);
-        bhU();
+        this.fAe = new com.baidu.tieba.ala.tasklist.model.a(getPageContext());
+        this.fAe.a(this.fAq);
+        registerListener(this.ahe);
+        registerListener(this.fAr);
+        bhZ();
     }
 
     private void initView() {
         this.mRootView = getPageContext().getPageActivity().getLayoutInflater().inflate(a.h.ala_task_list_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.fzE = (LinearLayout) this.mRootView.findViewById(a.g.layout_content);
-        this.fzy = (TextView) this.mRootView.findViewById(a.g.tv_flower_task_title);
-        this.fzz = (ImageView) this.mRootView.findViewById(a.g.img_flower_help);
-        this.cen = this.mRootView.findViewById(a.g.divider);
-        this.fzA = (TextView) this.mRootView.findViewById(a.g.tv_flower_count);
-        this.fzB = (TextView) this.mRootView.findViewById(a.g.tv_task_help_tips);
+        this.fAm = (LinearLayout) this.mRootView.findViewById(a.g.layout_content);
+        this.fAg = (TextView) this.mRootView.findViewById(a.g.tv_flower_task_title);
+        this.fAh = (ImageView) this.mRootView.findViewById(a.g.img_flower_help);
+        this.cey = this.mRootView.findViewById(a.g.divider);
+        this.fAi = (TextView) this.mRootView.findViewById(a.g.tv_flower_count);
+        this.fAj = (TextView) this.mRootView.findViewById(a.g.tv_task_help_tips);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.ewe = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.fzx = new com.baidu.tieba.ala.tasklist.view.a(this);
-        this.mListView.setAdapter((ListAdapter) this.fzx);
-        this.mListView.setEmptyView(this.ewe);
+        this.ewA = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        this.fAf = new com.baidu.tieba.ala.tasklist.view.a(this);
+        this.mListView.setAdapter((ListAdapter) this.fAf);
+        this.mListView.setEmptyView(this.ewA);
         this.mRootView.setOnTouchListener(this);
-        this.fzE.setOnTouchListener(this);
-        this.fzz.setOnClickListener(this);
+        this.fAm.setOnTouchListener(this);
+        this.fAh.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhU() {
-        this.ewe.setVisibility(8);
-        this.fzw.btz();
+    public void bhZ() {
+        this.ewA.setVisibility(8);
+        this.fAe.btE();
     }
 
-    public void qT(int i) {
-        this.fzw.qT(i);
+    public void qV(int i) {
+        this.fAe.qV(i);
     }
 
-    public void btr() {
-        u qD;
-        if (this.fzF && this.fzG < 3 && (qD = this.fzx.qD()) != null) {
-            if (qD.status == 2) {
-                qT(qD.aaW);
-                this.fzG++;
-                this.fzH = true;
+    public void btw() {
+        u qI;
+        if (this.fAn && this.fAo < 3 && (qI = this.fAf.qI()) != null) {
+            if (qI.status == 2) {
+                qV(qI.abh);
+                this.fAo++;
+                this.fAp = true;
                 return;
             }
-            this.fzF = false;
-            if (this.fzH) {
-                this.fzH = false;
-                qU(qD.abb);
+            this.fAn = false;
+            if (this.fAp) {
+                this.fAp = false;
+                qW(qI.abm);
             }
         }
     }
 
-    private void qU(int i) {
+    private void qW(int i) {
         View inflate = LayoutInflater.from(getActivity()).inflate(a.h.dialog_flower_guide_result, (ViewGroup) null);
         final Dialog dialog = new Dialog(getActivity(), a.j.FlowerGuideResultDialogStyle);
         dialog.requestWindowFeature(1);
@@ -227,7 +227,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             public void onClick(View view) {
                 try {
                     dialog.dismiss();
-                    AlaTaskListActivity.this.bdQ();
+                    AlaTaskListActivity.this.bdV();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -262,7 +262,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
         }
     }
 
-    private void bbG() {
+    private void bbK() {
         if (this instanceof Activity) {
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
                 overridePendingTransition(a.C0102a.sdk_activity_open_translate_from_right, a.C0102a.sdk_activity_close_translate_to_right);
@@ -278,59 +278,59 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
 
     @Override // com.baidu.live.tbadk.BaseActivity
     public void enterExitAnimation() {
-        bbG();
+        bbK();
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity
     public void closeAnimation() {
-        bbG();
+        bbK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fzw != null) {
-            this.fzw.onDestroy();
+        if (this.fAe != null) {
+            this.fAe.onDestroy();
         }
     }
 
-    public void bdQ() {
+    public void bdV() {
         ba baVar;
         Intent intent = new Intent();
         intent.putExtra("need_show_gift_panel", true);
-        ap apVar = com.baidu.live.v.a.zl().axD;
-        intent.putExtra("custom_category_id", (apVar == null || apVar.acS == null || (baVar = apVar.acS.adO) == null) ? -1 : baVar.adZ);
+        ap apVar = com.baidu.live.v.a.zs().axR;
+        intent.putExtra("custom_category_id", (apVar == null || apVar.adc == null || (baVar = apVar.adc.adY) == null) ? -1 : baVar.aej);
         setResult(-1, intent);
         finish();
     }
 
-    public void bts() {
+    public void btx() {
         setResult(0, new Intent());
         finish();
     }
 
     public void ad(String str, boolean z) {
-        this.fzA.setVisibility(z ? 0 : 8);
-        this.fzA.setText(str);
+        this.fAi.setVisibility(z ? 0 : 8);
+        this.fAi.setText(str);
     }
 
-    public void btt() {
+    public void bty() {
         ColorStateList colorStateList;
-        this.fzD = new AlertDialog.Builder(getPageContext().getPageActivity(), a.j.sdk_dialog_window).create();
-        ShowUtil.showDialog(this.fzD, getPageContext().getPageActivity());
+        this.fAl = new AlertDialog.Builder(getPageContext().getPageActivity(), a.j.sdk_dialog_window).create();
+        ShowUtil.showDialog(this.fAl, getPageContext().getPageActivity());
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_flower_over_limit_dialog, (ViewGroup) null);
-        ((TextView) inflate.findViewById(a.g.tv_task_failed_content)).setText(btu());
+        ((TextView) inflate.findViewById(a.g.tv_task_failed_content)).setText(btz());
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaTaskListActivity.this.fzD.dismiss();
+                AlaTaskListActivity.this.fAl.dismiss();
             }
         });
         inflate.findViewById(a.g.close_img).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaTaskListActivity.this.fzD.dismiss();
+                AlaTaskListActivity.this.fAl.dismiss();
             }
         });
         TextView textView = (TextView) inflate.findViewById(a.g.btn_to_send_gift);
@@ -343,17 +343,17 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaTaskListActivity.this.fzD.dismiss();
-                AlaTaskListActivity.this.bdQ();
+                AlaTaskListActivity.this.fAl.dismiss();
+                AlaTaskListActivity.this.bdV();
             }
         });
-        Window window = this.fzD.getWindow();
+        Window window = this.fAl.getWindow();
         window.setGravity(17);
         window.setBackgroundDrawableResource(17170445);
         window.setContentView(inflate);
     }
 
-    public SpannableStringBuilder btu() {
+    public SpannableStringBuilder btz() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getPageContext().getString(a.i.get_task_reward_failed_1)));
         SpannableString valueOf = SpannableString.valueOf(getPageContext().getString(a.i.get_task_reward_failed_2));
@@ -367,39 +367,39 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
     public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z = false;
         if (motionEvent.getAction() == 0) {
-            if (view == this.fzE) {
+            if (view == this.fAm) {
                 z = true;
-                if (this.fzC) {
+                if (this.fAk) {
                     hideTip();
                 }
             } else {
-                bts();
+                btx();
             }
         }
         return z;
     }
 
     private void hideTip() {
-        this.fzC = false;
-        this.cen.setVisibility(0);
-        this.fzB.setVisibility(8);
+        this.fAk = false;
+        this.cey.setVisibility(0);
+        this.fAj.setVisibility(8);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fzz) {
-            if (this.fzC) {
+        if (view == this.fAh) {
+            if (this.fAk) {
                 hideTip();
             } else {
-                btv();
+                btA();
             }
         }
     }
 
-    private void btv() {
-        this.fzC = true;
-        this.cen.setVisibility(8);
-        this.fzB.setVisibility(0);
+    private void btA() {
+        this.fAk = true;
+        this.cey.setVisibility(8);
+        this.fAj.setVisibility(0);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks

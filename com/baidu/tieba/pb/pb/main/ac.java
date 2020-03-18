@@ -16,7 +16,7 @@ public class ac extends l<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.b> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bH */
+    /* renamed from: bI */
     public com.baidu.tieba.pb.pb.a.b b(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -27,7 +27,7 @@ public class ac extends l<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.pb.data.i) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(iVar.iCO);
+        bVar.mTextView.setText(iVar.iEp);
         com.baidu.tbadk.core.util.am.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         com.baidu.tbadk.core.util.am.setViewTextColor(bVar.mTextView, (int) R.color.cp_cont_d);
         return view;

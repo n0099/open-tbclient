@@ -14,15 +14,15 @@ public class y extends x {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable nBX;
+        final /* synthetic */ Iterable nDK;
 
         public a(Iterable iterable) {
-            this.nBX = iterable;
+            this.nDK = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.nBX.iterator();
+            return this.nDK.iterator();
         }
     }
 
@@ -91,7 +91,7 @@ public class y extends x {
 
     public static final <T> HashSet<T> e(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");
-        return (HashSet) o.a(iterable, new HashSet(af.NE(o.a(iterable, 12))));
+        return (HashSet) o.a(iterable, new HashSet(af.NK(o.a(iterable, 12))));
     }
 
     public static final <T> List<T> f(Iterable<? extends T> iterable) {
@@ -99,7 +99,7 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.dKe();
+                    return o.dKE();
                 case 1:
                     return o.bS(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

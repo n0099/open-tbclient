@@ -30,7 +30,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject ac = com.baidu.swan.apps.w.a.UF().ac(context, str);
+        final JSONObject ac = com.baidu.swan.apps.w.a.UI().ac(context, str);
         if (ac != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
                 @Override // java.lang.Runnable
@@ -61,7 +61,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final h hVar, String str) {
-        JSONObject ac = com.baidu.swan.apps.w.a.UF().ac(context, str);
+        JSONObject ac = com.baidu.swan.apps.w.a.UI().ac(context, str);
         if (ac != null && hVar != null) {
             aq(ac);
             final JSONArray optJSONArray = ac.optJSONArray("un_read_list");
@@ -77,26 +77,26 @@ public class a {
                                 a.ar(optJSONObject);
                             }
                         }
-                        hVar.asN();
+                        hVar.asQ();
                     }
                 }
             });
         }
     }
 
-    public static boolean cZ(boolean z) {
-        if (e.acG() == null) {
+    public static boolean da(boolean z) {
+        if (e.acJ() == null) {
             return false;
         }
-        e acG = e.acG();
-        PMSAppInfo VZ = e.acG().acI().VZ();
-        if (acG.acW() || VZ == null || TextUtils.isEmpty(VZ.paNumber)) {
+        e acJ = e.acJ();
+        PMSAppInfo Wc = e.acJ().acL().Wc();
+        if (acJ.acZ() || Wc == null || TextUtils.isEmpty(Wc.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return acG.acV().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return acJ.acY().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +116,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ai.ahj() && (optInt == 27 || optInt == 17)) {
+            if (ai.ahm() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -129,16 +129,16 @@ public class a {
                 }
             }
         }
-        if (e.acG() != null) {
-            e.acG().acV().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.acJ() != null) {
+            e.acJ().acY().a("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void Yu() {
-        if (e.acG() != null) {
-            e.acG().acV().a("key_unread_counts_message", (Integer) 0);
+    public static void Yx() {
+        if (e.acJ() != null) {
+            e.acJ().acY().a("key_unread_counts_message", (Integer) 0);
         }
     }
 

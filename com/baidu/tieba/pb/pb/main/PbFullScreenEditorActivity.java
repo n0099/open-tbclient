@@ -50,23 +50,23 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class PbFullScreenEditorActivity extends BaseActivity implements VoiceManager.c, com.baidu.tbadk.editortools.b, o.a {
-    private EditorScrollView drK;
-    private EditorTools dwC;
-    private VoiceManager goy;
-    public ap iHT;
-    private PbFullScreenEditorInputView iJC;
-    private WholeDisplayGridView iJD;
-    private o iJE;
-    private LinearLayout iJF;
-    private PlayVoiceBntNew iJG;
-    private LinearLayout iJH;
-    private ImageView iJI;
-    private LinearLayout iJJ;
-    private u iJK;
-    private t iJL;
-    private PbEditorData iJM;
-    private PostWriteCallBackData iJN;
-    private View iJO;
+    private EditorScrollView drX;
+    private EditorTools dwP;
+    private VoiceManager gpi;
+    public ap iJu;
+    private PbFullScreenEditorInputView iLd;
+    private WholeDisplayGridView iLe;
+    private o iLf;
+    private LinearLayout iLg;
+    private PlayVoiceBntNew iLh;
+    private LinearLayout iLi;
+    private ImageView iLj;
+    private LinearLayout iLk;
+    private u iLl;
+    private t iLm;
+    private PbEditorData iLn;
+    private PostWriteCallBackData iLo;
+    private View iLp;
     private Context mContext;
     private GestureDetector mGestureDetector;
     private NavigationBar mNavigationBar;
@@ -74,8 +74,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     private PbEditorData.ThreadData mThreadData;
     private View mTopLine;
     private WriteImagesInfo mWriteImagesInfo;
-    private View iJA = null;
-    private TextView iJB = null;
+    private View iLb = null;
+    private TextView iLc = null;
     private TextView mTvName = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,49 +85,49 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         this.mContext = getPageContext().getPageActivity();
         setSwipeBackEnabled(false);
         setContentView(R.layout.layout_pb_editor_activity);
-        this.goy = new VoiceManager();
-        this.goy.onCreate(getPageContext());
+        this.gpi = new VoiceManager();
+        this.gpi.onCreate(getPageContext());
         initView();
         initData();
-        if (this.iJM != null && this.iJM.getEditorType() == 1 && this.iJC != null) {
-            this.iJC.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        if (this.iLn != null && this.iLn.getEditorType() == 1 && this.iLd != null) {
+            this.iLd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
-        this.iHT = new ap();
-        if (this.iJC != null) {
-            this.iHT.e(this.iJC);
+        this.iJu = new ap();
+        if (this.iLd != null) {
+            this.iJu.e(this.iLd);
         }
-        if (this.iJN != null) {
-            this.iHT.f(this.iJN);
+        if (this.iLo != null) {
+            this.iJu.f(this.iLo);
         }
         adjustResizeForSoftInput();
     }
 
     private void initView() {
-        bcK();
+        bcO();
         this.mTopLine = findViewById(R.id.view_line);
-        this.drK = (EditorScrollView) findViewById(R.id.scroll_view);
-        this.drK.setListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.1
+        this.drX = (EditorScrollView) findViewById(R.id.scroll_view);
+        this.drX.setListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
-                if (PbFullScreenEditorActivity.this.dwC != null) {
-                    PbFullScreenEditorActivity.this.dwC.aMR();
-                    PbFullScreenEditorActivity.this.dwC.aOE();
+                if (PbFullScreenEditorActivity.this.dwP != null) {
+                    PbFullScreenEditorActivity.this.dwP.aMV();
+                    PbFullScreenEditorActivity.this.dwP.aOI();
                 }
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(PbFullScreenEditorActivity.this.mContext, PbFullScreenEditorActivity.this.iJC);
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(PbFullScreenEditorActivity.this.mContext, PbFullScreenEditorActivity.this.iLd);
             }
         });
-        cnp();
-        this.iJC = (PbFullScreenEditorInputView) findViewById(R.id.edit_content);
-        this.iJC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.2
+        cnK();
+        this.iLd = (PbFullScreenEditorInputView) findViewById(R.id.edit_content);
+        this.iLd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (PbFullScreenEditorActivity.this.dwC != null) {
-                    PbFullScreenEditorActivity.this.dwC.aMR();
-                    PbFullScreenEditorActivity.this.dwC.aOE();
+                if (PbFullScreenEditorActivity.this.dwP != null) {
+                    PbFullScreenEditorActivity.this.dwP.aMV();
+                    PbFullScreenEditorActivity.this.dwP.aOI();
                 }
             }
         });
-        this.iJC.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.3
+        this.iLd.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -138,46 +138,46 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                PbFullScreenEditorActivity.this.cns();
-                if (PbFullScreenEditorActivity.this.iHT != null && PbFullScreenEditorActivity.this.iHT.cqy() != null) {
-                    if (!PbFullScreenEditorActivity.this.iHT.cqy().cUg()) {
-                        PbFullScreenEditorActivity.this.iHT.qw(false);
+                PbFullScreenEditorActivity.this.cnN();
+                if (PbFullScreenEditorActivity.this.iJu != null && PbFullScreenEditorActivity.this.iJu.cqT() != null) {
+                    if (!PbFullScreenEditorActivity.this.iJu.cqT().cUA()) {
+                        PbFullScreenEditorActivity.this.iJu.qC(false);
                     }
-                    PbFullScreenEditorActivity.this.iHT.cqy().tH(false);
+                    PbFullScreenEditorActivity.this.iJu.cqT().tO(false);
                 }
             }
         });
-        this.iJF = (LinearLayout) findViewById(R.id.layout_voice_play);
-        this.iJG = (PlayVoiceBntNew) findViewById(R.id.btn_play_voice);
-        this.iJH = (LinearLayout) findViewById(R.id.layout_del_voice);
-        this.iJI = (ImageView) findViewById(R.id.iv_delete_voice);
-        this.iJH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.4
+        this.iLg = (LinearLayout) findViewById(R.id.layout_voice_play);
+        this.iLh = (PlayVoiceBntNew) findViewById(R.id.btn_play_voice);
+        this.iLi = (LinearLayout) findViewById(R.id.layout_del_voice);
+        this.iLj = (ImageView) findViewById(R.id.iv_delete_voice);
+        this.iLi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbFullScreenEditorActivity.this.cnr();
+                PbFullScreenEditorActivity.this.cnM();
             }
         });
-        this.iJD = (WholeDisplayGridView) findViewById(R.id.gridview);
-        this.iJE = new o(this.mContext);
-        this.iJE.a(this);
-        this.iJD.setAdapter((ListAdapter) this.iJE);
+        this.iLe = (WholeDisplayGridView) findViewById(R.id.gridview);
+        this.iLf = new o(this.mContext);
+        this.iLf.a(this);
+        this.iLe.setAdapter((ListAdapter) this.iLf);
     }
 
-    private void cnp() {
+    private void cnK() {
         this.mGestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.5
-            private int[] iJQ = new int[2];
+            private int[] iLr = new int[2];
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
                 WholeDisplayGridView wholeDisplayGridView;
-                if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.iJD) != null) {
-                    wholeDisplayGridView.getLocationInWindow(this.iJQ);
-                    int x = ((int) motionEvent.getX()) - this.iJQ[0];
-                    int y = ((int) motionEvent.getY()) - this.iJQ[1];
+                if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.iLe) != null) {
+                    wholeDisplayGridView.getLocationInWindow(this.iLr);
+                    int x = ((int) motionEvent.getX()) - this.iLr[0];
+                    int y = ((int) motionEvent.getY()) - this.iLr[1];
                     if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
-                        PbFullScreenEditorActivity.this.dwC.aMR();
-                        PbFullScreenEditorActivity.this.dwC.aOE();
-                        com.baidu.adp.lib.util.l.showSoftKeyPad(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.iJC);
+                        PbFullScreenEditorActivity.this.dwP.aMV();
+                        PbFullScreenEditorActivity.this.dwP.aOI();
+                        com.baidu.adp.lib.util.l.showSoftKeyPad(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.iLd);
                     }
                 }
                 return super.onSingleTapUp(motionEvent);
@@ -189,15 +189,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                 return super.onFling(motionEvent, motionEvent2, f, f2);
             }
         });
-        this.iJO = findViewById(R.id.scroll_view_child);
-        this.iJO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.6
+        this.iLp = findViewById(R.id.scroll_view_child);
+        this.iLp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (PbFullScreenEditorActivity.this.dwC != null) {
-                    PbFullScreenEditorActivity.this.dwC.aMR();
-                    PbFullScreenEditorActivity.this.dwC.aOE();
+                if (PbFullScreenEditorActivity.this.dwP != null) {
+                    PbFullScreenEditorActivity.this.dwP.aMV();
+                    PbFullScreenEditorActivity.this.dwP.aOI();
                 }
-                com.baidu.adp.lib.util.l.showSoftKeyPad(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.iJC);
+                com.baidu.adp.lib.util.l.showSoftKeyPad(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.iLd);
             }
         });
     }
@@ -210,38 +210,38 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    private void bcK() {
+    private void bcO() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.showBottomLine();
-        this.iJA = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iLb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mTvName = this.mNavigationBar.setCenterTextTitle(getString(R.string.pb_reply_floor));
         com.baidu.tbadk.core.util.am.setViewTextColor(this.mTvName, (int) R.color.cp_cont_b);
-        this.iJB = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_post));
+        this.iLc = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_post));
         ImageView backImageView = this.mNavigationBar.getBackImageView();
-        if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams) && this.iJA != null && this.iJB != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iJA.getLayoutParams();
+        if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams) && this.iLb != null && this.iLc != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iLb.getLayoutParams();
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds17);
             backImageView.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iJA.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iLb.getLayoutParams();
             layoutParams2.width = -2;
-            this.iJA.setLayoutParams(layoutParams2);
+            this.iLb.setLayoutParams(layoutParams2);
             if (this.mNavigationBar.getBackImageView() != null) {
-                SvgManager.aGC().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.aGG().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            this.iJA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.7
+            this.iLb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PbFullScreenEditorActivity.this.onBackPressed();
                 }
             });
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.iJB.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.iLc.getLayoutParams();
             layoutParams3.width = -2;
             layoutParams3.rightMargin = com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds14);
-            this.iJB.setLayoutParams(layoutParams3);
-            this.iJB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.8
+            this.iLc.setLayoutParams(layoutParams3);
+            this.iLc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.8
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PbFullScreenEditorActivity.this.pS(true);
+                    PbFullScreenEditorActivity.this.pY(true);
                 }
             });
         }
@@ -250,14 +250,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     private void initData() {
         Intent intent = getIntent();
         if (intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA) instanceof PbEditorData) {
-            this.iJM = (PbEditorData) intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
-            if (this.iJM != null) {
-                pR(this.iJM.getEditorType() == 1);
-                final String disableVoiceMessage = this.iJM.getDisableVoiceMessage();
-                if (!TextUtils.isEmpty(disableVoiceMessage) && this.dwC != null) {
-                    com.baidu.tbadk.editortools.g mm = this.dwC.mm(6);
-                    if (mm instanceof View) {
-                        ((View) mm).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.9
+            this.iLn = (PbEditorData) intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
+            if (this.iLn != null) {
+                pX(this.iLn.getEditorType() == 1);
+                final String disableVoiceMessage = this.iLn.getDisableVoiceMessage();
+                if (!TextUtils.isEmpty(disableVoiceMessage) && this.dwP != null) {
+                    com.baidu.tbadk.editortools.g mo = this.dwP.mo(6);
+                    if (mo instanceof View) {
+                        ((View) mo).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.9
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 PbFullScreenEditorActivity.this.showToast(disableVoiceMessage);
@@ -265,62 +265,62 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                         });
                     }
                 }
-                this.mThreadData = this.iJM.getThreadData();
-                if (this.iJK != null) {
-                    this.iJK.setThreadData(this.mThreadData);
+                this.mThreadData = this.iLn.getThreadData();
+                if (this.iLl != null) {
+                    this.iLl.setThreadData(this.mThreadData);
                 }
-                if (this.iJL != null) {
-                    this.iJL.setThreadData(this.mThreadData);
+                if (this.iLm != null) {
+                    this.iLm.setThreadData(this.mThreadData);
                 }
-                String content = this.iJM.getContent();
-                if (this.iJM.getEditorType() == 1) {
-                    this.mSubPbReplyPrefix = this.iJM.getSubPbReplyPrefix();
-                    this.iJC.ee(this.mSubPbReplyPrefix, content);
+                String content = this.iLn.getContent();
+                if (this.iLn.getEditorType() == 1) {
+                    this.mSubPbReplyPrefix = this.iLn.getSubPbReplyPrefix();
+                    this.iLd.ec(this.mSubPbReplyPrefix, content);
                 } else {
-                    this.iJC.BX(content);
+                    this.iLd.BW(content);
                 }
-                WriteImagesInfo writeImagesInfo = this.iJM.getWriteImagesInfo();
+                WriteImagesInfo writeImagesInfo = this.iLn.getWriteImagesInfo();
                 if (writeImagesInfo != null) {
                     this.mWriteImagesInfo = writeImagesInfo;
-                    this.iJE.p(this.mWriteImagesInfo.getChosedFiles());
-                    this.iJE.notifyDataSetChanged();
+                    this.iLf.p(this.mWriteImagesInfo.getChosedFiles());
+                    this.iLf.notifyDataSetChanged();
                 }
-                VoiceData.VoiceModel voiceModel = this.iJM.getVoiceModel();
+                VoiceData.VoiceModel voiceModel = this.iLn.getVoiceModel();
                 if (voiceModel != null && voiceModel.duration > 0 && !TextUtils.isEmpty(voiceModel.voiceId)) {
-                    this.iJF.setVisibility(0);
-                    this.iJG.setVoiceModel(voiceModel);
-                    this.iJL.setVoiceModel(voiceModel);
-                    com.baidu.tbadk.editortools.l mp = this.dwC.mp(6);
-                    if (mp != null && mp.dwN != null) {
-                        mp.dwN.a(new com.baidu.tbadk.editortools.a(52, 0, voiceModel));
+                    this.iLg.setVisibility(0);
+                    this.iLh.setVoiceModel(voiceModel);
+                    this.iLm.setVoiceModel(voiceModel);
+                    com.baidu.tbadk.editortools.l mr = this.dwP.mr(6);
+                    if (mr != null && mr.dxa != null) {
+                        mr.dxa.a(new com.baidu.tbadk.editortools.a(52, 0, voiceModel));
                     }
-                    this.dwC.be((View) this.dwC.mm(6));
+                    this.dwP.be((View) this.dwP.mo(6));
                 }
             } else {
                 return;
             }
         }
         if (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData) {
-            this.iJN = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+            this.iLo = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
         }
-        cns();
+        cnN();
     }
 
-    private void pR(boolean z) {
-        this.iJJ = (LinearLayout) findViewById(R.id.editbar_container);
-        this.iJK = new u();
-        this.iJK.pT(z);
-        if (this.iJM != null && this.iJM.getThreadData() != null) {
-            this.iJK.pU(this.iJM.getThreadData().isBJH);
+    private void pX(boolean z) {
+        this.iLk = (LinearLayout) findViewById(R.id.editbar_container);
+        this.iLl = new u();
+        this.iLl.pZ(z);
+        if (this.iLn != null && this.iLn.getThreadData() != null) {
+            this.iLl.qa(this.iLn.getThreadData().isBJH);
         }
-        this.iJL = (t) this.iJK.dV(this.mContext);
-        this.dwC = this.iJL.aOu();
-        this.iJL.b(this);
-        this.iJK.b(this);
-        this.iJJ.addView(this.dwC, new LinearLayout.LayoutParams(-1, -2));
-        this.dwC.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.iJL.c(this);
-        this.dwC.display();
+        this.iLm = (t) this.iLl.dU(this.mContext);
+        this.dwP = this.iLm.aOy();
+        this.iLm.b(this);
+        this.iLl.b(this);
+        this.iLk.addView(this.dwP, new LinearLayout.LayoutParams(-1, -2));
+        this.dwP.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.iLm.c(this);
+        this.dwP.display();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -335,23 +335,23 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        pS(false);
+        pY(false);
     }
 
-    public void pS(boolean z) {
+    public void pY(boolean z) {
         Intent intent = new Intent();
-        if (this.iJM == null) {
-            this.iJM = new PbEditorData();
+        if (this.iLn == null) {
+            this.iLn = new PbEditorData();
         }
-        this.iJM.setContent(this.iJC.getText().toString());
-        this.iJM.setSubPbReplyPrefix(this.mSubPbReplyPrefix);
-        this.iJM.setWriteImagesInfo(this.mWriteImagesInfo);
-        this.iJM.setVoiceModel(this.iJL.getVoiceModel());
-        intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.iJM);
+        this.iLn.setContent(this.iLd.getText().toString());
+        this.iLn.setSubPbReplyPrefix(this.mSubPbReplyPrefix);
+        this.iLn.setWriteImagesInfo(this.mWriteImagesInfo);
+        this.iLn.setVoiceModel(this.iLm.getVoiceModel());
+        intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.iLn);
         if (z) {
-            if (this.iHT != null && this.iHT.cqy() != null && this.iHT.cqy().cUf()) {
-                showToast(this.iHT.cqy().cUh());
-                this.iHT.qw(true);
+            if (this.iJu != null && this.iJu.cqT() != null && this.iJu.cqT().cUz()) {
+                showToast(this.iJu.cqT().cUB());
+                this.iJu.qC(true);
                 return;
             }
             setResult(-1, intent);
@@ -362,21 +362,21 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     }
 
     @Override // com.baidu.tieba.pb.pb.main.o.a
-    public void yJ(int i) {
+    public void yR(int i) {
         if (this.mWriteImagesInfo != null && this.mWriteImagesInfo.getChosedFiles() != null) {
             if (i >= 0 && i < this.mWriteImagesInfo.size()) {
                 ImageFileInfo remove = this.mWriteImagesInfo.getChosedFiles().remove(i);
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.fk().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                this.iJE.notifyDataSetChanged();
+                this.iLf.notifyDataSetChanged();
             }
-            cns();
+            cnN();
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.o.a
-    public void yK(int i) {
+    public void yS(int i) {
         ImageFileInfo imageInfoAt = this.mWriteImagesInfo.getImageInfoAt(i);
         if (imageInfoAt != null && imageInfoAt.getImageType() != 1) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(getActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, this.mWriteImagesInfo, i)));
@@ -388,41 +388,41 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     public void onActivityResult(int i, int i2, Intent intent) {
         ArrayList<String> stringArrayListExtra;
         super.onActivityResult(i, i2, intent);
-        if (this.iJL != null) {
-            this.iJL.onActivityResult(i, i2, intent);
+        if (this.iLm != null) {
+            this.iLm.onActivityResult(i, i2, intent);
         }
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
                     if (intent != null) {
-                        cnq();
+                        cnL();
                         if (intent.getBooleanExtra("camera_result", false)) {
                             as(intent);
                         } else {
                             au(intent);
                         }
-                        this.iJE.p(this.mWriteImagesInfo.getChosedFiles());
-                        this.iJE.notifyDataSetChanged();
-                        cns();
+                        this.iLf.p(this.mWriteImagesInfo.getChosedFiles());
+                        this.iLf.notifyDataSetChanged();
+                        cnN();
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_AT_SELECT /* 12004 */:
                     if (intent != null && (stringArrayListExtra = intent.getStringArrayListExtra("name_show")) != null) {
-                        this.iJC.aK(stringArrayListExtra);
+                        this.iLd.aK(stringArrayListExtra);
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_MOTU_IMAGE /* 12012 */:
-                    cnq();
+                    cnL();
                     at(intent);
-                    this.iJE.p(this.mWriteImagesInfo.getChosedFiles());
-                    this.iJE.notifyDataSetChanged();
-                    cns();
+                    this.iLf.p(this.mWriteImagesInfo.getChosedFiles());
+                    this.iLf.notifyDataSetChanged();
+                    cnN();
                     return;
                 case RequestResponseCode.REQUEST_HOT_SELECT /* 25004 */:
                     if (intent != null) {
-                        this.iJC.vi(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        this.iLd.vh(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                         return;
                     }
                     return;
@@ -432,7 +432,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         }
     }
 
-    private void cnq() {
+    private void cnL() {
         if (this.mWriteImagesInfo == null) {
             this.mWriteImagesInfo = new WriteImagesInfo();
         }
@@ -458,7 +458,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(str);
             imageFileInfo.setTempFile(true);
-            cnq();
+            cnL();
             this.mWriteImagesInfo.addChooseFile(imageFileInfo);
             this.mWriteImagesInfo.updateQuality();
         }
@@ -475,7 +475,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     private void b(Intent intent, boolean z) {
         String stringExtra;
         if (intent != null && (stringExtra = intent.getStringExtra("album_result")) != null) {
-            cnq();
+            cnL();
             this.mWriteImagesInfo.parseJson(stringExtra);
             this.mWriteImagesInfo.updateQuality();
         }
@@ -483,7 +483,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.goy;
+        return this.gpi;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -496,7 +496,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         if (aVar != null) {
             switch (aVar.code) {
                 case 3:
-                    com.baidu.tieba.face.b.c(this.iJC);
+                    com.baidu.tieba.face.b.c(this.iLd);
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
@@ -505,17 +505,17 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                     }
                     return;
                 case 11:
-                    cnr();
+                    cnM();
                     return;
                 case 14:
-                    cnq();
+                    cnL();
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(this.mContext, this.mWriteImagesInfo.toJsonString(), true, true);
                     albumActivityConfig.getIntent().putExtra("from", "pb");
                     if (this.mThreadData != null && !TextUtils.isEmpty(this.mThreadData.getForumId())) {
                         albumActivityConfig.getIntent().putExtra("forum_id", this.mThreadData.getForumId());
                     }
                     albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
-                    if (com.baidu.tbadk.editortools.pb.a.aOQ().getStatus() == 1) {
+                    if (com.baidu.tbadk.editortools.pb.a.aOU().getStatus() == 1) {
                         albumActivityConfig.setRequestFrom(2);
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
@@ -523,7 +523,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                 case 24:
                     if (aVar.data instanceof com.baidu.tbadk.coreExtra.data.q) {
                         com.baidu.tbadk.coreExtra.data.q qVar = (com.baidu.tbadk.coreExtra.data.q) aVar.data;
-                        if (qVar.aJx() == EmotionGroupType.BIG_EMOTION || qVar.aJx() == EmotionGroupType.USER_COLLECT) {
+                        if (qVar.aJB() == EmotionGroupType.BIG_EMOTION || qVar.aJB() == EmotionGroupType.USER_COLLECT) {
                             if (this.mCurrentPermissionJudgePolicy == null) {
                                 this.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
                             }
@@ -539,17 +539,17 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                                 imageFileInfo.setFilePath(qVar.getName());
                                 imageFileInfo.width = qVar.getWidth();
                                 imageFileInfo.height = qVar.getHeight();
-                                cnq();
+                                cnL();
                                 this.mWriteImagesInfo.addChooseFile(imageFileInfo);
                                 this.mWriteImagesInfo.updateQuality();
-                                this.iJE.p(this.mWriteImagesInfo.getChosedFiles());
-                                this.iJE.notifyDataSetChanged();
-                                cns();
+                                this.iLf.p(this.mWriteImagesInfo.getChosedFiles());
+                                this.iLf.notifyDataSetChanged();
+                                cnN();
                                 return;
                             }
                             return;
                         }
-                        this.iJC.b(qVar);
+                        this.iLd.b(qVar);
                         return;
                     }
                     return;
@@ -561,46 +561,46 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
 
     private void e(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null && !TextUtils.isEmpty(voiceModel.voiceId) && voiceModel.duration > 0) {
-            this.iJL.setVoiceModel(voiceModel);
-            this.iJF.setVisibility(0);
-            this.iJG.setVoiceModel(voiceModel);
-            cns();
+            this.iLm.setVoiceModel(voiceModel);
+            this.iLg.setVisibility(0);
+            this.iLh.setVoiceModel(voiceModel);
+            cnN();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnr() {
-        if (this.iJL.getVoiceModel() != null) {
-            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.getVoiceFilePath(this.iJL.getVoiceModel().voiceId));
+    public void cnM() {
+        if (this.iLm.getVoiceModel() != null) {
+            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.getVoiceFilePath(this.iLm.getVoiceModel().voiceId));
         }
-        this.iJL.setVoiceModel(null);
-        this.iJF.setVisibility(8);
-        this.iJG.setVoiceModel(null);
-        com.baidu.tbadk.editortools.l mp = this.dwC.mp(6);
-        if (mp != null && mp.dwN != null) {
-            mp.dwN.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+        this.iLm.setVoiceModel(null);
+        this.iLg.setVisibility(8);
+        this.iLh.setVoiceModel(null);
+        com.baidu.tbadk.editortools.l mr = this.dwP.mr(6);
+        if (mr != null && mr.dxa != null) {
+            mr.dxa.a(new com.baidu.tbadk.editortools.a(52, 0, null));
         }
-        cns();
+        cnN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cns() {
+    public void cnN() {
         boolean z = false;
         boolean z2 = this.mWriteImagesInfo != null && this.mWriteImagesInfo.size() > 0;
-        boolean z3 = !TextUtils.isEmpty(this.iJC.getText().toString());
-        boolean z4 = (this.iJL == null || this.iJL.getVoiceModel() == null) ? false : true;
+        boolean z3 = !TextUtils.isEmpty(this.iLd.getText().toString());
+        boolean z4 = (this.iLm == null || this.iLm.getVoiceModel() == null) ? false : true;
         if (z2 || z3 || z4) {
             z = true;
         }
-        if (this.iJB != null) {
-            this.iJB.setEnabled(z);
+        if (this.iLc != null) {
+            this.iLc.setEnabled(z);
         }
         if (z) {
-            if (this.iJB != null) {
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.iJB, (int) R.color.cp_link_tip_a);
+            if (this.iLc != null) {
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.iLc, (int) R.color.cp_link_tip_a);
             }
-        } else if (this.iJB != null) {
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.iJB, (int) R.color.cp_cont_d);
+        } else if (this.iLc != null) {
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.iLc, (int) R.color.cp_cont_d);
         }
     }
 
@@ -608,20 +608,20 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.am.setViewTextColor(this.iJC, (int) R.color.cp_cont_b);
-        this.iJC.setHintTextColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_cont_e));
-        com.baidu.tbadk.core.util.am.setImageResource(this.iJI, R.drawable.icon_edit_close_n);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.iLd, (int) R.color.cp_cont_b);
+        this.iLd.setHintTextColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_cont_e));
+        com.baidu.tbadk.core.util.am.setImageResource(this.iLj, R.drawable.icon_edit_close_n);
         com.baidu.tbadk.core.util.am.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
         if (this.mNavigationBar.getBackImageView() != null) {
-            SvgManager.aGC().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aGG().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         com.baidu.tbadk.core.util.am.setViewTextColor(this.mTvName, (int) R.color.cp_cont_b);
-        cns();
-        if (this.iHT != null) {
-            this.iHT.onChangeSkinType();
+        cnN();
+        if (this.iJu != null) {
+            this.iJu.onChangeSkinType();
         }
-        if (this.dwC != null) {
-            this.dwC.onChangeSkinType(i);
+        if (this.dwP != null) {
+            this.dwP.onChangeSkinType(i);
         }
     }
 
@@ -636,11 +636,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iHT != null) {
-            this.iHT.onDestroy();
+        if (this.iJu != null) {
+            this.iJu.onDestroy();
         }
-        if (this.goy != null) {
-            this.goy.removeBlackScreen();
+        if (this.gpi != null) {
+            this.gpi.removeBlackScreen();
         }
     }
 }

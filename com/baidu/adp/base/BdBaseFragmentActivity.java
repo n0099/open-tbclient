@@ -140,6 +140,10 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.mId = bdUniqueId;
+    }
+
     @Override // com.baidu.adp.base.h
     public BdUniqueId getUniqueId() {
         return this.mId;

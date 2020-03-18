@@ -7,12 +7,12 @@ import com.google.android.exoplayer2.util.l;
 import com.google.android.exoplayer2.util.v;
 /* loaded from: classes6.dex */
 final class c implements b.a {
-    private final long lZO;
-    private final long[] mef;
-    private final long[] mgY;
+    private final long mbx;
+    private final long[] mfL;
+    private final long[] miG;
 
     public static c a(j jVar, l lVar, long j, long j2) {
-        int dzF;
+        int dAc;
         lVar.skipBytes(10);
         int readInt = lVar.readInt();
         if (readInt <= 0) {
@@ -32,21 +32,21 @@ final class c implements b.a {
         for (int i3 = 1; i3 < jArr.length; i3++) {
             switch (readUnsignedShort3) {
                 case 1:
-                    dzF = lVar.readUnsignedByte();
+                    dAc = lVar.readUnsignedByte();
                     break;
                 case 2:
-                    dzF = lVar.readUnsignedShort();
+                    dAc = lVar.readUnsignedShort();
                     break;
                 case 3:
-                    dzF = lVar.dzy();
+                    dAc = lVar.dzV();
                     break;
                 case 4:
-                    dzF = lVar.dzF();
+                    dAc = lVar.dAc();
                     break;
                 default:
                     return null;
             }
-            j3 += dzF * readUnsignedShort2;
+            j3 += dAc * readUnsignedShort2;
             jArr[i3] = (i3 * i2) / readUnsignedShort;
             jArr2[i3] = j2 == -1 ? j3 : Math.min(j2, j3);
         }
@@ -54,28 +54,28 @@ final class c implements b.a {
     }
 
     private c(long[] jArr, long[] jArr2, long j) {
-        this.mef = jArr;
-        this.mgY = jArr2;
-        this.lZO = j;
+        this.mfL = jArr;
+        this.miG = jArr2;
+        this.mbx = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean duR() {
+    public boolean dvo() {
         return true;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long fL(long j) {
-        return this.mgY[v.a(this.mef, j, true, true)];
+    public long fM(long j) {
+        return this.miG[v.a(this.mfL, j, true, true)];
     }
 
     @Override // com.google.android.exoplayer2.extractor.b.b.a
-    public long fN(long j) {
-        return this.mef[v.a(this.mgY, j, true, true)];
+    public long fO(long j) {
+        return this.mfL[v.a(this.miG, j, true, true)];
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long getDurationUs() {
-        return this.lZO;
+        return this.mbx;
     }
 }

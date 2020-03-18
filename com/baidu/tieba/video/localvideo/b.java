@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes10.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long kzO = BdKVCache.MILLS_1Hour;
+    private static long kBv = BdKVCache.MILLS_1Hour;
     private Context context;
-    private a kzV;
+    private a kBC;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat kzQ = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat kzP = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat kBx = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat kBw = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.kzQ.setTimeZone(timeZone);
-        this.kzP.setTimeZone(timeZone);
+        this.kBx.setTimeZone(timeZone);
+        this.kBw.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.kzV = aVar;
+        this.kBC = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,11 +40,11 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> fA = e.fA(this.context);
-        e.b("/sdcard", fA, false);
-        e.b("/sdcard/DCIM", fA, true);
-        e.es(fA);
-        return fA;
+        List<d> fz = e.fz(this.context);
+        e.b("/sdcard", fz, false);
+        e.b("/sdcard/DCIM", fz, true);
+        e.es(fz);
+        return fz;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: o */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.kzV != null) {
-            this.kzV.eq(list);
+        if (this.kBC != null) {
+            this.kBC.eq(list);
         }
     }
 }

@@ -13,16 +13,16 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GuardClubRankInfoView extends RelativeLayout {
-    private HeadImageView ahI;
-    private TextView atY;
-    private TextView eIB;
-    private TextView eIO;
-    private TextView eIP;
-    private a eIQ;
+    private HeadImageView ahS;
+    private TextView aui;
+    private TextView eIX;
+    private TextView eJk;
+    private TextView eJl;
+    private a eJm;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bfL();
+        void bfQ();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -31,23 +31,23 @@ public class GuardClubRankInfoView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.eIQ = aVar;
+        this.eJm = aVar;
     }
 
     public void setData(String str, String str2, String str3, String str4, boolean z) {
-        this.eIO.setText(str);
-        this.ahI.startLoad(str2, 12, false, false);
-        this.eIB.setText(str3);
-        this.atY.setText(str4);
-        this.eIP.setVisibility(z ? 0 : 4);
-        if (ee(str)) {
-            this.eIO.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
+        this.eJk.setText(str);
+        this.ahS.startLoad(str2, 12, false, false);
+        this.eIX.setText(str3);
+        this.aui.setText(str4);
+        this.eJl.setVisibility(z ? 0 : 4);
+        if (ed(str)) {
+            this.eJk.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
         } else {
-            this.eIO.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
+            this.eJk.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
         }
     }
 
-    private boolean ee(String str) {
+    private boolean ed(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -62,8 +62,8 @@ public class GuardClubRankInfoView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.ahI != null) {
-            this.ahI.stopLoad();
+        if (this.ahS != null) {
+            this.ahS.stopLoad();
         }
     }
 
@@ -71,19 +71,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
         setBackgroundColor(Color.parseColor("#FF201443"));
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0, 0, 0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_rank_info, (ViewGroup) this, true);
-        this.eIO = (TextView) findViewById(a.g.tv_rank);
-        this.ahI = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.eIB = (TextView) findViewById(a.g.tv_name);
-        this.atY = (TextView) findViewById(a.g.tv_content);
-        this.eIP = (TextView) findViewById(a.g.tv_hit);
-        this.ahI.setIsRound(true);
-        this.ahI.setAutoChangeStyle(false);
-        this.ahI.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.eIP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
+        this.eJk = (TextView) findViewById(a.g.tv_rank);
+        this.ahS = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.eIX = (TextView) findViewById(a.g.tv_name);
+        this.aui = (TextView) findViewById(a.g.tv_content);
+        this.eJl = (TextView) findViewById(a.g.tv_hit);
+        this.ahS.setIsRound(true);
+        this.ahS.setAutoChangeStyle(false);
+        this.ahS.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.eJl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuardClubRankInfoView.this.eIQ != null) {
-                    GuardClubRankInfoView.this.eIQ.bfL();
+                if (GuardClubRankInfoView.this.eJm != null) {
+                    GuardClubRankInfoView.this.eJm.bfQ();
                 }
             }
         });

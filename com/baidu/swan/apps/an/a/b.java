@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements a<JSONObject> {
-    private JSONArray bUF = new JSONArray();
+    private JSONArray bUQ = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -32,14 +32,14 @@ public class b implements a<JSONObject> {
 
     public void aY(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bUF.put(jSONObject);
+            this.bUQ.put(jSONObject);
         }
     }
 
-    public JSONObject aeM() {
+    public JSONObject aeP() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.bUF);
+            jSONObject.put("launchLog", this.bUQ);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -49,6 +49,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.bUF = new JSONArray();
+        this.bUQ = new JSONArray();
     }
 }

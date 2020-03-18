@@ -4,7 +4,7 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes11.dex */
 public class a {
     public static void b(com.baidu.swan.games.e.a aVar, String str) {
-        if (aVar != null && aVar.anw().hasEventListener("deviceOrientationChange")) {
+        if (aVar != null && aVar.anz().hasEventListener("deviceOrientationChange")) {
             JSEvent jSEvent = new JSEvent("deviceOrientationChange");
             jSEvent.data = new com.baidu.swan.games.y.a.a(str);
             aVar.dispatchEvent(jSEvent);

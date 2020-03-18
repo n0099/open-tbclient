@@ -15,7 +15,7 @@ public class ef {
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(ay.m141a(str), 2);
+        return Base64.encodeToString(ay.m139a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {

@@ -49,31 +49,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomActivity> {
-    private String eOM;
-    private int eiD;
-    private ViewTreeObserver.OnGlobalLayoutListener eiF;
-    private com.baidu.tieba.ala.liveroom.master.a fdX;
-    private c fdY;
-    private Bundle feb;
-    private PermissionJudgePolicy feh;
+    private String ePk;
+    private int eiT;
+    private ViewTreeObserver.OnGlobalLayoutListener eiV;
+    private Bundle feA;
+    private PermissionJudgePolicy feG;
+    private com.baidu.tieba.ala.liveroom.master.a few;
+    private c fex;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
-    private boolean ajw = false;
-    private a fdZ = null;
+    private boolean ajG = false;
+    private a fey = null;
     private volatile boolean isBackground = false;
-    private boolean fea = false;
-    private boolean fec = false;
-    private boolean fed = false;
-    private CustomMessageListener fee = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.1
+    private boolean fez = false;
+    private boolean feB = false;
+    private boolean feC = false;
+    private CustomMessageListener feD = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && AlaMasterLiveRoomActivity.this.fdX != null) {
-                AlaMasterLiveRoomActivity.this.fdX.f((short) 1);
+            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && AlaMasterLiveRoomActivity.this.few != null) {
+                AlaMasterLiveRoomActivity.this.few.f((short) 1);
             }
         }
     };
-    private CustomMessageListener fef = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.2
+    private CustomMessageListener feE = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -82,42 +82,42 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
             }
         }
     };
-    private CustomMessageListener feg = new CustomMessageListener(2913169, true) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.3
+    private CustomMessageListener feF = new CustomMessageListener(2913169, true) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof Boolean) {
-                AlaMasterLiveRoomActivity.this.fed = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                AlaMasterLiveRoomActivity.this.feC = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
-    private CustomMessageListener eOX = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.7
+    private CustomMessageListener ePv = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 AlaMasterLiveRoomActivity.this.showToast(AlaMasterLiveRoomActivity.this.getPageContext().getPageActivity().getString(a.i.ala_create_no_network));
-            } else if (!BdNetTypeUtil.isWifiNet() && k.Bb()) {
+            } else if (!BdNetTypeUtil.isWifiNet() && k.Bi()) {
                 AlaMasterLiveRoomActivity.this.showToast(AlaMasterLiveRoomActivity.this.getPageContext().getPageActivity().getString(a.i.ala_create_not_wifi));
             }
-            if (AlaMasterLiveRoomActivity.this.fdX != null && BdNetTypeUtil.isNetWorkAvailable()) {
-                AlaMasterLiveRoomActivity.this.fdX.bnC();
+            if (AlaMasterLiveRoomActivity.this.few != null && BdNetTypeUtil.isNetWorkAvailable()) {
+                AlaMasterLiveRoomActivity.this.few.bnH();
             }
         }
     };
-    private CustomMessageListener fei = new CustomMessageListener(2913178) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.8
+    private CustomMessageListener feH = new CustomMessageListener(2913178) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AlaMasterLiveRoomActivity.this.eOM = null;
+            AlaMasterLiveRoomActivity.this.ePk = null;
         }
     };
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.fdX != null) {
-            this.fdX.bW(UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()));
+        if (this.few != null) {
+            this.few.bW(UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()));
         }
     }
 
@@ -135,37 +135,37 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
             }
             TbConfig.sdkInitCallback.initSdk();
         }
-        this.feb = bundle;
-        if (!bnl()) {
+        this.feA = bundle;
+        if (!bnq()) {
             init();
         }
     }
 
-    private boolean bnl() {
+    private boolean bnq() {
         Activity pageActivity = getPageContext().getPageActivity();
-        this.feh = new PermissionJudgePolicy();
-        this.feh.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.4
+        this.feG = new PermissionJudgePolicy();
+        this.feG.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.4
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener
             public void onDialogCaneled(String str) {
-                AlaMasterLiveRoomActivity.this.fea = true;
+                AlaMasterLiveRoomActivity.this.fez = true;
                 AlaMasterLiveRoomActivity.this.finish();
             }
 
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener
             public void onDialogComfirmed(String str) {
-                AlaMasterLiveRoomActivity.this.fea = true;
+                AlaMasterLiveRoomActivity.this.fez = true;
                 AlaMasterLiveRoomActivity.this.finish();
             }
         });
-        this.feh.clearRequestPermissionList();
-        this.feh.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        this.feh.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        this.feh.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        return this.feh.startRequestPermission(pageActivity);
+        this.feG.clearRequestPermissionList();
+        this.feG.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        this.feG.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        this.feG.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        return this.feG.startRequestPermission(pageActivity);
     }
 
     private void init() {
-        this.fea = true;
+        this.fez = true;
         setUseStyleImmersiveSticky(true);
         getWindow().addFlags(128);
         addGlobalLayoutListener();
@@ -174,21 +174,21 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         this.mLastScreenHeight = screenDimensions[1];
         this.mLastScreenWidth = screenDimensions[0];
         MessageManager.getInstance().dispatchResponsedMessage(new AlaCloseLiveRoomResponsedMessage());
-        registerListener(this.fee);
-        initData(this.feb);
+        registerListener(this.feD);
+        initData(this.feA);
     }
 
     private void initData(Bundle bundle) {
         AlaLivePersonData alaLivePersonData;
         if (!UtilHelper.isARM()) {
-            bnm();
+            bnr();
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
             String stringExtra = intent.getStringExtra("live_forum_name");
             String stringExtra2 = intent.getStringExtra("live_forum_id");
-            this.fec = intent.getBooleanExtra("stop_im_when_close", false);
+            this.feB = intent.getBooleanExtra("stop_im_when_close", false);
             int intExtra = intent.getIntExtra("create_master_live_type", 1);
             String stringExtra3 = intent.getStringExtra("special_forum_type");
             String stringExtra4 = intent.getStringExtra("live_info_core");
@@ -209,29 +209,29 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                     AlaLiveSwitchData.liveActivityType = jSONObject.getString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
                     String optString = jSONObject.optString("extra");
                     if (TextUtils.isEmpty(optString)) {
-                        this.eOM = null;
+                        this.ePk = null;
                     } else {
-                        this.eOM = new JSONObject(optString).optString("live_back_scheme");
+                        this.ePk = new JSONObject(optString).optString("live_back_scheme");
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.eOM = null;
+                    this.ePk = null;
                     AlaLiveSwitchData.liveActivityType = "";
                 }
             }
-            bno();
-            MessageManager.getInstance().registerListener(this.eOX);
-            MessageManager.getInstance().registerListener(this.fei);
-            MessageManager.getInstance().registerListener(this.fef);
-            MessageManager.getInstance().registerListener(this.feg);
-            this.fdY = new c(getPageContext());
+            bnt();
+            MessageManager.getInstance().registerListener(this.ePv);
+            MessageManager.getInstance().registerListener(this.feH);
+            MessageManager.getInstance().registerListener(this.feE);
+            MessageManager.getInstance().registerListener(this.feF);
+            this.fex = new c(getPageContext());
             if (intExtra == 2) {
                 if (!checkPermission()) {
                     if (alaLivePersonData != null) {
-                        this.fdY.h(Long.toString(alaLivePersonData.mLiveInfo.live_id), false, false);
+                        this.fex.h(Long.toString(alaLivePersonData.mLiveInfo.live_id), false, false);
                     }
-                    if (this.fdX != null) {
-                        this.fdX.f((short) 1);
+                    if (this.few != null) {
+                        this.few.f((short) 1);
                         return;
                     } else {
                         finish();
@@ -241,8 +241,8 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                 e(alaLivePersonData);
                 return;
             } else if (!checkPermission()) {
-                if (this.fdX != null) {
-                    this.fdX.f((short) 1);
+                if (this.few != null) {
+                    this.few.f((short) 1);
                     return;
                 } else {
                     finish();
@@ -254,12 +254,12 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
             }
         }
         showToast(getResources().getString(a.i.ala_entry_live_failed));
-        if (this.fdX != null) {
-            this.fdX.f((short) 1);
+        if (this.few != null) {
+            this.few.f((short) 1);
         }
     }
 
-    private void bnm() {
+    private void bnr() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -268,8 +268,8 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                if (AlaMasterLiveRoomActivity.this.fdX != null) {
-                    AlaMasterLiveRoomActivity.this.fdX.f((short) 1);
+                if (AlaMasterLiveRoomActivity.this.few != null) {
+                    AlaMasterLiveRoomActivity.this.few.f((short) 1);
                 }
             }
         });
@@ -278,92 +278,92 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
 
     private void e(AlaLivePersonData alaLivePersonData) {
         if (alaLivePersonData == null) {
-            if (this.fdX != null) {
-                this.fdX.f((short) 1);
+            if (this.few != null) {
+                this.few.f((short) 1);
                 return;
             }
             return;
         }
-        this.fdY.h(alaLivePersonData);
-        this.fdX = new com.baidu.tieba.ala.liveroom.master.a(this);
-        this.fdX.a(this.fdY);
-        this.fdX.f(alaLivePersonData);
-        this.fdY.h(Long.toString(alaLivePersonData.mLiveInfo.live_id), false, true);
+        this.fex.h(alaLivePersonData);
+        this.few = new com.baidu.tieba.ala.liveroom.master.a(this);
+        this.few.a(this.fex);
+        this.few.f(alaLivePersonData);
+        this.fex.h(Long.toString(alaLivePersonData.mLiveInfo.live_id), false, true);
     }
 
     private void a(Bundle bundle, String str, String str2, String str3) {
         if (bundle != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913020));
         }
-        this.fdX = new com.baidu.tieba.ala.liveroom.master.a(this);
-        this.fdX.a(this.fdY);
-        this.fdX.a(str, str2, str3, bundle);
+        this.few = new com.baidu.tieba.ala.liveroom.master.a(this);
+        this.few.a(this.fex);
+        this.few.a(str, str2, str3, bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity
     public void addGlobalLayoutListener() {
-        this.eiF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.6
+        this.eiV = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.6
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (AlaMasterLiveRoomActivity.this.fed) {
+                if (AlaMasterLiveRoomActivity.this.feC) {
                     Rect rect = new Rect();
                     AlaMasterLiveRoomActivity.this.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                     int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaMasterLiveRoomActivity.this.getPageContext().getPageActivity());
                     int[] screenFullSize = ViewCommonUtil.getScreenFullSize(AlaMasterLiveRoomActivity.this.getPageContext().getPageActivity());
-                    boolean z = AlaMasterLiveRoomActivity.this.eiD != rect.bottom;
-                    AlaMasterLiveRoomActivity.this.eiD = rect.bottom;
-                    if (Math.abs(screenFullSize[1] - rect.bottom) > screenFullSize[1] / 4 && (!AlaMasterLiveRoomActivity.this.ajw || z)) {
-                        AlaMasterLiveRoomActivity.this.ajw = true;
+                    boolean z = AlaMasterLiveRoomActivity.this.eiT != rect.bottom;
+                    AlaMasterLiveRoomActivity.this.eiT = rect.bottom;
+                    if (Math.abs(screenFullSize[1] - rect.bottom) > screenFullSize[1] / 4 && (!AlaMasterLiveRoomActivity.this.ajG || z)) {
+                        AlaMasterLiveRoomActivity.this.ajG = true;
                         TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                         AlaMasterLiveRoomActivity.this.onKeyboardVisibilityChanged(true);
-                    } else if (Math.abs(screenFullSize[1] - rect.height()) <= statusBarHeight && AlaMasterLiveRoomActivity.this.ajw) {
-                        AlaMasterLiveRoomActivity.this.ajw = false;
+                    } else if (Math.abs(screenFullSize[1] - rect.height()) <= statusBarHeight && AlaMasterLiveRoomActivity.this.ajG) {
+                        AlaMasterLiveRoomActivity.this.ajG = false;
                         AlaMasterLiveRoomActivity.this.onKeyboardVisibilityChanged(false);
                     }
                     if (AlaMasterLiveRoomActivity.this.mLastScreenHeight != screenFullSize[1]) {
-                        if (AlaMasterLiveRoomActivity.this.fdX != null) {
-                            AlaMasterLiveRoomActivity.this.fdX.bnz();
+                        if (AlaMasterLiveRoomActivity.this.few != null) {
+                            AlaMasterLiveRoomActivity.this.few.bnE();
                         }
                         AlaMasterLiveRoomActivity.this.mLastScreenHeight = screenFullSize[1];
                     } else if (AlaMasterLiveRoomActivity.this.mLastScreenWidth != screenFullSize[0]) {
-                        if (AlaMasterLiveRoomActivity.this.fdX != null) {
-                            AlaMasterLiveRoomActivity.this.fdX.bnz();
+                        if (AlaMasterLiveRoomActivity.this.few != null) {
+                            AlaMasterLiveRoomActivity.this.few.bnE();
                         }
                         AlaMasterLiveRoomActivity.this.mLastScreenWidth = screenFullSize[0];
                     }
                 }
             }
         };
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.eiF);
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.eiV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fea) {
+        if (this.fez) {
             getWindow().clearFlags(128);
-            if (this.fdZ != null) {
-                BdBaseApplication.getInst().unregisterReceiver(this.fdZ);
+            if (this.fey != null) {
+                BdBaseApplication.getInst().unregisterReceiver(this.fey);
             }
-            this.fdZ = null;
-            MessageManager.getInstance().unRegisterListener(this.eOX);
-            MessageManager.getInstance().unRegisterListener(this.fei);
-            MessageManager.getInstance().unRegisterListener(this.fef);
-            MessageManager.getInstance().unRegisterListener(this.fee);
-            MessageManager.getInstance().unRegisterListener(this.feg);
-            getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.eiF);
-            this.eiF = null;
-            this.fee = null;
-            this.fef = null;
-            this.eOX = null;
-            if (this.fdY != null) {
-                this.fdY.destory();
-                this.fdY = null;
+            this.fey = null;
+            MessageManager.getInstance().unRegisterListener(this.ePv);
+            MessageManager.getInstance().unRegisterListener(this.feH);
+            MessageManager.getInstance().unRegisterListener(this.feE);
+            MessageManager.getInstance().unRegisterListener(this.feD);
+            MessageManager.getInstance().unRegisterListener(this.feF);
+            getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.eiV);
+            this.eiV = null;
+            this.feD = null;
+            this.feE = null;
+            this.ePv = null;
+            if (this.fex != null) {
+                this.fex.destory();
+                this.fex = null;
             }
-            if (this.fdX != null) {
-                this.fdX.onDestroy();
-                this.fdX = null;
+            if (this.few != null) {
+                this.few.onDestroy();
+                this.few = null;
             }
             System.gc();
         }
@@ -375,16 +375,16 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.fea) {
-            if (this.fdY != null) {
-                this.fdY.bpD();
-                this.fdY.bps();
-                this.fdY.bpv();
+        if (this.fez) {
+            if (this.fex != null) {
+                this.fex.bpI();
+                this.fex.bpx();
+                this.fex.bpA();
             }
-            if (this.fdX != null) {
-                this.fdX.onResume();
+            if (this.few != null) {
+                this.few.onResume();
             }
-            bnn();
+            bns();
         }
     }
 
@@ -392,12 +392,12 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.fea && this.fdY != null) {
-            this.fdY.bpt();
-            this.fdY.bpw();
+        if (this.fez && this.fex != null) {
+            this.fex.bpy();
+            this.fex.bpB();
         }
-        if (this.fdX != null) {
-            this.fdX.onPause();
+        if (this.few != null) {
+            this.few.onPause();
         }
     }
 
@@ -405,16 +405,16 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.fea && this.fdX != null) {
-            this.fdX.onStop();
+        if (this.fez && this.few != null) {
+            this.few.onStop();
         }
         AlaStatManager.getInstance().forceUpload();
     }
 
-    private void bnn() {
+    private void bns() {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             showToast(getResources().getString(a.i.ala_create_no_network));
-        } else if (!BdNetTypeUtil.isWifiNet() && k.Bb()) {
+        } else if (!BdNetTypeUtil.isWifiNet() && k.Bi()) {
             showToast(getResources().getString(a.i.ala_create_not_wifi));
         }
     }
@@ -438,7 +438,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.fdX == null || !this.fdX.onKeyDown(i, keyEvent)) {
+        if (this.few == null || !this.few.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -447,8 +447,8 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        if (this.fdX != null) {
-            this.fdX.onKeyboardVisibilityChanged(z);
+        if (this.few != null) {
+            this.few.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -456,15 +456,15 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fdX != null) {
-            this.fdX.onActivityResult(i, i2, intent);
+        if (this.few != null) {
+            this.few.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.fdX != null) {
-            this.fdX.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.few != null) {
+            this.few.onRequestPermissionsResult(i, strArr, iArr);
         }
         if (25040 == i) {
             ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
@@ -478,7 +478,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                         init();
                     } else if (strArr.length > 0) {
                         for (String str : strArr) {
-                            if (!this.feh.checkPermissionForbidden(getActivity(), str)) {
+                            if (!this.feG.checkPermissionForbidden(getActivity(), str)) {
                                 return;
                             }
                         }
@@ -491,11 +491,11 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         }
     }
 
-    private void bno() {
-        this.fdZ = new a();
+    private void bnt() {
+        this.fey = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
-        BdBaseApplication.getInst().registerReceiver(this.fdZ, intentFilter);
+        BdBaseApplication.getInst().registerReceiver(this.fey, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -506,13 +506,13 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && AlaMasterLiveRoomActivity.this.fdX != null) {
-                AlaMasterLiveRoomActivity.this.fdX.f((short) 1);
+            if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && AlaMasterLiveRoomActivity.this.few != null) {
+                AlaMasterLiveRoomActivity.this.few.f((short) 1);
             }
         }
     }
 
-    public void bnp() {
+    public void bnu() {
         this.isBackground = false;
         finish();
     }
@@ -520,28 +520,28 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         if (!this.isBackground) {
-            if (this.fdX != null) {
-                this.fdX.onFinish();
+            if (this.few != null) {
+                this.few.onFinish();
             }
-            com.baidu.live.c.pr().putLong("last_live_room_id", 0L);
-            com.baidu.live.c.pr().putString("last_live_room_from", "");
+            com.baidu.live.c.pw().putLong("last_live_room_id", 0L);
+            com.baidu.live.c.pw().putString("last_live_room_from", "");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913072));
-            if (this.fec) {
+            if (this.feB) {
                 BdSocketLinkService.setHasAbsoluteClose(true);
                 BdSocketLinkService.close("live close");
             }
             super.finish();
-            if (!TextUtils.isEmpty(this.eOM)) {
+            if (!TextUtils.isEmpty(this.ePk)) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
-                    BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.eOM);
-                    this.eOM = null;
+                    BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.ePk);
+                    this.ePk = null;
                 }
             }
         }
     }
 
-    public String bnq() {
-        return this.eOM;
+    public String bnv() {
+        return this.ePk;
     }
 
     public boolean isBackground() {

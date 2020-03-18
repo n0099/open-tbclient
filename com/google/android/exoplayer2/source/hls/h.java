@@ -14,180 +14,180 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class h extends com.google.android.exoplayer2.source.a.l {
-    private static final AtomicInteger mwh = new AtomicInteger();
-    private final s mjC;
-    private final boolean mkP;
-    private volatile boolean msf;
-    private final com.google.android.exoplayer2.extractor.e msk;
-    private int mtZ;
-    private volatile boolean mua;
-    public final int mwi;
-    public final a.C0681a mwj;
-    private final com.google.android.exoplayer2.upstream.e mwk;
-    private final com.google.android.exoplayer2.upstream.g mwl;
-    private final boolean mwm;
-    private final boolean mwn;
-    private final boolean mwo;
-    private final boolean mwp;
-    private final com.google.android.exoplayer2.metadata.id3.a mwq;
-    private final com.google.android.exoplayer2.util.l mwr;
-    private l mws;
-    private int mwt;
-    private boolean mwu;
-    private boolean mwv;
+    private static final AtomicInteger mxN = new AtomicInteger();
+    private final s mli;
+    private final boolean mmv;
+    private volatile boolean mtN;
+    private final com.google.android.exoplayer2.extractor.e mtR;
+    private int mvF;
+    private volatile boolean mvG;
+    public final int mxO;
+    public final a.C0682a mxP;
+    private final com.google.android.exoplayer2.upstream.e mxQ;
+    private final com.google.android.exoplayer2.upstream.g mxR;
+    private final boolean mxS;
+    private final boolean mxT;
+    private final boolean mxU;
+    private final boolean mxV;
+    private final com.google.android.exoplayer2.metadata.id3.a mxW;
+    private final com.google.android.exoplayer2.util.l mxX;
+    private l mxY;
+    private int mxZ;
+    private boolean mya;
+    private boolean myb;
     public final int uid;
 
-    public h(f fVar, com.google.android.exoplayer2.upstream.e eVar, com.google.android.exoplayer2.upstream.g gVar, com.google.android.exoplayer2.upstream.g gVar2, a.C0681a c0681a, List<Format> list, int i, Object obj, long j, long j2, int i2, int i3, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
-        super(a(eVar, bArr, bArr2), gVar, c0681a.lZJ, i, obj, j, j2, i2);
-        this.mwi = i3;
-        this.mwl = gVar2;
-        this.mwj = c0681a;
-        this.mwm = z;
-        this.mjC = sVar;
-        this.mkP = this.meh instanceof a;
+    public h(f fVar, com.google.android.exoplayer2.upstream.e eVar, com.google.android.exoplayer2.upstream.g gVar, com.google.android.exoplayer2.upstream.g gVar2, a.C0682a c0682a, List<Format> list, int i, Object obj, long j, long j2, int i2, int i3, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
+        super(a(eVar, bArr, bArr2), gVar, c0682a.mbs, i, obj, j, j2, i2);
+        this.mxO = i3;
+        this.mxR = gVar2;
+        this.mxP = c0682a;
+        this.mxS = z;
+        this.mli = sVar;
+        this.mmv = this.mfN instanceof a;
         com.google.android.exoplayer2.extractor.e eVar2 = null;
         if (hVar != null) {
-            this.mwn = hVar.mwj != c0681a;
-            eVar2 = (hVar.mwi != i3 || this.mwn) ? null : hVar.msk;
+            this.mxT = hVar.mxP != c0682a;
+            eVar2 = (hVar.mxO != i3 || this.mxT) ? null : hVar.mtR;
         } else {
-            this.mwn = false;
+            this.mxT = false;
         }
-        Pair<com.google.android.exoplayer2.extractor.e, Boolean> a = fVar.a(eVar2, gVar.uri, this.mts, list, drmInitData, sVar);
-        this.msk = (com.google.android.exoplayer2.extractor.e) a.first;
-        this.mwo = ((Boolean) a.second).booleanValue();
-        this.mwp = this.msk == eVar2;
-        this.mwv = this.mwp && gVar2 != null;
-        if (this.mwo) {
-            this.mwq = hVar != null ? hVar.mwq : new com.google.android.exoplayer2.metadata.id3.a();
-            this.mwr = hVar != null ? hVar.mwr : new com.google.android.exoplayer2.util.l(10);
+        Pair<com.google.android.exoplayer2.extractor.e, Boolean> a = fVar.a(eVar2, gVar.uri, this.muZ, list, drmInitData, sVar);
+        this.mtR = (com.google.android.exoplayer2.extractor.e) a.first;
+        this.mxU = ((Boolean) a.second).booleanValue();
+        this.mxV = this.mtR == eVar2;
+        this.myb = this.mxV && gVar2 != null;
+        if (this.mxU) {
+            this.mxW = hVar != null ? hVar.mxW : new com.google.android.exoplayer2.metadata.id3.a();
+            this.mxX = hVar != null ? hVar.mxX : new com.google.android.exoplayer2.util.l(10);
         } else {
-            this.mwq = null;
-            this.mwr = null;
+            this.mxW = null;
+            this.mxX = null;
         }
-        this.mwk = eVar;
-        this.uid = mwh.getAndIncrement();
+        this.mxQ = eVar;
+        this.uid = mxN.getAndIncrement();
     }
 
     public void a(l lVar) {
-        this.mws = lVar;
-        lVar.ad(this.uid, this.mwn);
-        if (!this.mwp) {
-            this.msk.a(lVar);
+        this.mxY = lVar;
+        lVar.ad(this.uid, this.mxT);
+        if (!this.mxV) {
+            this.mtR.a(lVar);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.a.l
-    public boolean dwS() {
-        return this.mua;
+    public boolean dxp() {
+        return this.mvG;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dwM() {
-        return this.mtZ;
+    public long dxj() {
+        return this.mvF;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void cancelLoad() {
-        this.msf = true;
+        this.mtN = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public boolean dwu() {
-        return this.msf;
+    public boolean dwR() {
+        return this.mtN;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void load() throws IOException, InterruptedException {
-        dxn();
-        if (!this.msf) {
-            dxo();
+        dxK();
+        if (!this.mtN) {
+            dxL();
         }
     }
 
-    private void dxn() throws IOException, InterruptedException {
-        if (!this.mwv && this.mwl != null) {
-            com.google.android.exoplayer2.upstream.g gF = this.mwl.gF(this.mwt);
+    private void dxK() throws IOException, InterruptedException {
+        if (!this.myb && this.mxR != null) {
+            com.google.android.exoplayer2.upstream.g gG = this.mxR.gG(this.mxZ);
             try {
-                com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mwk, gF.mGb, this.mwk.a(gF));
+                com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mxQ, gG.mHH, this.mxQ.a(gG));
                 int i = 0;
-                while (i == 0 && !this.msf) {
-                    i = this.msk.a(bVar, null);
+                while (i == 0 && !this.mtN) {
+                    i = this.mtR.a(bVar, null);
                 }
-                this.mwt = (int) (bVar.getPosition() - this.mwl.mGb);
-                v.a(this.meh);
-                this.mwv = true;
+                this.mxZ = (int) (bVar.getPosition() - this.mxR.mHH);
+                v.a(this.mfN);
+                this.myb = true;
             } catch (Throwable th) {
-                v.a(this.meh);
+                v.a(this.mfN);
                 throw th;
             }
         }
     }
 
-    private void dxo() throws IOException, InterruptedException {
+    private void dxL() throws IOException, InterruptedException {
         boolean z;
-        com.google.android.exoplayer2.upstream.g gF;
+        com.google.android.exoplayer2.upstream.g gG;
         int i = 0;
-        if (this.mkP) {
+        if (this.mmv) {
             com.google.android.exoplayer2.upstream.g gVar = this.dataSpec;
-            z = this.mtZ != 0;
-            gF = gVar;
+            z = this.mvF != 0;
+            gG = gVar;
         } else {
             z = false;
-            gF = this.dataSpec.gF(this.mtZ);
+            gG = this.dataSpec.gG(this.mvF);
         }
-        if (!this.mwm) {
-            this.mjC.dzT();
-        } else if (this.mjC.dzQ() == Format.OFFSET_SAMPLE_RELATIVE) {
-            this.mjC.gH(this.mtv);
+        if (!this.mxS) {
+            this.mli.dAq();
+        } else if (this.mli.dAn() == Format.OFFSET_SAMPLE_RELATIVE) {
+            this.mli.gI(this.mvc);
         }
         try {
-            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.meh, gF.mGb, this.meh.a(gF));
-            if (this.mwo && !this.mwu) {
+            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mfN, gG.mHH, this.mfN.a(gG));
+            if (this.mxU && !this.mya) {
                 long E = E(bVar);
-                this.mwu = true;
-                this.mws.gk(E != -9223372036854775807L ? this.mjC.gI(E) : this.mtv);
+                this.mya = true;
+                this.mxY.gl(E != -9223372036854775807L ? this.mli.gJ(E) : this.mvc);
             }
             if (z) {
-                bVar.Jv(this.mtZ);
+                bVar.JB(this.mvF);
             }
-            while (i == 0 && !this.msf) {
-                i = this.msk.a(bVar, null);
+            while (i == 0 && !this.mtN) {
+                i = this.mtR.a(bVar, null);
             }
-            this.mtZ = (int) (bVar.getPosition() - this.dataSpec.mGb);
-            v.a(this.meh);
-            this.mua = true;
+            this.mvF = (int) (bVar.getPosition() - this.dataSpec.mHH);
+            v.a(this.mfN);
+            this.mvG = true;
         } catch (Throwable th) {
-            v.a(this.meh);
+            v.a(this.mfN);
             throw th;
         }
     }
 
     private long E(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         Metadata z;
-        fVar.duS();
-        if (fVar.e(this.mwr.data, 0, 10, true)) {
-            this.mwr.reset(10);
-            if (this.mwr.dzy() != com.google.android.exoplayer2.metadata.id3.a.mmC) {
+        fVar.dvp();
+        if (fVar.e(this.mxX.data, 0, 10, true)) {
+            this.mxX.reset(10);
+            if (this.mxX.dzV() != com.google.android.exoplayer2.metadata.id3.a.moi) {
                 return -9223372036854775807L;
             }
-            this.mwr.skipBytes(3);
-            int dzE = this.mwr.dzE();
-            int i = dzE + 10;
-            if (i > this.mwr.capacity()) {
-                byte[] bArr = this.mwr.data;
-                this.mwr.reset(i);
-                System.arraycopy(bArr, 0, this.mwr.data, 0, 10);
+            this.mxX.skipBytes(3);
+            int dAb = this.mxX.dAb();
+            int i = dAb + 10;
+            if (i > this.mxX.capacity()) {
+                byte[] bArr = this.mxX.data;
+                this.mxX.reset(i);
+                System.arraycopy(bArr, 0, this.mxX.data, 0, 10);
             }
-            if (fVar.e(this.mwr.data, 10, dzE, true) && (z = this.mwq.z(this.mwr.data, dzE)) != null) {
+            if (fVar.e(this.mxX.data, 10, dAb, true) && (z = this.mxW.z(this.mxX.data, dAb)) != null) {
                 int length = z.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    Metadata.Entry Kf = z.Kf(i2);
-                    if (Kf instanceof PrivFrame) {
-                        PrivFrame privFrame = (PrivFrame) Kf;
+                    Metadata.Entry Kl = z.Kl(i2);
+                    if (Kl instanceof PrivFrame) {
+                        PrivFrame privFrame = (PrivFrame) Kl;
                         if ("com.apple.streaming.transportStreamTimestamp".equals(privFrame.owner)) {
-                            System.arraycopy(privFrame.privateData, 0, this.mwr.data, 0, 8);
-                            this.mwr.reset(8);
-                            return this.mwr.readLong();
+                            System.arraycopy(privFrame.privateData, 0, this.mxX.data, 0, 8);
+                            this.mxX.reset(8);
+                            return this.mxX.readLong();
                         }
                     }
                 }

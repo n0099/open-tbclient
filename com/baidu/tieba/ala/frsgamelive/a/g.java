@@ -7,47 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g {
-    private final List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private com.baidu.adp.base.e cVE;
-    private f eBM;
-    private c eBN;
-    private a eBO;
-    private b eBP;
-    private BdTypeListView eko;
+    private final List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private com.baidu.adp.base.e cVR;
+    private f eCi;
+    private c eCj;
+    private a eCk;
+    private b eCl;
+    private BdTypeListView ekE;
 
     public g(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView, boolean z) {
-        this.cVE = eVar;
-        this.eko = bdTypeListView;
-        iw(z);
+        this.cVR = eVar;
+        this.ekE = bdTypeListView;
+        iy(z);
     }
 
-    private void iw(boolean z) {
+    private void iy(boolean z) {
         if (z) {
-            this.eBN = new c((TbPageContext) this.cVE, com.baidu.tieba.ala.gamelist.b.a.etC);
-            this.asF.add(this.eBN);
+            this.eCj = new c((TbPageContext) this.cVR, com.baidu.tieba.ala.gamelist.b.a.etY);
+            this.asP.add(this.eCj);
         } else {
-            this.eBM = new f((TbPageContext) this.cVE, com.baidu.tieba.ala.gamelist.b.a.etC);
-            this.asF.add(this.eBM);
+            this.eCi = new f((TbPageContext) this.cVR, com.baidu.tieba.ala.gamelist.b.a.etY);
+            this.asP.add(this.eCi);
         }
-        this.eBO = new a((TbPageContext) this.cVE, com.baidu.tieba.ala.frsgamelive.b.a.eBR);
-        this.eBP = new b((TbPageContext) this.cVE, com.baidu.tieba.ala.frsgamelive.b.b.eBS);
-        this.asF.add(this.eBO);
-        this.asF.add(this.eBP);
-        this.eko.addAdapters(this.asF);
+        this.eCk = new a((TbPageContext) this.cVR, com.baidu.tieba.ala.frsgamelive.b.a.eCn);
+        this.eCl = new b((TbPageContext) this.cVR, com.baidu.tieba.ala.frsgamelive.b.b.eCo);
+        this.asP.add(this.eCk);
+        this.asP.add(this.eCl);
+        this.ekE.addAdapters(this.asP);
     }
 
     public void setDatas(List<m> list) {
-        if (this.eko != null) {
-            this.eko.setData(list);
+        if (this.ekE != null) {
+            this.ekE.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.eBM != null) {
-            this.eBM.a(dVar);
+        if (this.eCi != null) {
+            this.eCi.a(dVar);
         }
-        if (this.eBN != null) {
-            this.eBN.a(dVar);
+        if (this.eCj != null) {
+            this.eCj.a(dVar);
         }
     }
 }

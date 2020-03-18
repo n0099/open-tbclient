@@ -1,16 +1,16 @@
 package com.google.android.exoplayer2.a;
 /* loaded from: classes6.dex */
 public final class d {
-    public int mdE;
-    public int mdF;
-    public int mdG;
-    public int mdH;
-    public int mdI;
-    public int mdJ;
-    public int mdK;
-    public int mdL;
-    public int mdM;
+    public int mfk;
+    public int mfl;
+    public int mfm;
+    public int mfn;
+    public int mfo;
+    public int mfp;
+    public int mfq;
+    public int mfr;
+    public int mfs;
 
-    public synchronized void duC() {
+    public synchronized void duZ() {
     }
 }

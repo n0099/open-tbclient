@@ -28,10 +28,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     private final List<View> e;
     private ViewPager f;
     private int g;
-    private b mZD;
-    private com.kascend.chushou.player.ui.h5.d.a mZE;
-    private com.kascend.chushou.player.ui.h5.a.a mZF;
-    private final c mZG;
+    private b nbo;
+    private com.kascend.chushou.player.ui.h5.d.a nbp;
+    private com.kascend.chushou.player.ui.h5.a.a nbq;
+    private final c nbr;
 
     public InteractNotifier(Context context) {
         this(context, null);
@@ -47,7 +47,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.g = 0;
-        this.mZG = new c(this);
+        this.nbr = new c(this);
         this.a = context;
         LayoutInflater.from(context).inflate(a.h.widget_interact_notifier, (ViewGroup) this, true);
         this.f = (ViewPager) findViewById(a.f.interact_notifier_viewpager);
@@ -58,9 +58,9 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     }
 
     public void a(b bVar, com.kascend.chushou.player.ui.h5.d.a aVar, com.kascend.chushou.player.ui.h5.a.a aVar2) {
-        this.mZD = bVar;
-        this.mZE = aVar;
-        this.mZF = aVar2;
+        this.nbo = bVar;
+        this.nbp = aVar;
+        this.nbq = aVar2;
         d();
     }
 
@@ -128,11 +128,11 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     public void b() {
         this.c.clear();
         this.f.setAdapter(new a());
-        this.mZG.cq(null);
+        this.nbr.cq(null);
     }
 
     public void c() {
-        this.mZG.cq(null);
+        this.nbr.cq(null);
     }
 
     @Override // android.os.Handler.Callback
@@ -140,7 +140,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         switch (message.what) {
             case 1:
                 this.f.setCurrentItem(this.g + 1);
-                this.mZG.K(1, 3000L);
+                this.nbr.K(1, 3000L);
                 break;
         }
         return true;
@@ -172,17 +172,17 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
     private void d() {
         ArrayList arrayList = new ArrayList();
-        if ((this.mZD != null ? this.mZD.dEb() : null) != null) {
+        if ((this.nbo != null ? this.nbo.dEB() : null) != null) {
             arrayList.add(1);
         }
-        if ((this.mZE != null ? this.mZE.dEb() : null) != null) {
+        if ((this.nbp != null ? this.nbp.dEB() : null) != null) {
             arrayList.add(0);
         }
-        List<com.kascend.chushou.player.ui.h5.c.b> c = this.mZF != null ? this.mZF.c() : null;
+        List<com.kascend.chushou.player.ui.h5.c.b> c = this.nbq != null ? this.nbq.c() : null;
         if (!h.isEmpty(c)) {
             arrayList.addAll(c);
         }
-        this.mZG.removeMessages(1);
+        this.nbr.removeMessages(1);
         this.c.clear();
         this.c.addAll(arrayList);
         this.f.setAdapter(new a());
@@ -209,7 +209,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         }
         if (this.c.size() > 1) {
             this.b.setVisibility(0);
-            this.mZG.K(1, 3000L);
+            this.nbr.K(1, 3000L);
             return;
         }
         this.b.setVisibility(8);
@@ -244,12 +244,12 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
                 switch (((Integer) obj).intValue()) {
                     case 0:
                         com.kascend.chushou.player.ui.h5.b.c cVar2 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar2.a(InteractNotifier.this.mZE);
+                        cVar2.a(InteractNotifier.this.nbp);
                         cVar = cVar2;
                         break;
                     case 1:
                         com.kascend.chushou.player.ui.h5.b.c cVar3 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar3.a(InteractNotifier.this.mZD);
+                        cVar3.a(InteractNotifier.this.nbo);
                         cVar = cVar3;
                         break;
                     default:

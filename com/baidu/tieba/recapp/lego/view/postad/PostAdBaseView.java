@@ -20,25 +20,25 @@ import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes13.dex */
 public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLayout implements e<T> {
-    protected TbPageContext cVi;
-    protected int hXU;
-    protected View hYL;
-    protected a hYQ;
-    protected c hYR;
+    protected TbPageContext cVv;
+    protected int hZu;
+    protected View ial;
+    protected a iaq;
+    protected c iar;
     private boolean isInit;
     protected int mSkinType;
     protected int position;
 
     protected abstract void a(T t, int i);
 
-    protected abstract View ccg();
+    protected abstract View ccz();
 
     public PostAdBaseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
         this.isInit = true;
         this.position = 0;
-        this.cVi = tbPageContext;
+        this.cVv = tbPageContext;
         setOrientation(1);
     }
 
@@ -51,12 +51,12 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             for (String str : t.getShowExtra().split(ETAG.ITEM_SEPARATOR)) {
                 String[] split = str.split(ETAG.EQUAL);
                 if (split.length == 2) {
-                    anVar.cy(split[0], split[1]);
+                    anVar.cx(split[0], split[1]);
                 }
             }
             anVar.X("obj_locate", getStatPosition());
-            anVar.cy(TiebaInitialize.Params.OBJ_PARAM3, l.buY());
-            r.bvh().d(anVar);
+            anVar.cx(TiebaInitialize.Params.OBJ_PARAM3, l.bvd());
+            r.bvm().e(anVar);
         }
     }
 
@@ -73,43 +73,43 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                cck();
+                ccD();
                 a((PostAdBaseData) updateCard, this.mSkinType);
             }
-            ccj();
+            ccC();
             a((PostAdBaseData) updateCard);
             c((PostAdBaseData) updateCard);
         }
     }
 
-    private void cck() {
+    private void ccD() {
     }
 
     protected final void c(T t) {
     }
 
-    public final void ccj() {
-        this.hYL.setVisibility(0);
+    public final void ccC() {
+        this.ial.setVisibility(0);
     }
 
     private void init() {
-        cci();
-        MS();
+        ccB();
+        MV();
         this.isInit = false;
     }
 
-    protected void MS() {
+    protected void MV() {
     }
 
-    public final void cci() {
+    public final void ccB() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.hYL = ccg();
-        frameLayout.addView(this.hYL, cch());
+        this.ial = ccz();
+        frameLayout.addView(this.ial, ccA());
         addView(frameLayout, layoutParams);
     }
 
-    protected final ViewGroup.LayoutParams cch() {
+    protected final ViewGroup.LayoutParams ccA() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
@@ -124,7 +124,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setBusinessType(int i) {
-        this.hXU = i;
+        this.hZu = i;
     }
 
     public int getBusinessType() {
@@ -132,15 +132,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ccl() {
+    public void ccE() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void akP() {
+    public void akS() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void bPJ() {
+    public void bQb() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -149,11 +149,11 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setAfterClickSchemeListener(a aVar) {
-        this.hYQ = aVar;
+        this.iaq = aVar;
     }
 
     public void setDownloadAppCallback(c cVar) {
-        this.hYR = cVar;
+        this.iar = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -161,6 +161,6 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ccm() {
+    public void ccF() {
     }
 }

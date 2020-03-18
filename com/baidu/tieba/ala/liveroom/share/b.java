@@ -7,7 +7,7 @@ import com.baidu.live.data.m;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class b {
-    private Dialog fkr;
+    private Dialog fkQ;
     private TbPageContext mContext;
 
     public b(TbPageContext tbPageContext) {
@@ -17,8 +17,8 @@ public class b {
     public void x(m mVar) {
         if (mVar != null && this.mContext != null) {
             dismiss();
-            this.fkr = new a(this.mContext.getPageActivity(), this.mContext, mVar, this);
-            this.fkr.show();
+            this.fkQ = new a(this.mContext.getPageActivity(), this.mContext, mVar, this);
+            this.fkQ.show();
         }
     }
 
@@ -27,23 +27,23 @@ public class b {
     }
 
     public void dismiss() {
-        if (bqr()) {
-            sN();
-            this.fkr = null;
+        if (bqw()) {
+            sS();
+            this.fkQ = null;
         }
     }
 
-    private void sN() {
-        if (this.fkr != null && this.fkr.isShowing()) {
+    private void sS() {
+        if (this.fkQ != null && this.fkQ.isShowing()) {
             try {
-                this.fkr.dismiss();
+                this.fkQ.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private boolean bqr() {
+    private boolean bqw() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

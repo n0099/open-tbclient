@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, dVar);
-            if (q.dHB() == Layer.LayerType.Image) {
+            if (q.dIb() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

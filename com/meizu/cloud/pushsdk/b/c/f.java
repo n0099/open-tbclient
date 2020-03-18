@@ -28,27 +28,27 @@ public class f {
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
     /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] a = new int[a.EnumC0729a.values().length];
+        static final /* synthetic */ int[] a = new int[a.EnumC0730a.values().length];
 
         static {
             try {
-                a[a.EnumC0729a.SUCCESS.ordinal()] = 1;
+                a[a.EnumC0730a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                a[a.EnumC0729a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0730a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                a[a.EnumC0729a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0730a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                a[a.EnumC0729a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0730a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                a[a.EnumC0729a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0730a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -68,7 +68,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public enum EnumC0729a {
+        public enum EnumC0730a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -387,7 +387,7 @@ public class f {
             return this.e != -1 ? this.e : f.a(this.a);
         }
 
-        EnumC0729a a(f fVar, String str) {
+        EnumC0730a a(f fVar, String str) {
             int i;
             int a = m.a(str, 0, str.length());
             int b = m.b(str, a, str.length());
@@ -396,13 +396,13 @@ public class f {
                     this.a = "https";
                     a += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0729a.UNSUPPORTED_SCHEME;
+                    return EnumC0730a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = HttpHost.DEFAULT_SCHEME_NAME;
                     a += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC0729a.MISSING_SCHEME;
+                return EnumC0730a.MISSING_SCHEME;
             } else {
                 this.a = fVar.b;
             }
@@ -427,7 +427,7 @@ public class f {
                                 this.d = e(str, i3, d);
                                 this.e = g(str, d + 1, a2);
                                 if (this.e == -1) {
-                                    return EnumC0729a.INVALID_PORT;
+                                    return EnumC0730a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i3, d);
@@ -437,7 +437,7 @@ public class f {
                                 a = a2;
                                 break;
                             } else {
-                                return EnumC0729a.INVALID_HOST;
+                                return EnumC0730a.INVALID_HOST;
                             }
                         case '@':
                             if (z3) {
@@ -487,7 +487,7 @@ public class f {
             if (i < b && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b, "", true, false, false, false);
             }
-            return EnumC0729a.SUCCESS;
+            return EnumC0730a.SUCCESS;
         }
 
         public a a(String str) {
@@ -739,7 +739,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0729a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0730a.SUCCESS) {
             return aVar.b();
         }
         return null;

@@ -8,16 +8,29 @@ import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes6.dex */
 public final class i {
+    public static boolean Qo(String str) {
+        return "audio".equals(Qv(str));
+    }
+
+    public static boolean OQ(String str) {
+        return "video".equals(Qv(str));
+    }
+
     public static boolean Qp(String str) {
-        return "audio".equals(Qw(str));
+        return "text".equals(Qv(str));
     }
 
-    public static boolean OR(String str) {
-        return "video".equals(Qw(str));
-    }
-
-    public static boolean Qq(String str) {
-        return "text".equals(Qw(str));
+    public static String Qq(String str) {
+        if (str == null) {
+            return null;
+        }
+        for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            String Qs = Qs(str2);
+            if (Qs != null && OQ(Qs)) {
+                return Qs;
+            }
+        }
+        return null;
     }
 
     public static String Qr(String str) {
@@ -25,28 +38,15 @@ public final class i {
             return null;
         }
         for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String Qt = Qt(str2);
-            if (Qt != null && OR(Qt)) {
-                return Qt;
+            String Qs = Qs(str2);
+            if (Qs != null && Qo(Qs)) {
+                return Qs;
             }
         }
         return null;
     }
 
     public static String Qs(String str) {
-        if (str == null) {
-            return null;
-        }
-        for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String Qt = Qt(str2);
-            if (Qt != null && Qp(Qt)) {
-                return Qt;
-            }
-        }
-        return null;
-    }
-
-    public static String Qt(String str) {
         if (str == null) {
             return null;
         }
@@ -87,27 +87,27 @@ public final class i {
         return null;
     }
 
-    public static int Qu(String str) {
+    public static int Qt(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        if (Qp(str)) {
+        if (Qo(str)) {
             return 1;
         }
-        if (OR(str)) {
+        if (OQ(str)) {
             return 2;
         }
-        if (Qq(str) || "application/cea-608".equals(str) || "application/cea-708".equals(str) || "application/x-mp4-cea-608".equals(str) || "application/x-subrip".equals(str) || "application/ttml+xml".equals(str) || "application/x-quicktime-tx3g".equals(str) || "application/x-mp4-vtt".equals(str) || "application/x-rawcc".equals(str) || "application/vobsub".equals(str) || "application/pgs".equals(str) || "application/dvbsubs".equals(str)) {
+        if (Qp(str) || "application/cea-608".equals(str) || "application/cea-708".equals(str) || "application/x-mp4-cea-608".equals(str) || "application/x-subrip".equals(str) || "application/ttml+xml".equals(str) || "application/x-quicktime-tx3g".equals(str) || "application/x-mp4-vtt".equals(str) || "application/x-rawcc".equals(str) || "application/vobsub".equals(str) || "application/pgs".equals(str) || "application/dvbsubs".equals(str)) {
             return 3;
         }
         return ("application/id3".equals(str) || "application/x-emsg".equals(str) || "application/x-scte35".equals(str) || "application/x-camera-motion".equals(str)) ? 4 : -1;
     }
 
-    public static int Qv(String str) {
-        return Qu(Qt(str));
+    public static int Qu(String str) {
+        return Qt(Qs(str));
     }
 
-    private static String Qw(String str) {
+    private static String Qv(String str) {
         if (str == null) {
             return null;
         }

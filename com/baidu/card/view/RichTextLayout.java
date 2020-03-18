@@ -19,15 +19,18 @@ import com.baidu.tieba.R;
 public class RichTextLayout extends LinearLayout implements View.OnClickListener, m<com.baidu.tbadk.core.data.a> {
     public TextView KA;
     private View.OnClickListener Ke;
-    private final int OA;
-    private boolean OC;
+    private boolean Mw;
+    private final int OB;
+    private boolean OD;
     private Context mContext;
+    private String mFrom;
     public TextView mTitle;
 
     public RichTextLayout(Context context) {
         super(context);
-        this.OA = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-        this.OC = false;
+        this.OB = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+        this.OD = false;
+        this.Mw = false;
         this.mContext = context;
         initUI();
     }
@@ -44,27 +47,27 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAg() != null) {
-            bj aAg = aVar.aAg();
-            OriginalThreadInfo originalThreadInfo = aAg.cTR;
-            if (originalThreadInfo != null && this.OC) {
+        if (aVar != null && aVar.aAj() != null) {
+            bj aAj = aVar.aAj();
+            OriginalThreadInfo originalThreadInfo = aAj.cUe;
+            if (originalThreadInfo != null && this.OD) {
                 this.mTitle.setVisibility(8);
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
-                if (originalThreadInfo.cOL) {
-                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAg, this.OA, this.OC);
+                if (originalThreadInfo.cOY) {
+                    au.a(this.KA, this.mTitle, new SpannableString(originalThreadInfo.title), aAj, this.OB, this.OD, this.Mw);
                     am.setViewTextColor(this.KA, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.KA, this.mTitle, originalThreadInfo.cPM, aAg, this.OA, this.OC);
+                    au.a(this.KA, this.mTitle, originalThreadInfo.cPZ, aAj, this.OB, this.OD, this.Mw);
                 }
             } else {
-                au.a(this.mTitle, aAg);
+                au.a(this.mTitle, aAj, this.Mw);
                 this.KA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
-                au.a(this.KA, this.mTitle, aAg.aBQ(), aAg, this.OA, this.OC);
+                au.a(this.KA, this.mTitle, aAj.aBT(), aAj, this.OB, this.OD, this.Mw);
             }
-            if (!this.OC) {
+            if (!this.OD) {
                 this.KA.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.cOL) {
+            } else if (originalThreadInfo != null && originalThreadInfo.cOY) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {
@@ -92,7 +95,7 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     }
 
     public void setTransmit(boolean z) {
-        this.OC = z;
+        this.OD = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -104,5 +107,13 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
         this.Ke = onClickListener;
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.Mw = z;
     }
 }

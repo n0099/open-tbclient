@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 /* loaded from: classes12.dex */
 public class u extends c<t> {
-    private int lSM;
+    private int lUs;
     private final ExecutorService mExecutorService;
 
     public u() {
@@ -21,7 +21,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.lSM = i;
+        this.lUs = i;
     }
 
     u(ExecutorService executorService) {
@@ -41,11 +41,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.drL().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dsi().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnQ() {
+            public void don() {
                 if (submit.cancel(false)) {
-                    aVar.dkF();
+                    aVar.dlc();
                 }
             }
         });
@@ -132,9 +132,9 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection T = T(uri);
-        T.setConnectTimeout(this.lSM);
+        T.setConnectTimeout(this.lUs);
         int responseCode = T.getResponseCode();
-        if (!IM(responseCode)) {
+        if (!IS(responseCode)) {
             if (isHttpRedirect(responseCode)) {
                 String headerField = T.getHeaderField(Headers.LOCATION);
                 T.disconnect();
@@ -155,7 +155,7 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.B(uri).openConnection();
     }
 
-    private static boolean IM(int i) {
+    private static boolean IS(int i) {
         return i >= 200 && i < 300;
     }
 

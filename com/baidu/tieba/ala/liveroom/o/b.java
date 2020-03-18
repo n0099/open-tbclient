@@ -6,42 +6,42 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.o.a;
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.live.n.b eKX;
-    private a fjE;
-    private a.b fjF = new a.b() { // from class: com.baidu.tieba.ala.liveroom.o.b.1
+    private com.baidu.live.n.b eLt;
+    private a fkd;
+    private a.b fke = new a.b() { // from class: com.baidu.tieba.ala.liveroom.o.b.1
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zk(String str) {
-            b.this.eKX.l(str, b.this.mGroupId, b.this.mLiveId);
+            b.this.eLt.l(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zl(String str) {
-            b.this.eKX.m(str, b.this.mGroupId, b.this.mLiveId);
+            b.this.eLt.m(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zm(String str) {
-            b.this.eKX.n(str, b.this.mGroupId, b.this.mLiveId);
+            b.this.eLt.n(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zn(String str) {
-            b.this.eKX.o(str, b.this.mGroupId, b.this.mLiveId);
+            b.this.eLt.o(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zo(String str) {
-            b.this.eKX.ad(str, b.this.mLiveId);
+            b.this.eLt.ac(str, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
         public void zp(String str) {
-            b.this.eKX.af(str, b.this.mLiveId);
+            b.this.eLt.ad(str, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void bqk() {
-            b.this.eKX.ag(b.this.mUserId, b.this.mLiveId);
+        public void bqp() {
+            b.this.eLt.af(b.this.mUserId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
@@ -59,34 +59,34 @@ public class b {
 
     public void a(String str, String str2, String str3, boolean z, Object obj) {
         if (obj instanceof PersonUserData) {
-            this.eKX = new com.baidu.live.n.b(this.mPageContext);
+            this.eLt = new com.baidu.live.n.b(this.mPageContext);
             this.mGroupId = str;
             this.mLiveId = str2;
             this.mUserId = str3;
             PersonUserData personUserData = (PersonUserData) obj;
-            if (this.fjE != null && this.fjE.isShowing()) {
-                this.fjE.dismiss();
+            if (this.fkd != null && this.fkd.isShowing()) {
+                this.fkd.dismiss();
             }
             a aVar = new a(this.mPageContext);
-            aVar.a(this.fjF);
+            aVar.a(this.fke);
             aVar.a(personUserData, z, str3);
-            this.fjE = aVar;
+            this.fkd = aVar;
         }
     }
 
     public void a(b.a aVar) {
-        this.eKX.a(aVar);
+        this.eLt.a(aVar);
     }
 
-    public void azc() {
-        if (this.fjE != null && this.fjE.isShowing()) {
-            this.fjE.resize();
+    public void azf() {
+        if (this.fkd != null && this.fkd.isShowing()) {
+            this.fkd.resize();
         }
     }
 
     public void onDestory() {
-        if (this.fjE != null && this.fjE.isShowing()) {
-            this.fjE.dismiss();
+        if (this.fkd != null && this.fkd.isShowing()) {
+            this.fkd.dismiss();
         }
     }
 }

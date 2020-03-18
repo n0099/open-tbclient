@@ -6,47 +6,47 @@ import com.google.android.exoplayer2.extractor.m;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class d implements com.google.android.exoplayer2.extractor.g {
-    private com.google.android.exoplayer2.extractor.l mrN;
-    public final com.google.android.exoplayer2.extractor.e msk;
-    private final SparseArray<a> mtA = new SparseArray<>();
-    private boolean mtB;
-    private b mtC;
-    private Format[] mtD;
-    private final int mty;
-    private final Format mtz;
+    public final com.google.android.exoplayer2.extractor.e mtR;
+    private com.google.android.exoplayer2.extractor.l mtu;
+    private final int mve;
+    private final Format mvf;
+    private final SparseArray<a> mvg = new SparseArray<>();
+    private boolean mvh;
+    private b mvi;
+    private Format[] mvj;
 
     /* loaded from: classes6.dex */
     public interface b {
-        com.google.android.exoplayer2.extractor.m dK(int i, int i2);
+        com.google.android.exoplayer2.extractor.m dL(int i, int i2);
     }
 
     public d(com.google.android.exoplayer2.extractor.e eVar, int i, Format format) {
-        this.msk = eVar;
-        this.mty = i;
-        this.mtz = format;
+        this.mtR = eVar;
+        this.mve = i;
+        this.mvf = format;
     }
 
-    public com.google.android.exoplayer2.extractor.l dwN() {
-        return this.mrN;
+    public com.google.android.exoplayer2.extractor.l dxk() {
+        return this.mtu;
     }
 
-    public Format[] dwO() {
-        return this.mtD;
+    public Format[] dxl() {
+        return this.mvj;
     }
 
     public void a(b bVar) {
-        this.mtC = bVar;
-        if (!this.mtB) {
-            this.msk.a(this);
-            this.mtB = true;
+        this.mvi = bVar;
+        if (!this.mvh) {
+            this.mtR.a(this);
+            this.mvh = true;
             return;
         }
-        this.msk.N(0L, 0L);
+        this.mtR.N(0L, 0L);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mtA.size()) {
-                this.mtA.valueAt(i2).b(bVar);
+            if (i2 < this.mvg.size()) {
+                this.mvg.valueAt(i2).b(bVar);
                 i = i2 + 1;
             } else {
                 return;
@@ -55,29 +55,29 @@ public final class d implements com.google.android.exoplayer2.extractor.g {
     }
 
     @Override // com.google.android.exoplayer2.extractor.g
-    public com.google.android.exoplayer2.extractor.m dK(int i, int i2) {
-        a aVar = this.mtA.get(i);
+    public com.google.android.exoplayer2.extractor.m dL(int i, int i2) {
+        a aVar = this.mvg.get(i);
         if (aVar == null) {
-            com.google.android.exoplayer2.util.a.checkState(this.mtD == null);
-            a aVar2 = new a(i, i2, i2 == this.mty ? this.mtz : null);
-            aVar2.b(this.mtC);
-            this.mtA.put(i, aVar2);
+            com.google.android.exoplayer2.util.a.checkState(this.mvj == null);
+            a aVar2 = new a(i, i2, i2 == this.mve ? this.mvf : null);
+            aVar2.b(this.mvi);
+            this.mvg.put(i, aVar2);
             return aVar2;
         }
         return aVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.g
-    public void duV() {
-        Format[] formatArr = new Format[this.mtA.size()];
+    public void dvs() {
+        Format[] formatArr = new Format[this.mvg.size()];
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mtA.size()) {
-                formatArr[i2] = this.mtA.valueAt(i2).mtF;
+            if (i2 < this.mvg.size()) {
+                formatArr[i2] = this.mvg.valueAt(i2).mvl;
                 i = i2 + 1;
             } else {
-                this.mtD = formatArr;
+                this.mvj = formatArr;
                 return;
             }
         }
@@ -85,56 +85,56 @@ public final class d implements com.google.android.exoplayer2.extractor.g {
 
     @Override // com.google.android.exoplayer2.extractor.g
     public void a(com.google.android.exoplayer2.extractor.l lVar) {
-        this.mrN = lVar;
+        this.mtu = lVar;
     }
 
     /* loaded from: classes6.dex */
     private static final class a implements com.google.android.exoplayer2.extractor.m {
         private final int id;
-        private com.google.android.exoplayer2.extractor.m mgS;
-        private final Format mtE;
-        public Format mtF;
+        private com.google.android.exoplayer2.extractor.m miA;
+        private final Format mvk;
+        public Format mvl;
         private final int type;
 
         public a(int i, int i2, Format format) {
             this.id = i;
             this.type = i2;
-            this.mtE = format;
+            this.mvk = format;
         }
 
         public void b(b bVar) {
             if (bVar == null) {
-                this.mgS = new com.google.android.exoplayer2.extractor.d();
+                this.miA = new com.google.android.exoplayer2.extractor.d();
                 return;
             }
-            this.mgS = bVar.dK(this.id, this.type);
-            if (this.mtF != null) {
-                this.mgS.h(this.mtF);
+            this.miA = bVar.dL(this.id, this.type);
+            if (this.mvl != null) {
+                this.miA.h(this.mvl);
             }
         }
 
         @Override // com.google.android.exoplayer2.extractor.m
         public void h(Format format) {
-            if (this.mtE != null) {
-                format = format.c(this.mtE);
+            if (this.mvk != null) {
+                format = format.c(this.mvk);
             }
-            this.mtF = format;
-            this.mgS.h(this.mtF);
+            this.mvl = format;
+            this.miA.h(this.mvl);
         }
 
         @Override // com.google.android.exoplayer2.extractor.m
         public int a(com.google.android.exoplayer2.extractor.f fVar, int i, boolean z) throws IOException, InterruptedException {
-            return this.mgS.a(fVar, i, z);
+            return this.miA.a(fVar, i, z);
         }
 
         @Override // com.google.android.exoplayer2.extractor.m
         public void a(com.google.android.exoplayer2.util.l lVar, int i) {
-            this.mgS.a(lVar, i);
+            this.miA.a(lVar, i);
         }
 
         @Override // com.google.android.exoplayer2.extractor.m
         public void a(long j, int i, int i2, int i3, m.a aVar) {
-            this.mgS.a(j, i, i2, i3, aVar);
+            this.miA.a(j, i, i2, i3, aVar);
         }
     }
 }

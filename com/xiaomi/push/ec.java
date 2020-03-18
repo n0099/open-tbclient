@@ -37,8 +37,8 @@ public class ec extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dk m223a = dl.a().m223a();
-        String a = m223a == null ? "" : m223a.a();
+        dk m221a = dl.a().m221a();
+        String a = m221a == null ? "" : m221a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ec extends ai.a {
         synchronized (dq.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m568a(file2);
+                y.m566a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,7 +134,7 @@ public class ec extends ai.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m228a() {
+    private boolean m226a() {
         if (as.d(this.a)) {
             return false;
         }
@@ -160,7 +160,7 @@ public class ec extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo157a() {
+    public int mo155a() {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public class ec extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m228a() || !file.exists()) {
+        } else if (m226a() || !file.exists()) {
         } else {
             List<ho> a = a(file);
             if (!ad.a(a)) {
@@ -185,9 +185,9 @@ public class ec extends ai.a {
                 Cif cif = new Cif("-1", false);
                 cif.c(hq.DataCollection.f489a);
                 cif.a(a2);
-                dk m223a = dl.a().m223a();
-                if (m223a != null) {
-                    m223a.a(cif, hg.Notification, null);
+                dk m221a = dl.a().m221a();
+                if (m221a != null) {
+                    m221a.a(cif, hg.Notification, null);
                 }
                 a();
             }

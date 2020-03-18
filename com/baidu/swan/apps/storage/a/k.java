@@ -17,7 +17,7 @@ public class k extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.acN() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.acQ() == null) {
             com.baidu.swan.apps.console.c.e("saveFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -28,36 +28,36 @@ public class k extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String bp = com.baidu.swan.apps.storage.b.bp(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
+        String bo = com.baidu.swan.apps.storage.b.bo(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
         if (DEBUG) {
             Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
-            Log.d("SaveFileAction", "——> handle: tempFilePath " + bp);
+            Log.d("SaveFileAction", "——> handle: tempFilePath " + bo);
         }
-        if (TextUtils.isEmpty(bp)) {
+        if (TextUtils.isEmpty(bo)) {
             com.baidu.swan.apps.console.c.e("saveFile", "temp file path is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int mc = eVar.acN().mc(bp);
+        int mb = eVar.acQ().mb(bo);
         if (DEBUG) {
-            Log.d("SaveFileAction", "——> handle: statusCode " + mc);
+            Log.d("SaveFileAction", "——> handle: statusCode " + mb);
         }
-        if (mc > 2000) {
-            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + mc);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(mc, com.baidu.swan.apps.scheme.f.getErrMessage(mc)));
+        if (mb > 2000) {
+            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + mb);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(mb, com.baidu.swan.apps.scheme.f.getErrMessage(mb)));
             return false;
         }
-        String md = eVar.acN().md(bp);
-        if (TextUtils.isEmpty(md)) {
+        String mc = eVar.acQ().mc(bo);
+        if (TextUtils.isEmpty(mc)) {
             com.baidu.swan.apps.console.c.e("saveFile", "save file path is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, com.baidu.swan.apps.scheme.f.getErrMessage(2003)));
             return false;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.br(md, com.baidu.swan.apps.runtime.e.acH()));
+            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.bq(mc, com.baidu.swan.apps.runtime.e.acK()));
             if (DEBUG) {
-                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + md + " update saveFilePath " + jSONObject.get("savedFilePath"));
+                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + mc + " update saveFilePath " + jSONObject.get("savedFilePath"));
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;

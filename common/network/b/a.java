@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.db.TableDefine;
 /* loaded from: classes.dex */
 public class a extends SQLiteOpenHelper {
-    public static final String nuH = String.format("CREATE TABLE %s(%s TEXT PRIMARY KEY NOT NULL, %s TEXT NOT NULL)", "dns_disaster_cache", "hostname", TableDefine.UserInfoColumns.COLUMN_IP);
+    public static final String nwu = String.format("CREATE TABLE %s(%s TEXT PRIMARY KEY NOT NULL, %s TEXT NOT NULL)", "dns_disaster_cache", "hostname", TableDefine.UserInfoColumns.COLUMN_IP);
 
     public a(Context context) {
         super(context, "network", (SQLiteDatabase.CursorFactory) null, 1);
@@ -14,7 +14,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(nuH);
+        sQLiteDatabase.execSQL(nwu);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

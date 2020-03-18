@@ -4,55 +4,55 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    private boolean lRN;
-    private boolean lRO;
-    private boolean lRP;
-    private boolean lRQ;
+    private boolean lTt;
+    private boolean lTu;
+    private boolean lTv;
+    private boolean lTw;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b lRR;
-    private int lRM = 100;
+    private com.facebook.imagepipeline.decoder.b lTx;
+    private int lTs = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dop() {
-        return this.lRM;
+    public int doM() {
+        return this.lTs;
     }
 
-    public c vn(boolean z) {
-        this.lRN = z;
+    public c vu(boolean z) {
+        this.lTt = z;
         return this;
     }
 
-    public boolean doq() {
-        return this.lRN;
+    public boolean doN() {
+        return this.lTt;
     }
 
-    public boolean dor() {
-        return this.lRO;
+    public boolean doO() {
+        return this.lTu;
     }
 
-    public boolean dos() {
-        return this.lRP;
+    public boolean doP() {
+        return this.lTv;
     }
 
-    public c vo(boolean z) {
-        this.lRQ = z;
+    public c vv(boolean z) {
+        this.lTw = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dot() {
-        return this.lRR;
+    public com.facebook.imagepipeline.decoder.b doQ() {
+        return this.lTx;
     }
 
-    public boolean dou() {
-        return this.lRQ;
+    public boolean doR() {
+        return this.lTw;
     }
 
-    public Bitmap.Config dov() {
+    public Bitmap.Config doS() {
         return this.mBitmapConfig;
     }
 
-    public b dow() {
+    public b doT() {
         return new b(this);
     }
 }

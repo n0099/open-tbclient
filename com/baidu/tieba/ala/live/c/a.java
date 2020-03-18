@@ -16,12 +16,12 @@ import com.baidu.tieba.ala.live.b.a;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a {
-    private BaseActivity aGf;
-    private com.baidu.tieba.ala.live.b.a eKG;
-    private IPayChannel eKH;
-    private IPayCallback eKI;
-    private int eKJ;
-    private InterfaceC0448a eKK;
+    private BaseActivity aGt;
+    private com.baidu.tieba.ala.live.b.a eLc;
+    private IPayChannel eLd;
+    private IPayCallback eLe;
+    private int eLf;
+    private InterfaceC0448a eLg;
     private PayConfig mCurPayConfig;
     private PayChannelType mPayChannelType;
     private final int SEND_GETINFO_MSG = 1;
@@ -33,14 +33,14 @@ public abstract class a {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    a.this.bgs();
+                    a.this.bgx();
                     return;
                 default:
                     return;
             }
         }
     };
-    private a.InterfaceC0447a eKL = new a.InterfaceC0447a() { // from class: com.baidu.tieba.ala.live.c.a.2
+    private a.InterfaceC0447a eLh = new a.InterfaceC0447a() { // from class: com.baidu.tieba.ala.live.c.a.2
         @Override // com.baidu.tieba.ala.live.b.a.InterfaceC0447a
         public void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
             a.this.a(i, str, hashMap, str2, z);
@@ -63,55 +63,55 @@ public abstract class a {
     protected abstract com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0447a interfaceC0447a);
 
     public a(BaseActivity baseActivity, PayChannelType payChannelType) {
-        this.aGf = baseActivity;
+        this.aGt = baseActivity;
         this.mPayChannelType = payChannelType;
-        this.eKG = a(payChannelType, this.eKL);
-        this.eKH = buildPayChannel(payChannelType);
+        this.eLc = a(payChannelType, this.eLh);
+        this.eLd = buildPayChannel(payChannelType);
     }
 
     public void d(PayConfig payConfig) {
-        if (this.eKG != null) {
-            this.aGf.showLoadingDialog(this.aGf.getString(a.i.sdk_pay_loading));
+        if (this.eLc != null) {
+            this.aGt.showLoadingDialog(this.aGt.getString(a.i.sdk_pay_loading));
             this.mCurPayConfig = payConfig;
-            this.eKG.a(payConfig);
+            this.eLc.a(payConfig);
         }
     }
 
-    private void bgh() {
-        this.eKI = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
+    private void bgm() {
+        this.eLe = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayCallback
             public void onPayResult(int i, String str) {
                 switch (i) {
                     case 0:
-                        a.this.bgs();
+                        a.this.bgx();
                         break;
                     case 1:
                         break;
                     case 2:
                         a.this.mPayStatus = 1;
-                        a.this.iH(false);
+                        a.this.iJ(false);
                         break;
                     default:
-                        a.this.aGf.showToast(a.i.sdk_pay_fail);
+                        a.this.aGt.showToast(a.i.sdk_pay_fail);
                         a.this.mPayStatus = 5;
-                        a.this.iH(false);
+                        a.this.iJ(false);
                         break;
                 }
-                a.this.eKH.release();
-                a.this.eKI = null;
+                a.this.eLd.release();
+                a.this.eLe = null;
             }
         };
     }
 
     public void yH(String str) {
-        if (this.eKG != null) {
-            this.eKG.yG(str);
+        if (this.eLc != null) {
+            this.eLc.yG(str);
         }
-        bgu();
+        bgz();
     }
 
     public void a(InterfaceC0448a interfaceC0448a) {
-        this.eKK = interfaceC0448a;
+        this.eLg = interfaceC0448a;
     }
 
     protected IPayChannel buildPayChannel(PayChannelType payChannelType) {
@@ -120,100 +120,100 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TbPageContext getPageContext() {
-        return this.aGf.getPageContext();
+        return this.aGt.getPageContext();
     }
 
     protected void a(int i, String str, HashMap<String, String> hashMap, String str2, boolean z) {
-        this.aGf.closeLoadingDialog();
+        this.aGt.closeLoadingDialog();
         if (i == 0) {
             if (hashMap == null || hashMap.isEmpty()) {
-                this.aGf.showToast(a.i.sdk_pay_fail);
+                this.aGt.showToast(a.i.sdk_pay_fail);
                 this.mPayStatus = 3;
-                iH(false);
+                iJ(false);
                 return;
-            } else if (!TextUtils.isEmpty(str2) && !z && this.eKK != null) {
-                this.eKK.yF(str2);
+            } else if (!TextUtils.isEmpty(str2) && !z && this.eLg != null) {
+                this.eLg.yF(str2);
                 return;
             } else {
-                bgu();
+                bgz();
                 return;
             }
         }
-        this.aGf.showToast(str);
+        this.aGt.showToast(str);
         this.mPayStatus = 3;
-        iH(false);
+        iJ(false);
     }
 
     protected void f(int i, String str, int i2) {
         if (i != 0) {
-            this.aGf.showToast(str);
-            iI(false);
+            this.aGt.showToast(str);
+            iK(false);
             return;
         }
-        this.eKJ = i2;
-        if (this.eKJ == 2) {
+        this.eLf = i2;
+        if (this.eLf == 2) {
             if (this.hasResendGetMsg) {
-                iI(true);
+                iK(true);
                 return;
             }
             this.hasResendGetMsg = true;
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 5000L);
-        } else if (this.eKJ == 0) {
-            iI(true);
-        } else if (this.eKJ == 1) {
-            iI(false);
-        } else if (this.eKJ == 3) {
-            iI(false);
+        } else if (this.eLf == 0) {
+            iK(true);
+        } else if (this.eLf == 1) {
+            iK(false);
+        } else if (this.eLf == 3) {
+            iK(false);
         } else {
-            iI(false);
+            iK(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgs() {
-        if (this.eKG != null) {
-            this.aGf.showLoadingDialog(this.aGf.getString(a.i.sdk_pay_loading));
-            this.eKG.bgs();
+    public void bgx() {
+        if (this.eLc != null) {
+            this.aGt.showLoadingDialog(this.aGt.getString(a.i.sdk_pay_loading));
+            this.eLc.bgx();
         }
     }
 
-    private void bgu() {
-        if (this.eKH != null && this.eKG != null && this.eKG.bgq() != null && !this.eKG.bgq().isEmpty()) {
-            if (this.eKI == null) {
-                bgh();
+    private void bgz() {
+        if (this.eLd != null && this.eLc != null && this.eLc.bgv() != null && !this.eLc.bgv().isEmpty()) {
+            if (this.eLe == null) {
+                bgm();
             }
-            this.eKH.pay(this.eKG.bgq(), this.eKI);
+            this.eLd.pay(this.eLc.bgv(), this.eLe);
         }
     }
 
-    public Intent bgv() {
+    public Intent bgA() {
         Intent intent = new Intent();
-        if (this.eKG != null && this.mCurPayConfig != null) {
+        if (this.eLc != null && this.mCurPayConfig != null) {
             intent.putExtra("result_code", this.mPayStatus);
-            intent.putExtra("result_payinfo_status", this.eKJ);
+            intent.putExtra("result_payinfo_status", this.eLf);
             intent.putExtra("result_tbean_num", this.mCurPayConfig.getTBeanNum());
-            intent.putExtra("result_order_id", this.eKG.bgt());
+            intent.putExtra("result_order_id", this.eLc.bgy());
             intent.putExtra("pay_channel_type_name", this.mPayChannelType.name());
         }
         return intent;
     }
 
-    public int bgw() {
+    public int bgB() {
         return this.mPayStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iH(boolean z) {
-        Intent bgv = bgv();
-        this.aGf.setResult(-1, bgv);
-        if (this.eKK != null) {
-            this.eKK.a(z, bgv);
+    public void iJ(boolean z) {
+        Intent bgA = bgA();
+        this.aGt.setResult(-1, bgA);
+        if (this.eLg != null) {
+            this.eLg.a(z, bgA);
         }
     }
 
-    private void iI(boolean z) {
-        this.aGf.closeLoadingDialog();
+    private void iK(boolean z) {
+        this.aGt.closeLoadingDialog();
         this.mPayStatus = z ? 0 : 4;
-        iH(z);
+        iJ(z);
     }
 }

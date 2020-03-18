@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes9.dex */
 public class a {
-    private static a gYT = new a();
-    private long gYU = 0;
-    private SparseArray<Long> gYV = new SparseArray<>();
-    private SparseArray<Long> gYW = new SparseArray<>();
-    private SparseArray<Long> gYX = new SparseArray<>();
-    private SparseArray<Long> gYY = new SparseArray<>();
+    private static a haa = new a();
+    private long hab = 0;
+    private SparseArray<Long> hac = new SparseArray<>();
+    private SparseArray<Long> had = new SparseArray<>();
+    private SparseArray<Long> hae = new SparseArray<>();
+    private SparseArray<Long> haf = new SparseArray<>();
 
     private a() {
     }
 
-    public static a bNt() {
-        return gYT;
+    public static a bNH() {
+        return haa;
     }
 
     public long getCreateTime() {
-        return this.gYU;
+        return this.hab;
     }
 
     public void setCreateTime(long j) {
-        this.gYU = j;
+        this.hab = j;
     }
 
-    public long uW(int i) {
-        Long l = this.gYW.get(i);
+    public long vd(int i) {
+        Long l = this.had.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.gYW.put(i, Long.valueOf(j));
+        this.had.put(i, Long.valueOf(j));
     }
 
-    public long uX(int i) {
-        Long l = this.gYV.get(i);
+    public long ve(int i) {
+        Long l = this.hac.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.gYV.put(i, Long.valueOf(j));
+        this.hac.put(i, Long.valueOf(j));
     }
 
-    public long uY(int i) {
-        Long l = this.gYX.get(i);
+    public long vf(int i) {
+        Long l = this.hae.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.gYX.put(i, Long.valueOf(j));
+        this.hae.put(i, Long.valueOf(j));
     }
 
-    public long uZ(int i) {
-        Long l = this.gYY.get(i);
+    public long vg(int i) {
+        Long l = this.haf.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void q(long j, int i) {
-        this.gYY.put(i, Long.valueOf(j));
+        this.haf.put(i, Long.valueOf(j));
     }
 }

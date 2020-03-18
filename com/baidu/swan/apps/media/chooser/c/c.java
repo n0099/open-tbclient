@@ -5,5 +5,5 @@ import java.util.List;
 public interface c<T> {
     void U(List<T> list);
 
-    void jd(String str);
+    void jc(String str);
 }

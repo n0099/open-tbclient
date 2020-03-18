@@ -7,14 +7,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private m ale;
+    private m alp;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1021005);
     }
 
-    public m yO() {
-        return this.ale;
+    public m yT() {
+        return this.alp;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,14 +22,14 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ale = new m();
-            this.ale.parserJson(optJSONObject);
-            this.ale.Ym = jSONObject.optLong("logid");
-            if (this.ale.mLiveInfo != null && this.ale.mLiveInfo.live_id > 0) {
-                com.baidu.live.c.pr().putLong("ala_live_room_last_live_id", this.ale.mLiveInfo.live_id);
+            this.alp = new m();
+            this.alp.parserJson(optJSONObject);
+            this.alp.Yw = jSONObject.optLong("logid");
+            if (this.alp.mLiveInfo != null && this.alp.mLiveInfo.live_id > 0) {
+                com.baidu.live.c.pw().putLong("ala_live_room_last_live_id", this.alp.mLiveInfo.live_id);
             }
-            if (this.ale.mLiveInfo != null && this.ale.mLiveInfo.broadGiftMsgId > 0) {
-                com.baidu.live.gift.a.broadGiftMsgId = this.ale.mLiveInfo.broadGiftMsgId;
+            if (this.alp.mLiveInfo != null && this.alp.mLiveInfo.broadGiftMsgId > 0) {
+                com.baidu.live.gift.a.broadGiftMsgId = this.alp.mLiveInfo.broadGiftMsgId;
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {

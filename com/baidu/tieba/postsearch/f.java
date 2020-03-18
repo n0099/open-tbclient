@@ -13,16 +13,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class f {
-    private PostSearchActivity jAU;
-    private PostSearchListFragment jBH;
-    private PostSearchListFragment jBI;
-    private PostSearchListFragment jBJ;
+    private PostSearchActivity jCt;
+    private PostSearchListFragment jDg;
+    private PostSearchListFragment jDh;
+    private PostSearchListFragment jDi;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.jAU = postSearchActivity;
+        this.jCt = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -30,16 +30,16 @@ public class f {
         return this.mTabHost.getCurrentTabType();
     }
 
-    public void AF(int i) {
+    public void AN(int i) {
         if (this.mTabHost == null) {
-            AG(1);
+            AO(1);
             return;
         }
-        cAS();
+        cBm();
         if (this.mTabHost.getCurrentTabType() == i) {
-            PostSearchListFragment AI = AI(i);
-            if (AI != null) {
-                AI.requestData(true);
+            PostSearchListFragment AQ = AQ(i);
+            if (AQ != null) {
+                AQ.requestData(true);
                 return;
             }
             return;
@@ -59,9 +59,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         setVisibility(true);
-        PostSearchListFragment AI = AI(i);
-        if (AI != null) {
-            AI.a(bVar, z);
+        PostSearchListFragment AQ = AQ(i);
+        if (AQ != null) {
+            AQ.a(bVar, z);
         }
     }
 
@@ -74,14 +74,14 @@ public class f {
         }
     }
 
-    private void AG(int i) {
+    private void AO(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(R.id.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(R.id.post_search_tab_host);
-        this.mTabHost.setup(this.jAU.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.jAU.getResources().getDimension(R.dimen.ds80));
+        this.mTabHost.setup(this.jCt.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.jCt.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        cAR();
+        cBl();
         this.mTabHost.initViewPager(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -98,54 +98,54 @@ public class f {
         }
     }
 
-    private void cAR() {
+    private void cBl() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.jBH = new PostSearchListFragment(1);
-        bVar.mContentFragment = this.jBH;
-        bVar.cYi = AH(R.string.searching_time_tab);
+        this.jDg = new PostSearchListFragment(1);
+        bVar.mContentFragment = this.jDg;
+        bVar.cYv = AP(R.string.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.jBI = new PostSearchListFragment(2);
-        bVar2.mContentFragment = this.jBI;
-        bVar2.cYi = AH(R.string.searching_relative_tab);
+        this.jDh = new PostSearchListFragment(2);
+        bVar2.mContentFragment = this.jDh;
+        bVar2.cYv = AP(R.string.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.jBJ = new PostSearchListFragment(3);
-        bVar3.mContentFragment = this.jBJ;
-        bVar3.cYi = AH(R.string.searching_only_thread_tab);
+        this.jDi = new PostSearchListFragment(3);
+        bVar3.mContentFragment = this.jDi;
+        bVar3.cYv = AP(R.string.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
-    private FragmentTabIndicator AH(int i) {
-        int equipmentWidth = (l.getEquipmentWidth(this.jAU.getPageContext().getContext()) - (this.jAU.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.jAU.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator AP(int i) {
+        int equipmentWidth = (l.getEquipmentWidth(this.jCt.getPageContext().getContext()) - (this.jCt.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.jCt.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.jAU.getResources().getDimensionPixelSize(R.dimen.ds32));
+        fragmentTabIndicator.setTextSize(0, this.jCt.getResources().getDimensionPixelSize(R.dimen.ds32));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.jAU.getResources().getDimensionPixelSize(R.dimen.ds4));
+        fragmentTabIndicator.setContentTvTopMargin(this.jCt.getResources().getDimensionPixelSize(R.dimen.ds4));
         fragmentTabIndicator.setWidth(equipmentWidth);
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment AI(int i) {
+    private PostSearchListFragment AQ(int i) {
         switch (i) {
             case 1:
-                return this.jBH;
+                return this.jDg;
             case 2:
-                return this.jBI;
+                return this.jDh;
             case 3:
-                return this.jBJ;
+                return this.jDi;
             default:
                 return null;
         }
     }
 
-    private void cAS() {
-        this.jBH.cAJ();
-        this.jBI.cAJ();
-        this.jBJ.cAJ();
+    private void cBm() {
+        this.jDg.cBd();
+        this.jDh.cBd();
+        this.jDi.cBd();
     }
 }

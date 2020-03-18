@@ -2,9 +2,9 @@ package com.baidu.swan.apps.ag.c.b;
 /* loaded from: classes11.dex */
 public class a {
     public String appKey;
-    public String bIm;
-    public String bIn;
-    public int bIo = -1;
-    public boolean bIp = false;
-    public boolean bIq = false;
+    public String bIx;
+    public String bIy;
+    public int bIz = -1;
+    public boolean bIA = false;
+    public boolean bIB = false;
 }

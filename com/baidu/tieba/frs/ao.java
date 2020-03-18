@@ -1,14 +1,10 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
-/* loaded from: classes9.dex */
-public class ao implements com.baidu.tieba.horizonalList.widget.c {
-    public MetaData metaData = new MetaData();
-
-    public ao() {
-        if (this.metaData.getGodUserData() == null) {
-            this.metaData.setGodUserData(new GodUserData());
-        }
-    }
+/* loaded from: classes.dex */
+public class ao {
+    public Object ext;
+    public String forumId;
+    public String forumName;
+    public boolean gti = false;
+    public int pn;
+    public String stType;
 }

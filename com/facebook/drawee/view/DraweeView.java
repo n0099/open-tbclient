@@ -22,7 +22,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     private b<DH> mDraweeHolder;
     private boolean mInitialised;
     private boolean mLegacyVisibilityHandlingEnabled;
-    private final a.C0661a mMeasureSpec;
+    private final a.C0662a mMeasureSpec;
 
     public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
         sGlobalLegacyVisibilityHandlingEnabled = z;
@@ -30,7 +30,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context) {
         super(context);
-        this.mMeasureSpec = new a.C0661a();
+        this.mMeasureSpec = new a.C0662a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         this.mLegacyVisibilityHandlingEnabled = false;
@@ -39,7 +39,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mMeasureSpec = new a.C0661a();
+        this.mMeasureSpec = new a.C0662a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         this.mLegacyVisibilityHandlingEnabled = false;
@@ -48,7 +48,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mMeasureSpec = new a.C0661a();
+        this.mMeasureSpec = new a.C0662a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         this.mLegacyVisibilityHandlingEnabled = false;
@@ -58,7 +58,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.mMeasureSpec = new a.C0661a();
+        this.mMeasureSpec = new a.C0662a();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
         this.mLegacyVisibilityHandlingEnabled = false;

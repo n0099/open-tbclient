@@ -5,10 +5,10 @@ import kotlin.collections.ae;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class i implements Iterable<Long> {
-    public static final a nDc = new a(null);
-    private final long nCZ;
-    private final long nDa;
-    private final long nDb;
+    public static final a nEP = new a(null);
+    private final long nEM;
+    private final long nEN;
+    private final long nEO;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
@@ -17,43 +17,43 @@ public class i implements Iterable<Long> {
         if (j3 == Long.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nCZ = j;
-        this.nDa = kotlin.internal.c.l(j, j2, j3);
-        this.nDb = j3;
+        this.nEM = j;
+        this.nEN = kotlin.internal.c.l(j, j2, j3);
+        this.nEO = j3;
     }
 
-    public final long dKM() {
-        return this.nCZ;
+    public final long dLm() {
+        return this.nEM;
     }
 
-    public final long dKN() {
-        return this.nDa;
+    public final long dLn() {
+        return this.nEN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dKO */
+    /* renamed from: dLo */
     public ae iterator() {
-        return new j(this.nCZ, this.nDa, this.nDb);
+        return new j(this.nEM, this.nEN, this.nEO);
     }
 
     public boolean isEmpty() {
-        return this.nDb > 0 ? this.nCZ > this.nDa : this.nCZ < this.nDa;
+        return this.nEO > 0 ? this.nEM > this.nEN : this.nEM < this.nEN;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.nCZ == ((i) obj).nCZ && this.nDa == ((i) obj).nDa && this.nDb == ((i) obj).nDb));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.nEM == ((i) obj).nEM && this.nEN == ((i) obj).nEN && this.nEO == ((i) obj).nEO));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.nCZ ^ (this.nCZ >>> 32))) + (this.nDa ^ (this.nDa >>> 32)))) + (this.nDb ^ (this.nDb >>> 32)));
+        return (int) ((31 * ((31 * (this.nEM ^ (this.nEM >>> 32))) + (this.nEN ^ (this.nEN >>> 32)))) + (this.nEO ^ (this.nEO >>> 32)));
     }
 
     public String toString() {
-        return this.nDb > 0 ? this.nCZ + IStringUtil.TOP_PATH + this.nDa + " step " + this.nDb : this.nCZ + " downTo " + this.nDa + " step " + (-this.nDb);
+        return this.nEO > 0 ? this.nEM + IStringUtil.TOP_PATH + this.nEN + " step " + this.nEO : this.nEM + " downTo " + this.nEN + " step " + (-this.nEO);
     }
 
     @kotlin.h

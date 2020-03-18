@@ -4,14 +4,14 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes9.dex */
 public class h {
-    private boolean fDM;
-    private int iCG;
-    private int iCH;
-    private int iCI;
-    private List<String> iCJ;
-    private String iCK;
-    private boolean iCL;
-    private int iCM;
+    private boolean fEu;
+    private int iEh;
+    private int iEi;
+    private int iEj;
+    private List<String> iEk;
+    private String iEl;
+    private boolean iEm;
+    private int iEn;
     private int status;
 
     public static h a(ManagerElection managerElection) {
@@ -19,15 +19,15 @@ public class h {
             return null;
         }
         h hVar = new h();
-        hVar.iCH = managerElection.begin_vote_time.intValue();
-        hVar.fDM = managerElection.can_vote.intValue() == 1;
-        hVar.iCG = managerElection.vote_num.intValue();
-        hVar.iCI = managerElection.election_id.intValue();
-        hVar.iCL = managerElection.is_show_distribute.intValue() == 1;
-        hVar.iCM = managerElection.remainder_time.intValue();
+        hVar.iEi = managerElection.begin_vote_time.intValue();
+        hVar.fEu = managerElection.can_vote.intValue() == 1;
+        hVar.iEh = managerElection.vote_num.intValue();
+        hVar.iEj = managerElection.election_id.intValue();
+        hVar.iEm = managerElection.is_show_distribute.intValue() == 1;
+        hVar.iEn = managerElection.remainder_time.intValue();
         hVar.status = managerElection.status.intValue();
-        hVar.iCK = managerElection.tail_text;
-        hVar.iCJ = managerElection.vote_condition;
+        hVar.iEl = managerElection.tail_text;
+        hVar.iEk = managerElection.vote_condition;
         return hVar;
     }
 
@@ -35,39 +35,39 @@ public class h {
         return this.status;
     }
 
-    public boolean ckY() {
-        return this.iCL;
+    public boolean clt() {
+        return this.iEm;
     }
 
-    public int ckZ() {
-        return this.iCM;
+    public int clu() {
+        return this.iEn;
     }
 
-    public int cla() {
-        return this.iCG;
+    public int clv() {
+        return this.iEh;
     }
 
-    public List<String> clb() {
-        return this.iCJ;
+    public List<String> clw() {
+        return this.iEk;
     }
 
-    public String clc() {
-        return this.iCK;
+    public String clx() {
+        return this.iEl;
     }
 
-    public boolean bug() {
-        return this.fDM;
+    public boolean bul() {
+        return this.fEu;
     }
 
-    public void ke(boolean z) {
-        this.fDM = z;
+    public void kj(boolean z) {
+        this.fEu = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void yB(int i) {
-        this.iCG = i;
+    public void yJ(int i) {
+        this.iEh = i;
     }
 }

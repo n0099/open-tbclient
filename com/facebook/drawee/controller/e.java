@@ -22,7 +22,7 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void dmr() {
+    public synchronized void dmO() {
         this.mListeners.clear();
     }
 

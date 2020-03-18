@@ -16,20 +16,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONArray dUd;
-    private HttpMessageListener dUe;
-    private BdUniqueId dUf = BdUniqueId.gen();
-    private BdUniqueId dUg = BdUniqueId.gen();
-    private CustomMessageListener dUh = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private JSONArray dUt;
+    private HttpMessageListener dUu;
+    private BdUniqueId dUv = BdUniqueId.gen();
+    private BdUniqueId dUw = BdUniqueId.gen();
+    private CustomMessageListener dUx = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.dUd != null) {
-                a.this.a(a.this.dUd, a.this.dUg);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.dUt != null) {
+                a.this.a(a.this.dUt, a.this.dUw);
             }
         }
     };
-    private CustomMessageListener dUi = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener dUy = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,30 +42,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.dUe == null) {
-            this.dUe = new HttpMessageListener(1003184) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.dUu == null) {
+            this.dUu = new HttpMessageListener(1003184) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.dUd = null;
+                        a.this.dUt = null;
                     }
                 }
             };
         }
-        this.dUe.setTag(this.dUg);
-        MessageManager.getInstance().registerListener(this.dUe);
-        MessageManager.getInstance().registerListener(this.dUh);
-        this.dUi.setTag(tbPageContext.getUniqueId());
-        this.dUi.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.dUi);
+        this.dUu.setTag(this.dUw);
+        MessageManager.getInstance().registerListener(this.dUu);
+        MessageManager.getInstance().registerListener(this.dUx);
+        this.dUy.setTag(tbPageContext.getUniqueId());
+        this.dUy.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.dUy);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dUe);
-        MessageManager.getInstance().unRegisterListener(this.dUh);
-        MessageManager.getInstance().unRegisterListener(this.dUi);
-        this.dUd = null;
+        MessageManager.getInstance().unRegisterListener(this.dUu);
+        MessageManager.getInstance().unRegisterListener(this.dUx);
+        MessageManager.getInstance().unRegisterListener(this.dUy);
+        this.dUt = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,14 +74,14 @@ public class a {
             if (j.isNetworkAvailableForImmediately()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.dUf);
+                a(jSONArray, this.dUv);
                 return;
             }
-            if (this.dUd == null) {
-                this.dUd = new JSONArray();
+            if (this.dUt == null) {
+                this.dUt = new JSONArray();
             }
-            if (this.dUd.length() <= 100) {
-                this.dUd.put(jSONObject);
+            if (this.dUt.length() <= 100) {
+                this.dUt.put(jSONObject);
             }
         }
     }

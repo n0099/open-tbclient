@@ -1,9 +1,9 @@
 package com.baidu.swan.bdprivate.invoice;
 /* loaded from: classes11.dex */
 public interface b {
-    void aiA();
+    void aiD();
 
-    void aiB();
+    void aiE();
 
-    void aiC();
+    void aiF();
 }

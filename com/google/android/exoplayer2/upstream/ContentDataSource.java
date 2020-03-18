@@ -12,11 +12,11 @@ import java.nio.channels.FileChannel;
 /* loaded from: classes6.dex */
 public final class ContentDataSource implements e {
     private long bytesRemaining;
-    private final q<? super ContentDataSource> mFU;
-    private boolean mFV;
-    private final ContentResolver mFW;
-    private AssetFileDescriptor mFX;
-    private FileInputStream mFY;
+    private final q<? super ContentDataSource> mHA;
+    private boolean mHB;
+    private final ContentResolver mHC;
+    private AssetFileDescriptor mHD;
+    private FileInputStream mHE;
     private Uri uri;
 
     /* loaded from: classes6.dex */
@@ -27,39 +27,39 @@ public final class ContentDataSource implements e {
     }
 
     public ContentDataSource(Context context, q<? super ContentDataSource> qVar) {
-        this.mFW = context.getContentResolver();
-        this.mFU = qVar;
+        this.mHC = context.getContentResolver();
+        this.mHA = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public long a(g gVar) throws ContentDataSourceException {
         try {
             this.uri = gVar.uri;
-            this.mFX = this.mFW.openAssetFileDescriptor(this.uri, "r");
-            if (this.mFX == null) {
+            this.mHD = this.mHC.openAssetFileDescriptor(this.uri, "r");
+            if (this.mHD == null) {
                 throw new FileNotFoundException("Could not open file descriptor for: " + this.uri);
             }
-            this.mFY = new FileInputStream(this.mFX.getFileDescriptor());
-            long startOffset = this.mFX.getStartOffset();
-            long skip = this.mFY.skip(gVar.fOo + startOffset) - startOffset;
-            if (skip != gVar.fOo) {
+            this.mHE = new FileInputStream(this.mHD.getFileDescriptor());
+            long startOffset = this.mHD.getStartOffset();
+            long skip = this.mHE.skip(gVar.fOW + startOffset) - startOffset;
+            if (skip != gVar.fOW) {
                 throw new EOFException();
             }
             if (gVar.length != -1) {
                 this.bytesRemaining = gVar.length;
             } else {
-                long length = this.mFX.getLength();
+                long length = this.mHD.getLength();
                 if (length == -1) {
-                    FileChannel channel = this.mFY.getChannel();
+                    FileChannel channel = this.mHE.getChannel();
                     long size = channel.size();
                     this.bytesRemaining = size != 0 ? size - channel.position() : -1L;
                 } else {
                     this.bytesRemaining = length - skip;
                 }
             }
-            this.mFV = true;
-            if (this.mFU != null) {
-                this.mFU.a(this, gVar);
+            this.mHB = true;
+            if (this.mHA != null) {
+                this.mHA.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -77,7 +77,7 @@ public final class ContentDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     i2 = (int) Math.min(this.bytesRemaining, i2);
                 }
-                int read = this.mFY.read(bArr, i, i2);
+                int read = this.mHE.read(bArr, i, i2);
                 if (read == -1) {
                     if (this.bytesRemaining != -1) {
                         throw new ContentDataSourceException(new EOFException());
@@ -87,8 +87,8 @@ public final class ContentDataSource implements e {
                 if (this.bytesRemaining != -1) {
                     this.bytesRemaining -= read;
                 }
-                if (this.mFU != null) {
-                    this.mFU.h(this, read);
+                if (this.mHA != null) {
+                    this.mHA.h(this, read);
                 }
                 return read;
             } catch (IOException e) {
@@ -111,24 +111,24 @@ public final class ContentDataSource implements e {
         this.uri = null;
         try {
             try {
-                if (this.mFY != null) {
-                    this.mFY.close();
+                if (this.mHE != null) {
+                    this.mHE.close();
                 }
-                this.mFY = null;
+                this.mHE = null;
                 try {
                     try {
-                        if (this.mFX != null) {
-                            this.mFX.close();
+                        if (this.mHD != null) {
+                            this.mHD.close();
                         }
                     } catch (IOException e) {
                         throw new ContentDataSourceException(e);
                     }
                 } finally {
-                    this.mFX = null;
-                    if (this.mFV) {
-                        this.mFV = false;
-                        if (this.mFU != null) {
-                            this.mFU.bB(this);
+                    this.mHD = null;
+                    if (this.mHB) {
+                        this.mHB = false;
+                        if (this.mHA != null) {
+                            this.mHA.bB(this);
                         }
                     }
                 }
@@ -136,17 +136,17 @@ public final class ContentDataSource implements e {
                 throw new ContentDataSourceException(e2);
             }
         } catch (Throwable th) {
-            this.mFY = null;
+            this.mHE = null;
             try {
                 try {
-                    if (this.mFX != null) {
-                        this.mFX.close();
+                    if (this.mHD != null) {
+                        this.mHD.close();
                     }
-                    this.mFX = null;
-                    if (this.mFV) {
-                        this.mFV = false;
-                        if (this.mFU != null) {
-                            this.mFU.bB(this);
+                    this.mHD = null;
+                    if (this.mHB) {
+                        this.mHB = false;
+                        if (this.mHA != null) {
+                            this.mHA.bB(this);
                         }
                     }
                     throw th;
@@ -154,11 +154,11 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e3);
                 }
             } finally {
-                this.mFX = null;
-                if (this.mFV) {
-                    this.mFV = false;
-                    if (this.mFU != null) {
-                        this.mFU.bB(this);
+                this.mHD = null;
+                if (this.mHB) {
+                    this.mHB = false;
+                    if (this.mHA != null) {
+                        this.mHA.bB(this);
                     }
                 }
             }

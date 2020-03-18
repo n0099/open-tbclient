@@ -10,58 +10,58 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class b implements e, l {
-    public static final h meI = new h() { // from class: com.google.android.exoplayer2.extractor.flv.b.1
+    public static final h mgo = new h() { // from class: com.google.android.exoplayer2.extractor.flv.b.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public e[] duU() {
+        public e[] dvr() {
             return new e[]{new b()};
         }
     };
-    private static final int meJ = v.QF("FLV");
-    public int Xk;
-    private g meO;
-    private int meQ;
-    public int meR;
-    public long meS;
-    private a meT;
-    private d meU;
-    private c meV;
-    private final com.google.android.exoplayer2.util.l meK = new com.google.android.exoplayer2.util.l(4);
-    private final com.google.android.exoplayer2.util.l meL = new com.google.android.exoplayer2.util.l(9);
-    private final com.google.android.exoplayer2.util.l meM = new com.google.android.exoplayer2.util.l(11);
-    private final com.google.android.exoplayer2.util.l meN = new com.google.android.exoplayer2.util.l();
-    private int meP = 1;
+    private static final int mgp = v.QE("FLV");
+    public int Xu;
+    private d mgA;
+    private c mgB;
+    private g mgu;
+    private int mgw;
+    public int mgx;
+    public long mgy;
+    private a mgz;
+    private final com.google.android.exoplayer2.util.l mgq = new com.google.android.exoplayer2.util.l(4);
+    private final com.google.android.exoplayer2.util.l mgr = new com.google.android.exoplayer2.util.l(9);
+    private final com.google.android.exoplayer2.util.l mgs = new com.google.android.exoplayer2.util.l(11);
+    private final com.google.android.exoplayer2.util.l mgt = new com.google.android.exoplayer2.util.l();
+    private int mgv = 1;
 
     @Override // com.google.android.exoplayer2.extractor.e
     public boolean a(f fVar) throws IOException, InterruptedException {
-        fVar.s(this.meK.data, 0, 3);
-        this.meK.setPosition(0);
-        if (this.meK.dzy() != meJ) {
+        fVar.s(this.mgq.data, 0, 3);
+        this.mgq.setPosition(0);
+        if (this.mgq.dzV() != mgp) {
             return false;
         }
-        fVar.s(this.meK.data, 0, 2);
-        this.meK.setPosition(0);
-        if ((this.meK.readUnsignedShort() & 250) == 0) {
-            fVar.s(this.meK.data, 0, 4);
-            this.meK.setPosition(0);
-            int readInt = this.meK.readInt();
-            fVar.duS();
-            fVar.Jw(readInt);
-            fVar.s(this.meK.data, 0, 4);
-            this.meK.setPosition(0);
-            return this.meK.readInt() == 0;
+        fVar.s(this.mgq.data, 0, 2);
+        this.mgq.setPosition(0);
+        if ((this.mgq.readUnsignedShort() & 250) == 0) {
+            fVar.s(this.mgq.data, 0, 4);
+            this.mgq.setPosition(0);
+            int readInt = this.mgq.readInt();
+            fVar.dvp();
+            fVar.JC(readInt);
+            fVar.s(this.mgq.data, 0, 4);
+            this.mgq.setPosition(0);
+            return this.mgq.readInt() == 0;
         }
         return false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(g gVar) {
-        this.meO = gVar;
+        this.mgu = gVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        this.meP = 1;
-        this.meQ = 0;
+        this.mgv = 1;
+        this.mgw = 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -71,7 +71,7 @@ public final class b implements e, l {
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(f fVar, k kVar) throws IOException, InterruptedException {
         while (true) {
-            switch (this.meP) {
+            switch (this.mgv) {
                 case 1:
                     if (b(fVar)) {
                         break;
@@ -98,45 +98,45 @@ public final class b implements e, l {
     }
 
     private boolean b(f fVar) throws IOException, InterruptedException {
-        if (fVar.d(this.meL.data, 0, 9, true)) {
-            this.meL.setPosition(0);
-            this.meL.skipBytes(4);
-            int readUnsignedByte = this.meL.readUnsignedByte();
+        if (fVar.d(this.mgr.data, 0, 9, true)) {
+            this.mgr.setPosition(0);
+            this.mgr.skipBytes(4);
+            int readUnsignedByte = this.mgr.readUnsignedByte();
             boolean z = (readUnsignedByte & 4) != 0;
             boolean z2 = (readUnsignedByte & 1) != 0;
-            if (z && this.meT == null) {
-                this.meT = new a(this.meO.dK(8, 1));
+            if (z && this.mgz == null) {
+                this.mgz = new a(this.mgu.dL(8, 1));
             }
-            if (z2 && this.meU == null) {
-                this.meU = new d(this.meO.dK(9, 2));
+            if (z2 && this.mgA == null) {
+                this.mgA = new d(this.mgu.dL(9, 2));
             }
-            if (this.meV == null) {
-                this.meV = new c(null);
+            if (this.mgB == null) {
+                this.mgB = new c(null);
             }
-            this.meO.duV();
-            this.meO.a(this);
-            this.meQ = (this.meL.readInt() - 9) + 4;
-            this.meP = 2;
+            this.mgu.dvs();
+            this.mgu.a(this);
+            this.mgw = (this.mgr.readInt() - 9) + 4;
+            this.mgv = 2;
             return true;
         }
         return false;
     }
 
     private void c(f fVar) throws IOException, InterruptedException {
-        fVar.Jv(this.meQ);
-        this.meQ = 0;
-        this.meP = 3;
+        fVar.JB(this.mgw);
+        this.mgw = 0;
+        this.mgv = 3;
     }
 
     private boolean d(f fVar) throws IOException, InterruptedException {
-        if (fVar.d(this.meM.data, 0, 11, true)) {
-            this.meM.setPosition(0);
-            this.Xk = this.meM.readUnsignedByte();
-            this.meR = this.meM.dzy();
-            this.meS = this.meM.dzy();
-            this.meS = ((this.meM.readUnsignedByte() << 24) | this.meS) * 1000;
-            this.meM.skipBytes(3);
-            this.meP = 4;
+        if (fVar.d(this.mgs.data, 0, 11, true)) {
+            this.mgs.setPosition(0);
+            this.Xu = this.mgs.readUnsignedByte();
+            this.mgx = this.mgs.dzV();
+            this.mgy = this.mgs.dzV();
+            this.mgy = ((this.mgs.readUnsignedByte() << 24) | this.mgy) * 1000;
+            this.mgs.skipBytes(3);
+            this.mgv = 4;
             return true;
         }
         return false;
@@ -144,44 +144,44 @@ public final class b implements e, l {
 
     private boolean e(f fVar) throws IOException, InterruptedException {
         boolean z = true;
-        if (this.Xk == 8 && this.meT != null) {
-            this.meT.b(f(fVar), this.meS);
-        } else if (this.Xk == 9 && this.meU != null) {
-            this.meU.b(f(fVar), this.meS);
-        } else if (this.Xk == 18 && this.meV != null) {
-            this.meV.b(f(fVar), this.meS);
+        if (this.Xu == 8 && this.mgz != null) {
+            this.mgz.b(f(fVar), this.mgy);
+        } else if (this.Xu == 9 && this.mgA != null) {
+            this.mgA.b(f(fVar), this.mgy);
+        } else if (this.Xu == 18 && this.mgB != null) {
+            this.mgB.b(f(fVar), this.mgy);
         } else {
-            fVar.Jv(this.meR);
+            fVar.JB(this.mgx);
             z = false;
         }
-        this.meQ = 4;
-        this.meP = 2;
+        this.mgw = 4;
+        this.mgv = 2;
         return z;
     }
 
     private com.google.android.exoplayer2.util.l f(f fVar) throws IOException, InterruptedException {
-        if (this.meR > this.meN.capacity()) {
-            this.meN.I(new byte[Math.max(this.meN.capacity() * 2, this.meR)], 0);
+        if (this.mgx > this.mgt.capacity()) {
+            this.mgt.I(new byte[Math.max(this.mgt.capacity() * 2, this.mgx)], 0);
         } else {
-            this.meN.setPosition(0);
+            this.mgt.setPosition(0);
         }
-        this.meN.setLimit(this.meR);
-        fVar.readFully(this.meN.data, 0, this.meR);
-        return this.meN;
+        this.mgt.setLimit(this.mgx);
+        fVar.readFully(this.mgt.data, 0, this.mgx);
+        return this.mgt;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public boolean duR() {
+    public boolean dvo() {
         return false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
     public long getDurationUs() {
-        return this.meV.getDurationUs();
+        return this.mgB.getDurationUs();
     }
 
     @Override // com.google.android.exoplayer2.extractor.l
-    public long fL(long j) {
+    public long fM(long j) {
         return 0L;
     }
 }

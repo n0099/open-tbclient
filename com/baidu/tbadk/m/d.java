@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private String cPF;
+    private String cPS;
     private String currentPageKey;
-    public String dDi;
-    private String dDj;
-    public String dDk;
+    public String dDw;
+    private String dDx;
+    public String dDy;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -72,20 +72,20 @@ public class d {
         return this.task_id;
     }
 
-    public String aQW() {
-        return this.cPF;
+    public String aRa() {
+        return this.cPS;
     }
 
     public void vF(String str) {
-        this.cPF = str;
+        this.cPS = str;
     }
 
-    public String aQX() {
-        return this.dDj;
+    public String aRb() {
+        return this.dDx;
     }
 
     public void vG(String str) {
-        this.dDj = str;
+        this.dDx = str;
     }
 
     public boolean isDirtyData() {

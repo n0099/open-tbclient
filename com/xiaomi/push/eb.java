@@ -13,19 +13,19 @@ public class eb extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo157a() {
+    public int mo155a() {
         return 9;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo157a() {
+    public hi mo155a() {
         return hi.TopApp;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo157a() {
+    public String mo155a() {
         return null;
     }
 }

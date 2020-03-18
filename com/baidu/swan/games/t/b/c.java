@@ -3,13 +3,13 @@ package com.baidu.swan.games.t.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    public JSONObject csc;
-    public d csd;
+    public JSONObject csn;
+    public d cso;
     public String query;
     public String title;
     public String videoPath;
 
     public String toString() {
-        return "{ videoPath=" + this.videoPath + " , query=" + this.query + " , title=" + this.title + ", extra=" + this.csc + ", videoEditorParams=" + this.csd + " }";
+        return "{ videoPath=" + this.videoPath + " , query=" + this.query + " , title=" + this.title + ", extra=" + this.csn + ", videoEditorParams=" + this.cso + " }";
     }
 }

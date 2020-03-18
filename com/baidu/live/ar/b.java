@@ -7,30 +7,30 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends BaseData {
-    public static b VS = new b();
-    public static b VT = new b();
-    public String VP = "";
-    public String VQ;
-    private HashMap<String, Integer> VR;
+    public static b Wc = new b();
+    public static b We = new b();
+    public String VZ = "";
+    public String Wa;
+    private HashMap<String, Integer> Wb;
 
     public b() {
-        this.VQ = "";
-        this.VQ = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
-        pz();
+        this.Wa = "";
+        this.Wa = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
+        pE();
     }
 
-    private void pz() {
-        this.VR = new HashMap<>();
+    private void pE() {
+        this.Wb = new HashMap<>();
         for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-            this.VR.put(beautyAdjustKey.getJsonKey(), 0);
+            this.Wb.put(beautyAdjustKey.getJsonKey(), 0);
         }
     }
 
-    public int cS(String str) {
-        if (TextUtils.isEmpty(str) || this.VR == null || this.VR.isEmpty() || this.VR.get(str) == null) {
+    public int cR(String str) {
+        if (TextUtils.isEmpty(str) || this.Wb == null || this.Wb.isEmpty() || this.Wb.get(str) == null) {
             return 0;
         }
-        return this.VR.get(str).intValue();
+        return this.Wb.get(str).intValue();
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData

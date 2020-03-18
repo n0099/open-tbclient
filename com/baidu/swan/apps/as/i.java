@@ -9,7 +9,7 @@ public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static File agI() {
+    public static File agL() {
         List<ac.a> storageList = ac.getStorageList();
         if (storageList == null || storageList.size() <= 0) {
             return null;

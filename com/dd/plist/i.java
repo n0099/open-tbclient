@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public abstract class i {
-    static final String lGU = System.getProperty("line.separator");
+    static final String lIA = System.getProperty("line.separator");
 
-    public static h eU(long j) {
+    public static h eV(long j) {
         return new h(j);
     }
 
@@ -19,7 +19,7 @@ public abstract class i {
         return new h(d);
     }
 
-    public static h uZ(boolean z) {
+    public static h vg(boolean z) {
         return new h(z);
     }
 
@@ -27,7 +27,7 @@ public abstract class i {
         return new e(bArr);
     }
 
-    public static d I(Object[] objArr) {
+    public static d J(Object[] objArr) {
         d dVar = new d(objArr.length);
         for (int i = 0; i < objArr.length; i++) {
             dVar.j(i, aO(objArr[i]));
@@ -45,19 +45,19 @@ public abstract class i {
         }
         Class<?> cls = obj.getClass();
         if (Boolean.class.equals(cls)) {
-            return uZ(((Boolean) obj).booleanValue());
+            return vg(((Boolean) obj).booleanValue());
         }
         if (Byte.class.equals(cls)) {
-            return eU(((Byte) obj).byteValue());
+            return eV(((Byte) obj).byteValue());
         }
         if (Short.class.equals(cls)) {
-            return eU(((Short) obj).shortValue());
+            return eV(((Short) obj).shortValue());
         }
         if (Integer.class.equals(cls)) {
-            return eU(((Integer) obj).intValue());
+            return eV(((Integer) obj).intValue());
         }
         if (Long.class.isAssignableFrom(cls)) {
-            return eU(((Long) obj).longValue());
+            return eV(((Long) obj).longValue());
         }
         if (Float.class.equals(cls)) {
             return x(((Float) obj).floatValue());
@@ -80,7 +80,7 @@ public abstract class i {
                 boolean[] zArr = (boolean[]) obj;
                 d dVar = new d(zArr.length);
                 while (i < zArr.length) {
-                    dVar.j(i, uZ(zArr[i]));
+                    dVar.j(i, vg(zArr[i]));
                     i++;
                 }
                 return dVar;
@@ -104,7 +104,7 @@ public abstract class i {
                 short[] sArr = (short[]) obj;
                 d dVar4 = new d(sArr.length);
                 while (i < sArr.length) {
-                    dVar4.j(i, eU(sArr[i]));
+                    dVar4.j(i, eV(sArr[i]));
                     i++;
                 }
                 return dVar4;
@@ -112,7 +112,7 @@ public abstract class i {
                 int[] iArr = (int[]) obj;
                 d dVar5 = new d(iArr.length);
                 while (i < iArr.length) {
-                    dVar5.j(i, eU(iArr[i]));
+                    dVar5.j(i, eV(iArr[i]));
                     i++;
                 }
                 return dVar5;
@@ -120,12 +120,12 @@ public abstract class i {
                 long[] jArr = (long[]) obj;
                 d dVar6 = new d(jArr.length);
                 while (i < jArr.length) {
-                    dVar6.j(i, eU(jArr[i]));
+                    dVar6.j(i, eV(jArr[i]));
                     i++;
                 }
                 return dVar6;
             } else {
-                return I((Object[]) obj);
+                return J((Object[]) obj);
             }
         } else if (Map.class.isAssignableFrom(cls)) {
             Map map = (Map) obj;
@@ -136,7 +136,7 @@ public abstract class i {
             }
             return gVar;
         } else if (Collection.class.isAssignableFrom(cls)) {
-            return I(((Collection) obj).toArray());
+            return J(((Collection) obj).toArray());
         } else {
             return aP(obj);
         }

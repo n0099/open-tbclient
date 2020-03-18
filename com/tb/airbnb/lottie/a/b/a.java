@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.tb.airbnb.lottie.e.a<K>> gH;
+    private final List<? extends com.tb.airbnb.lottie.e.a<K>> gG;
     @Nullable
-    protected com.tb.airbnb.lottie.e.c<A> nqu;
+    protected com.tb.airbnb.lottie.e.c<A> nsh;
     @Nullable
-    private com.tb.airbnb.lottie.e.a<K> nqv;
-    final List<InterfaceC0738a> listeners = new ArrayList();
-    private boolean gG = false;
+    private com.tb.airbnb.lottie.e.a<K> nsi;
+    final List<InterfaceC0739a> listeners = new ArrayList();
+    private boolean gF = false;
     private float progress = 0.0f;
 
     /* renamed from: com.tb.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0738a {
+    public interface InterfaceC0739a {
         void bD();
     }
 
@@ -26,15 +26,15 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.tb.airbnb.lottie.e.a<K>> list) {
-        this.gH = list;
+        this.gG = list;
     }
 
     public void bR() {
-        this.gG = true;
+        this.gF = true;
     }
 
-    public void b(InterfaceC0738a interfaceC0738a) {
-        this.listeners.add(interfaceC0738a);
+    public void b(InterfaceC0739a interfaceC0739a) {
+        this.listeners.add(interfaceC0739a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -62,61 +62,61 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> dGK() {
-        if (this.nqv != null && this.nqv.n(this.progress)) {
-            return this.nqv;
+    private com.tb.airbnb.lottie.e.a<K> dHk() {
+        if (this.nsi != null && this.nsi.n(this.progress)) {
+            return this.nsi;
         }
-        com.tb.airbnb.lottie.e.a<K> aVar = this.gH.get(this.gH.size() - 1);
+        com.tb.airbnb.lottie.e.a<K> aVar = this.gG.get(this.gG.size() - 1);
         if (this.progress < aVar.dj()) {
-            for (int size = this.gH.size() - 1; size >= 0; size--) {
-                aVar = this.gH.get(size);
+            for (int size = this.gG.size() - 1; size >= 0; size--) {
+                aVar = this.gG.get(size);
                 if (aVar.n(this.progress)) {
                     break;
                 }
             }
         }
-        this.nqv = aVar;
+        this.nsi = aVar;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float bT() {
-        if (this.gG) {
+        if (this.gF) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> dGK = dGK();
-        if (dGK.dM()) {
+        com.tb.airbnb.lottie.e.a<K> dHk = dHk();
+        if (dHk.dM()) {
             return 0.0f;
         }
-        return (this.progress - dGK.dj()) / (dGK.bW() - dGK.dj());
+        return (this.progress - dHk.dj()) / (dHk.bW() - dHk.dj());
     }
 
     private float bU() {
-        com.tb.airbnb.lottie.e.a<K> dGK = dGK();
-        if (dGK.dM()) {
+        com.tb.airbnb.lottie.e.a<K> dHk = dHk();
+        if (dHk.dM()) {
             return 0.0f;
         }
-        return dGK.ks.getInterpolation(bT());
+        return dHk.kr.getInterpolation(bT());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float bV() {
-        if (this.gH.isEmpty()) {
+        if (this.gG.isEmpty()) {
             return 0.0f;
         }
-        return this.gH.get(0).dj();
+        return this.gG.get(0).dj();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     float bW() {
-        if (this.gH.isEmpty()) {
+        if (this.gG.isEmpty()) {
             return 1.0f;
         }
-        return this.gH.get(this.gH.size() - 1).bW();
+        return this.gG.get(this.gG.size() - 1).bW();
     }
 
     public A getValue() {
-        return a(dGK(), bU());
+        return a(dHk(), bU());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
-        if (this.nqu != null) {
-            this.nqu.b(null);
+        if (this.nsh != null) {
+            this.nsh.b(null);
         }
-        this.nqu = cVar;
+        this.nsh = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

@@ -22,13 +22,13 @@ import com.baidu.tieba.R;
 public class v extends a<bj> implements com.baidu.tieba.a.e {
     private bj KJ;
     private String LC;
-    private final View cen;
-    private HeadImageView fDk;
-    private TextView fLO;
-    private TextView fLP;
-    private TextView fLQ;
-    private s fLR;
-    private FrsBaseVideoView fLS;
+    private final View cey;
+    private HeadImageView fDS;
+    private FrsBaseVideoView fMA;
+    private TextView fMw;
+    private TextView fMx;
+    private TextView fMy;
+    private s fMz;
     private TbPageContext<?> mPageContext;
 
     public v(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -36,25 +36,25 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.fDk = (HeadImageView) view.findViewById(R.id.topic_icon);
-        this.fDk.setIsRound(true);
-        this.fDk.setDefaultResource(R.drawable.pic_head_topic);
-        this.fLO = (TextView) view.findViewById(R.id.card_topic_name);
-        this.fLQ = (TextView) view.findViewById(R.id.card_thread_title);
-        this.fLP = (TextView) view.findViewById(R.id.card_reply_time);
-        this.cen = view.findViewById(R.id.card_divider_line);
-        this.fLS = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
-        this.fLS.setClickListener(this);
+        this.fDS = (HeadImageView) view.findViewById(R.id.topic_icon);
+        this.fDS.setIsRound(true);
+        this.fDS.setDefaultResource(R.drawable.pic_head_topic);
+        this.fMw = (TextView) view.findViewById(R.id.card_topic_name);
+        this.fMy = (TextView) view.findViewById(R.id.card_thread_title);
+        this.fMx = (TextView) view.findViewById(R.id.card_reply_time);
+        this.cey = view.findViewById(R.id.card_divider_line);
+        this.fMA = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
+        this.fMA.setClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.fDk.invalidate();
-        am.setViewTextColor(this.fLO, (int) R.color.cp_cont_b);
+        this.fDS.invalidate();
+        am.setViewTextColor(this.fMw, (int) R.color.cp_cont_b);
         am.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        am.setBackgroundColor(this.cen, R.color.cp_bg_line_c);
-        if (this.fLS != null) {
-            this.fLS.onChangeSkinType(i);
+        am.setBackgroundColor(this.cey, R.color.cp_bg_line_c);
+        if (this.fMA != null) {
+            this.fMA.onChangeSkinType(i);
         }
     }
 
@@ -78,43 +78,43 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (this.fLS != null) {
-            this.fLS.a(this.KJ, bjVar.aBW());
+        if (this.fMA != null) {
+            this.fMA.a(this.KJ, bjVar.aBZ());
         }
-        if (bjVar.aCo() != null) {
-            this.fLO.setText(bjVar.aCo().getName_show());
+        if (bjVar.aCr() != null) {
+            this.fMw.setText(bjVar.aCr().getName_show());
         }
-        this.fLP.setText(aq.getFormatTime(bjVar.aCh() * 1000));
-        String str = bjVar.aDO() + "：";
+        this.fMx.setText(aq.getFormatTime(bjVar.aCk() * 1000));
+        String str = bjVar.aDS() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bjVar.v(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
-        this.fLQ.setText(spannableStringBuilder);
-        l.a(this.fLQ, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.fMy.setText(spannableStringBuilder);
+        l.a(this.fMy, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.KJ != null) {
-            if (buH() != null) {
-                buH().a(view, (View) this.KJ, (Object) this.fLR);
+            if (buM() != null) {
+                buM().a(view, (View) this.KJ, (Object) this.fMz);
             }
-            l.zT(this.KJ.getTid());
-            l.a(this.fLQ, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bvi();
+            l.zU(this.KJ.getTid());
+            l.a(this.fMy, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            bvn();
         }
     }
 
-    private void bvi() {
-        if (this.KJ != null && this.KJ.aCo() != null && this.KJ.aCo().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.gX(true) && !com.baidu.tbadk.plugins.b.aRE()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.KJ.aCo().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.KJ.getFid(), this.KJ.aDS(), this.KJ.aDT(), com.baidu.adp.lib.f.b.toLong(this.KJ.getTid(), 0L));
+    private void bvn() {
+        if (this.KJ != null && this.KJ.aCr() != null && this.KJ.aCr().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.gY(true) && !com.baidu.tbadk.plugins.b.aRI()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.KJ.aCr().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.KJ.getFid(), this.KJ.aDW(), this.KJ.aDX(), com.baidu.adp.lib.f.b.toLong(this.KJ.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            ba.aGG().b(this.mPageContext, new String[]{this.KJ.aDU()});
+            ba.aGK().b(this.mPageContext, new String[]{this.KJ.aDY()});
         }
     }
 

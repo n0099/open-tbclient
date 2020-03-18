@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a kwU;
-    private b kwV;
-    b.a kwW;
+    private b kyA;
+    b.a kyB;
+    private com.baidu.tieba.video.editvideo.data.a kyz;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.kwU = aVar;
+        this.kyz = aVar;
     }
 
-    public boolean cPM() {
-        return (this.kwU == null || "normal".equalsIgnoreCase(this.kwU.value)) ? false : true;
+    public boolean cQg() {
+        return (this.kyz == null || "normal".equalsIgnoreCase(this.kyz.value)) ? false : true;
     }
 
-    public void Ka(String str) {
-        if ((this.kwV == null || !this.kwV.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cPO = cPO();
+    public void JZ(String str) {
+        if ((this.kyA == null || !this.kyA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cQi = cQi();
             String str2 = "normal";
-            if (this.kwU != null) {
-                str2 = this.kwU.value;
+            if (this.kyz != null) {
+                str2 = this.kyz.value;
             }
-            this.kwV = new b(this.mContext, str, cPO, str2);
-            if (this.kwW != null) {
-                this.kwV.a(this.kwW);
+            this.kyA = new b(this.mContext, str, cQi, str2);
+            if (this.kyB != null) {
+                this.kyA.a(this.kyB);
             }
-            this.kwV.cPP();
+            this.kyA.cQj();
         }
     }
 
-    public boolean cPN() {
-        if (this.kwV != null) {
-            return this.kwV.isRunning();
+    public boolean cQh() {
+        if (this.kyA != null) {
+            return this.kyA.isRunning();
         }
         return false;
     }
 
     public void interruptProcess() {
-        if (this.kwV != null) {
-            this.kwV.cPQ();
+        if (this.kyA != null) {
+            this.kyA.cQk();
         }
     }
 
     public void a(b.a aVar) {
-        this.kwW = aVar;
-        if (this.kwV != null) {
-            this.kwV.a(this.kwW);
+        this.kyB = aVar;
+        if (this.kyA != null) {
+            this.kyA.a(this.kyB);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> fz(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> fy(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cPO() {
-        return com.baidu.tieba.video.c.kuZ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cQi() {
+        return com.baidu.tieba.video.c.kwD + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

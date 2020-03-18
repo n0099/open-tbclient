@@ -44,10 +44,10 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.abk == 1;
+        return this.user_info != null && this.user_info.abv == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.abk == 2;
+        return this.user_info != null && this.user_info.abv == 2;
     }
 }

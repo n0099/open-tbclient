@@ -9,34 +9,34 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class a {
-    private static boolean bjH;
+    private static boolean bjU;
 
     public static void i(Context context, boolean z) {
-        final e acF = e.acF();
-        if (acF != null) {
-            b.cg(z);
-            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kJ(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).dD(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
+        final e acI = e.acI();
+        if (acI != null) {
+            b.ch(z);
+            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kI(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).dE(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppActivity acB = e.this.acB();
-                    if (acB != null && Build.VERSION.SDK_INT >= 21) {
-                        acB.finishAndRemoveTask();
+                    SwanAppActivity acE = e.this.acE();
+                    if (acE != null && Build.VERSION.SDK_INT >= 21) {
+                        acE.finishAndRemoveTask();
                     }
                     System.exit(0);
                 }
-            }).acp();
+            }).acs();
         }
     }
 
-    public static void bR(Context context) {
-        i(context, !Lr());
+    public static void bQ(Context context) {
+        i(context, !Lu());
     }
 
-    public static boolean Lr() {
-        return bjH;
+    public static boolean Lu() {
+        return bjU;
     }
 
-    public static void cf(boolean z) {
-        bjH = z;
+    public static void cg(boolean z) {
+        bjU = z;
     }
 }

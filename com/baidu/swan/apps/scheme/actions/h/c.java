@@ -35,14 +35,14 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
-        if (GC == null) {
+        com.baidu.swan.apps.core.d.e GH = f.WV().GH();
+        if (GH == null) {
             com.baidu.swan.apps.console.c.e("navigationTitle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b On = GC.On();
-        if (!(On != null ? On.gT(optString) : false)) {
+        com.baidu.swan.apps.core.d.b Oq = GH.Oq();
+        if (!(Oq != null ? Oq.gS(optString) : false)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
             return false;

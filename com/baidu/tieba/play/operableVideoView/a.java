@@ -11,15 +11,15 @@ import com.baidu.tieba.play.y;
 public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e, g.f {
     void Z(View.OnClickListener onClickListener);
 
-    void bfJ();
+    void bfO();
 
     void c(y yVar);
 
-    boolean ctW();
+    boolean cup();
 
-    View cys();
+    View cyL();
 
-    u cza();
+    u czt();
 
     int getCurrentPosition();
 
@@ -27,7 +27,7 @@ public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e
 
     boolean isPlaying();
 
-    boolean mL(boolean z);
+    boolean mR(boolean z);
 
     boolean onBackPress();
 

@@ -19,11 +19,11 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject lt(String str) {
-        return bk(str, "");
+    public static JSONObject ls(String str) {
+        return bj(str, "");
     }
 
-    public static JSONObject bk(String str, String str2) {
+    public static JSONObject bj(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -110,34 +110,34 @@ public final class a {
     public static void a(com.baidu.swan.apps.adaptation.b.c cVar, com.baidu.swan.apps.model.b bVar, String str) {
         com.baidu.swan.apps.performance.e.z("route", "createAndLoadPage start.");
         String J = ai.J(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
-        com.baidu.swan.apps.runtime.config.c iS = com.baidu.swan.apps.y.f.WS().iS(bVar.mPage);
+        com.baidu.swan.apps.runtime.config.c iR = com.baidu.swan.apps.y.f.WV().iR(bVar.mPage);
         com.baidu.swan.apps.core.k.b bVar2 = new com.baidu.swan.apps.core.k.b();
-        bVar2.bso = cVar.IN();
+        bVar2.bsA = cVar.IQ();
         bVar2.appPath = bVar.mBaseUrl;
-        if (com.baidu.swan.apps.runtime.e.acF() != null) {
-            bVar2.bsn = com.baidu.swan.apps.runtime.e.acF().kS(bVar.mPage);
+        if (com.baidu.swan.apps.runtime.e.acI() != null) {
+            bVar2.bsz = com.baidu.swan.apps.runtime.e.acI().kR(bVar.mPage);
         }
-        bVar2.bsq = com.baidu.swan.apps.model.b.d(bVar);
-        bVar2.bsr = iS.bsr;
-        bVar2.bsk = String.valueOf(com.baidu.swan.apps.console.a.Lr());
-        if (com.baidu.swan.apps.runtime.e.acF() != null) {
-            String kU = com.baidu.swan.apps.runtime.e.acF().kU(bVar.mPage);
-            if (!TextUtils.isEmpty(kU)) {
+        bVar2.bsC = com.baidu.swan.apps.model.b.d(bVar);
+        bVar2.bsD = iR.bsD;
+        bVar2.bsw = String.valueOf(com.baidu.swan.apps.console.a.Lu());
+        if (com.baidu.swan.apps.runtime.e.acI() != null) {
+            String kT = com.baidu.swan.apps.runtime.e.acI().kT(bVar.mPage);
+            if (!TextUtils.isEmpty(kT)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + kU);
+                    Log.d("ActionUtils", "add initData: " + kT);
                 }
-                bVar2.bss = kU;
+                bVar2.bsE = kT;
             }
         }
-        bVar2.bsm = DEBUG || com.baidu.swan.apps.y.f.WS().Wx();
-        bVar2.bst = str;
-        if (com.baidu.swan.apps.ah.a.a.aaD()) {
-            bVar2.bsp = com.baidu.swan.apps.console.debugger.b.Ly();
+        bVar2.bsy = DEBUG || com.baidu.swan.apps.y.f.WV().WA();
+        bVar2.bsF = str;
+        if (com.baidu.swan.apps.ah.a.a.aaG()) {
+            bVar2.bsB = com.baidu.swan.apps.console.debugger.b.LB();
         }
-        com.baidu.swan.apps.performance.f.aY("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
-        y.agS();
-        com.baidu.swan.apps.y.f.WS().a(cVar.IR(), com.baidu.swan.apps.core.k.b.b(bVar2));
-        com.baidu.swan.apps.statistic.c.bn(cVar.IR(), bVar2.bsq);
+        com.baidu.swan.apps.performance.f.aX("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
+        y.agV();
+        com.baidu.swan.apps.y.f.WV().a(cVar.IU(), com.baidu.swan.apps.core.k.b.b(bVar2));
+        com.baidu.swan.apps.statistic.c.bm(cVar.IU(), bVar2.bsC);
         com.baidu.swan.apps.core.slave.b.a(J, cVar);
         com.baidu.swan.apps.performance.e.z("route", "createAndLoadPage end.");
     }
@@ -148,11 +148,11 @@ public final class a {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.y.f.WS().a(new com.baidu.swan.apps.n.a.b(str, hashMap));
+        com.baidu.swan.apps.y.f.WV().a(new com.baidu.swan.apps.n.a.b(str, hashMap));
     }
 
     private static JSONObject a(@NonNull com.baidu.swan.apps.runtime.e eVar, String str, String str2) {
         String delAllParamsFromUrl = ag.delAllParamsFromUrl(str);
-        return q(str2, eVar.kQ(delAllParamsFromUrl), eVar.kS(delAllParamsFromUrl), str);
+        return q(str2, eVar.kP(delAllParamsFromUrl), eVar.kR(delAllParamsFromUrl), str);
     }
 }

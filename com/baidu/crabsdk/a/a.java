@@ -8,25 +8,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class a {
-    private StringBuilder QL = new StringBuilder();
-    public ArrayList<String> QM = new ArrayList<>();
-    private long W;
-    private long X;
+    private long QN;
+    private StringBuilder QO = new StringBuilder();
+    public ArrayList<String> QP = new ArrayList<>();
     private long Y;
     private long Z;
-    public static int U = 2000;
-    public static int V = 1;
-    static a QN = null;
+    private long aa;
+    public static int W = 2000;
+    public static int X = 1;
+    static a QR = null;
 
     private a() {
     }
 
-    private String f() {
-        Iterator<String> it = this.QM.iterator();
+    private String g() {
+        Iterator<String> it = this.QP.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.QL.append(next);
+            this.QO.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -40,37 +40,37 @@ public final class a {
         return "";
     }
 
-    public static long h() {
-        return U * 0.6f;
+    public static long i() {
+        return W * 0.6f;
     }
 
-    public static a nZ() {
-        if (QN == null) {
+    public static a nY() {
+        if (QR == null) {
             synchronized (a.class) {
-                if (QN == null) {
-                    QN = new a();
+                if (QR == null) {
+                    QR = new a();
                 }
             }
         }
-        return QN;
+        return QR;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.W = j2 - j;
-        this.X = j4 - j3;
-        this.Y = j;
-        this.Z = j2;
+        this.Y = j2 - j;
+        this.Z = j4 - j3;
+        this.aa = j;
+        this.QN = j2;
         return this;
     }
 
-    public final Map<String, Object> g() {
+    public final Map<String, Object> nZ() {
         HashMap hashMap = new HashMap();
-        long j = this.Y;
-        long j2 = this.Z;
-        long j3 = this.W;
-        long j4 = this.X;
-        String f = f();
-        if (TextUtils.isEmpty(f)) {
+        long j = this.aa;
+        long j2 = this.QN;
+        long j3 = this.Y;
+        long j4 = this.Z;
+        String g = g();
+        if (TextUtils.isEmpty(g)) {
             return null;
         }
         hashMap.put("apiType", "BLOCK");
@@ -79,10 +79,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.QL.toString());
-        hashMap.put("errorLine", f);
-        hashMap.put("errorOriLine", f);
-        this.QL.setLength(0);
+        hashMap.put("errorTrace", this.QO.toString());
+        hashMap.put("errorLine", g);
+        hashMap.put("errorOriLine", g);
+        this.QO.setLength(0);
         return hashMap;
     }
 }

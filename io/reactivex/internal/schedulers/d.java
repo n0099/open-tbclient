@@ -14,85 +14,85 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class d extends v {
-    static final RxThreadFactory nzA;
-    private static final TimeUnit nzB = TimeUnit.SECONDS;
-    static final c nzC = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a nzD;
-    static final RxThreadFactory nzz;
-    final ThreadFactory aRX;
-    final AtomicReference<a> nzh;
+    static final RxThreadFactory nBm;
+    static final RxThreadFactory nBn;
+    private static final TimeUnit nBo = TimeUnit.SECONDS;
+    static final c nBp = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a nBq;
+    final ThreadFactory aSk;
+    final AtomicReference<a> nAU;
 
     static {
-        nzC.dispose();
+        nBp.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        nzz = new RxThreadFactory("RxCachedThreadScheduler", max);
-        nzA = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        nzD = new a(0L, null, nzz);
-        nzD.shutdown();
+        nBm = new RxThreadFactory("RxCachedThreadScheduler", max);
+        nBn = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        nBq = new a(0L, null, nBm);
+        nBq.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a implements Runnable {
-        private final ThreadFactory aRX;
-        private final long nzE;
-        private final ConcurrentLinkedQueue<c> nzF;
-        final io.reactivex.disposables.a nzG;
-        private final ScheduledExecutorService nzH;
-        private final Future<?> nzI;
+        private final ThreadFactory aSk;
+        private final long nBr;
+        private final ConcurrentLinkedQueue<c> nBs;
+        final io.reactivex.disposables.a nBt;
+        private final ScheduledExecutorService nBu;
+        private final Future<?> nBv;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.nzE = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.nzF = new ConcurrentLinkedQueue<>();
-            this.nzG = new io.reactivex.disposables.a();
-            this.aRX = threadFactory;
+            this.nBr = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.nBs = new ConcurrentLinkedQueue<>();
+            this.nBt = new io.reactivex.disposables.a();
+            this.aSk = threadFactory;
             if (timeUnit != null) {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.nzA);
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.nBn);
                 scheduledExecutorService = newScheduledThreadPool;
-                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.nzE, this.nzE, TimeUnit.NANOSECONDS);
+                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.nBr, this.nBr, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.nzH = scheduledExecutorService;
-            this.nzI = scheduledFuture;
+            this.nBu = scheduledExecutorService;
+            this.nBv = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            dJC();
+            dKc();
         }
 
-        c dJB() {
-            if (this.nzG.isDisposed()) {
-                return d.nzC;
+        c dKb() {
+            if (this.nBt.isDisposed()) {
+                return d.nBp;
             }
-            while (!this.nzF.isEmpty()) {
-                c poll = this.nzF.poll();
+            while (!this.nBs.isEmpty()) {
+                c poll = this.nBs.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.aRX);
-            this.nzG.a(cVar);
+            c cVar = new c(this.aSk);
+            this.nBt.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.hd(now() + this.nzE);
-            this.nzF.offer(cVar);
+            cVar.he(now() + this.nBr);
+            this.nBs.offer(cVar);
         }
 
-        void dJC() {
-            if (!this.nzF.isEmpty()) {
+        void dKc() {
+            if (!this.nBs.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.nzF.iterator();
+                Iterator<c> it = this.nBs.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.dJD() <= now) {
-                        if (this.nzF.remove(next)) {
-                            this.nzG.b(next);
+                    if (next.dKd() <= now) {
+                        if (this.nBs.remove(next)) {
+                            this.nBt.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.nzG.dispose();
-            if (this.nzI != null) {
-                this.nzI.cancel(true);
+            this.nBt.dispose();
+            if (this.nBv != null) {
+                this.nBv.cancel(true);
             }
-            if (this.nzH != null) {
-                this.nzH.shutdownNow();
+            if (this.nBu != null) {
+                this.nBu.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(nzz);
+        this(nBm);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.aRX = threadFactory;
-        this.nzh = new AtomicReference<>(nzD);
+        this.aSk = threadFactory;
+        this.nAU = new AtomicReference<>(nBq);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, nzB, this.aRX);
-        if (!this.nzh.compareAndSet(nzD, aVar)) {
+        a aVar = new a(60L, nBo, this.aSk);
+        if (!this.nAU.compareAndSet(nBq, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c dJi() {
-        return new b(this.nzh.get());
+    public v.c dJI() {
+        return new b(this.nAU.get());
     }
 
     /* loaded from: classes7.dex */
     static final class b extends v.c {
-        private final a nzJ;
-        private final c nzK;
+        private final a nBw;
+        private final c nBx;
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a nzr = new io.reactivex.disposables.a();
+        private final io.reactivex.disposables.a nBe = new io.reactivex.disposables.a();
 
         b(a aVar) {
-            this.nzJ = aVar;
-            this.nzK = aVar.dJB();
+            this.nBw = aVar;
+            this.nBx = aVar.dKb();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.nzr.dispose();
-                this.nzJ.a(this.nzK);
+                this.nBe.dispose();
+                this.nBw.a(this.nBx);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.nzr.isDisposed() ? EmptyDisposable.INSTANCE : this.nzK.a(runnable, j, timeUnit, this.nzr);
+            return this.nBe.isDisposed() ? EmptyDisposable.INSTANCE : this.nBx.a(runnable, j, timeUnit, this.nBe);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class c extends f {
-        private long nzL;
+        private long nBy;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.nzL = 0L;
+            this.nBy = 0L;
         }
 
-        public long dJD() {
-            return this.nzL;
+        public long dKd() {
+            return this.nBy;
         }
 
-        public void hd(long j) {
-            this.nzL = j;
+        public void he(long j) {
+            this.nBy = j;
         }
     }
 }

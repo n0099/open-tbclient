@@ -36,11 +36,11 @@ public class e {
         return TextUtils.isEmpty(str);
     }
 
-    public static e ce(String str) {
-        return cf(e(str));
+    public static e cd(String str) {
+        return ce(e(str));
     }
 
-    private static e cf(String str) {
+    private static e ce(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

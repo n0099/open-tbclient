@@ -11,7 +11,7 @@ public class d implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
         ai.b(new Runnable() { // from class: com.baidu.swan.apps.performance.a.d.1
             @Override // java.lang.Runnable
             public void run() {
-                ai.ahf();
+                ai.ahi();
             }
         }, 5000L);
     }

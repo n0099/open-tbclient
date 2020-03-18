@@ -3,39 +3,39 @@ package com.baidu.n;
 import android.text.TextUtils;
 /* loaded from: classes6.dex */
 public class a {
-    protected boolean lCo;
-    protected boolean lCp;
-    protected String lCq;
-    protected String lCr;
-    protected String lCs;
+    protected boolean lDS;
+    protected boolean lDT;
+    protected String lDU;
+    protected String lDV;
+    protected String lDW;
     protected int mStatusCode;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i) {
-        this.lCo = z;
-        this.lCp = z2;
-        this.lCq = str;
-        this.lCr = str2;
-        this.lCs = str3;
+        this.lDS = z;
+        this.lDT = z2;
+        this.lDU = str;
+        this.lDV = str2;
+        this.lDW = str3;
         this.mStatusCode = i;
     }
 
-    public boolean dhR() {
-        return this.lCo;
+    public boolean dio() {
+        return this.lDS;
     }
 
     public boolean isSupport() {
-        return this.lCp;
+        return this.lDT;
     }
 
     public int getStatusCode() {
         return this.mStatusCode;
     }
 
-    public String dhS() {
-        return TextUtils.isEmpty(this.lCq) ? this.lCq : new com.baidu.n.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.lCq.getBytes());
+    public String dip() {
+        return TextUtils.isEmpty(this.lDU) ? this.lDU : new com.baidu.n.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.lDU.getBytes());
     }
 
     public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.lCo + ", isSupport=" + this.lCp + ", OAID='" + this.lCq + "', EncodedOAID='" + dhS() + "', AAID='" + this.lCr + "', VAID='" + this.lCs + "', StatusCode='" + this.mStatusCode + "'}";
+        return "UnionIDInfo{isTrackLimited=" + this.lDS + ", isSupport=" + this.lDT + ", OAID='" + this.lDU + "', EncodedOAID='" + dip() + "', AAID='" + this.lDV + "', VAID='" + this.lDW + "', StatusCode='" + this.mStatusCode + "'}";
     }
 }

@@ -15,18 +15,18 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
-    private static final long gyS = TimeUnit.DAYS.toMillis(1);
-    private static final long gyT = TimeUnit.HOURS.toMillis(1);
-    private static final long gyU = TimeUnit.MINUTES.toMillis(1);
-    private static final long gyV = TimeUnit.SECONDS.toMillis(1);
-    private TextView gyW;
-    private TextView gyX;
-    private TextView gyY;
-    private TextView gyZ;
-    private TextView gza;
-    private TextView gzb;
-    private TextView gzc;
-    private TextView gzd;
+    private static final long gzQ = TimeUnit.DAYS.toMillis(1);
+    private static final long gzR = TimeUnit.HOURS.toMillis(1);
+    private static final long gzS = TimeUnit.MINUTES.toMillis(1);
+    private static final long gzT = TimeUnit.SECONDS.toMillis(1);
+    private TextView gAa;
+    private TextView gAb;
+    private TextView gzU;
+    private TextView gzV;
+    private TextView gzW;
+    private TextView gzX;
+    private TextView gzY;
+    private TextView gzZ;
     private Context mContext;
     private View mRootView;
     private CountDownTimer mTimer;
@@ -57,42 +57,42 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     protected void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-        this.gyW = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
-        this.gyX = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
-        this.gyY = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
-        this.gyZ = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
-        this.gza = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
-        this.gzb = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
-        this.gzc = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
-        this.gzd = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
+        this.gzU = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
+        this.gzV = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
+        this.gzW = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
+        this.gzX = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
+        this.gzY = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
+        this.gzZ = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
+        this.gAa = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
+        this.gAb = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
     }
 
     public void setData(long j) {
-        am.setViewTextColor(this.gyW, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gyX, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.gyW, R.color.common_color_10060);
-        am.setViewTextColor(this.gyY, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gyZ, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.gyY, R.color.common_color_10060);
-        am.setViewTextColor(this.gza, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gzb, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.gza, R.color.common_color_10060);
-        am.setViewTextColor(this.gzc, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gzd, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.gzc, R.color.common_color_10060);
-        if (j <= gyV) {
-            this.gyW.setText("0");
-            this.gyY.setText("0");
-            this.gza.setText("0");
-            this.gzc.setText("0");
+        am.setViewTextColor(this.gzU, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gzV, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.gzU, R.color.common_color_10060);
+        am.setViewTextColor(this.gzW, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gzX, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.gzW, R.color.common_color_10060);
+        am.setViewTextColor(this.gzY, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gzZ, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.gzY, R.color.common_color_10060);
+        am.setViewTextColor(this.gAa, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gAb, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.gAa, R.color.common_color_10060);
+        if (j <= gzT) {
+            this.gzU.setText("0");
+            this.gzW.setText("0");
+            this.gzY.setText("0");
+            this.gAa.setText("0");
             return;
         }
-        if (j / gyS <= 0) {
-            this.gyW.setVisibility(8);
-            this.gyX.setVisibility(8);
+        if (j / gzQ <= 0) {
+            this.gzU.setVisibility(8);
+            this.gzV.setVisibility(8);
         } else {
-            this.gyW.setVisibility(0);
-            this.gyX.setVisibility(0);
+            this.gzU.setVisibility(0);
+            this.gzV.setVisibility(0);
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -102,21 +102,21 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     /* loaded from: classes9.dex */
     private static class b extends CountDownTimer {
-        private final WeakReference<FrsLotteryCountDownView> gze;
+        private final WeakReference<FrsLotteryCountDownView> gAc;
 
         public b(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
             super(j, j2);
-            this.gze = weakReference;
+            this.gAc = weakReference;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.gze.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.gAc.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.gyW.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.gyS)));
-                frsLotteryCountDownView.gyY.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.gyS) / FrsLotteryCountDownView.gyT)));
-                frsLotteryCountDownView.gza.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.gyS) % FrsLotteryCountDownView.gyT) / FrsLotteryCountDownView.gyU)));
-                frsLotteryCountDownView.gzc.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.gyS) % FrsLotteryCountDownView.gyT) % FrsLotteryCountDownView.gyU) / FrsLotteryCountDownView.gyV)));
+                frsLotteryCountDownView.gzU.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.gzQ)));
+                frsLotteryCountDownView.gzW.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.gzQ) / FrsLotteryCountDownView.gzR)));
+                frsLotteryCountDownView.gzY.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.gzQ) % FrsLotteryCountDownView.gzR) / FrsLotteryCountDownView.gzS)));
+                frsLotteryCountDownView.gAa.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.gzQ) % FrsLotteryCountDownView.gzR) % FrsLotteryCountDownView.gzS) / FrsLotteryCountDownView.gzT)));
                 return;
             }
             com.baidu.adp.lib.f.e.gx().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
@@ -124,24 +124,24 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.gze.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.gAc.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.gzc.setText("0");
+                frsLotteryCountDownView.gAa.setText("0");
             }
         }
     }
 
     /* loaded from: classes9.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTimer> gze;
+        private final WeakReference<CountDownTimer> gAc;
 
         private a(WeakReference<CountDownTimer> weakReference) {
-            this.gze = weakReference;
+            this.gAc = weakReference;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTimer countDownTimer = this.gze.get();
+            CountDownTimer countDownTimer = this.gAc.get();
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }

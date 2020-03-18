@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes11.dex */
 public class PopupWindow {
     private static final int[] ABOVE_ANCHOR_STATE_SET = {16842922};
-    private a cyR;
+    private a czc;
     private boolean mAboveAnchor;
     private Drawable mAboveAnchorBackgroundDrawable;
     private boolean mAllowScrollingAnchorParent;
@@ -462,24 +462,24 @@ public class PopupWindow {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cyR != null) {
-                    this.cyR.onDismiss();
+                if (this.czc != null) {
+                    this.czc.onDismiss();
                 }
             } catch (IllegalArgumentException e) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cyR != null) {
-                    this.cyR.onDismiss();
+                if (this.czc != null) {
+                    this.czc.onDismiss();
                 }
             } catch (Throwable th) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cyR != null) {
-                    this.cyR.onDismiss();
+                if (this.czc != null) {
+                    this.czc.onDismiss();
                 }
                 throw th;
             }
@@ -487,7 +487,7 @@ public class PopupWindow {
     }
 
     public void a(a aVar) {
-        this.cyR = aVar;
+        this.czc = aVar;
     }
 
     public void update() {

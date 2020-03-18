@@ -10,8 +10,8 @@ import com.baidu.live.challenge.e;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements e {
-    private TextView eXq;
-    private boolean eXr;
+    private TextView eXO;
+    private boolean eXP;
     private Context mContext;
     private int mCount = 0;
     private PopupWindow mPopupWindow;
@@ -20,7 +20,7 @@ public class a implements e {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_bubble_view_layout, (ViewGroup) null);
-        this.eXq = (TextView) this.mRootView.findViewById(a.g.ala_challenger_count);
+        this.eXO = (TextView) this.mRootView.findViewById(a.g.ala_challenger_count);
     }
 
     @Override // com.baidu.live.challenge.e
@@ -34,17 +34,17 @@ public class a implements e {
             if (!this.mPopupWindow.isShowing() && this.mCount > 0) {
                 this.mRootView.measure(0, 0);
                 this.mPopupWindow.showAsDropDown(view, (-(this.mRootView.getMeasuredWidth() - view.getMeasuredWidth())) / 2, -(this.mRootView.getMeasuredHeight() + view.getMeasuredHeight() + this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds4)));
-                this.eXr = true;
+                this.eXP = true;
             }
             if (this.mCount > 0) {
-                this.eXq.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(this.mCount)));
+                this.eXO.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(this.mCount)));
             }
         }
     }
 
     @Override // com.baidu.live.challenge.e
-    public boolean pN() {
-        return this.eXr;
+    public boolean pS() {
+        return this.eXP;
     }
 
     @Override // com.baidu.live.challenge.e
@@ -56,7 +56,7 @@ public class a implements e {
 
     @Override // com.baidu.live.challenge.e
     public void as(boolean z) {
-        this.eXr = z;
+        this.eXP = z;
     }
 
     @Override // com.baidu.live.challenge.e
@@ -69,7 +69,7 @@ public class a implements e {
             }
             return;
         }
-        this.eXq.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
+        this.eXO.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
     }
 
     @Override // com.baidu.live.challenge.e

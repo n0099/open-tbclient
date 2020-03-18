@@ -12,10 +12,10 @@ public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String mU = ai.mU(d.Qw().QT());
-        if (TextUtils.isEmpty(mU)) {
-            mU = "";
+        String mT = ai.mT(d.Qz().QW());
+        if (TextUtils.isEmpty(mT)) {
+            mT = "";
         }
-        return chain.proceed(request.newBuilder().header("User-Agent", mU).build());
+        return chain.proceed(request.newBuilder().header("User-Agent", mT).build());
     }
 }

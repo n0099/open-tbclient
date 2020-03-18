@@ -15,17 +15,17 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class g extends h {
-    private static final int mlP = v.QF("Opus");
-    private static final byte[] mlQ = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
-    private boolean mlR;
+    private static final int mnv = v.QE("Opus");
+    private static final byte[] mnw = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
+    private boolean mnx;
 
     public static boolean A(l lVar) {
-        if (lVar.dzu() < mlQ.length) {
+        if (lVar.dzR() < mnw.length) {
             return false;
         }
-        byte[] bArr = new byte[mlQ.length];
-        lVar.G(bArr, 0, mlQ.length);
-        return Arrays.equals(bArr, mlQ);
+        byte[] bArr = new byte[mnw.length];
+        lVar.G(bArr, 0, mnw.length);
+        return Arrays.equals(bArr, mnw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,34 +33,34 @@ final class g extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mlR = false;
+            this.mnx = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected long B(l lVar) {
-        return fV(ax(lVar.data));
+        return fW(ax(lVar.data));
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
-        if (!this.mlR) {
-            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dzv());
+        if (!this.mnx) {
+            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dzS());
             int i = copyOf[9] & 255;
             ArrayList arrayList = new ArrayList(3);
             arrayList.add(copyOf);
-            q(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
-            q(arrayList, 3840);
-            aVar.lZJ = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
-            this.mlR = true;
+            p(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
+            p(arrayList, 3840);
+            aVar.mbs = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
+            this.mnx = true;
             return true;
         }
-        boolean z = lVar.readInt() == mlP;
+        boolean z = lVar.readInt() == mnv;
         lVar.setPosition(0);
         return z;
     }
 
-    private void q(List<byte[]> list, int i) {
+    private void p(List<byte[]> list, int i) {
         list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * 1000000000) / 48000).array());
     }
 

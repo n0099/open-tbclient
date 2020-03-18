@@ -9,13 +9,13 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes13.dex */
 public class a {
-    private C0056a Py;
+    private C0056a Pz;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public final class C0056a {
-        private C0056a Qp;
+        private C0056a Qq;
         private File b;
         private String c;
         private boolean e;
@@ -30,7 +30,7 @@ public class a {
         C0056a(String str, C0056a c0056a) {
             this.e = false;
             this.c = str;
-            this.Qp = c0056a;
+            this.Qq = c0056a;
             this.e = false;
         }
 
@@ -45,7 +45,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.Qp == null ? new File(a.this.a(), this.c) : new File(this.Qp.b(), this.c);
+                file = this.Qq == null ? new File(a.this.a(), this.c) : new File(this.Qq.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -63,7 +63,7 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0056a cd(String str) {
+        public C0056a cc(String str) {
             return new C0056a(str, this);
         }
 
@@ -75,7 +75,7 @@ public class a {
             C0056a c0056a = this;
             do {
                 arrayList.add(c0056a.c());
-                c0056a = c0056a.nL();
+                c0056a = c0056a.nK();
             } while (c0056a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
@@ -86,8 +86,8 @@ public class a {
             return new C0056a(file);
         }
 
-        public C0056a nL() {
-            return this.Qp;
+        public C0056a nK() {
+            return this.Qq;
         }
     }
 
@@ -193,10 +193,10 @@ public class a {
         return new File(this.d.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0056a nK() {
-        if (this.Py == null) {
-            this.Py = new C0056a(".cesium", null);
+    public synchronized C0056a nJ() {
+        if (this.Pz == null) {
+            this.Pz = new C0056a(".cesium", null);
         }
-        return this.Py;
+        return this.Pz;
     }
 }

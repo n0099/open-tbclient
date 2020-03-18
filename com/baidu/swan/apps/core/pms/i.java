@@ -13,24 +13,24 @@ public class i extends k {
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected PMSDownloadType Pp() {
+    protected PMSDownloadType Ps() {
         return PMSDownloadType.SWAN_APP_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PB() {
-        return com.baidu.swan.apps.core.pms.d.a.PJ();
+    protected String PE() {
+        return com.baidu.swan.apps.core.pms.d.a.PM();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PC() {
-        return com.baidu.swan.apps.core.pms.d.a.PC();
+    protected String PF() {
+        return com.baidu.swan.apps.core.pms.d.a.PF();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
     protected com.baidu.swan.apps.ap.a g(com.baidu.swan.pms.model.d dVar) {
         if (dVar == null) {
-            return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).my("小程序Core包 Framework null");
+            return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).mx("小程序Core包 Framework null");
         }
         a.C0300a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 0);
         if (DEBUG) {
@@ -44,40 +44,40 @@ public class i extends k {
             }
             return null;
         }
-        return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).my("小程序Core包更新失败");
+        return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).mx("小程序Core包更新失败");
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
     protected com.baidu.swan.apps.ap.a h(com.baidu.swan.pms.model.b bVar) {
         if (bVar == null) {
-            return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).my("小程序Extension包 Extension null");
+            return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).mx("小程序Extension包 Extension null");
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bvi = bVar.filePath;
+        aVar.bvu = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(0, aVar)) {
             if (DEBUG) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
             }
-            boolean HA = com.baidu.swan.apps.w.a.TZ().HA();
+            boolean HF = com.baidu.swan.apps.w.a.Uc().HF();
             if (DEBUG) {
-                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + HA);
+                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + HF);
             }
-            if (HA) {
+            if (HF) {
                 if (DEBUG) {
                     Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
                 }
-                long Sb = com.baidu.swan.apps.extcore.b.eN(0).RP().Sb();
-                if (Sb > 0) {
+                long Se = com.baidu.swan.apps.extcore.b.eN(0).RS().Se();
+                if (Se > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateCore", "发送extension core更新事件");
                     }
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, Sb);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, Se);
                 }
             }
             return null;
         }
-        return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).my("小程序Extension包更新失败");
+        return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).mx("小程序Extension包更新失败");
     }
 }

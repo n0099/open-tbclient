@@ -115,30 +115,30 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nxq;
+        final SamplePublisherSubscriber<T> nzd;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nxq = samplePublisherSubscriber;
+            this.nzd = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            this.nxq.setOther(dVar);
+            this.nzd.setOther(dVar);
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.nxq.run();
+            this.nzd.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nxq.error(th);
+            this.nzd.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.nxq.complete();
+            this.nzd.complete();
         }
     }
 

@@ -113,7 +113,7 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            nF(optJSONArray.optString(i));
+                            nE(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
@@ -133,12 +133,12 @@ public class AdElementInfo implements Parcelable {
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            nH(optJSONArray5.optString(i5));
+                            nG(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            nG(optJSONArray6.optString(i6));
+                            nF(optJSONArray6.optString(i6));
                         }
                     }
                 }
@@ -247,7 +247,7 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoUrl;
     }
 
-    public String akl() {
+    public String ako() {
         return this.mClickUrl;
     }
 
@@ -268,19 +268,19 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int akm() {
+    public int akp() {
         return this.mExpire;
     }
 
-    public String akn() {
+    public String akq() {
         return this.mBannerHtml;
     }
 
-    public String ako() {
+    public String akr() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> akp() {
+    public List<String> aks() {
         return new ArrayList(this.mImpressionUrls);
     }
 
@@ -304,13 +304,13 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    private void nF(String str) {
+    private void nE(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdImpMonitorTrackers.add(str);
         }
     }
 
-    private void nG(String str) {
+    private void nF(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdClickMonitorTrackers.add(str);
         }
@@ -334,7 +334,7 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    private void nH(String str) {
+    private void nG(String str) {
         if (str != null && !str.equals("")) {
             this.mMonitorClickers.add(str);
         }

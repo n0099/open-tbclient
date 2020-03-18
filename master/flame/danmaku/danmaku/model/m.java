@@ -9,15 +9,15 @@ public interface m {
 
     void c(d dVar, boolean z);
 
-    float dMf();
+    float dMF();
 
-    int dMg();
+    int dMG();
 
-    int dMh();
+    int dMH();
 
-    int dMi();
+    int dMI();
 
-    int dMj();
+    int dMJ();
 
     float getDensity();
 
@@ -39,5 +39,5 @@ public interface m {
 
     void setSize(int i, int i2);
 
-    void wM(boolean z);
+    void wU(boolean z);
 }

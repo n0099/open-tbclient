@@ -12,8 +12,8 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class d {
     private static final Gson gson;
-    private static final Map<String, String> nWQ;
-    private static final Type nWR;
+    private static final Map<String, String> nYD;
+    private static final Type nYE;
 
     static {
         Gson gson2 = null;
@@ -22,8 +22,8 @@ public class d {
         } catch (Throwable th) {
         }
         gson = gson2;
-        nWQ = Collections.unmodifiableMap(new HashMap());
-        nWR = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
+        nYD = Collections.unmodifiableMap(new HashMap());
+        nYE = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
         }.getType();
     }
 
@@ -35,7 +35,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQg().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQG().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQg().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQG().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -61,17 +61,17 @@ public class d {
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dQg().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dQG().e("JsonUtils", "", e);
             return null;
         }
     }
 
     @NonNull
-    public static Map<String, String> SV(String str) {
+    public static Map<String, String> SU(String str) {
         if (TextUtils.isEmpty(str)) {
-            return nWQ;
+            return nYD;
         }
-        Map<String, String> map = (Map) c(str, nWR);
-        return map == null ? nWQ : map;
+        Map<String, String> map = (Map) c(str, nYE);
+        return map == null ? nYD : map;
     }
 }

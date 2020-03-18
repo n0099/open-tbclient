@@ -16,40 +16,40 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class c extends RecyclerView.Adapter<a> {
-    private MediaModel bCJ;
-    private int bCK;
-    private ArrayList<MediaModel> bCe;
+    private MediaModel bCU;
+    private int bCV;
+    private ArrayList<MediaModel> bCp;
 
     public c(Context context) {
-        this.bCK = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
+        this.bCV = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
     }
 
-    public ArrayList<MediaModel> XG() {
-        return this.bCe;
+    public ArrayList<MediaModel> XJ() {
+        return this.bCp;
     }
 
     public void n(ArrayList<MediaModel> arrayList) {
-        this.bCe = arrayList;
+        this.bCp = arrayList;
         if (arrayList != null && arrayList.size() == 1) {
-            this.bCJ = arrayList.get(0);
+            this.bCU = arrayList.get(0);
         }
         notifyDataSetChanged();
     }
 
     public int b(MediaModel mediaModel) {
         int i = 0;
-        if (this.bCe != null) {
-            MediaModel mediaModel2 = this.bCJ;
-            this.bCJ = mediaModel;
-            int size = this.bCe.size();
+        if (this.bCp != null) {
+            MediaModel mediaModel2 = this.bCU;
+            this.bCU = mediaModel;
+            int size = this.bCp.size();
             i = -1;
             int i2 = 0;
             for (int i3 = 0; i3 < size; i3++) {
-                if (mediaModel2 != null && mediaModel2.equals(this.bCe.get(i3))) {
+                if (mediaModel2 != null && mediaModel2.equals(this.bCp.get(i3))) {
                     notifyItemChanged(i3);
                     i2++;
                 }
-                if (mediaModel != null && mediaModel.equals(this.bCe.get(i3))) {
+                if (mediaModel != null && mediaModel.equals(this.bCp.get(i3))) {
                     notifyItemChanged(i3);
                     i2++;
                     i = i3;
@@ -63,10 +63,10 @@ public class c extends RecyclerView.Adapter<a> {
     }
 
     public MediaModel fr(int i) {
-        if (this.bCe == null || i < 0 || i >= this.bCe.size()) {
+        if (this.bCp == null || i < 0 || i >= this.bCp.size()) {
             return null;
         }
-        return this.bCe.get(i);
+        return this.bCp.get(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,38 +80,38 @@ public class c extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        if (this.bCe != null) {
-            MediaModel mediaModel = this.bCe.get(i);
-            aVar.bCL.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-            aVar.bCM.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-            aVar.bCN.setVisibility(mediaModel.equals(this.bCJ) ? 0 : 8);
+        if (this.bCp != null) {
+            MediaModel mediaModel = this.bCp.get(i);
+            aVar.bCW.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
+            aVar.bCX.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+            aVar.bCY.setVisibility(mediaModel.equals(this.bCU) ? 0 : 8);
             ImageRequestBuilder Y = ImageRequestBuilder.Y(Uri.fromFile(new File(mediaModel.getPath())));
-            Y.c(new d(this.bCK, this.bCK));
-            Y.vw(true);
-            aVar.bCL.setController(com.facebook.drawee.a.a.c.dlz().c(aVar.bCL.getController()).vh(false).bg(Y.dsD()).dmq());
+            Y.c(new d(this.bCV, this.bCV));
+            Y.vD(true);
+            aVar.bCW.setController(com.facebook.drawee.a.a.c.dlW().c(aVar.bCW.getController()).vo(false).bg(Y.dta()).dmN());
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.bCe == null) {
+        if (this.bCp == null) {
             return 0;
         }
-        return this.bCe.size();
+        return this.bCp.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class a extends RecyclerView.ViewHolder {
-        private SimpleDraweeView bCL;
-        private View bCM;
-        private View bCN;
+        private SimpleDraweeView bCW;
+        private View bCX;
+        private View bCY;
 
         a(View view) {
             super(view);
-            this.bCL = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
-            this.bCM = view.findViewById(a.f.album_thumbnail_video);
-            this.bCN = view.findViewById(a.f.album_thumbnail_selected);
+            this.bCW = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
+            this.bCX = view.findViewById(a.f.album_thumbnail_video);
+            this.bCY = view.findViewById(a.f.album_thumbnail_selected);
         }
     }
 }

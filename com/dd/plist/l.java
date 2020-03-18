@@ -8,7 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 /* loaded from: classes7.dex */
 public class l {
-    private static int OG(String str) {
+    private static int OF(String str) {
         String trim = str.trim();
         if (trim.length() == 0) {
             return 10;
@@ -34,7 +34,7 @@ public class l {
             if ((i < bArr.length && bArr[i] == 32) || bArr[i] == 9 || bArr[i] == 13 || bArr[i] == 10 || bArr[i] == 12) {
                 i++;
             } else {
-                return OG(new String(bArr, i, Math.min(8, bArr.length - i)));
+                return OF(new String(bArr, i, Math.min(8, bArr.length - i)));
             }
         }
     }

@@ -36,24 +36,24 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aMs = shareEntity.aMs();
-        if (aMs != null) {
-            int i3 = aMs.getInt("obj_param1");
+        Bundle aMw = shareEntity.aMw();
+        if (aMw != null) {
+            int i3 = aMw.getInt("obj_param1");
             if (i3 != 0) {
                 anVar.X("obj_param1", i3);
                 if (i3 == 2) {
-                    anVar.cy("fid", aMs.getString("fid"));
+                    anVar.cx("fid", aMw.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = aMs.getInt("obj_type");
+                    int i4 = aMw.getInt("obj_type");
                     if (i4 != 0) {
                         anVar.X("obj_type", i4);
                     }
-                    anVar.cy("tid", aMs.getString("tid")).cy("fid", aMs.getString("fid"));
+                    anVar.cx("tid", aMw.getString("tid")).cx("fid", aMw.getString("fid"));
                 }
             }
-            String string = aMs.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = aMw.getString(TiebaInitialize.Params.OBJ_URL);
             if (!aq.isEmpty(string)) {
-                anVar.cy(TiebaInitialize.Params.OBJ_URL, string);
+                anVar.cx(TiebaInitialize.Params.OBJ_URL, string);
             }
         }
         TiebaStatic.log(anVar);
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aMs = shareEntity.aMs();
-        if (aMs != null) {
-            anVar.cy("tid", aMs.getString("tid"));
-            anVar.cy("uid", aMs.getString("uid"));
-            anVar.cy("fid", aMs.getString("fid"));
+        Bundle aMw = shareEntity.aMw();
+        if (aMw != null) {
+            anVar.cx("tid", aMw.getString("tid"));
+            anVar.cx("uid", aMw.getString("uid"));
+            anVar.cx("fid", aMw.getString("fid"));
         }
         TiebaStatic.log(anVar);
     }

@@ -11,7 +11,7 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("version_code", String.valueOf(aVar.getVersionCode()));
         hashMap.put(SharedPrefConfig.VERSION_NAME, aVar.getVersionName());
-        hashMap.put("abi_type", com.baidu.swan.a.b.a.ajm());
+        hashMap.put("abi_type", com.baidu.swan.a.b.a.ajp());
         return hashMap;
     }
 }

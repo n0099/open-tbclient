@@ -6,9 +6,9 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 /* loaded from: classes3.dex */
 public class a extends Animation {
-    private float aBK;
-    private float aBL;
-    private final float aBM;
+    private float aBY;
+    private float aBZ;
+    private final float aCa;
     private Camera mCamera;
     private final float mFromDegrees;
     private final boolean mReverse;
@@ -17,15 +17,15 @@ public class a extends Animation {
     public a(float f, float f2, float f3, boolean z) {
         this.mFromDegrees = f;
         this.mToDegrees = f2;
-        this.aBM = f3;
+        this.aCa = f3;
         this.mReverse = z;
     }
 
     @Override // android.view.animation.Animation
     public void initialize(int i, int i2, int i3, int i4) {
         super.initialize(i, i2, i3, i4);
-        this.aBK = i / 2;
-        this.aBL = i / 2;
+        this.aBY = i / 2;
+        this.aBZ = i / 2;
         this.mCamera = new Camera();
     }
 
@@ -33,15 +33,15 @@ public class a extends Animation {
     protected void applyTransformation(float f, Transformation transformation) {
         float f2 = this.mFromDegrees;
         float f3 = f2 + ((this.mToDegrees - f2) * f);
-        float f4 = this.aBK;
-        float f5 = this.aBL;
+        float f4 = this.aBY;
+        float f5 = this.aBZ;
         Camera camera = this.mCamera;
         Matrix matrix = transformation.getMatrix();
         camera.save();
         if (this.mReverse) {
-            camera.translate(0.0f, 0.0f, this.aBM * f);
+            camera.translate(0.0f, 0.0f, this.aCa * f);
         } else {
-            camera.translate(0.0f, 0.0f, this.aBM * (1.0f - f));
+            camera.translate(0.0f, 0.0f, this.aCa * (1.0f - f));
         }
         camera.rotateY(f3);
         camera.getMatrix(matrix);

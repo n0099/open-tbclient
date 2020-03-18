@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public interface a {
     void a(v vVar);
 
-    void bj(boolean z);
+    void bk(boolean z);
 
     void onDestroy();
 

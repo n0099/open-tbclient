@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean bFn;
+    private boolean bFy;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String WA() {
+    public String WD() {
         return this.mBaseUrl;
     }
 
-    public void Om() {
-        this.bFn = false;
+    public void Op() {
+        this.bFy = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.bFn);
+            jSONObject.put("isFirstPage", this.bFy);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c jw(String str) {
+    public static c jv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.bFn = jSONObject.optBoolean("isFirstPage");
+            cVar.bFy = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private c bnv = new c();
+        private c bnI = new c();
+
+        public a jw(String str) {
+            this.bnI.mPage = str;
+            return this;
+        }
 
         public a jx(String str) {
-            this.bnv.mPage = str;
+            this.bnI.mParams = str;
             return this;
         }
 
         public a jy(String str) {
-            this.bnv.mParams = str;
+            this.bnI.mBaseUrl = str;
             return this;
         }
 
-        public a jz(String str) {
-            this.bnv.mBaseUrl = str;
+        public a db(boolean z) {
+            this.bnI.bFy = z;
             return this;
         }
 
-        public a da(boolean z) {
-            this.bnv.bFn = z;
-            return this;
-        }
-
-        public c Yv() {
-            return this.bnv;
+        public c Yy() {
+            return this.bnI;
         }
     }
 }

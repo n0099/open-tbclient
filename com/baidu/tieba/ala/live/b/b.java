@@ -22,7 +22,7 @@ public class b extends a {
     private HttpMessageListener mHttpMessageListener;
 
     static {
-        te();
+        tj();
     }
 
     public b(TbPageContext tbPageContext, a.InterfaceC0447a interfaceC0447a) {
@@ -56,10 +56,10 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bgs() {
+    public void bgx() {
         HttpMessage httpMessage = new HttpMessage(1003412);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bgt());
+        httpMessage.addParam("pay_id", bgy());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -67,7 +67,7 @@ public class b extends a {
     public void yG(String str) {
     }
 
-    private static void te() {
+    private static void tj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003411, TbConfig.SERVER_ADDRESS + TbConfig.GET_NUOMI_ORDER);
         tbHttpMessageTask.setResponsedClass(GetNuomiOrderHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -88,7 +88,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetNuomiOrderHttpResponsedMessage getNuomiOrderHttpResponsedMessage) {
         String errorString;
-        HashMap<String, String> bgq = getNuomiOrderHttpResponsedMessage.bgq();
+        HashMap<String, String> bgv = getNuomiOrderHttpResponsedMessage.bgv();
         if (getNuomiOrderHttpResponsedMessage.hasError() || getNuomiOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getNuomiOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
@@ -96,10 +96,10 @@ public class b extends a {
                 errorString = getNuomiOrderHttpResponsedMessage.getErrorString();
             }
             a(getNuomiOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bgq == null) {
+        } else if (bgv == null) {
             a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bgq, null, true);
+            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bgv, null, true);
         }
     }
 

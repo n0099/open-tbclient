@@ -10,27 +10,27 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public interface h {
-    public static final Set<String> bPo = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+    public static final Set<String> bPz = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    int Gu();
+    int Gz();
 
-    SwanAppProcessInfo abh();
+    SwanAppProcessInfo abk();
 
-    boolean abi();
+    boolean abl();
 
-    boolean abj();
+    boolean abm();
 
-    SwanAppCores abk();
+    SwanAppCores abn();
 
-    void acA();
+    com.baidu.swan.apps.process.messaging.client.a acB();
 
-    SwanAppActivity acB();
+    e acC();
 
-    com.baidu.swan.apps.adaptation.a acE();
+    void acD();
 
-    com.baidu.swan.apps.process.messaging.client.a acy();
+    SwanAppActivity acE();
 
-    e acz();
+    com.baidu.swan.apps.adaptation.a acH();
 
     void c(Bundle bundle, String str);
 
@@ -48,7 +48,7 @@ public interface h {
 
     void k(SwanAppActivity swanAppActivity);
 
-    void kL(String str);
+    void kK(String str);
 
     String v(String... strArr);
 }

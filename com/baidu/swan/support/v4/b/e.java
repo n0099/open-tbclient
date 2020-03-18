@@ -9,9 +9,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public abstract class e<K, V> {
-    e<K, V>.b cDK;
-    e<K, V>.c cDL;
-    e<K, V>.C0366e cDM;
+    e<K, V>.b cDV;
+    e<K, V>.c cDW;
+    e<K, V>.C0366e cDX;
 
     protected abstract void colClear();
 
@@ -547,23 +547,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.cDK == null) {
-            this.cDK = new b();
+        if (this.cDV == null) {
+            this.cDV = new b();
         }
-        return this.cDK;
+        return this.cDV;
     }
 
     public Set<K> getKeySet() {
-        if (this.cDL == null) {
-            this.cDL = new c();
+        if (this.cDW == null) {
+            this.cDW = new c();
         }
-        return this.cDL;
+        return this.cDW;
     }
 
     public Collection<V> getValues() {
-        if (this.cDM == null) {
-            this.cDM = new C0366e();
+        if (this.cDX == null) {
+            this.cDX = new C0366e();
         }
-        return this.cDM;
+        return this.cDX;
     }
 }

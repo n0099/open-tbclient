@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class f implements v {
     private final Context context;
     @Nullable
-    private final com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> lYC;
-    private final int lYD;
-    private final long lYE;
+    private final com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> maj;
+    private final int mak;
+    private final long mal;
 
     public f(Context context, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar) {
         this(context, aVar, 0);
@@ -25,24 +25,24 @@ public class f implements v {
 
     public f(Context context, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar, int i, long j) {
         this.context = context;
-        this.lYC = aVar;
-        this.lYD = i;
-        this.lYE = j;
+        this.maj = aVar;
+        this.mak = i;
+        this.mal = j;
     }
 
     @Override // com.google.android.exoplayer2.v
     public s[] a(Handler handler, com.google.android.exoplayer2.video.e eVar, com.google.android.exoplayer2.audio.d dVar, com.google.android.exoplayer2.text.j jVar, com.google.android.exoplayer2.metadata.d dVar2) {
         ArrayList<s> arrayList = new ArrayList<>();
-        a(this.context, this.lYC, this.lYE, handler, eVar, this.lYD, arrayList);
-        a(this.context, this.lYC, dsT(), handler, dVar, this.lYD, arrayList);
-        a(this.context, jVar, handler.getLooper(), this.lYD, arrayList);
-        a(this.context, dVar2, handler.getLooper(), this.lYD, arrayList);
-        a(this.context, handler, this.lYD, arrayList);
+        a(this.context, this.maj, this.mal, handler, eVar, this.mak, arrayList);
+        a(this.context, this.maj, dtq(), handler, dVar, this.mak, arrayList);
+        a(this.context, jVar, handler.getLooper(), this.mak, arrayList);
+        a(this.context, dVar2, handler.getLooper(), this.mak, arrayList);
+        a(this.context, handler, this.mak, arrayList);
         return (s[]) arrayList.toArray(new s[arrayList.size()]);
     }
 
     protected void a(Context context, @Nullable com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar, long j, Handler handler, com.google.android.exoplayer2.video.e eVar, int i, ArrayList<s> arrayList) {
-        arrayList.add(new com.google.android.exoplayer2.video.c(context, com.google.android.exoplayer2.mediacodec.b.mql, j, aVar, false, handler, eVar, 50));
+        arrayList.add(new com.google.android.exoplayer2.video.c(context, com.google.android.exoplayer2.mediacodec.b.mrR, j, aVar, false, handler, eVar, 50));
         if (i != 0) {
             int size = arrayList.size();
             int i2 = i == 2 ? size - 1 : size;
@@ -75,7 +75,7 @@ public class f implements v {
         int i2;
         int i3;
         int i4;
-        arrayList.add(new com.google.android.exoplayer2.audio.g(com.google.android.exoplayer2.mediacodec.b.mql, aVar, true, handler, dVar, com.google.android.exoplayer2.audio.c.gq(context), audioProcessorArr));
+        arrayList.add(new com.google.android.exoplayer2.audio.g(com.google.android.exoplayer2.mediacodec.b.mrR, aVar, true, handler, dVar, com.google.android.exoplayer2.audio.c.gp(context), audioProcessorArr));
         if (i != 0) {
             int size = arrayList.size();
             if (i == 2) {
@@ -133,7 +133,7 @@ public class f implements v {
     protected void a(Context context, Handler handler, int i, ArrayList<s> arrayList) {
     }
 
-    protected AudioProcessor[] dsT() {
+    protected AudioProcessor[] dtq() {
         return new AudioProcessor[0];
     }
 }

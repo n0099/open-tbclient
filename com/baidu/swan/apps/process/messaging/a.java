@@ -9,39 +9,39 @@ import com.baidu.swan.apps.runtime.d;
 /* loaded from: classes11.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b bJb;
+    private b bJm;
 
     /* loaded from: classes11.dex */
     public interface b {
         void a(@NonNull c cVar);
 
-        void aaO();
+        void aaR();
 
         void clear(String str);
 
-        void kt(String str);
+        void ks(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0272a {
-        private static a bJe = new a();
+        private static a bJp = new a();
     }
 
-    public static a aaL() {
-        return C0272a.bJe;
+    public static a aaO() {
+        return C0272a.bJp;
     }
 
     public void a(@NonNull final c cVar) {
-        long aaU = cVar.aaU();
-        if (aaU > 0 || Looper.getMainLooper() != Looper.myLooper()) {
+        long aaX = cVar.aaX();
+        if (aaX > 0 || Looper.getMainLooper() != Looper.myLooper()) {
             d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(cVar);
                 }
-            }, aaU >= 0 ? aaU : 0L);
+            }, aaX >= 0 ? aaX : 0L);
         } else {
             b(cVar);
         }
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.bJb == null) {
-            this.bJb = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.bJm == null) {
+            this.bJm = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.bJb);
-        this.bJb.aaO();
-        this.bJb.a(cVar);
-        this.bJb.aaO();
+        log("send: sender=" + this.bJm);
+        this.bJm.aaR();
+        this.bJm.a(cVar);
+        this.bJm.aaR();
+    }
+
+    public void kq(String str) {
+        if (this.bJm != null) {
+            this.bJm.clear(str);
+        }
+    }
+
+    public void aaP() {
+        if (this.bJm != null) {
+            this.bJm.aaR();
+        }
     }
 
     public void kr(String str) {
-        if (this.bJb != null) {
-            this.bJb.clear(str);
-        }
-    }
-
-    public void aaM() {
-        if (this.bJb != null) {
-            this.bJb.aaO();
-        }
-    }
-
-    public void ks(String str) {
-        if (this.bJb != null) {
-            this.bJb.kt(str);
+        if (this.bJm != null) {
+            this.bJm.ks(str);
         }
     }
 

@@ -15,7 +15,7 @@ public class g {
         }
     }
 
-    public static void az(Context context) {
+    public static void ay(Context context) {
         try {
             if (context instanceof Activity) {
                 a(context, (Activity) context);

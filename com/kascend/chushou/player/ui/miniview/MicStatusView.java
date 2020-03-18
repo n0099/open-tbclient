@@ -30,8 +30,8 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private boolean i;
     private String j;
     private int k;
-    private NoClickRecyclerView ndf;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ndg;
+    private NoClickRecyclerView neR;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> neS;
 
     public MicStatusView(Context context) {
         super(context);
@@ -64,9 +64,9 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.b = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.view_mic_status, (ViewGroup) this, true);
         this.a = (TextView) inflate.findViewById(a.f.mic_txt);
-        this.ndf = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
-        this.ndf.setLayoutManager(new b(this.b, 0, false));
-        this.ndg = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
+        this.neR = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
+        this.neR.setLayoutManager(new b(this.b, 0, false));
+        this.neS = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.a());
@@ -74,11 +74,11 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         }) { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC0813a view$OnLongClickListenerC0813a, FanItem fanItem) {
-                view$OnLongClickListenerC0813a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.medium, b.a.medium);
+            public void a(a.View$OnLongClickListenerC0814a view$OnLongClickListenerC0814a, FanItem fanItem) {
+                view$OnLongClickListenerC0814a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.medium, b.a.medium);
             }
         };
-        this.ndf.setAdapter(this.ndg);
+        this.neR.setAdapter(this.neS);
     }
 
     @Override // android.view.View
@@ -90,14 +90,14 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.d = true;
         this.c = str;
         setVisibility(0);
-        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0690a.slide_in_top_danmu_anim));
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).QW(this.c));
+        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0691a.slide_in_top_danmu_anim));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).QV(this.c));
     }
 
     public void a() {
         this.d = false;
         setVisibility(8);
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).wq(false).QW(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).wy(false).QV(this.c));
     }
 
     public void a(List<FanItem> list, String str, boolean z, MicStatus micStatus, String str2) {
@@ -109,10 +109,10 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         if (this.a != null) {
             this.a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
-        if (this.ndg != null && !h.isEmpty(list)) {
+        if (this.neS != null && !h.isEmpty(list)) {
             this.e.clear();
             this.e.addAll(list);
-            this.ndg.notifyDataSetChanged();
+            this.neS.notifyDataSetChanged();
         }
     }
 

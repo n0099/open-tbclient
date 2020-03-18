@@ -15,25 +15,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private a dln;
-    private m dlo;
-    private String dlp;
-    private String dlq;
-    private List<C0381b> dlr = new ArrayList();
+    private a dlA;
+    private m dlB;
+    private String dlC;
+    private String dlD;
+    private List<C0381b> dlE = new ArrayList();
     private x mNetwork;
 
     public b(String str, String str2) {
-        this.dlp = str;
-        this.dlq = str2;
+        this.dlC = str;
+        this.dlD = str2;
     }
 
-    public m uf(String str) {
+    public m ue(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlp);
+            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlC);
             return m(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -47,50 +47,50 @@ public class b {
         if (md5 != null && md5.length() > 0) {
             md5 = md5.toLowerCase();
         }
-        l tg = com.baidu.tbadk.core.util.c.tg(md5);
-        if (tg == null) {
-            tg = new l();
-            tg.setMd5(md5);
-            tg.setChunkNo(0);
-            tg.setTotalLength(file.length());
+        l tf = com.baidu.tbadk.core.util.c.tf(md5);
+        if (tf == null) {
+            tf = new l();
+            tf.setMd5(md5);
+            tf.setChunkNo(0);
+            tf.setTotalLength(file.length());
         }
-        this.dln = new a(str, tg, TbConfig.SERVER_ADDRESS + this.dlp, md5);
-        this.dlo = this.dln.aIO();
-        if (this.dlo.isSuccess() && (a2 = a(md5, tg)) != null && !a2.equals("")) {
+        this.dlA = new a(str, tf, TbConfig.SERVER_ADDRESS + this.dlC, md5);
+        this.dlB = this.dlA.aIS();
+        if (this.dlB.isSuccess() && (a2 = a(md5, tf)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                tg.setMd5(audioInfoData.getVoiceId());
-                this.dlo.b(tg);
+                tf.setMd5(audioInfoData.getVoiceId());
+                this.dlB.b(tf);
             } else {
-                this.dlo.setErrorCode(audioInfoData.getErrorCode());
-                this.dlo.setErrorString(audioInfoData.getErrorUserMsg());
-                this.dlo.setIsSuccess(false);
+                this.dlB.setErrorCode(audioInfoData.getErrorCode());
+                this.dlB.setErrorString(audioInfoData.getErrorUserMsg());
+                this.dlB.setIsSuccess(false);
             }
         }
-        return this.dlo;
+        return this.dlB;
     }
 
     private String a(String str, l lVar) {
-        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlq);
+        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlD);
         this.mNetwork.addPostData("voice_md5", lVar.getMd5());
-        if (v.getCount(this.dlr) != 0) {
-            for (C0381b c0381b : this.dlr) {
+        if (v.getCount(this.dlE) != 0) {
+            for (C0381b c0381b : this.dlE) {
                 if (c0381b != null) {
                     this.mNetwork.addPostData(c0381b.getKey(), c0381b.getValue());
                 }
             }
         }
         String postNetData = this.mNetwork.postNetData();
-        if (postNetData == null || !this.mNetwork.aGg().aGI().isRequestSuccess()) {
+        if (postNetData == null || !this.mNetwork.aGk().aGM().isRequestSuccess()) {
             lVar.setChunkNo((int) bG(lVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(lVar);
-            this.dlo.setErrorCode(this.mNetwork.getServerErrorCode());
-            this.dlo.setErrorString(this.mNetwork.getErrorString());
-            this.dlo.setIsSuccess(false);
+            this.dlB.setErrorCode(this.mNetwork.getServerErrorCode());
+            this.dlB.setErrorString(this.mNetwork.getErrorString());
+            this.dlB.setIsSuccess(false);
             return null;
         }
-        com.baidu.tbadk.core.util.c.tf(str);
+        com.baidu.tbadk.core.util.c.te(str);
         return postNetData;
     }
 
@@ -101,9 +101,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private boolean UW = false;
-        private x cLF;
-        private l dls;
+        private boolean Vh = false;
+        private x cLQ;
+        private l dlF;
         private String mFileName;
         private String mUrl;
         private String mVoiceMd5;
@@ -111,19 +111,19 @@ public class b {
         public a(String str, l lVar, String str2, String str3) {
             this.mFileName = null;
             this.mUrl = null;
-            this.dls = null;
+            this.dlF = null;
             this.mVoiceMd5 = null;
             this.mFileName = str;
-            this.dls = lVar;
+            this.dlF = lVar;
             this.mUrl = str2;
             this.mVoiceMd5 = str3;
         }
 
-        public m aIO() throws IOException {
+        public m aIS() throws IOException {
             m mVar = new m();
-            long totalLength = this.dls.getTotalLength();
+            long totalLength = this.dlF.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int chunkNo = this.dls.getChunkNo();
+            int chunkNo = this.dlF.getChunkNo();
             if (chunkNo < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
                 if (randomAccessFile.skipBytes(chunkNo * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) >= chunkNo * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
@@ -137,28 +137,28 @@ public class b {
                             byte[] bArr = new byte[i2];
                             int read = randomAccessFile.read(bArr, 0, i2);
                             if (read != -1) {
-                                this.cLF = new x(this.mUrl);
-                                this.cLF.addPostData("voice_chunk", bArr);
-                                this.cLF.addPostData("chunk_md5", this.dls.getMd5());
-                                this.cLF.addPostData("length", String.valueOf(read));
-                                this.cLF.addPostData("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                this.cLF.addPostData("total_length", String.valueOf(totalLength));
-                                this.cLF.addPostData("chunk_no", String.valueOf(i + 1));
-                                this.cLF.addPostData("total_num", String.valueOf(j));
-                                this.cLF.addPostData("voice_md5", this.mVoiceMd5);
+                                this.cLQ = new x(this.mUrl);
+                                this.cLQ.addPostData("voice_chunk", bArr);
+                                this.cLQ.addPostData("chunk_md5", this.dlF.getMd5());
+                                this.cLQ.addPostData("length", String.valueOf(read));
+                                this.cLQ.addPostData("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                                this.cLQ.addPostData("total_length", String.valueOf(totalLength));
+                                this.cLQ.addPostData("chunk_no", String.valueOf(i + 1));
+                                this.cLQ.addPostData("total_num", String.valueOf(j));
+                                this.cLQ.addPostData("voice_md5", this.mVoiceMd5);
                                 boolean z = false;
-                                if (this.UW) {
+                                if (this.Vh) {
                                     z = true;
-                                } else if (this.cLF.postMultiNetData() == null || !this.cLF.aGg().aGI().isRequestSuccess()) {
-                                    this.dls.setChunkNo(i);
-                                    com.baidu.tbadk.core.util.c.a(this.dls);
+                                } else if (this.cLQ.postMultiNetData() == null || !this.cLQ.aGk().aGM().isRequestSuccess()) {
+                                    this.dlF.setChunkNo(i);
+                                    com.baidu.tbadk.core.util.c.a(this.dlF);
                                     randomAccessFile.close();
                                     z = true;
                                 }
                                 if (z) {
-                                    mVar.setErrorCode(this.cLF.getServerErrorCode());
-                                    mVar.setErrorString(this.cLF.getErrorString());
-                                    mVar.b(this.dls);
+                                    mVar.setErrorCode(this.cLQ.getServerErrorCode());
+                                    mVar.setErrorString(this.cLQ.getErrorString());
+                                    mVar.b(this.dlF);
                                     mVar.setIsSuccess(false);
                                     return mVar;
                                 }
@@ -201,6 +201,6 @@ public class b {
     }
 
     public void addPostParam(String str, int i) {
-        this.dlr.add(new C0381b(str, String.valueOf(i)));
+        this.dlE.add(new C0381b(str, String.valueOf(i)));
     }
 }

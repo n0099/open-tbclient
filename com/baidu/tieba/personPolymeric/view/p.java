@@ -42,112 +42,112 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class p {
-    public static int jsA = 5000;
-    private static final float jsE = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30);
+    public static int jtZ = 5000;
+    private static final float jud = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30);
     private AppBarLayout CD;
-    private BdUniqueId MO;
-    private TbPageContext cVi;
-    private CustomViewPager cYb;
-    private BaseFragment dDb;
-    private NoNetworkView elv;
-    private NewPagerSlidingTabBaseStrip fVU;
-    private PluginErrorTipView fVe;
-    private CustomMessageListener jhp;
-    private com.baidu.tieba.personPolymeric.b.e jnF;
-    private com.baidu.tieba.personPolymeric.c.a jnU;
-    private LinearLayout jnw;
-    protected FrameLayout jnx;
-    protected RelativeLayout jnz;
-    private com.baidu.tieba.model.a jsB;
-    private CustomMessageListener jsC;
-    private CustomMessageListener jsD;
-    private PullRefreshFrameLayout jsH;
-    private com.baidu.tieba.personPolymeric.header.a jsI;
-    private FrameLayout jsJ;
-    private View jsK;
-    private a jsL;
-    private int jsM;
-    private int jsN;
-    private GradientDrawable jsO;
-    private FrameLayout jsP;
-    private FrameLayout.LayoutParams jsQ;
-    private AlphaAnimation jsR;
-    private AlphaAnimation jsS;
-    private com.baidu.tieba.personPolymeric.header.c jsT;
-    private k jsU;
-    private ValueAnimator jsV;
+    private BdUniqueId MP;
+    private TbPageContext cVv;
+    private CustomViewPager cYo;
+    private BaseFragment dDo;
+    private NoNetworkView elL;
+    private PluginErrorTipView fVN;
+    private NewPagerSlidingTabBaseStrip fWC;
+    private CustomMessageListener jiP;
+    private LinearLayout joV;
+    protected FrameLayout joW;
+    protected RelativeLayout joY;
+    private com.baidu.tieba.personPolymeric.b.e jpe;
+    private com.baidu.tieba.personPolymeric.c.a jpt;
+    private com.baidu.tieba.model.a jua;
+    private CustomMessageListener jub;
+    private CustomMessageListener juc;
+    private PullRefreshFrameLayout jug;
+    private com.baidu.tieba.personPolymeric.header.a juh;
+    private FrameLayout jui;
+    private View juj;
+    private a juk;
+    private int jul;
+    private int jum;
+    private GradientDrawable jun;
+    private FrameLayout juo;
+    private FrameLayout.LayoutParams jup;
+    private AlphaAnimation juq;
+    private AlphaAnimation jur;
+    private com.baidu.tieba.personPolymeric.header.c jus;
+    private k jut;
+    private ValueAnimator juu;
     private CustomMessageListener mAccountChangedListener;
     private boolean mIsHost;
     private View mRootView;
     private int mStatusBarHeight;
     private long mUserId;
-    private float[] jsF = {jsE, jsE, jsE, jsE, 0.0f, 0.0f, 0.0f, 0.0f};
-    private float jsG = 674.0f;
-    private boolean jsW = false;
-    private int jsX = -1;
-    private Runnable jsY = new Runnable() { // from class: com.baidu.tieba.personPolymeric.view.p.4
+    private float[] jue = {jud, jud, jud, jud, 0.0f, 0.0f, 0.0f, 0.0f};
+    private float juf = 674.0f;
+    private boolean juv = false;
+    private int juw = -1;
+    private Runnable jux = new Runnable() { // from class: com.baidu.tieba.personPolymeric.view.p.4
         @Override // java.lang.Runnable
         public void run() {
-            if (p.this.jsW) {
-                p.this.cxR();
+            if (p.this.juv) {
+                p.this.cyk();
             }
         }
     };
 
     public p(BaseFragment baseFragment, com.baidu.tieba.personPolymeric.b.f fVar, BdUniqueId bdUniqueId, boolean z, long j) {
-        this.dDb = baseFragment;
-        this.cVi = baseFragment.getPageContext();
-        this.MO = bdUniqueId;
+        this.dDo = baseFragment;
+        this.cVv = baseFragment.getPageContext();
+        this.MP = bdUniqueId;
         this.mIsHost = z;
         this.mUserId = j;
-        this.jnF = fVar.cwR();
+        this.jpe = fVar.cxk();
         initView(fVar.mRootView);
     }
 
     private void initView(View view) {
         this.mRootView = view;
         this.mStatusBarHeight = UtilHelper.getStatusBarHeight();
-        this.jsH = (PullRefreshFrameLayout) this.mRootView.findViewById(R.id.person_center_content_view);
+        this.jug = (PullRefreshFrameLayout) this.mRootView.findViewById(R.id.person_center_content_view);
         View findViewById = this.mRootView.findViewById(R.id.person_center_background_cover);
-        this.jsI = new com.baidu.tieba.personPolymeric.header.a(this.cVi, (TbImageView) this.mRootView.findViewById(R.id.person_center_header_bg), findViewById, this.mIsHost);
-        this.jsU = new k(this.cVi, this.mRootView, this.mRootView.findViewById(R.id.person_center_status_bar_space), this.mIsHost);
-        this.jsP = (FrameLayout) this.mRootView.findViewById(R.id.person_center_header_container);
-        this.jsQ = (FrameLayout.LayoutParams) this.jsP.getLayoutParams();
-        this.jsH.setOnTouchCallback(new PullRefreshFrameLayout.b() { // from class: com.baidu.tieba.personPolymeric.view.p.1
+        this.juh = new com.baidu.tieba.personPolymeric.header.a(this.cVv, (TbImageView) this.mRootView.findViewById(R.id.person_center_header_bg), findViewById, this.mIsHost);
+        this.jut = new k(this.cVv, this.mRootView, this.mRootView.findViewById(R.id.person_center_status_bar_space), this.mIsHost);
+        this.juo = (FrameLayout) this.mRootView.findViewById(R.id.person_center_header_container);
+        this.jup = (FrameLayout.LayoutParams) this.juo.getLayoutParams();
+        this.jug.setOnTouchCallback(new PullRefreshFrameLayout.b() { // from class: com.baidu.tieba.personPolymeric.view.p.1
             @Override // com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.b
             public void l(double d) {
-                p.this.jsQ.height = (int) (p.this.jsM + (PullRefreshFrameLayout.jtp * d));
-                p.this.jsP.setLayoutParams(p.this.jsQ);
-                if (p.this.jsI != null) {
-                    p.this.jsI.k(d);
+                p.this.jup.height = (int) (p.this.jul + (PullRefreshFrameLayout.juO * d));
+                p.this.juo.setLayoutParams(p.this.jup);
+                if (p.this.juh != null) {
+                    p.this.juh.k(d);
                 }
             }
 
             @Override // com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.b
             public void c(final int i, double d) {
-                p.this.jsV = ValueAnimator.ofFloat(0.0f, 1.0f);
-                p.this.jsV.setDuration(150L);
-                final int i2 = p.this.jsQ.height;
-                final int cxi = p.this.jsI.cxi();
-                p.this.jsV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.1
+                p.this.juu = ValueAnimator.ofFloat(0.0f, 1.0f);
+                p.this.juu.setDuration(150L);
+                final int i2 = p.this.jup.height;
+                final int cxB = p.this.juh.cxB();
+                p.this.juu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         float animatedFraction = valueAnimator.getAnimatedFraction();
-                        p.this.jsQ.height = (int) (i2 - (i * animatedFraction));
-                        p.this.jsP.setLayoutParams(p.this.jsQ);
-                        if (p.this.jsI != null) {
-                            p.this.jsI.Ab((int) (cxi - (animatedFraction * i)));
+                        p.this.jup.height = (int) (i2 - (i * animatedFraction));
+                        p.this.juo.setLayoutParams(p.this.jup);
+                        if (p.this.juh != null) {
+                            p.this.juh.Aj((int) (cxB - (animatedFraction * i)));
                         }
                     }
                 });
-                p.this.jsV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.2
+                p.this.juu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.2
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        p.this.jsN = p.this.jsQ.height;
+                        p.this.jum = p.this.jup.height;
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -158,40 +158,40 @@ public class p {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                p.this.jsV.start();
+                p.this.juu.start();
             }
 
             @Override // com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.b
-            public void cxT() {
-                final int i = p.this.jsQ.height;
-                final int i2 = p.this.jsQ.height - p.this.jsM;
+            public void cym() {
+                final int i = p.this.jup.height;
+                final int i2 = p.this.jup.height - p.this.jul;
                 final int i3 = 0;
-                if (p.this.jsI != null) {
-                    i3 = p.this.jsI.cxi();
+                if (p.this.juh != null) {
+                    i3 = p.this.juh.cxB();
                 }
                 if (i2 > 0) {
-                    p.this.jsV = ValueAnimator.ofFloat(0.0f, 1.0f);
-                    p.this.jsV.setDuration(300L);
-                    p.this.jsV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.3
+                    p.this.juu = ValueAnimator.ofFloat(0.0f, 1.0f);
+                    p.this.juu.setDuration(300L);
+                    p.this.juu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.3
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            p.this.jsQ.height = (int) (i - (i2 * floatValue));
-                            p.this.jsP.setLayoutParams(p.this.jsQ);
-                            if (p.this.jsI != null && i3 > 0) {
-                                p.this.jsI.Ab((int) (i3 - (floatValue * i2)));
+                            p.this.jup.height = (int) (i - (i2 * floatValue));
+                            p.this.juo.setLayoutParams(p.this.jup);
+                            if (p.this.juh != null && i3 > 0) {
+                                p.this.juh.Aj((int) (i3 - (floatValue * i2)));
                             }
                         }
                     });
-                    p.this.jsV.start();
-                    p.this.jsV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.4
+                    p.this.juu.start();
+                    p.this.juu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.p.1.4
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            p.this.jsN = 0;
+                            p.this.jum = 0;
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -205,14 +205,14 @@ public class p {
                 }
             }
         });
-        this.jsH.setOnPullRefreshListener(new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.personPolymeric.view.p.5
+        this.jug.setOnPullRefreshListener(new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.personPolymeric.view.p.5
             @Override // com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.a
-            public void cxU() {
-                com.baidu.adp.lib.f.e.gx().postDelayed(p.this.jsY, p.jsA);
-                p.this.jsW = true;
-                p.this.jsX = p.this.jsL.getCurrentTabType();
-                p.this.cwI();
-                p.this.jsL.bdr();
+            public void cyn() {
+                com.baidu.adp.lib.f.e.gx().postDelayed(p.this.jux, p.jtZ);
+                p.this.juv = true;
+                p.this.juw = p.this.juk.getCurrentTabType();
+                p.this.cxb();
+                p.this.juk.bdw();
             }
         });
         this.CD = (AppBarLayout) this.mRootView.findViewById(R.id.person_center_app_bar_layout);
@@ -220,128 +220,128 @@ public class p {
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                    UtilHelper.changeStatusBarIconAndTextColor(i == 0, p.this.cVi.getPageActivity());
+                    UtilHelper.changeStatusBarIconAndTextColor(i == 0, p.this.cVv.getPageActivity());
                 } else {
-                    UtilHelper.changeStatusBarIconAndTextColor(true, p.this.cVi.getPageActivity());
+                    UtilHelper.changeStatusBarIconAndTextColor(true, p.this.cVv.getPageActivity());
                 }
-                p.this.jsH.setInterceptScrollDown(i == 0);
+                p.this.jug.setInterceptScrollDown(i == 0);
                 int abs = Math.abs(i);
-                p.this.jsU.rB(abs == 0);
-                p.this.jsU.rC(((float) abs) > p.this.jsG / 2.0f);
-                float abs2 = ((double) p.this.jsG) == 0.0d ? 0.0f : Math.abs(abs / p.this.jsG);
-                p.this.jsU.aH(abs2);
+                p.this.jut.rH(abs == 0);
+                p.this.jut.rI(((float) abs) > p.this.juf / 2.0f);
+                float abs2 = ((double) p.this.juf) == 0.0d ? 0.0f : Math.abs(abs / p.this.juf);
+                p.this.jut.aH(abs2);
                 if (abs2 >= 1.0f) {
-                    p.this.jsF = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-                    p.this.jsO.setCornerRadii(p.this.jsF);
-                    p.this.jsJ.setBackgroundDrawable(p.this.jsO);
-                    p.this.bcN();
+                    p.this.jue = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+                    p.this.jun.setCornerRadii(p.this.jue);
+                    p.this.jui.setBackgroundDrawable(p.this.jun);
+                    p.this.bcR();
                 } else {
-                    p.this.jsF = new float[]{p.jsE, p.jsE, p.jsE, p.jsE, 0.0f, 0.0f, 0.0f, 0.0f};
-                    p.this.jsO.setCornerRadii(p.this.jsF);
-                    p.this.jsJ.setBackgroundDrawable(p.this.jsO);
-                    p.this.cxQ();
+                    p.this.jue = new float[]{p.jud, p.jud, p.jud, p.jud, 0.0f, 0.0f, 0.0f, 0.0f};
+                    p.this.jun.setCornerRadii(p.this.jue);
+                    p.this.jui.setBackgroundDrawable(p.this.jun);
+                    p.this.cyj();
                 }
-                int i2 = p.this.jsN - p.this.jsM;
-                if (p.this.jsN > 0 && Math.abs(i) >= i2) {
-                    p.this.jsH.ahW();
+                int i2 = p.this.jum - p.this.jul;
+                if (p.this.jum > 0 && Math.abs(i) >= i2) {
+                    p.this.jug.ahZ();
                 }
             }
         });
-        this.jsJ = (FrameLayout) this.mRootView.findViewById(R.id.person_center_tab_layout_container);
-        this.fVU = (NewPagerSlidingTabBaseStrip) this.mRootView.findViewById(R.id.person_center_tab_layout);
-        this.fVU.setDefaultSelectorColorResourceId(R.color.cp_cont_b);
-        this.fVU.setRectPaintColor(R.color.cp_link_tip_a);
-        this.fVU.a(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds46), com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds46), com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds10), com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds46), true);
-        this.fVU.setIndicatorOffset(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds64));
-        this.fVU.setIndicatorOvershot(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds8));
-        this.fVU.setIndicatorRadius(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds8));
-        this.fVU.setIndicatorMarginBottom(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds0));
-        this.fVU.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds166), -1));
-        this.fVU.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.personPolymeric.view.p.7
+        this.jui = (FrameLayout) this.mRootView.findViewById(R.id.person_center_tab_layout_container);
+        this.fWC = (NewPagerSlidingTabBaseStrip) this.mRootView.findViewById(R.id.person_center_tab_layout);
+        this.fWC.setDefaultSelectorColorResourceId(R.color.cp_cont_b);
+        this.fWC.setRectPaintColor(R.color.cp_link_tip_a);
+        this.fWC.a(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds46), com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds46), com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds10), com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds46), true);
+        this.fWC.setIndicatorOffset(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds64));
+        this.fWC.setIndicatorOvershot(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds8));
+        this.fWC.setIndicatorRadius(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds8));
+        this.fWC.setIndicatorMarginBottom(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds0));
+        this.fWC.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds166), -1));
+        this.fWC.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.personPolymeric.view.p.7
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                p.this.jsL.Af(i);
+                p.this.juk.An(i);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
             }
         });
-        this.jsO = new GradientDrawable();
-        this.jsO.setColor(am.getColor(R.color.cp_bg_line_d));
-        this.jsO.setCornerRadii(this.jsF);
-        this.jsJ.setBackgroundDrawable(this.jsO);
-        this.jsK = this.mRootView.findViewById(R.id.person_center_pager_shadow);
-        am.setBackgroundResource(this.jsK, R.drawable.personalize_tab_shadow);
-        this.cYb = (CustomViewPager) this.mRootView.findViewById(R.id.person_center_view_pager);
-        this.jsL = new a(this.dDb.getActivity().getSupportFragmentManager());
-        this.cYb.setAdapter(this.jsL);
-        this.cYb.setOffscreenPageLimit(this.jsL.mFragments.size());
-        this.jsL.notifyDataSetChanged();
-        this.fVU.setViewPager(this.cYb);
+        this.jun = new GradientDrawable();
+        this.jun.setColor(am.getColor(R.color.cp_bg_line_d));
+        this.jun.setCornerRadii(this.jue);
+        this.jui.setBackgroundDrawable(this.jun);
+        this.juj = this.mRootView.findViewById(R.id.person_center_pager_shadow);
+        am.setBackgroundResource(this.juj, R.drawable.personalize_tab_shadow);
+        this.cYo = (CustomViewPager) this.mRootView.findViewById(R.id.person_center_view_pager);
+        this.juk = new a(this.dDo.getActivity().getSupportFragmentManager());
+        this.cYo.setAdapter(this.juk);
+        this.cYo.setOffscreenPageLimit(this.juk.mFragments.size());
+        this.juk.notifyDataSetChanged();
+        this.fWC.setViewPager(this.cYo);
         if (this.mIsHost) {
-            this.cYb.setCurrentItem(1);
+            this.cYo.setCurrentItem(1);
         } else {
-            this.cYb.setCurrentItem(0);
+            this.cYo.setCurrentItem(0);
         }
-        this.jsT = new com.baidu.tieba.personPolymeric.header.c(this.cVi, this.mIsHost);
+        this.jus = new com.baidu.tieba.personPolymeric.header.c(this.cVv, this.mIsHost);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
-        this.jsP.addView(this.jsT.getView(), layoutParams);
-        if (this.jsU.cxO()) {
-            z(this.cVi);
+        this.juo.addView(this.jus.getView(), layoutParams);
+        if (this.jut.cyh()) {
+            A(this.cVv);
         }
-        y(this.cVi);
-        this.elv = (NoNetworkView) this.mRootView.findViewById(R.id.person_center_no_network_view);
-        this.fVe = (PluginErrorTipView) this.mRootView.findViewById(R.id.person_center_plugin_error_tip_view);
-        this.jnw = (LinearLayout) this.mRootView.findViewById(R.id.person_center_anti_container);
-        this.jnx = (FrameLayout) this.mRootView.findViewById(R.id.person_center_anti_content);
-        this.jnz = (RelativeLayout) this.mRootView.findViewById(R.id.person_center_noanti_rootview);
+        z(this.cVv);
+        this.elL = (NoNetworkView) this.mRootView.findViewById(R.id.person_center_no_network_view);
+        this.fVN = (PluginErrorTipView) this.mRootView.findViewById(R.id.person_center_plugin_error_tip_view);
+        this.joV = (LinearLayout) this.mRootView.findViewById(R.id.person_center_anti_container);
+        this.joW = (FrameLayout) this.mRootView.findViewById(R.id.person_center_anti_content);
+        this.joY = (RelativeLayout) this.mRootView.findViewById(R.id.person_center_noanti_rootview);
     }
 
-    private void y(TbPageContext tbPageContext) {
+    private void z(TbPageContext tbPageContext) {
         this.mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.personPolymeric.view.p.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && p.this.jsU != null) {
-                    p.this.jsU.cxM();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && p.this.jut != null) {
+                    p.this.jut.cyf();
                 }
             }
         };
-        this.mAccountChangedListener.setTag(this.MO);
+        this.mAccountChangedListener.setTag(this.MP);
         tbPageContext.registerListener(this.mAccountChangedListener);
     }
 
-    public com.baidu.tieba.personPolymeric.header.c cxP() {
-        return this.jsT;
+    public com.baidu.tieba.personPolymeric.header.c cyi() {
+        return this.jus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a extends FragmentPagerAdapter {
-        private List<String> iZn;
+        private List<String> jaN;
         private List<PersonCenterTabBaseFragment> mFragments;
 
         public a(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.iZn = new ArrayList();
-            this.iZn.add(p.this.cVi.getResources().getString(R.string.person_center_tab_main));
-            this.iZn.add(p.this.cVi.getResources().getString(R.string.person_center_tab_dynamic));
-            this.iZn.add(p.this.cVi.getResources().getString(R.string.person_center_tab_thread));
+            this.jaN = new ArrayList();
+            this.jaN.add(p.this.cVv.getResources().getString(R.string.person_center_tab_main));
+            this.jaN.add(p.this.cVv.getResources().getString(R.string.person_center_tab_dynamic));
+            this.jaN.add(p.this.cVv.getResources().getString(R.string.person_center_tab_thread));
             this.mFragments = new ArrayList();
-            this.mFragments.add(PersonCenterMainTabFragment.j(p.this.mUserId, p.this.mIsHost));
-            this.mFragments.add(PersonCenterDynamicTabFragment.i(p.this.mUserId, p.this.mIsHost));
-            this.mFragments.add(PersonCenterThreadTabFragment.k(p.this.mUserId, p.this.mIsHost));
+            this.mFragments.add(PersonCenterMainTabFragment.k(p.this.mUserId, p.this.mIsHost));
+            this.mFragments.add(PersonCenterDynamicTabFragment.j(p.this.mUserId, p.this.mIsHost));
+            this.mFragments.add(PersonCenterThreadTabFragment.l(p.this.mUserId, p.this.mIsHost));
         }
 
-        public void Af(int i) {
+        public void An(int i) {
             PersonCenterTabBaseFragment personCenterTabBaseFragment;
-            for (int i2 = 0; i2 < this.iZn.size() && (personCenterTabBaseFragment = this.mFragments.get(i2)) != null; i2++) {
+            for (int i2 = 0; i2 < this.jaN.size() && (personCenterTabBaseFragment = this.mFragments.get(i2)) != null; i2++) {
                 if (i2 == i) {
                     personCenterTabBaseFragment.setPrimary(true);
                 } else {
@@ -352,7 +352,7 @@ public class p {
 
         @Override // android.support.v4.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            return Ah(i);
+            return Ap(i);
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -365,14 +365,14 @@ public class p {
 
         @Override // android.support.v4.view.PagerAdapter
         public CharSequence getPageTitle(int i) {
-            return Ag(i);
+            return Ao(i);
         }
 
-        private String Ag(int i) {
-            return this.iZn.get(i);
+        private String Ao(int i) {
+            return this.jaN.get(i);
         }
 
-        public PersonCenterTabBaseFragment Ah(int i) {
+        public PersonCenterTabBaseFragment Ap(int i) {
             if (i < this.mFragments.size()) {
                 return this.mFragments.get(i);
             }
@@ -391,12 +391,12 @@ public class p {
             }
         }
 
-        public void bdr() {
+        public void bdw() {
             if (!v.isEmpty(this.mFragments)) {
                 for (int i = 0; i < this.mFragments.size(); i++) {
                     PersonCenterTabBaseFragment personCenterTabBaseFragment = this.mFragments.get(i);
                     if (personCenterTabBaseFragment != null) {
-                        personCenterTabBaseFragment.rx(false);
+                        personCenterTabBaseFragment.rD(false);
                     }
                 }
             }
@@ -462,252 +462,252 @@ public class p {
         }
     }
 
-    private boolean bcM() {
-        return this.jsK.getVisibility() == 0;
+    private boolean bcQ() {
+        return this.juj.getVisibility() == 0;
     }
 
-    public void bcN() {
-        if (!bcM() && this.jsR == null) {
-            this.jsK.setVisibility(0);
-            if (this.jsR == null) {
-                this.jsR = new AlphaAnimation(0.0f, 1.0f);
-                this.jsR.setFillAfter(true);
-                this.jsR.setDuration(300L);
-                this.jsR.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.p.9
+    public void bcR() {
+        if (!bcQ() && this.juq == null) {
+            this.juj.setVisibility(0);
+            if (this.juq == null) {
+                this.juq = new AlphaAnimation(0.0f, 1.0f);
+                this.juq.setFillAfter(true);
+                this.juq.setDuration(300L);
+                this.juq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.p.9
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        p.this.jsR.reset();
-                        p.this.jsR = null;
+                        p.this.juq.reset();
+                        p.this.juq = null;
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.jsK.startAnimation(this.jsR);
+                this.juj.startAnimation(this.juq);
             }
         }
     }
 
-    public void cxQ() {
-        if (bcM() && this.jsS == null && this.jsS == null) {
-            this.jsS = new AlphaAnimation(1.0f, 0.0f);
-            this.jsS.setFillAfter(true);
-            this.jsS.setDuration(300L);
-            this.jsS.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.p.10
+    public void cyj() {
+        if (bcQ() && this.jur == null && this.jur == null) {
+            this.jur = new AlphaAnimation(1.0f, 0.0f);
+            this.jur.setFillAfter(true);
+            this.jur.setDuration(300L);
+            this.jur.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.p.10
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    p.this.jsK.setVisibility(8);
-                    p.this.jsS.reset();
-                    p.this.jsS = null;
+                    p.this.juj.setVisibility(8);
+                    p.this.jur.reset();
+                    p.this.jur = null;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.jsK.startAnimation(this.jsS);
+            this.juj.startAnimation(this.jur);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jsU != null) {
-            this.jsU.onChangeSkinType(i);
+        if (this.jut != null) {
+            this.jut.onChangeSkinType(i);
         }
-        if (this.fVU != null) {
-            this.fVU.setDefaultSelectorColorResourceId(R.color.cp_cont_b);
-            this.fVU.setRectPaintColor(R.color.cp_link_tip_a);
-            this.fVU.onChangeSkinType();
+        if (this.fWC != null) {
+            this.fWC.setDefaultSelectorColorResourceId(R.color.cp_cont_b);
+            this.fWC.setRectPaintColor(R.color.cp_link_tip_a);
+            this.fWC.onChangeSkinType();
         }
-        if (this.jsO != null) {
-            this.jsO.setColor(am.getColor(R.color.cp_bg_line_d));
+        if (this.jun != null) {
+            this.jun.setColor(am.getColor(R.color.cp_bg_line_d));
         }
-        if (this.jsT != null) {
-            this.jsT.onChangeSkinType(i);
+        if (this.jus != null) {
+            this.jus.onChangeSkinType(i);
         }
-        if (this.jsL != null) {
-            this.jsL.onChangeSkinType(i);
+        if (this.juk != null) {
+            this.juk.onChangeSkinType(i);
         }
-        if (this.elv != null) {
-            this.elv.onChangeSkinType(this.cVi, i);
+        if (this.elL != null) {
+            this.elL.onChangeSkinType(this.cVv, i);
         }
-        if (this.fVe != null) {
-            this.fVe.onChangeSkinType(this.cVi, i);
+        if (this.fVN != null) {
+            this.fVN.onChangeSkinType(this.cVv, i);
         }
-        am.setBackgroundResource(this.jnw, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.joV, R.color.cp_bg_line_d);
         am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.jsK, R.drawable.personalize_tab_shadow);
+        am.setBackgroundResource(this.juj, R.drawable.personalize_tab_shadow);
     }
 
-    public void cwI() {
+    public void cxb() {
         if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            this.jsB.resetData();
-            this.jsB.refreshData();
-            this.jnF.doRefresh();
+            this.jua.resetData();
+            this.jua.refreshData();
+            this.jpe.doRefresh();
             return;
         }
-        this.jnF.bJO();
+        this.jpe.bKb();
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.e eVar) {
-        if (this.jsU != null) {
-            this.jsU.setOnViewResponseListener(eVar);
+        if (this.jut != null) {
+            this.jut.setOnViewResponseListener(eVar);
         }
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar, boolean z, PersonStatus personStatus) {
         if (aVar != null) {
-            this.jnU = aVar;
-            this.jnw.setVisibility(8);
-            this.jnz.setVisibility(0);
-            if (this.jsU != null) {
-                this.jsU.a(aVar, personStatus);
+            this.jpt = aVar;
+            this.joV.setVisibility(8);
+            this.joY.setVisibility(0);
+            if (this.jut != null) {
+                this.jut.a(aVar, personStatus);
             }
-            if (this.jsT != null) {
-                this.jsT.b(aVar);
+            if (this.jus != null) {
+                this.jus.b(aVar);
             }
-            if (this.jsI != null) {
-                this.jsI.e(this.jnU.getUserData());
+            if (this.juh != null) {
+                this.juh.e(this.jpt.getUserData());
             }
-            this.jsP.post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.view.p.11
+            this.juo.post(new Runnable() { // from class: com.baidu.tieba.personPolymeric.view.p.11
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (p.this.jsM == 0) {
-                        p.this.jsM = p.this.jsP.getMeasuredHeight();
-                        p.this.jsG = p.this.jsP.getMeasuredHeight() - p.this.jsU.cxN().getMeasuredHeight();
-                        if (p.this.jsI != null) {
-                            p.this.jsI.Aa(p.this.mStatusBarHeight + p.this.jsU.cxN().getMeasuredHeight() + p.this.jsP.getMeasuredHeight() + p.this.fVU.getMeasuredHeight());
+                    if (p.this.jul == 0) {
+                        p.this.jul = p.this.juo.getMeasuredHeight();
+                        p.this.juf = p.this.juo.getMeasuredHeight() - p.this.jut.cyg().getMeasuredHeight();
+                        if (p.this.juh != null) {
+                            p.this.juh.Ai(p.this.mStatusBarHeight + p.this.jut.cyg().getMeasuredHeight() + p.this.juo.getMeasuredHeight() + p.this.fWC.getMeasuredHeight());
                         }
                     }
                 }
             });
-            this.jsL.h(aVar);
-            this.jsL.g(aVar);
-            if (v.isEmpty(aVar.bQy())) {
-                this.jnF.bdu();
-                com.baidu.adp.lib.util.l.showToast(this.cVi.getContext(), this.cVi.getString(R.string.data_load_error));
+            this.juk.h(aVar);
+            this.juk.g(aVar);
+            if (v.isEmpty(aVar.bQQ())) {
+                this.jpe.bdz();
+                com.baidu.adp.lib.util.l.showToast(this.cVv.getContext(), this.cVv.getString(R.string.data_load_error));
                 return;
             }
-            com.baidu.tieba.p.a.cDQ().sj(this.mIsHost);
-            int size = aVar.bQy().size();
+            com.baidu.tieba.p.a.cEk().sp(this.mIsHost);
+            int size = aVar.bQQ().size();
             for (int i = 0; i < size; i++) {
-                com.baidu.adp.widget.ListView.m mVar = aVar.bQy().get(i);
+                com.baidu.adp.widget.ListView.m mVar = aVar.bQQ().get(i);
                 if (mVar != null && (mVar instanceof com.baidu.tieba.personPolymeric.c.i)) {
-                    this.jnF.bdu();
+                    this.jpe.bdz();
                     return;
                 }
             }
             if (!z) {
-                this.jnF.e(true, aVar.bQy());
+                this.jpe.e(true, aVar.bQQ());
             }
         }
     }
 
-    public void bJO() {
-        this.jnF.bJO();
+    public void bKb() {
+        this.jpe.bKb();
     }
 
-    private void z(TbPageContext tbPageContext) {
-        this.jsC = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_RED_TIP) { // from class: com.baidu.tieba.personPolymeric.view.p.12
+    private void A(TbPageContext tbPageContext) {
+        this.jub = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_RED_TIP) { // from class: com.baidu.tieba.personPolymeric.view.p.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.p.b)) {
-                    SparseArray<b.a> sparseArray = ((com.baidu.tieba.p.b) customResponsedMessage.getData()).jPb;
+                    SparseArray<b.a> sparseArray = ((com.baidu.tieba.p.b) customResponsedMessage.getData()).jQD;
                     if (sparseArray.size() > 0) {
                         b.a aVar = sparseArray.get(2);
-                        if (p.this.jsT != null && aVar != null) {
-                            p.this.jsT.rv(aVar.dGu);
+                        if (p.this.jus != null && aVar != null) {
+                            p.this.jus.rB(aVar.dGK);
                         }
                         b.a aVar2 = sparseArray.get(4);
                         b.a aVar3 = sparseArray.get(3);
                         b.a aVar4 = sparseArray.get(1);
                         b.a aVar5 = sparseArray.get(7);
                         b.a aVar6 = sparseArray.get(8);
-                        if (p.this.jnU != null) {
-                            if (p.this.jnU.joL != null && p.this.jnU.joL.gaF != null && aVar2 != null) {
-                                p.this.jnU.joL.gaF.putBoolean("person_center_item_red_tip_show", aVar2.dGu);
+                        if (p.this.jpt != null) {
+                            if (p.this.jpt.jqk != null && p.this.jpt.jqk.gbn != null && aVar2 != null) {
+                                p.this.jpt.jqk.gbn.putBoolean("person_center_item_red_tip_show", aVar2.dGK);
                             }
-                            if (aVar3 != null && p.this.jnU.joK != null && p.this.jnU.joK.gaF != null) {
-                                p.this.jnU.joK.gaF.putBoolean("person_center_item_red_tip_show", aVar3.dGu);
+                            if (aVar3 != null && p.this.jpt.jqj != null && p.this.jpt.jqj.gbn != null) {
+                                p.this.jpt.jqj.gbn.putBoolean("person_center_item_red_tip_show", aVar3.dGK);
                             }
-                            if (aVar4 != null && p.this.jnU.joJ != null && p.this.jnU.joJ.gaF != null) {
-                                p.this.jnU.joJ.gaF.putBoolean("person_center_item_red_tip_show", aVar4.dGu);
+                            if (aVar4 != null && p.this.jpt.jqi != null && p.this.jpt.jqi.gbn != null) {
+                                p.this.jpt.jqi.gbn.putBoolean("person_center_item_red_tip_show", aVar4.dGK);
                             }
-                            if (aVar5 != null && p.this.jnU.joM != null && p.this.jnU.joM.gaF != null) {
-                                p.this.jnU.joM.gaF.putBoolean("person_center_item_red_tip_show", aVar5.dGu);
+                            if (aVar5 != null && p.this.jpt.jql != null && p.this.jpt.jql.gbn != null) {
+                                p.this.jpt.jql.gbn.putBoolean("person_center_item_red_tip_show", aVar5.dGK);
                             }
-                            if (aVar6 != null && p.this.jnU.joN != null && p.this.jnU.joN.gaF != null) {
-                                p.this.jnU.joN.gaF.putBoolean("person_center_item_red_tip_show", aVar6.dGu);
-                                p.this.jnU.joN.gaF.putString("person_center_item_txt", String.valueOf(aVar6.mNum));
+                            if (aVar6 != null && p.this.jpt.jqm != null && p.this.jpt.jqm.gbn != null) {
+                                p.this.jpt.jqm.gbn.putBoolean("person_center_item_red_tip_show", aVar6.dGK);
+                                p.this.jpt.jqm.gbn.putString("person_center_item_txt", String.valueOf(aVar6.mNum));
                             }
                         }
                     }
                 }
             }
         };
-        this.jsC.setTag(this.MO);
-        tbPageContext.registerListener(this.jsC);
-        this.jhp = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.personPolymeric.view.p.2
+        this.jub.setTag(this.MP);
+        tbPageContext.registerListener(this.jub);
+        this.jiP = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.personPolymeric.view.p.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 com.baidu.tbadk.data.m mVar;
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.m) && (mVar = (com.baidu.tbadk.data.m) customResponsedMessage.getData()) != null) {
-                    p.this.jsT.GV(mVar.aAG());
+                    p.this.jus.GU(mVar.aAJ());
                 }
             }
         };
-        this.jhp.setTag(this.MO);
-        tbPageContext.registerListener(this.jhp);
-        this.jsD = new CustomMessageListener(2921435) { // from class: com.baidu.tieba.personPolymeric.view.p.3
+        this.jiP.setTag(this.MP);
+        tbPageContext.registerListener(this.jiP);
+        this.juc = new CustomMessageListener(2921435) { // from class: com.baidu.tieba.personPolymeric.view.p.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && p.this.jsX == ((Integer) customResponsedMessage.getData()).intValue() && p.this.jsW) {
-                    com.baidu.adp.lib.f.e.gx().removeCallbacks(p.this.jsY);
-                    p.this.cxR();
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && p.this.juw == ((Integer) customResponsedMessage.getData()).intValue() && p.this.juv) {
+                    com.baidu.adp.lib.f.e.gx().removeCallbacks(p.this.jux);
+                    p.this.cyk();
                 }
             }
         };
-        this.jsD.setTag(this.MO);
-        tbPageContext.registerListener(this.jsD);
+        this.juc.setTag(this.MP);
+        tbPageContext.registerListener(this.juc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxR() {
-        this.jsX = -1;
-        this.jsW = false;
-        if (this.jsH != null) {
-            this.jsH.cxW();
+    public void cyk() {
+        this.juw = -1;
+        this.juv = false;
+        if (this.jug != null) {
+            this.jug.cyp();
         }
     }
 
     public void onDestory() {
-        if (this.jsT != null) {
-            this.jsT.onDestroy();
+        if (this.jus != null) {
+            this.jus.onDestroy();
         }
-        if (this.jsH != null) {
-            this.jsH.onDestroy();
+        if (this.jug != null) {
+            this.jug.onDestroy();
         }
-        if (this.jsV != null) {
-            this.jsV.cancel();
-            this.jsV.removeAllListeners();
-            this.jsV.removeAllUpdateListeners();
-            this.jsV = null;
+        if (this.juu != null) {
+            this.juu.cancel();
+            this.juu.removeAllListeners();
+            this.juu.removeAllUpdateListeners();
+            this.juu = null;
         }
-        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jsY);
+        com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jux);
     }
 
     public void a(com.baidu.tieba.model.a aVar) {
-        this.jsB = aVar;
+        this.jua = aVar;
     }
 }

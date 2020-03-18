@@ -7,20 +7,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q implements h {
-    private SparseArray<?> ph;
+    private SparseArray<?> pg;
 
     public q(SparseArray<?> sparseArray) {
-        this.ph = sparseArray;
+        this.pg = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Type[] fp = cVar.fp();
         JSONObject jSONObject = new JSONObject();
-        int size = this.ph.size();
+        int size = this.pg.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.ph.keyAt(i);
-            Object obj = this.ph.get(keyAt);
+            int keyAt = this.pg.keyAt(i);
+            Object obj = this.pg.get(keyAt);
             if (obj != null) {
                 if (fp != null && fp.length >= 1) {
                     Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.q(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(fp[0]));
@@ -60,7 +60,7 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.ph;
+        return this.pg;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -80,6 +80,6 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.ph;
+        return this.pg;
     }
 }

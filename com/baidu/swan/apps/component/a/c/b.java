@@ -8,9 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.component.a.d.b {
-    public boolean bhO;
-    public String bhP;
-    public String bhQ;
+    public boolean bib;
+    public String bic;
+    public String bie;
     public double fontSize;
     public String fontWeight;
     public int lineSpace;
@@ -21,11 +21,11 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public b(String str, @NonNull String str2) {
         super(str, str2);
         this.text = "";
-        this.bhO = false;
+        this.bib = false;
         this.textAlign = "";
         this.fontWeight = "";
-        this.bhP = "";
-        this.bhQ = "";
+        this.bic = "";
+        this.bie = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -33,7 +33,7 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.text = jSONObject.optString("text");
-            KA();
+            KD();
         }
     }
 
@@ -41,28 +41,28 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public void Y(JSONObject jSONObject) {
         super.Y(jSONObject);
         this.text = jSONObject.optString("text", this.text);
-        KA();
+        KD();
     }
 
-    private void KA() {
-        if (this.bhV != null) {
+    private void KD() {
+        if (this.bik != null) {
             try {
-                this.textColor = Color.parseColor(this.bhV.optString("color"));
-                this.bhO = true;
+                this.textColor = Color.parseColor(this.bik.optString("color"));
+                this.bib = true;
             } catch (Exception e) {
                 c.w("Component-Model-TextView", "text color occurs exception");
-                this.bhO = false;
+                this.bib = false;
             }
-            this.fontSize = this.bhV.optDouble("fontSize", 0.0d);
-            this.lineSpace = af.S((float) this.bhV.optDouble("lineSpace", 0.0d));
-            this.textAlign = this.bhV.optString("textAlign");
-            this.fontWeight = this.bhV.optString("fontWeight");
-            this.bhP = this.bhV.optString("whiteSpace");
-            this.bhQ = this.bhV.optString("lineBreak");
+            this.fontSize = this.bik.optDouble("fontSize", 0.0d);
+            this.lineSpace = af.S((float) this.bik.optDouble("lineSpace", 0.0d));
+            this.textAlign = this.bik.optString("textAlign");
+            this.fontWeight = this.bik.optString("fontWeight");
+            this.bic = this.bik.optString("whiteSpace");
+            this.bie = this.bik.optString("lineBreak");
         }
     }
 
-    public void gq(String str) {
+    public void gp(String str) {
         this.text = str;
     }
 }

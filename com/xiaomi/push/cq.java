@@ -44,7 +44,7 @@ public class cq {
         }
         this.f195a = System.currentTimeMillis();
         this.f197a.add(new cz(str, -1));
-        this.f196a = cu.m206a();
+        this.f196a = cu.m204a();
         this.f198b = str;
     }
 
@@ -90,7 +90,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m197a() {
+    public synchronized ArrayList<String> m195a() {
         return a(false);
     }
 
@@ -104,7 +104,7 @@ public class cq {
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cs a = cs.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a.m205a(), a.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a.m203a(), a.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -135,7 +135,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m198a() {
+    public synchronized JSONObject m196a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("net", this.f196a);
@@ -176,7 +176,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m199a(String str) {
+    public synchronized void m197a(String str) {
         a(new cz(str));
     }
 
@@ -243,8 +243,8 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m200a() {
-        return TextUtils.equals(this.f196a, cu.m206a());
+    public boolean m198a() {
+        return TextUtils.equals(this.f196a, cu.m204a());
     }
 
     public boolean a(cq cqVar) {

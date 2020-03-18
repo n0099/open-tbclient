@@ -1,13 +1,13 @@
 package com.baidu.live.data;
 /* loaded from: classes3.dex */
 public class bd {
-    public boolean aeA;
-    public boolean aeB;
-    public boolean aeC;
-    public boolean aeD;
-    public boolean aeE;
-    public boolean aew;
-    public boolean aex = false;
-    public boolean aey;
-    public boolean aez;
+    public boolean aeG;
+    public boolean aeH = false;
+    public boolean aeI;
+    public boolean aeJ;
+    public boolean aeK;
+    public boolean aeL;
+    public boolean aeM;
+    public boolean aeN;
+    public boolean aeO;
 }

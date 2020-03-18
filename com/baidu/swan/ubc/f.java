@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes11.dex */
 class f {
-    private String cEF;
-    private String cEG;
-    private int cEH;
-    private String cEI;
-    private int cEJ;
-    private int cEK;
-    private String cEL;
+    private String cEQ;
+    private String cER;
+    private int cES;
+    private String cET;
+    private int cEU;
+    private int cEV;
+    private String cEW;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cEF = str2;
-        this.cEG = str3;
-        this.cEH = i;
+        this.cEQ = str2;
+        this.cER = str3;
+        this.cES = i;
         this.mType = str4;
-        this.cEI = str5;
+        this.cET = str5;
     }
 
     public void iU(int i) {
@@ -31,38 +31,38 @@ class f {
     }
 
     public void iV(int i) {
-        this.cEJ = i;
+        this.cEU = i;
     }
 
     public void iW(int i) {
-        this.cEK = i;
+        this.cEV = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String avm() {
-        return this.cEF;
+    public String avp() {
+        return this.cEQ;
     }
 
-    public String avn() {
-        return this.cEG;
+    public String avq() {
+        return this.cER;
     }
 
     public int getTimeout() {
-        return this.cEH;
+        return this.cES;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String avo() {
-        return this.cEI;
+    public String avr() {
+        return this.cET;
     }
 
-    public int avp() {
+    public int avs() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int avq() {
-        return this.cEJ;
+    public int avt() {
+        return this.cEU;
     }
 
-    public int avr() {
-        return this.cEK;
+    public int avu() {
+        return this.cEV;
     }
 
-    public void qW(String str) {
-        this.cEL = str;
+    public void qV(String str) {
+        this.cEW = str;
     }
 
-    public String avs() {
-        return this.cEL;
+    public String avv() {
+        return this.cEW;
     }
 }

@@ -9,37 +9,37 @@ import com.baidu.live.message.GetLiveActivityHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b axJ;
-    public ak awL;
-    private HttpMessageListener axK = new HttpMessageListener(1021122) { // from class: com.baidu.live.v.b.1
+    private static volatile b axX;
+    public ak awV;
+    private HttpMessageListener axY = new HttpMessageListener(1021122) { // from class: com.baidu.live.v.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021122 && (httpResponsedMessage instanceof GetLiveActivityHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetLiveActivityHttpResponseMessage getLiveActivityHttpResponseMessage = (GetLiveActivityHttpResponseMessage) httpResponsedMessage;
-                    if (getLiveActivityHttpResponseMessage.yV() != null) {
-                        b.this.awL = getLiveActivityHttpResponseMessage.yV();
+                    if (getLiveActivityHttpResponseMessage.za() != null) {
+                        b.this.awV = getLiveActivityHttpResponseMessage.za();
                     }
                 }
             }
         }
     };
 
-    public static b zp() {
-        if (axJ == null) {
+    public static b zw() {
+        if (axX == null) {
             synchronized (b.class) {
-                if (axJ == null) {
-                    axJ = new b();
+                if (axX == null) {
+                    axX = new b();
                 }
             }
         }
-        return axJ;
+        return axX;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.axK);
-        this.awL = new ak();
+        MessageManager.getInstance().registerListener(this.axY);
+        this.awV = new ak();
     }
 
     public void d(long j, long j2, long j3, long j4) {

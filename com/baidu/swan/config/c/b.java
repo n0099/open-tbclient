@@ -8,7 +8,7 @@ public class b extends com.baidu.swan.config.core.b.a {
         JSONObject bi;
         int optInt;
         if (jSONObject != null && (bi = bi(jSONObject.optJSONObject("base_info"))) != null && (optInt = bi.optInt("version")) > 0) {
-            c.aje().d(bi.optString("host_name"), bi.optString("scheme_head"), bi.optString("share_callback_url"), optInt);
+            c.ajh().d(bi.optString("host_name"), bi.optString("scheme_head"), bi.optString("share_callback_url"), optInt);
         }
     }
 }

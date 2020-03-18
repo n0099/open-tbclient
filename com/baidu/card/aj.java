@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class aj extends d implements m<bj>, n {
-    private static final int My = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    private UnfollowedDecorView Mz;
+    private static final int Mz = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    private UnfollowedDecorView MA;
 
     public aj(TbPageContext tbPageContext, boolean z) {
         setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(My, My);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Mz, Mz);
         layoutParams.addRule(11);
         if (z) {
             layoutParams.addRule(12);
@@ -25,21 +25,21 @@ public class aj extends d implements m<bj>, n {
     }
 
     private void c(TbPageContext tbPageContext) {
-        this.Mz = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.MA = new UnfollowedDecorView(tbPageContext.getPageActivity());
         int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31);
-        this.Mz.setPadding(dimens, dimens, dimens, dimens);
-        F(this.Mz);
+        this.MA.setPadding(dimens, dimens, dimens, dimens);
+        F(this.MA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: a */
     public void A(bj bjVar) {
-        this.Mz.q(bjVar);
+        this.MA.q(bjVar);
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Mz.onChangeSkinType();
+        this.MA.onChangeSkinType();
     }
 }

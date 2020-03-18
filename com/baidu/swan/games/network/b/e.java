@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cqw;
+    private a cqH;
     private final Object mLock = new Object();
-    private boolean cqu = true;
-    private List<b> cqv = new ArrayList(3);
+    private boolean cqF = true;
+    private List<b> cqG = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.cqw = aVar;
+        this.cqH = aVar;
     }
 
-    public void aoU() {
+    public void aoX() {
         synchronized (this.mLock) {
-            this.cqu = false;
-            aoV();
+            this.cqF = false;
+            aoY();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.cqu) {
+            if (this.cqF) {
                 f(1, obj);
             } else {
-                this.cqw.a(new b(1, obj));
+                this.cqH.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.cqu) {
+            if (this.cqF) {
                 f(2, bVar);
             } else {
-                this.cqw.a(new b(2, bVar));
+                this.cqH.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.cqu) {
+            if (this.cqF) {
                 f(3, jSEvent);
             } else {
-                this.cqw.a(new b(3, jSEvent));
+                this.cqH.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
-    private void aoV() {
-        for (b bVar : this.cqv) {
-            this.cqw.a(bVar);
+    private void aoY() {
+        for (b bVar : this.cqG) {
+            this.cqH.a(bVar);
         }
-        this.cqv.clear();
+        this.cqG.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.cqv.add(new b(i, obj));
+            this.cqG.add(new b(i, obj));
         }
     }
 }

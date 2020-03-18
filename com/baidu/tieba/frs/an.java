@@ -1,10 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class an {
-    public Object ext;
-    public String forumId;
-    public String forumName;
-    public boolean gsE = false;
-    public int pn;
-    public String stType;
+
+import com.baidu.tbadk.core.data.bj;
+/* loaded from: classes9.dex */
+public interface an {
+    void al(bj bjVar);
 }

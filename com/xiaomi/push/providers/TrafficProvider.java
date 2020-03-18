@@ -75,7 +75,7 @@ public class TrafficProvider extends ContentProvider {
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gr.m320a(contentValues.getAsString("imsi"));
+                gr.m318a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

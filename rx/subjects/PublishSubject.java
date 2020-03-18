@@ -11,30 +11,30 @@ import rx.j;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class PublishSubject<T> extends c<T, T> {
-    final PublishSubjectState<T> nUb;
+    final PublishSubjectState<T> nVO;
 
-    public static <T> PublishSubject<T> dPs() {
+    public static <T> PublishSubject<T> dPS() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
     protected PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.nUb = publishSubjectState;
+        this.nVO = publishSubjectState;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.nUb.onNext(t);
+        this.nVO.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.nUb.onError(th);
+        this.nVO.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.nUb.onCompleted();
+        this.nVO.onCompleted();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

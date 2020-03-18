@@ -15,16 +15,16 @@ import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes8.dex */
 public class VoteStatusCard extends LinearLayout {
-    private f fCu;
-    private e fDN;
-    private TextView fHd;
-    private VoteStatusView fHe;
-    private TextView fHf;
-    private TextView fHg;
-    private TextView fHh;
-    private TextView fHi;
-    private TextView fHj;
-    private TextView fHk;
+    private f fDc;
+    private e fEv;
+    private TextView fHL;
+    private VoteStatusView fHM;
+    private TextView fHN;
+    private TextView fHO;
+    private TextView fHP;
+    private TextView fHQ;
+    private TextView fHR;
+    private TextView fHS;
     private Context mContext;
     private int status;
 
@@ -34,7 +34,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.fGx;
+        this.status = d.fHf;
         initUI();
     }
 
@@ -52,54 +52,54 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     private void ns() {
-        this.fHd = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.fHe = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.fHf = (TextView) findViewById(R.id.apply_title);
-        this.fHg = (TextView) findViewById(R.id.apply_start_time);
-        this.fHh = (TextView) findViewById(R.id.vote_title);
-        this.fHi = (TextView) findViewById(R.id.vote_start_time);
-        this.fHj = (TextView) findViewById(R.id.publicity_title);
-        this.fHk = (TextView) findViewById(R.id.publicity_start_time);
+        this.fHL = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.fHM = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.fHN = (TextView) findViewById(R.id.apply_title);
+        this.fHO = (TextView) findViewById(R.id.apply_start_time);
+        this.fHP = (TextView) findViewById(R.id.vote_title);
+        this.fHQ = (TextView) findViewById(R.id.vote_start_time);
+        this.fHR = (TextView) findViewById(R.id.publicity_title);
+        this.fHS = (TextView) findViewById(R.id.publicity_start_time);
     }
 
     public void setData(f fVar) {
-        this.fCu = fVar;
-        if (this.fCu == null || this.fCu.buj() == null) {
+        this.fDc = fVar;
+        if (this.fDc == null || this.fDc.buo() == null) {
             setVisibility(8);
             return;
         }
-        this.fDN = this.fCu.buj();
-        this.status = this.fDN.getStatus();
-        this.fHe.setStatus(this.status);
-        long bue = this.fDN.bue() * 1000;
-        this.fHg.setText(aq.bB(this.fDN.buc() * 1000));
-        this.fHi.setText(aq.bA(this.fDN.buf() * 1000));
-        this.fHk.setText(aq.bA(this.fDN.bud() * 1000));
+        this.fEv = this.fDc.buo();
+        this.status = this.fEv.getStatus();
+        this.fHM.setStatus(this.status);
+        long buj = this.fEv.buj() * 1000;
+        this.fHO.setText(aq.bB(this.fEv.buh() * 1000));
+        this.fHQ.setText(aq.bA(this.fEv.buk() * 1000));
+        this.fHS.setText(aq.bA(this.fEv.bui() * 1000));
     }
 
-    public void pk(int i) {
+    public void pm(int i) {
         int color = am.getColor(i, R.color.cp_cont_b);
         int color2 = am.getColor(i, R.color.cp_cont_d);
-        if (this.fHf != null) {
-            this.fHf.setTextColor(color);
+        if (this.fHN != null) {
+            this.fHN.setTextColor(color);
         }
-        if (this.fHh != null) {
-            this.fHh.setTextColor(this.status > d.fGw ? color : color2);
+        if (this.fHP != null) {
+            this.fHP.setTextColor(this.status > d.fHe ? color : color2);
         }
-        if (this.fHj != null) {
-            TextView textView = this.fHj;
-            if (this.status <= d.fGx) {
+        if (this.fHR != null) {
+            TextView textView = this.fHR;
+            if (this.status <= d.fHf) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.fHe != null) {
-            this.fHe.pk(i);
+        if (this.fHM != null) {
+            this.fHM.pm(i);
         }
-        am.setViewTextColor(this.fHd, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fHg, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fHi, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fHk, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fHL, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.fHO, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fHQ, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.fHS, R.color.cp_cont_d, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
     }
 }

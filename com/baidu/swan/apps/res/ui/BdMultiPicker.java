@@ -17,15 +17,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class BdMultiPicker extends LinearLayout {
     private static final boolean DEBUG;
-    private int bKl;
-    private LinearLayout bKn;
-    private JSONArray bKo;
-    private JSONArray bKp;
-    private int bKq;
-    private a bKr;
-    private int bKs;
-    private int bKt;
-    private com.baidu.swan.apps.res.ui.wheelview3d.c.b bKu;
+    private JSONArray bKA;
+    private int bKB;
+    private a bKC;
+    private int bKD;
+    private int bKE;
+    private com.baidu.swan.apps.res.ui.wheelview3d.c.b bKF;
+    private int bKw;
+    private LinearLayout bKy;
+    private JSONArray bKz;
     private boolean mHasInited;
     private int mTextSize;
 
@@ -40,12 +40,12 @@ public class BdMultiPicker extends LinearLayout {
 
     public BdMultiPicker(Context context) {
         super(context);
-        this.bKo = new JSONArray();
-        this.bKp = new JSONArray();
-        this.bKq = 0;
-        this.bKs = 16;
-        this.bKt = 15;
-        this.bKu = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
+        this.bKz = new JSONArray();
+        this.bKA = new JSONArray();
+        this.bKB = 0;
+        this.bKD = 16;
+        this.bKE = 15;
+        this.bKF = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
                 int currentItem = wheelView3d.getCurrentItem();
@@ -54,7 +54,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFling: current index is not updated");
                     }
-                } else if (BdMultiPicker.this.bKr != null) {
+                } else if (BdMultiPicker.this.bKC != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("column", intValue);
@@ -67,7 +67,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFlingListener: params=" + jSONObject.toString());
                     }
-                    BdMultiPicker.this.bKr.a(BdMultiPicker.this, jSONObject);
+                    BdMultiPicker.this.bKC.a(BdMultiPicker.this, jSONObject);
                 }
             }
         };
@@ -76,12 +76,12 @@ public class BdMultiPicker extends LinearLayout {
 
     public BdMultiPicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bKo = new JSONArray();
-        this.bKp = new JSONArray();
-        this.bKq = 0;
-        this.bKs = 16;
-        this.bKt = 15;
-        this.bKu = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
+        this.bKz = new JSONArray();
+        this.bKA = new JSONArray();
+        this.bKB = 0;
+        this.bKD = 16;
+        this.bKE = 15;
+        this.bKF = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
                 int currentItem = wheelView3d.getCurrentItem();
@@ -90,7 +90,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFling: current index is not updated");
                     }
-                } else if (BdMultiPicker.this.bKr != null) {
+                } else if (BdMultiPicker.this.bKC != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("column", intValue);
@@ -103,7 +103,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFlingListener: params=" + jSONObject.toString());
                     }
-                    BdMultiPicker.this.bKr.a(BdMultiPicker.this, jSONObject);
+                    BdMultiPicker.this.bKC.a(BdMultiPicker.this, jSONObject);
                 }
             }
         };
@@ -112,12 +112,12 @@ public class BdMultiPicker extends LinearLayout {
 
     public BdMultiPicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bKo = new JSONArray();
-        this.bKp = new JSONArray();
-        this.bKq = 0;
-        this.bKs = 16;
-        this.bKt = 15;
-        this.bKu = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
+        this.bKz = new JSONArray();
+        this.bKA = new JSONArray();
+        this.bKB = 0;
+        this.bKD = 16;
+        this.bKE = 15;
+        this.bKF = new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdMultiPicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i2) {
                 int currentItem = wheelView3d.getCurrentItem();
@@ -126,7 +126,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFling: current index is not updated");
                     }
-                } else if (BdMultiPicker.this.bKr != null) {
+                } else if (BdMultiPicker.this.bKC != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("column", intValue);
@@ -139,7 +139,7 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.DEBUG) {
                         Log.i("BdMultiPicker", "onEndFlingListener: params=" + jSONObject.toString());
                     }
-                    BdMultiPicker.this.bKr.a(BdMultiPicker.this, jSONObject);
+                    BdMultiPicker.this.bKC.a(BdMultiPicker.this, jSONObject);
                 }
             }
         };
@@ -149,23 +149,23 @@ public class BdMultiPicker extends LinearLayout {
     private void init(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(a.g.aiapps_multipicker_layout, this);
-        this.bKn = (LinearLayout) findViewById(a.f.wheel_container);
-        this.bKs = af.dip2px(context, this.bKs);
-        this.bKt = af.dip2px(context, this.bKt);
+        this.bKy = (LinearLayout) findViewById(a.f.wheel_container);
+        this.bKD = af.dip2px(context, this.bKD);
+        this.bKE = af.dip2px(context, this.bKE);
     }
 
-    private void cq(Context context) {
+    private void cp(Context context) {
         this.mTextSize = af.dip2px(context, 16.0f);
-        this.bKl = af.dip2px(context, 14.0f);
-        for (int i = 0; i < this.bKq; i++) {
+        this.bKw = af.dip2px(context, 14.0f);
+        for (int i = 0; i < this.bKB; i++) {
             WheelView3d wheelView3d = new WheelView3d(context);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
-            wheelView3d.setOnItemSelectedListener(this.bKu);
+            wheelView3d.setOnItemSelectedListener(this.bKF);
             wheelView3d.setTag(Integer.valueOf(i));
             wheelView3d.setCyclic(true);
             wheelView3d.setCenterTextSize(this.mTextSize);
-            wheelView3d.setOuterTextSize(this.bKl);
+            wheelView3d.setOuterTextSize(this.bKw);
             wheelView3d.setDividerType(WheelView3d.DividerType.FILL);
             wheelView3d.setDividerColor(0);
             wheelView3d.setGravity(17);
@@ -174,18 +174,18 @@ public class BdMultiPicker extends LinearLayout {
             wheelView3d.setLineSpacingMultiplier(3.0f);
             wheelView3d.setVisibleItem(7);
             b(wheelView3d, i);
-            this.bKn.addView(wheelView3d, layoutParams);
+            this.bKy.addView(wheelView3d, layoutParams);
         }
         this.mHasInited = true;
     }
 
     private void b(WheelView3d wheelView3d, int i) {
-        if (this.bKq >= 2) {
+        if (this.bKB >= 2) {
             if (i == 0) {
-                wheelView3d.setGravityOffset(-this.bKt);
+                wheelView3d.setGravityOffset(-this.bKE);
             }
-            if (i == this.bKq - 1) {
-                wheelView3d.setGravityOffset(this.bKt);
+            if (i == this.bKB - 1) {
+                wheelView3d.setGravityOffset(this.bKE);
             }
         }
     }
@@ -206,36 +206,36 @@ public class BdMultiPicker extends LinearLayout {
 
     public void setDataArray(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bKo = jSONArray;
-            this.bKq = this.bKo.length();
+            this.bKz = jSONArray;
+            this.bKB = this.bKz.length();
         }
     }
 
     public void setDataIndex(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bKp = jSONArray;
+            this.bKA = jSONArray;
         }
     }
 
     public void setMultiSelectedListener(a aVar) {
-        this.bKr = aVar;
+        this.bKC = aVar;
     }
 
     public JSONArray getCurrentIndex() {
-        if (DEBUG && this.bKp != null) {
-            Log.i("BdMultiPicker", "getCurrentIndex: index=" + this.bKp.toString());
+        if (DEBUG && this.bKA != null) {
+            Log.i("BdMultiPicker", "getCurrentIndex: index=" + this.bKA.toString());
         }
-        return this.bKp;
+        return this.bKA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ac(int i, int i2) {
-        if (this.bKp == null || i < 0 || i > this.bKp.length() - 1) {
+        if (this.bKA == null || i < 0 || i > this.bKA.length() - 1) {
             return false;
         }
         try {
-            if (this.bKp.getInt(i) != i2) {
-                this.bKp.put(i, i2);
+            if (this.bKA.getInt(i) != i2) {
+                this.bKA.put(i, i2);
                 return true;
             }
             return false;
@@ -249,11 +249,11 @@ public class BdMultiPicker extends LinearLayout {
     }
 
     private boolean a(int i, JSONArray jSONArray) {
-        if (this.bKo == null || i < 0 || i > this.bKo.length() - 1) {
+        if (this.bKz == null || i < 0 || i > this.bKz.length() - 1) {
             return false;
         }
         try {
-            this.bKo.put(i, jSONArray);
+            this.bKz.put(i, jSONArray);
             return true;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -271,7 +271,7 @@ public class BdMultiPicker extends LinearLayout {
     }
 
     private void b(int i, JSONArray jSONArray, int i2) {
-        WheelView3d wheelView3d = (WheelView3d) this.bKn.getChildAt(i);
+        WheelView3d wheelView3d = (WheelView3d) this.bKy.getChildAt(i);
         if (wheelView3d != null) {
             ArrayList arrayList = new ArrayList();
             if (jSONArray == null || jSONArray.length() <= 0) {
@@ -295,12 +295,12 @@ public class BdMultiPicker extends LinearLayout {
 
     public void updateUI() {
         ArrayList arrayList;
-        if (this.bKq != 0) {
+        if (this.bKB != 0) {
             if (!this.mHasInited) {
-                cq(getContext());
+                cp(getContext());
             }
-            for (int i = 0; i < this.bKq; i++) {
-                JSONArray optJSONArray = this.bKo.optJSONArray(i);
+            for (int i = 0; i < this.bKB; i++) {
+                JSONArray optJSONArray = this.bKz.optJSONArray(i);
                 ArrayList arrayList2 = null;
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
@@ -319,9 +319,9 @@ public class BdMultiPicker extends LinearLayout {
                 } else {
                     arrayList = arrayList2;
                 }
-                WheelView3d wheelView3d = (WheelView3d) this.bKn.getChildAt(i);
+                WheelView3d wheelView3d = (WheelView3d) this.bKy.getChildAt(i);
                 wheelView3d.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.a(arrayList));
-                wheelView3d.setCurrentItem(this.bKp.optInt(i));
+                wheelView3d.setCurrentItem(this.bKA.optInt(i));
                 if (arrayList.size() <= 3) {
                     wheelView3d.setCyclic(false);
                 }

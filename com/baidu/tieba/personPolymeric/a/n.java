@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class n {
-    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private BdTypeRecyclerView gtd;
-    private com.baidu.tieba.person.a.a jgg;
-    private m jmG;
-    private b jmH;
-    private i jmI;
-    private a jmJ;
-    private c jmK;
-    private h jmL;
-    private e jmM;
-    private k jmN;
-    private d jmO;
-    private com.baidu.tieba.person.a.d jmP;
-    private p jmQ;
-    private com.baidu.tieba.personPolymeric.a.a.g jmR;
-    private com.baidu.tieba.personPolymeric.a.a.d jmS;
-    private com.baidu.tieba.personPolymeric.a.a.i jmT;
-    private com.baidu.tieba.personPolymeric.a.a.h jmU;
-    private com.baidu.tieba.personPolymeric.a.a.a jmV;
-    private com.baidu.tieba.personPolymeric.a.a.c jmW;
-    private com.baidu.tieba.personPolymeric.a.a.b jmX;
-    private com.baidu.tieba.personPolymeric.a.a.e jmY;
-    private com.baidu.tieba.personPolymeric.a.a.f jmZ;
+    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private BdTypeRecyclerView gtH;
+    private com.baidu.tieba.person.a.a jhF;
+    private m jof;
+    private b jog;
+    private i joh;
+    private a joi;
+    private c joj;
+    private h jok;
+    private e jol;
+    private k jom;
+    private d jon;
+    private com.baidu.tieba.person.a.d joo;
+    private p jop;
+    private com.baidu.tieba.personPolymeric.a.a.g joq;
+    private com.baidu.tieba.personPolymeric.a.a.d jor;
+    private com.baidu.tieba.personPolymeric.a.a.i jos;
+    private com.baidu.tieba.personPolymeric.a.a.h jot;
+    private com.baidu.tieba.personPolymeric.a.a.a jou;
+    private com.baidu.tieba.personPolymeric.a.a.c jov;
+    private com.baidu.tieba.personPolymeric.a.a.b jow;
+    private com.baidu.tieba.personPolymeric.a.a.e jox;
+    private com.baidu.tieba.personPolymeric.a.a.f joy;
     private BdUniqueId mBdUniqueId;
 
     public n(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
@@ -40,118 +40,118 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gtd = bdTypeRecyclerView;
-        this.jmG = new m(tbPageContext);
-        this.jmH = new b(tbPageContext);
-        this.jmI = new i(tbPageContext);
-        this.jmJ = new a(tbPageContext);
-        this.jmK = new c(tbPageContext);
-        this.jmL = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.jmM = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.jpb);
-        this.jmN = new k(tbPageContext);
-        this.jmO = new d(tbPageContext);
-        this.jmP = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.jgh);
-        this.jgg = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.jfT);
-        this.jmQ = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.jmR = new com.baidu.tieba.personPolymeric.a.a.g(tbPageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.jmS = new com.baidu.tieba.personPolymeric.a.a.d(tbPageContext, com.baidu.tieba.card.data.k.cRy);
-        this.jmT = new com.baidu.tieba.personPolymeric.a.a.i(tbPageContext, com.baidu.tieba.card.data.l.cRA);
-        this.jmU = new com.baidu.tieba.personPolymeric.a.a.h(tbPageContext, com.baidu.tieba.card.data.k.cRE);
-        this.jmX = new com.baidu.tieba.personPolymeric.a.a.b(tbPageContext, com.baidu.tieba.card.data.k.cRG);
-        this.jmY = new com.baidu.tieba.personPolymeric.a.a.e(tbPageContext, com.baidu.tieba.card.data.k.cRF);
-        this.jmZ = new com.baidu.tieba.personPolymeric.a.a.f(tbPageContext, com.baidu.tieba.card.data.k.cRH);
-        this.jmV = new com.baidu.tieba.personPolymeric.a.a.a(tbPageContext, com.baidu.tieba.card.data.e.fMM);
-        this.jmW = new com.baidu.tieba.personPolymeric.a.a.c(tbPageContext, com.baidu.tieba.card.data.f.fMN);
-        this.asF.add(this.jmG);
-        this.asF.add(this.jmH);
-        this.asF.add(this.jmI);
-        this.asF.add(this.jmJ);
-        this.asF.add(this.jmK);
-        this.asF.add(this.jmL);
-        this.asF.add(this.jmM);
-        this.asF.add(this.jmN);
-        this.asF.add(this.jmO);
-        this.asF.add(this.jmP);
-        this.asF.add(this.jgg);
-        this.asF.add(this.jmQ);
-        this.asF.add(this.jmR);
-        this.asF.add(this.jmS);
-        this.asF.add(this.jmT);
-        this.asF.add(this.jmU);
-        this.asF.add(this.jmX);
-        this.asF.add(this.jmY);
-        this.asF.add(this.jmZ);
-        this.asF.add(this.jmV);
-        this.asF.add(this.jmW);
-        bdTypeRecyclerView.addAdapters(this.asF);
+        this.gtH = bdTypeRecyclerView;
+        this.jof = new m(tbPageContext);
+        this.jog = new b(tbPageContext);
+        this.joh = new i(tbPageContext);
+        this.joi = new a(tbPageContext);
+        this.joj = new c(tbPageContext);
+        this.jok = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.jol = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.jqA);
+        this.jom = new k(tbPageContext);
+        this.jon = new d(tbPageContext);
+        this.joo = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.jhG);
+        this.jhF = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.jhs);
+        this.jop = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.joq = new com.baidu.tieba.personPolymeric.a.a.g(tbPageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.jor = new com.baidu.tieba.personPolymeric.a.a.d(tbPageContext, com.baidu.tieba.card.data.k.cRL);
+        this.jos = new com.baidu.tieba.personPolymeric.a.a.i(tbPageContext, com.baidu.tieba.card.data.l.cRN);
+        this.jot = new com.baidu.tieba.personPolymeric.a.a.h(tbPageContext, com.baidu.tieba.card.data.k.cRR);
+        this.jow = new com.baidu.tieba.personPolymeric.a.a.b(tbPageContext, com.baidu.tieba.card.data.k.cRT);
+        this.jox = new com.baidu.tieba.personPolymeric.a.a.e(tbPageContext, com.baidu.tieba.card.data.k.cRS);
+        this.joy = new com.baidu.tieba.personPolymeric.a.a.f(tbPageContext, com.baidu.tieba.card.data.k.cRU);
+        this.jou = new com.baidu.tieba.personPolymeric.a.a.a(tbPageContext, com.baidu.tieba.card.data.e.fNu);
+        this.jov = new com.baidu.tieba.personPolymeric.a.a.c(tbPageContext, com.baidu.tieba.card.data.f.fNv);
+        this.asP.add(this.jof);
+        this.asP.add(this.jog);
+        this.asP.add(this.joh);
+        this.asP.add(this.joi);
+        this.asP.add(this.joj);
+        this.asP.add(this.jok);
+        this.asP.add(this.jol);
+        this.asP.add(this.jom);
+        this.asP.add(this.jon);
+        this.asP.add(this.joo);
+        this.asP.add(this.jhF);
+        this.asP.add(this.jop);
+        this.asP.add(this.joq);
+        this.asP.add(this.jor);
+        this.asP.add(this.jos);
+        this.asP.add(this.jot);
+        this.asP.add(this.jow);
+        this.asP.add(this.jox);
+        this.asP.add(this.joy);
+        this.asP.add(this.jou);
+        this.asP.add(this.jov);
+        bdTypeRecyclerView.addAdapters(this.asP);
         wP("page_recommend");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.jmR.dBx = bdUniqueId;
-        this.jmS.dBx = bdUniqueId;
-        this.jmT.dBx = bdUniqueId;
-        this.jmU.dBx = bdUniqueId;
-        this.jmX.dBx = bdUniqueId;
-        this.jmY.dBx = bdUniqueId;
-        this.jmZ.dBx = bdUniqueId;
-        this.jmV.dBx = bdUniqueId;
-        this.jmW.dBx = bdUniqueId;
+        this.joq.dBK = bdUniqueId;
+        this.jor.dBK = bdUniqueId;
+        this.jos.dBK = bdUniqueId;
+        this.jot.dBK = bdUniqueId;
+        this.jow.dBK = bdUniqueId;
+        this.jox.dBK = bdUniqueId;
+        this.joy.dBK = bdUniqueId;
+        this.jou.dBK = bdUniqueId;
+        this.jov.dBK = bdUniqueId;
     }
 
-    public void zV(int i) {
-        this.jmR.zX(i);
-        this.jmS.zX(i);
-        this.jmT.zX(i);
-        this.jmU.zX(i);
-        this.jmV.zX(i);
-        this.jmW.zX(i);
-        this.jmX.zX(i);
-        this.jmY.zX(i);
-        this.jmZ.zX(i);
+    public void Ad(int i) {
+        this.joq.Af(i);
+        this.jor.Af(i);
+        this.jos.Af(i);
+        this.jot.Af(i);
+        this.jou.Af(i);
+        this.jov.Af(i);
+        this.jow.Af(i);
+        this.jox.Af(i);
+        this.joy.Af(i);
     }
 
-    public void zW(int i) {
-        this.jmR.zW(i);
-        this.jmS.zW(i);
-        this.jmT.zW(i);
-        this.jmU.zW(i);
-        this.jmV.zW(i);
-        this.jmW.zW(i);
-        this.jmX.zW(i);
-        this.jmY.zW(i);
-        this.jmZ.zW(i);
+    public void Ae(int i) {
+        this.joq.Ae(i);
+        this.jor.Ae(i);
+        this.jos.Ae(i);
+        this.jot.Ae(i);
+        this.jou.Ae(i);
+        this.jov.Ae(i);
+        this.jow.Ae(i);
+        this.jox.Ae(i);
+        this.joy.Ae(i);
     }
 
     public void setTabType(int i) {
-        this.jmR.setTabType(i);
-        this.jmS.setTabType(i);
-        this.jmT.setTabType(i);
-        this.jmU.setTabType(i);
-        this.jmV.setTabType(i);
-        this.jmW.setTabType(i);
-        this.jmX.setTabType(i);
-        this.jmY.setTabType(i);
-        this.jmZ.setTabType(i);
+        this.joq.setTabType(i);
+        this.jor.setTabType(i);
+        this.jos.setTabType(i);
+        this.jot.setTabType(i);
+        this.jou.setTabType(i);
+        this.jov.setTabType(i);
+        this.jow.setTabType(i);
+        this.jox.setTabType(i);
+        this.joy.setTabType(i);
     }
 
     public void setIsHost(boolean z) {
-        this.jmQ.setIsHost(z);
-        this.jmI.setIsHost(z);
-        this.jmR.setIsHost(z);
-        this.jmS.setIsHost(z);
-        this.jmT.setIsHost(z);
-        this.jmU.setIsHost(z);
-        this.jmV.setIsHost(z);
-        this.jmW.setIsHost(z);
-        this.jmX.setIsHost(z);
-        this.jmY.setIsHost(z);
-        this.jmZ.setIsHost(z);
+        this.jop.setIsHost(z);
+        this.joh.setIsHost(z);
+        this.joq.setIsHost(z);
+        this.jor.setIsHost(z);
+        this.jos.setIsHost(z);
+        this.jot.setIsHost(z);
+        this.jou.setIsHost(z);
+        this.jov.setIsHost(z);
+        this.jow.setIsHost(z);
+        this.jox.setIsHost(z);
+        this.joy.setIsHost(z);
     }
 
     private void wP(String str) {
-        if (this.asF != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        if (this.asP != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
                     ((com.baidu.tieba.a.f) aVar).wP(str);
                 }
@@ -160,8 +160,8 @@ public class n {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gtd.getListAdapter() != null) {
-            this.gtd.getListAdapter().notifyDataSetChanged();
+        if (this.gtH.getListAdapter() != null) {
+            this.gtH.getListAdapter().notifyDataSetChanged();
         }
     }
 }

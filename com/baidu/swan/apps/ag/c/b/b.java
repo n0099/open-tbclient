@@ -4,25 +4,25 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public String bIr;
-    public String bIs;
-    public String bIt;
-    public String bIu;
-    public com.baidu.swan.apps.api.b.b bIv;
-    public String bim;
-    public String bin;
-    public String bvc;
+    public String bIC;
+    public String bID;
+    public String bIE;
+    public String bIF;
+    public com.baidu.swan.apps.api.b.b bIG;
+    public String biA;
+    public String biB;
+    public String bvo;
     public JSONObject pageParams;
 
-    public boolean aae() {
-        return (this.bIv == null || this.bIv.isSuccess()) ? false : true;
+    public boolean aah() {
+        return (this.bIG == null || this.bIG.isSuccess()) ? false : true;
     }
 
-    public boolean aaf() {
-        return (TextUtils.isEmpty(this.bIr) || TextUtils.isEmpty(this.bIt) || TextUtils.isEmpty(this.bIu) || TextUtils.isEmpty(this.bim) || TextUtils.isEmpty(this.bin)) ? false : true;
+    public boolean aai() {
+        return (TextUtils.isEmpty(this.bIC) || TextUtils.isEmpty(this.bIE) || TextUtils.isEmpty(this.bIF) || TextUtils.isEmpty(this.biA) || TextUtils.isEmpty(this.biB)) ? false : true;
     }
 
     public String toString() {
-        return "SwanPluginFunPageModel{providerAppKey='" + this.bIr + "', providerRootPath='" + this.bIt + "', providerVersion='" + this.bIu + "', componentId='" + this.bim + "', cb='" + this.bvc + "', pageParams=" + this.pageParams + ", swanApiResult=" + (this.bIv == null ? null : this.bIv.toJsonString()) + '}';
+        return "SwanPluginFunPageModel{providerAppKey='" + this.bIC + "', providerRootPath='" + this.bIE + "', providerVersion='" + this.bIF + "', componentId='" + this.biA + "', cb='" + this.bvo + "', pageParams=" + this.pageParams + ", swanApiResult=" + (this.bIG == null ? null : this.bIG.toJsonString()) + '}';
     }
 }

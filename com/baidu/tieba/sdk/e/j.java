@@ -26,6 +26,6 @@ public class j implements ILiveScheme {
                 str = "";
             }
         }
-        com.baidu.tieba.sdk.a.cEj().bg(context, str);
+        com.baidu.tieba.sdk.a.cED().bg(context, str);
     }
 }

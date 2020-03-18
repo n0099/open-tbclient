@@ -20,6 +20,8 @@ import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import com.baidu.tieba.recapp.lego.view.AdCardLoopPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
+import com.baidu.tieba.recapp.lego.view.AdCardSmallPicVideoView;
+import com.baidu.tieba.recapp.lego.view.AdCardSmallPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
 import com.baidu.tieba.recapp.lego.view.AdCardVrPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVrVideoView;
@@ -34,23 +36,25 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cbL() {
-        hXS.put(17, hXS.size() + 1);
-        hXS.put(26, hXS.size() + 1);
-        hXS.put(25, hXS.size() + 1);
-        hXS.put(27, hXS.size() + 1);
-        hXS.put(31, hXS.size() + 1);
-        hXS.put(32, hXS.size() + 1);
-        hXS.put(33, hXS.size() + 1);
-        hXS.put(99, hXS.size() + 1);
-        hXT.put(17, BdUniqueId.gen());
-        hXT.put(26, BdUniqueId.gen());
-        hXT.put(25, BdUniqueId.gen());
-        hXT.put(27, BdUniqueId.gen());
-        hXT.put(31, BdUniqueId.gen());
-        hXT.put(32, BdUniqueId.gen());
-        hXT.put(33, BdUniqueId.gen());
-        hXT.put(99, BdUniqueId.gen());
+    protected void cce() {
+        hZs.put(17, hZs.size() + 1);
+        hZs.put(26, hZs.size() + 1);
+        hZs.put(25, hZs.size() + 1);
+        hZs.put(27, hZs.size() + 1);
+        hZs.put(31, hZs.size() + 1);
+        hZs.put(32, hZs.size() + 1);
+        hZs.put(33, hZs.size() + 1);
+        hZs.put(34, hZs.size() + 1);
+        hZs.put(99, hZs.size() + 1);
+        hZt.put(17, BdUniqueId.gen());
+        hZt.put(26, BdUniqueId.gen());
+        hZt.put(25, BdUniqueId.gen());
+        hZt.put(27, BdUniqueId.gen());
+        hZt.put(31, BdUniqueId.gen());
+        hZt.put(32, BdUniqueId.gen());
+        hZt.put(33, BdUniqueId.gen());
+        hZt.put(34, BdUniqueId.gen());
+        hZt.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -62,14 +66,14 @@ class a extends e {
     public ICardInfo d(JSONObject jSONObject, int i) throws CardParseException {
         switch (i) {
             case 17:
+            case 26:
+            case 34:
                 return new AdCard(jSONObject);
             case 25:
                 if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
                     return new DistributeVrVideoCard(jSONObject);
                 }
                 return null;
-            case 26:
-                return new AdCard(jSONObject);
             case 27:
                 return new FormCard(jSONObject);
             case 31:
@@ -90,6 +94,7 @@ class a extends e {
         switch (iCardInfo == null ? -1 : iCardInfo.getCardType()) {
             case 17:
             case 26:
+            case 34:
                 return e(tbPageContext, iCardInfo, i);
             case 25:
                 if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
@@ -129,7 +134,7 @@ class a extends e {
         if (iCardInfo instanceof AdCard) {
             AdCard adCard = (AdCard) iCardInfo;
             int cardType = adCard.getCardType();
-            if (cardType == 17) {
+            if (cardType == 17 || cardType == 34) {
                 switch (adCard.goodsStyle) {
                     case 2:
                     case 8:
@@ -137,6 +142,7 @@ class a extends e {
                     case 3:
                     case 4:
                     case 5:
+                    case 11:
                     default:
                         return null;
                     case 6:
@@ -147,6 +153,10 @@ class a extends e {
                         return new AdCardVrVideoView(tbPageContext);
                     case 10:
                         return new AdCardVrPicView(tbPageContext);
+                    case 12:
+                        return new AdCardSmallPicVideoView(tbPageContext);
+                    case 13:
+                        return new AdCardSmallPicView(tbPageContext);
                 }
             } else if (cardType == 26) {
                 return new AdCardLoopPicView(tbPageContext);

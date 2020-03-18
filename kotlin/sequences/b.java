@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nDm;
-    private final kotlin.jvm.a.b<T, T> nDn;
+    private final kotlin.jvm.a.a<T> nEZ;
+    private final kotlin.jvm.a.b<T, T> nFa;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
-        private int nDk = -2;
+        private int nEX = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dKP() {
+        private final void dLp() {
             T t;
-            if (this.nDk == -2) {
-                t = (T) b.this.nDm.invoke();
+            if (this.nEX == -2) {
+                t = (T) b.this.nEZ.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nDn;
+                kotlin.jvm.a.b bVar = b.this.nFa;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dKw();
+                    q.dKW();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nDk = this.nextItem == null ? 0 : 1;
+            this.nEX = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nDk < 0) {
-                dKP();
+            if (this.nEX < 0) {
+                dLp();
             }
-            if (this.nDk == 0) {
+            if (this.nEX == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nDk = -1;
+            this.nEX = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nDk < 0) {
-                dKP();
+            if (this.nEX < 0) {
+                dLp();
             }
-            return this.nDk == 1;
+            return this.nEX == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.j(aVar, "getInitialValue");
         q.j(bVar, "getNextValue");
-        this.nDm = aVar;
-        this.nDn = bVar;
+        this.nEZ = aVar;
+        this.nFa = bVar;
     }
 
     @Override // kotlin.sequences.c

@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean eI(Context context) {
+    public static boolean eH(Context context) {
         ComponentName componentName;
         ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager == null) {

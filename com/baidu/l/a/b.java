@@ -30,10 +30,10 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.bin) || TextUtils.isEmpty(this.bim)) ? false : true;
+        return (TextUtils.isEmpty(this.biB) || TextUtils.isEmpty(this.biA)) ? false : true;
     }
 
-    public boolean Gs() {
+    public boolean Gx() {
         return isValid() && !TextUtils.isEmpty(this.path);
     }
 }

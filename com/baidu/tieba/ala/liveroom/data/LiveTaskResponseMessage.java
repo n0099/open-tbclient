@@ -7,10 +7,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long fbl;
-    public int fbm;
-    public String fbn;
-    public String fbo;
+    public long fbJ;
+    public int fbK;
+    public String fbL;
+    public String fbM;
     public String message;
     public String scheme;
     public String url;
@@ -27,15 +27,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.fbl = optJSONObject.optLong("toastDuration");
+                this.fbJ = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.fbm = optJSONObject2.optInt("errno");
-                this.fbn = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
-                this.fbo = optJSONObject2.optString("usermsg");
+                this.fbK = optJSONObject2.optInt("errno");
+                this.fbL = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
+                this.fbM = optJSONObject2.optString("usermsg");
             }
         }
     }

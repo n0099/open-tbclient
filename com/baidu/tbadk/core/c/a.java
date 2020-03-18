@@ -14,7 +14,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
-    public static a cUU = null;
+    public static a cVh = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
@@ -76,11 +76,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a aEB() {
-        if (cUU == null) {
-            cUU = new a();
+    public static a aEF() {
+        if (cVh == null) {
+            cVh = new a();
         }
-        return cUU;
+        return cVh;
     }
 
     private a() {
@@ -88,15 +88,15 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> sP(String str) {
+    public l<byte[]> sO(String str) {
+        return cp(str, null);
+    }
+
+    public l<String> sP(String str) {
         return cq(str, null);
     }
 
-    public l<String> sQ(String str) {
-        return cr(str, null);
-    }
-
-    public l<byte[]> cq(String str, String str2) {
+    public l<byte[]> cp(String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -121,7 +121,7 @@ public class a extends CustomMessageListener {
         return lVar;
     }
 
-    public l<String> cr(String str, String str2) {
+    public l<String> cq(String str, String str2) {
         if (str == null) {
             return null;
         }

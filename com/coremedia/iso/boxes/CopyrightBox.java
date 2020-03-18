@@ -13,11 +13,11 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes7.dex */
 public class CopyrightBox extends AbstractFullBox {
     public static final String TYPE = "cprt";
-    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0781a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_4 = null;
     private String copyright;
     private String language;
 

@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class k {
-    private boolean dvP;
+    private boolean dwc;
     private String method;
     private boolean open;
 
-    public boolean aNX() {
-        return this.dvP;
+    public boolean aOb() {
+        return this.dwc;
     }
 
-    public void gt(boolean z) {
-        this.dvP = z;
+    public void gu(boolean z) {
+        this.dwc = z;
     }
 
-    public void aNY() {
-        this.dvP = false;
+    public void aOc() {
+        this.dwc = false;
     }
 
     public boolean isOpen() {

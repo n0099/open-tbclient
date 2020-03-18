@@ -6,88 +6,88 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 class v {
-    private boolean cFE = false;
-    private JSONArray bKo = new JSONArray();
-    private SparseArray<Integer> cFA = new SparseArray<>();
-    private ArrayList<String> cFB = new ArrayList<>();
-    private long cFC = 0;
-    private long cFD = 0;
-    private String cEI = "0";
+    private boolean cFP = false;
+    private JSONArray bKz = new JSONArray();
+    private SparseArray<Integer> cFL = new SparseArray<>();
+    private ArrayList<String> cFM = new ArrayList<>();
+    private long cFN = 0;
+    private long cFO = 0;
+    private String cET = "0";
 
     public final void cg(JSONObject jSONObject) {
-        this.bKo.put(jSONObject);
+        this.bKz.put(jSONObject);
     }
 
-    public final SparseArray<Integer> avW() {
-        return this.cFA;
+    public final SparseArray<Integer> avZ() {
+        return this.cFL;
     }
 
     public final void at(int i, int i2) {
-        this.cFA.put(i, Integer.valueOf(i2));
+        this.cFL.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList avX() {
-        return this.cFB;
+    public final ArrayList awa() {
+        return this.cFM;
     }
 
-    public final void rd(String str) {
-        if (!this.cFB.contains(str)) {
-            this.cFB.add(str);
+    public final void rc(String str) {
+        if (!this.cFM.contains(str)) {
+            this.cFM.add(str);
         }
     }
 
     public final void q(long j, long j2) {
-        if ((j < this.cFC || this.cFC == 0) && j != 0) {
-            this.cFC = j;
+        if ((j < this.cFN || this.cFN == 0) && j != 0) {
+            this.cFN = j;
         }
-        if (j2 > this.cFD) {
-            this.cFD = j2;
+        if (j2 > this.cFO) {
+            this.cFO = j2;
         }
     }
 
     public boolean ja(int i) {
-        return this.bKo.toString().getBytes().length >= i;
+        return this.bKz.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.bKo.length() == 0;
-    }
-
-    public JSONArray avY() {
-        return this.bKo;
-    }
-
-    public void clearData() {
-        this.cFA.clear();
-        this.cFB.clear();
-        this.bKo = null;
-    }
-
-    public void re(String str) {
-        this.cEI = str;
-    }
-
-    public String avZ() {
-        return this.cEI;
-    }
-
-    public long awa() {
-        return this.cFC;
-    }
-
-    public long getMaxTime() {
-        return this.cFD;
+        return this.bKz.length() == 0;
     }
 
     public JSONArray awb() {
-        return this.bKo;
+        return this.bKz;
     }
 
-    public boolean awc() {
-        return this.cFE;
+    public void clearData() {
+        this.cFL.clear();
+        this.cFM.clear();
+        this.bKz = null;
     }
 
-    public void fg(boolean z) {
-        this.cFE = z;
+    public void rd(String str) {
+        this.cET = str;
+    }
+
+    public String awc() {
+        return this.cET;
+    }
+
+    public long awd() {
+        return this.cFN;
+    }
+
+    public long getMaxTime() {
+        return this.cFO;
+    }
+
+    public JSONArray awe() {
+        return this.bKz;
+    }
+
+    public boolean awf() {
+        return this.cFP;
+    }
+
+    public void fh(boolean z) {
+        this.cFP = z;
     }
 }

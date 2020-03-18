@@ -20,13 +20,13 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    public TextView eKm;
-    public TextView eKn;
-    public TextView eKo;
+    public TextView eKI;
+    public TextView eKJ;
+    public TextView eKK;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
-    CustomMessageListener agU = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.d.a.1
+    CustomMessageListener ahe = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,7 +35,7 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable eKp = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
+    private Runnable eKL = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
@@ -48,19 +48,19 @@ public class a implements View.OnClickListener {
         this.mContext = context;
         this.closeImg.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.eKm = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.eKn = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.eKo = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
+        this.eKI = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
+        this.eKJ = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
+        this.eKK = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
     }
 
-    private void bgp() {
-        MessageManager.getInstance().registerListener(this.agU);
+    private void bgu() {
+        MessageManager.getInstance().registerListener(this.ahe);
     }
 
     public void x(String str, String str2, boolean z) {
-        this.eKo.setVisibility(z ? 0 : 8);
-        this.eKm.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.eKn.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
+        this.eKK.setVisibility(z ? 0 : 8);
+        this.eKI.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
+        this.eKJ.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -69,12 +69,12 @@ public class a implements View.OnClickListener {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.d.a.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                MessageManager.getInstance().unRegisterListener(a.this.agU);
+                MessageManager.getInstance().unRegisterListener(a.this.ahe);
             }
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.eKp, 5000L);
+            this.handler.postDelayed(this.eKL, 5000L);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
@@ -82,12 +82,12 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        bgp();
+        bgu();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.eKp);
+            this.handler.removeCallbacks(this.eKL);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

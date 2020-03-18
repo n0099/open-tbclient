@@ -4,64 +4,64 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
 class h {
-    static h nKA;
-    static h nKB;
-    static h nKz = new h();
-    boolean nKq = true;
-    boolean nKr = true;
-    boolean nKs = false;
-    boolean nKt = false;
-    boolean nKu = false;
-    boolean nKv = true;
-    boolean nKw = true;
-    boolean nKx = true;
-    int nKy;
+    static h nMm = new h();
+    static h nMn;
+    static h nMo;
+    boolean nMd = true;
+    boolean nMe = true;
+    boolean nMf = false;
+    boolean nMg = false;
+    boolean nMh = false;
+    boolean nMi = true;
+    boolean nMj = true;
+    boolean nMk = true;
+    int nMl;
 
     h() {
     }
 
     static {
-        nKz.nKq = true;
-        nKz.nKr = false;
-        nKz.nKs = false;
-        nKz.nKt = false;
-        nKz.nKu = true;
-        nKz.nKv = false;
-        nKz.nKw = false;
-        nKz.nKy = 0;
-        nKA = new h();
-        nKA.nKq = true;
-        nKA.nKr = true;
-        nKA.nKs = false;
-        nKA.nKt = false;
-        nKA.nKu = false;
-        nKz.nKy = 1;
-        nKB = new h();
-        nKB.nKq = false;
-        nKB.nKr = true;
-        nKB.nKs = false;
-        nKB.nKt = true;
-        nKB.nKu = false;
-        nKB.nKx = false;
-        nKB.nKy = 2;
+        nMm.nMd = true;
+        nMm.nMe = false;
+        nMm.nMf = false;
+        nMm.nMg = false;
+        nMm.nMh = true;
+        nMm.nMi = false;
+        nMm.nMj = false;
+        nMm.nMl = 0;
+        nMn = new h();
+        nMn.nMd = true;
+        nMn.nMe = true;
+        nMn.nMf = false;
+        nMn.nMg = false;
+        nMn.nMh = false;
+        nMm.nMl = 1;
+        nMo = new h();
+        nMo.nMd = false;
+        nMo.nMe = true;
+        nMo.nMf = false;
+        nMo.nMg = true;
+        nMo.nMh = false;
+        nMo.nMk = false;
+        nMo.nMl = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Sp(String str) {
+    public String So(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String NU(int i) {
-        if (this.nKt) {
+    public String Oa(int i) {
+        if (this.nMg) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(HanziToPinyin.Token.SEPARATOR).toString();
         }
         return "";
     }
 
-    String Sq(String str) {
+    String Sp(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -74,18 +74,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Sq(str).replace('$', '.');
+            return Sp(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.nKq);
+        return b(cls, cls.getName(), this.nMd);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nKu);
+        return b(cls, str, this.nMh);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -99,7 +99,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nKr) {
+            if (!this.nMe) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -115,7 +115,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nKs && clsArr != null && clsArr.length != 0) {
+        if (this.nMf && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

@@ -9,51 +9,51 @@ import java.util.Comparator;
 public abstract class b implements f {
     private int hashCode;
     protected final int length;
-    protected final t mCP;
-    protected final int[] mCQ;
-    private final long[] mCR;
-    private final Format[] msH;
+    private final long[] mEA;
+    protected final t mEy;
+    protected final int[] mEz;
+    private final Format[] muo;
 
     public b(t tVar, int... iArr) {
         com.google.android.exoplayer2.util.a.checkState(iArr.length > 0);
-        this.mCP = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
+        this.mEy = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
         this.length = iArr.length;
-        this.msH = new Format[this.length];
+        this.muo = new Format[this.length];
         for (int i = 0; i < iArr.length; i++) {
-            this.msH[i] = tVar.KQ(iArr[i]);
+            this.muo[i] = tVar.KW(iArr[i]);
         }
-        Arrays.sort(this.msH, new a());
-        this.mCQ = new int[this.length];
+        Arrays.sort(this.muo, new a());
+        this.mEz = new int[this.length];
         for (int i2 = 0; i2 < this.length; i2++) {
-            this.mCQ[i2] = tVar.m(this.msH[i2]);
+            this.mEz[i2] = tVar.m(this.muo[i2]);
         }
-        this.mCR = new long[this.length];
+        this.mEA = new long[this.length];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final t dxg() {
-        return this.mCP;
+    public final t dxD() {
+        return this.mEy;
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int length() {
-        return this.mCQ.length;
+        return this.mEz.length;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final Format KQ(int i) {
-        return this.msH[i];
+    public final Format KW(int i) {
+        return this.muo[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final int LG(int i) {
-        return this.mCQ[i];
+    public final int LM(int i) {
+        return this.mEz[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int m(Format format) {
         for (int i = 0; i < this.length; i++) {
-            if (this.msH[i] == format) {
+            if (this.muo[i] == format) {
                 return i;
             }
         }
@@ -63,7 +63,7 @@ public abstract class b implements f {
     @Override // com.google.android.exoplayer2.b.f
     public final int indexOf(int i) {
         for (int i2 = 0; i2 < this.length; i2++) {
-            if (this.mCQ[i2] == i) {
+            if (this.mEz[i2] == i) {
                 return i2;
             }
         }
@@ -71,13 +71,13 @@ public abstract class b implements f {
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final Format dyy() {
-        return this.msH[dxk()];
+    public final Format dyV() {
+        return this.muo[dxH()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final int dyz() {
-        return this.mCQ[dxk()];
+    public final int dyW() {
+        return this.mEz[dxH()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
@@ -90,7 +90,7 @@ public abstract class b implements f {
             i2++;
         }
         if (I) {
-            this.mCR[i] = Math.max(this.mCR[i], elapsedRealtime + j);
+            this.mEA[i] = Math.max(this.mEA[i], elapsedRealtime + j);
             return true;
         }
         return false;
@@ -98,12 +98,12 @@ public abstract class b implements f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean I(int i, long j) {
-        return this.mCR[i] > j;
+        return this.mEA[i] > j;
     }
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = (System.identityHashCode(this.mCP) * 31) + Arrays.hashCode(this.mCQ);
+            this.hashCode = (System.identityHashCode(this.mEy) * 31) + Arrays.hashCode(this.mEz);
         }
         return this.hashCode;
     }
@@ -116,7 +116,7 @@ public abstract class b implements f {
             return false;
         }
         b bVar = (b) obj;
-        return this.mCP == bVar.mCP && Arrays.equals(this.mCQ, bVar.mCQ);
+        return this.mEy == bVar.mEy && Arrays.equals(this.mEz, bVar.mEz);
     }
 
     /* loaded from: classes6.dex */

@@ -18,22 +18,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.core.util.f.a, com.baidu.tieba.lego.card.view.i, com.baidu.tieba.video.b {
-    public static final BdUniqueId guG = BdUniqueId.gen();
+    public static final BdUniqueId gvk = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public int agreeType;
     public boolean autoPlay;
     public String createTime;
     public String extra;
-    public int fMG;
+    public int fNo;
     public String firstPostId;
     public String forumId;
-    public long guH;
-    public List<String> guI;
-    public List<String> guJ;
-    public b guK;
-    public c guL;
-    public long guN;
+    public long gvl;
+    public List<String> gvm;
+    public List<String> gvn;
+    public b gvo;
+    public c gvp;
+    public long gvr;
     public boolean hasAgree;
     public BaijiahaoData mBaijiahao;
     public long playCount;
@@ -43,14 +43,14 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     public String threadId;
     public String title;
     public String weight;
-    public boolean guM = true;
+    public boolean gvq = true;
     public boolean waitConfirm = false;
     public boolean isTitleExpanded = false;
     private AgreeData agreeData = new AgreeData();
 
     /* loaded from: classes.dex */
     public static class b {
-        public a guV;
+        public a gvz;
         public boolean hasFocus;
         public boolean isBigV;
         public boolean isGod;
@@ -72,8 +72,8 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     /* loaded from: classes.dex */
     public static class c {
-        public a guW;
-        public List<d> guX;
+        public a gvA;
+        public List<d> gvB;
         public String mcnLeadPage;
         public String originVideoUrl;
         public String thumbnailHeight;
@@ -98,18 +98,18 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         public String videoWidth;
     }
 
-    public AgreeData aEa() {
+    public AgreeData aEe() {
         return this.agreeData;
     }
 
     @Override // com.baidu.tieba.video.b
     public long getVideoWatchDuration() {
-        return this.guN;
+        return this.gvr;
     }
 
     @Override // com.baidu.tieba.video.b
     public void setVideoWatchDuration(long j) {
-        this.guN = j;
+        this.gvr = j;
     }
 
     @Override // com.baidu.tieba.video.b
@@ -129,8 +129,8 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.guL != null) {
-            return this.guL.videoUrl;
+        if (this.gvp != null) {
+            return this.gvp.videoUrl;
         }
         return null;
     }
@@ -148,25 +148,25 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     /* loaded from: classes.dex */
     public static class a {
         public String DZ;
-        public long guO;
-        public long guP;
-        public String guQ;
-        public String guR;
-        public String guS;
-        public long guT;
-        public long guU;
+        public long gvs;
+        public long gvt;
+        public String gvu;
+        public String gvv;
+        public String gvw;
+        public long gvx;
+        public long gvy;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.guR) || StringUtils.isNull(this.DZ)) ? false : true;
+            return (StringUtils.isNull(this.gvv) || StringUtils.isNull(this.DZ)) ? false : true;
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("startTime = " + this.guO);
-            sb.append(",   ad_end_time = " + this.guP);
-            sb.append(",   pic_url = " + this.guQ);
-            sb.append(",   card_title = " + this.guR);
-            sb.append(",   button_title = " + this.guS);
+            sb.append("startTime = " + this.gvs);
+            sb.append(",   ad_end_time = " + this.gvt);
+            sb.append(",   pic_url = " + this.gvu);
+            sb.append(",   card_title = " + this.gvv);
+            sb.append(",   button_title = " + this.gvw);
             return sb.toString();
         }
     }
@@ -184,84 +184,84 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                 this.postNum = jSONObject.optLong("post_num");
                 this.shareNum = jSONObject.optLong("share_num");
                 this.agreeNum = jSONObject.optLong("agree_num");
-                this.guH = jSONObject.optLong("disagree_num");
+                this.gvl = jSONObject.optLong("disagree_num");
                 this.agreeType = jSONObject.optInt("agree_type");
                 this.hasAgree = jSONObject.optInt("has_agree") == 1;
                 if (this.agreeNum < 0) {
                     this.agreeNum = 0L;
                 }
-                if (this.guH < 0) {
-                    this.guH = 0L;
+                if (this.gvl < 0) {
+                    this.gvl = 0L;
                 }
                 this.agreeData.threadId = this.threadId;
                 this.agreeData.agreeType = this.agreeType;
                 this.agreeData.hasAgree = this.hasAgree;
                 this.agreeData.agreeNum = this.agreeNum;
-                this.agreeData.disAgreeNum = this.guH;
+                this.agreeData.disAgreeNum = this.gvl;
                 this.agreeData.diffAgreeNum = jSONObject.optLong("diff_agree_num", 0L);
                 this.source = jSONObject.optString("source");
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
                 this.weight = jSONObject.optString(TableDefine.SessionColumns.COLUMN_WEIGHT);
-                this.guI = new ArrayList();
+                this.gvm = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.guI.add(jSONArray.optString(i));
+                        this.gvm.add(jSONArray.optString(i));
                     }
                 }
-                this.guJ = new ArrayList();
+                this.gvn = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.guJ.add(jSONArray2.optString(i2));
+                        this.gvn.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.guK = new b();
+                    this.gvo = new b();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.guK.userId = jSONObject2.optString("user_id");
-                    this.guK.userName = jSONObject2.optString("user_name");
-                    this.guK.userNickname = jSONObject2.optString("user_nickname");
-                    this.guK.portrait = jSONObject2.optString("portrait");
-                    this.guK.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.guK.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.gvo.userId = jSONObject2.optString("user_id");
+                    this.gvo.userName = jSONObject2.optString("user_name");
+                    this.gvo.userNickname = jSONObject2.optString("user_nickname");
+                    this.gvo.portrait = jSONObject2.optString("portrait");
+                    this.gvo.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.gvo.isGod = jSONObject2.optInt("is_god") == 1;
                     String optString4 = jSONObject2.optString("baijiahao_info");
                     if (!TextUtils.isEmpty(optString4)) {
                         JSONObject jSONObject3 = new JSONObject(optString4);
-                        this.guK.guV = new b.a();
-                        this.guK.guV.name = jSONObject3.optString("name");
-                        this.guK.guV.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-                        this.guK.guV.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                        this.guK.guV.avatar_h = jSONObject3.optString("avatar_h");
-                        this.guK.guV.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
-                        this.guK.guV.auth_desc = jSONObject3.optString("auth_desc");
+                        this.gvo.gvz = new b.a();
+                        this.gvo.gvz.name = jSONObject3.optString("name");
+                        this.gvo.gvz.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                        this.gvo.gvz.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                        this.gvo.gvz.avatar_h = jSONObject3.optString("avatar_h");
+                        this.gvo.gvz.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                        this.gvo.gvz.auth_desc = jSONObject3.optString("auth_desc");
                     }
                 }
                 String optString5 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString5)) {
-                    this.guL = new c();
+                    this.gvp = new c();
                     JSONObject jSONObject4 = new JSONObject(optString5);
-                    this.guL.thumbnailWidth = jSONObject4.optString("thumbnail_width");
-                    this.guL.thumbnailHeight = jSONObject4.optString("thumbnail_height");
-                    this.guL.videoMd5 = jSONObject4.optString("video_md5");
-                    this.guL.videoUrl = jSONObject4.optString("video_url");
-                    this.guL.videoDuration = jSONObject4.optInt("video_duration");
-                    this.guL.videoWidth = jSONObject4.optString("video_width");
-                    this.guL.videoHeight = jSONObject4.optString("video_height");
-                    this.guL.videoSize = jSONObject4.optLong("video_size");
-                    this.guL.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
-                    this.guL.thumbnailUrl = jSONObject4.optString("thumbnail_url");
-                    this.guL.videoFormat = jSONObject4.optString("video_format");
-                    this.guL.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
-                    this.guL.originVideoUrl = jSONObject4.optString("origin_video_url");
-                    this.guL.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
+                    this.gvp.thumbnailWidth = jSONObject4.optString("thumbnail_width");
+                    this.gvp.thumbnailHeight = jSONObject4.optString("thumbnail_height");
+                    this.gvp.videoMd5 = jSONObject4.optString("video_md5");
+                    this.gvp.videoUrl = jSONObject4.optString("video_url");
+                    this.gvp.videoDuration = jSONObject4.optInt("video_duration");
+                    this.gvp.videoWidth = jSONObject4.optString("video_width");
+                    this.gvp.videoHeight = jSONObject4.optString("video_height");
+                    this.gvp.videoSize = jSONObject4.optLong("video_size");
+                    this.gvp.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
+                    this.gvp.thumbnailUrl = jSONObject4.optString("thumbnail_url");
+                    this.gvp.videoFormat = jSONObject4.optString("video_format");
+                    this.gvp.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
+                    this.gvp.originVideoUrl = jSONObject4.optString("origin_video_url");
+                    this.gvp.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
                     String optString6 = jSONObject4.optString("video_desc");
                     if (!TextUtils.isEmpty(optString6)) {
-                        this.guL.guX = new ArrayList();
+                        this.gvp.gvB = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString6);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             d dVar = new d();
@@ -269,21 +269,21 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                             dVar.videoUrl = jSONArray3.optJSONObject(i3).optString("video_url");
                             dVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             dVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.guL.guX.add(dVar);
+                            this.gvp.gvB.add(dVar);
                         }
                     }
                     JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
                     if (optJSONObject != null) {
                         a aVar = new a();
-                        aVar.guO = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
-                        aVar.guP = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
-                        aVar.guQ = optJSONObject.optString("pic_url");
+                        aVar.gvs = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
+                        aVar.gvt = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
+                        aVar.gvu = optJSONObject.optString("pic_url");
                         aVar.DZ = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        aVar.guR = optJSONObject.optString("card_title");
-                        aVar.guS = optJSONObject.optString("button_title");
-                        aVar.guT = optJSONObject.optLong("effect_time");
-                        aVar.guU = optJSONObject.optLong("expire_time");
-                        this.guL.guW = aVar;
+                        aVar.gvv = optJSONObject.optString("card_title");
+                        aVar.gvw = optJSONObject.optString("button_title");
+                        aVar.gvx = optJSONObject.optLong("effect_time");
+                        aVar.gvy = optJSONObject.optLong("expire_time");
+                        this.gvp.gvA = aVar;
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
@@ -299,6 +299,6 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return guG;
+        return gvk;
     }
 }

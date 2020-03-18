@@ -3,74 +3,74 @@ package com.baidu.swan.game.ad.c;
 import com.baidu.swan.apps.as.af;
 /* loaded from: classes11.dex */
 public class b {
-    private String chF;
-    private String chG;
-    private String chH;
-    private int chI;
-    private int chJ;
+    private String chQ;
+    private String chR;
+    private String chS;
+    private int chT;
+    private int chU;
 
     private b(a aVar) {
-        this.chG = aVar.chG;
-        this.chF = aVar.chF;
-        this.chI = aVar.chI;
-        this.chJ = aVar.chJ;
-        this.chH = aVar.chH;
+        this.chR = aVar.chR;
+        this.chQ = aVar.chQ;
+        this.chT = aVar.chT;
+        this.chU = aVar.chU;
+        this.chS = aVar.chS;
     }
 
-    public int akv() {
-        return this.chI;
+    public int aky() {
+        return this.chT;
     }
 
-    public int akw() {
-        return this.chJ;
+    public int akz() {
+        return this.chU;
     }
 
     public String getAppSid() {
-        return this.chG;
+        return this.chR;
     }
 
-    public String akx() {
-        return this.chF;
+    public String akA() {
+        return this.chQ;
     }
 
-    public String aky() {
-        return this.chH;
+    public String akB() {
+        return this.chS;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String chF;
-        private String chG;
-        private String chH;
-        private int chI;
-        private int chJ;
+        private String chQ;
+        private String chR;
+        private String chS;
+        private int chT;
+        private int chU;
+
+        public a nN(String str) {
+            this.chR = str;
+            return this;
+        }
 
         public a nO(String str) {
-            this.chG = str;
+            this.chQ = str;
             return this;
         }
 
         public a nP(String str) {
-            this.chF = str;
-            return this;
-        }
-
-        public a nQ(String str) {
-            this.chH = str;
+            this.chS = str;
             return this;
         }
 
         public a hE(int i) {
-            this.chI = af.S(i);
+            this.chT = af.S(i);
             return this;
         }
 
         public a hF(int i) {
-            this.chJ = af.S(i);
+            this.chU = af.S(i);
             return this;
         }
 
-        public b akz() {
+        public b akC() {
             return new b(this);
         }
     }

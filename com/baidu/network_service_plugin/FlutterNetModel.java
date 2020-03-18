@@ -11,20 +11,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterNetModel {
-    private NetModelType aPq;
-    private c aPr;
-    private d aPs;
-    private String aPt;
-    private int aPu;
-    private int aPv;
-    private HashMap<String, Object> aPw;
-    private Runnable aPy;
+    private NetModelType aPE;
+    private c aPF;
+    private d aPG;
+    private String aPH;
+    private int aPI;
+    private int aPJ;
+    private HashMap<String, Object> aPK;
+    private Runnable aPM;
     private String identifier;
-    private boolean aPx = true;
+    private boolean aPL = true;
     protected BdUniqueId unique_id = null;
     private int timeout = -1;
     private boolean isLoading = false;
-    private a aPz = null;
+    private a aPN = null;
 
     /* loaded from: classes6.dex */
     public enum NetModelType {
@@ -48,21 +48,21 @@ public class FlutterNetModel {
     }
 
     public FlutterNetModel(NetModelType netModelType, String str) {
-        this.aPq = netModelType;
+        this.aPE = netModelType;
         this.identifier = str;
     }
 
     public boolean loadData() {
-        if (this.aPs == null && this.aPr == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.aPG == null && this.aPF == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.aPx = l.isNetOk();
+        this.aPL = l.isNetOk();
         if (this.timeout >= 10) {
-            e.gx().postDelayed(Er(), this.timeout * 1000);
+            e.gx().postDelayed(Ey(), this.timeout * 1000);
         }
-        switch (this.aPq) {
+        switch (this.aPE) {
             case TYPE_NETWORK:
-                if (!this.aPx) {
+                if (!this.aPL) {
                     e.gx().post(new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -70,9 +70,9 @@ public class FlutterNetModel {
                         }
                     });
                     return false;
-                } else if (this.aPz == null) {
-                    this.aPz = new a(this);
-                    this.aPz.execute(new Object[0]);
+                } else if (this.aPN == null) {
+                    this.aPN = new a(this);
+                    this.aPN.execute(new Object[0]);
                     return true;
                 } else {
                     return false;
@@ -84,68 +84,68 @@ public class FlutterNetModel {
 
     public boolean cancelLoadData() {
         this.isLoading = false;
-        MessageManager.getInstance().removeMessage(En(), this.unique_id);
-        MessageManager.getInstance().removeMessage(Eo(), this.unique_id);
+        MessageManager.getInstance().removeMessage(Eu(), this.unique_id);
+        MessageManager.getInstance().removeMessage(Ev(), this.unique_id);
         return true;
     }
 
-    public String Em() {
-        return this.aPt;
+    public String Et() {
+        return this.aPH;
     }
 
-    public void eJ(String str) {
-        this.aPt = str;
+    public void eI(String str) {
+        this.aPH = str;
     }
 
-    public int En() {
-        return this.aPu;
+    public int Eu() {
+        return this.aPI;
     }
 
-    public int Eo() {
-        return this.aPv;
+    public int Ev() {
+        return this.aPJ;
     }
 
     public void ds(int i) {
-        this.aPu = i;
+        this.aPI = i;
     }
 
-    public HashMap<String, Object> Ep() {
-        return this.aPw;
+    public HashMap<String, Object> Ew() {
+        return this.aPK;
     }
 
     public void setParams(HashMap<String, Object> hashMap) {
-        this.aPw = hashMap;
+        this.aPK = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Eq() {
-        this.aPz = null;
+    public void Ex() {
+        this.aPN = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a extends BdAsyncTask<Object, String, String> {
-        private FlutterNetModel aPC;
-        private com.baidu.tbadk.core.util.a.a aPD;
+        private FlutterNetModel aPQ;
+        private com.baidu.tbadk.core.util.a.a aPR;
 
         public a(FlutterNetModel flutterNetModel) {
-            this.aPC = flutterNetModel;
+            this.aPQ = flutterNetModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
-            this.aPC.isLoading = true;
-            x xVar = new x(this.aPC.Em());
-            HashMap<String, Object> Ep = this.aPC.Ep();
-            if (Ep != null && !Ep.isEmpty()) {
-                for (Map.Entry<String, Object> entry : Ep.entrySet()) {
+            this.aPQ.isLoading = true;
+            x xVar = new x(this.aPQ.Et());
+            HashMap<String, Object> Ew = this.aPQ.Ew();
+            if (Ew != null && !Ew.isEmpty()) {
+                for (Map.Entry<String, Object> entry : Ew.entrySet()) {
                     xVar.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
             String postNetData = xVar.postNetData();
-            this.aPD = xVar.aGg();
+            this.aPR = xVar.aGk();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -156,28 +156,28 @@ public class FlutterNetModel {
         public void onProgressUpdate(String... strArr) {
             super.onProgressUpdate((Object[]) strArr);
             if (strArr != null && strArr.length > 0) {
-                this.aPC.isLoading = false;
-                if (this.aPC.aPy != null) {
-                    e.gx().removeCallbacks(this.aPC.aPy);
+                this.aPQ.isLoading = false;
+                if (this.aPQ.aPM != null) {
+                    e.gx().removeCallbacks(this.aPQ.aPM);
                 }
-                if (this.aPD != null && this.aPD.aGI() != null && this.aPC.aPr != null) {
+                if (this.aPR != null && this.aPR.aGM() != null && this.aPQ.aPF != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.aPC.Em());
-                    hashMap.put("api", this.aPC.Em());
-                    hashMap.put("state", this.aPD.aGJ().daO.exception);
-                    this.aPC.aPr.a(hashMap, this.aPD.aGI().mServerErrorCode, this.aPD.aGI().mErrorString, strArr[0], this.aPC.identifier);
+                    hashMap.put("server", this.aPQ.Et());
+                    hashMap.put("api", this.aPQ.Et());
+                    hashMap.put("state", this.aPR.aGN().dbb.exception);
+                    this.aPQ.aPF.a(hashMap, this.aPR.aGM().mServerErrorCode, this.aPR.aGM().mErrorString, strArr[0], this.aPQ.identifier);
                 }
-                this.aPC.Eq();
+                this.aPQ.Ex();
             }
         }
     }
 
-    public Runnable Er() {
-        if (this.aPy == null) {
-            this.aPy = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.2
+    public Runnable Ey() {
+        if (this.aPM == null) {
+            this.aPM = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModel.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    switch (AnonymousClass3.aPB[FlutterNetModel.this.aPq.ordinal()]) {
+                    switch (AnonymousClass3.aPP[FlutterNetModel.this.aPE.ordinal()]) {
                         case 1:
                             FlutterNetModel.this.r(-1, "请求超时");
                             return;
@@ -190,27 +190,27 @@ public class FlutterNetModel {
                 }
             };
         }
-        return this.aPy;
+        return this.aPM;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(int i, String str) {
-        if (this.aPr != null) {
-            this.aPr.a(null, i, str, null, this.identifier);
+        if (this.aPF != null) {
+            this.aPF.a(null, i, str, null, this.identifier);
         }
     }
 
     public void a(b bVar) {
-        this.aPr = bVar;
-        this.aPs = bVar;
+        this.aPF = bVar;
+        this.aPG = bVar;
     }
 
     public void a(c cVar) {
-        this.aPr = cVar;
+        this.aPF = cVar;
     }
 
     public void a(d dVar) {
-        this.aPs = dVar;
+        this.aPG = dVar;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {

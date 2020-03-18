@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.n.a.e;
 /* loaded from: classes6.dex */
 public class c {
-    private static c lCt;
+    private static c lDX;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c gc(Context context) {
-        if (lCt == null) {
+    public static c gb(Context context) {
+        if (lDX == null) {
             synchronized (c.class) {
-                if (lCt == null) {
-                    lCt = new c(context);
-                    com.baidu.n.a.a.ge(context);
+                if (lDX == null) {
+                    lDX = new c(context);
+                    com.baidu.n.a.a.gc(context);
                 }
             }
         }
-        return lCt;
+        return lDX;
     }
 
     public void a(b bVar) {
-        a(new d().Hb(1).uV(false), bVar, Looper.getMainLooper());
+        a(new d().Hh(1).vc(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dhX().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
+        e.diu().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
             @Override // com.baidu.n.a.a.b
             public void a(com.baidu.n.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dhR(), cVar.isSupport(), cVar.dic(), cVar.did(), cVar.die(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dio(), cVar.isSupport(), cVar.diz(), cVar.diA(), cVar.diB(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dhT() {
-        com.baidu.n.a.a.c gg = e.dhX().gg(this.mCtx);
+    public a diq() {
+        com.baidu.n.a.a.c gf = e.diu().gf(this.mCtx);
         if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + gg);
+            Log.d(TAG, "同步 结果:" + gf);
         }
-        if (gg == null) {
+        if (gf == null) {
             return null;
         }
-        return new a(gg.dhR(), gg.isSupport(), gg.dic(), gg.did(), gg.die(), gg.getStatusCode());
+        return new a(gf.dio(), gf.isSupport(), gf.diz(), gf.diA(), gf.diB(), gf.getStatusCode());
     }
 }

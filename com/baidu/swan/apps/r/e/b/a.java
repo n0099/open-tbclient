@@ -10,7 +10,7 @@ public interface a extends d {
     /* renamed from: com.baidu.swan.apps.r.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0277a {
-        void TF();
+        void TI();
 
         void fd(int i);
 
@@ -25,17 +25,17 @@ public interface a extends d {
         void onPrepared();
     }
 
-    void TG();
+    void TJ();
 
-    void TH();
+    void TK();
 
-    boolean TI();
+    boolean TL();
 
     void a(@NonNull InterfaceC0277a interfaceC0277a);
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void cG(boolean z);
+    void cH(boolean z);
 
     Context getContext();
 

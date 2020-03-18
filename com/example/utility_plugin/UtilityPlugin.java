@@ -10,6 +10,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
@@ -24,7 +26,6 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.messageCenter.f;
-import com.baidu.tieba.aiapps.a;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
@@ -69,7 +70,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             if (aq.isEmpty(str)) {
                 result.error("key is empty", "", "");
             } else {
-                result.success(b.aFD().getString(str, ""));
+                result.success(b.aFH().getString(str, ""));
             }
         } else if (methodCall.method.equals("preferenceSetStringValue")) {
             String str3 = (String) methodCall.argument("nameSpace");
@@ -97,9 +98,9 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DEL_OFFICIAL_DB, String.valueOf(str6)));
             }
         } else if (methodCall.method.equals("getIsOfficalForumLetterReminderOpen")) {
-            OfficialSettingItemData dF = d.bYc().dF(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
-            if (dF != null) {
-                result.success(Boolean.valueOf(dF.isAcceptNotify()));
+            OfficialSettingItemData dD = d.bYu().dD(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+            if (dD != null) {
+                result.success(Boolean.valueOf(dD.isAcceptNotify()));
             } else {
                 result.success(true);
             }
@@ -112,7 +113,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     if (!TextUtils.isEmpty(str7)) {
-                        d.bYc().y(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
+                        d.bYu().y(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
                     }
                     return null;
                 }
@@ -122,13 +123,13 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             if (methodCall.method.equals("postSignProcess")) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    f.aLH().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                    f.aLL().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
                 }
             } else if (methodCall.method.equals("redirectTo")) {
                 String str8 = (String) methodCall.argument("url");
                 Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (!TextUtils.isEmpty(str8) && (currentActivity2 instanceof TbPageContextSupport)) {
-                    ba.aGG().b(((TbPageContextSupport) currentActivity2).getPageContext(), new String[]{str8});
+                    ba.aGK().b(((TbPageContextSupport) currentActivity2).getPageContext(), new String[]{str8});
                 }
             } else if (methodCall.method.equals("postNotification")) {
                 mNativeListeners.postNotification(methodCall.arguments);
@@ -137,44 +138,54 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 an anVar = new an((String) methodCall.argument("key"));
                 if (hashMap != null && !hashMap.isEmpty()) {
                     for (Map.Entry entry : hashMap.entrySet()) {
-                        anVar.cy((String) entry.getKey(), (String) entry.getValue());
+                        anVar.cx((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
                 TiebaStatic.log(anVar);
+            } else if (methodCall.method.equals("debugLog")) {
+                String str9 = (String) methodCall.argument("key");
+                HashMap hashMap2 = (HashMap) methodCall.argument("params");
+                a aVar = new a("dbg");
+                if (hashMap2 != null && !hashMap2.isEmpty()) {
+                    for (Map.Entry entry2 : hashMap2.entrySet()) {
+                        aVar.addValue(entry2.getKey(), entry2.getValue());
+                    }
+                }
+                BdStatisticsManager.getInstance().debug(str9, aVar);
             } else if (!methodCall.method.equals("showTopToast")) {
                 if (methodCall.method.equals("preferenceGetValues")) {
                     ArrayList arrayList = (ArrayList) methodCall.argument("keys");
-                    String str9 = (String) methodCall.argument("nameSpace");
-                    HashMap hashMap2 = new HashMap();
+                    String str10 = (String) methodCall.argument("nameSpace");
+                    HashMap hashMap3 = new HashMap();
                     for (int i = 0; i < arrayList.size(); i++) {
-                        if (b.aFD().isContains(SharePrefNameTransform.getAndroidNameFromIos((String) arrayList.get(i)))) {
-                            hashMap2.put(arrayList.get(i), Boolean.valueOf(b.aFD().getBoolean(SharePrefNameTransform.getAndroidNameFromIos((String) arrayList.get(i)), false)));
+                        if (b.aFH().isContains(SharePrefNameTransform.getAndroidNameFromIos((String) arrayList.get(i)))) {
+                            hashMap3.put(arrayList.get(i), Boolean.valueOf(b.aFH().getBoolean(SharePrefNameTransform.getAndroidNameFromIos((String) arrayList.get(i)), false)));
                         }
                     }
-                    result.success(hashMap2);
+                    result.success(hashMap3);
                 } else if (methodCall.method.equals("preferenceSetValues")) {
-                    String str10 = (String) methodCall.argument("nameSpace");
-                    HashMap hashMap3 = (HashMap) methodCall.argument("keyValueMap");
-                    if (hashMap3 != null && !hashMap3.isEmpty()) {
-                        for (Map.Entry entry2 : hashMap3.entrySet()) {
-                            if (entry2.getValue() instanceof Boolean) {
-                                b.aFD().putBoolean(SharePrefNameTransform.getAndroidNameFromIos((String) entry2.getKey()), ((Boolean) entry2.getValue()).booleanValue());
+                    String str11 = (String) methodCall.argument("nameSpace");
+                    HashMap hashMap4 = (HashMap) methodCall.argument("keyValueMap");
+                    if (hashMap4 != null && !hashMap4.isEmpty()) {
+                        for (Map.Entry entry3 : hashMap4.entrySet()) {
+                            if (entry3.getValue() instanceof Boolean) {
+                                b.aFH().putBoolean(SharePrefNameTransform.getAndroidNameFromIos((String) entry3.getKey()), ((Boolean) entry3.getValue()).booleanValue());
                             }
                         }
                     }
                     result.success(true);
                 } else if (methodCall.method.equals("accessWalletService")) {
-                    String str11 = (String) methodCall.arguments;
-                    if (!StringUtils.isNull(str11)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_OPEN_WALLET_ICASH, str11));
+                    String str12 = (String) methodCall.arguments;
+                    if (!StringUtils.isNull(str12)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_OPEN_WALLET_ICASH, str12));
                     }
-                } else if (methodCall.method.equals("openSwanApp")) {
-                    HashMap hashMap4 = (HashMap) methodCall.arguments;
-                    if (!a.b((String) hashMap4.get("id"), (String) hashMap4.get("link"), "1191000600000000", Integer.valueOf(((Boolean) hashMap4.get("is_game")).booleanValue() ? 1 : 0))) {
-                        if (!aq.isEmpty((String) hashMap4.get("h5_url"))) {
+                } else if (methodCall.method.equals("openBBASMApp")) {
+                    HashMap hashMap5 = (HashMap) methodCall.arguments;
+                    if (!com.baidu.tieba.aiapps.a.b((String) hashMap5.get("id"), (String) hashMap5.get("link"), "1191000600000000", Integer.valueOf(((Boolean) hashMap5.get("is_game")).booleanValue() ? 1 : 0))) {
+                        if (!aq.isEmpty((String) hashMap5.get("h5_url"))) {
                             Activity currentActivity3 = TbadkCoreApplication.getInst().getCurrentActivity();
                             if (currentActivity3 instanceof TbPageContextSupport) {
-                                ba.aGG().b(((TbPageContextSupport) currentActivity3).getPageContext(), new String[]{(String) hashMap4.get("h5_url")});
+                                ba.aGK().b(((TbPageContextSupport) currentActivity3).getPageContext(), new String[]{(String) hashMap5.get("h5_url")});
                             }
                         } else {
                             return;
@@ -182,29 +193,29 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     }
                     result.success(true);
                 } else if (methodCall.method.equals("readNewMessage")) {
-                    HashMap hashMap5 = new HashMap();
-                    hashMap5.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cDQ().cDN() ? 1 : 0));
-                    hashMap5.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cDQ().cDM() ? 1 : 0));
-                    result.success(hashMap5);
+                    HashMap hashMap6 = new HashMap();
+                    hashMap6.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cEk().cEh() ? 1 : 0));
+                    hashMap6.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cEk().cEg() ? 1 : 0));
+                    result.success(hashMap6);
                 } else if (methodCall.method.equals("clearNewMessage")) {
-                    String str12 = (String) methodCall.arguments;
-                    if (!StringUtils.isNull(str12)) {
-                        if ("bookmarkNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDQ().g(3, false, true);
-                        } else if ("fansNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDQ().g(2, false, true);
-                        } else if ("giftNum".equals(str12)) {
-                            com.baidu.tieba.p.a.cDQ().g(1, false, true);
+                    String str13 = (String) methodCall.arguments;
+                    if (!StringUtils.isNull(str13)) {
+                        if ("bookmarkNum".equals(str13)) {
+                            com.baidu.tieba.p.a.cEk().g(3, false, true);
+                        } else if ("fansNum".equals(str13)) {
+                            com.baidu.tieba.p.a.cEk().g(2, false, true);
+                        } else if ("giftNum".equals(str13)) {
+                            com.baidu.tieba.p.a.cEk().g(1, false, true);
                         }
                     }
                 } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDQ().cDO()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cEk().cEi()));
                 } else if (methodCall.method.equals("showLoginAwardCell")) {
                     result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                 } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cDQ().cDP()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cEk().cEj()));
                 } else if (methodCall.method.equals("getThemeMode")) {
-                    result.success(am.aGv());
+                    result.success(am.aGz());
                 } else {
                     result.notImplemented();
                 }

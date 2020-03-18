@@ -7,12 +7,12 @@ import com.baidu.tieba.ala.alasquare.live_tab.b.k;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f> {
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e enm;
-    private o enn;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e enE;
+    private o enF;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k.emh);
+        super(tbPageContext.getPageActivity(), k.emy);
         this.mPageContext = tbPageContext;
     }
 
@@ -21,28 +21,28 @@ public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.ala.al
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: C */
     public com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f b(ViewGroup viewGroup) {
-        this.enm = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e(this.mPageContext, viewGroup);
-        if (this.enn != null) {
-            this.enm.a(this.enn);
+        this.enE = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e(this.mPageContext, viewGroup);
+        if (this.enF != null) {
+            this.enE.a(this.enF);
         }
-        return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f(this.enm);
+        return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f(this.enE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f fVar) {
-        if (fVar == null || fVar.enm == null) {
+        if (fVar == null || fVar.enE == null) {
             return null;
         }
-        fVar.enm.a(kVar);
+        fVar.enE.a(kVar);
         return fVar.getView();
     }
 
     public void a(o oVar) {
-        this.enn = oVar;
-        if (this.enm != null) {
-            this.enm.a(this.enn);
+        this.enF = oVar;
+        if (this.enE != null) {
+            this.enE.a(this.enF);
         }
     }
 }

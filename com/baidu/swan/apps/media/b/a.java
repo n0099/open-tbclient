@@ -8,21 +8,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String bDz;
-    public int bDw = 60000;
-    public String bDx = "aac";
+    public String bDK;
+    public int bDH = 60000;
+    public String bDI = "aac";
     public int channel = 1;
     public int sampleRate = 8000;
     public int bitRate = 16000;
-    public int bDy = 1;
+    public int bDJ = 1;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.bDw = jSONObject.optInt("duration", 60000);
-            aVar.bDx = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.bDx)) {
-                aVar.bDx = "aac";
+            aVar.bDH = jSONObject.optInt("duration", 60000);
+            aVar.bDI = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
+            if (TextUtils.isEmpty(aVar.bDI)) {
+                aVar.bDI = "aac";
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", 8000);
@@ -40,26 +40,26 @@ public class a {
                         break;
                 }
             }
-            aVar.bDy = jo(jSONObject.optString("audioSource", "auto"));
-            aVar.bDz = jSONObject.optString("cb");
+            aVar.bDJ = jn(jSONObject.optString("audioSource", "auto"));
+            aVar.bDK = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject XS() {
-        if (this.bDw > 600000 || this.bDw < 0) {
+    public JSONObject XV() {
+        if (this.bDH > 600000 || this.bDH < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.bDx, "aac") && !TextUtils.equals(this.bDx, "pcm")) {
+        if (!TextUtils.equals(this.bDI, "aac") && !TextUtils.equals(this.bDI, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.bDx, "pcm")) {
+        if (!TextUtils.equals(this.bDI, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case 8000:
@@ -85,18 +85,18 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (this.bDy < 0) {
+        if (this.bDJ < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.bDw + "; channel : " + this.channel + "; audioFormat : " + this.bDx + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.bDz;
+        return "recordTime : " + this.bDH + "; channel : " + this.channel + "; audioFormat : " + this.bDI + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.bDK;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int jo(String str) {
+    private static int jn(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

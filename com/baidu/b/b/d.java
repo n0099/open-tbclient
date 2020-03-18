@@ -9,9 +9,9 @@ public interface d {
 
     String getZid();
 
+    String nT();
+
     String nU();
 
     String nV();
-
-    String nW();
 }

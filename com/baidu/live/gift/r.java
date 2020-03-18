@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class r {
-    private Map<String, q> ahD;
-    private Map<String, Integer> ahE;
+    private Map<String, q> ahN;
+    private Map<String, Integer> ahO;
     private List<i> mDatas;
 
-    public static r sx() {
-        return a.ahF;
+    public static r sC() {
+        return a.ahP;
     }
 
     public void s(List<i> list) {
@@ -25,7 +25,7 @@ public class r {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        sA();
+        sF();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class r {
         return this.mDatas;
     }
 
-    public Map<String, q> sy() {
-        return this.ahD;
+    public Map<String, q> sD() {
+        return this.ahN;
     }
 
-    public Map<String, Integer> sz() {
-        return this.ahE;
+    public Map<String, Integer> sE() {
+        return this.ahO;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.ahD != null) {
-            this.ahD.clear();
+        if (this.ahN != null) {
+            this.ahN.clear();
         }
-        if (this.ahE != null) {
-            this.ahE.clear();
+        if (this.ahO != null) {
+            this.ahO.clear();
         }
     }
 
-    private void sA() {
+    private void sF() {
         g.a.C0086a c0086a;
-        if (this.ahD == null) {
-            this.ahD = new HashMap();
+        if (this.ahN == null) {
+            this.ahN = new HashMap();
         }
-        this.ahD.clear();
-        if (this.ahE == null) {
-            this.ahE = new HashMap();
+        this.ahN.clear();
+        if (this.ahO == null) {
+            this.ahO = new HashMap();
         }
-        this.ahE.clear();
+        this.ahO.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
-                List<g> rY = iVar.rY();
-                if (rY != null && !rY.isEmpty()) {
-                    for (g gVar : rY) {
-                        if (gVar.agn != null && (c0086a = gVar.agn.agx) != null && c0086a.key == 10 && c0086a.agz != null) {
-                            String optString = c0086a.agz.optString("id");
-                            if (this.ahD.get(optString) == null) {
-                                this.ahD.put(optString, new q(gVar.rx(), gVar.agn.agt, gVar.agd));
-                                this.ahE.put(optString, Integer.valueOf(gVar.agn.agu));
+                List<g> sd = iVar.sd();
+                if (sd != null && !sd.isEmpty()) {
+                    for (g gVar : sd) {
+                        if (gVar.agx != null && (c0086a = gVar.agx.agH) != null && c0086a.key == 10 && c0086a.agJ != null) {
+                            String optString = c0086a.agJ.optString("id");
+                            if (this.ahN.get(optString) == null) {
+                                this.ahN.put(optString, new q(gVar.rC(), gVar.agx.agD, gVar.ago));
+                                this.ahO.put(optString, Integer.valueOf(gVar.agx.agE));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class r {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final r ahF = new r();
+        private static final r ahP = new r();
     }
 }

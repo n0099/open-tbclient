@@ -430,8 +430,8 @@ public class BasePublishPresenter {
     }
 
     protected void loadInnerEmotionPanel(SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout, EmojiconEditText emojiconEditText) {
-        com.baidu.spswitch.b.a.Gq().a(this.mPublishView.getContext(), sPSwitchPanelLinearLayout, emojiconEditText, UgcRuntime.getUgcInterface().getNightModeSwitcherState());
-        com.baidu.spswitch.b.a.Gq().a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.presenter.BasePublishPresenter.9
+        com.baidu.spswitch.b.a.Gv().a(this.mPublishView.getContext(), sPSwitchPanelLinearLayout, emojiconEditText, UgcRuntime.getUgcInterface().getNightModeSwitcherState());
+        com.baidu.spswitch.b.a.Gv().a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.presenter.BasePublishPresenter.9
             @Override // com.baidu.spswitch.b.a.InterfaceC0194a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
@@ -516,7 +516,7 @@ public class BasePublishPresenter {
     public void onDestroy(EmojiconEditText emojiconEditText) {
         this.mPublisherInterfaceManager = null;
         emojiconEditText.clearData();
-        com.baidu.spswitch.b.a.Gq().dismiss();
+        com.baidu.spswitch.b.a.Gv().dismiss();
     }
 
     public void onBackPressed(EmojiconEditText emojiconEditText) {

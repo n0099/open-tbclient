@@ -9,8 +9,8 @@ import android.view.View;
 public class d {
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context) {
         final View view;
-        if (eVar != null && eVar.Oq() >= 2) {
-            com.baidu.swan.apps.core.d.b ew = eVar.ew(eVar.Oq() - 2);
+        if (eVar != null && eVar.Ot() >= 2) {
+            com.baidu.swan.apps.core.d.b ew = eVar.ew(eVar.Ot() - 2);
             float displayWidth = af.getDisplayWidth(context) >> 2;
             if (ew != null && (view = ew.getView()) != null) {
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, -displayWidth);
@@ -31,8 +31,8 @@ public class d {
 
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context, int i) {
         View view;
-        if (eVar != null && eVar.Oq() >= i) {
-            com.baidu.swan.apps.core.d.b ew = eVar.ew(eVar.Oq() - i);
+        if (eVar != null && eVar.Ot() >= i) {
+            com.baidu.swan.apps.core.d.b ew = eVar.ew(eVar.Ot() - i);
             float displayWidth = af.getDisplayWidth(context) >> 2;
             if (ew != null && (view = ew.getView()) != null) {
                 ObjectAnimator.ofFloat(view, "translationX", -displayWidth, 0.0f).setDuration(300L).start();

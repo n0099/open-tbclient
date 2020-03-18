@@ -15,19 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private List<String> bQX;
-    private AtomicBoolean bQY;
+    private List<String> bRi;
+    private AtomicBoolean bRj;
 
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadPackages");
-        this.bQY = new AtomicBoolean(false);
+        this.bRj = new AtomicBoolean(false);
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "call DownloadPackagesAction, thread=" + Thread.currentThread().getName());
-        if (this.bQX == null) {
-            this.bQX = Collections.synchronizedList(new ArrayList());
+        if (this.bRi == null) {
+            this.bRi = Collections.synchronizedList(new ArrayList());
         }
         JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
@@ -43,7 +43,7 @@ public class h extends ab {
         if (TextUtils.isEmpty(optString)) {
             optString = "0";
         }
-        if (!com.baidu.swan.apps.core.a.a.a.gO(optString)) {
+        if (!com.baidu.swan.apps.core.a.a.a.gN(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
@@ -55,7 +55,7 @@ public class h extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else {
-            eVar.acP().b(context, "mapp_pre_download", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.1
+            eVar.acS().b(context, "mapp_pre_download", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -82,16 +82,16 @@ public class h extends ab {
             for (int i = 0; i < jSONArray.length(); i++) {
                 String optString = jSONArray.optString(i);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.bQX.add(optString);
+                    this.bRi.add(optString);
                 }
             }
-            if (!this.bQY.getAndSet(true)) {
+            if (!this.bRj.getAndSet(true)) {
                 com.baidu.swan.apps.as.m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b(h.this.bQX);
-                        bVar.qD(str);
-                        bVar.qC("1");
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b(h.this.bRi);
+                        bVar.qC(str);
+                        bVar.qB("1");
                         com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d());
                     }
                 }, "小程序端能力-批量下载");

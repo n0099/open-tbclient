@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class f implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
-    public ArrayList<c> bAv;
+    public ArrayList<c> bAG;
     public int color = 0;
     public float width = 0.0f;
-    public boolean bAw = false;
-    public boolean bAx = false;
-    public String bAy = "";
+    public boolean bAH = false;
+    public boolean bAI = false;
+    public String bAJ = "";
     public int borderColor = 0;
-    public float bAs = 0.0f;
+    public float bAD = 0.0f;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -23,32 +23,32 @@ public class f implements com.baidu.swan.apps.model.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.bAv = new ArrayList<>(length);
+                this.bAG = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.parseFromJson(optJSONObject);
                         if (cVar.isValid()) {
-                            this.bAv.add(cVar);
+                            this.bAG.add(cVar);
                         }
                     }
                 }
             }
-            if (this.bAv != null && this.bAv.size() > 0) {
+            if (this.bAG != null && this.bAG.size() > 0) {
                 this.color = com.baidu.swan.apps.z.a.d.B(jSONObject.optString("color"), 0);
                 this.width = Math.abs(com.baidu.swan.apps.z.a.d.f(jSONObject.optDouble("width", 0.0d)));
-                this.bAw = jSONObject.optBoolean("dottedLine", false);
-                this.bAx = jSONObject.optBoolean("arrowLine", false);
-                this.bAy = jSONObject.optString("arrowIconPath");
+                this.bAH = jSONObject.optBoolean("dottedLine", false);
+                this.bAI = jSONObject.optBoolean("arrowLine", false);
+                this.bAJ = jSONObject.optString("arrowIconPath");
                 this.borderColor = com.baidu.swan.apps.z.a.d.B(jSONObject.optString("borderColor"), 0);
-                this.bAs = Math.abs(com.baidu.swan.apps.z.a.d.f(jSONObject.optDouble("borderWidth", 0.0d)));
+                this.bAD = Math.abs(com.baidu.swan.apps.z.a.d.f(jSONObject.optDouble("borderWidth", 0.0d)));
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return this.bAv != null && this.bAv.size() > 0;
+        return this.bAG != null && this.bAG.size() > 0;
     }
 }

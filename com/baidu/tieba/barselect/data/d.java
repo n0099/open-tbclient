@@ -5,11 +5,11 @@ import tbclient.Myrecord;
 /* loaded from: classes8.dex */
 public class d {
     private String apply_declaration;
-    private int fDB;
-    private int fDC;
-    private int fDD;
-    private int fDE;
-    private boolean fDF = false;
+    private int fEj;
+    private int fEk;
+    private int fEl;
+    private int fEm;
+    private boolean fEn = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
-    public int btU() {
-        return this.fDE;
+    public int btZ() {
+        return this.fEm;
     }
 
-    public int btV() {
-        return this.fDB;
+    public int bua() {
+        return this.fEj;
     }
 
-    public int btW() {
-        return this.fDC;
+    public int bub() {
+        return this.fEk;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int btX() {
-        return this.fDD;
+    public int buc() {
+        return this.fEl;
     }
 
-    public String btY() {
+    public String bud() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean btZ() {
-        return this.fDF;
+    public boolean bue() {
+        return this.fEn;
     }
 
     public static d a(ElectionList electionList) {
@@ -75,19 +75,19 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.re(electionList.vote_num.intValue());
+        dVar.rg(electionList.vote_num.intValue());
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.rc(electionList.forum_level.intValue());
-        dVar.zO(electionList.apply_declaration);
-        dVar.rd(electionList.rank.intValue());
-        dVar.rb(electionList.apply_id.intValue());
+        dVar.re(electionList.forum_level.intValue());
+        dVar.zP(electionList.apply_declaration);
+        dVar.rf(electionList.rank.intValue());
+        dVar.rd(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
-        dVar.ra(electionList.agree_num.intValue());
+        dVar.rc(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.kd(electionList.is_cheat.intValue() == 1);
+        dVar.ki(electionList.is_cheat.intValue() == 1);
         return dVar;
     }
 
@@ -96,35 +96,35 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.re(myrecord.vote_num.intValue());
+        dVar.rg(myrecord.vote_num.intValue());
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.rc(myrecord.forum_level.intValue());
-        dVar.zO(myrecord.apply_declaration);
-        dVar.rd(myrecord.rank.intValue());
-        dVar.rb(myrecord.apply_id.intValue());
+        dVar.re(myrecord.forum_level.intValue());
+        dVar.zP(myrecord.apply_declaration);
+        dVar.rf(myrecord.rank.intValue());
+        dVar.rd(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
-        dVar.ra(myrecord.agree_num.intValue());
+        dVar.rc(myrecord.agree_num.intValue());
         dVar.setUid(myrecord.uid.longValue());
         dVar.setTid(myrecord.tid.longValue());
         return dVar;
     }
 
-    public void ra(int i) {
-        this.fDE = i;
+    public void rc(int i) {
+        this.fEm = i;
     }
 
-    public void rb(int i) {
-        this.fDB = i;
+    public void rd(int i) {
+        this.fEj = i;
     }
 
-    public void zO(String str) {
+    public void zP(String str) {
         this.apply_declaration = str;
     }
 
-    public void rc(int i) {
-        this.fDC = i;
+    public void re(int i) {
+        this.fEk = i;
     }
 
     public void setNickname(String str) {
@@ -139,7 +139,7 @@ public class d {
         this.post_num = i;
     }
 
-    public void rd(int i) {
+    public void rf(int i) {
         this.rank = i;
     }
 
@@ -151,12 +151,12 @@ public class d {
         this.uid = j;
     }
 
-    public void re(int i) {
-        this.fDD = i;
+    public void rg(int i) {
+        this.fEl = i;
     }
 
-    public void kd(boolean z) {
-        this.fDF = z;
+    public void ki(boolean z) {
+        this.fEn = z;
     }
 
     public void setTid(long j) {

@@ -16,43 +16,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView hUB;
-    private List<com.baidu.tieba.interestlabel.b.a> hUD;
-    private List<Integer> hUE = new ArrayList();
+    private LabelSettingView hWb;
+    private List<com.baidu.tieba.interestlabel.b.a> hWd;
+    private List<Integer> hWe = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.hUB = labelSettingView;
+        this.hWb = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.isEmpty(bVar.caZ())) {
+        if (bVar != null && !v.isEmpty(bVar.cbs())) {
             this.mLabelDataSet = bVar;
-            this.hUD = bVar.caZ();
-            if (!v.isEmpty(bVar.cba())) {
-                this.hUE = new ArrayList(bVar.cba());
+            this.hWd = bVar.cbs();
+            if (!v.isEmpty(bVar.cbt())) {
+                this.hWe = new ArrayList(bVar.cbt());
             }
         }
     }
 
-    public List<Integer> caW() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cba();
+    public List<Integer> cbp() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cbt();
     }
 
-    public List<Integer> caX() {
-        return this.hUE;
+    public List<Integer> cbq() {
+        return this.hWe;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.getCount(this.hUD);
+        return v.getCount(this.hWd);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xk */
+    /* renamed from: xs */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.getItem(this.hUD, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.getItem(this.hWd, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0544b c0544b;
+        C0545b c0545b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.hUB.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0544b c0544b2 = new C0544b();
-            c0544b2.hUG = (TextView) view2;
-            view2.setTag(c0544b2);
-            c0544b = c0544b2;
+            view2 = LayoutInflater.from(this.hWb.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0545b c0545b2 = new C0545b();
+            c0545b2.hWg = (TextView) view2;
+            view2.setTag(c0545b2);
+            c0545b = c0545b2;
         } else {
-            c0544b = (C0544b) view.getTag();
+            c0545b = (C0545b) view.getTag();
             view2 = view;
         }
-        c0544b.hUG.setOnClickListener(new a(i));
-        a(c0544b.hUG, getItem(i));
+        c0545b.hWg.setOnClickListener(new a(i));
+        a(c0545b.hWg, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    class C0544b {
-        TextView hUG;
+    class C0545b {
+        TextView hWg;
 
-        C0544b() {
+        C0545b() {
         }
     }
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.hUE.add(Integer.valueOf(item.labelId));
+                    b.this.hWe.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.hUE.remove(Integer.valueOf(item.labelId));
+                    b.this.hWe.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.hUB != null) {
-                    b.this.hUB.oq(v.getCount(b.this.hUE) > 0);
+                if (b.this.hWb != null) {
+                    b.this.hWb.ow(v.getCount(b.this.hWe) > 0);
                 }
             }
         }

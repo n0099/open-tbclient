@@ -4,61 +4,61 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 /* loaded from: classes6.dex */
 final class b {
     private long dataSize;
-    private final int mbC;
-    private final int mbh;
-    private final int mcO;
-    private final int mpv;
-    private final int mpw;
-    private final int mpx;
-    private long mpy;
+    private final int mcN;
+    private final int mdi;
+    private final int meu;
+    private final int mrb;
+    private final int mrc;
+    private final int mrd;
+    private long mre;
 
     public b(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.mcO = i;
-        this.mbh = i2;
-        this.mpv = i3;
-        this.mpw = i4;
-        this.mpx = i5;
-        this.mbC = i6;
+        this.meu = i;
+        this.mcN = i2;
+        this.mrb = i3;
+        this.mrc = i4;
+        this.mrd = i5;
+        this.mdi = i6;
     }
 
     public long getDurationUs() {
-        return ((this.dataSize / this.mpw) * TimeUtils.NANOS_PER_MS) / this.mbh;
+        return ((this.dataSize / this.mrc) * TimeUtils.NANOS_PER_MS) / this.mcN;
     }
 
-    public int dvJ() {
-        return this.mpw;
+    public int dwg() {
+        return this.mrc;
     }
 
     public int getBitrate() {
-        return this.mbh * this.mpx * this.mcO;
+        return this.mcN * this.mrd * this.meu;
     }
 
-    public int dvK() {
-        return this.mbh;
+    public int dwh() {
+        return this.mcN;
     }
 
-    public int dvL() {
-        return this.mcO;
+    public int dwi() {
+        return this.meu;
     }
 
-    public long fL(long j) {
-        return Math.min((((this.mpv * j) / TimeUtils.NANOS_PER_MS) / this.mpw) * this.mpw, this.dataSize - this.mpw) + this.mpy;
+    public long fM(long j) {
+        return Math.min((((this.mrb * j) / TimeUtils.NANOS_PER_MS) / this.mrc) * this.mrc, this.dataSize - this.mrc) + this.mre;
     }
 
-    public long fN(long j) {
-        return (TimeUtils.NANOS_PER_MS * j) / this.mpv;
+    public long fO(long j) {
+        return (TimeUtils.NANOS_PER_MS * j) / this.mrb;
     }
 
-    public boolean dvM() {
-        return (this.mpy == 0 || this.dataSize == 0) ? false : true;
+    public boolean dwj() {
+        return (this.mre == 0 || this.dataSize == 0) ? false : true;
     }
 
     public void P(long j, long j2) {
-        this.mpy = j;
+        this.mre = j;
         this.dataSize = j2;
     }
 
-    public int dvN() {
-        return this.mbC;
+    public int dwk() {
+        return this.mdi;
     }
 }

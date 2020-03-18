@@ -19,9 +19,9 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     public int compareTo(hz hzVar) {
         int a2;
         if (getClass().equals(hzVar.getClass())) {
-            int compareTo = Boolean.valueOf(m387a()).compareTo(Boolean.valueOf(hzVar.m387a()));
+            int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(hzVar.m385a()));
             if (compareTo == 0) {
-                if (!m387a() || (a2 = is.a(this.f583a, hzVar.f583a)) == 0) {
+                if (!m385a() || (a2 = is.a(this.f583a, hzVar.f583a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -44,20 +44,20 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a == 15) {
-                        ja m469a = jcVar.m469a();
-                        this.f583a = new ArrayList(m469a.f791a);
-                        for (int i = 0; i < m469a.f791a; i++) {
+                    if (m466a.a == 15) {
+                        ja m467a = jcVar.m467a();
+                        this.f583a = new ArrayList(m467a.f791a);
+                        for (int i = 0; i < m467a.f791a; i++) {
                             ho hoVar = new ho();
                             hoVar.a(jcVar);
                             this.f583a.add(hoVar);
@@ -65,11 +65,11 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -77,18 +77,18 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m387a() {
+    public boolean m385a() {
         return this.f583a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m388a(hz hzVar) {
+    public boolean m386a(hz hzVar) {
         if (hzVar == null) {
             return false;
         }
-        boolean m387a = m387a();
-        boolean m387a2 = hzVar.m387a();
-        return !(m387a || m387a2) || (m387a && m387a2 && this.f583a.equals(hzVar.f583a));
+        boolean m385a = m385a();
+        boolean m385a2 = hzVar.m385a();
+        return !(m385a || m385a2) || (m385a && m385a2 && this.f583a.equals(hzVar.f583a));
     }
 
     @Override // com.xiaomi.push.ir
@@ -105,12 +105,12 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hz)) {
-            return m388a((hz) obj);
+            return m386a((hz) obj);
         }
         return false;
     }

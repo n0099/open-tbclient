@@ -6,37 +6,41 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import com.baidu.crabsdk.a.b;
 import com.baidu.crabsdk.a.c;
 import com.baidu.crabsdk.b.d;
 import com.baidu.crabsdk.b.g;
 import com.baidu.crabsdk.b.i;
-import com.baidu.crabsdk.b.l;
 import com.baidu.crabsdk.b.m;
 import com.baidu.crabsdk.b.n;
 import com.baidu.crabsdk.b.o;
-import com.baidu.crabsdk.b.s;
+import com.baidu.crabsdk.b.p;
 import com.baidu.crabsdk.b.t;
+import com.baidu.crabsdk.b.u;
 import com.baidu.crabsdk.sender.NativeCrashHandler;
 import com.baidu.crabsdk.sender.f;
 import com.baidu.crabsdk.sender.h;
 import com.baidu.crabsdk.sender.k;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.Future;
 /* loaded from: classes8.dex */
 public class CrabSDK {
     public static final int ANR_CLOSE = 0;
     public static final int ANR_OBSERVER_LOGCAT = 1;
     public static final int ANR_OBSERVER_PROC_STATE = 2;
-    private static Application R;
+    private static Application T;
     public static String NDK_VERSION = "-1";
     public static String FILE_PATH = "/sdcard";
     public static int CURRENT_PID = 0;
     public static String CURRENT_PNAME = "";
-    private static boolean S = false;
+    private static boolean U = false;
 
     public static void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
         d.dispatchTouchEvent(motionEvent, activity);
@@ -52,7 +56,7 @@ public class CrabSDK {
             return;
         }
         b.oa().stop();
-        c.as(R);
+        c.as(T);
         c.stop();
     }
 
@@ -75,9 +79,9 @@ public class CrabSDK {
             return;
         }
         setUploadLimitOfBlockInOneday(i);
-        if (h.ow()) {
-            b.aq(R).start();
-            c.as(R);
+        if (h.oC()) {
+            b.aq(T).start();
+            c.as(T);
             c.start();
         }
     }
@@ -88,10 +92,18 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return s.ok();
+        return t.oo();
     }
 
     public static void init(Application application, String str) {
+        init(application, str, null);
+    }
+
+    public static void init(Application application, String str, String str2) {
+        if (!TextUtils.isEmpty(str2) && ((str2.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str2.startsWith("http://")) && str2.endsWith("/"))) {
+            com.baidu.crabsdk.c.a.cj("Change upload domain: " + str2);
+            a.O = str2;
+        }
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.crabsdk.c.a.w("crab init begin: " + currentTimeMillis);
         a.d = str;
@@ -99,10 +111,10 @@ public class CrabSDK {
             com.baidu.crabsdk.c.a.w("crab init error caused by applcation null value");
             return;
         }
-        R = application;
+        T = application;
         FILE_PATH = application.getFilesDir().getAbsolutePath();
         com.baidu.crabsdk.c.a.v("FILE_PATH IS : " + FILE_PATH);
-        initData(R, str);
+        initData(T, str);
         long currentTimeMillis2 = System.currentTimeMillis();
         a.J = false;
         com.baidu.crabsdk.c.a.w("crab init end: " + currentTimeMillis2 + ", cost: " + (currentTimeMillis2 - currentTimeMillis) + "ms");
@@ -119,13 +131,14 @@ public class CrabSDK {
     }
 
     public static void initCollector(Application application) {
-        m.e(application);
-        o.e(application);
-        g.e(application);
-        i.w();
-        l.e(application);
-        s.e(application);
+        com.baidu.crabsdk.b.h.e(application);
         n.e(application);
+        p.e(application);
+        g.e(application);
+        i.A();
+        m.e(application);
+        t.e(application);
+        o.e(application);
         com.baidu.crabsdk.b.a.a(application);
     }
 
@@ -137,7 +150,7 @@ public class CrabSDK {
         boolean z;
         int myPid = Process.myPid();
         CURRENT_PID = myPid;
-        com.baidu.crabsdk.c.a.cj("CrabSDK.init from " + R.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.c.a.cj("CrabSDK.init from " + T.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
             com.baidu.crabsdk.c.a.cj("getRunningAppProcesses error!!");
@@ -152,10 +165,10 @@ public class CrabSDK {
             ActivityManager.RunningAppProcessInfo next = it.next();
             if (next.pid == myPid) {
                 if (next.processName.equals(application.getPackageName())) {
-                    S = true;
+                    U = true;
                     com.baidu.crabsdk.c.a.cj("Main process " + next.processName + ".");
                 } else {
-                    S = false;
+                    U = false;
                     com.baidu.crabsdk.c.a.cj("Sub process " + next.processName + ".");
                 }
                 CURRENT_PNAME = next.processName;
@@ -165,14 +178,14 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            f.oq().e(application);
+            f.ow().e(application);
             initAnrCollector(application, str);
         }
     }
 
     private static void initNativeHandler() {
-        NativeCrashHandler.s(R).ae();
-        k.k(R);
+        NativeCrashHandler.r(T).aj();
+        k.j(T);
     }
 
     @Deprecated
@@ -188,6 +201,13 @@ public class CrabSDK {
         initNativeHandler();
     }
 
+    public static void openNativeCrashHandler(ArrayList<String> arrayList) {
+        if (arrayList != null) {
+            a.M = arrayList;
+        }
+        openNativeCrashHandler();
+    }
+
     public static void openNativeCrashHandlerWithSysCatched() {
         a.L = true;
         initNativeHandler();
@@ -201,13 +221,13 @@ public class CrabSDK {
         try {
             Thread oh = com.baidu.crabsdk.b.c.oh();
             if (oh == null) {
-                initAnrCollector(R, a.d);
+                initAnrCollector(T, a.d);
                 com.baidu.crabsdk.c.a.v("ANR watch thread is null, init anrCollector again");
             } else if (a.I == 0) {
                 a.I = i;
                 new Thread(oh).start();
             } else {
-                com.baidu.crabsdk.c.a.cl("ANR watch thread is running");
+                com.baidu.crabsdk.c.a.ck("ANR watch thread is running");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("resumeAnrWatchThread->Exception", e);
@@ -232,11 +252,11 @@ public class CrabSDK {
 
     public static void setBlockThreshold(int i) {
         if (i >= 1000) {
-            com.baidu.crabsdk.a.a.U = i;
+            com.baidu.crabsdk.a.a.W = i;
             return;
         }
         com.baidu.crabsdk.c.a.w("You Are Strongly Recommended To Set Threshold Not Less Than 1000ms!!");
-        com.baidu.crabsdk.a.a.U = 1000;
+        com.baidu.crabsdk.a.a.W = 1000;
     }
 
     public static void setChannel(String str) {
@@ -255,12 +275,19 @@ public class CrabSDK {
         a.z = i;
     }
 
+    public static void setCuid(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.baidu.crabsdk.b.h.RR = str;
+    }
+
     public static void setDebugAnrExpUrl(String str) {
-        a.Q = str;
+        a.S = str;
     }
 
     public static void setDebugCrashUrl(String str) {
-        a.P = str;
+        a.R = str;
     }
 
     public static void setDebugMode(boolean z) {
@@ -275,32 +302,28 @@ public class CrabSDK {
         a.F = z;
     }
 
-    public static void setImeiCatched(boolean z) {
-        a.K = z;
-    }
-
     public static void setIsOnline(boolean z) {
         a.E = z;
     }
 
     public static void setLogcatLineCount(int i) {
         if (i > 1000) {
-            com.baidu.crabsdk.c.a.cl("强烈建议logcat最大行数小于1000！");
+            com.baidu.crabsdk.c.a.ck("强烈建议logcat最大行数小于1000！");
             a.h = 1000;
         } else {
             a.h = i;
         }
-        if (NativeCrashHandler.ad() != null) {
-            NativeCrashHandler.ad().b(a.h);
+        if (NativeCrashHandler.ai() != null) {
+            NativeCrashHandler.ai().b(a.h);
         }
     }
 
     public static void setOnAnrCrashListener(OnAnrCrashListener onAnrCrashListener) {
-        a.N = onAnrCrashListener;
+        a.P = onAnrCrashListener;
     }
 
     public static void setOnCrashExceedListener(OnCrashExceedListener onCrashExceedListener) {
-        a.O = onCrashExceedListener;
+        a.Q = onCrashExceedListener;
     }
 
     public static void setSendPrivacyInformation(boolean z) {
@@ -308,7 +331,7 @@ public class CrabSDK {
     }
 
     public static void setUid(String str) {
-        s.c(str);
+        t.d(str);
     }
 
     public static void setUploadCrashOnlyWifi(boolean z) {
@@ -340,45 +363,70 @@ public class CrabSDK {
     }
 
     public static void setUserName(String str) {
-        s.setUserName(str);
+        t.setUserName(str);
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        s.ok().put(str, str2);
+        t.oo().put(str, str2);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
-        s.a(hashMap);
+        t.a(hashMap);
+    }
+
+    public static void stopUploadLogs(Future future) {
+        try {
+            com.baidu.crabsdk.c.a.ck("Stop uploading logs task...");
+            if (future != null) {
+                future.cancel(true);
+            }
+        } catch (Exception e) {
+            com.baidu.crabsdk.c.a.f("Stop upload task error!", e);
+        }
     }
 
     public static void uploadApplife(boolean z) {
-        a.M = z;
-        m.B();
-        k.n(R);
+        a.N = z;
+        n.F();
+        k.m(T);
     }
 
     public static void uploadCrash(Throwable th) {
-        if (R == null || th == null) {
+        if (T == null || th == null) {
             return;
         }
-        k.c(R, th);
+        k.c(T, th);
     }
 
     public static void uploadException(Throwable th) {
-        if (th == null || R == null) {
+        if (th == null || T == null) {
             return;
         }
-        k.a(R, th);
+        k.a(T, th);
+    }
+
+    public static Future uploadLogs(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3) {
+        if (str == null || onUploadFilesCallback == null) {
+            com.baidu.crabsdk.c.a.w("Filepath or callback is null!");
+            return null;
+        }
+        if (str3 == null) {
+            str3 = "";
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            com.baidu.crabsdk.b.h.RR = str2;
+        }
+        return k.b(str.trim(), onUploadFilesCallback, "", "", str3);
     }
 
     private static void uploadRecord(Application application) {
-        if (!h.os() || a.D) {
+        if (!h.oy() || a.D) {
             return;
         }
         k.a(true, (Context) application);
     }
 
     public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        t.urlRecordEvent(motionEvent, activity);
+        u.urlRecordEvent(motionEvent, activity);
     }
 }

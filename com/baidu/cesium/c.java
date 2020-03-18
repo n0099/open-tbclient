@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class c {
-    private com.baidu.cesium.c.d.d Qn;
+    private com.baidu.cesium.c.d.d Qo;
     private List<b> g;
 
     public c() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     private void a() {
-        this.Qn = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.Qo = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -59,9 +59,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a nH = com.baidu.cesium.c.d.a.nH();
-        nH.a(2, dVar);
-        return nH.a(bArr);
+        com.baidu.cesium.c.d.a nG = com.baidu.cesium.c.d.a.nG();
+        nG.a(2, dVar);
+        return nG.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -72,7 +72,7 @@ public class c {
         return strArr;
     }
 
-    public boolean a(Context context) {
+    boolean a(Context context) {
         List<b> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
         if (b == null || b.size() == 0) {
             for (int i = 0; i < 3; i++) {
@@ -131,7 +131,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.Qn);
+                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.Qo);
                                             if (a2 != null && Arrays.equals(a2, com.baidu.cesium.d.c.a(a))) {
                                                 bVar.c = true;
                                             }

@@ -10,9 +10,9 @@ public final class FlowableDoFinally<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nwE.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
+            this.nyr.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
         } else {
-            this.nwE.a((j) new DoFinallySubscriber(cVar, this.onFinally));
+            this.nyr.a((j) new DoFinallySubscriber(cVar, this.onFinally));
         }
     }
 

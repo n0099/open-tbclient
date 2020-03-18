@@ -7,7 +7,7 @@ public class b {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void apR();
+        void apU();
 
         void d(int i, long j, long j2);
 
@@ -15,17 +15,17 @@ public class b {
     }
 
     public static void a(String str, a aVar) {
-        e acF;
-        if (aVar != null && !TextUtils.isEmpty(str) && (acF = e.acF()) != null) {
-            if (com.baidu.swan.games.x.a.apQ().pK(str)) {
-                aVar.apR();
+        e acI;
+        if (aVar != null && !TextUtils.isEmpty(str) && (acI = e.acI()) != null) {
+            if (com.baidu.swan.games.x.a.apT().pJ(str)) {
+                aVar.apU();
                 return;
             }
-            String kR = com.baidu.swan.games.x.a.apQ().kR(str);
-            if (TextUtils.isEmpty(kR)) {
+            String kQ = com.baidu.swan.games.x.a.apT().kQ(str);
+            if (TextUtils.isEmpty(kQ)) {
                 aVar.dY(2112);
             } else {
-                com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.e(acF.id, Integer.valueOf(acF.getVersion()).intValue(), kR, 1), new com.baidu.swan.games.x.b.a(acF.id, acF.getVersion(), com.baidu.swan.games.x.a.apQ().O(str, 2), aVar));
+                com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.e(acI.id, Integer.valueOf(acI.getVersion()).intValue(), kQ, 1), new com.baidu.swan.games.x.b.a(acI.id, acI.getVersion(), com.baidu.swan.games.x.a.apT().O(str, 2), aVar));
             }
         }
     }

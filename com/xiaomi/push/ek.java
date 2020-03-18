@@ -53,12 +53,12 @@ public final class ek {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eo m257a() {
+    public eo m255a() {
         return this.f316a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m258a() {
+    public String m256a() {
         return this.f317a;
     }
 

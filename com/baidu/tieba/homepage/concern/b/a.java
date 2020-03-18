@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId gYo = BdUniqueId.gen();
+    public static final BdUniqueId gZv = BdUniqueId.gen();
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj aAg() {
+    public bj aAj() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al aAi() {
+    public al aAl() {
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gYo;
+        return gZv;
     }
 }

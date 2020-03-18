@@ -9,7 +9,7 @@ public interface j {
 
     void setRadius(float f);
 
-    void vi(boolean z);
+    void vp(boolean z);
 
-    void vj(boolean z);
+    void vq(boolean z);
 }

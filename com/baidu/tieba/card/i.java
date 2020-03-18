@@ -27,86 +27,86 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class i extends b<com.baidu.tieba.card.data.i> {
-    private String dLb;
-    private CustomMessageListener dLd;
-    private CustomMessageListener dLe;
-    private LikeModel dkh;
-    private View.OnClickListener drw;
-    private HListView fJh;
-    private com.baidu.tieba.horizonalList.widget.b fJi;
-    private c fJj;
-    private View fJk;
-    private List<com.baidu.tieba.horizonalList.widget.c> fJl;
-    private String fJm;
-    private String fJn;
-    private String fJo;
-    private String fJp;
+    private String dLr;
+    private CustomMessageListener dLt;
+    private CustomMessageListener dLu;
+    private LikeModel dku;
+    private View.OnClickListener drJ;
+    private HListView fJP;
+    private com.baidu.tieba.horizonalList.widget.b fJQ;
+    private c fJR;
+    private View fJS;
+    private List<com.baidu.tieba.horizonalList.widget.c> fJT;
+    private String fJU;
+    private String fJV;
+    private String fJW;
+    private String fJX;
     private LayoutInflater mInflater;
     private String stType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.dLd = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.card.i.2
+        this.dLt = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.card.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                    i.this.d(((Long) customResponsedMessage.getData()).longValue(), false);
+                    i.this.e(((Long) customResponsedMessage.getData()).longValue(), false);
                 }
             }
         };
-        this.dLe = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.card.i.3
+        this.dLu = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.card.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                    i.this.d(((Long) customResponsedMessage.getData()).longValue(), true);
+                    i.this.e(((Long) customResponsedMessage.getData()).longValue(), true);
                 }
             }
         };
-        this.fJh = new HListView(getContext());
-        this.fJh.setHeaderDividersEnabled(false);
-        this.fJh.setFooterDividersEnabled(false);
+        this.fJP = new HListView(getContext());
+        this.fJP.setHeaderDividersEnabled(false);
+        this.fJP.setFooterDividersEnabled(false);
         this.mInflater = LayoutInflater.from(getContext());
-        this.fJk = this.mInflater.inflate(R.layout.extend_forum_item, (ViewGroup) null);
-        this.fJj = new c(this.fJk);
-        this.fHD.addView(this.fJh);
-        this.fJh.setSelector(R.drawable.list_selector_transparent);
-        this.fJh.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
-        buJ();
-        if (this.fJi == null) {
+        this.fJS = this.mInflater.inflate(R.layout.extend_forum_item, (ViewGroup) null);
+        this.fJR = new c(this.fJS);
+        this.fIl.addView(this.fJP);
+        this.fJP.setSelector(R.drawable.list_selector_transparent);
+        this.fJP.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
+        buO();
+        if (this.fJQ == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
                 arrayList.add(String.valueOf(i));
             }
-            this.fJi = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.extend_forum_item, this.fJj);
-            this.fJi.setOnClickListener(this.drw);
-            this.fJh.setAdapter((ListAdapter) this.fJi);
+            this.fJQ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.extend_forum_item, this.fJR);
+            this.fJQ.setOnClickListener(this.drJ);
+            this.fJP.setAdapter((ListAdapter) this.fJQ);
         }
-        this.fHv.setOnClickListener(this);
-        this.dkh = new LikeModel(tbPageContext);
-        this.dkh.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.i.1
+        this.fId.setOnClickListener(this);
+        this.dku = new LikeModel(tbPageContext);
+        this.dku.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.i.1
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
-                if (!(obj instanceof com.baidu.tieba.tbadkCore.t) || i.this.dkh.getErrorCode() != 0) {
-                    if (AntiHelper.bb(i.this.dkh.getErrorCode(), i.this.dkh.getErrorString())) {
-                        AntiHelper.bn(i.this.getContext(), i.this.dkh.getErrorString());
+                if (!(obj instanceof com.baidu.tieba.tbadkCore.u) || i.this.dku.getErrorCode() != 0) {
+                    if (AntiHelper.bb(i.this.dku.getErrorCode(), i.this.dku.getErrorString())) {
+                        AntiHelper.bn(i.this.getContext(), i.this.dku.getErrorString());
                     } else {
-                        i.this.getTbPageContext().showToast(i.this.dkh.getErrorString());
+                        i.this.getTbPageContext().showToast(i.this.dku.getErrorString());
                     }
                 }
             }
         });
-        this.fJh.setOnItemClickListener(null);
+        this.fJP.setOnItemClickListener(null);
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        if (this.dLd != null && this.dLe != null) {
-            this.dLd.setTag(bdUniqueId);
-            this.dLe.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.dLd);
-            MessageManager.getInstance().registerListener(this.dLe);
+        if (this.dLt != null && this.dLu != null) {
+            this.dLt.setTag(bdUniqueId);
+            this.dLu.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.dLt);
+            MessageManager.getInstance().registerListener(this.dLu);
         }
     }
 
@@ -118,8 +118,8 @@ public class i extends b<com.baidu.tieba.card.data.i> {
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.fJh != null && this.fJi != null) {
-            this.fJi.onSkinTypeChanged(i);
+        if (this.fJP != null && this.fJQ != null) {
+            this.fJQ.onSkinTypeChanged(i);
         }
     }
 
@@ -137,38 +137,38 @@ public class i extends b<com.baidu.tieba.card.data.i> {
             iVar.getDataList().clear();
             iVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.fJp = iVar.bvz();
+        this.fJX = iVar.bvE();
         this.stType = iVar.getStType();
-        if (!j(iVar.getDataList(), this.fJl)) {
-            boolean z = com.baidu.tbadk.core.util.v.getCount(iVar.getDataList()) != com.baidu.tbadk.core.util.v.getCount(this.fJl);
-            this.fJl = iVar.getDataList();
+        if (!j(iVar.getDataList(), this.fJT)) {
+            boolean z = com.baidu.tbadk.core.util.v.getCount(iVar.getDataList()) != com.baidu.tbadk.core.util.v.getCount(this.fJT);
+            this.fJT = iVar.getDataList();
             if (count <= 0) {
                 getView().setVisibility(8);
                 return;
             }
             getView().setVisibility(0);
-            if (this.fJi != null) {
+            if (this.fJQ != null) {
                 if (z) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i = 0; i < this.fJl.size(); i++) {
+                    for (int i = 0; i < this.fJT.size(); i++) {
                         arrayList2.add(String.valueOf(i));
                     }
-                    this.fJi = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.extend_forum_item, this.fJj);
-                    this.fJi.setData(this.fJl);
-                    this.fJi.setOnClickListener(this.drw);
-                    this.fJh.setAdapter((ListAdapter) this.fJi);
+                    this.fJQ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.extend_forum_item, this.fJR);
+                    this.fJQ.setData(this.fJT);
+                    this.fJQ.setOnClickListener(this.drJ);
+                    this.fJP.setAdapter((ListAdapter) this.fJQ);
                     onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
                     return;
                 }
-                this.fJi.setData(this.fJl);
-                this.fJi.notifyDataSetChanged();
+                this.fJQ.setData(this.fJT);
+                this.fJQ.notifyDataSetChanged();
             }
         }
     }
 
-    private com.baidu.tieba.card.data.g zS(String str) {
-        if (com.baidu.tbadk.core.util.v.getCount(this.fJl) > 0) {
-            for (com.baidu.tieba.horizonalList.widget.c cVar : this.fJl) {
+    private com.baidu.tieba.card.data.g zT(String str) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.fJT) > 0) {
+            for (com.baidu.tieba.horizonalList.widget.c cVar : this.fJT) {
                 if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
                     com.baidu.tieba.card.data.g gVar = (com.baidu.tieba.card.data.g) cVar;
                     if (String.valueOf(gVar.forumId).equals(str)) {
@@ -181,14 +181,14 @@ public class i extends b<com.baidu.tieba.card.data.i> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(long j, boolean z) {
-        com.baidu.tieba.card.data.g zS = zS(String.valueOf(j));
-        if (zS != null) {
-            zS.isLiked = z;
+    public void e(long j, boolean z) {
+        com.baidu.tieba.card.data.g zT = zT(String.valueOf(j));
+        if (zT != null) {
+            zT.isLiked = z;
         }
-        if (this.fJi != null) {
-            this.fJi.setData(this.fJl);
-            this.fJi.notifyDataSetChanged();
+        if (this.fJQ != null) {
+            this.fJQ.setData(this.fJT);
+            this.fJQ.notifyDataSetChanged();
         }
     }
 
@@ -224,8 +224,8 @@ public class i extends b<com.baidu.tieba.card.data.i> {
         return z2;
     }
 
-    private void buJ() {
-        this.drw = new View.OnClickListener() { // from class: com.baidu.tieba.card.i.4
+    private void buO() {
+        this.drJ = new View.OnClickListener() { // from class: com.baidu.tieba.card.i.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -234,8 +234,8 @@ public class i extends b<com.baidu.tieba.card.data.i> {
                             String str = (String) view.getTag(R.id.tag_forum_name);
                             String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                             if (aq.isForumName(str)) {
-                                i.this.dkh.eC(str, valueOf);
-                                TiebaStatic.log(new an(i.this.dLb).cy("fid", valueOf).cy(TiebaInitialize.Params.OBJ_PARAM3, l.buY()));
+                                i.this.dku.eA(str, valueOf);
+                                TiebaStatic.log(new an(i.this.dLr).cx("fid", valueOf).cx(TiebaInitialize.Params.OBJ_PARAM3, l.bvd()));
                             }
                         }
                     } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -243,12 +243,12 @@ public class i extends b<com.baidu.tieba.card.data.i> {
                         String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                         if (aq.isForumName(str2)) {
                             if (view.getId() == R.id.m_forum_name_textview) {
-                                TiebaStatic.log(new an(i.this.fJo).cy("fid", valueOf2).cy(TiebaInitialize.Params.OBJ_PARAM3, l.buY()));
+                                TiebaStatic.log(new an(i.this.fJW).cx("fid", valueOf2).cx(TiebaInitialize.Params.OBJ_PARAM3, l.bvd()));
                             } else {
-                                TiebaStatic.log(new an(i.this.fJn).cy("fid", valueOf2).cy(TiebaInitialize.Params.OBJ_PARAM3, l.buY()));
+                                TiebaStatic.log(new an(i.this.fJV).cx("fid", valueOf2).cx(TiebaInitialize.Params.OBJ_PARAM3, l.bvd()));
                             }
-                            if (!StringUtils.isNull(i.this.stType) && !StringUtils.isNull(i.this.fJp)) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(i.this.getView().getContext()).createCfgForpersonalized(str2, i.this.stType, i.this.fJp)));
+                            if (!StringUtils.isNull(i.this.stType) && !StringUtils.isNull(i.this.fJX)) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(i.this.getView().getContext()).createCfgForpersonalized(str2, i.this.stType, i.this.fJX)));
                             } else {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(i.this.getView().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                             }
@@ -260,9 +260,9 @@ public class i extends b<com.baidu.tieba.card.data.i> {
     }
 
     public void w(String str, String str2, String str3, String str4) {
-        this.fJm = str;
-        this.dLb = str2;
-        this.fJn = str3;
-        this.fJo = str4;
+        this.fJU = str;
+        this.dLr = str2;
+        this.fJV = str3;
+        this.fJW = str4;
     }
 }

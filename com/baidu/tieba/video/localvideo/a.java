@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> kzT = new ArrayList<>();
-    private boolean kzU = false;
+    private ArrayList<d> kBA = new ArrayList<>();
+    private boolean kBB = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.kzU = true;
-        this.kzT.clear();
+        this.kBB = true;
+        this.kBA.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.kzT.addAll(list);
+            this.kBA.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void Kh(String str) {
-        if (this.kzT != null && !TextUtils.isEmpty(str)) {
+    public void Kg(String str) {
+        if (this.kBA != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.kzT.size()) {
-                    d dVar = this.kzT.get(i2);
+                if (i2 < this.kBA.size()) {
+                    d dVar = this.kBA.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.kzT.remove(i2);
+                        this.kBA.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.kzT)) {
+        if (v.isEmpty(this.kBA)) {
             return 0;
         }
-        return this.kzT.size();
+        return this.kBA.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: DB */
+    /* renamed from: DJ */
     public d getItem(int i) {
-        if (this.kzT == null || this.kzT.isEmpty() || i < 0 || i >= this.kzT.size()) {
+        if (this.kBA == null || this.kBA.isEmpty() || i < 0 || i >= this.kBA.size()) {
             return null;
         }
-        return this.kzT.get(i);
+        return this.kBA.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.kzT != null && this.kzT.size() > i) {
-            localVideoInfoView.a(this.kzT.get(i));
-        } else if (i == 0 && this.kzU) {
-            localVideoInfoView.tq(true);
+        if (this.kBA != null && this.kBA.size() > i) {
+            localVideoInfoView.a(this.kBA.get(i));
+        } else if (i == 0 && this.kBB) {
+            localVideoInfoView.tw(true);
         } else {
-            localVideoInfoView.tq(false);
+            localVideoInfoView.tw(false);
         }
         return view2;
     }

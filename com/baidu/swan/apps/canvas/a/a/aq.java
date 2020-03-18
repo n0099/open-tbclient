@@ -17,7 +17,7 @@ public class aq extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.Kq() == 0) {
+        if (bVar.Kt() == 0) {
             bVar.ec(canvas.save());
         }
         canvas.translate(this.mX, this.mY);

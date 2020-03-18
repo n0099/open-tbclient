@@ -3,20 +3,20 @@ package com.google.android.exoplayer2.source;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public interface r {
-    int KO(int i);
+    int KU(int i);
 
-    int KP(int i);
+    int KV(int i);
 
-    int bTb();
+    int bTt();
 
-    int dwI();
+    int dxf();
 
-    int dwJ();
+    int dxg();
 
     /* loaded from: classes6.dex */
     public static class a implements r {
-        private final int[] mtg;
-        private final int[] mth;
+        private final int[] muN;
+        private final int[] muO;
         private final Random random;
 
         public a(int i) {
@@ -28,49 +28,49 @@ public interface r {
         }
 
         private a(int[] iArr, Random random) {
-            this.mtg = iArr;
+            this.muN = iArr;
             this.random = random;
-            this.mth = new int[iArr.length];
+            this.muO = new int[iArr.length];
             for (int i = 0; i < iArr.length; i++) {
-                this.mth[iArr[i]] = i;
+                this.muO[iArr[i]] = i;
             }
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int bTb() {
-            return this.mtg.length;
+        public int bTt() {
+            return this.muN.length;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int KO(int i) {
-            int i2 = this.mth[i] + 1;
-            if (i2 < this.mtg.length) {
-                return this.mtg[i2];
+        public int KU(int i) {
+            int i2 = this.muO[i] + 1;
+            if (i2 < this.muN.length) {
+                return this.muN[i2];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int KP(int i) {
-            int i2 = this.mth[i] - 1;
+        public int KV(int i) {
+            int i2 = this.muO[i] - 1;
             if (i2 >= 0) {
-                return this.mtg[i2];
+                return this.muN[i2];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int dwI() {
-            if (this.mtg.length > 0) {
-                return this.mtg[this.mtg.length - 1];
+        public int dxf() {
+            if (this.muN.length > 0) {
+                return this.muN[this.muN.length - 1];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int dwJ() {
-            if (this.mtg.length > 0) {
-                return this.mtg[0];
+        public int dxg() {
+            if (this.muN.length > 0) {
+                return this.muN[0];
             }
             return -1;
         }

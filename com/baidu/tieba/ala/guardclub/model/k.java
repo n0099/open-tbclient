@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class k {
-    public String adC;
+    public String adM;
     public String avatar;
-    public String eHt;
-    public boolean eHu;
+    public String eHP;
+    public boolean eHQ;
     public String id;
     public int level;
     public String liveId;
@@ -23,16 +23,16 @@ public class k {
         this.id = jSONObject.optString("id");
         String optString = jSONObject.optString("anchor_id");
         if (!TextUtils.isEmpty(optString)) {
-            this.adC = EncryptionHelper.getDecryptUserId(optString);
+            this.adM = EncryptionHelper.getDecryptUserId(optString);
         }
         this.name = jSONObject.optString("regiment_name");
         this.score = jSONObject.optString("score");
-        this.eHt = jSONObject.optString("week_score");
+        this.eHP = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.eHu = jSONObject.optInt("is_join") == 1;
+        this.eHQ = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

@@ -18,16 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class d implements k {
-    k.a egq;
-    private CustomMessageListener egr = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    k.a egG;
+    private CustomMessageListener egH = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.egq != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.egG != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.egq.Vj();
+                    d.this.egG.Vm();
                 } else {
-                    d.this.egq.Vk();
+                    d.this.egG.Vn();
                 }
             }
         }
@@ -35,13 +35,13 @@ public class d implements k {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.egr);
+        MessageManager.getInstance().registerListener(this.egH);
     }
 
     @Override // com.baidu.swan.apps.w.b.k
     public void a(Context context, JSONObject jSONObject, final k.a aVar) {
         if (context instanceof Activity) {
-            this.egq = aVar;
+            this.egG = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,9 +66,9 @@ public class d implements k {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.Vj();
+                            aVar.Vm();
                         } else {
-                            aVar.Vk();
+                            aVar.Vn();
                         }
                     }
                 }

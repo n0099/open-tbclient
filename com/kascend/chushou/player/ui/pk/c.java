@@ -18,18 +18,16 @@ public class c implements Runnable {
     private boolean j;
     private int k;
     private boolean m;
-
-    /* renamed from: new  reason: not valid java name */
-    private SoftReference<ImageView> f3new;
-    private BitmapFactory.Options nex;
-    private d ney;
+    private SoftReference<ImageView> ngh;
+    private BitmapFactory.Options ngi;
+    private d ngj;
 
     public c(ImageView imageView, int[] iArr, int i, int i2, long j) {
         this.h = null;
         this.j = false;
         this.k = 0;
         this.m = false;
-        this.f3new = new SoftReference<>(imageView);
+        this.ngh = new SoftReference<>(imageView);
         this.a = iArr;
         if (i > 0) {
             this.b = i;
@@ -43,10 +41,10 @@ public class c implements Runnable {
             imageView.setVisibility(4);
             Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
             this.h = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            this.nex = new BitmapFactory.Options();
-            this.nex.inBitmap = this.h;
-            this.nex.inMutable = true;
-            this.nex.inSampleSize = 1;
+            this.ngi = new BitmapFactory.Options();
+            this.ngi.inBitmap = this.h;
+            this.ngi.inMutable = true;
+            this.ngi.inSampleSize = 1;
         }
     }
 
@@ -55,7 +53,7 @@ public class c implements Runnable {
     }
 
     public void a(d dVar) {
-        this.ney = dVar;
+        this.ngj = dVar;
     }
 
     public void a() {
@@ -68,15 +66,15 @@ public class c implements Runnable {
         Bitmap bitmap;
         if (!this.m) {
             this.m = true;
-            if (this.ney != null) {
-                this.ney.a(this);
+            if (this.ngj != null) {
+                this.ngj.a(this);
             }
         }
         if (this.j) {
             c();
             return;
         }
-        ImageView imageView = this.f3new.get();
+        ImageView imageView = this.ngh.get();
         if (imageView == null) {
             c();
         } else if (this.a == null || this.a.length <= 0 || this.k >= this.a.length) {
@@ -84,9 +82,9 @@ public class c implements Runnable {
         } else {
             imageView.setVisibility(0);
             int i = this.a[this.k];
-            if (this.h != null && this.nex != null) {
+            if (this.h != null && this.ngi != null) {
                 try {
-                    bitmap = BitmapFactory.decodeResource(imageView.getResources(), i, this.nex);
+                    bitmap = BitmapFactory.decodeResource(imageView.getResources(), i, this.ngi);
                 } catch (Exception e) {
                     e.printStackTrace();
                     bitmap = null;
@@ -109,24 +107,24 @@ public class c implements Runnable {
             } else if (this.k >= this.a.length) {
                 this.k = 0;
                 this.e++;
-                e.dEe().b(this);
-                if (this.ney != null) {
-                    this.ney.b(this);
+                e.dEE().b(this);
+                if (this.ngj != null) {
+                    this.ngj.b(this);
                 }
             } else {
-                e.dEe().a(this);
+                e.dEE().a(this);
             }
         }
     }
 
     private void c() {
-        if (this.ney != null) {
-            this.ney.c(this);
+        if (this.ngj != null) {
+            this.ngj.c(this);
         }
     }
 
     public void b() {
-        ImageView imageView = this.f3new.get();
+        ImageView imageView = this.ngh.get();
         if (imageView != null) {
             imageView.setVisibility(8);
         }

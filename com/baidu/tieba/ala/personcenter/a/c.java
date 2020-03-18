@@ -8,20 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private BdTypeListView eko;
-    private com.baidu.tieba.ala.personcenter.d.a ftW;
+    private BdTypeListView ekE;
+    private com.baidu.tieba.ala.personcenter.d.a fuw;
+    private i fux;
     private TbPageContext mPageContext;
-    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
     private List<m> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.eko = bdTypeListView;
-        this.ftW = aVar;
-        wM();
+        this.ekE = bdTypeListView;
+        this.fuw = aVar;
+        wR();
     }
 
-    private void wM() {
+    private void wR() {
         b bVar = new b(this.mPageContext);
         f fVar = new f(this.mPageContext);
         g gVar = new g(this.mPageContext);
@@ -29,23 +30,49 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        i iVar = new i(this.mPageContext, this.ftW);
-        this.asF.add(bVar);
-        this.asF.add(fVar);
-        this.asF.add(gVar);
-        this.asF.add(eVar);
-        this.asF.add(hVar);
-        this.asF.add(dVar);
-        this.asF.add(aVar);
-        this.asF.add(iVar);
-        this.eko.addAdapters(this.asF);
+        this.fux = new i(this.mPageContext);
+        j jVar = new j(this.mPageContext, this.fuw);
+        this.asP.add(bVar);
+        this.asP.add(this.fux);
+        this.asP.add(fVar);
+        this.asP.add(gVar);
+        this.asP.add(eVar);
+        this.asP.add(hVar);
+        this.asP.add(dVar);
+        this.asP.add(aVar);
+        this.asP.add(jVar);
+        this.ekE.addAdapters(this.asP);
     }
 
     public void setData(List<m> list) {
-        if (this.eko != null && !v.isEmpty(list)) {
+        if (this.ekE != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.eko.setData(this.mDataList);
+            this.ekE.setData(this.mDataList);
+        }
+    }
+
+    public void setForumId(String str) {
+        if (this.fux != null) {
+            this.fux.setForumId(str);
+        }
+    }
+
+    public void setForumName(String str) {
+        if (this.fux != null) {
+            this.fux.setForumName(str);
+        }
+    }
+
+    public void jZ(boolean z) {
+        if (this.fux != null) {
+            this.fux.jZ(z);
+        }
+    }
+
+    public void zF(String str) {
+        if (this.fux != null) {
+            this.fux.zF(str);
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ala.frsgamelive.c.e;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, e.a> {
-    private com.baidu.tieba.ala.d eBI;
+    private com.baidu.tieba.ala.d eCe;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -34,24 +34,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, e.a aVar2) {
-        aVar2.eDn.a(aVar);
-        aVar2.eDn.c(this.eBI);
+        aVar2.eDJ.a(aVar);
+        aVar2.eDJ.c(this.eCe);
         String str = "";
-        if (!StringUtils.isNull(aVar.eDR.aCH().appId)) {
-            str = aVar.eDR.aCH().appId;
+        if (!StringUtils.isNull(aVar.eEn.aCK().appId)) {
+            str = aVar.eEn.aCK().appId;
         }
-        com.baidu.tieba.ala.c.bbR().d(new an("c12115").s("obj_id", aVar.eDR.aCH().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.eDS != null) {
+        com.baidu.tieba.ala.c.bbV().e(new an("c12115").s("obj_id", aVar.eEn.aCK().live_id).cx(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.eEo != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.eDS.aCH().appId)) {
-                str2 = aVar.eDS.aCH().appId;
+            if (!StringUtils.isNull(aVar.eEo.aCK().appId)) {
+                str2 = aVar.eEo.aCK().appId;
             }
-            com.baidu.tieba.ala.c.bbR().d(new an("c12115").s("obj_id", aVar.eDS.aCH().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.c.bbV().e(new an("c12115").s("obj_id", aVar.eEo.aCK().live_id).cx(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return aVar2.getView();
     }
 
     public void a(com.baidu.tieba.ala.d dVar) {
-        this.eBI = dVar;
+        this.eCe = dVar;
     }
 }

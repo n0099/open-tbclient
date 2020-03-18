@@ -30,7 +30,7 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                     if (bigdayInfo != null) {
                         a aVar = new a();
                         aVar.a(bigdayInfo);
-                        if (aVar.azV()) {
+                        if (aVar.azY()) {
                             this.bigdayInfos.add(aVar);
                         }
                     }
@@ -44,9 +44,9 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null) {
-            l<byte[]> sP = com.baidu.tbadk.core.c.a.aEB().sP("tb.bigday_datas");
-            sP.remove("tb.bigday_datas");
-            sP.setForever("tb.bigday_datas", bArr);
+            l<byte[]> sO = com.baidu.tbadk.core.c.a.aEF().sO("tb.bigday_datas");
+            sO.remove("tb.bigday_datas");
+            sO.setForever("tb.bigday_datas", bArr);
         }
     }
 }

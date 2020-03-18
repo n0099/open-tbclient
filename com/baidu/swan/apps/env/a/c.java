@@ -14,10 +14,10 @@ public class c implements a {
         if (list == null) {
             return null;
         }
-        List<SwanFavorItemData> Sg = SwanFavorDataManager.Sf().Sg();
-        if (Sg.size() != 0) {
+        List<SwanFavorItemData> Sj = SwanFavorDataManager.Si().Sj();
+        if (Sj.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : Sg) {
+            for (SwanFavorItemData swanFavorItemData : Sj) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);

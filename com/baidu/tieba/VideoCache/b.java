@@ -14,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes9.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a dWH = new a();
+    private a dWX = new a();
 
     public b() {
-        aWZ();
+        aXd();
     }
 
-    private void aWZ() {
+    private void aXd() {
         File[] listFiles;
-        File file = new File(i.dXr);
+        File file = new File(i.dXH);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
@@ -30,10 +30,10 @@ public class b {
                     dVar.setFileName(file2.getName());
                     dVar.cl(wp(file2.getAbsolutePath()));
                     dVar.cm(m.wB(file2.getName()));
-                    this.dWH.a(dVar);
+                    this.dWX.a(dVar);
                 }
             }
-            Collections.sort(this.dWH.aWW(), new AccessTimeComparator());
+            Collections.sort(this.dWX.aXa(), new AccessTimeComparator());
         }
     }
 
@@ -90,7 +90,7 @@ public class b {
                     e = e5;
                     fileInputStream2 = fileInputStream;
                     try {
-                        TiebaStatic.log(new an("c12028").cy("errormsg", "获取缓存文件的Access时间出现异常").cy(BdStatsConstant.StatsType.ERROR, e.getMessage()).cy("name", file.getAbsolutePath()));
+                        TiebaStatic.log(new an("c12028").cx("errormsg", "获取缓存文件的Access时间出现异常").cx(BdStatsConstant.StatsType.ERROR, e.getMessage()).cx("name", file.getAbsolutePath()));
                         e.printStackTrace();
                         if (fileInputStream2 != null) {
                             try {
@@ -144,23 +144,23 @@ public class b {
         String wD = m.wD(str);
         if (wD != null && !wD.isEmpty()) {
             wr(wD);
-            if (this.dWH != null) {
+            if (this.dWX != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.dWH.aWY()) {
+                    if (i >= this.dWX.aXc()) {
                         dVar = null;
                         break;
                     }
-                    d nX = this.dWH.nX((this.dWH.aWY() - 1) - i);
-                    if (nX != null && nX.getFileName() != null && nX.getFileName().equals(wD)) {
-                        dVar = nX;
+                    d nZ = this.dWX.nZ((this.dWX.aXc() - 1) - i);
+                    if (nZ != null && nZ.getFileName() != null && nZ.getFileName().equals(wD)) {
+                        dVar = nZ;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.dWH.b(dVar);
+                    this.dWX.b(dVar);
                 } else {
                     dVar = new d();
                     dVar.setFileName(wD);
@@ -169,29 +169,29 @@ public class b {
                 t(wD, currentTimeMillis2);
                 dVar.cl(currentTimeMillis2);
                 dVar.cm(m.wB(wD));
-                this.dWH.a(dVar);
-                j.z(TAG, "total cache size: " + ((this.dWH.aWX() / 1024) / 1024) + "M list size " + this.dWH.aWY());
-                if (this.dWH.aWX() > 629145600) {
-                    while (this.dWH.aWX() > 524288000 && this.dWH.aWY() > 2 && aXa()) {
+                this.dWX.a(dVar);
+                j.z(TAG, "total cache size: " + ((this.dWX.aXb() / 1024) / 1024) + "M list size " + this.dWX.aXc());
+                if (this.dWX.aXb() > 629145600) {
+                    while (this.dWX.aXb() > 524288000 && this.dWX.aXc() > 2 && aXe()) {
                     }
-                    aXc();
+                    aXg();
                 }
-                if (m.aXq() < 314572800) {
-                    while (m.aXq() < 419430400 && this.dWH.aWY() > 2 && aXa()) {
+                if (m.aXu() < 314572800) {
+                    while (m.aXu() < 419430400 && this.dWX.aXc() > 2 && aXe()) {
                     }
-                    aXc();
+                    aXg();
                 }
                 j.z(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean aXa() {
-        d nX = this.dWH.nX(0);
-        if (nX == null || !(e.aXg().ws(nX.getFileName()) || e.aXg().wu(nX.getFileName()))) {
-            this.dWH.remove(0);
-            if (nX != null) {
-                File file = new File(i.dXs + nX.getFileName());
+    private boolean aXe() {
+        d nZ = this.dWX.nZ(0);
+        if (nZ == null || !(e.aXk().ws(nZ.getFileName()) || e.aXk().wu(nZ.getFileName()))) {
+            this.dWX.remove(0);
+            if (nZ != null) {
+                File file = new File(i.dXI + nZ.getFileName());
                 j.z(TAG, "delete file " + file.getName());
                 m.J(file);
             }
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void t(String str, long j) {
-        File file = new File(i.dXs + str);
+        File file = new File(i.dXI + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -212,36 +212,36 @@ public class b {
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
-            TiebaStatic.log(new an("c12028").cy("errormsg", "修改缓存文件的Access时间出现异常").cy(BdStatsConstant.StatsType.ERROR, e.getMessage()).cy("name", file2.getAbsolutePath()));
+            TiebaStatic.log(new an("c12028").cx("errormsg", "修改缓存文件的Access时间出现异常").cx(BdStatsConstant.StatsType.ERROR, e.getMessage()).cx("name", file2.getAbsolutePath()));
             e.printStackTrace();
         }
     }
 
-    public void aXb() {
-        if (this.dWH != null) {
+    public void aXf() {
+        if (this.dWX != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.dWH.aWY() - 2; i++) {
-                d nX = this.dWH.nX(i);
-                if (nX != null) {
-                    if (currentTimeMillis - nX.aXf() < 86400000) {
+            for (int i = 0; i < this.dWX.aXc() - 2; i++) {
+                d nZ = this.dWX.nZ(i);
+                if (nZ != null) {
+                    if (currentTimeMillis - nZ.aXj() < 86400000) {
                         break;
                     }
-                    arrayList.add(nX);
+                    arrayList.add(nZ);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.aXg().ws(dVar.getFileName()) && !e.aXg().wu(dVar.getFileName()))) {
-                    this.dWH.b(dVar);
+                if (dVar == null || (!e.aXk().ws(dVar.getFileName()) && !e.aXk().wu(dVar.getFileName()))) {
+                    this.dWX.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.dXs + dVar.getFileName());
+                        File file = new File(i.dXI + dVar.getFileName());
                         j.z(TAG, "delete expired file " + dVar.getFileName());
                         m.J(file);
                     }
                 }
             }
-            aXc();
+            aXg();
         }
     }
 
@@ -250,8 +250,8 @@ public class b {
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.dXs + str + "/completed");
-                    File file2 = new File(i.dXs + str + "/segments");
+                    File file = new File(i.dXI + str + "/completed");
+                    File file2 = new File(i.dXI + str + "/segments");
                     if (file.exists()) {
                         j.z(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -271,16 +271,16 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.dWH != null) {
-            while (this.dWH.aWY() > 0 && aXa()) {
+        if (this.dWX != null) {
+            while (this.dWX.aXc() > 0 && aXe()) {
             }
-            aXc();
+            aXg();
         }
     }
 
-    private void aXc() {
+    private void aXg() {
         File[] listFiles;
-        File file = new File(i.dXr);
+        File file = new File(i.dXH);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

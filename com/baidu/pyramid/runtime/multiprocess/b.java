@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static Bundle EU() {
-            return IPCServiceManager.EU();
+        public static Bundle EZ() {
+            return IPCServiceManager.EZ();
         }
     }
 }

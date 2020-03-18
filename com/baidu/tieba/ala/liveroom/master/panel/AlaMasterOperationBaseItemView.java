@@ -11,7 +11,7 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.d;
 /* loaded from: classes3.dex */
 public class AlaMasterOperationBaseItemView extends LinearLayout {
-    private TextView bpq;
+    private TextView bpC;
     private ImageView mIconView;
     public int mId;
 
@@ -22,7 +22,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
         setGravity(49);
         setPadding(0, context.getResources().getDimensionPixelSize(a.e.sdk_ds16), 0, 0);
         LayoutInflater.from(context).inflate(a.h.ala_gridview_item, this);
-        this.bpq = (TextView) findViewById(a.g.contentTv);
+        this.bpC = (TextView) findViewById(a.g.contentTv);
         this.mIconView = (ImageView) findViewById(a.g.icon_img);
     }
 
@@ -33,7 +33,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextResId(int i) {
         if (i > 0) {
-            this.bpq.setText(i);
+            this.bpC.setText(i);
         }
     }
 
@@ -50,14 +50,14 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     }
 
     protected void setTextColorResId(int i) {
-        this.bpq.setTextColor(getResources().getColor(i));
-        this.bpq.setAlpha(0.7f);
+        this.bpC.setTextColor(getResources().getColor(i));
+        this.bpC.setAlpha(0.7f);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.bpq.setEnabled(z);
+        this.bpC.setEnabled(z);
         this.mIconView.setEnabled(z);
     }
 }

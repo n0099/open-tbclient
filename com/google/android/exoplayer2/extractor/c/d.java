@@ -7,17 +7,17 @@ final class d {
     /* loaded from: classes6.dex */
     public static final class a {
         public final int maximumSize;
-        public final int[] mec;
-        public final long[] med;
-        public final long[] mjr;
-        public final int[] mjs;
+        public final int[] mfI;
+        public final long[] mfJ;
+        public final long[] mkX;
+        public final int[] mkY;
 
         private a(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2) {
-            this.med = jArr;
-            this.mec = iArr;
+            this.mfJ = jArr;
+            this.mfI = iArr;
             this.maximumSize = i;
-            this.mjr = jArr2;
-            this.mjs = iArr2;
+            this.mkX = jArr2;
+            this.mkY = iArr2;
         }
     }
 
@@ -28,7 +28,7 @@ final class d {
         int i4 = 0;
         while (i3 < length) {
             i3++;
-            i4 = v.dZ(iArr[i3], i2) + i4;
+            i4 = v.ea(iArr[i3], i2) + i4;
         }
         long[] jArr2 = new long[i4];
         int[] iArr2 = new int[i4];

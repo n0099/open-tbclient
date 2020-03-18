@@ -15,41 +15,41 @@ import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r {
-    private long cIP;
-    private CustomMessageListener cIQ = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tbadk.BdToken.r.1
+    private long cJa;
+    private CustomMessageListener cJb = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tbadk.BdToken.r.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                r.this.aye();
+                r.this.ayh();
             }
         }
     };
-    private s cIO = new s();
+    private s cIZ = new s();
 
     public r() {
-        MessageManager.getInstance().registerListener(this.cIQ);
-        aye();
-        this.cIP = com.baidu.tbadk.core.sharedPref.b.aFD().getLong("key_redpacket_pop_last_time", 0L);
+        MessageManager.getInstance().registerListener(this.cJb);
+        ayh();
+        this.cJa = com.baidu.tbadk.core.sharedPref.b.aFH().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
-        if (ayd() && isShowTime()) {
-            ayf();
+        if (ayg() && isShowTime()) {
+            ayi();
         }
     }
 
-    private boolean ayd() {
+    private boolean ayg() {
         Date date = new Date();
-        return date.getTime() >= this.cIO.getStartDate() && date.getTime() <= this.cIO.ayg();
+        return date.getTime() >= this.cIZ.getStartDate() && date.getTime() <= this.cIZ.ayj();
     }
 
     private boolean isShowTime() {
-        if (com.baidu.tbadk.core.util.v.isEmpty(this.cIO.ayh())) {
+        if (com.baidu.tbadk.core.util.v.isEmpty(this.cIZ.ayk())) {
             return false;
         }
         Date date = new Date();
-        Iterator<u> it = this.cIO.ayh().iterator();
+        Iterator<u> it = this.cIZ.ayk().iterator();
         while (it.hasNext()) {
             u next = it.next();
             if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
@@ -60,20 +60,20 @@ public class r {
     }
 
     private boolean a(u uVar) {
-        return uVar != null && this.cIP >= uVar.getStartTime() && this.cIP <= uVar.getEndTime();
+        return uVar != null && this.cJa >= uVar.getStartTime() && this.cJa <= uVar.getEndTime();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aye() {
-        this.cIO.parseJson(com.baidu.tbadk.core.sharedPref.b.aFD().getString("key_redpacket_pop", ""));
+    public void ayh() {
+        this.cIZ.parseJson(com.baidu.tbadk.core.sharedPref.b.aFH().getString("key_redpacket_pop", ""));
     }
 
-    private void ayf() {
-        if (!aq.isEmpty(this.cIO.getUrl())) {
-            this.cIP = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.aFD().putLong("key_redpacket_pop_last_time", this.cIP);
+    private void ayi() {
+        if (!aq.isEmpty(this.cIZ.getUrl())) {
+            this.cJa = System.currentTimeMillis();
+            com.baidu.tbadk.core.sharedPref.b.aFH().putLong("key_redpacket_pop_last_time", this.cJa);
             TiebaStatic.log(new an("c13083"));
-            String str = this.cIO.getUrl() + "?page_type=open_full_screen_opacity_web_page";
+            String str = this.cIZ.getUrl() + "?page_type=open_full_screen_opacity_web_page";
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", str, true)));

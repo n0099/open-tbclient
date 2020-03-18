@@ -14,7 +14,7 @@ public class e extends f {
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.f.e eVar) {
         super.a(eVar);
-        if (eVar != null && eVar.auu()) {
+        if (eVar != null && eVar.aux()) {
             r("checkForUpdate", true);
         }
     }
@@ -30,25 +30,25 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pi() {
-        super.Pi();
-        if (this.bqd != null) {
-            Py();
+    public void Pl() {
+        super.Pl();
+        if (this.bqp != null) {
+            PB();
             r("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Po() {
-        this.bqe.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Px = Px();
-        this.bqe.add(new UbcFlowEvent("na_end_update_db"));
-        if (Px == null) {
+    protected void Pr() {
+        this.bqq.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a PA = PA();
+        this.bqq.add(new UbcFlowEvent("na_end_update_db"));
+        if (PA == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
             r("updateReady", true);
-            aB("main_async_download", "0");
+            aA("main_async_download", "0");
         } else if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
         }
@@ -68,7 +68,7 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Pp() {
+    protected PMSDownloadType Ps() {
         return PMSDownloadType.ASYNC;
     }
 

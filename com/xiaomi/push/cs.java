@@ -31,9 +31,9 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m204a(String str, int i) {
+    public static InetSocketAddress m202a(String str, int i) {
         cs a = a(str, i);
-        return new InetSocketAddress(a.m205a(), a.a());
+        return new InetSocketAddress(a.m203a(), a.a());
     }
 
     public int a() {
@@ -41,7 +41,7 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m205a() {
+    public String m203a() {
         return this.f200a;
     }
 

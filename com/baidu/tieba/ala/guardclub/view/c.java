@@ -23,9 +23,9 @@ public class c {
     private void s(View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.h.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.g.textView);
-        ah vJ = g.vH().vJ();
-        if (vJ != null && !TextUtils.isEmpty(vJ.acm)) {
-            this.textView.setText(vJ.acm);
+        ah vO = g.vM().vO();
+        if (vO != null && !TextUtils.isEmpty(vO.acy)) {
+            this.textView.setText(vO.acy);
         }
         this.mView.setOnClickListener(onClickListener);
     }

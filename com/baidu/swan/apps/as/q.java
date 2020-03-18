@@ -57,11 +57,11 @@ public final class q {
         return Uri.parse(str);
     }
 
-    public static File mL(String str) {
-        return bu(com.baidu.swan.apps.y.f.WS().Wz().afp(), str);
+    public static File mK(String str) {
+        return bt(com.baidu.swan.apps.y.f.WV().WC().afs(), str);
     }
 
-    public static File bu(String str, String str2) {
+    public static File bt(String str, String str2) {
         if (DEBUG) {
             Log.d("ImageUtils", "获取temp路径");
         }

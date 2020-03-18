@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int bXr = 5;
-    private static int bXs = 0;
-    private TextView bXp;
-    private boolean bXq;
+    private static int bXC = 5;
+    private static int bXD = 0;
+    private TextView bXA;
+    private boolean bXB;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -25,7 +25,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.bXp = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.bXA = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > bXr) {
-            str = str.substring(bXs, bXr);
+        if (str.length() > bXC) {
+            str = str.substring(bXD, bXC);
         }
         this.mTextView.setText(str);
     }
@@ -51,16 +51,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean agc() {
-        return this.bXq;
+    public boolean agf() {
+        return this.bXB;
     }
 
     public void setmIsSelect(boolean z) {
-        this.bXq = z;
+        this.bXB = z;
     }
 
     public void setBadgeText(String str) {
-        this.bXp.setText(str);
+        this.bXA.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +73,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.bXp.setVisibility(0);
+            this.bXA.setVisibility(0);
         } else {
-            this.bXp.setVisibility(8);
+            this.bXA.setVisibility(8);
         }
     }
 }

@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c aPR;
+    private static volatile c aQf;
 
-    public static synchronized c Eu() {
+    public static synchronized c EB() {
         c cVar;
         synchronized (c.class) {
-            if (aPR == null) {
+            if (aQf == null) {
                 synchronized (c.class) {
-                    if (aPR == null) {
-                        aPR = new c();
+                    if (aQf == null) {
+                        aQf = new c();
                     }
                 }
             }
-            cVar = aPR;
+            cVar = aQf;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Et().e(activity, str, aVar);
+        b.EA().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Et().f(activity, str, aVar);
+        b.EA().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Et().b(context, jSONObject, aVar);
+        b.EA().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Et().g(context, jSONObject);
+        b.EA().g(context, jSONObject);
         return true;
     }
 }

@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements v {
-    private com.baidu.live.gift.c.a aof;
+    private com.baidu.live.gift.c.a aop;
     private Context mContext;
 
     public a(Context context) {
@@ -23,24 +23,24 @@ public class a implements v {
     }
 
     @Override // com.baidu.live.gift.v
-    public void sK() {
-        this.aof.uN();
+    public void sP() {
+        this.aop.uS();
     }
 
     @Override // com.baidu.live.gift.v
-    public void sL() {
+    public void sQ() {
     }
 
     @Override // com.baidu.live.gift.v
     public void release() {
-        if (this.aof != null) {
-            this.aof.release();
+        if (this.aop != null) {
+            this.aop.release();
         }
     }
 
     private void dQ() {
-        this.aof = new com.baidu.live.gift.c.a();
-        this.aof.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.aop = new com.baidu.live.gift.c.a();
+        this.aop.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<d> arrayList2, ArrayList<e> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -58,7 +58,7 @@ public class a implements v {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, List<i> list) {
         if (z) {
-            r.sx().s(list);
+            r.sC().s(list);
         }
     }
 
@@ -72,37 +72,37 @@ public class a implements v {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aof == null) {
-                this.aof = new com.baidu.live.gift.c.a();
+            if (this.aop == null) {
+                this.aop = new com.baidu.live.gift.c.a();
             }
-            this.aof.uN();
+            this.aop.uS();
         }
     }
 
     private void q(String str, int i) {
         List<i> datas;
-        if (!TextUtils.isEmpty(str) && (datas = r.sx().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = r.sC().getDatas()) != null) {
             ArrayList<i> arrayList = new ArrayList(datas);
             for (i iVar : arrayList) {
-                List<g> rY = iVar.rY();
-                if (rY != null) {
+                List<g> sd = iVar.sd();
+                if (sd != null) {
                     if (i == 0) {
-                        Iterator<g> it = rY.iterator();
+                        Iterator<g> it = sd.iterator();
                         while (it.hasNext()) {
-                            if (it.next().rx().equals(str)) {
+                            if (it.next().rC().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : rY) {
-                            if (gVar.rx().equals(str)) {
-                                gVar.agn.agu = i;
+                        for (g gVar : sd) {
+                            if (gVar.rC().equals(str)) {
+                                gVar.agx.agE = i;
                             }
                         }
                     }
                 }
             }
-            r.sx().s(arrayList);
+            r.sC().s(arrayList);
         }
     }
 }

@@ -13,7 +13,7 @@ public class d extends HttpMessage {
         return this.liveId;
     }
 
-    public void dO(String str) {
+    public void dN(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

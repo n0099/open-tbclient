@@ -11,10 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class x {
-    public String abj = "";
-    public int abk;
-    public String abl;
-    public int abm;
+    public String abu = "";
+    public int abv;
+    public String abw;
+    public int abx;
     public long ala_id;
     public long anchor_live;
     public int change_sex;
@@ -73,7 +73,7 @@ public class x {
         if (jSONObject != null) {
             this.ala_id = jSONObject.optLong("ala_id");
             this.user_id = jSONObject.optString("user_id");
-            this.abj = jSONObject.optString("meta_key");
+            this.abu = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -86,7 +86,7 @@ public class x {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.abl = jSONObject.optString("app_from");
+            this.abw = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");
@@ -115,7 +115,7 @@ public class x {
             this.enter_live = jSONObject.optLong("enter_live");
             this.is_live_admin = jSONObject.optInt("is_live_admin");
             this.is_block = jSONObject.optInt("is_block");
-            this.abk = jSONObject.optInt("is_chat_block");
+            this.abv = jSONObject.optInt("is_chat_block");
             this.third_app_id = jSONObject.optString("third_app_id");
             this.stream_id = jSONObject.optLong(BdStatsConstant.StatsKey.STREAM_ID);
             this.has_tieba_username = jSONObject.optInt("has_tieba_username");
@@ -134,7 +134,7 @@ public class x {
                     this.live_mark_info_new.add(alaLiveMarkData);
                 }
             }
-            this.abm = jSONObject.optInt("live_mark_total");
+            this.abx = jSONObject.optInt("live_mark_total");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }

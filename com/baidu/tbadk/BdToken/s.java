@@ -7,26 +7,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private long cIS;
-    private long cIT;
-    private ArrayList<u> cIU;
+    private long cJd;
+    private long cJe;
+    private ArrayList<u> cJf;
     private String mUrl;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.cIS = jSONObject.optLong("start_date", 0L) * 1000;
-                this.cIT = jSONObject.optLong("end_date", 0L) * 1000;
+                this.cJd = jSONObject.optLong("start_date", 0L) * 1000;
+                this.cJe = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.cIU = new ArrayList<>();
+                this.cJf = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         u uVar = new u();
                         uVar.parseJson(optJSONArray2);
-                        this.cIU.add(uVar);
+                        this.cJf.add(uVar);
                     }
                 }
             } catch (Exception e) {
@@ -36,18 +36,18 @@ public class s {
     }
 
     public long getStartDate() {
-        return this.cIS;
+        return this.cJd;
     }
 
-    public long ayg() {
-        return this.cIT;
+    public long ayj() {
+        return this.cJe;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<u> ayh() {
-        return this.cIU;
+    public ArrayList<u> ayk() {
+        return this.cJf;
     }
 }

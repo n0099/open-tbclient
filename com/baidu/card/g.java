@@ -18,6 +18,6 @@ public class g extends al {
 
     @Override // com.baidu.card.al
     protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.MK, this.Kn);
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.MN, this.Kn);
     }
 }

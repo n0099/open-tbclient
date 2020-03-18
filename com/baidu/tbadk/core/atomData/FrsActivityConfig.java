@@ -45,6 +45,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
     public static final String FRS_GAME_DEFAULT_TAB_ID = "frs_game_default_tab_id";
     public static final String FRS_HOT_THREAD_ID = "frs_hot_thread_id";
+    public static final String FRS_PAGE_ID = "frs_page_id";
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String GOOD = "good";
     public static final String KEY_REFRESH = "refresh_all";
@@ -126,5 +127,9 @@ public class FrsActivityConfig extends IntentConfig {
         if (intent != null) {
             intent.putExtra("key_uri", uri);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public void preJump() {
     }
 }

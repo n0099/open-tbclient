@@ -5,11 +5,11 @@ public class d {
         return 1 + j;
     }
 
-    public static long ec(long j) {
+    public static long ed(long j) {
         return 100 * j;
     }
 
-    public static long ed(long j) {
+    public static long ee(long j) {
         return j / 100;
     }
 }

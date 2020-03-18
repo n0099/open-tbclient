@@ -41,12 +41,12 @@ public class as {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m519a() {
+    public Uri m517a() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m520a() {
+    public boolean m518a() {
         return com.xiaomi.push.ab.f112a.contains("xmsf") || com.xiaomi.push.ab.f112a.contains("xiaomi") || com.xiaomi.push.ab.f112a.contains("miui");
     }
 }

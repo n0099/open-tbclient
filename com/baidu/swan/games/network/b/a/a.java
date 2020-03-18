@@ -14,61 +14,61 @@ import okhttp3.Request;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e cqx;
+    private e cqI;
 
     public a(com.baidu.swan.games.e.b bVar, c cVar) {
         super(bVar, cVar);
-        this.cqx = new e(this);
+        this.cqI = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.cqx.aoU();
+        this.cqI.aoX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b
     public void a(Request request, String str, String str2, com.baidu.swan.games.network.b bVar, d dVar) {
-        if (this.cqg != null && !ps(str)) {
-            String optString = this.cqg.optString("url");
+        if (this.cqr != null && !pr(str)) {
+            String optString = this.cqr.optString("url");
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
-            com.baidu.swan.games.network.b.d.aoT().a(optString, this);
+            com.baidu.swan.games.network.b.d.aoW().a(optString, this);
             super.a(request, str, str2, bVar, dVar);
         }
     }
 
     @Override // com.baidu.swan.games.network.a.b
     @Nullable
-    protected String pr(@NonNull String str) {
+    protected String pq(@NonNull String str) {
         File parentFile;
-        String mi = f.WS().Wz().mi(str);
-        if (mi == null || mi.endsWith(File.separator) || (parentFile = new File(mi).getParentFile()) == null) {
+        String mh = f.WV().WC().mh(str);
+        if (mh == null || mh.endsWith(File.separator) || (parentFile = new File(mh).getParentFile()) == null) {
             return null;
         }
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
-        return mi;
+        return mh;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.cqx.onSuccess(obj);
+        this.cqI.onSuccess(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b, com.baidu.swan.games.network.a
     public void i(String str, int i, String str2) {
-        this.cqx.i(str, i, str2);
+        this.cqI.i(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.cqx.b(jSEvent);
+        return this.cqI.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a
@@ -94,11 +94,11 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
         }
     }
 
-    private boolean ps(String str) {
-        String mi = f.WS().Wz().mi(str);
-        if (TextUtils.isEmpty(mi)) {
+    private boolean pr(String str) {
+        String mh = f.WV().WC().mh(str);
+        if (TextUtils.isEmpty(mh)) {
             return false;
         }
-        return new File(mi).exists();
+        return new File(mh).exists();
     }
 }

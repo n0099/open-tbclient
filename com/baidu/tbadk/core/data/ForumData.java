@@ -27,7 +27,7 @@ import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes.dex */
 public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tbadk.core.util.ae, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     public static final String FROM_PAGE_FRS = "frs";
@@ -351,7 +351,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.slogan = forumInfo.slogan;
                 this.is_support_local = forumInfo.is_support_local.intValue();
                 this.is_local_effect = forumInfo.is_local_effect.intValue();
-                if (!TextUtils.isEmpty(forumInfo.accelerate_cotent) && !TextUtils.isEmpty(forumInfo.accelerate_cotent)) {
+                if (!TextUtils.isEmpty(forumInfo.accelerate_cotent)) {
                     this.accelerate_cotent = forumInfo.accelerate_cotent;
                 }
                 this.top_notice_data.a(forumInfo.top_notice);

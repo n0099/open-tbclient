@@ -1,72 +1,59 @@
 package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
-import com.baidu.tieba.card.k;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.ad;
+import com.baidu.card.af;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes9.dex */
-public class d<T extends com.baidu.tieba.card.k> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.f {
+public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, af<com.baidu.tieba.homepage.personalize.data.f>> {
+    private com.baidu.adp.widget.ListView.r OT;
+    public BdUniqueId dBK;
+    private TbPageContext<?> mPageContext;
+
+    public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.mPageContext = tbPageContext;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a.a
-    /* renamed from: bOW */
-    public T bvL() {
-        return (T) this.fOw;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aN */
+    public af<com.baidu.tieba.homepage.personalize.data.f> b(ViewGroup viewGroup) {
+        ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.dBK));
+        aVar.ni().aV(0);
+        aVar.ni().aX(0);
+        aVar.ni().aW(0);
+        aVar.ni().aR(0);
+        af<com.baidu.tieba.homepage.personalize.data.f> afVar = new af<>(aVar.a(true, viewGroup, this.OT));
+        afVar.setPageId(this.dBK);
+        an anVar = new an("c13620");
+        anVar.s("uid", TbadkApplication.getCurrentAccountId());
+        anVar.X("fid", 0);
+        TiebaStatic.log(anVar);
+        return afVar;
     }
 
-    @Override // com.baidu.tieba.play.f
-    public boolean isPlayStarted() {
-        if (this.fOw == 0) {
-            return false;
-        }
-        return ((com.baidu.tieba.card.k) this.fOw).isPlayStarted();
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public boolean isPlaying() {
-        if (this.fOw == 0) {
-            return false;
-        }
-        return ((com.baidu.tieba.card.k) this.fOw).isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public boolean isFullScreen() {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public void startPlay() {
-        if (this.fOw != 0) {
-            ((com.baidu.tieba.card.k) this.fOw).startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public void stopPlay() {
-        if (this.fOw != 0) {
-            ((com.baidu.tieba.card.k) this.fOw).stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public View getVideoContainer() {
-        if (this.fOw == 0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.f fVar, af<com.baidu.tieba.homepage.personalize.data.f> afVar) {
+        if (fVar == null || afVar == null || afVar.getView() == null) {
             return null;
         }
-        return ((com.baidu.tieba.card.k) this.fOw).getVideoContainer();
+        afVar.b((af<com.baidu.tieba.homepage.personalize.data.f>) fVar);
+        afVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return afVar.getView();
     }
 
-    @Override // com.baidu.tieba.play.f
-    public String getPlayUrl() {
-        if (this.fOw == 0) {
-            return null;
-        }
-        return ((com.baidu.tieba.card.k) this.fOw).getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.f
-    public int getCurrentPosition() {
-        if (this.fOw == 0) {
-            return 0;
-        }
-        return ((com.baidu.tieba.card.k) this.fOw).getCurrentPosition();
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.dBK = bdUniqueId;
     }
 }

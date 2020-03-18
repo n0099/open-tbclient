@@ -4,59 +4,59 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes11.dex */
 public final class a {
-    public JsFunction clS;
-    public JsFunction clT;
-    public JsFunction clU;
+    public JsFunction cme;
+    public JsFunction cmf;
+    public JsFunction cmg;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.clS = cVar.oF("success");
-        aVar.clT = cVar.oF(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.clU = cVar.oF(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.cme = cVar.oE("success");
+        aVar.cmf = cVar.oE(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.cmg = cVar.oE(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.clS != null) {
-            this.clS.call(obj);
+        if (this.cme != null) {
+            this.cme.call(obj);
         }
-        if (this.clU != null) {
-            this.clU.call(obj);
+        if (this.cmg != null) {
+            this.cmg.call(obj);
         }
-        a(this.clT);
+        a(this.cmf);
     }
 
     public void S(Object obj) {
-        if (this.clT != null) {
-            this.clT.call(obj);
+        if (this.cmf != null) {
+            this.cmf.call(obj);
         }
-        if (this.clU != null) {
-            this.clU.call(obj);
+        if (this.cmg != null) {
+            this.cmg.call(obj);
         }
-        a(this.clS);
+        a(this.cme);
     }
 
     public void onSuccess() {
-        if (this.clS != null) {
-            this.clS.call();
+        if (this.cme != null) {
+            this.cme.call();
         }
-        if (this.clU != null) {
-            this.clU.call();
+        if (this.cmg != null) {
+            this.cmg.call();
         }
-        a(this.clT);
+        a(this.cmf);
     }
 
     public void onFail() {
-        if (this.clT != null) {
-            this.clT.call();
+        if (this.cmf != null) {
+            this.cmf.call();
         }
-        if (this.clU != null) {
-            this.clU.call();
+        if (this.cmg != null) {
+            this.cmg.call();
         }
-        a(this.clS);
+        a(this.cme);
     }
 
     private void a(JsFunction jsFunction) {

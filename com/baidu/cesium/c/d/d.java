@@ -3,7 +3,7 @@ package com.baidu.cesium.c.d;
 import java.math.BigInteger;
 /* loaded from: classes13.dex */
 public interface d {
-    BigInteger nI();
+    BigInteger nH();
 
-    BigInteger nJ();
+    BigInteger nI();
 }

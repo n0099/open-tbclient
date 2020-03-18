@@ -13,34 +13,34 @@ import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import java.lang.ref.SoftReference;
 /* loaded from: classes9.dex */
 public abstract class l<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private SparseArray<SoftReference<Drawable>> iDx;
-    private SparseIntArray iDy;
-    protected PbFragment iEk;
-    protected com.baidu.tieba.pb.videopb.b iGs;
-    protected VideoPbFragment iGt;
-    protected com.baidu.adp.widget.ListView.o iGu;
+    private SparseArray<SoftReference<Drawable>> iEY;
+    private SparseIntArray iEZ;
+    protected PbFragment iFL;
+    protected com.baidu.tieba.pb.videopb.b iHT;
+    protected VideoPbFragment iHU;
+    protected com.baidu.adp.widget.ListView.o iHV;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public l(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar == null ? null : bVar.cnj(), bdUniqueId);
+        super(bVar == null ? null : bVar.cnE(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.iDx = new SparseArray<>();
-        this.iDy = new SparseIntArray();
+        this.iEY = new SparseArray<>();
+        this.iEZ = new SparseIntArray();
         a(bVar);
     }
 
     public void a(com.baidu.tieba.pb.videopb.b bVar) {
         if (bVar != null) {
-            this.iGs = bVar;
-            this.iEk = bVar.cnh();
-            this.iGt = bVar.cni();
-            if (this.iEk != null) {
-                this.mContext = this.iEk.getActivity();
-            } else if (this.iGt != null) {
-                this.mContext = this.iGt.getActivity();
+            this.iHT = bVar;
+            this.iFL = bVar.cnC();
+            this.iHU = bVar.cnD();
+            if (this.iFL != null) {
+                this.mContext = this.iFL.getActivity();
+            } else if (this.iHU != null) {
+                this.mContext = this.iHU.getActivity();
             } else {
                 this.mContext = null;
             }
@@ -51,7 +51,7 @@ public abstract class l<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.iGu = (com.baidu.adp.widget.ListView.o) viewGroup;
+        this.iHV = (com.baidu.adp.widget.ListView.o) viewGroup;
         return null;
     }
 
@@ -61,10 +61,10 @@ public abstract class l<T, V extends v.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.iDy.get(i, -1);
+        int i2 = this.iEZ.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.iDy.put(i, dimensionPixelSize);
+            this.iEZ.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

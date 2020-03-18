@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel itv;
+    private MarkModel iuV;
 
     public b(BaseActivity baseActivity) {
-        this.itv = null;
-        this.itv = new MarkModel(baseActivity);
+        this.iuV = null;
+        this.iuV = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.itv = null;
-        this.itv = new MarkModel(baseFragmentActivity);
+        this.iuV = null;
+        this.iuV = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void fm(boolean z) {
-        this.itv.fm(z);
+    public void fn(boolean z) {
+        this.iuV.fn(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String ayK() {
-        return this.itv.ayK();
+    public String ayN() {
+        return this.iuV.ayN();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(a.InterfaceC0374a interfaceC0374a) {
-        this.itv.a(interfaceC0374a);
+        this.iuV.a(interfaceC0374a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ayM() {
-        this.itv.ayM();
+    public void ayP() {
+        this.iuV.ayP();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ayN() {
-        this.itv.ayN();
+    public void ayQ() {
+        this.iuV.ayQ();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData ayO() {
-        return this.itv.ayO();
+    public MarkData ayR() {
+        return this.iuV.ayR();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.itv.a(markData);
+        this.iuV.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean ayL() {
-        return this.itv.ayL();
+    public boolean ayO() {
+        return this.iuV.ayO();
     }
 }

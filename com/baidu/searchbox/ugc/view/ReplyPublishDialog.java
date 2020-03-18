@@ -327,8 +327,8 @@ public class ReplyPublishDialog extends DialogFragment implements View.OnClickLi
             }
         });
         com.baidu.spswitch.b.b.init(AppConfig.isDebug());
-        com.baidu.spswitch.b.a.Gq().a(this.mActivity, this.mPanelRootView, this.mInputView, NightModeHelper.getNightModeSwitcherState());
-        com.baidu.spswitch.b.a.Gq().a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.view.ReplyPublishDialog.6
+        com.baidu.spswitch.b.a.Gv().a(this.mActivity, this.mPanelRootView, this.mInputView, NightModeHelper.getNightModeSwitcherState());
+        com.baidu.spswitch.b.a.Gv().a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.view.ReplyPublishDialog.6
             @Override // com.baidu.spswitch.b.a.InterfaceC0194a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
@@ -406,7 +406,7 @@ public class ReplyPublishDialog extends DialogFragment implements View.OnClickLi
         if (this.mInputView != null) {
             this.mInputView.removeListener();
         }
-        com.baidu.spswitch.b.a.Gq().dismiss();
+        com.baidu.spswitch.b.a.Gv().dismiss();
     }
 
     @Override // android.view.View.OnClickListener

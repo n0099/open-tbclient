@@ -23,74 +23,74 @@ import org.apache.http.cookie.SM;
 /* loaded from: classes12.dex */
 public class b implements com.baidu.swan.apps.r.e.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean egK = false;
-    private String bAA;
-    private MediaPlayer bbk;
-    private String bcj;
-    private a.InterfaceC0277a bxi;
-    private AudioManager bxk;
-    private ZeusPluginFactory.Invoker egL;
+    private static boolean eha = false;
+    private AudioManager axD;
+    private String bAL;
+    private MediaPlayer bbx;
+    private String bcw;
+    private a.InterfaceC0277a bxu;
+    private ZeusPluginFactory.Invoker ehb;
     private Context mContext;
-    private boolean bEf = false;
-    private boolean egM = false;
-    private final MediaPlayer.OnPreparedListener ckz = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.4
+    private boolean bEq = false;
+    private boolean ehc = false;
+    private final MediaPlayer.OnPreparedListener ckK = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.4
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             if (b.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + b.this.hashCode() + " - onPrepared()");
             }
-            if (b.this.bxi != null) {
-                b.this.bxi.onPrepared();
+            if (b.this.bxu != null) {
+                b.this.bxu.onPrepared();
             }
         }
     };
-    private final MediaPlayer.OnErrorListener ckB = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.5
+    private final MediaPlayer.OnErrorListener ckM = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.5
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             if (b.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + b.this.hashCode() + " - onError(" + i + ", " + i2 + ")");
             }
-            b.this.HD();
+            b.this.zh();
             int i3 = i == -10000 ? 0 : i;
-            if (b.this.bxi != null) {
-                b.this.bxi.onError(i3);
+            if (b.this.bxu != null) {
+                b.this.bxu.onError(i3);
             }
             b.this.h(i, i2, "");
             return false;
         }
     };
-    private final MediaPlayer.OnCompletionListener ckA = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.6
+    private final MediaPlayer.OnCompletionListener ckL = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.6
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             boolean z = b.this.getDuration() != 0 && b.this.getCurrentPosition() >= b.this.getDuration();
             if (b.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + b.this.hashCode() + " - onCompletion:(" + z + ")");
             }
-            b.this.HD();
-            if (b.this.bxi != null) {
+            b.this.zh();
+            if (b.this.bxu != null) {
                 if (z) {
-                    b.this.bxi.onEnded();
+                    b.this.bxu.onEnded();
                 } else {
-                    b.this.bxi.onPaused();
+                    b.this.bxu.onPaused();
                 }
             }
         }
     };
-    private final MediaPlayer.OnInfoListener dVI = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.7
+    private final MediaPlayer.OnInfoListener dVY = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.7
         @Override // android.media.MediaPlayer.OnInfoListener
         public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
             if (b.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + b.this.hashCode() + " - onInfo(" + i + ", " + i2 + ")");
             }
-            b.this.bxi.fd(i);
+            b.this.bxu.fd(i);
             if (i == 3) {
-                b.this.bbt();
+                b.this.bbx();
                 return false;
             }
             return false;
         }
     };
-    private final MediaPlayer.OnBufferingUpdateListener egN = new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.8
+    private final MediaPlayer.OnBufferingUpdateListener ehd = new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.8
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
             if (b.DEBUG) {
@@ -98,7 +98,7 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
             }
         }
     };
-    private final MediaPlayer.OnSeekCompleteListener ckC = new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.9
+    private final MediaPlayer.OnSeekCompleteListener ckN = new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.9
         @Override // android.media.MediaPlayer.OnSeekCompleteListener
         public void onSeekComplete(MediaPlayer mediaPlayer) {
             if (b.DEBUG) {
@@ -106,18 +106,18 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
             }
         }
     };
-    private final MediaPlayer.OnVideoSizeChangedListener dVH = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.10
+    private final MediaPlayer.OnVideoSizeChangedListener dVX = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.10
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
             if (b.DEBUG) {
                 Log.d("【CyberCallback】", "CyberPlayer" + b.this.hashCode() + " - onVideoSizeChanged(" + i + ", " + i2 + ")");
             }
-            if (b.this.bxi != null) {
-                b.this.bxi.TF();
+            if (b.this.bxu != null) {
+                b.this.bxu.TI();
             }
         }
     };
-    private final AudioManager.OnAudioFocusChangeListener bnD = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.2
+    private final AudioManager.OnAudioFocusChangeListener axF = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.tieba.aiapps.apps.widget.b.2
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             if (i == -1) {
@@ -129,43 +129,43 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
     public interface a {
-        void hM(boolean z);
+        void hN(boolean z);
     }
 
     public b(ZeusPluginFactory.Invoker invoker, String str) {
-        this.egL = invoker;
-        if (this.egL != null) {
-            this.mContext = com.baidu.swan.apps.w.a.TW();
-            this.bAA = (String) this.egL.get("id");
+        this.ehb = invoker;
+        if (this.ehb != null) {
+            this.mContext = com.baidu.swan.apps.w.a.TZ();
+            this.bAL = (String) this.ehb.get("id");
         }
-        this.bcj = str;
+        this.bcw = str;
     }
 
     @Override // com.baidu.swan.apps.r.d
     public void a(@NonNull final d.a aVar) {
-        a(com.baidu.swan.apps.w.a.TW(), new a() { // from class: com.baidu.tieba.aiapps.apps.widget.b.1
+        a(com.baidu.swan.apps.w.a.TZ(), new a() { // from class: com.baidu.tieba.aiapps.apps.widget.b.1
             @Override // com.baidu.tieba.aiapps.apps.widget.b.a
-            public void hM(boolean z) {
-                aVar.cF(z);
+            public void hN(boolean z) {
+                aVar.cG(z);
             }
         });
     }
 
-    private synchronized MediaPlayer HB() {
-        if (this.bbk == null) {
-            this.bbk = new MediaPlayer();
-            this.bbk.setOnPreparedListener(this.ckz);
-            this.bbk.setOnVideoSizeChangedListener(this.dVH);
-            this.bbk.setOnCompletionListener(this.ckA);
-            this.bbk.setOnErrorListener(this.ckB);
-            this.bbk.setOnInfoListener(this.dVI);
-            this.bbk.setOnBufferingUpdateListener(this.egN);
-            this.bbk.setOnSeekCompleteListener(this.ckC);
+    private synchronized MediaPlayer HG() {
+        if (this.bbx == null) {
+            this.bbx = new MediaPlayer();
+            this.bbx.setOnPreparedListener(this.ckK);
+            this.bbx.setOnVideoSizeChangedListener(this.dVX);
+            this.bbx.setOnCompletionListener(this.ckL);
+            this.bbx.setOnErrorListener(this.ckM);
+            this.bbx.setOnInfoListener(this.dVY);
+            this.bbx.setOnBufferingUpdateListener(this.ehd);
+            this.bbx.setOnSeekCompleteListener(this.ckN);
             if (DEBUG) {
-                Log.d("SwanInlineCyberWidget", "新的CyberPlayer实例 " + this.bbk.hashCode() + " 已创建");
+                Log.d("SwanInlineCyberWidget", "新的CyberPlayer实例 " + this.bbx.hashCode() + " 已创建");
             }
         }
-        return this.bbk;
+        return this.bbx;
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
@@ -178,14 +178,14 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
         if (DEBUG) {
             Log.d("SwanInlineCyberWidget", "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2);
         }
-        this.egM = true;
+        this.ehc = true;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (str.startsWith("file:///")) {
             str = str.substring("file:///".length());
         }
-        String js = js(str);
+        String jr = jr(str);
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put(SM.COOKIE, str2);
@@ -197,7 +197,7 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
             hashMap.put("User-Agent", str3);
         }
         try {
-            HB().setDataSource(this.mContext, Uri.parse(js), hashMap);
+            HG().setDataSource(this.mContext, Uri.parse(jr), hashMap);
             return true;
         } catch (IOException e) {
             if (DEBUG) {
@@ -210,96 +210,96 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void setSurface(Surface surface) {
-        HB().setSurface(surface);
+        HG().setSurface(surface);
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public boolean prepareAsync() {
-        HC();
-        HB().prepareAsync();
+        zg();
+        HG().prepareAsync();
         return true;
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void start() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.bAA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start()");
+            Log.d("SwanInlineCyberWidget", this.bAL + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start()");
         }
-        HC();
-        HB().start();
-        hL(true);
-        if (this.bxi != null) {
-            this.bxi.onPlayed();
+        zg();
+        HG().start();
+        hM(true);
+        if (this.bxu != null) {
+            this.bxu.onPlayed();
         }
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void pause() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.bAA + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " pause()");
+            Log.d("SwanInlineCyberWidget", this.bAL + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " pause()");
         }
-        HB().pause();
-        hL(false);
-        if (this.bxi != null) {
-            this.bxi.onPaused();
+        HG().pause();
+        hM(false);
+        if (this.bxu != null) {
+            this.bxu.onPaused();
         }
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void seekTo(int i) {
-        HB().seekTo(i);
+        HG().seekTo(i);
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void release() {
         if (DEBUG) {
-            Log.d("SwanInlineCyberWidget", this.bAA + " release()");
+            Log.d("SwanInlineCyberWidget", this.bAL + " release()");
         }
-        HD();
-        HB().release();
+        zh();
+        HG().release();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public int getDuration() {
-        return HB().getDuration();
+        return HG().getDuration();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public int getCurrentPosition() {
-        return HB().getCurrentPosition();
+        return HG().getCurrentPosition();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public boolean isPlaying() {
-        return HB().isPlaying();
+        return HG().isPlaying();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public int getVideoWidth() {
-        return HB().getVideoWidth();
+        return HG().getVideoWidth();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public int getVideoHeight() {
-        return HB().getVideoHeight();
+        return HG().getVideoHeight();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
-    public void cG(boolean z) {
+    public void cH(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
-    public void TG() {
+    public void TJ() {
         if (isPlaying()) {
-            this.bEf = true;
+            this.bEq = true;
         }
         pause();
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
-    public void TH() {
-        if (!isPlaying() && this.bEf) {
-            this.bEf = false;
+    public void TK() {
+        if (!isPlaying() && this.bEq) {
+            this.bEq = false;
             start();
         }
     }
@@ -315,11 +315,11 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
 
     @Override // com.baidu.swan.apps.r.e.b.a
     public void a(@NonNull a.InterfaceC0277a interfaceC0277a) {
-        this.bxi = interfaceC0277a;
+        this.bxu = interfaceC0277a;
     }
 
     @Override // com.baidu.swan.apps.r.e.b.a
-    public boolean TI() {
+    public boolean TL() {
         return false;
     }
 
@@ -329,17 +329,17 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
 
     @Override // com.baidu.swan.apps.r.d
     @Nullable
-    public String Tu() {
-        return this.bAA;
+    public String Tx() {
+        return this.bAL;
     }
 
-    private void HC() {
-        if (this.bxk == null) {
-            this.bxk = (AudioManager) this.mContext.getSystemService("audio");
+    private void zg() {
+        if (this.axD == null) {
+            this.axD = (AudioManager) this.mContext.getSystemService("audio");
         }
-        if (this.bxk != null) {
+        if (this.axD != null) {
             try {
-                this.bxk.requestAudioFocus(this.bnD, 3, 1);
+                this.axD.requestAudioFocus(this.axF, 3, 1);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -349,35 +349,35 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
     }
 
     public void setVolume(float f) {
-        if (HB() != null) {
-            HB().setVolume(f, f);
+        if (HG() != null) {
+            HG().setVolume(f, f);
         }
     }
 
     private static void a(@NonNull Context context, @Nullable a aVar) {
-        if (!egK && aVar != null) {
-            aVar.hM(true);
+        if (!eha && aVar != null) {
+            aVar.hN(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HD() {
-        if (this.bxk == null) {
-            this.bxk = (AudioManager) this.mContext.getSystemService("audio");
+    public void zh() {
+        if (this.axD == null) {
+            this.axD = (AudioManager) this.mContext.getSystemService("audio");
         }
-        if (this.bxk != null) {
-            this.bxk.abandonAudioFocus(this.bnD);
+        if (this.axD != null) {
+            this.axD.abandonAudioFocus(this.axF);
         }
     }
 
-    private void hL(final boolean z) {
+    private void hM(final boolean z) {
         ai.l(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.widget.b.3
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity;
                 Window window;
-                e acF = e.acF();
-                if (acF != null && (activity = acF.getActivity()) != null && (window = activity.getWindow()) != null) {
+                e acI = e.acI();
+                if (acI != null && (activity = acI.getActivity()) != null && (window = activity.getWindow()) != null) {
                     try {
                         if (z) {
                             window.addFlags(128);
@@ -397,12 +397,12 @@ public class b implements com.baidu.swan.apps.r.e.b.a {
         });
     }
 
-    private static String js(String str) {
-        e acF = e.acF();
-        return (!com.baidu.swan.apps.storage.b.lS(str) || acF == null) ? str : com.baidu.swan.apps.storage.b.d(str, acF);
+    private static String jr(String str) {
+        e acI = e.acI();
+        return (!com.baidu.swan.apps.storage.b.lR(str) || acI == null) ? str : com.baidu.swan.apps.storage.b.d(str, acI);
     }
 
-    public void bbt() {
+    public void bbx() {
     }
 
     public void h(int i, int i2, String str) {

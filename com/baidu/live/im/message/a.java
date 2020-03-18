@@ -33,19 +33,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short xw() {
+    public short xB() {
         return this.msgType;
     }
 
-    public void dO(String str) {
+    public void dN(String str) {
         this.liveId = str;
     }
 
-    public void dP(String str) {
+    public void dO(String str) {
         this.roomId = str;
     }
 
-    public String xx() {
+    public String xC() {
         return this.otherParams;
     }
 
@@ -53,7 +53,7 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long xy() {
+    public long xD() {
         return this.price;
     }
 
@@ -61,7 +61,7 @@ public class a extends HttpMessage {
         this.price = j;
     }
 
-    public int xs() {
+    public int xx() {
         return this.barrageType;
     }
 
@@ -69,15 +69,15 @@ public class a extends HttpMessage {
         this.barrageType = i;
     }
 
-    public String xt() {
+    public String xy() {
         return this.barrageId;
     }
 
-    public void dN(String str) {
+    public void dM(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b xu() {
+    public com.baidu.live.im.data.b xz() {
         return this.barrageCardInfo;
     }
 
@@ -85,7 +85,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] xv() {
+    public String[] xA() {
         return this.imEffect;
     }
 

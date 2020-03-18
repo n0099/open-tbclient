@@ -10,16 +10,16 @@ public class eg {
     }
 
     private static void a(Context context, HashMap<String, String> hashMap) {
-        eo m257a = ek.a(context).m257a();
-        if (m257a != null) {
-            m257a.a(context, hashMap);
+        eo m255a = ek.a(context).m255a();
+        if (m255a != null) {
+            m255a.a(context, hashMap);
         }
     }
 
     private static void b(Context context, HashMap<String, String> hashMap) {
-        eo m257a = ek.a(context).m257a();
-        if (m257a != null) {
-            m257a.c(context, hashMap);
+        eo m255a = ek.a(context).m255a();
+        if (m255a != null) {
+            m255a.c(context, hashMap);
         }
     }
 
@@ -52,9 +52,9 @@ public class eg {
     }
 
     private static void c(Context context, HashMap<String, String> hashMap) {
-        eo m257a = ek.a(context).m257a();
-        if (m257a != null) {
-            m257a.b(context, hashMap);
+        eo m255a = ek.a(context).m255a();
+        if (m255a != null) {
+            m255a.b(context, hashMap);
         }
     }
 }

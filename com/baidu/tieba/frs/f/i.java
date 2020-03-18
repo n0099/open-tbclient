@@ -42,27 +42,27 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class i {
-    private static void BO(String str) {
+    private static void BN(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
             an anVar = new an("c10320");
-            anVar.cy("obj_locate", paramPair.get("obj_locate"));
+            anVar.cx("obj_locate", paramPair.get("obj_locate"));
             anVar.X("obj_type", 1);
-            anVar.cy("fname", paramPair.get("kw"));
-            anVar.cy("obj_source", paramPair.get("obj_source"));
-            anVar.cy(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            anVar.cx("fname", paramPair.get("kw"));
+            anVar.cx("obj_source", paramPair.get("obj_source"));
+            anVar.cx(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
             anVar.X(TiebaInitialize.Params.OBJ_TO, 2);
-            anVar.cy("obj_id", paramPair.get("bdid"));
+            anVar.cx("obj_id", paramPair.get("bdid"));
             if (!aq.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        anVar.cy(next, jSONObject.getString(next));
+                        anVar.cx(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -88,16 +88,16 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    BO(decode);
+                    BN(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                BO(decode);
+                BN(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     dVar.forumName = decode.substring(length);
                     try {
-                        dVar.gLo = uri.getQueryParameter("from");
+                        dVar.gMt = uri.getQueryParameter("from");
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -160,7 +160,7 @@ public class i {
 
     public static void a(FrsFragment frsFragment, String str, bj bjVar, boolean z) {
         if (frsFragment != null && bjVar != null && str != null) {
-            if (!(bjVar == null || bjVar.aDo())) {
+            if (!(bjVar == null || bjVar.aDs())) {
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setStartFrom(3);
@@ -213,15 +213,15 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bjVar != null) {
             String valueOf = String.valueOf(bjVar.getFid());
-            if (bjVar.cUb == null) {
+            if (bjVar.cUo == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bjVar.cUb.id;
+                str = bjVar.cUo.id;
                 str2 = valueOf;
             }
-            if (bjVar.aCK() > 0 && com.baidu.tieba.tbadkCore.util.e.cMd()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aCK()), false, true, "frs_page");
+            if (bjVar.aCN() > 0 && com.baidu.tieba.tbadkCore.util.e.cMx()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aCN()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
             }
@@ -230,18 +230,18 @@ public class i {
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bjVar.aDz());
+            createFromThreadCfg.setFromSmartFrs(bjVar.aDD());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (bjVar.aDr() && createFromThreadCfg.getIntent() != null) {
+            if (bjVar.aDv() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             if (TbSingleton.getInstance().isPbPreloadSwitchOn() && t(bjVar)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                com.baidu.tieba.frs.i.aj(bjVar);
+                com.baidu.tieba.frs.i.ak(bjVar);
             }
             frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
@@ -255,6 +255,6 @@ public class i {
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bjVar.aEi();
+        return bjVar.aEm();
     }
 }

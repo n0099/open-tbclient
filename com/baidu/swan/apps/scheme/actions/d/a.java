@@ -16,22 +16,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bRH;
-    private FloatButton bRI;
-    private JSONObject bRJ;
+    private static volatile a bRS;
+    private FloatButton bRT;
+    private JSONObject bRU;
     private Activity mActivity;
     private String mApkName = "";
     private String mText;
 
-    public static a adN() {
-        if (bRH == null) {
+    public static a adQ() {
+        if (bRS == null) {
             synchronized (a.class) {
-                if (bRH == null) {
-                    bRH = new a();
+                if (bRS == null) {
+                    bRS = new a();
                 }
             }
         }
-        return bRH;
+        return bRS;
     }
 
     private a() {
@@ -45,35 +45,35 @@ public class a {
             this.mActivity = activity;
             this.mApkName = jSONObject.optString("name");
             this.mText = ai.isAppInstalled(activity, this.mApkName) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.bRJ = jSONObject.optJSONObject("style");
+            this.bRU = jSONObject.optJSONObject("style");
         }
     }
 
-    public FloatButton adO() {
+    public FloatButton adR() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.bRI == null) {
-            this.bRI = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.bRT == null) {
+            this.bRT = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.bRI.setFloatButtonText(this.mText);
-        this.bRI.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.bRI.setFloatButtonDefaultPosition();
-        this.bRI.setFloatButtonStyle(this.bRJ);
-        this.bRI.setVisibility(0);
-        return this.bRI;
+        this.bRT.setFloatButtonText(this.mText);
+        this.bRT.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.bRT.setFloatButtonDefaultPosition();
+        this.bRT.setFloatButtonStyle(this.bRU);
+        this.bRT.setVisibility(0);
+        return this.bRT;
     }
 
     private FloatButton d(Context context, ViewGroup viewGroup) {
         if (context == null || viewGroup == null) {
             return null;
         }
-        FloatButton ct = ct(context);
-        viewGroup.addView(ct);
-        return ct;
+        FloatButton cs = cs(context);
+        viewGroup.addView(cs);
+        return cs;
     }
 
-    private FloatButton ct(Context context) {
+    private FloatButton cs(Context context) {
         if (context == null) {
             return null;
         }
@@ -81,7 +81,7 @@ public class a {
     }
 
     public void K(Intent intent) {
-        if (intent != null && this.bRI != null) {
+        if (intent != null && this.bRT != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
@@ -91,27 +91,27 @@ public class a {
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.bRI.setFloatButtonText(this.mText);
+                    this.bRT.setFloatButtonText(this.mText);
                 }
             }
         }
     }
 
-    public FloatButton adP() {
-        return this.bRI;
+    public FloatButton adS() {
+        return this.bRT;
     }
 
     public void a(FloatButton floatButton) {
-        this.bRI = floatButton;
+        this.bRT = floatButton;
     }
 
-    public void ls(String str) {
+    public void lr(String str) {
         this.mApkName = str;
     }
 
     public static void release() {
-        if (bRH != null) {
-            bRH = null;
+        if (bRS != null) {
+            bRS = null;
         }
     }
 }

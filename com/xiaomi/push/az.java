@@ -20,7 +20,7 @@ public class az implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.f136a != null) {
-            this.f136a.mo52a(this.f135a);
+            this.f136a.mo50a(this.f135a);
         }
     }
 }

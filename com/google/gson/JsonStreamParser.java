@@ -21,7 +21,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
 
     public JsonStreamParser(Reader reader) {
         this.parser = new a(reader);
-        this.parser.wd(true);
+        this.parser.wk(true);
         this.lock = new Object();
     }
 
@@ -51,7 +51,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
         boolean z;
         synchronized (this.lock) {
             try {
-                z = this.parser.dAU() != JsonToken.END_DOCUMENT;
+                z = this.parser.dBr() != JsonToken.END_DOCUMENT;
             } catch (MalformedJsonException e) {
                 throw new JsonSyntaxException(e);
             } catch (IOException e2) {

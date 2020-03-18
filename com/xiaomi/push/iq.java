@@ -6,7 +6,7 @@ import com.xiaomi.push.ji;
 /* loaded from: classes8.dex */
 public class iq {
     public static short a(Context context, ic icVar) {
-        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m295a(context, icVar.f617b).a() + (ah.a(context) ? 8 : 0));
+        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m293a(context, icVar.f617b).a() + (ah.a(context) ? 8 : 0));
     }
 
     public static <T extends ir<T, ?>> void a(T t, byte[] bArr) {

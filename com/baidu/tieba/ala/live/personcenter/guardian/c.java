@@ -6,10 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends BaseData {
-    private ArrayList<a> eMZ = new ArrayList<>();
+    private ArrayList<a> eNv = new ArrayList<>();
 
-    public ArrayList<a> bgS() {
-        return this.eMZ;
+    public ArrayList<a> bgX() {
+        return this.eNv;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -19,7 +19,7 @@ public class c extends BaseData {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 a aVar = new a();
                 aVar.parserJson(optJSONArray.optJSONObject(i));
-                this.eMZ.add(aVar);
+                this.eNv.add(aVar);
             }
         }
     }

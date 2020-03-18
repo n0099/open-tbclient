@@ -33,8 +33,8 @@ public class br extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         fn fnVar;
-        l.m545a((Context) this.a);
-        al.a().m515a("5");
+        l.m543a((Context) this.a);
+        al.a().m513a("5");
         com.xiaomi.push.ab.a(this.b);
         fnVar = this.a.f814a;
         fnVar.c(fn.a());

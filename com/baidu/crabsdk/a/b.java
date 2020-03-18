@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Looper;
 /* loaded from: classes8.dex */
 public final class b {
-    private static b QO;
-    private c QP;
-    private boolean af = false;
+    private static b QS;
+    private c QT;
+    private boolean ah = false;
 
     private b(Context context) {
-        this.QP = c.as(context);
+        this.QT = c.as(context);
     }
 
     public static b aq(Context context) {
@@ -17,28 +17,28 @@ public final class b {
     }
 
     private static b ar(Context context) {
-        if (QO == null) {
+        if (QS == null) {
             synchronized (b.class) {
-                if (QO == null) {
-                    QO = new b(context);
+                if (QS == null) {
+                    QS = new b(context);
                 }
             }
         }
-        return QO;
+        return QS;
     }
 
     public static b oa() {
-        return QO;
+        return QS;
     }
 
     public final void start() {
-        if (this.af) {
+        if (this.ah) {
             com.baidu.crabsdk.c.a.cj("Block monitoring has already started!");
             return;
         }
-        this.af = true;
+        this.ah = true;
         try {
-            Looper.getMainLooper().setMessageLogging(this.QP.QR);
+            Looper.getMainLooper().setMessageLogging(this.QT.QU);
             com.baidu.crabsdk.c.a.cj("Start main-thread block monitoring!");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("setMessageLogging error!!", e);
@@ -46,13 +46,13 @@ public final class b {
     }
 
     public final void stop() {
-        if (!this.af) {
+        if (!this.ah) {
             com.baidu.crabsdk.c.a.cj("Block monitoring is not enabled!");
             return;
         }
-        this.af = false;
+        this.ah = false;
         Looper.getMainLooper().setMessageLogging(null);
-        this.QP.QS.stop();
+        this.QT.QV.stop();
         com.baidu.crabsdk.c.a.cj("Stop main-thread block monitoring!");
     }
 }

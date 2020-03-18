@@ -1,8 +1,8 @@
 package com.baidu.g.a.b.a;
 /* loaded from: classes3.dex */
 public class e extends c {
-    public String aHX;
-    public c aIs;
-    public a aIt;
+    public c aIG;
+    public a aIH;
+    public String aIl;
     public String msg;
 }

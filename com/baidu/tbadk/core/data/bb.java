@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes8.dex */
+/* loaded from: classes.dex */
 public class bb {
-    private String cQA;
-    private List<a> cQB = new ArrayList();
+    private String cQN;
+    private List<a> cQO = new ArrayList();
 
-    public String aBz() {
-        return StringUtils.isNull(this.cQA) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cQA;
+    public String aBC() {
+        return StringUtils.isNull(this.cQN) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.cQN;
     }
 
-    public com.baidu.tieba.card.data.n aBA() {
+    public com.baidu.tieba.card.data.n aBD() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.fNM = aBz();
-        if (this.cQB != null) {
+        nVar.fOu = aBC();
+        if (this.cQO != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.cQB) {
+            for (a aVar : this.cQO) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.aBB());
+                    arrayList2.add(aVar.aBE());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.fNN = arrayList;
+        nVar.fOv = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.cQA = recomTopicInfo.recom_title;
+            this.cQN = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.getCount(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.cQB.add(aVar);
+                            this.cQO.add(aVar);
                         }
                     }
                 }
@@ -54,12 +54,12 @@ public class bb {
         return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.getTopicId() <= 0;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        private String cQC;
-        private long cQD;
-        private String cQE;
-        private String cQF;
+        private String cQP;
+        private long cQQ;
+        private String cQR;
+        private String cQS;
         private int tag;
         private long topicId;
         private int type;
@@ -69,27 +69,27 @@ public class bb {
         }
 
         public String getTopicName() {
-            return this.cQC;
+            return this.cQP;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.cQC = recomTopicList.topic_name;
+                this.cQP = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.cQD = recomTopicList.discuss_num.longValue();
+                this.cQQ = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.cQE = recomTopicList.topic_desc;
-                this.cQF = recomTopicList.topic_pic;
+                this.cQR = recomTopicList.topic_desc;
+                this.cQS = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m aBB() {
+        public com.baidu.tieba.card.data.m aBE() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.cQE;
+            mVar.desc = this.cQR;
             mVar.topicId = this.topicId;
-            mVar.cQC = this.cQC;
+            mVar.cQP = this.cQP;
             return mVar;
         }
     }

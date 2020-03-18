@@ -16,7 +16,7 @@ public final class PrivFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kq */
+        /* renamed from: Kw */
         public PrivFrame[] newArray(int i) {
             return new PrivFrame[i];
         }

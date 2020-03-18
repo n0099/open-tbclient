@@ -6,5 +6,5 @@ import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class o {
-    private Map<String, Integer> cv = new HashMap();
+    private Map<String, Integer> cu = new HashMap();
 }

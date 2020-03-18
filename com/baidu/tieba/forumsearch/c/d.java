@@ -14,35 +14,35 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
-    private View.OnClickListener gmw;
-    private BarImageView gnm;
-    private TextView gnn;
-    private TextView gno;
-    private TextView gnp;
-    private com.baidu.tieba.forumsearch.b.b gnq;
+    private BarImageView gnV;
+    private TextView gnW;
+    private TextView gnX;
+    private TextView gnY;
+    private com.baidu.tieba.forumsearch.b.b gnZ;
+    private View.OnClickListener gne;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.gnm = (BarImageView) getView().findViewById(R.id.forum_avatar);
-        this.gnn = (TextView) getView().findViewById(R.id.forum_name);
-        this.gno = (TextView) getView().findViewById(R.id.forum_attention);
-        this.gnp = (TextView) getView().findViewById(R.id.forum_thread_count);
+        this.gnV = (BarImageView) getView().findViewById(R.id.forum_avatar);
+        this.gnW = (TextView) getView().findViewById(R.id.forum_name);
+        this.gnX = (TextView) getView().findViewById(R.id.forum_attention);
+        this.gnY = (TextView) getView().findViewById(R.id.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void x(View.OnClickListener onClickListener) {
-        this.gmw = onClickListener;
+        this.gne = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.gnn, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.gno, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.gnp, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.gnW, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.gnX, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.gnY, (int) R.color.cp_cont_d);
             am.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
             this.mSkinType = i;
         }
@@ -55,19 +55,19 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
+    /* renamed from: c */
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.gnq = bVar;
-            this.gnm.startLoad(bVar.getAvatar(), 10, false);
-            this.gnn.setText(m34do(bVar.getForumName(), bVar.bCT()));
-            this.gno.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.bCR()));
-            this.gnp.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.bCS()));
+            this.gnZ = bVar;
+            this.gnV.startLoad(bVar.getAvatar(), 10, false);
+            this.gnW.setText(dm(bVar.getForumName(), bVar.bCZ()));
+            this.gnX.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.bCX()));
+            this.gnY.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.bCY()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public SpannableStringBuilder m34do(String str, String str2) {
+    public SpannableStringBuilder dm(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return null;
         }
@@ -84,12 +84,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gnq != null) {
+        if (this.gnZ != null) {
             TiebaStatic.log("c12261");
-            e.Bc(this.gnq.bCT());
-            view.setTag(this.gnq);
-            if (this.gmw != null) {
-                this.gmw.onClick(view);
+            e.Bd(this.gnZ.bCZ());
+            view.setTag(this.gnZ);
+            if (this.gne != null) {
+                this.gne.onClick(view);
             }
         }
     }

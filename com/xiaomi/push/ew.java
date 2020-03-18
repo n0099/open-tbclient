@@ -23,7 +23,7 @@ public final class ew {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m264a();
+        boolean m262a();
     }
 
     public static synchronized void a() {
@@ -77,7 +77,7 @@ public final class ew {
                     } catch (Exception e3) {
                         e = e3;
                         z2 = z3;
-                        com.xiaomi.channel.commonutils.logger.b.m47a("check service err : " + e.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m45a("check service err : " + e.getMessage());
                         if (z2) {
                         }
                         if (Build.VERSION.SDK_INT < 21) {
@@ -91,7 +91,7 @@ public final class ew {
             z2 = z;
             e = e4;
         }
-        if (z2 && t.m565a(applicationContext)) {
+        if (z2 && t.m563a(applicationContext)) {
             throw new RuntimeException("Should export service: " + f326a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
         }
         if (Build.VERSION.SDK_INT < 21) {
@@ -119,7 +119,7 @@ public final class ew {
     public static synchronized void a(boolean z) {
         synchronized (ew.class) {
             if (f325a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m47a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m45a("timer is not initialized");
             } else {
                 f325a.a(z);
             }
@@ -127,11 +127,11 @@ public final class ew {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m263a() {
-        boolean m264a;
+    public static synchronized boolean m261a() {
+        boolean m262a;
         synchronized (ew.class) {
-            m264a = f325a == null ? false : f325a.m264a();
+            m262a = f325a == null ? false : f325a.m262a();
         }
-        return m264a;
+        return m262a;
     }
 }

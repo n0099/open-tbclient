@@ -12,13 +12,13 @@ import com.baidu.live.adp.lib.cache.BdCacheNSItem;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
-    private static volatile BdCacheService pS;
+    private static volatile BdCacheService pR;
     private HashMap<String, l<byte[]>> blobCaches;
     private Context context;
     private final String databaseFile;
     private boolean debugMode;
-    private com.baidu.adp.base.a.b pL;
-    private p pT;
+    private com.baidu.adp.base.a.b pK;
+    private p pS;
     private HashMap<String, l<String>> textCaches;
 
     /* loaded from: classes.dex */
@@ -54,14 +54,14 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public static BdCacheService fz() {
-        if (pS == null) {
+        if (pR == null) {
             synchronized (BdCacheService.class) {
-                if (pS == null) {
-                    pS = new BdCacheService("baidu_adp.db");
+                if (pR == null) {
+                    pR = new BdCacheService("baidu_adp.db");
                 }
             }
         }
-        return pS;
+        return pR;
     }
 
     public static BdCacheService ac(String str) {
@@ -225,17 +225,17 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public p fA() {
-        if (this.pT == null) {
-            this.pT = new p(getContext(), fv());
+        if (this.pS == null) {
+            this.pS = new p(getContext(), fv());
         }
-        return this.pT;
+        return this.pS;
     }
 
     public com.baidu.adp.base.a.b fv() {
-        if (this.pL == null) {
-            this.pL = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
+        if (this.pK == null) {
+            this.pK = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
         }
-        return this.pL;
+        return this.pK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

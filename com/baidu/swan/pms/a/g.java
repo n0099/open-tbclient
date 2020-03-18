@@ -10,31 +10,31 @@ import java.util.Set;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> Pq() {
+    public c<com.baidu.swan.pms.model.f> Pt() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> Pr() {
+    public c<com.baidu.swan.pms.model.g> Pu() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> Ps() {
+    public c<com.baidu.swan.pms.model.d> Pv() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> Pt() {
+    public c<com.baidu.swan.pms.model.b> Pw() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> aad() {
+    public c<com.baidu.swan.pms.model.h> aag() {
         return null;
     }
 
-    public a<a.C0364a> Pn() {
+    public a<a.C0364a> Pq() {
         return null;
     }
 
-    public f Pu() {
+    public f Px() {
         return null;
     }
 
@@ -43,47 +43,47 @@ public abstract class g implements d {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            aw(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            av(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
     }
 
-    public void Nb() {
+    public void Ne() {
     }
 
-    public void Pm() {
+    public void Pp() {
     }
 
     public void a(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void Pi() {
+    public void Pl() {
     }
 
     public void a(com.baidu.swan.pms.f.e eVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void Ph() {
+    public void Pk() {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void aw(@Nullable String str, @Nullable String str2) {
+    public void av(@Nullable String str, @Nullable String str2) {
     }
 
     public void a(Response response, int i, NetworkStatRecord networkStatRecord) {
     }
 
-    public Map<String, String> ats() {
+    public Map<String, String> atv() {
         return null;
     }
 
-    public Map<String, String> att() {
+    public Map<String, String> atw() {
         return null;
     }
 
-    public Map<String, String> atu() {
+    public Map<String, String> atx() {
         return null;
     }
 }

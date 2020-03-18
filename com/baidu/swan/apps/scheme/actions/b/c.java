@@ -17,7 +17,7 @@ public class c extends b {
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.hC(this.bRx) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.hB(this.bRI) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -31,8 +31,8 @@ public class c extends b {
             return false;
         }
         try {
-            this.bRx = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.bRx);
+            this.bRI = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.bRI);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

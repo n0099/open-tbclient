@@ -9,10 +9,10 @@ public class c extends b {
     }
 
     @Override // com.baidu.swan.apps.n.a.b, com.baidu.swan.apps.n.a.a
-    public String hJ(String str) {
+    public String hI(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.swan.apps.n.a.s(str, "cuid", com.baidu.swan.apps.w.a.Ub().br(com.baidu.swan.apps.w.a.TW())));
-        sb.append(com.baidu.swan.apps.n.a.s(str, "mtjCuid", com.baidu.swan.apps.w.a.Ub().br(com.baidu.swan.apps.w.a.TW())));
+        sb.append(com.baidu.swan.apps.n.a.s(str, "cuid", com.baidu.swan.apps.w.a.Ue().bq(com.baidu.swan.apps.w.a.TZ())));
+        sb.append(com.baidu.swan.apps.n.a.s(str, "mtjCuid", com.baidu.swan.apps.w.a.Ue().bq(com.baidu.swan.apps.w.a.TZ())));
         for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
             sb.append(com.baidu.swan.apps.n.a.s(str, entry.getKey(), entry.getValue()));
         }

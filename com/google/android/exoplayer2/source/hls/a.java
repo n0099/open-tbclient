@@ -12,15 +12,15 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 final class a implements com.google.android.exoplayer2.upstream.e {
-    private final byte[] meD;
-    private final com.google.android.exoplayer2.upstream.e mvK;
-    private final byte[] mvL;
-    private CipherInputStream mvM;
+    private final byte[] mgj;
+    private final com.google.android.exoplayer2.upstream.e mxq;
+    private final byte[] mxr;
+    private CipherInputStream mxs;
 
     public a(com.google.android.exoplayer2.upstream.e eVar, byte[] bArr, byte[] bArr2) {
-        this.mvK = eVar;
-        this.meD = bArr;
-        this.mvL = bArr2;
+        this.mxq = eVar;
+        this.mgj = bArr;
+        this.mxr = bArr2;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -28,8 +28,8 @@ final class a implements com.google.android.exoplayer2.upstream.e {
         try {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             try {
-                cipher.init(2, new SecretKeySpec(this.meD, "AES"), new IvParameterSpec(this.mvL));
-                this.mvM = new CipherInputStream(new com.google.android.exoplayer2.upstream.f(this.mvK, gVar), cipher);
+                cipher.init(2, new SecretKeySpec(this.mgj, "AES"), new IvParameterSpec(this.mxr));
+                this.mxs = new CipherInputStream(new com.google.android.exoplayer2.upstream.f(this.mxq, gVar), cipher);
                 return -1L;
             } catch (InvalidAlgorithmParameterException | InvalidKeyException e) {
                 throw new RuntimeException(e);
@@ -41,14 +41,14 @@ final class a implements com.google.android.exoplayer2.upstream.e {
 
     @Override // com.google.android.exoplayer2.upstream.e
     public void close() throws IOException {
-        this.mvM = null;
-        this.mvK.close();
+        this.mxs = null;
+        this.mxq.close();
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        com.google.android.exoplayer2.util.a.checkState(this.mvM != null);
-        int read = this.mvM.read(bArr, i, i2);
+        com.google.android.exoplayer2.util.a.checkState(this.mxs != null);
+        int read = this.mxs.read(bArr, i, i2);
         if (read < 0) {
             return -1;
         }
@@ -57,6 +57,6 @@ final class a implements com.google.android.exoplayer2.upstream.e {
 
     @Override // com.google.android.exoplayer2.upstream.e
     public Uri getUri() {
-        return this.mvK.getUri();
+        return this.mxq.getUri();
     }
 }

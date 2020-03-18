@@ -1,5 +1,5 @@
 package com.qiniu.android.http;
 /* loaded from: classes5.dex */
 public interface UrlConverter {
-    String EO(String str);
+    String EN(String str);
 }

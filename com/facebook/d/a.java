@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> lXC = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> lZi = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int ad(@Nullable Bitmap bitmap) {
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> y(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = lXC.acquire();
+        ByteBuffer acquire = lZi.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,7 +49,7 @@ public final class a {
             }
             return pair;
         } finally {
-            lXC.release(acquire);
+            lZi.release(acquire);
         }
     }
 

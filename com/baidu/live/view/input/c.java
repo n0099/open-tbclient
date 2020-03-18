@@ -8,13 +8,13 @@ public interface c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bx();
+        void BE();
 
-        void By();
+        void BF();
 
-        boolean ws();
+        boolean wx();
 
-        boolean xn();
+        boolean xs();
     }
 
     void a(m mVar, String str);
@@ -25,11 +25,11 @@ public interface c {
 
     void c(TbPageContext tbPageContext);
 
-    void dx(String str);
+    void dw(String str);
 
     void release();
 
-    void sL();
+    void sQ();
 
-    List<String> xe();
+    List<String> xj();
 }

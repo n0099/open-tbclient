@@ -16,7 +16,7 @@ public final class GeobFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kn */
+        /* renamed from: Kt */
         public GeobFrame[] newArray(int i) {
             return new GeobFrame[i];
         }

@@ -351,11 +351,11 @@ public class m {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean ti(String str) {
+    public static boolean th(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean tj(String str) {
+    public static boolean ti(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1312,7 +1312,7 @@ public class m {
         }
     }
 
-    public static boolean cx(String str, String str2) {
+    public static boolean cw(String str, String str2) {
         return u(str, str2, false);
     }
 
@@ -1878,7 +1878,7 @@ public class m {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String tk(String str) {
+    public static String tj(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1886,7 +1886,7 @@ public class m {
         return parse.getLastPathSegment();
     }
 
-    public static String tl(String str) {
+    public static String tk(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1894,7 +1894,7 @@ public class m {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void tm(@NonNull String str) {
+    public static void tl(@NonNull String str) {
         if (str != null) {
             E(new File(CACHE_DIR + "/" + str));
         }

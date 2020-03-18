@@ -15,49 +15,49 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private List<m> dataList;
-    private List<m> eoN;
+    private List<m> epe;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> eoK = new ArrayList();
-    private List<SdkLiveInfoData> eoL = new ArrayList();
-    private List<m> eoM = new ArrayList();
+    private List<String> epb = new ArrayList();
+    private List<SdkLiveInfoData> epc = new ArrayList();
+    private List<m> epd = new ArrayList();
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bcQ();
+        bcU();
     }
 
-    private void bcQ() {
-        this.eoN = new ArrayList();
+    private void bcU() {
+        this.epe = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.elZ = this.stageLiveInfo;
-            this.eoN.add(fVar);
-            this.eoK.add(this.stageLiveInfo.ema.tid);
+            fVar.emq = this.stageLiveInfo;
+            this.epe.add(fVar);
+            this.epb.add(this.stageLiveInfo.emr.tid);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<m> bcR = bcR();
-            if (!v.isEmpty(bcR)) {
-                this.eoN.addAll(bcR);
+            ArrayList<m> bcV = bcV();
+            if (!v.isEmpty(bcV)) {
+                this.epe.addAll(bcV);
             }
         }
-        if (this.officialRecommendLiveInfo != null && !v.isEmpty(this.officialRecommendLiveInfo.elS)) {
+        if (this.officialRecommendLiveInfo != null && !v.isEmpty(this.officialRecommendLiveInfo.emj)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.elU = this.officialRecommendLiveInfo;
-            this.eoN.add(cVar);
+            cVar.eml = this.officialRecommendLiveInfo;
+            this.epe.add(cVar);
         }
-        this.dataList = new ArrayList(this.eoN);
+        this.dataList = new ArrayList(this.epe);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<m> bcR() {
-        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.elS;
+    private ArrayList<m> bcV() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.emj;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -65,9 +65,9 @@ public class b {
         for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.tid;
-                if (!this.eoK.contains(str)) {
+                if (!this.epb.contains(str)) {
                     arrayList2.add(sdkLiveInfoData);
-                    this.eoK.add(str);
+                    this.epb.add(str);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class b {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.elS;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.emj;
         if (v.isEmpty(arrayList)) {
             return false;
         }
@@ -100,18 +100,18 @@ public class b {
             SdkLiveInfoData next = it.next();
             if (next != null) {
                 String str = next.tid;
-                if (!this.eoK.contains(str)) {
+                if (!this.epb.contains(str)) {
                     arrayList2.add(next);
-                    this.eoK.add(str);
+                    this.epb.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList2)) {
             return false;
         }
-        this.eoL.addAll(arrayList2);
-        this.eoM = bj(this.eoL);
-        return !v.isEmpty(this.eoM);
+        this.epc.addAll(arrayList2);
+        this.epd = bj(this.epc);
+        return !v.isEmpty(this.epd);
     }
 
     private ArrayList<m> bj(List<SdkLiveInfoData> list) {
@@ -120,17 +120,17 @@ public class b {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.ejT = list.get(i);
+            aVar.ekj = list.get(i);
             aVar.isLeft = true;
-            eVar.elW = aVar;
+            eVar.emn = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.ejT = list.get(i + 1);
-                eVar.elX = aVar2;
+                aVar2.ekj = list.get(i + 1);
+                eVar.emo = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.ejU = true;
+                aVar.ekk = true;
             }
             arrayList.add(eVar);
         }
@@ -146,8 +146,8 @@ public class b {
         if (!v.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!v.isEmpty(this.eoM)) {
-            arrayList.addAll(this.eoM);
+        if (!v.isEmpty(this.epd)) {
+            arrayList.addAll(this.epd);
         }
         return arrayList;
     }
@@ -157,20 +157,20 @@ public class b {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.eoN != null) {
-            this.eoN.clear();
+        if (this.epe != null) {
+            this.epe.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.eoK != null) {
-            this.eoK.clear();
+        if (this.epb != null) {
+            this.epb.clear();
         }
-        if (this.eoL != null) {
-            this.eoL.clear();
+        if (this.epc != null) {
+            this.epc.clear();
         }
-        if (this.eoM != null) {
-            this.eoM.clear();
+        if (this.epd != null) {
+            this.epd.clear();
         }
     }
 }

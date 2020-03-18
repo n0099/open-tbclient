@@ -15,7 +15,7 @@ public final class UrlLinkFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ks */
+        /* renamed from: Ky */
         public UrlLinkFrame[] newArray(int i) {
             return new UrlLinkFrame[i];
         }

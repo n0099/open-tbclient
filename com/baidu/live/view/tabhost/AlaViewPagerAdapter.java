@@ -8,34 +8,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaViewPagerAdapter extends PagerAdapter {
-    private a aFU;
+    private a aGi;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<a> VU = new ArrayList();
+    private final List<a> Wf = new ArrayList();
 
     public void setData(List<a> list) {
-        this.VU.clear();
+        this.Wf.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.VU.addAll(list);
+            this.Wf.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.VU.size();
+        return this.Wf.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        a aVar = (a) ListUtils.getItem(this.VU, i);
-        if (aVar != null && aVar.we() != null) {
-            View we = aVar.we();
-            if (we.getParent() != null) {
-                ((ViewGroup) we.getParent()).removeView(we);
+        a aVar = (a) ListUtils.getItem(this.Wf, i);
+        if (aVar != null && aVar.wj() != null) {
+            View wj = aVar.wj();
+            if (wj.getParent() != null) {
+                ((ViewGroup) wj.getParent()).removeView(wj);
             }
             aVar.onChangeSkinType(this.mSkinType);
-            viewGroup.addView(we);
+            viewGroup.addView(wj);
             return aVar;
         }
         return null;
@@ -51,12 +51,12 @@ public class AlaViewPagerAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.aFU != viewGroup) {
-                    if (this.aFU != null) {
-                        this.aFU.enterBackground();
+                if (this.aGi != viewGroup) {
+                    if (this.aGi != null) {
+                        this.aGi.enterBackground();
                     }
                     aVar.enterForeground();
-                    this.aFU = aVar;
+                    this.aGi = aVar;
                 }
             }
         }
@@ -64,6 +64,6 @@ public class AlaViewPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        return (obj instanceof a) && ((a) obj).we() == view;
+        return (obj instanceof a) && ((a) obj).wj() == view;
     }
 }

@@ -9,43 +9,43 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    CustomMessageListener agU;
-    private AlaFollowRemindView eQA;
-    private Animation eQB;
-    private Animation eQC;
-    private boolean eQD;
-    private com.baidu.live.liveroom.a.a eQE;
-    private Runnable eQF;
-    private Runnable eQG;
-    private boolean ewx;
+    CustomMessageListener ahe;
+    private AlaFollowRemindView eQY;
+    private Animation eQZ;
+    private Animation eRa;
+    private boolean eRb;
+    private com.baidu.live.liveroom.a.a eRc;
+    private Runnable eRd;
+    private Runnable eRe;
+    private boolean ewT;
     private boolean isShowing;
     private Handler mHandler;
 
-    public void bii() {
-        this.mHandler.removeCallbacks(this.eQF);
-        this.mHandler.removeCallbacks(this.eQG);
-        bij();
+    public void bin() {
+        this.mHandler.removeCallbacks(this.eRd);
+        this.mHandler.removeCallbacks(this.eRe);
+        bio();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void pK() {
-        super.pK();
+    public void pP() {
+        super.pP();
         this.isShowing = false;
-        this.eQD = false;
+        this.eRb = false;
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.eQA != null) {
-            this.eQA.clearAnimation();
+        if (this.eQY != null) {
+            this.eQY.clearAnimation();
         }
-        if (this.eQB != null) {
-            this.eQB.cancel();
+        if (this.eQZ != null) {
+            this.eQZ.cancel();
         }
-        if (this.eQC != null) {
-            this.eQC.cancel();
+        if (this.eRa != null) {
+            this.eRa.cancel();
         }
-        if (this.eQA != null && (this.eQA.getParent() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) this.eQA.getParent();
-            if (viewGroup.indexOfChild(this.eQA) > 0) {
-                viewGroup.removeView(this.eQA);
+        if (this.eQY != null && (this.eQY.getParent() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) this.eQY.getParent();
+            if (viewGroup.indexOfChild(this.eQY) > 0) {
+                viewGroup.removeView(this.eQY);
             }
         }
     }
@@ -53,28 +53,28 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.eQA != null) {
-            this.eQA.clearAnimation();
+        if (this.eQY != null) {
+            this.eQY.clearAnimation();
         }
-        if (this.eQB != null) {
-            this.eQB.cancel();
+        if (this.eQZ != null) {
+            this.eQZ.cancel();
         }
-        if (this.eQC != null) {
-            this.eQC.cancel();
+        if (this.eRa != null) {
+            this.eRa.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.agU);
+        MessageManager.getInstance().unRegisterListener(this.ahe);
     }
 
-    private void bij() {
+    private void bio() {
         if (this.isShowing) {
-            if (this.eQE != null) {
-                this.eQE.cd(2);
+            if (this.eRc != null) {
+                this.eRc.cd(2);
             }
-            if (this.eQA != null) {
-                this.eQA.getView().setEnabled(false);
+            if (this.eQY != null) {
+                this.eQY.getView().setEnabled(false);
             }
-            this.eQC = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), a.C0102a.sdk_push_up_out);
-            this.eQC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1
+            this.eRa = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), a.C0102a.sdk_push_up_out);
+            this.eRa.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
@@ -85,16 +85,16 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                     a.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.attentionpop.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.eQA != null && (a.this.eQA.getParent() instanceof ViewGroup)) {
-                                ViewGroup viewGroup = (ViewGroup) a.this.eQA.getParent();
-                                if (viewGroup.indexOfChild(a.this.eQA) > 0) {
-                                    viewGroup.removeView(a.this.eQA);
+                            if (a.this.eQY != null && (a.this.eQY.getParent() instanceof ViewGroup)) {
+                                ViewGroup viewGroup = (ViewGroup) a.this.eQY.getParent();
+                                if (viewGroup.indexOfChild(a.this.eQY) > 0) {
+                                    viewGroup.removeView(a.this.eQY);
                                 }
                             }
                         }
                     });
-                    if (a.this.eQE != null) {
-                        a.this.eQE.ce(2);
+                    if (a.this.eRc != null) {
+                        a.this.eRc.ce(2);
                     }
                 }
 
@@ -102,11 +102,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            if (this.eQA != null) {
-                this.eQA.clearAnimation();
-                this.eQA.setAnimation(this.eQC);
-                this.eQC.setDuration(300L);
-                this.eQC.start();
+            if (this.eQY != null) {
+                this.eQY.clearAnimation();
+                this.eQY.setAnimation(this.eRa);
+                this.eRa.setDuration(300L);
+                this.eRa.start();
             }
         }
     }
@@ -115,11 +115,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         return this.isShowing;
     }
 
-    public void iP(boolean z) {
-        this.ewx = z;
+    public void iR(boolean z) {
+        this.ewT = z;
     }
 
-    public boolean bik() {
-        return this.ewx;
+    public boolean bip() {
+        return this.ewT;
     }
 }

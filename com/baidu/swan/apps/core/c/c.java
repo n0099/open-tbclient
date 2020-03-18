@@ -26,7 +26,7 @@ public class c {
             }
 
             @Override // com.baidu.swan.apps.adaptation.a.e.a
-            public void bV(boolean z) {
+            public void bW(boolean z) {
                 if (!z) {
                     com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
                     aVar.f(false, context.getString(a.h.aiapps_authenticate_fail));
@@ -39,6 +39,6 @@ public class c {
     }
 
     public static void aj(Context context, String str) {
-        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kJ(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).acp();
+        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kI(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).acs();
     }
 }

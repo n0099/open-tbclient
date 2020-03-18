@@ -13,57 +13,57 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class a implements e {
-    private static final int mmy = v.QF("RCC\u0001");
-    private final Format lZJ;
-    private m mgS;
-    private int mge;
-    private long mmA;
-    private int mmB;
+    private static final int moe = v.QE("RCC\u0001");
+    private final Format mbs;
+    private int mhK;
+    private m miA;
+    private long mog;
+    private int moh;
     private int version;
-    private final l mmz = new l(9);
-    private int meP = 0;
+    private final l mof = new l(9);
+    private int mgv = 0;
 
     public a(Format format) {
-        this.lZJ = format;
+        this.mbs = format;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(g gVar) {
         gVar.a(new l.a(-9223372036854775807L));
-        this.mgS = gVar.dK(0, 3);
-        gVar.duV();
-        this.mgS.h(this.lZJ);
+        this.miA = gVar.dL(0, 3);
+        gVar.dvs();
+        this.miA.h(this.mbs);
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public boolean a(f fVar) throws IOException, InterruptedException {
-        this.mmz.reset();
-        fVar.s(this.mmz.data, 0, 8);
-        return this.mmz.readInt() == mmy;
+        this.mof.reset();
+        fVar.s(this.mof.data, 0, 8);
+        return this.mof.readInt() == moe;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(f fVar, k kVar) throws IOException, InterruptedException {
         while (true) {
-            switch (this.meP) {
+            switch (this.mgv) {
                 case 0:
                     if (A(fVar)) {
-                        this.meP = 1;
+                        this.mgv = 1;
                         break;
                     } else {
                         return -1;
                     }
                 case 1:
                     if (B(fVar)) {
-                        this.meP = 2;
+                        this.mgv = 2;
                         break;
                     } else {
-                        this.meP = 0;
+                        this.mgv = 0;
                         return -1;
                     }
                 case 2:
                     C(fVar);
-                    this.meP = 1;
+                    this.mgv = 1;
                     return 0;
                 default:
                     throw new IllegalStateException();
@@ -73,7 +73,7 @@ public final class a implements e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void N(long j, long j2) {
-        this.meP = 0;
+        this.mgv = 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -81,47 +81,47 @@ public final class a implements e {
     }
 
     private boolean A(f fVar) throws IOException, InterruptedException {
-        this.mmz.reset();
-        if (fVar.d(this.mmz.data, 0, 8, true)) {
-            if (this.mmz.readInt() != mmy) {
+        this.mof.reset();
+        if (fVar.d(this.mof.data, 0, 8, true)) {
+            if (this.mof.readInt() != moe) {
                 throw new IOException("Input not RawCC");
             }
-            this.version = this.mmz.readUnsignedByte();
+            this.version = this.mof.readUnsignedByte();
             return true;
         }
         return false;
     }
 
     private boolean B(f fVar) throws IOException, InterruptedException {
-        this.mmz.reset();
+        this.mof.reset();
         if (this.version == 0) {
-            if (!fVar.d(this.mmz.data, 0, 5, true)) {
+            if (!fVar.d(this.mof.data, 0, 5, true)) {
                 return false;
             }
-            this.mmA = (this.mmz.readUnsignedInt() * 1000) / 45;
+            this.mog = (this.mof.readUnsignedInt() * 1000) / 45;
         } else if (this.version == 1) {
-            if (!fVar.d(this.mmz.data, 0, 9, true)) {
+            if (!fVar.d(this.mof.data, 0, 9, true)) {
                 return false;
             }
-            this.mmA = this.mmz.readLong();
+            this.mog = this.mof.readLong();
         } else {
             throw new ParserException("Unsupported version number: " + this.version);
         }
-        this.mmB = this.mmz.readUnsignedByte();
-        this.mge = 0;
+        this.moh = this.mof.readUnsignedByte();
+        this.mhK = 0;
         return true;
     }
 
     private void C(f fVar) throws IOException, InterruptedException {
-        while (this.mmB > 0) {
-            this.mmz.reset();
-            fVar.readFully(this.mmz.data, 0, 3);
-            this.mgS.a(this.mmz, 3);
-            this.mge += 3;
-            this.mmB--;
+        while (this.moh > 0) {
+            this.mof.reset();
+            fVar.readFully(this.mof.data, 0, 3);
+            this.miA.a(this.mof, 3);
+            this.mhK += 3;
+            this.moh--;
         }
-        if (this.mge > 0) {
-            this.mgS.a(this.mmA, 1, this.mge, 0, null);
+        if (this.mhK > 0) {
+            this.miA.a(this.mog, 1, this.mhK, 0, null);
         }
     }
 }

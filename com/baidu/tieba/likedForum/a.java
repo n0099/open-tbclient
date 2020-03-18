@@ -8,31 +8,31 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes8.dex */
 public class a {
-    private List<ForumInfo> gPk;
+    private List<ForumInfo> gQr;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0547a idu = null;
-    private com.baidu.adp.framework.listener.a hbW = new com.baidu.adp.framework.listener.a(1003316, CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST) { // from class: com.baidu.tieba.likedForum.a.1
+    private InterfaceC0548a ieV = null;
+    private com.baidu.adp.framework.listener.a hde = new com.baidu.adp.framework.listener.a(1003316, CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || a.this.mRequestId == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.idu != null) {
-                                a.this.idu.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (a.this.ieV != null) {
+                                a.this.ieV.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                            a.this.gPk = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                            a.this.gQr = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                         }
                         if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                            a.this.gPk = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                            a.this.gQr = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                         }
-                        if (a.this.idu != null) {
-                            a.this.idu.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.gPk);
+                        if (a.this.ieV != null) {
+                            a.this.ieV.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.gQr);
                         }
                     }
                 }
@@ -42,16 +42,16 @@ public class a {
 
     /* renamed from: com.baidu.tieba.likedForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0547a {
+    public interface InterfaceC0548a {
         void a(boolean z, int i, String str, List<ForumInfo> list);
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.hbW.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.hbW);
-        this.hbW.getHttpMessageListener().setSelfListener(true);
-        this.hbW.getSocketMessageListener().setSelfListener(true);
+        this.hde.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.hde);
+        this.hde.getHttpMessageListener().setSelfListener(true);
+        this.hde.getSocketMessageListener().setSelfListener(true);
     }
 
     public boolean loadData() {
@@ -62,11 +62,11 @@ public class a {
         return false;
     }
 
-    public void a(InterfaceC0547a interfaceC0547a) {
-        this.idu = interfaceC0547a;
+    public void a(InterfaceC0548a interfaceC0548a) {
+        this.ieV = interfaceC0548a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.hbW);
+        MessageManager.getInstance().unRegisterListener(this.hde);
     }
 }

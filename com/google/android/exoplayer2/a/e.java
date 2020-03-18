@@ -4,46 +4,46 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class e extends a {
     public ByteBuffer data;
-    public final b mdN = new b();
-    public long mdO;
-    private final int mdP;
+    public final b mft = new b();
+    public long mfu;
+    private final int mfv;
 
-    public static e duD() {
+    public static e dva() {
         return new e(0);
     }
 
     public e(int i) {
-        this.mdP = i;
+        this.mfv = i;
     }
 
-    public void Jo(int i) throws IllegalStateException {
+    public void Ju(int i) throws IllegalStateException {
         if (this.data == null) {
-            this.data = Jp(i);
+            this.data = Jv(i);
             return;
         }
         int capacity = this.data.capacity();
         int position = this.data.position();
         int i2 = position + i;
         if (capacity < i2) {
-            ByteBuffer Jp = Jp(i2);
+            ByteBuffer Jv = Jv(i2);
             if (position > 0) {
                 this.data.position(0);
                 this.data.limit(position);
-                Jp.put(this.data);
+                Jv.put(this.data);
             }
-            this.data = Jp;
+            this.data = Jv;
         }
     }
 
-    public final boolean duE() {
-        return this.data == null && this.mdP == 0;
+    public final boolean dvb() {
+        return this.data == null && this.mfv == 0;
     }
 
-    public final boolean duF() {
-        return Jn(1073741824);
+    public final boolean dvc() {
+        return Jt(1073741824);
     }
 
-    public final void duG() {
+    public final void dvd() {
         this.data.flip();
     }
 
@@ -55,11 +55,11 @@ public class e extends a {
         }
     }
 
-    private ByteBuffer Jp(int i) {
-        if (this.mdP == 1) {
+    private ByteBuffer Jv(int i) {
+        if (this.mfv == 1) {
             return ByteBuffer.allocate(i);
         }
-        if (this.mdP == 2) {
+        if (this.mfv == 2) {
             return ByteBuffer.allocateDirect(i);
         }
         throw new IllegalStateException("Buffer too small (" + (this.data == null ? 0 : this.data.capacity()) + " < " + i + ")");

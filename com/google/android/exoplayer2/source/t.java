@@ -6,21 +6,21 @@ import java.util.Arrays;
 public final class t {
     private int hashCode;
     public final int length;
-    private final Format[] msH;
+    private final Format[] muo;
 
     public t(Format... formatArr) {
         com.google.android.exoplayer2.util.a.checkState(formatArr.length > 0);
-        this.msH = formatArr;
+        this.muo = formatArr;
         this.length = formatArr.length;
     }
 
-    public Format KQ(int i) {
-        return this.msH[i];
+    public Format KW(int i) {
+        return this.muo[i];
     }
 
     public int m(Format format) {
-        for (int i = 0; i < this.msH.length; i++) {
-            if (format == this.msH[i]) {
+        for (int i = 0; i < this.muo.length; i++) {
+            if (format == this.muo[i]) {
                 return i;
             }
         }
@@ -29,7 +29,7 @@ public final class t {
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = Arrays.hashCode(this.msH) + 527;
+            this.hashCode = Arrays.hashCode(this.muo) + 527;
         }
         return this.hashCode;
     }
@@ -42,6 +42,6 @@ public final class t {
             return false;
         }
         t tVar = (t) obj;
-        return this.length == tVar.length && Arrays.equals(this.msH, tVar.msH);
+        return this.length == tVar.length && Arrays.equals(this.muo, tVar.muo);
     }
 }

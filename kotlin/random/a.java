@@ -6,47 +6,47 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class a extends d {
-    public abstract Random dKA();
+    public abstract Random dLa();
 
     @Override // kotlin.random.d
-    public int NG(int i) {
-        return e.eu(dKA().nextInt(), i);
+    public int NM(int i) {
+        return e.ev(dLa().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return dKA().nextInt();
+        return dLa().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return dKA().nextInt(i);
+        return dLa().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return dKA().nextLong();
+        return dLa().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return dKA().nextBoolean();
+        return dLa().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return dKA().nextDouble();
+        return dLa().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return dKA().nextFloat();
+        return dLa().nextFloat();
     }
 
     @Override // kotlin.random.d
     public byte[] aK(byte[] bArr) {
         q.j(bArr, "array");
-        dKA().nextBytes(bArr);
+        dLa().nextBytes(bArr);
         return bArr;
     }
 }

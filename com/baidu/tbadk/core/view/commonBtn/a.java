@@ -8,76 +8,93 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a {
-    boolean cVj;
-    protected int djN;
-    int djO;
-    int djP;
-    private int djS;
-    boolean djT;
-    protected InterfaceC0380a djZ;
-    boolean djY = true;
-    final int[] djQ = new int[2];
-    int djU = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int djV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int djW = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
-    int djX = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-    int bjq = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int djR = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    boolean cVw;
+    protected int dka;
+    int dkb;
+    int dkc;
+    private int dkf;
+    boolean dkg;
+    protected InterfaceC0380a dkm;
+    boolean dkl = true;
+    final int[] dkd = new int[2];
+    int dkh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int dki = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int dkj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
+    int dkk = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+    int bjD = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+    int dke = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.core.view.commonBtn.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0380a {
-        void aIp();
+        void aIt();
 
-        void aIq();
+        void aIu();
 
-        void aIr();
+        void aIv();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract Drawable ak(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aIs() {
-        return lq(this.djQ[0]);
+    public Drawable aIw() {
+        return lq(this.dkd[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aIt() {
-        return lq(this.djQ[1]);
+    public Drawable aIx() {
+        return lq(this.dkd[1]);
     }
 
     private Drawable lq(int i) {
         Drawable drawable;
-        if (this.cVj) {
-            drawable = SvgManager.aGC().a(i, this.djS > 0 ? this.djS : this.djN, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.cVw) {
+            drawable = SvgManager.aGG().a(i, this.dkf > 0 ? this.dkf : this.dka, SvgManager.SvgResourceStateType.NORMAL);
         } else {
             drawable = am.getDrawable(i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.djR, this.djR);
+            drawable.setBounds(0, 0, this.dke, this.dke);
         }
         return drawable;
     }
 
     public void k(int i, int i2, boolean z) {
-        if (this.djQ[0] != i || this.djQ[1] != i2 || this.cVj != z) {
-            this.djQ[0] = i;
-            this.djQ[1] = i2;
-            this.cVj = z;
-            if (this.djZ != null) {
-                this.djZ.aIq();
+        if (this.dkd[0] != i || this.dkd[1] != i2 || this.cVw != z) {
+            this.dkd[0] = i;
+            this.dkd[1] = i2;
+            this.cVw = z;
+            if (this.dkm != null) {
+                this.dkm.aIu();
             }
         }
     }
 
     public void lr(int i) {
-        if (i > 0 && this.djR != i) {
-            this.djR = i;
-            if (this.djZ != null) {
-                this.djZ.aIp();
+        if (i > 0 && this.dke != i) {
+            this.dke = i;
+            if (this.dkm != null) {
+                this.dkm.aIt();
             }
         }
+    }
+
+    public void aG(int i, int i2) {
+        if (i > 0) {
+            this.dkk = i;
+        }
+        if (i2 > 0) {
+            this.bjD = i2;
+        }
+    }
+
+    public void ls(int i) {
+        this.dkh = i;
+    }
+
+    public void lt(int i) {
+        this.dki = i;
     }
 }

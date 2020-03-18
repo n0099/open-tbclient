@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GiftPanelTabView extends LinearLayout {
-    private static final String[] apo = {"礼物", "背包"};
-    private a apq;
-    private int apr;
+    private static final String[] apz = {"礼物", "背包"};
+    private a apA;
+    private int apB;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes3.dex */
@@ -29,13 +29,13 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.apq = aVar;
+        this.apA = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null) {
-            this.apr = i;
+            this.apB = i;
             Drawable background = childAt.getBackground();
             if (background instanceof GradientDrawable) {
                 ((GradientDrawable) background).setColor(-13815746);
@@ -63,27 +63,27 @@ public class GiftPanelTabView extends LinearLayout {
         }
         View findChild = findChild((int) this.mMotionEvent.getX(), (int) this.mMotionEvent.getY());
         this.mMotionEvent = null;
-        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.apr && this.apq != null) {
-            this.apq.bP(findPosByView);
+        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.apB && this.apA != null) {
+            this.apA.bP(findPosByView);
         }
         return true;
     }
 
     private void init() {
         setClickable(true);
-        vy();
+        vD();
         setOrientation(0);
-        vz();
+        vE();
     }
 
-    private void vy() {
+    private void vD() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds26));
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private void vz() {
+    private void vE() {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds20);
         for (int i = 0; i <= 1; i++) {
             addView(v(i, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
@@ -96,7 +96,7 @@ public class GiftPanelTabView extends LinearLayout {
         textView.setIncludeFontPadding(false);
         textView.setPadding(i2, 0, i2, 0);
         textView.setSelected(false);
-        textView.setText(apo[i]);
+        textView.setText(apz[i]);
         textView.setTextColor(-13289398);
         textView.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds26);

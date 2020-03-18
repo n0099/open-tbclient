@@ -11,5 +11,5 @@ public interface a {
 
     void onChangeSkinType(int i);
 
-    View we();
+    View wj();
 }

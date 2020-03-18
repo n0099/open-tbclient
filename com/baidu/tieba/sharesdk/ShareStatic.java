@@ -21,12 +21,12 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class ShareStatic {
     static {
-        cHp();
-        cHq();
-        cHr();
+        cHJ();
+        cHK();
+        cHL();
     }
 
-    private static void cHp() {
+    private static void cHJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -38,7 +38,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cHq() {
+    private static void cHK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -84,7 +84,7 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                bVar.a(bVar.cH(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cHI(), (View.OnClickListener) ((Pair) next.second).second);
+                                bVar.a(bVar.cI(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cIc(), (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                         bVar.b(data.getFrom());
@@ -112,13 +112,13 @@ public class ShareStatic {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.a(aVar.cH(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cHI(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.a(aVar.cI(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cIc(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
         aVar.show();
     }
 
-    private static void cHr() {
+    private static void cHL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<ShareItem>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareItem> customMessage) {
@@ -139,10 +139,10 @@ public class ShareStatic {
     public static void d(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null) {
             com.baidu.tieba.transmitShare.c cVar = new com.baidu.tieba.transmitShare.c(shareDialogConfig.getContext());
-            cVar.tj(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
+            cVar.tp(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
             cVar.g(shareDialogConfig);
             cVar.setOnDismissListener(shareDialogConfig.onDismissListener);
-            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.dqC) {
+            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.dqP) {
                 cVar.b(shareDialogConfig.getFrom());
             }
             cVar.show();

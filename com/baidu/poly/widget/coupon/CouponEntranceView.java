@@ -16,13 +16,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class CouponEntranceView extends FrameLayout {
-    private TextView aTA;
-    private TextView aTB;
-    private TextView aTC;
-    private View aTD;
-    private a aTE;
-    private a.C0168a aTF;
-    private ImageView aTz;
+    private ImageView aTM;
+    private TextView aTN;
+    private TextView aTO;
+    private TextView aTP;
+    private View aTQ;
+    private a aTR;
+    private a.C0168a aTS;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -30,68 +30,68 @@ public class CouponEntranceView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.coupon_entrance, (ViewGroup) this, true);
-        this.aTz = (ImageView) findViewById(b.e.coupon_icon);
-        this.aTC = (TextView) findViewById(b.e.coupon_text);
-        this.aTA = (TextView) findViewById(b.e.coupon_title);
-        this.aTB = (TextView) findViewById(b.e.coupon_subtitle);
-        this.aTD = findViewById(b.e.icon_more);
+        this.aTM = (ImageView) findViewById(b.e.coupon_icon);
+        this.aTP = (TextView) findViewById(b.e.coupon_text);
+        this.aTN = (TextView) findViewById(b.e.coupon_title);
+        this.aTO = (TextView) findViewById(b.e.coupon_subtitle);
+        this.aTQ = findViewById(b.e.icon_more);
     }
 
     public void a(a aVar) {
-        this.aTE = aVar;
+        this.aTR = aVar;
         e();
     }
 
     public void e() {
         String str;
         List<a.C0168a> list;
-        this.aTF = null;
-        a aVar = this.aTE;
-        if (!((aVar == null || (list = aVar.aTH) == null || list.size() <= 0) ? false : true)) {
+        this.aTS = null;
+        a aVar = this.aTR;
+        if (!((aVar == null || (list = aVar.aTU) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0168a> it = this.aTE.aTH.iterator();
+        Iterator<a.C0168a> it = this.aTR.aTU.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             a.C0168a next = it.next();
-            if (next.aTM == 1) {
-                this.aTF = next;
+            if (next.aTZ == 1) {
+                this.aTS = next;
                 break;
             }
         }
-        if (this.aTF == null) {
+        if (this.aTS == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.c.b.ED().b(this.aTz, this.aTF.icon);
-        this.aTA.setText(this.aTF.aTI);
-        a.C0168a c0168a = this.aTF;
+        com.baidu.poly.a.c.b.EJ().b(this.aTM, this.aTS.icon);
+        this.aTN.setText(this.aTS.aTV);
+        a.C0168a c0168a = this.aTS;
         if (c0168a.type == -1) {
-            str = c0168a.aTJ;
-            this.aTB.setVisibility(8);
+            str = c0168a.aTW;
+            this.aTO.setVisibility(8);
         } else {
-            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.aTF.aTL.longValue()) + "元";
-            this.aTB.setVisibility(0);
-            this.aTB.setText(this.aTF.aTJ);
+            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.aTS.aTY.longValue()) + "元";
+            this.aTO.setVisibility(0);
+            this.aTO.setText(this.aTS.aTW);
         }
-        this.aTC.setText(str);
-        if (this.aTE.aTG) {
-            this.aTC.setTextColor(getResources().getColor(b.C0164b.coupon_description));
-            this.aTD.setVisibility(0);
+        this.aTP.setText(str);
+        if (this.aTR.aTT) {
+            this.aTP.setTextColor(getResources().getColor(b.C0164b.coupon_description));
+            this.aTQ.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.aTC.setTextColor(getResources().getColor(b.C0164b.black));
-        this.aTD.setVisibility(8);
+        this.aTP.setTextColor(getResources().getColor(b.C0164b.black));
+        this.aTQ.setVisibility(8);
         setEnabled(false);
     }
 
     public a.C0168a getSelectedItem() {
-        return this.aTF;
+        return this.aTS;
     }
 
     public CouponEntranceView(Context context, AttributeSet attributeSet) {

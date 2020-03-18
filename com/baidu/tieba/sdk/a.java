@@ -25,214 +25,214 @@ import com.baidu.tieba.sdk.a.g;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static a jPR = null;
+    private static a jRt = null;
 
     private a() {
     }
 
-    public static a cEj() {
+    public static a cED() {
         a aVar;
-        if (jPR != null) {
-            return jPR;
+        if (jRt != null) {
+            return jRt;
         }
         synchronized (a.class) {
-            if (jPR == null) {
-                jPR = new a();
+            if (jRt == null) {
+                jRt = new a();
             }
-            aVar = jPR;
+            aVar = jRt;
         }
         return aVar;
     }
 
     public static void setAppId(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().setAppId(str);
+        com.baidu.tieba.sdk.c.a.cEH().setAppId(str);
     }
 
     public static void setPackageName(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().setPackageName(str);
+        com.baidu.tieba.sdk.c.a.cEH().setPackageName(str);
     }
 
     public void init(Application application) {
-        com.baidu.tieba.sdk.c.a.cEn().init(application);
+        com.baidu.tieba.sdk.c.a.cEH().init(application);
     }
 
-    public void cEk() {
-        com.baidu.tieba.sdk.c.a.cEn().cEk();
+    public void cEE() {
+        com.baidu.tieba.sdk.c.a.cEH().cEE();
     }
 
-    public void cEl() {
-        com.baidu.tieba.sdk.c.a.cEn().cEl();
+    public void cEF() {
+        com.baidu.tieba.sdk.c.a.cEH().cEF();
     }
 
     public com.baidu.tieba.sdk.d.a a(MAActivity mAActivity) {
-        return com.baidu.tieba.sdk.c.a.cEn().a(mAActivity);
+        return com.baidu.tieba.sdk.c.a.cEH().a(mAActivity);
     }
 
     public void a(e eVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(eVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(eVar);
     }
 
     public void a(d dVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(dVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(dVar);
     }
 
-    public void fp(Context context) {
+    public void fo(Context context) {
         bg(context, null);
     }
 
     public void bg(Context context, String str) {
-        com.baidu.tieba.sdk.c.a.cEn().bg(context, str);
+        com.baidu.tieba.sdk.c.a.cEH().bg(context, str);
     }
 
     public void a(Context context, String str, boolean z, String str2, JSONObject jSONObject) {
-        com.baidu.tieba.sdk.c.a.cEn().a(context, str, z, str2, jSONObject);
+        com.baidu.tieba.sdk.c.a.cEH().a(context, str, z, str2, jSONObject);
     }
 
     public void a(Context context, long j, boolean z, String str, JSONObject jSONObject) {
-        com.baidu.tieba.sdk.c.a.cEn().a(context, j, z, str, jSONObject);
+        com.baidu.tieba.sdk.c.a.cEH().a(context, j, z, str, jSONObject);
     }
 
     public void b(Context context, String str, boolean z, String str2, JSONObject jSONObject) {
-        com.baidu.tieba.sdk.c.a.cEn().b(context, str, z, str2, jSONObject);
+        com.baidu.tieba.sdk.c.a.cEH().b(context, str, z, str2, jSONObject);
     }
 
-    public void In(String str) {
-        com.baidu.tieba.sdk.login.a.cEx().cEy();
-        com.baidu.tieba.sdk.c.a.cEn().In(str);
+    public void Im(String str) {
+        com.baidu.tieba.sdk.login.a.cER().cES();
+        com.baidu.tieba.sdk.c.a.cEH().Im(str);
     }
 
     public void a(com.baidu.tieba.sdk.a.a aVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(aVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(aVar);
     }
 
     public void a(f fVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(fVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(fVar);
     }
 
     public void a(b bVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(bVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(bVar);
     }
 
     public void a(g gVar) {
-        com.baidu.tieba.sdk.c.a.cEn().a(gVar);
+        com.baidu.tieba.sdk.c.a.cEH().a(gVar);
     }
 
     public void a(INetWorkBuilder iNetWorkBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iNetWorkBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iNetWorkBuilder);
     }
 
     public void a(IImageLoaderBuilder iImageLoaderBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iImageLoaderBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iImageLoaderBuilder);
     }
 
     public void a(IShareChannelBuild iShareChannelBuild) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iShareChannelBuild);
+        com.baidu.tieba.sdk.c.a.cEH().a(iShareChannelBuild);
     }
 
     public void addPayChannelBuilder(PayChannelType payChannelType, IPayChannelBuilder iPayChannelBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().addPayChannelBuilder(payChannelType, iPayChannelBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().addPayChannelBuilder(payChannelType, iPayChannelBuilder);
     }
 
     public void a(ILocationBuilder iLocationBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iLocationBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iLocationBuilder);
     }
 
     public void a(IExtraJumpBuilder iExtraJumpBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iExtraJumpBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iExtraJumpBuilder);
     }
 
     public void a(IExtraParamsBuilder iExtraParamsBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iExtraParamsBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iExtraParamsBuilder);
     }
 
     public void setCustomToast(ICustomToast iCustomToast) {
-        com.baidu.tieba.sdk.c.a.cEn().setCustomToast(iCustomToast);
+        com.baidu.tieba.sdk.c.a.cEH().setCustomToast(iCustomToast);
     }
 
     public void a(IAlaBdZanBuilder iAlaBdZanBuilder) {
-        com.baidu.tieba.sdk.c.a.cEn().a(iAlaBdZanBuilder);
+        com.baidu.tieba.sdk.c.a.cEH().a(iAlaBdZanBuilder);
     }
 
     public void c(com.baidu.live.liveroom.e.b bVar) {
-        com.baidu.tieba.sdk.c.a.cEn().c(bVar);
+        com.baidu.tieba.sdk.c.a.cEH().c(bVar);
     }
 
     public void f(Context context, String str, int i) {
-        com.baidu.tieba.sdk.c.a.cEn().f(context, str, i);
+        com.baidu.tieba.sdk.c.a.cEH().f(context, str, i);
     }
 
     public void bh(Context context, String str) {
-        com.baidu.tieba.sdk.c.a.cEn().fr(context);
+        com.baidu.tieba.sdk.c.a.cEH().fq(context);
     }
 
     public void a(Context context, long j, int i) {
-        com.baidu.tieba.sdk.c.a.cEn().a(context, j, i);
+        com.baidu.tieba.sdk.c.a.cEH().a(context, j, i);
     }
 
     public void bi(Context context, String str) {
-        com.baidu.tieba.sdk.c.a.cEn().fs(context);
+        com.baidu.tieba.sdk.c.a.cEH().fr(context);
     }
 
     public void t(Context context, String str, String str2) {
-        if (com.baidu.live.v.a.zl().awC != null) {
-            TbadkCoreApplication.getInst().setBigHeaderPhotoUrlPrefix(com.baidu.live.v.a.zl().awC.mBigHeaderPhotoUrlPrefix);
+        if (com.baidu.live.v.a.zs().awM != null) {
+            TbadkCoreApplication.getInst().setBigHeaderPhotoUrlPrefix(com.baidu.live.v.a.zs().awM.mBigHeaderPhotoUrlPrefix);
         }
-        com.baidu.tieba.sdk.c.a.cEn().t(context, str2, str);
+        com.baidu.tieba.sdk.c.a.cEH().t(context, str2, str);
     }
 
-    public void fq(Context context) {
-        com.baidu.tieba.sdk.c.a.cEn().fq(context);
+    public void fp(Context context) {
+        com.baidu.tieba.sdk.c.a.cEH().fp(context);
     }
 
     public void bj(Context context, String str) {
-        com.baidu.tieba.sdk.c.a.cEn().bj(context, str);
+        com.baidu.tieba.sdk.c.a.cEH().bj(context, str);
     }
 
     public void setCustomProtocol(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().setCustomProtocol(str);
+        com.baidu.tieba.sdk.c.a.cEH().setCustomProtocol(str);
     }
 
     public boolean checkScheme(String str) {
-        return com.baidu.tieba.sdk.c.a.cEn().checkScheme(str);
+        return com.baidu.tieba.sdk.c.a.cEH().checkScheme(str);
     }
 
     public boolean openScheme(Context context, String str, SchemeCallback schemeCallback) {
-        return com.baidu.tieba.sdk.c.a.cEn().openScheme(context, str, schemeCallback);
+        return com.baidu.tieba.sdk.c.a.cEH().openScheme(context, str, schemeCallback);
+    }
+
+    public void In(String str) {
+        com.baidu.tieba.sdk.c.a.cEH().In(str);
     }
 
     public void Io(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().Io(str);
-    }
-
-    public void Ip(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().Ip(str);
+        com.baidu.tieba.sdk.c.a.cEH().Io(str);
     }
 
     public void setSubappVersionName(String str) {
-        com.baidu.tieba.sdk.c.a.cEn().setSubappVersionName(str);
+        com.baidu.tieba.sdk.c.a.cEH().setSubappVersionName(str);
     }
 
     public void setSubappVersionCode(int i) {
-        com.baidu.tieba.sdk.c.a.cEn().setSubappVersionCode(i);
+        com.baidu.tieba.sdk.c.a.cEH().setSubappVersionCode(i);
     }
 
     public void u(Context context, String str, String str2) {
-        com.baidu.tieba.sdk.c.a.cEn().u(context, str, str2);
+        com.baidu.tieba.sdk.c.a.cEH().u(context, str, str2);
     }
 
     public void setResourceAdapter(IResourceAdapter iResourceAdapter) {
-        com.baidu.tieba.sdk.c.a.cEn().setResourceAdapter(iResourceAdapter);
+        com.baidu.tieba.sdk.c.a.cEH().setResourceAdapter(iResourceAdapter);
     }
 
-    public void cEm() {
-        com.baidu.tieba.sdk.c.a.cEn().cEm();
+    public void cEG() {
+        com.baidu.tieba.sdk.c.a.cEH().cEG();
     }
 
     public void bp(String str, int i) {
-        com.baidu.tieba.sdk.c.a.cEn().bp(str, i);
+        com.baidu.tieba.sdk.c.a.cEH().bp(str, i);
     }
 
     public void setAttentionStatusChangedFromSDKCallBack(IAttentionStatusCallBack iAttentionStatusCallBack) {
-        com.baidu.tieba.sdk.c.a.cEn().setAttentionStatusChangedFromSDKCallBack(iAttentionStatusCallBack);
+        com.baidu.tieba.sdk.c.a.cEH().setAttentionStatusChangedFromSDKCallBack(iAttentionStatusCallBack);
     }
 }

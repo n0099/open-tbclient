@@ -34,7 +34,7 @@ public class o extends ab {
             Log.i("OpenAppAction", "params is " + b.toString());
         }
         final String optString2 = b.optString("open");
-        eVar.acP().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.acS().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: c */
@@ -60,21 +60,21 @@ public class o extends ab {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.acF() == null && com.baidu.swan.apps.runtime.e.acF().GE() == null) {
+        if (com.baidu.swan.apps.runtime.e.acI() == null && com.baidu.swan.apps.runtime.e.acI().GJ() == null) {
             return false;
         }
-        String VJ = com.baidu.swan.apps.runtime.e.acF().GE().VJ();
-        if (TextUtils.isEmpty(VJ)) {
-            VJ = "NA";
+        String VM = com.baidu.swan.apps.runtime.e.acI().GJ().VM();
+        if (TextUtils.isEmpty(VM)) {
+            VM = "NA";
         }
-        JSONObject jSONObject = eVar.bTv;
+        JSONObject jSONObject = eVar.bTG;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i = 0; i < length; i++) {
-            if (VJ.equals(optJSONArray.optString(i))) {
+            if (VM.equals(optJSONArray.optString(i))) {
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class o extends ab {
             int optInt = optJSONObject.optInt("launch_count", -1);
             int optInt2 = optJSONObject.optInt("daily_duration", -1);
             if (optInt >= 0 || optInt2 >= 0) {
-                return ah.agY() >= optInt || ah.agZ() >= ((long) (optInt2 * 60000));
+                return ah.ahb() >= optInt || ah.ahc() >= ((long) (optInt2 * 60000));
             }
             return false;
         }

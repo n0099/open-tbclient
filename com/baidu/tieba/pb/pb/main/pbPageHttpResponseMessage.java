@@ -53,7 +53,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.iBI = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.iDi = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -64,7 +64,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.e();
-        this.pbData.yA(2);
+        this.pbData.yI(2);
         this.pbData.a(pbPageResIdl.data, this.context);
         BdLog.detailException(null);
     }
@@ -74,10 +74,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cmi().a(this.cacheKey, this.isFromMark, bArr);
+                i.cmD().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cmi().n(this.cacheKey, bArr);
+                i.cmD().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

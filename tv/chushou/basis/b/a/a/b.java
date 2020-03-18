@@ -15,31 +15,31 @@ import java.util.Collections;
 /* loaded from: classes5.dex */
 public class b {
     public static String getMacAddress(Context context) {
-        String hb = hb(context);
-        if (hb == null || hb.isEmpty()) {
-            hb = Config.DEF_MAC_ID;
+        String ha = ha(context);
+        if (ha == null || ha.isEmpty()) {
+            ha = Config.DEF_MAC_ID;
         }
-        return hb.replace("?", "%3F").replace(ETAG.ITEM_SEPARATOR, "%26").replace("|", "%124").replace(ETAG.EQUAL, "%3D").replace("#", "%23").replace("/", "%2F").replace("+", "%2B").replace("%", "%25").trim();
+        return ha.replace("?", "%3F").replace(ETAG.ITEM_SEPARATOR, "%26").replace("|", "%124").replace(ETAG.EQUAL, "%3D").replace("#", "%23").replace("/", "%2F").replace("+", "%2B").replace("%", "%25").trim();
     }
 
-    private static String hb(Context context) {
-        String hc = hc(context);
-        if (TextUtils.isEmpty(hc)) {
-            String dPP = dPP();
-            if (TextUtils.isEmpty(dPP)) {
-                String dPQ = dPQ();
-                if (TextUtils.isEmpty(dPQ)) {
-                    String dPR = dPR();
-                    if (TextUtils.isEmpty(dPR)) {
+    private static String ha(Context context) {
+        String hb = hb(context);
+        if (TextUtils.isEmpty(hb)) {
+            String dQp = dQp();
+            if (TextUtils.isEmpty(dQp)) {
+                String dQq = dQq();
+                if (TextUtils.isEmpty(dQq)) {
+                    String dQr = dQr();
+                    if (TextUtils.isEmpty(dQr)) {
                         return null;
                     }
-                    return dPR;
+                    return dQr;
                 }
-                return dPQ;
+                return dQq;
             }
-            return dPP;
+            return dQp;
         }
-        return hc;
+        return hb;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0050  */
@@ -48,24 +48,24 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String hc(Context context) {
+    private static String hb(Context context) {
         String str;
         WifiInfo connectionInfo;
         try {
             connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dPV().e("MacAddressCompact", "get getMacAddress0 failed", e);
+            tv.chushou.basis.d.b.dQv().e("MacAddressCompact", "get getMacAddress0 failed", e);
         }
         if (connectionInfo != null) {
             str = connectionInfo.getMacAddress();
-            tv.chushou.basis.d.b.dPV().d("MacAddressCompact", "getMacAddress0:" + str);
+            tv.chushou.basis.d.b.dQv().d("MacAddressCompact", "getMacAddress0:" + str);
             if (Config.DEF_MAC_ID.equals(str)) {
                 return str;
             }
             return null;
         }
         str = null;
-        tv.chushou.basis.d.b.dPV().d("MacAddressCompact", "getMacAddress0:" + str);
+        tv.chushou.basis.d.b.dQv().d("MacAddressCompact", "getMacAddress0:" + str);
         if (Config.DEF_MAC_ID.equals(str)) {
         }
     }
@@ -76,7 +76,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String dPP() {
+    private static String dQp() {
         String str = null;
         try {
             LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream()));
@@ -92,24 +92,24 @@ public class b {
                 }
             }
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dPV().e("MacAddressCompact", "get getMacAddress1 failed", e);
+            tv.chushou.basis.d.b.dQv().e("MacAddressCompact", "get getMacAddress1 failed", e);
         }
-        tv.chushou.basis.d.b.dPV().d("MacAddressCompact", "getMacAddress1:" + str);
+        tv.chushou.basis.d.b.dQv().d("MacAddressCompact", "getMacAddress1:" + str);
         return str;
     }
 
-    private static String dPQ() {
+    private static String dQq() {
         String str = null;
         try {
             str = tv.chushou.a.a.d.a.g(new File("/sys/class/net/eth0/address"), null);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dPV().e("MacAddressCompact", "get getMacAddress2 failed", e);
+            tv.chushou.basis.d.b.dQv().e("MacAddressCompact", "get getMacAddress2 failed", e);
         }
-        tv.chushou.basis.d.b.dPV().d("MacAddressCompact", "getMacAddress2:" + str);
+        tv.chushou.basis.d.b.dQv().d("MacAddressCompact", "getMacAddress2:" + str);
         return str;
     }
 
-    private static String dPR() {
+    private static String dQr() {
         StringBuilder sb = new StringBuilder();
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
@@ -128,10 +128,10 @@ public class b {
                 }
             }
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dPV().e("MacAddressCompact", "get getMacAddress3 failed", e);
+            tv.chushou.basis.d.b.dQv().e("MacAddressCompact", "get getMacAddress3 failed", e);
         }
         String sb2 = sb.toString();
-        tv.chushou.basis.d.b.dPV().d("MacAddressCompact", "getMacAddress3:" + sb2);
+        tv.chushou.basis.d.b.dQv().d("MacAddressCompact", "getMacAddress3:" + sb2);
         return sb2;
     }
 }

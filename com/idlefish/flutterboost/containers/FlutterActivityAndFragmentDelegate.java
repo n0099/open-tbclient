@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.BoostPluginRegistry;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
@@ -35,6 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
+    private static final String TAG = "FlutterActivityAndFragmentDelegate";
     @Nullable
     private FlutterEngine flutterEngine;
     @Nullable
@@ -119,13 +121,13 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     private void setupFlutterEngine() {
-        Log.d("FlutterActivityAndFragmentDelegate", "Setting up FlutterEngine.");
+        Log.d(TAG, "Setting up FlutterEngine.");
         this.flutterEngine = this.host.provideFlutterEngine(this.host.getContext());
         if (this.flutterEngine != null) {
             this.isFlutterEngineFromHost = true;
             return;
         }
-        Log.d("FlutterActivityAndFragmentDelegate", "No preferred FlutterEngine was provided. Creating a new FlutterEngine for this NewFlutterFragment.");
+        Log.d(TAG, "No preferred FlutterEngine was provided. Creating a new FlutterEngine for this NewFlutterFragment.");
         this.isFlutterEngineFromHost = false;
     }
 
@@ -133,7 +135,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @NonNull
     @SuppressLint({"ResourceType"})
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        Log.v("FlutterActivityAndFragmentDelegate", "Creating FlutterView.");
+        Log.v(TAG, "Creating FlutterView.");
         this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
         this.mSyncer = FlutterBoost.instance().containerManager().generateSyncer(this);
         ensureAlive();
@@ -151,14 +153,15 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onStart() {
-        Log.v("FlutterActivityAndFragmentDelegate", "onStart()");
+        Log.v(TAG, "onStart()");
         ensureAlive();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onResume() {
+        a.getInstance().setLastFlutterPage(getContainerUrl());
         this.mSyncer.onAppear();
-        Log.v("FlutterActivityAndFragmentDelegate", "onResume()");
+        Log.v(TAG, "onResume()");
         ensureAlive();
         this.flutterEngine.getLifecycleChannel().appIsResumed();
         ActivityPluginBinding activityPluginBinding = ((BoostPluginRegistry) FlutterBoost.instance().getPluginRegistry()).getRegistrarAggregate().getActivityPluginBinding();
@@ -168,6 +171,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     public void onPrimary(boolean z) {
+        a.getInstance().setLastFlutterPage(getContainerUrl());
         this.mSyncer.onPrimary(z);
         BdLog.v("onPrimary()");
         ensureAlive();
@@ -175,13 +179,13 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPostResume() {
-        Log.v("FlutterActivityAndFragmentDelegate", "onPostResume()");
+        Log.v(TAG, "onPostResume()");
         ensureAlive();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPause() {
-        Log.v("FlutterActivityAndFragmentDelegate", "onPause()");
+        Log.v(TAG, "onPause()");
         ensureAlive();
         this.mSyncer.onDisappear();
         this.flutterEngine.getLifecycleChannel().appIsInactive();
@@ -189,14 +193,14 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onStop() {
-        Log.v("FlutterActivityAndFragmentDelegate", "onStop()");
+        Log.v(TAG, "onStop()");
         ensureAlive();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onDestroyView() {
         ActivityPluginBinding activityPluginBinding;
-        Log.v("FlutterActivityAndFragmentDelegate", "onDestroyView()");
+        Log.v(TAG, "onDestroyView()");
         this.mSyncer.onDestroy();
         ensureAlive();
         BoostPluginRegistry boostPluginRegistry = (BoostPluginRegistry) FlutterBoost.instance().getPluginRegistry();
@@ -209,7 +213,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onDetach() {
-        Log.v("FlutterActivityAndFragmentDelegate", "onDetach()");
+        Log.v(TAG, "onDetach()");
         ensureAlive();
         if (this.platformPlugin != null) {
             this.platformPlugin.destroy();
@@ -229,11 +233,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.mSyncer.onRequestPermissionsResult(i, strArr, iArr);
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
+            Log.v(TAG, "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
             this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i, strArr, iArr);
             return;
         }
-        Log.w("FlutterActivityAndFragmentDelegate", "onRequestPermissionResult() invoked before NewFlutterFragment was attached to an Activity.");
+        Log.w(TAG, "onRequestPermissionResult() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -241,11 +245,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.mSyncer.onNewIntent(intent);
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onNewIntent() to FlutterEngine.");
+            Log.v(TAG, "Forwarding onNewIntent() to FlutterEngine.");
             this.flutterEngine.getActivityControlSurface().onNewIntent(intent);
             return;
         }
-        Log.w("FlutterActivityAndFragmentDelegate", "onNewIntent() invoked before NewFlutterFragment was attached to an Activity.");
+        Log.w(TAG, "onNewIntent() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.idlefish.flutterboost.interfaces.IOperateSyncer */
@@ -266,11 +270,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
                 this.mSyncer.onContainerResult(i, i2, map);
                 ensureAlive();
                 if (this.flutterEngine == null) {
-                    Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
+                    Log.v(TAG, "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
                     this.flutterEngine.getActivityControlSurface().onActivityResult(i, i2, intent);
                     return;
                 }
-                Log.w("FlutterActivityAndFragmentDelegate", "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
+                Log.w(TAG, "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
                 return;
             }
         }
@@ -285,11 +289,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     public void onUserLeaveHint() {
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onUserLeaveHint() to FlutterEngine.");
+            Log.v(TAG, "Forwarding onUserLeaveHint() to FlutterEngine.");
             this.flutterEngine.getActivityControlSurface().onUserLeaveHint();
             return;
         }
-        Log.w("FlutterActivityAndFragmentDelegate", "onUserLeaveHint() invoked before NewFlutterFragment was attached to an Activity.");
+        Log.w(TAG, "onUserLeaveHint() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -298,18 +302,18 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         ensureAlive();
         if (this.flutterEngine != null) {
             if (i == 10) {
-                Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onTrimMemory() to FlutterEngine. Level: " + i);
+                Log.v(TAG, "Forwarding onTrimMemory() to FlutterEngine. Level: " + i);
                 this.flutterEngine.getSystemChannel().sendMemoryPressureWarning();
                 return;
             }
             return;
         }
-        Log.w("FlutterActivityAndFragmentDelegate", "onTrimMemory() invoked before NewFlutterFragment was attached to an Activity.");
+        Log.w(TAG, "onTrimMemory() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onLowMemory() {
-        Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onLowMemory() to FlutterEngine.");
+        Log.v(TAG, "Forwarding onLowMemory() to FlutterEngine.");
         this.mSyncer.onLowMemory();
         ensureAlive();
         this.flutterEngine.getSystemChannel().sendMemoryPressureWarning();

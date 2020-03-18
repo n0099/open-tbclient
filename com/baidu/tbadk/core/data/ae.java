@@ -6,24 +6,24 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 public class ae extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private ICardInfo Dy;
-    private boolean cPp;
+    private boolean cPC;
     private String card;
 
-    public void sx(String str) {
+    public void sw(String str) {
         this.card = str;
     }
 
-    public void aAL() {
-        this.Dy = com.baidu.tieba.lego.card.b.DZ(this.card);
-        this.cPp = this.Dy != null;
+    public void aAO() {
+        this.Dy = com.baidu.tieba.lego.card.b.DY(this.card);
+        this.cPC = this.Dy != null;
     }
 
-    public ICardInfo aAM() {
+    public ICardInfo aAP() {
         return this.Dy;
     }
 
     public boolean isValid() {
-        return this.cPp;
+        return this.cPC;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

@@ -5,13 +5,13 @@ import android.content.Context;
 public interface a {
     C0391a aA(Context context, String str);
 
-    int aOH();
+    int aOL();
+
+    int vb(String str);
 
     int vc(String str);
 
-    int vd(String str);
-
-    String ve(String str);
+    String vd(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

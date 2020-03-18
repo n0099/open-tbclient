@@ -17,7 +17,7 @@ public interface d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> dKp();
+        c<?> dKP();
     }
 
     @h

@@ -42,7 +42,7 @@ public class he {
         hkVar.a(true);
         hkVar.a("push_sdk_channel");
         hkVar.e(str2);
-        com.xiaomi.channel.commonutils.logger.b.m47a("TinyData TinyDataManager.upload item:" + hkVar.d() + "   ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m45a("TinyData TinyDataManager.upload item:" + hkVar.d() + "   ts:" + System.currentTimeMillis());
         return a(hkVar, str);
     }
 
@@ -60,7 +60,7 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    Map<String, hf> m331a() {
+    Map<String, hf> m329a() {
         return this.f450a;
     }
 
@@ -70,13 +70,13 @@ public class he {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m331a().put(str, hfVar);
+            m329a().put(str, hfVar);
         }
     }
 
     public boolean a(hk hkVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m45a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.be.a(hkVar, false)) {
             return false;

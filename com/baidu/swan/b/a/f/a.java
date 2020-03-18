@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    String bPu;
-    String bVp;
-    String bVr;
-    String bVs;
-    String bVv;
+    String bPF;
+    String bVA;
+    String bVC;
+    String bVD;
+    String bVG;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -22,45 +22,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVp = "";
-        this.bVr = "";
-        this.bVs = "";
+        this.bVA = "";
+        this.bVC = "";
+        this.bVD = "";
         this.mScheme = "";
-        this.bVv = "";
-        if (e.acG() != null) {
-            b.a acI = e.acG().acI();
-            this.mFrom = f.gs(acI.getAppFrameType());
-            this.mAppId = acI.getAppId();
-            this.mSource = acI.VJ();
-            this.bVr = acI.VP().getString("aiapp_extra_need_download", "");
-            this.bVs = acI.VP().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = acI.VL();
-            this.bVv = acI.getPage();
-            this.bPu = acI.Wc();
-            this.mAppVersion = acI.getVersion();
-            this.bVp = acI.getVersionCode();
+        this.bVG = "";
+        if (e.acJ() != null) {
+            b.a acL = e.acJ().acL();
+            this.mFrom = f.gs(acL.getAppFrameType());
+            this.mAppId = acL.getAppId();
+            this.mSource = acL.VM();
+            this.bVC = acL.VS().getString("aiapp_extra_need_download", "");
+            this.bVD = acL.VS().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = acL.VO();
+            this.bVG = acL.getPage();
+            this.bPF = acL.Wf();
+            this.mAppVersion = acL.getVersion();
+            this.bVA = acL.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVp = "";
-        this.bVr = "";
-        this.bVs = "";
+        this.bVA = "";
+        this.bVC = "";
+        this.bVD = "";
         this.mScheme = "";
-        this.bVv = "";
+        this.bVG = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.bVr = jSONObject.optString("needDown");
-            this.bVs = jSONObject.optString("isPreset");
+            this.bVC = jSONObject.optString("needDown");
+            this.bVD = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-            this.bVv = jSONObject.optString("extPage");
-            this.bPu = jSONObject.optString("launchId", null);
+            this.bVG = jSONObject.optString("extPage");
+            this.bPF = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.bVp = jSONObject.optString("thirdVersion");
+            this.bVA = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.bVr);
-            jSONObject.put("isPreset", this.bVs);
+            jSONObject.put("needDown", this.bVC);
+            jSONObject.put("isPreset", this.bVD);
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            jSONObject.put("extPage", this.bVv);
-            jSONObject.put("launchId", this.bPu);
+            jSONObject.put("extPage", this.bVG);
+            jSONObject.put("launchId", this.bPF);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.bVp);
+            jSONObject.put("thirdVersion", this.bVA);
         } catch (JSONException e) {
             e.printStackTrace();
         }

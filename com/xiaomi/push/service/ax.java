@@ -57,7 +57,7 @@ public class ax {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m524a(Intent intent) {
+    private synchronized void m522a(Intent intent) {
         if (this.f881b) {
             Message a2 = a(intent);
             if (this.f879a.size() >= 50) {
@@ -98,12 +98,12 @@ public class ax {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m525a(Intent intent) {
+    public boolean m523a(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m483a() || Build.VERSION.SDK_INT < 26) {
+            if (com.xiaomi.push.l.m481a() || Build.VERSION.SDK_INT < 26) {
                 this.f877a.startService(intent);
             } else {
-                m524a(intent);
+                m522a(intent);
             }
             return true;
         } catch (Exception e) {

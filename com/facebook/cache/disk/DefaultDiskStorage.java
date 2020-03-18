@@ -15,22 +15,22 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class DefaultDiskStorage implements com.facebook.cache.disk.c {
-    private static final Class<?> lHl = DefaultDiskStorage.class;
-    static final long lHm = TimeUnit.MINUTES.toMillis(30);
-    private final File lHn;
-    private final boolean lHo;
-    private final File lHp;
-    private final CacheErrorLogger lHq;
-    private final com.facebook.common.time.a lHr;
+    private static final Class<?> lIR = DefaultDiskStorage.class;
+    static final long lIS = TimeUnit.MINUTES.toMillis(30);
+    private final File lIT;
+    private final boolean lIU;
+    private final File lIV;
+    private final CacheErrorLogger lIW;
+    private final com.facebook.common.time.a lIX;
 
     public DefaultDiskStorage(File file, int i, CacheErrorLogger cacheErrorLogger) {
         com.facebook.common.internal.g.checkNotNull(file);
-        this.lHn = file;
-        this.lHo = a(file, cacheErrorLogger);
-        this.lHp = new File(this.lHn, Hr(i));
-        this.lHq = cacheErrorLogger;
-        djY();
-        this.lHr = com.facebook.common.time.c.dle();
+        this.lIT = file;
+        this.lIU = a(file, cacheErrorLogger);
+        this.lIV = new File(this.lIT, Hx(i));
+        this.lIW = cacheErrorLogger;
+        dkv();
+        this.lIX = com.facebook.common.time.c.dlB();
     }
 
     private static boolean a(File file, CacheErrorLogger cacheErrorLogger) {
@@ -48,38 +48,38 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
                 }
                 return true;
             } catch (IOException e2) {
-                cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, lHl, "failed to read folder to check if external: " + str, e2);
+                cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, lIR, "failed to read folder to check if external: " + str, e2);
                 return false;
             }
         } catch (Exception e3) {
-            cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, lHl, "failed to get the external storage directory!", e3);
+            cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, lIR, "failed to get the external storage directory!", e3);
             return false;
         }
     }
 
-    static String Hr(int i) {
+    static String Hx(int i) {
         return String.format(null, "%s.ols%d.%d", "v2", 100, Integer.valueOf(i));
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
-        return this.lHo;
+        return this.lIU;
     }
 
-    private void djY() {
+    private void dkv() {
         boolean z = true;
-        if (this.lHn.exists()) {
-            if (this.lHp.exists()) {
+        if (this.lIT.exists()) {
+            if (this.lIV.exists()) {
                 z = false;
             } else {
-                com.facebook.common.file.a.ak(this.lHn);
+                com.facebook.common.file.a.ak(this.lIT);
             }
         }
         if (z) {
             try {
-                FileUtils.al(this.lHp);
+                FileUtils.al(this.lIV);
             } catch (FileUtils.CreateDirectoryException e2) {
-                this.lHq.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lHl, "version directory could not be created: " + this.lHp, null);
+                this.lIW.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lIR, "version directory could not be created: " + this.lIV, null);
             }
         }
     }
@@ -96,16 +96,16 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
     }
 
-    File OI(String str) {
+    File OH(String str) {
         return new File(getFilename(str));
     }
 
-    private String OJ(String str) {
-        return this.lHp + File.separator + String.valueOf(Math.abs(str.hashCode() % 100));
+    private String OI(String str) {
+        return this.lIV + File.separator + String.valueOf(Math.abs(str.hashCode() % 100));
     }
 
-    private File OK(String str) {
-        return new File(OJ(str));
+    private File OJ(String str) {
+        return new File(OI(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,32 +140,32 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* loaded from: classes13.dex */
     private class e implements com.facebook.common.file.b {
-        private boolean lHv;
+        private boolean lJb;
 
         private e() {
         }
 
         @Override // com.facebook.common.file.b
         public void ab(File file) {
-            if (!this.lHv && file.equals(DefaultDiskStorage.this.lHp)) {
-                this.lHv = true;
+            if (!this.lJb && file.equals(DefaultDiskStorage.this.lIV)) {
+                this.lJb = true;
             }
         }
 
         @Override // com.facebook.common.file.b
         public void ac(File file) {
-            if (!this.lHv || !ag(file)) {
+            if (!this.lJb || !ag(file)) {
                 file.delete();
             }
         }
 
         @Override // com.facebook.common.file.b
         public void ad(File file) {
-            if (!DefaultDiskStorage.this.lHn.equals(file) && !this.lHv) {
+            if (!DefaultDiskStorage.this.lIT.equals(file) && !this.lJb) {
                 file.delete();
             }
-            if (this.lHv && file.equals(DefaultDiskStorage.this.lHp)) {
-                this.lHv = false;
+            if (this.lJb && file.equals(DefaultDiskStorage.this.lIV)) {
+                this.lJb = false;
             }
         }
 
@@ -182,20 +182,20 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
 
         private boolean ah(File file) {
-            return file.lastModified() > DefaultDiskStorage.this.lHr.now() - DefaultDiskStorage.lHm;
+            return file.lastModified() > DefaultDiskStorage.this.lIX.now() - DefaultDiskStorage.lIS;
         }
     }
 
     @Override // com.facebook.cache.disk.c
-    public void djZ() {
-        com.facebook.common.file.a.a(this.lHn, new e());
+    public void dkw() {
+        com.facebook.common.file.a.a(this.lIT, new e());
     }
 
     private void f(File file, String str) throws IOException {
         try {
             FileUtils.al(file);
         } catch (FileUtils.CreateDirectoryException e2) {
-            this.lHq.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lHl, str, e2);
+            this.lIW.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, lIR, str, e2);
             throw e2;
         }
     }
@@ -203,31 +203,31 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     @Override // com.facebook.cache.disk.c
     public c.b u(String str, Object obj) throws IOException {
         c cVar = new c(".tmp", str);
-        File OK = OK(cVar.resourceId);
-        if (!OK.exists()) {
-            f(OK, "insert");
+        File OJ = OJ(cVar.resourceId);
+        if (!OJ.exists()) {
+            f(OJ, "insert");
         }
         try {
-            return new d(str, cVar.ae(OK));
+            return new d(str, cVar.ae(OJ));
         } catch (IOException e2) {
-            this.lHq.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, lHl, "insert", e2);
+            this.lIW.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, lIR, "insert", e2);
             throw e2;
         }
     }
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a v(String str, Object obj) {
-        File OI = OI(str);
-        if (OI.exists()) {
-            OI.setLastModified(this.lHr.now());
-            return com.facebook.a.b.Y(OI);
+        File OH = OH(str);
+        if (OH.exists()) {
+            OH.setLastModified(this.lIX.now());
+            return com.facebook.a.b.Y(OH);
         }
         return null;
     }
 
     private String getFilename(String str) {
         c cVar = new c(".cnt", str);
-        return cVar.OO(OJ(cVar.resourceId));
+        return cVar.ON(OI(cVar.resourceId));
     }
 
     @Override // com.facebook.cache.disk.c
@@ -236,22 +236,22 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     }
 
     private boolean aJ(String str, boolean z) {
-        File OI = OI(str);
-        boolean exists = OI.exists();
+        File OH = OH(str);
+        boolean exists = OH.exists();
         if (z && exists) {
-            OI.setLastModified(this.lHr.now());
+            OH.setLastModified(this.lIX.now());
         }
         return exists;
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) {
-        return Z(((b) aVar).dkc().getFile());
+        return Z(((b) aVar).dkz().getFile());
     }
 
     @Override // com.facebook.cache.disk.c
-    public long OL(String str) {
-        return Z(OI(str));
+    public long OK(String str) {
+        return Z(OH(str));
     }
 
     private long Z(File file) {
@@ -268,23 +268,23 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.c
     /* renamed from: getEntries */
-    public List<c.a> dka() throws IOException {
+    public List<c.a> dkx() throws IOException {
         a aVar = new a();
-        com.facebook.common.file.a.a(this.lHp, aVar);
+        com.facebook.common.file.a.a(this.lIV, aVar);
         return aVar.getEntries();
     }
 
     /* loaded from: classes13.dex */
     static class b implements c.a {
         private final String id;
-        private final com.facebook.a.b lHt;
+        private final com.facebook.a.b lIZ;
         private long size;
         private long timestamp;
 
         private b(String str, File file) {
             com.facebook.common.internal.g.checkNotNull(file);
             this.id = (String) com.facebook.common.internal.g.checkNotNull(str);
-            this.lHt = com.facebook.a.b.Y(file);
+            this.lIZ = com.facebook.a.b.Y(file);
             this.size = -1L;
             this.timestamp = -1L;
         }
@@ -297,19 +297,19 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         @Override // com.facebook.cache.disk.c.a
         public long getTimestamp() {
             if (this.timestamp < 0) {
-                this.timestamp = this.lHt.getFile().lastModified();
+                this.timestamp = this.lIZ.getFile().lastModified();
             }
             return this.timestamp;
         }
 
-        public com.facebook.a.b dkc() {
-            return this.lHt;
+        public com.facebook.a.b dkz() {
+            return this.lIZ;
         }
 
         @Override // com.facebook.cache.disk.c.a
         public long getSize() {
             if (this.size < 0) {
-                this.size = this.lHt.size();
+                this.size = this.lIZ.size();
             }
             return this.size;
         }
@@ -321,7 +321,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         if (af == null) {
             return null;
         }
-        if (!OK(af.resourceId).equals(file.getParentFile())) {
+        if (!OJ(af.resourceId).equals(file.getParentFile())) {
             af = null;
         }
         return af;
@@ -329,7 +329,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public static String OM(String str) {
+    public static String OL(String str) {
         if (".cnt".equals(str)) {
             return ".cnt";
         }
@@ -354,7 +354,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
             return this.type + "(" + this.resourceId + ")";
         }
 
-        public String OO(String str) {
+        public String ON(String str) {
             return str + File.separator + this.resourceId + this.type;
         }
 
@@ -364,19 +364,19 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
         @Nullable
         public static c af(File file) {
-            String OM;
+            String OL;
             String name = file.getName();
             int lastIndexOf = name.lastIndexOf(46);
-            if (lastIndexOf > 0 && (OM = DefaultDiskStorage.OM(name.substring(lastIndexOf))) != null) {
+            if (lastIndexOf > 0 && (OL = DefaultDiskStorage.OL(name.substring(lastIndexOf))) != null) {
                 String substring = name.substring(0, lastIndexOf);
-                if (OM.equals(".tmp")) {
+                if (OL.equals(".tmp")) {
                     int lastIndexOf2 = substring.lastIndexOf(46);
                     if (lastIndexOf2 <= 0) {
                         return null;
                     }
                     substring = substring.substring(0, lastIndexOf2);
                 }
-                return new c(OM, substring);
+                return new c(OL, substring);
             }
             return null;
         }
@@ -384,33 +384,33 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* loaded from: classes13.dex */
     class d implements c.b {
-        private final String jwZ;
-        final File lHu;
+        private final String jyy;
+        final File lJa;
 
         public d(String str, File file) {
-            this.jwZ = str;
-            this.lHu = file;
+            this.jyy = str;
+            this.lJa = file;
         }
 
         @Override // com.facebook.cache.disk.c.b
         public void a(com.facebook.cache.common.h hVar, Object obj) throws IOException {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(this.lHu);
+                FileOutputStream fileOutputStream = new FileOutputStream(this.lJa);
                 try {
                     com.facebook.common.internal.c cVar = new com.facebook.common.internal.c(fileOutputStream);
                     hVar.write(cVar);
                     cVar.flush();
                     long count = cVar.getCount();
                     fileOutputStream.close();
-                    if (this.lHu.length() != count) {
-                        throw new IncompleteFileException(count, this.lHu.length());
+                    if (this.lJa.length() != count) {
+                        throw new IncompleteFileException(count, this.lJa.length());
                     }
                 } catch (Throwable th) {
                     fileOutputStream.close();
                     throw th;
                 }
             } catch (FileNotFoundException e) {
-                DefaultDiskStorage.this.lHq.a(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.lHl, "updateResource", e);
+                DefaultDiskStorage.this.lIW.a(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.lIR, "updateResource", e);
                 throw e;
             }
         }
@@ -418,13 +418,13 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         @Override // com.facebook.cache.disk.c.b
         public com.facebook.a.a aQ(Object obj) throws IOException {
             CacheErrorLogger.CacheErrorCategory cacheErrorCategory;
-            File OI = DefaultDiskStorage.this.OI(this.jwZ);
+            File OH = DefaultDiskStorage.this.OH(this.jyy);
             try {
-                FileUtils.rename(this.lHu, OI);
-                if (OI.exists()) {
-                    OI.setLastModified(DefaultDiskStorage.this.lHr.now());
+                FileUtils.rename(this.lJa, OH);
+                if (OH.exists()) {
+                    OH.setLastModified(DefaultDiskStorage.this.lIX.now());
                 }
-                return com.facebook.a.b.Y(OI);
+                return com.facebook.a.b.Y(OH);
             } catch (FileUtils.RenameException e) {
                 Throwable cause = e.getCause();
                 if (cause == null) {
@@ -436,14 +436,14 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
                 } else {
                     cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
                 }
-                DefaultDiskStorage.this.lHq.a(cacheErrorCategory, DefaultDiskStorage.lHl, "commit", e);
+                DefaultDiskStorage.this.lIW.a(cacheErrorCategory, DefaultDiskStorage.lIR, "commit", e);
                 throw e;
             }
         }
 
         @Override // com.facebook.cache.disk.c.b
-        public boolean dkd() {
-            return !this.lHu.exists() || this.lHu.delete();
+        public boolean dkA() {
+            return !this.lJa.exists() || this.lJa.delete();
         }
     }
 }

@@ -44,10 +44,10 @@ public class ah {
                             pair = new Pair(Integer.valueOf(a), Integer.valueOf(hrVar.c()));
                             break;
                         case LONG:
-                            pair = new Pair(Integer.valueOf(a), Long.valueOf(hrVar.m351a()));
+                            pair = new Pair(Integer.valueOf(a), Long.valueOf(hrVar.m349a()));
                             break;
                         case STRING:
-                            pair = new Pair(Integer.valueOf(a), hrVar.m352a());
+                            pair = new Pair(Integer.valueOf(a), hrVar.m350a());
                             break;
                         case BOOLEAN:
                             pair = new Pair(Integer.valueOf(a), Boolean.valueOf(hrVar.g()));
@@ -74,8 +74,8 @@ public class ah {
 
     public static void a(ag agVar, ie ieVar) {
         for (hp hpVar : ieVar.a()) {
-            if (hpVar.a() > a(agVar, hpVar.m347a())) {
-                a(agVar, hpVar.m347a(), hpVar.a());
+            if (hpVar.a() > a(agVar, hpVar.m345a())) {
+                a(agVar, hpVar.m345a(), hpVar.a());
                 agVar.a(a(hpVar.f487a, false));
             }
         }

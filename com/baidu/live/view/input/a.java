@@ -11,13 +11,13 @@ public interface a {
     public interface InterfaceC0104a {
         void j(String str, boolean z);
 
-        boolean ws();
+        void wA();
 
-        void wu();
+        boolean wB();
 
-        void wv();
+        boolean wx();
 
-        boolean ww();
+        void wz();
     }
 
     void b(List<String> list, Map<String, Integer> map);
@@ -36,9 +36,9 @@ public interface a {
 
     void show();
 
-    boolean xP();
+    boolean xU();
 
-    boolean xQ();
+    boolean xV();
 
-    void xR();
+    void xW();
 }

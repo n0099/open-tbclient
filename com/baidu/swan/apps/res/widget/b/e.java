@@ -30,7 +30,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 class e {
-    private static View bOH;
+    private static View bOS;
     private static Runnable mCancelRunnable;
     private static View sMaskView;
     private static boolean sShowMask = false;
@@ -151,13 +151,13 @@ class e {
                                 return;
                             }
                         }
-                        if (e.bOH != null && (e.bOH.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.bOH.getParent()).removeView(e.bOH);
+                        if (e.bOS != null && (e.bOS.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.bOS.getParent()).removeView(e.bOS);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.bOH = view2;
+                            View unused2 = e.bOS = view2;
                         }
                     }
                 });
@@ -235,7 +235,7 @@ class e {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().vm(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().vt(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -298,7 +298,7 @@ class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -334,10 +334,10 @@ class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (bOH != null) {
-                bOH.post(new AnonymousClass2(bOH, sMaskView));
-                bOH.removeCallbacks(mCancelRunnable);
-                bOH = null;
+            if (bOS != null) {
+                bOS.post(new AnonymousClass2(bOS, sMaskView));
+                bOS.removeCallbacks(mCancelRunnable);
+                bOS = null;
                 mCancelRunnable = null;
                 sMaskView = null;
             }

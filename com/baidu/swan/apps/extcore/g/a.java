@@ -22,11 +22,11 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static boolean eT(int i) {
-        return h.afr().getBoolean(eU(i), false);
+        return h.afu().getBoolean(eU(i), false);
     }
 
     public static void q(int i, boolean z) {
-        h.afr().putBoolean(eU(i), z);
+        h.afu().putBoolean(eU(i), z);
     }
 
     @NonNull
@@ -34,13 +34,13 @@ public class a {
         return i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset";
     }
 
-    private static ArrayList<Long> Se() {
-        ExtensionCore QR;
+    private static ArrayList<Long> Sh() {
+        ExtensionCore QU;
         ArrayList<Long> arrayList = new ArrayList<>();
-        for (c cVar : e.abu().abw()) {
-            SwanAppCores abk = cVar.abk();
-            if (abk != null && cVar.abl() && (QR = abk.QR()) != null && !arrayList.contains(Long.valueOf(QR.extensionCoreVersionCode))) {
-                arrayList.add(Long.valueOf(QR.extensionCoreVersionCode));
+        for (c cVar : e.abx().abz()) {
+            SwanAppCores abn = cVar.abn();
+            if (abn != null && cVar.abo() && (QU = abn.QU()) != null && !arrayList.contains(Long.valueOf(QU.extensionCoreVersionCode))) {
+                arrayList.add(Long.valueOf(QU.extensionCoreVersionCode));
             }
         }
         if (DEBUG) {
@@ -52,7 +52,7 @@ public class a {
     public static void w(Bundle bundle) {
         if (bundle != null) {
             if (!ProcessUtils.isMainProcess()) {
-                com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).ds(true));
+                com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).dt(true));
                 return;
             }
             String string = bundle.getString("arg_dst_folder");
@@ -80,7 +80,7 @@ public class a {
                     }
                 }
             }
-            arrayList.addAll(Se());
+            arrayList.addAll(Sh());
             if (DEBUG) {
                 Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
             }
@@ -108,16 +108,16 @@ public class a {
         return false;
     }
 
-    public static long hQ(@Nullable String str) {
-        String[] hR = hR(str);
-        if (hR == null) {
+    public static long hP(@Nullable String str) {
+        String[] hQ = hQ(str);
+        if (hQ == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < hR.length ? Integer.valueOf(hR[i]).intValue() : 0L);
+                j = (j << 16) | (i < hQ.length ? Integer.valueOf(hQ[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -141,16 +141,16 @@ public class a {
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == hQ(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == hP(sb.toString())));
         }
         return sb.toString();
     }
 
     public static boolean eV(int i) {
-        return i == 1 ? com.baidu.swan.apps.ah.a.a.aau() : com.baidu.swan.apps.ah.a.a.aat();
+        return i == 1 ? com.baidu.swan.apps.ah.a.a.aax() : com.baidu.swan.apps.ah.a.a.aaw();
     }
 
-    private static String[] hR(@Nullable String str) {
+    private static String[] hQ(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

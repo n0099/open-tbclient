@@ -9,14 +9,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final a awV() {
-        return C0370a.cGv;
+    public static final a awY() {
+        return C0370a.cGG;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private static class C0370a {
-        private static final a cGv = new a();
+        private static final a cGG = new a();
     }
 
     public synchronized long a(b bVar) {
@@ -61,7 +61,7 @@ public class a {
             if (bVar != null) {
                 SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
                 openedDatabase.beginTransaction();
-                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axj())});
+                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axm())});
                 openedDatabase.setTransactionSuccessful();
                 openedDatabase.endTransaction();
                 z = delete >= 0;
@@ -70,7 +70,7 @@ public class a {
         return z;
     }
 
-    public synchronized List<b> awW() {
+    public synchronized List<b> awZ() {
         LinkedList linkedList;
         SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
         openedDatabase.beginTransaction();
@@ -95,10 +95,10 @@ public class a {
         b bVar = new b();
         bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
         bVar.jd(cursor.getInt(cursor.getColumnIndex("missionid")));
-        bVar.rv(cursor.getString(cursor.getColumnIndex("activitysource")));
+        bVar.ru(cursor.getString(cursor.getColumnIndex("activitysource")));
         bVar.je(cursor.getInt(cursor.getColumnIndex("calltype")));
         bVar.jf(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-        bVar.rw(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+        bVar.rv(cursor.getString(cursor.getColumnIndex("browsetimepage")));
         bVar.bo(cursor.getLong(cursor.getColumnIndex("browsetime")));
         bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
         bVar.jg(cursor.getInt(cursor.getColumnIndex("forumnum")));
@@ -107,8 +107,8 @@ public class a {
         bVar.bq(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
         bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
         bVar.setFid(cursor.getLong(cursor.getColumnIndex("fid")));
-        bVar.rx(cursor.getString(cursor.getColumnIndex("threadtext")));
-        bVar.ry(cursor.getString(cursor.getColumnIndex("threadimg")));
+        bVar.rw(cursor.getString(cursor.getColumnIndex("threadtext")));
+        bVar.rx(cursor.getString(cursor.getColumnIndex("threadimg")));
         bVar.br(cursor.getInt(cursor.getColumnIndex("threadforum")));
         bVar.ji(cursor.getInt(cursor.getColumnIndex("totalLimit")));
         bVar.jj(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
@@ -123,26 +123,26 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("activityid", Integer.valueOf(bVar.getActivityId()));
-        contentValues.put("missionid", Integer.valueOf(bVar.axj()));
-        contentValues.put("activitysource", bVar.axk());
-        contentValues.put("calltype", Integer.valueOf(bVar.axm()));
+        contentValues.put("missionid", Integer.valueOf(bVar.axm()));
+        contentValues.put("activitysource", bVar.axn());
+        contentValues.put("calltype", Integer.valueOf(bVar.axp()));
         contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(bVar.getTaskType()));
-        contentValues.put("browsetimepage", bVar.axn());
-        contentValues.put("browsetime", Long.valueOf(bVar.axp()));
+        contentValues.put("browsetimepage", bVar.axq());
+        contentValues.put("browsetime", Long.valueOf(bVar.axs()));
         contentValues.put("threadnum", Integer.valueOf(bVar.getThreadNum()));
-        contentValues.put("forumnum", Integer.valueOf(bVar.axq()));
-        contentValues.put("cleartype", Integer.valueOf(bVar.axr()));
-        contentValues.put("cleartime", Long.valueOf(bVar.axs()));
-        contentValues.put("specificcleartime", Long.valueOf(bVar.axt()));
+        contentValues.put("forumnum", Integer.valueOf(bVar.axt()));
+        contentValues.put("cleartype", Integer.valueOf(bVar.axu()));
+        contentValues.put("cleartime", Long.valueOf(bVar.axv()));
+        contentValues.put("specificcleartime", Long.valueOf(bVar.axw()));
         contentValues.put("tid", Long.valueOf(bVar.getTid()));
         contentValues.put("fid", Long.valueOf(bVar.getFid()));
-        contentValues.put("threadtext", bVar.axu());
-        contentValues.put("threadimg", bVar.axv());
-        contentValues.put("threadforum", Long.valueOf(bVar.axw()));
-        contentValues.put("totalLimit", Integer.valueOf(bVar.axx()));
+        contentValues.put("threadtext", bVar.axx());
+        contentValues.put("threadimg", bVar.axy());
+        contentValues.put("threadforum", Long.valueOf(bVar.axz()));
+        contentValues.put("totalLimit", Integer.valueOf(bVar.axA()));
         contentValues.put("completedLimitCount", Integer.valueOf(bVar.getTag()));
         contentValues.put("token", bVar.getToken());
-        contentValues.put("executingMissionList", bVar.axb());
+        contentValues.put("executingMissionList", bVar.axe());
         return contentValues;
     }
 
@@ -157,7 +157,7 @@ public class a {
 
     private long b(SQLiteDatabase sQLiteDatabase, b bVar) {
         try {
-            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axj())});
+            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.axm())});
         } catch (Throwable th) {
             th.printStackTrace();
             return -1L;

@@ -35,17 +35,17 @@ public class f extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty key");
             return false;
         }
-        String string = eVar.acN().afi().getString(optString, "");
+        String string = eVar.acQ().afl().getString(optString, "");
         try {
-            JSONObject fY = com.baidu.swan.apps.api.module.j.a.fY(string);
-            if (fY == null) {
-                fY = new JSONObject();
+            JSONObject fX = com.baidu.swan.apps.api.module.j.a.fX(string);
+            if (fX == null) {
+                fX = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                fY.put("data", string);
+                fX.put("data", string);
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fY, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fX, 0));
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");

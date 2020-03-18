@@ -17,7 +17,7 @@ public class c extends com.baidu.card.b<com.baidu.tbadk.core.data.a> {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.cA(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
+        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.cz(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.bringToFront();

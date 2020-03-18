@@ -9,8 +9,8 @@ import java.util.TreeSet;
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     protected static final String TAG = a.class.getSimpleName();
-    double bGc = 1.0d;
-    protected Set<Integer> bGd;
+    double bGn = 1.0d;
+    protected Set<Integer> bGo;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -23,26 +23,26 @@ public abstract class a {
     }
 
     public void fB(int i) {
-        if (this.bGd == null) {
-            this.bGd = new TreeSet();
+        if (this.bGo == null) {
+            this.bGo = new TreeSet();
         } else {
-            this.bGd.clear();
+            this.bGo.clear();
         }
         if (DEBUG) {
             Log.d(TAG, "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.bGd.add(Integer.valueOf(i));
+        this.bGo.add(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(double d) {
-        this.bGc = d;
+        this.bGn = d;
     }
 
     /* renamed from: com.baidu.swan.apps.ac.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0200a {
-        public static a jE(String str) {
+        public static a jD(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

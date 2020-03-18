@@ -50,7 +50,7 @@ public class f {
     public String c(d dVar) {
         if (this.rj.size() == 0) {
             if (dVar != null) {
-                dVar.qM = this.url.length();
+                dVar.qL = this.url.length();
             }
             return this.url;
         }
@@ -76,7 +76,7 @@ public class f {
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.qM = sb.length();
+            dVar.qL = sb.length();
         }
         return sb.toString();
     }
@@ -136,7 +136,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.qM = i;
+            dVar.qL = i;
         }
     }
 
@@ -156,7 +156,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.qM = i;
+            dVar.qL = i;
         }
     }
 

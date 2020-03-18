@@ -1,8 +1,7 @@
 package com.baidu.tieba.frs;
-
-import java.util.List;
 /* loaded from: classes.dex */
 public class at {
-    public int gsh;
-    public List<as> gsi;
+    public int gsO;
+    public boolean isSelected;
+    public String name;
 }

@@ -13,37 +13,37 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<an>> keb;
-    private String[] kec = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", "recom_source", "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
+    private Map<BdUniqueId, ArrayList<an>> kfE;
+    private String[] kfF = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", "recom_source", "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.keb == null) {
-            this.keb = new LinkedHashMap();
+        if (this.kfE == null) {
+            this.kfE = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void w(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.keb.put(bdUniqueId, null);
+            this.kfE.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void x(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.keb.remove(bdUniqueId);
+            this.kfE.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, an anVar) {
         if (anVar != null && bdUniqueId != null) {
-            ArrayList<an> arrayList = this.keb.get(bdUniqueId);
+            ArrayList<an> arrayList = this.kfE.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.keb.put(bdUniqueId, arrayList);
+                this.kfE.put(bdUniqueId, arrayList);
             }
             arrayList.add(anVar);
         }
@@ -51,13 +51,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean y(BdUniqueId bdUniqueId) {
-        return this.keb.containsKey(bdUniqueId);
+        return this.kfE.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cKa() {
-        if (this.keb.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.keb.entrySet()) {
+    public void cKu() {
+        if (this.kfE.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.kfE.entrySet()) {
                 ArrayList<an> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -69,7 +69,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<an> arrayList = this.keb.get(bdUniqueId);
+            ArrayList<an> arrayList = this.kfE.get(bdUniqueId);
             if (v.getCount(arrayList) != 0) {
                 aS(arrayList);
                 arrayList.clear();
@@ -98,17 +98,17 @@ public class b {
                     List list = (List) entry.getValue();
                     if (v.getCount(list) != 0) {
                         an anVar2 = (an) list.get(0);
-                        for (int i2 = 0; i2 < this.kec.length; i2++) {
+                        for (int i2 = 0; i2 < this.kfF.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(l(((an) list.get(i3)).getParams(), this.kec[i2]));
+                                sb.append(l(((an) list.get(i3)).getParams(), this.kfF[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            anVar2.delete(this.kec[i2]);
-                            anVar2.cy(this.kec[i2] + "s", sb.toString());
+                            anVar2.delete(this.kfF[i2]);
+                            anVar2.cx(this.kfF[i2] + "s", sb.toString());
                         }
                         TiebaStatic.log(anVar2);
                     }

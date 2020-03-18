@@ -16,7 +16,7 @@ public final class TimeSignalCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kx */
+        /* renamed from: KD */
         public TimeSignalCommand[] newArray(int i) {
             return new TimeSignalCommand[i];
         }
@@ -32,7 +32,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static TimeSignalCommand b(l lVar, long j, s sVar) {
         long e = e(lVar, j);
-        return new TimeSignalCommand(e, sVar.gI(e));
+        return new TimeSignalCommand(e, sVar.gJ(e));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

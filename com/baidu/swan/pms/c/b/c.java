@@ -22,15 +22,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.c cVar) {
-        this.cBn.Pm();
+        this.cBy.Pp();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.cBY, eVar);
-        if (eVar.aut() == 0) {
-            this.cBn.Pi();
+        a(cVar.cCj, eVar);
+        if (eVar.auw() == 0) {
+            this.cBy.Pl();
             return null;
         }
-        this.cBn.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.cBn);
+        this.cBy.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.cBy);
         return null;
     }
 
@@ -42,11 +42,11 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
         if (cVar == null) {
             return false;
         }
-        return cVar.cBY == null || cVar.cBY.PU();
+        return cVar.cCj == null || cVar.cCj.PX();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ajl() {
+    protected String ajo() {
         return "getplugin";
     }
 }

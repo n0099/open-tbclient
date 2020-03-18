@@ -4,18 +4,18 @@ import android.graphics.Color;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bb {
-    private String aeb;
-    private String aec;
-    private String aed;
-    private String aee;
-    private String aef;
-    private String aeg;
-    private String aeh;
-    private String aei;
-    private int[] aej;
-    private int[] aek;
-    private int[] ael;
-    private int[] aem;
+    private String ael;
+    private String aem;
+    private String aen;
+    private String aeo;
+    private String aep;
+    private String aeq;
+    private String aer;
+    private String aes;
+    private int[] aet;
+    private int[] aeu;
+    private int[] aev;
+    private int[] aew;
     public String id;
     public String name;
     public int price;
@@ -29,54 +29,54 @@ public class bb {
         this.id = jSONObject.optString("id");
         this.price = jSONObject.optInt("price");
         this.name = jSONObject.optString("name");
-        this.aeb = jSONObject.optString("barrage_start_color");
-        this.aec = jSONObject.optString("barrage_end_color");
-        this.aed = jSONObject.optString("portrait_start_color");
-        this.aee = jSONObject.optString("portrait_end_color");
-        this.aef = jSONObject.optString("portrait_frame_start_color");
-        this.aeg = jSONObject.optString("portrait_frame_end_color");
-        this.aeh = jSONObject.optString("btn_start_color");
-        this.aei = jSONObject.optString("btn_end_color");
+        this.ael = jSONObject.optString("barrage_start_color");
+        this.aem = jSONObject.optString("barrage_end_color");
+        this.aen = jSONObject.optString("portrait_start_color");
+        this.aeo = jSONObject.optString("portrait_end_color");
+        this.aep = jSONObject.optString("portrait_frame_start_color");
+        this.aeq = jSONObject.optString("portrait_frame_end_color");
+        this.aer = jSONObject.optString("btn_start_color");
+        this.aes = jSONObject.optString("btn_end_color");
     }
 
-    public bb qL() {
+    public bb qQ() {
         this.type = 1;
         this.price = 100;
-        this.aeb = "#FF613EFB";
-        this.aec = "#FF44E3FF";
-        this.aed = "#FF623DFE";
-        this.aee = "#FF03E2F5";
-        this.aef = "#FF61A0FF";
-        this.aeg = "#FF73FFEF";
+        this.ael = "#FF613EFB";
+        this.aem = "#FF44E3FF";
+        this.aen = "#FF623DFE";
+        this.aeo = "#FF03E2F5";
+        this.aep = "#FF61A0FF";
+        this.aeq = "#FF73FFEF";
         return this;
     }
 
-    public int[] qM() {
-        if (this.aej == null || this.aej.length != 2) {
-            this.aej = j(this.aeh, this.aei, "#FF623DFE", "#FF03E2F5");
+    public int[] qR() {
+        if (this.aet == null || this.aet.length != 2) {
+            this.aet = j(this.aer, this.aes, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aej;
+        return this.aet;
     }
 
-    public int[] qN() {
-        if (this.aek == null || this.aek.length != 2) {
-            this.aek = j(this.aed, this.aee, "#FF623DFE", "#FF03E2F5");
+    public int[] qS() {
+        if (this.aeu == null || this.aeu.length != 2) {
+            this.aeu = j(this.aen, this.aeo, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aek;
+        return this.aeu;
     }
 
-    public int[] qO() {
-        if (this.ael == null || this.ael.length != 2) {
-            this.ael = j(this.aeb, this.aec, "#FF613EFB", "#FF44E3FF");
+    public int[] qT() {
+        if (this.aev == null || this.aev.length != 2) {
+            this.aev = j(this.ael, this.aem, "#FF613EFB", "#FF44E3FF");
         }
-        return this.ael;
+        return this.aev;
     }
 
-    public int[] qP() {
-        if (this.aem == null || this.aem.length != 2) {
-            this.aem = j(this.aef, this.aeg, "#FF61A0FF", "#FF73FFEF");
+    public int[] qU() {
+        if (this.aew == null || this.aew.length != 2) {
+            this.aew = j(this.aep, this.aeq, "#FF61A0FF", "#FF73FFEF");
         }
-        return this.aem;
+        return this.aew;
     }
 
     private int[] j(String str, String str2, String str3, String str4) {

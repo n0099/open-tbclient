@@ -6,11 +6,11 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 /* loaded from: classes13.dex */
 public class b {
-    private static int UK = 0;
-    private static boolean UL = false;
-    private static boolean UM = false;
+    private static int UV = 0;
+    private static boolean UW = false;
+    private static boolean UX = false;
 
-    public static int pg() {
+    public static int pl() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

@@ -6,17 +6,17 @@ public final class c {
 
     /* loaded from: classes11.dex */
     private static class a {
-        public static final c bbA = new c();
+        public static final c bbN = new c();
     }
 
     private c() {
     }
 
-    public static c IY() {
-        return a.bbA;
+    public static c Jb() {
+        return a.bbN;
     }
 
-    public j IZ() {
+    public j Jc() {
         return new com.baidu.swan.apps.adaptation.b.a.a();
     }
 }

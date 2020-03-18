@@ -22,55 +22,55 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PermissionJudgePolicy {
-    private static final ArrayList<String> dbx = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission.ACCESS_COARSE_LOCATION"));
-    private a dbA;
-    private com.baidu.tbadk.core.util.permission.a dbB;
-    private List<String> dby;
-    private b dbz;
+    private static final ArrayList<String> dbK = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission.ACCESS_COARSE_LOCATION"));
+    private List<String> dbL;
+    private b dbM;
+    private a dbN;
+    private com.baidu.tbadk.core.util.permission.a dbO;
     private int mRequestCode = -1;
-    private EXTRA_DIALOG_REFUSE_POLICY dbC = EXTRA_DIALOG_REFUSE_POLICY.Reject_all;
-    private a.InterfaceC0378a dbD = new a.InterfaceC0378a() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.1
+    private EXTRA_DIALOG_REFUSE_POLICY dbP = EXTRA_DIALOG_REFUSE_POLICY.Reject_all;
+    private a.InterfaceC0378a dbQ = new a.InterfaceC0378a() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.1
         @Override // com.baidu.tbadk.core.util.permission.a.InterfaceC0378a
         public void e(Activity activity, String str) {
-            if (PermissionJudgePolicy.this.dbB != null) {
-                PermissionJudgePolicy.this.dbB.dismiss();
+            if (PermissionJudgePolicy.this.dbO != null) {
+                PermissionJudgePolicy.this.dbO.dismiss();
             }
         }
 
         @Override // com.baidu.tbadk.core.util.permission.a.InterfaceC0378a
         public void f(Activity activity, String str) {
-            if (PermissionJudgePolicy.this.dbB != null) {
-                PermissionJudgePolicy.this.dby.remove(str);
-                if (!v.isEmpty(PermissionJudgePolicy.this.dby)) {
+            if (PermissionJudgePolicy.this.dbO != null) {
+                PermissionJudgePolicy.this.dbL.remove(str);
+                if (!v.isEmpty(PermissionJudgePolicy.this.dbL)) {
                     PermissionJudgePolicy.this.ae(activity);
                     return;
                 }
-                PermissionJudgePolicy.this.dbB.dismiss();
+                PermissionJudgePolicy.this.dbO.dismiss();
                 PermissionJudgePolicy.this.h(activity, PermissionJudgePolicy.this.mRequestCode);
             }
         }
     };
-    private a.InterfaceC0378a dbE = new a.InterfaceC0378a() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.2
+    private a.InterfaceC0378a dbR = new a.InterfaceC0378a() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.2
         @Override // com.baidu.tbadk.core.util.permission.a.InterfaceC0378a
         public void e(Activity activity, String str) {
             PermissionJudgePolicy.this.requestPermissionList.remove(str);
-            PermissionJudgePolicy.this.dby.remove(str);
-            if (!v.isEmpty(PermissionJudgePolicy.this.dby)) {
+            PermissionJudgePolicy.this.dbL.remove(str);
+            if (!v.isEmpty(PermissionJudgePolicy.this.dbL)) {
                 PermissionJudgePolicy.this.ae(activity);
                 return;
             }
-            PermissionJudgePolicy.this.dbB.dismiss();
+            PermissionJudgePolicy.this.dbO.dismiss();
             PermissionJudgePolicy.this.h(activity, PermissionJudgePolicy.this.mRequestCode);
         }
 
         @Override // com.baidu.tbadk.core.util.permission.a.InterfaceC0378a
         public void f(Activity activity, String str) {
-            PermissionJudgePolicy.this.dby.remove(str);
-            if (!v.isEmpty(PermissionJudgePolicy.this.dby)) {
+            PermissionJudgePolicy.this.dbL.remove(str);
+            if (!v.isEmpty(PermissionJudgePolicy.this.dbL)) {
                 PermissionJudgePolicy.this.ae(activity);
                 return;
             }
-            PermissionJudgePolicy.this.dbB.dismiss();
+            PermissionJudgePolicy.this.dbO.dismiss();
             PermissionJudgePolicy.this.h(activity, PermissionJudgePolicy.this.mRequestCode);
         }
     };
@@ -116,8 +116,8 @@ public class PermissionJudgePolicy {
 
     public boolean a(Activity activity, int i, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy) {
         this.mRequestCode = i;
-        this.dbC = extra_dialog_refuse_policy;
-        if (!com.baidu.k.a.Ex()) {
+        this.dbP = extra_dialog_refuse_policy;
+        if (!com.baidu.k.a.EE()) {
             onPermissionsGranted();
             return false;
         } else if (v.isEmpty(this.requestPermissionList)) {
@@ -129,8 +129,8 @@ public class PermissionJudgePolicy {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            this.dby = aGS();
-            if (af(activity) != null && !v.isEmpty(this.dby)) {
+            this.dbL = aGW();
+            if (af(activity) != null && !v.isEmpty(this.dbL)) {
                 ae(activity);
                 return true;
             }
@@ -151,7 +151,7 @@ public class PermissionJudgePolicy {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.fH(false);
+        aVar.fI(false);
         aVar.jV(R.string.request_permission_default_title);
         aVar.jW(getPermissionDescriptionId(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
@@ -163,20 +163,20 @@ public class PermissionJudgePolicy {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (PermissionJudgePolicy.this.dbz != null) {
-                    PermissionJudgePolicy.this.dbz.onDialogComfirmed(str);
+                if (PermissionJudgePolicy.this.dbM != null) {
+                    PermissionJudgePolicy.this.dbM.onDialogComfirmed(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (PermissionJudgePolicy.this.dbz != null) {
-                    PermissionJudgePolicy.this.dbz.onDialogCaneled(str);
+                if (PermissionJudgePolicy.this.dbM != null) {
+                    PermissionJudgePolicy.this.dbM.onDialogCaneled(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.aEC();
+        aVar.aEG();
         return false;
     }
 
@@ -223,21 +223,21 @@ public class PermissionJudgePolicy {
     }
 
     public void a(a aVar) {
-        this.dbA = aVar;
+        this.dbN = aVar;
     }
 
     public void onPermissionsGranted() {
-        if (this.dbA != null) {
-            this.dbA.onPermissionsGranted();
+        if (this.dbN != null) {
+            this.dbN.onPermissionsGranted();
         }
     }
 
-    private List<String> aGS() {
+    private List<String> aGW() {
         LinkedList linkedList = new LinkedList();
         Iterator<String> it = this.requestPermissionList.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            if (dbx.contains(next)) {
+            if (dbK.contains(next)) {
                 linkedList.add(next);
             }
         }
@@ -246,19 +246,19 @@ public class PermissionJudgePolicy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ae(Activity activity) {
-        if (af(activity) != null && !v.isEmpty(this.dby)) {
-            if (this.dbB == null) {
-                this.dbB = new com.baidu.tbadk.core.util.permission.a(activity);
-                if (this.dbC == EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one) {
-                    this.dbB.a(this.dbE);
+        if (af(activity) != null && !v.isEmpty(this.dbL)) {
+            if (this.dbO == null) {
+                this.dbO = new com.baidu.tbadk.core.util.permission.a(activity);
+                if (this.dbP == EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one) {
+                    this.dbO.a(this.dbR);
                 } else {
-                    this.dbB.a(this.dbD);
+                    this.dbO.a(this.dbQ);
                 }
             }
-            this.dbB.tG(this.dby.get(0));
-            this.dbB.b(af(activity));
-            this.dbB.onChangeSkinType();
-            this.dbB.aEC();
+            this.dbO.tF(this.dbL.get(0));
+            this.dbO.b(af(activity));
+            this.dbO.onChangeSkinType();
+            this.dbO.aEG();
         }
     }
 

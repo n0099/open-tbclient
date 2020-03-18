@@ -10,33 +10,33 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public final class c {
-    private static List<WeakReference<ScheduledFuture<?>>> kWT = new ArrayList();
-    private static int kWV = 30;
-    private static ExecutorService kWU = Executors.newFixedThreadPool(2);
-    private static ScheduledExecutorService kWW = Executors.newScheduledThreadPool(2);
+    private static List<WeakReference<ScheduledFuture<?>>> kYx = new ArrayList();
+    private static int kYz = 30;
+    private static ExecutorService kYy = Executors.newFixedThreadPool(2);
+    private static ScheduledExecutorService kYA = Executors.newScheduledThreadPool(2);
 
     public static void execute(Runnable runnable) {
-        if (kWU == null || kWU.isShutdown()) {
-            kWU = Executors.newFixedThreadPool(2);
+        if (kYy == null || kYy.isShutdown()) {
+            kYy = Executors.newFixedThreadPool(2);
         }
-        kWU.execute(runnable);
+        kYy.execute(runnable);
     }
 
     public static synchronized void a(Runnable runnable, long j, long j2) {
         synchronized (c.class) {
-            if (kWW == null || kWW.isShutdown()) {
-                kWW = Executors.newScheduledThreadPool(2);
+            if (kYA == null || kYA.isShutdown()) {
+                kYA = Executors.newScheduledThreadPool(2);
             }
-            kWT.add(new WeakReference<>(kWW.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            kYx.add(new WeakReference<>(kYA.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static synchronized void a(Runnable runnable) {
         synchronized (c.class) {
-            if (kWW == null || kWW.isShutdown()) {
-                kWW = Executors.newScheduledThreadPool(2);
+            if (kYA == null || kYA.isShutdown()) {
+                kYA = Executors.newScheduledThreadPool(2);
             }
-            kWW.execute(runnable);
+            kYA.execute(runnable);
         }
     }
 }

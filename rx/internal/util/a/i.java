@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nBZ;
-        long j = this.nSW;
-        long dJw = dJw();
-        long ht = ht(dJw);
-        if (b(eArr, ht) != null) {
-            if (dJw - dJx() > j) {
+        E[] eArr = this.nDM;
+        long j = this.nUJ;
+        long dJW = dJW();
+        long hu = hu(dJW);
+        if (b(eArr, hu) != null) {
+            if (dJW - dJX() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, ht) != null);
-            a(eArr, ht, e);
-            hv(1 + dJw);
+            } while (b(eArr, hu) != null);
+            a(eArr, hu, e);
+            hw(1 + dJW);
             return true;
         }
-        a(eArr, ht, e);
-        hv(1 + dJw);
+        a(eArr, hu, e);
+        hw(1 + dJW);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dJx;
-        long dOP = dOP();
+        long dJX;
+        long dPp = dPp();
         do {
-            dJx = dJx();
-            if (dJx >= dOP) {
-                long dJw = dJw();
-                if (dJx >= dJw) {
+            dJX = dJX();
+            if (dJX >= dPp) {
+                long dJW = dJW();
+                if (dJX >= dJW) {
                     return null;
                 }
-                hw(dJw);
+                hx(dJW);
             }
-        } while (!am(dJx, 1 + dJx));
-        long ht = ht(dJx);
-        E[] eArr = this.nBZ;
-        E a = a(eArr, ht);
-        b(eArr, ht, null);
+        } while (!am(dJX, 1 + dJX));
+        long hu = hu(dJX);
+        E[] eArr = this.nDM;
+        E a = a(eArr, hu);
+        b(eArr, hu, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E hu;
-        long dOP = dOP();
+        E hv;
+        long dPp = dPp();
         do {
-            long dJx = dJx();
-            if (dJx >= dOP) {
-                long dJw = dJw();
-                if (dJx >= dJw) {
+            long dJX = dJX();
+            if (dJX >= dPp) {
+                long dJW = dJW();
+                if (dJX >= dJW) {
                     return null;
                 }
-                hw(dJw);
+                hx(dJW);
             }
-            hu = hu(ht(dJx));
-        } while (hu == null);
-        return hu;
+            hv = hv(hu(dJX));
+        } while (hv == null);
+        return hv;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dJx = dJx();
+        long dJX = dJX();
         while (true) {
-            long dJw = dJw();
-            long dJx2 = dJx();
-            if (dJx == dJx2) {
-                return (int) (dJw - dJx2);
+            long dJW = dJW();
+            long dJX2 = dJX();
+            if (dJX == dJX2) {
+                return (int) (dJW - dJX2);
             }
-            dJx = dJx2;
+            dJX = dJX2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dJx() == dJw();
+        return dJX() == dJW();
     }
 }

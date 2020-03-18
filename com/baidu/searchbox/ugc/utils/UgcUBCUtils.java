@@ -427,7 +427,7 @@ public class UgcUBCUtils {
             print(str, "beginFlow", null);
             a uBCManager = getUBCManager();
             if (uBCManager != null) {
-                return uBCManager.Hs(str);
+                return uBCManager.Hr(str);
             }
             return null;
         }

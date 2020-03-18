@@ -38,16 +38,16 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
             unitedSchemeEntity.result = eb(1001);
         } else {
-            String str = d.bim;
-            com.baidu.swan.apps.model.a.a.a aVar = d.bir;
+            String str = d.biA;
+            com.baidu.swan.apps.model.a.a.a aVar = d.biE;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
                 unitedSchemeEntity.result = eb(202);
             } else {
-                com.baidu.swan.apps.component.b.c KF = new com.baidu.swan.apps.component.components.d.a(context, d).KF();
-                z = KF.isSuccess();
+                com.baidu.swan.apps.component.b.c KI = new com.baidu.swan.apps.component.components.d.a(context, d).KI();
+                z = KI.isSuccess();
                 if (!z) {
-                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + KF.msg);
+                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + KI.msg);
                 }
                 a(unitedSchemeEntity, callbackHandler, z);
             }

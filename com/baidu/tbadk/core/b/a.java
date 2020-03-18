@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    private static a cMo;
-    private Runnable cMp = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
+    private static a cMz;
+    private Runnable cMA = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.this.ju(0);
         }
     };
 
-    public static a aAd() {
-        if (cMo == null) {
+    public static a aAg() {
+        if (cMz == null) {
             synchronized (a.class) {
-                if (cMo == null) {
-                    cMo = new a();
+                if (cMz == null) {
+                    cMz = new a();
                 }
             }
         }
-        return cMo;
+        return cMz;
     }
 
     public void ju(int i) {
@@ -41,14 +41,14 @@ public class a {
         }
     }
 
-    public boolean aAe() {
+    public boolean aAh() {
         return ak.check(RomUtils.ROM_EMUI);
     }
 
-    public void aAf() {
-        if (aAe()) {
+    public void aAi() {
+        if (aAh()) {
             ju(1);
-            e.gx().postDelayed(this.cMp, 500L);
+            e.gx().postDelayed(this.cMA, 500L);
         }
     }
 }

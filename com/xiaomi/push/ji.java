@@ -74,7 +74,7 @@ public class ji extends iy {
         }
         if (this.a.b() >= a2) {
             try {
-                String str = new String(this.a.m479a(), this.a.a(), a2, "UTF-8");
+                String str = new String(this.a.m477a(), this.a.a(), a2, "UTF-8");
                 this.a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
@@ -92,7 +92,7 @@ public class ji extends iy {
         }
         c(a2);
         if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m479a(), this.a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.a.m477a(), this.a.a(), a2);
             this.a.a(a2);
             return wrap;
         }

@@ -20,7 +20,7 @@ import android.widget.FrameLayout;
 import com.kascend.chushou.a;
 /* loaded from: classes5.dex */
 public class ShimmerFrameLayout extends FrameLayout {
-    private static final PorterDuffXfermode nhs = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+    private static final PorterDuffXfermode njg = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     protected Bitmap b;
     private Paint d;
     private Paint e;
@@ -31,11 +31,11 @@ public class ShimmerFrameLayout extends FrameLayout {
     private int l;
     private int m;
     private int n;
-    private a nht;
-    private d nhu;
-    private ViewTreeObserver.OnGlobalLayoutListener nhv;
-    protected ValueAnimator nhw;
-    private Animator.AnimatorListener nhx;
+    private a njh;
+    private d nji;
+    private ViewTreeObserver.OnGlobalLayoutListener njj;
+    protected ValueAnimator njk;
+    private Animator.AnimatorListener njl;
     private int o;
     private int p;
     private boolean q;
@@ -64,8 +64,8 @@ public class ShimmerFrameLayout extends FrameLayout {
         public float f;
         public float g;
         public float h;
-        public c nhA;
-        public b nhz;
+        public b njn;
+        public c njo;
 
         private a() {
         }
@@ -79,7 +79,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
 
         public int[] a() {
-            switch (this.nhA) {
+            switch (this.njo) {
                 case RADIAL:
                     return new int[]{ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, 0};
                 default:
@@ -88,7 +88,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
 
         public float[] b() {
-            switch (this.nhA) {
+            switch (this.njo) {
                 case RADIAL:
                     return new float[]{0.0f, Math.min(this.f, 1.0f), Math.min(this.f + this.c, 1.0f)};
                 default:
@@ -127,13 +127,13 @@ public class ShimmerFrameLayout extends FrameLayout {
     public ShimmerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         setWillNotDraw(false);
-        this.nht = new a();
+        this.njh = new a();
         this.d = new Paint();
         this.e = new Paint();
         this.e.setAntiAlias(true);
         this.e.setDither(true);
         this.e.setFilterBitmap(true);
-        this.e.setXfermode(nhs);
+        this.e.setXfermode(njg);
         a();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.ShimmerFrameLayout, 0, 0);
@@ -159,49 +159,49 @@ public class ShimmerFrameLayout extends FrameLayout {
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_angle)) {
                     switch (obtainStyledAttributes.getInt(a.k.ShimmerFrameLayout_angle, 0)) {
                         case 90:
-                            this.nht.nhz = b.CW_90;
+                            this.njh.njn = b.CW_90;
                             break;
                         case 180:
-                            this.nht.nhz = b.CW_180;
+                            this.njh.njn = b.CW_180;
                             break;
                         case 270:
-                            this.nht.nhz = b.CW_270;
+                            this.njh.njn = b.CW_270;
                             break;
                         default:
-                            this.nht.nhz = b.CW_0;
+                            this.njh.njn = b.CW_0;
                             break;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_shape)) {
                     switch (obtainStyledAttributes.getInt(a.k.ShimmerFrameLayout_shape, 0)) {
                         case 1:
-                            this.nht.nhA = c.RADIAL;
+                            this.njh.njo = c.RADIAL;
                             break;
                         default:
-                            this.nht.nhA = c.LINEAR;
+                            this.njh.njo = c.LINEAR;
                             break;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_dropoff)) {
-                    this.nht.c = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_dropoff, 0.0f);
+                    this.njh.c = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_dropoff, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_fixed_width)) {
-                    this.nht.d = obtainStyledAttributes.getDimensionPixelSize(a.k.ShimmerFrameLayout_fixed_width, 0);
+                    this.njh.d = obtainStyledAttributes.getDimensionPixelSize(a.k.ShimmerFrameLayout_fixed_width, 0);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_fixed_height)) {
-                    this.nht.e = obtainStyledAttributes.getDimensionPixelSize(a.k.ShimmerFrameLayout_fixed_height, 0);
+                    this.njh.e = obtainStyledAttributes.getDimensionPixelSize(a.k.ShimmerFrameLayout_fixed_height, 0);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_intensity)) {
-                    this.nht.f = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_intensity, 0.0f);
+                    this.njh.f = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_intensity, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_relative_width)) {
-                    this.nht.g = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_relative_width, 0.0f);
+                    this.njh.g = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_relative_width, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_relative_height)) {
-                    this.nht.h = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_relative_height, 0.0f);
+                    this.njh.h = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_relative_height, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(a.k.ShimmerFrameLayout_tilt)) {
-                    this.nht.b = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_tilt, 0.0f);
+                    this.njh.b = obtainStyledAttributes.getFloat(a.k.ShimmerFrameLayout_tilt, 0.0f);
                 }
             } finally {
                 obtainStyledAttributes.recycle();
@@ -215,16 +215,16 @@ public class ShimmerFrameLayout extends FrameLayout {
         setRepeatCount(-1);
         setRepeatDelay(0);
         setRepeatMode(1);
-        this.nht.nhz = b.CW_0;
-        this.nht.nhA = c.LINEAR;
-        this.nht.c = 0.5f;
-        this.nht.d = 0;
-        this.nht.e = 0;
-        this.nht.f = 0.0f;
-        this.nht.g = 1.0f;
-        this.nht.h = 1.0f;
-        this.nht.b = 20.0f;
-        this.nhu = new d();
+        this.njh.njn = b.CW_0;
+        this.njh.njo = c.LINEAR;
+        this.njh.c = 0.5f;
+        this.njh.d = 0;
+        this.njh.e = 0;
+        this.njh.f = 0.0f;
+        this.njh.g = 1.0f;
+        this.njh.h = 1.0f;
+        this.njh.b = 20.0f;
+        this.nji = new d();
         setBaseAlpha(0.3f);
         g();
     }
@@ -280,83 +280,83 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public c getMaskShape() {
-        return this.nht.nhA;
+        return this.njh.njo;
     }
 
     public void setMaskShape(c cVar) {
-        this.nht.nhA = cVar;
+        this.njh.njo = cVar;
         g();
     }
 
     public b getAngle() {
-        return this.nht.nhz;
+        return this.njh.njn;
     }
 
     public void setAngle(b bVar) {
-        this.nht.nhz = bVar;
+        this.njh.njn = bVar;
         g();
     }
 
     public float getDropoff() {
-        return this.nht.c;
+        return this.njh.c;
     }
 
     public void setDropoff(float f) {
-        this.nht.c = f;
+        this.njh.c = f;
         g();
     }
 
     public int getFixedWidth() {
-        return this.nht.d;
+        return this.njh.d;
     }
 
     public void setFixedWidth(int i) {
-        this.nht.d = i;
+        this.njh.d = i;
         g();
     }
 
     public int getFixedHeight() {
-        return this.nht.e;
+        return this.njh.e;
     }
 
     public void setFixedHeight(int i) {
-        this.nht.e = i;
+        this.njh.e = i;
         g();
     }
 
     public float getIntensity() {
-        return this.nht.f;
+        return this.njh.f;
     }
 
     public void setIntensity(float f) {
-        this.nht.f = f;
+        this.njh.f = f;
         g();
     }
 
     public float getRelativeWidth() {
-        return this.nht.g;
+        return this.njh.g;
     }
 
     public void setRelativeWidth(int i) {
-        this.nht.g = i;
+        this.njh.g = i;
         g();
     }
 
     public float getRelativeHeight() {
-        return this.nht.h;
+        return this.njh.h;
     }
 
     public void setRelativeHeight(int i) {
-        this.nht.h = i;
+        this.njh.h = i;
         g();
     }
 
     public float getTilt() {
-        return this.nht.b;
+        return this.njh.b;
     }
 
     public void setTilt(float f) {
-        this.nht.b = f;
+        this.njh.b = f;
         g();
     }
 
@@ -368,12 +368,12 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void c() {
-        if (this.nhw != null) {
-            this.nhw.end();
-            this.nhw.removeAllUpdateListeners();
-            this.nhw.cancel();
+        if (this.njk != null) {
+            this.njk.end();
+            this.njk.removeAllUpdateListeners();
+            this.njk.cancel();
         }
-        this.nhw = null;
+        this.njk = null;
         this.q = false;
     }
 
@@ -394,16 +394,16 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void setAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.nhx = animatorListener;
+        this.njl = animatorListener;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.nhv == null) {
-            this.nhv = getLayoutListener();
+        if (this.njj == null) {
+            this.njj = getLayoutListener();
         }
-        getViewTreeObserver().addOnGlobalLayoutListener(this.nhv);
+        getViewTreeObserver().addOnGlobalLayoutListener(this.njj);
     }
 
     private ViewTreeObserver.OnGlobalLayoutListener getLayoutListener() {
@@ -422,9 +422,9 @@ public class ShimmerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         g();
-        if (this.nhv != null) {
-            getViewTreeObserver().removeGlobalOnLayoutListener(this.nhv);
-            this.nhv = null;
+        if (this.njj != null) {
+            getViewTreeObserver().removeGlobalOnLayoutListener(this.njj);
+            this.njj = null;
         }
         super.onDetachedFromWindow();
     }
@@ -444,7 +444,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         if (!this.q || getWidth() <= 0 || getHeight() <= 0) {
             super.dispatchDraw(canvas);
         } else {
-            ag(canvas);
+            ah(canvas);
         }
     }
 
@@ -452,7 +452,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         return Math.min(f2, Math.max(f, f3));
     }
 
-    private boolean ag(Canvas canvas) {
+    private boolean ah(Canvas canvas) {
         Bitmap d2 = d();
         Bitmap e = e();
         if (d2 == null || e == null) {
@@ -467,19 +467,19 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     private Bitmap d() {
         if (this.i == null) {
-            this.i = dEs();
+            this.i = dES();
         }
         return this.i;
     }
 
     private Bitmap e() {
         if (this.h == null) {
-            this.h = dEs();
+            this.h = dES();
         }
         return this.h;
     }
 
-    private Bitmap dEs() {
+    private Bitmap dES() {
         int width = getWidth();
         int height = getHeight();
         try {
@@ -549,16 +549,16 @@ public class ShimmerFrameLayout extends FrameLayout {
         if (this.b != null) {
             return this.b;
         }
-        int a2 = this.nht.a(getWidth());
-        int b2 = this.nht.b(getHeight());
+        int a2 = this.njh.a(getWidth());
+        int b2 = this.njh.b(getHeight());
         this.b = a(a2, b2);
         Canvas canvas = new Canvas(this.b);
-        switch (this.nht.nhA) {
+        switch (this.njh.njo) {
             case RADIAL:
-                radialGradient = new RadialGradient(a2 / 2, b2 / 2, (float) (Math.max(a2, b2) / Math.sqrt(2.0d)), this.nht.a(), this.nht.b(), Shader.TileMode.REPEAT);
+                radialGradient = new RadialGradient(a2 / 2, b2 / 2, (float) (Math.max(a2, b2) / Math.sqrt(2.0d)), this.njh.a(), this.njh.b(), Shader.TileMode.REPEAT);
                 break;
             default:
-                switch (this.nht.nhz) {
+                switch (this.njh.njn) {
                     case CW_90:
                         i = b2;
                         i2 = 0;
@@ -584,10 +584,10 @@ public class ShimmerFrameLayout extends FrameLayout {
                         i4 = 0;
                         break;
                 }
-                radialGradient = new LinearGradient(i4, i3, i2, i, this.nht.a(), this.nht.b(), Shader.TileMode.REPEAT);
+                radialGradient = new LinearGradient(i4, i3, i2, i, this.njh.a(), this.njh.b(), Shader.TileMode.REPEAT);
                 break;
         }
-        canvas.rotate(this.nht.b, a2 / 2, b2 / 2);
+        canvas.rotate(this.njh.b, a2 / 2, b2 / 2);
         Paint paint = new Paint();
         paint.setShader(radialGradient);
         int sqrt = ((int) (Math.sqrt(2.0d) * Math.max(a2, b2))) / 2;
@@ -596,48 +596,48 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     private Animator getShimmerAnimation() {
-        if (this.nhw != null) {
-            return this.nhw;
+        if (this.njk != null) {
+            return this.njk;
         }
         int width = getWidth();
         int height = getHeight();
-        int i = AnonymousClass4.a[this.nht.nhA.ordinal()];
-        switch (this.nht.nhz) {
+        int i = AnonymousClass4.a[this.njh.njo.ordinal()];
+        switch (this.njh.njn) {
             case CW_90:
-                this.nhu.a(0, -height, 0, height);
+                this.nji.a(0, -height, 0, height);
                 break;
             case CW_180:
-                this.nhu.a(width, 0, -width, 0);
+                this.nji.a(width, 0, -width, 0);
                 break;
             case CW_270:
-                this.nhu.a(0, height, 0, -height);
+                this.nji.a(0, height, 0, -height);
                 break;
             default:
-                this.nhu.a(-width, 0, width, 0);
+                this.nji.a(-width, 0, width, 0);
                 break;
         }
-        this.nhw = ValueAnimator.ofFloat(0.0f, 1.0f + (this.m / this.k));
-        this.nhw.setDuration(this.k + this.m);
-        this.nhw.setRepeatCount(this.l);
-        this.nhw.setRepeatMode(this.n);
-        this.nhw.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kascend.chushou.widget.ShimmerFrameLayout.2
+        this.njk = ValueAnimator.ofFloat(0.0f, 1.0f + (this.m / this.k));
+        this.njk.setDuration(this.k + this.m);
+        this.njk.setRepeatCount(this.l);
+        this.njk.setRepeatMode(this.n);
+        this.njk.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kascend.chushou.widget.ShimmerFrameLayout.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float max = Math.max(0.0f, Math.min(1.0f, ((Float) valueAnimator.getAnimatedValue()).floatValue()));
-                ShimmerFrameLayout.this.setMaskOffsetX((int) ((ShimmerFrameLayout.this.nhu.a * (1.0f - max)) + (ShimmerFrameLayout.this.nhu.c * max)));
-                ShimmerFrameLayout.this.setMaskOffsetY((int) ((max * ShimmerFrameLayout.this.nhu.d) + (ShimmerFrameLayout.this.nhu.b * (1.0f - max))));
+                ShimmerFrameLayout.this.setMaskOffsetX((int) ((ShimmerFrameLayout.this.nji.a * (1.0f - max)) + (ShimmerFrameLayout.this.nji.c * max)));
+                ShimmerFrameLayout.this.setMaskOffsetY((int) ((max * ShimmerFrameLayout.this.nji.d) + (ShimmerFrameLayout.this.nji.b * (1.0f - max))));
             }
         });
-        if (this.nhx != null) {
-            this.nhw.addListener(new Animator.AnimatorListener() { // from class: com.kascend.chushou.widget.ShimmerFrameLayout.3
+        if (this.njl != null) {
+            this.njk.addListener(new Animator.AnimatorListener() { // from class: com.kascend.chushou.widget.ShimmerFrameLayout.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (ShimmerFrameLayout.this.nhx != null) {
-                        ShimmerFrameLayout.this.nhx.onAnimationEnd(animator);
+                    if (ShimmerFrameLayout.this.njl != null) {
+                        ShimmerFrameLayout.this.njl.onAnimationEnd(animator);
                     }
                 }
 
@@ -650,7 +650,7 @@ public class ShimmerFrameLayout extends FrameLayout {
                 }
             });
         }
-        return this.nhw;
+        return this.njk;
     }
 
     protected static Bitmap a(int i, int i2) {

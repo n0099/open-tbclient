@@ -117,7 +117,7 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m540a() {
+            public void m538a() {
                 this.f909a = new d[this.a];
                 this.b = 0;
             }
@@ -141,7 +141,7 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m541a(d dVar) {
+            public void m539a(d dVar) {
                 if (this.f909a.length == this.b) {
                     d[] dVarArr = new d[this.b * 2];
                     System.arraycopy(this.f909a, 0, dVarArr, 0, this.b);
@@ -155,12 +155,12 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m542a() {
+            public boolean m540a() {
                 return this.b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m543a(int i) {
+            public boolean m541a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
                     if (this.f909a[i2].a == i) {
                         return true;
@@ -203,18 +203,18 @@ public class g {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(d dVar) {
-            this.f906a.m541a(dVar);
+            this.f906a.m539a(dVar);
             notify();
         }
 
         public synchronized void a() {
             this.f908b = true;
-            this.f906a.m540a();
+            this.f906a.m538a();
             notify();
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m539a() {
+        public boolean m537a() {
             return this.f907a && SystemClock.uptimeMillis() - this.a > KeepJobService.JOB_CHECK_PERIODIC;
         }
 
@@ -247,7 +247,7 @@ public class g {
                     if (this.f908b) {
                         return;
                     }
-                    if (!this.f906a.m542a()) {
+                    if (!this.f906a.m540a()) {
                         long a2 = g.a();
                         d a3 = this.f906a.a();
                         synchronized (a3.f912a) {
@@ -397,7 +397,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m534a() {
+    public void m532a() {
         this.f905a.a();
     }
 
@@ -430,23 +430,23 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m535a() {
-        return this.f905a.m539a();
+    public boolean m533a() {
+        return this.f905a.m537a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m536a(int i) {
-        boolean m543a;
+    public boolean m534a(int i) {
+        boolean m541a;
         synchronized (this.f905a) {
-            m543a = this.f905a.f906a.m543a(i);
+            m541a = this.f905a.f906a.m541a(i);
         }
-        return m543a;
+        return m541a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m537b() {
+    public void m535b() {
         synchronized (this.f905a) {
-            this.f905a.f906a.m540a();
+            this.f905a.f906a.m538a();
         }
     }
 }

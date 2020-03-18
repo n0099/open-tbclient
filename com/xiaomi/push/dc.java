@@ -102,7 +102,7 @@ class dc {
                     StringBuilder sb = new StringBuilder();
                     sb.append("model :").append(Build.MODEL);
                     sb.append("; os :").append(Build.VERSION.INCREMENTAL);
-                    sb.append("; uid :").append(com.xiaomi.push.service.ba.m526a());
+                    sb.append("; uid :").append(com.xiaomi.push.service.ba.m524a());
                     sb.append("; lng :").append(Locale.getDefault().toString());
                     sb.append("; sdk :").append(38);
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
@@ -167,7 +167,7 @@ class dc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    dc m217a(File file) {
+    dc m215a(File file) {
         if (file.exists()) {
             this.f218a.add(file);
         }
@@ -190,12 +190,12 @@ class dc {
         File file2;
         if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
             file2 = context.getFilesDir();
-            m217a(new File(file2, "xmsf.log.1"));
-            m217a(new File(file2, "xmsf.log"));
+            m215a(new File(file2, "xmsf.log.1"));
+            m215a(new File(file2, "xmsf.log"));
         } else {
             file2 = new File(context.getExternalFilesDir(null) + a);
-            m217a(new File(file2, "log0.txt"));
-            m217a(new File(file2, "log1.txt"));
+            m215a(new File(file2, "log0.txt"));
+            m215a(new File(file2, "log1.txt"));
         }
         if (file2.isDirectory()) {
             File file3 = new File(file, date.getTime() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + date2.getTime() + ".zip");

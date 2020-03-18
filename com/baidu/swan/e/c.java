@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cFX;
-    private boolean cFY = false;
+    private static c cGi;
+    private boolean cGj = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
-    public static c awB() {
-        if (cFX == null) {
+    public static c awE() {
+        if (cGi == null) {
             synchronized (c.class) {
-                if (cFX == null) {
-                    cFX = new c();
+                if (cGi == null) {
+                    cGi = new c();
                 }
             }
         }
-        return cFX;
+        return cGi;
     }
 
-    public synchronized void awC() {
-        if (!this.cFY) {
-            if (b.awv()) {
-                awD();
+    public synchronized void awF() {
+        if (!this.cGj) {
+            if (b.awy()) {
+                awG();
             } else {
-                this.cFY = true;
-                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.awy(), b.awx()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
+                this.cGj = true;
+                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.awB(), b.awA()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
@@ -40,11 +40,11 @@ public class c {
 
                     @Override // com.baidu.swan.a.e
                     public void E(int i, String str) {
-                        c.this.cFY = false;
+                        c.this.cGj = false;
                         if (i == 1010) {
-                            c.this.awD();
+                            c.this.awG();
                         } else {
-                            c.this.awE();
+                            c.this.awH();
                         }
                     }
 
@@ -71,7 +71,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awD() {
+    public synchronized void awG() {
         for (a aVar : this.mListeners) {
             aVar.onSuccess();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awE() {
+    public synchronized void awH() {
         for (a aVar : this.mListeners) {
             aVar.onFail();
         }
@@ -96,10 +96,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void g(com.baidu.swan.a.a.c cVar) {
         if (e.k(cVar)) {
-            b.fh(true);
+            b.fi(true);
             h(cVar);
         } else {
-            b.fh(false);
+            b.fi(false);
             i(cVar);
         }
     }
@@ -112,31 +112,31 @@ public class c {
 
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
-                if (!c.this.awF()) {
-                    c.this.cFY = false;
-                    c.this.awE();
+                if (!c.this.awI()) {
+                    c.this.cGj = false;
+                    c.this.awH();
                     return;
                 }
                 b.U(cVar.versionName, cVar.versionCode);
-                c.this.cFY = false;
-                c.this.awD();
+                c.this.cGj = false;
+                c.this.awG();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean awF() {
-        return new d(AppRuntime.getAppContext()).awH();
+    public synchronized boolean awI() {
+        return new d(AppRuntime.getAppContext()).awK();
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.brj)) {
+        if (e.unzipFile(cVar.filePath, b.brv)) {
             b.U(cVar.versionName, cVar.versionCode);
-            this.cFY = false;
-            awD();
+            this.cGj = false;
+            awG();
         } else {
-            this.cFY = false;
-            awE();
+            this.cGj = false;
+            awH();
         }
     }
 }

@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.Os(i) || HomePageRecommendFragment.this.mRecyclerView.Ot(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.Oy(i) || HomePageRecommendFragment.this.mRecyclerView.Oz(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -113,7 +113,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
                     } else {
                         str2 = "68";
                     }
-                    com.kascend.chushou.d.e.a(HomePageRecommendFragment.this.mContext, pannelItem.mMoreNav, com.kascend.chushou.d.e.M("_fromView", str2, "_fromPos", "50", "_sc", pannelItem.mMoreNav.mSC));
+                    com.kascend.chushou.d.e.a(HomePageRecommendFragment.this.mContext, pannelItem.mMoreNav, com.kascend.chushou.d.e.N("_fromView", str2, "_fromPos", "50", "_sc", pannelItem.mMoreNav.mSC));
                 }
             }
         }, new com.kascend.chushou.view.a.a<ListItem>() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.3
@@ -143,7 +143,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
                 objArr[3] = a;
                 objArr[4] = "_sc";
                 objArr[5] = listItem != null ? listItem.mSC : "";
-                com.kascend.chushou.d.e.a(HomePageRecommendFragment.this.mContext, listItem, com.kascend.chushou.d.e.M(objArr));
+                com.kascend.chushou.d.e.a(HomePageRecommendFragment.this.mContext, listItem, com.kascend.chushou.d.e.N(objArr));
                 if (listItem.mDisplayStyle.equals(Constants.VIA_REPORT_TYPE_START_WAP) && view != null && view.getTag() != null && (parseInt = h.parseInt(view.getTag().toString())) > 0) {
                     com.kascend.chushou.toolkit.a.c.a(HomePageRecommendFragment.this.mContext, "首页顶部图标_num", parseInt + "", new Object[0]);
                     HashMap hashMap = new HashMap(5);
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.Na(1);
+                    this.mEmptyView.Ng(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.Na(2);
+                this.mEmptyView.Ng(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.Na(i);
+                this.mEmptyView.Ng(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:

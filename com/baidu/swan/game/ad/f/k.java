@@ -5,36 +5,36 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class k {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public com.baidu.swan.games.binding.model.a ciY;
+    public com.baidu.swan.games.binding.model.a cjj;
 
     public static k e(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         k kVar = new k();
-        kVar.ciY = com.baidu.swan.games.binding.model.a.f(cVar);
+        kVar.cjj = com.baidu.swan.games.binding.model.a.f(cVar);
         return kVar;
     }
 
-    public void akR() {
-        if (this.ciY != null) {
-            this.ciY.onSuccess();
+    public void akU() {
+        if (this.cjj != null) {
+            this.cjj.onSuccess();
         }
     }
 
-    public void nW(String str) {
-        JSONObject nT = nT(str);
-        if (this.ciY != null) {
-            this.ciY.S(nT);
+    public void nV(String str) {
+        JSONObject nS = nS(str);
+        if (this.cjj != null) {
+            this.cjj.S(nS);
         }
     }
 
-    private JSONObject nT(String str) {
+    private JSONObject nS(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", LivenessStat.TYPE_FACE_MATCH_FAIL);
-            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.nR(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.nQ(str));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

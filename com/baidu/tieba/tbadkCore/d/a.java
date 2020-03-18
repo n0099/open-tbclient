@@ -16,40 +16,40 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String Pj;
-        public int fMG;
+        public String Pk;
+        public int fNo;
         public String mPid;
     }
 
-    public static C0612a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0612a c0612a = new C0612a(str, str2, str3, str4, str5);
-        c0612a.k(str6, str7, str8, str9, str10);
-        return c0612a;
+    public static C0613a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0613a c0613a = new C0613a(str, str2, str3, str4, str5);
+        c0613a.k(str6, str7, str8, str9, str10);
+        return c0613a;
     }
 
-    public static C0612a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0612a c0612a = new C0612a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0612a.k(null, null, str3, str4, str5);
+    public static C0613a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0613a c0613a = new C0613a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0613a.k(null, null, str3, str4, str5);
         if (!aq.isEmpty(str6)) {
-            c0612a.eE("obj_ref", str6);
+            c0613a.eC("obj_ref", str6);
         }
-        return c0612a;
+        return c0613a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0612a c0612a = new C0612a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0612a.k(str2, str7, str3, str4, str5);
-        c0612a.eE(TiebaInitialize.Params.OBJ_URL, str6);
-        c0612a.save();
+        C0613a c0613a = new C0613a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0613a.k(str2, str7, str3, str4, str5);
+        c0613a.eC(TiebaInitialize.Params.OBJ_URL, str6);
+        c0613a.save();
     }
 
     @Deprecated
-    public static void eD(String str, String str2) {
+    public static void eB(String str, String str2) {
         if (!aq.isEmpty(str)) {
             an anVar = new an(str);
             if (str2 != null) {
-                anVar = anVar.cy("obj_type", str2);
+                anVar = anVar.cx("obj_type", str2);
             }
             TiebaStatic.log(anVar);
         }
@@ -57,38 +57,38 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0612a {
-        private final boolean cPp;
-        private final an hWx;
+    public static class C0613a {
+        private final boolean cPC;
+        private final an hXX;
         private final String key;
-        private final String kic;
-        private final String kie;
-        private final String kif;
+        private final String kjF;
+        private final String kjG;
+        private final String kjH;
         private final String page;
 
-        private C0612a(String str, String str2, String str3, String str4, String str5) {
+        private C0613a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.kic = str2;
+            this.kjF = str2;
             this.page = str3;
-            this.kie = str4;
-            this.kif = str5;
-            this.cPp = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hWx = cLt();
+            this.kjG = str4;
+            this.kjH = str5;
+            this.cPC = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.hXX = cLN();
         }
 
-        private an cLt() {
+        private an cLN() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.kic)) {
-                anVar = anVar.cy("line", this.kic);
+            if (!StringUtils.isNull(this.kjF)) {
+                anVar = anVar.cx("line", this.kjF);
             }
             if (!StringUtils.isNull(this.page)) {
-                anVar = anVar.cy("page", this.page);
+                anVar = anVar.cx("page", this.page);
             }
-            if (!StringUtils.isNull(this.kie)) {
-                anVar = anVar.cy("locate", this.kie);
+            if (!StringUtils.isNull(this.kjG)) {
+                anVar = anVar.cx("locate", this.kjG);
             }
-            if (!StringUtils.isNull(this.kif)) {
-                return anVar.cy("task", this.kif);
+            if (!StringUtils.isNull(this.kjH)) {
+                return anVar.cx("task", this.kjH);
             }
             return anVar;
         }
@@ -96,34 +96,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an k(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.hWx.cy(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.hXX.cx(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.hWx.cy("obj_id", str2);
+                this.hXX.cx("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.hWx.cy("fid", str3);
+                this.hXX.cx("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.hWx.cy("fname", str4);
+                this.hXX.cx("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.hWx.cy("tid", str5);
+                this.hXX.cx("tid", str5);
             }
-            this.hWx.X("obj_cpid", 0).X("obj_good_id", 0).cy("obj_throw_type", "BY_POST").cy("client_type", "MOBILE_APP").cy("user_timestamp", String.valueOf(System.currentTimeMillis())).cy("os", PraiseDataPassUtil.KEY_FROM_OS).cy(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).cy("log_ver", "1.1");
-            return this.hWx;
+            this.hXX.X("obj_cpid", 0).X("obj_good_id", 0).cx("obj_throw_type", "BY_POST").cx("client_type", "MOBILE_APP").cx("user_timestamp", String.valueOf(System.currentTimeMillis())).cx("os", PraiseDataPassUtil.KEY_FROM_OS).cx(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).cx("log_ver", "1.1");
+            return this.hXX;
         }
 
-        public C0612a eE(String str, String str2) {
+        public C0613a eC(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.hWx.cy(str, str2);
+                this.hXX.cx(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.hWx);
-            if (!this.cPp) {
+            TiebaStatic.log(this.hXX);
+            if (!this.cPC) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -132,7 +132,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.hWx.delete(str);
+            this.hXX.delete(str);
         }
     }
 }

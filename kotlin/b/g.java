@@ -6,14 +6,14 @@ import kotlin.collections.ad;
 /* loaded from: classes7.dex */
 public final class g extends ad {
     private boolean hasNext;
-    private final int nCN;
+    private final int nEA;
     private int next;
     private final int step;
 
     public g(int i, int i2, int i3) {
         boolean z = true;
         this.step = i3;
-        this.nCN = i2;
+        this.nEA = i2;
         if (this.step > 0) {
             if (i > i2) {
                 z = false;
@@ -22,7 +22,7 @@ public final class g extends ad {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? i : this.nCN;
+        this.next = this.hasNext ? i : this.nEA;
     }
 
     @Override // java.util.Iterator
@@ -33,7 +33,7 @@ public final class g extends ad {
     @Override // kotlin.collections.ad
     public int nextInt() {
         int i = this.next;
-        if (i == this.nCN) {
+        if (i == this.nEA) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

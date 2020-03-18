@@ -19,9 +19,9 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     public int compareTo(ie ieVar) {
         int a2;
         if (getClass().equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m414a()).compareTo(Boolean.valueOf(ieVar.m414a()));
+            int compareTo = Boolean.valueOf(m412a()).compareTo(Boolean.valueOf(ieVar.m412a()));
             if (compareTo == 0) {
-                if (!m414a() || (a2 = is.a(this.f622a, ieVar.f622a)) == 0) {
+                if (!m412a() || (a2 = is.a(this.f622a, ieVar.f622a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -36,7 +36,7 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m413a() {
+    public void m411a() {
         if (this.f622a == null) {
             throw new jd("Required field 'normalConfigs' was not present! Struct: " + toString());
         }
@@ -44,20 +44,20 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
-                m413a();
+                m411a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a == 15) {
-                        ja m469a = jcVar.m469a();
-                        this.f622a = new ArrayList(m469a.f791a);
-                        for (int i = 0; i < m469a.f791a; i++) {
+                    if (m466a.a == 15) {
+                        ja m467a = jcVar.m467a();
+                        this.f622a = new ArrayList(m467a.f791a);
+                        for (int i = 0; i < m467a.f791a; i++) {
                             hp hpVar = new hp();
                             hpVar.a(jcVar);
                             this.f622a.add(hpVar);
@@ -65,11 +65,11 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -77,23 +77,23 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m414a() {
+    public boolean m412a() {
         return this.f622a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m415a(ie ieVar) {
+    public boolean m413a(ie ieVar) {
         if (ieVar == null) {
             return false;
         }
-        boolean m414a = m414a();
-        boolean m414a2 = ieVar.m414a();
-        return !(m414a || m414a2) || (m414a && m414a2 && this.f622a.equals(ieVar.f622a));
+        boolean m412a = m412a();
+        boolean m412a2 = ieVar.m412a();
+        return !(m412a || m412a2) || (m412a && m412a2 && this.f622a.equals(ieVar.f622a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m413a();
+        m411a();
         jcVar.a(f621a);
         if (this.f622a != null) {
             jcVar.a(a);
@@ -105,12 +105,12 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m415a((ie) obj);
+            return m413a((ie) obj);
         }
         return false;
     }

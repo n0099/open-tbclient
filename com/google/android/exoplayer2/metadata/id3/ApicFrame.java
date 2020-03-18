@@ -16,7 +16,7 @@ public final class ApicFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ki */
+        /* renamed from: Ko */
         public ApicFrame[] newArray(int i) {
             return new ApicFrame[i];
         }

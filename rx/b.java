@@ -4,24 +4,24 @@ import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes6.dex */
 public class b {
-    static final b nNi = new b(new a() { // from class: rx.b.1
+    static final b nOV = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dPD());
+            cVar.onSubscribe(rx.subscriptions.e.dQd());
             cVar.onCompleted();
         }
     }, false);
-    static final b nNj = new b(new a() { // from class: rx.b.2
+    static final b nOW = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dPD());
+            cVar.onSubscribe(rx.subscriptions.e.dQd());
         }
     }, false);
-    private final a nNh;
+    private final a nOU;
 
     /* loaded from: classes6.dex */
     public interface a extends rx.functions.b<c> {
@@ -29,7 +29,7 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0787b extends rx.functions.f<c, c> {
+    public interface InterfaceC0788b extends rx.functions.f<c, c> {
     }
 
     public static b k(Iterable<? extends b> iterable) {
@@ -63,11 +63,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.nNh = rx.c.c.b(aVar);
+        this.nOU = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.nNh = z ? rx.c.c.b(aVar) : aVar;
+        this.nOU = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k dNN() {
+    public final k dOn() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -150,7 +150,7 @@ public class b {
     public final void b(c cVar) {
         bZ(cVar);
         try {
-            rx.c.c.b(this, this.nNh).call(cVar);
+            rx.c.c.b(this, this.nOU).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

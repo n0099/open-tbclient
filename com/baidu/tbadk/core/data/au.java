@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    private ArrayList<UserData> cQc = new ArrayList<>();
-    private ArrayList<UserData> cQd = new ArrayList<>();
-    private ap cQe = new ap();
-    private int cQf = 0;
-    private int cQg = 0;
+    private ArrayList<UserData> cQp = new ArrayList<>();
+    private ArrayList<UserData> cQq = new ArrayList<>();
+    private ap cQr = new ap();
+    private int cQs = 0;
+    private int cQt = 0;
 
     public void setPage(ap apVar) {
-        this.cQe = apVar;
+        this.cQr = apVar;
     }
 
     public ap getPage() {
-        return this.cQe;
+        return this.cQr;
     }
 
-    public ArrayList<UserData> aBn() {
-        return this.cQc;
+    public ArrayList<UserData> aBq() {
+        return this.cQp;
     }
 
-    public ArrayList<UserData> aBo() {
-        return this.cQd;
+    public ArrayList<UserData> aBr() {
+        return this.cQq;
     }
 
-    public int aBp() {
-        return this.cQf;
+    public int aBs() {
+        return this.cQs;
     }
 
-    public int aBq() {
-        return this.cQg;
+    public int aBt() {
+        return this.cQt;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class au {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.cQc.add(userData);
+                        this.cQp.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class au {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.cQd.add(userData2);
+                        this.cQq.add(userData2);
                     }
                 }
-                this.cQe.parserJson(jSONObject.optJSONObject("page"));
-                this.cQf = jSONObject.optInt("tafriendnum", 0);
-                this.cQg = jSONObject.optInt("commonfriendnum", 0);
+                this.cQr.parserJson(jSONObject.optJSONObject("page"));
+                this.cQs = jSONObject.optInt("tafriendnum", 0);
+                this.cQt = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

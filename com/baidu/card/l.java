@@ -94,10 +94,10 @@ public class l extends h {
         a(1, new a.b() { // from class: com.baidu.card.l.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
-                if (l.this.Kc != null && l.this.Kc.aAg() != null && !l.this.mU().booleanValue()) {
-                    com.baidu.tieba.card.l.zT(l.this.Kc.aAg().getId());
-                    com.baidu.tieba.card.l.a(l.this.Kw.mTitle, l.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(l.this.Kw.KA, l.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                if (l.this.Kc != null && l.this.Kc.aAj() != null && !l.this.mU().booleanValue()) {
+                    com.baidu.tieba.card.l.zU(l.this.Kc.aAj().getId());
+                    com.baidu.tieba.card.l.a(l.this.Kw.mTitle, l.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(l.this.Kw.KA, l.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -110,5 +110,9 @@ public class l extends h {
 
     public void a(b.a aVar) {
         this.Ka = aVar;
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.Kw.setNeedFrsTabName(z);
     }
 }

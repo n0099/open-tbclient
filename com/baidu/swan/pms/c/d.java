@@ -16,29 +16,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class d<T> implements StatResponseCallback<String> {
-    protected g cBn;
-    protected f cBo;
+    protected g cBy;
+    protected f cBz;
     private String mRequestUrl;
 
     protected abstract boolean Q(T t);
 
     protected abstract com.baidu.swan.pms.model.a R(T t);
 
-    protected abstract String ajl();
+    protected abstract String ajo();
 
     protected abstract T bp(JSONObject jSONObject);
 
     public d(g gVar, f fVar) {
-        this.cBn = gVar;
-        this.cBo = fVar;
+        this.cBy = gVar;
+        this.cBz = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     /* renamed from: b */
     public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        if (this.cBn != null) {
-            this.cBn.a(response, i, networkStatRecord);
+        if (this.cBy != null) {
+            this.cBy.a(response, i, networkStatRecord);
         }
         if (response == null || response.body() == null) {
             return "";
@@ -52,30 +52,30 @@ public abstract class d<T> implements StatResponseCallback<String> {
     public void onSuccess(String str, int i) {
         if (i != 200) {
             com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=" + i);
-            this.cBn.a(aVar);
+            this.cBy.a(aVar);
             a(aVar, str);
             return;
         }
-        c qs = c.qs(str);
-        if (qs == null) {
+        c qr = c.qr(str);
+        if (qr == null) {
             com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.f.d.parseString(str).toString());
-            this.cBn.a(aVar2);
+            this.cBy.a(aVar2);
             a(aVar2, str);
-        } else if (qs.getErrorCode() != 0) {
-            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(qs.getErrorCode(), PMSConstants.a.iD(qs.getErrorCode()));
-            this.cBn.a(aVar3);
-            if (qs.getErrorCode() != 1010) {
+        } else if (qr.getErrorCode() != 0) {
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(qr.getErrorCode(), PMSConstants.a.iD(qr.getErrorCode()));
+            this.cBy.a(aVar3);
+            if (qr.getErrorCode() != 1010) {
                 a(aVar3, str);
             }
         } else {
-            T bp = bp(qs.getData());
+            T bp = bp(qr.getData());
             if (bp == null) {
                 com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(2102, "response data empty");
-                this.cBn.a(aVar4);
+                this.cBy.a(aVar4);
                 a(aVar4, str);
             } else if (!Q(bp)) {
                 com.baidu.swan.pms.model.a aVar5 = new com.baidu.swan.pms.model.a(2103, str);
-                this.cBn.a(aVar5);
+                this.cBy.a(aVar5);
                 a(aVar5, str);
             } else {
                 R(bp);
@@ -86,7 +86,7 @@ public abstract class d<T> implements StatResponseCallback<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
         com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2101, exc.getMessage());
-        this.cBn.a(aVar);
+        this.cBy.a(aVar);
         a(aVar, exc.getMessage());
     }
 
@@ -129,9 +129,9 @@ public abstract class d<T> implements StatResponseCallback<String> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void p(PMSAppInfo pMSAppInfo) {
-        com.baidu.swan.pms.a.f Pu;
-        if (pMSAppInfo != null && (Pu = this.cBn.Pu()) != null) {
-            Pu.b(pMSAppInfo);
+        com.baidu.swan.pms.a.f Px;
+        if (pMSAppInfo != null && (Px = this.cBy.Px()) != null) {
+            Px.b(pMSAppInfo);
         }
     }
 
@@ -153,10 +153,10 @@ public abstract class d<T> implements StatResponseCallback<String> {
                 e.printStackTrace();
             }
         }
-        if (this.cBo instanceof com.baidu.swan.pms.c.d.c) {
-            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.cBo).getBundleId());
+        if (this.cBz instanceof com.baidu.swan.pms.c.d.c) {
+            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.cBz).getBundleId());
         }
         i = i2;
-        com.baidu.swan.pms.d.a.a(this.cBo.getCategory(), "cs_protocol", ajl(), i, jSONObject);
+        com.baidu.swan.pms.d.a.a(this.cBz.getCategory(), "cs_protocol", ajo(), i, jSONObject);
     }
 }

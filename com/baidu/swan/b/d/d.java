@@ -9,6 +9,6 @@ public class d implements ak {
     @Override // com.baidu.swan.apps.adaptation.a.ak
     @Nullable
     public com.baidu.swan.apps.api.b.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
-        return c.alh().a(str, jSONObject, bVar);
+        return c.alk().a(str, jSONObject, bVar);
     }
 }

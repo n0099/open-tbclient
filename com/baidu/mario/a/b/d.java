@@ -1,47 +1,47 @@
 package com.baidu.mario.a.b;
 /* loaded from: classes11.dex */
 public class d {
-    private String aKV = "/sdcard/AR/video/arvideo.mp4";
-    private int aKW = 0;
-    private long aKX = 0;
-    private boolean aKY = true;
+    private String aLj = "/sdcard/AR/video/arvideo.mp4";
+    private int aLk = 0;
+    private long aLl = 0;
+    private boolean aLm = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String aKZ = "video/avc";
-    private int aLa = 8294400;
-    private int aLb = 30;
-    private int aLc = 1;
-    private boolean aLd = false;
-    private String aLe = "audio/mp4a-latm";
-    private int aLf = 1;
-    private int aLg = 128000;
-    private int aLh = 16000;
-    private int aLi = 1024;
+    private String aLn = "video/avc";
+    private int aLo = 8294400;
+    private int aLp = 30;
+    private int aLq = 1;
+    private boolean aLr = false;
+    private String aLs = "audio/mp4a-latm";
+    private int aLt = 1;
+    private int aLu = 128000;
+    private int aLv = 16000;
+    private int aLw = 1024;
 
-    public String Do() {
-        return this.aKV;
+    public String Dv() {
+        return this.aLj;
     }
 
     public void setOutputFile(String str) {
         if (str != null && !str.isEmpty()) {
-            this.aKV = str;
+            this.aLj = str;
         }
     }
 
-    public int Dp() {
-        return this.aKW;
+    public int Dw() {
+        return this.aLk;
     }
 
-    public long Dq() {
-        return this.aKX;
+    public long Dx() {
+        return this.aLl;
     }
 
     public void Z(long j) {
-        this.aKX = j;
+        this.aLl = j;
     }
 
-    public boolean Dr() {
-        return this.aKY;
+    public boolean Dy() {
+        return this.aLm;
     }
 
     public int getVideoWidth() {
@@ -60,59 +60,59 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String Ds() {
-        return this.aKZ;
-    }
-
-    public int Dt() {
-        return this.aLa;
-    }
-
-    public int Du() {
-        return this.aLb;
-    }
-
-    public int Dv() {
-        return this.aLc;
-    }
-
-    public boolean Dw() {
-        return this.aLd;
-    }
-
-    public void bJ(boolean z) {
-        this.aLd = z;
-    }
-
-    public String Dx() {
-        return this.aLe;
-    }
-
-    public int Dy() {
-        return this.aLf;
-    }
-
-    public void df(int i) {
-        this.aLf = i;
-    }
-
-    public int Dz() {
-        return this.aLg;
+    public String Dz() {
+        return this.aLn;
     }
 
     public int DA() {
-        return this.aLh;
-    }
-
-    public void dg(int i) {
-        this.aLh = i;
+        return this.aLo;
     }
 
     public int DB() {
-        return this.aLi;
+        return this.aLp;
+    }
+
+    public int DC() {
+        return this.aLq;
+    }
+
+    public boolean DD() {
+        return this.aLr;
+    }
+
+    public void bK(boolean z) {
+        this.aLr = z;
+    }
+
+    public String DE() {
+        return this.aLs;
+    }
+
+    public int DF() {
+        return this.aLt;
+    }
+
+    public void df(int i) {
+        this.aLt = i;
+    }
+
+    public int DG() {
+        return this.aLu;
+    }
+
+    public int DH() {
+        return this.aLv;
+    }
+
+    public void dg(int i) {
+        this.aLv = i;
+    }
+
+    public int DI() {
+        return this.aLw;
     }
 
     public void dh(int i) {
-        this.aLi = i;
+        this.aLw = i;
     }
 }

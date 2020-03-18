@@ -12,19 +12,19 @@ public class a implements i {
     @Override // com.baidu.swan.apps.w.b.i
     public boolean a(String str, com.baidu.swan.apps.ap.a aVar) {
         an anVar = new an("c13607");
-        anVar.cy("obj_id", str);
-        anVar.cy("uid", com.baidu.tieba.aiapps.apps.a.a.aZG().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.aZG().getUid());
-        anVar.s("obj_param1", aVar.agh());
-        anVar.cy(TiebaInitialize.Params.OBJ_PARAM2, aVar.agi());
+        anVar.cx("obj_id", str);
+        anVar.cx("uid", com.baidu.tieba.aiapps.apps.a.a.aZK().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.aZK().getUid());
+        anVar.s("obj_param1", aVar.agk());
+        anVar.cx(TiebaInitialize.Params.OBJ_PARAM2, aVar.agl());
         TiebaStatic.log(anVar);
-        if (aVar.agg() == 10 && aVar.agh() == 1013) {
-            bbn();
+        if (aVar.agj() == 10 && aVar.agk() == 1013) {
+            bbr();
             return true;
         }
         return false;
     }
 
-    private void bbn() {
-        SwanAppErrorDialog.ahy().fP(R.string.swan_app_update_title).fQ(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
+    private void bbr() {
+        SwanAppErrorDialog.ahB().fP(R.string.swan_app_update_title).fQ(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
     }
 }

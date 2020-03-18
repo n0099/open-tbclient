@@ -20,28 +20,28 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> bHY;
+    public static List<Pair<String, Pair<String, String>>> bIj;
 
     static {
         if (DEBUG) {
-            bHY = new ArrayList();
-            bHY.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            bHY.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            bHY.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            bHY.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            bHY.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            bHY.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            bHY.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            bHY.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            bIj = new ArrayList();
+            bIj.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            bIj.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            bIj.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            bIj.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            bIj.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            bIj.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            bIj.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            bIj.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            Flow rb = s.rb("770");
+            Flow ra = s.ra("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    rb.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.ZW());
+                    ra.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.ZZ());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -50,8 +50,8 @@ public class a {
                 jSONObject.put("from", "swan");
                 jSONObject.put("type", str2);
                 jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", j.agJ());
-                jSONObject2.put("net", SwanAppNetworkUtils.YZ().type);
+                jSONObject2.put("mobile", j.agM());
+                jSONObject2.put("net", SwanAppNetworkUtils.Zc().type);
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "0";
                 }
@@ -60,9 +60,9 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            rb.setValueWithDuration(jSONObject.toString());
-            rb.end();
-            a(str, list, bHY);
+            ra.setValueWithDuration(jSONObject.toString());
+            ra.end();
+            a(str, list, bIj);
         }
     }
 
@@ -76,8 +76,8 @@ public class a {
             sb.append("\n").append("小程序ID：").append(str);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    sb.append("\n").append(ubcFlowEvent.ZW()).append(" : ").append(ubcFlowEvent.id);
-                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.ZW()));
+                    sb.append("\n").append(ubcFlowEvent.ZZ()).append(" : ").append(ubcFlowEvent.id);
+                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.ZZ()));
                 }
             }
             sb.append("\n").append("耗时计算开始：>>>>>>>>>>>>");

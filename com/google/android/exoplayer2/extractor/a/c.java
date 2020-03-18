@@ -6,11 +6,11 @@ import java.io.IOException;
 interface c {
     void C(int i, long j) throws ParserException;
 
-    int JD(int i);
+    int JJ(int i);
 
-    boolean JE(int i);
+    boolean JK(int i);
 
-    void JF(int i) throws ParserException;
+    void JL(int i) throws ParserException;
 
     void a(int i, int i2, com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException;
 

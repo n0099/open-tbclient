@@ -5,50 +5,50 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object nKe;
-    a.InterfaceC0781a nKf;
+    Object nLR;
+    a.InterfaceC0782a nLS;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC0781a {
+    public static class a implements a.InterfaceC0782a {
         private int id;
-        String nKg;
-        org.aspectj.lang.c nKh;
-        org.aspectj.lang.reflect.d nKi;
+        String nLT;
+        org.aspectj.lang.c nLU;
+        org.aspectj.lang.reflect.d nLV;
 
         public a(int i, String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.nKg = str;
-            this.nKh = cVar;
-            this.nKi = dVar;
+            this.nLT = str;
+            this.nLU = cVar;
+            this.nLV = dVar;
             this.id = i;
         }
 
-        public String dNa() {
-            return this.nKg;
+        public String dNA() {
+            return this.nLT;
         }
 
-        public org.aspectj.lang.c dNb() {
-            return this.nKh;
+        public org.aspectj.lang.c dNB() {
+            return this.nLU;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.Sp(dNa()));
+            stringBuffer.append(hVar.So(dNA()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) dNb()).a(hVar));
+            stringBuffer.append(((f) dNB()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.nKA);
+            return a(h.nMn);
         }
     }
 
-    public c(a.InterfaceC0781a interfaceC0781a, Object obj, Object obj2, Object[] objArr) {
-        this.nKf = interfaceC0781a;
-        this.nKe = obj;
+    public c(a.InterfaceC0782a interfaceC0782a, Object obj, Object obj2, Object[] objArr) {
+        this.nLS = interfaceC0782a;
+        this.nLR = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -59,6 +59,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.nKf.toString();
+        return this.nLS.toString();
     }
 }

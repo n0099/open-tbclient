@@ -2,8 +2,13 @@ package com.baidu.swan.apps.storage.b;
 /* loaded from: classes11.dex */
 public class a implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mg(String str) {
+    public String mf(String str) {
         return str;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String mg(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -27,22 +32,17 @@ public class a implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String ml(String str) {
+    public String afs() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afp() {
+    public String lY(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lZ(String str) {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lU(String str) {
+    public boolean lT(String str) {
         return false;
     }
 

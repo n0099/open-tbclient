@@ -4,6 +4,6 @@ import android.content.Context;
 import com.baidu.live.data.m;
 /* loaded from: classes3.dex */
 public class b {
-    public m avZ;
+    public m awj;
     public Context context;
 }

@@ -24,62 +24,62 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static Flow bBi;
-    private com.baidu.swan.apps.media.audio.b.a bAY;
-    private c bBf;
+    private static Flow bBt;
+    private com.baidu.swan.apps.media.audio.b.a bBj;
+    private c bBq;
     @Nullable
-    private com.baidu.swan.apps.y.a bBj;
+    private com.baidu.swan.apps.y.a bBu;
     private Context mContext;
     private boolean mIsBackground;
-    private com.baidu.swan.apps.media.audio.a bBg = new com.baidu.swan.apps.media.audio.a();
+    private com.baidu.swan.apps.media.audio.a bBr = new com.baidu.swan.apps.media.audio.a();
     private int mCurrentPosition = 0;
-    private int bBh = 0;
+    private int bBs = 0;
 
     public d(Context context) {
         this.mContext = context;
     }
 
     public void pause() {
-        if (this.bBf != null) {
-            this.bBf.pause();
+        if (this.bBq != null) {
+            this.bBq.pause();
         }
     }
 
     public void seekTo(int i) {
         if (i > 0) {
-            if (this.bBf != null) {
-                this.bBf.seek(i * 1000);
+            if (this.bBq != null) {
+                this.bBq.seek(i * 1000);
             }
             com.baidu.swan.apps.console.c.d("backgroundAudio", "seekTo " + i);
-            if (this.bAY != null) {
-                this.bAY.jc("onSeeking");
+            if (this.bBj != null) {
+                this.bBj.jb("onSeeking");
             }
         }
     }
 
     public void stop() {
-        if (this.bBf != null) {
-            this.bBf.stop();
+        if (this.bBq != null) {
+            this.bBq.stop();
         }
-        if (this.bBj != null) {
-            com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this.bBj);
-            this.bBj = null;
+        if (this.bBu != null) {
+            com.baidu.swan.apps.w.a.TZ().unregisterActivityLifecycleCallbacks(this.bBu);
+            this.bBu = null;
         }
     }
 
     public void release() {
         com.baidu.swan.apps.console.c.d("backgroundAudio", "release ");
-        if (this.bBf != null && !Xm()) {
-            this.bBf.release();
-            f.WS().Wu();
-            this.bBf = null;
-            bBi = null;
+        if (this.bBq != null && !Xp()) {
+            this.bBq.release();
+            f.WV().Wx();
+            this.bBq = null;
+            bBt = null;
         }
     }
 
     public int getDuration() {
-        if (this.bBf != null) {
-            return this.bBf.getDuration();
+        if (this.bBq != null) {
+            return this.bBq.getDuration();
         }
         return 0;
     }
@@ -89,30 +89,30 @@ public class d {
     }
 
     public boolean isPaused() {
-        return this.bBf == null || !this.bBf.isPlaying();
+        return this.bBq == null || !this.bBq.isPlaying();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c Xj() {
-        if (this.bBf == null) {
-            this.bBf = new c(this.mContext);
-            this.bBf.a(new a());
+    public c Xm() {
+        if (this.bBq == null) {
+            this.bBq = new c(this.mContext);
+            this.bBq.a(new a());
         }
-        return this.bBf;
+        return this.bBq;
     }
 
-    public com.baidu.swan.apps.media.audio.a Xk() {
-        return this.bBg;
+    public com.baidu.swan.apps.media.audio.a Xn() {
+        return this.bBr;
     }
 
     public void a(com.baidu.swan.apps.media.audio.a aVar, CallbackHandler callbackHandler) {
         if (DEBUG) {
             Log.d("SwanAppBGAudioPlayer", "AudioPlayer open");
         }
-        this.bBg = aVar;
-        if (this.bBg.bAF != null) {
+        this.bBr = aVar;
+        if (this.bBr.bAQ != null) {
             try {
-                this.bAY = new com.baidu.swan.apps.media.audio.b.a(callbackHandler, new JSONObject(this.bBg.bAF));
+                this.bBj = new com.baidu.swan.apps.media.audio.b.a(callbackHandler, new JSONObject(this.bBr.bAQ));
             } catch (JSONException e) {
                 com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
                 if (DEBUG) {
@@ -123,20 +123,20 @@ public class d {
         play();
     }
 
-    private void Xl() {
-        if (this.bBj != null) {
-            com.baidu.swan.apps.w.a.TW().unregisterActivityLifecycleCallbacks(this.bBj);
+    private void Xo() {
+        if (this.bBu != null) {
+            com.baidu.swan.apps.w.a.TZ().unregisterActivityLifecycleCallbacks(this.bBu);
         }
-        this.bBj = new com.baidu.swan.apps.y.a() { // from class: com.baidu.swan.apps.media.audio.d.1
+        this.bBu = new com.baidu.swan.apps.y.a() { // from class: com.baidu.swan.apps.media.audio.d.1
             @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
                 d.this.mIsBackground = true;
-                if (d.this.Xm()) {
+                if (d.this.Xp()) {
                     if (d.this.isPaused()) {
-                        Flow unused = d.bBi = null;
+                        Flow unused = d.bBt = null;
                         return;
-                    } else if (d.bBi == null) {
-                        Flow unused2 = d.bBi = com.baidu.swan.apps.statistic.f.lH("1044");
+                    } else if (d.bBt == null) {
+                        Flow unused2 = d.bBt = com.baidu.swan.apps.statistic.f.lG("1044");
                         return;
                     } else {
                         return;
@@ -151,38 +151,38 @@ public class d {
             public void onActivityStarted(Activity activity) {
                 d.this.mIsBackground = false;
                 if (!d.this.isPaused()) {
-                    d.this.Xn();
+                    d.this.Xq();
                 }
             }
         };
-        com.baidu.swan.apps.w.a.TW().registerActivityLifecycleCallbacks(this.bBj);
+        com.baidu.swan.apps.w.a.TZ().registerActivityLifecycleCallbacks(this.bBu);
     }
 
     private void play() {
         if (DEBUG) {
             Log.d("SwanAppBGAudioPlayer", AlaStaticKeys.ALA_STATIC_VALUE_PLAY);
         }
-        if (!this.bBg.Xe()) {
-            Xl();
-            String str = this.bBg.mUrl;
-            e acF = e.acF();
-            if (com.baidu.swan.apps.storage.b.ma(str) == PathType.CLOUD) {
-                iX(str);
+        if (!this.bBr.Xh()) {
+            Xo();
+            String str = this.bBr.mUrl;
+            e acI = e.acI();
+            if (com.baidu.swan.apps.storage.b.lZ(str) == PathType.CLOUD) {
+                iW(str);
             } else {
-                c(str, acF);
+                c(str, acI);
             }
-            f.WS().Wt();
+            f.WV().Ww();
         }
     }
 
-    private void iX(String str) {
-        com.baidu.swan.apps.w.a.Uq().a(this.mContext, str, new com.baidu.swan.apps.as.d.b<String>() { // from class: com.baidu.swan.apps.media.audio.d.2
+    private void iW(String str) {
+        com.baidu.swan.apps.w.a.Ut().a(this.mContext, str, new com.baidu.swan.apps.as.d.b<String>() { // from class: com.baidu.swan.apps.media.audio.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: onCallback */
             public void D(String str2) {
                 if (!TextUtils.isEmpty(str2)) {
-                    d.this.Xj().aU(d.this.bBg.iW(str2), str2);
+                    d.this.Xm().aT(d.this.bBr.iV(str2), str2);
                 }
             }
         });
@@ -190,30 +190,30 @@ public class d {
 
     private void c(String str, e eVar) {
         String d;
-        if (this.bBg.bAG && eVar != null) {
-            if (this.bAY.Xq()) {
-                d = l.mg(str);
+        if (this.bBr.bAR && eVar != null) {
+            if (this.bBj.Xt()) {
+                d = l.mf(str);
             } else {
                 d = com.baidu.swan.apps.storage.b.d(str, eVar);
             }
             str = d;
         }
-        Xj().aU(this.bBg.iW(str), str);
+        Xm().aT(this.bBr.iV(str), str);
     }
 
     public void resume() {
         if (DEBUG) {
             Log.d("SwanAppBGAudioPlayer", AlaStaticKeys.ALA_STATIC_VALUE_PLAY);
         }
-        if (this.bBf != null) {
-            this.bBf.resume();
+        if (this.bBq != null) {
+            this.bBq.resume();
         }
     }
 
-    public void cQ(boolean z) {
-        if (this.bBf != null) {
-            this.bBf.cQ(z);
-            f.WS().Wt();
+    public void cR(boolean z) {
+        if (this.bBq != null) {
+            this.bBq.cR(z);
+            f.WV().Ww();
         }
     }
 
@@ -221,14 +221,14 @@ public class d {
         if (DEBUG) {
             Log.d("SwanAppBGAudioPlayer", "Audio Update : " + aVar);
         }
-        this.bBg = aVar;
-        if (this.bAY != null) {
-            this.bAY.jb(this.bBg.bAF);
+        this.bBr = aVar;
+        if (this.bBj != null) {
+            this.bBj.ja(this.bBr.bAQ);
         }
         play();
     }
 
-    public Object iY(String str) {
+    public Object iX(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2129294769:
@@ -300,47 +300,47 @@ public class d {
             case 2:
                 return Boolean.valueOf(isPaused());
             case 3:
-                return this.bBg.mUrl;
+                return this.bBr.mUrl;
             case 4:
-                return Integer.valueOf(this.bBg.bAD);
+                return Integer.valueOf(this.bBr.bAO);
             case 5:
-                return Integer.valueOf(this.bBh);
+                return Integer.valueOf(this.bBs);
             case 6:
-                return this.bBg.mTitle;
+                return this.bBr.mTitle;
             case 7:
-                return this.bBg.bAB;
+                return this.bBr.bAM;
             case '\b':
-                return this.bBg.bAC;
+                return this.bBr.bAN;
             case '\t':
-                return this.bBg.mCoverUrl;
+                return this.bBr.mCoverUrl;
             default:
                 return "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Xm() {
-        SwanAppConfigData acL = e.acF() != null ? e.acF().acL() : null;
-        return acL != null && acL.bPO.contains(SwanAppConfigData.RequiredBackgroundModeItem.AUDIO);
+    public boolean Xp() {
+        SwanAppConfigData acO = e.acI() != null ? e.acI().acO() : null;
+        return acO != null && acO.bPZ.contains(SwanAppConfigData.RequiredBackgroundModeItem.AUDIO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xn() {
-        if (e.acF() != null && e.acF().GE() != null && bBi != null) {
-            b.a GE = e.acF().GE();
+    public void Xq() {
+        if (e.acI() != null && e.acI().GJ() != null && bBt != null) {
+            b.a GJ = e.acI().GJ();
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(GE.getAppFrameType());
-            fVar.mAppId = GE.getAppId();
-            fVar.mSource = GE.VJ();
-            fVar.n("appid", GE.getAppId());
-            fVar.n("cuid", com.baidu.swan.apps.w.a.Ub().br(com.baidu.swan.apps.w.a.TW()));
-            JSONObject lI = com.baidu.swan.apps.statistic.f.lI(GE.VL());
-            if (lI != null) {
-                fVar.n("keyfeed", lI.optString("keyfeed"));
+            fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(GJ.getAppFrameType());
+            fVar.mAppId = GJ.getAppId();
+            fVar.mSource = GJ.VM();
+            fVar.n("appid", GJ.getAppId());
+            fVar.n("cuid", com.baidu.swan.apps.w.a.Ue().bq(com.baidu.swan.apps.w.a.TZ()));
+            JSONObject lH = com.baidu.swan.apps.statistic.f.lH(GJ.VO());
+            if (lH != null) {
+                fVar.n("keyfeed", lH.optString("keyfeed"));
             }
-            com.baidu.swan.apps.statistic.f.a(bBi, fVar);
+            com.baidu.swan.apps.statistic.f.a(bBt, fVar);
         }
-        bBi = null;
+        bBt = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -355,7 +355,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a implements c.a {
-        private boolean bBl;
+        private boolean bBw;
 
         private a() {
         }
@@ -369,49 +369,49 @@ public class d {
             switch (i) {
                 case 1001:
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onCanPlay");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onCanplay");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onCanplay");
                     }
-                    this.bBl = true;
+                    this.bBw = true;
                     return true;
                 case 1002:
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onPlay");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onPlay");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onPlay");
                     }
                     if (d.this.mIsBackground) {
-                        Flow unused = d.bBi = com.baidu.swan.apps.statistic.f.lH("1044");
+                        Flow unused = d.bBt = com.baidu.swan.apps.statistic.f.lG("1044");
                         return true;
                     }
                     return true;
                 case 1003:
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onPause");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc(MissionEvent.MESSAGE_PAUSE);
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb(MissionEvent.MESSAGE_PAUSE);
                     }
                     if (d.this.mIsBackground) {
-                        d.this.Xn();
+                        d.this.Xq();
                         return true;
                     }
                     return true;
                 case 1004:
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onStop");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc(MissionEvent.MESSAGE_STOP);
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb(MissionEvent.MESSAGE_STOP);
                     }
-                    this.bBl = true;
+                    this.bBw = true;
                     if (d.this.mIsBackground) {
-                        d.this.Xn();
+                        d.this.Xq();
                         return true;
                     }
                     return true;
                 case 1005:
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onEnd");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onEnded");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onEnded");
                     }
                     if (d.this.mIsBackground) {
-                        d.this.Xn();
+                        d.this.Xq();
                         return true;
                     }
                     return true;
@@ -426,12 +426,12 @@ public class d {
                         }
                     }
                     com.baidu.swan.apps.console.c.d("backgroundAudio", "event onTimeUpdate " + jSONObject.toString());
-                    if (d.this.bAY != null) {
-                        d.this.bAY.d("onTimeUpdate", jSONObject);
+                    if (d.this.bBj != null) {
+                        d.this.bBj.d("onTimeUpdate", jSONObject);
                     }
-                    if (this.bBl) {
-                        d.this.seekTo(d.this.bBg.bAD);
-                        this.bBl = false;
+                    if (this.bBw) {
+                        d.this.seekTo(d.this.bBr.bAO);
+                        this.bBw = false;
                         return true;
                     }
                     return true;
@@ -444,45 +444,45 @@ public class d {
                         }
                     }
                     com.baidu.swan.apps.console.c.i("backgroundAudio", "event onError code:" + i2);
-                    if (d.this.bAY != null) {
-                        d.this.bAY.d("onError", jSONObject);
+                    if (d.this.bBj != null) {
+                        d.this.bBj.d("onError", jSONObject);
                         return true;
                     }
                     return true;
                 case 1008:
                     int currentProgress = d.this.getCurrentProgress();
-                    d.this.bBh = i2;
-                    com.baidu.swan.apps.console.c.d("backgroundAudio", "event onDownloadProgress " + d.this.bBh);
-                    if (d.this.bAY == null || currentProgress < d.this.bBh) {
+                    d.this.bBs = i2;
+                    com.baidu.swan.apps.console.c.d("backgroundAudio", "event onDownloadProgress " + d.this.bBs);
+                    if (d.this.bBj == null || currentProgress < d.this.bBs) {
                         return true;
                     }
-                    d.this.bAY.jc("onWaiting");
+                    d.this.bBj.jb("onWaiting");
                     return true;
                 case 1009:
                     com.baidu.swan.apps.console.c.d("backgroundAudio", "event onPrev");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onPrev");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onPrev");
                         return true;
                     }
                     return true;
                 case 1010:
                     com.baidu.swan.apps.console.c.d("backgroundAudio", "event onNext");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onNext");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onNext");
                         return true;
                     }
                     return true;
                 case 1011:
                     com.baidu.swan.apps.console.c.d("backgroundAudio", "event onSeekEnd");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onSeeked");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onSeeked");
                         return true;
                     }
                     return true;
                 case 1012:
                     com.baidu.swan.apps.console.c.d("backgroundAudio", "event onSeeking");
-                    if (d.this.bAY != null) {
-                        d.this.bAY.jc("onSeeking");
+                    if (d.this.bBj != null) {
+                        d.this.bBj.jb("onSeeking");
                         return true;
                     }
                     return true;

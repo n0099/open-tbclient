@@ -8,7 +8,7 @@ public interface b {
 
     boolean c(WebView webView, String str);
 
-    void cUv();
+    void cUQ();
 
     void d(NewWriteModel.d dVar);
 

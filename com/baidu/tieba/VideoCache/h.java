@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes9.dex */
 public class h {
-    private String cJR;
-    private String dXi;
-    private boolean dXj;
-    private long dXk = -1;
-    private long dXl = -1;
-    private long dXm = 0;
-    private long dXn = 0;
+    private String cKc;
+    private long dXA = -1;
+    private long dXB = -1;
+    private long dXC = 0;
+    private long dXD = 0;
+    private String dXy;
+    private boolean dXz;
 
-    public String aXj() {
-        return this.dXi;
+    public String aXn() {
+        return this.dXy;
     }
 
     public void wy(String str) {
-        this.dXi = str;
+        this.dXy = str;
     }
 
     public String getOriginUrl() {
-        return this.cJR;
+        return this.cKc;
     }
 
     public void wz(String str) {
-        this.cJR = str;
+        this.cKc = str;
     }
 
-    public boolean aXk() {
-        return this.dXj;
+    public boolean aXo() {
+        return this.dXz;
     }
 
-    public void hB(boolean z) {
-        this.dXj = z;
+    public void hC(boolean z) {
+        this.dXz = z;
     }
 
-    public long aXl() {
-        return this.dXk;
+    public long aXp() {
+        return this.dXA;
     }
 
     public void cn(long j) {
-        this.dXk = j;
+        this.dXA = j;
     }
 
-    public long aXm() {
-        return this.dXl;
+    public long aXq() {
+        return this.dXB;
     }
 
     public void co(long j) {
-        this.dXl = j;
+        this.dXB = j;
     }
 
     public long getTotalLength() {
-        return this.dXm;
+        return this.dXC;
     }
 
     public void setTotalLength(long j) {
-        this.dXm = j;
+        this.dXC = j;
     }
 
     public void cp(long j) {
-        this.dXn = j;
+        this.dXD = j;
     }
 
-    public long aXn() {
-        return this.dXn;
+    public long aXr() {
+        return this.dXD;
     }
 }

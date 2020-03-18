@@ -3,7 +3,7 @@ package com.baidu.live.view.web;
 import android.webkit.JsResult;
 /* loaded from: classes3.dex */
 public interface b {
-    void Bz();
+    void BG();
 
     boolean a(String str, JsResult jsResult);
 
@@ -11,13 +11,13 @@ public interface b {
 
     void cX(int i);
 
+    void ek(String str);
+
     void el(String str);
 
     void em(String str);
 
-    void en(String str);
-
-    boolean eo(String str);
+    boolean en(String str);
 
     boolean l(String str, boolean z);
 }

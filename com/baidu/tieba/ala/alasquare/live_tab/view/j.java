@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l epK;
-    private l epL;
+    private l eqg;
+    private l eqh;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.epK = new l(tbPageContext, i);
-        this.epL = new l(tbPageContext, i);
+        this.eqg = new l(tbPageContext, i);
+        this.eqh = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.epK.getView());
+        this.rootView.addView(this.eqg.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.epL.getView());
+        this.rootView.addView(this.eqh.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.epK.onChangeSkinType(tbPageContext, i);
-        this.epL.onChangeSkinType(tbPageContext, i);
+        this.eqg.onChangeSkinType(tbPageContext, i);
+        this.eqh.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -40,8 +40,8 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.epK.a(eVar.elW);
-            this.epL.a(eVar.elX);
+            this.eqg.a(eVar.emn);
+            this.eqh.a(eVar.emo);
         }
     }
 

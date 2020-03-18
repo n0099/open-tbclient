@@ -208,8 +208,8 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
         if (!TextUtils.isEmpty(str)) {
             ImageRequestBuilder Y = ImageRequestBuilder.Y(UgcUriUtils.getUri(str));
             Y.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
-            Y.vw(true);
-            this.mVideoImg.setController(c.dlz().vh(true).bg(Y.dsD()).c(this.mVideoImg.getController()).dmq());
+            Y.vD(true);
+            this.mVideoImg.setController(c.dlW().vo(true).bg(Y.dta()).c(this.mVideoImg.getController()).dmN());
         }
     }
 

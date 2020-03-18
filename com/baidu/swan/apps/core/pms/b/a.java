@@ -11,18 +11,18 @@ import java.util.HashSet;
 /* loaded from: classes11.dex */
 public class a extends f {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0243a bqB;
+    private a.InterfaceC0243a bqN;
 
     public a(String str, a.InterfaceC0243a interfaceC0243a) {
         super(str);
-        this.bqB = interfaceC0243a;
+        this.bqN = interfaceC0243a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pi() {
-        super.Pi();
-        if (this.bqd != null) {
-            Py();
+    public void Pl() {
+        super.Pl();
+        if (this.bqp != null) {
+            PB();
         }
     }
 
@@ -32,43 +32,43 @@ public class a extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bqB != null) {
+        if (this.bqN != null) {
             if (aVar.errorNo == 1010) {
-                this.bqB.Ne();
+                this.bqN.Nh();
             } else {
-                this.bqB.eq(0);
+                this.bqN.eq(0);
             }
         }
         eH(aVar.errorNo);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Po() {
-        this.bqe.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Px = Px();
-        this.bqe.add(new UbcFlowEvent("na_end_update_db"));
-        if (Px == null) {
-            if (this.bqB != null) {
-                this.bqB.Ne();
+    protected void Pr() {
+        this.bqq.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a PA = PA();
+        this.bqq.add(new UbcFlowEvent("na_end_update_db"));
+        if (PA == null) {
+            if (this.bqN != null) {
+                this.bqN.Nh();
             }
-        } else if (this.bqB != null) {
-            this.bqB.eq(5);
+        } else if (this.bqN != null) {
+            this.bqN.eq(5);
         }
-        aB("main_pre_download", this.bqf);
+        aA("main_pre_download", this.bqr);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.RD().RE().c(hashSet);
+        e.RG().RH().c(hashSet);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void m(Throwable th) {
-        if (this.bqB != null) {
-            this.bqB.eq(0);
+        if (this.bqN != null) {
+            this.bqN.eq(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Pp() {
+    protected PMSDownloadType Ps() {
         return PMSDownloadType.PRE;
     }
 }

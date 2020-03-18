@@ -50,7 +50,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: qn */
+    /* renamed from: qs */
     public b clone() {
         try {
             return (b) super.clone();
@@ -92,7 +92,7 @@ public class b implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId qo() {
+    public BdUniqueId qt() {
         return this.mPageId;
     }
 
@@ -112,7 +112,7 @@ public class b implements Cloneable {
         return this.isGod;
     }
 
-    public String qp() {
+    public String qu() {
         return this.metaKey;
     }
 }

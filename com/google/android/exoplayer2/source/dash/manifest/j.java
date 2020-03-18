@@ -3,12 +3,12 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class j {
-    private final String[] mvG;
-    private final int[] mvH;
-    private final String[] mvI;
-    private final int mvJ;
+    private final String[] mxm;
+    private final int[] mxn;
+    private final String[] mxo;
+    private final int mxp;
 
-    public static j PJ(String str) {
+    public static j PI(String str) {
         String[] strArr = new String[5];
         int[] iArr = new int[4];
         String[] strArr2 = new String[4];
@@ -16,27 +16,27 @@ public final class j {
     }
 
     private j(String[] strArr, int[] iArr, String[] strArr2, int i) {
-        this.mvG = strArr;
-        this.mvH = iArr;
-        this.mvI = strArr2;
-        this.mvJ = i;
+        this.mxm = strArr;
+        this.mxn = iArr;
+        this.mxo = strArr2;
+        this.mxp = i;
     }
 
     public String a(String str, int i, int i2, long j) {
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < this.mvJ; i3++) {
-            sb.append(this.mvG[i3]);
-            if (this.mvH[i3] == 1) {
+        for (int i3 = 0; i3 < this.mxp; i3++) {
+            sb.append(this.mxm[i3]);
+            if (this.mxn[i3] == 1) {
                 sb.append(str);
-            } else if (this.mvH[i3] == 2) {
-                sb.append(String.format(Locale.US, this.mvI[i3], Integer.valueOf(i)));
-            } else if (this.mvH[i3] == 3) {
-                sb.append(String.format(Locale.US, this.mvI[i3], Integer.valueOf(i2)));
-            } else if (this.mvH[i3] == 4) {
-                sb.append(String.format(Locale.US, this.mvI[i3], Long.valueOf(j)));
+            } else if (this.mxn[i3] == 2) {
+                sb.append(String.format(Locale.US, this.mxo[i3], Integer.valueOf(i)));
+            } else if (this.mxn[i3] == 3) {
+                sb.append(String.format(Locale.US, this.mxo[i3], Integer.valueOf(i2)));
+            } else if (this.mxn[i3] == 4) {
+                sb.append(String.format(Locale.US, this.mxo[i3], Long.valueOf(j)));
             }
         }
-        sb.append(this.mvG[this.mvJ]);
+        sb.append(this.mxm[this.mxp]);
         return sb.toString();
     }
 

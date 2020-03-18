@@ -9,13 +9,13 @@ import kotlin.text.l;
 /* loaded from: classes11.dex */
 public final class e {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bcl;
-    private static com.baidu.swan.apps.a.c bcm;
-    private static boolean bcn;
-    public static final e bco = new e();
+    private static boolean bcA;
+    public static final e bcB = new e();
+    private static com.baidu.swan.apps.a.a bcy;
+    private static com.baidu.swan.apps.a.c bcz;
 
     static {
-        String simpleName = bco.getClass().getSimpleName();
+        String simpleName = bcB.getClass().getSimpleName();
         q.i(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -23,32 +23,32 @@ public final class e {
     private e() {
     }
 
-    public final com.baidu.swan.apps.a.a Jl() {
-        return bcl;
+    public final com.baidu.swan.apps.a.a Jo() {
+        return bcy;
     }
 
-    public final com.baidu.swan.apps.a.c Jm() {
-        return bcm;
+    public final com.baidu.swan.apps.a.c Jp() {
+        return bcz;
     }
 
-    public final boolean Jn() {
-        return bcn;
+    public final boolean Jq() {
+        return bcA;
     }
 
-    public final void bZ(boolean z) {
-        bcn = z;
+    public final void ca(boolean z) {
+        bcA = z;
     }
 
     public final boolean isLogin() {
-        if (f.Jr() == null) {
-            Jq();
+        if (f.Ju() == null) {
+            Jt();
         }
-        if (q.h(f.Jr(), false)) {
+        if (q.h(f.Ju(), false)) {
             return false;
         }
-        String Ju = g.bcr.Ju();
-        if (!(Ju == null || l.isBlank(Ju))) {
-            String uid = h.bct.getUid();
+        String Jx = g.bcE.Jx();
+        if (!(Jx == null || l.isBlank(Jx))) {
+            String uid = h.bcG.getUid();
             if (!(uid == null || l.isBlank(uid))) {
                 return true;
             }
@@ -56,30 +56,30 @@ public final class e {
         return false;
     }
 
-    public final void Jo() {
-        g.bcr.Jv();
-        h.bct.Jy();
-        bS(false);
+    public final void Jr() {
+        g.bcE.Jy();
+        h.bcG.JB();
+        bT(false);
     }
 
-    public final boolean Jp() {
-        if (f.Jr() == null) {
-            Jq();
+    public final boolean Js() {
+        if (f.Ju() == null) {
+            Jt();
         }
-        Boolean Jr = f.Jr();
-        if (Jr == null) {
-            q.dKw();
+        Boolean Ju = f.Ju();
+        if (Ju == null) {
+            q.dKW();
         }
-        return Jr.booleanValue();
+        return Ju.booleanValue();
     }
 
-    public final void bS(boolean z) {
+    public final void bT(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void Jq() {
+    private final void Jt() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

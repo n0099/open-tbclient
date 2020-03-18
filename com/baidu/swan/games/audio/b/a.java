@@ -14,16 +14,16 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a ckl;
-    private HashMap<String, ArrayList<InterfaceC0330a>> ckm = new HashMap<>();
-    final ExecutorService ckn = Executors.newCachedThreadPool();
+    private static volatile a ckw;
+    private HashMap<String, ArrayList<InterfaceC0330a>> ckx = new HashMap<>();
+    final ExecutorService cky = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String cko = f.alv() + f.alw();
+    private String ckz = f.aly() + f.alz();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0330a {
-        void alz();
+        void alC();
 
         void success(String str);
     }
@@ -31,19 +31,19 @@ public class a {
     private a() {
     }
 
-    public static a alA() {
-        if (ckl == null) {
+    public static a alD() {
+        if (ckw == null) {
             synchronized (a.class) {
-                if (ckl == null) {
-                    ckl = new a();
+                if (ckw == null) {
+                    ckw = new a();
                 }
             }
         }
-        return ckl;
+        return ckw;
     }
 
     public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0330a interfaceC0330a) {
-        this.ckn.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+        this.cky.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 String C = a.this.C(jsArrayBuffer.buffer());
@@ -55,7 +55,7 @@ public class a {
                 } else if (!file.isDirectory()) {
                     interfaceC0330a.success(C);
                 } else {
-                    interfaceC0330a.alz();
+                    interfaceC0330a.alC();
                 }
             }
         });
@@ -69,7 +69,7 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
     public void g(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.cko);
+        File file = new File(this.ckz);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -89,13 +89,13 @@ public class a {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename success path = " + str);
                         }
-                        mW(str);
+                        mV(str);
                     } else {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename error path = " + str);
                         }
                         file2.delete();
-                        mW(null);
+                        mV(null);
                     }
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                 } catch (Exception e) {
@@ -106,7 +106,7 @@ public class a {
                     if (file2 != null && file2.exists()) {
                         file2.delete();
                     }
-                    mW(null);
+                    mV(null);
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                 }
             } catch (Throwable th) {
@@ -130,13 +130,13 @@ public class a {
         ArrayList<InterfaceC0330a> arrayList;
         boolean z;
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0330a> arrayList2 = this.ckm.get(str);
+            ArrayList<InterfaceC0330a> arrayList2 = this.ckx.get(str);
             if (arrayList2 != null) {
                 arrayList = arrayList2;
                 z = true;
             } else {
                 arrayList = new ArrayList<>();
-                this.ckm.put(str, arrayList);
+                this.ckx.put(str, arrayList);
                 z = false;
             }
             arrayList.add(interfaceC0330a);
@@ -144,9 +144,9 @@ public class a {
         return z;
     }
 
-    private void mW(String str) {
+    private void mV(String str) {
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0330a> arrayList = this.ckm.get(str);
+            ArrayList<InterfaceC0330a> arrayList = this.ckx.get(str);
             if (arrayList != null) {
                 boolean isEmpty = TextUtils.isEmpty(str);
                 Iterator<InterfaceC0330a> it = arrayList.iterator();
@@ -158,10 +158,10 @@ public class a {
                         }
                         next.success(str);
                     } else {
-                        next.alz();
+                        next.alC();
                     }
                 }
-                this.ckm.remove(str);
+                this.ckx.remove(str);
             }
         }
     }
@@ -169,7 +169,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public String C(byte[] bArr) {
         String B = f.B(bArr);
-        StringBuilder append = new StringBuilder().append(this.cko).append(bArr.length);
+        StringBuilder append = new StringBuilder().append(this.ckz).append(bArr.length);
         if (TextUtils.isEmpty(B)) {
             B = "";
         }

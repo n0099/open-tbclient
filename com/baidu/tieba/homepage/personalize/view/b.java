@@ -1,34 +1,41 @@
 package com.baidu.tieba.homepage.personalize.view;
 
-import android.content.Context;
-import com.baidu.card.x;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes9.dex */
-public class b extends x {
-    private d hfO;
+public class b extends com.baidu.card.b<com.baidu.tbadk.core.data.a> {
+    private HomePageAlaRecommendLayout hhm;
+    private int mSkinType;
 
-    public b(Context context) {
-        super(context);
+    public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
+        this.mSkinType = 3;
+        this.hhm = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
     }
 
-    @Override // com.baidu.card.x, com.baidu.card.al
-    protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        this.hfO = new d(this.mContext, this.MK);
-        return this.hfO;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.hhm;
     }
 
-    @Override // com.baidu.card.al
-    public void onPause() {
-        super.onPause();
-        if (this.hfO != null) {
-            this.hfO.onPause();
+    @Override // com.baidu.card.n
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            this.hhm.onChangeSkinType(i);
         }
+        this.mSkinType = i;
     }
 
-    @Override // com.baidu.card.al
-    public void onResume() {
-        super.onResume();
-        if (this.hfO != null) {
-            this.hfO.onResume();
-        }
+    @Override // com.baidu.card.b
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.m
+    /* renamed from: b */
+    public void A(com.baidu.tbadk.core.data.a aVar) {
+        this.hhm.setData((com.baidu.tieba.homepage.personalize.data.f) aVar);
     }
 }

@@ -22,10 +22,10 @@ import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     private z<k> JZ;
-    private r OR;
-    private BdUniqueId dBx;
-    private NEGFeedBackView.a dUD;
-    private int ddD;
+    private r OT;
+    private BdUniqueId dBK;
+    private NEGFeedBackView.a dUT;
+    private int ddQ;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.v$a] */
@@ -43,7 +43,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
             public void a(View view, k kVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.ddD);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.ddQ);
                 }
             }
         };
@@ -51,30 +51,30 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void b(r rVar) {
-        this.OR = rVar;
+        this.OT = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aM */
+    /* renamed from: aN */
     public af<k> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNC = 15;
-        dVar.cNI = 11;
+        dVar.cNP = 15;
+        dVar.cNV = 11;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(12);
         agVar.setShareReportFrom(9);
-        agVar.setGameId(this.ddD);
+        agVar.setGameId(this.ddQ);
         agVar.aZ(18);
         agVar.aK(32);
         aVar.b(agVar);
-        ad a = aVar.a(true, viewGroup, this.OR);
+        ad a = aVar.a(true, viewGroup, this.OT);
         a.aQ(18);
         af<k> afVar = new af<>(a);
-        afVar.setPageId(this.dBx);
+        afVar.setPageId(this.dBK);
         a(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -95,10 +95,10 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, k kVar, af afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRg == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRt == null) {
             return null;
         }
-        kVar.rt(kVar.position + 1);
+        kVar.rv(kVar.position + 1);
         afVar.nk().setPosition(i);
         if (afVar.nk().ne() instanceof ag) {
             ((ag) afVar.nk().ne()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.3
@@ -110,7 +110,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
                 }
             });
         }
-        afVar.ag(false).a(this.dUD);
+        afVar.ag(false).a(this.dUT);
         afVar.b((af) kVar);
         afVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         afVar.nk().a(this.JZ);
@@ -118,14 +118,14 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBx = bdUniqueId;
+        this.dBK = bdUniqueId;
     }
 
-    public void vl(int i) {
-        this.ddD = i;
+    public void vs(int i) {
+        this.ddQ = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.dUD = aVar;
+        this.dUT = aVar;
     }
 }

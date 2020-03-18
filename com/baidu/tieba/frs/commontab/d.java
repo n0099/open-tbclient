@@ -15,14 +15,15 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public class d implements j {
-    public int gwi;
-    public String gwj;
-    public String gwk;
-    public boolean gwl;
-    public SportScheduleInfo gwm;
+    public int gwR;
+    public String gwS;
+    public String gwT;
+    public boolean gwU;
+    public SportScheduleInfo gwV;
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
+    public int sortType = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
@@ -45,18 +46,19 @@ public class d implements j {
                         bj bjVar = new bj();
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
-                        bjVar.aDj();
+                        bjVar.aDm();
                         this.threadList.add(bjVar);
                     }
                 }
             }
-            this.gwi = dataRes.new_thread_num.intValue();
+            this.gwR = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.gwj = dataRes.sport_head_info.head_url;
-                this.gwk = dataRes.sport_head_info.jump_url;
-                this.gwl = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.gwS = dataRes.sport_head_info.head_url;
+                this.gwT = dataRes.sport_head_info.jump_url;
+                this.gwU = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.gwm = dataRes.sport_schedule_info;
+            this.gwV = dataRes.sport_schedule_info;
+            this.sortType = dataRes.sort_type.intValue();
         }
     }
 

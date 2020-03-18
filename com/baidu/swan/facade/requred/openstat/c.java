@@ -1,15 +1,15 @@
 package com.baidu.swan.facade.requred.openstat;
 /* loaded from: classes7.dex */
 public class c {
-    private static volatile b cfN;
+    private static volatile b cfY;
 
-    public static synchronized b ajA() {
+    public static synchronized b ajD() {
         b bVar;
         synchronized (c.class) {
-            if (cfN == null) {
-                cfN = new b();
+            if (cfY == null) {
+                cfY = new b();
             }
-            bVar = cfN;
+            bVar = cfY;
         }
         return bVar;
     }

@@ -50,7 +50,7 @@ public class gx implements fp {
         if (as.b(this.f438a)) {
             this.f436a = elapsedRealtime;
         }
-        if (this.f438a.m506c()) {
+        if (this.f438a.m504c()) {
             this.c = elapsedRealtime;
         }
     }
@@ -64,7 +64,7 @@ public class gx implements fp {
         fcVar.d((int) (System.currentTimeMillis() / 1000));
         fcVar.b((int) (this.b / 1000));
         fcVar.c((int) (this.d / 1000));
-        gy.m323a().a(fcVar);
+        gy.m321a().a(fcVar);
         b();
     }
 
@@ -74,9 +74,9 @@ public class gx implements fp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m322a() {
+    public synchronized void m320a() {
         if (this.f438a != null) {
-            String m132a = as.m132a((Context) this.f438a);
+            String m130a = as.m130a((Context) this.f438a);
             boolean b = as.b(this.f438a);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (this.f436a > 0) {
@@ -88,14 +88,14 @@ public class gx implements fp {
                 this.c = 0L;
             }
             if (b) {
-                if ((!TextUtils.equals(this.f440a, m132a) && this.b > 30000) || this.b > 5400000) {
+                if ((!TextUtils.equals(this.f440a, m130a) && this.b > 30000) || this.b > 5400000) {
                     c();
                 }
-                this.f440a = m132a;
+                this.f440a = m130a;
                 if (this.f436a == 0) {
                     this.f436a = elapsedRealtime;
                 }
-                if (this.f438a.m506c()) {
+                if (this.f438a.m504c()) {
                     this.c = elapsedRealtime;
                 }
             }
@@ -104,9 +104,9 @@ public class gx implements fp {
 
     @Override // com.xiaomi.push.fp
     public void a(fm fmVar) {
-        m322a();
+        m320a();
         this.c = SystemClock.elapsedRealtime();
-        ha.a(0, fb.CONN_SUCCESS.a(), fmVar.m283a(), fmVar.a());
+        ha.a(0, fb.CONN_SUCCESS.a(), fmVar.m281a(), fmVar.a());
     }
 
     @Override // com.xiaomi.push.fp
@@ -114,17 +114,17 @@ public class gx implements fp {
         if (this.a == 0 && this.f439a == null) {
             this.a = i;
             this.f439a = exc;
-            ha.b(fmVar.m283a(), exc);
+            ha.b(fmVar.m281a(), exc);
         }
         if (i == 22 && this.c != 0) {
-            long m281a = fmVar.m281a() - this.c;
-            if (m281a < 0) {
-                m281a = 0;
+            long m279a = fmVar.m279a() - this.c;
+            if (m279a < 0) {
+                m279a = 0;
             }
-            this.d = m281a + (fs.b() / 2) + this.d;
+            this.d = m279a + (fs.b() / 2) + this.d;
             this.c = 0L;
         }
-        m322a();
+        m320a();
         int myUid = Process.myUid();
         long uidRxBytes = TrafficStats.getUidRxBytes(myUid);
         long uidTxBytes = TrafficStats.getUidTxBytes(myUid);
@@ -135,8 +135,8 @@ public class gx implements fp {
 
     @Override // com.xiaomi.push.fp
     public void a(fm fmVar, Exception exc) {
-        ha.a(0, fb.CHANNEL_CON_FAIL.a(), 1, fmVar.m283a(), as.b(this.f438a) ? 1 : 0);
-        m322a();
+        ha.a(0, fb.CHANNEL_CON_FAIL.a(), 1, fmVar.m281a(), as.b(this.f438a) ? 1 : 0);
+        m320a();
     }
 
     @Override // com.xiaomi.push.fp
@@ -144,7 +144,7 @@ public class gx implements fp {
         this.a = 0;
         this.f439a = null;
         this.f437a = fmVar;
-        this.f440a = as.m132a((Context) this.f438a);
+        this.f440a = as.m130a((Context) this.f438a);
         ha.a(0, fb.CONN_SUCCESS.a());
     }
 }

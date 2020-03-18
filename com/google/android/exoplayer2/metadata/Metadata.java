@@ -16,7 +16,7 @@ public final class Metadata implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kg */
+        /* renamed from: Km */
         public Metadata[] newArray(int i) {
             return new Metadata[0];
         }
@@ -58,7 +58,7 @@ public final class Metadata implements Parcelable {
         return this.entries.length;
     }
 
-    public Entry Kf(int i) {
+    public Entry Kl(int i) {
         return this.entries[i];
     }
 

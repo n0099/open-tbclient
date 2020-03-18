@@ -8,23 +8,23 @@ import com.baidu.tieba.R;
 public class a extends l {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.dxF = false;
-        this.dxE = 3;
-        this.dwN = new PbLocationInfoContainer(context);
-        this.dxG = new int[]{20, 19};
+        this.dxS = false;
+        this.dxR = 3;
+        this.dxa = new PbLocationInfoContainer(context);
+        this.dxT = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.dxF = false;
-        this.dxE = 3;
-        this.dwN = new PbLocationInfoContainer(context);
+        this.dxS = false;
+        this.dxR = 3;
+        this.dxa = new PbLocationInfoContainer(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds48));
         layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds21);
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds21);
-        ((PbLocationInfoContainer) this.dwN).setLayoutParams(layoutParams);
-        this.dxG = new int[]{20, 19};
+        ((PbLocationInfoContainer) this.dxa).setLayoutParams(layoutParams);
+        this.dxT = new int[]{20, 19};
     }
 }

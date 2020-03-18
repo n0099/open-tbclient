@@ -5,12 +5,12 @@ import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private int jXK = -1;
+    private int jZm = -1;
     private String errorMsg = null;
     private String userMsg = null;
 
     public int getErrorNumber() {
-        return this.jXK;
+        return this.jZm;
     }
 
     public String getUserMsg() {
@@ -20,7 +20,7 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.jXK = jSONObject.optInt("errno");
+                this.jZm = jSONObject.optInt("errno");
                 this.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 this.userMsg = jSONObject.optString("usermsg");
             } catch (Exception e) {

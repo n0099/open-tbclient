@@ -6,9 +6,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes11.dex */
 public class i {
-    private a jmo;
+    private a jnO;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a cHX = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
+    private com.baidu.adp.framework.listener.a cIi = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             i.this.isLoading = false;
@@ -28,20 +28,20 @@ public class i {
     }
 
     public i() {
-        te();
+        tj();
         registerListener();
     }
 
-    private void te() {
+    private void tj() {
         com.baidu.tieba.tbadkCore.a.a.c(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.cHX);
+        MessageManager.getInstance().registerListener(this.cIi);
     }
 
-    public void bhU() {
+    public void bhZ() {
         if (!this.isLoading) {
             this.isLoading = true;
             MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
@@ -50,12 +50,12 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.jmo != null) {
-            this.jmo.a(z, aVar);
+        if (this.jnO != null) {
+            this.jnO.a(z, aVar);
         }
     }
 
     public void a(a aVar) {
-        this.jmo = aVar;
+        this.jnO = aVar;
     }
 }

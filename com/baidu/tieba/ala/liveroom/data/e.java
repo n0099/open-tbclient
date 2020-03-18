@@ -2,12 +2,12 @@ package com.baidu.tieba.ala.liveroom.data;
 /* loaded from: classes3.dex */
 public class e {
     public int clarity;
-    public boolean faP;
-    public boolean faQ;
-    public String faR;
-    public boolean faS;
-    public boolean faT;
-    public boolean faU;
+    public boolean fbn;
+    public boolean fbo;
+    public String fbp;
+    public boolean fbq;
+    public boolean fbr;
+    public boolean fbs;
     public String forumId;
     public String forumName;
     public String gameId;

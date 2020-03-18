@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0385a dpj;
+    private C0385a dpw;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.dpj == null) {
-            this.dpj = new C0385a();
-            this.dpj.setPriority(2);
-            this.dpj.gl(z);
-            this.dpj.setPortrait(str);
-            this.dpj.setToUid(str2);
-            this.dpj.setIsGod(z2);
-            this.dpj.setFrom(str3);
-            this.dpj.setPageId(bdUniqueId);
-            this.dpj.setForumId(str4);
-            this.dpj.setInLive(str5);
-            this.dpj.execute(new Integer[0]);
+        if (this.dpw == null) {
+            this.dpw = new C0385a();
+            this.dpw.setPriority(2);
+            this.dpw.gm(z);
+            this.dpw.setPortrait(str);
+            this.dpw.setToUid(str2);
+            this.dpw.setIsGod(z2);
+            this.dpw.setFrom(str3);
+            this.dpw.setPageId(bdUniqueId);
+            this.dpw.setForumId(str4);
+            this.dpw.setInLive(str5);
+            this.dpw.execute(new Integer[0]);
         }
     }
 
@@ -82,7 +82,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void gl(boolean z) {
+        public void gm(boolean z) {
             this.isAttention = z;
         }
 
@@ -118,7 +118,7 @@ public class a {
                     this.mNetwork = new x();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/follow");
-                        this.mNetwork.fK(true);
+                        this.mNetwork.fL(true);
                     } else {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/unfollow");
                     }
@@ -131,7 +131,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.aGg().aGH().mIsNeedTbs = true;
+                    this.mNetwork.aGk().aGL().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -147,17 +147,17 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0385a) str);
-            a.this.dpj = null;
+            a.this.dpw = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.aGg().aGI().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.aGk().aGM().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.aGg().aGI().isRequestSuccess()) {
-                    aVar.doi = null;
+                if (this.mNetwork.aGk().aGM().isRequestSuccess()) {
+                    aVar.dow = null;
                 }
                 if (!AntiHelper.d(a.this.getContext(), this.mNetwork.getServerErrorCode(), aVar.blockUrl)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.dpj != null) {
-                a.this.dpj.cancel();
-                a.this.dpj = null;
+            if (a.this.dpw != null) {
+                a.this.dpw.cancel();
+                a.this.dpw = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.dpj != null) {
-            this.dpj.cancel();
+        if (this.dpw != null) {
+            this.dpw.cancel();
         }
     }
 }

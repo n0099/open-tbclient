@@ -5,7 +5,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 /* loaded from: classes11.dex */
 public class b {
-    public static String qm(String str) {
+    public static String ql(String str) {
         return P(str, true);
     }
 

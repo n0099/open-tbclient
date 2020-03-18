@@ -26,7 +26,7 @@ public class ay {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m141a(str));
+            messageDigest.update(m139a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             return str;
@@ -134,7 +134,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m140a(String str) {
+    public static boolean m138a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -147,7 +147,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m141a(String str) {
+    public static byte[] m139a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -159,7 +159,7 @@ public class ay {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m141a(str));
+                messageDigest.update(m139a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
                 return str;
@@ -169,7 +169,7 @@ public class ay {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m142b(String str) {
+    public static boolean m140b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

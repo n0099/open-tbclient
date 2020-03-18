@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private boolean dka;
+    private boolean dkn;
 
     public c() {
-        this.djN = R.color.cp_link_tip_a;
-        this.dka = true;
-    }
-
-    public void ls(@ColorRes int i) {
-        this.djN = i;
-        this.dka = true;
-        this.djY = true;
-        if (this.djZ != null) {
-            this.djZ.aIr();
-        }
-    }
-
-    public void lt(@ColorRes int i) {
-        this.djN = i;
-        this.djP = R.color.cp_btn_a;
-        this.dka = false;
-        this.djY = true;
-        if (this.djZ != null) {
-            this.djZ.aIr();
-        }
-    }
-
-    public void aIu() {
-        this.djN = R.color.cp_cont_a;
-        this.djP = R.color.cp_btn_j;
-        this.dka = false;
-        this.djY = true;
-        if (this.djZ != null) {
-            this.djZ.aIr();
-        }
+        this.dka = R.color.cp_link_tip_a;
+        this.dkn = true;
     }
 
     public void lu(@ColorRes int i) {
-        this.djN = i;
-        this.djP = R.color.cp_btn_c;
-        this.dka = false;
-        if (this.djZ != null) {
-            this.djZ.aIr();
+        this.dka = i;
+        this.dkn = true;
+        this.dkl = true;
+        if (this.dkm != null) {
+            this.dkm.aIv();
+        }
+    }
+
+    public void lv(@ColorRes int i) {
+        this.dka = i;
+        this.dkc = R.color.cp_btn_a;
+        this.dkn = false;
+        this.dkl = true;
+        if (this.dkm != null) {
+            this.dkm.aIv();
+        }
+    }
+
+    public void aIy() {
+        this.dka = R.color.cp_cont_a;
+        this.dkc = R.color.cp_btn_j;
+        this.dkn = false;
+        this.dkl = true;
+        if (this.dkm != null) {
+            this.dkm.aIv();
+        }
+    }
+
+    public void lw(@ColorRes int i) {
+        this.dka = i;
+        this.dkc = R.color.cp_btn_c;
+        this.dkn = false;
+        if (this.dkm != null) {
+            this.dkm.aIv();
         }
     }
 
@@ -60,10 +60,10 @@ public class c extends a {
 
     private Drawable am(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dka) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.djY ? am.getColor(this.djN) : this.djN, 0.08f));
+        if (this.dkn) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.dkl ? am.getColor(this.dka) : this.dka, 0.08f));
         } else {
-            gradientDrawable.setColor(am.getColor(this.djP));
+            gradientDrawable.setColor(am.getColor(this.dkc));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

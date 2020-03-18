@@ -16,7 +16,7 @@ public class c {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void qi(@NonNull String str);
+        void qh(@NonNull String str);
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -26,7 +26,7 @@ public class c {
     }
 
     @NonNull
-    public static String qn(@NonNull String str) {
+    public static String qm(@NonNull String str) {
         return str + File.separator + "mini";
     }
 
@@ -107,7 +107,7 @@ public class c {
                 L69:
                     com.baidu.swan.mini.e.c$b r0 = r2
                     java.lang.String r1 = ""
-                    r0.qi(r1)
+                    r0.qh(r1)
                 L71:
                     return
                 L72:
@@ -133,7 +133,7 @@ public class c {
                 La4:
                     com.baidu.swan.mini.e.c$b r1 = r2
                     java.lang.String r0 = r0.toString()
-                    r1.qi(r0)
+                    r1.qh(r0)
                     goto L71
                 Lae:
                     r4 = move-exception

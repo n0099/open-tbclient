@@ -12,14 +12,14 @@ import android.webkit.WebViewClient;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class f extends WebViewClient {
-    private q cWA;
-    private WebViewClient cWH;
-    private final HashSet<String> cWI;
+    private q cWN;
+    private WebViewClient cWU;
+    private final HashSet<String> cWV;
 
     public f(WebViewClient webViewClient) {
-        this.cWA = null;
-        this.cWI = new HashSet<>(6);
-        this.cWH = webViewClient;
+        this.cWN = null;
+        this.cWV = new HashSet<>(6);
+        this.cWU = webViewClient;
     }
 
     public f() {
@@ -27,22 +27,22 @@ public class f extends WebViewClient {
     }
 
     public void a(q qVar) {
-        this.cWA = qVar;
+        this.cWN = qVar;
     }
 
     public void a(WebViewClient webViewClient) {
-        this.cWH = webViewClient;
+        this.cWU = webViewClient;
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         e.debug("page " + str + " load finished.");
-        if (!this.cWI.contains(str)) {
-            this.cWA.ta(str);
+        if (!this.cWV.contains(str)) {
+            this.cWN.sZ(str);
         }
-        this.cWI.clear();
-        if (this.cWH != null) {
-            this.cWH.onPageFinished(webView, str);
+        this.cWV.clear();
+        if (this.cWU != null) {
+            this.cWU.onPageFinished(webView, str);
         } else {
             super.onPageFinished(webView, str);
         }
@@ -50,13 +50,13 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        return this.cWH != null ? this.cWH.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
+        return this.cWU != null ? this.cWU.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        if (this.cWH != null) {
-            this.cWH.onPageStarted(webView, str, bitmap);
+        if (this.cWU != null) {
+            this.cWU.onPageStarted(webView, str, bitmap);
         } else {
             super.onPageStarted(webView, str, bitmap);
         }
@@ -64,8 +64,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onLoadResource(WebView webView, String str) {
-        if (this.cWH != null) {
-            this.cWH.onLoadResource(webView, str);
+        if (this.cWU != null) {
+            this.cWU.onLoadResource(webView, str);
         } else {
             super.onLoadResource(webView, str);
         }
@@ -73,14 +73,14 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        return this.cWH != null ? this.cWH.shouldInterceptRequest(webView, str) : super.shouldInterceptRequest(webView, str);
+        return this.cWU != null ? this.cWU.shouldInterceptRequest(webView, str) : super.shouldInterceptRequest(webView, str);
     }
 
     @Override // android.webkit.WebViewClient
     @Deprecated
     public void onTooManyRedirects(WebView webView, Message message, Message message2) {
-        if (this.cWH != null) {
-            this.cWH.onTooManyRedirects(webView, message, message2);
+        if (this.cWU != null) {
+            this.cWU.onTooManyRedirects(webView, message, message2);
         } else {
             super.onTooManyRedirects(webView, message, message2);
         }
@@ -89,9 +89,9 @@ public class f extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         e.debug("Failed url " + str2 + " with description:" + str);
-        this.cWI.add(str2);
-        if (this.cWH != null) {
-            this.cWH.onReceivedError(webView, i, str, str2);
+        this.cWV.add(str2);
+        if (this.cWU != null) {
+            this.cWU.onReceivedError(webView, i, str, str2);
         } else {
             super.onReceivedError(webView, i, str, str2);
         }
@@ -99,8 +99,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onFormResubmission(WebView webView, Message message, Message message2) {
-        if (this.cWH != null) {
-            this.cWH.onFormResubmission(webView, message, message2);
+        if (this.cWU != null) {
+            this.cWU.onFormResubmission(webView, message, message2);
         } else {
             super.onFormResubmission(webView, message, message2);
         }
@@ -108,8 +108,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-        if (this.cWH != null) {
-            this.cWH.doUpdateVisitedHistory(webView, str, z);
+        if (this.cWU != null) {
+            this.cWU.doUpdateVisitedHistory(webView, str, z);
         } else {
             super.doUpdateVisitedHistory(webView, str, z);
         }
@@ -117,8 +117,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-        if (this.cWH != null) {
-            this.cWH.onReceivedSslError(webView, sslErrorHandler, sslError);
+        if (this.cWU != null) {
+            this.cWU.onReceivedSslError(webView, sslErrorHandler, sslError);
         } else {
             super.onReceivedSslError(webView, sslErrorHandler, sslError);
         }
@@ -126,8 +126,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
-        if (this.cWH != null) {
-            this.cWH.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
+        if (this.cWU != null) {
+            this.cWU.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
         } else {
             super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
         }
@@ -135,13 +135,13 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-        return this.cWH != null ? this.cWH.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
+        return this.cWU != null ? this.cWU.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
     }
 
     @Override // android.webkit.WebViewClient
     public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-        if (this.cWH != null) {
-            this.cWH.onUnhandledKeyEvent(webView, keyEvent);
+        if (this.cWU != null) {
+            this.cWU.onUnhandledKeyEvent(webView, keyEvent);
         } else {
             super.onUnhandledKeyEvent(webView, keyEvent);
         }
@@ -149,8 +149,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onScaleChanged(WebView webView, float f, float f2) {
-        if (this.cWH != null) {
-            this.cWH.onScaleChanged(webView, f, f2);
+        if (this.cWU != null) {
+            this.cWU.onScaleChanged(webView, f, f2);
         } else {
             super.onScaleChanged(webView, f, f2);
         }
@@ -158,8 +158,8 @@ public class f extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
-        if (this.cWH != null) {
-            this.cWH.onReceivedLoginRequest(webView, str, str2, str3);
+        if (this.cWU != null) {
+            this.cWU.onReceivedLoginRequest(webView, str, str2, str3);
         } else {
             super.onReceivedLoginRequest(webView, str, str2, str3);
         }

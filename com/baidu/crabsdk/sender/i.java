@@ -3,12 +3,14 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
+import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.Deflater;
@@ -20,13 +22,13 @@ import org.json.JSONStringer;
 public final class i {
     public static synchronized List<String> M(Context context, String str) {
         ArrayList arrayList;
+        File[] listFiles;
         synchronized (i.class) {
             arrayList = new ArrayList();
             File filesDir = context.getFilesDir();
-            if (filesDir != null) {
-                File[] listFiles = filesDir.listFiles();
+            if (filesDir != null && (listFiles = filesDir.listFiles()) != null && listFiles.length > 0) {
                 for (File file : listFiles) {
-                    if (file.getName().contains("native_") && file.getName().endsWith(str)) {
+                    if (file.getName().startsWith(str)) {
                         arrayList.add(file.getAbsolutePath());
                     }
                 }
@@ -59,16 +61,16 @@ public final class i {
         DeflaterOutputStream deflaterOutputStream2 = null;
         synchronized (i.class) {
             com.baidu.crabsdk.c.a.cj("writeFile: " + str);
-            h.l(str);
+            h.m(str);
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    str2 = com.baidu.crabsdk.c.d.P(str2, c);
+                    str2 = com.baidu.crabsdk.c.d.O(str2, c);
                 } catch (Exception e) {
                     com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
                 }
                 try {
-                    h.b("key_" + str, com.baidu.crabsdk.c.e.cr(c));
+                    h.b("key_" + str, com.baidu.crabsdk.c.e.cq(c));
                 } catch (Exception e2) {
                     h.b("key_" + str, "NoEncrypt_" + c);
                     e2.printStackTrace();
@@ -207,7 +209,34 @@ public final class i {
         }
     }
 
-    public static synchronized List<String> au(Context context) {
+    public static synchronized void a(Context context, String str, byte[] bArr) {
+        synchronized (i.class) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                fileOutputStream = context.openFileOutput(str, 0);
+                fileOutputStream.write(bArr);
+                fileOutputStream.close();
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized List<String> av(Context context) {
         ArrayList arrayList;
         synchronized (i.class) {
             arrayList = new ArrayList();
@@ -225,23 +254,6 @@ public final class i {
                         arrayList.add(file.getAbsolutePath());
                     } else if (file.getName().contains("native_count")) {
                         arrayList.add(file.getAbsolutePath());
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static synchronized List<String> av(Context context) {
-        ArrayList arrayList;
-        synchronized (i.class) {
-            arrayList = new ArrayList();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null) {
-                File[] listFiles = filesDir.listFiles();
-                for (File file : listFiles) {
-                    if (file.getName().contains("native_") && !file.getName().contains(".crab") && !file.getName().contains(".logcat")) {
-                        arrayList.add(file.getAbsolutePath() + "@" + file.lastModified());
                     }
                 }
             }
@@ -278,7 +290,7 @@ public final class i {
         }
     }
 
-    public static byte[] cw(String str) {
+    public static byte[] cv(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -290,101 +302,131 @@ public final class i {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (Exception e) {
-            e = e;
-            byteArrayOutputStream2 = null;
-            fileInputStream = null;
-        } catch (Throwable th3) {
-            byteArrayOutputStream = null;
-            fileInputStream = null;
-            th = th3;
-        }
-        try {
-            byteArrayOutputStream2 = new ByteArrayOutputStream(1000);
             try {
-                byte[] bArr2 = new byte[1000];
-                while (true) {
-                    int read = fileInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
+                byteArrayOutputStream2 = new ByteArrayOutputStream(1000);
+                try {
+                    byte[] bArr2 = new byte[1000];
+                    while (true) {
+                        int read = fileInputStream.read(bArr2);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream2.write(bArr2, 0, read);
                     }
-                    byteArrayOutputStream2.write(bArr2, 0, read);
-                }
-                fileInputStream.close();
-                byteArrayOutputStream2.close();
-                bArr = byteArrayOutputStream2.toByteArray();
-                try {
                     fileInputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                try {
                     byteArrayOutputStream2.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                    bArr = byteArrayOutputStream2.toByteArray();
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    com.baidu.crabsdk.c.a.f("Get filebytes error!", e);
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    if (byteArrayOutputStream2 != null) {
+                        try {
+                            byteArrayOutputStream2.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return bArr;
                 }
-            } catch (Exception e4) {
-                e = e4;
-                e.printStackTrace();
+            } catch (Exception e6) {
+                e = e6;
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th3) {
+                byteArrayOutputStream = null;
+                th = th3;
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
                 }
-                if (byteArrayOutputStream2 != null) {
+                if (byteArrayOutputStream != null) {
                     try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                        byteArrayOutputStream.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
                     }
                 }
-                return bArr;
+                throw th;
             }
-        } catch (Exception e7) {
-            e = e7;
+        } catch (Exception e9) {
+            e = e9;
             byteArrayOutputStream2 = null;
+            fileInputStream = null;
         } catch (Throwable th4) {
             byteArrayOutputStream = null;
+            fileInputStream = null;
             th = th4;
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e8) {
-                    e8.printStackTrace();
-                }
-            }
-            if (byteArrayOutputStream != null) {
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException e9) {
-                    e9.printStackTrace();
-                }
-            }
-            throw th;
         }
         return bArr;
     }
 
-    public static String cx(String str) {
+    public static String cw(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.ck("开始遍历..." + str);
+            com.baidu.crabsdk.c.a.cj("So libs path is: " + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
-                    sb.append(file.getName()).append("$");
+                    if (file.getName().endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
+                        com.baidu.crabsdk.c.a.v(file.getName());
+                        if (!com.baidu.crabsdk.a.M.contains(file.getName())) {
+                            com.baidu.crabsdk.a.M.add(file.getName());
+                        }
+                    }
                 }
-                com.baidu.crabsdk.c.a.ck(sb.toString());
+            }
+            Iterator<String> it = com.baidu.crabsdk.a.M.iterator();
+            while (it.hasNext()) {
+                sb.append(it.next()).append("$");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        com.baidu.crabsdk.c.a.cj("All so libs: " + sb.toString());
         return sb.toString();
+    }
+
+    public static synchronized List<String> d(Context context, String str, boolean z) {
+        ArrayList arrayList;
+        synchronized (i.class) {
+            arrayList = new ArrayList();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null) {
+                File[] listFiles = filesDir.listFiles();
+                for (File file : listFiles) {
+                    if (file.getName().startsWith("native_") && file.getName().endsWith(str)) {
+                        if (z) {
+                            arrayList.add(file.getAbsolutePath() + "@" + file.lastModified());
+                        } else {
+                            arrayList.add(file.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+        }
+        return arrayList;
     }
 
     public static boolean deleteFile(String str) {
@@ -415,7 +457,7 @@ public final class i {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.cl("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.ck("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.f("Could not create JSON object for key " + str, e);

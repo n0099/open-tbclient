@@ -10,11 +10,11 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes8.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean SB = false;
-    private static final String SC = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.o.G() + File.separator + "oom" + File.separator;
-    private static f SD = new f();
-    private Thread.UncaughtExceptionHandler SF = null;
-    private Context SG = null;
+    public static boolean SD = false;
+    private static final String SF = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.oj() + File.separator + "oom" + File.separator;
+    private static f SG = new f();
+    private Thread.UncaughtExceptionHandler SH = null;
+    private Context SJ = null;
 
     private f() {
     }
@@ -29,17 +29,17 @@ public final class f implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static f oq() {
-        return SD;
+    public static f ow() {
+        return SG;
     }
 
     public final void e(Context context) {
-        if (this.SF == null) {
-            this.SF = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.SH == null) {
+            this.SH = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.SG == null) {
-            this.SG = context.getApplicationContext();
+        if (this.SJ == null) {
+            this.SJ = context.getApplicationContext();
         }
     }
 
@@ -50,8 +50,8 @@ public final class f implements Thread.UncaughtExceptionHandler {
             return;
         }
         com.baidu.crabsdk.a.J = true;
-        if (com.baidu.crabsdk.a.N != null) {
-            com.baidu.crabsdk.a.N.onCrashStarted(thread, th);
+        if (com.baidu.crabsdk.a.P != null) {
+            com.baidu.crabsdk.a.P.onCrashStarted(thread, th);
         }
         String th2 = th.toString();
         String str = "";
@@ -78,7 +78,7 @@ public final class f implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && j(th)) {
                 try {
-                    String str2 = SC;
+                    String str2 = SF;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -94,20 +94,20 @@ public final class f implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.w("oom save fail" + th3.getMessage());
                 }
             }
-            if (h.os() && h.ou() && h.k(th)) {
-                SB = false;
-                if (this.SG != null && thread != null && th != null) {
-                    i.c(this.SG, i.g(g.a(this.SG, th, false)));
+            if (h.oy() && h.oA() && h.k(th)) {
+                SD = false;
+                if (this.SJ != null && thread != null && th != null) {
+                    i.c(this.SJ, i.g(g.a(this.SJ, th, false)));
                     h.c(th);
                     h.l(th);
-                    h.aa();
-                    k.a(false, this.SG);
+                    h.af();
+                    k.a(false, this.SJ);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!SB) {
+                        if (!SD) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.SF.equals(this)) {
+        if (this.SH.equals(this)) {
             return;
         }
-        this.SF.uncaughtException(thread, th);
+        this.SH.uncaughtException(thread, th);
     }
 }

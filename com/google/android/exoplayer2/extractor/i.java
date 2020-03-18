@@ -7,17 +7,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public final class i {
-    public static final a.InterfaceC0678a met = new a.InterfaceC0678a() { // from class: com.google.android.exoplayer2.extractor.i.1
-        @Override // com.google.android.exoplayer2.metadata.id3.a.InterfaceC0678a
+    public static final a.InterfaceC0679a mfZ = new a.InterfaceC0679a() { // from class: com.google.android.exoplayer2.extractor.i.1
+        @Override // com.google.android.exoplayer2.metadata.id3.a.InterfaceC0679a
         public boolean h(int i, int i2, int i3, int i4, int i5) {
             return i2 == 67 && i3 == 79 && i4 == 77 && (i5 == 77 || i == 2);
         }
     };
-    private static final Pattern meu = Pattern.compile("^ [0-9a-fA-F]{8} ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})");
+    private static final Pattern mga = Pattern.compile("^ [0-9a-fA-F]{8} ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})");
     public int encoderDelay = -1;
     public int encoderPadding = -1;
 
-    public boolean JB(int i) {
+    public boolean JH(int i) {
         int i2 = i >> 12;
         int i3 = i & 4095;
         if (i2 > 0 || i3 > 0) {
@@ -30,10 +30,10 @@ public final class i {
 
     public boolean c(Metadata metadata) {
         for (int i = 0; i < metadata.length(); i++) {
-            Metadata.Entry Kf = metadata.Kf(i);
-            if (Kf instanceof CommentFrame) {
-                CommentFrame commentFrame = (CommentFrame) Kf;
-                if (fn(commentFrame.description, commentFrame.text)) {
+            Metadata.Entry Kl = metadata.Kl(i);
+            if (Kl instanceof CommentFrame) {
+                CommentFrame commentFrame = (CommentFrame) Kl;
+                if (fl(commentFrame.description, commentFrame.text)) {
                     return true;
                 }
             }
@@ -41,9 +41,9 @@ public final class i {
         return false;
     }
 
-    private boolean fn(String str, String str2) {
+    private boolean fl(String str, String str2) {
         if ("iTunSMPB".equals(str)) {
-            Matcher matcher = meu.matcher(str2);
+            Matcher matcher = mga.matcher(str2);
             if (matcher.find()) {
                 try {
                     int parseInt = Integer.parseInt(matcher.group(1), 16);
@@ -63,7 +63,7 @@ public final class i {
         return false;
     }
 
-    public boolean duW() {
+    public boolean dvt() {
         return (this.encoderDelay == -1 || this.encoderPadding == -1) ? false : true;
     }
 }

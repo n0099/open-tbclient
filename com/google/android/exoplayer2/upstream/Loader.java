@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
 public final class Loader implements o {
-    private final ExecutorService mGS;
-    private b<? extends c> mGT;
-    private IOException muL;
+    private final ExecutorService mIB;
+    private b<? extends c> mIC;
+    private IOException mwr;
 
     /* loaded from: classes6.dex */
     public interface a<T extends c> {
@@ -29,14 +29,14 @@ public final class Loader implements o {
     public interface c {
         void cancelLoad();
 
-        boolean dwu();
+        boolean dwR();
 
         void load() throws IOException, InterruptedException;
     }
 
     /* loaded from: classes6.dex */
     public interface d {
-        void dwo();
+        void dwL();
     }
 
     /* loaded from: classes6.dex */
@@ -47,7 +47,7 @@ public final class Loader implements o {
     }
 
     public Loader(String str) {
-        this.mGS = v.Qz(str);
+        this.mIB = v.Qy(str);
     }
 
     public <T extends c> long a(T t, a<T> aVar, int i) {
@@ -59,11 +59,11 @@ public final class Loader implements o {
     }
 
     public boolean isLoading() {
-        return this.mGT != null;
+        return this.mIC != null;
     }
 
-    public void cNB() {
-        this.mGT.vU(false);
+    public void cNV() {
+        this.mIC.wb(false);
     }
 
     public void release() {
@@ -72,34 +72,34 @@ public final class Loader implements o {
 
     public boolean a(d dVar) {
         boolean z = false;
-        if (this.mGT != null) {
-            this.mGT.vU(true);
+        if (this.mIC != null) {
+            this.mIC.wb(true);
             if (dVar != null) {
-                this.mGS.execute(new e(dVar));
+                this.mIB.execute(new e(dVar));
             }
         } else if (dVar != null) {
-            dVar.dwo();
+            dVar.dwL();
             z = true;
         }
-        this.mGS.shutdown();
+        this.mIB.shutdown();
         return z;
     }
 
     @Override // com.google.android.exoplayer2.upstream.o
-    public void dwm() throws IOException {
-        LS(Integer.MIN_VALUE);
+    public void dwJ() throws IOException {
+        LY(Integer.MIN_VALUE);
     }
 
-    public void LS(int i) throws IOException {
-        if (this.muL != null) {
-            throw this.muL;
+    public void LY(int i) throws IOException {
+        if (this.mwr != null) {
+            throw this.mwr;
         }
-        if (this.mGT != null) {
-            b<? extends c> bVar = this.mGT;
+        if (this.mIC != null) {
+            b<? extends c> bVar = this.mIC;
             if (i == Integer.MIN_VALUE) {
-                i = this.mGT.mGW;
+                i = this.mIC.mIG;
             }
-            bVar.LS(i);
+            bVar.LY(i);
         }
     }
 
@@ -108,31 +108,31 @@ public final class Loader implements o {
     /* loaded from: classes6.dex */
     public final class b<T extends c> extends Handler implements Runnable {
         private int errorCount;
-        private final long lbU;
-        private final T mGU;
-        private final a<T> mGV;
-        public final int mGW;
-        private IOException mGX;
-        private volatile Thread mGY;
+        private final long ldz;
+        private final T mIE;
+        private final a<T> mIF;
+        public final int mIG;
+        private IOException mIH;
+        private volatile Thread mII;
         private volatile boolean released;
 
         public b(Looper looper, T t, a<T> aVar, int i, long j) {
             super(looper);
-            this.mGU = t;
-            this.mGV = aVar;
-            this.mGW = i;
-            this.lbU = j;
+            this.mIE = t;
+            this.mIF = aVar;
+            this.mIG = i;
+            this.ldz = j;
         }
 
-        public void LS(int i) throws IOException {
-            if (this.mGX != null && this.errorCount > i) {
-                throw this.mGX;
+        public void LY(int i) throws IOException {
+            if (this.mIH != null && this.errorCount > i) {
+                throw this.mIH;
             }
         }
 
         public void start(long j) {
-            com.google.android.exoplayer2.util.a.checkState(Loader.this.mGT == null);
-            Loader.this.mGT = this;
+            com.google.android.exoplayer2.util.a.checkState(Loader.this.mIC == null);
+            Loader.this.mIC = this;
             if (j > 0) {
                 sendEmptyMessageDelayed(0, j);
             } else {
@@ -140,35 +140,35 @@ public final class Loader implements o {
             }
         }
 
-        public void vU(boolean z) {
+        public void wb(boolean z) {
             this.released = z;
-            this.mGX = null;
+            this.mIH = null;
             if (hasMessages(0)) {
                 removeMessages(0);
                 if (!z) {
                     sendEmptyMessage(1);
                 }
             } else {
-                this.mGU.cancelLoad();
-                if (this.mGY != null) {
-                    this.mGY.interrupt();
+                this.mIE.cancelLoad();
+                if (this.mII != null) {
+                    this.mII.interrupt();
                 }
             }
             if (z) {
                 finish();
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                this.mGV.a((a<T>) this.mGU, elapsedRealtime, elapsedRealtime - this.lbU, true);
+                this.mIF.a((a<T>) this.mIE, elapsedRealtime, elapsedRealtime - this.ldz, true);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.mGY = Thread.currentThread();
-                if (!this.mGU.dwu()) {
-                    t.beginSection("load:" + this.mGU.getClass().getSimpleName());
+                this.mII = Thread.currentThread();
+                if (!this.mIE.dwR()) {
+                    t.beginSection("load:" + this.mIE.getClass().getSimpleName());
                     try {
-                        this.mGU.load();
+                        this.mIE.load();
                     } finally {
                         t.endSection();
                     }
@@ -187,7 +187,7 @@ public final class Loader implements o {
                 }
                 throw e2;
             } catch (InterruptedException e3) {
-                com.google.android.exoplayer2.util.a.checkState(this.mGU.dwu());
+                com.google.android.exoplayer2.util.a.checkState(this.mIE.dwR());
                 if (!this.released) {
                     sendEmptyMessage(2);
                 }
@@ -214,33 +214,33 @@ public final class Loader implements o {
                 } else {
                     finish();
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    long j = elapsedRealtime - this.lbU;
-                    if (this.mGU.dwu()) {
-                        this.mGV.a((a<T>) this.mGU, elapsedRealtime, j, false);
+                    long j = elapsedRealtime - this.ldz;
+                    if (this.mIE.dwR()) {
+                        this.mIF.a((a<T>) this.mIE, elapsedRealtime, j, false);
                         return;
                     }
                     switch (message.what) {
                         case 1:
-                            this.mGV.a((a<T>) this.mGU, elapsedRealtime, j, false);
+                            this.mIF.a((a<T>) this.mIE, elapsedRealtime, j, false);
                             return;
                         case 2:
                             try {
-                                this.mGV.a(this.mGU, elapsedRealtime, j);
+                                this.mIF.a(this.mIE, elapsedRealtime, j);
                                 return;
                             } catch (RuntimeException e) {
                                 Log.e("LoadTask", "Unexpected exception handling load completed", e);
-                                Loader.this.muL = new UnexpectedLoaderException(e);
+                                Loader.this.mwr = new UnexpectedLoaderException(e);
                                 return;
                             }
                         case 3:
-                            this.mGX = (IOException) message.obj;
-                            int a = this.mGV.a((a<T>) this.mGU, elapsedRealtime, j, this.mGX);
+                            this.mIH = (IOException) message.obj;
+                            int a = this.mIF.a((a<T>) this.mIE, elapsedRealtime, j, this.mIH);
                             if (a == 3) {
-                                Loader.this.muL = this.mGX;
+                                Loader.this.mwr = this.mIH;
                                 return;
                             } else if (a != 2) {
                                 this.errorCount = a == 1 ? 1 : this.errorCount + 1;
-                                start(dzl());
+                                start(dzI());
                                 return;
                             } else {
                                 return;
@@ -253,15 +253,15 @@ public final class Loader implements o {
         }
 
         private void execute() {
-            this.mGX = null;
-            Loader.this.mGS.execute(Loader.this.mGT);
+            this.mIH = null;
+            Loader.this.mIB.execute(Loader.this.mIC);
         }
 
         private void finish() {
-            Loader.this.mGT = null;
+            Loader.this.mIC = null;
         }
 
-        private long dzl() {
+        private long dzI() {
             return Math.min((this.errorCount - 1) * 1000, 5000);
         }
     }
@@ -269,10 +269,10 @@ public final class Loader implements o {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static final class e extends Handler implements Runnable {
-        private final d mHa;
+        private final d mIK;
 
         public e(d dVar) {
-            this.mHa = dVar;
+            this.mIK = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -284,7 +284,7 @@ public final class Loader implements o {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            this.mHa.dwo();
+            this.mIK.dwL();
         }
     }
 }

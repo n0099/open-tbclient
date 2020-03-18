@@ -15,7 +15,7 @@ public final class TextInformationFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kr */
+        /* renamed from: Kx */
         public TextInformationFrame[] newArray(int i) {
             return new TextInformationFrame[i];
         }

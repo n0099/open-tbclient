@@ -53,8 +53,8 @@ public class e {
             shareItem.title = name + tbPageContext.getString(R.string.forum);
             shareItem.content = slogan;
             shareItem.linkUrl = str2;
-            shareItem.dqb = true;
-            shareItem.dqr = 10;
+            shareItem.dqo = true;
+            shareItem.dqE = 10;
             shareItem.extData = str;
             if (parse2 != null) {
                 shareItem.imageUri = parse2;
@@ -63,8 +63,8 @@ public class e {
             shareItem2.title = name + tbPageContext.getString(R.string.forum);
             shareItem2.content = slogan;
             shareItem2.linkUrl = str2;
-            shareItem2.dqb = true;
-            shareItem2.dqr = 10;
+            shareItem2.dqo = true;
+            shareItem2.dqE = 10;
             shareItem2.extData = str;
             shareItem2.fName = frsViewData.getForum().getName();
             String str3 = frsViewData.getForum().getfShareImage();
@@ -87,13 +87,13 @@ public class e {
             shareDialogConfig.addOutsideTextView(R.string.poster_share, R.drawable.icon_pure_share_poster40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cy("fid", ShareItem.this.extData).X("obj_type", 18).X("obj_source", 10));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cx("fid", ShareItem.this.extData).X("obj_type", 18).X("obj_source", 10));
                     FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                     if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
                         aVar.jZ(2);
                         aVar.aO(frsPrivateShareDialogView);
-                        aVar.b(tbPageContext).aEC();
+                        aVar.b(tbPageContext).aEG();
                     }
                 }
             });
@@ -142,8 +142,8 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.fH(true);
-            aVar.b(frsFragment.getPageContext()).aEC();
+            aVar.fI(true);
+            aVar.b(frsFragment.getPageContext()).aEG();
             if (!k.isEmpty(h.getImageUrl())) {
                 frsShareCardView.am(h.getImageUrl(), false);
             }

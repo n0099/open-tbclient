@@ -11,10 +11,10 @@ public abstract class jm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m478a(byte[] bArr, int i, int i2);
+    public abstract void m476a(byte[] bArr, int i, int i2);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m479a() {
+    public byte[] m477a() {
         return null;
     }
 

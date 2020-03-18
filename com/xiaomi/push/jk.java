@@ -12,12 +12,12 @@ public class jk extends jm {
 
     @Override // com.xiaomi.push.jm
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m464a = this.f795a.m464a();
+        byte[] m462a = this.f795a.m462a();
         if (i2 > this.f795a.a() - this.a) {
             i2 = this.f795a.a() - this.a;
         }
         if (i2 > 0) {
-            System.arraycopy(m464a, this.a, bArr, i, i2);
+            System.arraycopy(m462a, this.a, bArr, i, i2);
             this.a += i2;
         }
         return i2;

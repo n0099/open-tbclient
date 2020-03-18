@@ -42,31 +42,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b implements w {
-    private boolean aig;
-    private int ail;
-    private AnimatorSet aiq;
-    private TranslateAnimation air;
+    private AnimatorSet aiA;
+    private TranslateAnimation aiB;
+    private boolean aiq;
+    private int aiv;
     private int ds20;
     private int ds28;
     private int ds8;
-    private OfficialNoticeData fik;
-    private LinearLayout fil;
-    private TextView fim;
-    private FrameLayout fin;
-    private TextView fio;
-    private TextView fip;
+    private OfficialNoticeData fiL;
+    private LinearLayout fiM;
+    private TextView fiN;
+    private FrameLayout fiO;
+    private TextView fiP;
+    private TextView fiQ;
     private ArrayList<Animator> mAnimators;
     private Context mContext;
     private BdAlertDialog mDialog;
     private TbPageContext mPageContext;
     private Paint mPaint;
     private int mScreenWidth;
-    private ArrayList<OfficialNoticeData> fij = new ArrayList<>();
-    private boolean aif = false;
-    private boolean aih = true;
+    private ArrayList<OfficialNoticeData> fiK = new ArrayList<>();
+    private boolean aip = false;
+    private boolean air = true;
     private Handler mHandler = new Handler();
-    protected boolean eSG = false;
-    protected boolean fiq = true;
+    protected boolean eTe = false;
+    protected boolean fiR = true;
     private boolean isForeground = true;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.b.3
         @Override // android.view.View.OnClickListener
@@ -77,23 +77,23 @@ public class b implements w {
                     b.this.mDialog = null;
                 }
             } else if (view.getId() == a.g.msg_background) {
-                b.this.fin.setVisibility(4);
-                if (b.this.fik != null) {
-                    if (TextUtils.isEmpty(b.this.fik.url)) {
-                        b.this.d(b.this.fik);
+                b.this.fiO.setVisibility(4);
+                if (b.this.fiL != null) {
+                    if (TextUtils.isEmpty(b.this.fiL.url)) {
+                        b.this.d(b.this.fiL);
                     } else {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913172, b.this.fik.url));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913172, b.this.fiL.url));
                     }
                 }
             }
         }
     };
-    private final Runnable eKd = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.b.5
+    private final Runnable eKz = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.b.5
         @Override // java.lang.Runnable
         public void run() {
-            if (!b.this.bz(b.this.fil)) {
-                b.this.mHandler.removeCallbacks(b.this.eKd);
-                b.this.tc();
+            if (!b.this.bz(b.this.fiM)) {
+                b.this.mHandler.removeCallbacks(b.this.eKz);
+                b.this.th();
                 return;
             }
             b.this.startCountDown();
@@ -104,46 +104,46 @@ public class b implements w {
         if (zVar != null && zVar.pageContext != null) {
             this.mPageContext = zVar.pageContext;
             this.mContext = this.mPageContext.getPageActivity();
-            this.aig = zVar.afH;
-            this.fil = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.h.official_notice_container, (ViewGroup) null);
-            this.fin = (FrameLayout) this.fil.findViewById(a.g.msg_background);
-            this.fin.setOnClickListener(this.mOnClickListener);
-            this.fin.setVisibility(4);
-            this.fim = (TextView) this.fil.findViewById(a.g.msg_content);
-            this.fim.setMaxLines(1);
+            this.aiq = zVar.afR;
+            this.fiM = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.h.official_notice_container, (ViewGroup) null);
+            this.fiO = (FrameLayout) this.fiM.findViewById(a.g.msg_background);
+            this.fiO.setOnClickListener(this.mOnClickListener);
+            this.fiO.setVisibility(4);
+            this.fiN = (TextView) this.fiM.findViewById(a.g.msg_content);
+            this.fiN.setMaxLines(1);
             int i = BdUtilHelper.getScreenSize((Activity) this.mContext).heightPixels;
-            if (this.fim.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fim.getLayoutParams();
+            if (this.fiN.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fiN.getLayoutParams();
                 layoutParams.width = i;
-                this.fim.setLayoutParams(layoutParams);
+                this.fiN.setLayoutParams(layoutParams);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(i, -2);
                 layoutParams2.gravity = 17;
-                this.fim.setLayoutParams(layoutParams2);
+                this.fiN.setLayoutParams(layoutParams2);
             }
             this.mScreenWidth = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
             this.ds28 = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds28);
             this.ds20 = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20);
             this.ds8 = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds8);
-            this.ail = (this.mScreenWidth - (this.ds28 * 2)) - (this.ds20 * 2);
+            this.aiv = (this.mScreenWidth - (this.ds28 * 2)) - (this.ds20 * 2);
             this.mPaint = new Paint();
             this.mPaint.setTextSize(this.ds28);
-            tb();
+            tg();
         }
     }
 
-    private void tb() {
-        this.aiq = new AnimatorSet();
-        this.aiq.setDuration(9000L);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fil, "alpha", 0.9f, 1.0f);
+    private void tg() {
+        this.aiA = new AnimatorSet();
+        this.aiA.setDuration(9000L);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fiM, "alpha", 0.9f, 1.0f);
         ofFloat.setDuration(1000L);
         ofFloat.setStartDelay(0L);
         ofFloat.setInterpolator(new LinearInterpolator());
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fil, "alpha", 1.0f, 0.9f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fiM, "alpha", 1.0f, 0.9f);
         ofFloat2.setDuration(1000L);
         ofFloat2.setStartDelay(1000L);
         ofFloat2.setInterpolator(new LinearInterpolator());
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fil, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fiM, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
         ofFloat3.setDuration(9000L);
         ofFloat3.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.ala.liveroom.n.b.1
             @Override // android.animation.TimeInterpolator
@@ -161,18 +161,18 @@ public class b implements w {
         this.mAnimators.add(ofFloat);
         this.mAnimators.add(ofFloat2);
         this.mAnimators.add(ofFloat3);
-        this.aiq.playTogether(this.mAnimators);
-        this.aiq.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.n.b.2
+        this.aiA.playTogether(this.mAnimators);
+        this.aiA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.n.b.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                b.this.aif = true;
-                b.this.fin.setVisibility(0);
+                b.this.aip = true;
+                b.this.fiO.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                b.this.td();
-                b.this.tc();
+                b.this.ti();
+                b.this.th();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -186,68 +186,68 @@ public class b implements w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tc() {
-        if (!this.aif && !ListUtils.isEmpty(this.fij)) {
-            if (bz(this.fil)) {
+    public void th() {
+        if (!this.aip && !ListUtils.isEmpty(this.fiK)) {
+            if (bz(this.fiM)) {
                 startCountDown();
                 return;
             }
-            this.fik = (OfficialNoticeData) ListUtils.getItem(this.fij, 0);
-            ListUtils.remove(this.fij, 0);
-            b(this.fik);
+            this.fiL = (OfficialNoticeData) ListUtils.getItem(this.fiK, 0);
+            ListUtils.remove(this.fiK, 0);
+            b(this.fiL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void td() {
-        this.aif = false;
-        this.fim.clearAnimation();
-        this.fil.clearAnimation();
-        this.fin.setVisibility(4);
+    public void ti() {
+        this.aip = false;
+        this.fiN.clearAnimation();
+        this.fiM.clearAnimation();
+        this.fiO.setVisibility(4);
     }
 
     public void a(OfficialNoticeData officialNoticeData) {
         if (officialNoticeData != null) {
-            Iterator<OfficialNoticeData> it = this.fij.iterator();
+            Iterator<OfficialNoticeData> it = this.fiK.iterator();
             while (it.hasNext()) {
                 if (it.next().id == officialNoticeData.id) {
                     return;
                 }
             }
-            this.fij.add(officialNoticeData);
-            tc();
+            this.fiK.add(officialNoticeData);
+            th();
         }
     }
 
     private void b(OfficialNoticeData officialNoticeData) {
         if (officialNoticeData != null) {
-            SpannableStringBuilder a = a(officialNoticeData, this.aig);
+            SpannableStringBuilder a = a(officialNoticeData, this.aiq);
             if (a != null && a.length() <= 0) {
-                td();
-                tc();
+                ti();
+                th();
                 return;
             }
-            this.fim.setText(a);
+            this.fiN.setText(a);
             if (a != null) {
                 int textWidth = this.ds8 + BdUtilHelper.getTextWidth(this.mPaint, a.toString());
-                float f = -(((textWidth - this.ail) * 1.0f) / this.ail);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fim.getLayoutParams();
-                if (textWidth - this.ail < 0) {
+                float f = -(((textWidth - this.aiv) * 1.0f) / this.aiv);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fiN.getLayoutParams();
+                if (textWidth - this.aiv < 0) {
                     layoutParams.width = -2;
-                    this.fim.setLayoutParams(layoutParams);
+                    this.fiN.setLayoutParams(layoutParams);
                 } else {
                     layoutParams.width = textWidth;
-                    this.fim.setLayoutParams(layoutParams);
-                    this.air = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
-                    this.air.setStartOffset(4000L);
-                    this.air.setDuration(1000L);
-                    this.air.setFillAfter(true);
-                    this.fim.startAnimation(this.air);
+                    this.fiN.setLayoutParams(layoutParams);
+                    this.aiB = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
+                    this.aiB.setStartOffset(4000L);
+                    this.aiB.setDuration(1000L);
+                    this.aiB.setFillAfter(true);
+                    this.fiN.startAnimation(this.aiB);
                 }
             }
-            this.aiq.start();
+            this.aiA.start();
             c(officialNoticeData);
-            this.fin.setTag(officialNoticeData);
+            this.fiO.setTag(officialNoticeData);
         }
     }
 
@@ -279,9 +279,9 @@ public class b implements w {
                 this.mDialog.setContentViewSize(0);
                 this.mDialog.setContentView(inflate);
                 this.mDialog.create(this.mPageContext);
-                this.fip = (TextView) inflate.findViewById(a.g.content);
-                this.fio = (TextView) inflate.findViewById(a.g.confirm);
-                this.fio.setOnClickListener(this.mOnClickListener);
+                this.fiQ = (TextView) inflate.findViewById(a.g.content);
+                this.fiP = (TextView) inflate.findViewById(a.g.confirm);
+                this.fiP.setOnClickListener(this.mOnClickListener);
                 SpannableString spannableString = new SpannableString(officialNoticeData.subCopyTagContent);
                 if (!TextUtils.isEmpty(officialNoticeData.copyContent)) {
                     spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.ala.liveroom.n.b.4
@@ -301,9 +301,9 @@ public class b implements w {
                         }
                     }, officialNoticeData.startCopy, officialNoticeData.endCopy - 2, 17);
                     spannableString.setSpan(new ForegroundColorSpan(this.mPageContext.getResources().getColor(a.d.sdk_color_4B78B2)), officialNoticeData.startCopy, officialNoticeData.endCopy - 2, 33);
-                    this.fip.setMovementMethod(LinkMovementMethod.getInstance());
+                    this.fiQ.setMovementMethod(LinkMovementMethod.getInstance());
                 }
-                this.fip.setText(spannableString);
+                this.fiQ.setText(spannableString);
                 this.mDialog.show();
             }
         }
@@ -332,35 +332,35 @@ public class b implements w {
 
     @Override // com.baidu.live.gift.w
     public void onDestroy() {
-        this.aif = false;
-        if (this.fim != null) {
-            this.fim.clearAnimation();
+        this.aip = false;
+        if (this.fiN != null) {
+            this.fiN.clearAnimation();
         }
-        this.fij.clear();
-        this.mHandler.removeCallbacks(this.eKd);
+        this.fiK.clear();
+        this.mHandler.removeCallbacks(this.eKz);
     }
 
     @Override // com.baidu.live.gift.w
     public void aA(boolean z) {
-        this.eSG = z;
+        this.eTe = z;
     }
 
     @Override // com.baidu.live.gift.w
     public void aB(boolean z) {
-        this.fiq = z;
+        this.fiR = z;
     }
 
     @Override // com.baidu.live.gift.w
-    public View sM() {
-        return this.fil;
+    public View sR() {
+        return this.fiM;
     }
 
     public boolean bz(View view) {
-        return ShowUtil.windowCount > 0 || this.eSG || !this.fiq || !this.isForeground || UtilHelper.getRealScreenOrientation(this.mContext) == 2;
+        return ShowUtil.windowCount > 0 || this.eTe || !this.fiR || !this.isForeground || UtilHelper.getRealScreenOrientation(this.mContext) == 2;
     }
 
     public void startCountDown() {
-        this.mHandler.removeCallbacks(this.eKd);
-        this.mHandler.postDelayed(this.eKd, 1000L);
+        this.mHandler.removeCallbacks(this.eKz);
+        this.mHandler.postDelayed(this.eKz, 1000L);
     }
 }

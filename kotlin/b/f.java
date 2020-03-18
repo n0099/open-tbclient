@@ -5,9 +5,9 @@ import kotlin.collections.ad;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class f implements Iterable<Integer> {
-    public static final a nCW = new a(null);
-    private final int nCU;
-    private final int nCV;
+    public static final a nEJ = new a(null);
+    private final int nEH;
+    private final int nEI;
     private final int step;
 
     public f(int i, int i2, int i3) {
@@ -17,47 +17,47 @@ public class f implements Iterable<Integer> {
         if (i3 == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.nCU = i;
-        this.nCV = kotlin.internal.c.au(i, i2, i3);
+        this.nEH = i;
+        this.nEI = kotlin.internal.c.au(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.nCU;
+        return this.nEH;
     }
 
     public final int getLast() {
-        return this.nCV;
+        return this.nEI;
     }
 
-    public final int dKG() {
+    public final int dLg() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dKH */
+    /* renamed from: dLh */
     public ad iterator() {
-        return new g(this.nCU, this.nCV, this.step);
+        return new g(this.nEH, this.nEI, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.nCU > this.nCV : this.nCU < this.nCV;
+        return this.step > 0 ? this.nEH > this.nEI : this.nEH < this.nEI;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.nCU == ((f) obj).nCU && this.nCV == ((f) obj).nCV && this.step == ((f) obj).step));
+        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.nEH == ((f) obj).nEH && this.nEI == ((f) obj).nEI && this.step == ((f) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.nCU * 31) + this.nCV) * 31) + this.step;
+        return (((this.nEH * 31) + this.nEI) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.nCU + IStringUtil.TOP_PATH + this.nCV + " step " + this.step : this.nCU + " downTo " + this.nCV + " step " + (-this.step);
+        return this.step > 0 ? this.nEH + IStringUtil.TOP_PATH + this.nEI + " step " + this.step : this.nEH + " downTo " + this.nEI + " step " + (-this.step);
     }
 
     @kotlin.h

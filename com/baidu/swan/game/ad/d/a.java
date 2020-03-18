@@ -6,7 +6,7 @@ import com.baidu.swan.game.ad.entity.AdElementInfo;
 public class a {
     public static void a(AdElementInfo adElementInfo, b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.akp()) {
+            for (String str : adElementInfo.aks()) {
                 a(l(str, 0, 0), bVar);
             }
             for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
@@ -52,6 +52,6 @@ public class a {
     }
 
     private static void a(String str, b bVar) {
-        bVar.nJ(str);
+        bVar.nI(str);
     }
 }

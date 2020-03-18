@@ -5,20 +5,20 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class u {
-    private final k cD;
-    private a cL;
+    private final k cC;
+    private a cK;
     private final Handler mHandler = new Handler();
 
     public u(@NonNull j jVar) {
-        this.cD = new k(jVar);
+        this.cC = new k(jVar);
     }
 
     private void d(Lifecycle.Event event) {
-        if (this.cL != null) {
-            this.cL.run();
+        if (this.cK != null) {
+            this.cK.run();
         }
-        this.cL = new a(this.cD, event);
-        this.mHandler.postAtFrontOfQueue(this.cL);
+        this.cK = new a(this.cC, event);
+        this.mHandler.postAtFrontOfQueue(this.cK);
     }
 
     public void aH() {
@@ -39,26 +39,26 @@ public class u {
     }
 
     public Lifecycle getLifecycle() {
-        return this.cD;
+        return this.cC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
-        private final k cD;
-        final Lifecycle.Event cM;
-        private boolean cN = false;
+        private final k cC;
+        final Lifecycle.Event cL;
+        private boolean cM = false;
 
         a(@NonNull k kVar, Lifecycle.Event event) {
-            this.cD = kVar;
-            this.cM = event;
+            this.cC = kVar;
+            this.cL = event;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.cN) {
-                this.cD.b(this.cM);
-                this.cN = true;
+            if (!this.cM) {
+                this.cC.b(this.cL);
+                this.cM = true;
             }
         }
     }

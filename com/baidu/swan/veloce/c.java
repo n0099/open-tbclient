@@ -8,7 +8,7 @@ public class c extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
         try {
-            return AppRuntime.getAppContext().getContentResolver().call(VeloceAppIpcProvider.cFN, VeloceAppIpcProvider.cFQ, (String) null, bundle);
+            return AppRuntime.getAppContext().getContentResolver().call(VeloceAppIpcProvider.cFY, VeloceAppIpcProvider.cGb, (String) null, bundle);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

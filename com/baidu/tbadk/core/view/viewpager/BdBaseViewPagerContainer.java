@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a dkC;
-    private b dkD;
+    private a dkP;
+    private b dkQ;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.dkC = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.dkC);
-        this.dkD = new b(context, this.dkC.dkI, this.dkC.dkG, this.dkC.dkF, 4, false, true);
+        this.dkP = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.dkP);
+        this.dkQ = new b(context, this.dkP.dkV, this.dkP.dkT, this.dkP.dkS, 4, false, true);
     }
 
     private void a(a aVar) {
         if (aVar != null) {
             am.setBackgroundColor(aVar.getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(aVar.title, R.color.cp_cont_c, 1);
-            am.setBackgroundColor(aVar.dkH, R.color.cp_bg_line_c);
-            am.setViewTextColor(aVar.dkF, R.color.cp_cont_d, 1);
-            am.setBackgroundColor(aVar.dkF, R.color.cp_bg_line_d);
-            aVar.dkF.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            aVar.dkG.setSelector(am.getDrawable(R.drawable.icon_choose_dot_s));
-            aVar.dkG.setDrawable(am.getDrawable(R.drawable.icon_choose_dot_n));
+            am.setBackgroundColor(aVar.dkU, R.color.cp_bg_line_c);
+            am.setViewTextColor(aVar.dkS, R.color.cp_cont_d, 1);
+            am.setBackgroundColor(aVar.dkS, R.color.cp_bg_line_d);
+            aVar.dkS.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            aVar.dkT.setSelector(am.getDrawable(R.drawable.icon_choose_dot_s));
+            aVar.dkT.setDrawable(am.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.dkC.getView();
+        return this.dkP.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.dkC.dkI;
+        return this.dkP.dkV;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.dkC.dkG;
+        return this.dkP.dkT;
     }
 
     public TextView getMoreView() {
-        return this.dkC.dkF;
+        return this.dkP.dkS;
     }
 
     public a getViewHolder() {
-        return this.dkC;
+        return this.dkP;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.dkD.setMaxScrollCountLimit(i);
+        this.dkQ.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.dkD.setIsMaxScrollEnabled(z);
+        this.dkQ.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.dkD.fW(z);
+        this.dkQ.fX(z);
     }
 
     public void setDatas(List<m> list) {
-        this.dkD.setDatas(list);
+        this.dkQ.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.dkD.setAutoScrollIntervalTime(j);
+        this.dkQ.setAutoScrollIntervalTime(j);
     }
 }

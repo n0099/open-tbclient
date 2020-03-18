@@ -19,10 +19,10 @@ public class ha {
     }
 
     public static void a(int i) {
-        fc m325a = gy.m323a().m325a();
-        m325a.a(fb.CHANNEL_STATS_COUNTER.a());
-        m325a.c(i);
-        gy.m323a().a(m325a);
+        fc m323a = gy.m321a().m323a();
+        m323a.a(fb.CHANNEL_STATS_COUNTER.a());
+        m323a.c(i);
+        gy.m321a().a(m323a);
     }
 
     public static synchronized void a(int i, int i2) {
@@ -36,13 +36,13 @@ public class ha {
     }
 
     public static void a(int i, int i2, int i3, String str, int i4) {
-        fc m325a = gy.m323a().m325a();
-        m325a.a((byte) i);
-        m325a.a(i2);
-        m325a.b(i3);
-        m325a.b(str);
-        m325a.c(i4);
-        gy.m323a().a(m325a);
+        fc m323a = gy.m321a().m323a();
+        m323a.a((byte) i);
+        m323a.a(i2);
+        m323a.b(i3);
+        m323a.b(str);
+        m323a.c(i4);
+        gy.m321a().a(m323a);
     }
 
     public static synchronized void a(int i, int i2, String str, int i3) {
@@ -50,14 +50,14 @@ public class ha {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
             if (a.a.containsKey(Integer.valueOf(i4))) {
-                fc m325a = gy.m323a().m325a();
-                m325a.a(i2);
-                m325a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                m325a.b(str);
+                fc m323a = gy.m321a().m323a();
+                m323a.a(i2);
+                m323a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                m323a.b(str);
                 if (i3 > -1) {
-                    m325a.c(i3);
+                    m323a.c(i3);
                 }
-                gy.m323a().a(m325a);
+                gy.m321a().a(m323a);
                 a.a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -70,20 +70,20 @@ public class ha {
     }
 
     public static void a(String str, int i, Exception exc) {
-        fc m325a = gy.m323a().m325a();
+        fc m323a = gy.m321a().m323a();
         if (i > 0) {
-            m325a.a(fb.GSLB_REQUEST_SUCCESS.a());
-            m325a.b(str);
-            m325a.b(i);
-            gy.m323a().a(m325a);
+            m323a.a(fb.GSLB_REQUEST_SUCCESS.a());
+            m323a.b(str);
+            m323a.b(i);
+            gy.m321a().a(m323a);
             return;
         }
         try {
             gw.a a2 = gw.a(exc);
-            m325a.a(a2.a.a());
-            m325a.c(a2.f435a);
-            m325a.b(str);
-            gy.m323a().a(m325a);
+            m323a.a(a2.a.a());
+            m323a.c(a2.f435a);
+            m323a.b(str);
+            gy.m321a().a(m323a);
         } catch (NullPointerException e) {
         }
     }
@@ -91,20 +91,20 @@ public class ha {
     public static void a(String str, Exception exc) {
         try {
             gw.a b = gw.b(exc);
-            fc m325a = gy.m323a().m325a();
-            m325a.a(b.a.a());
-            m325a.c(b.f435a);
-            m325a.b(str);
-            gy.m323a().a(m325a);
+            fc m323a = gy.m321a().m323a();
+            m323a.a(b.a.a());
+            m323a.c(b.f435a);
+            m323a.b(str);
+            gy.m321a().a(m323a);
         } catch (NullPointerException e) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m329a() {
-        fd m326a = gy.m323a().m326a();
-        if (m326a != null) {
-            return iq.a(m326a);
+    public static byte[] m327a() {
+        fd m324a = gy.m321a().m324a();
+        if (m324a != null) {
+            return iq.a(m324a);
         }
         return null;
     }
@@ -116,11 +116,11 @@ public class ha {
     public static void b(String str, Exception exc) {
         try {
             gw.a d = gw.d(exc);
-            fc m325a = gy.m323a().m325a();
-            m325a.a(d.a.a());
-            m325a.c(d.f435a);
-            m325a.b(str);
-            gy.m323a().a(m325a);
+            fc m323a = gy.m321a().m323a();
+            m323a.a(d.a.a());
+            m323a.c(d.f435a);
+            m323a.b(str);
+            gy.m321a().a(m323a);
         } catch (NullPointerException e) {
         }
     }

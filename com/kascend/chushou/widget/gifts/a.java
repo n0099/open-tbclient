@@ -16,11 +16,11 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0724a njU;
+    private InterfaceC0725a nlH;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0724a {
+    public interface InterfaceC0725a {
         void a(int i);
 
         void b(int i);
@@ -49,7 +49,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             textView.setOnClickListener(this);
         }
         if (z) {
-            setWidth(tv.chushou.zues.utils.a.hd(context).x);
+            setWidth(tv.chushou.zues.utils.a.hc(context).x);
         } else {
             inflate.findViewById(a.f.space_1).setVisibility(8);
             ((LinearLayout) inflate.findViewById(a.f.ll_keyboard)).setBackgroundColor(Color.parseColor("#4A4A4A"));
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.njU != null) {
-                this.njU.a(parseInt);
+            if (this.nlH != null) {
+                this.nlH.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.njU != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.njU.b(parseInt);
+        if (this.nlH != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nlH.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.njU != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.njU.b(parseInt);
+        if (this.nlH != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nlH.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0724a interfaceC0724a) {
-        this.njU = interfaceC0724a;
+    public void a(InterfaceC0725a interfaceC0725a) {
+        this.nlH = interfaceC0725a;
     }
 }

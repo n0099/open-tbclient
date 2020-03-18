@@ -20,42 +20,42 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        bbh();
+        bbl();
         aR(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        bbi();
+        bbm();
     }
 
-    private void bbh() {
+    private void bbl() {
     }
 
-    private void bbi() {
+    private void bbm() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hJ(boolean z) {
+    public void hK(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        bbi();
+        bbm();
         finish();
     }
 
     private void aR(Context context, String str) {
         if (context == null) {
-            hJ(false);
+            hK(false);
             return;
         }
         a aVar = new a();
         try {
             aVar.ct(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").cy("obj_id", aVar.dqI).X("obj_type", aVar.dqJ).cy("obj_source", aVar.dqK));
+            TiebaStatic.log(new an("c13530").cx("obj_id", aVar.dqV).X("obj_type", aVar.dqW).cx("obj_source", aVar.dqX));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.hJ(false);
+                    b.this.hK(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
@@ -65,7 +65,7 @@ public class b extends ActivityDelegation {
             };
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         } catch (JSONException e) {
-            hJ(false);
+            hK(false);
         }
     }
 }

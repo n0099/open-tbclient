@@ -14,27 +14,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cjZ = new HashMap<>();
+    private static final HashMap<String, String> ckk = new HashMap<>();
 
     static {
-        cjZ.put("494433", ".mp3");
-        cjZ.put("524946", ".wav");
+        ckk.put("494433", ".mp3");
+        ckk.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bAA = gVar.bAA;
-        dVar.bAI = gVar.autoplay;
+        dVar.bAL = gVar.bAL;
+        dVar.bAT = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cjW = gVar.startTime;
-        dVar.bAJ = gVar.obeyMuteSwitch;
+        dVar.ckh = gVar.startTime;
+        dVar.bAU = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bAF = alu().toString();
+        dVar.bAQ = alx().toString();
         return dVar;
     }
 
-    public static JSONObject alu() {
+    public static JSONObject alx() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -60,28 +60,28 @@ public class f {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String om(String str) throws MalformedURLException {
+    public static String ol(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.acH() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.acK() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
-    public static String alv() {
-        String alx = alx();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(alx)) {
+    public static String aly() {
+        String alA = alA();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(alA)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return alx;
+        return alA;
     }
 
-    public static String alw() {
+    public static String alz() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String alx() {
+    private static String alA() {
         String str = l.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cjZ.get(bytesToHexString(bArr2));
+        return ckk.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

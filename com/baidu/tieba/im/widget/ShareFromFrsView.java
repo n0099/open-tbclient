@@ -12,13 +12,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
     private Context context;
-    private TextView cui;
-    private HeadImageView gQX;
-    private ShareFromFrsMsgData gRa;
-    private TextView hKV;
-    private TextView hKW;
-    private TextView hKX;
-    private TextView hKY;
+    private TextView cuv;
+    private HeadImageView gSe;
+    private ShareFromFrsMsgData gSh;
+    private TextView hMv;
+    private TextView hMw;
+    private TextView hMx;
+    private TextView hMy;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -34,42 +34,42 @@ public class ShareFromFrsView extends LinearLayout {
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-        this.cui = (TextView) findViewById(R.id.frs_name);
-        this.gQX = (HeadImageView) findViewById(R.id.frs_img);
-        this.hKW = (TextView) findViewById(R.id.frs_member_num);
-        this.hKY = (TextView) findViewById(R.id.frs_post_num);
-        this.hKV = (TextView) findViewById(R.id.frs_member_num_label);
-        this.hKX = (TextView) findViewById(R.id.frs_post_num_label);
+        this.cuv = (TextView) findViewById(R.id.frs_name);
+        this.gSe = (HeadImageView) findViewById(R.id.frs_img);
+        this.hMw = (TextView) findViewById(R.id.frs_member_num);
+        this.hMy = (TextView) findViewById(R.id.frs_post_num);
+        this.hMv = (TextView) findViewById(R.id.frs_member_num_label);
+        this.hMx = (TextView) findViewById(R.id.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.cui.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.hKW.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.hKY.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.hKV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.hKX.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.cuv.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
+            this.hMw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.hMy.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.hMv.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.hMx.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
-        this.cui.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.hKW.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.hKY.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.hKV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.hKX.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.cuv.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.hMw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.hMy.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.hMv.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.hMx.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.gRa = shareFromFrsMsgData;
+        this.gSh = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.cui.setText(getShortName(this.gRa.getName()));
-        this.gQX.setPlaceHolder(1);
-        this.gQX.setAutoChangeStyle(false);
-        this.gQX.startLoad(this.gRa.getImageUrl(), 10, false);
-        this.hKW.setText(aq.numFormatOver10000(this.gRa.getMemberNum()));
-        this.hKY.setText(aq.numFormatOver10000(this.gRa.getPostNum()));
+        this.cuv.setText(getShortName(this.gSh.getName()));
+        this.gSe.setPlaceHolder(1);
+        this.gSe.setAutoChangeStyle(false);
+        this.gSe.startLoad(this.gSh.getImageUrl(), 10, false);
+        this.hMw.setText(aq.numFormatOver10000(this.gSh.getMemberNum()));
+        this.hMy.setText(aq.numFormatOver10000(this.gSh.getPostNum()));
     }
 
     private String getShortName(String str) {

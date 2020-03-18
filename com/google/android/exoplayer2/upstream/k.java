@@ -5,8 +5,8 @@ import com.google.android.exoplayer2.upstream.e;
 /* loaded from: classes6.dex */
 public final class k implements e.a {
     private final Context context;
-    private final q<? super e> mFU;
-    private final e.a mGC;
+    private final q<? super e> mHA;
+    private final e.a mIj;
 
     public k(Context context, String str) {
         this(context, str, (q<? super e>) null);
@@ -18,14 +18,14 @@ public final class k implements e.a {
 
     public k(Context context, q<? super e> qVar, e.a aVar) {
         this.context = context.getApplicationContext();
-        this.mFU = qVar;
-        this.mGC = aVar;
+        this.mHA = qVar;
+        this.mIj = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.e.a
-    /* renamed from: dzf */
-    public j dyW() {
-        return new j(this.context, this.mFU, this.mGC.dyW());
+    /* renamed from: dzC */
+    public j dzt() {
+        return new j(this.context, this.mHA, this.mIj.dzt());
     }
 }

@@ -7,33 +7,33 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d bxv;
-    private List<com.baidu.swan.pms.model.e> cBL = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> cBM = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> cBN = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> cBK = new ArrayList();
+    private com.baidu.swan.pms.a.d bxG;
+    private List<com.baidu.swan.pms.model.e> cBW = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> cBX = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> cBY = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> cBV = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.bxv = dVar;
-        d.atV().c(this);
+        this.bxG = dVar;
+        d.atY().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.cBK.add(bVar);
+            this.cBV.add(bVar);
         }
     }
 
     public void startDownload() {
-        if (!auh()) {
+        if (!auk()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.atp().getProcessName() + " startDownload: total=" + this.cBK.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.ats().getProcessName() + " startDownload: total=" + this.cBV.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.cBK) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.cBV) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.atp().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.ats().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.eX(false);
+                bVar.eY(false);
             }
         }
     }
@@ -44,43 +44,43 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.aug()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.cBK.iterator();
+        if (!fVar.auj()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.cBV.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
-                    int atY = fVar.atY();
-                    this.cBK.remove(next);
-                    switch (atY) {
+                    int aub = fVar.aub();
+                    this.cBV.remove(next);
+                    switch (aub) {
                         case 2:
-                            this.cBN.add(next.atQ().cBD.cBC);
+                            this.cBY.add(next.atT().cBO.cBN);
                             break;
                         case 3:
-                            this.cBM.add(next.atQ().cBD.cBC);
+                            this.cBX.add(next.atT().cBO.cBN);
                             break;
                         case 10:
-                            this.cBL.add(next.atQ().cBD.cBC);
+                            this.cBW.add(next.atT().cBO.cBN);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + atY);
+                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + aub);
                                 break;
                             }
                             break;
                     }
                 }
             }
-            auh();
+            auk();
         }
     }
 
-    private boolean auh() {
-        if (this.cBK.isEmpty()) {
-            this.bxv.Ph();
-            d.atV().d(this);
+    private boolean auk() {
+        if (this.cBV.isEmpty()) {
+            this.bxG.Pk();
+            d.atY().d(this);
             return true;
         }
         return false;

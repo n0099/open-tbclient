@@ -31,17 +31,17 @@ public class a extends ab {
         if (aL == null || !aL.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
             return false;
-        } else if (!com.baidu.swan.apps.core.a.a.a.gO(parseString.optString("netconf", "1"))) {
+        } else if (!com.baidu.swan.apps.core.a.a.a.gN(parseString.optString("netconf", "1"))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         } else {
-            c.PN().e(aL);
+            c.PQ().e(aL);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }
 
     private PrefetchEvent aL(@NonNull JSONObject jSONObject) {
-        return new PrefetchEvent.a().hn(jSONObject.optString("state")).hm(jSONObject.optString("schema")).ho(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).hl(jSONObject.optString("appKey")).PM();
+        return new PrefetchEvent.a().hm(jSONObject.optString("state")).hl(jSONObject.optString("schema")).hn(jSONObject.optString(FaceBaseDTO.KEY_BUSINESS_SCENE)).hk(jSONObject.optString("appKey")).PP();
     }
 }

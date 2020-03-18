@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
-    private SparseArray<a> fdF = new SparseArray<>();
-    private boolean fdG;
+    private SparseArray<a> fed = new SparseArray<>();
+    private boolean fee;
     private PagerAdapter mAdapter;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setBoundaryCaching(boolean z) {
-        this.fdG = z;
+        this.fee = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,37 +26,37 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void notifyDataSetChanged() {
-        if (this.fdF != null) {
-            this.fdF.clear();
+        if (this.fed != null) {
+            this.fed.clear();
         }
-        this.fdF = new SparseArray<>();
+        this.fed = new SparseArray<>();
         super.notifyDataSetChanged();
         this.mAdapter.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int qc(int i) {
-        int bnh = bnh();
-        if (bnh == 0) {
+    public int qe(int i) {
+        int bnm = bnm();
+        if (bnm == 0) {
             return 0;
         }
-        int i2 = (i - 1) % bnh;
+        int i2 = (i - 1) % bnm;
         if (i2 < 0) {
-            return i2 + bnh;
+            return i2 + bnm;
         }
         return i2;
     }
 
-    public int qd(int i) {
+    public int qf(int i) {
         return i + 1;
     }
 
-    private int bnf() {
+    private int bnk() {
         return 1;
     }
 
-    private int bng() {
-        return (bnf() + bnh()) - 1;
+    private int bnl() {
+        return (bnk() + bnm()) - 1;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -64,11 +64,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return this.mAdapter.getCount() + 2;
     }
 
-    public int bnh() {
+    public int bnm() {
         return this.mAdapter.getCount();
     }
 
-    public PagerAdapter bni() {
+    public PagerAdapter bnn() {
         return this.mAdapter;
     }
 
@@ -87,23 +87,23 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         a aVar;
-        int qc = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : qc(i);
-        if (this.fdG && (aVar = this.fdF.get(i)) != null) {
-            this.fdF.remove(i);
+        int qe = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : qe(i);
+        if (this.fee && (aVar = this.fed.get(i)) != null) {
+            this.fed.remove(i);
             return aVar.object;
         }
-        return this.mAdapter.instantiateItem(viewGroup, qc);
+        return this.mAdapter.instantiateItem(viewGroup, qe);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        int bnf = bnf();
-        int bng = bng();
-        int qc = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : qc(i);
-        if (this.fdG && (i == bnf || i == bng)) {
-            this.fdF.put(i, new a(viewGroup, qc, obj));
+        int bnk = bnk();
+        int bnl = bnl();
+        int qe = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : qe(i);
+        if (this.fee && (i == bnk || i == bnl)) {
+            this.fed.put(i, new a(viewGroup, qe, obj));
         } else {
-            this.mAdapter.destroyItem(viewGroup, qc, obj);
+            this.mAdapter.destroyItem(viewGroup, qe, obj);
         }
     }
 
@@ -139,12 +139,12 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     /* loaded from: classes3.dex */
     static class a {
-        ViewGroup cwi;
+        ViewGroup cwt;
         Object object;
         int position;
 
         public a(ViewGroup viewGroup, int i, Object obj) {
-            this.cwi = viewGroup;
+            this.cwt = viewGroup;
             this.position = i;
             this.object = obj;
         }

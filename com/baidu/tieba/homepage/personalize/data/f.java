@@ -1,43 +1,41 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
+import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.v;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes9.dex */
-public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public int Oj;
-    public String cLS;
-    public int hfi;
-    public String imgUrl;
+public class f extends com.baidu.tbadk.core.data.a {
+    public static final BdUniqueId hgC = BdUniqueId.gen();
+    private List<AlaLiveInfo> hgD = new ArrayList();
 
-    public void a(LiveAnswer liveAnswer) {
-        if (liveAnswer != null) {
-            this.imgUrl = liveAnswer.banner_url;
-            this.hfi = liveAnswer.banner_high.intValue();
-            this.Oj = liveAnswer.banner_width.intValue();
-            this.cLS = liveAnswer.jump_url;
+    public void a(UserFollowLive userFollowLive) {
+        this.hgD.clear();
+        if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !v.isEmpty(userFollowLive.user_follow_live)) {
+            this.hgD.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return TYPE;
+        return hgC;
     }
 
-    public String toString() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("img_width", this.Oj);
-            jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.hfi);
-            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.cLS);
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+    @Override // com.baidu.tbadk.core.data.a
+    public bj aAj() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.data.a
+    public al aAl() {
+        return null;
+    }
+
+    public List<AlaLiveInfo> bPv() {
+        return this.hgD;
     }
 }

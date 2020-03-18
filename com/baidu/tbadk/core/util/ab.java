@@ -11,7 +11,7 @@ public class ab {
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.k.a.Ex()) {
+        if (com.baidu.k.a.EE()) {
             if (context == null) {
                 return false;
             }
@@ -36,7 +36,7 @@ public class ab {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.k.a.Ex()) {
+        if (com.baidu.k.a.EE()) {
             if (context != null) {
                 try {
                     if (!com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -56,7 +56,7 @@ public class ab {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.k.a.Ex()) {
+        if (!com.baidu.k.a.EE()) {
             return true;
         }
         if (context != null) {
@@ -71,7 +71,7 @@ public class ab {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.k.a.Ex()) {
+        if (!com.baidu.k.a.EE()) {
             return true;
         }
         if (context != null) {
@@ -86,7 +86,7 @@ public class ab {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.k.a.Ex()) {
+        if (!com.baidu.k.a.EE()) {
             return true;
         }
         if (context != null) {
@@ -101,7 +101,7 @@ public class ab {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.k.a.Ex()) {
+        if (!com.baidu.k.a.EE()) {
             return true;
         }
         if (context != null) {
@@ -153,7 +153,7 @@ public class ab {
     }
 
     public static boolean ay(Context context, String str) {
-        if (!com.baidu.k.a.Ex()) {
+        if (!com.baidu.k.a.EE()) {
             return true;
         }
         if (context != null) {

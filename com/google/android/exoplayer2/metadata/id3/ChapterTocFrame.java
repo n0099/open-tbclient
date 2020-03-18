@@ -16,7 +16,7 @@ public final class ChapterTocFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kl */
+        /* renamed from: Kr */
         public ChapterTocFrame[] newArray(int i) {
             return new ChapterTocFrame[i];
         }

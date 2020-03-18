@@ -5,20 +5,20 @@ import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public class c {
     private Class<?> fieldClass;
-    private Type[] pB;
-    private Type pC;
+    private Type[] pA;
+    private Type pB;
 
     public c(Type type) {
+        this.pA = null;
         this.pB = null;
-        this.pC = null;
         this.fieldClass = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.pB = parameterizedType.getActualTypeArguments();
-            this.pC = parameterizedType.getRawType();
-            if (this.pB != null && this.pB.length > 0) {
+            this.pA = parameterizedType.getActualTypeArguments();
+            this.pB = parameterizedType.getRawType();
+            if (this.pA != null && this.pA.length > 0) {
                 try {
-                    this.fieldClass = (Class) this.pC;
+                    this.fieldClass = (Class) this.pB;
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -35,7 +35,7 @@ public class c {
     }
 
     public Type[] fp() {
-        return this.pB;
+        return this.pA;
     }
 
     public Class<?> getFieldClass() {

@@ -26,28 +26,28 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e Ub = com.baidu.swan.apps.w.a.Ub();
+        com.baidu.swan.apps.adaptation.a.e Ue = com.baidu.swan.apps.w.a.Ue();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.w.a.TW();
+                context = com.baidu.swan.apps.w.a.TZ();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("userid", Ub == null ? "" : Ub.bq(context));
-        jSONObject.put("zid", Ub == null ? "" : com.baidu.swan.apps.w.a.UN().cf(context));
+        jSONObject.put("userid", Ue == null ? "" : Ue.bp(context));
+        jSONObject.put("zid", Ue == null ? "" : com.baidu.swan.apps.w.a.UQ().ce(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ai.ahh());
+        jSONObject.put("imei", ai.ahk());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", PraiseDataPassUtil.KEY_FROM_OS);
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ai.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.dH(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.dG(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", Ub == null ? "" : Ub.br(context));
+        jSONObject.put("cuid", Ue == null ? "" : Ue.bq(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener gjD = null;
-    private View.OnClickListener eMT = null;
+    private View.OnClickListener gkl = null;
+    private View.OnClickListener eNp = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a sn;
-        if (aVar != null && (sn = sn(i)) != null) {
-            aVar.gjF.startLoad(sn.portrait, 12, false);
-            aVar.gjG.setText(sn.nameShow);
-            aVar.gjH.setOnClickListener(this.gjD);
-            aVar.gjH.setTag(sn);
-            aVar.gjE.setOnClickListener(this.eMT);
-            aVar.gjE.setTag(sn);
+        com.baidu.tieba.forbidden.fans.a sp;
+        if (aVar != null && (sp = sp(i)) != null) {
+            aVar.gkn.startLoad(sp.portrait, 12, false);
+            aVar.gko.setText(sp.nameShow);
+            aVar.gkp.setOnClickListener(this.gkl);
+            aVar.gkp.setTag(sp);
+            aVar.gkm.setOnClickListener(this.eNp);
+            aVar.gkm.setTag(sp);
             a(aVar);
         }
     }
@@ -52,7 +52,7 @@ public class b extends RecyclerView.Adapter<a> {
         return v.getCount(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a sn(int i) {
+    private com.baidu.tieba.forbidden.fans.a sp(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.getItem(this.fansList, i);
     }
 
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean bCk() {
+    public boolean bCq() {
         return v.isEmpty(this.fansList);
     }
 
     /* loaded from: classes10.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View gjE;
-        public ClickableHeaderImageView gjF;
-        public TextView gjG;
-        public TextView gjH;
+        public View gkm;
+        public ClickableHeaderImageView gkn;
+        public TextView gko;
+        public TextView gkp;
 
         public a(View view) {
             super(view);
-            this.gjE = view.findViewById(R.id.container_forbidden_item);
-            this.gjF = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.gjF.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.gjF.setAutoChangeStyle(true);
-            this.gjF.setClickable(false);
-            this.gjG = (TextView) view.findViewById(R.id.view_fans_name);
-            this.gjH = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.gkm = view.findViewById(R.id.container_forbidden_item);
+            this.gkn = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.gkn.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.gkn.setAutoChangeStyle(true);
+            this.gkn.setClickable(false);
+            this.gko = (TextView) view.findViewById(R.id.view_fans_name);
+            this.gkp = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(a aVar) {
-        am.setViewTextColor(aVar.gjG, (int) R.color.cp_cont_b);
+        am.setViewTextColor(aVar.gko, (int) R.color.cp_cont_b);
         am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(aVar.gjH, (int) R.color.btn_color_remove);
-        am.setBackgroundResource(aVar.gjH, R.drawable.btn_transparent_focus_border_bg);
+        am.setViewTextColor(aVar.gkp, (int) R.color.btn_color_remove);
+        am.setBackgroundResource(aVar.gkp, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.gjD = onClickListener;
+        this.gkl = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.eMT = onClickListener;
+        this.eNp = onClickListener;
     }
 }

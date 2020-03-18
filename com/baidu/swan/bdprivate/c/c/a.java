@@ -78,7 +78,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
             if (DEBUG) {
                 Log.d("aiRequestAction", "build request : " + a.url().toString());
             }
-            eVar.acR().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
+            eVar.acU().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
@@ -109,14 +109,14 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                             }
                         }
                         e eVar2 = eVar;
-                        String H = com.baidu.swan.apps.storage.b.H(e.acH(), String.valueOf(System.currentTimeMillis()), "");
+                        String H = com.baidu.swan.apps.storage.b.H(e.acK(), String.valueOf(System.currentTimeMillis()), "");
                         if (TextUtils.isEmpty(H)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
                         }
                         e eVar3 = eVar;
-                        String br = com.baidu.swan.apps.storage.b.br(H, e.acH());
-                        if (TextUtils.isEmpty(br)) {
+                        String bq = com.baidu.swan.apps.storage.b.bq(H, e.acK());
+                        if (TextUtils.isEmpty(bq)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
                         }
@@ -128,7 +128,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                         }
                         if (com.baidu.swan.d.f.streamToFile(byteStream, file)) {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("filePath", br);
+                            jSONObject2.put("filePath", bq);
                             JSONObject jSONObject3 = new JSONObject();
                             jSONObject3.put("statusCode", response.code());
                             jSONObject3.put(WebSocketRequest.PARAM_KEY_HEADER, com.baidu.swan.apps.network.a.a(response.headers()));
@@ -178,9 +178,9 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                 Iterator<String> keys2 = optJSONObject2.keys();
                 while (keys2.hasNext()) {
                     String next2 = keys2.next();
-                    String bp = com.baidu.swan.apps.storage.b.bp(optJSONObject2.optString(next2), e.acH());
-                    if (!TextUtils.isEmpty(bp)) {
-                        File file = new File(bp);
+                    String bo = com.baidu.swan.apps.storage.b.bo(optJSONObject2.optString(next2), e.acK());
+                    if (!TextUtils.isEmpty(bo)) {
+                        File file = new File(bo);
                         if (!file.exists() || file.length() == 0) {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "upload file not exist");
                             return null;
@@ -194,13 +194,13 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                 }
             }
             String appKey = eVar.getAppKey();
-            long j = com.baidu.swan.apps.h.b.Lb().serverTime;
-            String a = a(optJSONObject, appKey, j, ci(com.baidu.swan.apps.w.a.Ub().br(AppRuntime.getAppContext())));
+            long j = com.baidu.swan.apps.h.b.Le().serverTime;
+            String a = a(optJSONObject, appKey, j, ch(com.baidu.swan.apps.w.a.Ue().bq(AppRuntime.getAppContext())));
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sign error");
                 return null;
             }
-            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.KZ() + "/" + optString + optString2));
+            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.Lc() + "/" + optString + optString2));
             if (parse == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "request url error");
                 return null;
@@ -217,7 +217,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
         }
     }
 
-    private String ci(String str) {
+    private String ch(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -261,27 +261,27 @@ public class a extends com.baidu.swan.apps.network.a implements f {
     /* renamed from: com.baidu.swan.bdprivate.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0319a extends RequestBody {
-        private final File bGf;
+        private final File bGq;
 
         public C0319a(File file) {
-            this.bGf = file;
+            this.bGq = file;
         }
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.bGf.length();
+            return this.bGq.length();
         }
 
         @Override // okhttp3.RequestBody
         public MediaType contentType() {
-            return MediaType.parse(getMimeType(this.bGf.getPath()));
+            return MediaType.parse(getMimeType(this.bGq.getPath()));
         }
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
             Source source = null;
             try {
-                source = Okio.source(this.bGf);
+                source = Okio.source(this.bGq);
                 int i = 0;
                 while (true) {
                     long read = source.read(bufferedSink.buffer(), 2048L);

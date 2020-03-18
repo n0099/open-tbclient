@@ -55,16 +55,16 @@ public class q extends d implements m<bj>, n {
     /* JADX INFO: Access modifiers changed from: private */
     public void nb() {
         if (this.KJ != null) {
-            this.KF.setVisibility(this.KJ.aDV() ? 0 : 4);
+            this.KF.setVisibility(this.KJ.aDZ() ? 0 : 4);
             if (this.KL) {
                 this.KG.setVisibility(0);
                 this.KH.setVisibility(0);
                 this.KI.setVisibility(0);
-                this.KH.setImageDrawable(am.getDrawable(this.KJ.aDV() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-                am.setViewTextColor(this.KI, this.KJ.aDV() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+                this.KH.setImageDrawable(am.getDrawable(this.KJ.aDZ() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+                am.setViewTextColor(this.KI, this.KJ.aDZ() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
                 return;
             }
-            this.KG.setVisibility(this.KJ.aDV() ? 0 : 4);
+            this.KG.setVisibility(this.KJ.aDZ() ? 0 : 4);
             this.KH.setVisibility(8);
             this.KI.setVisibility(8);
         }
@@ -84,14 +84,14 @@ public class q extends d implements m<bj>, n {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.q.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (q.this.KH != null && q.this.KJ != null && q.this.KI != null && !q.this.KJ.aDW()) {
-                    if (!q.this.KJ.aDV()) {
-                        if (com.baidu.tieba.frs.a.bCW().ah(q.this.KJ)) {
-                            q.this.KJ.fC(true);
+                if (q.this.KH != null && q.this.KJ != null && q.this.KI != null && !q.this.KJ.aEa()) {
+                    if (!q.this.KJ.aDZ()) {
+                        if (com.baidu.tieba.frs.a.bDd().ai(q.this.KJ)) {
+                            q.this.KJ.fD(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bCW().ai(q.this.KJ);
-                        q.this.KJ.fC(false);
+                        com.baidu.tieba.frs.a.bDd().aj(q.this.KJ);
+                        q.this.KJ.fD(false);
                     }
                     q.this.nb();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, q.this.KJ));
@@ -110,8 +110,8 @@ public class q extends d implements m<bj>, n {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         am.setBackgroundColor(this.KF, R.color.cp_bg_line_d);
         am.setBackgroundColor(this.KG, R.color.cp_bg_line_d);
-        this.KH.setImageDrawable(am.getDrawable(this.KJ.aDV() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-        am.setViewTextColor(this.KI, this.KJ.aDV() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+        this.KH.setImageDrawable(am.getDrawable(this.KJ.aDZ() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+        am.setViewTextColor(this.KI, this.KJ.aDZ() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -131,7 +131,7 @@ public class q extends d implements m<bj>, n {
     /* renamed from: a */
     public void A(bj bjVar) {
         this.KJ = bjVar;
-        if (com.baidu.tieba.frs.a.bCW().bCX()) {
+        if (com.baidu.tieba.frs.a.bDd().bDe()) {
             this.mRootView.setVisibility(0);
             this.Ki.b(new a.C0052a(4, false));
             nb();

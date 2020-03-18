@@ -19,7 +19,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ku */
+        /* renamed from: KA */
         public SpliceInsertCommand[] newArray(int i) {
             return new SpliceInsertCommand[i];
         }
@@ -122,7 +122,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     if (!z10) {
                         j6 = TimeSignalCommand.e(lVar, j);
                     }
-                    emptyList.add(new a(readUnsignedByte3, j6, sVar.gI(j6)));
+                    emptyList.add(new a(readUnsignedByte3, j6, sVar.gJ(j6)));
                     i4 = i5 + 1;
                 }
             }
@@ -146,25 +146,25 @@ public final class SpliceInsertCommand extends SpliceCommand {
             j2 = j5;
             z = z3;
         }
-        return new SpliceInsertCommand(readUnsignedInt, z4, z5, z6, z2, j3, sVar.gI(j3), emptyList, z, j2, i, i2, i3);
+        return new SpliceInsertCommand(readUnsignedInt, z4, z5, z6, z2, j3, sVar.gJ(j3), emptyList, z, j2, i, i2, i3);
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
-        public final int mqJ;
-        public final long mqK;
-        public final long mqL;
+        public final int msq;
+        public final long msr;
+        public final long mss;
 
         private a(int i, long j, long j2) {
-            this.mqJ = i;
-            this.mqK = j;
-            this.mqL = j2;
+            this.msq = i;
+            this.msr = j;
+            this.mss = j2;
         }
 
         public void aC(Parcel parcel) {
-            parcel.writeInt(this.mqJ);
-            parcel.writeLong(this.mqK);
-            parcel.writeLong(this.mqL);
+            parcel.writeInt(this.msq);
+            parcel.writeLong(this.msr);
+            parcel.writeLong(this.mss);
         }
 
         public static a aD(Parcel parcel) {

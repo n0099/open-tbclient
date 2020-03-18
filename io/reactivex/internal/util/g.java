@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] nAp;
+    T[] nCc;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int NA = h.NA(i);
-        this.mask = NA - 1;
-        this.maxSize = (int) (NA * f);
-        this.nAp = (T[]) new Object[NA];
+        int NG = h.NG(i);
+        this.mask = NG - 1;
+        this.maxSize = (int) (NG * f);
+        this.nCc = (T[]) new Object[NG];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nAp;
+        T[] tArr = this.nCc;
         int i = this.mask;
-        int Nz = Nz(t.hashCode()) & i;
-        T t3 = tArr[Nz];
+        int NF = NF(t.hashCode()) & i;
+        T t3 = tArr[NF];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Nz = (Nz + 1) & i;
-                t2 = tArr[Nz];
+                NF = (NF + 1) & i;
+                t2 = tArr[NF];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Nz] = t;
+        tArr[NF] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nAp;
+        T[] tArr = this.nCc;
         int i = this.mask;
-        int Nz = Nz(t.hashCode()) & i;
-        T t3 = tArr[Nz];
+        int NF = NF(t.hashCode()) & i;
+        T t3 = tArr[NF];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Nz, tArr, i);
+            return a(NF, tArr, i);
         }
         do {
-            Nz = (Nz + 1) & i;
-            t2 = tArr[Nz];
+            NF = (NF + 1) & i;
+            t2 = tArr[NF];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Nz, tArr, i);
+        return a(NF, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Nz = Nz(t.hashCode()) & i2;
+                int NF = NF(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Nz && Nz > i3) {
+                    if (i >= NF && NF > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Nz && Nz <= i3) {
+                } else if (i < NF && NF <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.nAp;
+        T[] tArr = this.nCc;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -110,30 +110,30 @@ public final class g<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int Nz = Nz(tArr[i3].hashCode()) & i2;
-                if (tArr2[Nz] != null) {
+                int NF = NF(tArr[i3].hashCode()) & i2;
+                if (tArr2[NF] != null) {
                     do {
-                        Nz = (Nz + 1) & i2;
-                    } while (tArr2[Nz] != null);
+                        NF = (NF + 1) & i2;
+                    } while (tArr2[NF] != null);
                 }
-                tArr2[Nz] = tArr[i3];
+                tArr2[NF] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nAp = tArr2;
+                this.nCc = tArr2;
                 return;
             }
         }
     }
 
-    static int Nz(int i) {
+    static int NF(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dJH() {
-        return this.nAp;
+    public Object[] dKh() {
+        return this.nCc;
     }
 
     public int size() {

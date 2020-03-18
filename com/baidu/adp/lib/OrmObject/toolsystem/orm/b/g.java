@@ -9,10 +9,12 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
     private Set<String> keySet;
-    private Message po;
+
+    /* renamed from: pl  reason: collision with root package name */
+    private Message f973pl;
 
     public g(Message message) {
-        this.po = message;
+        this.f973pl = message;
         List<Field> findFields = com.baidu.adp.lib.OrmObject.a.a.findFields(message.getClass());
         this.keySet = new HashSet();
         if (findFields != null && findFields.size() > 0) {
@@ -30,12 +32,12 @@ public class g implements c {
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.po, str);
+        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.f973pl, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.po, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.f973pl, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

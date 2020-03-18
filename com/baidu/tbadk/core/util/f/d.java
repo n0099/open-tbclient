@@ -16,14 +16,14 @@ public class d {
                 g.log("this page don't preload ");
                 return;
             }
-            g.log("video preload switch  " + e.aHm().isOpen() + " num " + e.aHm().aHn() + " size " + e.aHm().getSize());
-            if (e.aHm().isOpen() && (adapter = pVar.getAdapter()) != null) {
+            g.log("video preload switch  " + e.aHq().isOpen() + " num " + e.aHq().aHr() + " size " + e.aHq().getSize());
+            if (e.aHq().isOpen() && (adapter = pVar.getAdapter()) != null) {
                 boolean z = pVar.getFirstVisiblePosition() == 0;
                 int lastVisiblePosition = pVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 g.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.aHm().aHn(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.aHq().aHr(); i++) {
                         g.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
@@ -31,7 +31,7 @@ public class d {
                             if (!TextUtils.isEmpty(aVar.getVideoUrl())) {
                                 g.log("url: " + aVar.getVideoUrl());
                                 if (cVar.isCyberVideoUsedThisPage()) {
-                                    CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, e.aHm().getSize(), null);
+                                    CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, e.aHq().getSize(), null);
                                 } else {
                                     arrayList.add(aVar.getVideoUrl());
                                 }
@@ -40,7 +40,7 @@ public class d {
                     }
                     g.log("video preload  urls size   " + arrayList.size());
                     if (arrayList.size() > 0) {
-                        h.aHo().aC(arrayList);
+                        h.aHs().aC(arrayList);
                     }
                 }
             }

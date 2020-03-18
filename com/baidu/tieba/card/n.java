@@ -20,24 +20,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.m;
 /* loaded from: classes9.dex */
 public class n extends a<com.baidu.tieba.card.data.n> {
-    private TextView cKS;
-    private String fKA;
-    private TextView fKk;
-    private LinearLayout fKl;
-    private LinearLayout fKm;
-    private LinearLayout fKn;
-    private LinearLayout fKo;
-    private TextView fKp;
-    private TextView fKq;
-    private TextView fKr;
-    private TextView fKs;
-    private View fKt;
-    private View fKu;
-    private View fKv;
-    private View fKw;
-    private View fKx;
-    private com.baidu.tieba.card.data.n fKy;
-    private String fKz;
+    private TextView cLd;
+    private TextView fKS;
+    private LinearLayout fKT;
+    private LinearLayout fKU;
+    private LinearLayout fKV;
+    private LinearLayout fKW;
+    private TextView fKX;
+    private TextView fKY;
+    private TextView fKZ;
+    private TextView fLa;
+    private View fLb;
+    private View fLc;
+    private View fLd;
+    private View fLe;
+    private View fLf;
+    private com.baidu.tieba.card.data.n fLg;
+    private String fLh;
+    private String fLi;
     private View mRootView;
 
     public n(TbPageContext<?> tbPageContext) {
@@ -47,26 +47,26 @@ public class n extends a<com.baidu.tieba.card.data.n> {
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.home_card_hot_topic_root_view);
-        this.cKS = (TextView) view.findViewById(R.id.home_card_topic_title);
-        this.fKk = (TextView) view.findViewById(R.id.home_card_topic_more);
-        this.fKl = (LinearLayout) view.findViewById(R.id.home_card_topic_group_one);
-        this.fKm = (LinearLayout) view.findViewById(R.id.home_card_topic_group_two);
-        this.fKn = (LinearLayout) view.findViewById(R.id.home_card_topic_group_three);
-        this.fKo = (LinearLayout) view.findViewById(R.id.home_card_topic_group_four);
-        this.fKp = (TextView) view.findViewById(R.id.home_card_topic_one);
-        this.fKq = (TextView) view.findViewById(R.id.home_card_topic_two);
-        this.fKr = (TextView) view.findViewById(R.id.home_card_topic_three);
-        this.fKs = (TextView) view.findViewById(R.id.home_card_topic_four);
-        this.fKt = view.findViewById(R.id.home_top_div);
-        this.fKu = view.findViewById(R.id.home_top_topic_div_one);
-        this.fKv = view.findViewById(R.id.home_top_topic_div_two);
-        this.fKw = view.findViewById(R.id.home_card_top_divider_line);
-        this.fKx = view.findViewById(R.id.home_card_bottom_divider_line);
-        this.fKl.setOnClickListener(this);
-        this.fKm.setOnClickListener(this);
-        this.fKn.setOnClickListener(this);
-        this.fKo.setOnClickListener(this);
-        this.fKk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.n.1
+        this.cLd = (TextView) view.findViewById(R.id.home_card_topic_title);
+        this.fKS = (TextView) view.findViewById(R.id.home_card_topic_more);
+        this.fKT = (LinearLayout) view.findViewById(R.id.home_card_topic_group_one);
+        this.fKU = (LinearLayout) view.findViewById(R.id.home_card_topic_group_two);
+        this.fKV = (LinearLayout) view.findViewById(R.id.home_card_topic_group_three);
+        this.fKW = (LinearLayout) view.findViewById(R.id.home_card_topic_group_four);
+        this.fKX = (TextView) view.findViewById(R.id.home_card_topic_one);
+        this.fKY = (TextView) view.findViewById(R.id.home_card_topic_two);
+        this.fKZ = (TextView) view.findViewById(R.id.home_card_topic_three);
+        this.fLa = (TextView) view.findViewById(R.id.home_card_topic_four);
+        this.fLb = view.findViewById(R.id.home_top_div);
+        this.fLc = view.findViewById(R.id.home_top_topic_div_one);
+        this.fLd = view.findViewById(R.id.home_top_topic_div_two);
+        this.fLe = view.findViewById(R.id.home_card_top_divider_line);
+        this.fLf = view.findViewById(R.id.home_card_bottom_divider_line);
+        this.fKT.setOnClickListener(this);
+        this.fKU.setOnClickListener(this);
+        this.fKV.setOnClickListener(this);
+        this.fKW.setOnClickListener(this);
+        this.fKS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.n.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (!com.baidu.tbadk.plugins.b.h(n.this.getTbPageContext())) {
@@ -77,8 +77,8 @@ public class n extends a<com.baidu.tieba.card.data.n> {
     }
 
     public void setStatKey(String str, String str2) {
-        this.fKz = str;
-        this.fKA = str2;
+        this.fLh = str;
+        this.fLi = str2;
     }
 
     @Override // com.baidu.tieba.card.a
@@ -89,10 +89,10 @@ public class n extends a<com.baidu.tieba.card.data.n> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i = com.baidu.adp.lib.f.b.toInt((String) view.getTag(), -1);
-        if (this.fKy != null && com.baidu.tbadk.core.util.v.getItem(this.fKy.fNN, i) != null) {
-            TiebaStatic.log(new an(this.fKA).cy("obj_locate", String.valueOf(this.fKy.locate)).cy("obj_name", this.fKy.fNN.get(i).cQC));
+        if (this.fLg != null && com.baidu.tbadk.core.util.v.getItem(this.fLg.fOv, i) != null) {
+            TiebaStatic.log(new an(this.fLi).cx("obj_locate", String.valueOf(this.fLg.locate)).cx("obj_name", this.fLg.fOv.get(i).cQP));
             if (i >= 0 && !com.baidu.tbadk.plugins.b.h(getTbPageContext())) {
-                getTbPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.fKy.fNN.get(i).topicId), this.fKy.fNN.get(i).cQC, "")));
+                getTbPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.fLg.fOv.get(i).topicId), this.fLg.fOv.get(i).cQP, "")));
             }
         }
     }
@@ -101,25 +101,25 @@ public class n extends a<com.baidu.tieba.card.data.n> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-            am.setViewTextColor(this.cKS, R.color.cp_cont_d, 1);
-            am.setViewTextColor(this.fKk, R.color.cp_cont_d, 1);
-            am.setViewTextColor(this.fKp, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.fKq, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.fKr, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.fKs, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(this.fKt, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.fKu, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.fKv, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.fKw, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.fKx, R.color.cp_bg_line_c);
-            am.setBackgroundResource(this.fKl, R.drawable.card_topic_click_selector);
-            am.setBackgroundResource(this.fKm, R.drawable.card_topic_click_selector);
-            am.setBackgroundResource(this.fKn, R.drawable.card_topic_click_selector);
-            am.setBackgroundResource(this.fKo, R.drawable.card_topic_click_selector);
-            d(this.fKp, 0);
-            d(this.fKq, 1);
-            d(this.fKr, 2);
-            d(this.fKs, 3);
+            am.setViewTextColor(this.cLd, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fKS, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fKX, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.fKY, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.fKZ, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.fLa, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(this.fLb, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fLc, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fLd, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fLe, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fLf, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fKT, R.drawable.card_topic_click_selector);
+            am.setBackgroundResource(this.fKU, R.drawable.card_topic_click_selector);
+            am.setBackgroundResource(this.fKV, R.drawable.card_topic_click_selector);
+            am.setBackgroundResource(this.fKW, R.drawable.card_topic_click_selector);
+            d(this.fKX, 0);
+            d(this.fKY, 1);
+            d(this.fKZ, 2);
+            d(this.fLa, 3);
         }
         this.mSkinType = i;
     }
@@ -127,37 +127,37 @@ public class n extends a<com.baidu.tieba.card.data.n> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
-        if (nVar == null || StringUtils.isNull(nVar.fNM) || com.baidu.tbadk.core.util.v.getCount(nVar.fNN) < 4) {
+        if (nVar == null || StringUtils.isNull(nVar.fOu) || com.baidu.tbadk.core.util.v.getCount(nVar.fOv) < 4) {
             this.mRootView.setVisibility(8);
             return;
         }
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.fKy = nVar;
-        this.fKw.setVisibility(this.fKy.fNK ? 0 : 8);
-        showBottomLine(this.fKy.fNL);
-        this.cKS.setText(this.fKy.fNM.trim());
-        c(this.fKp, 0);
-        c(this.fKq, 1);
-        c(this.fKr, 2);
-        c(this.fKs, 3);
-        d(this.fKp, 0);
-        d(this.fKq, 1);
-        d(this.fKr, 2);
-        d(this.fKs, 3);
+        this.fLg = nVar;
+        this.fLe.setVisibility(this.fLg.fOs ? 0 : 8);
+        showBottomLine(this.fLg.fOt);
+        this.cLd.setText(this.fLg.fOu.trim());
+        c(this.fKX, 0);
+        c(this.fKY, 1);
+        c(this.fKZ, 2);
+        c(this.fLa, 3);
+        d(this.fKX, 0);
+        d(this.fKY, 1);
+        d(this.fKZ, 2);
+        d(this.fLa, 3);
     }
 
     private void c(TextView textView, int i) {
-        m mVar = this.fKy.fNN.get(i);
-        if (!StringUtils.isNull(mVar.cQC)) {
-            textView.setText(mVar.cQC.trim());
+        m mVar = this.fLg.fOv.get(i);
+        if (!StringUtils.isNull(mVar.cQP)) {
+            textView.setText(mVar.cQP.trim());
         }
     }
 
     private void d(TextView textView, int i) {
         m mVar;
-        if (this.fKy != null && com.baidu.tbadk.core.util.v.getCount(this.fKy.fNN) >= 4 && (mVar = (m) com.baidu.tbadk.core.util.v.getItem(this.fKy.fNN, i)) != null) {
+        if (this.fLg != null && com.baidu.tbadk.core.util.v.getCount(this.fLg.fOv) >= 4 && (mVar = (m) com.baidu.tbadk.core.util.v.getItem(this.fLg.fOv, i)) != null) {
             switch (mVar.tag) {
                 case 1:
                     textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_hottopic_new), (Drawable) null);
@@ -176,15 +176,15 @@ public class n extends a<com.baidu.tieba.card.data.n> {
 
     public void showBottomLine(boolean z) {
         if (z) {
-            this.fKx.setVisibility(0);
+            this.fLf.setVisibility(0);
         } else {
-            this.fKx.setVisibility(8);
+            this.fLf.setVisibility(8);
         }
     }
 
-    public void rq(int i) {
-        ViewGroup.LayoutParams layoutParams = this.fKw.getLayoutParams();
+    public void rs(int i) {
+        ViewGroup.LayoutParams layoutParams = this.fLe.getLayoutParams();
         layoutParams.height = i;
-        this.fKw.setLayoutParams(layoutParams);
+        this.fLe.setLayoutParams(layoutParams);
     }
 }

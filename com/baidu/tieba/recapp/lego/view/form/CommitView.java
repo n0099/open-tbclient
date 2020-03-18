@@ -15,16 +15,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes13.dex */
 public class CommitView extends FormItemBaseView {
-    private Button jKp;
-    private int jKq;
+    private Button jLR;
+    private int jLS;
     private CheckBox mCheckBox;
     private String mPostUrl;
 
     public CommitView(Context context) {
         super(context);
         this.mCheckBox = null;
-        this.jKp = null;
-        this.jKq = 1;
+        this.jLR = null;
+        this.jLS = 1;
         this.mPostUrl = "";
         init();
     }
@@ -32,8 +32,8 @@ public class CommitView extends FormItemBaseView {
     public CommitView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCheckBox = null;
-        this.jKp = null;
-        this.jKq = 1;
+        this.jLR = null;
+        this.jLS = 1;
         this.mPostUrl = "";
         init();
     }
@@ -41,15 +41,15 @@ public class CommitView extends FormItemBaseView {
     public CommitView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCheckBox = null;
-        this.jKp = null;
-        this.jKq = 1;
+        this.jLR = null;
+        this.jLS = 1;
         this.mPostUrl = "";
         init();
     }
 
     private void init() {
-        cCW();
-        cCX();
+        cDq();
+        cDr();
         setBackgroundColor(0);
     }
 
@@ -57,11 +57,11 @@ public class CommitView extends FormItemBaseView {
         return this.mPostUrl;
     }
 
-    private void cCW() {
+    private void cDq() {
         this.mCheckBox = new CheckBox(this.mContext, null, R.style.form_check_box_style);
-        this.mCheckBox.setId(this.jKq);
+        this.mCheckBox.setId(this.jLS);
         this.mCheckBox.setTextSize(0, (int) this.mResources.getDimension(R.dimen.fontsize20));
-        this.mCheckBox.setTextColor(this.jKT);
+        this.mCheckBox.setTextColor(this.jMv);
         this.mCheckBox.setGravity(19);
         this.mCheckBox.setChecked(true);
         this.mCheckBox.setButtonDrawable((Drawable) null);
@@ -69,56 +69,56 @@ public class CommitView extends FormItemBaseView {
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
-                    CommitView.this.jKp.setClickable(true);
-                    CommitView.this.jKp.setBackgroundResource(R.color.form_button_bg_color_enable);
+                    CommitView.this.jLR.setClickable(true);
+                    CommitView.this.jLR.setBackgroundResource(R.color.form_button_bg_color_enable);
                     return;
                 }
-                CommitView.this.jKp.setClickable(false);
-                CommitView.this.jKp.setBackgroundResource(R.color.form_button_bg_color_unenable);
+                CommitView.this.jLR.setClickable(false);
+                CommitView.this.jLR.setBackgroundResource(R.color.form_button_bg_color_unenable);
             }
         });
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.bottomMargin = this.jKO;
+        layoutParams.bottomMargin = this.jMq;
         addView(this.mCheckBox, layoutParams);
     }
 
-    private void cCX() {
-        this.jKp = new Button(this.mContext);
-        this.jKp.setGravity(17);
-        this.jKp.setTextColor(this.jKW);
-        this.jKp.setTextSize(0, this.bgT);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.jKP);
+    private void cDr() {
+        this.jLR = new Button(this.mContext);
+        this.jLR.setGravity(17);
+        this.jLR.setTextColor(this.jMy);
+        this.jLR.setTextSize(0, this.bhg);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.jMr);
         layoutParams.addRule(3, this.mCheckBox.getId());
-        this.jKp.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.form_commit_button_selector));
-        addView(this.jKp, layoutParams);
+        this.jLR.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.form_commit_button_selector));
+        addView(this.jLR, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
             FormCard.c cVar = (FormCard.c) bVar;
-            if (TextUtils.isEmpty(cVar.jHI)) {
+            if (TextUtils.isEmpty(cVar.jJh)) {
                 this.mCheckBox.setVisibility(8);
             } else {
                 this.mCheckBox.setVisibility(0);
-                this.mCheckBox.setTextSize(0, this.jKU);
+                this.mCheckBox.setTextSize(0, this.jMw);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mCheckBox.getLayoutParams();
-                marginLayoutParams.bottomMargin = this.jKO;
-                marginLayoutParams.height = a(this.mCheckBox.getPaint(), cVar.jHI);
+                marginLayoutParams.bottomMargin = this.jMq;
+                marginLayoutParams.height = a(this.mCheckBox.getPaint(), cVar.jJh);
                 Drawable drawable = this.mResources.getDrawable(R.drawable.form_checkbox_selector);
-                drawable.setBounds(0, 0, this.jKM, this.jKM);
+                drawable.setBounds(0, 0, this.jMo, this.jMo);
                 this.mCheckBox.setCompoundDrawables(drawable, null, null, null);
-                this.mCheckBox.setCompoundDrawablePadding(this.jKM);
-                this.mCheckBox.setText(cVar.jHI);
+                this.mCheckBox.setCompoundDrawablePadding(this.jMo);
+                this.mCheckBox.setText(cVar.jJh);
             }
             String str = cVar.content;
             if (TextUtils.isEmpty(str)) {
                 str = this.mResources.getString(R.string.push_commit);
             }
-            this.jKp.getLayoutParams().height = this.jKP;
-            this.jKp.setPadding(0, 0, 0, 0);
-            this.jKp.setTextSize(0, this.bgT);
-            this.jKp.setText(str);
+            this.jLR.getLayoutParams().height = this.jMr;
+            this.jLR.setPadding(0, 0, 0, 0);
+            this.jLR.setTextSize(0, this.bhg);
+            this.jLR.setText(str);
             this.mPostUrl = cVar.postUrl;
             return true;
         }
@@ -132,7 +132,7 @@ public class CommitView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cCY() {
+    public boolean cDs() {
         return true;
     }
 
@@ -142,12 +142,12 @@ public class CommitView extends FormItemBaseView {
     }
 
     public Button getCommitButton() {
-        return this.jKp;
+        return this.jLR;
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
-        this.jKp.setClickable(z);
+        this.jLR.setClickable(z);
         this.mCheckBox.setClickable(z);
     }
 }

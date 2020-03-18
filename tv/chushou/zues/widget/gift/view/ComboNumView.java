@@ -12,11 +12,11 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.toolkit.a.b.c;
 /* loaded from: classes5.dex */
 public class ComboNumView extends LinearLayout {
-    private static int nYH = 0;
-    private static c<Drawable> nYI;
+    private static int oau = 0;
+    private static c<Drawable> oav;
     protected Context mContext;
     private int mType;
-    private ImageView nYG;
+    private ImageView oat;
 
     public ComboNumView(Context context) {
         this(context, null);
@@ -28,29 +28,29 @@ public class ComboNumView extends LinearLayout {
     }
 
     private void init(Context context) {
-        nYH++;
+        oau++;
         this.mContext = context;
         setOrientation(0);
-        this.nYG = new ImageView(this.mContext);
-        this.nYG.setBackgroundResource(b.d.zues_icon_x_n);
-        this.nYG.setTag(Config.EVENT_HEAT_X);
-        addView(this.nYG);
+        this.oat = new ImageView(this.mContext);
+        this.oat.setBackgroundResource(b.d.zues_icon_x_n);
+        this.oat.setTag(Config.EVENT_HEAT_X);
+        addView(this.oat);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        nYH--;
-        if (nYH <= 0) {
-            nYH = 0;
+        oau--;
+        if (oau <= 0) {
+            oau = 0;
             release();
         }
         super.onDetachedFromWindow();
     }
 
     public void release() {
-        if (nYI != null) {
-            nYI.clear();
-            nYI = null;
+        if (oav != null) {
+            oav.clear();
+            oav = null;
         }
     }
 
@@ -86,20 +86,20 @@ public class ComboNumView extends LinearLayout {
         }
     }
 
-    private String Tc(String str) {
+    private String Tb(String str) {
         return "game_" + str;
     }
 
     private Drawable getDrawable(String str) {
         Drawable drawable;
-        if (nYI == null) {
-            nYI = new c<>(20);
+        if (oav == null) {
+            oav = new c<>(20);
         }
-        Drawable drawable2 = nYI.get(Tc(str));
+        Drawable drawable2 = oav.get(Tb(str));
         if (drawable2 == null) {
             int identifier = this.mContext.getResources().getIdentifier("zues_icon_" + str, "drawable", this.mContext.getPackageName());
             if (identifier > 0 && (drawable = ContextCompat.getDrawable(this.mContext, identifier)) != null) {
-                nYI.put(Tc(str), drawable);
+                oav.put(Tb(str), drawable);
                 return drawable;
             }
             return null;
@@ -108,7 +108,7 @@ public class ComboNumView extends LinearLayout {
     }
 
     public void setType(int i) {
-        this.nYG.setBackgroundResource(b.d.zues_icon_x_n);
+        this.oat.setBackgroundResource(b.d.zues_icon_x_n);
         this.mType = i;
     }
 }

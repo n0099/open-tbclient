@@ -7,8 +7,8 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes13.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> lIW = new IdentityHashMap();
-    private final c<T> lIK;
+    private static final Map<Object, Integer> lKC = new IdentityHashMap();
+    private final c<T> lKq;
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
@@ -16,30 +16,30 @@ public class SharedReference<T> {
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.lIK = (c) g.checkNotNull(cVar);
+        this.lKq = (c) g.checkNotNull(cVar);
         aV(t);
     }
 
     private static void aV(Object obj) {
-        synchronized (lIW) {
-            Integer num = lIW.get(obj);
+        synchronized (lKC) {
+            Integer num = lKC.get(obj);
             if (num == null) {
-                lIW.put(obj, 1);
+                lKC.put(obj, 1);
             } else {
-                lIW.put(obj, Integer.valueOf(num.intValue() + 1));
+                lKC.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aW(Object obj) {
-        synchronized (lIW) {
-            Integer num = lIW.get(obj);
+        synchronized (lKC) {
+            Integer num = lKC.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.j("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                lIW.remove(obj);
+                lKC.remove(obj);
             } else {
-                lIW.put(obj, Integer.valueOf(num.intValue() - 1));
+                lKC.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void dkW() {
-        dkZ();
+    public synchronized void dlt() {
+        dlw();
         this.mRefCount++;
     }
 
-    public void dkX() {
+    public void dlu() {
         T t;
-        if (dkY() == 0) {
+        if (dlv() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.lIK.release(t);
+            this.lKq.release(t);
             aW(t);
         }
     }
 
-    private synchronized int dkY() {
-        dkZ();
+    private synchronized int dlv() {
+        dlw();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void dkZ() {
+    private void dlw() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

@@ -10,13 +10,13 @@ public abstract class a implements b {
     }
 
     @Override // com.baidu.swan.games.e.d.b
-    public String Pf() {
+    public String Pi() {
         return null;
     }
 
     @Override // com.baidu.swan.games.e.d.b
     @Nullable
-    public V8EngineConfiguration.CodeCacheSetting Pe() {
+    public V8EngineConfiguration.CodeCacheSetting Ph() {
         return null;
     }
 

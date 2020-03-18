@@ -12,7 +12,7 @@ public interface j {
 
     void a(g gVar, FrameLayout frameLayout, RelativeLayout relativeLayout, AlaLivePersonData alaLivePersonData);
 
-    View yw();
+    View yB();
 
-    void yx();
+    void yC();
 }

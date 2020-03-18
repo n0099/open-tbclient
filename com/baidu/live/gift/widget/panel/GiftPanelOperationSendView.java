@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GiftPanelOperationSendView extends TextView {
-    private GradientDrawable apl;
-    private float apm;
-    private boolean apn;
+    private GradientDrawable apw;
+    private float apx;
+    private boolean apy;
     private int mStyle;
 
     public GiftPanelOperationSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,13 +25,13 @@ public class GiftPanelOperationSendView extends TextView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isEnabled()) {
             if (motionEvent.getAction() == 0) {
-                this.apn = true;
+                this.apy = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.apn = false;
+                this.apy = false;
             }
             setStyle(this.mStyle, true);
         } else {
-            this.apn = false;
+            this.apy = false;
         }
         return super.onTouchEvent(motionEvent);
     }
@@ -58,37 +58,37 @@ public class GiftPanelOperationSendView extends TextView {
                     z2 = false;
                     break;
             }
-            if (!(z2 & true) && !this.apn) {
-                this.apl.clearColorFilter();
+            if (!(z2 & true) && !this.apy) {
+                this.apw.clearColorFilter();
                 setTextColor(-1);
                 setEnabled(true);
             } else {
-                this.apl.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+                this.apw.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
                 setTextColor(-2130706433);
                 if (!z) {
                     setEnabled(false);
                 }
             }
             if (!(z2 & true)) {
-                this.apl.setCornerRadius(this.apm);
+                this.apw.setCornerRadius(this.apx);
             } else {
-                this.apl.setCornerRadii(new float[]{0.0f, 0.0f, this.apm, this.apm, this.apm, this.apm, 0.0f, 0.0f});
+                this.apw.setCornerRadii(new float[]{0.0f, 0.0f, this.apx, this.apx, this.apx, this.apx, 0.0f, 0.0f});
             }
-            setBackgroundDrawable(this.apl);
+            setBackgroundDrawable(this.apw);
         }
     }
 
     private void init() {
-        this.apm = getResources().getDimensionPixelOffset(a.e.sdk_ds16);
-        this.apl = new GradientDrawable();
-        this.apl.setShape(0);
-        this.apl.setCornerRadius(this.apm);
-        this.apl.setGradientType(0);
+        this.apx = getResources().getDimensionPixelOffset(a.e.sdk_ds16);
+        this.apw = new GradientDrawable();
+        this.apw.setShape(0);
+        this.apw.setCornerRadius(this.apx);
+        this.apw.setGradientType(0);
         if (Build.VERSION.SDK_INT >= 16) {
-            this.apl.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            this.apl.setColors(new int[]{-49865, -40664});
+            this.apw.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            this.apw.setColors(new int[]{-49865, -40664});
         }
-        setBackgroundDrawable(this.apl);
+        setBackgroundDrawable(this.apw);
         setGravity(17);
         setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize26));
     }

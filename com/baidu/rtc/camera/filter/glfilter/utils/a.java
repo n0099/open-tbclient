@@ -125,7 +125,7 @@ public class a {
         return i2;
     }
 
-    public static int FM() {
+    public static int FR() {
         return dG(36197);
     }
 }

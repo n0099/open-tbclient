@@ -21,18 +21,18 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", cVar.getBundleId());
         hashMap.put("category", String.valueOf(cVar.getCategory()));
-        if (cVar.auk() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.atv().qo(cVar.getBundleId());
-            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.atv().c(f.class, cVar.getBundleId()) != null) {
+        if (cVar.aun() == -1) {
+            pMSAppInfo = com.baidu.swan.pms.database.a.aty().qn(cVar.getBundleId());
+            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.aty().c(f.class, cVar.getBundleId()) != null) {
                 cVar.iK(pMSAppInfo.versionCode);
             } else {
                 cVar.iK(0);
             }
         }
-        hashMap.put("pkg_ver", String.valueOf(cVar.auk()));
-        if (cVar.aul() == -1) {
+        hashMap.put("pkg_ver", String.valueOf(cVar.aun()));
+        if (cVar.auo() == -1) {
             if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.atv().qo(cVar.getBundleId());
+                pMSAppInfo = com.baidu.swan.pms.database.a.aty().qn(cVar.getBundleId());
             }
             if (pMSAppInfo != null) {
                 cVar.bl(pMSAppInfo.appSign);
@@ -40,21 +40,21 @@ public class b {
                 cVar.bl(0L);
             }
         }
-        hashMap.put("app_sign", String.valueOf(cVar.aul()));
-        if (cVar.aum() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(cVar.aum()));
+        hashMap.put("app_sign", String.valueOf(cVar.auo()));
+        if (cVar.aup() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(cVar.aup()));
         }
-        if (TextUtils.isEmpty(cVar.aun())) {
-            cVar.qw(iF(cVar.getCategory()));
+        if (TextUtils.isEmpty(cVar.auq())) {
+            cVar.qv(iF(cVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(cVar.aun())) {
-            hashMap.put("framework_ver", cVar.aun());
+        if (!TextUtils.isEmpty(cVar.auq())) {
+            hashMap.put("framework_ver", cVar.auq());
         }
-        if (TextUtils.isEmpty(cVar.auo())) {
-            cVar.qx(iG(cVar.getCategory()));
+        if (TextUtils.isEmpty(cVar.aur())) {
+            cVar.qw(iG(cVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(cVar.auo())) {
-            hashMap.put("extension_ver", cVar.auo());
+        if (!TextUtils.isEmpty(cVar.aur())) {
+            hashMap.put("extension_ver", cVar.aur());
         }
         if (!TextUtils.isEmpty(cVar.getPath())) {
             hashMap.put("path", cVar.getPath());
@@ -62,8 +62,8 @@ public class b {
         if (!TextUtils.equals(cVar.getFrom(), "-1")) {
             hashMap.put("from", cVar.getFrom());
         }
-        if (!TextUtils.equals(cVar.aus(), "-1")) {
-            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, cVar.aus());
+        if (!TextUtils.equals(cVar.auv(), "-1")) {
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, cVar.auv());
         }
         return hashMap;
     }
@@ -75,23 +75,23 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", eVar.getBundleId());
         hashMap.put("category", String.valueOf(eVar.getCategory()));
-        hashMap.put("pkg_ver", String.valueOf(eVar.auk()));
-        hashMap.put("expect_pkg_ver", String.valueOf(eVar.auk()));
-        hashMap.put("sub_id", eVar.aur());
-        if (TextUtils.isEmpty(eVar.aun())) {
-            eVar.qA(iF(eVar.getCategory()));
+        hashMap.put("pkg_ver", String.valueOf(eVar.aun()));
+        hashMap.put("expect_pkg_ver", String.valueOf(eVar.aun()));
+        hashMap.put("sub_id", eVar.auu());
+        if (TextUtils.isEmpty(eVar.auq())) {
+            eVar.qz(iF(eVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(eVar.aun())) {
-            hashMap.put("framework_ver", eVar.aun());
+        if (!TextUtils.isEmpty(eVar.auq())) {
+            hashMap.put("framework_ver", eVar.auq());
         }
-        if (TextUtils.isEmpty(eVar.auo())) {
-            eVar.qB(iG(eVar.getCategory()));
+        if (TextUtils.isEmpty(eVar.aur())) {
+            eVar.qA(iG(eVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(eVar.auo())) {
-            hashMap.put("extension_ver", eVar.auo());
+        if (!TextUtils.isEmpty(eVar.aur())) {
+            hashMap.put("extension_ver", eVar.aur());
         }
-        if (eVar.aum() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(eVar.aum()));
+        if (eVar.aup() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(eVar.aup()));
             return hashMap;
         }
         return hashMap;
@@ -102,12 +102,12 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("bundle_id", dVar.aup());
+        hashMap.put("bundle_id", dVar.aus());
         hashMap.put("category", String.valueOf(dVar.getCategory()));
-        if (TextUtils.isEmpty(dVar.auq())) {
-            dVar.qz(String.valueOf(-1));
+        if (TextUtils.isEmpty(dVar.aut())) {
+            dVar.qy(String.valueOf(-1));
         }
-        hashMap.put("plugin_ver", dVar.auq());
+        hashMap.put("plugin_ver", dVar.aut());
         return hashMap;
     }
 
@@ -117,17 +117,17 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("category", String.valueOf(gVar.getCategory()));
-        if (TextUtils.isEmpty(gVar.aun())) {
-            gVar.qE(iF(gVar.getCategory()));
+        if (TextUtils.isEmpty(gVar.auq())) {
+            gVar.qD(iF(gVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(gVar.aun())) {
-            hashMap.put("framework_ver", gVar.aun());
+        if (!TextUtils.isEmpty(gVar.auq())) {
+            hashMap.put("framework_ver", gVar.auq());
         }
-        if (TextUtils.isEmpty(gVar.auo())) {
-            gVar.qF(iG(gVar.getCategory()));
+        if (TextUtils.isEmpty(gVar.aur())) {
+            gVar.qE(iG(gVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(gVar.auo())) {
-            hashMap.put("extension_ver", gVar.auo());
+        if (!TextUtils.isEmpty(gVar.aur())) {
+            hashMap.put("extension_ver", gVar.aur());
             return hashMap;
         }
         return hashMap;
@@ -141,8 +141,8 @@ public class b {
         if (!TextUtils.equals(bVar.getFrom(), "-1")) {
             hashMap.put("from", bVar.getFrom());
         }
-        if (!TextUtils.equals(bVar.aus(), "-1")) {
-            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, bVar.aus());
+        if (!TextUtils.equals(bVar.auv(), "-1")) {
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, bVar.auv());
             return hashMap;
         }
         return hashMap;
@@ -163,14 +163,14 @@ public class b {
             jSONObject3.put("game_ext_ver", iG(1));
             jSONObject.put(ETAG.KEY_EXTENSION, jSONObject3);
             JSONArray jSONArray = new JSONArray();
-            for (b.a aVar : bVar.auj()) {
+            for (b.a aVar : bVar.aum()) {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("bundle_id", aVar.getBundleId());
                 if (aVar.getCategory() != -1) {
                     jSONObject4.put("category", aVar.getCategory());
                 }
-                jSONObject4.put("pkg_ver", aVar.auk());
-                jSONObject4.put("app_sign", aVar.aul());
+                jSONObject4.put("pkg_ver", aVar.aun());
+                jSONObject4.put("app_sign", aVar.auo());
                 jSONArray.put(jSONObject4);
             }
             jSONObject.put("list", jSONArray);
@@ -183,20 +183,20 @@ public class b {
 
     private static String iF(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.atp().UY();
+            return com.baidu.swan.pms.d.ats().Vb();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.atp().UW();
+            return com.baidu.swan.pms.d.ats().UZ();
         }
         return null;
     }
 
     private static String iG(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.atp().UZ();
+            return com.baidu.swan.pms.d.ats().Vc();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.atp().UX();
+            return com.baidu.swan.pms.d.ats().Va();
         }
         return null;
     }

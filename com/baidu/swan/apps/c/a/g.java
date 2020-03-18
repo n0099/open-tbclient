@@ -21,10 +21,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class g {
     private static final String TAG;
-    public static final g bcr = new g();
+    public static final g bcE = new g();
 
     static {
-        String simpleName = bcr.getClass().getSimpleName();
+        String simpleName = bcE.getClass().getSimpleName();
         q.i(simpleName, "SwanAppAllianceLoginMaBd…ager.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -32,32 +32,32 @@ public final class g {
     private g() {
     }
 
-    public final void Jt() {
-        if (e.bco.Jp()) {
-            if (f.Js() == null) {
-                f.c(Jw());
+    public final void Jw() {
+        if (e.bcB.Js()) {
+            if (f.Jv() == null) {
+                f.c(Jz());
             }
-            if (e.bco.isLogin()) {
-                String Ju = Ju();
-                if (!(Ju == null || l.isBlank(Ju))) {
-                    String uid = h.bct.getUid();
+            if (e.bcB.isLogin()) {
+                String Jx = Jx();
+                if (!(Jx == null || l.isBlank(Jx))) {
+                    String uid = h.bcG.getUid();
                     if (!(uid == null || l.isBlank(uid))) {
-                        Long Js = f.Js();
-                        if (Js != null && Js.longValue() != 0) {
+                        Long Jv = f.Jv();
+                        if (Jv != null && Jv.longValue() != 0) {
                             OkHttpClient okHttpClient = new OkHttpClient();
                             Request.Builder builder = new Request.Builder();
-                            ae UH = com.baidu.swan.apps.w.a.UH();
-                            q.i(UH, "SwanAppRuntime.getConfig()");
-                            String addParam = ag.addParam("https://ossapi.baidu.com/oss/mabdussrefresh", "host_name", UH.getHostName());
+                            ae UK = com.baidu.swan.apps.w.a.UK();
+                            q.i(UK, "SwanAppRuntime.getConfig()");
+                            String addParam = ag.addParam("https://ossapi.baidu.com/oss/mabdussrefresh", "host_name", UK.getHostName());
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("ma_bduss", bcr.Ju());
+                            jSONObject.put("ma_bduss", bcE.Jx());
                             okHttpClient.newCall(builder.url(addParam).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build()).enqueue(new a());
                             return;
                         }
                         return;
                     }
                 }
-                e.bco.Jo();
+                e.bcB.Jr();
             }
         }
     }
@@ -83,34 +83,34 @@ public final class g {
                 JSONObject jSONObject = new JSONObject((body == null || (r0 = body.string()) == null) ? "" : "");
                 if (jSONObject.optInt("errno") == 0) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (!q.h(optJSONObject.optString("uk"), h.bct.getUid())) {
-                        e.bco.Jo();
+                    if (!q.h(optJSONObject.optString("uk"), h.bcG.getUid())) {
+                        e.bcB.Jr();
                         return;
                     }
-                    h hVar = h.bct;
+                    h hVar = h.bcG;
                     q.i(optJSONObject, "responseData");
                     hVar.d(0, optJSONObject);
-                    com.baidu.swan.apps.c.a.a.ae(com.baidu.swan.apps.w.a.TW(), optJSONObject.optString("ma_bduss"));
+                    com.baidu.swan.apps.c.a.a.ae(com.baidu.swan.apps.w.a.TZ(), optJSONObject.optString("ma_bduss"));
                     return;
                 }
-                e.bco.Jo();
+                e.bcB.Jr();
             }
         }
     }
 
-    public final String Ju() {
+    public final String Jx() {
         return ag.getCookieValue(new com.baidu.swan.apps.j.b().getCookie(".baidu.com"), "MABDUSS");
     }
 
-    public final void Jv() {
-        com.baidu.swan.apps.storage.c.h.afr().putLong("ma_bduss_refresh_time", 0L);
-        com.baidu.swan.apps.c.a.a.ae(com.baidu.swan.apps.w.a.TW(), "");
+    public final void Jy() {
+        com.baidu.swan.apps.storage.c.h.afu().putLong("ma_bduss_refresh_time", 0L);
+        com.baidu.swan.apps.c.a.a.ae(com.baidu.swan.apps.w.a.TZ(), "");
     }
 
-    private final Long Jw() {
-        com.baidu.swan.apps.storage.c.b afr = com.baidu.swan.apps.storage.c.h.afr();
-        if (afr != null) {
-            return Long.valueOf(afr.getLong("ma_bduss_refresh_time", 0L));
+    private final Long Jz() {
+        com.baidu.swan.apps.storage.c.b afu = com.baidu.swan.apps.storage.c.h.afu();
+        if (afu != null) {
+            return Long.valueOf(afu.getLong("ma_bduss_refresh_time", 0L));
         }
         return null;
     }

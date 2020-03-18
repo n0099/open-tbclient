@@ -12,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BdPageContext asG;
-    private BdTypeListView asH;
-    private f asI;
-    private c asJ;
-    private g asK;
-    private d asL;
-    private e asM;
-    private boolean asN;
-    private List<AbsDelegateAdapter> asF = new ArrayList();
-    private CustomMessageListener asO = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
+    private BdPageContext asQ;
+    private BdTypeListView asR;
+    private f asS;
+    private c asT;
+    private g asU;
+    private d asV;
+    private e asW;
+    private boolean asX;
+    private List<AbsDelegateAdapter> asP = new ArrayList();
+    private CustomMessageListener asY = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,41 +30,41 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.asG = bdPageContext;
-        this.asH = bdTypeListView;
-        wM();
+        this.asQ = bdPageContext;
+        this.asR = bdTypeListView;
+        wR();
     }
 
-    public void wL() {
-        MessageManager.getInstance().registerListener(2913069, this.asO);
+    public void wQ() {
+        MessageManager.getInstance().registerListener(2913069, this.asY);
     }
 
-    private void wM() {
-        this.asI = new f(this.asG.getPageActivity());
-        this.asJ = new c(this.asG.getPageActivity());
-        this.asK = new g(this.asG.getPageActivity());
-        this.asL = new d(this.asG.getPageActivity());
-        this.asM = new e(this.asG.getPageActivity());
-        this.asF.add(this.asI);
-        this.asF.add(this.asJ);
-        this.asF.add(this.asK);
-        this.asF.add(this.asL);
-        this.asF.add(this.asM);
-        this.asH.addAdapters(this.asF);
+    private void wR() {
+        this.asS = new f(this.asQ.getPageActivity());
+        this.asT = new c(this.asQ.getPageActivity());
+        this.asU = new g(this.asQ.getPageActivity());
+        this.asV = new d(this.asQ.getPageActivity());
+        this.asW = new e(this.asQ.getPageActivity());
+        this.asP.add(this.asS);
+        this.asP.add(this.asT);
+        this.asP.add(this.asU);
+        this.asP.add(this.asV);
+        this.asP.add(this.asW);
+        this.asR.addAdapters(this.asP);
     }
 
     public void setMode(boolean z) {
-        this.asI.setMode(z);
+        this.asS.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.asH != null) {
-            this.asH.setData(list);
+        if (this.asR != null) {
+            this.asR.setData(list);
         }
     }
 
     public void a(String str, String str2, boolean z, String str3) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.asF) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.asP) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).a(str, str2, z, str3);
             }
@@ -72,33 +72,33 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.asH != null && (this.asH.getAdapter() instanceof BaseAdapter)) {
-            this.asH.getAdapter().notifyDataSetChanged();
+        if (this.asR != null && (this.asR.getAdapter() instanceof BaseAdapter)) {
+            this.asR.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.asN = z;
-        if (this.asN) {
-            if (this.asI != null) {
-                this.asI.aV(true);
+        this.asX = z;
+        if (this.asX) {
+            if (this.asS != null) {
+                this.asS.aV(true);
             }
-            if (this.asJ != null) {
-                this.asJ.aV(true);
+            if (this.asT != null) {
+                this.asT.aV(true);
             }
-            if (this.asK != null) {
-                this.asK.aV(true);
+            if (this.asU != null) {
+                this.asU.aV(true);
             }
-            if (this.asL != null) {
-                this.asL.aV(true);
+            if (this.asV != null) {
+                this.asV.aV(true);
             }
-            if (this.asM != null) {
-                this.asM.aV(true);
+            if (this.asW != null) {
+                this.asW.aV(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.asO);
+        MessageManager.getInstance().unRegisterListener(this.asY);
     }
 }

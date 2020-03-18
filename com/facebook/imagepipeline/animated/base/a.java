@@ -4,13 +4,13 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 /* loaded from: classes13.dex */
 public interface a {
-    int HZ(int i);
+    AnimatedDrawableFrameInfo Ht(int i);
 
-    AnimatedDrawableFrameInfo Hn(int i);
+    int If(int i);
 
-    int dnG();
+    int dod();
 
-    int dnH();
+    int doe();
 
     int getFrameCount();
 

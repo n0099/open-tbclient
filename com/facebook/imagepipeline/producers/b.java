@@ -5,42 +5,42 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public abstract class b<T> implements k<T> {
-    private boolean lVn = false;
+    private boolean lWT = false;
 
     protected abstract void B(Throwable th);
 
-    protected abstract void dqi();
+    protected abstract void dqF();
 
     protected abstract void f(T t, int i);
 
-    public static boolean IJ(int i) {
+    public static boolean IP(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean IK(int i) {
-        return !IJ(i);
+    public static boolean IQ(int i) {
+        return !IP(i);
     }
 
-    public static int dz(int i, int i2) {
+    public static int dA(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean dA(int i, int i2) {
+    public static boolean dB(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean dB(int i, int i2) {
+    public static boolean dC(int i, int i2) {
         return (i & i2) != 0;
     }
 
-    public static int vr(boolean z) {
+    public static int vy(boolean z) {
         return z ? 1 : 0;
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.lVn) {
-            this.lVn = IJ(i);
+        if (!this.lWT) {
+            this.lWT = IP(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void C(Throwable th) {
-        if (!this.lVn) {
-            this.lVn = true;
+        if (!this.lWT) {
+            this.lWT = true;
             try {
                 B(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dkF() {
-        if (!this.lVn) {
-            this.lVn = true;
+    public synchronized void dlc() {
+        if (!this.lWT) {
+            this.lWT = true;
             try {
-                dqi();
+                dqF();
             } catch (Exception e) {
                 m(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void aK(float f) {
-        if (!this.lVn) {
+        if (!this.lWT) {
             try {
                 bs(f);
             } catch (Exception e) {

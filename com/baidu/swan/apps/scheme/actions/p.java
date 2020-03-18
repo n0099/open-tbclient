@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class p extends ab implements com.baidu.swan.apps.network.f {
     int RESULT_CODE_SUCCESS;
-    int bRf;
+    int bRq;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
     public p(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/openDocument");
         this.RESULT_CODE_SUCCESS = 1;
-        this.bRf = 3;
+        this.bRq = 3;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -31,7 +31,7 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
-        } else if (eVar.JF()) {
+        } else if (eVar.JI()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -48,20 +48,20 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
                 return false;
             }
-            String acH = com.baidu.swan.apps.runtime.e.acH();
-            if (TextUtils.isEmpty(acH)) {
+            String acK = com.baidu.swan.apps.runtime.e.acK();
+            if (TextUtils.isEmpty(acK)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
                 return false;
             }
-            String bp = com.baidu.swan.apps.storage.b.bp(optString, acH);
-            if (TextUtils.isEmpty(bp)) {
+            String bo = com.baidu.swan.apps.storage.b.bo(optString, acK);
+            if (TextUtils.isEmpty(bo)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
                 return false;
             }
             String optString2 = b.optString("fileType");
-            String rh = com.baidu.swan.d.c.rh(bp);
-            if (!TextUtils.isEmpty(rh)) {
-                optString2 = rh;
+            String rg = com.baidu.swan.d.c.rg(bo);
+            if (!TextUtils.isEmpty(rg)) {
+                optString2 = rg;
             } else if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
                 return false;
@@ -71,16 +71,16 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
                 return false;
             }
-            Uri parse = Uri.parse(bp);
+            Uri parse = Uri.parse(bo);
             if (parse == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
                 return false;
             }
             if (parse.getScheme() == null) {
-                parse = Uri.fromFile(new File(bp));
+                parse = Uri.fromFile(new File(bo));
             }
-            SwanAppActivity acB = eVar.acB();
-            if (acB == null) {
+            SwanAppActivity acE = eVar.acE();
+            if (acE == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
                 return false;
             } else if (!com.baidu.swan.apps.as.k.getSupportMimeType(guessSupportMimeTypeFromExt)) {
@@ -88,17 +88,17 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
                 return false;
             } else {
                 String optString3 = b.optString("cb");
-                com.baidu.swan.apps.adaptation.a.q Uo = com.baidu.swan.apps.w.a.Uo();
-                if (!Uo.ad(acB, guessSupportMimeTypeFromExt)) {
+                com.baidu.swan.apps.adaptation.a.q Ur = com.baidu.swan.apps.w.a.Ur();
+                if (!Ur.ad(acE, guessSupportMimeTypeFromExt)) {
                     if (TextUtils.isEmpty(optString3)) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + guessSupportMimeTypeFromExt);
                         return false;
                     }
-                    a(acB, guessSupportMimeTypeFromExt, parse, optString3, callbackHandler);
+                    a(acE, guessSupportMimeTypeFromExt, parse, optString3, callbackHandler);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     return true;
                 }
-                Uo.a(acB, parse, guessSupportMimeTypeFromExt);
+                Ur.a(acE, parse, guessSupportMimeTypeFromExt);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 return true;
@@ -107,7 +107,7 @@ public class p extends ab implements com.baidu.swan.apps.network.f {
     }
 
     private void a(final Activity activity, final String str, final Uri uri, final String str2, final CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.w.a.Uo().a(activity, str, new a() { // from class: com.baidu.swan.apps.scheme.actions.p.1
+        com.baidu.swan.apps.w.a.Ur().a(activity, str, new a() { // from class: com.baidu.swan.apps.scheme.actions.p.1
         });
     }
 }

@@ -10,25 +10,25 @@ public interface s extends g.a {
 
     void a(Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j) throws ExoPlaybackException;
 
-    boolean avR();
+    boolean avU();
 
     void disable();
 
-    t dsH();
+    t dte();
 
-    com.google.android.exoplayer2.util.h dsI();
+    com.google.android.exoplayer2.util.h dtf();
 
-    com.google.android.exoplayer2.source.p dsJ();
+    com.google.android.exoplayer2.source.p dtg();
 
-    boolean dsK();
+    boolean dth();
 
-    void dsL();
+    void dti();
 
-    boolean dsM();
+    boolean dtj();
 
-    void dsN() throws IOException;
+    void dtk() throws IOException;
 
-    void fl(long j) throws ExoPlaybackException;
+    void fm(long j) throws ExoPlaybackException;
 
     int getState();
 

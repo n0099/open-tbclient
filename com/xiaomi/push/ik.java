@@ -56,9 +56,9 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (getClass().equals(ikVar.getClass())) {
-            int compareTo = Boolean.valueOf(m445a()).compareTo(Boolean.valueOf(ikVar.m445a()));
+            int compareTo = Boolean.valueOf(m443a()).compareTo(Boolean.valueOf(ikVar.m443a()));
             if (compareTo == 0) {
-                if (!m445a() || (a9 = is.a(this.f715a, ikVar.f715a)) == 0) {
+                if (!m443a() || (a9 = is.a(this.f715a, ikVar.f715a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ikVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a8 = is.a(this.f714a, ikVar.f714a)) == 0) {
@@ -136,87 +136,87 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a == 11) {
-                        this.f715a = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f715a = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 2:
-                    if (m468a.a == 12) {
+                    if (m466a.a == 12) {
                         this.f714a = new hv();
                         this.f714a.a(jcVar);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 3:
-                    if (m468a.a == 11) {
-                        this.f717b = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f717b = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 4:
-                    if (m468a.a == 11) {
-                        this.f718c = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f718c = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 5:
-                    if (m468a.a == 11) {
-                        this.f719d = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f719d = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 6:
-                    if (m468a.a == 11) {
-                        this.f720e = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f720e = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 7:
-                    if (m468a.a == 11) {
-                        this.f721f = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f721f = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 8:
-                    if (m468a.a == 15) {
-                        ja m469a = jcVar.m469a();
-                        this.f716a = new ArrayList(m469a.f791a);
-                        for (int i = 0; i < m469a.f791a; i++) {
-                            this.f716a.add(jcVar.m473a());
+                    if (m466a.a == 15) {
+                        ja m467a = jcVar.m467a();
+                        this.f716a = new ArrayList(m467a.f791a);
+                        for (int i = 0; i < m467a.f791a; i++) {
+                            this.f716a.add(jcVar.m471a());
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -224,23 +224,23 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m445a() {
+    public boolean m443a() {
         return this.f715a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m446a(ik ikVar) {
+    public boolean m444a(ik ikVar) {
         if (ikVar == null) {
             return false;
         }
-        boolean m445a = m445a();
-        boolean m445a2 = ikVar.m445a();
-        if ((m445a || m445a2) && !(m445a && m445a2 && this.f715a.equals(ikVar.f715a))) {
+        boolean m443a = m443a();
+        boolean m443a2 = ikVar.m443a();
+        if ((m443a || m443a2) && !(m443a && m443a2 && this.f715a.equals(ikVar.f715a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = ikVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f714a.m378a(ikVar.f714a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f714a.m376a(ikVar.f714a))) {
             return false;
         }
         boolean c2 = c();
@@ -282,7 +282,7 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
     public void b(jc jcVar) {
         a();
         jcVar.a(f713a);
-        if (this.f715a != null && m445a()) {
+        if (this.f715a != null && m443a()) {
             jcVar.a(a);
             jcVar.a(this.f715a);
             jcVar.b();
@@ -327,7 +327,7 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public boolean b() {
@@ -363,7 +363,7 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ik)) {
-            return m446a((ik) obj);
+            return m444a((ik) obj);
         }
         return false;
     }
@@ -388,7 +388,7 @@ public class ik implements ir<ik, Object>, Serializable, Cloneable {
         boolean z = false;
         StringBuilder sb = new StringBuilder("XmPushActionSubscription(");
         boolean z2 = true;
-        if (m445a()) {
+        if (m443a()) {
             sb.append("debug:");
             if (this.f715a == null) {
                 sb.append("null");

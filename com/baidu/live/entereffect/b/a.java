@@ -26,14 +26,14 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.afg = new com.baidu.live.gift.c();
+        aVar.afq = new com.baidu.live.gift.c();
         com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
         bVar.parseJson(jSONObject);
-        aVar.afg.afL = bVar;
+        aVar.afq.afV = bVar;
         return aVar;
     }
 
-    public static com.baidu.live.entereffect.a.b dc(String str) {
+    public static com.baidu.live.entereffect.a.b db(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -45,20 +45,20 @@ public class a {
             if (!TextUtils.isEmpty(optString) && optString.charAt(0) != '#') {
                 optString = '#' + optString;
             }
-            bVar.afi = optString;
+            bVar.afs = optString;
             String optString2 = jSONObject.optString("bg_color_end");
             if (!TextUtils.isEmpty(optString2) && optString2.charAt(0) != '#') {
                 optString2 = '#' + optString2;
             }
-            bVar.afj = optString2;
-            bVar.afk = jSONObject.optString("transparency_begin");
-            bVar.afl = jSONObject.optString("transparency_end");
-            bVar.acA = jSONObject.optString("text_color");
-            bVar.afm = jSONObject.optString("nickname_preix");
-            bVar.afn = jSONObject.optString("nickname_suffix");
+            bVar.aft = optString2;
+            bVar.afu = jSONObject.optString("transparency_begin");
+            bVar.afv = jSONObject.optString("transparency_end");
+            bVar.acK = jSONObject.optString("text_color");
+            bVar.afw = jSONObject.optString("nickname_preix");
+            bVar.afx = jSONObject.optString("nickname_suffix");
             bVar.iconUrl = jSONObject.optString("icon_url");
-            bVar.afo = jSONObject.optInt("icon_width");
-            bVar.afp = jSONObject.optInt("icon_height");
+            bVar.afy = jSONObject.optInt("icon_width");
+            bVar.afz = jSONObject.optInt("icon_height");
             return bVar;
         } catch (JSONException e) {
             e.printStackTrace();

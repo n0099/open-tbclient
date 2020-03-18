@@ -4,19 +4,19 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes7.dex */
 public class b implements a {
-    private final String nMW;
+    private final String nOJ;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.nMW = str;
+        this.nOJ = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Sz(String str) {
+    public boolean Sy(String str) {
         for (String str2 : str.replaceAll(HanziToPinyin.Token.SEPARATOR, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.nMW.equals(str2)) {
+            if (this.nOJ.equals(str2)) {
                 return true;
             }
         }
@@ -24,18 +24,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dNI() {
-        return this.nMW;
+    public String dOi() {
+        return this.nOJ;
     }
 
     @Override // org.java_websocket.d.a
-    public a dNJ() {
-        return new b(dNI());
+    public a dOj() {
+        return new b(dOi());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dNI();
+        return dOi();
     }
 
     public boolean equals(Object obj) {
@@ -45,10 +45,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.nMW.equals(((b) obj).nMW);
+        return this.nOJ.equals(((b) obj).nOJ);
     }
 
     public int hashCode() {
-        return this.nMW.hashCode();
+        return this.nOJ.hashCode();
     }
 }

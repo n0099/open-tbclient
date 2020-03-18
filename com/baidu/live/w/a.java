@@ -16,9 +16,9 @@ public interface a {
 
     void a(InterfaceC0105a interfaceC0105a);
 
-    void bh(boolean z);
-
     void bi(boolean z);
+
+    void bj(boolean z);
 
     void ch(int i);
 

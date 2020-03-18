@@ -20,26 +20,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private boolean aih;
+    private boolean air;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        super(context, com.baidu.live.im.a.aqx);
-        this.aih = true;
+        super(context, com.baidu.live.im.a.aqH);
+        this.air = true;
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void wP() {
-        if (wQ()) {
-            wR();
+    protected void wU() {
+        if (wV()) {
+            wW();
         } else {
-            wS();
+            wX();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (wQ()) {
+        if (wV()) {
             return -1647769;
         }
         return TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_other_b);
@@ -48,12 +48,12 @@ public class c extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, final com.baidu.live.im.c cVar) {
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.xo(), cVar, false, false);
+        a(spannableStringBuilder, aVar.xt(), cVar, false, false);
         final a h = h(aVar);
-        String str = (h == null || TextUtils.isEmpty(h.agX)) ? "1" : h.agX;
+        String str = (h == null || TextUtils.isEmpty(h.ahh)) ? "1" : h.ahh;
         String string = (h == null || TextUtils.isEmpty(h.giftName)) ? this.mContext.getString(a.i.sdk_gift) : h.giftName;
-        if (h != null && !TextUtils.isEmpty(h.atk)) {
-            String str2 = h.atk;
+        if (h != null && !TextUtils.isEmpty(h.atu)) {
+            String str2 = h.atu;
         }
         String format = String.format(this.mContext.getString(a.i.ala_rec_gift), str, string);
         SpannableString valueOf = SpannableString.valueOf(format);
@@ -61,9 +61,9 @@ public class c extends b {
             valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) valueOf);
-        if (h != null && !TextUtils.isEmpty(h.atj)) {
-            this.aih = true;
-            BdResourceLoader.getInstance().loadResource(h.atj, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.im.a.c.1
+        if (h != null && !TextUtils.isEmpty(h.att)) {
+            this.air = true;
+            BdResourceLoader.getInstance().loadResource(h.att, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.im.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.resourceloader.BdResourceCallback
@@ -105,24 +105,24 @@ public class c extends b {
                                     SpannableString spannableString = new SpannableString(" [img]");
                                     spannableString.setSpan(centeredImageSpan, 1, spannableString.length(), 33);
                                     spannableStringBuilder.append((CharSequence) spannableString);
-                                    if (c.this.asU && h != null && !TextUtils.isEmpty(h.atk)) {
-                                        SpannableString valueOf2 = SpannableString.valueOf(String.format(c.this.mContext.getString(a.i.ala_rec_gift_charm_value), h.atk));
+                                    if (c.this.ate && h != null && !TextUtils.isEmpty(h.atu)) {
+                                        SpannableString valueOf2 = SpannableString.valueOf(String.format(c.this.mContext.getString(a.i.ala_rec_gift_charm_value), h.atu));
                                         valueOf2.setSpan(new ForegroundColorSpan(c.this.getColor()), 0, valueOf2.length(), 33);
                                         spannableStringBuilder.append((CharSequence) valueOf2);
                                     }
-                                    if (t.ds(h.giftId) && !t.dq(h.giftId) && t.dr(h.giftId)) {
+                                    if (t.dr(h.giftId) && !t.dp(h.giftId) && t.dq(h.giftId)) {
                                         SpannableString valueOf3 = SpannableString.valueOf(c.this.mContext.getString(a.i.ala_dynamic_gift_downloading));
                                         valueOf3.setSpan(new ForegroundColorSpan(c.this.getColor()), 0, valueOf3.length(), 33);
                                         spannableStringBuilder.append((CharSequence) valueOf3);
                                     }
-                                    if (!h.atl && h.atm > 0.0d) {
-                                        com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(c.this.mContext, "*" + h.atm + "倍");
+                                    if (!h.atv && h.atw > 0.0d) {
+                                        com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(c.this.mContext, "*" + h.atw + "倍");
                                         SpannableString spannableString2 = new SpannableString(" rate");
                                         spannableString2.setSpan(aVar2, 1, spannableString2.length(), 33);
                                         spannableStringBuilder.append((CharSequence) spannableString2);
                                     }
-                                    if (!c.this.aih) {
-                                        cVar.aqP.setText(spannableStringBuilder);
+                                    if (!c.this.air) {
+                                        cVar.aqZ.setText(spannableStringBuilder);
                                     }
                                 }
                             } catch (OutOfMemoryError e3) {
@@ -135,7 +135,7 @@ public class c extends b {
                     }
                 }
             }, null);
-            this.aih = false;
+            this.air = false;
         }
         return spannableStringBuilder;
     }
@@ -150,16 +150,16 @@ public class c extends b {
             }
             a aVar2 = new a();
             aVar2.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            aVar2.agX = jSONObject.optString("gift_count");
+            aVar2.ahh = jSONObject.optString("gift_count");
             aVar2.giftName = jSONObject.optString("gift_name");
-            aVar2.atj = jSONObject.optString("gift_url");
-            aVar2.atk = jSONObject.optString("charm_value");
-            aVar2.atl = jSONObject.optInt("is_free") == 1;
-            aVar2.atm = jSONObject.optDouble("gift_rate");
-            com.baidu.live.gift.g dp = t.dp(aVar2.giftId);
-            if (dp != null) {
-                aVar2.giftName = dp.ry();
-                aVar2.atj = dp.rA();
+            aVar2.att = jSONObject.optString("gift_url");
+            aVar2.atu = jSONObject.optString("charm_value");
+            aVar2.atv = jSONObject.optInt("is_free") == 1;
+            aVar2.atw = jSONObject.optDouble("gift_rate");
+            com.baidu.live.gift.g m19do = t.m19do(aVar2.giftId);
+            if (m19do != null) {
+                aVar2.giftName = m19do.rD();
+                aVar2.att = m19do.rF();
                 return aVar2;
             }
             return aVar2;
@@ -171,11 +171,11 @@ public class c extends b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        public String agX;
-        public String atj;
-        public String atk;
-        public boolean atl;
-        public double atm;
+        public String ahh;
+        public String att;
+        public String atu;
+        public boolean atv;
+        public double atw;
         public String giftId;
         public String giftName;
 

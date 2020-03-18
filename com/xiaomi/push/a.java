@@ -28,7 +28,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m122a() {
+    public byte[] m120a() {
         int length = this.f111a.length;
         byte[] bArr = new byte[length];
         System.arraycopy(this.f111a, 0, bArr, 0, length);

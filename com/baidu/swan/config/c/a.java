@@ -6,11 +6,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.config.core.a.a {
     @Override // com.baidu.swan.config.core.a.c
-    public JSONObject ajd() {
+    public JSONObject ajg() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("version", c.aje().ajf());
+            jSONObject2.put("version", c.ajh().aji());
             jSONObject.put("base_info", jSONObject2);
         } catch (JSONException e) {
             if (e.DEBUG) {

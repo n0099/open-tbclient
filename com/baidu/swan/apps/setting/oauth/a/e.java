@@ -20,58 +20,58 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bTR;
-    public b.a bUd;
-    public b bUe = new b(Looper.getMainLooper(), this);
-    public Bundle bUf;
-    protected JSONObject bUg;
+    protected String bUc;
+    public b.a bUo;
+    public b bUp = new b(Looper.getMainLooper(), this);
+    public Bundle bUq;
+    protected JSONObject bUr;
     protected final Activity mActivity;
 
     public e(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.bUd = aVar;
+        this.bUo = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.bTR = bundle.getString("__plugin__");
+            this.bUc = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.bUf = bundle;
+        this.bUq = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aeg() {
+    protected boolean aej() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.bTR);
-            jSONObject.put("ma_id", isEmpty ? adb().id : this.bTR);
+            boolean isEmpty = TextUtils.isEmpty(this.bUc);
+            jSONObject.put("ma_id", isEmpty ? ade().id : this.bUc);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? adb().getAppKey() : this.bTR);
+            jSONObject2.put("app_key", isEmpty ? ade().getAppKey() : this.bUc);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String Ic = com.baidu.swan.apps.w.a.Ui().Ic();
-            if (!TextUtils.isEmpty(Ic)) {
-                jSONObject2.put("host_api_key", Ic);
+            String If = com.baidu.swan.apps.w.a.Ul().If();
+            if (!TextUtils.isEmpty(If)) {
+                jSONObject2.put("host_api_key", If);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bl("data", jSONObject.toString());
+        bk("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Ui().d(this.mActivity, gVar.aeB());
+        return com.baidu.swan.apps.w.a.Ul().d(this.mActivity, gVar.aeE());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aef() {
-        a(aez());
-        return super.aef();
+    protected boolean aei() {
+        a(aeC());
+        return super.aei();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d aez() {
+    protected com.baidu.swan.apps.setting.oauth.d aeC() {
         return new a();
     }
 
@@ -100,7 +100,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.bUe.removeMessages(1);
+        this.bUp.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,14 +110,14 @@ public class e extends g<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean ael() throws Exception {
-            com.baidu.swan.apps.a.b acQ = e.this.adb().acQ();
-            boolean isLogin = acQ.isLogin(e.this.mActivity);
+        protected boolean aeo() throws Exception {
+            com.baidu.swan.apps.a.b acT = e.this.ade().acT();
+            boolean isLogin = acT.isLogin(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                acQ.a(e.this.mActivity, e.this.bUf, this);
+                acT.a(e.this.mActivity, e.this.bUq, this);
             }
             return isLogin;
         }
@@ -137,7 +137,7 @@ public class e extends g<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    aen();
+                    aeq();
                     return;
             }
         }
@@ -158,16 +158,16 @@ public class e extends g<c> {
 
     /* loaded from: classes11.dex */
     public static class b extends Handler {
-        private WeakReference<e> bUi;
+        private WeakReference<e> bUt;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.bUi = new WeakReference<>(eVar);
+            this.bUt = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.bUi.get();
+            e eVar = this.bUt.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:

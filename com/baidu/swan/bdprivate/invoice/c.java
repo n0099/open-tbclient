@@ -31,7 +31,7 @@ public interface c {
         void b(InvoiceInfo invoiceInfo);
     }
 
-    void bx(String str, String str2);
+    void bw(String str, String str2);
 
-    void nm(String str);
+    void nl(String str);
 }

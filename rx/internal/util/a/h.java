@@ -1,11 +1,11 @@
 package rx.internal.util.a;
 /* loaded from: classes6.dex */
 public final class h {
-    public static int NA(int i) {
+    public static int NG(int i) {
         return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
     }
 
-    public static boolean Oa(int i) {
+    public static boolean Og(int i) {
         return ((i + (-1)) & i) == 0;
     }
 }

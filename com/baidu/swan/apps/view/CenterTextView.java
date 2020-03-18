@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes11.dex */
 public class CenterTextView extends TextView {
-    private StaticLayout bZt;
-    private TextPaint bZu;
+    private StaticLayout bZE;
+    private TextPaint bZF;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -23,14 +23,14 @@ public class CenterTextView extends TextView {
     }
 
     private void initView() {
-        this.bZu = new TextPaint(1);
-        this.bZu.setTextSize(getTextSize());
-        this.bZu.setColor(getCurrentTextColor());
-        this.bZt = new StaticLayout(getText(), this.bZu, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        this.bZF = new TextPaint(1);
+        this.bZF.setTextSize(getTextSize());
+        this.bZF.setColor(getCurrentTextColor());
+        this.bZE = new StaticLayout(getText(), this.bZF, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        this.bZt.draw(canvas);
+        this.bZE.draw(canvas);
     }
 }

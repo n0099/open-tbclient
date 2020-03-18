@@ -18,12 +18,12 @@ import java.util.List;
 @SuppressLint({"UseSparseArrays"})
 /* loaded from: classes8.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> ebA = new SparseArray<>();
-    private static HashMap<C0410a, Integer> ebB = new HashMap<>();
-    private static HashMap<C0410a, Integer> ebC = new HashMap<>();
+    private static SparseArray<Integer> ebQ = new SparseArray<>();
+    private static HashMap<C0410a, Integer> ebR = new HashMap<>();
+    private static HashMap<C0410a, Integer> ebS = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
-    private b ebD;
-    private NewFriendsActivity ebz;
+    private NewFriendsActivity ebP;
+    private b ebT;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -31,40 +31,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
     }
 
     static {
-        ebA.put(0, Integer.valueOf((int) R.string.add));
-        ebA.put(4, Integer.valueOf((int) R.string.added));
-        ebA.put(1, Integer.valueOf((int) R.string.pass));
-        ebA.put(2, Integer.valueOf((int) R.string.passed));
-        ebA.put(3, Integer.valueOf((int) R.string.waiting));
-        ebB.put(new C0410a(false), Integer.valueOf((int) R.drawable.btn_pass));
-        ebB.put(new C0410a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
-        ebC.put(new C0410a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
-        ebC.put(new C0410a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+        ebQ.put(0, Integer.valueOf((int) R.string.add));
+        ebQ.put(4, Integer.valueOf((int) R.string.added));
+        ebQ.put(1, Integer.valueOf((int) R.string.pass));
+        ebQ.put(2, Integer.valueOf((int) R.string.passed));
+        ebQ.put(3, Integer.valueOf((int) R.string.waiting));
+        ebR.put(new C0410a(false), Integer.valueOf((int) R.drawable.btn_pass));
+        ebR.put(new C0410a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        ebS.put(new C0410a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        ebS.put(new C0410a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     private static class C0410a {
-        private boolean ebE;
+        private boolean ebU;
 
         public C0410a(boolean z) {
-            this.ebE = z;
+            this.ebU = z;
         }
 
         public int hashCode() {
-            return (this.ebE ? 1231 : 1237) + 31;
+            return (this.ebU ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.ebE == ((C0410a) obj).ebE;
+            return obj != null && getClass() == obj.getClass() && this.ebU == ((C0410a) obj).ebU;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.ebz = newFriendsActivity;
+        this.ebP = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: om */
+    /* renamed from: oo */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.ebF = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.ebG = (TextView) view.findViewById(R.id.friend_name);
-            cVar.ebH = (TextView) view.findViewById(R.id.friend_info);
-            cVar.ebI = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.ebV = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.ebW = (TextView) view.findViewById(R.id.friend_name);
+            cVar.ebX = (TextView) view.findViewById(R.id.friend_info);
+            cVar.ebY = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.ebI.setTag(Integer.valueOf(i));
-        cVar.ebI.setOnClickListener(this);
-        this.ebz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.ebz.getLayoutMode().onModeChanged(view);
-        Integer num = ebB.get(new C0410a(item.getStatus() == 1));
+        cVar.ebY.setTag(Integer.valueOf(i));
+        cVar.ebY.setOnClickListener(this);
+        this.ebP.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ebP.getLayoutMode().onModeChanged(view);
+        Integer num = ebR.get(new C0410a(item.getStatus() == 1));
         if (num != null) {
-            am.setBackgroundResource(cVar.ebI, num.intValue());
+            am.setBackgroundResource(cVar.ebY, num.intValue());
         }
-        Integer num2 = ebC.get(new C0410a(item.getStatus() == 1));
+        Integer num2 = ebS.get(new C0410a(item.getStatus() == 1));
         if (num2 != null) {
-            am.setViewTextColor(cVar.ebI, num2.intValue(), 1);
+            am.setViewTextColor(cVar.ebY, num2.intValue(), 1);
         }
         return view;
     }
@@ -168,38 +168,38 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes8.dex */
     private static class c {
-        HeadImageView ebF;
-        TextView ebG;
-        TextView ebH;
-        TextView ebI;
+        HeadImageView ebV;
+        TextView ebW;
+        TextView ebX;
+        TextView ebY;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.ebF.startLoad(aVar.getPortrait(), 12, false);
-            this.ebG.setText(aVar.getName());
+            this.ebV.startLoad(aVar.getPortrait(), 12, false);
+            this.ebW.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.ebH.setText(aVar.getContent());
+                this.ebX.setText(aVar.getContent());
             } else {
-                this.ebH.setText("");
+                this.ebX.setText("");
             }
             int status = aVar.getStatus();
-            this.ebI.setText(((Integer) a.ebA.get(status)).intValue());
-            this.ebI.setEnabled(status == 0 || status == 1);
+            this.ebY.setText(((Integer) a.ebQ.get(status)).intValue());
+            this.ebY.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ebD != null) {
+        if (this.ebT != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.ebD.a(id, intValue, view, getItem(intValue));
+            this.ebT.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.ebD = bVar;
+        this.ebT = bVar;
     }
 }

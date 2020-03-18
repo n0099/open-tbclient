@@ -3,18 +3,18 @@ package com.baidu.rtc.camera.engine.a;
 import com.baidu.rtc.camera.engine.model.AspectRatio;
 /* loaded from: classes6.dex */
 public final class b {
-    private static final b aWG = new b();
-    public int aWA;
-    public int aWB;
-    public boolean aWC;
-    public boolean aWD;
-    public com.baidu.rtc.camera.engine.b.a aWE;
-    public com.baidu.rtc.camera.engine.b.b aWF;
-    public boolean aWv;
-    public AspectRatio aWw;
-    public float aWx;
-    public int aWy;
-    public int aWz;
+    private static final b aWT = new b();
+    public boolean aWI;
+    public AspectRatio aWJ;
+    public float aWK;
+    public int aWL;
+    public int aWM;
+    public int aWN;
+    public int aWO;
+    public boolean aWP;
+    public boolean aWQ;
+    public com.baidu.rtc.camera.engine.b.a aWR;
+    public com.baidu.rtc.camera.engine.b.b aWS;
     public int cameraId;
     public int orientation;
     public int previewHeight;
@@ -25,29 +25,29 @@ public final class b {
     }
 
     private void reset() {
-        this.aWv = false;
-        this.aWw = AspectRatio.Ratio_16_9;
-        this.aWx = 0.5625f;
-        this.aWy = 30;
-        this.aWz = 0;
-        this.aWA = 1280;
-        this.aWB = 720;
+        this.aWI = false;
+        this.aWJ = AspectRatio.Ratio_16_9;
+        this.aWK = 0.5625f;
+        this.aWL = 30;
+        this.aWM = 0;
+        this.aWN = 1280;
+        this.aWO = 720;
         this.previewWidth = 0;
         this.previewHeight = 0;
         this.orientation = 0;
-        this.aWC = false;
+        this.aWP = false;
         this.cameraId = 1;
-        this.aWD = false;
-        this.aWE = null;
-        this.aWF = null;
+        this.aWQ = false;
+        this.aWR = null;
+        this.aWS = null;
     }
 
-    public static b Fn() {
-        return aWG;
+    public static b Fs() {
+        return aWT;
     }
 
-    public void bO(boolean z) {
-        this.aWC = z;
+    public void bP(boolean z) {
+        this.aWP = z;
         if (z) {
             this.cameraId = 0;
         } else {

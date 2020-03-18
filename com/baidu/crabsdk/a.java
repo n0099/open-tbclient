@@ -2,12 +2,13 @@ package com.baidu.crabsdk;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 public final class a {
-    public static OnAnrCrashListener N;
-    public static OnCrashExceedListener O;
+    public static OnAnrCrashListener P;
+    public static OnCrashExceedListener Q;
     public static String a = "";
     public static String b = "alpha";
     public static String c = null;
@@ -46,23 +47,29 @@ public final class a {
     public static boolean J = false;
     public static boolean K = true;
     public static boolean L = false;
-    public static boolean M = false;
-    public static String P = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
-    public static String Q = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+    public static ArrayList<String> M = new ArrayList<>();
+    public static boolean N = false;
+    public static String O = "https://crab.baidu.com/";
+    public static String R = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+    public static String S = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
 
     public static String a() {
-        return E ? "https://crab.baidu.com/api_int/add_crab" : P;
+        return E ? O + "api_int/add_crab" : R;
     }
 
     public static String b() {
-        return E ? "https://crab.baidu.com/api_anr/add_crab" : Q;
+        return E ? O + "api_anr/add_crab" : S;
     }
 
     public static String c() {
-        return E ? "https://crab.baidu.com/api/newsync2" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/newsync2";
+        return E ? O + "api/newsync2" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/newsync2";
     }
 
     public static String d() {
-        return E ? "https://crab.baidu.com/api/add_crab" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+        return E ? O + "api/add_crab" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+    }
+
+    public static String e() {
+        return E ? "https://qapm.baidu.com/api/mobile/upload-user-log" : "http://cp01-huatuo-odp.epc.baidu.com:8222/api/mobile/upload-user-log";
     }
 }

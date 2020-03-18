@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap dap;
+    private static ap daD;
 
-    public static synchronized ap aGA() {
+    public static synchronized ap aGE() {
         ap apVar;
         synchronized (ap.class) {
-            if (dap == null) {
-                dap = new ap();
+            if (daD == null) {
+                daD = new ap();
             }
-            apVar = dap;
+            apVar = daD;
         }
         return apVar;
     }
 
-    public String tw(String str) {
+    public String tv(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class ap {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.getImage(tw(str), str);
+        return m.getImage(tv(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.isGif(tw(str), str);
+        return m.isGif(tv(str), str);
     }
 
-    public int tx(String str) {
+    public int tw(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.checkImageFileSize(tw(str), str);
+        return (int) m.checkImageFileSize(tv(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class ap {
         if (!m.CheckTempDir(str3)) {
             m.makeRootDirectory(str3);
         }
-        String str4 = str3 + tw(str2);
+        String str4 = str3 + tv(str2);
         if (!m.CheckTempDir(str4)) {
             m.makeRootDirectory(str4);
         }
@@ -69,7 +69,7 @@ public class ap {
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(tw(str), str, bArr);
+            m.c(tv(str), str, bArr);
         }
     }
 
@@ -86,7 +86,7 @@ public class ap {
         }
     }
 
-    public void aGB() {
+    public void aGF() {
         G(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
     }
 

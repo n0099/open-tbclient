@@ -6,38 +6,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class an {
-    private String acI;
-    private String acJ;
-    private String acK;
-    private String acL;
-    private String acM;
+    private String acS;
+    private String acT;
+    private String acU;
+    private String acV;
+    private String acW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(String str) {
         parserJson(str);
     }
 
-    public boolean qI() {
-        return "1".equals(this.acJ);
+    public boolean qN() {
+        return "1".equals(this.acT);
     }
 
-    public boolean qJ() {
-        return "1".equals(this.acK);
+    public boolean qO() {
+        return "1".equals(this.acU);
     }
 
-    public boolean qK() {
-        return "1".equals(this.acM);
+    public boolean qP() {
+        return "1".equals(this.acW);
     }
 
     private void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.acI = jSONObject.optString("is_prettify");
-                this.acJ = jSONObject.optString("is_stickers");
-                this.acK = jSONObject.optString("is_privilegewin");
-                this.acL = jSONObject.optString("unused_text");
-                this.acM = jSONObject.optString("is_wishlist", "1");
+                this.acS = jSONObject.optString("is_prettify");
+                this.acT = jSONObject.optString("is_stickers");
+                this.acU = jSONObject.optString("is_privilegewin");
+                this.acV = jSONObject.optString("unused_text");
+                this.acW = jSONObject.optString("is_wishlist", "1");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -45,14 +45,14 @@ public class an {
     }
 
     public static boolean a(ap apVar) {
-        return TbadkCoreApplication.getInst().isTieba() || !(apVar == null || apVar.acQ == null || !"0".equals(apVar.acQ.acI));
+        return TbadkCoreApplication.getInst().isTieba() || !(apVar == null || apVar.ada == null || !"0".equals(apVar.ada.acS));
     }
 
     public static boolean b(ap apVar) {
-        return (TbadkCoreApplication.getInst().isTieba() || apVar == null || apVar.acQ == null || !"1".equals(apVar.acQ.acI)) ? false : true;
+        return (TbadkCoreApplication.getInst().isTieba() || apVar == null || apVar.ada == null || !"1".equals(apVar.ada.acS)) ? false : true;
     }
 
     public static boolean c(ap apVar) {
-        return (apVar == null || apVar.acQ == null || !"3".equals(apVar.acQ.acI)) ? false : true;
+        return (apVar == null || apVar.ada == null || !"3".equals(apVar.ada.acS)) ? false : true;
     }
 }

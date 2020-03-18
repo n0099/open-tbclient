@@ -22,7 +22,7 @@ public class CrashReportPlugin implements FlutterPlugin, MethodChannel.MethodCal
             HashMap hashMap = (HashMap) methodCall.argument("custom");
             ArrayList arrayList = (ArrayList) methodCall.argument("stackframes");
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("TbAndroidFlutter page:" + ((String) methodCall.argument("page")) + "\n  meaasge:" + ((String) methodCall.argument("message")) + "\n");
+            stringBuffer.append("TbAndroidFlutter page:" + ((String) methodCall.argument("page")) + "\n  message:" + ((String) methodCall.argument("message")) + "\n");
             if (hashMap != null) {
                 stringBuffer.append("custom:" + hashMap.toString() + "\n");
             }

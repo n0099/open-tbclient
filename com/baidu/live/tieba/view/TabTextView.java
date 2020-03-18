@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class TabTextView extends TextView {
-    private int aBB;
-    private int aBC;
-    private float aBN;
-    private boolean aBO;
-    private LinearGradient aBP;
-    private boolean aBQ;
+    private int aBP;
+    private int aBQ;
+    private float aCb;
+    private boolean aCc;
+    private LinearGradient aCd;
+    private boolean aCe;
     private float mSelectedTextSize;
 
     public TabTextView(Context context) {
@@ -29,52 +29,52 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBQ = true;
+        this.aCe = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_TabTextView);
-        this.aBB = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
-        this.aBC = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
-        this.aBN = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.aBP = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
+        this.aBQ = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
+        this.aCb = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
         this.mSelectedTextSize = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.aBO = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
+        this.aCc = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        bp(false);
+        bq(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        bp(z);
         bq(z);
         br(z);
+        bs(z);
     }
 
     public void setGradientAttrs(int i, int i2, float f, float f2, boolean z) {
-        this.aBB = i;
-        this.aBC = i2;
-        this.aBN = f;
+        this.aBP = i;
+        this.aBQ = i2;
+        this.aCb = f;
         this.mSelectedTextSize = f2;
-        this.aBO = z;
+        this.aCc = z;
         invalidate();
     }
 
-    private boolean Ag() {
-        return (this.aBB == -1 || this.aBC == -1) ? false : true;
+    private boolean An() {
+        return (this.aBP == -1 || this.aBQ == -1) ? false : true;
     }
 
-    private void bp(boolean z) {
-        if (this.aBQ) {
+    private void bq(boolean z) {
+        if (this.aCe) {
             if (z) {
                 if (this.mSelectedTextSize != -1.0f) {
                     setTextSize(0, this.mSelectedTextSize);
                 }
-            } else if (this.aBN != -1.0f) {
-                setTextSize(0, this.aBN);
+            } else if (this.aCb != -1.0f) {
+                setTextSize(0, this.aCb);
             }
         }
     }
 
-    public TabTextView bq(boolean z) {
-        if (this.aBO) {
+    public TabTextView br(boolean z) {
+        if (this.aCc) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -84,16 +84,16 @@ public class TabTextView extends TextView {
         return this;
     }
 
-    private void br(boolean z) {
-        if (z && Ag()) {
-            if (this.aBP == null) {
+    private void bs(boolean z) {
+        if (z && An()) {
+            if (this.aCd == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.aBP = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.aBB, this.aBC}, (float[]) null, Shader.TileMode.CLAMP);
+                this.aCd = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.aBP, this.aBQ}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.aBP);
+            getPaint().setShader(this.aCd);
             return;
         }
         getPaint().setShader(null);

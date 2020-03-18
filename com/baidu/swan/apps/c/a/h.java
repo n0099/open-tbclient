@@ -6,8 +6,8 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    private static String bcs;
-    public static final h bct = new h();
+    private static String bcF;
+    public static final h bcG = new h();
 
     private h() {
     }
@@ -22,32 +22,32 @@ public final class h {
     private final void M(JSONObject jSONObject) {
         String optString = jSONObject.optString("uk");
         f.c(Long.valueOf(jSONObject.optLong("refresh_time")));
-        com.baidu.swan.apps.storage.c.b afr = com.baidu.swan.apps.storage.c.h.afr();
-        afr.putString("alliance_login_uk", optString);
-        Long Js = f.Js();
-        if (Js != null) {
-            afr.putLong("ma_bduss_refresh_time", Js.longValue());
+        com.baidu.swan.apps.storage.c.b afu = com.baidu.swan.apps.storage.c.h.afu();
+        afu.putString("alliance_login_uk", optString);
+        Long Jv = f.Jv();
+        if (Jv != null) {
+            afu.putLong("ma_bduss_refresh_time", Jv.longValue());
         }
     }
 
-    private final String Jx() {
-        com.baidu.swan.apps.storage.c.b afr = com.baidu.swan.apps.storage.c.h.afr();
-        if (afr != null) {
-            return afr.getString("alliance_login_uk", null);
+    private final String JA() {
+        com.baidu.swan.apps.storage.c.b afu = com.baidu.swan.apps.storage.c.h.afu();
+        if (afu != null) {
+            return afu.getString("alliance_login_uk", null);
         }
         return null;
     }
 
     public final String getUid() {
-        String str = bcs;
+        String str = bcF;
         if (str == null || l.isBlank(str)) {
-            bcs = Jx();
+            bcF = JA();
         }
-        return bcs;
+        return bcF;
     }
 
-    public final void Jy() {
-        com.baidu.swan.apps.storage.c.h.afr().putString("alliance_login_uk", "");
-        bcs = null;
+    public final void JB() {
+        com.baidu.swan.apps.storage.c.h.afu().putString("alliance_login_uk", "");
+        bcF = null;
     }
 }

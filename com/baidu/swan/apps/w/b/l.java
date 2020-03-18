@@ -33,11 +33,11 @@ public interface l {
     public interface f {
     }
 
-    void HP();
+    void HS();
 
-    void HR();
+    void HU();
 
-    void Vl();
+    void Vo();
 
     l a(Context context, @NonNull com.baidu.swan.apps.media.c.c cVar);
 
@@ -61,9 +61,9 @@ public interface l {
 
     void b(com.baidu.swan.apps.media.c.c cVar);
 
-    void cJ(boolean z);
-
     void cK(boolean z);
+
+    void cL(boolean z);
 
     void f(boolean z, int i);
 
@@ -71,7 +71,7 @@ public interface l {
 
     int getDuration();
 
-    void ij(String str);
+    void ii(String str);
 
     boolean isEnd();
 

@@ -8,33 +8,33 @@ public class b {
     @ColorInt
     public final int color;
     public final String fontName;
-    public final double hs;
-    final int ht;
-    public final int hu;
-    final double hv;
-    public final double hw;
+    public final double hr;
+    final int hs;
+    public final int ht;
+    final double hu;
+    public final double hv;
     @ColorInt
-    public final int hx;
-    public final double hy;
-    public final boolean hz;
+    public final int hw;
+    public final double hx;
+    public final boolean hy;
     public final String text;
 
     public b(String str, String str2, double d, int i, int i2, double d2, double d3, @ColorInt int i3, @ColorInt int i4, double d4, boolean z) {
         this.text = str;
         this.fontName = str2;
-        this.hs = d;
-        this.ht = i;
-        this.hu = i2;
-        this.hv = d2;
-        this.hw = d3;
+        this.hr = d;
+        this.hs = i;
+        this.ht = i2;
+        this.hu = d2;
+        this.hv = d3;
         this.color = i3;
-        this.hx = i4;
-        this.hy = d4;
-        this.hz = z;
+        this.hw = i4;
+        this.hx = d4;
+        this.hy = z;
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.hv);
-        return (((((((((int) ((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.hs)) * 31) + this.ht) * 31) + this.hu) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.hu);
+        return (((((((((int) ((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.hr)) * 31) + this.hs) * 31) + this.ht) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

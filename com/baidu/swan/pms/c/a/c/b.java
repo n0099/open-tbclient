@@ -12,42 +12,42 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class b {
-    private f cBs;
-    private AtomicBoolean cBt = new AtomicBoolean(false);
-    private com.baidu.swan.pms.c.a.d.b cBu = new com.baidu.swan.pms.c.a.d.b() { // from class: com.baidu.swan.pms.c.a.c.b.1
+    private f cBD;
+    private AtomicBoolean cBE = new AtomicBoolean(false);
+    private com.baidu.swan.pms.c.a.d.b cBF = new com.baidu.swan.pms.c.a.d.b() { // from class: com.baidu.swan.pms.c.a.c.b.1
         @Override // com.baidu.swan.pms.c.a.d.b
         public <T> void d(f<T> fVar) {
-            b.this.cBs = fVar;
+            b.this.cBD = fVar;
         }
 
         @Override // com.baidu.swan.pms.c.a.d.b
         public <T> void e(f<T> fVar) {
-            if (b.this.cBs == fVar) {
-                b.this.cBs = null;
+            if (b.this.cBD == fVar) {
+                b.this.cBD = null;
             }
         }
     };
-    private l cBv = new l(this.cBu);
-    private com.baidu.swan.pms.c.a.d.a cBw = new com.baidu.swan.pms.c.a.d.a() { // from class: com.baidu.swan.pms.c.a.c.b.2
+    private l cBG = new l(this.cBF);
+    private com.baidu.swan.pms.c.a.d.a cBH = new com.baidu.swan.pms.c.a.d.a() { // from class: com.baidu.swan.pms.c.a.c.b.2
         @Override // com.baidu.swan.pms.c.a.d.a
-        public Runnable eZ(boolean z) {
-            return b.this.eY(z);
+        public Runnable fa(boolean z) {
+            return b.this.eZ(z);
         }
     };
-    private c cBp = new c();
-    private BlockingQueue<Runnable> cBq = new LinkedBlockingQueue();
-    private ThreadPoolExecutor cBr = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.cBq);
+    private c cBA = new c();
+    private BlockingQueue<Runnable> cBB = new LinkedBlockingQueue();
+    private ThreadPoolExecutor cBC = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.cBB);
 
     public void a(com.baidu.swan.pms.c.a.d.b bVar) {
-        this.cBv.e(bVar);
+        this.cBG.e(bVar);
     }
 
     public void b(com.baidu.swan.pms.c.a.d.b bVar) {
-        this.cBv.f(bVar);
+        this.cBG.f(bVar);
     }
 
     public b() {
-        a(this.cBp);
+        a(this.cBA);
     }
 
     public synchronized <T> void b(f<T> fVar) {
@@ -56,27 +56,27 @@ public class b {
     }
 
     public synchronized <T> void c(f<T> fVar) {
-        this.cBp.f(fVar);
+        this.cBA.f(fVar);
         if (d.DEBUG) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.cBp);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.cBq);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.cBA);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.cBB);
         }
     }
 
     public synchronized void start() {
-        if (this.cBq.size() < 1) {
-            this.cBr.execute(new g(this.cBt, this.cBv, this.cBw));
+        if (this.cBB.size() < 1) {
+            this.cBC.execute(new g(this.cBE, this.cBG, this.cBH));
         }
     }
 
-    public synchronized Runnable eY(boolean z) {
+    public synchronized Runnable eZ(boolean z) {
         f fVar;
-        if (this.cBp != null) {
+        if (this.cBA != null) {
             if (z) {
-                fVar = this.cBp.atR();
+                fVar = this.cBA.atU();
             } else {
-                fVar = this.cBp.get();
+                fVar = this.cBA.get();
             }
         } else {
             fVar = null;

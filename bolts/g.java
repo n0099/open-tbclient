@@ -8,24 +8,26 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
 public class g<TResult> {
-    private static volatile a dj;
+    private static volatile a di;
     private boolean cancelled;
     private boolean complete;
-    private Exception dk;
-    private boolean dl;
+    private Exception dj;
+    private boolean dk;
+    private i dl;
+    private TResult result;
+
+    /* renamed from: de  reason: collision with root package name */
+    public static final ExecutorService f969de = b.aO();
+    private static final Executor dg = b.aP();
+    public static final Executor dh = bolts.a.aM();
+    private static g<?> dp = new g<>((Object) null);
+    private static g<Boolean> dq = new g<>(true);
+    private static g<Boolean> dr = new g<>(false);
+    private static g<?> du = new g<>(true);
+    private final Object lock = new Object();
 
     /* renamed from: do  reason: not valid java name */
-    private i f0do;
-    private TResult result;
-    public static final ExecutorService dg = b.aO();
-    private static final Executor dh = b.aP();
-    public static final Executor di = bolts.a.aM();
-    private static g<?> dq = new g<>((Object) null);
-    private static g<Boolean> dr = new g<>(true);
-    private static g<Boolean> du = new g<>(false);
-    private static g<?> dv = new g<>(true);
-    private final Object lock = new Object();
-    private List<f<TResult, Void>> dp = new ArrayList();
+    private List<f<TResult, Void>> f0do = new ArrayList();
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -33,7 +35,7 @@ public class g<TResult> {
     }
 
     public static a aV() {
-        return dj;
+        return di;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -87,24 +89,24 @@ public class g<TResult> {
     public Exception aY() {
         Exception exc;
         synchronized (this.lock) {
-            if (this.dk != null) {
-                this.dl = true;
-                if (this.f0do != null) {
-                    this.f0do.bd();
-                    this.f0do = null;
+            if (this.dj != null) {
+                this.dk = true;
+                if (this.dl != null) {
+                    this.dl.bd();
+                    this.dl = null;
                 }
             }
-            exc = this.dk;
+            exc = this.dj;
         }
         return exc;
     }
 
     public static <TResult> g<TResult> j(TResult tresult) {
         if (tresult == null) {
-            return (g<TResult>) dq;
+            return (g<TResult>) dp;
         }
         if (tresult instanceof Boolean) {
-            return ((Boolean) tresult).booleanValue() ? (g<TResult>) dr : (g<TResult>) du;
+            return ((Boolean) tresult).booleanValue() ? (g<TResult>) dq : (g<TResult>) dr;
         }
         h hVar = new h();
         hVar.l(tresult);
@@ -154,7 +156,7 @@ public class g<TResult> {
         synchronized (this.lock) {
             aW = aW();
             if (!aW) {
-                this.dp.add(new f<TResult, Void>() { // from class: bolts.g.1
+                this.f0do.add(new f<TResult, Void>() { // from class: bolts.g.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // bolts.f
                     /* renamed from: b */
@@ -172,7 +174,7 @@ public class g<TResult> {
     }
 
     public <TContinuationResult> g<TContinuationResult> a(f<TResult, TContinuationResult> fVar) {
-        return a(fVar, dh, (c) null);
+        return a(fVar, dg, (c) null);
     }
 
     public <TContinuationResult> g<TContinuationResult> b(final f<TResult, g<TContinuationResult>> fVar, final Executor executor, final c cVar) {
@@ -181,7 +183,7 @@ public class g<TResult> {
         synchronized (this.lock) {
             aW = aW();
             if (!aW) {
-                this.dp.add(new f<TResult, Void>() { // from class: bolts.g.2
+                this.f0do.add(new f<TResult, Void>() { // from class: bolts.g.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // bolts.f
                     /* renamed from: b */
@@ -199,7 +201,7 @@ public class g<TResult> {
     }
 
     public <TContinuationResult> g<TContinuationResult> b(f<TResult, g<TContinuationResult>> fVar) {
-        return b(fVar, dh, null);
+        return b(fVar, dg, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -279,7 +281,7 @@ public class g<TResult> {
 
     private void aZ() {
         synchronized (this.lock) {
-            for (f<TResult, Void> fVar : this.dp) {
+            for (f<TResult, Void> fVar : this.f0do) {
                 try {
                     fVar.a(this);
                 } catch (RuntimeException e) {
@@ -288,7 +290,7 @@ public class g<TResult> {
                     throw new RuntimeException(e2);
                 }
             }
-            this.dp = null;
+            this.f0do = null;
         }
     }
 
@@ -331,12 +333,12 @@ public class g<TResult> {
                 return false;
             }
             this.complete = true;
-            this.dk = exc;
-            this.dl = false;
+            this.dj = exc;
+            this.dk = false;
             this.lock.notifyAll();
             aZ();
-            if (!this.dl && aV() != null) {
-                this.f0do = new i(this);
+            if (!this.dk && aV() != null) {
+                this.dl = new i(this);
             }
             return true;
         }

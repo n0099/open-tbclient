@@ -19,33 +19,33 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static volatile a mRu = null;
+    private static volatile a mTe = null;
     private ExecutorService b = Executors.newFixedThreadPool(3, new b("ParserMgr", 0));
-    private final RequestTag mRv = new RequestTag();
+    private final RequestTag mTf = new RequestTag();
 
     /* renamed from: com.kascend.chushou.player.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0695a {
+    public interface InterfaceC0696a {
         void a(ParserRet parserRet);
     }
 
-    public static a dCL() {
-        if (mRu == null) {
+    public static a dDj() {
+        if (mTe == null) {
             synchronized (a.class) {
-                if (mRu == null) {
-                    mRu = new a();
+                if (mTe == null) {
+                    mTe = new a();
                 }
             }
         }
-        return mRu;
+        return mTe;
     }
 
     private a() {
-        this.mRv.signType = 1;
-        this.mRv.thread = EventThread.EXECUTOR;
-        this.mRv.executorService = this.b;
-        this.mRv.supportEmpty = false;
-        this.mRv.respType = JSONObject.class;
+        this.mTf.signType = 1;
+        this.mTf.thread = EventThread.EXECUTOR;
+        this.mTf.executorService = this.b;
+        this.mTf.supportEmpty = false;
+        this.mTf.respType = JSONObject.class;
     }
 
     public static void b() {
@@ -58,26 +58,26 @@ public class a {
         return playUrl.mSelectedUrl;
     }
 
-    public void a(String str, String str2, final InterfaceC0695a interfaceC0695a) {
-        if (interfaceC0695a == null) {
+    public void a(String str, String str2, final InterfaceC0696a interfaceC0696a) {
+        if (interfaceC0696a == null) {
             e.e("ParserMgr", "callback is null");
         } else if (h.isEmpty(str) || h.isEmpty(str2)) {
             e.e("ParserMgr", "getPlayUrlAsync invalid param");
         } else {
             e.d("ParserMgr", "getPlayUrlAsync()<----");
             e.d("ParserMgr", "roomid=" + str + " protocal=" + str2);
-            Http http = (Http) tv.chushou.basis.d.b.dPW().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
             ParserRet parserRet = new ParserRet();
             parserRet.mRc = -1;
             if (http == null) {
-                interfaceC0695a.a(parserRet);
+                interfaceC0696a.a(parserRet);
                 return;
             }
             HashMap hashMap = new HashMap();
             hashMap.put("roomId", str);
             hashMap.put(WebSocketRequest.PARAM_KEY_PROTOCOLS, str2);
             hashMap.put("_v", "1");
-            http.getAsync(tv.chushou.common.a.dPX(), "api/live-room/get-play-url.htm?", hashMap, this.mRv, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.player.c.a.1
+            http.getAsync(tv.chushou.common.a.dQx(), "api/live-room/get-play-url.htm?", hashMap, this.mTf, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.player.c.a.1
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                 }
@@ -89,7 +89,7 @@ public class a {
                     if (resp.respJson != null) {
                         int optInt = resp.respJson.optInt("code", -1);
                         if (optInt == 0) {
-                            interfaceC0695a.a(com.kascend.chushou.c.e.dz(resp.respJson));
+                            interfaceC0696a.a(com.kascend.chushou.c.e.dz(resp.respJson));
                             return;
                         }
                         onFailure(optInt, "", null);
@@ -102,13 +102,13 @@ public class a {
                 public void onFailure(int i, @Nullable String str3, @Nullable Throwable th) {
                     ParserRet parserRet2 = new ParserRet();
                     parserRet2.mRc = -1;
-                    interfaceC0695a.a(parserRet2);
+                    interfaceC0696a.a(parserRet2);
                 }
             });
         }
     }
 
-    public ParserRet fu(final String str, final String str2) {
+    public ParserRet fs(final String str, final String str2) {
         e.d("ParserMgr", "getPlayUrlSync()<----");
         ParserRet parserRet = new ParserRet();
         parserRet.mRc = -1;
@@ -120,7 +120,7 @@ public class a {
             FutureTask futureTask = new FutureTask(new Callable<ParserRet>() { // from class: com.kascend.chushou.player.c.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: dCM */
+                /* renamed from: dDk */
                 public ParserRet call() throws Exception {
                     return a.this.E(str, str2, true);
                 }
@@ -134,21 +134,21 @@ public class a {
         }
     }
 
-    public void a(String str, final InterfaceC0695a interfaceC0695a, boolean z) {
+    public void a(String str, final InterfaceC0696a interfaceC0696a, boolean z) {
         e.d("ParserMgr", "getVideoPlayUrlAsync()<----");
-        if (interfaceC0695a != null && !h.isEmpty(str)) {
+        if (interfaceC0696a != null && !h.isEmpty(str)) {
             ParserRet parserRet = new ParserRet();
             parserRet.mRc = -1;
-            Http http = (Http) tv.chushou.basis.d.b.dPW().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
             if (http == null) {
-                interfaceC0695a.a(parserRet);
+                interfaceC0696a.a(parserRet);
                 return;
             }
             HashMap hashMap = new HashMap();
             hashMap.put("videoId", str);
             hashMap.put("_v", 1);
             hashMap.put("auto", z ? "1" : "0");
-            http.getAsync(tv.chushou.common.a.dPX(), "api/gamezone/playinfo/get.htm?", hashMap, this.mRv, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.player.c.a.3
+            http.getAsync(tv.chushou.common.a.dQx(), "api/gamezone/playinfo/get.htm?", hashMap, this.mTf, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.player.c.a.3
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                 }
@@ -160,7 +160,7 @@ public class a {
                     if (resp.respJson != null) {
                         int optInt = resp.respJson.optInt("code", -1);
                         if (optInt == 0) {
-                            interfaceC0695a.a(com.kascend.chushou.c.e.dz(resp.respJson));
+                            interfaceC0696a.a(com.kascend.chushou.c.e.dz(resp.respJson));
                             return;
                         }
                         onFailure(optInt, "", null);
@@ -173,7 +173,7 @@ public class a {
                 public void onFailure(int i, @Nullable String str2, @Nullable Throwable th) {
                     ParserRet parserRet2 = new ParserRet();
                     parserRet2.mRc = -1;
-                    interfaceC0695a.a(parserRet2);
+                    interfaceC0696a.a(parserRet2);
                 }
             });
         }
@@ -191,7 +191,7 @@ public class a {
             FutureTask futureTask = new FutureTask(new Callable<ParserRet>() { // from class: com.kascend.chushou.player.c.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: dCM */
+                /* renamed from: dDk */
                 public ParserRet call() throws Exception {
                     return a.this.o(str, true, z);
                 }
@@ -211,16 +211,16 @@ public class a {
         Http.Resp sync;
         ParserRet parserRet2 = new ParserRet();
         parserRet2.mRc = -1;
-        Http http = (Http) tv.chushou.basis.d.b.dPW().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
         if (http != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("roomId", str);
             hashMap.put(WebSocketRequest.PARAM_KEY_PROTOCOLS, str2);
             hashMap.put("_v", "1");
             try {
-                sync = http.getSync(tv.chushou.common.a.dPX(), "api/live-room/get-play-url.htm?", hashMap, this.mRv);
+                sync = http.getSync(tv.chushou.common.a.dQx(), "api/live-room/get-play-url.htm?", hashMap, this.mTf);
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dPV().e("ParserMgr", "同步获取直播地址失败", e);
+                tv.chushou.basis.d.b.dQv().e("ParserMgr", "同步获取直播地址失败", e);
             }
             if (sync.respJson != null) {
                 int optInt = sync.respJson.optInt("code", -1);
@@ -242,16 +242,16 @@ public class a {
         Http.Resp sync;
         ParserRet parserRet2 = new ParserRet();
         parserRet2.mRc = -1;
-        Http http = (Http) tv.chushou.basis.d.b.dPW().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
         if (http != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("videoId", str);
             hashMap.put("_v", 1);
             hashMap.put("auto", z2 ? "1" : "0");
             try {
-                sync = http.getSync(tv.chushou.common.a.dPX(), "api/gamezone/playinfo/get.htm?", hashMap, this.mRv);
+                sync = http.getSync(tv.chushou.common.a.dQx(), "api/gamezone/playinfo/get.htm?", hashMap, this.mTf);
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dPV().e("ParserMgr", "同步获取视频地址失败", e);
+                tv.chushou.basis.d.b.dQv().e("ParserMgr", "同步获取视频地址失败", e);
             }
             if (sync.respJson != null) {
                 int optInt = sync.respJson.optInt("code", -1);

@@ -47,9 +47,9 @@ public class hv implements ir<hv, Object>, Serializable, Cloneable {
         int a6;
         int a7;
         if (getClass().equals(hvVar.getClass())) {
-            int compareTo = Boolean.valueOf(m377a()).compareTo(Boolean.valueOf(hvVar.m377a()));
+            int compareTo = Boolean.valueOf(m375a()).compareTo(Boolean.valueOf(hvVar.m375a()));
             if (compareTo == 0) {
-                if (!m377a() || (a7 = is.a(this.f537a, hvVar.f537a)) == 0) {
+                if (!m375a() || (a7 = is.a(this.f537a, hvVar.f537a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hvVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a6 = is.a(this.f538a, hvVar.f538a)) == 0) {
@@ -102,70 +102,70 @@ public class hv implements ir<hv, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
-                if (!m377a()) {
+                if (!m375a()) {
                     throw new jd("Required field 'channelId' was not found in serialized data! Struct: " + toString());
                 }
                 a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f537a = jcVar.m467a();
+                        this.f537a = jcVar.m465a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f538a = jcVar.m473a();
+                        this.f538a = jcVar.m471a();
                         break;
                     }
                 case 3:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f541b = jcVar.m473a();
+                        this.f541b = jcVar.m471a();
                         break;
                     }
                 case 4:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f542c = jcVar.m473a();
+                        this.f542c = jcVar.m471a();
                         break;
                     }
                 case 5:
-                    if (m468a.a != 2) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 2) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f540a = jcVar.m477a();
+                        this.f540a = jcVar.m475a();
                         b(true);
                         break;
                     }
                 case 6:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 7:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f543d = jcVar.m473a();
+                        this.f543d = jcVar.m471a();
                         break;
                     }
             }
@@ -178,12 +178,12 @@ public class hv implements ir<hv, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m377a() {
+    public boolean m375a() {
         return this.f539a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m378a(hv hvVar) {
+    public boolean m376a(hv hvVar) {
         if (hvVar != null && this.f537a == hvVar.f537a) {
             boolean b2 = b();
             boolean b3 = hvVar.b();
@@ -245,7 +245,7 @@ public class hv implements ir<hv, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -270,7 +270,7 @@ public class hv implements ir<hv, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hv)) {
-            return m378a((hv) obj);
+            return m376a((hv) obj);
         }
         return false;
     }

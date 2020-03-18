@@ -44,17 +44,17 @@ public class f extends PopupWindow {
             f("mLastHeight", Integer.valueOf(i4));
             setHeight(i4);
         }
-        Object ej = ej("mContentView");
-        View view = ej instanceof View ? (View) ej : null;
+        Object ei = ei("mContentView");
+        View view = ei instanceof View ? (View) ei : null;
         if (isShowing() && view != null) {
-            Object ej2 = ej("mDecorView");
-            View view2 = ej2 instanceof View ? (View) ej2 : null;
+            Object ei2 = ei("mDecorView");
+            View view2 = ei2 instanceof View ? (View) ei2 : null;
             if (view2 != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
-                Object ej3 = ej("mWidthMode");
-                int intValue = ej3 != null ? ((Integer) ej3).intValue() : 0;
-                Object ej4 = ej("mLastWidth");
-                int intValue2 = ej4 != null ? ((Integer) ej4).intValue() : 0;
+                Object ei3 = ei("mWidthMode");
+                int intValue = ei3 != null ? ((Integer) ei3).intValue() : 0;
+                Object ei4 = ei("mLastWidth");
+                int intValue2 = ei4 != null ? ((Integer) ei4).intValue() : 0;
                 if (intValue >= 0) {
                     intValue = intValue2;
                 }
@@ -63,10 +63,10 @@ public class f extends PopupWindow {
                     f("mLastWidth", Integer.valueOf(intValue));
                     z = true;
                 }
-                Object ej5 = ej("mHeightMode");
-                int intValue3 = ej5 != null ? ((Integer) ej5).intValue() : 0;
-                Object ej6 = ej("mLastHeight");
-                int intValue4 = ej6 != null ? ((Integer) ej6).intValue() : 0;
+                Object ei5 = ei("mHeightMode");
+                int intValue3 = ei5 != null ? ((Integer) ei5).intValue() : 0;
+                Object ei6 = ei("mLastHeight");
+                int intValue4 = ei6 != null ? ((Integer) ei6).intValue() : 0;
                 if (intValue3 >= 0) {
                     intValue3 = intValue4;
                 }
@@ -98,8 +98,8 @@ public class f extends PopupWindow {
                 }
                 if (z2) {
                     c("setLayoutDirectionFromAnchor", null, null);
-                    Object ej7 = ej("mWindowManager");
-                    WindowManager windowManager = ej7 instanceof WindowManager ? (WindowManager) ej7 : null;
+                    Object ei7 = ei("mWindowManager");
+                    WindowManager windowManager = ei7 instanceof WindowManager ? (WindowManager) ei7 : null;
                     if (windowManager != null) {
                         windowManager.updateViewLayout(view2, layoutParams);
                     }
@@ -108,7 +108,7 @@ public class f extends PopupWindow {
         }
     }
 
-    private Object ej(String str) {
+    private Object ei(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -31,7 +31,7 @@ public class an {
         this.key = str;
     }
 
-    public an cy(String str, String str2) {
+    public an cx(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
@@ -61,22 +61,22 @@ public class an {
         }
     }
 
-    public boolean tu(String str) {
+    public boolean tt(String str) {
         int indexOf;
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public an aGy() {
+    public an aGC() {
         an anVar = new an(getKey());
         anVar.aB(getParams());
         return anVar;
     }
 
-    public void aGz() {
+    public void aGD() {
         TiebaStatic.log(this);
     }
 
-    public static an tv(String str) {
+    public static an tu(String str) {
         return new an(str);
     }
 }

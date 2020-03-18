@@ -11,11 +11,11 @@ import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes13.dex */
 public class c extends e {
-    private TextView cbL;
-    private HeadImageView gUd;
-    private TextView jMn;
-    private CountDownTextView jMt;
-    private boolean jMu;
+    private TextView cbW;
+    private HeadImageView gVk;
+    private TextView jNP;
+    private CountDownTextView jNV;
+    private boolean jNW;
 
     public c(View view, String str) {
         super(view, str);
@@ -23,64 +23,64 @@ public class c extends e {
     }
 
     private void init() {
-        this.gUd = (HeadImageView) Bf(R.id.user_portrait);
-        this.gUd.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.gUd.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.gUd.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gUd.setIsRound(true);
-        this.cbL = (TextView) Bf(R.id.user_name);
-        this.jMt = (CountDownTextView) Bf(R.id.count_down_text);
-        this.jMn = (TextView) Bf(R.id.action);
+        this.gVk = (HeadImageView) Bn(R.id.user_portrait);
+        this.gVk.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.gVk.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.gVk.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.gVk.setIsRound(true);
+        this.cbW = (TextView) Bn(R.id.user_name);
+        this.jNV = (CountDownTextView) Bn(R.id.count_down_text);
+        this.jNP = (TextView) Bn(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.gUd.startLoad(fVar.jHG, 10, false);
-        this.cbL.setText(fVar.userName);
-        this.jMn.setText(fVar.buttonText);
+        this.gVk.startLoad(fVar.jJf, 10, false);
+        this.cbW.setText(fVar.userName);
+        this.jNP.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.be(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.jMx != null) {
-                    c.this.jMx.AY(302);
-                    com.baidu.tieba.recapp.report.c.cDq().a(c.this.jMx);
+                if (c.this.jNZ != null) {
+                    c.this.jNZ.Bg(302);
+                    com.baidu.tieba.recapp.report.c.cDK().a(c.this.jNZ);
                 }
-                if (c.this.jMz != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.jMz);
+                if (c.this.jOb != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.jOb);
                 }
-                c.this.se(false);
+                c.this.sk(false);
             }
         });
-        this.jMt.update(fVar.count);
+        this.jNV.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void cDx() {
-        super.cDx();
-        this.jMt.startCountDown();
+    public void cDR() {
+        super.cDR();
+        this.jNV.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.jMt.setTimeoutListener(bVar);
+        this.jNV.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
-        am.setViewTextColor(this.cbL, R.color.cp_cont_a, 1);
-        am.setViewTextColor(this.jMn, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.jMn, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        am.setViewTextColor(this.cbW, R.color.cp_cont_a, 1);
+        am.setViewTextColor(this.jNP, R.color.cp_cont_a, 1);
+        am.setBackgroundResource(this.jNP, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void se(boolean z) {
-        this.jMu = z;
-        if (this.jMt != null) {
-            this.jMt.setEnableTimeoutListener(this.jMu);
+    public void sk(boolean z) {
+        this.jNW = z;
+        if (this.jNV != null) {
+            this.jNV.setEnableTimeoutListener(this.jNW);
         }
     }
 }

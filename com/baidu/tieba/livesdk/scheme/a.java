@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.sdk.a.g;
 /* loaded from: classes3.dex */
 public class a implements g {
-    public void Ek(String str) {
+    public void Ej(String str) {
         Activity currentActivity;
         if (!StringUtils.isNull(str) && (currentActivity = com.baidu.adp.base.a.eH().currentActivity()) != null) {
-            ba.aGG().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
+            ba.aGK().a((TbPageContext) i.ab(currentActivity), new String[]{str}, true);
         }
     }
 
     @Override // com.baidu.tieba.sdk.a.g
-    public void El(String str) {
-        Ek(str);
+    public void Ek(String str) {
+        Ej(str);
     }
 }

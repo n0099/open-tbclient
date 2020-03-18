@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class c extends kotlin.b.a {
-    public static final a nCP = new a(null);
-    private static final c nCO = new c((char) 1, (char) 0);
+    public static final a nEC = new a(null);
+    private static final c nEB = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -13,12 +13,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return dKD() > dKE();
+        return dLd() > dLe();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dKD() == ((c) obj).dKD() && dKE() == ((c) obj).dKE()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dLd() == ((c) obj).dLd() && dLe() == ((c) obj).dLe()));
     }
 
     @Override // kotlin.b.a
@@ -26,12 +26,12 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (dKD() * 31) + dKE();
+        return (dLd() * 31) + dLe();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return dKD() + IStringUtil.TOP_PATH + dKE();
+        return dLd() + IStringUtil.TOP_PATH + dLe();
     }
 
     @kotlin.h

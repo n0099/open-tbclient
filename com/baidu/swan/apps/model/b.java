@@ -8,7 +8,7 @@ public final class b {
     public String mPage;
     public String mParams;
 
-    public static b aX(String str, String str2) {
+    public static b aW(String str, String str2) {
         b bVar = new b();
         bVar.mPage = ag.delAllParamsFromUrl(str);
         bVar.mParams = ag.getParams(str);

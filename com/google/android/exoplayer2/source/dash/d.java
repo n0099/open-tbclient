@@ -3,15 +3,15 @@ package com.google.android.exoplayer2.source.dash;
 public interface d {
     long F(int i, long j);
 
-    long KV(int i);
+    long Lb(int i);
 
-    com.google.android.exoplayer2.source.dash.manifest.f KW(int i);
+    com.google.android.exoplayer2.source.dash.manifest.f Lc(int i);
 
     int T(long j, long j2);
 
-    int dwY();
+    int dxv();
 
-    boolean dwZ();
+    boolean dxw();
 
-    int gq(long j);
+    int gr(long j);
 }

@@ -16,55 +16,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private g bSw;
-    public final String bSx;
-    public final File bVG;
-    private final c.a<Long> bVI;
+    private g bSH;
+    public final String bSI;
+    public final File bVR;
+    private final c.a<Long> bVT;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static int bVH = 1024;
+    public static int bVS = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
 
     public c(e eVar) {
         super(eVar);
-        this.bVI = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.bVT = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.c.a
-            /* renamed from: afm */
-            public Long afn() throws IllegalStateException {
-                return Long.valueOf(c.this.afk());
+            /* renamed from: afp */
+            public Long afq() throws IllegalStateException {
+                return Long.valueOf(c.this.afn());
             }
         };
         this.name = b.c(eVar);
-        this.bSx = "aiapp_" + this.name;
-        this.bVG = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.bSx + ".xml");
-        com.baidu.swan.apps.ap.e.bXR.a(this.bVI);
+        this.bSI = "aiapp_" + this.name;
+        this.bVR = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.bSI + ".xml");
+        com.baidu.swan.apps.ap.e.bYc.a(this.bVT);
     }
 
     public boolean available() {
-        return afk() < afl();
+        return afn() < afo();
     }
 
-    public g afi() {
-        if (this.bSw == null) {
-            this.bSw = new g(this.bSx);
+    public g afl() {
+        if (this.bSH == null) {
+            this.bSH = new g(this.bSI);
         }
-        return this.bSw;
+        return this.bSH;
     }
 
     public void T(boolean z) {
         if (z) {
-            afi().edit().clear().commit();
+            afl().edit().clear().commit();
         } else {
-            afi().edit().clear().apply();
+            afl().edit().clear().apply();
         }
-        com.baidu.swan.d.c.deleteFile(b.lY(e.acH()));
-        com.baidu.swan.d.c.deleteFile(b.lT(e.acH()));
-        com.baidu.swan.apps.ap.e.bXR.update();
+        com.baidu.swan.d.c.deleteFile(b.lX(e.acK()));
+        com.baidu.swan.d.c.deleteFile(b.lS(e.acK()));
+        com.baidu.swan.apps.ap.e.bYc.update();
     }
 
-    public int mc(@NonNull String str) {
+    public int mb(@NonNull String str) {
         File file = new File(str);
         if (!file.exists() || !file.isFile()) {
             return 2001;
@@ -90,21 +90,21 @@ public class c extends f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [228=5, 229=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    public String md(String str) {
+    public String mc(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream3 = null;
-        String lT = b.lT(e.acH());
+        String lS = b.lS(e.acK());
         try {
-            if (TextUtils.isEmpty(lT)) {
+            if (TextUtils.isEmpty(lS)) {
                 return "";
             }
             try {
-                File bs = bs(lT, getFileName(str));
+                File br = br(lS, getFileName(str));
                 fileInputStream = new FileInputStream(new File(str));
                 try {
-                    fileOutputStream = new FileOutputStream(bs);
+                    fileOutputStream = new FileOutputStream(br);
                 } catch (FileNotFoundException e) {
                     e = e;
                     fileInputStream2 = null;
@@ -113,11 +113,11 @@ public class c extends f {
                     e = e2;
                 }
                 try {
-                    byte[] bArr = new byte[bVH];
+                    byte[] bArr = new byte[bVS];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
-                            String absolutePath = bs.getAbsolutePath();
+                            String absolutePath = br.getAbsolutePath();
                             com.baidu.swan.d.c.closeSafely(fileInputStream);
                             com.baidu.swan.d.c.closeSafely(fileOutputStream);
                             return absolutePath;
@@ -175,7 +175,7 @@ public class c extends f {
         }
     }
 
-    private File bs(@NonNull String str, String str2) {
+    private File br(@NonNull String str, String str2) {
         File file = new File(str);
         if (!file.exists()) {
             file.mkdirs();
@@ -183,7 +183,7 @@ public class c extends f {
         return new File(str, str2);
     }
 
-    public a me(@NonNull String str) {
+    public a md(@NonNull String str) {
         File file = new File(str);
         if (file == null || !file.isFile()) {
             return null;
@@ -194,15 +194,15 @@ public class c extends f {
         return aVar;
     }
 
-    public List<a> afj() {
-        String lT = b.lT(e.acH());
-        if (TextUtils.isEmpty(lT)) {
+    public List<a> afm() {
+        String lS = b.lS(e.acK());
+        if (TextUtils.isEmpty(lS)) {
             return null;
         }
-        return mf(lT);
+        return me(lS);
     }
 
-    public List<a> mf(@NonNull String str) {
+    public List<a> me(@NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
@@ -242,23 +242,23 @@ public class c extends f {
         return arrayList;
     }
 
-    public long afk() {
-        if (this.bVG == null) {
+    public long afn() {
+        if (this.bVR == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.bVG.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.bVG.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.bVG.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.bVG.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.bVR.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.bVR.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.bVR.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.bVR.length());
         }
-        return this.bVG.length();
+        return this.bVR.length();
     }
 
-    public long afl() {
+    public long afo() {
         return 10485760L;
     }
 }

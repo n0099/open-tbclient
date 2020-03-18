@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes3.dex */
 public class l implements ILoginListener {
-    private static volatile l asy;
-    private boolean asw = false;
-    private a asx;
+    private static volatile l asI;
+    private boolean asG = false;
+    private a asH;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -25,15 +25,15 @@ public class l implements ILoginListener {
     private l() {
     }
 
-    public static l wG() {
-        if (asy == null) {
+    public static l wL() {
+        if (asI == null) {
             synchronized (l.class) {
-                if (asy == null) {
-                    asy = new l();
+                if (asI == null) {
+                    asI = new l();
                 }
             }
         }
-        return asy;
+        return asI;
     }
 
     public void init(Context context) {
@@ -49,12 +49,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.asw = true;
+        this.asG = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.asx = aVar;
+        this.asH = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -70,24 +70,24 @@ public class l implements ILoginListener {
     }
 
     public void aU(boolean z) {
-        if (this.asw) {
-            if (z && this.asx != null) {
-                a(this.asx);
+        if (this.asG) {
+            if (z && this.asH != null) {
+                a(this.asH);
             } else if (!z) {
                 a(null);
             }
         }
     }
 
-    public void wH() {
+    public void wM() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.asx != null) {
-            this.asx.n(i, str);
-            this.asx = null;
+        if (this.asH != null) {
+            this.asH.n(i, str);
+            this.asH = null;
         }
     }
 
@@ -100,6 +100,6 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        wH();
+        wM();
     }
 }

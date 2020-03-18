@@ -18,27 +18,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class f {
-    private b ddk;
-    private a ddl;
+    private b ddy;
+    private a ddz;
     private String mUrl;
 
     public f(String str, b bVar) {
         this.mUrl = str;
-        this.ddk = bVar;
+        this.ddy = bVar;
     }
 
     public void load() {
         if (TextUtils.isEmpty(this.mUrl)) {
             g.log("VideoLoaderImp url == null");
         } else if (s.wG(this.mUrl) != null) {
-            if (this.ddk != null) {
+            if (this.ddy != null) {
                 g.log("complete file has exist, 不需要下载");
-                this.ddk.onSuccess(this.mUrl);
+                this.ddy.onSuccess(this.mUrl);
             }
         } else {
             String wI = s.wI(this.mUrl);
             if (TextUtils.isEmpty(wI)) {
-                this.ddk.cz(this.mUrl, "dir is null");
+                this.ddy.cy(this.mUrl, "dir is null");
                 g.log("dir is null " + this.mUrl);
                 return;
             }
@@ -49,26 +49,26 @@ public class f {
             File file2 = new File(file, "0");
             if (file2.exists()) {
                 g.log("segment has exist " + this.mUrl);
-                this.ddk.onSuccess(this.mUrl);
+                this.ddy.onSuccess(this.mUrl);
                 return;
             }
-            this.ddl = new a(this.mUrl, wI, file2.getAbsolutePath(), this.ddk);
-            this.ddl.execute(new Void[0]);
+            this.ddz = new a(this.mUrl, wI, file2.getAbsolutePath(), this.ddy);
+            this.ddz.execute(new Void[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<Void, Void, Boolean> {
-        private b ddk;
-        private String ddm;
-        private String ddn;
+        private String ddA;
+        private String ddB;
+        private b ddy;
         private String mVideoUrl;
 
         public a(String str, String str2, String str3, b bVar) {
             this.mVideoUrl = str;
-            this.ddm = str3;
-            this.ddk = bVar;
-            this.ddn = str2;
+            this.ddA = str3;
+            this.ddy = bVar;
+            this.ddB = str2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [179=5, 180=4, 182=4, 183=4, 184=4] */
@@ -86,10 +86,10 @@ public class f {
             FileOutputStream fileOutputStream;
             String str;
             try {
-                g.log("start load  " + this.mVideoUrl + " des file " + this.ddm);
+                g.log("start load  " + this.mVideoUrl + " des file " + this.ddA);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.mVideoUrl).openConnection();
                 try {
-                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aHm().getSize());
+                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aHq().getSize());
                     int timeOutAuto = com.baidu.adp.framework.c.b.fc().fd().getTimeOutAuto();
                     if (timeOutAuto == 0) {
                         timeOutAuto = 5000;
@@ -167,12 +167,12 @@ public class f {
                         }
                         fileOutputStream.write(bArr, 0, read);
                     }
-                    g.log("download success   des: " + this.ddm + "  mVideoUrl " + this.mVideoUrl);
+                    g.log("download success   des: " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
                     File file = new File(str);
                     if (file.exists()) {
-                        File file2 = new File(this.ddm);
+                        File file2 = new File(this.ddA);
                         if (file2.exists()) {
-                            g.log("des file exist " + this.ddm + "  mVideoUrl " + this.mVideoUrl);
+                            g.log("des file exist " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
                             file.delete();
                             if (httpURLConnection2 != null) {
                                 httpURLConnection2.disconnect();
@@ -184,9 +184,9 @@ public class f {
                         }
                         file.renameTo(file2);
                     }
-                    f.t(this.ddn, System.currentTimeMillis());
-                    new File(this.ddn, "header_downloaded").createNewFile();
-                    g.log("rename success   des: " + this.ddm + "  mVideoUrl " + this.mVideoUrl);
+                    f.t(this.ddB, System.currentTimeMillis());
+                    new File(this.ddB, "header_downloaded").createNewFile();
+                    g.log("rename success   des: " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -233,11 +233,11 @@ public class f {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
-                if (this.ddk != null) {
-                    this.ddk.onSuccess(this.mVideoUrl);
+                if (this.ddy != null) {
+                    this.ddy.onSuccess(this.mVideoUrl);
                 }
-            } else if (this.ddk != null) {
-                this.ddk.cz(this.mVideoUrl, LivenessStat.TYPE_FACE_MATCH_FAIL);
+            } else if (this.ddy != null) {
+                this.ddy.cy(this.mVideoUrl, LivenessStat.TYPE_FACE_MATCH_FAIL);
             }
         }
 
@@ -245,16 +245,16 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.ddk != null) {
-                this.ddk.tO(this.mVideoUrl);
+            if (this.ddy != null) {
+                this.ddy.tN(this.mVideoUrl);
             }
         }
     }
 
     public void release() {
         g.log("release url: " + this.mUrl);
-        this.ddl = null;
-        this.ddk = null;
+        this.ddz = null;
+        this.ddy = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

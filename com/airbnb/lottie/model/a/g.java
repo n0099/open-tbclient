@@ -23,6 +23,6 @@ public class g extends n<com.airbnb.lottie.e.d, com.airbnb.lottie.e.d> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<com.airbnb.lottie.e.d, com.airbnb.lottie.e.d> cn() {
-        return new com.airbnb.lottie.a.b.k(this.gH);
+        return new com.airbnb.lottie.a.b.k(this.gG);
     }
 }

@@ -43,10 +43,10 @@ public class c extends ab {
                     /* renamed from: a */
                     public void D(com.baidu.swan.apps.setting.b.a aVar) {
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (!aVar.aeE()) {
+                        if (!aVar.aeH()) {
                             com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                         } else {
-                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTD, 0).toString());
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTO, 0).toString());
                         }
                     }
                 });

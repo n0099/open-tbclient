@@ -3,15 +3,15 @@ package com.baidu.swan.apps.framework;
 import android.view.KeyEvent;
 /* loaded from: classes11.dex */
 public interface b {
-    void JK();
+    void JN();
 
-    void JL();
+    void JO();
 
-    void Sq();
+    void St();
 
-    void Sr();
+    void Su();
 
-    void Ss();
+    void Sv();
 
     void onActivityPaused();
 

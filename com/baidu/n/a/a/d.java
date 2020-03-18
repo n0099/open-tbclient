@@ -3,11 +3,11 @@ package com.baidu.n.a.a;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public abstract class d implements c {
-    protected boolean lCR;
-    protected boolean lCo;
-    protected String lCq;
-    protected String lCr;
-    protected String lCs;
+    protected boolean lDS;
+    protected String lDU;
+    protected String lDV;
+    protected String lDW;
+    protected boolean lEv;
     protected Context mCtx;
     protected int mStatusCode = -200;
 
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public boolean dhR() {
-        return this.lCo;
+    public boolean dio() {
+        return this.lDS;
     }
 
     @Override // com.baidu.n.a.a.c
     public boolean isSupport() {
-        return this.lCR;
+        return this.lEv;
     }
 
     @Override // com.baidu.n.a.a.c
-    public String dic() {
-        return this.lCq;
+    public String diz() {
+        return this.lDU;
     }
 
     @Override // com.baidu.n.a.a.c
-    public String did() {
-        return this.lCr;
+    public String diA() {
+        return this.lDV;
     }
 
     @Override // com.baidu.n.a.a.c
-    public String die() {
-        return this.lCs;
+    public String diB() {
+        return this.lDW;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public void uW(boolean z) {
-        this.lCo = z;
+    public void vd(boolean z) {
+        this.lDS = z;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void uX(boolean z) {
-        this.lCR = z;
+    public void ve(boolean z) {
+        this.lEv = z;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public void NI(String str) {
+        this.lDU = str;
     }
 
     @Override // com.baidu.n.a.a.c
     public void NJ(String str) {
-        this.lCq = str;
+        this.lDV = str;
     }
 
     @Override // com.baidu.n.a.a.c
     public void NK(String str) {
-        this.lCr = str;
+        this.lDW = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void NL(String str) {
-        this.lCs = str;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public void He(int i) {
+    public void Hk(int i) {
         this.mStatusCode = i;
     }
 }

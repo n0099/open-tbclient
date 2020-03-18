@@ -21,10 +21,10 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
     private View b;
     private View c;
     private int e;
-    private CommonH5Item nbT;
-    private H5Positon nbU;
-    private com.kascend.chushou.player.ui.h5.c.a nbV;
-    private com.kascend.chushou.widget.cswebview.d nbW;
+    private CommonH5Item ndE;
+    private H5Positon ndF;
+    private com.kascend.chushou.player.ui.h5.c.a ndG;
+    private com.kascend.chushou.widget.cswebview.d ndH;
 
     public CommonH5View(@NonNull Context context) {
         this(context, null);
@@ -47,8 +47,8 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
     public void a(int i, H5Positon h5Positon, com.kascend.chushou.player.ui.h5.c.a aVar) {
         int i2;
         this.e = i;
-        this.nbU = h5Positon;
-        this.nbV = aVar;
+        this.ndF = h5Positon;
+        this.ndG = aVar;
         if (this.b == null) {
             c();
         }
@@ -63,7 +63,7 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
             i2 = 0;
         }
         setBackgroundColor(i2);
-        this.nbT.a(aVar);
+        this.ndE.a(aVar);
     }
 
     private void c() {
@@ -73,13 +73,13 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
         }
         this.b = LayoutInflater.from(this.a).inflate(i, (ViewGroup) this, false);
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
-        if (this.nbV.i == 0) {
+        if (this.ndG.i == 0) {
             this.c.setVisibility(4);
         } else {
             this.c.setOnClickListener(this);
         }
-        this.nbT = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
-        this.nbT.setListener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.CommonH5View.1
+        this.ndE = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
+        this.ndE.setListener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.CommonH5View.1
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 CommonH5View.this.a();
@@ -87,8 +87,8 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
 
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(String str) {
-                if (CommonH5View.this.nbV != null) {
-                    tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, str, CommonH5View.this.nbV.p));
+                if (CommonH5View.this.ndG != null) {
+                    tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, str, CommonH5View.this.ndG.p));
                 }
             }
         });
@@ -101,22 +101,22 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
         layoutParams.height = -1;
         layoutParams.gravity = 17;
         this.b.setLayoutParams(layoutParams);
-        Point hd = tv.chushou.zues.utils.a.hd(this.a);
+        Point hc = tv.chushou.zues.utils.a.hc(this.a);
         int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.a);
-        int i = hd.x;
-        int i2 = hd.y - statusBarHeight;
+        int i = hc.x;
+        int i2 = hc.y - statusBarHeight;
         if (this.a != null && (this.a instanceof VideoPlayer) && ((VideoPlayer) this.a).getWindow().getDecorView().getSystemUiVisibility() == 1792) {
-            i2 = hd.y;
+            i2 = hc.y;
         }
         View findViewById = this.b.findViewById(a.f.empty_view);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.nbU.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.ndF.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.nbT.getLayoutParams();
-        layoutParams3.width = (int) (i * ((this.nbU.mWidth * 1.0d) / 100.0d));
-        layoutParams3.height = (int) (((this.nbU.mHeight * 1.0d) / 100.0d) * i2);
-        this.nbT.setLayoutParams(layoutParams3);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.ndE.getLayoutParams();
+        layoutParams3.width = (int) (i * ((this.ndF.mWidth * 1.0d) / 100.0d));
+        layoutParams3.height = (int) (((this.ndF.mHeight * 1.0d) / 100.0d) * i2);
+        this.ndE.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams4);
@@ -124,14 +124,14 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
 
     private void e() {
         int i;
-        Point hd = tv.chushou.zues.utils.a.hd(this.a);
-        int i2 = (int) (((this.nbU.mHeight * 1.0d) / 100.0d) * hd.y);
-        if (this.nbU.mAspectRadio == 0) {
-            i = (int) (((this.nbU.mWidth * 1.0d) / 100.0d) * hd.x);
+        Point hc = tv.chushou.zues.utils.a.hc(this.a);
+        int i2 = (int) (((this.ndF.mHeight * 1.0d) / 100.0d) * hc.y);
+        if (this.ndF.mAspectRadio == 0) {
+            i = (int) (((this.ndF.mWidth * 1.0d) / 100.0d) * hc.x);
         } else {
-            i = (int) (((this.nbU.mAspectRadio * 1.0d) / 100.0d) * i2);
+            i = (int) (((this.ndF.mAspectRadio * 1.0d) / 100.0d) * i2);
         }
-        if (this.nbV.i == 0) {
+        if (this.ndG.i == 0) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = i;
             layoutParams.height = i2;
@@ -140,32 +140,32 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
             return;
         }
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-        layoutParams2.topMargin = (int) (hd.y * 0.05d);
+        layoutParams2.topMargin = (int) (hc.y * 0.05d);
         this.c.setLayoutParams(layoutParams2);
         int dip2px = tv.chushou.zues.utils.a.dip2px(this.a, 60.0f);
         FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams3.width = dip2px + i;
         layoutParams3.height = i2;
         layoutParams3.gravity = 16;
-        layoutParams3.leftMargin = (hd.x - i) / 2;
+        layoutParams3.leftMargin = (hc.x - i) / 2;
         this.b.setLayoutParams(layoutParams3);
     }
 
     public void a() {
-        if (this.nbW != null) {
-            this.nbW.a(this);
+        if (this.ndH != null) {
+            this.ndH.a(this);
         }
     }
 
     public void setCloseH5Listener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.nbW = dVar;
+        this.ndH = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.view_redpacketlist_close) {
-            if (this.nbV != null && this.nbV.j == 1) {
-                tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, this.nbV.b, this.nbV.p));
+            if (this.ndG != null && this.ndG.j == 1) {
+                tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, this.ndG.b, this.ndG.p));
             } else {
                 a();
             }
@@ -173,10 +173,10 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.nbT != null) {
-            tv.chushou.zues.toolkit.d.b.setScaleX(this.nbT, 0.0f);
-            tv.chushou.zues.toolkit.d.b.setScaleY(this.nbT, 0.0f);
-            this.nbT.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
+        if (this.ndE != null) {
+            tv.chushou.zues.toolkit.d.b.setScaleX(this.ndE, 0.0f);
+            tv.chushou.zues.toolkit.d.b.setScaleY(this.ndE, 0.0f);
+            this.ndE.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
         }
     }
 }

@@ -14,10 +14,10 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dXC;
+    private static a dXS;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dXD = false;
+    private boolean dXT = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -54,7 +54,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cy("errormsg", "预加载文件失败").cy(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cy("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cx("errormsg", "预加载文件失败").cx(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cx("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -106,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dXD) {
+            while (!a.this.dXT) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -114,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dXD) {
-                    String aXt = a.this.aXt();
-                    if (aXt != null && !aXt.isEmpty()) {
-                        File file = new File(c.dXs + b.wD(aXt) + "/header_downloaded");
+                if (!a.this.dXT) {
+                    String aXx = a.this.aXx();
+                    if (aXx != null && !aXx.isEmpty()) {
+                        File file = new File(c.dXI + b.wD(aXx) + "/header_downloaded");
                         if (file.exists()) {
-                            d.z(a.TAG, "header exists " + aXt);
+                            d.z(a.TAG, "header exists " + aXx);
                         } else {
-                            d.z(a.TAG, "client preload start: " + aXt);
+                            d.z(a.TAG, "client preload start: " + aXx);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aXt);
-                                    int port = b.aXu().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aXx);
+                                    int port = b.aXy().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.z(a.TAG, "client preload check1: " + aXt);
+                                            d.z(a.TAG, "client preload check1: " + aXx);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.z(a.TAG, "client preload end: " + aXt);
+                            d.z(a.TAG, "client preload end: " + aXx);
                         }
                     }
                 } else {
@@ -293,19 +293,19 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aXs() {
-        if (dXC == null) {
+    public static a aXw() {
+        if (dXS == null) {
             synchronized (a.class) {
-                if (dXC == null) {
-                    dXC = new a();
+                if (dXS == null) {
+                    dXS = new a();
                 }
             }
         }
-        return dXC;
+        return dXS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aXt() {
+    public synchronized String aXx() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 

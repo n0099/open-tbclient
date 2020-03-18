@@ -13,9 +13,9 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0243a {
-        void Nd();
+        void Ng();
 
-        void Ne();
+        void Nh();
 
         void eq(int i);
     }
@@ -26,32 +26,32 @@ public final class a {
         }
         if (TextUtils.isEmpty(str)) {
             if (interfaceC0243a != null) {
-                interfaceC0243a.Nd();
+                interfaceC0243a.Ng();
             }
-        } else if (!gO(h.afr().getString("predownload_network_switch", "1"))) {
+        } else if (!gN(h.afu().getString("predownload_network_switch", "1"))) {
             if (interfaceC0243a != null) {
                 interfaceC0243a.eq(6);
             }
         } else {
             c cVar = new c(str, TextUtils.equals("swangame", str3) ? 1 : 0);
-            cVar.qC("1");
-            cVar.qD(str2);
+            cVar.qB("1");
+            cVar.qC(str2);
             com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0243a) { // from class: com.baidu.swan.apps.core.a.a.a.1
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void Nb() {
-                    this.bqf = str2;
+                public void Ne() {
+                    this.bqr = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int Nc() {
+                protected int Nf() {
                     return i;
                 }
 
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-                public void aw(String str4, String str5) {
-                    super.aw(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqe != null) {
-                        this.bqe.add(new UbcFlowEvent(str5));
+                public void av(String str4, String str5) {
+                    super.av(str4, str5);
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqq != null) {
+                        this.bqq.add(new UbcFlowEvent(str5));
                     }
                 }
             });
@@ -64,7 +64,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean gO(String str) {
+    public static boolean gN(String str) {
         boolean z = true;
         if (!TextUtils.equals(str, "0")) {
             if (!TextUtils.equals(str, "1")) {

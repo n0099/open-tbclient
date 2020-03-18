@@ -33,30 +33,30 @@ public class a extends ab {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
-        if (GC == null) {
+        com.baidu.swan.apps.core.d.e GH = f.WV().GH();
+        if (GH == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b On = GC.On();
-        if (On == null) {
+        b Oq = GH.Oq();
+        if (Oq == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.acW() && (On instanceof i)) {
-            View OU = ((i) On).OU();
-            if (OU == null) {
+        if (eVar.acZ() && (Oq instanceof i)) {
+            View OX = ((i) Oq).OX();
+            if (OX == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = ar(OU);
+            unitedSchemeEntity.result = ar(OX);
         } else {
-            SwanAppActionBar ND = On.ND();
-            if (ND == null) {
+            SwanAppActionBar NG = Oq.NG();
+            if (NG == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = ND.getRightMenu();
+            View rightMenu = NG.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -68,8 +68,8 @@ public class a extends ab {
 
     private JSONObject ar(View view) {
         JSONObject wrapCallbackParams;
-        e acF = e.acF();
-        int px2dpFloat = acF != null ? acF.acW() : false ? 0 : (int) (af.px2dpFloat(af.getStatusBarHeight()) + 0.5f);
+        e acI = e.acI();
+        int px2dpFloat = acI != null ? acI.acZ() : false ? 0 : (int) (af.px2dpFloat(af.getStatusBarHeight()) + 0.5f);
         int px2dpFloat2 = (int) (af.px2dpFloat(view.getLeft()) + 0.5f);
         int px2dpFloat3 = (int) (af.px2dpFloat(view.getRight()) + 0.5f);
         int px2dpFloat4 = ((int) (af.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;

@@ -8,11 +8,11 @@ public abstract class d {
         return null;
     }
 
-    public Bitmap NV(String str) {
+    public Bitmap NU(String str) {
         return null;
     }
 
-    public boolean NW(String str) {
+    public boolean NV(String str) {
         return false;
     }
 }

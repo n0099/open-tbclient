@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends a {
-    private int bhv;
-    private int bhw;
-    private String bhx;
-    private float bhy;
+    private int bhI;
+    private int bhJ;
+    private String bhK;
+    private float bhL;
     public int mHeight;
     private int mWidth;
     private int mX;
@@ -24,18 +24,18 @@ public class f extends a {
 
     public f(String str) {
         super(str);
-        this.bhx = "png";
-        this.bhy = 1.0f;
+        this.bhK = "png";
+        this.bhL = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             this.mY = af.S((float) jSONObject.optDouble("y"));
             this.mWidth = af.S((float) jSONObject.optDouble("width"));
             this.mHeight = af.S((float) jSONObject.optDouble("height"));
-            this.bhv = af.S((float) jSONObject.optDouble("destWidth"));
-            this.bhw = af.S((float) jSONObject.optDouble("destHeight"));
-            this.bhx = jSONObject.optString("fileType");
-            this.bhy = (float) jSONObject.optDouble("quality");
+            this.bhI = af.S((float) jSONObject.optDouble("destWidth"));
+            this.bhJ = af.S((float) jSONObject.optDouble("destHeight"));
+            this.bhK = jSONObject.optString("fileType");
+            this.bhL = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -59,11 +59,11 @@ public class f extends a {
             this.mY = (this.mY < 0 || this.mY >= height) ? 0 : this.mY;
             this.mWidth = (this.mWidth <= 0 || this.mX + this.mWidth > width) ? width - this.mX : this.mWidth;
             this.mHeight = (this.mHeight <= 0 || this.mY + this.mHeight > height) ? height - this.mY : this.mHeight;
-            this.bhv = this.bhv <= 0 ? this.mWidth : this.bhv;
-            this.bhw = this.bhw <= 0 ? this.mHeight : this.bhw;
-            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhv, this.bhw, createBitmap.getConfig());
-            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhv, this.bhw), new Paint());
-            Bitmap.CompressFormat compressFormat = Kw() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            this.bhI = this.bhI <= 0 ? this.mWidth : this.bhI;
+            this.bhJ = this.bhJ <= 0 ? this.mHeight : this.bhJ;
+            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhI, this.bhJ, createBitmap.getConfig());
+            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhI, this.bhJ), new Paint());
+            Bitmap.CompressFormat compressFormat = Kz() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -73,7 +73,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap2.compress(compressFormat, (int) (this.bhy * 100.0f), fileOutputStream);
+            createBitmap2.compress(compressFormat, (int) (this.bhL * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.d.c.closeSafely(fileOutputStream);
             return true;
@@ -90,12 +90,12 @@ public class f extends a {
         }
     }
 
-    public boolean Kw() {
-        return TextUtils.equals(this.bhx, "jpg");
+    public boolean Kz() {
+        return TextUtils.equals(this.bhK, "jpg");
     }
 
-    public String Kx() {
-        return Kw() ? "jpg" : "png";
+    public String KA() {
+        return Kz() ? "jpg" : "png";
     }
 
     @Override // com.baidu.swan.apps.canvas.b.a, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a

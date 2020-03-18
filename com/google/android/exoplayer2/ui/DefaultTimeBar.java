@@ -28,58 +28,58 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes6.dex */
 public class DefaultTimeBar extends View implements c {
     private long duration;
-    private long fOo;
-    private final int gTq;
-    private final CopyOnWriteArraySet<c.a> lcc;
-    private final Rect mDI;
-    private final Rect mDJ;
-    private final Rect mDK;
-    private final Rect mDL;
-    private final Paint mDM;
-    private final Paint mDN;
-    private final Paint mDO;
-    private final Paint mDP;
-    private final Paint mDQ;
-    private final Paint mDR;
-    private final Drawable mDS;
-    private final int mDT;
-    private final int mDU;
-    private final int mDV;
-    private final int mDW;
-    private final int mDX;
-    private final int mDY;
-    private final int mDZ;
-    private final StringBuilder mEa;
-    private final Formatter mEb;
-    private final Runnable mEc;
-    private int mEd;
-    private long mEe;
-    private int mEf;
-    private int[] mEg;
-    private Point mEh;
-    private boolean mEi;
-    private long mEj;
-    private long mEk;
-    private int mEl;
-    private long[] mEm;
-    private boolean[] mEn;
+    private long fOW;
+    private final int gUx;
+    private final CopyOnWriteArraySet<c.a> ldH;
+    private final int mFA;
+    private final int mFB;
+    private final int mFC;
+    private final int mFD;
+    private final int mFE;
+    private final int mFF;
+    private final int mFG;
+    private final StringBuilder mFH;
+    private final Formatter mFI;
+    private final Runnable mFJ;
+    private int mFK;
+    private long mFL;
+    private int mFM;
+    private int[] mFN;
+    private Point mFO;
+    private boolean mFP;
+    private long mFQ;
+    private long mFR;
+    private int mFS;
+    private long[] mFT;
+    private boolean[] mFU;
+    private final Rect mFp;
+    private final Rect mFq;
+    private final Rect mFr;
+    private final Rect mFs;
+    private final Paint mFt;
+    private final Paint mFu;
+    private final Paint mFv;
+    private final Paint mFw;
+    private final Paint mFx;
+    private final Paint mFy;
+    private final Drawable mFz;
 
     public DefaultTimeBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mDI = new Rect();
-        this.mDJ = new Rect();
-        this.mDK = new Rect();
-        this.mDL = new Rect();
-        this.mDM = new Paint();
-        this.mDN = new Paint();
-        this.mDO = new Paint();
-        this.mDP = new Paint();
-        this.mDQ = new Paint();
-        this.mDR = new Paint();
-        this.mDR.setAntiAlias(true);
-        this.lcc = new CopyOnWriteArraySet<>();
+        this.mFp = new Rect();
+        this.mFq = new Rect();
+        this.mFr = new Rect();
+        this.mFs = new Rect();
+        this.mFt = new Paint();
+        this.mFu = new Paint();
+        this.mFv = new Paint();
+        this.mFw = new Paint();
+        this.mFx = new Paint();
+        this.mFy = new Paint();
+        this.mFy.setAntiAlias(true);
+        this.ldH = new CopyOnWriteArraySet<>();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.mDZ = a(displayMetrics, -50);
+        this.mFG = a(displayMetrics, -50);
         int a = a(displayMetrics, 4);
         int a2 = a(displayMetrics, 26);
         int a3 = a(displayMetrics, 4);
@@ -89,103 +89,103 @@ public class DefaultTimeBar extends View implements c {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, a.f.DefaultTimeBar, 0, 0);
             try {
-                this.mDS = obtainStyledAttributes.getDrawable(a.f.DefaultTimeBar_scrubber_drawable);
-                if (this.mDS != null) {
-                    a(this.mDS, getLayoutDirection());
-                    a2 = Math.max(this.mDS.getMinimumHeight(), a2);
+                this.mFz = obtainStyledAttributes.getDrawable(a.f.DefaultTimeBar_scrubber_drawable);
+                if (this.mFz != null) {
+                    a(this.mFz, getLayoutDirection());
+                    a2 = Math.max(this.mFz.getMinimumHeight(), a2);
                 }
-                this.gTq = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_bar_height, a);
-                this.mDT = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_touch_target_height, a2);
-                this.mDU = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_ad_marker_width, a3);
-                this.mDV = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_enabled_size, a4);
-                this.mDW = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_disabled_size, a5);
-                this.mDX = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_dragged_size, a6);
+                this.gUx = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_bar_height, a);
+                this.mFA = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_touch_target_height, a2);
+                this.mFB = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_ad_marker_width, a3);
+                this.mFC = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_enabled_size, a4);
+                this.mFD = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_disabled_size, a5);
+                this.mFE = obtainStyledAttributes.getDimensionPixelSize(a.f.DefaultTimeBar_scrubber_dragged_size, a6);
                 int i = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_played_color, -1);
-                int i2 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_scrubber_color, LJ(i));
-                int i3 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_buffered_color, LL(i));
-                int i4 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_unplayed_color, LK(i));
+                int i2 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_scrubber_color, LP(i));
+                int i3 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_buffered_color, LR(i));
+                int i4 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_unplayed_color, LQ(i));
                 int i5 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_ad_marker_color, -1291845888);
-                int i6 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_played_ad_marker_color, LM(i5));
-                this.mDM.setColor(i);
-                this.mDR.setColor(i2);
-                this.mDN.setColor(i3);
-                this.mDO.setColor(i4);
-                this.mDP.setColor(i5);
-                this.mDQ.setColor(i6);
+                int i6 = obtainStyledAttributes.getInt(a.f.DefaultTimeBar_played_ad_marker_color, LS(i5));
+                this.mFt.setColor(i);
+                this.mFy.setColor(i2);
+                this.mFu.setColor(i3);
+                this.mFv.setColor(i4);
+                this.mFw.setColor(i5);
+                this.mFx.setColor(i6);
             } finally {
                 obtainStyledAttributes.recycle();
             }
         } else {
-            this.gTq = a;
-            this.mDT = a2;
-            this.mDU = a3;
-            this.mDV = a4;
-            this.mDW = a5;
-            this.mDX = a6;
-            this.mDM.setColor(-1);
-            this.mDR.setColor(LJ(-1));
-            this.mDN.setColor(LL(-1));
-            this.mDO.setColor(LK(-1));
-            this.mDP.setColor(-1291845888);
-            this.mDS = null;
+            this.gUx = a;
+            this.mFA = a2;
+            this.mFB = a3;
+            this.mFC = a4;
+            this.mFD = a5;
+            this.mFE = a6;
+            this.mFt.setColor(-1);
+            this.mFy.setColor(LP(-1));
+            this.mFu.setColor(LR(-1));
+            this.mFv.setColor(LQ(-1));
+            this.mFw.setColor(-1291845888);
+            this.mFz = null;
         }
-        this.mEa = new StringBuilder();
-        this.mEb = new Formatter(this.mEa, Locale.getDefault());
-        this.mEc = new Runnable() { // from class: com.google.android.exoplayer2.ui.DefaultTimeBar.1
+        this.mFH = new StringBuilder();
+        this.mFI = new Formatter(this.mFH, Locale.getDefault());
+        this.mFJ = new Runnable() { // from class: com.google.android.exoplayer2.ui.DefaultTimeBar.1
             @Override // java.lang.Runnable
             public void run() {
-                DefaultTimeBar.this.vS(false);
+                DefaultTimeBar.this.vZ(false);
             }
         };
-        if (this.mDS != null) {
-            this.mDY = (this.mDS.getMinimumWidth() + 1) / 2;
+        if (this.mFz != null) {
+            this.mFF = (this.mFz.getMinimumWidth() + 1) / 2;
         } else {
-            this.mDY = (Math.max(this.mDW, Math.max(this.mDV, this.mDX)) + 1) / 2;
+            this.mFF = (Math.max(this.mFD, Math.max(this.mFC, this.mFE)) + 1) / 2;
         }
         this.duration = -9223372036854775807L;
-        this.mEe = -9223372036854775807L;
-        this.mEd = 20;
+        this.mFL = -9223372036854775807L;
+        this.mFK = 20;
         setFocusable(true);
         if (v.SDK_INT >= 16) {
-            dyD();
+            dza();
         }
     }
 
     @Override // com.google.android.exoplayer2.ui.c
     public void a(c.a aVar) {
-        this.lcc.add(aVar);
+        this.ldH.add(aVar);
     }
 
     public void setKeyTimeIncrement(long j) {
         com.google.android.exoplayer2.util.a.checkArgument(j > 0);
-        this.mEd = -1;
-        this.mEe = j;
+        this.mFK = -1;
+        this.mFL = j;
     }
 
     public void setKeyCountIncrement(int i) {
         com.google.android.exoplayer2.util.a.checkArgument(i > 0);
-        this.mEd = i;
-        this.mEe = -9223372036854775807L;
+        this.mFK = i;
+        this.mFL = -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.ui.c
     public void setPosition(long j) {
-        this.fOo = j;
+        this.fOW = j;
         setContentDescription(getProgressText());
         update();
     }
 
     @Override // com.google.android.exoplayer2.ui.c
     public void setBufferedPosition(long j) {
-        this.mEk = j;
+        this.mFR = j;
         update();
     }
 
     @Override // com.google.android.exoplayer2.ui.c
     public void setDuration(long j) {
         this.duration = j;
-        if (this.mEi && j == -9223372036854775807L) {
-            vS(true);
+        if (this.mFP && j == -9223372036854775807L) {
+            vZ(true);
         }
         update();
     }
@@ -193,25 +193,25 @@ public class DefaultTimeBar extends View implements c {
     @Override // com.google.android.exoplayer2.ui.c
     public void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i) {
         com.google.android.exoplayer2.util.a.checkArgument(i == 0 || !(jArr == null || zArr == null));
-        this.mEl = i;
-        this.mEm = jArr;
-        this.mEn = zArr;
+        this.mFS = i;
+        this.mFT = jArr;
+        this.mFU = zArr;
         update();
     }
 
     @Override // android.view.View, com.google.android.exoplayer2.ui.c
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        if (this.mEi && !z) {
-            vS(true);
+        if (this.mFP && !z) {
+            vZ(true);
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        ac(canvas);
         ad(canvas);
+        ae(canvas);
         canvas.restore();
     }
 
@@ -226,9 +226,9 @@ public class DefaultTimeBar extends View implements c {
         switch (motionEvent.getAction()) {
             case 0:
                 if (E(i, i2)) {
-                    dyE();
+                    dzb();
                     bC(i);
-                    this.mEj = getScrubberPosition();
+                    this.mFQ = getScrubberPosition();
                     update();
                     invalidate();
                     return true;
@@ -236,23 +236,23 @@ public class DefaultTimeBar extends View implements c {
                 break;
             case 1:
             case 3:
-                if (this.mEi) {
-                    vS(motionEvent.getAction() == 3);
+                if (this.mFP) {
+                    vZ(motionEvent.getAction() == 3);
                     return true;
                 }
                 break;
             case 2:
-                if (this.mEi) {
-                    if (i2 < this.mDZ) {
-                        bC(((i - this.mEf) / 3) + this.mEf);
+                if (this.mFP) {
+                    if (i2 < this.mFG) {
+                        bC(((i - this.mFM) / 3) + this.mFM);
                     } else {
-                        this.mEf = i;
+                        this.mFM = i;
                         bC(i);
                     }
-                    this.mEj = getScrubberPosition();
-                    Iterator<c.a> it = this.lcc.iterator();
+                    this.mFQ = getScrubberPosition();
+                    Iterator<c.a> it = this.ldH.iterator();
                     while (it.hasNext()) {
-                        it.next().b(this, this.mEj);
+                        it.next().b(this, this.mFQ);
                     }
                     update();
                     invalidate();
@@ -274,21 +274,21 @@ public class DefaultTimeBar extends View implements c {
             switch (i) {
                 case 21:
                     positionIncrement = -positionIncrement;
-                    if (gD(positionIncrement)) {
-                        removeCallbacks(this.mEc);
-                        postDelayed(this.mEc, 1000L);
+                    if (gE(positionIncrement)) {
+                        removeCallbacks(this.mFJ);
+                        postDelayed(this.mFJ, 1000L);
                         return true;
                     }
                     break;
                 case 22:
-                    if (gD(positionIncrement)) {
+                    if (gE(positionIncrement)) {
                     }
                     break;
                 case 23:
                 case 66:
-                    if (this.mEi) {
-                        removeCallbacks(this.mEc);
-                        this.mEc.run();
+                    if (this.mFP) {
+                        removeCallbacks(this.mFJ);
+                        this.mFJ.run();
                         return true;
                     }
                     break;
@@ -300,14 +300,14 @@ public class DefaultTimeBar extends View implements c {
     @Override // android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        dyF();
+        dzc();
     }
 
     @Override // android.view.View
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
-        if (this.mDS != null) {
-            this.mDS.jumpToCurrentState();
+        if (this.mFz != null) {
+            this.mFz.jumpToCurrentState();
         }
     }
 
@@ -316,28 +316,28 @@ public class DefaultTimeBar extends View implements c {
         int mode = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i2);
         if (mode == 0) {
-            size = this.mDT;
+            size = this.mFA;
         } else if (mode != 1073741824) {
-            size = Math.min(this.mDT, size);
+            size = Math.min(this.mFA, size);
         }
         setMeasuredDimension(View.MeasureSpec.getSize(i), size);
-        dyF();
+        dzc();
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5 = ((i4 - i2) - this.mDT) / 2;
+        int i5 = ((i4 - i2) - this.mFA) / 2;
         int paddingLeft = getPaddingLeft();
         int paddingRight = (i3 - i) - getPaddingRight();
-        int i6 = ((this.mDT - this.gTq) / 2) + i5;
-        this.mDI.set(paddingLeft, i5, paddingRight, this.mDT + i5);
-        this.mDJ.set(this.mDI.left + this.mDY, i6, this.mDI.right - this.mDY, this.gTq + i6);
+        int i6 = ((this.mFA - this.gUx) / 2) + i5;
+        this.mFp.set(paddingLeft, i5, paddingRight, this.mFA + i5);
+        this.mFq.set(this.mFp.left + this.mFF, i6, this.mFp.right - this.mFF, this.gUx + i6);
         update();
     }
 
     @Override // android.view.View
     public void onRtlPropertiesChanged(int i) {
-        if (this.mDS != null && a(this.mDS, i)) {
+        if (this.mFz != null && a(this.mFz, i)) {
             invalidate();
         }
     }
@@ -378,14 +378,14 @@ public class DefaultTimeBar extends View implements c {
             return false;
         }
         if (i == 8192) {
-            if (gD(-getPositionIncrement())) {
-                vS(false);
+            if (gE(-getPositionIncrement())) {
+                vZ(false);
             }
         } else if (i != 4096) {
             return false;
         } else {
-            if (gD(getPositionIncrement())) {
-                vS(false);
+            if (gE(getPositionIncrement())) {
+                vZ(false);
             }
         }
         sendAccessibilityEvent(4);
@@ -393,163 +393,163 @@ public class DefaultTimeBar extends View implements c {
     }
 
     @TargetApi(16)
-    private void dyD() {
+    private void dza() {
         if (getImportantForAccessibility() == 0) {
             setImportantForAccessibility(1);
         }
     }
 
-    private void dyE() {
-        this.mEi = true;
+    private void dzb() {
+        this.mFP = true;
         setPressed(true);
         ViewParent parent = getParent();
         if (parent != null) {
             parent.requestDisallowInterceptTouchEvent(true);
         }
-        Iterator<c.a> it = this.lcc.iterator();
+        Iterator<c.a> it = this.ldH.iterator();
         while (it.hasNext()) {
             it.next().a(this, getScrubberPosition());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vS(boolean z) {
-        this.mEi = false;
+    public void vZ(boolean z) {
+        this.mFP = false;
         setPressed(false);
         ViewParent parent = getParent();
         if (parent != null) {
             parent.requestDisallowInterceptTouchEvent(false);
         }
         invalidate();
-        Iterator<c.a> it = this.lcc.iterator();
+        Iterator<c.a> it = this.ldH.iterator();
         while (it.hasNext()) {
             it.next().a(this, getScrubberPosition(), z);
         }
     }
 
     private void update() {
-        this.mDK.set(this.mDJ);
-        this.mDL.set(this.mDJ);
-        long j = this.mEi ? this.mEj : this.fOo;
+        this.mFr.set(this.mFq);
+        this.mFs.set(this.mFq);
+        long j = this.mFP ? this.mFQ : this.fOW;
         if (this.duration > 0) {
-            this.mDK.right = Math.min(((int) ((this.mDJ.width() * this.mEk) / this.duration)) + this.mDJ.left, this.mDJ.right);
-            this.mDL.right = Math.min(((int) ((j * this.mDJ.width()) / this.duration)) + this.mDJ.left, this.mDJ.right);
+            this.mFr.right = Math.min(((int) ((this.mFq.width() * this.mFR) / this.duration)) + this.mFq.left, this.mFq.right);
+            this.mFs.right = Math.min(((int) ((j * this.mFq.width()) / this.duration)) + this.mFq.left, this.mFq.right);
         } else {
-            this.mDK.right = this.mDJ.left;
-            this.mDL.right = this.mDJ.left;
+            this.mFr.right = this.mFq.left;
+            this.mFs.right = this.mFq.left;
         }
-        invalidate(this.mDI);
+        invalidate(this.mFp);
     }
 
     private void bC(float f) {
-        this.mDL.right = v.am((int) f, this.mDJ.left, this.mDJ.right);
+        this.mFs.right = v.am((int) f, this.mFq.left, this.mFq.right);
     }
 
     private Point aa(MotionEvent motionEvent) {
-        if (this.mEg == null) {
-            this.mEg = new int[2];
-            this.mEh = new Point();
+        if (this.mFN == null) {
+            this.mFN = new int[2];
+            this.mFO = new Point();
         }
-        getLocationOnScreen(this.mEg);
-        this.mEh.set(((int) motionEvent.getRawX()) - this.mEg[0], ((int) motionEvent.getRawY()) - this.mEg[1]);
-        return this.mEh;
+        getLocationOnScreen(this.mFN);
+        this.mFO.set(((int) motionEvent.getRawX()) - this.mFN[0], ((int) motionEvent.getRawY()) - this.mFN[1]);
+        return this.mFO;
     }
 
     private long getScrubberPosition() {
-        if (this.mDJ.width() <= 0 || this.duration == -9223372036854775807L) {
+        if (this.mFq.width() <= 0 || this.duration == -9223372036854775807L) {
             return 0L;
         }
-        return (this.mDL.width() * this.duration) / this.mDJ.width();
+        return (this.mFs.width() * this.duration) / this.mFq.width();
     }
 
     private boolean E(float f, float f2) {
-        return this.mDI.contains((int) f, (int) f2);
-    }
-
-    private void ac(Canvas canvas) {
-        int min;
-        int height = this.mDJ.height();
-        int centerY = this.mDJ.centerY() - (height / 2);
-        int i = centerY + height;
-        if (this.duration <= 0) {
-            canvas.drawRect(this.mDJ.left, centerY, this.mDJ.right, i, this.mDO);
-            return;
-        }
-        int i2 = this.mDK.left;
-        int i3 = this.mDK.right;
-        int max = Math.max(Math.max(this.mDJ.left, i3), this.mDL.right);
-        if (max < this.mDJ.right) {
-            canvas.drawRect(max, centerY, this.mDJ.right, i, this.mDO);
-        }
-        int max2 = Math.max(i2, this.mDL.right);
-        if (i3 > max2) {
-            canvas.drawRect(max2, centerY, i3, i, this.mDN);
-        }
-        if (this.mDL.width() > 0) {
-            canvas.drawRect(this.mDL.left, centerY, this.mDL.right, i, this.mDM);
-        }
-        int i4 = this.mDU / 2;
-        for (int i5 = 0; i5 < this.mEl; i5++) {
-            canvas.drawRect(Math.min(this.mDJ.width() - this.mDU, Math.max(0, ((int) ((v.h(this.mEm[i5], 0L, this.duration) * this.mDJ.width()) / this.duration)) - i4)) + this.mDJ.left, centerY, min + this.mDU, i, this.mEn[i5] ? this.mDQ : this.mDP);
-        }
+        return this.mFp.contains((int) f, (int) f2);
     }
 
     private void ad(Canvas canvas) {
-        int i;
-        if (this.duration > 0) {
-            int am = v.am(this.mDL.right, this.mDL.left, this.mDJ.right);
-            int centerY = this.mDL.centerY();
-            if (this.mDS == null) {
-                if (this.mEi || isFocused()) {
-                    i = this.mDX;
-                } else {
-                    i = isEnabled() ? this.mDV : this.mDW;
-                }
-                canvas.drawCircle(am, centerY, i / 2, this.mDR);
-                return;
-            }
-            int intrinsicWidth = this.mDS.getIntrinsicWidth();
-            int intrinsicHeight = this.mDS.getIntrinsicHeight();
-            this.mDS.setBounds(am - (intrinsicWidth / 2), centerY - (intrinsicHeight / 2), (intrinsicWidth / 2) + am, (intrinsicHeight / 2) + centerY);
-            this.mDS.draw(canvas);
+        int min;
+        int height = this.mFq.height();
+        int centerY = this.mFq.centerY() - (height / 2);
+        int i = centerY + height;
+        if (this.duration <= 0) {
+            canvas.drawRect(this.mFq.left, centerY, this.mFq.right, i, this.mFv);
+            return;
+        }
+        int i2 = this.mFr.left;
+        int i3 = this.mFr.right;
+        int max = Math.max(Math.max(this.mFq.left, i3), this.mFs.right);
+        if (max < this.mFq.right) {
+            canvas.drawRect(max, centerY, this.mFq.right, i, this.mFv);
+        }
+        int max2 = Math.max(i2, this.mFs.right);
+        if (i3 > max2) {
+            canvas.drawRect(max2, centerY, i3, i, this.mFu);
+        }
+        if (this.mFs.width() > 0) {
+            canvas.drawRect(this.mFs.left, centerY, this.mFs.right, i, this.mFt);
+        }
+        int i4 = this.mFB / 2;
+        for (int i5 = 0; i5 < this.mFS; i5++) {
+            canvas.drawRect(Math.min(this.mFq.width() - this.mFB, Math.max(0, ((int) ((v.h(this.mFT[i5], 0L, this.duration) * this.mFq.width()) / this.duration)) - i4)) + this.mFq.left, centerY, min + this.mFB, i, this.mFU[i5] ? this.mFx : this.mFw);
         }
     }
 
-    private void dyF() {
-        if (this.mDS != null && this.mDS.isStateful() && this.mDS.setState(getDrawableState())) {
+    private void ae(Canvas canvas) {
+        int i;
+        if (this.duration > 0) {
+            int am = v.am(this.mFs.right, this.mFs.left, this.mFq.right);
+            int centerY = this.mFs.centerY();
+            if (this.mFz == null) {
+                if (this.mFP || isFocused()) {
+                    i = this.mFE;
+                } else {
+                    i = isEnabled() ? this.mFC : this.mFD;
+                }
+                canvas.drawCircle(am, centerY, i / 2, this.mFy);
+                return;
+            }
+            int intrinsicWidth = this.mFz.getIntrinsicWidth();
+            int intrinsicHeight = this.mFz.getIntrinsicHeight();
+            this.mFz.setBounds(am - (intrinsicWidth / 2), centerY - (intrinsicHeight / 2), (intrinsicWidth / 2) + am, (intrinsicHeight / 2) + centerY);
+            this.mFz.draw(canvas);
+        }
+    }
+
+    private void dzc() {
+        if (this.mFz != null && this.mFz.isStateful() && this.mFz.setState(getDrawableState())) {
             invalidate();
         }
     }
 
     private String getProgressText() {
-        return v.a(this.mEa, this.mEb, this.fOo);
+        return v.a(this.mFH, this.mFI, this.fOW);
     }
 
     private long getPositionIncrement() {
-        if (this.mEe == -9223372036854775807L) {
+        if (this.mFL == -9223372036854775807L) {
             if (this.duration == -9223372036854775807L) {
                 return 0L;
             }
-            return this.duration / this.mEd;
+            return this.duration / this.mFK;
         }
-        return this.mEe;
+        return this.mFL;
     }
 
-    private boolean gD(long j) {
+    private boolean gE(long j) {
         if (this.duration <= 0) {
             return false;
         }
         long scrubberPosition = getScrubberPosition();
-        this.mEj = v.h(scrubberPosition + j, 0L, this.duration);
-        if (this.mEj == scrubberPosition) {
+        this.mFQ = v.h(scrubberPosition + j, 0L, this.duration);
+        if (this.mFQ == scrubberPosition) {
             return false;
         }
-        if (!this.mEi) {
-            dyE();
+        if (!this.mFP) {
+            dzb();
         }
-        Iterator<c.a> it = this.lcc.iterator();
+        Iterator<c.a> it = this.ldH.iterator();
         while (it.hasNext()) {
-            it.next().b(this, this.mEj);
+            it.next().b(this, this.mFQ);
         }
         update();
         return true;
@@ -563,19 +563,19 @@ public class DefaultTimeBar extends View implements c {
         return v.SDK_INT >= 23 && drawable.setLayoutDirection(i);
     }
 
-    public static int LJ(int i) {
+    public static int LP(int i) {
         return (-16777216) | i;
     }
 
-    public static int LK(int i) {
+    public static int LQ(int i) {
         return 855638016 | (16777215 & i);
     }
 
-    public static int LL(int i) {
+    public static int LR(int i) {
         return (-872415232) | (16777215 & i);
     }
 
-    public static int LM(int i) {
+    public static int LS(int i) {
         return 855638016 | (16777215 & i);
     }
 }

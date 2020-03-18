@@ -5,14 +5,14 @@ import com.xiaomi.push.hk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class al implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0753a a;
+    final /* synthetic */ MiTinyDataClient.a.C0754a a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ hk f35a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(MiTinyDataClient.a.C0753a c0753a, hk hkVar) {
-        this.a = c0753a;
+    public al(MiTinyDataClient.a.C0754a c0754a, hk hkVar) {
+        this.a = c0754a;
         this.f35a = hkVar;
     }
 

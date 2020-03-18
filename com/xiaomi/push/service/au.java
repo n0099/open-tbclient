@@ -49,7 +49,7 @@ public class au {
             if (this.f872a[1] != 0) {
                 sb.append("   S[1]!=0");
             }
-            com.xiaomi.channel.commonutils.logger.b.m47a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m45a(sb.toString());
         }
     }
 
@@ -87,7 +87,7 @@ public class au {
         auVar.a(bArr);
         auVar.a();
         for (int i = 0; i < bArr2.length; i++) {
-            bArr3[i] = (byte) (bArr2[i] ^ auVar.m521a());
+            bArr3[i] = (byte) (bArr2[i] ^ auVar.m519a());
         }
         return bArr3;
     }
@@ -109,13 +109,13 @@ public class au {
         auVar.a(bArr);
         auVar.a();
         for (int i4 = 0; i4 < i2; i4++) {
-            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ auVar.m521a());
+            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ auVar.m519a());
         }
         return bArr3;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    byte m521a() {
+    byte m519a() {
         this.b = (this.b + 1) % 256;
         this.c = (this.c + a(this.f872a[this.b])) % 256;
         a(this.f872a, this.b, this.c);

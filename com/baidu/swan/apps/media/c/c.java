@@ -9,27 +9,27 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String bAA;
-    public boolean bAI;
+    public String bAL;
+    public boolean bAT;
     public boolean bEA;
-    public boolean bEi;
-    public String bEj;
-    public int bEk;
-    public String bEl;
-    public boolean bEm;
-    public String bEn;
-    public String bEo;
-    public boolean bEp;
-    public boolean bEq;
-    public boolean bEr;
-    public String bEs;
-    private boolean bEt;
-    private boolean bEu;
-    private boolean bEv;
-    public boolean bEw;
+    public boolean bEB;
+    public boolean bEC;
+    public String bED;
+    private boolean bEE;
+    private boolean bEF;
+    private boolean bEG;
+    public boolean bEH;
+    public boolean bEI;
+    public boolean bEJ;
+    public boolean bEK;
+    public boolean bEL;
+    public boolean bEt;
+    public String bEu;
+    public int bEv;
+    public String bEw;
     public boolean bEx;
-    public boolean bEy;
-    public boolean bEz;
+    public String bEy;
+    public String bEz;
     public int duration;
     public int mDirection;
     public boolean mLoop;
@@ -40,68 +40,68 @@ public class c extends com.baidu.swan.apps.component.b.b {
         c cVar2 = new c();
         if (jSONObject != null) {
             cVar2.a(jSONObject, (com.baidu.swan.apps.component.b.b) cVar);
-            cVar2.bAA = jSONObject.optString("videoId", cVar.bAA);
-            cVar2.bAI = jSONObject.optBoolean("autoplay", cVar.bAI);
-            cVar2.bEi = jSONObject.optBoolean("muted", cVar.bEi);
-            cVar2.bEl = jSONObject.optString("objectFit", cVar.bEl);
-            cVar2.bEk = jSONObject.optInt("initialTime", cVar.bEk);
-            cVar2.bEj = jSONObject.optString("poster", cVar.bEj);
+            cVar2.bAL = jSONObject.optString("videoId", cVar.bAL);
+            cVar2.bAT = jSONObject.optBoolean("autoplay", cVar.bAT);
+            cVar2.bEt = jSONObject.optBoolean("muted", cVar.bEt);
+            cVar2.bEw = jSONObject.optString("objectFit", cVar.bEw);
+            cVar2.bEv = jSONObject.optInt("initialTime", cVar.bEv);
+            cVar2.bEu = jSONObject.optString("poster", cVar.bEu);
             cVar2.mPos = jSONObject.optInt("position", cVar.mPos);
-            cVar2.bEm = jSONObject.optBoolean("fullScreen", cVar.bEm);
-            cVar2.bEn = ao(jSONObject);
-            cVar2.bEo = jSONObject.optString("danmuList", cVar.bEo);
-            cVar2.bEp = jSONObject.optBoolean("enableDanmu", cVar.bEp);
-            cVar2.bEq = jSONObject.optBoolean("danmuBtn", cVar.bEq);
+            cVar2.bEx = jSONObject.optBoolean("fullScreen", cVar.bEx);
+            cVar2.bEy = ao(jSONObject);
+            cVar2.bEz = jSONObject.optString("danmuList", cVar.bEz);
+            cVar2.bEA = jSONObject.optBoolean("enableDanmu", cVar.bEA);
+            cVar2.bEB = jSONObject.optBoolean("danmuBtn", cVar.bEB);
             cVar2.mLoop = jSONObject.optBoolean("loop", cVar.mLoop);
-            cVar2.bEr = jSONObject.optBoolean("controls", cVar.bEr);
-            cVar2.mSrc = js(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.mSrc));
-            cVar2.bEA = !com.baidu.swan.apps.storage.b.lS(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.mSrc));
-            cVar2.bEt = jSONObject.optBoolean("showPlayBtn", cVar.bEt);
-            cVar2.bEu = jSONObject.optBoolean("showMuteBtn", cVar.bEu);
-            cVar2.bEv = jSONObject.optBoolean("showCenterPlayBtn", cVar.bEv);
-            cVar2.bEw = jSONObject.optBoolean("pageGesture", cVar.bEw);
-            cVar2.bEx = jSONObject.optBoolean("showProgress", cVar.bEx);
+            cVar2.bEC = jSONObject.optBoolean("controls", cVar.bEC);
+            cVar2.mSrc = jr(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.mSrc));
+            cVar2.bEL = !com.baidu.swan.apps.storage.b.lR(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.mSrc));
+            cVar2.bEE = jSONObject.optBoolean("showPlayBtn", cVar.bEE);
+            cVar2.bEF = jSONObject.optBoolean("showMuteBtn", cVar.bEF);
+            cVar2.bEG = jSONObject.optBoolean("showCenterPlayBtn", cVar.bEG);
+            cVar2.bEH = jSONObject.optBoolean("pageGesture", cVar.bEH);
+            cVar2.bEI = jSONObject.optBoolean("showProgress", cVar.bEI);
             cVar2.mDirection = jSONObject.optInt("direction", cVar.mDirection);
-            cVar2.bEy = jSONObject.optBoolean("showFullscreenBtn", cVar.bEy);
-            cVar2.bEz = jSONObject.optBoolean("enableProgressGesture", cVar.bEz);
-            cVar2.bEs = jSONObject.optString("sanId", cVar.bEs);
+            cVar2.bEJ = jSONObject.optBoolean("showFullscreenBtn", cVar.bEJ);
+            cVar2.bEK = jSONObject.optBoolean("enableProgressGesture", cVar.bEK);
+            cVar2.bED = jSONObject.optString("sanId", cVar.bED);
         }
         return cVar2;
     }
 
     public c() {
         super("video", "viewId");
-        this.bAA = "";
-        this.bEi = false;
-        this.bEj = "";
-        this.bEk = 0;
+        this.bAL = "";
+        this.bEt = false;
+        this.bEu = "";
+        this.bEv = 0;
         this.duration = 0;
-        this.bAI = false;
+        this.bAT = false;
         this.mLoop = false;
-        this.bEl = "";
+        this.bEw = "";
         this.mPos = 0;
-        this.bEn = "";
-        this.bEo = "";
-        this.bEp = false;
-        this.bEq = false;
-        this.bEr = true;
+        this.bEy = "";
+        this.bEz = "";
+        this.bEA = false;
+        this.bEB = false;
+        this.bEC = true;
         this.mSrc = "";
-        this.bEs = "";
-        this.bEw = false;
-        this.bEx = true;
+        this.bED = "";
+        this.bEH = false;
+        this.bEI = true;
         this.mDirection = -1;
-        this.bEy = true;
-        this.bEz = true;
-        this.bEA = true;
+        this.bEJ = true;
+        this.bEK = true;
+        this.bEL = true;
     }
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bAA);
+        return !TextUtils.isEmpty(this.bAL);
     }
 
     public boolean isAutoPlay() {
-        return this.bAI;
+        return this.bAT;
     }
 
     public boolean isVisible() {
@@ -122,15 +122,15 @@ public class c extends com.baidu.swan.apps.component.b.b {
         return jSONObject2.toString();
     }
 
-    private static String js(String str) {
-        if (!com.baidu.swan.apps.storage.b.lS(str) || e.acF() == null) {
+    private static String jr(String str) {
+        if (!com.baidu.swan.apps.storage.b.lR(str) || e.acI() == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.d(str, e.acF());
+        return com.baidu.swan.apps.storage.b.d(str, e.acI());
     }
 
     @Override // com.baidu.swan.apps.component.b.b
     public String toString() {
-        return "VideoPlayerParams{mPlayerId='" + this.bAA + "', mMute=" + this.bEi + ", mPoster='" + this.bEj + "', mInitialTime=" + this.bEk + ", duration=" + this.duration + ", mAutoPlay=" + this.bAI + ", mLoop=" + this.mLoop + ", mObjectFit='" + this.bEl + "', mPos=" + this.mPos + ", mFullScreen=" + this.bEm + ", mDanmu='" + this.bEn + "', mDanmuList='" + this.bEo + "', mEnableDanmu=" + this.bEp + ", mShowDanmuBtn=" + this.bEq + ", mShowControlPanel=" + this.bEr + ", mSrc='" + this.mSrc + "', mSanId='" + this.bEs + "', mShowPlayBtn=" + this.bEt + ", mShowMuteBtn=" + this.bEu + ", mShowCenterPlayBtn=" + this.bEv + ", mPageGesture=" + this.bEw + ", mShowProgress=" + this.bEx + ", mDirection=" + this.mDirection + ", mShowFullscreenBtn=" + this.bEy + ", mEnableProgressGesture=" + this.bEz + ", mIsRemoteFile=" + this.bEA + '}';
+        return "VideoPlayerParams{mPlayerId='" + this.bAL + "', mMute=" + this.bEt + ", mPoster='" + this.bEu + "', mInitialTime=" + this.bEv + ", duration=" + this.duration + ", mAutoPlay=" + this.bAT + ", mLoop=" + this.mLoop + ", mObjectFit='" + this.bEw + "', mPos=" + this.mPos + ", mFullScreen=" + this.bEx + ", mDanmu='" + this.bEy + "', mDanmuList='" + this.bEz + "', mEnableDanmu=" + this.bEA + ", mShowDanmuBtn=" + this.bEB + ", mShowControlPanel=" + this.bEC + ", mSrc='" + this.mSrc + "', mSanId='" + this.bED + "', mShowPlayBtn=" + this.bEE + ", mShowMuteBtn=" + this.bEF + ", mShowCenterPlayBtn=" + this.bEG + ", mPageGesture=" + this.bEH + ", mShowProgress=" + this.bEI + ", mDirection=" + this.mDirection + ", mShowFullscreenBtn=" + this.bEJ + ", mEnableProgressGesture=" + this.bEK + ", mIsRemoteFile=" + this.bEL + '}';
     }
 }

@@ -6,37 +6,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> dZI;
+    private Map<DownloadCacheKey, AdDownloadData> dZY;
 
     /* loaded from: classes8.dex */
     private static final class a {
-        private static final b dZJ = new b();
+        private static final b dZZ = new b();
     }
 
     private b() {
-        this.dZI = new HashMap();
+        this.dZY = new HashMap();
     }
 
-    public static b aYi() {
-        return a.dZJ;
+    public static b aYm() {
+        return a.dZZ;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.dZI.get(downloadCacheKey) == null) {
-            this.dZI.put(downloadCacheKey, adDownloadData);
+        if (this.dZY.get(downloadCacheKey) == null) {
+            this.dZY.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.dZI.get(downloadCacheKey);
+        return this.dZY.get(downloadCacheKey);
     }
 
     public Map<DownloadCacheKey, AdDownloadData> wX(String str) {
-        HashMap hashMap = new HashMap(this.dZI.size());
+        HashMap hashMap = new HashMap(this.dZY.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dZI.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dZY.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

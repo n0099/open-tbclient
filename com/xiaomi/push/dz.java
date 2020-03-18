@@ -83,19 +83,19 @@ public class dz extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo157a() {
+    public int mo155a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo157a() {
+    public hi mo155a() {
         return hi.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo157a() {
+    public String mo155a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

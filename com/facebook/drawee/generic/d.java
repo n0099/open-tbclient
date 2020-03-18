@@ -10,23 +10,23 @@ import com.facebook.drawee.drawable.t;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d extends g implements s {
-    private static ColorFilter lNG = null;
+    private static ColorFilter lPm = null;
     @Nullable
-    Drawable lLk;
-    private boolean lNH;
+    Drawable lMQ;
+    private boolean lPn;
     @Nullable
-    private t lNI;
+    private t lPo;
     private ColorFilter mColorFilter;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.lLk = null;
+        this.lMQ = null;
         this.mColorFilter = null;
-        this.lNH = true;
+        this.lPn = true;
     }
 
-    public void vl(boolean z) {
-        this.lNH = z;
+    public void vs(boolean z) {
+        this.lPn = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -41,13 +41,13 @@ public class d extends g implements s {
 
     @Override // com.facebook.drawee.drawable.s
     public void a(@Nullable t tVar) {
-        this.lNI = tVar;
+        this.lPo = tVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.lNI != null) {
-            this.lNI.vk(z);
+        if (this.lPo != null) {
+            this.lPo.vr(z);
         }
         return super.setVisible(z, z2);
     }
@@ -56,23 +56,23 @@ public class d extends g implements s {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.lNH && lNG != this.mColorFilter) {
-                this.mColorFilter = lNG;
+            if (this.lPn && lPm != this.mColorFilter) {
+                this.mColorFilter = lPm;
                 setColorFilter(this.mColorFilter);
             }
-            if (this.lNI != null) {
-                this.lNI.onDraw();
+            if (this.lPo != null) {
+                this.lPo.onDraw();
             }
             super.draw(canvas);
-            if (this.lLk != null) {
-                this.lLk.setBounds(getBounds());
-                this.lLk.draw(canvas);
+            if (this.lMQ != null) {
+                this.lMQ.setBounds(getBounds());
+                this.lMQ.draw(canvas);
             }
         }
     }
 
     public void n(@Nullable Drawable drawable) {
-        this.lLk = drawable;
+        this.lMQ = drawable;
         invalidateSelf();
     }
 }

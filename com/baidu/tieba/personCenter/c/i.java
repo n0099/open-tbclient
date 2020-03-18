@@ -4,11 +4,11 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes9.dex */
 public class i {
     public boolean isShowRedTip = false;
-    public String jhT;
-    public Drawable jhU;
-    public Drawable jhV;
-    public Drawable jhW;
-    public boolean jhX;
+    public String jjt;
+    public Drawable jju;
+    public Drawable jjv;
+    public Drawable jjw;
+    public boolean jjx;
     public String linkUrl;
     public String text;
 }

@@ -20,9 +20,9 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public static final int FIRST_PN = 1;
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 2;
-    private boolean eCv;
-    private a eCw;
-    private HttpMessageListener etK;
+    private boolean eCR;
+    private a eCS;
+    private HttpMessageListener eug;
     private String forumGameLabel;
     private String forumId;
     private boolean hasMore;
@@ -37,7 +37,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public interface a {
         void ag(int i, String str);
 
-        void ie(boolean z);
+        void ig(boolean z);
     }
 
     public AlaFrsLiveModel(e eVar) {
@@ -46,8 +46,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
         this.ps = 30;
         this.sortType = 1;
         this.mFromType = 1;
-        this.eCv = false;
-        this.etK = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.1
+        this.eCR = false;
+        this.eug = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -56,8 +56,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
                     if (httpResponsedMessage.getOrginalMessage() instanceof AlaGameFrsLiveThreadsRequestMessage) {
                         AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = (AlaGameFrsLiveThreadsRequestMessage) httpResponsedMessage.getOrginalMessage();
                         if (httpResponsedMessage.hasError()) {
-                            if (AlaFrsLiveModel.this.eCw != null) {
-                                AlaFrsLiveModel.this.eCw.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            if (AlaFrsLiveModel.this.eCS != null) {
+                                AlaFrsLiveModel.this.eCS.ag(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                                 return;
                             }
                             return;
@@ -67,7 +67,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                             AlaFrsLiveModel.this.mDatas = new ArrayList();
                         }
                         if (AlaFrsLiveModel.this.pn != 1 || v.getCount(liveList) != 0 || AlaFrsLiveModel.this.mFromType != 2) {
-                            AlaFrsLiveModel.this.eCv = false;
+                            AlaFrsLiveModel.this.eCR = false;
                             AlaFrsLiveModel.this.hasMore = alaGameFrsLiveThreadsRespMessage.hasMore();
                             AlaFrsLiveModel.this.pn = alaGameFrsLiveThreadsRequestMessage.getPn();
                             AlaFrsLiveModel.this.liveCount = alaGameFrsLiveThreadsRespMessage.getLiveCount();
@@ -88,16 +88,16 @@ public class AlaFrsLiveModel extends BdBaseModel {
                                 AlaFrsLiveModel.this.mDatas.clear();
                                 AlaFrsLiveModel.this.mDatas.addAll(recommandList);
                             }
-                            AlaFrsLiveModel.this.eCv = true;
+                            AlaFrsLiveModel.this.eCR = true;
                         }
-                        if (AlaFrsLiveModel.this.eCw != null) {
-                            AlaFrsLiveModel.this.eCw.ie(AlaFrsLiveModel.this.hasMore);
+                        if (AlaFrsLiveModel.this.eCS != null) {
+                            AlaFrsLiveModel.this.eCS.ig(AlaFrsLiveModel.this.hasMore);
                         }
                     }
                 }
             }
         };
-        registerListener(this.etK);
+        registerListener(this.eug);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -108,7 +108,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         LinkedList linkedList = new LinkedList();
         linkedList.addAll(list);
         for (m mVar : list2) {
-            if (mVar != null && (mVar instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bjVar = ((com.baidu.tieba.ala.frsgamelive.b.c) mVar).cRg) != null && bjVar.getThreadType() == 49) {
+            if (mVar != null && (mVar instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bjVar = ((com.baidu.tieba.ala.frsgamelive.b.c) mVar).cRt) != null && bjVar.getThreadType() == 49) {
                 String tid = bjVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
                     Iterator<m> it = list.iterator();
@@ -118,7 +118,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                             break;
                         }
                         m next = it.next();
-                        if (next != null && (next instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bjVar2 = ((com.baidu.tieba.ala.frsgamelive.b.c) next).cRg) != null && tid.equals(bjVar2.getTid())) {
+                        if (next != null && (next instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (bjVar2 = ((com.baidu.tieba.ala.frsgamelive.b.c) next).cRt) != null && tid.equals(bjVar2.getTid())) {
                             z = true;
                             break;
                         }
@@ -143,7 +143,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         sendMessage(alaGameFrsLiveThreadsRequestMessage);
     }
 
-    public boolean bdz() {
+    public boolean bdE() {
         if (!this.hasMore) {
             return false;
         }
@@ -189,7 +189,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eCw = aVar;
+        this.eCS = aVar;
     }
 
     public List<m> getData() {
@@ -206,8 +206,8 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return this.liveCount;
     }
 
-    public boolean beS() {
-        return this.eCv;
+    public boolean beX() {
+        return this.eCR;
     }
 
     public boolean hasMore() {

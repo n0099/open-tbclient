@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class DeskLinearLayout extends LinearLayout {
-    private View dzV;
+    private View dAi;
     private boolean visible;
 
     public DeskLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class DeskLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.dzV != null) {
-            this.dzV.measure(getChildMeasureSpec(i, 0, this.dzV.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.dzV.getLayoutParams().height));
+        if (this.dAi != null) {
+            this.dAi.measure(getChildMeasureSpec(i, 0, this.dAi.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.dAi.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class DeskLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.dzV != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.dzV.getMeasuredWidth();
-            this.dzV.layout(measuredWidth, 0, this.dzV.getMeasuredWidth() + measuredWidth, this.dzV.getMeasuredHeight());
+        if (this.dAi != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.dAi.getMeasuredWidth();
+            this.dAi.layout(measuredWidth, 0, this.dAi.getMeasuredWidth() + measuredWidth, this.dAi.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.dzV = view;
+        this.dAi = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class DeskLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.dzV.getLeft(), this.dzV.getTop());
-            this.dzV.draw(canvas);
+            canvas.translate(this.dAi.getLeft(), this.dAi.getTop());
+            this.dAi.draw(canvas);
             canvas.restore();
         }
     }

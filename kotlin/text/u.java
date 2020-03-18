@@ -14,15 +14,15 @@ public class u extends t {
     /* loaded from: classes7.dex */
     public static final class a extends kotlin.collections.n {
         private int index;
-        final /* synthetic */ CharSequence nDI;
+        final /* synthetic */ CharSequence nFv;
 
         a(CharSequence charSequence) {
-            this.nDI = charSequence;
+            this.nFv = charSequence;
         }
 
         @Override // kotlin.collections.n
-        public char dKd() {
-            CharSequence charSequence = this.nDI;
+        public char dKD() {
+            CharSequence charSequence = this.nFv;
             int i = this.index;
             this.index = i + 1;
             return charSequence.charAt(i);
@@ -30,7 +30,7 @@ public class u extends t {
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.index < this.nDI.length();
+            return this.index < this.nFv.length();
         }
     }
 
@@ -52,7 +52,7 @@ public class u extends t {
     public static final String a(CharSequence charSequence, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.j(charSequence, "receiver$0");
         kotlin.jvm.internal.q.j(hVar, "range");
-        return charSequence.subSequence(hVar.dKI().intValue(), hVar.dKJ().intValue() + 1).toString();
+        return charSequence.subSequence(hVar.dLi().intValue(), hVar.dLj().intValue() + 1).toString();
     }
 
     public static final boolean a(CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, boolean z) {
@@ -76,11 +76,11 @@ public class u extends t {
         if (!z && cArr.length == 1 && (charSequence instanceof String)) {
             return ((String) charSequence).indexOf(kotlin.collections.f.g(cArr), i);
         }
-        int ey = kotlin.b.l.ey(i, 0);
+        int ez = kotlin.b.l.ez(i, 0);
         int t = l.t(charSequence);
-        if (ey <= t) {
+        if (ez <= t) {
             while (true) {
-                char charAt = charSequence.charAt(ey);
+                char charAt = charSequence.charAt(ez);
                 int length = cArr.length;
                 int i2 = 0;
                 while (true) {
@@ -95,12 +95,12 @@ public class u extends t {
                     }
                 }
                 if (!z2) {
-                    if (ey == t) {
+                    if (ez == t) {
                         break;
                     }
-                    ey++;
+                    ez++;
                 } else {
-                    return ey;
+                    return ez;
                 }
             }
         }
@@ -112,32 +112,32 @@ public class u extends t {
     }
 
     private static final int a(CharSequence charSequence, CharSequence charSequence2, int i, int i2, boolean z, boolean z2) {
-        kotlin.b.h ew;
+        kotlin.b.h ex;
         if (!z2) {
-            ew = new kotlin.b.h(kotlin.b.l.ey(i, 0), kotlin.b.l.ez(i2, charSequence.length()));
+            ex = new kotlin.b.h(kotlin.b.l.ez(i, 0), kotlin.b.l.eA(i2, charSequence.length()));
         } else {
-            ew = kotlin.b.l.ew(kotlin.b.l.ez(i, l.t(charSequence)), kotlin.b.l.ey(i2, 0));
+            ex = kotlin.b.l.ex(kotlin.b.l.eA(i, l.t(charSequence)), kotlin.b.l.ez(i2, 0));
         }
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
-            int first = ew.getFirst();
-            int last = ew.getLast();
-            int dKG = ew.dKG();
-            if (dKG <= 0 ? first >= last : first <= last) {
+            int first = ex.getFirst();
+            int last = ex.getLast();
+            int dLg = ex.dLg();
+            if (dLg <= 0 ? first >= last : first <= last) {
                 while (!l.a((String) charSequence2, 0, (String) charSequence, first, charSequence2.length(), z)) {
                     if (first != last) {
-                        first += dKG;
+                        first += dLg;
                     }
                 }
                 return first;
             }
         } else {
-            int first2 = ew.getFirst();
-            int last2 = ew.getLast();
-            int dKG2 = ew.dKG();
-            if (dKG2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int first2 = ex.getFirst();
+            int last2 = ex.getLast();
+            int dLg2 = ex.dLg();
+            if (dLg2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (!l.a(charSequence2, 0, charSequence, first2, charSequence2.length(), z)) {
                     if (first2 != last2) {
-                        first2 += dKG2;
+                        first2 += dLg2;
                     }
                 }
                 return first2;
@@ -158,12 +158,12 @@ public class u extends t {
             }
             return kotlin.j.k(Integer.valueOf(a2), str);
         }
-        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.ey(i, 0), charSequence.length()) : kotlin.b.l.ew(kotlin.b.l.ez(i, l.t(charSequence)), 0);
+        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.ez(i, 0), charSequence.length()) : kotlin.b.l.ex(kotlin.b.l.eA(i, l.t(charSequence)), 0);
         if (charSequence instanceof String) {
             int first = hVar.getFirst();
             int last = hVar.getLast();
-            int dKG = hVar.dKG();
-            if (dKG <= 0 ? first >= last : first <= last) {
+            int dLg = hVar.dLg();
+            if (dLg <= 0 ? first >= last : first <= last) {
                 while (true) {
                     Iterator<T> it = collection.iterator();
                     while (true) {
@@ -184,7 +184,7 @@ public class u extends t {
                         if (first == last) {
                             break;
                         }
-                        first += dKG;
+                        first += dLg;
                     } else {
                         return kotlin.j.k(Integer.valueOf(first), str3);
                     }
@@ -193,8 +193,8 @@ public class u extends t {
         } else {
             int first2 = hVar.getFirst();
             int last2 = hVar.getLast();
-            int dKG2 = hVar.dKG();
-            if (dKG2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int dLg2 = hVar.dLg();
+            if (dLg2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (true) {
                     Iterator<T> it2 = collection.iterator();
                     while (true) {
@@ -215,7 +215,7 @@ public class u extends t {
                         if (first2 == last2) {
                             break;
                         }
-                        first2 += dKG2;
+                        first2 += dLg2;
                     } else {
                         return kotlin.j.k(Integer.valueOf(first2), str5);
                     }
@@ -361,7 +361,7 @@ public class u extends t {
                 return kotlin.collections.o.bS(charSequence.toString());
             }
             boolean z2 = i > 0;
-            ArrayList arrayList = new ArrayList(z2 ? kotlin.b.l.ez(i, 10) : 10);
+            ArrayList arrayList = new ArrayList(z2 ? kotlin.b.l.eA(i, 10) : 10);
             int i2 = 0;
             int i3 = a2;
             do {

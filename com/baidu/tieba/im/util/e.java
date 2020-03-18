@@ -128,7 +128,7 @@ public class e {
         }
     }
 
-    private static final String Dz(String str) {
+    private static final String Dy(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -157,7 +157,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String DA(String str) {
+    private static final String Dz(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -189,19 +189,19 @@ public class e {
             return null;
         }
         if (i == 1) {
-            String Dz = (str.length() <= 1 || str.charAt(0) != '[') ? null : Dz(str);
-            if (TextUtils.isEmpty(Dz)) {
-                Dz = str;
+            String Dy = (str.length() <= 1 || str.charAt(0) != '[') ? null : Dy(str);
+            if (TextUtils.isEmpty(Dy)) {
+                Dy = str;
             }
-            if (Dz == null) {
+            if (Dy == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(Dz);
+            Matcher matcher = pattern.matcher(Dy);
             while (matcher.find()) {
                 String group = matcher.group();
-                Dz = Dz.replace(group, group.replace("#(", "[").replace(")", "]"));
+                Dy = Dy.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return Dz;
+            return Dy;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -209,7 +209,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return DB(str);
+                return DA(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -298,7 +298,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return DA(str);
+                    return Dz(str);
                 } else {
                     return null;
                 }
@@ -330,7 +330,7 @@ public class e {
         return v(chatMessage);
     }
 
-    private static String DB(String str) {
+    private static String DA(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -444,19 +444,19 @@ public class e {
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return DC(commonMsgPojo.getContent());
+            return DB(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d DC(String str) {
+    public static com.baidu.tieba.im.data.d DB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return DD(jSONArray.getJSONObject(0).optString("msg_src"));
+                return DC(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -465,13 +465,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d DD(String str) {
+    public static com.baidu.tieba.im.data.d DC(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.hxV = split[0];
+        dVar.hzv = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

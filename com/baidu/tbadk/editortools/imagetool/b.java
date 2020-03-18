@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.l;
 public class b extends l {
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.dxF = true;
-        this.dxE = 6;
-        this.dwN = c.y(context, i);
-        this.dxG = new int[]{12, 13, 9};
+        this.dxS = true;
+        this.dxR = 6;
+        this.dxa = c.y(context, i);
+        this.dxT = new int[]{12, 13, 9};
     }
 }

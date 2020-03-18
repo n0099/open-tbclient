@@ -3,15 +3,15 @@ package com.baidu.tieba.personPolymeric.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes11.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId joZ = BdUniqueId.gen();
+    public static final BdUniqueId jqy = BdUniqueId.gen();
     public String avatar;
     public long forumId;
     public String forumName;
-    public int jpa;
+    public int jqz;
     public int sex;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return joZ;
+        return jqy;
     }
 }

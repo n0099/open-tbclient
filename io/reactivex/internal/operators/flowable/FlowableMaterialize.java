@@ -7,7 +7,7 @@ import io.reactivex.p;
 public final class FlowableMaterialize<T> extends a<T, p<T>> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super p<T>> cVar) {
-        this.nwE.a((j) new MaterializeSubscriber(cVar));
+        this.nyr.a((j) new MaterializeSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */
@@ -36,12 +36,12 @@ public final class FlowableMaterialize<T> extends a<T, p<T>> {
 
         @Override // org.a.c
         public void onComplete() {
-            complete(p.dJh());
+            complete(p.dJH());
         }
 
         protected void onDrop(p<T> pVar) {
-            if (pVar.dJf()) {
-                io.reactivex.e.a.onError(pVar.dJg());
+            if (pVar.dJF()) {
+                io.reactivex.e.a.onError(pVar.dJG());
             }
         }
     }

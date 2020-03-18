@@ -6,46 +6,46 @@ import com.baidu.rtc.camera.engine.b.b;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.rtc.camera.engine.b.a, b {
     public a(Context context, boolean z, com.baidu.rtc.camera.b.a aVar) {
-        com.baidu.rtc.camera.engine.a.b.Fn().bO(z);
-        com.baidu.rtc.camera.a.b.Fl().aWg = aVar;
-        com.baidu.rtc.camera.engine.d.b.Ft().a(this).a(this).aZ(context);
+        com.baidu.rtc.camera.engine.a.b.Fs().bP(z);
+        com.baidu.rtc.camera.a.b.Fq().aWt = aVar;
+        com.baidu.rtc.camera.engine.d.b.Fy().a(this).a(this).aY(context);
     }
 
-    public void Dd() {
-        com.baidu.rtc.camera.engine.d.b.Ft().Dd();
+    public void Dk() {
+        com.baidu.rtc.camera.engine.d.b.Fy().Dk();
     }
 
     public void stopRecording() {
-        com.baidu.rtc.camera.engine.d.b.Ft().stopRecording();
+        com.baidu.rtc.camera.engine.d.b.Fy().stopRecording();
     }
 
     public void d(SurfaceTexture surfaceTexture) {
-        com.baidu.rtc.camera.engine.d.b.Ft().d(surfaceTexture);
+        com.baidu.rtc.camera.engine.d.b.Fy().d(surfaceTexture);
     }
 
     public void switchCamera() {
-        com.baidu.rtc.camera.engine.d.b.Ft().switchCamera();
+        com.baidu.rtc.camera.engine.d.b.Fy().switchCamera();
     }
 
     public void K(int i, int i2) {
-        com.baidu.rtc.camera.engine.d.b.Ft().K(i, i2);
+        com.baidu.rtc.camera.engine.d.b.Fy().K(i, i2);
     }
 
-    public void Fp() {
-        com.baidu.rtc.camera.engine.d.b.Ft().Fu();
+    public void Fu() {
+        com.baidu.rtc.camera.engine.d.b.Fy().Fz();
     }
 
-    public void Fq() {
-        com.baidu.rtc.camera.engine.d.b.Ft().Fq();
+    public void Fv() {
+        com.baidu.rtc.camera.engine.d.b.Fy().Fv();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.a
-    public void Fo() {
+    public void Ft() {
     }
 
     @Override // com.baidu.rtc.camera.engine.b.a
     public void t(byte[] bArr) {
-        com.baidu.rtc.camera.engine.d.b.Ft().requestRender();
+        com.baidu.rtc.camera.engine.d.b.Fy().requestRender();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.b

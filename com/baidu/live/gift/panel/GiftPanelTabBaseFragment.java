@@ -27,22 +27,22 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
-    protected boolean ajK;
-    private AlaGiftTabView.c akj = new AlaGiftTabView.c() { // from class: com.baidu.live.gift.panel.GiftPanelTabBaseFragment.3
+    protected boolean ajU;
+    private AlaGiftTabView.c akt = new AlaGiftTabView.c() { // from class: com.baidu.live.gift.panel.GiftPanelTabBaseFragment.3
         @Override // com.baidu.live.gift.container.AlaGiftTabView.c
-        public void tM() {
-            GiftPanelTabBaseFragment.this.vb();
+        public void tR() {
+            GiftPanelTabBaseFragment.this.vg();
         }
     };
-    protected AlaGiftTabView aoq;
-    protected c.a aor;
-    protected d aos;
+    protected AlaGiftTabView aoA;
+    protected c.a aoB;
+    protected d aoC;
 
-    protected abstract boolean uZ();
+    protected abstract boolean ve();
 
-    protected abstract boolean va();
+    protected abstract boolean vf();
 
-    protected abstract void vb();
+    protected abstract void vg();
 
     public static GiftPanelTabBaseFragment bO(int i) {
         switch (i) {
@@ -56,11 +56,11 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
     }
 
     public void a(c.a aVar) {
-        this.aor = aVar;
+        this.aoB = aVar;
     }
 
     public void a(d dVar) {
-        this.aos = dVar;
+        this.aoC = dVar;
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
@@ -70,28 +70,28 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected View genRootView() {
-        this.aoq = new AlaGiftTabView(getPageContext(), uW(), uY(), this.aos.otherParams);
-        this.aoq.W(this.aos.mLiveId, this.aos.mRoomId);
-        this.aoq.t(this.aos.akB, this.aos.akC);
-        this.aoq.z(TbadkCoreApplication.getInst().currentAccountTdouNum);
-        this.aoq.A(TbadkCoreApplication.getInst().currentAccountFlowerNum);
-        this.aoq.a(this.akj);
-        this.aoq.aC(this.aos.aiO);
-        this.aoq.bI(this.aos.aiM);
-        this.ajK = this.aos.ajK;
-        this.aoq.aE(this.aos.ajK);
-        this.aoq.b(this.aos.isNewUser, this.aos.mLiveId, this.aos.mRoomId, this.aos.alH);
-        this.aoq.bh(this.aos.akD);
-        this.aoq.aF(this.aos.akN);
-        this.aoq.bB(this.aos.alL);
-        this.aoq.aq(this.aos.aiT);
-        return this.aoq.getRootView();
+        this.aoA = new AlaGiftTabView(getPageContext(), vb(), vd(), this.aoC.otherParams);
+        this.aoA.V(this.aoC.mLiveId, this.aoC.mRoomId);
+        this.aoA.t(this.aoC.akL, this.aoC.akM);
+        this.aoA.z(TbadkCoreApplication.getInst().currentAccountTdouNum);
+        this.aoA.A(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+        this.aoA.a(this.akt);
+        this.aoA.aC(this.aoC.aiY);
+        this.aoA.bI(this.aoC.aiW);
+        this.ajU = this.aoC.ajU;
+        this.aoA.aE(this.aoC.ajU);
+        this.aoA.b(this.aoC.isNewUser, this.aoC.mLiveId, this.aoC.mRoomId, this.aoC.alR);
+        this.aoA.bh(this.aoC.akN);
+        this.aoA.aF(this.aoC.akX);
+        this.aoA.bB(this.aoC.alV);
+        this.aoA.aq(this.aoC.ajd);
+        return this.aoA.getRootView();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onInflate(View view, Bundle bundle) {
-        this.aoq.aD(this.mVisible);
+        this.aoA.aD(this.mVisible);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,7 +103,7 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onVisibilityChanged(boolean z) {
         super.onVisibilityChanged(z);
-        this.aoq.onVisibilityChanged(z);
+        this.aoA.onVisibilityChanged(z);
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment
@@ -114,8 +114,8 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
     @Override // com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.aoq != null) {
-            this.aoq.onDestroy();
+        if (this.aoA != null) {
+            this.aoA.onDestroy();
         }
     }
 
@@ -126,20 +126,20 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
 
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.aoq.tx()) {
+            if (this.aoA.tC()) {
                 AsyncTask.execute(new Runnable() { // from class: com.baidu.live.gift.panel.GiftPanelTabBaseFragment.1
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
                             new Instrumentation().sendKeyDownUpSync(4);
                         } catch (Exception e) {
-                            GiftPanelTabBaseFragment.this.aoq.tz();
+                            GiftPanelTabBaseFragment.this.aoA.tE();
                             e.printStackTrace();
                         }
                     }
                 });
                 return true;
-            } else if (view == this.aoq.getRootView()) {
+            } else if (view == this.aoA.getRootView()) {
                 return true;
             } else {
                 closeActivity();
@@ -149,30 +149,30 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
     }
 
     public void e(boolean z, boolean z2) {
-        if (this.aoq != null) {
+        if (this.aoA != null) {
             if (z) {
                 Rect rect = new Rect();
-                this.aoq.getRootView().getWindowVisibleDisplayFrame(rect);
+                this.aoA.getRootView().getWindowVisibleDisplayFrame(rect);
                 int dimensionPixelSize = rect.bottom - getResources().getDimensionPixelSize(a.e.sdk_ds120);
                 if (!UtilHelper.canUseStyleImmersiveSticky()) {
                     dimensionPixelSize -= UtilHelper.getStatusBarHeight();
                 }
-                this.aoq.bE(dimensionPixelSize);
-                this.aoq.ajL.setVisibility(8);
+                this.aoA.bE(dimensionPixelSize);
+                this.aoA.ajV.setVisibility(8);
                 if (!z2) {
-                    this.aoq.tA().setVisibility(0);
+                    this.aoA.tF().setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.aoq.ajL.setVisibility(0);
-            this.aoq.tA().setVisibility(8);
+            this.aoA.ajV.setVisibility(0);
+            this.aoA.tF().setVisibility(8);
         }
     }
 
     public boolean onBackPressed() {
-        if (this.aoq.tx()) {
-            this.aoq.tz();
+        if (this.aoA.tC()) {
+            this.aoA.tE();
             return true;
         }
         return false;
@@ -183,21 +183,21 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
         if (gVar == null || i <= 0) {
             return false;
         }
-        if (this.aos.alI == 2) {
+        if (this.aoC.alS == 2) {
             showToast(a.i.sdk_live_room_forbid_forever_tip);
             return false;
-        } else if (this.aos.alI == 1) {
+        } else if (this.aoC.alS == 1) {
             showToast(a.i.sdk_live_room_forbid_this_tip);
             return false;
         } else {
-            gVar.rD();
+            gVar.rI();
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uV() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), 0L, this.aos.otherParams, true, TbadkCoreApplication.getInst().isHaokan() ? "giving" : "send", true)));
+    public void va() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), 0L, this.aoC.otherParams, true, TbadkCoreApplication.getInst().isHaokan() ? "giving" : "send", true)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -205,41 +205,41 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
         getActivity().finish();
     }
 
-    private View.OnClickListener uW() {
+    private View.OnClickListener vb() {
         return new View.OnClickListener() { // from class: com.baidu.live.gift.panel.GiftPanelTabBaseFragment.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 String str2;
                 if (view != null) {
-                    BdUtilHelper.hideSoftKeyPad(GiftPanelTabBaseFragment.this.getActivity(), GiftPanelTabBaseFragment.this.aoq.ajP);
+                    BdUtilHelper.hideSoftKeyPad(GiftPanelTabBaseFragment.this.getActivity(), GiftPanelTabBaseFragment.this.aoA.ajZ);
                     if (view.getId() == a.g.ala_gift_draw_hide_btn) {
                         GiftPanelTabBaseFragment.this.closeActivity();
-                    } else if (view.getId() == a.g.donate && GiftPanelTabBaseFragment.this.uX()) {
-                        if (GiftPanelTabBaseFragment.this.uZ()) {
-                            g tE = GiftPanelTabBaseFragment.this.aoq.tE();
-                            if (GiftPanelTabBaseFragment.this.va() && tE.rG()) {
-                                if (!tE.rE() || (tE.rE() && GiftPanelTabBaseFragment.this.aoq.tH() == 1)) {
-                                    GiftPanelTabBaseFragment.this.aoq.tg();
-                                    GiftPanelTabBaseFragment.this.aoq.aL(false);
+                    } else if (view.getId() == a.g.donate && GiftPanelTabBaseFragment.this.vc()) {
+                        if (GiftPanelTabBaseFragment.this.ve()) {
+                            g tJ = GiftPanelTabBaseFragment.this.aoA.tJ();
+                            if (GiftPanelTabBaseFragment.this.vf() && tJ.rL()) {
+                                if (!tJ.rJ() || (tJ.rJ() && GiftPanelTabBaseFragment.this.aoA.tM() == 1)) {
+                                    GiftPanelTabBaseFragment.this.aoA.tl();
+                                    GiftPanelTabBaseFragment.this.aoA.aL(false);
                                 }
                             }
                         }
-                    } else if (view.getId() == a.g.combo_btn && GiftPanelTabBaseFragment.this.uX()) {
-                        GiftPanelTabBaseFragment.this.aoq.tf();
-                        if (GiftPanelTabBaseFragment.this.uZ()) {
-                            GiftPanelTabBaseFragment.this.va();
+                    } else if (view.getId() == a.g.combo_btn && GiftPanelTabBaseFragment.this.vc()) {
+                        GiftPanelTabBaseFragment.this.aoA.tk();
+                        if (GiftPanelTabBaseFragment.this.ve()) {
+                            GiftPanelTabBaseFragment.this.vf();
                         }
-                    } else if ((view.getId() == a.g.current_money || view.getId() == a.g.current_recharge) && GiftPanelTabBaseFragment.this.uX()) {
-                        if (GiftPanelTabBaseFragment.this.aos.isNewUser && view.getId() == a.g.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.v.a.zl().zo()) {
-                            String str3 = com.baidu.live.v.a.zl().axD.acS.adP.adW;
+                    } else if ((view.getId() == a.g.current_money || view.getId() == a.g.current_recharge) && GiftPanelTabBaseFragment.this.vc()) {
+                        if (GiftPanelTabBaseFragment.this.aoC.isNewUser && view.getId() == a.g.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.v.a.zs().zv()) {
+                            String str3 = com.baidu.live.v.a.zs().axR.adc.adZ.aeg;
                             if (str3.contains("?")) {
-                                str2 = str3 + "&liveId=" + GiftPanelTabBaseFragment.this.aos.mLiveId;
+                                str2 = str3 + "&liveId=" + GiftPanelTabBaseFragment.this.aoC.mLiveId;
                             } else {
-                                str2 = str3 + "?liveId=" + GiftPanelTabBaseFragment.this.aos.mLiveId;
+                                str2 = str3 + "?liveId=" + GiftPanelTabBaseFragment.this.aoC.mLiveId;
                             }
                             BrowserHelper.startInternalWebActivity(GiftPanelTabBaseFragment.this.getPageContext().getPageActivity(), str2);
-                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePanelEntryLog(GiftPanelTabBaseFragment.this.aos.mLiveId, GiftPanelTabBaseFragment.this.aos.mRoomId, GiftPanelTabBaseFragment.this.aos.alH, GiftPanelTabBaseFragment.this.aos.otherParams);
+                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePanelEntryLog(GiftPanelTabBaseFragment.this.aoC.mLiveId, GiftPanelTabBaseFragment.this.aoC.mRoomId, GiftPanelTabBaseFragment.this.aoC.alR, GiftPanelTabBaseFragment.this.aoC.otherParams);
                             GiftPanelTabBaseFragment.this.closeActivity();
                             return;
                         }
@@ -250,8 +250,8 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
                         } else {
                             str = TbadkCoreApplication.getInst().isHaokan() ? "gift_two" : "tdou";
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(GiftPanelTabBaseFragment.this.getPageContext().getPageActivity(), 0L, GiftPanelTabBaseFragment.this.aos.otherParams, true, str, false)));
-                    } else if (view.getId() == a.g.current_flower && GiftPanelTabBaseFragment.this.uX() && TbadkCoreApplication.getInst().isRegistedIntent(f.class)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(GiftPanelTabBaseFragment.this.getPageContext().getPageActivity(), 0L, GiftPanelTabBaseFragment.this.aoC.otherParams, true, str, false)));
+                    } else if (view.getId() == a.g.current_flower && GiftPanelTabBaseFragment.this.vc() && TbadkCoreApplication.getInst().isRegistedIntent(f.class)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new f(GiftPanelTabBaseFragment.this.getPageContext().getPageActivity())));
                         GiftPanelTabBaseFragment.this.closeActivity();
                     }
@@ -261,7 +261,7 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean uX() {
+    public boolean vc() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
@@ -269,7 +269,7 @@ public abstract class GiftPanelTabBaseFragment extends LazyLoadFragment {
         return false;
     }
 
-    private boolean uY() {
-        return ("ala_tieba_android_consume".equals(this.aos.alJ) || StringUtils.isNull(this.aos.alJ) || this.aos.alJ.equals(com.baidu.live.gift.b.b.uu().sD())) ? false : true;
+    private boolean vd() {
+        return ("ala_tieba_android_consume".equals(this.aoC.alT) || StringUtils.isNull(this.aoC.alT) || this.aoC.alT.equals(com.baidu.live.gift.b.b.uz().sI())) ? false : true;
     }
 }

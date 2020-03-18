@@ -10,7 +10,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public abstract class a {
-    public static Comparator<a> Pt = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> Pu = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,27 +19,27 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0053a Pr;
-    protected a.C0056a Ps;
+    protected C0053a Ps;
+    protected a.C0056a Pt;
     private final String e;
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public static class C0053a {
-        public com.baidu.cesium.e.a Pu;
+        public com.baidu.cesium.e.a Pv;
         public Context a;
     }
 
     /* loaded from: classes13.dex */
     public static abstract class b {
-        private a.C0056a Pv;
+        private a.C0056a Pw;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0056a c0056a, String str) {
-            this.Pv = c0056a;
+            this.Pw = c0056a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -51,7 +51,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.Pv.a(this.c, true);
+            String a = this.Pw.a(this.c, true);
             if (!TextUtils.isEmpty(a)) {
                 try {
                     a(new JSONObject(a));
@@ -70,7 +70,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.Pv.c(this.c, jSONObject.toString(), true);
+                    this.Pw.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -120,14 +120,14 @@ public abstract class a {
 
     /* loaded from: classes13.dex */
     public static class g {
-        public Exception Pw;
+        public Exception Px;
         public g.a a;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
             this.a = aVar;
-            this.Pw = exc;
+            this.Px = exc;
         }
 
         public static g bd(int i) {
@@ -161,8 +161,8 @@ public abstract class a {
     }
 
     public final void a(C0053a c0053a) {
-        this.Pr = c0053a;
-        this.Ps = c0053a.Pu.nK().cd(IXAdRequestInfo.CS);
+        this.Ps = c0053a;
+        this.Pt = c0053a.Pv.nJ().cc(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

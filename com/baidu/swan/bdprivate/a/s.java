@@ -16,28 +16,28 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
     public s(Activity activity, String str, boolean z, boolean z2) {
         super(activity, str, null, z);
         this.mIsLogin = z2;
-        aeC();
+        aeF();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aef() {
+    protected boolean aei() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.f
-    public JSONObject aeA() {
-        JSONObject aeA = super.aeA();
+    public JSONObject aeD() {
+        JSONObject aeD = super.aeD();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                aeA.put("stoken", this.mStoken);
+                aeD.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return aeA;
+        return aeD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean ael() throws Exception {
+        protected boolean aeo() throws Exception {
             if (!s.this.mIsLogin) {
                 s.this.mStoken = null;
                 if (s.DEBUG) {
@@ -68,7 +68,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         s.this.mStoken = string;
-                        a.this.aen();
+                        a.this.aeq();
                         return;
                     }
                     a.this.l(new OAuthException("empty stoken", 10001));

@@ -74,7 +74,7 @@ public final class bc implements ae {
 
     @Override // com.xiaomi.push.service.ae
     /* renamed from: a  reason: collision with other method in class */
-    public void mo533a() {
+    public void mo531a() {
         if (this.f893a) {
             return;
         }

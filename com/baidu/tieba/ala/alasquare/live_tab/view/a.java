@@ -29,39 +29,40 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private AppBarLayout CD;
-    private boolean elK;
-    private ViewGroup eoO;
-    private LinearLayout eoP;
-    private FrameLayout eoQ;
-    private g eoR;
-    private ScrollHorizontalTabView eoS;
-    private NestedNoScrollViewPager eoT;
-    private C0424a eoU;
-    private int eoV;
-    private FragmentManager eoW;
+    private boolean ema;
+    private ViewGroup epf;
+    private LinearLayout epg;
+    private FrameLayout eph;
+    private g epi;
+    private ScrollHorizontalTabView epj;
+    private NestedNoScrollViewPager epk;
+    private C0424a epl;
+    private int epm;
+    private FragmentManager epn;
     private Context mContext;
     private TbPageContext mPageContext;
     private ViewGroup mRootView;
-    private boolean emn = false;
-    private CustomMessageListener emq = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.1
+    private boolean emE = false;
+    private int mIndex = -1;
+    private CustomMessageListener emH = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                a.this.emn = false;
+                a.this.emE = false;
             }
         }
     };
-    private CustomMessageListener cMm = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.4
+    private CustomMessageListener cMx = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.4.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.eoU != null) {
-                        a.this.eoU.bcD();
+                    if (a.this.epl != null) {
+                        a.this.epl.bcH();
                     }
                 }
             }, 500L);
@@ -70,16 +71,16 @@ public class a {
 
     public a(TbPageContext tbPageContext, FragmentManager fragmentManager, boolean z) {
         this.mPageContext = tbPageContext;
-        this.elK = z;
+        this.ema = z;
         this.mContext = tbPageContext.getPageActivity();
-        this.eoW = fragmentManager;
+        this.epn = fragmentManager;
         initView();
     }
 
     public void init() {
-        this.cMm.setTag(this.mPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.cMm);
-        MessageManager.getInstance().registerListener(this.emq);
+        this.cMx.setTag(this.mPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.cMx);
+        MessageManager.getInstance().registerListener(this.emH);
     }
 
     private void initView() {
@@ -88,38 +89,47 @@ public class a {
         this.CD.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.2
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
-                if (i != 0 && i != a.this.eoV) {
-                    if (i - a.this.eoV <= -4 && !a.this.emn) {
+                if (i != 0 && i != a.this.epm) {
+                    if (i - a.this.epm <= -4 && !a.this.emE) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-                        a.this.emn = true;
+                        a.this.emE = true;
                     }
-                    a.this.eoV = i;
+                    a.this.epm = i;
                 }
             }
         });
-        this.eoO = (ViewGroup) this.mRootView.findViewById(R.id.live_tab_root_container);
-        this.eoP = (LinearLayout) this.mRootView.findViewById(R.id.live_tab_base_container);
-        this.eoQ = (FrameLayout) this.mRootView.findViewById(R.id.super_entrance_container);
-        this.eoS = (ScrollHorizontalTabView) this.mRootView.findViewById(R.id.live_tab_top_tab_layout);
-        this.eoR = new g(this.mPageContext);
-        this.eoT = (NestedNoScrollViewPager) this.mRootView.findViewById(R.id.live_tab_view_pager);
-        hY((com.baidu.tbadk.core.sharedPref.b.aFD().getInt("chushou_game_tab", 1) == 1) && TbadkCoreApplication.isChushouInit);
+        this.epf = (ViewGroup) this.mRootView.findViewById(R.id.live_tab_root_container);
+        this.epg = (LinearLayout) this.mRootView.findViewById(R.id.live_tab_base_container);
+        this.eph = (FrameLayout) this.mRootView.findViewById(R.id.super_entrance_container);
+        this.epj = (ScrollHorizontalTabView) this.mRootView.findViewById(R.id.live_tab_top_tab_layout);
+        this.epi = new g(this.mPageContext);
+        this.epk = (NestedNoScrollViewPager) this.mRootView.findViewById(R.id.live_tab_view_pager);
+        hZ(com.baidu.tbadk.core.sharedPref.b.aFH().getInt("chushou_game_tab", 1) == 1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds256));
-        if (this.eoR.getView() != null && this.eoR.getView().getParent() == null) {
-            this.eoQ.addView(this.eoR.getView(), layoutParams);
-            this.eoP.setVisibility(8);
+        if (this.epi.getView() != null && this.epi.getView().getParent() == null) {
+            this.eph.addView(this.epi.getView(), layoutParams);
+            this.epg.setVisibility(8);
         }
-        ((FrameLayout.LayoutParams) this.eoO.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+        ((FrameLayout.LayoutParams) this.epf.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
         onChangeSkinType();
     }
 
-    public void hY(boolean z) {
-        this.eoT.setOffscreenPageLimit(z ? 2 : 1);
-        this.eoU = new C0424a(this.eoW, z);
-        this.eoT.setAdapter(this.eoU);
-        this.eoT.setCurrentItem(0);
-        this.eoS.setViewPager(this.eoT);
-        this.eoS.setScrollTabPageListener(new ScrollHorizontalTabView.ScrollTabPageListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.3
+    public void hZ(boolean z) {
+        this.epk.setOffscreenPageLimit(z ? 2 : 1);
+        this.epl = new C0424a(this.epn, z);
+        this.epk.setAdapter(this.epl);
+        if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getIntent() != null) {
+            int intExtra = this.mPageContext.getPageActivity().getIntent().getIntExtra("locate_type", 0);
+            if (intExtra == 17) {
+                this.mIndex = 0;
+            } else if (intExtra == 19) {
+                this.mIndex = 2;
+            } else if (intExtra == 18) {
+                this.mIndex = 1;
+            }
+        }
+        this.epj.setViewPager(this.epk);
+        this.epj.setScrollTabPageListener(new ScrollHorizontalTabView.ScrollTabPageListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.a.3
             @Override // com.baidu.ala.view.ScrollHorizontalTabView.ScrollTabPageListener
             public boolean onPrePageSelect(int i, TabData tabData) {
                 return true;
@@ -133,25 +143,25 @@ public class a {
             public void onPageScrolled(int i, float f, int i2) {
             }
         });
-        this.eoS.setData(ia(z));
+        this.epj.setData(ib(z));
     }
 
-    public ViewGroup bcS() {
+    public ViewGroup bcW() {
         return this.mRootView;
     }
 
-    public void hZ(boolean z) {
-        this.eoO.setVisibility(z ? 0 : 8);
+    public void ia(boolean z) {
+        this.epf.setVisibility(z ? 0 : 8);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.h hVar) {
         com.baidu.tieba.ala.alasquare.live_tab.b.i iVar = new com.baidu.tieba.ala.alasquare.live_tab.b.i();
-        iVar.emg = hVar;
-        this.eoR.a(iVar);
-        this.eoP.setVisibility(0);
+        iVar.emx = hVar;
+        this.epi.a(iVar);
+        this.epg.setVisibility(0);
     }
 
-    private List<TabData> ia(boolean z) {
+    private List<TabData> ib(boolean z) {
         ArrayList arrayList = new ArrayList();
         TabData tabData = new TabData();
         tabData.tabId = 100;
@@ -171,24 +181,49 @@ public class a {
     }
 
     public void loadData() {
-        this.eoU.loadData();
+        this.epl.loadData();
     }
 
-    public void bcT() {
-        this.eoU.oH(this.eoT.getCurrentItem());
+    public void bcX() {
+        this.epl.oJ(this.epk.getCurrentItem());
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eoR.onChangeSkinType(this.mPageContext, skinType);
-        this.eoS.onChangeSkinType(skinType);
+        this.epi.onChangeSkinType(this.mPageContext, skinType);
+        this.epj.onChangeSkinType(skinType);
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.eoS, R.color.cp_bg_line_d);
+        am.setBackgroundColor(this.epj, R.color.cp_bg_line_d);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.cMm);
-        MessageManager.getInstance().unRegisterListener(this.emq);
+        MessageManager.getInstance().unRegisterListener(this.cMx);
+        MessageManager.getInstance().unRegisterListener(this.emH);
+    }
+
+    public void setCurrentTab(int i) {
+        if (i <= 0) {
+            i = 0;
+        }
+        if (this.epl != null && i >= this.epl.getCount()) {
+            i = 0;
+        }
+        if (this.epk != null) {
+            this.epk.setCurrentItem(i);
+        }
+    }
+
+    public void onPrimary(boolean z) {
+        if (z && this.mIndex != -1) {
+            setCurrentTab(this.mIndex);
+            this.mIndex = -1;
+        }
+    }
+
+    public void ic(boolean z) {
+        if (this.epi != null) {
+            this.epi.ic(z);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -200,16 +235,16 @@ public class a {
         public C0424a(FragmentManager fragmentManager, boolean z) {
             super(fragmentManager);
             this.mFragments = new ArrayList();
-            this.mFragments.add(LiveTabRecomSubFragment.hU(a.this.elK));
-            this.mFragments.add(LiveTabYanzhiSubFragment.hV(a.this.elK));
+            this.mFragments.add(LiveTabRecomSubFragment.hV(a.this.ema));
+            this.mFragments.add(LiveTabYanzhiSubFragment.hW(a.this.ema));
             if (z) {
-                this.mFragments.add(LiveTabGameSubFragment.hT(a.this.elK));
+                this.mFragments.add(LiveTabGameSubFragment.hU(a.this.ema));
             }
         }
 
         @Override // android.support.v4.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            return oG(i);
+            return oI(i);
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -220,7 +255,7 @@ public class a {
             return 0;
         }
 
-        private LiveTabBaseSubFragment oG(int i) {
+        private LiveTabBaseSubFragment oI(int i) {
             if (i < this.mFragments.size()) {
                 return this.mFragments.get(i);
             }
@@ -245,7 +280,7 @@ public class a {
             }
         }
 
-        public void bcD() {
+        public void bcH() {
             if (!v.isEmpty(this.mFragments)) {
                 int i = 0;
                 while (true) {
@@ -253,7 +288,7 @@ public class a {
                     if (i2 < this.mFragments.size()) {
                         LiveTabBaseSubFragment liveTabBaseSubFragment = this.mFragments.get(i2);
                         if (liveTabBaseSubFragment != null) {
-                            liveTabBaseSubFragment.bcD();
+                            liveTabBaseSubFragment.bcH();
                         }
                         i = i2 + 1;
                     } else {
@@ -263,9 +298,9 @@ public class a {
             }
         }
 
-        public void oH(int i) {
+        public void oJ(int i) {
             if (i >= 0 && i < this.mFragments.size()) {
-                this.mFragments.get(i).AC();
+                this.mFragments.get(i).AJ();
             }
         }
     }

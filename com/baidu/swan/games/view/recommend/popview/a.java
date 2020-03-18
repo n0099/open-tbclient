@@ -15,13 +15,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends RecyclerView.Adapter<C0352a> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.a.c cuD = new com.baidu.swan.games.view.recommend.a.c();
-    private List<RecommendItemModel> cuI;
+    private com.baidu.swan.games.view.recommend.a.c cuO = new com.baidu.swan.games.view.recommend.a.c();
+    private List<RecommendItemModel> cuT;
     private Context mContext;
 
     public a(Context context, List<RecommendItemModel> list) {
         this.mContext = context;
-        this.cuI = list;
+        this.cuT = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,9 +38,9 @@ public class a extends RecyclerView.Adapter<C0352a> implements View.OnClickListe
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(C0352a c0352a, int i) {
-        RecommendItemModel recommendItemModel = this.cuI.get(i);
+        RecommendItemModel recommendItemModel = this.cuT.get(i);
         if (recommendItemModel != null) {
-            c0352a.cuJ.setController(com.facebook.drawee.a.a.c.dlz().OW(recommendItemModel.getIconUrl()).dmq());
+            c0352a.cuU.setController(com.facebook.drawee.a.a.c.dlW().OV(recommendItemModel.getIconUrl()).dmN());
             c0352a.textView.setText(recommendItemModel.getAppName());
             c0352a.itemView.setTag(Integer.valueOf(i));
         }
@@ -48,18 +48,18 @@ public class a extends RecyclerView.Adapter<C0352a> implements View.OnClickListe
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.cuI.size();
+        return this.cuT.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue;
-        if (view.getTag() != null && (intValue = ((Integer) view.getTag()).intValue()) < this.cuI.size()) {
-            RecommendItemModel recommendItemModel = this.cuI.get(intValue);
+        if (view.getTag() != null && (intValue = ((Integer) view.getTag()).intValue()) < this.cuT.size()) {
+            RecommendItemModel recommendItemModel = this.cuT.get(intValue);
             if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
                 SchemeRouter.invokeSchemeForInner(this.mContext, Uri.parse(recommendItemModel.getScheme()));
                 com.baidu.swan.games.view.recommend.a.e.L(4, recommendItemModel.getAppKey());
-                this.cuD.c(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
+                this.cuO.c(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
             }
         }
     }
@@ -68,12 +68,12 @@ public class a extends RecyclerView.Adapter<C0352a> implements View.OnClickListe
     /* renamed from: com.baidu.swan.games.view.recommend.popview.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class C0352a extends RecyclerView.ViewHolder {
-        public SimpleDraweeView cuJ;
+        public SimpleDraweeView cuU;
         public TextView textView;
 
         public C0352a(View view) {
             super(view);
-            this.cuJ = (SimpleDraweeView) view.findViewById(a.f.dv_icon);
+            this.cuU = (SimpleDraweeView) view.findViewById(a.f.dv_icon);
             this.textView = (TextView) view.findViewById(a.f.tv_name);
         }
     }

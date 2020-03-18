@@ -29,19 +29,19 @@ public class au {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m137a() {
+    private void m135a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m138a() {
+    public synchronized int m136a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m139a() {
+    public synchronized LinkedList<a> m137a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class au {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m137a();
+        m135a();
     }
 }

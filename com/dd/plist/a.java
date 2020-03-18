@@ -12,12 +12,12 @@ import java.util.LinkedList;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class a {
-    private static CharsetEncoder lGI;
+    private static CharsetEncoder lIo;
     private byte[] data;
     private int index;
 
     public static i ad(byte[] bArr) throws ParseException {
-        return new a(bArr).dju();
+        return new a(bArr).djR();
     }
 
     protected a() {
@@ -75,11 +75,11 @@ public class a {
         this.index++;
     }
 
-    private void Hk(int i) {
+    private void Hq(int i) {
         this.index += i;
     }
 
-    private void djt() {
+    private void djQ() {
         boolean z;
         do {
             z = false;
@@ -87,16 +87,16 @@ public class a {
                 skip();
             }
             if (b('/', '/')) {
-                Hk(2);
+                Hq(2);
                 e('\r', '\n');
                 z = true;
                 continue;
             } else if (b('/', '*')) {
-                Hk(2);
+                Hq(2);
                 while (!b('*', '/')) {
                     skip();
                 }
-                Hk(2);
+                Hq(2);
                 z = true;
                 continue;
             } else {
@@ -123,87 +123,87 @@ public class a {
         return str;
     }
 
-    public i dju() throws ParseException {
+    public i djR() throws ParseException {
         this.index = 0;
         if (this.data.length >= 3 && (this.data[0] & 255) == 239 && (this.data[1] & 255) == 187 && (this.data[2] & 255) == 191) {
-            Hk(3);
+            Hq(3);
         }
-        djt();
+        djQ();
         d('{', '(', '/');
         try {
-            return djv();
+            return djS();
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new ParseException("Reached end of input unexpectedly.", this.index);
         }
     }
 
-    private i djv() throws ParseException {
+    private i djS() throws ParseException {
         switch (this.data[this.index]) {
             case 34:
-                String djB = djB();
-                if (djB.length() == 20 && djB.charAt(4) == '-') {
+                String djY = djY();
+                if (djY.length() == 20 && djY.charAt(4) == '-') {
                     try {
-                        return new f(djB);
+                        return new f(djY);
                     } catch (Exception e) {
-                        return new k(djB);
+                        return new k(djY);
                     }
                 }
-                return new k(djB);
+                return new k(djY);
             case 40:
-                return djw();
+                return djT();
             case 60:
-                return djy();
+                return djV();
             case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
-                return djx();
+                return djU();
             default:
                 if (this.data[this.index] > 47 && this.data[this.index] < 58) {
-                    return djz();
+                    return djW();
                 }
-                return new k(djA());
+                return new k(djX());
         }
     }
 
-    private d djw() throws ParseException {
+    private d djT() throws ParseException {
         skip();
-        djt();
+        djQ();
         LinkedList linkedList = new LinkedList();
         while (!i(')')) {
-            linkedList.add(djv());
-            djt();
+            linkedList.add(djS());
+            djQ();
             if (!i(',')) {
                 break;
             }
             skip();
-            djt();
+            djQ();
         }
         k(')');
         return new d((i[]) linkedList.toArray(new i[linkedList.size()]));
     }
 
-    private g djx() throws ParseException {
-        String djA;
+    private g djU() throws ParseException {
+        String djX;
         skip();
-        djt();
+        djQ();
         g gVar = new g();
         while (!i('}')) {
             if (i('\"')) {
-                djA = djB();
+                djX = djY();
             } else {
-                djA = djA();
+                djX = djX();
             }
-            djt();
+            djQ();
             k('=');
-            djt();
-            gVar.put(djA, djv());
-            djt();
+            djQ();
+            gVar.put(djX, djS());
+            djQ();
             k(';');
-            djt();
+            djQ();
         }
         skip();
         return gVar;
     }
 
-    private i djy() throws ParseException {
+    private i djV() throws ParseException {
         i iVar = null;
         skip();
         if (i('*')) {
@@ -238,22 +238,22 @@ public class a {
         return eVar;
     }
 
-    private i djz() {
-        String djA = djA();
-        if (djA.length() > 4 && djA.charAt(4) == '-') {
+    private i djW() {
+        String djX = djX();
+        if (djX.length() > 4 && djX.charAt(4) == '-') {
             try {
-                return new f(djA);
+                return new f(djX);
             } catch (Exception e) {
             }
         }
-        return new k(djA);
+        return new k(djX);
     }
 
-    private String djA() {
+    private String djX() {
         return e(' ', '\t', '\n', '\r', ',', ';', '=', ')');
     }
 
-    private String djB() throws ParseException {
+    private String djY() throws ParseException {
         skip();
         String str = "";
         boolean z = true;
@@ -266,9 +266,9 @@ public class a {
                 skip();
             } else {
                 try {
-                    String OE = OE(str);
+                    String OD = OD(str);
                     skip();
-                    return OE;
+                    return OD;
                 } catch (Exception e) {
                     throw new ParseException("The quoted string could not be parsed.", this.index);
                 }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    public static synchronized String OE(String str) throws UnsupportedEncodingException, CharacterCodingException {
+    public static synchronized String OD(String str) throws UnsupportedEncodingException, CharacterCodingException {
         String str2;
         synchronized (a.class) {
             LinkedList<Byte> linkedList = new LinkedList();
@@ -304,11 +304,11 @@ public class a {
             }
             str2 = new String(bArr, "UTF-8");
             CharBuffer wrap = CharBuffer.wrap(str2);
-            if (lGI == null) {
-                lGI = Charset.forName(HTTP.ASCII).newEncoder();
+            if (lIo == null) {
+                lIo = Charset.forName(HTTP.ASCII).newEncoder();
             }
-            if (lGI.canEncode(wrap)) {
-                str2 = lGI.encode(wrap).asCharBuffer().toString();
+            if (lIo.canEncode(wrap)) {
+                str2 = lIo.encode(wrap).asCharBuffer().toString();
             }
         }
         return str2;

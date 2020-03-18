@@ -3,7 +3,11 @@ package com.kascend.chushou.view.base;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +22,23 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected TextView y;
     protected final String v = getClass().getSimpleName();
     protected final io.reactivex.disposables.a z = new io.reactivex.disposables.a();
+    private ContentObserver a = new ContentObserver(new Handler()) { // from class: com.kascend.chushou.view.base.BaseActivity.2
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            int i;
+            if (Build.VERSION.SDK_INT < 21) {
+                i = Settings.System.getInt(BaseActivity.this.getContentResolver(), "navigationbar_is_min", 0);
+            } else {
+                i = Settings.Global.getInt(BaseActivity.this.getContentResolver(), "navigationbar_is_min", 0);
+            }
+            tv.chushou.zues.utils.e.d("guohe", "BaseActivity.onChange(): navigationBarIsMin = " + i);
+            if (i == 1) {
+                BaseActivity.this.a(false);
+            } else {
+                BaseActivity.this.a(true);
+            }
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -26,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(bundle);
         CSTVSdk.INSTANCE.check();
         this.w = this;
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPW().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dQw().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onEnterLiveRoom(this);
         }
@@ -68,8 +89,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.x.dismiss();
         }
         this.x = null;
-        com.kascend.chushou.d.d.mPk.a();
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPW().S(ThirdParty.class);
+        com.kascend.chushou.d.d.mQS.a();
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dQw().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onExitLiveRoom(this);
         }
@@ -106,7 +127,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void b() {
     }
 
-    public void h(boolean z) {
+    public void i(boolean z) {
         a(z, this.w.getString(a.i.update_userinfo_ing));
     }
 
@@ -128,5 +149,22 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void a_(int i) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void j(boolean z) {
+        if (z) {
+            if (Build.VERSION.SDK_INT < 21) {
+                getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.a);
+                return;
+            } else {
+                getContentResolver().registerContentObserver(Settings.Global.getUriFor("navigationbar_is_min"), true, this.a);
+                return;
+            }
+        }
+        getContentResolver().unregisterContentObserver(this.a);
+    }
+
+    protected void a(boolean z) {
     }
 }

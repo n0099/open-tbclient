@@ -29,7 +29,7 @@ public class a extends HttpMessage {
         bkVar.props_id = JavaTypesHelper.toInt(str, 0);
         bkVar.new_props_id = str;
         bkVar.money = i3;
-        bkVar.aeM = i4;
+        bkVar.aeW = i4;
         bkVar.wars_name = "";
         bkVar.wars_item = "";
         addParam("wares", bkVar.toJson());

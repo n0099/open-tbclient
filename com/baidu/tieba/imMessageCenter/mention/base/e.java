@@ -11,43 +11,43 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class e {
     private BdTypeRecyclerView BK;
-    private List<com.baidu.adp.widget.ListView.a> asF = new LinkedList();
-    private ArrayList<m> fSG;
-    private b hQM;
-    private b hQN;
-    private b hQO;
-    private b hQP;
-    private b hQQ;
+    private List<com.baidu.adp.widget.ListView.a> asP = new LinkedList();
+    private ArrayList<m> fTp;
+    private b hSm;
+    private b hSn;
+    private b hSo;
+    private b hSp;
+    private b hSq;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
             this.BK = bdTypeRecyclerView;
-            s(tbPageContext);
+            t(tbPageContext);
         }
     }
 
-    private void s(TbPageContext tbPageContext) {
-        this.hQM = new b(tbPageContext, a.hQv);
-        this.hQN = new b(tbPageContext, a.hQw);
-        this.hQO = new b(tbPageContext, a.hQz);
-        this.hQP = new b(tbPageContext, a.hQy);
-        this.hQQ = new b(tbPageContext, a.hQx);
-        this.asF.add(this.hQM);
-        this.asF.add(this.hQN);
-        this.asF.add(this.hQO);
-        this.asF.add(this.hQP);
-        this.asF.add(this.hQQ);
-        this.BK.addAdapters(this.asF);
+    private void t(TbPageContext tbPageContext) {
+        this.hSm = new b(tbPageContext, a.hRV);
+        this.hSn = new b(tbPageContext, a.hRW);
+        this.hSo = new b(tbPageContext, a.hRZ);
+        this.hSp = new b(tbPageContext, a.hRY);
+        this.hSq = new b(tbPageContext, a.hRX);
+        this.asP.add(this.hSm);
+        this.asP.add(this.hSn);
+        this.asP.add(this.hSo);
+        this.asP.add(this.hSp);
+        this.asP.add(this.hSq);
+        this.BK.addAdapters(this.asP);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
         }
     }
 
     public void setData(ArrayList<m> arrayList) {
         this.BK.setData(arrayList);
-        this.fSG = arrayList;
+        this.fTp = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -55,7 +55,7 @@ public class e {
     }
 
     public void e(s sVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
             if (aVar != null) {
                 aVar.a(sVar);
             }
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(z zVar) {
-        this.hQQ.setOnCardSubClickListener(zVar);
-        this.hQP.setOnCardSubClickListener(zVar);
-        this.hQO.setOnCardSubClickListener(zVar);
+        this.hSq.setOnCardSubClickListener(zVar);
+        this.hSp.setOnCardSubClickListener(zVar);
+        this.hSo.setOnCardSubClickListener(zVar);
     }
 }

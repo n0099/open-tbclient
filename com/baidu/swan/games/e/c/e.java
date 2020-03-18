@@ -24,18 +24,18 @@ public class e implements PermissionProxy {
             }
             return;
         }
-        final String oM = oM(str);
-        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
-        if (TextUtils.isEmpty(oM) || acF == null || acF.acB() == null) {
+        final String oL = oL(str);
+        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
+        if (TextUtils.isEmpty(oL) || acI == null || acI.acE() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            acF.acP().b(acF.acB(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
+            acI.acS().b(acI.acE(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
                 public void D(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        e.this.a(str, oM, permissionListener);
+                        e.this.a(str, oL, permissionListener);
                     } else {
                         permissionListener.onPermissionResult(str, 2);
                     }
@@ -44,7 +44,7 @@ public class e implements PermissionProxy {
         }
     }
 
-    private String oM(String str) {
+    private String oL(String str) {
         if (str == null) {
             return null;
         }
@@ -77,7 +77,7 @@ public class e implements PermissionProxy {
     public void a(@NonNull final String str, @NonNull String str2, @NonNull final PermissionListener permissionListener) {
         com.baidu.swan.apps.af.a.a(str2, new String[]{str2}, 2, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.games.e.c.e.2
             @Override // com.baidu.swan.apps.af.b
-            public void fD(String str3) {
+            public void fC(String str3) {
                 permissionListener.onPermissionResult(str, 0);
             }
 

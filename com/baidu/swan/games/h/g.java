@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private final h cmY;
-    private AtomicBoolean cnN = new AtomicBoolean(false);
-    private List<g> cnO = Collections.synchronizedList(new ArrayList());
+    private AtomicBoolean cnY = new AtomicBoolean(false);
+    private List<g> cnZ = Collections.synchronizedList(new ArrayList());
+    private final h cnj;
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.cmY = hVar;
+        this.cnj = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            anK();
+            anN();
         } finally {
-            this.cmY.c(this);
+            this.cnj.c(this);
         }
     }
 
-    public void anK() {
+    public void anN() {
         this.mRunnable.run();
     }
 
-    public void anL() {
+    public void anO() {
         m.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class g implements Runnable {
         return this.mTag;
     }
 
-    public String[] anM() {
+    public String[] anP() {
         return this.mPaths;
     }
 
-    public boolean anN() {
-        return this.cnN.get();
+    public boolean anQ() {
+        return this.cnY.get();
     }
 
-    public void anO() {
-        this.cnN.set(true);
+    public void anR() {
+        this.cnY.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cnO.contains(gVar)) {
-            this.cnO.add(gVar);
+        if (!this.cnZ.contains(gVar)) {
+            this.cnZ.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cnO.remove(gVar);
+        this.cnZ.remove(gVar);
     }
 
-    public boolean anP() {
-        return this.cnO.isEmpty();
+    public boolean anS() {
+        return this.cnZ.isEmpty();
     }
 }

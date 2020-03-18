@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 public interface v {
     void release();
 
-    void sK();
+    void sP();
 
-    void sL();
+    void sQ();
 }

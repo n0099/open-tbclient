@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class JSONParser {
     public static JSONObject readJSONObject(a aVar) throws IOException {
         JSONObject jSONObject = new JSONObject();
-        aVar.dAT();
+        aVar.dBq();
         while (aVar.hasNext()) {
             try {
-                jSONObject.put(aVar.dAX(), readObject(aVar));
+                jSONObject.put(aVar.dBu(), readObject(aVar));
             } catch (JSONException e) {
                 throw new IOException(e);
             }
@@ -23,7 +23,7 @@ public class JSONParser {
 
     public static JSONArray readJSONArray(a aVar) throws IOException {
         JSONArray jSONArray = new JSONArray();
-        aVar.dAS();
+        aVar.dBp();
         while (aVar.hasNext()) {
             jSONArray.put(readObject(aVar));
         }
@@ -32,13 +32,13 @@ public class JSONParser {
     }
 
     private static Object readObject(a aVar) throws IOException {
-        switch (aVar.dAU()) {
+        switch (aVar.dBr()) {
             case BEGIN_ARRAY:
                 return readJSONArray(aVar);
             case BEGIN_OBJECT:
                 return readJSONObject(aVar);
             case STRING:
-                return aVar.dAY();
+                return aVar.dBv();
             case NUMBER:
                 double nextDouble = aVar.nextDouble();
                 int i = (int) nextDouble;
@@ -49,7 +49,7 @@ public class JSONParser {
             case BOOLEAN:
                 return Boolean.valueOf(aVar.nextBoolean());
             case NULL:
-                aVar.dAZ();
+                aVar.dBw();
                 return null;
             default:
                 throw new IllegalStateException();

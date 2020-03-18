@@ -27,18 +27,18 @@ public class c extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.core.d.d Oo;
+        com.baidu.swan.apps.core.d.d Or;
         final com.baidu.swan.apps.canvas.b.c d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData action parse model is null");
             unitedSchemeEntity.result = eb(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.bin) && (Oo = com.baidu.swan.apps.y.f.WS().Oo()) != null) {
-            d.bin = Oo.NZ();
+        if (TextUtils.isEmpty(d.biB) && (Or = com.baidu.swan.apps.y.f.WV().Or()) != null) {
+            d.biB = Or.Oc();
         }
-        if (TextUtils.isEmpty(d.bin) || TextUtils.isEmpty(d.bim)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + d.bin + " ; canvas id = " + d.bim);
+        if (TextUtils.isEmpty(d.biB) || TextUtils.isEmpty(d.biA)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + d.biB + " ; canvas id = " + d.biA);
             unitedSchemeEntity.result = eb(201);
             return false;
         }

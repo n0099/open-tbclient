@@ -1,111 +1,82 @@
 package com.baidu.crabsdk.b;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.util.DisplayMetrics;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import org.json.JSONArray;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TbEnum;
+import java.util.HashMap;
+import java.util.UUID;
 /* loaded from: classes8.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> Se = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String Sf = "";
-    private static String RI = "";
-    private static int Sg = 0;
-    private static int Sh = 0;
+    private static SharedPreferences RW;
+    private static HashMap<String, String> Sf = null;
+    private static Context mContext;
 
-    private static WebView I(View view) {
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, Sg, Sh)))) {
-                        continue;
-                    } else if (childAt instanceof WebView) {
-                        return (WebView) childAt;
-                    } else {
-                        WebView I = I(childAt);
-                        if (I != null) {
-                            return I;
-                        }
-                    }
-                }
-            }
+    public static void a(HashMap<String, String> hashMap) {
+        if (Sf == null) {
+            Sf = hashMap;
+        } else if (hashMap != null) {
+            Sf.putAll(hashMap);
         }
-        return null;
     }
 
-    public static String P() {
-        return Se.size() > 0 ? new JSONArray((Collection) Se).toString() : "";
-    }
-
-    public static boolean ol() {
-        return P().length() > 0;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
-    /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        WebView I;
-        if (activity == null) {
+    public static void d(String str) {
+        com.baidu.crabsdk.a.c = str;
+        if (RW == null && mContext != null) {
+            RW = mContext.getSharedPreferences("crab_user_info", 0);
+        }
+        if (RW == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (Sg == 0 || Sh == 0) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            Sh = displayMetrics.heightPixels;
-            Sg = displayMetrics.widthPixels;
+        com.baidu.crabsdk.c.c.a(RW.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, str), false);
+    }
+
+    public static void e(Context context) {
+        if (mContext == null) {
+            mContext = context;
+            RW = context.getSharedPreferences("crab_user_info", 0);
         }
-        switch (motionEvent.getAction()) {
-            case 0:
-                String name = activity.getClass().getName();
-                if (!name.equals(RI)) {
-                    com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    RI = name;
-                    Se.clear();
-                }
-                if (activity != null) {
-                    try {
-                        View decorView = activity.getWindow().getDecorView();
-                        if (decorView != null) {
-                            I = I(decorView);
-                            if (I == null) {
-                                String url = I.getUrl();
-                                if (url.equals(Sf)) {
-                                    return;
-                                }
-                                com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                Sf = url;
-                                ArrayList arrayList = new ArrayList();
-                                arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
-                                arrayList.add(I.getTitle());
-                                arrayList.add(Sf);
-                                com.baidu.crabsdk.c.a.v("title:" + I.getTitle() + "; url:" + Sf);
-                                Se.add(arrayList);
-                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + P());
-                                return;
-                            }
-                            return;
-                        }
-                    } catch (Exception e) {
-                        com.baidu.crabsdk.c.a.w("createUrlRecord error!!");
-                        return;
-                    }
-                }
-                I = null;
-                if (I == null) {
-                }
-            default:
-                return;
+    }
+
+    public static String getUserName() {
+        return RW != null ? RW.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
+    }
+
+    public static String on() {
+        if (!TextUtils.isEmpty(com.baidu.crabsdk.a.c)) {
+            com.baidu.crabsdk.c.a.cj("uid is which user setted " + com.baidu.crabsdk.a.c);
+            return com.baidu.crabsdk.a.c;
+        } else if (mContext == null) {
+            com.baidu.crabsdk.c.a.w("get SharedPreferences error because context is null for unknown reasons!!!");
+            return "N/A";
+        } else {
+            if (RW == null) {
+                RW = mContext.getSharedPreferences("crab_user_info", 0);
+            }
+            String string = RW.getString(TbEnum.SystemMessage.KEY_USER_ID, "");
+            if (TextUtils.isEmpty(string)) {
+                string = UUID.randomUUID().toString();
+                com.baidu.crabsdk.c.c.a(RW.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, string), false);
+            }
+            com.baidu.crabsdk.c.a.cj("uid is UUID " + string);
+            return string;
+        }
+    }
+
+    public static HashMap<String, String> oo() {
+        if (Sf == null) {
+            Sf = new HashMap<>();
+        }
+        return Sf;
+    }
+
+    public static String op() {
+        return Sf != null ? com.baidu.crabsdk.sender.i.c(Sf) : "";
+    }
+
+    public static void setUserName(String str) {
+        if (RW != null) {
+            com.baidu.crabsdk.c.c.a(RW.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
         }
     }
 }

@@ -5,28 +5,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class am {
-    private String acG;
-    private String acH;
+    private String acQ;
+    private String acR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(String str) {
         parserJson(str);
     }
 
-    public boolean qG() {
-        return "1".equals(this.acG) && !TextUtils.isEmpty(this.acH);
+    public boolean qL() {
+        return "1".equals(this.acQ) && !TextUtils.isEmpty(this.acR);
     }
 
-    public String qH() {
-        return this.acH;
+    public String qM() {
+        return this.acR;
     }
 
     private void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.acG = jSONObject.optString("is_open");
-                this.acH = jSONObject.optString("homepage_url");
+                this.acQ = jSONObject.optString("is_open");
+                this.acR = jSONObject.optString("homepage_url");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

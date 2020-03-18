@@ -1,11 +1,30 @@
 package com.baidu.tieba.write.b;
 /* loaded from: classes13.dex */
 public class a {
-    public String kOL;
-    public int kOM;
+    private static long lastClickTime = 0;
 
-    public a(String str, int i) {
-        this.kOL = str;
-        this.kOM = i;
+    public static long o(CharSequence charSequence) {
+        double d = 0.0d;
+        for (int i = 0; i < charSequence.length(); i++) {
+            char charAt = charSequence.charAt(i);
+            if (charAt > ' ') {
+                if (charAt > 0 && charAt < 127) {
+                    d += 0.5d;
+                } else {
+                    d += 1.0d;
+                }
+            }
+        }
+        return Math.round(d);
+    }
+
+    public static boolean isFastDoubleClick() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = currentTimeMillis - lastClickTime;
+        if (0 < j && j < 1000) {
+            return true;
+        }
+        lastClickTime = currentTimeMillis;
+        return false;
     }
 }

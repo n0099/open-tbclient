@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class c extends FrameLayout {
-    private ImageView aRS;
-    private TextView aRT;
-    private Animation aRU;
-    private boolean aRV;
+    private ImageView aSf;
+    private TextView aSg;
+    private Animation aSh;
+    private boolean aSi;
 
     public c(Context context) {
         this(context, null);
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.aRS = (ImageView) findViewById(b.e.toast_loading_view);
-        this.aRT = (TextView) findViewById(b.e.toast_text_view);
-        this.aRU = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.aSf = (ImageView) findViewById(b.e.toast_loading_view);
+        this.aSg = (TextView) findViewById(b.e.toast_text_view);
+        this.aSh = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.aRV;
+        return this.aSi;
     }
 
     public void setLoading(boolean z) {
         Q();
-        this.aRV = z;
+        this.aSi = z;
         if (z) {
             setVisibility(0);
-            this.aRS.startAnimation(this.aRU);
+            this.aSf.startAnimation(this.aSh);
             return;
         }
-        this.aRS.clearAnimation();
+        this.aSf.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aRT.setText(str);
+        this.aSg.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

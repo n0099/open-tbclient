@@ -6,7 +6,7 @@ public interface j {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void wz();
+        void wE();
     }
 
     void a(com.baidu.live.data.m mVar);
@@ -19,9 +19,9 @@ public interface j {
 
     void setOtherParams(String str);
 
-    void vW();
+    View wC();
 
-    View wx();
+    void wD();
 
-    void wy();
+    void wb();
 }

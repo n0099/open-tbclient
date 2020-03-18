@@ -22,7 +22,7 @@ public final class fs {
         a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m294a()) {
+            for (ClassLoader classLoader : m292a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -81,7 +81,7 @@ public final class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m293a() {
+    public static String m291a() {
         return "3.1.0";
     }
 
@@ -95,7 +95,7 @@ public final class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m294a() {
+    private static ClassLoader[] m292a() {
         ClassLoader[] classLoaderArr = {fs.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

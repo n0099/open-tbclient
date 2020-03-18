@@ -36,7 +36,7 @@ public class m implements ah {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ah
-    public ExecutorService HO() {
+    public ExecutorService HR() {
         return null;
     }
 }

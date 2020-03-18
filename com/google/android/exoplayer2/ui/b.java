@@ -20,54 +20,54 @@ import android.util.Log;
 import com.google.android.exoplayer2.util.v;
 /* loaded from: classes6.dex */
 final class b {
-    private final float aFF;
+    private final float aFT;
     private int backgroundColor;
     private int foregroundColor;
-    private float mFA;
-    private int mFB;
-    private float mFC;
-    private float mFD;
-    private boolean mFE;
-    private boolean mFF;
-    private float mFG;
-    private float mFH;
-    private int mFI;
-    private int mFJ;
-    private int mFK;
-    private int mFL;
-    private StaticLayout mFM;
-    private int mFN;
-    private int mFO;
-    private int mFP;
-    private Rect mFQ;
-    private final RectF mFo = new RectF();
-    private final float mFp;
-    private final float mFq;
-    private final float mFr;
-    private final float mFs;
-    private final float mFt;
-    private CharSequence mFu;
-    private Layout.Alignment mFv;
-    private Bitmap mFw;
-    private float mFx;
-    private int mFy;
-    private int mFz;
-    private int myI;
-    private int myJ;
-    private int myK;
+    private int mAp;
+    private int mAq;
+    private int mAr;
+    private final RectF mGU = new RectF();
+    private final float mGV;
+    private final float mGW;
+    private final float mGX;
+    private final float mGY;
+    private final float mGZ;
+    private CharSequence mHa;
+    private Layout.Alignment mHb;
+    private Bitmap mHc;
+    private float mHd;
+    private int mHe;
+    private int mHf;
+    private float mHg;
+    private int mHh;
+    private float mHi;
+    private float mHj;
+    private boolean mHk;
+    private boolean mHl;
+    private float mHm;
+    private float mHn;
+    private int mHo;
+    private int mHp;
+    private int mHq;
+    private int mHr;
+    private StaticLayout mHs;
+    private int mHt;
+    private int mHu;
+    private int mHv;
+    private Rect mHw;
     private final Paint paint;
     private final TextPaint textPaint;
 
     public b(Context context) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, new int[]{16843287, 16843288}, 0, 0);
-        this.mFt = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.mFs = obtainStyledAttributes.getFloat(1, 1.0f);
+        this.mGZ = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.mGY = obtainStyledAttributes.getFloat(1, 1.0f);
         obtainStyledAttributes.recycle();
         int round = Math.round((context.getResources().getDisplayMetrics().densityDpi * 2.0f) / 160.0f);
-        this.aFF = round;
-        this.mFp = round;
-        this.mFq = round;
-        this.mFr = round;
+        this.aFT = round;
+        this.mGV = round;
+        this.mGW = round;
+        this.mGX = round;
         this.textPaint = new TextPaint();
         this.textPaint.setAntiAlias(true);
         this.textPaint.setSubpixelText(true);
@@ -81,71 +81,71 @@ final class b {
         int i5 = ViewCompat.MEASURED_STATE_MASK;
         if (z3) {
             if (!TextUtils.isEmpty(bVar.text)) {
-                i5 = (bVar.myT && z) ? bVar.myI : aVar.myI;
+                i5 = (bVar.mAA && z) ? bVar.mAp : aVar.mAp;
             } else {
                 return;
             }
         }
-        if (b(this.mFu, bVar.text) && v.h(this.mFv, bVar.myL) && this.mFw == bVar.bitmap && this.mFx == bVar.myM && this.mFy == bVar.myN && v.h(Integer.valueOf(this.mFz), Integer.valueOf(bVar.myO)) && this.mFA == bVar.myP && v.h(Integer.valueOf(this.mFB), Integer.valueOf(bVar.myQ)) && this.mFC == bVar.myR && this.mFD == bVar.myS && this.mFE == z && this.mFF == z2 && this.foregroundColor == aVar.foregroundColor && this.backgroundColor == aVar.backgroundColor && this.myI == i5 && this.myJ == aVar.myJ && this.myK == aVar.myK && v.h(this.textPaint.getTypeface(), aVar.typeface) && this.mFG == f && this.mFH == f2 && this.mFI == i && this.mFJ == i2 && this.mFK == i3 && this.mFL == i4) {
+        if (b(this.mHa, bVar.text) && v.h(this.mHb, bVar.mAs) && this.mHc == bVar.bitmap && this.mHd == bVar.mAt && this.mHe == bVar.mAu && v.h(Integer.valueOf(this.mHf), Integer.valueOf(bVar.mAv)) && this.mHg == bVar.mAw && v.h(Integer.valueOf(this.mHh), Integer.valueOf(bVar.mAx)) && this.mHi == bVar.mAy && this.mHj == bVar.mAz && this.mHk == z && this.mHl == z2 && this.foregroundColor == aVar.foregroundColor && this.backgroundColor == aVar.backgroundColor && this.mAp == i5 && this.mAq == aVar.mAq && this.mAr == aVar.mAr && v.h(this.textPaint.getTypeface(), aVar.typeface) && this.mHm == f && this.mHn == f2 && this.mHo == i && this.mHp == i2 && this.mHq == i3 && this.mHr == i4) {
             a(canvas, z3);
             return;
         }
-        this.mFu = bVar.text;
-        this.mFv = bVar.myL;
-        this.mFw = bVar.bitmap;
-        this.mFx = bVar.myM;
-        this.mFy = bVar.myN;
-        this.mFz = bVar.myO;
-        this.mFA = bVar.myP;
-        this.mFB = bVar.myQ;
-        this.mFC = bVar.myR;
-        this.mFD = bVar.myS;
-        this.mFE = z;
-        this.mFF = z2;
+        this.mHa = bVar.text;
+        this.mHb = bVar.mAs;
+        this.mHc = bVar.bitmap;
+        this.mHd = bVar.mAt;
+        this.mHe = bVar.mAu;
+        this.mHf = bVar.mAv;
+        this.mHg = bVar.mAw;
+        this.mHh = bVar.mAx;
+        this.mHi = bVar.mAy;
+        this.mHj = bVar.mAz;
+        this.mHk = z;
+        this.mHl = z2;
         this.foregroundColor = aVar.foregroundColor;
         this.backgroundColor = aVar.backgroundColor;
-        this.myI = i5;
-        this.myJ = aVar.myJ;
-        this.myK = aVar.myK;
+        this.mAp = i5;
+        this.mAq = aVar.mAq;
+        this.mAr = aVar.mAr;
         this.textPaint.setTypeface(aVar.typeface);
-        this.mFG = f;
-        this.mFH = f2;
-        this.mFI = i;
-        this.mFJ = i2;
-        this.mFK = i3;
-        this.mFL = i4;
+        this.mHm = f;
+        this.mHn = f2;
+        this.mHo = i;
+        this.mHp = i2;
+        this.mHq = i3;
+        this.mHr = i4;
         if (z3) {
-            dyR();
+            dzo();
         } else {
-            dyS();
+            dzp();
         }
         a(canvas, z3);
     }
 
-    private void dyR() {
+    private void dzo() {
         CharSequence charSequence;
         int i;
         int i2;
         int i3;
         int round;
-        int i4 = this.mFK - this.mFI;
-        int i5 = this.mFL - this.mFJ;
-        this.textPaint.setTextSize(this.mFG);
-        int i6 = (int) ((this.mFG * 0.125f) + 0.5f);
+        int i4 = this.mHq - this.mHo;
+        int i5 = this.mHr - this.mHp;
+        this.textPaint.setTextSize(this.mHm);
+        int i6 = (int) ((this.mHm * 0.125f) + 0.5f);
         int i7 = i4 - (i6 * 2);
-        if (this.mFC != Float.MIN_VALUE) {
-            i7 = (int) (i7 * this.mFC);
+        if (this.mHi != Float.MIN_VALUE) {
+            i7 = (int) (i7 * this.mHi);
         }
         if (i7 <= 0) {
             Log.w("SubtitlePainter", "Skipped drawing subtitle cue (insufficient space)");
             return;
         }
-        if (this.mFF && this.mFE) {
-            charSequence = this.mFu;
-        } else if (!this.mFE) {
-            charSequence = this.mFu.toString();
+        if (this.mHl && this.mHk) {
+            charSequence = this.mHa;
+        } else if (!this.mHk) {
+            charSequence = this.mHa.toString();
         } else {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.mFu);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.mHa);
             int length = spannableStringBuilder.length();
             AbsoluteSizeSpan[] absoluteSizeSpanArr = (AbsoluteSizeSpan[]) spannableStringBuilder.getSpans(0, length, AbsoluteSizeSpan.class);
             RelativeSizeSpan[] relativeSizeSpanArr = (RelativeSizeSpan[]) spannableStringBuilder.getSpans(0, length, RelativeSizeSpan.class);
@@ -157,30 +157,30 @@ final class b {
             }
             charSequence = spannableStringBuilder;
         }
-        Layout.Alignment alignment = this.mFv == null ? Layout.Alignment.ALIGN_CENTER : this.mFv;
-        this.mFM = new StaticLayout(charSequence, this.textPaint, i7, alignment, this.mFs, this.mFt, true);
-        int height = this.mFM.getHeight();
-        int lineCount = this.mFM.getLineCount();
+        Layout.Alignment alignment = this.mHb == null ? Layout.Alignment.ALIGN_CENTER : this.mHb;
+        this.mHs = new StaticLayout(charSequence, this.textPaint, i7, alignment, this.mGY, this.mGZ, true);
+        int height = this.mHs.getHeight();
+        int lineCount = this.mHs.getLineCount();
         int i8 = 0;
         int i9 = 0;
         while (i9 < lineCount) {
-            int max = Math.max((int) Math.ceil(this.mFM.getLineWidth(i9)), i8);
+            int max = Math.max((int) Math.ceil(this.mHs.getLineWidth(i9)), i8);
             i9++;
             i8 = max;
         }
-        if (this.mFC == Float.MIN_VALUE || i8 >= i7) {
+        if (this.mHi == Float.MIN_VALUE || i8 >= i7) {
             i7 = i8;
         }
         int i10 = i7 + (i6 * 2);
-        if (this.mFA != Float.MIN_VALUE) {
-            int round2 = Math.round(i4 * this.mFA) + this.mFI;
-            if (this.mFB == 2) {
+        if (this.mHg != Float.MIN_VALUE) {
+            int round2 = Math.round(i4 * this.mHg) + this.mHo;
+            if (this.mHh == 2) {
                 round2 -= i10;
-            } else if (this.mFB == 1) {
+            } else if (this.mHh == 1) {
                 round2 = ((round2 * 2) - i10) / 2;
             }
-            int max2 = Math.max(round2, this.mFI);
-            i = Math.min(max2 + i10, this.mFK);
+            int max2 = Math.max(round2, this.mHo);
+            i = Math.min(max2 + i10, this.mHq);
             i2 = max2;
         } else {
             int i11 = (i4 - i10) / 2;
@@ -192,108 +192,108 @@ final class b {
             Log.w("SubtitlePainter", "Skipped drawing subtitle cue (invalid horizontal positioning)");
             return;
         }
-        if (this.mFx != Float.MIN_VALUE) {
-            if (this.mFy == 0) {
-                round = Math.round(i5 * this.mFx) + this.mFJ;
+        if (this.mHd != Float.MIN_VALUE) {
+            if (this.mHe == 0) {
+                round = Math.round(i5 * this.mHd) + this.mHp;
             } else {
-                int lineBottom = this.mFM.getLineBottom(0) - this.mFM.getLineTop(0);
-                if (this.mFx >= 0.0f) {
-                    round = Math.round(lineBottom * this.mFx) + this.mFJ;
+                int lineBottom = this.mHs.getLineBottom(0) - this.mHs.getLineTop(0);
+                if (this.mHd >= 0.0f) {
+                    round = Math.round(lineBottom * this.mHd) + this.mHp;
                 } else {
-                    round = Math.round(lineBottom * (this.mFx + 1.0f)) + this.mFL;
+                    round = Math.round(lineBottom * (this.mHd + 1.0f)) + this.mHr;
                 }
             }
-            if (this.mFz == 2) {
+            if (this.mHf == 2) {
                 round -= height;
-            } else if (this.mFz == 1) {
+            } else if (this.mHf == 1) {
                 round = ((round * 2) - height) / 2;
             }
-            if (round + height > this.mFL) {
-                round = this.mFL - height;
-            } else if (round < this.mFJ) {
-                round = this.mFJ;
+            if (round + height > this.mHr) {
+                round = this.mHr - height;
+            } else if (round < this.mHp) {
+                round = this.mHp;
             }
             i3 = round;
         } else {
-            i3 = (this.mFL - height) - ((int) (i5 * this.mFH));
+            i3 = (this.mHr - height) - ((int) (i5 * this.mHn));
         }
-        this.mFM = new StaticLayout(charSequence, this.textPaint, i12, alignment, this.mFs, this.mFt, true);
-        this.mFN = i2;
-        this.mFO = i3;
-        this.mFP = i6;
+        this.mHs = new StaticLayout(charSequence, this.textPaint, i12, alignment, this.mGY, this.mGZ, true);
+        this.mHt = i2;
+        this.mHu = i3;
+        this.mHv = i6;
     }
 
-    private void dyS() {
+    private void dzp() {
         float f;
-        int i = this.mFK - this.mFI;
-        int i2 = this.mFL - this.mFJ;
-        float f2 = this.mFI + (i * this.mFA);
-        float f3 = this.mFJ + (i2 * this.mFx);
-        int round = Math.round(i * this.mFC);
-        int round2 = this.mFD != Float.MIN_VALUE ? Math.round(i2 * this.mFD) : Math.round(round * (this.mFw.getHeight() / this.mFw.getWidth()));
-        if (this.mFz == 2) {
+        int i = this.mHq - this.mHo;
+        int i2 = this.mHr - this.mHp;
+        float f2 = this.mHo + (i * this.mHg);
+        float f3 = this.mHp + (i2 * this.mHd);
+        int round = Math.round(i * this.mHi);
+        int round2 = this.mHj != Float.MIN_VALUE ? Math.round(i2 * this.mHj) : Math.round(round * (this.mHc.getHeight() / this.mHc.getWidth()));
+        if (this.mHf == 2) {
             f2 -= round;
-        } else if (this.mFz == 1) {
+        } else if (this.mHf == 1) {
             f2 -= round / 2;
         }
         int round3 = Math.round(f2);
-        if (this.mFB == 2) {
+        if (this.mHh == 2) {
             f = f3 - round2;
         } else {
-            f = this.mFB == 1 ? f3 - (round2 / 2) : f3;
+            f = this.mHh == 1 ? f3 - (round2 / 2) : f3;
         }
         int round4 = Math.round(f);
-        this.mFQ = new Rect(round3, round4, round + round3, round2 + round4);
+        this.mHw = new Rect(round3, round4, round + round3, round2 + round4);
     }
 
     private void a(Canvas canvas, boolean z) {
         if (z) {
-            ae(canvas);
-        } else {
             af(canvas);
+        } else {
+            ag(canvas);
         }
     }
 
-    private void ae(Canvas canvas) {
-        StaticLayout staticLayout = this.mFM;
+    private void af(Canvas canvas) {
+        StaticLayout staticLayout = this.mHs;
         if (staticLayout != null) {
             int save = canvas.save();
-            canvas.translate(this.mFN, this.mFO);
-            if (Color.alpha(this.myI) > 0) {
-                this.paint.setColor(this.myI);
-                canvas.drawRect(-this.mFP, 0.0f, staticLayout.getWidth() + this.mFP, staticLayout.getHeight(), this.paint);
+            canvas.translate(this.mHt, this.mHu);
+            if (Color.alpha(this.mAp) > 0) {
+                this.paint.setColor(this.mAp);
+                canvas.drawRect(-this.mHv, 0.0f, staticLayout.getWidth() + this.mHv, staticLayout.getHeight(), this.paint);
             }
             if (Color.alpha(this.backgroundColor) > 0) {
                 this.paint.setColor(this.backgroundColor);
                 int lineCount = staticLayout.getLineCount();
                 float lineTop = staticLayout.getLineTop(0);
                 for (int i = 0; i < lineCount; i++) {
-                    this.mFo.left = staticLayout.getLineLeft(i) - this.mFP;
-                    this.mFo.right = staticLayout.getLineRight(i) + this.mFP;
-                    this.mFo.top = lineTop;
-                    this.mFo.bottom = staticLayout.getLineBottom(i);
-                    lineTop = this.mFo.bottom;
-                    canvas.drawRoundRect(this.mFo, this.aFF, this.aFF, this.paint);
+                    this.mGU.left = staticLayout.getLineLeft(i) - this.mHv;
+                    this.mGU.right = staticLayout.getLineRight(i) + this.mHv;
+                    this.mGU.top = lineTop;
+                    this.mGU.bottom = staticLayout.getLineBottom(i);
+                    lineTop = this.mGU.bottom;
+                    canvas.drawRoundRect(this.mGU, this.aFT, this.aFT, this.paint);
                 }
             }
-            if (this.myJ == 1) {
+            if (this.mAq == 1) {
                 this.textPaint.setStrokeJoin(Paint.Join.ROUND);
-                this.textPaint.setStrokeWidth(this.mFp);
-                this.textPaint.setColor(this.myK);
+                this.textPaint.setStrokeWidth(this.mGV);
+                this.textPaint.setColor(this.mAr);
                 this.textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                 staticLayout.draw(canvas);
-            } else if (this.myJ == 2) {
-                this.textPaint.setShadowLayer(this.mFq, this.mFr, this.mFr, this.myK);
-            } else if (this.myJ == 3 || this.myJ == 4) {
-                boolean z = this.myJ == 3;
-                int i2 = z ? -1 : this.myK;
-                int i3 = z ? this.myK : -1;
-                float f = this.mFq / 2.0f;
+            } else if (this.mAq == 2) {
+                this.textPaint.setShadowLayer(this.mGW, this.mGX, this.mGX, this.mAr);
+            } else if (this.mAq == 3 || this.mAq == 4) {
+                boolean z = this.mAq == 3;
+                int i2 = z ? -1 : this.mAr;
+                int i3 = z ? this.mAr : -1;
+                float f = this.mGW / 2.0f;
                 this.textPaint.setColor(this.foregroundColor);
                 this.textPaint.setStyle(Paint.Style.FILL);
-                this.textPaint.setShadowLayer(this.mFq, -f, -f, i2);
+                this.textPaint.setShadowLayer(this.mGW, -f, -f, i2);
                 staticLayout.draw(canvas);
-                this.textPaint.setShadowLayer(this.mFq, f, f, i3);
+                this.textPaint.setShadowLayer(this.mGW, f, f, i3);
             }
             this.textPaint.setColor(this.foregroundColor);
             this.textPaint.setStyle(Paint.Style.FILL);
@@ -303,8 +303,8 @@ final class b {
         }
     }
 
-    private void af(Canvas canvas) {
-        canvas.drawBitmap(this.mFw, (Rect) null, this.mFQ, (Paint) null);
+    private void ag(Canvas canvas) {
+        canvas.drawBitmap(this.mHc, (Rect) null, this.mHw, (Paint) null);
     }
 
     private static boolean b(CharSequence charSequence, CharSequence charSequence2) {

@@ -15,7 +15,7 @@ public class a extends c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fg(String str) {
+    public com.baidu.swan.apps.api.b.b ff(String str) {
         if (DEBUG) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
@@ -26,16 +26,16 @@ public class a extends c {
                 if (TextUtils.isEmpty(optString)) {
                     com.baidu.swan.apps.console.c.e("Api-LoadSubPackage", "subPackage root is null");
                     return new com.baidu.swan.apps.api.b.b(202);
-                } else if (eVar.kO(optString) && eVar.kP(optString)) {
+                } else if (eVar.kN(optString) && eVar.kO(optString)) {
                     com.baidu.swan.apps.console.c.i("Api-LoadSubPackage", "subPackage have existed");
                     return new com.baidu.swan.apps.api.b.b(1001, "subPackage have existed");
                 } else {
-                    String kR = eVar.kR(optString);
-                    if (TextUtils.isEmpty(kR)) {
+                    String kQ = eVar.kQ(optString);
+                    if (TextUtils.isEmpty(kQ)) {
                         com.baidu.swan.apps.console.c.i("Api-LoadSubPackage", "subPackage cannot find aps key");
                         return new com.baidu.swan.apps.api.b.b(202);
                     }
-                    g.a(eVar.id, eVar.getVersion(), optString, kR, null, new g.a() { // from class: com.baidu.swan.apps.api.module.b.a.1.1
+                    g.a(eVar.id, eVar.getVersion(), optString, kQ, null, new g.a() { // from class: com.baidu.swan.apps.api.module.b.a.1.1
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                         public void success(String str3) {
                             com.baidu.swan.apps.console.c.i("Api-LoadSubPackage", "preload subPackage success");

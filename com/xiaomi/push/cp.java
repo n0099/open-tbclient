@@ -44,7 +44,7 @@ public class cp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m196a() {
+    public JSONObject m194a() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put(BdStatsConstant.StatsKey.COST, this.f193a);
         jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);

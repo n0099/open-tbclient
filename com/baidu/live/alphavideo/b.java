@@ -12,8 +12,8 @@ import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.proxy.MediaPlayerProxy;
 /* loaded from: classes3.dex */
 public class b implements c {
-    private AlphaVideo VE;
-    private c.a VF;
+    private AlphaVideo VO;
+    private c.a VP;
 
     public b(Context context) {
         init(context);
@@ -21,77 +21,77 @@ public class b implements c {
 
     @Override // com.baidu.live.alphavideo.c
     public View getView() {
-        return this.VE;
+        return this.VO;
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void a(c.a aVar) {
-        this.VF = aVar;
+        this.VP = aVar;
     }
 
     @Override // com.baidu.live.alphavideo.c
     public long getDuration() {
-        if (this.VE != null) {
-            return this.VE.getDuration();
+        if (this.VO != null) {
+            return this.VO.getDuration();
         }
         return -1L;
     }
 
     @Override // com.baidu.live.alphavideo.c
-    public void cR(String str) {
-        if (this.VE != null && !TextUtils.isEmpty(str)) {
-            this.VE.setSourcePath(str);
-            this.VE.play();
+    public void cQ(String str) {
+        if (this.VO != null && !TextUtils.isEmpty(str)) {
+            this.VO.setSourcePath(str);
+            this.VO.play();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void stop() {
-        if (this.VE != null) {
-            this.VE.stop();
+        if (this.VO != null) {
+            this.VO.stop();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void release() {
-        this.VF = null;
-        if (this.VE != null) {
-            this.VE.destroy();
+        this.VP = null;
+        if (this.VO != null) {
+            this.VO.destroy();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public boolean isDestroyed() {
-        return this.VE == null || this.VE.isDestroyed();
+        return this.VO == null || this.VO.isDestroyed();
     }
 
     private void init(Context context) {
-        this.VE = new AlphaVideo(context);
-        this.VE.setPlayer(new MediaPlayerProxy());
-        this.VE.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.live.alphavideo.b.1
+        this.VO = new AlphaVideo(context);
+        this.VO.setPlayer(new MediaPlayerProxy());
+        this.VO.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.live.alphavideo.b.1
             @Override // com.baidu.searchbox.afx.callback.OnVideoStartedListener
             public void onVideoStarted() {
-                if (b.this.VF != null) {
-                    b.this.VF.onStart();
+                if (b.this.VP != null) {
+                    b.this.VP.onStart();
                 }
             }
         });
-        this.VE.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.live.alphavideo.b.2
+        this.VO.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.live.alphavideo.b.2
             @Override // com.baidu.searchbox.afx.callback.OnVideoEndedListener
             public void onVideoEnded() {
-                if (b.this.VF != null) {
-                    b.this.VF.onEnd();
+                if (b.this.VP != null) {
+                    b.this.VP.onEnd();
                 }
             }
         });
-        this.VE.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.live.alphavideo.b.3
+        this.VO.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.live.alphavideo.b.3
             @Override // com.baidu.searchbox.afx.callback.OnVideoErrorListener
             public boolean onError(ErrorInfo errorInfo) {
                 if (errorInfo != null) {
-                    b.this.VF.onError(errorInfo.mErrorCode, errorInfo.mErrorMsg);
+                    b.this.VP.onError(errorInfo.mErrorCode, errorInfo.mErrorMsg);
                     return false;
                 }
-                b.this.VF.onError(-1, "unknown");
+                b.this.VP.onError(-1, "unknown");
                 return false;
             }
         });

@@ -43,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.avx() != null) {
-                jSONObject.put("content", hVar.avx().toString());
+            } else if (hVar.avA() != null) {
+                jSONObject.put("content", hVar.avA().toString());
             }
-            if (!TextUtils.isEmpty(hVar.avw())) {
-                jSONObject.put("abtest", hVar.avw());
+            if (!TextUtils.isEmpty(hVar.avz())) {
+                jSONObject.put("abtest", hVar.avz());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.avt()) {
+            if (hVar.avw()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.avi().qV(hVar.getId()));
+            jSONObject.put("idtype", d.avl().qU(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -113,7 +113,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.re("1");
+                            vVar.rd("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -169,7 +169,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.re("1");
+                                vVar.rd("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -207,7 +207,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void fc(boolean z) {
+    public void fd(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

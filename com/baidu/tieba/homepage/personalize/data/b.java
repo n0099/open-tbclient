@@ -2,22 +2,21 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.card.data.i;
 import com.baidu.tieba.card.data.p;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes9.dex */
-public class b extends i implements p {
-    private CardForum hfc;
+public class b extends com.baidu.tieba.card.data.i implements p {
+    private CardForum hgw;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.hfc = cardForum;
+            this.hgw = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(bvz() + cardForum.position.intValue());
+                setYuelaouLocate(bvE() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(bvz() + 0);
+                setYuelaouLocate(bvE() + 0);
             }
             if (v.getCount(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -36,24 +35,24 @@ public class b extends i implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.hfc != null) {
-            return this.hfc.position.intValue();
+        if (this.hgw != null) {
+            return this.hgw.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bvx() {
+    public boolean bvC() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ks(boolean z) {
+    public void kx(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void kt(boolean z) {
+    public void ky(boolean z) {
         this.showBottomDivider = z;
     }
 
@@ -64,7 +63,7 @@ public class b extends i implements p {
         return false;
     }
 
-    public static boolean vt(int i) {
+    public static boolean vA(int i) {
         return i == 1;
     }
 }

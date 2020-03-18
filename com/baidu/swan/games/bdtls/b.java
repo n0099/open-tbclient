@@ -1,5 +1,5 @@
 package com.baidu.swan.games.bdtls;
 /* loaded from: classes11.dex */
 public class b {
-    public static final byte[] ckH = {0, -98};
+    public static final byte[] ckS = {0, -98};
 }

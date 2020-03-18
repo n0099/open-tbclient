@@ -12,13 +12,13 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class d {
-    private static int nZM = 0;
-    private static int nZN = 0;
-    private static int nZO = 0;
+    private static int obA = 0;
+    private static int obB = 0;
+    private static int obC = 0;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void wj(boolean z);
+        void wr(boolean z);
     }
 
     public static void dL(View view) {
@@ -50,34 +50,34 @@ public class d {
         if (i < 0) {
             return false;
         }
-        nZM = i;
+        obA = i;
         tv.chushou.zues.utils.e.k("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.j(context, i);
     }
 
-    public static int ho(Context context) {
-        if (nZM == 0) {
-            nZM = b.k(context, a(context.getResources()));
+    public static int hn(Context context) {
+        if (obA == 0) {
+            obA = b.k(context, a(context.getResources()));
         }
-        return nZM;
+        return obA;
     }
 
-    public static int bl(Context context) {
-        return Math.min(b(context.getResources()), Math.max(a(context.getResources()), ho(context)));
+    public static int bk(Context context) {
+        return Math.min(b(context.getResources()), Math.max(a(context.getResources()), hn(context)));
     }
 
     public static int b(Resources resources) {
-        if (nZN == 0) {
-            nZN = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (obB == 0) {
+            obB = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return nZN;
+        return obB;
     }
 
     public static int a(Resources resources) {
-        if (nZO == 0) {
-            nZO = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (obC == 0) {
+            obC = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return nZO;
+        return obC;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.nZA = null;
+        tv.chushou.zues.widget.kpswitch.b.a.obo = null;
     }
 }

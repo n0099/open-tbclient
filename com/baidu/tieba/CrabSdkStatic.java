@@ -8,10 +8,10 @@ import com.baidu.tieba.t.a;
 /* loaded from: classes8.dex */
 public class CrabSdkStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016565, new CustomMessageTask.CustomRunnable<a.InterfaceC0609a>() { // from class: com.baidu.tieba.CrabSdkStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016565, new CustomMessageTask.CustomRunnable<a.InterfaceC0610a>() { // from class: com.baidu.tieba.CrabSdkStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<a.InterfaceC0609a> run(CustomMessage<a.InterfaceC0609a> customMessage) {
+            public CustomResponsedMessage<a.InterfaceC0610a> run(CustomMessage<a.InterfaceC0610a> customMessage) {
                 return new CustomResponsedMessage<>(2016565, new com.baidu.tieba.d.a());
             }
         });

@@ -15,17 +15,17 @@ public class ar implements eo {
     @Override // com.xiaomi.push.eo
     public void a(Context context, HashMap<String, String> hashMap) {
         Cif cif = new Cif();
-        cif.b(ek.a(context).m258a());
+        cif.b(ek.a(context).m256a());
         cif.d(ek.a(context).b());
         cif.c(hq.AwakeAppResponse.f489a);
         cif.a(aj.a());
         cif.f629a = hashMap;
         byte[] a = iq.a(w.a(cif.c(), cif.b(), cif, hg.Notification));
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo : context is not correct in pushLayer " + cif.a());
+            com.xiaomi.channel.commonutils.logger.b.m45a("MoleInfo : context is not correct in pushLayer " + cif.a());
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo : send data directly in pushLayer " + cif.a());
+        com.xiaomi.channel.commonutils.logger.b.m45a("MoleInfo : send data directly in pushLayer " + cif.a());
         ((XMPushService) context).a(context.getPackageName(), a, true);
     }
 
@@ -39,6 +39,6 @@ public class ar implements eo {
 
     @Override // com.xiaomi.push.eo
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo：\u3000" + ef.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m45a("MoleInfo：\u3000" + ef.b(hashMap));
     }
 }

@@ -2,18 +2,18 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public abstract class d {
     public int index;
-    public boolean mxV;
-    public long nFH;
-    public String[] nFI;
-    public float nFJ;
-    public int nFK;
-    public g nFP;
-    public n<?> nFU;
-    public boolean nFV;
-    public String nFW;
-    public boolean nFX;
-    protected f nFn;
-    public boolean nGd;
+    public boolean mzB;
+    public g nHC;
+    public n<?> nHH;
+    public boolean nHI;
+    public String nHJ;
+    public boolean nHK;
+    public boolean nHQ;
+    protected f nHa;
+    public long nHu;
+    public String[] nHv;
+    public float nHw;
+    public int nHx;
     public Object obj;
     public float rotationY;
     public Object tag;
@@ -21,122 +21,122 @@ public abstract class d {
     public int textColor;
     private long time;
     public int visibility;
-    public boolean nFG = false;
-    public int nFL = 0;
-    public float aER = -1.0f;
+    public boolean nHt = false;
+    public int nHy = 0;
+    public float aFf = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte nFM = 0;
-    public float nFN = -1.0f;
-    public float nFO = -1.0f;
-    private int nFQ = 0;
-    public int nFR = 0;
-    public int nFS = 0;
-    public int nFT = -1;
+    public byte nHz = 0;
+    public float nHA = -1.0f;
+    public float nHB = -1.0f;
+    private int nHD = 0;
+    public int nHE = 0;
+    public int nHF = 0;
+    public int nHG = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int nFY = 0;
-    public int nFZ = -1;
-    public j nGa = null;
-    public int nGb = 0;
-    public int nGc = -1;
+    public int nHL = 0;
+    public int nHM = -1;
+    public j nHN = null;
+    public int nHO = 0;
+    public int nHP = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dLO();
+    public abstract float dMo();
 
-    public abstract float dLP();
+    public abstract float dMp();
 
-    public abstract float dLQ();
+    public abstract float dMq();
 
-    public abstract float dLR();
+    public abstract float dMr();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.nFP.value;
+        return this.nHC.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dLI() {
-        return this.nFN > -1.0f && this.nFO > -1.0f && this.nFR == this.nGa.nGl;
+    public boolean dMi() {
+        return this.nHA > -1.0f && this.nHB > -1.0f && this.nHE == this.nHN.nHY;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.nFR = this.nGa.nGl;
+        this.nHE = this.nHN.nHY;
     }
 
     public boolean isPrepared() {
-        return this.nFT == this.nGa.nGq;
+        return this.nHG == this.nHN.nId;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.nFT = this.nGa.nGq;
+        this.nHG = this.nHN.nId;
     }
 
-    public n<?> dLJ() {
-        return this.nFU;
+    public n<?> dMj() {
+        return this.nHH;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.nFQ == this.nGa.nGm;
+        return this.visibility == 1 && this.nHD == this.nHN.nHZ;
     }
 
     public boolean isTimeOut() {
-        return this.nFn == null || hk(this.nFn.nGe);
-    }
-
-    public boolean hk(long j) {
-        return j - dLT() >= this.nFP.value;
-    }
-
-    public boolean dLK() {
-        return this.nFn == null || hl(this.nFn.nGe);
+        return this.nHa == null || hl(this.nHa.nHR);
     }
 
     public boolean hl(long j) {
-        long dLT = j - dLT();
-        return dLT <= 0 || dLT >= this.nFP.value;
+        return j - dMt() >= this.nHC.value;
     }
 
-    public boolean dLL() {
-        return this.nFn == null || this.nFn.nGe < dLT();
+    public boolean dMk() {
+        return this.nHa == null || hm(this.nHa.nHR);
     }
 
-    public boolean dLM() {
-        if (this.nFZ != this.nGa.nGn) {
-            this.nFY = 0;
+    public boolean hm(long j) {
+        long dMt = j - dMt();
+        return dMt <= 0 || dMt >= this.nHC.value;
+    }
+
+    public boolean dMl() {
+        return this.nHa == null || this.nHa.nHR < dMt();
+    }
+
+    public boolean dMm() {
+        if (this.nHM != this.nHN.nIa) {
+            this.nHL = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dLN() {
-        return this.nFZ == this.nGa.nGn && this.nFY != 0;
+    public boolean dMn() {
+        return this.nHM == this.nHN.nIa && this.nHL != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.nFQ = this.nGa.nGm;
+            this.nHD = this.nHN.nHZ;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dLS() {
-        return this.nFn;
+    public f dMs() {
+        return this.nHa;
     }
 
     public void c(f fVar) {
-        this.nFn = fVar;
+        this.nHa = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void hm(long j) {
-        this.nFH = j;
-        this.nFS = this.nGa.nGp;
+    public void hn(long j) {
+        this.nHu = j;
+        this.nHF = this.nHN.nIc;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.nFH = 0L;
+        this.nHu = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dLT() {
-        return (this.nGa == null || this.nGa.nGp != this.nFS) ? this.time : this.time + this.nFH;
+    public long dMt() {
+        return (this.nHN == null || this.nHN.nIc != this.nHF) ? this.time : this.time + this.nHu;
     }
 
-    public boolean dLU() {
-        if (this.nGa == null || this.nGa.nGp != this.nFS) {
+    public boolean dMu() {
+        if (this.nHN == null || this.nHN.nIc != this.nHF) {
             return false;
         }
-        return this.nGd;
+        return this.nHQ;
     }
 }

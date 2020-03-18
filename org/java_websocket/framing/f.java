@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode nMM;
-    private ByteBuffer nMN = org.java_websocket.e.b.dNK();
-    private boolean nML = true;
-    private boolean nMO = false;
-    private boolean nMP = false;
-    private boolean nMQ = false;
-    private boolean nMR = false;
+    private Framedata.Opcode nOz;
+    private ByteBuffer nOA = org.java_websocket.e.b.dOk();
+    private boolean nOy = true;
+    private boolean nOB = false;
+    private boolean nOC = false;
+    private boolean nOD = false;
+    private boolean nOE = false;
 
-    public abstract void dNz() throws InvalidDataException;
+    public abstract void dNZ() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.nMM = opcode;
+        this.nOz = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dNC() {
-        return this.nMP;
+    public boolean dOc() {
+        return this.nOC;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dND() {
-        return this.nMQ;
+    public boolean dOd() {
+        return this.nOD;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dNE() {
-        return this.nMR;
+    public boolean dOe() {
+        return this.nOE;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean Mp() {
-        return this.nML;
+    public boolean Ms() {
+        return this.nOy;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dNF() {
-        return this.nMM;
+    public Framedata.Opcode dOf() {
+        return this.nOz;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dNB() {
-        return this.nMN;
+    public ByteBuffer dOb() {
+        return this.nOA;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dNF() + ", fin:" + Mp() + ", rsv1:" + dNC() + ", rsv2:" + dND() + ", rsv3:" + dNE() + ", payloadlength:[pos:" + this.nMN.position() + ", len:" + this.nMN.remaining() + "], payload:" + (this.nMN.remaining() > 1000 ? "(too big to display)" : new String(this.nMN.array())) + '}';
+        return "Framedata{ optcode:" + dOf() + ", fin:" + Ms() + ", rsv1:" + dOc() + ", rsv2:" + dOd() + ", rsv3:" + dOe() + ", payloadlength:[pos:" + this.nOA.position() + ", len:" + this.nOA.remaining() + "], payload:" + (this.nOA.remaining() > 1000 ? "(too big to display)" : new String(this.nOA.array())) + '}';
     }
 
     public void u(ByteBuffer byteBuffer) {
-        this.nMN = byteBuffer;
+        this.nOA = byteBuffer;
     }
 
-    public void cj(boolean z) {
-        this.nML = z;
+    public void ck(boolean z) {
+        this.nOy = z;
     }
 
-    public void wU(boolean z) {
-        this.nMP = z;
+    public void xc(boolean z) {
+        this.nOC = z;
     }
 
-    public void wV(boolean z) {
-        this.nMQ = z;
+    public void xd(boolean z) {
+        this.nOD = z;
     }
 
-    public void wW(boolean z) {
-        this.nMR = z;
+    public void xe(boolean z) {
+        this.nOE = z;
     }
 
-    public void wX(boolean z) {
-        this.nMO = z;
+    public void xf(boolean z) {
+        this.nOB = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.nML == fVar.nML && this.nMO == fVar.nMO && this.nMP == fVar.nMP && this.nMQ == fVar.nMQ && this.nMR == fVar.nMR && this.nMM == fVar.nMM) {
-            if (this.nMN != null) {
-                z = this.nMN.equals(fVar.nMN);
-            } else if (fVar.nMN != null) {
+        if (this.nOy == fVar.nOy && this.nOB == fVar.nOB && this.nOC == fVar.nOC && this.nOD == fVar.nOD && this.nOE == fVar.nOE && this.nOz == fVar.nOz) {
+            if (this.nOA != null) {
+                z = this.nOA.equals(fVar.nOA);
+            } else if (fVar.nOA != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.nMQ ? 1 : 0) + (((this.nMP ? 1 : 0) + (((this.nMO ? 1 : 0) + (((this.nMN != null ? this.nMN.hashCode() : 0) + ((((this.nML ? 1 : 0) * 31) + this.nMM.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nMR ? 1 : 0);
+        return (((this.nOD ? 1 : 0) + (((this.nOC ? 1 : 0) + (((this.nOB ? 1 : 0) + (((this.nOA != null ? this.nOA.hashCode() : 0) + ((((this.nOy ? 1 : 0) * 31) + this.nOz.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nOE ? 1 : 0);
     }
 }

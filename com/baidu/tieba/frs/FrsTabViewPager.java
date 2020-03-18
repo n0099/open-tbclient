@@ -8,14 +8,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes9.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float gsl;
-    private float gsm;
-    private float gsn;
-    private float gso;
-    private boolean gsp;
-    private float x;
-    private float y;
-
     public FrsTabViewPager(Context context) {
         this(context, null);
     }
@@ -26,20 +18,12 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        this.x = motionEvent.getRawX();
-        this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.gsl = motionEvent.getRawX();
-                this.gsm = motionEvent.getRawY();
-                ly(true);
-                if (bFH()) {
-                    this.gsp = false;
-                    break;
-                }
+                lE(true);
                 break;
             case 1:
-                ly(false);
+                lE(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -47,67 +31,48 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.x = motionEvent.getRawX();
-        this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                ly(false);
-                break;
-            case 2:
-                this.gsn = this.x - this.gsl;
-                this.gso = this.y - this.gsm;
-                if (this.gsn < 0.0f && Math.abs(this.gsn) > Math.abs(this.gso) && bFH()) {
-                    requestParentInterceptTouchEvent(false);
-                    if (this.gsp) {
-                        return false;
-                    }
-                    lz(true);
-                    this.gsp = true;
-                    return false;
-                }
+                lE(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void ly(boolean z) {
+    public void lE(boolean z) {
         a aVar = new a();
-        aVar.lA(bFH());
-        aVar.lB(z);
+        aVar.lF(bFR());
+        aVar.lG(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bFG() {
-        ly(false);
+    public void bFQ() {
+        lE(false);
     }
 
-    public void lz(boolean z) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
-    }
-
-    private boolean bFH() {
+    private boolean bFR() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes9.dex */
     public static class a {
-        private boolean gsq;
-        private boolean gsr;
+        private boolean gsV;
+        private boolean gsW;
 
-        public boolean bFI() {
-            return this.gsq;
+        public boolean bFS() {
+            return this.gsV;
         }
 
-        public void lA(boolean z) {
-            this.gsq = z;
+        public void lF(boolean z) {
+            this.gsV = z;
         }
 
-        public boolean bFJ() {
-            return this.gsr;
+        public boolean bFT() {
+            return this.gsW;
         }
 
-        public void lB(boolean z) {
-            this.gsr = z;
+        public void lG(boolean z) {
+            this.gsW = z;
         }
     }
 }

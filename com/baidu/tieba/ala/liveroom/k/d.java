@@ -16,12 +16,12 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d extends Dialog implements View.OnClickListener {
-    private ImageView aEH;
-    private TextView aEI;
-    private TextView aEJ;
-    private HeadImageView ahI;
-    private View bab;
-    private a fcY;
+    private ImageView aEV;
+    private TextView aEW;
+    private TextView aEX;
+    private HeadImageView ahS;
+    private View bao;
+    private a fdw;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,28 +36,28 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.fcY = aVar;
+        this.fdw = aVar;
     }
 
     public void show(String str) {
-        bmP();
-        this.ahI.startLoad(str, 25, false, false);
+        bmU();
+        this.ahS.startLoad(str, 25, false, false);
         show();
     }
 
-    public String bmN() {
-        return this.aEI.getText().toString();
+    public String bmS() {
+        return this.aEW.getText().toString();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bab || view == this.aEH) {
+        if (view == this.bao || view == this.aEV) {
             dismiss();
-        } else if (this.fcY != null) {
-            if (view == this.aEI) {
-                this.fcY.onConfirm();
-            } else if (view == this.aEJ) {
-                this.fcY.onCancel();
+        } else if (this.fdw != null) {
+            if (view == this.aEW) {
+                this.fdw.onConfirm();
+            } else if (view == this.aEX) {
+                this.fdw.onCancel();
             }
         }
     }
@@ -75,11 +75,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            bmO();
+            bmT();
         }
     }
 
-    public void bmO() {
+    public void bmT() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -97,36 +97,36 @@ public class d extends Dialog implements View.OnClickListener {
     private void initView() {
         ColorStateList colorStateList;
         setContentView(a.h.ala_guide_follow_pop);
-        this.bab = findViewById(a.g.layout_root);
-        this.ahI = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.bao = findViewById(a.g.layout_root);
+        this.ahS = (HeadImageView) findViewById(a.g.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.ahI.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.ahI.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.ahS.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.ahS.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.ahI.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.ahI.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.ahS.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.ahS.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
-        this.ahI.setIsRound(true);
-        this.ahI.setAutoChangeStyle(false);
-        this.ahI.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.aEI = (TextView) findViewById(a.g.tv_confirm);
-        this.aEJ = (TextView) findViewById(a.g.tv_cancel);
-        this.aEH = (ImageView) findViewById(a.g.iv_close);
+        this.ahS.setIsRound(true);
+        this.ahS.setAutoChangeStyle(false);
+        this.ahS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aEW = (TextView) findViewById(a.g.tv_confirm);
+        this.aEX = (TextView) findViewById(a.g.tv_cancel);
+        this.aEV = (ImageView) findViewById(a.g.iv_close);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             colorStateList = getContext().getResources().getColorStateList(a.f.ala_live_custom_dialog_btn_text_color_s_shoubai);
         } else {
             colorStateList = getContext().getResources().getColorStateList(a.f.ala_live_custom_dialog_btn_text_color_s);
         }
-        this.aEI.setTextColor(colorStateList);
-        this.bab.setOnClickListener(this);
-        this.aEI.setOnClickListener(this);
-        this.aEJ.setOnClickListener(this);
-        this.aEH.setOnClickListener(this);
+        this.aEW.setTextColor(colorStateList);
+        this.bao.setOnClickListener(this);
+        this.aEW.setOnClickListener(this);
+        this.aEX.setOnClickListener(this);
+        this.aEV.setOnClickListener(this);
     }
 
-    private void bmP() {
-        if (this.ahI != null) {
-            this.ahI.stopLoad();
+    private void bmU() {
+        if (this.ahS != null) {
+            this.ahS.stopLoad();
         }
     }
 }

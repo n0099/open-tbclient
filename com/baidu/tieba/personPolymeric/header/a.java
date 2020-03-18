@@ -26,9 +26,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes11.dex */
 public class a {
-    private View cyI;
-    private TbImageView jpo;
-    private int jpp;
+    private View cyT;
+    private TbImageView jqN;
+    private int jqO;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -36,16 +36,16 @@ public class a {
             int i2;
             if (a.this.mIsHost) {
                 if (a.this.mUserData == null || !a.this.mUserData.isBaijiahaoUser()) {
-                    TiebaStatic.log(new an("c12502").cy("obj_locate", "3"));
+                    TiebaStatic.log(new an("c12502").cx("obj_locate", "3"));
                     String userId = a.this.mUserData.getUserId();
                     String bg_pic = a.this.mUserData.getBg_pic();
                     try {
-                        i = com.baidu.adp.lib.f.b.toInt((String) a.this.GU(bg_pic).get("props_id"), -1);
+                        i = com.baidu.adp.lib.f.b.toInt((String) a.this.GT(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException e) {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.jpo.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.jqN.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -55,10 +55,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpo.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jqN.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jpo.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.jqN.getContext(), i, i2)));
                 }
             }
         }
@@ -69,11 +69,11 @@ public class a {
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.jpo = tbImageView;
+        this.jqN = tbImageView;
         this.mIsHost = z;
-        this.jpo.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.cyI = view;
-        this.cyI.setOnClickListener(this.mClickListener);
+        this.jqN.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.cyT = view;
+        this.cyT.setOnClickListener(this.mClickListener);
     }
 
     public void e(UserData userData) {
@@ -88,7 +88,7 @@ public class a {
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.jpo);
+                            aVar.drawImageTo(a.this.jqN);
                         }
                     }
 
@@ -108,34 +108,34 @@ public class a {
         }
     }
 
-    public void Aa(int i) {
-        this.jpp = i;
-        ViewGroup.LayoutParams layoutParams = this.jpo.getLayoutParams();
+    public void Ai(int i) {
+        this.jqO = i;
+        ViewGroup.LayoutParams layoutParams = this.jqN.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.jpp;
-            this.jpo.setLayoutParams(layoutParams);
+            layoutParams.height = this.jqO;
+            this.jqN.setLayoutParams(layoutParams);
         }
     }
 
     public void k(double d) {
-        int i = (int) (this.jpp + (PullRefreshFrameLayout.jtp * d));
-        ViewGroup.LayoutParams layoutParams = this.jpo.getLayoutParams();
+        int i = (int) (this.jqO + (PullRefreshFrameLayout.juO * d));
+        ViewGroup.LayoutParams layoutParams = this.jqN.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.jpo.setLayoutParams(layoutParams);
+            this.jqN.setLayoutParams(layoutParams);
         }
     }
 
-    public void Ab(int i) {
-        ViewGroup.LayoutParams layoutParams = this.jpo.getLayoutParams();
+    public void Aj(int i) {
+        ViewGroup.LayoutParams layoutParams = this.jqN.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.jpo.setLayoutParams(layoutParams);
+            this.jqN.setLayoutParams(layoutParams);
         }
     }
 
-    public int cxi() {
-        ViewGroup.LayoutParams layoutParams = this.jpo.getLayoutParams();
+    public int cxB() {
+        ViewGroup.LayoutParams layoutParams = this.jqN.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }
@@ -143,7 +143,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> GU(final String str) throws URISyntaxException {
+    public Map<String, String> GT(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.header.PersonHeaderBackgroundController$3
             /* JADX INFO: Access modifiers changed from: package-private */
             {

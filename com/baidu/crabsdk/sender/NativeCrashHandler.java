@@ -2,106 +2,73 @@ package com.baidu.crabsdk.sender;
 
 import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.crabsdk.CrabSDK;
-import com.baidu.live.tbadk.img.effect.FilterImageAction;
-import com.vivo.push.PushClientConstants;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class NativeCrashHandler {
-    private static NativeCrashHandler bQ = null;
-    private static Context mContext;
-    private boolean bR = false;
+    private static NativeCrashHandler bZ = null;
+    private boolean ca = false;
+    private s cb;
+    private Context mContext;
 
     private NativeCrashHandler(Context context) {
-        mContext = context;
+        this.mContext = context;
+        this.cb = new s(context, context.getFilesDir().getPath());
     }
 
-    public static NativeCrashHandler ad() {
-        return bQ;
+    public static NativeCrashHandler ai() {
+        return bZ;
     }
 
     private native boolean nRequiredVarParams(String str);
 
     private native boolean nSetLogcatLineCount(int i);
 
-    public static NativeCrashHandler s(Context context) {
-        if (bQ == null) {
-            bQ = new NativeCrashHandler(context);
+    public static NativeCrashHandler r(Context context) {
+        if (bZ == null) {
+            bZ = new NativeCrashHandler(context);
         }
-        return bQ;
+        return bZ;
     }
 
-    public final void ae() {
+    public final void aj() {
         try {
-            com.baidu.crabsdk.c.a.ck("Load native so.");
-            if (mContext == null) {
+            if (this.mContext == null) {
                 com.baidu.crabsdk.c.a.cj("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
-                String str = mContext.getApplicationInfo().nativeLibraryDir + "/" + System.mapLibraryName("crab_native");
-                if (TextUtils.isEmpty(str) || new File(str).exists()) {
-                    System.loadLibrary("crab_native");
-                    this.bR = true;
-                    CrabSDK.NDK_VERSION = "3.1.2";
-                    com.baidu.crabsdk.c.a.cj("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
-                } else {
-                    com.baidu.crabsdk.c.a.cj("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + HanziToPinyin.Token.SEPARATOR + Build.CPU_ABI);
+                System.loadLibrary("crab_native");
+                this.ca = true;
+                com.baidu.crabsdk.c.a.cj("Native version is:" + CrabSDK.NDK_VERSION);
+                if (CrabSDK.NDK_VERSION.equals("-1")) {
+                    CrabSDK.NDK_VERSION = "3.2.0";
                 }
+                com.baidu.crabsdk.c.a.cj("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
             }
         } catch (Exception e) {
-            this.bR = false;
+            this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
             com.baidu.crabsdk.c.a.f("loadSysLib Error!", e);
         } catch (UnsatisfiedLinkError e2) {
-            this.bR = false;
+            this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
-            com.baidu.crabsdk.c.a.w("UnsatisfiedLinkError! " + e2.getMessage());
+            com.baidu.crabsdk.c.a.w("loadSysLib Error! " + e2.getMessage());
         }
-        if (this.bR) {
+        if (this.ca) {
             try {
-                Context context = mContext;
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("appVC", com.baidu.crabsdk.b.o.I());
-                    jSONObject.put("batVN", "7.3.7");
-                    jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-                    jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.o.F());
-                    jSONObject.put("appLabel", com.baidu.crabsdk.b.o.G());
-                    if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
-                        jSONObject.put("appVN", com.baidu.crabsdk.b.o.H());
-                    } else {
-                        jSONObject.put("appVN", com.baidu.crabsdk.a.o);
-                    }
-                    jSONObject.put("soLibs", i.cx(context.getApplicationInfo().nativeLibraryDir));
-                    jSONObject.put("procName", CrabSDK.CURRENT_PNAME);
-                    if (com.baidu.crabsdk.a.L) {
-                        jSONObject.put(FilterImageAction.ACTION_NAME, 2);
-                    } else {
-                        jSONObject.put(FilterImageAction.ACTION_NAME, 1);
-                    }
-                    String cp = com.baidu.crabsdk.c.d.cp(jSONObject.toString());
-                    if (cp != null) {
-                        NativeCrashHandler nativeCrashHandler = bQ;
-                        if (nativeCrashHandler.bR) {
-                            nativeCrashHandler.nRequiredVarParams(cp);
-                        } else {
-                            com.baidu.crabsdk.c.a.w("call before failed! native lib init failed");
-                        }
-                    }
-                } catch (Exception e3) {
-                    com.baidu.crabsdk.c.a.f("call native method nRequiredVarParams error!!", e3);
-                }
-            } catch (Exception e4) {
-                com.baidu.crabsdk.c.a.f("Save some var in .crab error!", e4);
+                this.cb.startWatching();
+                nRequiredVarParams(com.baidu.crabsdk.c.d.co(g.au(this.mContext).toString()));
+            } catch (Exception e3) {
+                com.baidu.crabsdk.c.a.f("Init gather java info error!", e3);
             }
         }
     }
 
     public final void b(int i) {
-        if (this.bR) {
-            nSetLogcatLineCount(i);
+        if (this.ca) {
+            try {
+                nSetLogcatLineCount(i);
+            } catch (UnsatisfiedLinkError e) {
+                com.baidu.crabsdk.c.a.w("nSetLogcatLineCount Error! " + e.getMessage());
+            }
         }
     }
 }

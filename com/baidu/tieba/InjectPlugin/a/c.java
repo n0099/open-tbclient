@@ -1,13 +1,13 @@
 package com.baidu.tieba.InjectPlugin.a;
 /* loaded from: classes8.dex */
 public class c {
-    private Object dTj;
+    private Object dTz;
 
     public c(Object obj) {
-        this.dTj = obj;
+        this.dTz = obj;
     }
 
-    public Object aVB() {
-        return this.dTj;
+    public Object aVF() {
+        return this.dTz;
     }
 }

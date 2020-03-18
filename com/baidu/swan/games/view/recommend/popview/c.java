@@ -6,11 +6,11 @@ import java.util.Date;
 /* loaded from: classes11.dex */
 public class c {
     public static void putString(String str, String str2) {
-        a.ari().putString(str, str2);
+        a.arl().putString(str, str2);
     }
 
     public static String getString(String str) {
-        return a.ari().getString(str, null);
+        return a.arl().getString(str, null);
     }
 
     /* loaded from: classes11.dex */
@@ -20,15 +20,15 @@ public class c {
         /* renamed from: com.baidu.swan.games.view.recommend.popview.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
         public static class C0353a {
-            private static final a cuL = new a();
+            private static final a cuW = new a();
         }
 
         private a() {
             super("com.baidu.searchbox.game_guide");
         }
 
-        public static final a ari() {
-            return C0353a.cuL;
+        public static final a arl() {
+            return C0353a.cuW;
         }
     }
 

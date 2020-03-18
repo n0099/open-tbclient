@@ -6,25 +6,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class h implements g.a {
-    private g.b gOR;
-    private VideoMiddleModel gOS;
-    private VideoSerializeVideoThreadInfo gOT;
-    private VideoMiddleModel.a gOU = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
+    private g.b gPY;
+    private VideoMiddleModel gPZ;
+    private VideoSerializeVideoThreadInfo gQa;
+    private VideoMiddleModel.a gQb = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void o(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (h.this.gOR != null) {
-                h.this.gOR.hideLoadingView();
+            if (h.this.gPY != null) {
+                h.this.gPY.hideLoadingView();
                 h.this.mHasMore = z;
-                h.this.gOR.e(list, z, false);
+                h.this.gPY.e(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void nV(String str) {
-            if (h.this.gOR != null) {
-                h.this.gOR.hideLoadingView();
-                h.this.gOR.showMsg(str);
-                h.this.gOR.Sk();
+        public void nU(String str) {
+            if (h.this.gPY != null) {
+                h.this.gPY.hideLoadingView();
+                h.this.gPY.showMsg(str);
+                h.this.gPY.Sn();
             }
         }
     };
@@ -36,16 +36,16 @@ public class h implements g.a {
 
     public h(g.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.gOR = bVar;
-            this.gOR.a(this);
-            this.gOS = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.gOU);
+            this.gPY = bVar;
+            this.gPY.a(this);
+            this.gPZ = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.gQb);
         }
     }
 
-    public void bLA() {
-        if (this.gOS != null) {
-            this.gOS.setFrom(this.mFrom);
-            this.gOS.LoadData();
+    public void bLO() {
+        if (this.gPZ != null) {
+            this.gPZ.setFrom(this.mFrom);
+            this.gPZ.LoadData();
         }
     }
 
@@ -53,54 +53,54 @@ public class h implements g.a {
         this.mFrom = str;
     }
 
-    public void bcg() {
-        if (this.gOS != null && this.mHasMore) {
-            this.gOS.setFrom(this.mFrom);
-            this.gOS.LoadData();
+    public void bck() {
+        if (this.gPZ != null && this.mHasMore) {
+            this.gPZ.setFrom(this.mFrom);
+            this.gPZ.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.gOS != null) {
-            this.gOS.setId(this.mId);
+        if (this.gPZ != null) {
+            this.gPZ.setId(this.mId);
         }
     }
 
     public void Bl(String str) {
         this.st_type = str;
-        if (this.gOS != null) {
-            this.gOS.Bl(str);
+        if (this.gPZ != null) {
+            this.gPZ.Bl(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.gOS != null) {
-            this.gOS.setLocation(str);
+        if (this.gPZ != null) {
+            this.gPZ.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.gOT = videoSerializeVideoThreadInfo;
-        if (this.gOS != null) {
-            this.gOS.a(videoSerializeVideoThreadInfo);
+        this.gQa = videoSerializeVideoThreadInfo;
+        if (this.gPZ != null) {
+            this.gPZ.a(videoSerializeVideoThreadInfo);
         }
     }
 
-    public VideoSerializeVideoThreadInfo bLB() {
-        return this.gOT;
+    public VideoSerializeVideoThreadInfo bLP() {
+        return this.gQa;
     }
 
-    public void bGw() {
-        if (this.gOS != null) {
-            this.gOS.cancelLoadData();
+    public void bGI() {
+        if (this.gPZ != null) {
+            this.gPZ.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.gOS != null) {
-            return this.gOS.getPageNum();
+        if (this.gPZ != null) {
+            return this.gPZ.getPageNum();
         }
         return 0;
     }

@@ -28,9 +28,9 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.model.b aX = com.baidu.swan.apps.model.b.aX(a, a);
-        aX.mParams = a2;
-        if (!h.b("adLanding", aX)) {
+        com.baidu.swan.apps.model.b aW = com.baidu.swan.apps.model.b.aW(a, a);
+        aW.mParams = a2;
+        if (!h.b("adLanding", aW)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

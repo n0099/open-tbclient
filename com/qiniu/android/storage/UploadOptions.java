@@ -8,10 +8,10 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public final class UploadOptions {
     final String mimeType;
-    final boolean noI;
-    final UpProgressHandler noJ;
-    final UpCancellationSignal noK;
-    final NetReadyHandler noL;
+    final boolean nqv;
+    final UpProgressHandler nqw;
+    final UpCancellationSignal nqx;
+    final NetReadyHandler nqy;
     final Map<String, String> params;
 
     public UploadOptions(Map<String, String> map, String str, boolean z, UpProgressHandler upProgressHandler, UpCancellationSignal upCancellationSignal) {
@@ -20,23 +20,23 @@ public final class UploadOptions {
 
     public UploadOptions(Map<String, String> map, String str, boolean z, UpProgressHandler upProgressHandler, UpCancellationSignal upCancellationSignal, NetReadyHandler netReadyHandler) {
         this.params = A(map);
-        this.mimeType = Rt(str);
-        this.noI = z;
-        this.noJ = upProgressHandler == null ? new UpProgressHandler() { // from class: com.qiniu.android.storage.UploadOptions.1
+        this.mimeType = Rs(str);
+        this.nqv = z;
+        this.nqw = upProgressHandler == null ? new UpProgressHandler() { // from class: com.qiniu.android.storage.UploadOptions.1
             @Override // com.qiniu.android.storage.UpProgressHandler
             public void b(String str2, double d) {
                 Log.d("Qiniu.UploadProgress", "" + d);
             }
         } : upProgressHandler;
-        this.noK = upCancellationSignal == null ? new UpCancellationSignal() { // from class: com.qiniu.android.storage.UploadOptions.2
+        this.nqx = upCancellationSignal == null ? new UpCancellationSignal() { // from class: com.qiniu.android.storage.UploadOptions.2
             @Override // com.qiniu.android.http.CancellationHandler
             public boolean isCancelled() {
                 return false;
             }
         } : upCancellationSignal;
-        this.noL = netReadyHandler == null ? new NetReadyHandler() { // from class: com.qiniu.android.storage.UploadOptions.3
+        this.nqy = netReadyHandler == null ? new NetReadyHandler() { // from class: com.qiniu.android.storage.UploadOptions.3
             @Override // com.qiniu.android.storage.NetReadyHandler
-            public void dGb() {
+            public void dGB() {
                 if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
                     for (int i = 0; i < 6; i++) {
                         try {
@@ -44,7 +44,7 @@ public final class UploadOptions {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if (AndroidNetwork.dGh()) {
+                        if (AndroidNetwork.dGH()) {
                             return;
                         }
                     }
@@ -67,11 +67,11 @@ public final class UploadOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static UploadOptions dGg() {
+    public static UploadOptions dGG() {
         return new UploadOptions(null, null, false, null, null);
     }
 
-    private static String Rt(String str) {
+    private static String Rs(String str) {
         if (str == null || str.equals("")) {
             return "application/octet-stream";
         }

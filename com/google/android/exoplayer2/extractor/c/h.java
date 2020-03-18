@@ -18,7 +18,7 @@ public final class h {
         }
         ByteBuffer allocate = ByteBuffer.allocate(i);
         allocate.putInt(i);
-        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mhX);
+        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mjF);
         allocate.putInt(z ? 16777216 : 0);
         allocate.putLong(uuid.getMostSignificantBits());
         allocate.putLong(uuid.getLeastSignificantBits());
@@ -46,25 +46,25 @@ public final class h {
 
     private static a av(byte[] bArr) {
         com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bArr);
-        if (lVar.dzv() < 32) {
+        if (lVar.dzS() < 32) {
             return null;
         }
         lVar.setPosition(0);
-        if (lVar.readInt() == lVar.dzu() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mhX) {
-            int JI = com.google.android.exoplayer2.extractor.c.a.JI(lVar.readInt());
-            if (JI > 1) {
-                Log.w("PsshAtomUtil", "Unsupported pssh version: " + JI);
+        if (lVar.readInt() == lVar.dzR() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mjF) {
+            int JO = com.google.android.exoplayer2.extractor.c.a.JO(lVar.readInt());
+            if (JO > 1) {
+                Log.w("PsshAtomUtil", "Unsupported pssh version: " + JO);
                 return null;
             }
             UUID uuid = new UUID(lVar.readLong(), lVar.readLong());
-            if (JI == 1) {
-                lVar.skipBytes(lVar.dzF() * 16);
+            if (JO == 1) {
+                lVar.skipBytes(lVar.dAc() * 16);
             }
-            int dzF = lVar.dzF();
-            if (dzF == lVar.dzu()) {
-                byte[] bArr2 = new byte[dzF];
-                lVar.G(bArr2, 0, dzF);
-                return new a(uuid, JI, bArr2);
+            int dAc = lVar.dAc();
+            if (dAc == lVar.dzR()) {
+                byte[] bArr2 = new byte[dAc];
+                lVar.G(bArr2, 0, dAc);
+                return new a(uuid, JO, bArr2);
             }
             return null;
         }
@@ -74,14 +74,14 @@ public final class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private final byte[] mkI;
+        private final byte[] mmo;
         private final UUID uuid;
         private final int version;
 
         public a(UUID uuid, int i, byte[] bArr) {
             this.uuid = uuid;
             this.version = i;
-            this.mkI = bArr;
+            this.mmo = bArr;
         }
     }
 }

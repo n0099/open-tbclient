@@ -19,7 +19,7 @@ public final class a {
     }
 
     @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting ax(String str, @NonNull String str2) {
+    public static V8EngineConfiguration.CodeCacheSetting aw(String str, @NonNull String str2) {
         V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -35,9 +35,9 @@ public final class a {
         }
         switch (c) {
             case 0:
-                C0244a Nk = b.Nk();
-                codeCacheSetting.maxCount = Nk.maxCount;
-                codeCacheSetting.sizeLimit = Nk.sizeLimit;
+                C0244a Nn = b.Nn();
+                codeCacheSetting.maxCount = Nn.maxCount;
+                codeCacheSetting.sizeLimit = Nn.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;
@@ -68,73 +68,73 @@ public final class a {
     /* loaded from: classes11.dex */
     public static class b {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static int bmR = -1;
-        private static int bmS = -1;
-        private static int bmT = -1;
-        private static int bmU = -1;
+        private static int bne = -1;
+        private static int bnf = -1;
+        private static int bng = -1;
+        private static int bnh = -1;
 
-        public static String Nh() {
+        public static String Nk() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
         }
 
         private static boolean er(int i) {
             switch (i) {
                 case 0:
-                    return Ni();
+                    return Nl();
                 case 1:
-                    return Nj();
+                    return Nm();
                 default:
-                    return Ni();
+                    return Nl();
             }
         }
 
-        private static boolean Ni() {
-            boolean aam = com.baidu.swan.apps.ah.a.a.aam();
-            if (aam) {
-                bmR = 1;
+        private static boolean Nl() {
+            boolean aap = com.baidu.swan.apps.ah.a.a.aap();
+            if (aap) {
+                bne = 1;
             }
-            if (bmR < 0) {
-                bmR = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_app_v8_code_cache", 1);
+            if (bne < 0) {
+                bne = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_app_v8_code_cache", 1);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bmR + (aam ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bne + (aap ? " forceAb" : ""));
             }
-            return bmR == 1;
+            return bne == 1;
         }
 
-        private static boolean Nj() {
-            boolean aam = com.baidu.swan.apps.ah.a.a.aam();
-            if (aam) {
-                bmS = 1;
+        private static boolean Nm() {
+            boolean aap = com.baidu.swan.apps.ah.a.a.aap();
+            if (aap) {
+                bnf = 1;
             }
-            if (bmS < 0) {
-                bmS = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_game_v8_code_cache", 2);
+            if (bnf < 0) {
+                bnf = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_game_v8_code_cache", 2);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bmS + (aam ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bnf + (aap ? " forceAb" : ""));
             }
-            return bmS == 1;
+            return bnf == 1;
         }
 
         public static boolean dT(int i) {
             if (DEBUG) {
-                String Nh = Nh();
+                String Nk = Nk();
                 char c = 65535;
-                switch (Nh.hashCode()) {
+                switch (Nk.hashCode()) {
                     case 3105:
-                        if (Nh.equals("ab")) {
+                        if (Nk.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 143821548:
-                        if (Nh.equals("enable_code_cache")) {
+                        if (Nk.equals("enable_code_cache")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 2081401959:
-                        if (Nh.equals("disable_code_cache")) {
+                        if (Nk.equals("disable_code_cache")) {
                             c = 1;
                             break;
                         }
@@ -152,28 +152,28 @@ public final class a {
             return er(i);
         }
 
-        public static C0244a Nk() {
+        public static C0244a Nn() {
             C0244a c0244a = new C0244a();
-            c0244a.maxCount = Nl();
-            c0244a.sizeLimit = Nm();
+            c0244a.maxCount = No();
+            c0244a.sizeLimit = Np();
             if (DEBUG) {
                 Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0244a.maxCount + " ,sizeLimit: " + c0244a.sizeLimit);
             }
             return c0244a;
         }
 
-        private static int Nl() {
-            if (bmT < 0) {
-                bmT = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_max_count", 5);
+        private static int No() {
+            if (bng < 0) {
+                bng = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_code_cache_max_count", 5);
             }
-            return bmT;
+            return bng;
         }
 
-        private static int Nm() {
-            if (bmU < 0) {
-                bmU = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_code_cache_size_limit", 100);
+        private static int Np() {
+            if (bnh < 0) {
+                bnh = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_code_cache_size_limit", 100);
             }
-            return bmU * 1024;
+            return bnh * 1024;
         }
     }
 }

@@ -6,23 +6,23 @@ import android.os.Trace;
 public final class t {
     public static void beginSection(String str) {
         if (v.SDK_INT >= 18) {
-            Qx(str);
+            Qw(str);
         }
     }
 
     public static void endSection() {
         if (v.SDK_INT >= 18) {
-            dzU();
+            dAr();
         }
     }
 
     @TargetApi(18)
-    private static void Qx(String str) {
+    private static void Qw(String str) {
         Trace.beginSection(str);
     }
 
     @TargetApi(18)
-    private static void dzU() {
+    private static void dAr() {
         Trace.endSection();
     }
 }

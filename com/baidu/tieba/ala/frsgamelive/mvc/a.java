@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private boolean eBV;
-    private AlaFrsLiveFragment eCf = new AlaFrsLiveFragment();
+    private AlaFrsLiveFragment eCB = new AlaFrsLiveFragment();
+    private boolean eCr;
 
     public a(boolean z) {
-        this.eBV = z;
-        this.eCf.ix(z);
-        getFragmentTabStructure().frag = this.eCf;
+        this.eCr = z;
+        this.eCB.iz(z);
+        getFragmentTabStructure().frag = this.eCB;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -39,32 +39,32 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     public void setForumId(String str) {
-        if (this.eCf != null) {
-            this.eCf.setForumId(str);
+        if (this.eCB != null) {
+            this.eCB.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.eCf != null) {
-            this.eCf.setForumName(str);
+        if (this.eCB != null) {
+            this.eCB.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.eCf != null) {
-            this.eCf.setForumGameLabel(str);
+        if (this.eCB != null) {
+            this.eCB.setForumGameLabel(str);
         }
     }
 
     public void setFromType(int i) {
-        if (this.eCf != null) {
-            this.eCf.setFromType(i);
+        if (this.eCB != null) {
+            this.eCB.setFromType(i);
         }
     }
 
-    public void iy(boolean z) {
-        if (this.eCf != null) {
-            this.eCf.iy(z);
+    public void iA(boolean z) {
+        if (this.eCB != null) {
+            this.eCB.iA(z);
         }
     }
 }

@@ -8,61 +8,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int kjJ = 524288;
-    private static int kjK = 6144000;
-    private static int kjL = 524288;
-    private h khZ;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b kjM;
+    private static int kll = 524288;
+    private static int klm = 6144000;
+    private static int kln = 524288;
+    private h kjC;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b klo;
 
     public a(h hVar) {
-        this.khZ = hVar;
+        this.kjC = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.kjM = new d(str2, kjL, this.khZ);
+                this.klo = new d(str2, kln, this.kjC);
             } else {
-                this.kjM = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kjJ, kjK, this.khZ);
+                this.klo = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kll, klm, this.kjC);
             }
-            this.kjM.a(eVar);
-            return this.kjM.bv(str2, i);
+            this.klo.a(eVar);
+            return this.klo.bv(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.khZ != null) {
-                this.khZ.l(306, -4399, com.baidu.tieba.k.a.q(e));
+            if (this.kjC != null) {
+                this.kjC.l(306, -4399, com.baidu.tieba.k.a.q(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.kjM != null) {
-            this.kjM.cancel();
+        if (this.klo != null) {
+            this.klo.cancel();
         }
     }
 
-    public static void CI(int i) {
+    public static void CQ(int i) {
         if (i <= 0) {
-            kjL = 524288;
+            kln = 524288;
         } else {
-            kjL = i;
+            kln = i;
         }
     }
 
-    public static void CJ(int i) {
+    public static void CR(int i) {
         if (i <= 0) {
-            kjJ = 524288;
+            kll = 524288;
         } else {
-            kjJ = i;
+            kll = i;
         }
     }
 
-    public static void CK(int i) {
+    public static void CS(int i) {
         if (i <= 0) {
-            kjK = 6144000;
+            klm = 6144000;
         } else {
-            kjK = i;
+            klm = i;
         }
     }
 }

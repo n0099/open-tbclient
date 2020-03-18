@@ -8,13 +8,13 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private o enn;
-    private m ens;
+    private o enF;
+    private m enK;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.enx);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.enO);
         this.mPageContext = tbPageContext;
     }
 
@@ -23,28 +23,28 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: F */
     public l b(ViewGroup viewGroup) {
-        this.ens = new m(this.mPageContext, viewGroup);
-        if (this.enn != null) {
-            this.ens.a(this.enn);
+        this.enK = new m(this.mPageContext, viewGroup);
+        if (this.enF != null) {
+            this.enK.a(this.enF);
         }
-        return new l(this.ens);
+        return new l(this.enK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.ens == null) {
+        if (lVar == null || lVar.enK == null) {
             return null;
         }
-        lVar.ens.a(cVar);
+        lVar.enK.a(cVar);
         return lVar.getView();
     }
 
     public void a(o oVar) {
-        this.enn = oVar;
-        if (this.ens != null) {
-            this.ens.a(this.enn);
+        this.enF = oVar;
+        if (this.enK != null) {
+            this.enK.a(this.enF);
         }
     }
 }

@@ -22,8 +22,8 @@ public abstract class dx extends ai.a {
     }
 
     public static void a(Context context, ho hoVar) {
-        dk m223a = dl.a().m223a();
-        String a = m223a == null ? "" : m223a.a();
+        dk m221a = dl.a().m221a();
+        String a = m221a == null ? "" : m221a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hoVar.a())) {
             return;
         }
@@ -47,7 +47,7 @@ public abstract class dx extends ai.a {
         synchronized (dq.a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m568a(file);
+                y.m566a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,17 +134,17 @@ public abstract class dx extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hi mo157a();
+    public abstract hi mo155a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo157a();
+    public abstract String mo155a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo157a() {
-        return ag.a(this.f245a, String.valueOf(mo157a()), this.a);
+    public boolean mo155a() {
+        return ag.a(this.f245a, String.valueOf(mo155a()), this.a);
     }
 
     protected boolean b() {
@@ -153,20 +153,20 @@ public abstract class dx extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo157a()) {
-            dk m223a = dl.a().m223a();
-            String a = m223a == null ? "" : m223a.a();
+        if (mo155a()) {
+            dk m221a = dl.a().m221a();
+            String a = m221a == null ? "" : m221a.a();
             if (TextUtils.isEmpty(a) || !b()) {
                 return;
             }
-            String mo157a = mo157a();
-            if (TextUtils.isEmpty(mo157a)) {
+            String mo155a = mo155a();
+            if (TextUtils.isEmpty(mo155a)) {
                 return;
             }
             ho hoVar = new ho();
-            hoVar.a(mo157a);
+            hoVar.a(mo155a);
             hoVar.a(System.currentTimeMillis());
-            hoVar.a(mo157a());
+            hoVar.a(mo155a());
             a(this.f245a, hoVar, a);
         }
     }

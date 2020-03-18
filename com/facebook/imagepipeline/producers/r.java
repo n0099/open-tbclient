@@ -4,11 +4,11 @@ import android.util.Pair;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class r extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.imagepipeline.g.e> {
-    private final com.facebook.imagepipeline.c.f lSl;
+    private final com.facebook.imagepipeline.c.f lTR;
 
     public r(com.facebook.imagepipeline.c.f fVar, aj ajVar) {
         super(ajVar);
-        this.lSl = fVar;
+        this.lTR = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public class r extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(ak akVar) {
-        return Pair.create(this.lSl.c(akVar.dry(), akVar.dmg()), akVar.drA());
+        return Pair.create(this.lTR.c(akVar.drV(), akVar.dmD()), akVar.drX());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

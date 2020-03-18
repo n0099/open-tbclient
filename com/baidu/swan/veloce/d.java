@@ -13,39 +13,39 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static boolean cFR = false;
-    private static boolean cFS = false;
-    private static String cFT = "";
-    private static String cFU = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> cFV = new HashMap<>();
+    private static boolean cGc = false;
+    private static boolean cGd = false;
+    private static String cGe = "";
+    private static String cGf = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> cGg = new HashMap<>();
 
-    public static boolean aws() {
-        if (ProcessUtils.isMainProcess() && cFS) {
-            return cFR;
+    public static boolean awv() {
+        if (ProcessUtils.isMainProcess() && cGd) {
+            return cGc;
         }
         DelegateResult h = h("veloce_is_veloce", null);
         if (h != null && h.isOk()) {
-            cFS = true;
-            cFR = h.mResult.getBoolean("is_veloce", false);
+            cGd = true;
+            cGc = h.mResult.getBoolean("is_veloce", false);
         }
-        return cFR;
+        return cGc;
     }
 
-    public static String awt() {
-        if (TextUtils.isEmpty(cFT)) {
-            awu();
+    public static String aww() {
+        if (TextUtils.isEmpty(cGe)) {
+            awx();
         }
-        return cFT;
+        return cGe;
     }
 
-    private static Bundle awu() {
+    private static Bundle awx() {
         DelegateResult h = h("veloce_get_host_info", null);
         if (h == null || !h.isOk()) {
             return null;
         }
         Bundle bundle = h.mResult;
-        cFT = bundle.getString("host_package");
-        cFU = bundle.getString("host_version");
+        cGe = bundle.getString("host_package");
+        cGf = bundle.getString("host_version");
         return bundle;
     }
 
@@ -61,14 +61,14 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 jb = null;
             } else {
-                List<VeloceIpcResult.a> list = cFV.get(str);
+                List<VeloceIpcResult.a> list = cGg.get(str);
                 if (list == null) {
                     jb = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.g(0, bundle));
                     }
-                    cFV.remove(list);
+                    cGg.remove(list);
                     jb = jb(0);
                 }
             }

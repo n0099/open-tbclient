@@ -26,17 +26,17 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes5.dex */
 public class b {
-    public static final int nXf = b.C0807b.status_color_dark;
-    public static final int nXg = b.C0807b.status_color_lignt;
-    private static boolean nXh = false;
-    private static int nXi = 50;
+    public static final int nYS = b.C0808b.status_color_dark;
+    public static final int nYT = b.C0808b.status_color_lignt;
+    private static boolean nYU = false;
+    private static int nYV = 50;
 
     public static int aD(Activity activity) {
         int aJ = aJ(activity);
         if (aJ > 0) {
-            a(activity, ContextCompat.getColor(activity, nXg), 0);
+            a(activity, ContextCompat.getColor(activity, nYT), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, nXf), 0);
+            a(activity, ContextCompat.getColor(activity, nYS), 0);
         }
         return aJ;
     }
@@ -48,22 +48,22 @@ public class b {
         return 0;
     }
 
-    public static int hh(Context context) {
-        if (!hl(context) || hm(context) || hn(context)) {
+    public static int hg(Context context) {
+        if (!hk(context) || hl(context) || hm(context)) {
             return 0;
         }
         return bE(context, "navigation_bar_height");
     }
 
-    public static int hi(Context context) {
-        if (!hl(context) || hm(context) || hn(context)) {
+    public static int hh(Context context) {
+        if (!hk(context) || hl(context) || hm(context)) {
             return 0;
         }
         return bE(context, "navigation_bar_width");
     }
 
-    public static boolean hj(Context context) {
-        return hl(context) && !hm(context) && !hn(context) && bE(context, "navigation_bar_width") > 0;
+    public static boolean hi(Context context) {
+        return hk(context) && !hl(context) && !hm(context) && bE(context, "navigation_bar_width") > 0;
     }
 
     public static boolean aF(Activity activity) {
@@ -91,16 +91,16 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!nXh) {
-            nXi = bE(context, "status_bar_height");
-            if (nXi > 0) {
-                nXh = true;
+        if (!nYU) {
+            nYV = bE(context, "status_bar_height");
+            if (nYV > 0) {
+                nYU = true;
             }
         }
-        return nXi;
+        return nYV;
     }
 
-    public static int hk(Context context) {
+    public static int hj(Context context) {
         TypedValue typedValue = new TypedValue();
         if (!context.getTheme().resolveAttribute(16843499, typedValue, true)) {
             return 0;
@@ -108,7 +108,7 @@ public class b {
         return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
     }
 
-    private static boolean hl(Context context) {
+    private static boolean hk(Context context) {
         if (Build.VERSION.SDK_INT >= 14) {
             Resources resources = context.getResources();
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS);
@@ -123,7 +123,7 @@ public class b {
                         r0 = false;
                     } else if (!"0".equals(str)) {
                         if (!z) {
-                            if (tv.chushou.zues.utils.a.he(context).y == tv.chushou.zues.utils.a.hd(context).y) {
+                            if (tv.chushou.zues.utils.a.hd(context).y == tv.chushou.zues.utils.a.hc(context).y) {
                                 r0 = false;
                             }
                         }
@@ -138,7 +138,7 @@ public class b {
         return false;
     }
 
-    public static boolean hm(Context context) {
+    public static boolean hl(Context context) {
         int i;
         try {
             i = Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0);
@@ -148,7 +148,7 @@ public class b {
         return i != 0;
     }
 
-    public static boolean hn(Context context) {
+    public static boolean hm(Context context) {
         int i;
         try {
             i = Build.VERSION.SDK_INT >= 17 ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) : 0;

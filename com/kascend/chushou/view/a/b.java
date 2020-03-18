@@ -5,10 +5,10 @@ import android.view.View;
 /* loaded from: classes5.dex */
 public class b<T> implements a<T> {
     private long a = 0;
-    private a<T> mQU;
+    private a<T> mSE;
 
     public b(a<T> aVar) {
-        this.mQU = aVar;
+        this.mSE = aVar;
     }
 
     @Override // com.kascend.chushou.view.a.a
@@ -16,8 +16,8 @@ public class b<T> implements a<T> {
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.a > 500) {
             this.a = uptimeMillis;
-            if (this.mQU != null) {
-                this.mQU.b(view, t);
+            if (this.mSE != null) {
+                this.mSE.b(view, t);
             }
         }
     }

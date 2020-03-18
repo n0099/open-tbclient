@@ -19,20 +19,20 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class LiveRecorderConfigHelper {
-    private static volatile LiveRecorderConfigHelper axw;
-    private c axu = new c();
-    private boolean axv = false;
+    private static volatile LiveRecorderConfigHelper axK;
+    private c axI = new c();
+    private boolean axJ = false;
 
     public VideoResolution g(boolean z, boolean z2) {
         if (!z2) {
-            return cg(a.zl().awC.Zh);
+            return cg(a.zs().awM.Zr);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return cg(a.zl().awC.Zp);
+                return cg(a.zs().awM.Zz);
             }
             if (!z && z2) {
-                return cg(a.zl().awC.Zq);
+                return cg(a.zs().awM.ZA);
             }
             return VideoResolution.P540;
         }
@@ -55,15 +55,15 @@ public class LiveRecorderConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static LiveRecorderConfigHelper zg() {
-        if (axw == null) {
+    public static LiveRecorderConfigHelper zn() {
+        if (axK == null) {
             synchronized (LiveRecorderConfigHelper.class) {
-                if (axw == null) {
-                    axw = new LiveRecorderConfigHelper();
+                if (axK == null) {
+                    axK = new LiveRecorderConfigHelper();
                 }
             }
         }
-        return axw;
+        return axK;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -74,15 +74,15 @@ public class LiveRecorderConfigHelper {
         if (videoResolution == null) {
             videoResolution = cg(i);
         }
-        if (i2 == 1 && !a.zl().awC.Zi) {
+        if (i2 == 1 && !a.zs().awM.Zs) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(dW(a.zl().awC.Zk), dW(a.zl().awC.Zl), a.zl().awC.increaseThreshold, a.zl().awC.decreaseThreshold, a.zl().awC.increaseCount, a.zl().awC.Zi, a.zl().awC.Zj, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(dV(a.zs().awM.Zu), dV(a.zs().awM.Zv), a.zs().awM.increaseThreshold, a.zs().awM.decreaseThreshold, a.zs().awM.increaseCount, a.zs().awM.Zs, a.zs().awM.Zt, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.zl().awC != null) {
-                isLandscape.setSupportFaceStyle(a.zl().awC.Zu);
+            if (a.zs().awM != null) {
+                isLandscape.setSupportFaceStyle(a.zs().awM.ZE);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -94,7 +94,7 @@ public class LiveRecorderConfigHelper {
         }
     }
 
-    private List<DynamicBitRateConfig.DynamicBitRateItem> dW(String str) {
+    private List<DynamicBitRateConfig.DynamicBitRateItem> dV(String str) {
         JSONArray jSONArray;
         int length;
         int i;

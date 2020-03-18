@@ -34,7 +34,7 @@ public abstract class BaseService extends Service {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-                    if (!baseService.mo61a()) {
+                    if (!baseService.mo59a()) {
                         baseService.stopSelf();
                         return;
                     }
@@ -48,7 +48,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    protected abstract boolean mo61a();
+    protected abstract boolean mo59a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

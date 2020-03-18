@@ -286,7 +286,7 @@ public final class c {
         }
     }
 
-    public static boolean rg(String str) {
+    public static boolean rf(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -330,11 +330,11 @@ public final class c {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return cj(str, str2) == null;
+        return ci(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1046=4] */
-    public static Exception cj(String str, String str2) {
+    public static Exception ci(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -358,7 +358,7 @@ public final class c {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !ri(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !rh(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -463,7 +463,7 @@ public final class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1116=4] */
-    public static boolean ck(String str, String str2) {
+    public static boolean cj(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         InputStream inputStream2;
@@ -502,7 +502,7 @@ public final class c {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !ri(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !rh(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -562,7 +562,7 @@ public final class c {
         return str;
     }
 
-    public static String rh(String str) {
+    public static String rg(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -647,7 +647,7 @@ public final class c {
         }
     }
 
-    public static boolean ri(String str) {
+    public static boolean rh(String str) {
         return str.contains("../");
     }
 
@@ -747,7 +747,7 @@ public final class c {
         }
     }
 
-    public static long rj(String str) {
+    public static long ri(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

@@ -7,5 +7,5 @@ public interface c {
 
     void destory();
 
-    AlaFilterAndBeautyData pA();
+    AlaFilterAndBeautyData pF();
 }

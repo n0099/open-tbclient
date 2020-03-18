@@ -61,7 +61,7 @@ public class ao {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m62a(String str) {
+    public void m60a(String str) {
         synchronized (this.f37a) {
             ab abVar = new ab();
             abVar.a = 0;
@@ -74,7 +74,7 @@ public class ao {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m63a(String str) {
+    public boolean m61a(String str) {
         boolean z;
         synchronized (this.f37a) {
             ab abVar = new ab();

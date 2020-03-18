@@ -9,8 +9,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     private BdTypeRecyclerView BK;
-    private List<com.baidu.adp.widget.ListView.a> asF;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c elN;
+    private List<com.baidu.adp.widget.ListView.a> asP;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c eme;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -18,14 +18,14 @@ public class b {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
         this.BK = bdTypeRecyclerView;
-        wM();
+        wR();
     }
 
-    private void wM() {
-        this.asF = new ArrayList();
-        this.elN = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.asF.add(this.elN);
-        this.BK.addAdapters(this.asF);
+    private void wR() {
+        this.asP = new ArrayList();
+        this.eme = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.asP.add(this.eme);
+        this.BK.addAdapters(this.asP);
     }
 
     public void setData(List<m> list) {

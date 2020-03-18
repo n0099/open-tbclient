@@ -17,7 +17,7 @@ public class gk {
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gk() {
-        m311a();
+        m309a();
     }
 
     public static synchronized gk a() {
@@ -41,7 +41,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m309a() {
+    private ClassLoader[] m307a() {
         ClassLoader[] classLoaderArr = {gk.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -53,14 +53,14 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m310a(String str, String str2) {
+    public Object m308a(String str, String str2) {
         return this.f418a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m311a() {
+    protected void m309a() {
         try {
-            for (ClassLoader classLoader : m309a()) {
+            for (ClassLoader classLoader : m307a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
