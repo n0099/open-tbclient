@@ -5,11 +5,11 @@ import com.baidu.ubs.analytics.d.j;
 /* loaded from: classes8.dex */
 public final class c {
     private long e;
-    private boolean kVQ;
-    private long kVR;
-    private long kVS;
-    private boolean kVT;
-    private int kVU;
+    private boolean kXt;
+    private long kXu;
+    private long kXv;
+    private boolean kXw;
+    private int kXx;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.kVQ = aVar.kVQ;
-        this.e = aVar.kVV;
-        this.kVR = aVar.kVR;
-        this.kVT = aVar.kVT;
-        this.kVS = aVar.kVS;
-        this.kVU = aVar.kVU;
+        this.kXt = aVar.kXt;
+        this.e = aVar.kXy;
+        this.kXu = aVar.kXu;
+        this.kXw = aVar.kXw;
+        this.kXv = aVar.kXv;
+        this.kXx = aVar.kXx;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.kVQ;
+        return this.kXt;
     }
 
     public final long d() {
@@ -39,70 +39,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.kVR;
+        return this.kXu;
     }
 
     public final long f() {
-        return this.kVS;
+        return this.kXv;
     }
 
     public final boolean g() {
-        return this.kVT;
+        return this.kXw;
     }
 
     public final int h() {
-        return this.kVU;
+        return this.kXx;
     }
 
     /* loaded from: classes8.dex */
     public static class a {
         private Context mContext;
-        private boolean kVQ = true;
-        private long kVV = 30000;
-        private long kVR = 60000;
-        private long kVS = 10000;
-        private boolean kVT = false;
-        private int kVU = 1000;
+        private boolean kXt = true;
+        private long kXy = 30000;
+        private long kXu = 60000;
+        private long kXv = 10000;
+        private boolean kXw = false;
+        private int kXx = 1000;
 
-        public a fL(Context context) {
+        public a fK(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a tY(boolean z) {
-            this.kVQ = z;
-            return this;
-        }
-
-        public a eJ(long j) {
-            this.kVV = 1000 * j;
-            return this;
-        }
-
-        public a EA(int i) {
-            this.kVR = i * 60 * 1000;
+        public a uf(boolean z) {
+            this.kXt = z;
             return this;
         }
 
         public a eK(long j) {
-            this.kVS = 1000 * j;
+            this.kXy = 1000 * j;
             return this;
         }
 
-        public a tZ(boolean z) {
-            this.kVT = z;
+        public a EH(int i) {
+            this.kXu = i * 60 * 1000;
             return this;
         }
 
-        public a EB(int i) {
+        public a eL(long j) {
+            this.kXv = 1000 * j;
+            return this;
+        }
+
+        public a ug(boolean z) {
+            this.kXw = z;
+            return this;
+        }
+
+        public a EI(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.kVU = i2 < 1000 ? i2 : 1000;
+            this.kXx = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c cXo() {
+        public c cXM() {
             if (this.mContext == null) {
-                j.Lt("Context must be not empty!");
+                j.Ls("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

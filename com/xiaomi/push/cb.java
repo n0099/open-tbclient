@@ -21,7 +21,7 @@ public class cb {
         hkVar.b(str);
         hkVar.a(true);
         hkVar.b(System.currentTimeMillis());
-        hkVar.g(bk.a(context).m166a());
+        hkVar.g(bk.a(context).m164a());
         hkVar.e("com.xiaomi.xmsf");
         hkVar.f("");
         hkVar.c("push_stat");

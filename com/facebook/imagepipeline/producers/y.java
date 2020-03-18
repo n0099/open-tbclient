@@ -14,13 +14,13 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class y implements aw<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.g lQD;
+    private final com.facebook.common.memory.g lSj;
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
 
     public y(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.lQD = gVar;
+        this.lSj = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -31,20 +31,20 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        am drz = akVar.drz();
+        am drW = akVar.drW();
         String id = akVar.getId();
-        final ImageRequest dry = akVar.dry();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, drz, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest drV = akVar.drV();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, drW, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: drX */
+            /* renamed from: dsu */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                ExifInterface V = y.this.V(dry.dsr());
+                ExifInterface V = y.this.V(drV.dsO());
                 if (V == null || !V.hasThumbnail()) {
                     return null;
                 }
-                return y.this.a(y.this.lQD.ak(V.getThumbnail()), V);
+                return y.this.a(y.this.lSj.ak(V.getThumbnail()), V);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dnQ() {
+            public void don() {
                 aqVar.cancel();
             }
         });
@@ -76,7 +76,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
     ExifInterface V(Uri uri) {
         String a = com.facebook.common.util.d.a(this.mContentResolver, uri);
         try {
-            if (Ph(a)) {
+            if (Pg(a)) {
                 return new ExifInterface(a);
             }
         } catch (IOException e) {
@@ -96,8 +96,8 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         try {
             com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(b);
             com.facebook.common.references.a.c(b);
-            eVar.c(com.facebook.c.b.lPB);
-            eVar.Il(a);
+            eVar.c(com.facebook.c.b.lRh);
+            eVar.Ir(a);
             eVar.setWidth(intValue);
             eVar.setHeight(intValue2);
             return eVar;
@@ -108,10 +108,10 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
     }
 
     private int a(ExifInterface exifInterface) {
-        return com.facebook.d.b.IR(Integer.parseInt(exifInterface.getAttribute(android.support.media.ExifInterface.TAG_ORIENTATION)));
+        return com.facebook.d.b.IX(Integer.parseInt(exifInterface.getAttribute(android.support.media.ExifInterface.TAG_ORIENTATION)));
     }
 
-    boolean Ph(String str) throws IOException {
+    boolean Pg(String str) throws IOException {
         if (str == null) {
             return false;
         }

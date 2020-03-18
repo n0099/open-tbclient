@@ -19,7 +19,7 @@ final class gw {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m321a(exc);
+        m319a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -49,7 +49,7 @@ final class gw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m321a(Exception exc) {
+    private static void m319a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -58,7 +58,7 @@ final class gw {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m321a(exc);
+        m319a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -91,7 +91,7 @@ final class gw {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m321a(exc);
+        m319a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {
@@ -139,7 +139,7 @@ final class gw {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m321a(exc);
+        m319a(exc);
         boolean z = exc instanceof fx;
         Exception exc2 = exc;
         if (z) {

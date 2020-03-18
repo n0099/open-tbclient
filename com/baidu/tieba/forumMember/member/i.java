@@ -25,18 +25,19 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.u;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes10.dex */
 public class i extends com.baidu.tieba.frs.h<j, k> {
-    private LikeModel dkh;
-    private int fni;
-    private int gkZ;
+    private LikeModel dku;
+    private int fnH;
+    private int glH;
     private View.OnClickListener mClickListener;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.fni = 0;
-        this.gkZ = 0;
+        this.fnH = 0;
+        this.glH = 0;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,7 +53,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                                     return;
                                 }
                                 String forumId = jVar.getForumId();
-                                i.this.dkh.eC(jVar.getForumName(), forumId);
+                                i.this.dku.eA(jVar.getForumName(), forumId);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String forumId2 = jVar.getForumId();
@@ -67,10 +68,10 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aG */
+    /* renamed from: aH */
     public k b(ViewGroup viewGroup) {
-        if (this.dkh == null) {
-            bdf();
+        if (this.dku == null) {
+            bdk();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -80,75 +81,75 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) kVar);
-        if (jVar != null && jVar.bCy() != null) {
+        if (jVar != null && jVar.bCE() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = am.getColor(R.color.cp_cont_d);
-            com.baidu.tieba.tbadkCore.t bCy = jVar.bCy();
+            u bCE = jVar.bCE();
             if (TbadkCoreApplication.isLogin()) {
-                if (bCy.isLike() == 1) {
-                    kVar.gld.setVisibility(8);
-                    kVar.gle.setVisibility(0);
-                    kVar.gle.setText(R.string.mydegree);
-                    am.setImageResource(kVar.gka, BitmapHelper.getSmallGradeResourceIdNew(bCy.cIL()));
-                    if (StringUtils.isNull(bCy.getLevelName())) {
-                        kVar.gkb.setVisibility(8);
+                if (bCE.isLike() == 1) {
+                    kVar.glL.setVisibility(8);
+                    kVar.glM.setVisibility(0);
+                    kVar.glM.setText(R.string.mydegree);
+                    am.setImageResource(kVar.gkI, BitmapHelper.getSmallGradeResourceIdNew(bCE.cJf()));
+                    if (StringUtils.isNull(bCE.getLevelName())) {
+                        kVar.gkJ.setVisibility(8);
                     } else {
-                        kVar.gkb.setText(bCy.getLevelName());
-                        kVar.gkb.setVisibility(0);
+                        kVar.gkJ.setText(bCE.getLevelName());
+                        kVar.gkJ.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(bCy.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(bCE.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + bCy.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + bCE.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    kVar.glg.setText(spannableStringBuilder);
-                    kVar.glg.setVisibility(0);
-                    kVar.glk.setVisibility(0);
-                    kVar.gll.setVisibility(0);
+                    kVar.glO.setText(spannableStringBuilder);
+                    kVar.glO.setVisibility(0);
+                    kVar.glS.setVisibility(0);
+                    kVar.glT.setVisibility(0);
                 } else {
-                    kVar.gld.setVisibility(0);
-                    kVar.gle.setVisibility(8);
-                    kVar.gka.setVisibility(8);
-                    kVar.gkb.setVisibility(8);
-                    kVar.glg.setVisibility(8);
-                    kVar.glk.setVisibility(8);
-                    kVar.gll.setVisibility(8);
+                    kVar.glL.setVisibility(0);
+                    kVar.glM.setVisibility(8);
+                    kVar.gkI.setVisibility(8);
+                    kVar.gkJ.setVisibility(8);
+                    kVar.glO.setVisibility(8);
+                    kVar.glS.setVisibility(8);
+                    kVar.glT.setVisibility(8);
                 }
             } else {
-                kVar.gld.setVisibility(8);
-                kVar.gle.setVisibility(8);
-                kVar.gka.setVisibility(8);
-                kVar.gkb.setVisibility(8);
-                kVar.glg.setVisibility(8);
-                kVar.glk.setVisibility(8);
-                kVar.gll.setVisibility(8);
+                kVar.glL.setVisibility(8);
+                kVar.glM.setVisibility(8);
+                kVar.gkI.setVisibility(8);
+                kVar.gkJ.setVisibility(8);
+                kVar.glO.setVisibility(8);
+                kVar.glS.setVisibility(8);
+                kVar.glT.setVisibility(8);
             }
-            kVar.gld.setTag(Integer.valueOf(i));
-            kVar.gkb.setTag(Integer.valueOf(i));
-            kVar.gkb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            am.setBackgroundColor(kVar.glh, R.color.cp_bg_line_d);
+            kVar.glL.setTag(Integer.valueOf(i));
+            kVar.gkJ.setTag(Integer.valueOf(i));
+            kVar.gkJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            am.setBackgroundColor(kVar.glP, R.color.cp_bg_line_d);
             am.setBackgroundColor(kVar.mDivider, R.color.cp_bg_line_c);
-            am.setBackgroundColor(kVar.gli, R.color.cp_bg_line_c);
-            am.setBackgroundResource(kVar.gld, R.drawable.frs_btn_like);
-            am.setViewTextColor(kVar.gld, R.color.white_alpha100, 1);
-            am.setViewTextColor(kVar.gle, R.color.cp_cont_b, 1);
-            am.setViewTextColor(kVar.gkb, R.color.cp_cont_d, 1);
-            am.setViewTextColor(kVar.glj, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(kVar.glk, R.drawable.forum_member_exp_progress);
-            am.setBackgroundColor(kVar.gll, R.color.cp_bg_line_c);
-            if (this.fni != bCy.cIL() || this.gkZ != bCy.getCurScore()) {
-                this.fni = bCy.cIL();
-                this.gkZ = bCy.getCurScore();
-                kVar.glk.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, sr(this.fni)));
+            am.setBackgroundColor(kVar.glQ, R.color.cp_bg_line_c);
+            am.setBackgroundResource(kVar.glL, R.drawable.frs_btn_like);
+            am.setViewTextColor(kVar.glL, R.color.white_alpha100, 1);
+            am.setViewTextColor(kVar.glM, R.color.cp_cont_b, 1);
+            am.setViewTextColor(kVar.gkJ, R.color.cp_cont_d, 1);
+            am.setViewTextColor(kVar.glR, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(kVar.glS, R.drawable.forum_member_exp_progress);
+            am.setBackgroundColor(kVar.glT, R.color.cp_bg_line_c);
+            if (this.fnH != bCE.cJf() || this.glH != bCE.getCurScore()) {
+                this.fnH = bCE.cJf();
+                this.glH = bCE.getCurScore();
+                kVar.glS.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, st(this.fnH)));
                 float f = 0.0f;
-                this.gkZ = bCy.getCurScore();
-                if (this.gkZ > bCy.getLevelupScore()) {
-                    this.gkZ = bCy.getLevelupScore();
+                this.glH = bCE.getCurScore();
+                if (this.glH > bCE.getLevelupScore()) {
+                    this.glH = bCE.getLevelupScore();
                 }
-                if (bCy.getLevelupScore() != 0) {
-                    f = this.gkZ / bCy.getLevelupScore();
+                if (bCE.getLevelupScore() != 0) {
+                    f = this.glH / bCE.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -156,36 +157,36 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setDuration(1000L);
-                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.glk, scaleAnimation, null);
+                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.glS, scaleAnimation, null);
             }
         }
         return view;
     }
 
-    private void bdf() {
+    private void bdk() {
         if (this.mPageContext != null) {
-            this.dkh = new LikeModel(this.mPageContext);
-            this.dkh.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
+            this.dku = new LikeModel(this.mPageContext);
+            this.dku.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
                 @Override // com.baidu.adp.base.d
                 public void callback(Object obj) {
-                    if (!(obj instanceof com.baidu.tieba.tbadkCore.t) || i.this.dkh.getErrorCode() != 0) {
-                        if (AntiHelper.bb(i.this.dkh.getErrorCode(), i.this.dkh.getErrorString())) {
-                            AntiHelper.bn(i.this.mPageContext.getPageActivity(), i.this.dkh.getErrorString());
+                    if (!(obj instanceof u) || i.this.dku.getErrorCode() != 0) {
+                        if (AntiHelper.bb(i.this.dku.getErrorCode(), i.this.dku.getErrorString())) {
+                            AntiHelper.bn(i.this.mPageContext.getPageActivity(), i.this.dku.getErrorString());
                             return;
                         } else {
-                            i.this.mPageContext.showToast(i.this.dkh.getErrorString());
+                            i.this.mPageContext.showToast(i.this.dku.getErrorString());
                             return;
                         }
                     }
-                    com.baidu.tieba.tbadkCore.t tVar = (com.baidu.tieba.tbadkCore.t) obj;
-                    tVar.setLike(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, tVar));
+                    u uVar = (u) obj;
+                    uVar.setLike(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar));
                 }
             });
         }
     }
 
-    private int[] sr(int i) {
+    private int[] st(int i) {
         if (i <= 3) {
             return new int[]{-8331843, -10499102};
         }

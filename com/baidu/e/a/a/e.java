@@ -7,11 +7,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes13.dex */
 public class e {
-    private static final char[] UN = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    private static final char[] UO = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] UY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] UZ = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String cL(String str) {
+    public static String cK(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -31,8 +31,8 @@ public class e {
     private static String r(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
-            sb.append(UO[(b & 240) >> 4]);
-            sb.append(UO[b & 15]);
+            sb.append(UZ[(b & 240) >> 4]);
+            sb.append(UZ[b & 15]);
         }
         return sb.toString();
     }

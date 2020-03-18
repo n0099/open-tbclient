@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private c eQw;
-    private CustomMessageListener evY = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
+    private c eQU;
+    private CustomMessageListener ewu = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -31,42 +31,42 @@ public class a {
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        MessageManager.getInstance().registerListener(this.evY);
+        MessageManager.getInstance().registerListener(this.ewu);
     }
 
     public void b(ViewGroup viewGroup, m mVar) {
         if (viewGroup != null && this.mTbPageContext != null && mVar != null) {
-            this.eQw = new c(this.mTbPageContext);
-            bih();
+            this.eQU = new c(this.mTbPageContext);
+            bim();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
             layoutParams.addRule(3, a.g.ala_live_removeable_top_container);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds30);
-            viewGroup.addView(this.eQw.getView(), layoutParams);
+            viewGroup.addView(this.eQU.getView(), layoutParams);
             o(mVar);
         }
     }
 
     public void o(m mVar) {
-        if (mVar.XQ != null) {
-            this.eQw.cR(mVar.XQ.alaId);
+        if (mVar.Ya != null) {
+            this.eQU.cR(mVar.Ya.alaId);
         }
     }
 
-    public boolean ag(ViewGroup viewGroup) {
-        return (this.eQw == null || this.eQw.getView() == null || viewGroup.indexOfChild(this.eQw.getView()) <= -1) ? false : true;
+    public boolean ah(ViewGroup viewGroup) {
+        return (this.eQU == null || this.eQU.getView() == null || viewGroup.indexOfChild(this.eQU.getView()) <= -1) ? false : true;
     }
 
-    public void bih() {
-        if (this.eQw != null && this.eQw.getView() != null && this.eQw.getView().getParent() != null) {
-            ((ViewGroup) this.eQw.getView().getParent()).removeView(this.eQw.getView());
+    public void bim() {
+        if (this.eQU != null && this.eQU.getView() != null && this.eQU.getView().getParent() != null) {
+            ((ViewGroup) this.eQU.getView().getParent()).removeView(this.eQU.getView());
         }
     }
 
     public void setVisibility(int i) {
-        if (this.eQw != null && this.eQw.getView() != null) {
-            this.eQw.getView().setVisibility(i);
+        if (this.eQU != null && this.eQU.getView() != null) {
+            this.eQU.getView().setVisibility(i);
         }
     }
 }

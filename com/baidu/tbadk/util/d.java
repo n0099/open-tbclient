@@ -28,16 +28,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean dGu = false;
-    private final com.baidu.tbadk.h.e dBZ;
-    private ArrayList<WeakReference<Activity>> dGv;
-    private ArrayList<WeakReference<Activity>> dGw;
+    private static boolean dGK = false;
+    private final com.baidu.tbadk.h.e dCm;
+    private ArrayList<WeakReference<Activity>> dGL;
+    private ArrayList<WeakReference<Activity>> dGM;
     private int mSkinType;
     private final CustomMessageListener skinTypeChangeListener;
 
     private d() {
-        this.dGv = new ArrayList<>();
-        this.dGw = new ArrayList<>();
+        this.dGL = new ArrayList<>();
+        this.dGM = new ArrayList<>();
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         this.skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.util.d.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -46,33 +46,33 @@ public class d {
                 int skinType;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && d.this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                     d.this.mSkinType = skinType;
-                    if (d.dGu) {
+                    if (d.dGK) {
                         d.this.onChangeSkinType();
                     }
                 }
             }
         };
-        this.dBZ = new com.baidu.tbadk.h.e() { // from class: com.baidu.tbadk.util.d.2
+        this.dCm = new com.baidu.tbadk.h.e() { // from class: com.baidu.tbadk.util.d.2
             @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                d.this.dGw.add(new WeakReference(activity));
+                d.this.dGM.add(new WeakReference(activity));
             }
 
             @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStarted(Activity activity) {
-                if (d.dGu && d.this.c(d.this.ah(activity))) {
-                    d.this.dGv.add(new WeakReference(activity));
+                if (d.dGK && d.this.c(d.this.ah(activity))) {
+                    d.this.dGL.add(new WeakReference(activity));
                 }
             }
 
             @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                if (d.dGu && d.this.d(d.this.ah(activity))) {
-                    Iterator it = d.this.dGv.iterator();
+                if (d.dGK && d.this.d(d.this.ah(activity))) {
+                    Iterator it = d.this.dGL.iterator();
                     while (it.hasNext()) {
                         WeakReference weakReference = (WeakReference) it.next();
                         if (activity != null && activity == weakReference.get()) {
-                            d.this.dGv.remove(weakReference);
+                            d.this.dGL.remove(weakReference);
                             return;
                         }
                     }
@@ -81,11 +81,11 @@ public class d {
 
             @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
-                Iterator it = d.this.dGw.iterator();
+                Iterator it = d.this.dGM.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference.get() != null && weakReference.get() == activity) {
-                        d.this.dGw.remove(weakReference);
+                        d.this.dGM.remove(weakReference);
                         return;
                     }
                 }
@@ -94,20 +94,20 @@ public class d {
         MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
     }
 
-    public static final d aRS() {
-        return a.dGy;
+    public static final d aRW() {
+        return a.dGO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final d dGy = new d();
+        private static final d dGO = new d();
     }
 
     public void e(Application application) {
         if (application != null) {
             try {
-                application.registerActivityLifecycleCallbacks(this.dBZ);
+                application.registerActivityLifecycleCallbacks(this.dCm);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -117,7 +117,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void onChangeSkinType() {
         FrameLayout ah;
-        Iterator<WeakReference<Activity>> it = this.dGv.iterator();
+        Iterator<WeakReference<Activity>> it = this.dGL.iterator();
         while (it.hasNext()) {
             WeakReference<Activity> next = it.next();
             if (next != null && next.get() != null && !next.get().isFinishing() && (ah = ah(next.get())) != null) {
@@ -145,7 +145,7 @@ public class d {
                 viewGroup = null;
             }
             if (viewGroup == null) {
-                viewGroup = eg(frameLayout.getContext());
+                viewGroup = ef(frameLayout.getContext());
             }
             if (viewGroup == null) {
                 return false;
@@ -159,9 +159,9 @@ public class d {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.util.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.eh(view.getContext());
+                    d.this.eg(view.getContext());
                     d.this.setShow(false);
-                    d.this.aRT();
+                    d.this.aRX();
                 }
             };
             viewGroup.setClickable(true);
@@ -190,15 +190,15 @@ public class d {
         return false;
     }
 
-    private ViewGroup eg(Context context) {
+    private ViewGroup ef(Context context) {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.layout_baiduboxapp_back_view, (ViewGroup) null);
         b(viewGroup, context);
         return viewGroup;
     }
 
-    public void gZ(boolean z) {
+    public void ha(boolean z) {
         FrameLayout ah;
-        if (dGu && (ah = ah(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if (dGK && (ah = ah(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             try {
                 Object tag = ah.getTag(R.id.tag_scheme_baidu_box_app_back_view);
                 if (tag instanceof ViewGroup) {
@@ -226,9 +226,9 @@ public class d {
         if (viewGroup != null && context != null) {
             am.setViewTextColor((TextView) viewGroup.findViewById(R.id.tv_back_shoubai_text), (int) R.color.cp_cont_a);
             int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds424);
-            com.baidu.tbadk.core.util.e.a.aHb().kB(0).kI(1).ag(dimens).ai(dimens).kC(R.color.topic_disagree_des_color).aQ(viewGroup);
-            SvgManager.aGC().a((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.aGC().a((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            com.baidu.tbadk.core.util.e.a.aHf().kB(0).kI(1).ag(dimens).ai(dimens).kC(R.color.topic_disagree_des_color).aQ(viewGroup);
+            SvgManager.aGG().a((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aGG().a((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -254,54 +254,54 @@ public class d {
     }
 
     public void setShow(boolean z) {
-        if (dGu != z) {
-            dGu = z;
-            if (dGu) {
-                Iterator<WeakReference<Activity>> it = this.dGw.iterator();
+        if (dGK != z) {
+            dGK = z;
+            if (dGK) {
+                Iterator<WeakReference<Activity>> it = this.dGM.iterator();
                 while (it.hasNext()) {
                     WeakReference<Activity> next = it.next();
                     if (next.get() != null && !next.get().isFinishing()) {
                         Activity activity = next.get();
                         if (c(ah(activity))) {
-                            this.dGv.add(new WeakReference<>(activity));
+                            this.dGL.add(new WeakReference<>(activity));
                         }
                     }
                 }
                 return;
             }
-            Iterator<WeakReference<Activity>> it2 = this.dGw.iterator();
+            Iterator<WeakReference<Activity>> it2 = this.dGM.iterator();
             while (it2.hasNext()) {
                 WeakReference<Activity> next2 = it2.next();
                 if (next2.get() != null && !next2.get().isFinishing()) {
                     d(ah(next2.get()));
                 }
             }
-            this.dGv.clear();
+            this.dGL.clear();
         }
     }
 
-    public void aRT() {
+    public void aRX() {
         BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
-        backBaiduBoxViewEvent.isShow = dGu;
+        backBaiduBoxViewEvent.isShow = dGK;
         com.baidu.tbadk.mutiprocess.g.publishEvent(backBaiduBoxViewEvent);
     }
 
-    public void eh(Context context) {
+    public void eg(Context context) {
         if (context != null) {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("baiduboxapp://donothing"));
                 if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
                     context.startActivity(intent);
                 } else {
-                    aRU();
+                    aRY();
                 }
             } catch (Exception e) {
-                aRU();
+                aRY();
             }
         }
     }
 
-    private void aRU() {
+    private void aRY() {
         com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), (int) R.string.not_install_baidu_box_app_tip);
     }
 

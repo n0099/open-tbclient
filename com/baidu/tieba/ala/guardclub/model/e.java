@@ -13,54 +13,54 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardclub.GuardClubJoinListActivity;
 /* loaded from: classes3.dex */
 public class e extends BdBaseModel<GuardClubJoinListActivity> {
-    private boolean dTv;
-    private a eFw;
-    private com.baidu.tieba.ala.guardclub.view.d eHc;
-    private b eHe;
+    private boolean dTL;
+    private a eFS;
+    private b eHA;
+    private com.baidu.tieba.ala.guardclub.view.d eHy;
     private boolean hasMore;
-    private int eHd = 1;
-    private HttpMessageListener eHf = new HttpMessageListener(1021139) { // from class: com.baidu.tieba.ala.guardclub.model.e.1
+    private int eHz = 1;
+    private HttpMessageListener eHB = new HttpMessageListener(1021139) { // from class: com.baidu.tieba.ala.guardclub.model.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (!(httpResponsedMessage instanceof GuardClubJoinListHttpResponseMessage)) {
-                if (e.this.eHc != null) {
-                    e.this.eHc.bbC();
+                if (e.this.eHy != null) {
+                    e.this.eHy.bbG();
                     return;
                 }
                 return;
             }
             GuardClubJoinListHttpResponseMessage guardClubJoinListHttpResponseMessage = (GuardClubJoinListHttpResponseMessage) httpResponsedMessage;
             if (guardClubJoinListHttpResponseMessage.getError() != 0) {
-                if (e.this.eHc != null) {
-                    e.this.eHc.bbC();
+                if (e.this.eHy != null) {
+                    e.this.eHy.bbG();
                     return;
                 }
                 return;
             }
             e.this.hasMore = guardClubJoinListHttpResponseMessage.hasMore;
-            if (e.this.eHc != null) {
-                if (e.this.dTv) {
-                    e.this.eHc.bs(guardClubJoinListHttpResponseMessage.eHa);
-                    e.this.eHc.completePullRefresh();
+            if (e.this.eHy != null) {
+                if (e.this.dTL) {
+                    e.this.eHy.bs(guardClubJoinListHttpResponseMessage.eHw);
+                    e.this.eHy.completePullRefresh();
                 } else {
-                    e.this.eHc.bt(guardClubJoinListHttpResponseMessage.eHa);
+                    e.this.eHy.bt(guardClubJoinListHttpResponseMessage.eHw);
                 }
                 if (guardClubJoinListHttpResponseMessage.hasMore) {
-                    e.this.eHc.bfm();
-                } else if (!e.this.dTv) {
-                    e.this.eHc.iD(e.this.eHd == 1);
+                    e.this.eHy.bfr();
+                } else if (!e.this.dTL) {
+                    e.this.eHy.iF(e.this.eHz == 1);
                 }
-                e.this.eHd++;
+                e.this.eHz++;
             }
         }
     };
-    private HttpMessageListener eHg = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.guardclub.model.e.2
+    private HttpMessageListener eHC = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.guardclub.model.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GuardClubQuitHttpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == e.this.unique_id && httpResponsedMessage.getError() == 0 && e.this.eHe != null) {
-                e.this.eHe.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GuardClubQuitHttpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == e.this.unique_id && httpResponsedMessage.getError() == 0 && e.this.eHA != null) {
+                e.this.eHA.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
@@ -76,15 +76,15 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
 
     public e(BdUniqueId bdUniqueId, a aVar) {
         this.unique_id = bdUniqueId;
-        this.eFw = aVar;
-        bfv();
-        bfw();
-        MessageManager.getInstance().registerListener(this.eHf);
-        MessageManager.getInstance().registerListener(this.eHg);
+        this.eFS = aVar;
+        bfA();
+        bfB();
+        MessageManager.getInstance().registerListener(this.eHB);
+        MessageManager.getInstance().registerListener(this.eHC);
     }
 
     public void a(com.baidu.tieba.ala.guardclub.view.d dVar) {
-        this.eHc = dVar;
+        this.eHy = dVar;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -97,37 +97,37 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
         return false;
     }
 
-    public boolean bfr() {
+    public boolean bfw() {
         return this.hasMore;
     }
 
-    public void bfs() {
-        iE(true);
+    public void bfx() {
+        iG(true);
     }
 
-    public void iE(boolean z) {
-        this.dTv = z;
+    public void iG(boolean z) {
+        this.dTL = z;
         if (z) {
-            this.eHd = 1;
+            this.eHz = 1;
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            bfu();
-        } else if (this.eHc != null) {
-            this.eHc.bbC();
+            bfz();
+        } else if (this.eHy != null) {
+            this.eHy.bbG();
         }
     }
 
-    public void bft() {
-        this.dTv = false;
-        if (this.eHc != null) {
-            this.eHc.bcv();
-            bfu();
+    public void bfy() {
+        this.dTL = false;
+        if (this.eHy != null) {
+            this.eHy.bcz();
+            bfz();
         }
     }
 
-    private void bfu() {
+    private void bfz() {
         f fVar = new f();
-        fVar.setPn(this.eHd);
+        fVar.setPn(this.eHz);
         fVar.setPs(20);
         fVar.setParams();
         fVar.setTag(this.unique_id);
@@ -140,10 +140,10 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
         jVar.setParams();
         jVar.setTag(this.unique_id);
         MessageManager.getInstance().sendMessage(jVar);
-        this.eHe = bVar;
+        this.eHA = bVar;
     }
 
-    private void bfv() {
+    private void bfA() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021139, TbConfig.SERVER_HOST + "liveserver/guardClub/joinlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -153,7 +153,7 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bfw() {
+    private void bfB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, TbConfig.SERVER_HOST + "liveserver/guardClub/quit");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -163,11 +163,11 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
     }
 
     public void onDestory() {
-        if (this.eHf != null) {
-            MessageManager.getInstance().unRegisterListener(this.eHf);
+        if (this.eHB != null) {
+            MessageManager.getInstance().unRegisterListener(this.eHB);
         }
-        if (this.eHg != null) {
-            MessageManager.getInstance().unRegisterListener(this.eHf);
+        if (this.eHC != null) {
+            MessageManager.getInstance().unRegisterListener(this.eHB);
         }
         MessageManager.getInstance().unRegisterTask(1021139);
     }

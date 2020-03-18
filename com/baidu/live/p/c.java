@@ -5,13 +5,13 @@ import android.view.View;
 public interface c {
     void destory();
 
-    View zb();
+    View zi();
 
-    b zc();
+    b zj();
 
-    b zd();
+    b zk();
 
-    void ze();
+    void zl();
 
-    void zf();
+    void zm();
 }

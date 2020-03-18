@@ -4,16 +4,16 @@ import com.google.android.exoplayer2.Format;
 import rx.f;
 /* loaded from: classes6.dex */
 public final class a implements f {
-    static final f nRu = new f() { // from class: rx.internal.producers.a.1
+    static final f nTh = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f nRq;
-    long nRr;
-    long nRs;
-    f nRt;
+    f nTd;
+    long nTe;
+    long nTf;
+    f nTg;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -25,7 +25,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.nRr += j;
+                    this.nTe += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -34,7 +34,7 @@ public final class a implements f {
                             j2 = Format.OFFSET_SAMPLE_RELATIVE;
                         }
                         this.requested = j2;
-                        f fVar = this.nRq;
+                        f fVar = this.nTd;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -57,7 +57,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.nRs += j;
+                this.nTf += j;
                 return;
             }
             this.emitting = true;
@@ -85,14 +85,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = nRu;
+                    fVar = nTh;
                 }
-                this.nRt = fVar;
+                this.nTg = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.nRq = fVar;
+                this.nTd = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -109,16 +109,16 @@ public final class a implements f {
     public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.nRr;
-                long j2 = this.nRs;
-                f fVar = this.nRt;
+                long j = this.nTe;
+                long j2 = this.nTf;
+                f fVar = this.nTg;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.nRr = 0L;
-                this.nRs = 0L;
-                this.nRt = null;
+                this.nTe = 0L;
+                this.nTf = 0L;
+                this.nTg = null;
                 long j3 = this.requested;
                 if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
                     long j4 = j3 + j;
@@ -134,14 +134,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == nRu) {
-                        this.nRq = null;
+                    if (fVar == nTh) {
+                        this.nTd = null;
                     } else {
-                        this.nRq = fVar;
+                        this.nTd = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.nRq;
+                    f fVar2 = this.nTd;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

@@ -8,48 +8,48 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes10.dex */
 public class b {
-    private List<a> hUD;
-    private List<Integer> hUE;
-    private List<a> hUH;
+    private List<a> hWd;
+    private List<Integer> hWe;
+    private List<a> hWh;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.sex_taglist)) {
-                this.hUH = new ArrayList();
-                r(this.hUH, dataRes.sex_taglist);
+                this.hWh = new ArrayList();
+                q(this.hWh, dataRes.sex_taglist);
             }
             if (!v.isEmpty(dataRes.taglist)) {
-                this.hUD = new ArrayList();
-                this.hUE = new ArrayList();
-                r(this.hUD, dataRes.taglist);
+                this.hWd = new ArrayList();
+                this.hWe = new ArrayList();
+                q(this.hWd, dataRes.taglist);
             }
         }
     }
 
-    private void r(List<a> list, List<ResponseTagInfo> list2) {
+    private void q(List<a> list, List<ResponseTagInfo> list2) {
         if (list != null && list2 != null) {
             for (ResponseTagInfo responseTagInfo : list2) {
                 if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.hUE != null && aVar.isFollow) {
-                        this.hUE.add(Integer.valueOf(aVar.labelId));
+                    if (this.hWe != null && aVar.isFollow) {
+                        this.hWe.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> caY() {
-        return this.hUH;
+    public List<a> cbr() {
+        return this.hWh;
     }
 
-    public List<a> caZ() {
-        return this.hUD;
+    public List<a> cbs() {
+        return this.hWd;
     }
 
-    public List<Integer> cba() {
-        return this.hUE;
+    public List<Integer> cbt() {
+        return this.hWe;
     }
 }

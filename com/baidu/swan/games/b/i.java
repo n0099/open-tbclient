@@ -8,37 +8,37 @@ import java.util.List;
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = i.class.getSimpleName();
-    private static volatile boolean bjK = false;
-    private static volatile boolean cmo = false;
-    private static volatile List<com.baidu.swan.apps.n.a.b> cmp = new ArrayList();
+    private static volatile boolean bjX = false;
+    private static volatile boolean cmz = false;
+    private static volatile List<com.baidu.swan.apps.n.a.b> cmA = new ArrayList();
 
     private i() {
     }
 
-    public static void ch(boolean z) {
-        bjK = z;
-        com.baidu.swan.apps.console.c.ch(z);
+    public static void ci(boolean z) {
+        bjX = z;
+        com.baidu.swan.apps.console.c.ci(z);
     }
 
-    public static void anm() {
+    public static void anp() {
         synchronized (i.class) {
-            cmp = new ArrayList();
+            cmA = new ArrayList();
         }
-        cmo = false;
+        cmz = false;
     }
 
-    public static void ann() {
-        if (bjK && !cmo) {
+    public static void anq() {
+        if (bjX && !cmz) {
             synchronized (i.class) {
-                if (cmp != null) {
-                    for (int i = 0; i < cmp.size(); i++) {
-                        com.baidu.swan.apps.y.f.WS().a("console", cmp.get(i));
+                if (cmA != null) {
+                    for (int i = 0; i < cmA.size(); i++) {
+                        com.baidu.swan.apps.y.f.WV().a("console", cmA.get(i));
                     }
-                    cmp.clear();
-                    cmp = null;
+                    cmA.clear();
+                    cmA = null;
                 }
             }
-            cmo = true;
+            cmz = true;
         }
     }
 
@@ -61,30 +61,30 @@ public class i {
     }
 
     public static void H(int i, String str) {
-        bD(hP(i), str);
+        bC(hP(i), str);
+    }
+
+    public static void bC(String str, String str2) {
+        if (bjX) {
+            a(c.bA(str, str2));
+        }
     }
 
     public static void bD(String str, String str2) {
-        if (bjK) {
+        if (bjX) {
             a(c.bB(str, str2));
         }
     }
 
-    public static void bE(String str, String str2) {
-        if (bjK) {
-            a(c.bC(str, str2));
-        }
-    }
-
     private static void a(com.baidu.swan.apps.n.a.b bVar) {
-        if (!cmo) {
+        if (!cmz) {
             synchronized (i.class) {
-                if (cmp != null) {
-                    cmp.add(bVar);
+                if (cmA != null) {
+                    cmA.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.y.f.WS().a("console", bVar);
+        com.baidu.swan.apps.y.f.WV().a("console", bVar);
     }
 }

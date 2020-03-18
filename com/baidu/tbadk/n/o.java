@@ -6,45 +6,47 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class o extends l {
     public void a(i iVar) {
-        if (m.aRm().aRn()) {
+        if (m.aRq().aRr()) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "time");
-            gs.append("ishttp", iVar.dDV ? "1" : "0");
+            gs.append("ishttp", iVar.dEl ? "1" : "0");
             gs.append("issuccess", iVar.isSuccess ? "1" : "0");
-            gs.append("nettype", m.aRm().getNetType());
-            gs.append("wt", String.valueOf(iVar.dDS));
-            gs.append("qt", String.valueOf(iVar.dDL));
-            gs.append("connt", String.valueOf(iVar.dDM));
-            gs.append("rwt", String.valueOf(iVar.dDN));
+            gs.append("nettype", m.aRq().getNetType());
+            gs.append("wt", String.valueOf(iVar.dEi));
+            gs.append("qt", String.valueOf(iVar.dEa));
+            gs.append("connt", String.valueOf(iVar.dEb));
+            gs.append("rwt", String.valueOf(iVar.dEc));
             gs.append("fbt", String.valueOf(iVar.firstByteReachTime));
             gs.append("abt", String.valueOf(iVar.allDataReadTime));
-            gs.append("dect", String.valueOf(iVar.dDO));
-            gs.append("parset", String.valueOf(iVar.dDP));
-            gs.append("tqt", String.valueOf(iVar.dDQ));
-            gs.append("rendert", String.valueOf(iVar.dDR));
-            gs.append("ss", String.valueOf(iVar.dDT));
-            gs.append("hs", String.valueOf(iVar.dDU));
-            if (iVar.dDV && iVar.socketErrNo != 0) {
+            gs.append("dect", String.valueOf(iVar.dEd));
+            gs.append("parset", String.valueOf(iVar.dEe));
+            gs.append("tqt", String.valueOf(iVar.dEg));
+            gs.append("rendert", String.valueOf(iVar.dEh));
+            gs.append("ss", String.valueOf(iVar.dEj));
+            gs.append("hs", String.valueOf(iVar.dEk));
+            if (iVar.dEl && iVar.socketErrNo != 0) {
                 gs.append("salno", String.valueOf(iVar.socketErrNo));
                 if (iVar.socketCostTime != 0) {
                     gs.append("scosttime", String.valueOf(iVar.socketCostTime));
                 }
             }
-            if (iVar.dDV) {
-                gs.append("hrtn", String.valueOf(iVar.dDW));
-                gs.append("hrtt", String.valueOf(iVar.dDX));
+            if (iVar.dEl) {
+                gs.append("hrtn", String.valueOf(iVar.dEm));
+                gs.append("hrtt", String.valueOf(iVar.dEn));
             }
             if (iVar.errCode != 0) {
                 gs.append("errcode", Integer.valueOf(iVar.errCode));
             }
-            if (iVar.dDY) {
+            if (iVar.dEo) {
                 gs.append("pt", "1");
             } else {
-                gs.append("sysct", String.valueOf(iVar.dDJ));
-                gs.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.dDK));
+                gs.append("sysct", String.valueOf(iVar.dDX));
+                gs.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.dDZ));
+                gs.append("lt", String.valueOf(iVar.dDY));
+                gs.append("df", String.valueOf(iVar.dEf));
             }
-            if (iVar.dDV) {
-                gs.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.dDZ));
+            if (iVar.dEl) {
+                gs.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.dEp));
                 if (iVar.sequenceID != 0) {
                     gs.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
                 }
@@ -56,12 +58,12 @@ public class o extends l {
     }
 
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.aRm().aRn()) {
+        if (hVar != null && str != null && m.aRq().aRr()) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "resource");
             gs.append("actype", str);
             gs.append("issuccess", hVar.isSuccess ? "1" : "0");
-            gs.append("isfs", hVar.dDI ? "1" : "0");
+            gs.append("isfs", hVar.dDW ? "1" : "0");
             gs.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.costTime));
             gs.append("from", String.valueOf(hVar.resourceFromType));
             BdStatisticsManager.getInstance().performance(this.subType, gs);
@@ -69,41 +71,41 @@ public class o extends l {
     }
 
     public void a(b bVar) {
-        if (bVar != null && m.aRm().aRn()) {
+        if (bVar != null && m.aRq().aRr()) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "fluency");
             gs.append("fps", String.valueOf(bVar.getFps()));
             BdStatisticsManager.getInstance().performance(this.subType, gs);
             com.baidu.adp.lib.stats.a gs2 = gs();
             gs2.append("action", "mem");
-            gs2.append("memp", String.valueOf(m.aRm().aRo()));
+            gs2.append("memp", String.valueOf(m.aRq().aRs()));
             BdStatisticsManager.getInstance().performance(this.subType, gs2);
         }
     }
 
     public void a(i iVar, boolean z) {
-        if (m.aRm().aRn()) {
-            if (!z || iVar.dEa > 0) {
-                if (z || iVar.dEb > 0) {
+        if (m.aRq().aRr()) {
+            if (!z || iVar.dEq > 0) {
+                if (z || iVar.dEr > 0) {
                     com.baidu.adp.lib.stats.a gs = gs();
                     gs.append("action", "time");
                     if (z) {
-                        gs.append("put", String.valueOf(iVar.dEa));
+                        gs.append("put", String.valueOf(iVar.dEq));
                     } else {
-                        gs.append("pdt", String.valueOf(iVar.dEb));
+                        gs.append("pdt", String.valueOf(iVar.dEr));
                     }
-                    gs.append("ishttp", iVar.dDV ? "1" : "0");
+                    gs.append("ishttp", iVar.dEl ? "1" : "0");
                     gs.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    gs.append("nettype", m.aRm().getNetType());
-                    gs.append("qt", String.valueOf(iVar.dDL));
-                    gs.append("connt", String.valueOf(iVar.dDM));
-                    gs.append("rwt", String.valueOf(iVar.dDN));
-                    gs.append("dect", String.valueOf(iVar.dDO));
-                    gs.append("parset", String.valueOf(iVar.dDP));
-                    gs.append("rendert", String.valueOf(iVar.dDR));
-                    gs.append("ss", String.valueOf(iVar.dDT));
-                    gs.append("hs", String.valueOf(iVar.dDU));
-                    if (iVar.dDV && iVar.socketErrNo != 0) {
+                    gs.append("nettype", m.aRq().getNetType());
+                    gs.append("qt", String.valueOf(iVar.dEa));
+                    gs.append("connt", String.valueOf(iVar.dEb));
+                    gs.append("rwt", String.valueOf(iVar.dEc));
+                    gs.append("dect", String.valueOf(iVar.dEd));
+                    gs.append("parset", String.valueOf(iVar.dEe));
+                    gs.append("rendert", String.valueOf(iVar.dEh));
+                    gs.append("ss", String.valueOf(iVar.dEj));
+                    gs.append("hs", String.valueOf(iVar.dEk));
+                    if (iVar.dEl && iVar.socketErrNo != 0) {
                         gs.append("salno", String.valueOf(iVar.socketErrNo));
                         if (iVar.socketCostTime != 0) {
                             gs.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -119,10 +121,10 @@ public class o extends l {
     }
 
     public void a(i iVar, int i) {
-        if (m.aRm().aRn() && iVar.dEc > 0) {
+        if (m.aRq().aRr() && iVar.dEs > 0) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "time");
-            gs.append("pct", String.valueOf(iVar.dEc));
+            gs.append("pct", String.valueOf(iVar.dEs));
             switch (i) {
                 case 0:
                     gs.append("pct_type", String.valueOf(100));

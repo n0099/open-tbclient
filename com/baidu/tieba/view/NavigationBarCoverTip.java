@@ -13,19 +13,19 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarCoverTip extends LinearLayout {
-    private Animation gMd;
-    private Animation gMe;
-    private View gsN;
-    private a kIk;
+    private Animation gNi;
+    private Animation gNj;
+    private View gtr;
+    private a kJR;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cTw();
+        void cTQ();
 
-        void xm();
+        void xr();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -63,12 +63,12 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     private void initAnimation() {
-        this.gMd = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.gMd.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
+        this.gNi = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.gNi.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.kIk != null) {
-                    NavigationBarCoverTip.this.kIk.xm();
+                if (NavigationBarCoverTip.this.kJR != null) {
+                    NavigationBarCoverTip.this.kJR.xr();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -83,16 +83,16 @@ public class NavigationBarCoverTip extends LinearLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.gMe = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.gMe.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
+        this.gNj = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.gNj.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.kIk != null) {
-                    NavigationBarCoverTip.this.kIk.cTw();
+                if (NavigationBarCoverTip.this.kJR != null) {
+                    NavigationBarCoverTip.this.kJR.cTQ();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -115,17 +115,17 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public void a(Activity activity, View view, int i) {
         this.mActivity = activity;
-        if (view != this.gsN) {
+        if (view != this.gtr) {
             removeAllViews();
             addView(view);
-            this.gsN = view;
+            this.gtr = view;
         }
         if (i < 0) {
             i = 5000;
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.gMd);
+        startAnimation(this.gNi);
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mHideRunnable);
         com.baidu.adp.lib.f.e.gx().postDelayed(this.mHideRunnable, i);
     }
@@ -137,14 +137,14 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.gMd);
+        startAnimation(this.gNi);
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mHideRunnable);
         com.baidu.adp.lib.f.e.gx().postDelayed(this.mHideRunnable, i);
     }
 
     public void hideTip() {
         clearAnimation();
-        startAnimation(this.gMe);
+        startAnimation(this.gNj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -170,6 +170,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.kIk = aVar;
+        this.kJR = aVar;
     }
 }

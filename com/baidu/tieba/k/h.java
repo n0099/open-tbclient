@@ -1,9 +1,9 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface h {
-    void Fb(String str);
+    void Fa(String str);
 
-    void Fc(String str);
+    void Fb(String str);
 
     void aP(int i, String str);
 
@@ -13,13 +13,13 @@ public interface h {
 
     void aS(int i, String str);
 
-    void cgB();
+    void cgV();
 
-    void cgC();
+    void cgW();
 
-    void cgD();
+    void cgX();
 
-    void cgE();
+    void cgY();
 
     void l(int i, int i2, String str);
 }

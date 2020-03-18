@@ -25,7 +25,7 @@ public class a {
             if (currentAccountObj != null) {
                 bVar2.wm(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.hv(z);
+            bVar2.hw(z);
             bVar2.setPageNum(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
@@ -41,10 +41,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.getCount(list) > 0 && v.getCount(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.kgh) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.khJ) {
                 m mVar = (m) v.getItem(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
-                    fVar.cJ(i, indexOf);
+                    fVar.cK(i, indexOf);
                 }
             }
         }

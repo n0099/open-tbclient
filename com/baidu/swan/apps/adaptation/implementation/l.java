@@ -6,15 +6,15 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class l implements ag {
     @Override // com.baidu.swan.apps.adaptation.a.ag
-    public void HL() {
+    public void HO() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ag
-    public void HM() {
+    public void HP() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ag
-    public long HN() {
+    public long HQ() {
         return -1L;
     }
 
@@ -24,11 +24,11 @@ public class l implements ag {
 
     @Override // com.baidu.swan.apps.adaptation.a.ag
     public String ab(long j) {
-        if (!com.baidu.swan.apps.w.a.UI().ID()) {
-            if (com.baidu.swan.apps.core.j.a.Qb()) {
-                return com.baidu.swan.apps.core.j.a.brh + File.separator + GlobalConstants.LIB_ZEUS;
+        if (!com.baidu.swan.apps.w.a.UL().IG()) {
+            if (com.baidu.swan.apps.core.j.a.Qe()) {
+                return com.baidu.swan.apps.core.j.a.brt + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.j.a.brj + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.j.a.brv + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }

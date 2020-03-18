@@ -14,7 +14,7 @@ import java.util.Map;
 final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     private final Class<B> builderType;
     private final Class<M> messageType;
-    private final Map<Integer, a<M, B>> npv;
+    private final Map<Integer, a<M, B>> nri;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> K(Class<M> cls) {
@@ -34,7 +34,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         super(FieldEncoding.LENGTH_DELIMITED, cls);
         this.messageType = cls;
         this.builderType = cls2;
-        this.npv = map;
+        this.nri = map;
     }
 
     B newBuilder() {
@@ -60,7 +60,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         int i = m.cachedSerializedSize;
         if (i == 0) {
             int i2 = 0;
-            for (a<M, B> aVar : this.npv.values()) {
+            for (a<M, B> aVar : this.nri.values()) {
                 Object a = aVar.a((a<M, B>) m);
                 if (a != null) {
                     i2 = aVar.adapter().encodedSizeWithTag(aVar.tag, a) + i2;
@@ -77,7 +77,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: a */
     public void encode(d dVar, M m) throws IOException {
-        for (a<M, B> aVar : this.npv.values()) {
+        for (a<M, B> aVar : this.nri.values()) {
             Object a = aVar.a((a<M, B>) m);
             if (a != null) {
                 aVar.adapter().encodeWithTag(dVar, aVar.tag, a);
@@ -91,18 +91,18 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: c */
     public M redact(M m) {
         Message.a<M, B> newBuilder = m.newBuilder();
-        for (a<M, B> aVar : this.npv.values()) {
-            if (aVar.npj && aVar.npg == WireField.Label.REQUIRED) {
+        for (a<M, B> aVar : this.nri.values()) {
+            if (aVar.nqW && aVar.nqT == WireField.Label.REQUIRED) {
                 throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.name, this.javaType.getName()));
             }
-            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.dGn().javaType);
-            if (aVar.npj || (isAssignableFrom && !aVar.npg.isRepeated())) {
+            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.dGN().javaType);
+            if (aVar.nqW || (isAssignableFrom && !aVar.nqT.isRepeated())) {
                 Object a = aVar.a((a<M, B>) newBuilder);
                 if (a != null) {
                     aVar.b(newBuilder, aVar.adapter().redact(a));
                 }
-            } else if (isAssignableFrom && aVar.npg.isRepeated()) {
-                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.dGn());
+            } else if (isAssignableFrom && aVar.nqT.isRepeated()) {
+                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.dGN());
             }
         }
         newBuilder.clearUnknownFields();
@@ -122,10 +122,10 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: d */
     public String toString(M m) {
         StringBuilder sb = new StringBuilder();
-        for (a<M, B> aVar : this.npv.values()) {
+        for (a<M, B> aVar : this.nri.values()) {
             Object a = aVar.a((a<M, B>) m);
             if (a != null) {
-                sb.append(", ").append(aVar.name).append('=').append(aVar.npj ? "██" : a);
+                sb.append(", ").append(aVar.name).append('=').append(aVar.nqW ? "██" : a);
             }
         }
         sb.replace(0, 2, this.messageType.getSimpleName() + '{');
@@ -136,30 +136,30 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: l */
     public M decode(c cVar) throws IOException {
-        ProtoAdapter<?> dGn;
+        ProtoAdapter<?> dGN;
         B newBuilder = newBuilder();
-        long dGp = cVar.dGp();
+        long dGP = cVar.dGP();
         while (true) {
-            int dGq = cVar.dGq();
-            if (dGq != -1) {
-                a<M, B> aVar = this.npv.get(Integer.valueOf(dGq));
+            int dGQ = cVar.dGQ();
+            if (dGQ != -1) {
+                a<M, B> aVar = this.nri.get(Integer.valueOf(dGQ));
                 if (aVar != null) {
                     try {
-                        if (aVar.dGm()) {
-                            dGn = aVar.adapter();
+                        if (aVar.dGM()) {
+                            dGN = aVar.adapter();
                         } else {
-                            dGn = aVar.dGn();
+                            dGN = aVar.dGN();
                         }
-                        aVar.a(newBuilder, dGn.decode(cVar));
+                        aVar.a(newBuilder, dGN.decode(cVar));
                     } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        newBuilder.addUnknownField(dGq, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        newBuilder.addUnknownField(dGQ, FieldEncoding.VARINT, Long.valueOf(e.value));
                     }
                 } else {
-                    FieldEncoding dGr = cVar.dGr();
-                    newBuilder.addUnknownField(dGq, dGr, dGr.rawProtoAdapter().decode(cVar));
+                    FieldEncoding dGR = cVar.dGR();
+                    newBuilder.addUnknownField(dGQ, dGR, dGR.rawProtoAdapter().decode(cVar));
                 }
             } else {
-                cVar.gZ(dGp);
+                cVar.ha(dGP);
                 return (M) newBuilder.build();
             }
         }

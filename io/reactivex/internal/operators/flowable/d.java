@@ -6,35 +6,35 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 /* loaded from: classes7.dex */
 public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    private final i nwY;
-    private final io.reactivex.c.a nwZ;
+    private final i nyL;
+    private final io.reactivex.c.a nyM;
     private final io.reactivex.c.g<? super org.a.d> onSubscribe;
 
     public d(io.reactivex.g<T> gVar, io.reactivex.c.g<? super org.a.d> gVar2, i iVar, io.reactivex.c.a aVar) {
         super(gVar);
         this.onSubscribe = gVar2;
-        this.nwY = iVar;
-        this.nwZ = aVar;
+        this.nyL = iVar;
+        this.nyM = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nwE.a((j) new a(cVar, this.onSubscribe, this.nwY, this.nwZ));
+        this.nyr.a((j) new a(cVar, this.onSubscribe, this.nyL, this.nyM));
     }
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<T>, org.a.d {
         final org.a.c<? super T> actual;
-        final i nwY;
-        final io.reactivex.c.a nwZ;
+        final i nyL;
+        final io.reactivex.c.a nyM;
         final io.reactivex.c.g<? super org.a.d> onSubscribe;
         org.a.d s;
 
         a(org.a.c<? super T> cVar, io.reactivex.c.g<? super org.a.d> gVar, i iVar, io.reactivex.c.a aVar) {
             this.actual = cVar;
             this.onSubscribe = gVar;
-            this.nwZ = aVar;
-            this.nwY = iVar;
+            this.nyM = aVar;
+            this.nyL = iVar;
         }
 
         @Override // io.reactivex.j, org.a.c
@@ -77,7 +77,7 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         @Override // org.a.d
         public void request(long j) {
             try {
-                this.nwY.hc(j);
+                this.nyL.hd(j);
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.H(th);
                 io.reactivex.e.a.onError(th);
@@ -88,7 +88,7 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         @Override // org.a.d
         public void cancel() {
             try {
-                this.nwZ.run();
+                this.nyM.run();
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.H(th);
                 io.reactivex.e.a.onError(th);

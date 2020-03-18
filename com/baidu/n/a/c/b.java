@@ -3,17 +3,17 @@ package com.baidu.n.a.c;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class b {
-    private String lCU;
-    private boolean lCV;
-    private boolean lCW;
+    private boolean lEA;
+    private String lEy;
+    private boolean lEz;
 
     public b(String str, boolean z, boolean z2) {
-        this.lCU = str;
-        this.lCV = z;
-        this.lCW = z2;
+        this.lEy = str;
+        this.lEz = z;
+        this.lEA = z2;
     }
 
-    private static int Hf(int i) {
+    private static int Hl(int i) {
         switch (i) {
             case 1:
                 return 6;
@@ -44,7 +44,7 @@ public class b {
                     i2--;
                 }
             }
-            int Hf = Hf(i2);
+            int Hl = Hl(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,15 +53,15 @@ public class b {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - Hf; i4++) {
-                char charAt = this.lCU.charAt(iArr[i4]);
-                if (this.lCW) {
+            for (int i4 = 0; i4 < iArr.length - Hl; i4++) {
+                char charAt = this.lEy.charAt(iArr[i4]);
+                if (this.lEA) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.lCV) {
-                for (int length = iArr.length - Hf; length < iArr.length; length++) {
+            if (this.lEz) {
+                for (int length = iArr.length - Hl; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

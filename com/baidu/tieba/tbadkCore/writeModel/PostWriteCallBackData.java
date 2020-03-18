@@ -16,6 +16,7 @@ public class PostWriteCallBackData implements Serializable {
     public static final int ERROR_DISABLE_AT = 230278;
     public static final int ERROR_DISABLE_REPLY = 230277;
     public static final int ERROR_LEVEL_UNDER_THREE = 1990032;
+    public static final String GENERAL_TAB_ID = "general_tab_id";
     public static final int VIDEO_FROM_ACTIVITY = 3;
     public static final int VIDEO_FROM_FRS = 2;
     public static final int VIDEO_FROM_MAINTAB = 1;
@@ -23,6 +24,7 @@ public class PostWriteCallBackData implements Serializable {
     private String colorMsg;
     private int errorCode;
     private String errorString;
+    private int generalTabId;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -184,5 +186,13 @@ public class PostWriteCallBackData implements Serializable {
 
     public int getProZone() {
         return this.proZone;
+    }
+
+    public void setGeneralTabId(int i) {
+        this.generalTabId = i;
+    }
+
+    public int getGeneralTabId() {
+        return this.generalTabId;
     }
 }

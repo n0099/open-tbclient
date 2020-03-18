@@ -5,26 +5,26 @@ import com.baidu.ubs.analytics.c.a;
 import com.baidu.ubs.analytics.c.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public final class c implements a.InterfaceC0642a {
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
+public final class c implements a.InterfaceC0643a {
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0643a
     public final void T() {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0643a
     public final void U() {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0643a
     public final void onActivityDestroyed(Activity activity) {
         d dVar;
-        dVar = d.a.kWn;
+        dVar = d.a.kXQ;
         dVar.b(activity);
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0642a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0643a
     public final void a(Activity activity) {
         d dVar;
-        dVar = d.a.kWn;
+        dVar = d.a.kXQ;
         dVar.a(new WeakReference<>(activity));
     }
 }

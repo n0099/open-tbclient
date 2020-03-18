@@ -1,29 +1,29 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    void Ap(int i);
+    void Ax(int i);
 
-    void GZ(String str);
+    void GY(String str);
 
-    boolean cyA();
+    String cyQ();
 
-    boolean cyB();
+    void cyR();
 
-    boolean cyC();
+    boolean cyS();
 
-    int cyD();
+    boolean cyT();
 
-    void cyE();
+    boolean cyU();
 
-    j cyF();
+    boolean cyV();
 
-    String cyx();
+    int cyW();
 
-    void cyy();
+    void cyX();
 
-    boolean cyz();
+    j cyY();
 
-    void ew(long j);
+    void ex(long j);
 
     void onCompletion();
 

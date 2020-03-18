@@ -64,7 +64,7 @@ class cz implements Comparable<cz> {
         JSONArray jSONArray = new JSONArray();
         Iterator<cp> it = this.f215a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m196a());
+            jSONArray.put(it.next().m194a());
         }
         jSONObject.put("ah", jSONArray);
         return jSONObject;

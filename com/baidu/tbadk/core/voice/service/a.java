@@ -7,17 +7,17 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int dld = 8000;
-    public static int dle = 2;
-    public static int dlf = 2;
-    public static int dlg = 1;
+    public static int dlq = 8000;
+    public static int dlr = 2;
+    public static int dls = 2;
+    public static int dlt = 1;
     private int channelConfiguration;
     private int dataSize;
-    private RandomAccessFile dlh;
-    private int dli;
-    private int dlj;
-    private short dlk;
-    private short dll;
+    private RandomAccessFile dlu;
+    private int dlv;
+    private int dlw;
+    private short dlx;
+    private short dly;
     private String filePath;
     private int bufferSize = 0;
     private boolean FQ = false;
@@ -26,31 +26,31 @@ public class a implements d {
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-        this.dli = i2;
+        this.dlv = i2;
         this.channelConfiguration = i3;
-        this.dlj = i4;
+        this.dlw = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.dli, this.channelConfiguration, this.dlj, this.bufferSize);
-        this.dlk = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.dll = (short) (this.dlj == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.dlv, this.channelConfiguration, this.dlw, this.bufferSize);
+        this.dlx = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.dly = (short) (this.dlw == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.dlh != null) {
+            if (this.dlu != null) {
                 try {
-                    this.dlh.close();
+                    this.dlu.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.dlh = new RandomAccessFile(this.file, "rw");
+                this.dlu = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -65,12 +65,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean ue(String str) {
-        return a(dlg, dld, dle, dlf, str);
+    public boolean ud(String str) {
+        return a(dlt, dlq, dlr, dls, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIL() {
+    public void aIP() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
                 this.FQ = true;
@@ -78,14 +78,14 @@ public class a implements d {
                 this.mAudioRecord.startRecording();
                 while (this.FQ) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.dlh.write(bArr);
+                    this.dlu.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.dlh.seek(4L);
-                this.dlh.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.dlh.seek(40L);
-                this.dlh.writeInt(Integer.reverseBytes(this.dataSize));
-                this.dlh.close();
+                this.dlu.seek(4L);
+                this.dlu.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.dlu.seek(40L);
+                this.dlu.writeInt(Integer.reverseBytes(this.dataSize));
+                this.dlu.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
                 this.FQ = false;
@@ -98,11 +98,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aIM() {
+    public boolean aIQ() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aIL();
+                a.this.aIP();
             }
         });
         thread.setPriority(10);
@@ -112,7 +112,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void aIN() {
+    public void aIR() {
         this.FQ = false;
     }
 
@@ -123,20 +123,20 @@ public class a implements d {
 
     private void writeHeader() {
         try {
-            this.dlh.setLength(0L);
-            this.dlh.writeBytes("RIFF");
-            this.dlh.writeInt(0);
-            this.dlh.writeBytes("WAVE");
-            this.dlh.writeBytes("fmt ");
-            this.dlh.writeInt(Integer.reverseBytes(16));
-            this.dlh.writeShort(Short.reverseBytes((short) 1));
-            this.dlh.writeShort(Short.reverseBytes(this.dlk));
-            this.dlh.writeInt(Integer.reverseBytes(this.dli));
-            this.dlh.writeInt(Integer.reverseBytes(((this.dli * this.dlk) * this.dll) / 8));
-            this.dlh.writeShort(Short.reverseBytes((short) ((this.dlk * this.dll) / 8)));
-            this.dlh.writeShort(Short.reverseBytes(this.dll));
-            this.dlh.writeBytes("data");
-            this.dlh.writeInt(0);
+            this.dlu.setLength(0L);
+            this.dlu.writeBytes("RIFF");
+            this.dlu.writeInt(0);
+            this.dlu.writeBytes("WAVE");
+            this.dlu.writeBytes("fmt ");
+            this.dlu.writeInt(Integer.reverseBytes(16));
+            this.dlu.writeShort(Short.reverseBytes((short) 1));
+            this.dlu.writeShort(Short.reverseBytes(this.dlx));
+            this.dlu.writeInt(Integer.reverseBytes(this.dlv));
+            this.dlu.writeInt(Integer.reverseBytes(((this.dlv * this.dlx) * this.dly) / 8));
+            this.dlu.writeShort(Short.reverseBytes((short) ((this.dlx * this.dly) / 8)));
+            this.dlu.writeShort(Short.reverseBytes(this.dly));
+            this.dlu.writeBytes("data");
+            this.dlu.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

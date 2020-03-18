@@ -11,11 +11,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String bkn;
-    String bko;
-    String bkp;
-    String bkq;
-    JSONArray bkr;
+    String bkA;
+    String bkB;
+    String bkC;
+    String bkD;
+    JSONArray bkE;
     String mAppKey;
     String vd;
 
@@ -24,12 +24,12 @@ public class c {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.bkn = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.gy(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ai.getVersionName();
+            cVar.bkA = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.gy(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ai.getVersionName();
             cVar.vd = jSONObject.getString("wsUrl");
-            cVar.bko = jSONObject.optString("notInHistory", "1");
-            cVar.bkp = jSONObject.optString("masterPreload");
-            cVar.bkq = jSONObject.optString("slavePreload");
-            cVar.bkr = jSONObject.optJSONArray("hosts");
+            cVar.bkB = jSONObject.optString("notInHistory", "1");
+            cVar.bkC = jSONObject.optString("masterPreload");
+            cVar.bkD = jSONObject.optString("slavePreload");
+            cVar.bkE = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -44,7 +44,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String el(int i) {
-        return w(i, this.bkn);
+        return w(i, this.bkA);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,9 +53,9 @@ public class c {
     }
 
     private String w(int i, String str) {
-        if (this.bkr != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.bkr.length()) {
+        if (this.bkE != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.bkE.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.bkr.optString(i);
+            String optString = this.bkE.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.bkn) || TextUtils.isEmpty(this.vd);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.bkA) || TextUtils.isEmpty(this.vd);
     }
 }

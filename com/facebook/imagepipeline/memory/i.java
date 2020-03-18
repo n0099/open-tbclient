@@ -4,13 +4,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> lIK;
-    final a lUE;
+    private final com.facebook.common.references.c<byte[]> lKq;
+    final a lWk;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.lVb > 0);
-        this.lUE = new a(cVar, rVar, n.drc());
-        this.lIK = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.lWH > 0);
+        this.lWk = new a(cVar, rVar, n.drz());
+        this.lKq = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(byte[] bArr) {
@@ -19,12 +19,12 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> Ib(int i) {
-        return com.facebook.common.references.a.a(this.lUE.get(i), this.lIK);
+    public com.facebook.common.references.a<byte[]> Ih(int i) {
+        return com.facebook.common.references.a.a(this.lWk.get(i), this.lKq);
     }
 
     public void release(byte[] bArr) {
-        this.lUE.release(bArr);
+        this.lWk.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,8 +35,8 @@ public class i {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> Iu(int i) {
-            return new o(Ir(i), this.lUm.lVb, 0);
+        d<byte[]> IA(int i) {
+            return new o(Ix(i), this.lVS.lWH, 0);
         }
     }
 }

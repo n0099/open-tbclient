@@ -151,20 +151,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean atH() {
+    public boolean atK() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean aja() {
+    public boolean ajd() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.cAZ;
+            this.appId = fVar.cBk;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.cBj;
+            this.type = fVar.cBu;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.cBj;
+            this.type = gVar.cBu;
             this.pkgSize = gVar.size;
         }
     }
@@ -190,14 +190,14 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void atI() {
+    public void atL() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean PU() {
+    public boolean PX() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 }

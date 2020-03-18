@@ -2,22 +2,22 @@ package com.baidu.swan.apps.c.a;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class f {
-    private static Boolean bcp;
-    private static Long bcq;
+    private static Boolean bcC;
+    private static Long bcD;
 
-    public static final Boolean Jr() {
-        return bcp;
+    public static final Boolean Ju() {
+        return bcC;
     }
 
     public static final void c(Boolean bool) {
-        bcp = bool;
+        bcC = bool;
     }
 
-    public static final Long Js() {
-        return bcq;
+    public static final Long Jv() {
+        return bcD;
     }
 
     public static final void c(Long l) {
-        bcq = l;
+        bcD = l;
     }
 }

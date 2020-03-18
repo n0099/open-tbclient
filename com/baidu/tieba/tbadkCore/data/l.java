@@ -21,15 +21,15 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern kgz = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern kib = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String kgx = null;
-    private SpannableStringBuilder kgy = null;
-    private boolean kgw = false;
+    private String khZ = null;
+    private SpannableStringBuilder kia = null;
+    private boolean khY = false;
 
-    public static boolean cK(int i, int i2) {
+    public static boolean cL(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -45,23 +45,23 @@ public class l {
         return this.text;
     }
 
-    public String cKL() {
+    public String cLf() {
         return this.c;
     }
 
-    public SpannableStringBuilder cKM() {
-        return this.kgy;
+    public SpannableStringBuilder cLg() {
+        return this.kia;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.kgy == null) {
-            this.kgy = new SpannableStringBuilder();
+        if (this.kia == null) {
+            this.kia = new SpannableStringBuilder();
         }
-        this.kgy.append((CharSequence) spannableString);
-        return this.kgy;
+        this.kia.append((CharSequence) spannableString);
+        return this.kia;
     }
 
-    public SpannableString ft(Context context) {
+    public SpannableString fs(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -84,7 +84,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.kgz.matcher(l.this.link);
+                        Matcher matcher2 = l.kib.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

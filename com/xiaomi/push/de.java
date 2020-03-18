@@ -58,7 +58,7 @@ public class de extends dd.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo220c() {
+    public void mo218c() {
         if (this.f229a != null && this.f229a.exists()) {
             this.f228a.f222a.add(new dd.c(this.f230a, this.b, this.f229a, this.f232a));
         }

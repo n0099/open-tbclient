@@ -12,71 +12,71 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.f;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private CustomMessageListener evg;
-    private PopupWindow.OnDismissListener evh;
-    private d fiu;
+    private CustomMessageListener evC;
+    private PopupWindow.OnDismissListener evD;
+    private d fiU;
     private Activity mContext;
 
     public c(Activity activity) {
         this.mContext = activity;
-        bdH();
+        bdM();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void yS(String str) {
-        this.fiu = new d(this.mContext);
-        this.fiu.setOnDismissListener(this.evh);
-        this.fiu.bdI().setBackgroundColor(xL(str));
+        this.fiU = new d(this.mContext);
+        this.fiU.setOnDismissListener(this.evD);
+        this.fiU.bdN().setBackgroundColor(xL(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.fiu).a(this.fiu.bdI().getSchemeCallback());
-        com.baidu.live.view.web.a[] BC = fVar.BC();
-        for (com.baidu.live.view.web.a aVar : BC) {
-            this.fiu.bdI().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.fiU).a(this.fiU.bdN().getSchemeCallback());
+        com.baidu.live.view.web.a[] BJ = fVar.BJ();
+        for (com.baidu.live.view.web.a aVar : BJ) {
+            this.fiU.bdN().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fiu.show(str);
+        this.fiU.show(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void resume() {
-        if (this.fiu != null && this.fiu.isShowing() && this.fiu.bdI() != null) {
-            this.fiu.bdI().onResume();
+        if (this.fiU != null && this.fiU.isShowing() && this.fiU.bdN() != null) {
+            this.fiU.bdN().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void pause() {
-        if (this.fiu != null && this.fiu.isShowing() && this.fiu.bdI() != null) {
-            this.fiu.bdI().onPause();
+        if (this.fiU != null && this.fiU.isShowing() && this.fiU.bdN() != null) {
+            this.fiU.bdN().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fiu != null) {
-            this.fiu.bdJ();
+        if (this.fiU != null) {
+            this.fiU.bdO();
         }
     }
 
-    public void sL() {
+    public void sQ() {
         dismiss();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void release() {
-        sL();
-        MessageManager.getInstance().unRegisterListener(this.evg);
+        sQ();
+        MessageManager.getInstance().unRegisterListener(this.evC);
     }
 
-    private void bdH() {
-        this.evg = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
+    private void bdM() {
+        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.fiu != null && c.this.fiu.isShowing()) {
-                    c.this.fiu.dismiss();
+                if (c.this.fiU != null && c.this.fiU.isShowing()) {
+                    c.this.fiU.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evg);
+        MessageManager.getInstance().registerListener(this.evC);
     }
 
     private int xL(String str) {

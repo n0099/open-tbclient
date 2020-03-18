@@ -8,7 +8,7 @@ public interface r {
     public interface b {
         void A(boolean z, int i);
 
-        void ET(int i);
+        void Fa(int i);
 
         void a(ExoPlaybackException exoPlaybackException);
 
@@ -18,18 +18,18 @@ public interface r {
 
         void a(x xVar, Object obj);
 
-        void dai();
+        void daF();
 
         void onRepeatModeChanged(int i);
 
-        void ud(boolean z);
+        void uk(boolean z);
 
-        void ue(boolean z);
+        void ul(boolean z);
     }
 
     void A(int i, long j);
 
-    int IT(int i);
+    int IZ(int i);
 
     void a(b bVar);
 
@@ -37,29 +37,29 @@ public interface r {
 
     void b(b bVar);
 
-    int cZQ();
+    int dan();
 
-    boolean dsU();
+    long dtA();
 
-    boolean dsV();
+    com.google.android.exoplayer2.b.g dtB();
 
-    q dsW();
+    x dtC();
 
-    int dsY();
+    boolean dtr();
 
-    int dsZ();
+    boolean dts();
 
-    int dta();
+    q dtt();
 
-    int dtb();
+    int dtv();
 
-    boolean dtc();
+    int dtw();
 
-    long dtd();
+    int dtx();
 
-    com.google.android.exoplayer2.b.g dte();
+    int dty();
 
-    x dtf();
+    boolean dtz();
 
     long getBufferedPosition();
 
@@ -75,9 +75,9 @@ public interface r {
 
     void stop();
 
-    void vy(boolean z);
+    void vF(boolean z);
 
-    void vz(boolean z);
+    void vG(boolean z);
 
     /* loaded from: classes6.dex */
     public static abstract class a implements b {
@@ -90,7 +90,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void ud(boolean z) {
+        public void uk(boolean z) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -102,7 +102,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void ue(boolean z) {
+        public void ul(boolean z) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -110,7 +110,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void ET(int i) {
+        public void Fa(int i) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -118,7 +118,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void dai() {
+        public void daF() {
         }
     }
 }

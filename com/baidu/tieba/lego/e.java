@@ -9,5 +9,5 @@ public interface e {
 
     e bd(String str, int i);
 
-    e dN(String str, String str2);
+    e dL(String str, String str2);
 }

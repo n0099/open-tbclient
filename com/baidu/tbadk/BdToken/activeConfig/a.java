@@ -7,37 +7,37 @@ import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes cJg;
+    private DataRes cJr;
     public boolean isNewUser = false;
-    public String cJh = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> cJi = new ArrayList<>();
-    private final ArrayList<FloatStrategy> cJj = new ArrayList<>();
+    public String cJs = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> cJt = new ArrayList<>();
+    private final ArrayList<FloatStrategy> cJu = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> aym() {
-        return this.cJi;
+    public ArrayList<com.baidu.tbadk.BdToken.b> ayp() {
+        return this.cJt;
     }
 
-    public ArrayList<FloatStrategy> ayn() {
-        return this.cJj;
+    public ArrayList<FloatStrategy> ayq() {
+        return this.cJu;
     }
 
     public void a(DataRes dataRes) {
-        this.cJg = dataRes;
-        this.cJi.clear();
-        this.cJj.clear();
+        this.cJr = dataRes;
+        this.cJt.clear();
+        this.cJu.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.cJh = dataRes.active_url;
-            this.cJj.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.cJg.mission_list) {
+            this.cJs = dataRes.active_url;
+            this.cJu.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.cJr.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.aFA().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.aFE().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.aya().q(bVar);
-                    } else if (bVar.axc()) {
-                        this.cJi.add(bVar);
+                        p.ayd().q(bVar);
+                    } else if (bVar.axf()) {
+                        this.cJt.add(bVar);
                     }
                 }
             }

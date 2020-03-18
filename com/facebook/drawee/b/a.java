@@ -12,22 +12,22 @@ import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a extends Drawable implements b {
-    private String lKt;
-    private String lLK;
-    private int lLL;
-    private int lLM;
-    private int lLN;
-    private String lLO;
-    private p.b lLP;
-    private int lLQ;
-    private int lLR;
-    private int lLS;
-    private int lLT;
-    private int lLU;
-    private long lLV;
+    private String lLZ;
+    private int lNA;
+    private long lNB;
+    private String lNq;
+    private int lNr;
+    private int lNs;
+    private int lNt;
+    private String lNu;
+    private p.b lNv;
+    private int lNw;
+    private int lNx;
+    private int lNy;
+    private int lNz;
     private int mFrameCount;
     private int mLoopCount;
-    private int cVx = 80;
+    private int cVK = 80;
     private final Paint mPaint = new Paint(1);
     private final Matrix mMatrix = new Matrix();
     private final Rect mRect = new Rect();
@@ -38,37 +38,37 @@ public class a extends Drawable implements b {
     }
 
     public void reset() {
-        this.lLL = -1;
-        this.lLM = -1;
-        this.lLN = -1;
+        this.lNr = -1;
+        this.lNs = -1;
+        this.lNt = -1;
         this.mFrameCount = -1;
         this.mLoopCount = -1;
-        this.lLO = null;
-        OY(null);
-        this.lLV = -1L;
+        this.lNu = null;
+        OX(null);
+        this.lNB = -1L;
         invalidateSelf();
     }
 
-    public void OY(@Nullable String str) {
+    public void OX(@Nullable String str) {
         if (str == null) {
             str = "none";
         }
-        this.lKt = str;
+        this.lLZ = str;
         invalidateSelf();
     }
 
     public void setDimensions(int i, int i2) {
-        this.lLL = i;
-        this.lLM = i2;
+        this.lNr = i;
+        this.lNs = i2;
         invalidateSelf();
     }
 
-    public void HC(int i) {
-        this.lLN = i;
+    public void HI(int i) {
+        this.lNt = i;
     }
 
     public void a(p.b bVar) {
-        this.lLP = bVar;
+        this.lNv = bVar;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -85,32 +85,32 @@ public class a extends Drawable implements b {
         this.mPaint.setColor(-26624);
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(a(this.lLL, this.lLM, this.lLP));
+        this.mPaint.setColor(a(this.lNr, this.lNs, this.lNv));
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setStrokeWidth(0.0f);
         this.mPaint.setColor(-1);
-        this.lLT = this.lLQ;
-        this.lLU = this.lLR;
-        if (this.lLK != null) {
-            a(canvas, "IDs: %s, %s", this.lKt, this.lLK);
+        this.lNz = this.lNw;
+        this.lNA = this.lNx;
+        if (this.lNq != null) {
+            a(canvas, "IDs: %s, %s", this.lLZ, this.lNq);
         } else {
-            a(canvas, "ID: %s", this.lKt);
+            a(canvas, "ID: %s", this.lLZ);
         }
         a(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-        a(canvas, "I: %dx%d", Integer.valueOf(this.lLL), Integer.valueOf(this.lLM));
-        a(canvas, "I: %d KiB", Integer.valueOf(this.lLN / 1024));
-        if (this.lLO != null) {
-            a(canvas, "i format: %s", this.lLO);
+        a(canvas, "I: %dx%d", Integer.valueOf(this.lNr), Integer.valueOf(this.lNs));
+        a(canvas, "I: %d KiB", Integer.valueOf(this.lNt / 1024));
+        if (this.lNu != null) {
+            a(canvas, "i format: %s", this.lNu);
         }
         if (this.mFrameCount > 0) {
             a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.mLoopCount));
         }
-        if (this.lLP != null) {
-            a(canvas, "scale: %s", this.lLP);
+        if (this.lNv != null) {
+            a(canvas, "scale: %s", this.lNv);
         }
-        if (this.lLV >= 0) {
-            a(canvas, "t: %d ms", Long.valueOf(this.lLV));
+        if (this.lNB >= 0) {
+            a(canvas, "t: %d ms", Long.valueOf(this.lNB));
         }
     }
 
@@ -130,21 +130,21 @@ public class a extends Drawable implements b {
     private void a(Rect rect, int i, int i2) {
         int min = Math.min(40, Math.max(12, Math.min(rect.width() / i2, rect.height() / i)));
         this.mPaint.setTextSize(min);
-        this.lLS = min + 8;
-        if (this.cVx == 80) {
-            this.lLS *= -1;
+        this.lNy = min + 8;
+        if (this.cVK == 80) {
+            this.lNy *= -1;
         }
-        this.lLQ = rect.left + 10;
-        this.lLR = this.cVx == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
+        this.lNw = rect.left + 10;
+        this.lNx = this.cVK == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
     }
 
     private void a(Canvas canvas, String str, @Nullable Object... objArr) {
         if (objArr == null) {
-            canvas.drawText(str, this.lLT, this.lLU, this.mPaint);
+            canvas.drawText(str, this.lNz, this.lNA, this.mPaint);
         } else {
-            canvas.drawText(String.format(str, objArr), this.lLT, this.lLU, this.mPaint);
+            canvas.drawText(String.format(str, objArr), this.lNz, this.lNA, this.mPaint);
         }
-        this.lLU += this.lLS;
+        this.lNA += this.lNy;
     }
 
     int a(int i, int i2, @Nullable p.b bVar) {
@@ -188,8 +188,8 @@ public class a extends Drawable implements b {
     }
 
     @Override // com.facebook.drawee.b.a.b
-    public void ff(long j) {
-        this.lLV = j;
+    public void fg(long j) {
+        this.lNB = j;
         invalidateSelf();
     }
 }

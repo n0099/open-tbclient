@@ -15,7 +15,7 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ld */
+        /* renamed from: Lj */
         public RepresentationKey[] newArray(int i) {
             return new RepresentationKey[i];
         }

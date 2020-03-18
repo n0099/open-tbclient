@@ -12,7 +12,7 @@ public class c extends com.baidu.tbadk.mainTab.b {
     public c(int i, String str) {
         this.mFragement.type = i;
         SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.mFragement.frag;
-        specialFrsWebFragment.tH(i);
+        specialFrsWebFragment.setTabId(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();

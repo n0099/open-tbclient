@@ -19,9 +19,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String kfx;
-    private String kfy;
-    private a kfz;
+    private String kgZ;
+    private String kha;
+    private a khb;
     private String mAuthSid;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
@@ -32,8 +32,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.kfx = null;
-        this.kfz = null;
+        this.kgZ = null;
+        this.khb = null;
         this.mPageContext = tbPageContext;
     }
 
@@ -55,30 +55,30 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void cKv() {
-        if (this.kfz != null) {
-            this.kfz.cancel();
-            this.kfz = null;
+    public void cKP() {
+        if (this.khb != null) {
+            this.khb.cancel();
+            this.khb = null;
         }
     }
 
     public void au(String str, String str2, String str3) {
-        eC(str, str2);
-        this.kfx = str3;
+        eA(str, str2);
+        this.kgZ = str3;
     }
 
-    public void eC(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.kfz == null) {
+    public void eA(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.khb == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.kfz = new a();
-            this.kfz.setPriority(2);
-            this.kfz.execute(new Object[0]);
+            this.khb = new a();
+            this.khb.setPriority(2);
+            this.khb.execute(new Object[0]);
         }
     }
 
-    public boolean cKw() {
-        return this.kfz != null;
+    public boolean cKQ() {
+        return this.khb != null;
     }
 
     public Context getContext() {
@@ -90,7 +90,7 @@ public class LikeModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, t> {
+    public class a extends BdAsyncTask<Object, Integer, u> {
         private volatile com.baidu.tbadk.core.util.x mNetwork;
         private AuthTokenData tokenData;
 
@@ -101,25 +101,25 @@ public class LikeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: G */
-        public t doInBackground(Object... objArr) {
+        /* renamed from: H */
+        public u doInBackground(Object... objArr) {
             try {
                 this.mNetwork = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
                 this.mNetwork.addPostData("kw", LikeModel.this.mForumName);
                 this.mNetwork.addPostData("fid", LikeModel.this.mForumId);
                 this.mNetwork.addPostData("st_type", LikeModel.this.from);
                 this.mNetwork.addPostData("authsid", LikeModel.this.mAuthSid);
-                if (!StringUtils.isNull(LikeModel.this.kfy)) {
-                    this.mNetwork.addPostData("dev_id", LikeModel.this.kfy);
+                if (!StringUtils.isNull(LikeModel.this.kha)) {
+                    this.mNetwork.addPostData("dev_id", LikeModel.this.kha);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.kfx)) {
-                    this.mNetwork.addPostData("pagefrom", LikeModel.this.kfx);
+                if (!TextUtils.isEmpty(LikeModel.this.kgZ)) {
+                    this.mNetwork.addPostData("pagefrom", LikeModel.this.kgZ);
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 this.mNetwork.addPostData("forum_name", LikeModel.this.mForumName);
-                this.mNetwork.aGg().aGH().mIsNeedTbs = true;
-                this.mNetwork.fK(true);
+                this.mNetwork.aGk().aGL().mIsNeedTbs = true;
+                this.mNetwork.fL(true);
                 String postNetData = this.mNetwork.postNetData();
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
                 String errorString = this.mNetwork.getErrorString();
@@ -127,36 +127,36 @@ public class LikeModel extends BdBaseModel {
                 LikeModel.this.setErrorString(errorString);
                 this.tokenData = AuthTokenData.parse(postNetData);
                 if (postNetData != null) {
-                    t tVar = new t();
-                    tVar.parserJson(postNetData);
-                    if (this.mNetwork.aGg().aGI().isRequestSuccess()) {
-                        tVar.setBlockPopInfoData(null);
+                    u uVar = new u();
+                    uVar.parserJson(postNetData);
+                    if (this.mNetwork.aGk().aGM().isRequestSuccess()) {
+                        uVar.setBlockPopInfoData(null);
                     }
-                    LikeModel.this.mBlockPopInfoData = tVar.getBlockPopInfoData();
-                    tVar.setFid(LikeModel.this.mForumId);
-                    return tVar;
+                    LikeModel.this.mBlockPopInfoData = uVar.getBlockPopInfoData();
+                    uVar.setFid(LikeModel.this.mForumId);
+                    return uVar;
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            t tVar2 = new t();
-            tVar2.setLike(0);
-            tVar2.setFid(LikeModel.this.mForumId);
-            return tVar2;
+            u uVar2 = new u();
+            uVar2.setLike(0);
+            uVar2.setFid(LikeModel.this.mForumId);
+            return uVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(t tVar) {
-            LikeModel.this.kfz = null;
-            if (this.mNetwork != null && tVar != null && !AntiHelper.d(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), tVar.cKx())) {
+        public void onPostExecute(u uVar) {
+            LikeModel.this.khb = null;
+            if (this.mNetwork != null && uVar != null && !AntiHelper.d(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), uVar.cKR())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
-                aVar.forumId = com.baidu.adp.lib.f.b.toLong(tVar.getFid(), 0L);
-                if (tVar != null && this.mNetwork.aGg().aGI().isRequestSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.f.b.toLong(tVar.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new e.a(LikeModel.this.mForumName, tVar.cIL())));
+                aVar.forumId = com.baidu.adp.lib.f.b.toLong(uVar.getFid(), 0L);
+                if (uVar != null && this.mNetwork.aGk().aGM().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.f.b.toLong(uVar.getFid(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new e.a(LikeModel.this.mForumName, uVar.cJf())));
                     TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.mForumName);
                     aVar.isSuccess = true;
                     aVar.errorMessage = LikeModel.this.getErrorString();
@@ -165,7 +165,7 @@ public class LikeModel extends BdBaseModel {
                     aVar.errorMessage = LikeModel.this.getErrorString();
                 }
                 if (LikeModel.this.mLoadDataCallBack != null) {
-                    LikeModel.this.mLoadDataCallBack.callback(tVar);
+                    LikeModel.this.mLoadDataCallBack.callback(uVar);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, aVar));
             }
@@ -177,7 +177,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            LikeModel.this.kfz = null;
+            LikeModel.this.khb = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.callback(null);

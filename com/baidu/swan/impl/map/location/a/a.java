@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.a> implements a.InterfaceC0357a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.swan.apps.z.b cxr;
-    private com.baidu.swan.apps.z.a.a cxs;
+    private com.baidu.swan.apps.z.b cxC;
+    private com.baidu.swan.apps.z.a.a cxD;
 
-    public static a asl() {
+    public static a asp() {
         return new a();
     }
 
@@ -30,13 +30,13 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.a> im
             c.e("map", "cb is empty");
             return false;
         }
-        this.cxr = bVar;
-        this.cxs = aVar;
+        this.cxC = bVar;
+        this.cxD = aVar;
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.a.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
                 c.w("map", "location permission success");
-                a.this.asn();
+                a.this.asq();
             }
 
             @Override // com.baidu.swan.impl.map.a.b.d.a
@@ -50,32 +50,32 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.a> im
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void asn() {
+    public void asq() {
         com.baidu.swan.impl.map.location.a U = com.baidu.swan.impl.map.location.a.U(null);
         U.a(this);
-        U.arS();
+        U.arV();
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0357a
     public void onCancel() {
         c.i("map", "choose location cancel");
-        if (this.cxr != null && this.cxs != null) {
-            this.cxr.g(this.cxs.callBack, 1002, "choose location canceled");
+        if (this.cxC != null && this.cxD != null) {
+            this.cxC.g(this.cxD.callBack, 1002, "choose location canceled");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0357a
     public void onError() {
         c.i("map", "choose location fail");
-        if (this.cxr != null && this.cxs != null) {
-            this.cxr.g(this.cxs.callBack, 1007, "choose location failed");
+        if (this.cxC != null && this.cxD != null) {
+            this.cxC.g(this.cxD.callBack, 1007, "choose location failed");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0357a
     public void a(SelectedLocationInfo selectedLocationInfo) {
-        if (this.cxr != null && this.cxs != null) {
-            this.cxr.c(this.cxs.callBack, selectedLocationInfo.toJson());
+        if (this.cxC != null && this.cxD != null) {
+            this.cxC.c(this.cxD.callBack, selectedLocationInfo.toJson());
         }
     }
 

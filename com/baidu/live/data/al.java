@@ -9,12 +9,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class al extends BaseData {
-    public String acA;
-    public String acB;
-    public String acC;
-    public String acD;
-    public String acE;
-    public List<a> acz;
+    public List<a> acJ;
+    public String acK;
+    public String acL;
+    public String acM;
+    public String acN;
+    public String acO;
     public String point;
     public String text;
 
@@ -26,24 +26,24 @@ public class al extends BaseData {
             this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.acz = new ArrayList();
+                this.acJ = new ArrayList();
                 for (int i = 0; i < length; i++) {
-                    this.acz.add(new a(optJSONArray.optJSONObject(i)));
+                    this.acJ.add(new a(optJSONArray.optJSONObject(i)));
                 }
-                this.acA = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.acA) && this.acA.charAt(0) != '#') {
-                    this.acA = '#' + this.acA;
+                this.acK = jSONObject.optString("text_color");
+                if (!TextUtils.isEmpty(this.acK) && this.acK.charAt(0) != '#') {
+                    this.acK = '#' + this.acK;
                 }
-                this.acB = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.acB) && this.acB.charAt(0) != '#') {
-                    this.acB = '#' + this.acB;
+                this.acL = jSONObject.optString("value_color");
+                if (!TextUtils.isEmpty(this.acL) && this.acL.charAt(0) != '#') {
+                    this.acL = '#' + this.acL;
                 }
-                this.acC = jSONObject.optString("background_color");
-                if (!TextUtils.isEmpty(this.acC) && this.acC.charAt(0) != '#') {
-                    this.acC = '#' + this.acC;
+                this.acM = jSONObject.optString("background_color");
+                if (!TextUtils.isEmpty(this.acM) && this.acM.charAt(0) != '#') {
+                    this.acM = '#' + this.acM;
                 }
-                this.acD = jSONObject.optString("transparency");
-                this.acE = jSONObject.optString("timer_point_text");
+                this.acN = jSONObject.optString("transparency");
+                this.acO = jSONObject.optString("timer_point_text");
             }
         }
     }

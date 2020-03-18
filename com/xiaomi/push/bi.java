@@ -39,14 +39,14 @@ public class bi implements fy {
             if (bi.a) {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + ffVar.toString());
             } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + " Blob [" + ffVar.m269a() + Constants.ACCEPT_TIME_SEPARATOR_SP + ffVar.a() + Constants.ACCEPT_TIME_SEPARATOR_SP + ffVar.e() + "]");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + " Blob [" + ffVar.m267a() + Constants.ACCEPT_TIME_SEPARATOR_SP + ffVar.a() + Constants.ACCEPT_TIME_SEPARATOR_SP + ffVar.e() + "]");
             }
         }
 
         @Override // com.xiaomi.push.fr, com.xiaomi.push.fz
         public void a(gd gdVar) {
             if (bi.a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + " PKT " + gdVar.m305a());
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + " PKT " + gdVar.m303a());
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bi.this.f146a.format(new Date()) + this.f147a + " PKT [" + gdVar.k() + Constants.ACCEPT_TIME_SEPARATOR_SP + gdVar.j() + "]");
             }

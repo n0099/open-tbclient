@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.SQ > 0.0f) {
-                int y = y(aVar.SQ, f);
+            if (aVar.Ta > 0.0f) {
+                int y = y(aVar.Ta, f);
                 ((CriusTbClipImageView) view).setRadius(y, y, y, y);
             } else {
-                ((CriusTbClipImageView) view).setRadius(y(aVar.SR, f), y(aVar.SS, f), y(aVar.ST, f), y(aVar.SU, f));
+                ((CriusTbClipImageView) view).setRadius(y(aVar.Tb, f), y(aVar.Tc, f), y(aVar.Te, f), y(aVar.Tf, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;

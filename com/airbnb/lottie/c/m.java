@@ -13,7 +13,7 @@ public class m {
     public static com.airbnb.lottie.model.content.d o(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
         char c;
         boolean z;
-        Path.FillType fillType = Path.FillType.WINDING;
+        Path.FillType fillType = null;
         com.airbnb.lottie.model.a.f fVar = null;
         com.airbnb.lottie.model.a.f fVar2 = null;
         GradientType gradientType = null;

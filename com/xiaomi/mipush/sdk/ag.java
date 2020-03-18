@@ -24,7 +24,7 @@ public final class ag implements Runnable {
         if (com.xiaomi.push.i.f(context) != null) {
             Cif cif = new Cif();
             context2 = MiPushClient.sContext;
-            cif.b(d.m85a(context2).m86a());
+            cif.b(d.m83a(context2).m84a());
             cif.c("client_info_update");
             cif.a(com.xiaomi.push.service.aj.a());
             cif.a(new HashMap());
@@ -36,11 +36,11 @@ public final class ag implements Runnable {
                 str = str + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
             }
             if (!TextUtils.isEmpty(str)) {
-                cif.m416a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+                cif.m414a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
             }
             int a = com.xiaomi.push.i.a();
             if (a >= 0) {
-                cif.m416a().put("space_id", Integer.toString(a));
+                cif.m414a().put("space_id", Integer.toString(a));
             }
             context5 = MiPushClient.sContext;
             ay.a(context5).a((ay) cif, hg.Notification, false, (ht) null);

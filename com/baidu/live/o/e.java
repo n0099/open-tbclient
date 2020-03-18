@@ -1,7 +1,7 @@
 package com.baidu.live.o;
 
-import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public interface e {
-    View getLivePlayer();
+    ViewGroup getLiveContainerView();
 }

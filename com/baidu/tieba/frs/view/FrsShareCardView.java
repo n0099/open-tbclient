@@ -17,21 +17,21 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsShareCardView extends LinearLayout {
     private Context context;
-    private TextView cui;
-    private EditText gQW;
-    private HeadImageView gQX;
-    private TextView gQY;
-    private TextView gQZ;
-    private ShareFromFrsMsgData gRa;
+    private TextView cuv;
+    private EditText gSd;
+    private HeadImageView gSe;
+    private TextView gSf;
+    private TextView gSg;
+    private ShareFromFrsMsgData gSh;
     private LinearLayout mRootView;
 
     public EditText getChatMsgView() {
-        return this.gQW;
+        return this.gSd;
     }
 
     public void am(String str, boolean z) {
-        if (this.gQX != null) {
-            this.gQX.startLoad(str, 15, false);
+        if (this.gSe != null) {
+            this.gSe.startLoad(str, 15, false);
         }
     }
 
@@ -48,34 +48,34 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.gQX.setPageId(bdUniqueId);
+        this.gSe.setPageId(bdUniqueId);
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
-        this.cui = (TextView) findViewById(R.id.frs_card_name);
-        this.gQW = (EditText) findViewById(R.id.chat_msg);
-        this.gQX = (HeadImageView) findViewById(R.id.frs_card_img);
-        this.gQZ = (TextView) findViewById(R.id.frs_card_member_num);
-        this.gQY = (TextView) findViewById(R.id.frs_card_post_num);
-        am.setViewTextColor(this.cui, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.gQW, R.color.cp_cont_b, 2);
-        this.gQW.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.gQW.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        bLN();
+        this.cuv = (TextView) findViewById(R.id.frs_card_name);
+        this.gSd = (EditText) findViewById(R.id.chat_msg);
+        this.gSe = (HeadImageView) findViewById(R.id.frs_card_img);
+        this.gSg = (TextView) findViewById(R.id.frs_card_member_num);
+        this.gSf = (TextView) findViewById(R.id.frs_card_post_num);
+        am.setViewTextColor(this.cuv, R.color.cp_cont_b, 1);
+        am.setViewTextColor(this.gSd, R.color.cp_cont_b, 2);
+        this.gSd.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        this.gSd.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        bMb();
     }
 
-    public void bLN() {
+    public void bMb() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.gQW != null) {
-            return k.charSequence2String(this.gQW.getText(), null);
+        if (this.gSd != null) {
+            return k.charSequence2String(this.gSd.getText(), null);
         }
         return null;
     }
@@ -88,16 +88,16 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.gRa = shareFromFrsMsgData;
+        this.gSh = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.cui.setText(getShortName(this.gRa.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.gRa.getImageUrl());
-        this.gQX.startLoad(this.gRa.getImageUrl(), 15, false);
-        this.gQZ.setText(aq.numFormatOver10000(this.gRa.getMemberNum()));
-        this.gQY.setText(aq.numFormatOver10000(this.gRa.getPostNum()));
+        this.cuv.setText(getShortName(this.gSh.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.gSh.getImageUrl());
+        this.gSe.startLoad(this.gSh.getImageUrl(), 15, false);
+        this.gSg.setText(aq.numFormatOver10000(this.gSh.getMemberNum()));
+        this.gSf.setText(aq.numFormatOver10000(this.gSh.getPostNum()));
     }
 
     private String getShortName(String str) {

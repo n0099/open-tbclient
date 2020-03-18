@@ -15,19 +15,19 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0482a fxc;
-    private BdAsyncTask fxd;
-    private HttpMessageListener fxe = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
+    private InterfaceC0482a fxI;
+    private BdAsyncTask fxJ;
+    private HttpMessageListener fxK = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage) {
                 final List<m> effectList = ((AlaGetEnterEffectResponsedMessage) httpResponsedMessage).getEffectList();
                 if (v.isEmpty(effectList)) {
-                    a.this.fxc.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                    a.this.fxI.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     return;
                 }
-                a.this.fxd = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
+                a.this.fxJ = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     protected Object doInBackground(Object[] objArr) {
                         for (m mVar : effectList) {
@@ -49,14 +49,14 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Object obj) {
                         super.onPostExecute(obj);
-                        a.this.fxc.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.fxI.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onCancelled() {
                         super.onCancelled();
-                        a.this.fxc.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.fxI.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
                 }.execute(new Object[0]);
             }
@@ -72,19 +72,19 @@ public class a {
 
     public a(TbPageContext tbPageContext, InterfaceC0482a interfaceC0482a) {
         this.mPageContext = tbPageContext;
-        this.fxc = interfaceC0482a;
-        this.mPageContext.registerListener(this.fxe);
+        this.fxI = interfaceC0482a;
+        this.mPageContext.registerListener(this.fxK);
     }
 
-    public void bsD() {
+    public void bsJ() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         this.mPageContext.sendMessage(httpMessage);
     }
 
     public void onDestory() {
-        if (this.fxd != null) {
-            this.fxd.cancel();
+        if (this.fxJ != null) {
+            this.fxJ.cancel();
         }
     }
 }

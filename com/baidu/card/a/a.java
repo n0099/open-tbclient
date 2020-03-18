@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private SparseArray<List<b>> MS = new SparseArray<>();
+    private SparseArray<List<b>> MT = new SparseArray<>();
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -15,23 +15,23 @@ public class a {
     }
 
     public void c(int i, b bVar) {
-        if (this.MS == null) {
-            this.MS = new SparseArray<>();
+        if (this.MT == null) {
+            this.MT = new SparseArray<>();
         }
-        List<b> list = this.MS.get(i);
+        List<b> list = this.MT.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.MS.put(i, list);
+            this.MT.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.MS.remove(i);
+            this.MT.remove(i);
             return;
         }
-        List<b> list = this.MS.get(i);
+        List<b> list = this.MT.get(i);
         if (!v.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class a {
     }
 
     public boolean b(C0052a c0052a) {
-        List<b> list = this.MS.get(c0052a.MT);
+        List<b> list = this.MT.get(c0052a.MU);
         if (v.isEmpty(list)) {
             return false;
         }
@@ -58,28 +58,28 @@ public class a {
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0052a {
-        private int MT;
-        private Object MU;
+        private int MU;
+        private Object MV;
 
         public C0052a(int i, Object obj) {
-            this.MT = i;
-            this.MU = obj;
+            this.MU = i;
+            this.MV = obj;
         }
 
         public C0052a(int i) {
-            this.MT = i;
+            this.MU = i;
         }
 
         public int getActionType() {
-            return this.MT;
+            return this.MU;
         }
 
         public void setExtraData(Object obj) {
-            this.MU = obj;
+            this.MV = obj;
         }
 
         public Object nq() {
-            return this.MU;
+            return this.MV;
         }
     }
 }

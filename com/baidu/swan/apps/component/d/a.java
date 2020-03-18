@@ -5,8 +5,8 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bjA = 5;
-    private int[] bjB;
+    private static int bjN = 5;
+    private int[] bjO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bjB = new int[eh(i - 1) + 1];
-        int length = this.bjB.length;
+        this.bjO = new int[eh(i - 1) + 1];
+        int length = this.bjO.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bjB[i2] = -1;
+                this.bjO[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bjB.length << bjA) - 1;
+        int length = (this.bjO.length << bjN) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,7 +53,7 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bjB;
+        int[] iArr = this.bjO;
         int eh = eh(i);
         iArr[eh] = iArr[eh] | (1 << i);
     }
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bjB.length << bjA) - 1;
+        int length = (this.bjO.length << bjN) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bjB[eh(i)] & (1 << i)) != 0;
+        return (this.bjO[eh(i)] & (1 << i)) != 0;
     }
 
     private int eh(int i) {
-        return i >> bjA;
+        return i >> bjN;
     }
 }

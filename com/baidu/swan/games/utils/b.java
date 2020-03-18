@@ -23,7 +23,7 @@ public class b {
         return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, hX(jSTypeMismatchException.requiredType), hX(jSTypeMismatchException.actualType));
     }
 
-    public static String bV(@NonNull String str, @NonNull String str2) {
+    public static String bU(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 

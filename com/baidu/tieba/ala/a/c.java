@@ -32,11 +32,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends d {
-    private RelativeLayout exJ;
-    private TextView exK;
-    private a eyd;
-    private e eyf;
-    private ArrayList<e> eyg;
+    private a eyB;
+    private e eyC;
+    private ArrayList<e> eyD;
+    private RelativeLayout eyg;
+    private TextView eyh;
     private BdListView mListView;
 
     public c(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -50,24 +50,24 @@ public class c extends d {
 
     @Override // com.baidu.tieba.ala.a.d
     protected void initView() {
-        this.exJ = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.exJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
+        this.eyg = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.eyg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bbz();
+                c.this.bbD();
             }
         });
-        this.exK = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.exK.setText(a.i.sdk_choose_custom_number_tip);
+        this.eyh = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.eyh.setText(a.i.sdk_choose_custom_number_tip);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.a.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < c.this.eyg.size()) {
-                    c.this.eyf = (e) c.this.eyg.get(i);
-                    if (c.this.eyf != null) {
-                        c.this.eyl = c.this.eyf.getNumber();
-                        c.this.eyd.pg(c.this.eyl);
+                if (i >= 0 && i < c.this.eyD.size()) {
+                    c.this.eyC = (e) c.this.eyD.get(i);
+                    if (c.this.eyC != null) {
+                        c.this.eyI = c.this.eyC.getNumber();
+                        c.this.eyB.pi(c.this.eyI);
                     }
                 }
             }
@@ -97,32 +97,32 @@ public class c extends d {
 
     private void d(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         if (alaSdkGetGiftListHttpResponseMessage != null) {
-            this.eyg = alaSdkGetGiftListHttpResponseMessage.uH();
+            this.eyD = alaSdkGetGiftListHttpResponseMessage.uM();
         }
-        if (ListUtils.isEmpty(this.eyg)) {
-            bec();
+        if (ListUtils.isEmpty(this.eyD)) {
+            beh();
         }
-        if (this.eyl > 0) {
-            Iterator<e> it = this.eyg.iterator();
+        if (this.eyI > 0) {
+            Iterator<e> it = this.eyD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 e next = it.next();
-                if (next != null && this.eyl == next.getNumber()) {
-                    this.eyf = next;
+                if (next != null && this.eyI == next.getNumber()) {
+                    this.eyC = next;
                     break;
                 }
             }
         }
-        this.eyd = new a(this.eyi.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.eyd);
-        this.eyd.setGiftNum(this.eyl);
-        this.eyd.setData(this.eyg);
+        this.eyB = new a(this.eyF.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.eyB);
+        this.eyB.setGiftNum(this.eyI);
+        this.eyB.setData(this.eyD);
     }
 
-    private void bec() {
-        this.eyg = new ArrayList<>();
+    private void beh() {
+        this.eyD = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             e eVar = new e();
             switch (i) {
@@ -151,22 +151,22 @@ public class c extends d {
                     eVar.name = "一生一世";
                     break;
             }
-            this.eyg.add(eVar);
+            this.eyD.add(eVar);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.d
     public void confirm() {
-        if (this.eyf != null) {
-            f(this.eyf.number, this.eyf.name, false);
+        if (this.eyC != null) {
+            f(this.eyC.number, this.eyC.name, false);
         } else {
-            this.eyi.finish();
+            this.eyF.finish();
         }
     }
 
     @Override // com.baidu.tieba.ala.a.d
-    public void pd(int i) {
-        super.pd(i);
+    public void pf(int i) {
+        super.pf(i);
         f(i, "", true);
     }
 
@@ -174,10 +174,10 @@ public class c extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 9999) {
-            this.egY.getEditView().setText("9999");
-            this.egY.getEditView().setSelection(this.egY.getEditView().getText().length());
+            this.eho.getEditView().setText("9999");
+            this.eho.getEditView().setSelection(this.eho.getEditView().getText().length());
         }
-        this.egY.setSendEnabled(true);
+        this.eho.setSendEnabled(true);
     }
 
     private void f(int i, String str, boolean z) {
@@ -191,8 +191,8 @@ public class c extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.eyi.setResult(-1, intent);
-        this.eyi.finish();
+        this.eyF.setResult(-1, intent);
+        this.eyF.finish();
     }
 
     @Override // com.baidu.tieba.ala.a.d
@@ -215,7 +215,7 @@ public class c extends d {
             this.mGiftNum = i;
         }
 
-        public void pg(int i) {
+        public void pi(int i) {
             if (this.mGiftNum != i) {
                 this.mGiftNum = i;
                 notifyDataSetChanged();
@@ -256,9 +256,9 @@ public class c extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.exR = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.exS = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.exT = (ImageView) view.findViewById(a.g.item_num_arrow);
+                bVar2.eyp = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.eyq = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.eyr = (ImageView) view.findViewById(a.g.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -266,11 +266,11 @@ public class c extends d {
             }
             e item = getItem(i);
             if (item != null) {
-                bVar.exS.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
+                bVar.eyq.setText(item.getNumber() + HanziToPinyin.Token.SEPARATOR + item.getName());
                 if (item.getNumber() == this.mGiftNum) {
-                    bVar.exT.setVisibility(0);
+                    bVar.eyr.setVisibility(0);
                 } else {
-                    bVar.exT.setVisibility(8);
+                    bVar.eyr.setVisibility(8);
                 }
             }
             return view;
@@ -279,9 +279,9 @@ public class c extends d {
 
     /* loaded from: classes3.dex */
     private class b {
-        public RelativeLayout exR;
-        public TextView exS;
-        public ImageView exT;
+        public RelativeLayout eyp;
+        public TextView eyq;
+        public ImageView eyr;
 
         private b() {
         }

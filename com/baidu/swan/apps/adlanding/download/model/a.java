@@ -18,7 +18,7 @@ public class a {
         this.name = str2;
     }
 
-    public JSONObject Jh() {
+    public JSONObject Jk() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", this.url);

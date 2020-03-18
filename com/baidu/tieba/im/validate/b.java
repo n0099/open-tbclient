@@ -10,77 +10,77 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes13.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private View hFj;
-    private HeadImageView hFk;
-    private TextView hFl;
-    private ValidateItemData hKA;
-    private ValidateActivity hKw;
-    private TextView hKx;
-    private TextView hKy;
-    private TextView hKz;
+    private View hGJ;
+    private HeadImageView hGK;
+    private TextView hGL;
+    private ValidateActivity hLW;
+    private TextView hLX;
+    private TextView hLY;
+    private TextView hLZ;
+    private ValidateItemData hMa;
 
     public b(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext(), R.layout.validate_item);
-        this.hKw = validateActivity;
+        this.hLW = validateActivity;
         initView();
     }
 
     void initView() {
-        this.hFj = this.mConvertView.findViewById(R.id.root_view);
-        this.hFk = (HeadImageView) this.hFj.findViewById(R.id.iv_head);
-        this.hFk.setIsRound(false);
-        this.hKx = (TextView) this.hFj.findViewById(R.id.tv_user_name);
-        this.hFl = (TextView) this.hFj.findViewById(R.id.tv_group_name);
-        this.hKy = (TextView) this.hFj.findViewById(R.id.tv_apply_reason);
-        this.hKz = (TextView) this.hFj.findViewById(R.id.btn_pass);
-        this.hKz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.hGJ = this.mConvertView.findViewById(R.id.root_view);
+        this.hGK = (HeadImageView) this.hGJ.findViewById(R.id.iv_head);
+        this.hGK.setIsRound(false);
+        this.hLX = (TextView) this.hGJ.findViewById(R.id.tv_user_name);
+        this.hGL = (TextView) this.hGJ.findViewById(R.id.tv_group_name);
+        this.hLY = (TextView) this.hGJ.findViewById(R.id.tv_apply_reason);
+        this.hLZ = (TextView) this.hGJ.findViewById(R.id.btn_pass);
+        this.hLZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.hKw.a(b.this.hKz, 100, 0, 0L, b.this.hKA);
+                b.this.hLW.a(b.this.hLZ, 100, 0, 0L, b.this.hMa);
             }
         });
-        this.hFk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.hGK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.hKw.a(b.this.hFk, 101, 0, 0L, b.this.hKA);
+                b.this.hLW.a(b.this.hGK, 101, 0, 0L, b.this.hMa);
             }
         });
-        this.hFj.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.hGJ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.hKw.b(b.this.hFj, 200, 0, 0L, b.this.hKA);
+                b.this.hLW.b(b.this.hGJ, 200, 0, 0L, b.this.hMa);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.hKA != null) {
-            this.hKw.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.hKw.getLayoutMode().onModeChanged(this.hFj);
-            String portrait = this.hKA.getPortrait();
-            this.hFk.setTag(portrait);
-            this.hFk.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.hKA.getUserName())) {
-                this.hKx.setText(this.hKA.getUserName());
+        if (this.hMa != null) {
+            this.hLW.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.hLW.getLayoutMode().onModeChanged(this.hGJ);
+            String portrait = this.hMa.getPortrait();
+            this.hGK.setTag(portrait);
+            this.hGK.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.hMa.getUserName())) {
+                this.hLX.setText(this.hMa.getUserName());
             }
-            if (!TextUtils.isEmpty(this.hKA.getGroupName())) {
-                this.hFl.setText(this.hKw.getPageContext().getString(R.string.validate_im_apply_prefix) + this.hKA.getGroupName());
+            if (!TextUtils.isEmpty(this.hMa.getGroupName())) {
+                this.hGL.setText(this.hLW.getPageContext().getString(R.string.validate_im_apply_prefix) + this.hMa.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.hKA.getApplyReason())) {
-                this.hKy.setText(this.hKw.getPageContext().getString(R.string.validate_im_reason_prefix) + this.hKA.getApplyReason());
+            if (!TextUtils.isEmpty(this.hMa.getApplyReason())) {
+                this.hLY.setText(this.hLW.getPageContext().getString(R.string.validate_im_reason_prefix) + this.hMa.getApplyReason());
             }
-            if (this.hKA.isPass()) {
-                this.hKz.setEnabled(false);
-                this.hKz.setText(this.hKw.getPageContext().getString(R.string.passed));
-                am.setViewTextColor(this.hKz, (int) R.color.cp_cont_d);
-                this.hKz.setBackgroundDrawable(null);
+            if (this.hMa.isPass()) {
+                this.hLZ.setEnabled(false);
+                this.hLZ.setText(this.hLW.getPageContext().getString(R.string.passed));
+                am.setViewTextColor(this.hLZ, (int) R.color.cp_cont_d);
+                this.hLZ.setBackgroundDrawable(null);
             } else {
-                this.hKz.setEnabled(true);
-                this.hKz.setText(this.hKw.getPageContext().getString(R.string.pass));
+                this.hLZ.setEnabled(true);
+                this.hLZ.setText(this.hLW.getPageContext().getString(R.string.pass));
             }
-            if (!this.hKA.isShown()) {
-                am.setBackgroundResource(this.hFj, R.color.common_color_10178);
+            if (!this.hMa.isShown()) {
+                am.setBackgroundResource(this.hGJ, R.color.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void f(ValidateItemData validateItemData) {
-        this.hKA = validateItemData;
+        this.hMa = validateItemData;
     }
 }

@@ -40,8 +40,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            String acH = e.acH();
-            if (TextUtils.isEmpty(acH) || TextUtils.isEmpty(acH.trim())) {
+            String acK = e.acK();
+            if (TextUtils.isEmpty(acK) || TextUtils.isEmpty(acK.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -56,12 +56,12 @@ public class a extends ab {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            Request g = g(acH, optParamsAsJo);
+            Request g = g(acK, optParamsAsJo);
             if (g == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.acR().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
+            eVar.acU().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -76,11 +76,11 @@ public class a extends ab {
                         } else {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                Uri lu = a.this.lu(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
-                                if (lu == null) {
+                                Uri lt = a.this.lt(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
+                                if (lt == null) {
                                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                                 } else {
-                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lu, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lt, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                                 }
                             } else {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
@@ -105,7 +105,7 @@ public class a extends ab {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
-                jSONObject2.put("srcAppPage", bbf());
+                jSONObject2.put("srcAppPage", bbj());
                 jSONObject2.put("params", jSONObject);
                 request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
@@ -121,18 +121,18 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Uri lu(String str) {
+    public Uri lt(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.parse(str);
     }
 
-    private String bbf() {
-        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
-        if (GC == null || GC.Oo() == null) {
+    private String bbj() {
+        com.baidu.swan.apps.core.d.e GH = f.WV().GH();
+        if (GH == null || GH.Or() == null) {
             return "";
         }
-        return GC.Oo().Oc().getPage() + "?" + GC.Oo().Oc().getParams();
+        return GH.Or().Of().getPage() + "?" + GH.Or().Of().getParams();
     }
 }

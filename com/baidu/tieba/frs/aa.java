@@ -1,27 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes.dex */
-public class aa {
-    private static aa gsk = new aa();
-    private final SparseArray<String> gsj = new SparseArray<>();
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes8.dex */
+public class aa extends SparseArray<ah> {
+    public BdUniqueId dBK = null;
 
-    private aa() {
+    public void a(ak akVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ah valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(akVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public static aa bFF() {
-        return gsk;
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ah valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public void ta(int i) {
-        this.gsj.put(i, "1");
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ah valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.bhc();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public boolean tb(int i) {
+    public void a(int i, ah ahVar) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.gsj.get(i));
+        put(i, ahVar);
+    }
+
+    public ah tb(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

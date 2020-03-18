@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationManagerCompat;
 /* loaded from: classes11.dex */
 public class u {
-    public static boolean cA(@NonNull Context context) {
+    public static boolean cz(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= 19) {
             return NotificationManagerCompat.from(context).areNotificationsEnabled();
         }

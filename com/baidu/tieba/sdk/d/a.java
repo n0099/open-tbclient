@@ -28,15 +28,15 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a<T> implements TbPageContext<T> {
     private List<WeakReference<View>> animationList;
-    private MAActivity jQj;
-    private com.baidu.tieba.ala.player.a jQk;
-    private List<Animatable> jQl;
+    private MAActivity jRL;
+    private com.baidu.tieba.ala.player.a jRM;
+    private List<Animatable> jRN;
     private BdUniqueId mId = null;
     private BDLayoutInflateFactory mLayoutInflateFactory;
     private BDLayoutMode mLayoutMode;
 
     public a(MAActivity mAActivity) {
-        this.jQj = mAActivity;
+        this.jRL = mAActivity;
     }
 
     public void a(c cVar) {
@@ -46,29 +46,29 @@ public class a<T> implements TbPageContext<T> {
         this.mLayoutMode = new BDLayoutMode();
         this.mLayoutInflateFactory = new BDLayoutInflateFactory();
         this.mLayoutInflateFactory.setViewMode(this.mLayoutMode);
-        this.jQj.getActivity().getLayoutInflater().setFactory(this.mLayoutInflateFactory);
-        this.jQk = new com.baidu.tieba.ala.player.a(this, cVar);
-        this.jQk.init();
+        this.jRL.getActivity().getLayoutInflater().setFactory(this.mLayoutInflateFactory);
+        this.jRM = new com.baidu.tieba.ala.player.a(this, cVar);
+        this.jRM.init();
     }
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void showToast(int i) {
-        BdUtilHelper.showToast(this.jQj.getActivity(), this.jQj.getActivity().getResources().getString(i));
+        BdUtilHelper.showToast(this.jRL.getActivity(), this.jRL.getActivity().getResources().getString(i));
     }
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void showToast(String str, boolean z) {
-        BdUtilHelper.showToast(this.jQj.getActivity(), str);
+        BdUtilHelper.showToast(this.jRL.getActivity(), str);
     }
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void showToast(String str) {
-        BdUtilHelper.showToast(this.jQj.getActivity(), str);
+        BdUtilHelper.showToast(this.jRL.getActivity(), str);
     }
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void showToast(int i, boolean z) {
-        BdUtilHelper.showToast(this.jQj.getActivity(), i);
+        BdUtilHelper.showToast(this.jRL.getActivity(), i);
     }
 
     @Override // com.baidu.live.tbadk.TbPageContext
@@ -78,12 +78,12 @@ public class a<T> implements TbPageContext<T> {
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void startAnimatable(Animatable animatable) {
-        if (animatable != null && this.jQj != null && !this.jQj.getActivity().isFinishing()) {
-            if (this.jQl == null) {
-                this.jQl = new ArrayList();
+        if (animatable != null && this.jRL != null && !this.jRL.getActivity().isFinishing()) {
+            if (this.jRN == null) {
+                this.jRN = new ArrayList();
             }
-            synchronized (this.jQl) {
-                this.jQl.add(animatable);
+            synchronized (this.jRN) {
+                this.jRN.add(animatable);
             }
             try {
                 animatable.start();
@@ -94,7 +94,7 @@ public class a<T> implements TbPageContext<T> {
 
     @Override // com.baidu.live.tbadk.TbPageContext
     public void startAnimation(View view, Animation animation, final Animation.AnimationListener animationListener) {
-        if (animation != null && this.jQj != null && !this.jQj.getActivity().isFinishing()) {
+        if (animation != null && this.jRL != null && !this.jRL.getActivity().isFinishing()) {
             final WeakReference<View> weakReference = new WeakReference<>(view);
             animation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.sdk.d.a.1
                 @Override // android.view.animation.Animation.AnimationListener
@@ -136,7 +136,7 @@ public class a<T> implements TbPageContext<T> {
 
     @Override // com.baidu.live.adp.base.BdPageContext
     public Resources getResources() {
-        return this.jQj.getActivity().getResources();
+        return this.jRL.getActivity().getResources();
     }
 
     @Override // com.baidu.live.adp.base.BdPageContext
@@ -198,25 +198,25 @@ public class a<T> implements TbPageContext<T> {
 
     @Override // com.baidu.live.adp.base.BdPageContext
     public String getString(int i) {
-        return this.jQj.getActivity().getResources().getString(i);
+        return this.jRL.getActivity().getResources().getString(i);
     }
 
     @Override // com.baidu.live.adp.base.BdPageContext
     public Context getContext() {
-        return this.jQj.getActivity();
+        return this.jRL.getActivity();
     }
 
     @Override // com.baidu.live.adp.base.BdPageContext
     public Activity getPageActivity() {
-        if (this.jQj == null) {
+        if (this.jRL == null) {
             return null;
         }
-        return this.jQj.getActivity();
+        return this.jRL.getActivity();
     }
 
     @Override // com.baidu.live.adp.base.BdPageContext
     public T getOrignalPage() {
-        return (T) this.jQj;
+        return (T) this.jRL;
     }
 
     public void clearAnimation() {
@@ -235,15 +235,15 @@ public class a<T> implements TbPageContext<T> {
     }
 
     public void clearAnimatable() {
-        if (this.jQl != null) {
+        if (this.jRN != null) {
             try {
-                synchronized (this.jQl) {
-                    for (int i = 0; i < this.jQl.size(); i++) {
-                        Animatable animatable = this.jQl.get(i);
+                synchronized (this.jRN) {
+                    for (int i = 0; i < this.jRN.size(); i++) {
+                        Animatable animatable = this.jRN.get(i);
                         if (animatable != null && animatable.isRunning()) {
                             animatable.stop();
                         }
-                        this.jQl.clear();
+                        this.jRN.clear();
                     }
                 }
             } catch (Throwable th) {
@@ -253,44 +253,44 @@ public class a<T> implements TbPageContext<T> {
     }
 
     public void onStart() {
-        this.jQk.onStart();
+        this.jRM.onStart();
     }
 
     public void onResume() {
-        this.jQk.onResume();
+        this.jRM.onResume();
     }
 
     public void onPause() {
-        this.jQk.onPause();
+        this.jRM.onPause();
     }
 
     public void onStop() {
-        this.jQk.onStop();
+        this.jRM.onStop();
     }
 
     public void onWindowFocusChanged(boolean z) {
-        this.jQk.onWindowFocusChanged(z);
+        this.jRM.onWindowFocusChanged(z);
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.jQk.onKeyDown(i, keyEvent);
+        return this.jRM.onKeyDown(i, keyEvent);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        this.jQk.onActivityResult(i, i2, intent);
+        this.jRM.onActivityResult(i, i2, intent);
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.jQk.onConfigurationChanged(configuration);
+        this.jRM.onConfigurationChanged(configuration);
     }
 
     public void onDestroy() {
         clearAnimatable();
         clearAnimation();
-        this.jQk.onDestroy();
+        this.jRM.onDestroy();
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
         }
-        this.jQj = null;
+        this.jRL = null;
     }
 }

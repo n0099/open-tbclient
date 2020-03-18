@@ -10,12 +10,12 @@ public class g extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fw(String str) {
+    public com.baidu.swan.apps.api.b.b fv(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ar = com.baidu.swan.apps.api.c.b.ar("Api-TabBar", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ar.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-TabBar", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) aq.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-TabBar", "parse fail");
@@ -23,16 +23,16 @@ public class g extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        int optInt = ((JSONObject) ar.second).optInt("index");
-        if (JO()) {
+        int optInt = ((JSONObject) aq.second).optInt("index");
+        if (JR()) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "fail not TabBar page");
             return new com.baidu.swan.apps.api.b.b(1001, "fail not TabBar page");
         }
-        com.baidu.swan.apps.tabbar.b.a JN = JN();
-        if (JN == null) {
+        com.baidu.swan.apps.tabbar.b.a JQ = JQ();
+        if (JQ == null) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
             return new com.baidu.swan.apps.api.b.b(1001, "tabBarViewController is null");
-        } else if (!JN.hb(optInt)) {
+        } else if (!JQ.hb(optInt)) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "close red dot fail");
             return new com.baidu.swan.apps.api.b.b(1001, "close red dot fail");
         } else {
@@ -40,12 +40,12 @@ public class g extends com.baidu.swan.apps.api.a.c {
         }
     }
 
-    public com.baidu.swan.apps.api.b.b fx(String str) {
+    public com.baidu.swan.apps.api.b.b fw(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ar = com.baidu.swan.apps.api.c.b.ar("Api-TabBar", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ar.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-TabBar", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) aq.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-TabBar", "parse fail");
@@ -53,16 +53,16 @@ public class g extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) ar.second;
-        if (JO()) {
+        JSONObject jSONObject = (JSONObject) aq.second;
+        if (JR()) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "fail not TabBar page");
             return new com.baidu.swan.apps.api.b.b(1001, "fail not TabBar page");
         }
-        com.baidu.swan.apps.tabbar.b.a JN = JN();
-        if (JN == null) {
+        com.baidu.swan.apps.tabbar.b.a JQ = JQ();
+        if (JQ == null) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
             return new com.baidu.swan.apps.api.b.b(1001, "tabBarViewController is null");
-        } else if (!JN.b(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
+        } else if (!JQ.b(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "set tab bar item fail");
             return new com.baidu.swan.apps.api.b.b(1001, "set tab bar item fail");
         } else {
@@ -70,17 +70,17 @@ public class g extends com.baidu.swan.apps.api.a.c {
         }
     }
 
-    public static com.baidu.swan.apps.tabbar.b.a JN() {
-        com.baidu.swan.apps.core.d.d Op;
-        com.baidu.swan.apps.core.d.e GC = com.baidu.swan.apps.y.f.WS().GC();
-        if (GC == null || (Op = GC.Op()) == null) {
+    public static com.baidu.swan.apps.tabbar.b.a JQ() {
+        com.baidu.swan.apps.core.d.d Os;
+        com.baidu.swan.apps.core.d.e GH = com.baidu.swan.apps.y.f.WV().GH();
+        if (GH == null || (Os = GH.Os()) == null) {
             return null;
         }
-        return Op.Ob();
+        return Os.Oe();
     }
 
-    public static boolean JO() {
-        com.baidu.swan.apps.core.d.e GC = com.baidu.swan.apps.y.f.WS().GC();
-        return GC == null || GC.Oo() == null || !GC.Oo().Nw();
+    public static boolean JR() {
+        com.baidu.swan.apps.core.d.e GH = com.baidu.swan.apps.y.f.WV().GH();
+        return GH == null || GH.Or() == null || !GH.Or().Nz();
     }
 }

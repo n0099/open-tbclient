@@ -17,32 +17,32 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private String bCr;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bCs;
-    private int bCt;
+    private String bCC;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bCD;
+    private int bCE;
     private Activity mContext;
 
     public b(Activity activity, String str, ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
         this.mContext = activity;
-        this.bCr = str;
-        this.bCs = arrayList;
-        this.bCt = (int) (af.dip2px(this.mContext, 50.0f) / 2.0f);
+        this.bCC = str;
+        this.bCD = arrayList;
+        this.bCE = (int) (af.dip2px(this.mContext, 50.0f) / 2.0f);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bCs == null) {
+        if (this.bCD == null) {
             return 0;
         }
-        return this.bCs.size();
+        return this.bCD.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i > this.bCs.size()) {
+        if (i < 0 || i > this.bCD.size()) {
             return null;
         }
-        return this.bCs.get(i);
+        return this.bCD.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,16 +62,16 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         view.setBackground(this.mContext.getResources().getDrawable(a.e.swanapp_album_name_item_selector));
-        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.bCs.get(i);
+        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.bCD.get(i);
         if (aVar3 != null) {
             aVar.titleTv.setText(aVar3.bx());
-            if (aVar3.bDg != null) {
-                aVar.bCv.setText(fq(aVar3.bDg.size()));
-                if (aVar3.bDg.get(0) != null && !TextUtils.isEmpty(aVar3.bDg.get(0).getPath())) {
-                    ImageRequestBuilder Y = ImageRequestBuilder.Y(Uri.fromFile(new File(aVar3.bDg.get(0).getPath())));
-                    Y.c(new d(this.bCt, this.bCt));
-                    Y.vw(true);
-                    aVar.bCu.setController(com.facebook.drawee.a.a.c.dlz().vh(false).bg(Y.dsD()).c(aVar.bCu.getController()).dmq());
+            if (aVar3.bDr != null) {
+                aVar.bCG.setText(fq(aVar3.bDr.size()));
+                if (aVar3.bDr.get(0) != null && !TextUtils.isEmpty(aVar3.bDr.get(0).getPath())) {
+                    ImageRequestBuilder Y = ImageRequestBuilder.Y(Uri.fromFile(new File(aVar3.bDr.get(0).getPath())));
+                    Y.c(new d(this.bCE, this.bCE));
+                    Y.vD(true);
+                    aVar.bCF.setController(com.facebook.drawee.a.a.c.dlW().vo(false).bg(Y.dta()).c(aVar.bCF.getController()).dmN());
                 }
             }
         }
@@ -79,19 +79,19 @@ public class b extends BaseAdapter {
     }
 
     private String fq(int i) {
-        return TextUtils.equals(this.bCr, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
+        return TextUtils.equals(this.bCC, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
     }
 
     /* loaded from: classes11.dex */
     public class a {
-        SimpleDraweeView bCu;
-        TextView bCv;
+        SimpleDraweeView bCF;
+        TextView bCG;
         TextView titleTv;
 
         public a(View view) {
-            this.bCu = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
+            this.bCF = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
             this.titleTv = (TextView) view.findViewById(a.f.album_name_item_title);
-            this.bCv = (TextView) view.findViewById(a.f.album_name_item_number);
+            this.bCG = (TextView) view.findViewById(a.f.album_name_item_number);
         }
     }
 }

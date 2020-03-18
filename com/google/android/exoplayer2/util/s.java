@@ -6,95 +6,95 @@ import com.google.android.exoplayer2.Format;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public final class s {
-    private long mHW;
-    private volatile long mHX = -9223372036854775807L;
-    private long mmD;
+    private long mJG;
+    private volatile long mJH = -9223372036854775807L;
+    private long moj;
 
     public s(long j) {
-        gH(j);
+        gI(j);
     }
 
-    public synchronized void gH(long j) {
-        a.checkState(this.mHX == -9223372036854775807L);
-        this.mmD = j;
+    public synchronized void gI(long j) {
+        a.checkState(this.mJH == -9223372036854775807L);
+        this.moj = j;
     }
 
-    public long dzQ() {
-        return this.mmD;
+    public long dAn() {
+        return this.moj;
     }
 
-    public long dzR() {
-        if (this.mHX != -9223372036854775807L) {
-            return this.mHX;
+    public long dAo() {
+        if (this.mJH != -9223372036854775807L) {
+            return this.mJH;
         }
-        if (this.mmD != Format.OFFSET_SAMPLE_RELATIVE) {
-            return this.mmD;
+        if (this.moj != Format.OFFSET_SAMPLE_RELATIVE) {
+            return this.moj;
         }
         return -9223372036854775807L;
     }
 
-    public long dzS() {
-        if (this.mmD == Format.OFFSET_SAMPLE_RELATIVE) {
+    public long dAp() {
+        if (this.moj == Format.OFFSET_SAMPLE_RELATIVE) {
             return 0L;
         }
-        if (this.mHX != -9223372036854775807L) {
-            return this.mHW;
+        if (this.mJH != -9223372036854775807L) {
+            return this.mJG;
         }
         return -9223372036854775807L;
     }
 
     public void reset() {
-        this.mHX = -9223372036854775807L;
+        this.mJH = -9223372036854775807L;
     }
 
-    public long gI(long j) {
+    public long gJ(long j) {
         long j2;
         if (j == -9223372036854775807L) {
             return -9223372036854775807L;
         }
-        if (this.mHX != -9223372036854775807L) {
-            long gL = gL(this.mHX);
-            long j3 = (4294967296L + gL) / IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
+        if (this.mJH != -9223372036854775807L) {
+            long gM = gM(this.mJH);
+            long j3 = (4294967296L + gM) / IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
             j2 = ((j3 - 1) * IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT) + j;
             long j4 = (j3 * IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT) + j;
-            if (Math.abs(j2 - gL) >= Math.abs(j4 - gL)) {
+            if (Math.abs(j2 - gM) >= Math.abs(j4 - gM)) {
                 j2 = j4;
             }
         } else {
             j2 = j;
         }
-        return gJ(gK(j2));
+        return gK(gL(j2));
     }
 
-    public long gJ(long j) {
+    public long gK(long j) {
         if (j == -9223372036854775807L) {
             return -9223372036854775807L;
         }
-        if (this.mHX != -9223372036854775807L) {
-            this.mHX = j;
+        if (this.mJH != -9223372036854775807L) {
+            this.mJH = j;
         } else {
-            if (this.mmD != Format.OFFSET_SAMPLE_RELATIVE) {
-                this.mHW = this.mmD - j;
+            if (this.moj != Format.OFFSET_SAMPLE_RELATIVE) {
+                this.mJG = this.moj - j;
             }
             synchronized (this) {
-                this.mHX = j;
+                this.mJH = j;
                 notifyAll();
             }
         }
-        return this.mHW + j;
+        return this.mJG + j;
     }
 
-    public synchronized void dzT() throws InterruptedException {
-        while (this.mHX == -9223372036854775807L) {
+    public synchronized void dAq() throws InterruptedException {
+        while (this.mJH == -9223372036854775807L) {
             wait();
         }
     }
 
-    public static long gK(long j) {
+    public static long gL(long j) {
         return (TimeUtils.NANOS_PER_MS * j) / SapiWebView.DEFAULT_TIMEOUT_MILLIS;
     }
 
-    public static long gL(long j) {
+    public static long gM(long j) {
         return (SapiWebView.DEFAULT_TIMEOUT_MILLIS * j) / TimeUtils.NANOS_PER_MS;
     }
 }

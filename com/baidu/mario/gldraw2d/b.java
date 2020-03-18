@@ -4,79 +4,79 @@ import com.baidu.mario.gldraw2d.c.c;
 /* loaded from: classes11.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.mario.gldraw2d.b.a aJe;
-    private c aJf;
-    private com.baidu.mario.gldraw2d.params.c aJg;
+    private com.baidu.mario.gldraw2d.b.a aJs;
+    private c aJt;
+    private com.baidu.mario.gldraw2d.params.c aJu;
 
     public b(com.baidu.mario.gldraw2d.params.c cVar) {
-        this.aJg = cVar;
-        this.aJe = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
-        Ca();
+        this.aJu = cVar;
+        this.aJs = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
+        Ch();
     }
 
     public void setupFilter() {
-        this.aJf = this.aJg.Cz();
-        b(this.aJf);
+        this.aJt = this.aJu.CG();
+        b(this.aJt);
     }
 
-    public com.baidu.mario.gldraw2d.b.a BZ() {
-        return this.aJe;
+    public com.baidu.mario.gldraw2d.b.a Cg() {
+        return this.aJs;
     }
 
     public void U(long j) {
-        if (this.aJf != null && this.aJg != null) {
-            if (this.aJg.Cy()) {
-                Ca();
+        if (this.aJt != null && this.aJu != null) {
+            if (this.aJu.CF()) {
+                Ch();
             }
             if (j != 0) {
-                this.aJg.CA().setTimestamp(j);
+                this.aJu.CH().setTimestamp(j);
             }
-            this.aJf.c(this.aJg.Cw(), this.aJg.CA());
+            this.aJt.c(this.aJu.CD(), this.aJu.CH());
         }
     }
 
     public void a(c cVar) {
-        if (this.aJg != null) {
-            this.aJg.c(cVar);
+        if (this.aJu != null) {
+            this.aJu.c(cVar);
         }
-        this.aJf.release();
+        this.aJt.release();
         b(cVar);
     }
 
     public void release() {
-        if (this.aJf != null) {
-            this.aJf.release();
-            this.aJf = null;
+        if (this.aJt != null) {
+            this.aJt.release();
+            this.aJt = null;
         }
-        if (this.aJe != null) {
-            this.aJe.release();
-            this.aJe = null;
+        if (this.aJs != null) {
+            this.aJs.release();
+            this.aJs = null;
         }
     }
 
-    private void Ca() {
-        float[] Cp = this.aJg.CA().Cp();
-        com.baidu.mario.gldraw2d.e.b.g(Cp);
-        com.baidu.mario.gldraw2d.params.a Cx = this.aJg.Cx();
-        com.baidu.mario.gldraw2d.e.b.b(Cp, Cx.getTranslateX(), Cx.getTranslateY());
-        com.baidu.mario.gldraw2d.e.b.a(Cp, Cx.Cj());
-        com.baidu.mario.gldraw2d.e.b.c(Cp, Cx.Cm());
-        if ((Cx.Cn() + 360) % 180 == 0) {
-            com.baidu.mario.gldraw2d.e.b.a(Cp, this.aJg.Cu(), this.aJg.Cv(), Cx.Ck(), Cx.Cl());
+    private void Ch() {
+        float[] Cw = this.aJu.CH().Cw();
+        com.baidu.mario.gldraw2d.e.b.g(Cw);
+        com.baidu.mario.gldraw2d.params.a CE = this.aJu.CE();
+        com.baidu.mario.gldraw2d.e.b.b(Cw, CE.getTranslateX(), CE.getTranslateY());
+        com.baidu.mario.gldraw2d.e.b.a(Cw, CE.Cq());
+        com.baidu.mario.gldraw2d.e.b.c(Cw, CE.Ct());
+        if ((CE.Cu() + 360) % 180 == 0) {
+            com.baidu.mario.gldraw2d.e.b.a(Cw, this.aJu.CB(), this.aJu.CC(), CE.Cr(), CE.Cs());
             return;
         }
-        com.baidu.mario.gldraw2d.d.c clone = this.aJg.Cv().clone();
-        clone.setWidth(this.aJg.Cv().getHeight());
-        clone.setHeight(this.aJg.Cv().getWidth());
-        com.baidu.mario.gldraw2d.e.b.a(Cp, this.aJg.Cu(), clone, Cx.Ck(), Cx.Cl());
+        com.baidu.mario.gldraw2d.d.c clone = this.aJu.CC().clone();
+        clone.setWidth(this.aJu.CC().getHeight());
+        clone.setHeight(this.aJu.CC().getWidth());
+        com.baidu.mario.gldraw2d.e.b.a(Cw, this.aJu.CB(), clone, CE.Cr(), CE.Cs());
     }
 
     private void b(c cVar) {
         if (cVar == null) {
-            this.aJf = new com.baidu.mario.gldraw2d.c.b();
+            this.aJt = new com.baidu.mario.gldraw2d.c.b();
         } else {
-            this.aJf = cVar;
+            this.aJt = cVar;
         }
-        this.aJf.a(this.aJg.Cu(), this.aJg.Cv());
+        this.aJt.a(this.aJu.CB(), this.aJu.CC());
     }
 }

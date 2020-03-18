@@ -24,12 +24,12 @@ public class d {
         com.baidu.swan.pms.c.c.b bVar = new com.baidu.swan.pms.c.c.b();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            bVar.cBR = bY(optJSONObject.optJSONObject("main"));
-            bVar.cBU = G(optJSONObject.optJSONArray("sub"));
+            bVar.cCc = bY(optJSONObject.optJSONObject("main"));
+            bVar.cCf = G(optJSONObject.optJSONArray("sub"));
         }
-        bVar.cBV = bZ(jSONObject.optJSONObject("framework"));
-        bVar.cBX = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-        bVar.cBW = cc(jSONObject.optJSONObject("app_info"));
+        bVar.cCg = bZ(jSONObject.optJSONObject("framework"));
+        bVar.cCi = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.cCh = cc(jSONObject.optJSONObject("app_info"));
         return bVar;
     }
 
@@ -40,7 +40,7 @@ public class d {
         com.baidu.swan.pms.c.c.d dVar = new com.baidu.swan.pms.c.c.d();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            dVar.cBU = G(optJSONObject.optJSONArray("sub"));
+            dVar.cCf = G(optJSONObject.optJSONArray("sub"));
             return dVar;
         }
         return dVar;
@@ -52,8 +52,8 @@ public class d {
         }
         com.baidu.swan.pms.c.c.e eVar = new com.baidu.swan.pms.c.c.e();
         eVar.maxAge = jSONObject.optLong("max_age");
-        eVar.cBV = bZ(jSONObject.optJSONObject("framework"));
-        eVar.cBX = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        eVar.cCg = bZ(jSONObject.optJSONObject("framework"));
+        eVar.cCi = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
         return eVar;
     }
 
@@ -69,14 +69,14 @@ public class d {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a.C0364a c0364a = new a.C0364a();
                 c0364a.errorCode = optJSONObject.optInt("errno");
-                c0364a.cAZ = optJSONObject.optString("bundle_id");
+                c0364a.cBk = optJSONObject.optString("bundle_id");
                 c0364a.category = optJSONObject.optInt("category");
-                c0364a.cBR = bY(optJSONObject.optJSONObject("main"));
-                c0364a.cBS = cc(optJSONObject.optJSONObject("app_info"));
+                c0364a.cCc = bY(optJSONObject.optJSONObject("main"));
+                c0364a.cCd = cc(optJSONObject.optJSONObject("app_info"));
                 arrayList.add(c0364a);
             }
         }
-        aVar.cBQ = arrayList;
+        aVar.cCb = arrayList;
         return aVar;
     }
 
@@ -85,7 +85,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.c.c.c cVar = new com.baidu.swan.pms.c.c.c();
-        cVar.cBY = cb(jSONObject);
+        cVar.cCj = cb(jSONObject);
         return cVar;
     }
 
@@ -94,7 +94,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) a(jSONObject, new com.baidu.swan.pms.model.f());
-        fVar.cBj = jSONObject.optInt("pkg_type");
+        fVar.cBu = jSONObject.optInt("pkg_type");
         return fVar;
     }
 
@@ -105,7 +105,7 @@ public class d {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 g gVar = (g) a(optJSONObject, new g());
-                gVar.cBj = optJSONObject.optInt("pkg_type");
+                gVar.cBu = optJSONObject.optInt("pkg_type");
                 gVar.pkgName = optJSONObject.optString("sub_path");
                 gVar.independent = optJSONObject.optBoolean("independent");
                 arrayList.add(gVar);
@@ -144,7 +144,7 @@ public class d {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.cAZ = jSONObject.optString("bundle_id");
+        t.cBk = jSONObject.optString("bundle_id");
         t.category = jSONObject.optInt("category");
         t.versionName = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
         t.versionCode = jSONObject.optInt("version_code");

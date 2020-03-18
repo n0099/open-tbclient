@@ -16,7 +16,7 @@ public final class FlowableSkipUntil<T, U> extends a<T, T> {
         SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(cVar);
         cVar.onSubscribe(skipUntilMainSubscriber);
         this.other.subscribe(skipUntilMainSubscriber.other);
-        this.nwE.a((j) skipUntilMainSubscriber);
+        this.nyr.a((j) skipUntilMainSubscriber);
     }
 
     /* loaded from: classes7.dex */

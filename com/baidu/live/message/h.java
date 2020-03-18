@@ -4,18 +4,18 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class h extends HttpMessage {
-    public String agZ;
-    public boolean awN;
+    public String ahj;
+    public boolean awX;
     public long liveId;
 
     public h() {
         super(1021144);
-        this.agZ = "";
+        this.ahj = "";
         this.liveId = 0L;
     }
 
     public void setParams() {
-        addParam("feed_id", this.agZ);
+        addParam("feed_id", this.ahj);
         addParam("live_goods_source", TbConfig.getSubappType());
     }
 }

@@ -10,21 +10,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long aKM = 0;
+    private long aLa = 0;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long CM() {
-        return super.CM();
+    public /* bridge */ /* synthetic */ long CT() {
+        return super.CT();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Dm() {
-        super.Dm();
+    public /* bridge */ /* synthetic */ void Dt() {
+        super.Dt();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Dn() {
-        super.Dn();
+    public /* bridge */ /* synthetic */ void Du() {
+        super.Du();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -38,8 +38,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void bI(boolean z) {
-        super.bI(z);
+    public /* bridge */ /* synthetic */ void bJ(boolean z) {
+        super.bJ(z);
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -55,58 +55,58 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aKP = eVar;
+            this.aLd = eVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.Dx());
+            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.DE());
             mediaFormat.setInteger("aac-profile", 2);
-            mediaFormat.setInteger("sample-rate", dVar.DA());
-            mediaFormat.setInteger("channel-count", dVar.Dy());
-            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.Dz());
-            mediaFormat.setInteger("max-input-size", dVar.DB());
+            mediaFormat.setInteger("sample-rate", dVar.DH());
+            mediaFormat.setInteger("channel-count", dVar.DF());
+            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.DG());
+            mediaFormat.setInteger("max-input-size", dVar.DI());
             try {
-                this.mEncoder = MediaCodec.createEncoderByType(dVar.Dx());
+                this.mEncoder = MediaCodec.createEncoderByType(dVar.DE());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-                if (!dVar.Dr()) {
-                    this.aKR = true;
+                if (!dVar.Dy()) {
+                    this.aLf = true;
                 } else {
-                    this.aKR = false;
+                    this.aLf = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aKQ == null) {
-                this.aKQ.bC(z);
+            if (this.aLe == null) {
+                this.aLe.bD(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aKQ == null) {
+        if (this.aLe == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Dl() {
-        if (this.aKS == 0) {
-            this.aKS = this.mBufferInfo.presentationTimeUs;
+    protected void Ds() {
+        if (this.aLg == 0) {
+            this.aLg = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aKS;
-        if (this.mBufferInfo.presentationTimeUs < this.aKM) {
+        this.mBufferInfo.presentationTimeUs -= this.aLg;
+        if (this.mBufferInfo.presentationTimeUs < this.aLa) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.aKM + 10000;
-            this.aKM = j;
+            long j = this.aLa + 10000;
+            this.aLa = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > aKT + 500000) {
-            if (aKT > this.aKM) {
-                this.mBufferInfo.presentationTimeUs = aKT + 5000;
+        if (this.mBufferInfo.presentationTimeUs > aLh + 500000) {
+            if (aLh > this.aLa) {
+                this.mBufferInfo.presentationTimeUs = aLh + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.aKM + 5000;
+                this.mBufferInfo.presentationTimeUs = this.aLa + 5000;
             }
         }
-        if (aKT > this.mBufferInfo.presentationTimeUs + 500000) {
-            aKU = 1200;
+        if (aLh > this.mBufferInfo.presentationTimeUs + 500000) {
+            aLi = 1200;
         }
-        this.aKM = this.mBufferInfo.presentationTimeUs;
+        this.aLa = this.mBufferInfo.presentationTimeUs;
     }
 }

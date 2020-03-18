@@ -26,44 +26,44 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     private BdTypeRecyclerView BK;
-    private TbPageContext cVi;
-    private PbListView elw;
-    private n jqP;
-    private PersonCenterTabBaseFragment jqQ;
+    private TbPageContext cVv;
+    private PbListView elM;
+    private n jso;
+    private PersonCenterTabBaseFragment jsp;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
-        this.cVi = tbPageContext;
+        this.cVv = tbPageContext;
         this.mRootView = view;
-        this.jqQ = personCenterTabBaseFragment;
+        this.jsp = personCenterTabBaseFragment;
         initUI();
     }
 
     private void initUI() {
         this.BK = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.new_person_center_common_lv);
         this.BK.setLayoutManager(new LinearLayoutManager(this.BK.getContext()));
-        this.elw = new PbListView(this.cVi.getPageActivity());
-        this.elw.createView();
-        this.elw.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.elw.setHeight(l.getDimens(this.cVi.getPageActivity(), R.dimen.tbds182));
-        this.elw.setLineGone();
-        this.elw.setTextSize(R.dimen.tbfontsize33);
-        this.elw.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.elw.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.jqP = new n(this.cVi, this.BK, this.jqQ.getUniqueId());
-        this.jqP.setIsHost(this.jqQ.isHost());
-        this.jqP.zV(32);
+        this.elM = new PbListView(this.cVv.getPageActivity());
+        this.elM.createView();
+        this.elM.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.elM.setHeight(l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds182));
+        this.elM.setLineGone();
+        this.elM.setTextSize(R.dimen.tbfontsize33);
+        this.elM.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.elM.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.jso = new n(this.cVv, this.BK, this.jsp.getUniqueId());
+        this.jso.setIsHost(this.jsp.isHost());
+        this.jso.Ad(32);
         int i = 0;
-        if (this.jqQ.isHost()) {
-            if (this.jqQ instanceof PersonCenterDynamicTabFragment) {
+        if (this.jsp.isHost()) {
+            if (this.jsp instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.jqQ instanceof PersonCenterThreadTabFragment) {
+            } else if (this.jsp instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.jqP.zW(i);
-        this.jqP.setTabType(this.jqQ.getTabType());
+        this.jso.Ae(i);
+        this.jso.setTabType(this.jsp.getTabType());
     }
 
     public void addHeaderView(View view) {
@@ -80,28 +80,28 @@ public class a {
 
     public void dV(List<m> list) {
         if (v.isEmpty(list)) {
-            bdu();
+            bdz();
             if (this.BK.getHeaderViewsCount() == 0) {
-                wo(R.string.person_center_listempty_txt);
+                ww(R.string.person_center_listempty_txt);
             }
         } else if (this.mNoDataView != null && this.mNoDataView.getParent() != null) {
             this.BK.removeHeaderView(this.mNoDataView);
         }
         this.BK.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.jqQ.getTabType())));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.jsp.getTabType())));
     }
 
-    private void wo(int i) {
+    private void ww(int i) {
         String string;
-        if (this.jqQ.getTabType() == 1) {
-            string = this.jqQ.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.jsp.getTabType() == 1) {
+            string = this.jsp.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.jqQ.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.jsp.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.cVi.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.cA(null, string), null);
+            this.mNoDataView = NoDataViewFactory.a(this.cVv.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.cz(null, string), null);
         }
-        this.mNoDataView.onChangeSkinType(this.cVi, TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.cVv, TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
         this.BK.removeHeaderView(this.mNoDataView);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -110,40 +110,40 @@ public class a {
 
     public void onChangeSkinType(int i) {
         am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        if (this.jqP != null) {
-            this.jqP.notifyDataSetChanged();
+        if (this.jso != null) {
+            this.jso.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.cVi, i);
+            this.mNoDataView.onChangeSkinType(this.cVv, i);
         }
-        if (this.elw != null) {
-            this.elw.setTextColor(am.getColor(R.color.cp_cont_j));
-            this.elw.changeSkin(i);
+        if (this.elM != null) {
+            this.elM.setTextColor(am.getColor(R.color.cp_cont_j));
+            this.elM.changeSkin(i);
         }
     }
 
-    public n cxJ() {
-        return this.jqP;
+    public n cyc() {
+        return this.jso;
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void bds() {
-        this.BK.setNextPage(this.elw);
-        this.elw.showEmptyView(0);
-        this.elw.startLoadData();
+    public void bdx() {
+        this.BK.setNextPage(this.elM);
+        this.elM.showEmptyView(0);
+        this.elM.startLoadData();
     }
 
-    public void bdt() {
-        this.BK.setNextPage(this.elw);
-        this.elw.showEmptyView(0);
-        this.elw.endLoadData();
-        this.elw.setText(this.cVi.getString(R.string.list_no_more));
+    public void bdy() {
+        this.BK.setNextPage(this.elM);
+        this.elM.showEmptyView(0);
+        this.elM.endLoadData();
+        this.elM.setText(this.cVv.getString(R.string.list_no_more));
     }
 
-    public void bdu() {
+    public void bdz() {
         this.BK.setNextPage(null);
     }
 
@@ -151,10 +151,10 @@ public class a {
         this.BK.smoothScrollToPosition(0);
     }
 
-    public void Ad(int i) {
-        this.BK.setNextPage(this.elw);
-        this.elw.showEmptyView(0);
-        this.elw.endLoadData();
-        this.elw.setText(this.cVi.getString(i));
+    public void Al(int i) {
+        this.BK.setNextPage(this.elM);
+        this.elM.showEmptyView(0);
+        this.elM.endLoadData();
+        this.elM.setText(this.cVv.getString(i));
     }
 }

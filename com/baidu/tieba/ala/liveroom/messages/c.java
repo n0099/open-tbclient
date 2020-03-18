@@ -16,8 +16,8 @@ public class c extends HttpMessage {
     }
 
     public void setParams() {
-        String sI = q.sI();
+        String sN = q.sN();
         addParam("live_id", this.liveId);
-        addParam("scene_from", sI);
+        addParam("scene_from", sN);
     }
 }

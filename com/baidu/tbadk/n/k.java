@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class k extends l {
     public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
-        if (m.aRm().aRn()) {
+        if (m.aRq().aRr()) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "dlStat");
             gs.append("c_dnum", String.valueOf(rVar.num));
@@ -33,13 +33,13 @@ public class k extends l {
             gs.append("op_spnum", String.valueOf(rVar5.slownum));
             gs.append("op_costt", String.valueOf(rVar5.time));
             gs.append("op_dlsize", String.valueOf(rVar5.downloadSize));
-            gs.append("nettype", m.mM(i));
+            gs.append("nettype", m.mO(i));
             BdStatisticsManager.getInstance().performance("image", gs);
         }
     }
 
     public static void b(int i, int i2, long j) {
-        if (m.aRm().aRn()) {
+        if (m.aRq().aRr()) {
             com.baidu.adp.lib.stats.a gs = gs();
             gs.append("action", "dcStat");
             gs.append("dcnum", String.valueOf(i));

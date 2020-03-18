@@ -11,16 +11,16 @@ import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private boolean asS;
-    private String asT;
-    private String evQ;
-    private String evR;
-    private String evS;
-    private String evT;
-    private com.baidu.tieba.ala.charm.view.b evU;
-    private com.baidu.tieba.ala.charm.model.a evV;
-    private ALaCharmCardActivity evW;
-    private int evX;
+    private boolean atc;
+    private String atd;
+    private String ewm;
+    private String ewn;
+    private String ewo;
+    private String ewp;
+    private com.baidu.tieba.ala.charm.view.b ewq;
+    private com.baidu.tieba.ala.charm.model.a ewr;
+    private ALaCharmCardActivity ews;
+    private int ewt;
     private String mGroupId;
     private boolean mHasMore;
     private String mLiveId;
@@ -28,7 +28,7 @@ public class a implements com.baidu.live.liveroom.d.d {
     private String mUserId;
     private String mUserName;
     private int pn = 0;
-    CustomMessageListener evY = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
+    CustomMessageListener ewu = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,133 +37,133 @@ public class a implements com.baidu.live.liveroom.d.d {
                 if (str == null) {
                     str = "";
                 }
-                if (a.this.evU != null) {
-                    a.this.evU.setOtherParams(str);
+                if (a.this.ewq != null) {
+                    a.this.ewq.setOtherParams(str);
                 }
             }
         }
     };
-    a.InterfaceC0428a evZ = new a.InterfaceC0428a() { // from class: com.baidu.tieba.ala.charm.a.2
+    a.InterfaceC0428a ewv = new a.InterfaceC0428a() { // from class: com.baidu.tieba.ala.charm.a.2
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0428a
         public void a(ALaCharmDataList aLaCharmDataList) {
             if (aLaCharmDataList == null) {
-                a.this.evU.ij(true);
+                a.this.ewq.il(true);
                 return;
             }
-            a.this.evU.bcy();
-            a.this.evU.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
+            a.this.ewq.bcC();
+            a.this.ewq.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
             a.this.pn = aLaCharmDataList.pn + 1;
             a.this.mHasMore = aLaCharmDataList.hasMore;
             if (a.this.mHasMore) {
-                a.this.evU.bds();
+                a.this.ewq.bdx();
             } else {
-                a.this.evU.xW(a.this.evW.getPageContext().getResources().getString(a.i.charm_no_more));
+                a.this.ewq.xW(a.this.ews.getPageContext().getResources().getString(a.i.charm_no_more));
             }
             if (aLaCharmDataList.data == null || aLaCharmDataList.data.size() <= 0) {
-                a.this.evU.ij(true);
+                a.this.ewq.il(true);
             }
         }
 
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0428a
         public void ad(int i, String str) {
-            a.this.evU.ij(false);
-            a.this.evU.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
+            a.this.ewq.il(false);
+            a.this.ewq.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (a.this.evV != null) {
-                            a.this.evV.I(a.this.evX, a.this.pn, 100);
+                        if (a.this.ewr != null) {
+                            a.this.ewr.I(a.this.ewt, a.this.pn, 100);
                             return;
                         }
                         return;
                     }
-                    a.this.evW.getPageContext().showToast(a.this.evW.getResources().getString(a.i.sdk_no_network_guide));
+                    a.this.ews.getPageContext().showToast(a.this.ews.getResources().getString(a.i.sdk_no_network_guide));
                 }
             });
         }
     };
-    private BdListView.OnScrollToBottomListener ewa = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
+    private BdListView.OnScrollToBottomListener eww = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
         @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
         public void onScrollToBottom() {
-            if (a.this.mHasMore && a.this.evV != null) {
-                a.this.evV.I(a.this.evX, a.this.pn, 100);
+            if (a.this.mHasMore && a.this.ewr != null) {
+                a.this.ewr.I(a.this.ewt, a.this.pn, 100);
             }
         }
     };
 
     public a(ALaCharmCardActivity aLaCharmCardActivity, int i) {
-        this.evX = 1;
-        this.evW = aLaCharmCardActivity;
-        this.evX = i;
+        this.ewt = 1;
+        this.ews = aLaCharmCardActivity;
+        this.ewt = i;
     }
 
     public void createView() {
-        this.evU = new com.baidu.tieba.ala.charm.view.b(this.evW, this.mGroupId, this.mLiveId, this.asS, this.asT, this.evX, this.mUserId, this.mUserName, this.evR, this.evS, this.evT);
-        this.evU.a(this.ewa);
-        this.evU.setOtherParams(this.mOtherParams);
+        this.ewq = new com.baidu.tieba.ala.charm.view.b(this.ews, this.mGroupId, this.mLiveId, this.atc, this.atd, this.ewt, this.mUserId, this.mUserName, this.ewn, this.ewo, this.ewp);
+        this.ewq.a(this.eww);
+        this.ewq.setOtherParams(this.mOtherParams);
         loadData();
-        MessageManager.getInstance().registerListener(this.evY);
+        MessageManager.getInstance().registerListener(this.ewu);
     }
 
     private void loadData() {
-        if (this.evV == null) {
-            this.evV = new com.baidu.tieba.ala.charm.model.a(this.evW.getPageContext(), this.mUserId, this.evZ);
+        if (this.ewr == null) {
+            this.ewr = new com.baidu.tieba.ala.charm.model.a(this.ews.getPageContext(), this.mUserId, this.ewv);
         }
-        this.evV.bf(this.evX, 100);
+        this.ewr.bg(this.ewt, 100);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public View we() {
-        if (this.evU == null) {
+    public View wj() {
+        if (this.ewq == null) {
             return null;
         }
-        return this.evU.getRootView();
+        return this.ewq.getRootView();
     }
 
-    public com.baidu.tieba.ala.charm.view.b bdR() {
-        return this.evU;
+    public com.baidu.tieba.ala.charm.view.b bdW() {
+        return this.ewq;
     }
 
     public void X(String str, boolean z) {
-        if (this.evU != null) {
-            this.evU.X(str, z);
+        if (this.ewq != null) {
+            this.ewq.X(str, z);
         }
     }
 
-    public void sm() {
-        if (this.evU != null) {
-            this.evU.sm();
+    public void sr() {
+        if (this.ewq != null) {
+            this.ewq.sr();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.evX == 2) {
-            return this.evW.getResources().getString(a.i.ala_charm_week_title);
+        if (this.ewt == 2) {
+            return this.ews.getResources().getString(a.i.ala_charm_week_title);
         }
-        if (this.evX == 1) {
-            return this.evW.getResources().getString(a.i.ala_charm_all_title);
+        if (this.ewt == 1) {
+            return this.ews.getResources().getString(a.i.ala_charm_all_title);
         }
-        if (this.evX == 3) {
-            return this.evW.getResources().getString(a.i.ala_charm_day_title);
+        if (this.ewt == 3) {
+            return this.ews.getResources().getString(a.i.ala_charm_day_title);
         }
-        if (this.evX != 4) {
+        if (this.ewt != 4) {
             return null;
         }
-        return this.evW.getResources().getString(a.i.audience_list_title);
+        return this.ews.getResources().getString(a.i.audience_list_title);
     }
 
-    public int bdS() {
-        return this.evX;
+    public int bdX() {
+        return this.ewt;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String wf() {
+    public String wk() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short wg() {
+    public short wl() {
         return (short) 0;
     }
 
@@ -177,10 +177,10 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.evV != null) {
-            this.evV.onDestroy();
+        if (this.ewr != null) {
+            this.ewr.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.evY);
+        MessageManager.getInstance().unRegisterListener(this.ewu);
     }
 
     public a xM(String str) {
@@ -203,33 +203,33 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public a ii(boolean z) {
-        this.asS = z;
+    public a ik(boolean z) {
+        this.atc = z;
         return this;
     }
 
     public a xQ(String str) {
-        this.asT = str;
+        this.atd = str;
         return this;
     }
 
     public a xR(String str) {
-        this.evQ = str;
+        this.ewm = str;
         return this;
     }
 
     public a xS(String str) {
-        this.evR = str;
+        this.ewn = str;
         return this;
     }
 
     public a xT(String str) {
-        this.evS = str;
+        this.ewo = str;
         return this;
     }
 
     public a xU(String str) {
-        this.evT = str;
+        this.ewp = str;
         return this;
     }
 

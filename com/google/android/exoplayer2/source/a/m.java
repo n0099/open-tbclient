@@ -5,58 +5,58 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class m extends a {
-    private final int lYj;
-    private volatile boolean msf;
-    private final Format mtF;
-    private volatile int mtZ;
-    private volatile boolean mua;
+    private final int lZP;
+    private volatile boolean mtN;
+    private volatile int mvF;
+    private volatile boolean mvG;
+    private final Format mvl;
 
     public m(com.google.android.exoplayer2.upstream.e eVar, com.google.android.exoplayer2.upstream.g gVar, Format format, int i, Object obj, long j, long j2, int i2, int i3, Format format2) {
         super(eVar, gVar, format, i, obj, j, j2, i2);
-        this.lYj = i3;
-        this.mtF = format2;
+        this.lZP = i3;
+        this.mvl = format2;
     }
 
     @Override // com.google.android.exoplayer2.source.a.l
-    public boolean dwS() {
-        return this.mua;
+    public boolean dxp() {
+        return this.mvG;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dwM() {
-        return this.mtZ;
+    public long dxj() {
+        return this.mvF;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void cancelLoad() {
-        this.msf = true;
+        this.mtN = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public boolean dwu() {
-        return this.msf;
+    public boolean dwR() {
+        return this.mtN;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void load() throws IOException, InterruptedException {
         try {
-            long a = this.meh.a(this.dataSpec.gF(this.mtZ));
+            long a = this.mfN.a(this.dataSpec.gG(this.mvF));
             if (a != -1) {
-                a += this.mtZ;
+                a += this.mvF;
             }
-            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.meh, this.mtZ, a);
-            b dwK = dwK();
-            dwK.gk(0L);
-            com.google.android.exoplayer2.extractor.m dK = dwK.dK(0, this.lYj);
-            dK.h(this.mtF);
-            for (int i = 0; i != -1; i = dK.a(bVar, Integer.MAX_VALUE, true)) {
-                this.mtZ = i + this.mtZ;
+            com.google.android.exoplayer2.extractor.b bVar = new com.google.android.exoplayer2.extractor.b(this.mfN, this.mvF, a);
+            b dxh = dxh();
+            dxh.gl(0L);
+            com.google.android.exoplayer2.extractor.m dL = dxh.dL(0, this.lZP);
+            dL.h(this.mvl);
+            for (int i = 0; i != -1; i = dL.a(bVar, Integer.MAX_VALUE, true)) {
+                this.mvF = i + this.mvF;
             }
-            dK.a(this.mtv, 1, this.mtZ, 0, null);
-            v.a(this.meh);
-            this.mua = true;
+            dL.a(this.mvc, 1, this.mvF, 0, null);
+            v.a(this.mfN);
+            this.mvG = true;
         } catch (Throwable th) {
-            v.a(this.meh);
+            v.a(this.mfN);
             throw th;
         }
     }

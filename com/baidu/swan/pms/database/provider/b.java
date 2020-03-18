@@ -19,24 +19,24 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public class b {
     private Context mContext;
-    public static final String cfH = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri cAQ = Uri.parse("content://" + cfH + "/framework");
-    public static final Uri cAR = Uri.parse("content://" + cfH + "/swan_app");
-    public static final Uri cAS = Uri.parse("content://" + cfH + "/pkg_main");
-    public static final Uri cAT = Uri.parse("content://" + cfH + "/pkg_sub");
-    public static final Uri cAU = Uri.parse("content://" + cfH + "/" + ETAG.KEY_EXTENSION);
-    public static final Uri cAV = Uri.parse("content://" + cfH + "/swan_plugin");
-    public static final Uri cAW = Uri.parse("content://" + cfH + "/swan_mini_pkg");
-    private static UriMatcher cAX = new UriMatcher(-1);
+    public static final String cfS = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri cBb = Uri.parse("content://" + cfS + "/framework");
+    public static final Uri cBc = Uri.parse("content://" + cfS + "/swan_app");
+    public static final Uri cBd = Uri.parse("content://" + cfS + "/pkg_main");
+    public static final Uri cBe = Uri.parse("content://" + cfS + "/pkg_sub");
+    public static final Uri cBf = Uri.parse("content://" + cfS + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri cBg = Uri.parse("content://" + cfS + "/swan_plugin");
+    public static final Uri cBh = Uri.parse("content://" + cfS + "/swan_mini_pkg");
+    private static UriMatcher cBi = new UriMatcher(-1);
 
     static {
-        cAX.addURI(cfH, "framework", 2);
-        cAX.addURI(cfH, "pkg_main", 0);
-        cAX.addURI(cfH, "pkg_sub", 1);
-        cAX.addURI(cfH, ETAG.KEY_EXTENSION, 3);
-        cAX.addURI(cfH, "swan_app", 4);
-        cAX.addURI(cfH, "swan_plugin", 5);
-        cAX.addURI(cfH, "swan_mini_pkg", 6);
+        cBi.addURI(cfS, "framework", 2);
+        cBi.addURI(cfS, "pkg_main", 0);
+        cBi.addURI(cfS, "pkg_sub", 1);
+        cBi.addURI(cfS, ETAG.KEY_EXTENSION, 3);
+        cBi.addURI(cfS, "swan_app", 4);
+        cBi.addURI(cfS, "swan_plugin", 5);
+        cBi.addURI(cfS, "swan_mini_pkg", 6);
     }
 
     public b(Context context) {
@@ -44,7 +44,7 @@ public class b {
     }
 
     private String m(Uri uri) {
-        switch (cAX.match(uri)) {
+        switch (cBi.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -77,7 +77,7 @@ public class b {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return QY().getReadableDatabase().query(m, strArr, str, strArr2, null, null, str2, null);
+                return Rb().getReadableDatabase().query(m, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -96,7 +96,7 @@ public class b {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = QY().getWritableDatabase().insertWithOnConflict(m, null, contentValues, 5);
+                long insertWithOnConflict = Rb().getWritableDatabase().insertWithOnConflict(m, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -119,7 +119,7 @@ public class b {
                 Log.e("PMSDBProvider", "delete");
             }
             try {
-                int delete = QY().getWritableDatabase().delete(m, str, strArr);
+                int delete = Rb().getWritableDatabase().delete(m, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -141,7 +141,7 @@ public class b {
                 Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
             }
             try {
-                int update = QY().getWritableDatabase().update(m, contentValues, str, strArr);
+                int update = Rb().getWritableDatabase().update(m, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -157,7 +157,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper QY() {
-        return a.atC();
+    public SQLiteOpenHelper Rb() {
+        return a.atF();
     }
 }

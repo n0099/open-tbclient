@@ -39,7 +39,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (f.n(data)) {
-                    f.axP().d(data, new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+                    f.axS().d(data, new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
                         @Override // com.baidu.tbadk.BdToken.f.a
                         public void n(HashMap<String, Object> hashMap) {
                             if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {

@@ -12,13 +12,13 @@ public class b {
     private static String mTitle = "background";
     private static String mType = "page";
     private static String mUrl = "runtime/index.js";
-    private static String bkX = "ws://localhost:4000";
+    private static String blk = "ws://localhost:4000";
     private String mId = String.valueOf(System.currentTimeMillis());
-    private String bkY = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
+    private String bll = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
     private boolean mAttached = false;
-    private boolean bkZ = true;
-    private int bla = 0;
-    private int blb = 0;
+    private boolean blm = true;
+    private int bln = 0;
+    private int blo = 0;
     private boolean mVisible = true;
 
     public String toString() {
@@ -29,15 +29,15 @@ public class b {
             jSONObject.putOpt("title", mTitle);
             jSONObject.putOpt("type", mType);
             jSONObject.putOpt("url", mUrl);
-            jSONObject.putOpt("webSocketDebuggerUrl", bkX);
+            jSONObject.putOpt("webSocketDebuggerUrl", blk);
             jSONObject.putOpt("id", this.mId);
-            jSONObject.putOpt("devtoolsFrontendUrl", this.bkY);
+            jSONObject.putOpt("devtoolsFrontendUrl", this.bll);
             jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.gy(0));
             jSONObject.putOpt("appVersion", ai.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
-            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.bkZ));
-            jSONObject2.putOpt("screenX", Integer.valueOf(this.bla));
-            jSONObject2.putOpt("screenY", Integer.valueOf(this.blb));
+            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.blm));
+            jSONObject2.putOpt("screenX", Integer.valueOf(this.bln));
+            jSONObject2.putOpt("screenY", Integer.valueOf(this.blo));
             jSONObject2.putOpt("visible", Boolean.valueOf(this.mVisible));
             jSONObject.putOpt("description", jSONObject2.toString());
             jSONArray.put(jSONObject);

@@ -15,14 +15,14 @@ public class b extends com.baidu.swan.config.core.b.a {
     private void bk(JSONObject jSONObject) {
         JSONObject bi = bi(jSONObject);
         if (bi != null) {
-            e.aiY().al(bi);
+            e.ajb().al(bi);
         }
     }
 
     private void bl(JSONObject jSONObject) {
         JSONObject bi = bi(jSONObject);
         if (bi != null) {
-            e.aiY().am(bi);
+            e.ajb().am(bi);
         }
     }
 }

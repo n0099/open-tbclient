@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a aPL = null;
-    private static com.baidu.poly.c.a.a aPM = null;
-    private static int aPN = 1;
+    private static com.baidu.poly.a aPZ = null;
+    private static com.baidu.poly.c.a.a aQa = null;
+    private static int aQb = 1;
 
     public boolean a(Activity activity, String str, com.baidu.j.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Et().e(activity, str, aVar);
+        b.EA().e(activity, str, aVar);
         return true;
     }
 
@@ -26,7 +26,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Et().f(activity, str, aVar);
+        b.EA().f(activity, str, aVar);
         return true;
     }
 
@@ -106,13 +106,13 @@ public class a {
     }
 
     private static com.baidu.poly.a B(Activity activity) {
-        if (aPL != null) {
-            return aPL;
+        if (aPZ != null) {
+            return aPZ;
         }
-        aPL = new a.C0153a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.j.a.2
+        aPZ = new a.C0153a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.j.a.2
             @Override // com.baidu.poly.c.a.c
             public void a(Activity activity2, com.baidu.poly.c.a.b bVar, final com.baidu.poly.c.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.aSf == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.aSs == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -146,7 +146,7 @@ public class a {
                 }
                 switch (c) {
                     case 0:
-                        c.Eu().d(activity2, bVar.aSf.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.1
+                        c.EB().d(activity2, bVar.aSs.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.1
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -154,7 +154,7 @@ public class a {
                         });
                         break;
                     case 1:
-                        c.Eu().a(activity2, bVar.aSf, new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.2
+                        c.EB().a(activity2, bVar.aSs, new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.2
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -162,7 +162,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.Eu().c(activity2, bVar.aSf.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.3
+                        c.EB().c(activity2, bVar.aSs.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.3
                             @Override // com.baidu.j.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -170,9 +170,9 @@ public class a {
                         });
                         break;
                     case 3:
-                        com.baidu.poly.c.a.a unused = a.aPM = aVar;
-                        d.Ev();
-                        c.Eu().f(activity2, bVar.aSf);
+                        com.baidu.poly.c.a.a unused = a.aQa = aVar;
+                        d.EC();
+                        c.EB().f(activity2, bVar.aSs);
                         break;
                     default:
                         aVar.onResult(3, "未知的支付方式");
@@ -180,14 +180,14 @@ public class a {
                 }
                 activity2.finish();
             }
-        }).dt(aPN).aV(activity.getApplicationContext()).bN(false).Ey();
-        return aPL;
+        }).dt(aQb).aU(activity.getApplicationContext()).bO(false).EF();
+        return aPZ;
     }
 
     public static void s(int i, String str) {
-        if (aPM != null) {
-            aPM.onResult(i, str);
-            aPM = null;
+        if (aQa != null) {
+            aQa.onResult(i, str);
+            aQa = null;
         }
     }
 
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    public static boolean Es() {
+    public static boolean Ez() {
         return false;
     }
 }

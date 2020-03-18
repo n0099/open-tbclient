@@ -16,7 +16,7 @@ import okhttp3.Request;
 public class a implements IHttpContext {
     public static boolean DEBUG;
     private static final String TAG;
-    private static int jXH;
+    private static int jZj;
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.searchbox.http.IHttpContext
@@ -29,7 +29,7 @@ public class a implements IHttpContext {
         DEBUG = isDebug;
         DEBUG = isDebug;
         TAG = a.class.getSimpleName();
-        jXH = 0;
+        jZj = 0;
     }
 
     @Override // com.baidu.searchbox.http.IHttpContext

@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int ns;
-    private a nt;
+    private int nr;
+    private a ns;
 
     public a eN() throws IOException {
         a aVar = new a();
-        aVar.nv = U("/proc/uid_stat/" + this.ns + "/tcp_rcv");
-        aVar.nw = U("/proc/uid_stat/" + this.ns + "/tcp_snd");
-        aVar.nu = d.c(aVar.nv + aVar.nw);
+        aVar.nu = U("/proc/uid_stat/" + this.nr + "/tcp_rcv");
+        aVar.nv = U("/proc/uid_stat/" + this.nr + "/tcp_snd");
+        aVar.nt = d.c(aVar.nu + aVar.nv);
         return aVar;
     }
 
     public a eO() throws IOException {
         a eN = eN();
-        this.nt.nv = d.c(eN.nv - d.eM().nv);
-        this.nt.nw = d.c(eN.nw - d.eM().nw);
-        this.nt.nu = d.c(eN.nu - d.eM().nu);
-        return this.nt;
+        this.ns.nu = d.c(eN.nu - d.eM().nu);
+        this.ns.nv = d.c(eN.nv - d.eM().nv);
+        this.ns.nt = d.c(eN.nt - d.eM().nt);
+        return this.ns;
     }
 
     public double U(String str) {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
+        double nt = 0.0d;
         double nu = 0.0d;
         double nv = 0.0d;
-        double nw = 0.0d;
 
         public a() {
         }

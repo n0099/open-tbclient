@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public class FrsAllThreadFragment extends BaseFragment implements ah {
-    private BdSwipeRefreshLayout enH;
+public class FrsAllThreadFragment extends BaseFragment implements ai {
+    private BdSwipeRefreshLayout enY;
     private String forumId;
-    private View gnO;
-    private RecyclerView gnP;
+    private View goy;
+    private RecyclerView goz;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,36 +28,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ah {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        bDx();
-        return this.gnO;
+        bDF();
+        return this.goy;
     }
 
     public void setView(View view) {
-        this.gnO = view;
-        this.gnP = (RecyclerView) this.gnO.findViewById(R.id.frs_lv_thread);
-        this.enH = (BdSwipeRefreshLayout) this.gnO.findViewById(R.id.frs_pull_refresh_layout);
-        bDx();
+        this.goy = view;
+        this.goz = (RecyclerView) this.goy.findViewById(R.id.frs_lv_thread);
+        this.enY = (BdSwipeRefreshLayout) this.goy.findViewById(R.id.frs_pull_refresh_layout);
+        bDF();
     }
 
-    private void bDx() {
-        if (this.gnO != null && (this.gnO.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gnO.getParent()).removeView(this.gnO);
-            this.gnO.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bDF() {
+        if (this.goy != null && (this.goy.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.goy.getParent()).removeView(this.goy);
+            this.goy.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
-    @Override // com.baidu.tieba.frs.ah
+    @Override // com.baidu.tieba.frs.ai
     public void scrollToTop() {
-        if (this.gnP != null) {
-            this.gnP.scrollToPosition(0);
+        if (this.goz != null) {
+            this.goz.scrollToPosition(0);
         }
     }
 
-    @Override // com.baidu.tieba.frs.ah
-    public void bdr() {
-        if (this.enH != null) {
+    @Override // com.baidu.tieba.frs.ai
+    public void bdw() {
+        if (this.enY != null) {
             scrollToTop();
-            this.enH.setRefreshing(true);
+            this.enY.setRefreshing(true);
         }
     }
 
@@ -71,7 +71,7 @@ public class FrsAllThreadFragment extends BaseFragment implements ah {
     }
 
     private void aE(int i, String str) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13008").cy("fid", this.forumId).cy("obj_type", str).X("obj_locate", i).cy("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13008").cx("fid", this.forumId).cx("obj_type", str).X("obj_locate", i).cx("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

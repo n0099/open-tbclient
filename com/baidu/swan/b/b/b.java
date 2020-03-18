@@ -9,27 +9,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements ak {
-    private HashMap<String, Boolean> cjA = new HashMap<>();
-    private a cjB = new a();
+    private HashMap<String, Boolean> cjL = new HashMap<>();
+    private a cjM = new a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     @Nullable
     public com.baidu.swan.apps.api.b.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
-        if (alg()) {
+        if (alj()) {
             bVar.K(null);
             return null;
         }
-        return this.cjB.b(jSONObject, a(bVar));
+        return this.cjM.b(jSONObject, a(bVar));
     }
 
-    public boolean oj(String str) {
-        return TextUtils.equals(this.cjB.name, str);
+    public boolean oi(String str) {
+        return TextUtils.equals(this.cjM.name, str);
     }
 
-    public boolean alg() {
+    public boolean alj() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.cjA.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.cjL.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
@@ -39,30 +39,30 @@ public class b implements ak {
         return new com.baidu.swan.apps.p.b() { // from class: com.baidu.swan.b.b.b.1
             @Override // com.baidu.swan.apps.p.b
             public void K(@Nullable JSONObject jSONObject) {
-                b.this.ex(true);
+                b.this.ey(true);
                 bVar.K(jSONObject);
             }
 
             @Override // com.baidu.swan.apps.p.b
             public void onFail(int i, @Nullable String str) {
-                b.this.ex(false);
+                b.this.ey(false);
                 bVar.onFail(i, str);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ex(boolean z) {
+    public void ey(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.cjA.put(appKey, Boolean.valueOf(z));
+            this.cjL.put(appKey, Boolean.valueOf(z));
         }
     }
 
     private String getAppKey() {
-        e acG = e.acG();
-        if (acG != null) {
-            return acG.getAppKey();
+        e acJ = e.acJ();
+        if (acJ != null) {
+            return acJ.getAppKey();
         }
         return null;
     }

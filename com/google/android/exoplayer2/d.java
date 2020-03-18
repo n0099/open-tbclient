@@ -3,7 +3,7 @@ package com.google.android.exoplayer2;
 public class d implements c {
     @Override // com.google.android.exoplayer2.c
     public boolean a(r rVar, boolean z) {
-        rVar.vy(z);
+        rVar.vF(z);
         return true;
     }
 
@@ -21,7 +21,7 @@ public class d implements c {
 
     @Override // com.google.android.exoplayer2.c
     public boolean b(r rVar, boolean z) {
-        rVar.vz(z);
+        rVar.vG(z);
         return true;
     }
 }

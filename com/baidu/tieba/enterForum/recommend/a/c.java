@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private z fWU;
+    private z fXC;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, z zVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.fXl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.fXT);
         this.mPageContext = tbPageContext;
-        this.fWU = zVar;
+        this.fXC = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: av */
+    /* renamed from: aw */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> b(ViewGroup viewGroup) {
         com.baidu.tieba.enterForum.recommend.view.c cVar = new com.baidu.tieba.enterForum.recommend.view.c(this.mPageContext);
         cVar.setTag(this.mPageId);
@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.bvL() == null) {
+        if (dVar == null || aVar == null || aVar.bvQ() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.bvL().kM(dVar.needTopMargin);
+            aVar.bvQ().kR(dVar.needTopMargin);
         }
-        aVar.bvL().a(dVar);
-        if (this.fWU != null) {
-            aVar.bvL().c(this.fWU);
+        aVar.bvQ().a(dVar);
+        if (this.fXC != null) {
+            aVar.bvQ().c(this.fXC);
         }
         return aVar.getView();
     }

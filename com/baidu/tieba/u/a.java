@@ -3,11 +3,11 @@ package com.baidu.tieba.u;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    public final JSONObject jLL;
+    public final JSONObject jNn;
     public final String uuid;
 
     public a(String str, JSONObject jSONObject) {
         this.uuid = str;
-        this.jLL = jSONObject;
+        this.jNn = jSONObject;
     }
 }

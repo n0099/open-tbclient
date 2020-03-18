@@ -56,10 +56,10 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
         a(1, new a.b() { // from class: com.baidu.card.r.1
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
-                if (r.this.Kc != null && r.this.Kc.aAg() != null) {
-                    com.baidu.tieba.card.l.zT(r.this.Kc.aAg().getId());
-                    com.baidu.tieba.card.l.a(r.this.KP.mTitle, r.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(r.this.KP.KA, r.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                if (r.this.Kc != null && r.this.Kc.aAj() != null) {
+                    com.baidu.tieba.card.l.zU(r.this.Kc.aAj().getId());
+                    com.baidu.tieba.card.l.a(r.this.KP.mTitle, r.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(r.this.KP.KA, r.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -68,5 +68,9 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
 
     public void setFromCDN(boolean z) {
         this.KP.setFromCDN(z);
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.KP.setNeedFrsTabName(z);
     }
 }

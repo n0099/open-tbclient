@@ -52,9 +52,9 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
         int a7;
         int a8;
         if (getClass().equals(iiVar.getClass())) {
-            int compareTo = Boolean.valueOf(m434a()).compareTo(Boolean.valueOf(iiVar.m434a()));
+            int compareTo = Boolean.valueOf(m432a()).compareTo(Boolean.valueOf(iiVar.m432a()));
             if (compareTo == 0) {
-                if (!m434a() || (a8 = is.a(this.f693a, iiVar.f693a)) == 0) {
+                if (!m432a() || (a8 = is.a(this.f693a, iiVar.f693a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(iiVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a7 = is.a(this.f692a, iiVar.f692a)) == 0) {
@@ -117,10 +117,10 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 if (!e()) {
                     throw new jd("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
@@ -128,18 +128,18 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f693a = jcVar.m473a();
+                        this.f693a = jcVar.m471a();
                         break;
                     }
                 case 2:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f692a = new hv();
@@ -147,48 +147,48 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 3:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f695b = jcVar.m473a();
+                        this.f695b = jcVar.m471a();
                         break;
                     }
                 case 4:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f696c = jcVar.m473a();
+                        this.f696c = jcVar.m471a();
                         break;
                     }
                 case 5:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 6:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f691a = jcVar.m467a();
+                        this.f691a = jcVar.m465a();
                         a(true);
                         break;
                     }
                 case 7:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f697d = jcVar.m473a();
+                        this.f697d = jcVar.m471a();
                         break;
                     }
                 case 8:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f698e = jcVar.m473a();
+                        this.f698e = jcVar.m471a();
                         break;
                     }
             }
@@ -201,23 +201,23 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m434a() {
+    public boolean m432a() {
         return this.f693a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m435a(ii iiVar) {
+    public boolean m433a(ii iiVar) {
         if (iiVar == null) {
             return false;
         }
-        boolean m434a = m434a();
-        boolean m434a2 = iiVar.m434a();
-        if ((m434a || m434a2) && !(m434a && m434a2 && this.f693a.equals(iiVar.f693a))) {
+        boolean m432a = m432a();
+        boolean m432a2 = iiVar.m432a();
+        if ((m432a || m432a2) && !(m432a && m432a2 && this.f693a.equals(iiVar.f693a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = iiVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f692a.m378a(iiVar.f692a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f692a.m376a(iiVar.f692a))) {
             return false;
         }
         boolean c2 = c();
@@ -244,7 +244,7 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
     public void b(jc jcVar) {
         a();
         jcVar.a(f690a);
-        if (this.f693a != null && m434a()) {
+        if (this.f693a != null && m432a()) {
             jcVar.a(a);
             jcVar.a(this.f693a);
             jcVar.b();
@@ -278,7 +278,7 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public boolean b() {
@@ -299,7 +299,7 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ii)) {
-            return m435a((ii) obj);
+            return m433a((ii) obj);
         }
         return false;
     }
@@ -320,7 +320,7 @@ public class ii implements ir<ii, Object>, Serializable, Cloneable {
         boolean z = false;
         StringBuilder sb = new StringBuilder("XmPushActionSendFeedbackResult(");
         boolean z2 = true;
-        if (m434a()) {
+        if (m432a()) {
             sb.append("debug:");
             if (this.f693a == null) {
                 sb.append("null");

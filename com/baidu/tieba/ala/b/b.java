@@ -26,180 +26,180 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
     private Activity activity;
-    private int aep;
-    private int aeq;
-    private int aes;
-    private int cdw;
-    private LinearLayout eyA;
-    private LinearLayout eyB;
-    private TextView eyC;
-    private TextView eyD;
-    private ImageView eyE;
-    private ImageView eyF;
-    private TextView eyG;
-    private TextView eyH;
-    private TextView eyI;
-    private TextView eyJ;
-    private RelativeLayout eyK;
-    private RelativeLayout eyL;
-    private LinearLayout eyM;
-    private LinearLayout eyN;
-    private ScrollView eyO;
+    private int aeA;
+    private int aeC;
+    private int aez;
+    private int cdH;
+    private View eyO;
     private View eyP;
-    private long eyR;
-    private int eyS;
-    private int eyT;
-    private List<bc.a> eyU;
-    private String eyX;
-    private String eyY;
-    private View eys;
-    private View eyt;
-    private TextView eyu;
-    private EditText eyv;
-    private EditText eyw;
-    private TextView eyx;
-    private TextView eyy;
-    private LinearLayout eyz;
-    private boolean ezb;
-    private boolean ezc;
-    private int ezd;
-    private int eze;
-    private a ezf;
-    private int ezg;
-    private int ezh;
-    private float ezi;
-    private boolean ezj;
+    private TextView eyQ;
+    private EditText eyR;
+    private EditText eyS;
+    private TextView eyT;
+    private TextView eyU;
+    private LinearLayout eyV;
+    private LinearLayout eyW;
+    private LinearLayout eyX;
+    private TextView eyY;
+    private TextView eyZ;
+    private int ezA;
+    private a ezB;
+    private int ezC;
+    private int ezD;
+    private float ezE;
+    private boolean ezF;
+    private ImageView eza;
+    private ImageView ezb;
+    private TextView ezc;
+    private TextView ezd;
+    private TextView eze;
+    private TextView ezf;
+    private RelativeLayout ezg;
+    private RelativeLayout ezh;
+    private LinearLayout ezi;
+    private LinearLayout ezj;
+    private ScrollView ezk;
+    private View ezl;
+    private long ezn;
+    private int ezo;
+    private int ezp;
+    private List<bc.a> ezq;
+    private String ezt;
+    private String ezu;
+    private boolean ezx;
+    private boolean ezy;
+    private int ezz;
     private int screenWidth;
-    private int eyQ = 2000;
-    private long eyV = 2000;
-    private long eyW = 10;
-    private boolean eyZ = true;
-    private boolean eza = true;
+    private int ezm = 2000;
+    private long ezr = 2000;
+    private long ezs = 10;
+    private boolean ezv = true;
+    private boolean ezw = true;
 
     public b(final Activity activity, a aVar) {
         this.activity = activity;
-        this.ezf = aVar;
+        this.ezB = aVar;
         initView();
-        beg();
-        beh();
-        this.eyK.setVisibility(4);
-        this.eyK.post(new Runnable() { // from class: com.baidu.tieba.ala.b.b.1
+        bel();
+        bem();
+        this.ezg.setVisibility(4);
+        this.ezg.post(new Runnable() { // from class: com.baidu.tieba.ala.b.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.screenWidth = ScreenHelper.getScreenWidth(activity);
-                b.this.cdw = ScreenHelper.getScreenHeight(activity);
-                if (b.this.screenWidth > b.this.cdw) {
+                b.this.cdH = ScreenHelper.getScreenHeight(activity);
+                if (b.this.screenWidth > b.this.cdH) {
                     int i = b.this.screenWidth;
-                    b.this.screenWidth = b.this.cdw;
-                    b.this.cdw = i;
+                    b.this.screenWidth = b.this.cdH;
+                    b.this.cdH = i;
                 }
-                b.this.ezg = b.this.screenWidth;
-                b.this.eze = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds40);
-                b.this.ezh = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds204);
-                int i2 = b.this.screenWidth - (b.this.eze * 2);
-                b.this.ezi = (i2 * 1.0f) / b.this.eyK.getHeight();
-                if (b.this.cdw > b.this.eyK.getHeight()) {
-                    b.this.ezd = (b.this.cdw - b.this.eyK.getHeight()) / 2;
+                b.this.ezC = b.this.screenWidth;
+                b.this.ezA = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds40);
+                b.this.ezD = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds204);
+                int i2 = b.this.screenWidth - (b.this.ezA * 2);
+                b.this.ezE = (i2 * 1.0f) / b.this.ezg.getHeight();
+                if (b.this.cdH > b.this.ezg.getHeight()) {
+                    b.this.ezz = (b.this.cdH - b.this.ezg.getHeight()) / 2;
                 }
-                b.this.ta();
-                b.this.eyK.setVisibility(0);
+                b.this.tf();
+                b.this.ezg.setVisibility(0);
             }
         });
     }
 
-    private void beg() {
+    private void bel() {
         bc.a aVar;
         bc.a aVar2;
-        if (com.baidu.live.v.a.zl() != null && com.baidu.live.v.a.zl().axD != null && com.baidu.live.v.a.zl().axD.acS != null && com.baidu.live.v.a.zl().axD.acS.adR != null) {
-            bc bcVar = com.baidu.live.v.a.zl().axD.acS.adR;
-            this.eyR = bcVar.aen;
-            this.aep = bcVar.aep;
-            this.aeq = bcVar.aeq;
-            this.eyS = bcVar.aer;
-            this.eyT = bcVar.aeo;
-            this.aes = bcVar.aes;
-            this.eyU = bcVar.aet;
+        if (com.baidu.live.v.a.zs() != null && com.baidu.live.v.a.zs().axR != null && com.baidu.live.v.a.zs().axR.adc != null && com.baidu.live.v.a.zs().axR.adc.aeb != null) {
+            bc bcVar = com.baidu.live.v.a.zs().axR.adc.aeb;
+            this.ezn = bcVar.aex;
+            this.aez = bcVar.aez;
+            this.aeA = bcVar.aeA;
+            this.ezo = bcVar.aeB;
+            this.ezp = bcVar.aey;
+            this.aeC = bcVar.aeC;
+            this.ezq = bcVar.aeD;
         }
-        this.eyu.setText(String.format(this.activity.getString(a.i.red_pkt_broad_condition), Integer.valueOf(this.eyS)));
-        this.eyH.setText(String.format(this.activity.getString(a.i.red_send_between), Integer.valueOf(this.aes)));
-        this.eyI.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule1), Integer.valueOf(this.aes)));
-        this.eyJ.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule3), Integer.valueOf(this.eyT)));
-        if (this.eyU != null && !this.eyU.isEmpty()) {
-            if (this.eyU.size() == 1) {
-                aVar = this.eyU.get(0);
+        this.eyQ.setText(String.format(this.activity.getString(a.i.red_pkt_broad_condition), Integer.valueOf(this.ezo)));
+        this.ezd.setText(String.format(this.activity.getString(a.i.red_send_between), Integer.valueOf(this.aeC)));
+        this.eze.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule1), Integer.valueOf(this.aeC)));
+        this.ezf.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule3), Integer.valueOf(this.ezp)));
+        if (this.ezq != null && !this.ezq.isEmpty()) {
+            if (this.ezq.size() == 1) {
+                aVar = this.ezq.get(0);
                 aVar2 = null;
             } else {
-                aVar = this.eyU.get(0);
-                aVar2 = this.eyU.get(1);
+                aVar = this.ezq.get(0);
+                aVar2 = this.ezq.get(1);
             }
             if (aVar == null) {
-                this.eyA.setVisibility(8);
+                this.eyW.setVisibility(8);
             } else {
-                this.eyC.setText(aVar.aeu);
-                this.eyA.setVisibility(0);
-                this.eyX = aVar.aev;
+                this.eyY.setText(aVar.aeE);
+                this.eyW.setVisibility(0);
+                this.ezt = aVar.aeF;
             }
             if (aVar2 == null) {
-                this.eyB.setVisibility(8);
+                this.eyX.setVisibility(8);
             } else {
-                this.eyD.setText(aVar2.aeu);
-                this.eyB.setVisibility(0);
-                this.eyY = aVar2.aev;
+                this.eyZ.setText(aVar2.aeE);
+                this.eyX.setVisibility(0);
+                this.ezu = aVar2.aeF;
             }
-            if (this.eyA.getVisibility() == 0 || this.eyB.getVisibility() == 0) {
-                this.eyz.setVisibility(0);
+            if (this.eyW.getVisibility() == 0 || this.eyX.getVisibility() == 0) {
+                this.eyV.setVisibility(0);
                 return;
             } else {
-                this.eyz.setVisibility(8);
+                this.eyV.setVisibility(8);
                 return;
             }
         }
-        this.eyz.setVisibility(8);
+        this.eyV.setVisibility(8);
     }
 
     private void initView() {
-        this.eys = LayoutInflater.from(this.activity).inflate(a.h.ala_red_pkt_send_layout, (ViewGroup) null);
-        this.eyt = this.eys.findViewById(a.g.iv_send_red_q);
-        this.eyu = (TextView) this.eys.findViewById(a.g.tv_red_broad_hint);
-        this.eyv = (EditText) this.eys.findViewById(a.g.edt_t_num);
-        this.eyw = (EditText) this.eys.findViewById(a.g.edt_pkt_num);
-        this.eyx = (TextView) this.eys.findViewById(a.g.tv_send_t_num_hint);
-        this.eyy = (TextView) this.eys.findViewById(a.g.tv_send_pkt_num_hint);
-        this.eyz = (LinearLayout) this.eys.findViewById(a.g.layout_red_pkt_condition);
-        this.eyA = (LinearLayout) this.eys.findViewById(a.g.layout_condition_first);
-        this.eyB = (LinearLayout) this.eys.findViewById(a.g.layout_condition_second);
-        this.eyK = (RelativeLayout) this.eys.findViewById(a.g.layout_send_red_content);
-        this.eyL = (RelativeLayout) this.eys.findViewById(a.g.layout_send_red);
-        this.eyC = (TextView) this.eys.findViewById(a.g.tv_condition_first);
-        this.eyD = (TextView) this.eys.findViewById(a.g.tv_condition_second);
-        this.eyE = (ImageView) this.eys.findViewById(a.g.iv_condition_first);
-        this.eyF = (ImageView) this.eys.findViewById(a.g.iv_condition_second);
-        this.eyG = (TextView) this.eys.findViewById(a.g.tv_send_pkt_submit);
-        this.eyI = (TextView) this.eys.findViewById(a.g.tv_red_send_rule1);
-        this.eyJ = (TextView) this.eys.findViewById(a.g.tv_red_send_rule3);
-        this.eyH = (TextView) this.eys.findViewById(a.g.tv_send_pkt_time);
-        this.eyM = (LinearLayout) this.eys.findViewById(a.g.layout_red_send_rule);
-        this.eyN = (LinearLayout) this.eys.findViewById(a.g.layout_red_send_rule_content);
-        this.eyO = (ScrollView) this.eys.findViewById(a.g.layout_input_scroll);
-        this.eyP = this.eys.findViewById(a.g.layout_send_red_close);
-        this.eys.setOnClickListener(this);
-        this.eyA.setOnClickListener(this);
-        this.eyB.setOnClickListener(this);
-        this.eyG.setOnClickListener(this);
-        this.eyt.setOnClickListener(this);
-        this.eyM.setOnClickListener(this);
-        this.eyN.setOnClickListener(this);
-        this.eyL.setOnClickListener(this);
+        this.eyO = LayoutInflater.from(this.activity).inflate(a.h.ala_red_pkt_send_layout, (ViewGroup) null);
+        this.eyP = this.eyO.findViewById(a.g.iv_send_red_q);
+        this.eyQ = (TextView) this.eyO.findViewById(a.g.tv_red_broad_hint);
+        this.eyR = (EditText) this.eyO.findViewById(a.g.edt_t_num);
+        this.eyS = (EditText) this.eyO.findViewById(a.g.edt_pkt_num);
+        this.eyT = (TextView) this.eyO.findViewById(a.g.tv_send_t_num_hint);
+        this.eyU = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_num_hint);
+        this.eyV = (LinearLayout) this.eyO.findViewById(a.g.layout_red_pkt_condition);
+        this.eyW = (LinearLayout) this.eyO.findViewById(a.g.layout_condition_first);
+        this.eyX = (LinearLayout) this.eyO.findViewById(a.g.layout_condition_second);
+        this.ezg = (RelativeLayout) this.eyO.findViewById(a.g.layout_send_red_content);
+        this.ezh = (RelativeLayout) this.eyO.findViewById(a.g.layout_send_red);
+        this.eyY = (TextView) this.eyO.findViewById(a.g.tv_condition_first);
+        this.eyZ = (TextView) this.eyO.findViewById(a.g.tv_condition_second);
+        this.eza = (ImageView) this.eyO.findViewById(a.g.iv_condition_first);
+        this.ezb = (ImageView) this.eyO.findViewById(a.g.iv_condition_second);
+        this.ezc = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_submit);
+        this.eze = (TextView) this.eyO.findViewById(a.g.tv_red_send_rule1);
+        this.ezf = (TextView) this.eyO.findViewById(a.g.tv_red_send_rule3);
+        this.ezd = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_time);
+        this.ezi = (LinearLayout) this.eyO.findViewById(a.g.layout_red_send_rule);
+        this.ezj = (LinearLayout) this.eyO.findViewById(a.g.layout_red_send_rule_content);
+        this.ezk = (ScrollView) this.eyO.findViewById(a.g.layout_input_scroll);
+        this.ezl = this.eyO.findViewById(a.g.layout_send_red_close);
+        this.eyO.setOnClickListener(this);
+        this.eyW.setOnClickListener(this);
+        this.eyX.setOnClickListener(this);
+        this.ezc.setOnClickListener(this);
         this.eyP.setOnClickListener(this);
-        ((ImageView) this.eys.findViewById(a.g.img_red_send_top)).setOnClickListener(this);
-        this.eyv.setText(String.valueOf(this.eyV));
-        this.eyw.setText(String.valueOf(this.eyW));
-        this.eyv.setSelection(this.eyv.getText().toString().length());
-        this.eyw.setSelection(this.eyw.getText().toString().length());
+        this.ezi.setOnClickListener(this);
+        this.ezj.setOnClickListener(this);
+        this.ezh.setOnClickListener(this);
+        this.ezl.setOnClickListener(this);
+        ((ImageView) this.eyO.findViewById(a.g.img_red_send_top)).setOnClickListener(this);
+        this.eyR.setText(String.valueOf(this.ezr));
+        this.eyS.setText(String.valueOf(this.ezs));
+        this.eyR.setSelection(this.eyR.getText().toString().length());
+        this.eyS.setSelection(this.eyS.getText().toString().length());
     }
 
-    private void beh() {
-        this.eyv.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.2
+    private void bem() {
+        this.eyR.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -210,12 +210,12 @@ public class b implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (!b.this.bei()) {
-                    b.this.in(true);
+                if (!b.this.ben()) {
+                    b.this.ip(true);
                 }
             }
         });
-        this.eyw.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.3
+        this.eyS.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -227,79 +227,79 @@ public class b implements View.OnClickListener {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 boolean z = true;
-                String obj = b.this.eyw.getText().toString();
+                String obj = b.this.eyS.getText().toString();
                 if (TextUtils.isEmpty(obj)) {
-                    b.this.eyw.setText("0");
+                    b.this.eyS.setText("0");
                     return;
                 }
                 if ("0".equals(obj)) {
-                    b.this.eyy.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aep), Integer.valueOf(b.this.aeq)));
-                    b.this.eyy.setVisibility(0);
-                    b.this.eyW = 0L;
-                    b.this.eza = false;
+                    b.this.eyU.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aez), Integer.valueOf(b.this.aeA)));
+                    b.this.eyU.setVisibility(0);
+                    b.this.ezs = 0L;
+                    b.this.ezw = false;
                 } else {
                     long parseLong = Long.parseLong(obj);
                     if (obj.startsWith("0")) {
-                        b.this.eyw.setText(String.valueOf(parseLong));
+                        b.this.eyS.setText(String.valueOf(parseLong));
                         return;
                     }
-                    b.this.eyW = parseLong;
-                    if (parseLong >= b.this.aep && parseLong <= b.this.aeq) {
-                        b.this.eyy.setVisibility(8);
-                        b.this.eza = true;
+                    b.this.ezs = parseLong;
+                    if (parseLong >= b.this.aez && parseLong <= b.this.aeA) {
+                        b.this.eyU.setVisibility(8);
+                        b.this.ezw = true;
                     } else {
-                        b.this.eyy.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aep), Integer.valueOf(b.this.aeq)));
-                        b.this.eyy.setVisibility(0);
-                        b.this.eza = false;
+                        b.this.eyU.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aez), Integer.valueOf(b.this.aeA)));
+                        b.this.eyU.setVisibility(0);
+                        b.this.ezw = false;
                     }
                 }
-                b.this.eyw.setSelection(b.this.eyw.getText().toString().length());
-                TextView textView = b.this.eyG;
-                if (!b.this.eyZ || !b.this.eza) {
+                b.this.eyS.setSelection(b.this.eyS.getText().toString().length());
+                TextView textView = b.this.ezc;
+                if (!b.this.ezv || !b.this.ezw) {
                     z = false;
                 }
                 textView.setEnabled(z);
-                b.this.bei();
-                b.this.in(false);
+                b.this.ben();
+                b.this.ip(false);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bei() {
+    public boolean ben() {
         boolean z = true;
-        String obj = this.eyv.getText().toString();
+        String obj = this.eyR.getText().toString();
         if (TextUtils.isEmpty(obj)) {
-            this.eyv.setText("0");
+            this.eyR.setText("0");
             return true;
         }
         if ("0".equals(obj)) {
-            this.eyx.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.eyQ), Long.valueOf(this.eyR)));
-            this.eyx.setVisibility(0);
-            this.eyV = 0L;
-            this.eyZ = false;
+            this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.ezm), Long.valueOf(this.ezn)));
+            this.eyT.setVisibility(0);
+            this.ezr = 0L;
+            this.ezv = false;
         } else {
             long parseLong = Long.parseLong(obj);
             if (obj.startsWith("0")) {
-                this.eyv.setText(String.valueOf(parseLong));
+                this.eyR.setText(String.valueOf(parseLong));
                 return true;
             }
-            this.eyV = parseLong;
-            if (parseLong < this.eyQ || parseLong > this.eyR) {
+            this.ezr = parseLong;
+            if (parseLong < this.ezm || parseLong > this.ezn) {
                 if (parseLong == 0) {
-                    this.eyv.setText("0");
+                    this.eyR.setText("0");
                 }
-                this.eyx.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.eyQ), Long.valueOf(this.eyR)));
-                this.eyx.setVisibility(0);
-                this.eyZ = false;
+                this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.ezm), Long.valueOf(this.ezn)));
+                this.eyT.setVisibility(0);
+                this.ezv = false;
             } else {
-                this.eyx.setVisibility(8);
-                this.eyZ = true;
+                this.eyT.setVisibility(8);
+                this.ezv = true;
             }
         }
-        this.eyv.setSelection(this.eyv.getText().toString().length());
-        TextView textView = this.eyG;
-        if (!this.eyZ || !this.eza) {
+        this.eyR.setSelection(this.eyR.getText().toString().length());
+        TextView textView = this.ezc;
+        if (!this.ezv || !this.ezw) {
             z = false;
         }
         textView.setEnabled(z);
@@ -307,13 +307,13 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void in(boolean z) {
-        if (this.eza && this.eyZ && this.eyW != 0 && this.eyV / this.eyW < this.eyT) {
-            this.eyx.setVisibility(0);
+    public void ip(boolean z) {
+        if (this.ezw && this.ezv && this.ezs != 0 && this.ezr / this.ezs < this.ezp) {
+            this.eyT.setVisibility(0);
             if (z) {
-                this.eyx.setText(String.format(this.activity.getString(a.i.red_t_num_limit_by_pkt_num), Long.valueOf(this.eyW * 100)));
+                this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_limit_by_pkt_num), Long.valueOf(this.ezs * 100)));
             } else {
-                this.eyx.setText(String.format(this.activity.getString(a.i.red_pkt_num_limit_by_t_num), Long.valueOf(this.eyV / 100)));
+                this.eyT.setText(String.format(this.activity.getString(a.i.red_pkt_num_limit_by_t_num), Long.valueOf(this.ezr / 100)));
             }
         }
     }
@@ -322,124 +322,124 @@ public class b implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         InputMethodManager inputMethodManager;
-        if (this.eyM.getVisibility() == 0) {
-            this.eyM.setVisibility(8);
+        if (this.ezi.getVisibility() == 0) {
+            this.ezi.setVisibility(8);
             return;
         }
-        if (view == this.eyP && !this.ezj) {
+        if (view == this.ezl && !this.ezF) {
             this.activity.finish();
-        } else if (view == this.eys && !this.ezj) {
+        } else if (view == this.eyO && !this.ezF) {
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 this.activity.finish();
             }
-        } else if (view == this.eyt) {
-            this.eyM.setVisibility(0);
-        } else if (view == this.eyA) {
-            this.ezb = this.ezb ? false : true;
-            if (this.ezb) {
-                this.eyE.setImageResource(a.f.live_red_condition_choose);
+        } else if (view == this.eyP) {
+            this.ezi.setVisibility(0);
+        } else if (view == this.eyW) {
+            this.ezx = this.ezx ? false : true;
+            if (this.ezx) {
+                this.eza.setImageResource(a.f.live_red_condition_choose);
             } else {
-                this.eyE.setImageResource(a.f.live_red_condition_choose_false);
+                this.eza.setImageResource(a.f.live_red_condition_choose_false);
             }
-        } else if (view == this.eyB) {
-            this.ezc = this.ezc ? false : true;
-            if (this.ezc) {
-                this.eyF.setImageResource(a.f.live_red_condition_choose);
+        } else if (view == this.eyX) {
+            this.ezy = this.ezy ? false : true;
+            if (this.ezy) {
+                this.ezb.setImageResource(a.f.live_red_condition_choose);
             } else {
-                this.eyF.setImageResource(a.f.live_red_condition_choose_false);
+                this.ezb.setImageResource(a.f.live_red_condition_choose_false);
             }
-        } else if (view == this.eyG) {
-            if (this.ezb && this.ezc) {
-                str = this.eyX + Constants.ACCEPT_TIME_SEPARATOR_SP + this.eyY;
-            } else if (this.ezb) {
-                str = this.eyX;
-            } else if (this.ezc) {
-                str = this.eyY;
+        } else if (view == this.ezc) {
+            if (this.ezx && this.ezy) {
+                str = this.ezt + Constants.ACCEPT_TIME_SEPARATOR_SP + this.ezu;
+            } else if (this.ezx) {
+                str = this.ezt;
+            } else if (this.ezy) {
+                str = this.ezu;
             } else {
                 str = "";
             }
             o oVar = new o();
-            oVar.cK(this.eyV);
-            oVar.cL(this.eyW);
+            oVar.cK(this.ezr);
+            oVar.cL(this.ezs);
             oVar.yh(str);
-            if (this.ezf != null) {
-                this.ezf.a(oVar);
+            if (this.ezB != null) {
+                this.ezB.a(oVar);
             }
         }
-        if (this.ezj && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
+        if (this.ezF && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
             inputMethodManager.hideSoftInputFromWindow(this.activity.getCurrentFocus().getWindowToken(), 2);
         }
     }
 
-    public void io(boolean z) {
-        if (this.eyG != null) {
-            this.eyG.setEnabled(z);
+    public void iq(boolean z) {
+        if (this.ezc != null) {
+            this.ezc.setEnabled(z);
         }
     }
 
     public View getView() {
-        return this.eys;
+        return this.eyO;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.ezj = z;
+        this.ezF = z;
         if (!z) {
-            if (this.eyw != null) {
-                this.eyw.clearFocus();
+            if (this.eyS != null) {
+                this.eyS.clearFocus();
             }
-            if (this.eyv != null) {
-                this.eyv.clearFocus();
+            if (this.eyR != null) {
+                this.eyR.clearFocus();
             }
         }
-        if (this.eyK != null && this.eyK.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eyK.getLayoutParams();
+        if (this.ezg != null && this.ezg.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezg.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 1) {
                 if (z) {
                     layoutParams.topMargin = 0;
                 } else {
-                    layoutParams.topMargin = this.ezd;
+                    layoutParams.topMargin = this.ezz;
                 }
             } else {
-                layoutParams.topMargin = this.eze;
+                layoutParams.topMargin = this.ezA;
             }
-            this.eyK.setLayoutParams(layoutParams);
+            this.ezg.setLayoutParams(layoutParams);
         }
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.eyP.setVisibility(0);
+            this.ezl.setVisibility(0);
         } else {
-            this.eyP.setVisibility(8);
+            this.ezl.setVisibility(8);
         }
     }
 
-    public void ta() {
+    public void tf() {
         if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-            h.S(this.eys);
+            h.S(this.eyO);
         } else {
-            h.T(this.eys);
+            h.T(this.eyO);
         }
-        if (this.eyO != null && this.eyO.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eyO.getLayoutParams();
+        if (this.ezk != null && this.ezk.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezk.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                layoutParams.height = this.ezh;
+                layoutParams.height = this.ezD;
             } else {
                 layoutParams.height = -2;
             }
-            this.eyO.setLayoutParams(layoutParams);
+            this.ezk.setLayoutParams(layoutParams);
         }
-        if (this.eyK != null && this.eyK.getLayoutParams() != null && this.ezg > 0) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eyK.getLayoutParams();
+        if (this.ezg != null && this.ezg.getLayoutParams() != null && this.ezC > 0) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ezg.getLayoutParams();
             layoutParams2.width = this.screenWidth;
-            this.eyK.setPivotX(this.ezg / 2);
-            this.eyK.setPivotY(0.0f);
+            this.ezg.setPivotX(this.ezC / 2);
+            this.ezg.setPivotY(0.0f);
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.eyK.setScaleX(this.ezi);
-                this.eyK.setScaleY(this.ezi);
+                this.ezg.setScaleX(this.ezE);
+                this.ezg.setScaleY(this.ezE);
             } else {
                 layoutParams2.width = -1;
-                this.eyK.setScaleX(1.0f);
-                this.eyK.setScaleY(1.0f);
+                this.ezg.setScaleX(1.0f);
+                this.ezg.setScaleY(1.0f);
             }
-            onKeyboardVisibilityChanged(this.ezj);
+            onKeyboardVisibilityChanged(this.ezF);
         }
     }
 }

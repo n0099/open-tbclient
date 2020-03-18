@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes.dex */
 public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
@@ -39,5 +40,9 @@ public class EditVideoActivityConfig extends IntentConfig {
 
     public void setProZone(int i) {
         getIntent().putExtra("pro_zone", i);
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 }

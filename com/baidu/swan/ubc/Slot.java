@@ -71,11 +71,11 @@ public class Slot implements Parcelable {
         this.mOption = jSONObject;
     }
 
-    public boolean avQ() {
+    public boolean avT() {
         return this.mStart > 0;
     }
 
-    public boolean avR() {
+    public boolean avU() {
         return this.mEnd > 0;
     }
 
@@ -84,7 +84,7 @@ public class Slot implements Parcelable {
         this.mEnd = 0L;
     }
 
-    public JSONObject avS() {
+    public JSONObject avV() {
         JSONObject jSONObject;
         JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.mDuration <= 0.0f) {

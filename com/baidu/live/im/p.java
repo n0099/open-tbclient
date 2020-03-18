@@ -37,8 +37,8 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.g.a.b.a.c cVar) {
-        int i = cVar.aHW.aIj;
-        String str = cVar.aHW.aIk;
+        int i = cVar.aIk.aIx;
+        String str = cVar.aIk.aIy;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -61,7 +61,7 @@ public class p {
     }
 
     private static final List<a> c(com.baidu.g.a.b.a.c cVar) {
-        String str = cVar.aHX;
+        String str = cVar.aIl;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -84,7 +84,7 @@ public class p {
     }
 
     private static final List<a> d(com.baidu.g.a.b.a.c cVar) {
-        int i = cVar.aHW.feedback;
+        int i = cVar.aIk.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -105,8 +105,8 @@ public class p {
 
     private static final List<a> e(com.baidu.g.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.aHW != null) {
-            String str = cVar.aHW.aIl;
+        if (cVar != null && cVar.aIk != null) {
+            String str = cVar.aIk.aIz;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

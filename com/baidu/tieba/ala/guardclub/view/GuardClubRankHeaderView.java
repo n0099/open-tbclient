@@ -15,17 +15,17 @@ import java.math.BigDecimal;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GuardClubRankHeaderView extends RelativeLayout implements View.OnClickListener {
-    private View eID;
-    private ViewGroup eIE;
-    private GuardClubRankHeaderAvatarItemView eIF;
-    private GuardClubRankHeaderAvatarItemView eIG;
-    private GuardClubRankHeaderAvatarItemView eIH;
-    private ViewGroup eII;
-    private GuardClubRankHeaderMedalItemView eIJ;
-    private GuardClubRankHeaderMedalItemView eIK;
-    private GuardClubRankHeaderMedalItemView eIL;
-    private a eIM;
-    private int eIN;
+    private View eIZ;
+    private ViewGroup eJa;
+    private GuardClubRankHeaderAvatarItemView eJb;
+    private GuardClubRankHeaderAvatarItemView eJc;
+    private GuardClubRankHeaderAvatarItemView eJd;
+    private ViewGroup eJe;
+    private GuardClubRankHeaderMedalItemView eJf;
+    private GuardClubRankHeaderMedalItemView eJg;
+    private GuardClubRankHeaderMedalItemView eJh;
+    private a eJi;
+    private int eJj;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -38,21 +38,21 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
     }
 
     public void setCallback(a aVar) {
-        this.eIM = aVar;
+        this.eJi = aVar;
     }
 
     public void setStyle(int i) {
         int i2 = 0;
-        this.eIN = i;
+        this.eJj = i;
         switch (i) {
             case 0:
                 setGradientColors(new int[]{-5368807, -12646528, -14875807});
-                this.eII.setBackgroundResource(a.f.gcb_rank_header_medal_bg);
+                this.eJe.setBackgroundResource(a.f.gcb_rank_header_medal_bg);
                 while (true) {
                     int i3 = i2;
-                    if (i3 < this.eII.getChildCount()) {
-                        if (this.eII.getChildAt(i3) instanceof GuardClubRankHeaderMedalItemView) {
-                            ((GuardClubRankHeaderMedalItemView) this.eII.getChildAt(i3)).setStyle(17);
+                    if (i3 < this.eJe.getChildCount()) {
+                        if (this.eJe.getChildAt(i3) instanceof GuardClubRankHeaderMedalItemView) {
+                            ((GuardClubRankHeaderMedalItemView) this.eJe.getChildAt(i3)).setStyle(17);
                         }
                         i2 = i3 + 1;
                     } else {
@@ -61,12 +61,12 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 }
             case 1:
                 setGradientColors(new int[]{-6422368, -9957742, -12185707});
-                this.eII.setBackgroundResource(a.f.gcb_rank_header_medal_bg);
+                this.eJe.setBackgroundResource(a.f.gcb_rank_header_medal_bg);
                 while (true) {
                     int i4 = i2;
-                    if (i4 < this.eII.getChildCount()) {
-                        if (this.eII.getChildAt(i4) instanceof GuardClubRankHeaderMedalItemView) {
-                            ((GuardClubRankHeaderMedalItemView) this.eII.getChildAt(i4)).setStyle(18);
+                    if (i4 < this.eJe.getChildCount()) {
+                        if (this.eJe.getChildAt(i4) instanceof GuardClubRankHeaderMedalItemView) {
+                            ((GuardClubRankHeaderMedalItemView) this.eJe.getChildAt(i4)).setStyle(18);
                         }
                         i2 = i4 + 1;
                     } else {
@@ -79,9 +79,9 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
     }
 
     public void setAvatarTopMargin(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eIE.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eJa.getLayoutParams();
         layoutParams.topMargin = i;
-        this.eIE.setLayoutParams(layoutParams);
+        this.eJa.setLayoutParams(layoutParams);
     }
 
     public void setData(List<k> list) {
@@ -90,7 +90,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         String str2;
         String str3;
         if (list != null && !list.isEmpty()) {
-            switch (this.eIN) {
+            switch (this.eJj) {
                 case 0:
                     i = a.i.guard_club_rank_list_contribution_week;
                     break;
@@ -102,11 +102,11 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                     break;
             }
             k kVar = list.get(0);
-            this.eIF.setTag(kVar);
-            this.eIF.setData(kVar.avatar, g.vH().bS(kVar.level), kVar.liveStatus == 1 && !TextUtils.isEmpty(kVar.liveId));
-            switch (this.eIN) {
+            this.eJb.setTag(kVar);
+            this.eJb.setData(kVar.avatar, g.vM().bS(kVar.level), kVar.liveStatus == 1 && !TextUtils.isEmpty(kVar.liveId));
+            switch (this.eJj) {
                 case 0:
-                    str = kVar.eHt;
+                    str = kVar.eHP;
                     break;
                 case 1:
                     str = kVar.score;
@@ -118,14 +118,14 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
             if (str == null) {
                 str = "";
             }
-            this.eIJ.setData(2, kVar.name, String.format(getResources().getString(i), yC(str)));
+            this.eJf.setData(2, kVar.name, String.format(getResources().getString(i), yC(str)));
             if (list.size() > 1) {
                 k kVar2 = list.get(1);
-                this.eIG.setTag(kVar2);
-                this.eIG.setData(kVar2.avatar, g.vH().bS(kVar2.level), kVar2.liveStatus == 1 && !TextUtils.isEmpty(kVar2.liveId));
-                switch (this.eIN) {
+                this.eJc.setTag(kVar2);
+                this.eJc.setData(kVar2.avatar, g.vM().bS(kVar2.level), kVar2.liveStatus == 1 && !TextUtils.isEmpty(kVar2.liveId));
+                switch (this.eJj) {
                     case 0:
-                        str3 = kVar2.eHt;
+                        str3 = kVar2.eHP;
                         break;
                     case 1:
                         str3 = kVar2.score;
@@ -137,17 +137,17 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str3 == null) {
                     str3 = "";
                 }
-                this.eIK.setData(1, kVar2.name, String.format(getResources().getString(i), yC(str3)));
+                this.eJg.setData(1, kVar2.name, String.format(getResources().getString(i), yC(str3)));
             } else {
-                this.eIK.setData(1, "虚位以待", "");
+                this.eJg.setData(1, "虚位以待", "");
             }
             if (list.size() > 2) {
                 k kVar3 = list.get(2);
-                this.eIH.setTag(kVar3);
-                this.eIH.setData(kVar3.avatar, g.vH().bS(kVar3.level), kVar3.liveStatus == 1 && !TextUtils.isEmpty(kVar3.liveId));
-                switch (this.eIN) {
+                this.eJd.setTag(kVar3);
+                this.eJd.setData(kVar3.avatar, g.vM().bS(kVar3.level), kVar3.liveStatus == 1 && !TextUtils.isEmpty(kVar3.liveId));
+                switch (this.eJj) {
                     case 0:
-                        str2 = kVar3.eHt;
+                        str2 = kVar3.eHP;
                         break;
                     case 1:
                         str2 = kVar3.score;
@@ -159,20 +159,20 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str2 == null) {
                     str2 = "";
                 }
-                this.eIL.setData(1, kVar3.name, String.format(getResources().getString(i), yC(str2)));
+                this.eJh.setData(1, kVar3.name, String.format(getResources().getString(i), yC(str2)));
                 return;
             }
-            this.eIL.setData(1, "虚位以待", "");
+            this.eJh.setData(1, "虚位以待", "");
         }
     }
 
-    public void bfU() {
+    public void bfZ() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.eIE.getChildCount()) {
-                if (this.eIE.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.eIE.getChildAt(i2)).bfR();
+            if (i2 < this.eJa.getChildCount()) {
+                if (this.eJa.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
+                    ((GuardClubRankHeaderAvatarItemView) this.eJa.getChildAt(i2)).bfW();
                 }
                 i = i2 + 1;
             } else {
@@ -181,13 +181,13 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    public void bfq() {
+    public void bfv() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.eIE.getChildCount()) {
-                if (this.eIE.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.eIE.getChildAt(i2)).bfS();
+            if (i2 < this.eJa.getChildCount()) {
+                if (this.eJa.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
+                    ((GuardClubRankHeaderAvatarItemView) this.eJa.getChildAt(i2)).bfX();
                 }
                 i = i2 + 1;
             } else {
@@ -200,9 +200,9 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.eIE.getChildCount()) {
-                if (this.eIE.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.eIE.getChildAt(i2)).release();
+            if (i2 < this.eJa.getChildCount()) {
+                if (this.eJa.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
+                    ((GuardClubRankHeaderAvatarItemView) this.eJa.getChildAt(i2)).release();
                 }
                 i = i2 + 1;
             } else {
@@ -213,29 +213,29 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eIM != null && (view.getTag() instanceof k)) {
-            this.eIM.a((k) view.getTag());
+        if (this.eJi != null && (view.getTag() instanceof k)) {
+            this.eJi.a((k) view.getTag());
         }
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_rank_header, (ViewGroup) this, true);
-        this.eID = findViewById(a.g.gradient);
-        this.eIE = (ViewGroup) findViewById(a.g.layout_avatar);
-        this.eIF = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_first);
-        this.eIG = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_second);
-        this.eIH = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_third);
-        this.eII = (ViewGroup) findViewById(a.g.layout_medal);
-        this.eIJ = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_first);
-        this.eIK = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_second);
-        this.eIL = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_third);
-        this.eIF.setOnClickListener(this);
-        this.eIG.setOnClickListener(this);
-        this.eIH.setOnClickListener(this);
-        this.eIJ.setMedalResource(a.f.gcb_rank_header_medal_first);
-        this.eIK.setMedalResource(a.f.gcb_rank_header_medal_second);
-        this.eIL.setMedalResource(a.f.gcb_rank_header_medal_third);
+        this.eIZ = findViewById(a.g.gradient);
+        this.eJa = (ViewGroup) findViewById(a.g.layout_avatar);
+        this.eJb = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_first);
+        this.eJc = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_second);
+        this.eJd = (GuardClubRankHeaderAvatarItemView) findViewById(a.g.avatar_third);
+        this.eJe = (ViewGroup) findViewById(a.g.layout_medal);
+        this.eJf = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_first);
+        this.eJg = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_second);
+        this.eJh = (GuardClubRankHeaderMedalItemView) findViewById(a.g.medal_third);
+        this.eJb.setOnClickListener(this);
+        this.eJc.setOnClickListener(this);
+        this.eJd.setOnClickListener(this);
+        this.eJf.setMedalResource(a.f.gcb_rank_header_medal_first);
+        this.eJg.setMedalResource(a.f.gcb_rank_header_medal_second);
+        this.eJh.setMedalResource(a.f.gcb_rank_header_medal_third);
     }
 
     private void setGradientColors(int[] iArr) {
@@ -244,7 +244,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
             gradientDrawable.setColors(iArr);
             gradientDrawable.setShape(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.TR_BL);
-            this.eID.setBackgroundDrawable(gradientDrawable);
+            this.eIZ.setBackgroundDrawable(gradientDrawable);
         }
     }
 

@@ -10,41 +10,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements a {
-    private boolean bfB;
+    private boolean bfO;
     public JSONObject data;
     public String message;
     public int statusCode;
 
     public b() {
-        this.bfB = false;
+        this.bfO = false;
     }
 
     public b(int i) {
-        this.bfB = false;
+        this.bfO = false;
         this.statusCode = i;
     }
 
     public b(int i, @NonNull String str) {
-        this.bfB = false;
+        this.bfO = false;
         this.statusCode = i;
         this.message = str;
     }
 
     public b(int i, @NonNull JSONObject jSONObject) {
-        this.bfB = false;
+        this.bfO = false;
         this.statusCode = i;
         this.data = jSONObject;
     }
 
     public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.bfB = false;
+        this.bfO = false;
         this.statusCode = i;
         this.data = jSONObject;
-        this.bfB = z;
+        this.bfO = z;
     }
 
     public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.bfB = false;
+        this.bfO = false;
         this.statusCode = i;
         this.message = str;
         this.data = jSONObject;
@@ -61,7 +61,7 @@ public class b implements a {
             }
             jSONObject.put("message", this.message);
             if (this.data != null) {
-                jSONObject.put("data", this.bfB ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
+                jSONObject.put("data", this.bfO ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
             }
         } catch (JSONException e) {
             if (com.baidu.swan.apps.b.DEBUG) {

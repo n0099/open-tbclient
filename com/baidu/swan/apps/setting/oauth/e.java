@@ -9,30 +9,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public boolean bTn;
-    public a bTu;
-    public JSONObject bTv;
-    public String bTw;
-    public String bTx;
+    public a bTF;
+    public JSONObject bTG;
+    public String bTH;
+    public String bTI;
+    public boolean bTy;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String bTo = "";
+    public String bTz = "";
     public String description = "";
-    public List<String> bTp = new ArrayList();
-    public final List<String> bTq = new ArrayList();
-    public int bTr = -1;
+    public List<String> bTA = new ArrayList();
+    public final List<String> bTB = new ArrayList();
+    public int bTC = -1;
     private String type = "";
-    public String bTs = "";
-    public String bTt = "";
+    public String bTD = "";
+    public String bTE = "";
 
     /* loaded from: classes11.dex */
     public static class a {
-        public String bTA;
-        public String bTB;
-        public String bTy;
-        public String bTz;
+        public String bTJ;
+        public String bTK;
+        public String bTL;
+        public String bTM;
         public String detailUrl;
     }
 
@@ -41,15 +41,15 @@ public class e {
         this.id = str;
     }
 
-    public boolean aeo() {
-        return this.bTr > 0;
+    public boolean aer() {
+        return this.bTC > 0;
     }
 
-    public boolean aep() {
-        return this.bTr != 0;
+    public boolean aes() {
+        return this.bTC != 0;
     }
 
-    public boolean aeq() {
+    public boolean aet() {
         return "1".equals(this.type);
     }
 
@@ -66,48 +66,48 @@ public class e {
 
     public static e h(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.bTn = jSONObject.optBoolean("permit", false);
+        eVar.bTy = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.bTo = jSONObject.optString("short_name", "");
+        eVar.bTz = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.bTr = jSONObject.optInt("tip_status", -1);
-        eVar.bTs = jSONObject.optString("explain", "");
-        eVar.bTt = jSONObject.optString("sub_explain", "");
+        eVar.bTC = jSONObject.optInt("tip_status", -1);
+        eVar.bTD = jSONObject.optString("explain", "");
+        eVar.bTE = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.bTq.add(optJSONArray.optString(i));
+                eVar.bTB.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.bTp.add(optJSONArray2.optString(i2));
+                eVar.bTA.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.bTv = jSONObject.optJSONObject("other");
-        eVar.bTw = jSONObject.optString("plugin_app_name");
-        eVar.bTx = jSONObject.optString("plugin_icon_url");
+        eVar.bTG = jSONObject.optJSONObject("other");
+        eVar.bTH = jSONObject.optString("plugin_app_name");
+        eVar.bTI = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
-    public void aer() {
-        if (this.bTv != null && this.bTv.keys() != null && this.bTv.keys().hasNext()) {
-            this.bTu = new a();
-            this.bTu.bTy = this.bTv.optString("detail_text");
-            this.bTu.detailUrl = this.bTv.optString("detail_url");
-            this.bTu.bTz = this.bTv.optString("text_color");
-            this.bTu.bTA = this.bTv.optString("keyword");
-            this.bTu.bTB = this.bTv.optString("key_color");
+    public void aeu() {
+        if (this.bTG != null && this.bTG.keys() != null && this.bTG.keys().hasNext()) {
+            this.bTF = new a();
+            this.bTF.bTJ = this.bTG.optString("detail_text");
+            this.bTF.detailUrl = this.bTG.optString("detail_url");
+            this.bTF.bTK = this.bTG.optString("text_color");
+            this.bTF.bTL = this.bTG.optString("keyword");
+            this.bTF.bTM = this.bTG.optString("key_color");
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.bTr));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.bTC));
     }
 }

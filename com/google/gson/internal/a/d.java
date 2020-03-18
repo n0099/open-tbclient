@@ -35,7 +35,7 @@ public final class d implements TypeAdapterFactory {
         } else {
             throw new IllegalArgumentException("Invalid attempt to bind an instance of " + construct.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
         }
-        if (lVar != null && bVar2.dAz()) {
+        if (lVar != null && bVar2.dAW()) {
             return lVar.nullSafe();
         }
         return lVar;

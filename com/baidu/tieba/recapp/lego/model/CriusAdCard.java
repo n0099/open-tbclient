@@ -30,7 +30,7 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
         super(jSONObject);
         this.businessConverter = new a.InterfaceC0050a() { // from class: com.baidu.tieba.recapp.lego.model.CriusAdCard.1
             @Override // com.baidu.c.a.c.a.InterfaceC0050a
-            public String cD(String str) {
+            public String cC(String str) {
                 return aq.getFormatTime(Long.valueOf(str).longValue());
             }
         };
@@ -40,8 +40,8 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
         if (optJSONObject != null) {
             this.criusData = new a(TbadkCoreApplication.getInst(), optJSONObject, this.businessConverter, true);
             this.chargeInfo = new AdCard.a();
-            this.chargeInfo.jHy = jSONObject.optString("charge_style", "cpc");
-            this.chargeInfo.jHz = jSONObject.optString("charge_url");
+            this.chargeInfo.jIX = jSONObject.optString("charge_style", "cpc");
+            this.chargeInfo.jIY = jSONObject.optString("charge_url");
             this.tailFrame = new AdCard.f();
             this.tailFrame.parseFromJson(jSONObject.optJSONObject("tail_frame"));
             this.directDownload = jSONObject.optInt("direct_download_switch", 1) == 1;
@@ -69,8 +69,8 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
-        if ((this.appInfo == null || this.appInfo.cNg == null || this.appInfo.cNg.adCloseInfo == null || advertAppInfo.cNg.adCloseInfo.support_close.intValue() <= 0) && this.criusData != null) {
-            this.criusData.cC("closead");
+        if ((this.appInfo == null || this.appInfo.cNt == null || this.appInfo.cNt.adCloseInfo == null || advertAppInfo.cNt.adCloseInfo.support_close.intValue() <= 0) && this.criusData != null) {
+            this.criusData.cB("closead");
         }
     }
 
@@ -81,7 +81,7 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean isNoPicAd() {
-        return this.appInfo == null || this.appInfo.cNg == null || v.isEmpty(this.appInfo.cNg.cNx);
+        return this.appInfo == null || this.appInfo.cNt == null || v.isEmpty(this.appInfo.cNt.cNK);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

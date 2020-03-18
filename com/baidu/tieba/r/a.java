@@ -5,11 +5,11 @@ public interface a {
 
     void a(long j, String str, String str2, long j2);
 
-    void b(long j, String str, String str2);
+    void c(long j, String str, String str2);
+
+    void cJ(String str, String str2);
 
     void cK(String str, String str2);
 
     void cL(String str, String str2);
-
-    void cM(String str, String str2);
 }

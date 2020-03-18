@@ -44,7 +44,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
-        if (!TextUtils.equals(m.bhN, m2.bhN)) {
+        if (!TextUtils.equals(m.bia, m2.bia)) {
             a.ei(9);
         }
         return a;
@@ -64,39 +64,39 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(@NonNull V v, @NonNull M m, @Nullable com.facebook.drawee.controller.b<f> bVar) {
-        Uri gp;
-        if (m.bhV != null) {
+        Uri go;
+        if (m.bik != null) {
             if (DEBUG) {
                 Log.d("Component-SimpleDrawee", "renderImageStyle");
             }
-            String str = m.bhN;
-            if (!TextUtils.isEmpty(str) && (gp = gp(str)) != null) {
-                c.d("Component-SimpleDrawee", "Image Uri:" + gp);
-                e b = com.facebook.drawee.a.a.c.dlz().c(v.getController());
+            String str = m.bia;
+            if (!TextUtils.isEmpty(str) && (go = go(str)) != null) {
+                c.d("Component-SimpleDrawee", "Image Uri:" + go);
+                e b = com.facebook.drawee.a.a.c.dlW().c(v.getController());
                 if (bVar != null) {
                     b.c(bVar);
                 }
-                b.K(gp);
-                com.facebook.drawee.controller.a dmm = b.dmq();
+                b.K(go);
+                com.facebook.drawee.controller.a dmJ = b.dmN();
                 RoundingParams roundingParams = new RoundingParams();
-                roundingParams.bo(m.bhW);
-                com.facebook.drawee.generic.a dmZ = new com.facebook.drawee.generic.b(v.getResources()).dmZ();
-                dmZ.a(roundingParams);
-                dmZ.b(p.b.lMY);
-                v.setHierarchy(dmZ);
-                v.setController(dmm);
+                roundingParams.bo(m.bil);
+                com.facebook.drawee.generic.a dnx = new com.facebook.drawee.generic.b(v.getResources()).dnx();
+                dnx.a(roundingParams);
+                dnx.b(p.b.lOE);
+                v.setHierarchy(dnx);
+                v.setController(dmJ);
             }
         }
     }
 
-    private Uri gp(@NonNull String str) {
+    private Uri go(@NonNull String str) {
         String str2;
         String str3;
-        PathType ma = com.baidu.swan.apps.storage.b.ma(str);
-        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
-        if (acF != null) {
-            str3 = acF.id;
-            str2 = acF.getVersion();
+        PathType lZ = com.baidu.swan.apps.storage.b.lZ(str);
+        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
+        if (acI != null) {
+            str3 = acI.id;
+            str2 = acI.getVersion();
         } else {
             str2 = null;
             str3 = null;
@@ -104,19 +104,19 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        switch (ma) {
+        switch (lZ) {
             case BD_FILE:
-                String bp = com.baidu.swan.apps.storage.b.bp(str, str3);
-                if (TextUtils.isEmpty(bp)) {
+                String bo = com.baidu.swan.apps.storage.b.bo(str, str3);
+                if (TextUtils.isEmpty(bo)) {
                     return null;
                 }
-                return Uri.fromFile(new File(bp));
+                return Uri.fromFile(new File(bo));
             case RELATIVE:
                 File file = new File(str);
                 if (file.exists()) {
                     return Uri.fromFile(file);
                 }
-                String a = com.baidu.swan.apps.storage.b.a(str, acF, str2);
+                String a = com.baidu.swan.apps.storage.b.a(str, acI, str2);
                 if (TextUtils.isEmpty(a)) {
                     return null;
                 }

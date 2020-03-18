@@ -18,27 +18,27 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.ai;
 /* loaded from: classes11.dex */
 public class b extends PopupWindow {
-    private int biO;
-    private a bwH;
-    private String[] bwN;
-    private com.baidu.swan.apps.framework.a bwQ;
+    private int bjb;
+    private a bwT;
+    private String[] bwZ;
+    private com.baidu.swan.apps.framework.a bxc;
     private Activity mActivity;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void KQ();
+        void KT();
 
-        void Tv();
+        void Ty();
 
         void eg(int i);
 
-        void ib(String str);
+        void ia(String str);
     }
 
     public b(@NonNull Activity activity, int i, @NonNull a aVar) {
         super(activity);
-        this.bwN = new String[12];
-        this.bwQ = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.r.a.b.b.4
+        this.bwZ = new String[12];
+        this.bxc = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.r.a.b.b.4
             @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
             public boolean onKeyDown(int i2, KeyEvent keyEvent) {
                 if (i2 == 4) {
@@ -48,42 +48,42 @@ public class b extends PopupWindow {
                 return false;
             }
         };
-        this.bwH = aVar;
+        this.bwT = aVar;
         eZ(i);
         N(activity);
     }
 
     private void eZ(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
-            this.bwN[i2] = String.valueOf(i2 + 1);
+            this.bwZ[i2] = String.valueOf(i2 + 1);
         }
         if (i == 1) {
-            this.bwN[9] = "X";
+            this.bwZ[9] = "X";
         } else if (i == 0) {
-            this.bwN[9] = "";
+            this.bwZ[9] = "";
         } else if (i == 2) {
-            this.bwN[9] = ".";
+            this.bwZ[9] = ".";
         }
-        this.bwN[10] = "0";
+        this.bwZ[10] = "0";
     }
 
     private void N(@NonNull Activity activity) {
         this.mActivity = activity;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.biO = activity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
+        this.bjb = activity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         final GridView gridView = (GridView) linearLayout.findViewById(a.f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.r.a.b.a(activity, this.bwN));
+        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.r.a.b.a(activity, this.bwZ));
         final AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.r.a.b.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i <= b.this.bwN.length) {
+                if (i >= 0 && i <= b.this.bwZ.length) {
                     if (i == 11) {
-                        if (b.this.bwH != null) {
-                            b.this.bwH.Tv();
+                        if (b.this.bwT != null) {
+                            b.this.bwT.Ty();
                         }
-                    } else if (b.this.bwH != null) {
-                        b.this.bwH.ib(b.this.bwN[i]);
+                    } else if (b.this.bwT != null) {
+                        b.this.bwT.ia(b.this.bwZ[i]);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class b extends PopupWindow {
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.biO);
+        setHeight(this.bjb);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
@@ -128,10 +128,10 @@ public class b extends PopupWindow {
     public void dismiss() {
         super.dismiss();
         if (this.mActivity instanceof SwanAppActivity) {
-            ((SwanAppActivity) this.mActivity).b(this.bwQ);
+            ((SwanAppActivity) this.mActivity).b(this.bxc);
         }
-        if (this.bwH != null) {
-            this.bwH.KQ();
+        if (this.bwT != null) {
+            this.bwT.KT();
         }
     }
 
@@ -139,10 +139,10 @@ public class b extends PopupWindow {
         if (!isShowing()) {
             showAtLocation(this.mActivity.getWindow().getDecorView(), 80, 0, 0);
             if (this.mActivity instanceof SwanAppActivity) {
-                ((SwanAppActivity) this.mActivity).a(this.bwQ);
+                ((SwanAppActivity) this.mActivity).a(this.bxc);
             }
-            if (this.bwH != null) {
-                this.bwH.eg(this.biO);
+            if (this.bwT != null) {
+                this.bwT.eg(this.bjb);
             }
         }
     }

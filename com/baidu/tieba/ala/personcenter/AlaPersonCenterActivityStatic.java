@@ -14,34 +14,35 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.frs.ac;
+import com.baidu.tieba.frs.ad;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCenterActivityConfig.class, AlaPersonCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaPrivilegeListActivityConfig.class, AlaPersonCenterPrivilegeActivity.class);
-        bgU();
-        bsg();
+        bgZ();
+        bsl();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.personcenter.AlaPersonCenterActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ac) {
-                        ac acVar = (ac) data;
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
                         a aVar = new a();
-                        aVar.setForumId(acVar.getForumId());
-                        aVar.setForumName(acVar.getForumName());
-                        aVar.setForumGameLabel(acVar.getForumGameLabel());
-                        aVar.a(acVar);
+                        aVar.setForumId(adVar.getForumId());
+                        aVar.setForumName(adVar.getForumName());
+                        aVar.setForumGameLabel(adVar.getForumGameLabel());
+                        aVar.zF(adVar.bFW());
+                        aVar.a(adVar);
                     }
                 }
             }
         });
     }
 
-    private static final void bgU() {
+    private static final void bgZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_GLOBAL_PUSH_SWITCH, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_GLOBAL_PUSH_SWITCH_URL);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -49,7 +50,7 @@ public class AlaPersonCenterActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bsg() {
+    private static void bsl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_ENTER_EFFECT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

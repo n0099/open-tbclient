@@ -14,15 +14,15 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class g {
     public static void u(CharSequence charSequence) {
-        a.d(h.dPU(), charSequence);
+        a.d(h.dQu(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void Om(@StringRes int i) {
-        a.showToast(h.dPU(), i);
+    public static void Os(@StringRes int i) {
+        a.showToast(h.dQu(), i);
     }
 
     public static void M(Context context, @StringRes int i) {
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static CharSequence nWU;
-        private static Toast nWV = null;
-        private static long nWW = 0;
+        private static CharSequence nYH;
+        private static Toast nYI = null;
+        private static long nYJ = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dPU();
+                    context = h.dQu();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.nWV == null) {
-                                Toast unused = a.nWV = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.nWV);
-                                a.nWV.setText(charSequence);
-                                a.nWV.show();
-                                CharSequence unused2 = a.nWU = charSequence;
-                                long unused3 = a.nWW = System.currentTimeMillis();
+                            if (a.nYI == null) {
+                                Toast unused = a.nYI = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.nYI);
+                                a.nYI.setText(charSequence);
+                                a.nYI.show();
+                                CharSequence unused2 = a.nYH = charSequence;
+                                long unused3 = a.nYJ = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.nWU)) {
-                                if (currentTimeMillis - a.nWW > 2000) {
-                                    a.nWV.show();
-                                    long unused4 = a.nWW = currentTimeMillis;
+                            if (charSequence.equals(a.nYH)) {
+                                if (currentTimeMillis - a.nYJ > 2000) {
+                                    a.nYI.show();
+                                    long unused4 = a.nYJ = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.nWU = charSequence;
-                            a.nWV.setText(charSequence);
-                            a.nWV.show();
-                            long unused6 = a.nWW = currentTimeMillis;
+                            CharSequence unused5 = a.nYH = charSequence;
+                            a.nYI.setText(charSequence);
+                            a.nYI.show();
+                            long unused6 = a.nYJ = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dQv().getString(i));
+                d(context, h.dQV().getString(i));
             }
         }
     }

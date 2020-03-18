@@ -14,12 +14,12 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableSwitchMapSingle<T, R> extends q<R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final q<T> nxX;
+    final q<T> nzK;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.b(this.nxX, this.mapper, uVar)) {
-            this.nxX.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
+        if (!a.b(this.nzK, this.mapper, uVar)) {
+            this.nzK.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
         }
     }
 

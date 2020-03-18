@@ -11,29 +11,29 @@ import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 /* loaded from: classes13.dex */
 public class c {
-    private static c aZA;
+    private static c aZN;
     private static Context mAppContext;
-    private boolean aZB;
-    private Runnable aZC = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
+    private boolean aZO;
+    private Runnable aZP = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
             c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-            c.this.mEditText.postDelayed(c.this.aZC, 60L);
+            c.this.mEditText.postDelayed(c.this.aZP, 60L);
         }
     };
-    private a.InterfaceC0194a aZD;
+    private a.InterfaceC0194a aZQ;
     private EditText mEditText;
 
-    public static c bf(Context context) {
+    public static c be(Context context) {
         mAppContext = context;
-        if (aZA == null) {
+        if (aZN == null) {
             synchronized (c.class) {
-                if (aZA == null) {
-                    aZA = new c();
+                if (aZN == null) {
+                    aZN = new c();
                 }
             }
         }
-        return aZA;
+        return aZN;
     }
 
     public void a(EditText editText) {
@@ -49,24 +49,24 @@ public class c {
                     BDEmotionBagLayout.a aVar = (BDEmotionBagLayout.a) adapter;
                     if (c.this.mEditText != null) {
                         if (i2 == aVar.getCount() - 1) {
-                            if (c.this.aZB) {
-                                c.this.mEditText.removeCallbacks(c.this.aZC);
-                                c.this.aZB = false;
+                            if (c.this.aZO) {
+                                c.this.mEditText.removeCallbacks(c.this.aZP);
+                                c.this.aZO = false;
                                 return;
                             }
                             c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-                            if (c.this.aZD != null) {
-                                c.this.aZD.onEmotionClick(emotionType, i, "", "[delete]");
+                            if (c.this.aZQ != null) {
+                                c.this.aZQ.onEmotionClick(emotionType, i, "", "[delete]");
                                 return;
                             }
                             return;
                         }
                         String item = aVar.getItem(i2);
                         if (!TextUtils.isEmpty(item)) {
-                            c.this.mEditText.getEditableText().insert(c.this.mEditText.getSelectionStart(), a.Gj().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.mEditText));
+                            c.this.mEditText.getEditableText().insert(c.this.mEditText.getSelectionStart(), a.Go().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.mEditText));
                         }
-                        if (c.this.aZD != null) {
-                            c.this.aZD.onEmotionClick(emotionType, i, b.bc(c.mAppContext).b(emotionType, item), item);
+                        if (c.this.aZQ != null) {
+                            c.this.aZQ.onEmotionClick(emotionType, i, b.bb(c.mAppContext).b(emotionType, item), item);
                         }
                     }
                 }
@@ -80,9 +80,9 @@ public class c {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof BDEmotionBagLayout.a) && i == ((BDEmotionBagLayout.a) adapter).getCount() - 1) {
-                    c.this.aZB = true;
+                    c.this.aZO = true;
                     if (c.this.mEditText != null) {
-                        c.this.mEditText.post(c.this.aZC);
+                        c.this.mEditText.post(c.this.aZP);
                         return false;
                     }
                     return false;
@@ -97,7 +97,7 @@ public class c {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
-                    c.this.Gm();
+                    c.this.Gr();
                     return false;
                 }
                 return false;
@@ -106,18 +106,18 @@ public class c {
     }
 
     public void a(a.InterfaceC0194a interfaceC0194a) {
-        this.aZD = interfaceC0194a;
+        this.aZQ = interfaceC0194a;
     }
 
-    public void Gm() {
+    public void Gr() {
         if (this.mEditText != null) {
-            this.mEditText.removeCallbacks(this.aZC);
+            this.mEditText.removeCallbacks(this.aZP);
         }
     }
 
     public void dismiss() {
         this.mEditText = null;
         mAppContext = null;
-        aZA = null;
+        aZN = null;
     }
 }

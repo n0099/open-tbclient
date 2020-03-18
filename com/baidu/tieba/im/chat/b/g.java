@@ -15,18 +15,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g hvU;
+    private static g hxu;
 
     private g() {
     }
 
-    public static synchronized g bSK() {
+    public static synchronized g bTc() {
         g gVar;
         synchronized (g.class) {
-            if (hvU == null) {
-                hvU = new g();
+            if (hxu == null) {
+                hxu = new g();
             }
-            gVar = hvU;
+            gVar = hxu;
         }
         return gVar;
     }
@@ -37,7 +37,7 @@ public class g {
         }
     }
 
-    public long dO(long j) {
+    public long dP(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 
@@ -82,7 +82,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean CA(String str) {
+            public boolean Cz(String str) {
                 return true;
             }
         }, false);

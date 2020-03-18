@@ -2,90 +2,91 @@ package com.baidu.tieba.frs.smartsort;
 
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.ar;
-import com.baidu.tieba.frs.l;
+import com.baidu.tieba.frs.as;
+import com.baidu.tieba.frs.m;
 /* loaded from: classes9.dex */
 public class a {
-    private int baw;
-    private TextView gBe;
-    private final FrsFragment gGR;
-    private ar gGl;
-    private boolean gIX;
-    private int gIY = -1;
+    private int baJ;
+    private TextView gCc;
+    private final FrsFragment gHP;
+    private as gHj;
+    private boolean gKc;
+    private int gKd = -1;
 
     public a(FrsFragment frsFragment) {
-        this.baw = 0;
+        this.baJ = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.gGR = frsFragment;
+        this.gHP = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.baw = UtilHelper.getStatusBarHeight();
+            this.baJ = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void bJG() {
-        if (this.gIX && this.gIY >= 0) {
-            tR(this.gIY);
+    public void bJT() {
+        if (this.gKc && this.gKd >= 0) {
+            tX(this.gKd);
         }
-        this.gIX = false;
+        this.gKc = false;
     }
 
-    public void tQ(int i) {
+    public void tW(int i) {
         if (i >= 0) {
-            ma(true);
-            tS(i);
+            mg(true);
+            tY(i);
             return;
         }
-        ma(false);
-        tS(i);
+        mg(false);
+        tY(i);
     }
 
-    private void tR(int i) {
+    private void tX(int i) {
         FrameLayout frameLayout;
         String string;
-        l bDQ = this.gGR.bDQ();
-        if (bDQ != null && bDQ.getListView() != null && (frameLayout = (FrameLayout) bDQ.bFh()) != null) {
-            if (this.gBe == null && this.gGR.getPageContext() != null) {
-                this.gBe = new TextView(this.gGR.getPageContext().getPageActivity());
-                this.gBe.setTextSize(0, this.gGR.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.gBe.setGravity(17);
+        m bDY = this.gHP.bDY();
+        if (bDY != null && bDY.getListView() != null && (frameLayout = (FrameLayout) bDY.bFr()) != null) {
+            if (this.gCc == null && this.gHP.getPageContext() != null) {
+                this.gCc = new TextView(this.gHP.getPageContext().getPageActivity());
+                this.gCc.setTextSize(0, this.gHP.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.gCc.setGravity(17);
             }
-            if (this.gBe != null) {
+            if (this.gCc != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.gBe.setText(string);
+                this.gCc.setText(string);
             }
-            am.setBackgroundResource(this.gBe, R.color.cp_link_tip_a);
-            am.setViewTextColor(this.gBe, (int) R.color.cp_cont_i);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.gGl == null) {
-                this.gGl = new ar();
+            am.setBackgroundResource(this.gCc, R.color.cp_link_tip_a);
+            am.setViewTextColor(this.gCc, (int) R.color.cp_cont_i);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
+            if (this.gHj == null) {
+                this.gHj = new as();
             }
-            this.gGl.a(this.gBe, frameLayout, layoutParams, 2000);
-            this.gIY = -1;
+            this.gHj.a(this.gCc, frameLayout, layoutParams, 2000);
+            this.gKd = -1;
         }
     }
 
-    public void ma(boolean z) {
-        this.gIX = z;
+    public void mg(boolean z) {
+        this.gKc = z;
     }
 
-    public void tS(int i) {
-        this.gIY = i;
+    public void tY(int i) {
+        this.gKd = i;
     }
 
     public void onDestroy() {
-        if (this.gGl != null) {
-            this.gGl.onDestroy();
+        if (this.gHj != null) {
+            this.gHj.onDestroy();
         }
     }
 }

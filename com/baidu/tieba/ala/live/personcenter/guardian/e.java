@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class e extends BdBaseModel<AlaGuardianListActivity> {
-    private a eMQ;
-    private AlaGuardianListActivity eMS;
-    public HttpMessageListener eMl;
+    public HttpMessageListener eMH;
+    private a eNm;
+    private AlaGuardianListActivity eNo;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.eMl = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
+        this.eMH = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,35 +35,35 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (e.this.eMQ != null) {
+                        if (e.this.eNm != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = e.this.eMS.getResources().getString(a.i.sdk_neterror);
+                                errorString = e.this.eNo.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.eMQ.yI(errorString);
+                            e.this.eNm.yI(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (e.this.eMQ != null) {
-                        e.this.eMQ.b(alaGuardianListHttpResponseMessage.bgT());
+                    if (e.this.eNm != null) {
+                        e.this.eNm.b(alaGuardianListHttpResponseMessage.bgY());
                     }
                 }
             }
         };
-        this.eMS = alaGuardianListActivity;
-        this.eMQ = aVar;
-        bgU();
-        registerListener(this.eMl);
+        this.eNo = alaGuardianListActivity;
+        this.eNm = aVar;
+        bgZ();
+        registerListener(this.eMH);
     }
 
     public void yK(String str) {
         this.mUserId = str;
     }
 
-    private void bgU() {
+    private void bgZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,20 +74,20 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        bgV();
+        bha();
         return false;
     }
 
-    private void bgV() {
+    private void bha() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.eMS.getUniqueId());
+        httpMessage.setTag(this.eNo.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eMl);
+        MessageManager.getInstance().unRegisterListener(this.eMH);
         return false;
     }
 

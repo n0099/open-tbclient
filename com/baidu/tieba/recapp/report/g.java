@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements d {
-    private TbHttpMessageTask jMg;
-    private HttpMessageListener jMf = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.g.1
+    private TbHttpMessageTask jNI;
+    private HttpMessageListener jNH = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,35 +28,35 @@ public class g implements d {
             }
         }
     };
-    private ArrayList<b> jMh = new ArrayList<>();
+    private ArrayList<b> jNJ = new ArrayList<>();
 
     public g() {
-        brF();
-        MessageManager.getInstance().registerListener(this.jMf);
+        brK();
+        MessageManager.getInstance().registerListener(this.jNH);
     }
 
-    private void brF() {
-        this.jMg = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
-        this.jMg.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.jMg.setIsNeedAddCommenParam(true);
-        this.jMg.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void brK() {
+        this.jNI = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
+        this.jNI.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.jNI.setIsNeedAddCommenParam(true);
+        this.jNI.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
     public void b(b bVar) {
         if (bVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.aJd())) {
-                this.jMg.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.aJh())) {
+                this.jNI.setUrl("http://als.baidu.com/clog/clog");
             }
             d(bVar);
-            cDt();
+            cDN();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void cDs() {
-        cDt();
+    public void cDM() {
+        cDN();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -66,10 +66,10 @@ public class g implements d {
         }
     }
 
-    private void cDt() {
-        if (v.getCount(this.jMh) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.jMh), this.jMg);
-            this.jMh.clear();
+    private void cDN() {
+        if (v.getCount(this.jNJ) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.jNJ), this.jNI);
+            this.jNJ.clear();
         }
     }
 
@@ -86,10 +86,10 @@ public class g implements d {
 
     private void d(b bVar) {
         if (bVar != null) {
-            if (v.getCount(this.jMh) >= 20) {
-                this.jMh.remove(0);
+            if (v.getCount(this.jNJ) >= 20) {
+                this.jNJ.remove(0);
             }
-            this.jMh.add(bVar);
+            this.jNJ.add(bVar);
         }
     }
 }

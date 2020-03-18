@@ -16,7 +16,7 @@ public final class e {
         return z;
     }
 
-    public synchronized boolean OD() {
+    public synchronized boolean OG() {
         boolean z;
         z = this.isOpen;
         this.isOpen = false;

@@ -12,7 +12,7 @@ public class k {
     private final RemoteViews remoteViews = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
 
     public k(DownloadData downloadData, int i) {
-        AS(i);
+        Ba(i);
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
         this.remoteViews.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
@@ -39,21 +39,21 @@ public class k {
         this.remoteViews.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews cCF() {
+    public RemoteViews cCZ() {
         return this.remoteViews;
     }
 
-    public void cCG() {
+    public void cDa() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void cCH() {
+    public void cDb() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }
 
-    public void AS(int i) {
+    public void Ba(int i) {
         String str;
         if (i > 0) {
             str = i + "%";

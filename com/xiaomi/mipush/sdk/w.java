@@ -32,7 +32,7 @@ public final class w implements Runnable {
             th = th;
         }
         if (logFile == null) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("log file null");
+            com.xiaomi.channel.commonutils.logger.b.m45a("log file null");
             return;
         }
         File file2 = new File(absolutePath, this.a.getPackageName() + ".zip");
@@ -41,7 +41,7 @@ public final class w implements Runnable {
             if (file2.exists()) {
                 com.xiaomi.push.as.a((this.f77a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, "file");
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m47a("zip log file failed");
+                com.xiaomi.channel.commonutils.logger.b.m45a("zip log file failed");
             }
         } catch (Throwable th2) {
             th = th2;

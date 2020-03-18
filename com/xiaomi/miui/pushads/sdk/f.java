@@ -43,7 +43,7 @@ public class f {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m116a(Context context) {
+    public static boolean m114a(Context context) {
         k.a a = a(context);
         boolean z = k.a.NONE != a;
         if (a != k.a.Wifi) {

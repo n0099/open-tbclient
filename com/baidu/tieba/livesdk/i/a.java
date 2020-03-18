@@ -13,10 +13,10 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a implements d {
-    private AlaLivePlayer idX;
-    private volatile d.a idY;
+    private AlaLivePlayer ifx;
+    private volatile d.a ify;
     private WeakReference<Context> mContext;
-    private AlaLivePlayerData idZ = new AlaLivePlayerData();
+    private AlaLivePlayerData ifz = new AlaLivePlayerData();
     private AlaLivePlayerCallback mPlayerCallback = new AlaLivePlayerCallback() { // from class: com.baidu.tieba.livesdk.i.a.1
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onStreamChanged(int i, int i2) {
@@ -26,12 +26,12 @@ public class a implements d {
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onDebugInfo(int i, AlaLiveDebugInfo alaLiveDebugInfo) {
             BdLog.d("onDebugInfo");
-            if (a.this.idY != null && alaLiveDebugInfo != null) {
-                a.this.idZ.bandWidth = alaLiveDebugInfo.bandWidth;
-                a.this.idZ.fpsAvg = alaLiveDebugInfo.fpsAvg;
-                a.this.idZ.videoBitrate = alaLiveDebugInfo.bandWidth;
-                a.this.idZ.audioBitrate = 65536L;
-                a.this.idY.a(i, a.this.idZ);
+            if (a.this.ify != null && alaLiveDebugInfo != null) {
+                a.this.ifz.bandWidth = alaLiveDebugInfo.bandWidth;
+                a.this.ifz.fpsAvg = alaLiveDebugInfo.fpsAvg;
+                a.this.ifz.videoBitrate = alaLiveDebugInfo.bandWidth;
+                a.this.ifz.audioBitrate = 65536L;
+                a.this.ify.a(i, a.this.ifz);
             }
         }
 
@@ -47,8 +47,8 @@ public class a implements d {
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onFirstFrame(int i, int i2, int i3) {
             BdLog.d("onFirstFrame " + i);
-            if (a.this.idY != null) {
-                a.this.idY.onFirstFrame(i, i2, i3);
+            if (a.this.ify != null) {
+                a.this.ify.onFirstFrame(i, i2, i3);
             }
         }
 
@@ -64,13 +64,13 @@ public class a implements d {
 
     public a(Context context) {
         this.mContext = new WeakReference<>(context);
-        this.idX = AlaLivePlayer.createLivePlayer(context);
-        this.idX.setPlayerCallback(this.mPlayerCallback);
+        this.ifx = AlaLivePlayer.createLivePlayer(context);
+        this.ifx.setPlayerCallback(this.mPlayerCallback);
     }
 
     @Override // com.baidu.tbadk.ala.d
     public boolean a(int i, String str, LinearLayout.LayoutParams layoutParams) {
-        if (this.idX == null) {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap start failed");
             return false;
         }
@@ -80,7 +80,7 @@ public class a implements d {
         alaLivePlayerConf.url = str;
         alaLivePlayerConf.param = layoutParams;
         arrayList.add(alaLivePlayerConf);
-        int start2 = this.idX.start2(arrayList);
+        int start2 = this.ifx.start2(arrayList);
         if (start2 != 0) {
             BdLog.d("prepareAsync failed");
         }
@@ -89,52 +89,52 @@ public class a implements d {
 
     @Override // com.baidu.tbadk.ala.d
     public void stop() {
-        if (this.idX == null) {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap stop mPlayer = null");
         } else {
-            this.idX.stop();
+            this.ifx.stop();
         }
     }
 
     @Override // com.baidu.tbadk.ala.d
     public void destroy() {
-        if (this.idX == null) {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap destroy mPlayer = null");
             return;
         }
-        this.idX.destroy();
-        this.idX = null;
+        this.ifx.destroy();
+        this.ifx = null;
     }
 
     @Override // com.baidu.tbadk.ala.d
     public void setAudioMute(boolean z) {
-        if (this.idX == null) {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap setAudioMute mPlayer = null");
         } else {
-            this.idX.setAudioMute(z);
+            this.ifx.setAudioMute(z);
         }
     }
 
     @Override // com.baidu.tbadk.ala.d
     public void setRenderVideoModel(int i, int i2) {
-        if (this.idX == null) {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap setRenderVideoModel mPlayer = null");
         } else {
-            this.idX.setRenderVideoModel(i, i2);
+            this.ifx.setRenderVideoModel(i, i2);
         }
     }
 
     @Override // com.baidu.tbadk.ala.d
-    public View ayC() {
-        if (this.idX == null) {
+    public View ayF() {
+        if (this.ifx == null) {
             BdLog.d("AlaPlayerWrap getRenderView mPlayer = null");
             return null;
         }
-        return this.idX;
+        return this.ifx;
     }
 
     @Override // com.baidu.tbadk.ala.d
     public void a(d.a aVar) {
-        this.idY = aVar;
+        this.ify = aVar;
     }
 }

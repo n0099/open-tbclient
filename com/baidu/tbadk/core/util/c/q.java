@@ -13,18 +13,18 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.switchs.WebpSwitch;
 /* loaded from: classes.dex */
 public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
-    private boolean NJ = true;
+    private boolean NK = true;
 
     @Override // com.baidu.adp.lib.e.e
     public boolean gu() {
-        return com.baidu.tbadk.core.i.azO().isShowImages();
+        return com.baidu.tbadk.core.i.azR().isShowImages();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.aPR().vy(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.aPV().vx(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -136,25 +136,25 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                 if (aVar != null) {
                     aVar.rT = iVar;
                 }
-                T = iVar.T(str3, this.NJ);
-                boolean aGP = iVar.aGP();
+                T = iVar.T(str3, this.NK);
+                boolean aGT = iVar.aGT();
                 if (T != null && !iVar.fY().rp) {
                     return null;
                 }
-                com.baidu.tbadk.imageManager.c.aPR().freePicCache(TbConfig.getPbImageSize() + T.length);
-                return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(T), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(T), iVar, T, aGP);
+                com.baidu.tbadk.imageManager.c.aPV().freePicCache(TbConfig.getPbImageSize() + T.length);
+                return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(T), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(T), iVar, T, aGT);
             }
         }
         str3 = str;
         iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
         }
-        T = iVar.T(str3, this.NJ);
-        boolean aGP2 = iVar.aGP();
+        T = iVar.T(str3, this.NK);
+        boolean aGT2 = iVar.aGT();
         if (T != null) {
         }
-        com.baidu.tbadk.imageManager.c.aPR().freePicCache(TbConfig.getPbImageSize() + T.length);
-        return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(T), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(T), iVar, T, aGP2);
+        com.baidu.tbadk.imageManager.c.aPV().freePicCache(TbConfig.getPbImageSize() + T.length);
+        return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(T), i, i2), !iVar.isGif || com.baidu.adp.lib.util.l.isGif(T), iVar, T, aGT2);
     }
 
     protected Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -167,13 +167,13 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.ai(i);
             aVar.aj(i2);
-            com.baidu.tbadk.imageManager.c.aPR().c(str, aVar);
+            com.baidu.tbadk.imageManager.c.aPV().c(str, aVar);
         }
     }
 
     @Override // com.baidu.adp.lib.e.e
     public BdAsyncTaskParallel gv() {
-        return j.aGX().gv();
+        return j.aHb().gv();
     }
 
     @Override // com.baidu.adp.lib.e.e

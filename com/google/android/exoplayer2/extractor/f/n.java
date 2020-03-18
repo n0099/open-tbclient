@@ -7,15 +7,15 @@ import com.google.android.exoplayer2.extractor.f.w;
 public final class n implements h {
     private int frameSize;
     private final String language;
-    private long mdO;
-    private boolean meG;
-    private com.google.android.exoplayer2.extractor.m meW;
-    private String mmT;
-    private long mng;
-    private final com.google.android.exoplayer2.util.l mot;
-    private final com.google.android.exoplayer2.extractor.j mou;
-    private int mov;
-    private boolean mow;
+    private long mfu;
+    private com.google.android.exoplayer2.extractor.m mgC;
+    private boolean mgm;
+    private String moA;
+    private long moN;
+    private final com.google.android.exoplayer2.util.l mpZ;
+    private final com.google.android.exoplayer2.extractor.j mqa;
+    private int mqb;
+    private boolean mqc;
     private int state;
 
     public n() {
@@ -24,34 +24,34 @@ public final class n implements h {
 
     public n(String str) {
         this.state = 0;
-        this.mot = new com.google.android.exoplayer2.util.l(4);
-        this.mot.data[0] = -1;
-        this.mou = new com.google.android.exoplayer2.extractor.j();
+        this.mpZ = new com.google.android.exoplayer2.util.l(4);
+        this.mpZ.data[0] = -1;
+        this.mqa = new com.google.android.exoplayer2.extractor.j();
         this.language = str;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void cze() {
+    public void czx() {
         this.state = 0;
-        this.mov = 0;
-        this.mow = false;
+        this.mqb = 0;
+        this.mqc = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dvF();
-        this.mmT = dVar.dvH();
-        this.meW = gVar.dK(dVar.dvG(), 1);
+        dVar.dwc();
+        this.moA = dVar.dwe();
+        this.mgC = gVar.dL(dVar.dwd(), 1);
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void o(long j, boolean z) {
-        this.mdO = j;
+    public void p(long j, boolean z) {
+        this.mfu = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
-        while (lVar.dzu() > 0) {
+        while (lVar.dzR() > 0) {
             switch (this.state) {
                 case 0:
                     M(lVar);
@@ -67,60 +67,60 @@ public final class n implements h {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dvq() {
+    public void dvN() {
     }
 
     private void M(com.google.android.exoplayer2.util.l lVar) {
         byte[] bArr = lVar.data;
         int position = lVar.getPosition();
-        int dzv = lVar.dzv();
-        for (int i = position; i < dzv; i++) {
+        int dzS = lVar.dzS();
+        for (int i = position; i < dzS; i++) {
             boolean z = (bArr[i] & 255) == 255;
-            boolean z2 = this.mow && (bArr[i] & 224) == 224;
-            this.mow = z;
+            boolean z2 = this.mqc && (bArr[i] & 224) == 224;
+            this.mqc = z;
             if (z2) {
                 lVar.setPosition(i + 1);
-                this.mow = false;
-                this.mot.data[1] = bArr[i];
-                this.mov = 2;
+                this.mqc = false;
+                this.mpZ.data[1] = bArr[i];
+                this.mqb = 2;
                 this.state = 1;
                 return;
             }
         }
-        lVar.setPosition(dzv);
+        lVar.setPosition(dzS);
     }
 
     private void N(com.google.android.exoplayer2.util.l lVar) {
-        int min = Math.min(lVar.dzu(), 4 - this.mov);
-        lVar.G(this.mot.data, this.mov, min);
-        this.mov = min + this.mov;
-        if (this.mov >= 4) {
-            this.mot.setPosition(0);
-            if (!com.google.android.exoplayer2.extractor.j.a(this.mot.readInt(), this.mou)) {
-                this.mov = 0;
+        int min = Math.min(lVar.dzR(), 4 - this.mqb);
+        lVar.G(this.mpZ.data, this.mqb, min);
+        this.mqb = min + this.mqb;
+        if (this.mqb >= 4) {
+            this.mpZ.setPosition(0);
+            if (!com.google.android.exoplayer2.extractor.j.a(this.mpZ.readInt(), this.mqa)) {
+                this.mqb = 0;
                 this.state = 1;
                 return;
             }
-            this.frameSize = this.mou.frameSize;
-            if (!this.meG) {
-                this.mng = (TimeUtils.NANOS_PER_MS * this.mou.samplesPerFrame) / this.mou.sampleRate;
-                this.meW.h(Format.a(this.mmT, this.mou.mimeType, null, -1, 4096, this.mou.channels, this.mou.sampleRate, null, null, 0, this.language));
-                this.meG = true;
+            this.frameSize = this.mqa.frameSize;
+            if (!this.mgm) {
+                this.moN = (TimeUtils.NANOS_PER_MS * this.mqa.samplesPerFrame) / this.mqa.sampleRate;
+                this.mgC.h(Format.a(this.moA, this.mqa.mimeType, null, -1, 4096, this.mqa.channels, this.mqa.sampleRate, null, null, 0, this.language));
+                this.mgm = true;
             }
-            this.mot.setPosition(0);
-            this.meW.a(this.mot, 4);
+            this.mpZ.setPosition(0);
+            this.mgC.a(this.mpZ, 4);
             this.state = 2;
         }
     }
 
     private void O(com.google.android.exoplayer2.util.l lVar) {
-        int min = Math.min(lVar.dzu(), this.frameSize - this.mov);
-        this.meW.a(lVar, min);
-        this.mov = min + this.mov;
-        if (this.mov >= this.frameSize) {
-            this.meW.a(this.mdO, 1, this.frameSize, 0, null);
-            this.mdO += this.mng;
-            this.mov = 0;
+        int min = Math.min(lVar.dzR(), this.frameSize - this.mqb);
+        this.mgC.a(lVar, min);
+        this.mqb = min + this.mqb;
+        if (this.mqb >= this.frameSize) {
+            this.mgC.a(this.mfu, 1, this.frameSize, 0, null);
+            this.mfu += this.moN;
+            this.mqb = 0;
             this.state = 0;
         }
     }

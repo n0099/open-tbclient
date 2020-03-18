@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.airbnb.lottie.e.a<K>> gH;
+    private final List<? extends com.airbnb.lottie.e.a<K>> gG;
     @Nullable
-    protected com.airbnb.lottie.e.c<A> gI;
+    protected com.airbnb.lottie.e.c<A> gH;
     @Nullable
-    private com.airbnb.lottie.e.a<K> gJ;
+    private com.airbnb.lottie.e.a<K> gI;
     final List<InterfaceC0010a> listeners = new ArrayList();
-    private boolean gG = false;
+    private boolean gF = false;
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
@@ -26,11 +26,11 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.airbnb.lottie.e.a<K>> list) {
-        this.gH = list;
+        this.gG = list;
     }
 
     public void bR() {
-        this.gG = true;
+        this.gF = true;
     }
 
     public void b(InterfaceC0010a interfaceC0010a) {
@@ -63,25 +63,25 @@ public abstract class a<K, A> {
     }
 
     private com.airbnb.lottie.e.a<K> bS() {
-        if (this.gJ != null && this.gJ.n(this.progress)) {
-            return this.gJ;
+        if (this.gI != null && this.gI.n(this.progress)) {
+            return this.gI;
         }
-        com.airbnb.lottie.e.a<K> aVar = this.gH.get(this.gH.size() - 1);
+        com.airbnb.lottie.e.a<K> aVar = this.gG.get(this.gG.size() - 1);
         if (this.progress < aVar.dj()) {
-            for (int size = this.gH.size() - 1; size >= 0; size--) {
-                aVar = this.gH.get(size);
+            for (int size = this.gG.size() - 1; size >= 0; size--) {
+                aVar = this.gG.get(size);
                 if (aVar.n(this.progress)) {
                     break;
                 }
             }
         }
-        this.gJ = aVar;
+        this.gI = aVar;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float bT() {
-        if (this.gG) {
+        if (this.gF) {
             return 0.0f;
         }
         com.airbnb.lottie.e.a<K> bS = bS();
@@ -96,23 +96,23 @@ public abstract class a<K, A> {
         if (bS.dM()) {
             return 0.0f;
         }
-        return bS.ks.getInterpolation(bT());
+        return bS.kr.getInterpolation(bT());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float bV() {
-        if (this.gH.isEmpty()) {
+        if (this.gG.isEmpty()) {
             return 0.0f;
         }
-        return this.gH.get(0).dj();
+        return this.gG.get(0).dj();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     float bW() {
-        if (this.gH.isEmpty()) {
+        if (this.gG.isEmpty()) {
             return 1.0f;
         }
-        return this.gH.get(this.gH.size() - 1).bW();
+        return this.gG.get(this.gG.size() - 1).bW();
     }
 
     public A getValue() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.airbnb.lottie.e.c<A> cVar) {
-        if (this.gI != null) {
-            this.gI.b(null);
+        if (this.gH != null) {
+            this.gH.b(null);
         }
-        this.gI = cVar;
+        this.gH = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

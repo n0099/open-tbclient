@@ -7,21 +7,21 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class g extends i implements Map<String, i> {
-    private HashMap<String, i> lGQ = new LinkedHashMap();
+    private HashMap<String, i> lIw = new LinkedHashMap();
 
     @Override // java.util.Map
     public int size() {
-        return this.lGQ.size();
+        return this.lIw.size();
     }
 
     @Override // java.util.Map
     public boolean isEmpty() {
-        return this.lGQ.isEmpty();
+        return this.lIw.isEmpty();
     }
 
     @Override // java.util.Map
     public boolean containsKey(Object obj) {
-        return this.lGQ.containsKey(obj);
+        return this.lIw.containsKey(obj);
     }
 
     @Override // java.util.Map
@@ -29,14 +29,14 @@ public class g extends i implements Map<String, i> {
         if (obj == null) {
             return false;
         }
-        return this.lGQ.containsValue(i.aO(obj));
+        return this.lIw.containsValue(i.aO(obj));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Map
     /* renamed from: aM */
     public i get(Object obj) {
-        return this.lGQ.get(obj);
+        return this.lIw.get(obj);
     }
 
     @Override // java.util.Map
@@ -54,45 +54,45 @@ public class g extends i implements Map<String, i> {
             return null;
         }
         if (iVar == null) {
-            return this.lGQ.get(str);
+            return this.lIw.get(str);
         }
-        return this.lGQ.put(str, iVar);
+        return this.lIw.put(str, iVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Map
     /* renamed from: aN */
     public i remove(Object obj) {
-        return this.lGQ.remove(obj);
+        return this.lIw.remove(obj);
     }
 
     @Override // java.util.Map
     public void clear() {
-        this.lGQ.clear();
+        this.lIw.clear();
     }
 
     @Override // java.util.Map
     public Set<String> keySet() {
-        return this.lGQ.keySet();
+        return this.lIw.keySet();
     }
 
     @Override // java.util.Map
     public Collection<i> values() {
-        return this.lGQ.values();
+        return this.lIw.values();
     }
 
     @Override // java.util.Map
     public Set<Map.Entry<String, i>> entrySet() {
-        return this.lGQ.entrySet();
+        return this.lIw.entrySet();
     }
 
     @Override // java.util.Map
     public boolean equals(Object obj) {
-        return obj.getClass().equals(getClass()) && ((g) obj).lGQ.equals(this.lGQ);
+        return obj.getClass().equals(getClass()) && ((g) obj).lIw.equals(this.lIw);
     }
 
     @Override // java.util.Map
     public int hashCode() {
-        return (this.lGQ != null ? this.lGQ.hashCode() : 0) + 581;
+        return (this.lIw != null ? this.lIw.hashCode() : 0) + 581;
     }
 }

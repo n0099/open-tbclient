@@ -35,7 +35,7 @@ public class b extends ab {
             return false;
         } else {
             c.i("compass", "stop listen compass");
-            com.baidu.swan.apps.ao.e.a.afO().afQ();
+            com.baidu.swan.apps.ao.e.a.afR().afT();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

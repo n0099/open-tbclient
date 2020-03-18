@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a eUA;
-    private int eUB;
+    private com.baidu.live.challenge.a eUY;
+    private int eUZ;
 
     public AlaCancelRandomChallengeResponseMessage() {
         super(1021111);
@@ -16,17 +16,17 @@ public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eUB = optJSONObject.optInt("cancel_status");
-            this.eUA = new com.baidu.live.challenge.a();
-            this.eUA.parseJson(optJSONObject.optJSONObject("match_info"));
+            this.eUZ = optJSONObject.optInt("cancel_status");
+            this.eUY = new com.baidu.live.challenge.a();
+            this.eUY.parseJson(optJSONObject.optJSONObject("match_info"));
         }
     }
 
-    public com.baidu.live.challenge.a bko() {
-        return this.eUA;
+    public com.baidu.live.challenge.a bkt() {
+        return this.eUY;
     }
 
-    public boolean bkq() {
-        return this.eUB == 1;
+    public boolean bkv() {
+        return this.eUZ == 1;
     }
 }

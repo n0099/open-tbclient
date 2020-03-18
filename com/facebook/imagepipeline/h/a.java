@@ -19,11 +19,11 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void OZ(String str) {
+    public void OY(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void fm(String str, String str2) {
+    public void fk(String str, String str2) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -51,7 +51,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean Pe(String str) {
+    public boolean Pd(String str) {
         return false;
     }
 }

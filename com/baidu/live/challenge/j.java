@@ -43,7 +43,7 @@ public interface j {
 
     /* loaded from: classes3.dex */
     public interface e {
-        int qe();
+        int qj();
     }
 
     /* loaded from: classes3.dex */
@@ -81,7 +81,7 @@ public interface j {
     public interface InterfaceC0081j {
         void m(int i, String str);
 
-        void qf();
+        void qk();
     }
 
     /* loaded from: classes3.dex */
@@ -119,7 +119,7 @@ public interface j {
 
     void c(m mVar);
 
-    void cU(String str);
+    void cT(String str);
 
     void d(long j, long j2);
 
@@ -127,27 +127,27 @@ public interface j {
 
     void onDestroy();
 
-    void pK();
-
-    void pU();
-
-    void pV();
-
-    void pW();
-
-    void pX();
-
-    void pY();
+    void pP();
 
     void pZ();
 
-    ChallenfeInfoData.ChallengeStatus qa();
+    void qa();
 
-    boolean qb();
+    void qb();
 
     void qc();
 
-    long qd();
+    void qd();
+
+    void qe();
+
+    ChallenfeInfoData.ChallengeStatus qf();
+
+    boolean qg();
+
+    void qh();
+
+    long qi();
 
     void s(int i2, int i3);
 

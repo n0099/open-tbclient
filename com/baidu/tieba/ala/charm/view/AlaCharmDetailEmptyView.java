@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaCharmDetailEmptyView extends LinearLayout {
-    private ImageView exq;
-    private TextView exr;
-    private TextView exs;
+    private ImageView exN;
+    private TextView exO;
+    private TextView exP;
 
     public AlaCharmDetailEmptyView(Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaCharmDetailEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_charm_empty_view, this);
-        this.exq = (ImageView) findViewById(a.g.empty_image);
-        this.exr = (TextView) findViewById(a.g.empty_text);
-        this.exs = (TextView) findViewById(a.g.empty_sub_text);
+        this.exN = (ImageView) findViewById(a.g.empty_image);
+        this.exO = (TextView) findViewById(a.g.empty_text);
+        this.exP = (TextView) findViewById(a.g.empty_sub_text);
         if (getResources().getConfiguration().orientation == 2) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.exq.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.exN.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.e.sdk_ds20);
-            this.exq.setLayoutParams(layoutParams);
+            this.exN.setLayoutParams(layoutParams);
         }
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.exq.setImageResource(i);
+            this.exN.setImageResource(i);
         } else {
-            this.exq.setVisibility(8);
+            this.exN.setVisibility(8);
         }
         if (i2 != -1) {
-            this.exr.setText(i2);
+            this.exO.setText(i2);
         } else {
-            this.exr.setVisibility(8);
+            this.exO.setVisibility(8);
         }
         if (i3 != -1) {
-            this.exs.setText(i3);
+            this.exP.setText(i3);
         } else {
-            this.exs.setVisibility(8);
+            this.exP.setVisibility(8);
         }
     }
 }

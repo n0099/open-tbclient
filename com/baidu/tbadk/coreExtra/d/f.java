@@ -7,17 +7,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean duR = false;
-    private int duS = 0;
+    private boolean dve = false;
+    private int dvf = 0;
 
-    public void uN(String str) {
+    public void uM(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.duR = false;
-        this.duS = 0;
+        this.dve = false;
+        this.dvf = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -48,7 +48,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.duR = true;
+                                this.dve = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -79,19 +79,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.duR && i4 > 0) {
-                    this.duS = i3 / i4;
+                if (this.dve && i4 > 0) {
+                    this.dvf = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.duR;
+        return this.dve;
     }
 
-    public int aNw() {
-        return this.duS;
+    public int aNA() {
+        return this.dvf;
     }
 
     private int getTimeout() {

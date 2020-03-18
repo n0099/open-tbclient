@@ -16,10 +16,11 @@ import com.baidu.tieba.ala.livecard.adapters.c;
 import com.baidu.tieba.ala.livecard.adapters.d;
 import com.baidu.tieba.ala.livecard.adapters.e;
 import com.baidu.tieba.ala.livecard.adapters.f;
+import com.baidu.tieba.ala.livecard.adapters.g;
+import com.baidu.tieba.ala.livecard.adapters.h;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.tieba.frs.aa;
-import com.baidu.tieba.frs.z;
-import com.baidu.tieba.tbadkCore.g;
+import com.baidu.tieba.frs.ab;
 /* loaded from: classes3.dex */
 public class Static {
     static {
@@ -31,27 +32,40 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                         CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                        absDelegateAdapterList.add(new c(null, bj.cRC, null));
-                        absDelegateAdapterList.add(new f(null, bj.cRB, null));
-                        absDelegateAdapterList.add(new e(null, bj.cRD, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.f.kev, null));
-                        absDelegateAdapterList.add(new d(null, g.kez, null));
+                        absDelegateAdapterList.add(new c(null, bj.cRP, null));
+                        absDelegateAdapterList.add(new h(null, bj.cRO, null));
+                        absDelegateAdapterList.add(new g(null, bj.cRQ, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.kfY, null));
+                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.kgb, null));
                     }
                 }
             });
-            MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_MODEL) { // from class: com.baidu.tieba.ala.livecard.Static.2
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2003022) { // from class: com.baidu.tieba.ala.livecard.Static.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof z)) {
-                        z zVar = (z) customResponsedMessage.getData();
-                        com.baidu.tieba.ala.livecard.models.a aVar = new com.baidu.tieba.ala.livecard.models.a();
-                        aVar.setTag(zVar.dBx);
-                        zVar.a(49, aVar);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
+                        AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
+                        absDelegateAdapterList.add(new c(null, bj.cRP, null));
+                        absDelegateAdapterList.add(new f(null, bj.cRO, null));
+                        absDelegateAdapterList.add(new d(null, bj.cRQ, null));
+                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.kgb, null));
                     }
                 }
             });
-            aa.bFF().ta(49);
+            MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_MODEL) { // from class: com.baidu.tieba.ala.livecard.Static.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof aa)) {
+                        aa aaVar = (aa) customResponsedMessage.getData();
+                        com.baidu.tieba.ala.livecard.models.a aVar = new com.baidu.tieba.ala.livecard.models.a();
+                        aVar.setTag(aaVar.dBK);
+                        aaVar.a(49, aVar);
+                    }
+                }
+            });
+            ab.bFP().tc(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

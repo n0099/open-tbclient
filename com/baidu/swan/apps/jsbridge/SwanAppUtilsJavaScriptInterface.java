@@ -98,14 +98,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.w.a.TX().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.w.a.Ua().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.w.b.k.a
-            public void Vj() {
+            public void Vm() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.w.b.k.a
-            public void Vk() {
+            public void Vn() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -132,8 +132,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     if (l.longValue() >= UBC_MIN_VERSION) {
                         String optString2 = jSONObject.optString("actionId");
                         String optString3 = jSONObject.optString("value");
-                        if (com.baidu.swan.ubc.s.avT() != null) {
-                            com.baidu.swan.ubc.s.avT().c(optString2, optString3, 0);
+                        if (com.baidu.swan.ubc.s.avW() != null) {
+                            com.baidu.swan.ubc.s.avW().c(optString2, optString3, 0);
                         }
                     }
                 } catch (NumberFormatException e) {

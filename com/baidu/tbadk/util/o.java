@@ -30,10 +30,10 @@ import java.util.UUID;
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private String bDf;
-    private a dGM;
-    private File dGN;
-    private boolean dGO;
+    private String bDq;
+    private a dHc;
+    private File dHd;
+    private boolean dHe;
     private int from = 0;
     private String imagePath;
     private String url;
@@ -41,15 +41,15 @@ public class o extends BdAsyncTask<String, String, b> {
     public o(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.dGM = aVar;
+        this.dHc = aVar;
     }
 
     public void setFrom(int i) {
         this.from = i;
     }
 
-    public o ha(boolean z) {
-        this.dGO = z;
+    public o hb(boolean z) {
+        this.dHe = z;
         return this;
     }
 
@@ -61,14 +61,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!aSe()) {
+        if (!aSi()) {
             return new b(false, "make file error");
         }
-        if (!this.dGO) {
-            if (!aSf()) {
+        if (!this.dHe) {
+            if (!aSj()) {
                 return new b(false, "download error");
             }
-        } else if (!aSg()) {
+        } else if (!aSk()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -81,22 +81,22 @@ public class o extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.dGM != null) {
-                this.dGM.onError(-2, BdStatsConstant.StatsType.ERROR);
+            if (this.dHc != null) {
+                this.dHc.onError(-2, BdStatsConstant.StatsType.ERROR);
             }
         } else if (!bVar.isSuccess()) {
-            if (this.dGM != null) {
-                this.dGM.onError(-1, bVar.getMessage());
+            if (this.dHc != null) {
+                this.dHc.onError(-1, bVar.getMessage());
             }
         } else {
-            aSh();
-            if (this.dGM != null) {
-                this.dGM.onSuccess(this.imagePath);
+            aSl();
+            if (this.dHc != null) {
+                this.dHc.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean aSe() {
+    private boolean aSi() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -109,14 +109,14 @@ public class o extends BdAsyncTask<String, String, b> {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.bDf = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.bDf) && !this.bDf.endsWith("/")) {
-                    this.bDf += "/";
+                this.bDq = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.bDq) && !this.bDq.endsWith("/")) {
+                    this.bDq += "/";
                 }
             } else {
-                this.bDf = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.bDq = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.bDf);
+            File file = new File(this.bDq);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -125,15 +125,15 @@ public class o extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.bDf + lowerCase + vT(this.url);
-            this.dGN = new File(this.imagePath);
-            if (this.dGN.exists()) {
-                this.dGN.delete();
+            this.imagePath = this.bDq + lowerCase + vT(this.url);
+            this.dHd = new File(this.imagePath);
+            if (this.dHd.exists()) {
+                this.dHd.delete();
             }
-            if (this.dGN.exists()) {
+            if (this.dHd.exists()) {
                 return true;
             }
-            this.dGN.createNewFile();
+            this.dHd.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -141,7 +141,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aSf() {
+    private boolean aSj() {
         return n(this.url, this.imagePath, 3);
     }
 
@@ -181,21 +181,21 @@ public class o extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField(Headers.LOCATION);
                         com.baidu.adp.lib.f.a.close(a2);
                         try {
-                            if (this.dGN != null) {
-                                this.dGN.delete();
+                            if (this.dHd != null) {
+                                this.dHd.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.bDf + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vT(headerField2);
-                        this.dGN = new File(this.imagePath);
-                        if (this.dGN.exists()) {
-                            this.dGN.delete();
+                        this.imagePath = this.bDq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vT(headerField2);
+                        this.dHd = new File(this.imagePath);
+                        if (this.dHd.exists()) {
+                            this.dHd.delete();
                         }
-                        if (!this.dGN.exists()) {
-                            this.dGN.createNewFile();
+                        if (!this.dHd.exists()) {
+                            this.dHd.createNewFile();
                         }
                         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGN, true);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.dHd, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -282,7 +282,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aSg() {
+    private boolean aSk() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -292,7 +292,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
         FileOutputStream fileOutputStream2 = null;
         try {
-            FileOutputStream fileOutputStream3 = new FileOutputStream(this.dGN, true);
+            FileOutputStream fileOutputStream3 = new FileOutputStream(this.dHd, true);
             try {
                 fileOutputStream3.write(decode);
                 fileOutputStream3.flush();
@@ -376,9 +376,9 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void aSh() {
-        if (this.dGN != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.dGN)));
+    private void aSl() {
+        if (this.dHd != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.dHd)));
         }
     }
 

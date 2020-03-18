@@ -29,32 +29,32 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    public static long bSo;
-    private static ContentObserver bSp;
-    private static PackageManager bSq;
-    private static boolean bSr;
-    private static Runnable bSs;
+    private static ContentObserver bSA;
+    private static PackageManager bSB;
+    private static boolean bSC;
+    private static Runnable bSD;
+    public static long bSz;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ak.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
 
-    static /* synthetic */ int adU() {
+    static /* synthetic */ int adX() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean adT() {
+    private static boolean adW() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
-    public static void cu(Context context) {
-        bSq = context.getPackageManager();
+    public static void ct(Context context) {
+        bSB = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        bSp = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
+        bSA = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ak.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -64,8 +64,8 @@ public class c {
                 c.a(handler, uri);
             }
         };
-        if (cv(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSp);
+        if (cu(context)) {
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, bSA);
         }
     }
 
@@ -74,8 +74,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.bSu + ".*")) {
-            if (adT() && bSr) {
+        if (uri.toString().matches(a.bSF + ".*")) {
+            if (adW() && bSC) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -96,18 +96,18 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + valueOf);
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
-                                if (a.ly(string) && a.k(valueOf2.longValue(), valueOf.longValue())) {
-                                    bSr = true;
+                                if (a.lx(string) && a.k(valueOf2.longValue(), valueOf.longValue())) {
+                                    bSC = true;
                                     final b bVar = new b(string, valueOf);
-                                    bSs = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
+                                    bSD = new Runnable() { // from class: com.baidu.swan.apps.ak.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
-                                            c.adU();
+                                            c.adX();
                                             if (c.DEBUG) {
                                                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                             }
-                                            if (c.lw(string) || c.mCount > 10) {
-                                                if (c.lw(string) && c.aA(2000L) && !c.lv(string)) {
+                                            if (c.lv(string) || c.mCount > 10) {
+                                                if (c.lv(string) && c.aA(2000L) && !c.lu(string)) {
                                                     for (com.baidu.swan.apps.ak.a aVar : c.mCallbacks) {
                                                         if (aVar != null) {
                                                             aVar.a(bVar);
@@ -117,17 +117,17 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.bSs, 100L);
+                                            handler.postDelayed(c.bSD, 100L);
                                         }
                                     };
-                                    handler.post(bSs);
+                                    handler.post(bSD);
                                 } else {
-                                    bSr = false;
+                                    bSC = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (bSq != null) {
-                                List<ProviderInfo> queryContentProviders = bSq.queryContentProviders(null, 0, 131072);
+                            if (bSB != null) {
+                                List<ProviderInfo> queryContentProviders = bSB.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -157,11 +157,11 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean aA(long j) {
-        return g.WX().isForeground() && System.currentTimeMillis() - bSo > j;
+        return g.Xa().isForeground() && System.currentTimeMillis() - bSz > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean lv(String str) {
+    public static boolean lu(String str) {
         Point point = new Point();
         ((WindowManager) AppRuntime.getAppContext().getSystemService("window")).getDefaultDisplay().getSize(point);
         int navigationBarHeight = (int) ((point.y + getNavigationBarHeight()) * 1.2d);
@@ -182,12 +182,12 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean lw(String str) {
+    public static boolean lv(String str) {
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
 
-    private static boolean cv(Context context) {
+    private static boolean cu(Context context) {
         return Build.VERSION.SDK_INT < 23 || com.baidu.swan.support.v4.a.a.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0;
     }
 
@@ -205,12 +205,12 @@ public class c {
 
     /* loaded from: classes11.dex */
     public static class b {
-        public Long bSv;
+        public Long bSG;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.bSv = l;
+            this.bSG = l;
         }
     }
 
@@ -218,16 +218,16 @@ public class c {
     /* loaded from: classes11.dex */
     public static class a {
         public static String[] PROJECTION;
-        public static String bSu;
+        public static String bSF;
 
         static {
-            bSu = null;
+            bSF = null;
             PROJECTION = null;
-            bSu = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            bSF = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
             PROJECTION = new String[]{"_display_name", "_data", "date_added"};
         }
 
-        public static boolean ly(String str) {
+        public static boolean lx(String str) {
             if (str == null) {
                 return false;
             }

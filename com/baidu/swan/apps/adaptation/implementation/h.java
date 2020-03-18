@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h implements com.baidu.swan.apps.adaptation.a.k {
     @Override // com.baidu.swan.apps.adaptation.a.k
-    public void ap(String str, String str2) {
+    public void ao(String str, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k

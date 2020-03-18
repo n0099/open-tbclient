@@ -4,34 +4,34 @@ import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class f {
     final int capacityHint;
-    Object[] nAm;
-    Object[] nAn;
-    int nAo;
+    Object[] nBZ;
+    Object[] nCa;
+    int nCb;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.nAm = new Object[this.capacityHint + 1];
-            this.nAn = this.nAm;
-            this.nAm[0] = obj;
-            this.nAo = 1;
+            this.nBZ = new Object[this.capacityHint + 1];
+            this.nCa = this.nBZ;
+            this.nBZ[0] = obj;
+            this.nCb = 1;
             this.size = 1;
-        } else if (this.nAo == this.capacityHint) {
+        } else if (this.nCb == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.nAn[this.capacityHint] = objArr;
-            this.nAn = objArr;
-            this.nAo = 1;
+            this.nCa[this.capacityHint] = objArr;
+            this.nCa = objArr;
+            this.nCb = 1;
             this.size++;
         } else {
-            this.nAn[this.nAo] = obj;
-            this.nAo++;
+            this.nCa[this.nCb] = obj;
+            this.nCb++;
             this.size++;
         }
     }
 
-    public Object[] dJG() {
-        return this.nAm;
+    public Object[] dKg() {
+        return this.nBZ;
     }
 
     public int size() {
@@ -43,14 +43,14 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dJG = dJG();
+        Object[] dKg = dKg();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dJG[i4]);
+            arrayList.add(dKg[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dJG = (Object[]) dJG[i];
+                dKg = (Object[]) dKg[i];
                 i4 = 0;
             }
         }

@@ -14,47 +14,47 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a fsw;
-    private HttpMessageListener fsx;
+    private a fsV;
+    private HttpMessageListener fsW;
     private TbPageContext mContext;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void brR();
+        void brW();
 
         void onFail(String str);
     }
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fsx = new HttpMessageListener(1021030) { // from class: com.baidu.tieba.ala.person.c.d.1
+        this.fsW = new HttpMessageListener(1021030) { // from class: com.baidu.tieba.ala.person.c.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && d.this.fsw != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && d.this.fsV != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        d.this.fsw.onFail(httpResponsedMessage.getErrorString());
+                        d.this.fsV.onFail(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.fsw.brR();
+                        d.this.fsV.brW();
                     } else {
-                        d.this.fsw.onFail(httpResponsedMessage.getErrorString());
+                        d.this.fsV.onFail(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.fsx.setSelfListener(true);
-        this.fsx.setTag(tbPageContext.getUniqueId());
-        registerListener(this.fsx);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021030, com.baidu.live.a.Vg);
+        this.fsW.setSelfListener(true);
+        this.fsW.setTag(tbPageContext.getUniqueId());
+        registerListener(this.fsW);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021030, com.baidu.live.a.Vq);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void zD(String str) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.fsw != null) {
-                this.fsw.onFail(this.mContext.getResources().getString(a.i.sdk_no_network));
+            if (this.fsV != null) {
+                this.fsV.onFail(this.mContext.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -66,7 +66,7 @@ public class d extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fsw = aVar;
+        this.fsV = aVar;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -77,8 +77,8 @@ public class d extends BdBaseModel {
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        if (this.fsw != null) {
-            this.fsw.onFail(null);
+        if (this.fsV != null) {
+            this.fsV.onFail(null);
             return false;
         }
         return false;
@@ -86,8 +86,8 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        if (this.fsw != null) {
-            this.fsw.onFail(null);
+        if (this.fsV != null) {
+            this.fsV.onFail(null);
         }
         MessageManager.getInstance().unRegisterTask(1021030);
     }

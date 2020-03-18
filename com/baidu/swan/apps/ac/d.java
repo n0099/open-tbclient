@@ -7,8 +7,8 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class d {
-    boolean bFH;
-    private WeakReference<Bitmap> bFK;
+    boolean bFS;
+    private WeakReference<Bitmap> bFV;
     String id;
     boolean isFirstPage;
     Rect rect;
@@ -16,9 +16,9 @@ public class d {
     String url;
     private static final String TAG = f.TAG;
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    int bFJ = 0;
+    int bFU = 0;
     long startTime = System.currentTimeMillis();
-    int bFI = 0;
+    int bFT = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
@@ -29,7 +29,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long YF() {
+    public long YI() {
         if (this.remainTime > 0) {
             this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
@@ -52,22 +52,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void YG() {
-        this.bFI = 1;
+    public void YJ() {
+        this.bFT = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void YH() {
-        this.bFI = 2;
+    public void YK() {
+        this.bFT = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.bFI == 2;
+        return this.bFT == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(Bitmap bitmap) {
-        this.bFK = new WeakReference<>(bitmap);
+        this.bFV = new WeakReference<>(bitmap);
     }
 }

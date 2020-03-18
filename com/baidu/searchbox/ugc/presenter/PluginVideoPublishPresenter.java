@@ -34,7 +34,7 @@ public class PluginVideoPublishPresenter extends VideoBasePublishPresenter {
 
     @Override // com.baidu.searchbox.ugc.presenter.BasePublishPresenter
     protected void loadInnerEmotionPanel(SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout, EmojiconEditText emojiconEditText) {
-        c.bf(this.mPublishView.getContext().getApplicationContext()).a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.presenter.PluginVideoPublishPresenter.1
+        c.be(this.mPublishView.getContext().getApplicationContext()).a(new a.InterfaceC0194a() { // from class: com.baidu.searchbox.ugc.presenter.PluginVideoPublishPresenter.1
             @Override // com.baidu.spswitch.b.a.InterfaceC0194a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
@@ -42,7 +42,7 @@ public class PluginVideoPublishPresenter extends VideoBasePublishPresenter {
                 }
             }
         });
-        c.bf(this.mPublishView.getContext().getApplicationContext()).a(emojiconEditText);
+        c.be(this.mPublishView.getContext().getApplicationContext()).a(emojiconEditText);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

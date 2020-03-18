@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 final class h {
-    private SQLiteDatabase kVZ = f.cXr().cXs();
+    private SQLiteDatabase kXC = f.cXP().cXQ();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<i> cXq() {
-        Cursor rawQuery = this.kVZ.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+    public final List<i> cXO() {
+        Cursor rawQuery = this.kXC.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             i iVar = new i();
@@ -29,6 +29,6 @@ final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.kVZ.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        this.kXC.execSQL("delete from tb_ab_netlog where _id <= " + i);
     }
 }

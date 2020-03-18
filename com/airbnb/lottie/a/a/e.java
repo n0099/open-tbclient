@@ -9,11 +9,11 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class e implements j, l, a.InterfaceC0010a {
     @Nullable
-    private r fT;
+    private r fS;
+    private final com.airbnb.lottie.a.b.a<?, PointF> fV;
     private final com.airbnb.lottie.a.b.a<?, PointF> fW;
-    private final com.airbnb.lottie.a.b.a<?, PointF> fX;
-    private final com.airbnb.lottie.model.content.a fY;
-    private boolean fZ;
+    private final com.airbnb.lottie.model.content.a fX;
+    private boolean fY;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -21,13 +21,13 @@ public class e implements j, l, a.InterfaceC0010a {
     public e(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = gVar;
-        this.fW = aVar2.cx().cn();
-        this.fX = aVar2.cq().cn();
-        this.fY = aVar2;
+        this.fV = aVar2.cx().cn();
+        this.fW = aVar2.cq().cn();
+        this.fX = aVar2;
+        aVar.a(this.fV);
         aVar.a(this.fW);
-        aVar.a(this.fX);
+        this.fV.b(this);
         this.fW.b(this);
-        this.fX.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
@@ -36,7 +36,7 @@ public class e implements j, l, a.InterfaceC0010a {
     }
 
     private void invalidate() {
-        this.fZ = false;
+        this.fY = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -48,8 +48,8 @@ public class e implements j, l, a.InterfaceC0010a {
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
                 if ((bVar instanceof r) && ((r) bVar).bN() == ShapeTrimPath.Type.Simultaneously) {
-                    this.fT = (r) bVar;
-                    this.fT.a(this);
+                    this.fS = (r) bVar;
+                    this.fS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -65,17 +65,17 @@ public class e implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.a.a.l
     public Path bG() {
-        if (this.fZ) {
+        if (this.fY) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.fW.getValue();
+        PointF value = this.fV.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.fY.isReversed()) {
+        if (this.fX.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,11 +88,11 @@ public class e implements j, l, a.InterfaceC0010a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.fX.getValue();
+        PointF value2 = this.fW.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.airbnb.lottie.d.f.a(this.path, this.fT);
-        this.fZ = true;
+        com.airbnb.lottie.d.f.a(this.path, this.fS);
+        this.fY = true;
         return this.path;
     }
 
@@ -103,10 +103,10 @@ public class e implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eT) {
+        if (t == com.airbnb.lottie.k.eS) {
+            this.fV.a(cVar);
+        } else if (t == com.airbnb.lottie.k.eT) {
             this.fW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eU) {
-            this.fX.a(cVar);
         }
     }
 }

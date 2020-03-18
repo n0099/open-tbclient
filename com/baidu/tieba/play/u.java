@@ -9,9 +9,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bj cRg;
+    private bj cRt;
     private int duration;
-    private String jws;
+    private String jxR;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.jws = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.jxR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.jws = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.jxR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,9 +68,9 @@ public class u {
         a(videoInfo, false);
     }
 
-    public void aj(bj bjVar) {
-        h(bjVar.aCF());
-        this.cRg = bjVar;
+    public void ak(bj bjVar) {
+        h(bjVar.aCI());
+        this.cRt = bjVar;
     }
 
     public void b(AlaInfoData alaInfoData) {
@@ -79,8 +79,8 @@ public class u {
         }
     }
 
-    public bj aAg() {
-        return this.cRg;
+    public bj aAj() {
+        return this.cRt;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long czm() {
+    public long czF() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String czn() {
-        return this.jws;
+    public String czG() {
+        return this.jxR;
     }
 }

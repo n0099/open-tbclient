@@ -14,7 +14,7 @@ class bn implements al.a {
     @Override // com.xiaomi.push.service.al.a
     public void a() {
         this.a.e();
-        if (al.a().m510a() <= 0) {
+        if (al.a().m508a() <= 0) {
             this.a.a(new XMPushService.f(12, null));
         }
     }

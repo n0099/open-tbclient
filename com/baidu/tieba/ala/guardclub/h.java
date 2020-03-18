@@ -24,10 +24,10 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.live.guardclub.k {
     private Activity context;
-    private LottieAnimationView eAN;
-    private AnimatorSet eFA;
-    private AlphaAnimation eFy;
-    private AnimatorSet eFz;
+    private LottieAnimationView eBj;
+    private AlphaAnimation eFU;
+    private AnimatorSet eFV;
+    private AnimatorSet eFW;
     private String otherParams;
 
     public h(Activity activity) {
@@ -42,23 +42,23 @@ public class h implements com.baidu.live.guardclub.k {
     @Override // com.baidu.live.guardclub.k
     @SuppressLint({"ClickableViewAccessibility"})
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, com.baidu.live.guardclub.a aVar, com.baidu.live.data.m mVar) {
-        if (viewGroup != null && this.context != null && mVar != null && mVar.Ye != null) {
-            String str = mVar.Ye.nickName;
+        if (viewGroup != null && this.context != null && mVar != null && mVar.Yo != null) {
+            String str = mVar.Yo.nickName;
             if (TextUtils.isEmpty(str)) {
-                str = mVar.Ye.userName;
+                str = mVar.Yo.userName;
             }
-            a(viewGroup, layoutParams, mVar.Ye.portrait, str);
+            a(viewGroup, layoutParams, mVar.Yo.portrait, str);
         }
     }
 
     public void a(final ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, String str2) {
         if (viewGroup != null && this.context != null) {
             onDestory();
-            if (bfl()) {
+            if (bfq()) {
                 String str3 = null;
-                ah vJ = com.baidu.live.guardclub.g.vH().vJ();
-                if (vJ != null && !TextUtils.isEmpty(vJ.aci)) {
-                    str3 = vJ.aci;
+                ah vO = com.baidu.live.guardclub.g.vM().vO();
+                if (vO != null && !TextUtils.isEmpty(vO.acv)) {
+                    str3 = vO.acv;
                 }
                 if (str3 == null) {
                     str3 = this.context.getString(a.i.guard_club_add_suc);
@@ -69,12 +69,12 @@ public class h implements com.baidu.live.guardclub.k {
             final View inflate = LayoutInflater.from(this.context).inflate(a.h.view_guardclub_join_result, (ViewGroup) null);
             inflate.setLayoutParams(layoutParams);
             final View findViewById = inflate.findViewById(a.g.shape_view);
-            this.eFy = new AlphaAnimation(0.0f, 1.0f);
-            this.eFy.setDuration(100L);
-            this.eAN = (LottieAnimationView) inflate.findViewById(a.g.flowerAppear_lottieAnimationView);
-            this.eAN.loop(false);
+            this.eFU = new AlphaAnimation(0.0f, 1.0f);
+            this.eFU.setDuration(100L);
+            this.eBj = (LottieAnimationView) inflate.findViewById(a.g.flowerAppear_lottieAnimationView);
+            this.eBj.loop(false);
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.eAN.setAnimation("anim_shouhuhua.json");
+                this.eBj.setAnimation("anim_shouhuhua.json");
             }
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(a.g.head_layout);
             TextView textView = (TextView) inflate.findViewById(a.g.name_textView);
@@ -83,19 +83,19 @@ public class h implements com.baidu.live.guardclub.k {
             headImageView.setAutoChangeStyle(false);
             headImageView.setDefaultBgResource(a.f.sdk_default_avatar);
             int screenHeight = ((int) (ScreenHelper.getScreenHeight(this.context) * 0.38200003f)) - this.context.getResources().getDimensionPixelSize(a.e.sdk_ds40);
-            ViewGroup.LayoutParams layoutParams2 = this.eAN.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.eBj.getLayoutParams();
             layoutParams2.height = screenHeight;
             layoutParams2.width = (int) ((screenHeight / 50.0f) * 75.0f);
-            this.eAN.setLayoutParams(layoutParams2);
+            this.eBj.setLayoutParams(layoutParams2);
             ((RelativeLayout.LayoutParams) linearLayout.getLayoutParams()).topMargin = screenHeight - this.context.getResources().getDimensionPixelSize(a.e.sdk_ds140);
-            this.eAN.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.guardclub.h.1
+            this.eBj.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.guardclub.h.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    h.this.eAN.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.h.1.1
+                    h.this.eBj.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.h.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (viewGroup != null) {
@@ -118,17 +118,17 @@ public class h implements com.baidu.live.guardclub.k {
             new ObjectAnimator();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize * (-1));
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0.0f, 1.0f);
-            this.eFz = new AnimatorSet();
-            this.eFz.playTogether(ofFloat, ofFloat2);
-            this.eFz.setDuration(170L);
-            this.eFz.setStartDelay(830L);
+            this.eFV = new AnimatorSet();
+            this.eFV.playTogether(ofFloat, ofFloat2);
+            this.eFV.setDuration(170L);
+            this.eFV.setStartDelay(830L);
             new ObjectAnimator();
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(linearLayout, "alpha", 1.0f, 0.0f);
-            this.eFA = new AnimatorSet();
-            this.eFA.playTogether(ofFloat3, ofFloat4);
-            this.eFA.setDuration(210L);
-            this.eFA.setStartDelay(3000L);
+            this.eFW = new AnimatorSet();
+            this.eFW.playTogether(ofFloat3, ofFloat4);
+            this.eFW.setDuration(210L);
+            this.eFW.setStartDelay(3000L);
             if (str2 == null) {
                 str2 = "";
             }
@@ -138,10 +138,10 @@ public class h implements com.baidu.live.guardclub.k {
                 public void onComplete(String str4, boolean z) {
                     if (viewGroup != null && !h.this.context.isFinishing()) {
                         viewGroup.addView(inflate);
-                        findViewById.startAnimation(h.this.eFy);
-                        h.this.eAN.playAnimation();
-                        h.this.eFz.start();
-                        h.this.eFA.start();
+                        findViewById.startAnimation(h.this.eFU);
+                        h.this.eBj.playAnimation();
+                        h.this.eFV.start();
+                        h.this.eFW.start();
                     }
                 }
 
@@ -150,9 +150,9 @@ public class h implements com.baidu.live.guardclub.k {
                 }
             });
             TextView textView2 = (TextView) inflate.findViewById(a.g.desc_textView);
-            ah vJ2 = com.baidu.live.guardclub.g.vH().vJ();
-            if (vJ2 != null && !TextUtils.isEmpty(vJ2.aci)) {
-                textView2.setText(vJ2.aci);
+            ah vO2 = com.baidu.live.guardclub.g.vM().vO();
+            if (vO2 != null && !TextUtils.isEmpty(vO2.acv)) {
+                textView2.setText(vO2.acv);
             }
             headImageView.startLoad(str, 12, false);
         }
@@ -160,21 +160,21 @@ public class h implements com.baidu.live.guardclub.k {
 
     @Override // com.baidu.live.guardclub.k
     public void onDestory() {
-        if (this.eFy != null) {
-            this.eFy.cancel();
+        if (this.eFU != null) {
+            this.eFU.cancel();
         }
-        if (this.eAN != null) {
-            this.eAN.cancelAnimation();
+        if (this.eBj != null) {
+            this.eBj.cancelAnimation();
         }
-        if (this.eFz != null) {
-            this.eFz.cancel();
+        if (this.eFV != null) {
+            this.eFV.cancel();
         }
-        if (this.eFA != null) {
-            this.eFA.cancel();
+        if (this.eFW != null) {
+            this.eFW.cancel();
         }
     }
 
-    private boolean bfl() {
+    private boolean bfq() {
         return this.context.getRequestedOrientation() == 0;
     }
 }

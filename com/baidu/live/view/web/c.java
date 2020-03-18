@@ -4,7 +4,7 @@ import android.webkit.JsResult;
 /* loaded from: classes3.dex */
 public abstract class c implements b {
     @Override // com.baidu.live.view.web.b
-    public void el(String str) {
+    public void ek(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -12,7 +12,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void em(String str) {
+    public void el(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -20,7 +20,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void Bz() {
+    public void BG() {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -29,11 +29,11 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void en(String str) {
+    public void em(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean eo(String str) {
+    public boolean en(String str) {
         return false;
     }
 

@@ -12,15 +12,15 @@ import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public final class ProxyConfiguration {
-    public final String nnA;
-    public final Proxy.Type nnB;
+    public final String npp;
+    public final Proxy.Type npq;
     public final String password;
     public final int port;
     public final String user;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Proxy proxy() {
-        return new Proxy(this.nnB, new InetSocketAddress(this.nnA, this.port));
+        return new Proxy(this.npq, new InetSocketAddress(this.npp, this.port));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

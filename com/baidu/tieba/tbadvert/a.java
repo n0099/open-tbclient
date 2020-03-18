@@ -16,96 +16,96 @@ import com.baidu.tieba.tbadvert.b.a;
 import com.baidu.tieba.tbadvert.view.a;
 /* loaded from: classes13.dex */
 public class a implements com.baidu.tbadk.r.a {
-    private final com.baidu.tieba.tbadvert.view.a kkI;
-    private b kkJ;
+    private final com.baidu.tieba.tbadvert.view.a kmk;
+    private b kml;
     private Context mContext;
     private final Handler mHandler = new Handler();
     private boolean isActive = true;
-    private a.InterfaceC0615a kkL = new a.InterfaceC0615a() { // from class: com.baidu.tieba.tbadvert.a.1
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
+    private a.InterfaceC0616a kmn = new a.InterfaceC0616a() { // from class: com.baidu.tieba.tbadvert.a.1
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0616a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             if (j.isNetWorkAvailable()) {
-                a.this.kkK.cMA();
-            } else if (a.this.kkJ != null) {
-                a.this.kkJ.aRL();
+                a.this.kmm.cMU();
+            } else if (a.this.kml != null) {
+                a.this.kml.aRP();
             }
             if (a.this.isActive) {
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadvert.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                            a.this.kkK.cMB();
+                            a.this.kmm.cMV();
                         }
                     }
                 }, 800L);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                a.this.kkK.cMB();
+                a.this.kmm.cMV();
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
-        public void cMu() {
-            if (a.this.isActive && a.this.kkJ != null) {
-                a.this.kkJ.aRL();
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0616a
+        public void cMO() {
+            if (a.this.isActive && a.this.kml != null) {
+                a.this.kml.aRP();
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0615a
+        @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0616a
         public void aB(Object obj) {
-            com.baidu.tieba.tbadvert.a.b cMz;
-            if (a.this.isActive && (cMz = a.this.kkK.cMz()) != null) {
+            com.baidu.tieba.tbadvert.a.b cMT;
+            if (a.this.isActive && (cMT = a.this.kmm.cMT()) != null) {
                 an b = com.baidu.tieba.s.a.b("a064", "common_fill", true, 1);
                 if (i.ab(a.this.mContext) != null) {
-                    c.cKb().b(i.ab(a.this.mContext).getUniqueId(), b);
+                    c.cKv().b(i.ab(a.this.mContext).getUniqueId(), b);
                 }
-                a.this.kkI.e(obj, ((int) cMz.showTime) / 1000);
-                if (a.this.kkJ != null) {
-                    a.this.kkJ.g(String.valueOf(cMz.id), cMz.aZj(), cMz.isFullScreen());
+                a.this.kmk.e(obj, ((int) cMT.showTime) / 1000);
+                if (a.this.kml != null) {
+                    a.this.kml.g(String.valueOf(cMT.id), cMT.aZn(), cMT.isFullScreen());
                 }
             }
         }
     };
-    private a.InterfaceC0616a kkM = new a.InterfaceC0616a() { // from class: com.baidu.tieba.tbadvert.a.2
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0616a
-        public void cMv() {
-            com.baidu.tieba.tbadvert.a.b cMz = a.this.kkK.cMz();
-            if (cMz != null) {
-                if (a.this.kkJ != null) {
-                    a.this.kkJ.V(String.valueOf(cMz.id), cMz.aZj());
+    private a.InterfaceC0617a kmo = new a.InterfaceC0617a() { // from class: com.baidu.tieba.tbadvert.a.2
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0617a
+        public void cMP() {
+            com.baidu.tieba.tbadvert.a.b cMT = a.this.kmm.cMT();
+            if (cMT != null) {
+                if (a.this.kml != null) {
+                    a.this.kml.V(String.valueOf(cMT.id), cMT.aZn());
                 }
-                if (!TextUtils.isEmpty(cMz.linkUrl)) {
-                    if (!a.this.Jw(cMz.linkUrl)) {
-                        ba.aGG().a((TbPageContext) i.ab(a.this.mContext), new String[]{cMz.linkUrl}, true);
+                if (!TextUtils.isEmpty(cMT.linkUrl)) {
+                    if (!a.this.Jv(cMT.linkUrl)) {
+                        ba.aGK().a((TbPageContext) i.ab(a.this.mContext), new String[]{cMT.linkUrl}, true);
                         return;
                     }
-                    final String str = cMz.linkUrl;
+                    final String str = cMT.linkUrl;
                     e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadvert.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            ba.aGG().a((TbPageContext) i.ab(com.baidu.adp.base.a.eH().currentActivity()), new String[]{str}, true);
+                            ba.aGK().a((TbPageContext) i.ab(com.baidu.adp.base.a.eH().currentActivity()), new String[]{str}, true);
                         }
                     }, 500L);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0616a
-        public void cMw() {
-            if (a.this.kkJ != null) {
-                a.this.kkJ.azb();
+        @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0617a
+        public void cMQ() {
+            if (a.this.kml != null) {
+                a.this.kml.aze();
             }
         }
     };
-    private final com.baidu.tieba.tbadvert.b.a kkK = new com.baidu.tieba.tbadvert.b.a();
+    private final com.baidu.tieba.tbadvert.b.a kmm = new com.baidu.tieba.tbadvert.b.a();
 
     public a(Context context) {
         this.mContext = context;
-        this.kkK.a(this.kkL);
-        this.kkI = new com.baidu.tieba.tbadvert.view.a(context, this.kkM);
+        this.kmm.a(this.kmn);
+        this.kmk = new com.baidu.tieba.tbadvert.view.a(context, this.kmo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Jw(String str) {
+    public boolean Jv(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -114,17 +114,17 @@ public class a implements com.baidu.tbadk.r.a {
 
     @Override // com.baidu.tbadk.r.a
     public View getView() {
-        return this.kkI.getView();
+        return this.kmk.getView();
     }
 
     @Override // com.baidu.tbadk.r.a
     public void a(b bVar) {
-        this.kkJ = bVar;
+        this.kml = bVar;
     }
 
     @Override // com.baidu.tbadk.r.a
-    public void aRK() {
-        this.kkK.cMy();
+    public void aRO() {
+        this.kmm.cMS();
     }
 
     @Override // com.baidu.tbadk.r.a

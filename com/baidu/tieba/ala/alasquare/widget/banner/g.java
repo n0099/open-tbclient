@@ -10,9 +10,9 @@ import android.view.View;
 /* loaded from: classes3.dex */
 public class g extends h {
     @Nullable
-    private f euT;
+    private f evp;
     @Nullable
-    private f euU;
+    private f evq;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.h
     @Nullable
@@ -172,17 +172,17 @@ public class g extends h {
 
     @NonNull
     private f c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.euT == null || this.euT.mLayoutManager != layoutManager) {
-            this.euT = f.b(layoutManager);
+        if (this.evp == null || this.evp.mLayoutManager != layoutManager) {
+            this.evp = f.b(layoutManager);
         }
-        return this.euT;
+        return this.evp;
     }
 
     @NonNull
     private f d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.euU == null || this.euU.mLayoutManager != layoutManager) {
-            this.euU = f.a(layoutManager);
+        if (this.evq == null || this.evq.mLayoutManager != layoutManager) {
+            this.evq = f.a(layoutManager);
         }
-        return this.euU;
+        return this.evq;
     }
 }

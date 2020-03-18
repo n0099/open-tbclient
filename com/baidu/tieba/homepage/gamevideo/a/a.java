@@ -13,33 +13,33 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private BdTypeRecyclerView BK;
-    private LinkedList<com.baidu.adp.widget.ListView.a> haG = new LinkedList<>();
-    private f haH;
-    private c haI;
-    private d haJ;
-    private e haK;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hbO = new LinkedList<>();
+    private f hbP;
+    private c hbQ;
+    private d hbR;
+    private e hbS;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.BK = bdTypeRecyclerView;
-        wM();
+        wR();
     }
 
-    private void wM() {
-        this.haH = new f(this.mPageContext, k.fNl);
-        this.haI = new c(this.mPageContext, l.cRA);
-        this.haJ = new d(this.mPageContext, k.fNt);
-        this.haK = new e(this.mPageContext, k.fNu);
-        this.haH.b((r) this.BK);
-        this.haI.b((r) this.BK);
-        this.haJ.b((r) this.BK);
-        this.haK.b((r) this.BK);
-        this.haG.add(this.haH);
-        this.haG.add(this.haI);
-        this.haG.add(this.haJ);
-        this.haG.add(this.haK);
-        this.BK.addAdapters(this.haG);
+    private void wR() {
+        this.hbP = new f(this.mPageContext, k.fNT);
+        this.hbQ = new c(this.mPageContext, l.cRN);
+        this.hbR = new d(this.mPageContext, k.fOb);
+        this.hbS = new e(this.mPageContext, k.fOc);
+        this.hbP.b((r) this.BK);
+        this.hbQ.b((r) this.BK);
+        this.hbR.b((r) this.BK);
+        this.hbS.b((r) this.BK);
+        this.hbO.add(this.hbP);
+        this.hbO.add(this.hbQ);
+        this.hbO.add(this.hbR);
+        this.hbO.add(this.hbS);
+        this.BK.addAdapters(this.hbO);
     }
 
     public void notifyDataSetChanged() {
@@ -49,17 +49,17 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.haH != null) {
-            this.haH.setPageUniqueId(bdUniqueId);
+        if (this.hbP != null) {
+            this.hbP.setPageUniqueId(bdUniqueId);
         }
-        if (this.haI != null) {
-            this.haI.setPageUniqueId(bdUniqueId);
+        if (this.hbQ != null) {
+            this.hbQ.setPageUniqueId(bdUniqueId);
         }
-        if (this.haJ != null) {
-            this.haJ.setPageUniqueId(bdUniqueId);
+        if (this.hbR != null) {
+            this.hbR.setPageUniqueId(bdUniqueId);
         }
-        if (this.haK != null) {
-            this.haK.setPageUniqueId(bdUniqueId);
+        if (this.hbS != null) {
+            this.hbS.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -75,29 +75,29 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.haK != null) {
-            this.haK.setEventCallback(aVar);
+        if (this.hbS != null) {
+            this.hbS.setEventCallback(aVar);
         }
     }
 
-    public void vl(int i) {
-        if (this.haH != null) {
-            this.haH.vl(i);
+    public void vs(int i) {
+        if (this.hbP != null) {
+            this.hbP.vs(i);
         }
-        if (this.haI != null) {
-            this.haI.vl(i);
+        if (this.hbQ != null) {
+            this.hbQ.vs(i);
         }
-        if (this.haJ != null) {
-            this.haJ.vl(i);
+        if (this.hbR != null) {
+            this.hbR.vs(i);
         }
-        if (this.haK != null) {
-            this.haK.vl(i);
+        if (this.hbS != null) {
+            this.hbS.vs(i);
         }
     }
 
     public void onPause() {
-        if (this.haI != null) {
-            this.haI.onPause();
+        if (this.hbQ != null) {
+            this.hbQ.onPause();
         }
     }
 

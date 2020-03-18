@@ -42,18 +42,18 @@ public class v extends ab {
             com.baidu.swan.apps.console.c.e("PreloadSubPackage", "subPackage root is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (eVar.kO(optString2) && eVar.kP(optString2)) {
+        } else if (eVar.kN(optString2) && eVar.kO(optString2)) {
             com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage have existed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
             return false;
         } else {
-            String kR = eVar.kR(optString2);
-            if (TextUtils.isEmpty(kR)) {
+            String kQ = eVar.kQ(optString2);
+            if (TextUtils.isEmpty(kQ)) {
                 com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage cannot find aps key");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.scheme.actions.k.g.a(eVar.id, eVar.getVersion(), optString2, kR, null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.v.1
+            com.baidu.swan.apps.scheme.actions.k.g.a(eVar.id, eVar.getVersion(), optString2, kQ, null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.v.1
                 @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                 public void success(String str) {
                     com.baidu.swan.apps.console.c.i("PreloadSubPackage", "preload subPackage success");

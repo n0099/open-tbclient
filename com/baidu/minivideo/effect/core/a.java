@@ -16,32 +16,32 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes13.dex */
 public class a {
-    private boolean aNA;
-    private volatile boolean aNv;
-    private c aNw;
-    private final FloatBuffer aNy;
+    private volatile boolean aNJ;
+    private c aNK;
+    private final FloatBuffer aNM;
+    private boolean aNO;
     private Context mContext;
     private int mHeight;
     private float[] mMtx;
     private int mWidth;
     private boolean mDebug = false;
-    private int[] aNB = {-1, -1};
+    private int[] aNP = {-1, -1};
     private int[] mFramebuffers = new int[2];
-    private final LinkedList<Runnable> aNz = new LinkedList<>();
-    private final FloatBuffer aNx = ByteBuffer.allocateDirect(f.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+    private final LinkedList<Runnable> aNN = new LinkedList<>();
+    private final FloatBuffer aNL = ByteBuffer.allocateDirect(f.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
     public a() {
-        this.aNx.put(f.a).position(0);
-        this.aNy = ByteBuffer.allocateDirect(g.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.aNy.put(g.b(Rotation.NORMAL, false, true)).position(0);
+        this.aNL.put(f.a).position(0);
+        this.aNM = ByteBuffer.allocateDirect(g.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.aNM.put(g.b(Rotation.NORMAL, false, true)).position(0);
     }
 
-    private void Eb() {
-        for (int i = 0; i < this.aNB.length; i++) {
-            if (this.aNB[i] == -1) {
+    private void Ei() {
+        for (int i = 0; i < this.aNP.length; i++) {
+            if (this.aNP[i] == -1) {
                 log("init fbo i : " + i);
-                GLES20.glGenTextures(1, this.aNB, i);
-                GLES20.glBindTexture(3553, this.aNB[i]);
+                GLES20.glGenTextures(1, this.aNP, i);
+                GLES20.glBindTexture(3553, this.aNP[i]);
                 GLES20.glTexParameterf(3553, 10241, 9728.0f);
                 GLES20.glTexParameterf(3553, 10240, 9729.0f);
                 GLES20.glTexParameteri(3553, 10242, 33071);
@@ -50,18 +50,18 @@ public class a {
                 GLES20.glBindTexture(3553, 0);
                 GLES20.glGenFramebuffers(1, this.mFramebuffers, i);
                 GLES20.glBindFramebuffer(36160, this.mFramebuffers[i]);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.aNB[i], 0);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.aNP[i], 0);
                 GLES20.glBindFramebuffer(36160, 0);
             }
         }
     }
 
-    private void Ec() {
+    private void Ej() {
         log("release fbo");
-        if (this.aNB != null) {
-            GLES20.glDeleteTextures(this.aNB.length, this.aNB, 0);
-            for (int i = 0; i < this.aNB.length; i++) {
-                this.aNB[i] = -1;
+        if (this.aNP != null) {
+            GLES20.glDeleteTextures(this.aNP.length, this.aNP, 0);
+            for (int i = 0; i < this.aNP.length; i++) {
+                this.aNP[i] = -1;
             }
         }
         if (this.mFramebuffers != null) {
@@ -111,12 +111,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(AEffectEntity aEffectEntity) {
-        if (this.aNv || aEffectEntity == null) {
+        if (this.aNJ || aEffectEntity == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         if (this.mMtx != null) {
-            d dVar = new d(this.aNA ? "#extension GL_OES_EGL_image_external : require\nprecision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform samplerExternalOES inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}" : "precision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform sampler2D inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}");
+            d dVar = new d(this.aNO ? "#extension GL_OES_EGL_image_external : require\nprecision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform samplerExternalOES inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}" : "precision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform sampler2D inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate) * alpha;\n}");
             dVar.a();
             dVar.b(this.mMtx);
             arrayList.add(dVar);
@@ -140,14 +140,14 @@ public class a {
             }
         }
         if (arrayList.size() > 0) {
-            this.aNw = new c(arrayList);
-            this.aNw.a();
-            this.aNw.a(this.mWidth, this.mHeight);
+            this.aNK = new c(arrayList);
+            this.aNK.a();
+            this.aNK.a(this.mWidth, this.mHeight);
             for (AEffect aEffect2 : aEffectEntity.effectGroup) {
-                a(aEffect2, this.aNw);
+                a(aEffect2, this.aNK);
             }
         }
-        this.aNv = true;
+        this.aNJ = true;
     }
 
     private void c(String str, Exception exc) {
@@ -163,8 +163,8 @@ public class a {
     }
 
     private void runPendingOnDrawTasks() {
-        while (!this.aNz.isEmpty()) {
-            this.aNz.removeFirst().run();
+        while (!this.aNN.isEmpty()) {
+            this.aNN.removeFirst().run();
         }
     }
 
@@ -176,40 +176,40 @@ public class a {
                 log(" w * h : " + i3 + " * " + i4);
                 release();
             }
-            this.aNA = (i2 & 1) == 1;
+            this.aNO = (i2 & 1) == 1;
             this.mMtx = fArr;
             try {
                 runPendingOnDrawTasks();
-                if (this.aNw != null) {
-                    Eb();
-                    if (this.aNw.o()) {
+                if (this.aNK != null) {
+                    Ei();
+                    if (this.aNK.o()) {
                         GLES20.glBindFramebuffer(36160, this.mFramebuffers[1]);
                         GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
                         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                         GLES20.glClear(16640);
                         GLES20.glEnable(3042);
                         GLES20.glBlendFunc(1, 771);
-                        this.aNw.a(0);
-                        a(this.aNw, map);
-                        this.aNw.b(this.aNB[0], this.aNx, this.aNy);
-                        this.aNw.a(1);
-                        a(this.aNw, map);
-                        this.aNw.b(i, this.aNx, this.aNy);
+                        this.aNK.a(0);
+                        a(this.aNK, map);
+                        this.aNK.b(this.aNP[0], this.aNL, this.aNM);
+                        this.aNK.a(1);
+                        a(this.aNK, map);
+                        this.aNK.b(i, this.aNL, this.aNM);
                         GLES20.glDisable(3042);
                         GLES20.glBindFramebuffer(36160, 0);
-                        i = this.aNB[1];
+                        i = this.aNP[1];
                     } else {
                         GLES20.glBindFramebuffer(36160, this.mFramebuffers[0]);
                         GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
                         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                         GLES20.glClear(16640);
-                        this.aNw.p();
-                        this.aNw.b(i, this.aNx, this.aNy);
+                        this.aNK.p();
+                        this.aNK.b(i, this.aNL, this.aNM);
                         GLES20.glBindFramebuffer(36160, 0);
-                        for (b bVar : this.aNw.r()) {
+                        for (b bVar : this.aNK.r()) {
                             a(bVar, map);
                         }
-                        i = this.aNw.a(i, this.aNx, this.aNy);
+                        i = this.aNK.a(i, this.aNL, this.aNM);
                     }
                     if (this.mMtx != null) {
                         Matrix.setIdentityM(fArr, 0);
@@ -225,10 +225,10 @@ public class a {
     }
 
     public void b(final AEffectEntity aEffectEntity) {
-        this.aNz.add(new Runnable() { // from class: com.baidu.minivideo.effect.core.a.2
+        this.aNN.add(new Runnable() { // from class: com.baidu.minivideo.effect.core.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.aNv) {
+                if (a.this.aNJ) {
                     a.this.release();
                 }
                 a.this.c(aEffectEntity);
@@ -242,13 +242,13 @@ public class a {
 
     public void release() {
         try {
-            if (this.aNv) {
-                if (this.aNw != null) {
-                    Ec();
-                    this.aNw.e();
-                    this.aNw = null;
+            if (this.aNJ) {
+                if (this.aNK != null) {
+                    Ej();
+                    this.aNK.e();
+                    this.aNK = null;
                 }
-                this.aNv = false;
+                this.aNJ = false;
             }
         } catch (Exception e) {
             log(e.getMessage());
@@ -256,11 +256,11 @@ public class a {
     }
 
     public void startRecordAnim(final int i, final long j) {
-        this.aNz.add(new Runnable() { // from class: com.baidu.minivideo.effect.core.a.1
+        this.aNN.add(new Runnable() { // from class: com.baidu.minivideo.effect.core.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.aNw != null) {
-                    a.this.aNw.a(i, System.currentTimeMillis() - (j > 0 ? j : 0L));
+                if (a.this.aNK != null) {
+                    a.this.aNK.a(i, System.currentTimeMillis() - (j > 0 ? j : 0L));
                 }
             }
         });

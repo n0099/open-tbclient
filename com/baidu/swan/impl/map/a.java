@@ -11,6 +11,6 @@ public class a {
         SDKInitializer.setHttpsEnable(true);
     }
 
-    public static void aru() {
+    public static void arx() {
     }
 }

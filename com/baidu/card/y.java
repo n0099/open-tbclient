@@ -90,7 +90,7 @@ public class y extends d implements m<bj>, n {
             return;
         }
         this.Lc.setVisibility(0);
-        SvgManager.aGC().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGG().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private boolean isShow(int i) {
@@ -100,7 +100,7 @@ public class y extends d implements m<bj>, n {
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         am.setViewTextColor(this.Lf, (int) R.color.cp_cont_d);
-        SvgManager.aGC().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGG().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {

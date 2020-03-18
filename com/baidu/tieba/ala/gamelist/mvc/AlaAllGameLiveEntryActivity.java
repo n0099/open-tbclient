@@ -31,35 +31,35 @@ import com.baidu.tieba.view.NoScrollGridView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
-    private ArrayList<AlaSquareTabInfo> eDP;
-    private LinearLayout eDT;
-    private TextView eDU;
-    private ImageView eDV;
-    private NoScrollGridView eDW;
-    private View eDX;
-    private a eDY;
-    private int eDZ;
-    private IAlaSquareTabController ekh;
-    private LinearLayout euj;
+    private ArrayList<AlaSquareTabInfo> eEl;
+    private LinearLayout eEp;
+    private TextView eEq;
+    private ImageView eEr;
+    private NoScrollGridView eEs;
+    private View eEt;
+    private a eEu;
+    private int eEv;
+    private IAlaSquareTabController ekx;
+    private LinearLayout euF;
     private NavigationBar mNavigationBar;
     private LinearLayout mRootView;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        beZ();
+        bfe();
         initView();
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
         if (runTask != null && runTask.getData() != null) {
-            this.ekh = (IAlaSquareTabController) runTask.getData();
+            this.ekx = (IAlaSquareTabController) runTask.getData();
         }
     }
 
-    private void beZ() {
+    private void bfe() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.eDZ = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
-            this.eDP = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
+            this.eEv = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
+            this.eEl = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
         }
     }
 
@@ -68,33 +68,33 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.ala_all_game_entry_title));
-        this.eDT = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
-        this.eDU = (TextView) this.eDT.findViewById(R.id.search_text);
-        this.eDU.setClickable(false);
-        this.eDV = (ImageView) this.eDT.findViewById(R.id.search_icon);
-        this.eDT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.1
+        this.eEp = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
+        this.eEq = (TextView) this.eEp.findViewById(R.id.search_text);
+        this.eEq.setClickable(false);
+        this.eEr = (ImageView) this.eEp.findViewById(R.id.search_icon);
+        this.eEp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(AlaAllGameLiveEntryActivity.this.getPageContext().getPageActivity())));
             }
         });
-        if (this.eDZ == 1) {
-            this.eDT.setVisibility(0);
+        if (this.eEv == 1) {
+            this.eEp.setVisibility(0);
         } else {
-            this.eDT.setVisibility(8);
+            this.eEp.setVisibility(8);
         }
-        this.euj = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
-        this.eDX = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-        this.eDY = new a(getPageContext());
-        this.eDW = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
-        this.eDW.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.2
+        this.euF = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
+        this.eEt = this.mRootView.findViewById(R.id.scroll_grid_view_root);
+        this.eEu = new a(getPageContext());
+        this.eEs = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
+        this.eEs.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) v.getItem(AlaAllGameLiveEntryActivity.this.eDY.getData(), i);
-                if (alaSquareTabInfo != null && AlaAllGameLiveEntryActivity.this.ekh != null) {
-                    int tabIndex = AlaAllGameLiveEntryActivity.this.ekh.getTabIndex(alaSquareTabInfo.id);
+                AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) v.getItem(AlaAllGameLiveEntryActivity.this.eEu.getData(), i);
+                if (alaSquareTabInfo != null && AlaAllGameLiveEntryActivity.this.ekx != null) {
+                    int tabIndex = AlaAllGameLiveEntryActivity.this.ekx.getTabIndex(alaSquareTabInfo.id);
                     if (tabIndex >= 0) {
-                        AlaAllGameLiveEntryActivity.this.ekh.goToTab(tabIndex);
+                        AlaAllGameLiveEntryActivity.this.ekx.goToTab(tabIndex);
                         AlaAllGameLiveEntryActivity.this.finish();
                         return;
                     }
@@ -102,14 +102,14 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 }
             }
         });
-        this.eDW.setAdapter((ListAdapter) this.eDY);
-        if (v.isEmpty(this.eDP)) {
-            this.eDX.setVisibility(8);
-            this.mRootView.addView(this.euj, 1);
+        this.eEs.setAdapter((ListAdapter) this.eEu);
+        if (v.isEmpty(this.eEl)) {
+            this.eEt.setVisibility(8);
+            this.mRootView.addView(this.euF, 1);
         } else {
-            this.mRootView.removeView(this.euj);
-            this.eDX.setVisibility(0);
-            this.eDY.setData(this.eDP);
+            this.mRootView.removeView(this.euF);
+            this.eEt.setVisibility(0);
+            this.eEu.setData(this.eEl);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         setContentView(this.mRootView);
@@ -118,15 +118,15 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setImageResource(this.eDV, R.drawable.icon_search);
-        am.setViewTextColor(this.eDU, (int) R.color.enter_forum_search_text_color);
-        am.setBackgroundResource(this.eDT, R.drawable.all_game_search_frame);
+        am.setImageResource(this.eEr, R.drawable.icon_search);
+        am.setViewTextColor(this.eEq, (int) R.color.enter_forum_search_text_color);
+        am.setBackgroundResource(this.eEp, R.drawable.all_game_search_frame);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ekh = null;
+        this.ekx = null;
     }
 }

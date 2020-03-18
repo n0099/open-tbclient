@@ -13,13 +13,13 @@ import javax.crypto.spec.PSource;
 /* loaded from: classes13.dex */
 public final class c {
     private static final byte[] b = new byte[0];
-    private f Qg;
-    private d Qi;
+    private f Qh;
+    private d Qj;
     private int i;
     private byte[] m;
     private int n;
     private int o;
-    private OAEPParameterSpec Qh = null;
+    private OAEPParameterSpec Qi = null;
     private String q = "SHA-1";
     private String j = "PKCS1Padding";
 
@@ -42,23 +42,23 @@ public final class c {
             throw new InvalidKeyException("only support helios key");
         }
         this.i = z ? 1 : 4;
-        this.Qi = dVar;
-        int a = b.a(this.Qi.nI());
+        this.Qj = dVar;
+        int a = b.a(this.Qj.nH());
         this.o = a;
         this.n = 0;
         if (this.j == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.Qg = f.a(3, a, secureRandom);
+            this.Qh = f.a(3, a, secureRandom);
             this.m = new byte[a];
         } else if (this.j == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.Qg = f.a(this.i <= 2 ? 2 : 1, a, secureRandom);
+            this.Qh = f.a(this.i <= 2 ? 2 : 1, a, secureRandom);
             if (z) {
-                this.m = new byte[this.Qg.a()];
+                this.m = new byte[this.Qh.a()];
             } else {
                 this.m = new byte[a];
             }
@@ -72,9 +72,9 @@ public final class c {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.Qg = f.a(4, a, secureRandom, oAEPParameterSpec);
+            this.Qh = f.a(4, a, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.m = new byte[this.Qg.a()];
+                this.m = new byte[this.Qh.a()];
             } else {
                 this.m = new byte[a];
             }
@@ -89,14 +89,14 @@ public final class c {
         try {
             switch (this.i) {
                 case 1:
-                    a = b.a(this.Qg.j(this.m, 0, this.n), this.Qi);
+                    a = b.a(this.Qh.j(this.m, 0, this.n), this.Qj);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a = this.Qg.b(b.a(b.j(this.m, 0, this.n), this.Qi));
+                    a = this.Qh.b(b.a(b.j(this.m, 0, this.n), this.Qj));
                     break;
                 default:
                     throw new AssertionError("Internal error");

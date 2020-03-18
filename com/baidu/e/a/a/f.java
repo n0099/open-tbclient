@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class f {
-    private static final Pattern UQ = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");
+    private static final Pattern Va = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");
 
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo getActiveNetworkInfo(Context context) {
@@ -50,7 +50,7 @@ public class f {
     }
 
     @SuppressLint({"MissingPermission"})
-    public static int ay(Context context) {
+    public static int ax(Context context) {
         int i;
         NetworkInfo activeNetworkInfo;
         if (context == null) {
@@ -117,6 +117,6 @@ public class f {
     }
 
     public static boolean isIPv4Address(String str) {
-        return UQ.matcher(str).matches();
+        return Va.matcher(str).matches();
     }
 }

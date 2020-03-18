@@ -116,7 +116,7 @@ public class e extends AbstractExecutorService implements d {
         throw new UnsupportedOperationException();
     }
 
-    public boolean dkE() {
+    public boolean dlb() {
         return Thread.currentThread() == this.mHandler.getLooper().getThread();
     }
 }

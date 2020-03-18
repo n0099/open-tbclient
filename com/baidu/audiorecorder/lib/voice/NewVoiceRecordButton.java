@@ -82,7 +82,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     public void lL() {
         if (this.FR == null) {
             this.FR = new com.baidu.tbadk.core.dialog.a(i.ab(getContext()).getPageActivity());
-            this.FR.sS(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+            this.FR.sR(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -95,7 +95,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.ab(getContext()));
         }
-        this.FR.aEC();
+        this.FR.aEG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

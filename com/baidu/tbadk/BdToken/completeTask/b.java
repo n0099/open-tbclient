@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.tbadk.mutiprocess.g;
 /* loaded from: classes.dex */
 public class b {
-    private h cJy;
+    private h cJJ;
     private a mData;
 
     public void a(a aVar) {
@@ -26,31 +26,31 @@ public class b {
 
     public void show() {
         if (this.mData != null) {
-            if (this.mData.showType == a.cJl) {
-                this.cJy = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aEN();
-            } else if (this.mData.showType == a.cJm) {
+            if (this.mData.showType == a.cJw) {
+                this.cJJ = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aER();
+            } else if (this.mData.showType == a.cJx) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.b bVar = new com.baidu.tbadk.core.business.b(currentActivity);
                 bVar.a(currentActivity, this.mData);
                 bVar.show();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                com.baidu.tbadk.core.business.a.aAa().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aAa().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
-            } else if (this.mData.showType == a.cJn) {
-                if (this.mData.cJr == a.cJp) {
+                com.baidu.tbadk.core.business.a.aAd().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aAd().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
+            } else if (this.mData.showType == a.cJy) {
+                if (this.mData.cJC == a.cJA) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !aq.isEmpty(this.mData.url)) {
-                        rE(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                        rD(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                     }
-                } else if (this.mData.cJr == a.cJq && !aq.isEmpty(this.mData.url)) {
-                    rE(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                } else if (this.mData.cJC == a.cJB && !aq.isEmpty(this.mData.url)) {
+                    rD(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                 }
-            } else if (this.mData.showType == a.cJo && !TextUtils.isEmpty(this.mData.message)) {
+            } else if (this.mData.showType == a.cJz && !TextUtils.isEmpty(this.mData.message)) {
                 CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
                 completeTaskToastData.activityId = this.mData.activityId;
                 completeTaskToastData.missionId = this.mData.missionId;
                 completeTaskToastData.duration = this.mData.duration;
                 completeTaskToastData.message = this.mData.message;
                 completeTaskToastData.url = this.mData.url;
-                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.axz().axD();
+                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.axC().axG();
                 CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
                 competeTaskEvent.taskToastData = completeTaskToastData;
                 g.publishEvent(competeTaskEvent);
@@ -59,7 +59,7 @@ public class b {
         }
     }
 
-    private void rE(String str) {
+    private void rD(String str) {
         Activity currentActivity;
         TbPageContext r;
         if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null && !StringUtils.isNull(str)) {
@@ -68,9 +68,9 @@ public class b {
     }
 
     public void clearData() {
-        if (this.cJy != null) {
-            this.cJy.hide();
-            this.cJy = null;
+        if (this.cJJ != null) {
+            this.cJJ.hide();
+            this.cJJ = null;
         }
     }
 

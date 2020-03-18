@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor;
 public interface g {
     void a(l lVar);
 
-    m dK(int i, int i2);
+    m dL(int i, int i2);
 
-    void duV();
+    void dvs();
 }

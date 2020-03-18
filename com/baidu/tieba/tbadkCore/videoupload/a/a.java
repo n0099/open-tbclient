@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public ArrayList<Integer> kjP;
-    public String kjQ;
+    public ArrayList<Integer> klr;
+    public String kls;
     public String mErrorMessage;
     public int mErrorNo;
     public String mVideoUrl;
@@ -21,12 +21,12 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.kjP = new ArrayList<>();
+                        this.klr = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.kjP.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.klr.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.kjQ = optJSONObject.optString("upload_id");
+                    this.kls = optJSONObject.optString("upload_id");
                     this.mVideoUrl = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {

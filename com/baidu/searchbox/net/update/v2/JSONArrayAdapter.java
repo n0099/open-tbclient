@@ -11,13 +11,13 @@ public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, JSONArray jSONArray) throws IOException {
-        bVar.QR(jSONArray.toString());
+        bVar.QQ(jSONArray.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public JSONArray read(a aVar) throws IOException {
-        if (aVar.dAU() == JsonToken.BEGIN_ARRAY) {
+        if (aVar.dBr() == JsonToken.BEGIN_ARRAY) {
             return JSONParser.readJSONArray(aVar);
         }
         return null;

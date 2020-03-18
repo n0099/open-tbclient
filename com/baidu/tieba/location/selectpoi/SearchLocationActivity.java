@@ -39,14 +39,14 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
     private BdListView AG;
-    private EditText gbh;
-    private a ieA;
-    private LinearLayout ieB;
-    private TextView ieC;
-    private ImageView ieD;
-    private com.baidu.tieba.location.data.a iez;
+    private EditText gbP;
+    private com.baidu.tieba.location.data.a ifZ;
+    private a iga;
+    private LinearLayout igb;
+    private TextView igc;
+    private ImageView igd;
     private InputMethodManager mInputManager;
-    private com.baidu.adp.framework.listener.a ieE = new com.baidu.adp.framework.listener.a(1003002, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME) { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.1
+    private com.baidu.adp.framework.listener.a ige = new com.baidu.adp.framework.listener.a(1003002, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME) { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -56,13 +56,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
                         return;
                     }
                     if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                        SearchLocationActivity.this.iez = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                        SearchLocationActivity.this.ifZ = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                     }
                     if (responsedMessage instanceof LocationSearchResponseMessage) {
-                        SearchLocationActivity.this.iez = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                        SearchLocationActivity.this.ifZ = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                     }
-                    SearchLocationActivity.this.ieA.a(SearchLocationActivity.this.iez);
-                    SearchLocationActivity.this.ieA.notifyDataSetChanged();
+                    SearchLocationActivity.this.iga.a(SearchLocationActivity.this.ifZ);
+                    SearchLocationActivity.this.iga.notifyDataSetChanged();
                 }
             }
         }
@@ -71,7 +71,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (i == 2 || i == 1) {
-                l.hideSoftKeyPad(SearchLocationActivity.this.getPageContext().getPageActivity(), SearchLocationActivity.this.gbh);
+                l.hideSoftKeyPad(SearchLocationActivity.this.getPageContext().getPageActivity(), SearchLocationActivity.this.gbP);
             }
         }
 
@@ -79,14 +79,14 @@ public class SearchLocationActivity extends NavigationBarActivity {
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }
     };
-    private AdapterView.OnItemClickListener ieF = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
+    private AdapterView.OnItemClickListener igf = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SearchLocationActivity.this.ieA != null && SearchLocationActivity.this.ieA.cdQ()) {
+            if (SearchLocationActivity.this.iga != null && SearchLocationActivity.this.iga.cej()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
-                a.C0554a c0554a = (a.C0554a) SearchLocationActivity.this.ieA.getItem(i);
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0554a.getName(), c0554a.getName(), c0554a.getScreatString()));
+                a.C0555a c0555a = (a.C0555a) SearchLocationActivity.this.iga.getItem(i);
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0555a.getName(), c0555a.getName(), c0555a.getScreatString()));
                 SearchLocationActivity.this.finish();
             }
         }
@@ -96,8 +96,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.ieE);
-        SearchLocationActivityStatic.cdP();
+        registerListener(this.ige);
+        SearchLocationActivityStatic.cei();
         setContentView(R.layout.search_location_layout);
         initUI();
         initData();
@@ -105,19 +105,19 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initUI() {
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        this.ecf.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.2
+        this.ecv.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (SearchLocationActivity.this.gbh.hasFocus()) {
-                    l.hideSoftKeyPad(SearchLocationActivity.this.getPageContext().getPageActivity(), SearchLocationActivity.this.gbh);
+                if (SearchLocationActivity.this.gbP.hasFocus()) {
+                    l.hideSoftKeyPad(SearchLocationActivity.this.getPageContext().getPageActivity(), SearchLocationActivity.this.gbP);
                     SearchLocationActivity.this.closeActivity();
                 }
             }
         });
-        this.ieB = (LinearLayout) this.ecf.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.search_location_edit_layout, (View.OnClickListener) null);
-        this.ieD = (ImageView) this.ieB.findViewById(R.id.search_bar_icon);
-        this.gbh = (EditText) this.ieB.findViewById(R.id.search_location_editview);
-        this.gbh.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.3
+        this.igb = (LinearLayout) this.ecv.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.search_location_edit_layout, (View.OnClickListener) null);
+        this.igd = (ImageView) this.igb.findViewById(R.id.search_bar_icon);
+        this.gbP = (EditText) this.igb.findViewById(R.id.search_location_editview);
+        this.gbP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.3
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -129,82 +129,82 @@ public class SearchLocationActivity extends NavigationBarActivity {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.ieC.setEnabled(false);
+                    SearchLocationActivity.this.igc.setEnabled(false);
                 } else {
-                    SearchLocationActivity.this.ieC.setEnabled(true);
+                    SearchLocationActivity.this.igc.setEnabled(true);
                 }
             }
         });
-        this.ieC = (TextView) this.ieB.findViewById(R.id.search_location_bt_search_s);
-        this.ieC.setEnabled(false);
-        this.ieC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.4
+        this.igc = (TextView) this.igb.findViewById(R.id.search_location_bt_search_s);
+        this.igc.setEnabled(false);
+        this.igc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!l.isNetOk()) {
                     SearchLocationActivity.this.showToast(R.string.no_network_guide);
                 } else if (!StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.cdO();
+                    SearchLocationActivity.this.ceh();
                 }
             }
         });
         this.AG = (BdListView) findViewById(R.id.search_position_list);
-        this.ieA = new a(this);
-        this.AG.setAdapter((ListAdapter) this.ieA);
-        this.AG.setOnItemClickListener(this.ieF);
+        this.iga = new a(this);
+        this.AG.setAdapter((ListAdapter) this.iga);
+        this.AG.setOnItemClickListener(this.igf);
         this.AG.setOnScrollListener(this.mOnScrollListener);
     }
 
     public void initData() {
-        this.iez = new com.baidu.tieba.location.data.a();
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cLH().getLocationData();
+        this.ifZ = new com.baidu.tieba.location.data.a();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cMb().getLocationData();
         if (locationData != null) {
-            this.iez.ax(b(locationData.cLG(), locationData.cLF(), locationData.getSn()));
+            this.ifZ.ax(b(locationData.cMa(), locationData.cLZ(), locationData.getSn()));
         }
-        this.ieA.a(this.iez);
-        this.ieA.notifyDataSetChanged();
+        this.iga.a(this.ifZ);
+        this.iga.notifyDataSetChanged();
     }
 
-    private ArrayList<a.C0554a> b(List<a.C0613a> list, String str, String str2) {
+    private ArrayList<a.C0555a> b(List<a.C0614a> list, String str, String str2) {
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<a.C0554a> arrayList = new ArrayList<>();
-        a.C0613a c0613a = null;
-        for (a.C0613a c0613a2 : list) {
-            if (c0613a2 != null && !TextUtils.isEmpty(c0613a2.getName())) {
-                if (TextUtils.equals(c0613a2.getName(), str)) {
-                    c0613a = c0613a2;
+        ArrayList<a.C0555a> arrayList = new ArrayList<>();
+        a.C0614a c0614a = null;
+        for (a.C0614a c0614a2 : list) {
+            if (c0614a2 != null && !TextUtils.isEmpty(c0614a2.getName())) {
+                if (TextUtils.equals(c0614a2.getName(), str)) {
+                    c0614a = c0614a2;
                 } else {
-                    a.C0554a c0554a = new a.C0554a();
-                    c0554a.setName(c0613a2.getName());
-                    c0554a.Em(c0613a2.getSn());
-                    arrayList.add(c0554a);
+                    a.C0555a c0555a = new a.C0555a();
+                    c0555a.setName(c0614a2.getName());
+                    c0555a.El(c0614a2.getSn());
+                    arrayList.add(c0555a);
                 }
             }
         }
-        if (c0613a != null) {
-            a.C0554a c0554a2 = new a.C0554a();
-            c0554a2.setName(c0613a.getName());
-            c0554a2.Em(c0613a.getSn());
-            arrayList.add(0, c0554a2);
+        if (c0614a != null) {
+            a.C0555a c0555a2 = new a.C0555a();
+            c0555a2.setName(c0614a.getName());
+            c0555a2.El(c0614a.getSn());
+            arrayList.add(0, c0555a2);
         } else {
-            a.C0554a c0554a3 = new a.C0554a();
-            c0554a3.setName(str);
-            c0554a3.Em(str2);
-            arrayList.add(0, c0554a3);
+            a.C0555a c0555a3 = new a.C0555a();
+            c0555a3.setName(str);
+            c0555a3.El(str2);
+            arrayList.add(0, c0555a3);
         }
         return arrayList;
     }
 
-    public void cdO() {
+    public void ceh() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
         locationSearchNetRequestMessage.setAddrName(getInputMsg());
         sendMessage(locationSearchNetRequestMessage);
     }
 
     public String getInputMsg() {
-        if (this.gbh != null) {
-            return k.charSequence2String(this.gbh.getText(), null);
+        if (this.gbP != null) {
+            return k.charSequence2String(this.gbP.getText(), null);
         }
         return null;
     }
@@ -213,11 +213,11 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        am.setBackgroundResource(this.ieC, R.drawable.s_navbar_button_bg);
-        SvgManager.aGC().a(this.ieD, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        am.setViewTextColor(this.ieC, R.color.search_location_button_color, 3);
-        this.gbh.setTextColor(am.getColor(R.color.cp_cont_b));
-        this.gbh.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.ieA.notifyDataSetChanged();
+        am.setBackgroundResource(this.igc, R.drawable.s_navbar_button_bg);
+        SvgManager.aGG().a(this.igd, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.igc, R.color.search_location_button_color, 3);
+        this.gbP.setTextColor(am.getColor(R.color.cp_cont_b));
+        this.gbP.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        this.iga.notifyDataSetChanged();
     }
 }

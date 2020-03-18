@@ -25,7 +25,7 @@ public class ai {
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract int mo157a();
+        public abstract int mo155a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,7 +74,7 @@ public class ai {
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
         synchronized (this.f117a) {
-            scheduledFuture = this.f116a.get(aVar.mo157a());
+            scheduledFuture = this.f116a.get(aVar.mo155a());
         }
         return scheduledFuture;
     }
@@ -88,7 +88,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m127a(int i) {
+    public boolean m125a(int i) {
         synchronized (this.f117a) {
             ScheduledFuture scheduledFuture = this.f116a.get(i);
             if (scheduledFuture == null) {
@@ -107,7 +107,7 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo157a());
+        String a2 = a(aVar.mo155a());
         aj ajVar = new aj(this, aVar, a2);
         long abs = Math.abs(System.currentTimeMillis() - this.f115a.getLong(a2, 0L)) / 1000;
         if (abs < i - i2) {
@@ -115,7 +115,7 @@ public class ai {
         }
         ScheduledFuture<?> scheduleAtFixedRate = this.f118a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
         synchronized (this.f117a) {
-            this.f116a.put(aVar.mo157a(), scheduleAtFixedRate);
+            this.f116a.put(aVar.mo155a(), scheduleAtFixedRate);
         }
         return true;
     }
@@ -126,7 +126,7 @@ public class ai {
         }
         ScheduledFuture<?> schedule = this.f118a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
         synchronized (this.f117a) {
-            this.f116a.put(aVar.mo157a(), schedule);
+            this.f116a.put(aVar.mo155a(), schedule);
         }
         return true;
     }

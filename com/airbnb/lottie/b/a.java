@@ -13,14 +13,14 @@ import java.util.Map;
 public class a {
     private final AssetManager assetManager;
     @Nullable
-    private com.airbnb.lottie.b hj;
-    private final h<String> hg = new h<>();
-    private final Map<h<String>, Typeface> hh = new HashMap();
-    private final Map<String, Typeface> hi = new HashMap();
-    private String hk = ".ttf";
+    private com.airbnb.lottie.b hi;
+    private final h<String> hf = new h<>();
+    private final Map<h<String>, Typeface> hg = new HashMap();
+    private final Map<String, Typeface> hh = new HashMap();
+    private String hj = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.airbnb.lottie.b bVar) {
-        this.hj = bVar;
+        this.hi = bVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,15 +30,15 @@ public class a {
     }
 
     public void a(@Nullable com.airbnb.lottie.b bVar) {
-        this.hj = bVar;
+        this.hi = bVar;
     }
 
     public Typeface j(String str, String str2) {
-        this.hg.set(str, str2);
-        Typeface typeface = this.hh.get(this.hg);
+        this.hf.set(str, str2);
+        Typeface typeface = this.hg.get(this.hf);
         if (typeface == null) {
             Typeface a = a(M(str), str2);
-            this.hh.put(this.hg, a);
+            this.hg.put(this.hf, a);
             return a;
         }
         return typeface;
@@ -46,19 +46,19 @@ public class a {
 
     private Typeface M(String str) {
         String E;
-        Typeface typeface = this.hi.get(str);
+        Typeface typeface = this.hh.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.hj != null) {
-                typeface = this.hj.D(str);
+            if (this.hi != null) {
+                typeface = this.hi.D(str);
             }
-            if (this.hj != null && typeface == null && (E = this.hj.E(str)) != null) {
+            if (this.hi != null && typeface == null && (E = this.hi.E(str)) != null) {
                 typeface = Typeface.createFromAsset(this.assetManager, E);
             }
             if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.hk);
+                typeface = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.hj);
             }
-            this.hi.put(str, typeface);
+            this.hh.put(str, typeface);
         }
         return typeface;
     }

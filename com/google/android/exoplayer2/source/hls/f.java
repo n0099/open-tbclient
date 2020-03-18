@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.util.s;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface f {
-    public static final f mwe = new c();
+    public static final f mxK = new c();
 
     Pair<com.google.android.exoplayer2.extractor.e, Boolean> a(com.google.android.exoplayer2.extractor.e eVar, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, s sVar);
 }

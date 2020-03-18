@@ -23,30 +23,30 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g bvW;
+    private g bwi;
     private SharedPreferences.Editor mEditor;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void NT();
+        void NW();
     }
 
     private c() {
-        this.bvW = new g("aiapps_guide_dialog_sp");
-        this.mEditor = this.bvW.edit();
+        this.bwi = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.bwi.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static final class b {
-        private static final c bwc = new c();
+        private static final c bwo = new c();
     }
 
-    public static c Tk() {
-        return b.bwc;
+    public static c Tn() {
+        return b.bwo;
     }
 
-    private int cd(@NonNull Context context) {
+    private int cc(@NonNull Context context) {
         PackageInfo packageInfo = ai.getPackageInfo(context, context.getPackageName());
         if (packageInfo != null) {
             return packageInfo.versionCode;
@@ -55,11 +55,11 @@ public class c {
     }
 
     private void M(@NonNull Activity activity) {
-        cE(false);
-        eW(cd(activity));
+        cF(false);
+        eW(cc(activity));
     }
 
-    private void cE(boolean z) {
+    private void cF(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
@@ -76,7 +76,7 @@ public class c {
             com.baidu.swan.apps.as.c.b(activity, cVar);
             cVar.setContentView(a.g.aiapps_entry_guide_layout);
             View findViewById = cVar.findViewById(a.f.root);
-            cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.w.a.Us().getNightModeSwitcherState() ? 0 : 8);
+            cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState() ? 0 : 8);
             if (TextUtils.isEmpty(str)) {
                 LottieAnimationView lottieAnimationView = (LottieAnimationView) cVar.findViewById(a.f.aiapps_guide_anim_view);
                 lottieAnimationView.setVisibility(0);
@@ -91,7 +91,7 @@ public class c {
                 SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
                 simpleDraweeView.setVisibility(0);
                 cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
-                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dlz().vh(true).OW(str).dmq());
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dlW().vo(true).OV(str).dmN());
             }
             TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
             textView.setOnTouchListener(new d());
@@ -101,7 +101,7 @@ public class c {
                     c.this.y(str, str2, "click");
                     cVar.dismiss();
                     if (aVar != null) {
-                        aVar.NT();
+                        aVar.NW();
                     }
                 }
             });
@@ -123,7 +123,7 @@ public class c {
     public void y(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             e eVar = new e();
-            eVar.mPage = f.gs(com.baidu.swan.apps.runtime.d.acC().Gu());
+            eVar.mPage = f.gs(com.baidu.swan.apps.runtime.d.acF().Gz());
             eVar.mType = str3;
             if (TextUtils.equals(str2, "source_back")) {
                 eVar.mValue = "back";
@@ -131,17 +131,17 @@ public class c {
                 eVar.mValue = "close";
                 eVar.mSource = str2;
             }
-            eVar.n("appid", com.baidu.swan.apps.runtime.e.acH());
+            eVar.n("appid", com.baidu.swan.apps.runtime.e.acK());
             eVar.n("img", str);
             f.a("970", eVar);
         }
     }
 
-    public boolean Tl() {
-        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
-        if (acF == null) {
+    public boolean To() {
+        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
+        if (acI == null) {
             return false;
         }
-        return acF.acV().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
+        return acI.acY().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

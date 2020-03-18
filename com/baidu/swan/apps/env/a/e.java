@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class e implements a {
-    private Set<String> buc;
+    private Set<String> bup;
 
     public e(@Nullable Set<String> set) {
-        this.buc = set;
+        this.bup = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.buc != null && this.buc.contains(next)) {
+                } else if (this.bup != null && this.bup.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

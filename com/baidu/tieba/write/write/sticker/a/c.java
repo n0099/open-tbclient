@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean N(Bitmap bitmap);
 
-    void cVE();
+    void cWb();
 
-    void cVF();
+    void cWc();
 
-    void cVG();
+    void cWd();
 }

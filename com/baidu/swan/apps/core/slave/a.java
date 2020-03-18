@@ -14,22 +14,22 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static ExecutorService brt = Executors.newSingleThreadExecutor();
-    private volatile String brs;
+    private static ExecutorService brF = Executors.newSingleThreadExecutor();
+    private volatile String brE;
     private CopyOnWriteArrayList<InterfaceC0254a> mCallbacks;
 
     /* renamed from: com.baidu.swan.apps.core.slave.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0254a {
-        void hr(String str);
+        void hq(String str);
     }
 
     private a() {
         this.mCallbacks = new CopyOnWriteArrayList<>();
     }
 
-    public static a Qe() {
-        return c.brw;
+    public static a Qh() {
+        return c.brI;
     }
 
     public void a(@NonNull final String str, InterfaceC0254a interfaceC0254a) {
@@ -37,23 +37,23 @@ public final class a {
             if (DEBUG) {
                 Log.d("SlavePreloadManager", "getHtmlContentAsync");
             }
-            if (!TextUtils.isEmpty(this.brs)) {
+            if (!TextUtils.isEmpty(this.brE)) {
                 a(interfaceC0254a);
                 return;
             }
             if (this.mCallbacks.isEmpty()) {
-                brt.execute(new Runnable() { // from class: com.baidu.swan.apps.core.slave.a.1
+                brF.execute(new Runnable() { // from class: com.baidu.swan.apps.core.slave.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         synchronized (a.class) {
                             if (a.DEBUG) {
                                 Log.d("SlavePreloadManager", "getHtmlContentAsync read start.");
                             }
-                            a.this.brs = com.baidu.swan.d.c.readFileData(new File(Uri.parse(str).getPath()));
+                            a.this.brE = com.baidu.swan.d.c.readFileData(new File(Uri.parse(str).getPath()));
                             if (a.DEBUG) {
                                 Log.d("SlavePreloadManager", "getHtmlContentAsync read end.");
                             }
-                            a.this.Qf();
+                            a.this.Qi();
                         }
                     }
                 });
@@ -63,7 +63,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qf() {
+    public void Qi() {
         if (DEBUG) {
             Log.d("SlavePreloadManager", "notifyAllCallbacks");
         }
@@ -76,7 +76,7 @@ public final class a {
 
     private void a(InterfaceC0254a interfaceC0254a) {
         if (interfaceC0254a != null) {
-            interfaceC0254a.hr(this.brs);
+            interfaceC0254a.hq(this.brE);
         }
     }
 
@@ -85,57 +85,57 @@ public final class a {
             Log.d("SlavePreloadManager", "clear");
         }
         synchronized (a.class) {
-            this.brs = "";
+            this.brE = "";
             this.mCallbacks.clear();
         }
     }
 
     /* loaded from: classes11.dex */
     public static class c {
-        private static final a brw = new a();
+        private static final a brI = new a();
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        private static int bqV = -1;
+        private static int brh = -1;
 
-        public static String Qg() {
+        public static String Qj() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_slave_preload_opt", "ab");
         }
 
-        private static boolean Qh() {
-            boolean aam = com.baidu.swan.apps.ah.a.a.aam();
-            if (aam) {
-                bqV = 1;
+        private static boolean Qk() {
+            boolean aap = com.baidu.swan.apps.ah.a.a.aap();
+            if (aap) {
+                brh = 1;
             }
-            if (bqV < 0) {
-                bqV = com.baidu.swan.apps.w.a.TZ().getSwitch("swan_slave_preload_opt", 2);
+            if (brh < 0) {
+                brh = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_slave_preload_opt", 2);
             }
             if (a.DEBUG) {
-                Log.d("OptSwitcher", "getSlavePreloadAbSwitch() switcher: " + bqV + (aam ? " forceAb" : ""));
+                Log.d("OptSwitcher", "getSlavePreloadAbSwitch() switcher: " + brh + (aap ? " forceAb" : ""));
             }
-            return bqV == 1;
+            return brh == 1;
         }
 
-        public static boolean Qi() {
+        public static boolean Ql() {
             if (a.DEBUG) {
-                String Qg = Qg();
+                String Qj = Qj();
                 char c = 65535;
-                switch (Qg.hashCode()) {
+                switch (Qj.hashCode()) {
                     case -307690011:
-                        if (Qg.equals("enable_slave_preload")) {
+                        if (Qj.equals("enable_slave_preload")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 3105:
-                        if (Qg.equals("ab")) {
+                        if (Qj.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 2084843146:
-                        if (Qg.equals("disable_slave_preload")) {
+                        if (Qj.equals("disable_slave_preload")) {
                             c = 1;
                             break;
                         }
@@ -147,10 +147,10 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return Qh();
+                        return Qk();
                 }
             }
-            return Qh();
+            return Qk();
         }
     }
 }

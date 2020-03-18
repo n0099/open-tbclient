@@ -4,7 +4,7 @@ import android.os.Build;
 import android.view.LayoutInflater;
 /* loaded from: classes11.dex */
 public class a {
-    static final InterfaceC0367a cDO;
+    static final InterfaceC0367a cDZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.support.v4.c.a$a  reason: collision with other inner class name */
@@ -49,15 +49,15 @@ public class a {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            cDO = new d();
+            cDZ = new d();
         } else if (i >= 11) {
-            cDO = new c();
+            cDZ = new c();
         } else {
-            cDO = new b();
+            cDZ = new b();
         }
     }
 
     public static void a(LayoutInflater layoutInflater, e eVar) {
-        cDO.a(layoutInflater, eVar);
+        cDZ.a(layoutInflater, eVar);
     }
 }

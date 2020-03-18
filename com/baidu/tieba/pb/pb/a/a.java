@@ -7,13 +7,13 @@ import com.baidu.tieba.pb.data.e;
 public interface a {
     void P(View.OnClickListener onClickListener);
 
-    void dI(String str);
+    void dH(String str);
 
-    void pw(boolean z);
+    void pC(boolean z);
 
-    void px(boolean z);
+    void pD(boolean z);
 
-    void py(boolean z);
+    void pE(boolean z);
 
     void setData(e eVar);
 

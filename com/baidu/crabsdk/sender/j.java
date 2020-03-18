@@ -3,7 +3,7 @@ package com.baidu.crabsdk.sender;
 public final class j {
     public static String b(byte[] bArr, String str, String str2) {
         String b = com.baidu.crabsdk.a.b();
-        com.baidu.crabsdk.c.a.cj("sendSdkRecord postUrl:" + b);
-        return q.a(b, bArr, str, str2);
+        com.baidu.crabsdk.c.a.cj("sendBlockRecord postUrl:" + b);
+        return r.a(b, bArr, str, str2);
     }
 }

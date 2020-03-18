@@ -28,7 +28,7 @@ public class a extends ab {
             c.e("chooseInvoiceTitle", "empty swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (eVar.JF()) {
+        } else if (eVar.JI()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -54,7 +54,7 @@ public class a extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                eVar.acP().b(context, "mapp_choose_invoice", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.u.a.1
+                eVar.acS().b(context, "mapp_choose_invoice", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.u.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
@@ -75,7 +75,7 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, e eVar, final String str) {
-        com.baidu.swan.apps.w.a.Ud().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.u.a.2
+        com.baidu.swan.apps.w.a.Ug().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.u.a.2
             @Override // com.baidu.swan.apps.u.b
             public void L(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "choose success");

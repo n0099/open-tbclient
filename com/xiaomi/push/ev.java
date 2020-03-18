@@ -50,21 +50,21 @@ public class ev {
         if (intent == null) {
             return;
         }
-        a(str, eu.m260a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
+        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, eu.m260a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), str2);
+        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, Throwable th) {
         if (intent == null) {
             return;
         }
-        a(str, eu.m260a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), th.getMessage());
+        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), th.getMessage());
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {

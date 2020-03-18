@@ -6,28 +6,28 @@ import com.baidu.swan.d.h;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class e {
-    public static String atL() {
-        return String.format("%s/getpkg", atP());
-    }
-
-    public static String atM() {
-        return String.format("%s/updatecore", atP());
-    }
-
-    public static String atN() {
-        return String.format("%s/fetchpkglist", atP());
-    }
-
     public static String atO() {
-        return String.format("%s/getplugin", atP());
+        return String.format("%s/getpkg", atS());
     }
 
     public static String atP() {
-        return com.baidu.swan.pms.d.atp().UR();
+        return String.format("%s/updatecore", atS());
+    }
+
+    public static String atQ() {
+        return String.format("%s/fetchpkglist", atS());
+    }
+
+    public static String atR() {
+        return String.format("%s/getplugin", atS());
+    }
+
+    public static String atS() {
+        return com.baidu.swan.pms.d.ats().UU();
     }
 
     public static String g(String str, Map<String, String> map) {
-        return h(qt(str), map);
+        return h(qs(str), map);
     }
 
     public static String h(String str, Map<String, String> map) {
@@ -41,15 +41,15 @@ public class e {
         return str;
     }
 
-    private static String qt(String str) {
-        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.atp().US()), "uuid", com.baidu.swan.pms.d.atp().getUUID()), j.c, h.rk(com.baidu.swan.pms.d.atp().UU())), "host_app", com.baidu.swan.pms.d.atp().UT()), "host_app_ver", com.baidu.swan.pms.d.atp().UU()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.atp().UV());
-        String ato = com.baidu.swan.pms.d.atq().ato();
-        if (!TextUtils.isEmpty(ato)) {
-            addParam = h.addParam(addParam, "extension_rule", ato);
+    private static String qs(String str) {
+        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.ats().UV()), "uuid", com.baidu.swan.pms.d.ats().getUUID()), j.c, h.rj(com.baidu.swan.pms.d.ats().UX())), "host_app", com.baidu.swan.pms.d.ats().UW()), "host_app_ver", com.baidu.swan.pms.d.ats().UX()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.ats().UY());
+        String atr = com.baidu.swan.pms.d.att().atr();
+        if (!TextUtils.isEmpty(atr)) {
+            addParam = h.addParam(addParam, "extension_rule", atr);
         }
-        String Vb = com.baidu.swan.pms.d.atp().Vb();
-        if (!TextUtils.isEmpty(Vb)) {
-            return h.addParam(addParam, "sid", Vb);
+        String Ve = com.baidu.swan.pms.d.ats().Ve();
+        if (!TextUtils.isEmpty(Ve)) {
+            return h.addParam(addParam, "sid", Ve);
         }
         return addParam;
     }

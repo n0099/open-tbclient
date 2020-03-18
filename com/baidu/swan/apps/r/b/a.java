@@ -17,7 +17,7 @@ public class a extends b {
             @Override // java.lang.Runnable
             public void run() {
                 for (String str : list) {
-                    aVar.ic(str);
+                    aVar.ib(str);
                 }
             }
         });

@@ -9,7 +9,7 @@ public final class g implements p {
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public void dwm() throws IOException {
+    public void dwJ() throws IOException {
     }
 
     @Override // com.google.android.exoplayer2.source.p
@@ -19,7 +19,7 @@ public final class g implements p {
     }
 
     @Override // com.google.android.exoplayer2.source.p
-    public int ge(long j) {
+    public int gf(long j) {
         return 0;
     }
 }

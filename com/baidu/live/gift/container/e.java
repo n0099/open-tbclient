@@ -32,15 +32,15 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class e extends Dialog implements x {
-    private m ale;
-    private g alf;
-    private TextView alg;
-    private TbImageView alh;
-    private TextView ali;
-    private ImageView alj;
-    private TextView alk;
-    private CheckBox alm;
-    private LinearLayout aln;
+    private m alp;
+    private g alq;
+    private TextView alr;
+    private TbImageView als;
+    private TextView alt;
+    private ImageView alu;
+    private TextView alv;
+    private CheckBox alw;
+    private LinearLayout alx;
     private Context mContext;
     private TextView mName;
     private TbPageContext mPageContext;
@@ -58,12 +58,12 @@ public class e extends Dialog implements x {
 
     @Override // com.baidu.live.gift.x
     public void d(m mVar) {
-        this.ale = mVar;
+        this.alp = mVar;
     }
 
     @Override // com.baidu.live.gift.x
     public void a(g gVar) {
-        this.alf = gVar;
+        this.alq = gVar;
     }
 
     @Override // com.baidu.live.gift.x
@@ -79,87 +79,87 @@ public class e extends Dialog implements x {
         getWindow().setBackgroundDrawableResource(17170445);
         getWindow().setSoftInputMode(16);
         resize();
-        this.aln = (LinearLayout) findViewById(a.g.quick_gift_panel_layout);
-        this.alh = (TbImageView) findViewById(a.g.quick_gift_icon);
-        this.alh.setDefaultBgResource(a.f.icon_live_gift_default);
-        this.alh.setDefaultErrorResource(a.f.icon_live_gift_default);
-        this.alh.setAutoChangeStyle(false);
+        this.alx = (LinearLayout) findViewById(a.g.quick_gift_panel_layout);
+        this.als = (TbImageView) findViewById(a.g.quick_gift_icon);
+        this.als.setDefaultBgResource(a.f.icon_live_gift_default);
+        this.als.setDefaultErrorResource(a.f.icon_live_gift_default);
+        this.als.setAutoChangeStyle(false);
         this.mName = (TextView) findViewById(a.g.quick_gift_name);
-        this.ali = (TextView) findViewById(a.g.quick_gift_desc);
-        this.alj = (ImageView) findViewById(a.g.quick_gift_amount_icon);
-        this.alk = (TextView) findViewById(a.g.quick_gift_amount_count);
-        if (com.baidu.live.v.c.zq().axN != null) {
-            this.alh.startLoad(com.baidu.live.v.c.zq().axN.sw(), 10, false);
-            if (com.baidu.live.v.c.zq().axN.su() != null) {
-                this.mName.setText(com.baidu.live.v.c.zq().axN.su().ry());
-                this.ali.setText(com.baidu.live.v.c.zq().axN.su().rz());
-                this.alk.setText(com.baidu.live.v.c.zq().axN.su().getPrice());
+        this.alt = (TextView) findViewById(a.g.quick_gift_desc);
+        this.alu = (ImageView) findViewById(a.g.quick_gift_amount_icon);
+        this.alv = (TextView) findViewById(a.g.quick_gift_amount_count);
+        if (com.baidu.live.v.c.zx().ayb != null) {
+            this.als.startLoad(com.baidu.live.v.c.zx().ayb.sB(), 10, false);
+            if (com.baidu.live.v.c.zx().ayb.sz() != null) {
+                this.mName.setText(com.baidu.live.v.c.zx().ayb.sz().rD());
+                this.alt.setText(com.baidu.live.v.c.zx().ayb.sz().rE());
+                this.alv.setText(com.baidu.live.v.c.zx().ayb.sz().getPrice());
             }
         }
-        this.alg = (TextView) findViewById(a.g.quick_gift_send);
+        this.alr = (TextView) findViewById(a.g.quick_gift_send);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.alg.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_bd);
+            this.alr.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_bd);
         }
-        this.alg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.e.1
+        this.alr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_DIALOG_CLCIK);
-                    alaStaticItem.addParams("gifts_value", e.this.alf.getPrice());
-                    alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, e.this.alf.rx());
-                    alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, e.this.alf.ry());
+                    alaStaticItem.addParams("gifts_value", e.this.alq.getPrice());
+                    alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, e.this.alq.rC());
+                    alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, e.this.alq.rD());
                     alaStaticItem.addParams("other_params", e.this.otherParams);
-                    if (e.this.ale != null && e.this.ale.mLiveInfo != null) {
-                        alaStaticItem.addParams("feed_id", e.this.ale.mLiveInfo.feed_id);
+                    if (e.this.alp != null && e.this.alp.mLiveInfo != null) {
+                        alaStaticItem.addParams("feed_id", e.this.alp.mLiveInfo.feed_id);
                     }
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
-                n.a(e.this.mPageContext, e.this.ale, e.this.alf, e.this.otherParams);
-                if (e.this.alm != null && e.this.alm.isChecked()) {
-                    com.baidu.live.c.pr().putBoolean("quick_gift_guide_show", false);
+                n.a(e.this.mPageContext, e.this.alp, e.this.alq, e.this.otherParams);
+                if (e.this.alw != null && e.this.alw.isChecked()) {
+                    com.baidu.live.c.pw().putBoolean("quick_gift_guide_show", false);
                 }
                 e.this.dismiss();
             }
         });
-        this.alm = (CheckBox) findViewById(a.g.quick_gift_licence);
-        this.alm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.gift.container.e.2
+        this.alw = (CheckBox) findViewById(a.g.quick_gift_licence);
+        this.alw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.gift.container.e.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 e.this.aM(z);
             }
         });
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            this.aln.setBackgroundResource(a.f.sdk_black_radius20_alpha70);
+            this.alx.setBackgroundResource(a.f.sdk_black_radius20_alpha70);
         } else {
-            this.aln.setBackgroundResource(a.f.tab_scrollview_bg);
+            this.alx.setBackgroundResource(a.f.tab_scrollview_bg);
         }
-        tN();
+        tS();
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_DIALOG_SHOW);
-            alaStaticItem.addParams("gifts_value", this.alf.getPrice());
-            alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, this.alf.rx());
-            alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, this.alf.ry());
+            alaStaticItem.addParams("gifts_value", this.alq.getPrice());
+            alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, this.alq.rC());
+            alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, this.alq.rD());
             alaStaticItem.addParams("other_params", this.otherParams);
-            if (this.ale != null && this.ale.mLiveInfo != null) {
-                alaStaticItem.addParams("feed_id", this.ale.mLiveInfo.feed_id);
+            if (this.alp != null && this.alp.mLiveInfo != null) {
+                alaStaticItem.addParams("feed_id", this.alp.mLiveInfo.feed_id);
             }
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
     }
 
-    private void tN() {
+    private void tS() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.aln.startAnimation(translateAnimation);
+        this.alx.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aM(boolean z) {
-        if (this.alm != null) {
+        if (this.alw != null) {
             if (z) {
-                this.alm.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.alw.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.alm.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.alw.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }

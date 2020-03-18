@@ -1,6 +1,6 @@
 package com.baidu.live.data;
 /* loaded from: classes3.dex */
 public class bi {
-    public String aeL;
+    public String aeV;
     public String link;
 }

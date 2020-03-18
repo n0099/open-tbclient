@@ -28,7 +28,7 @@ import java.util.List;
 import tbclient.BaijiahaoInfo;
 /* loaded from: classes9.dex */
 public class o extends RecyclerView.Adapter<a> {
-    private BdUniqueId dkt;
+    private BdUniqueId dkG;
     private Context mContext;
     private List<MetaData> mData;
     private TbPageContext mPageContext;
@@ -72,8 +72,8 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void a(MetaData metaData, a aVar) {
-        aVar.gXZ.setData(metaData, true);
-        aVar.gXZ.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
+        aVar.gZg.setData(metaData, true);
+        aVar.gZg.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 an anVar = new an("c13566");
@@ -84,7 +84,7 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void b(final MetaData metaData, a aVar) {
-        aVar.gYa.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
+        aVar.gZh.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void G(View view) {
                 if (metaData != null) {
@@ -95,14 +95,14 @@ public class o extends RecyclerView.Adapter<a> {
                     an anVar = new an("c13566");
                     anVar.X("obj_locate", 1);
                     anVar.s("obj_id", TbadkCoreApplication.getCurrentAccountId());
-                    anVar.cy("obj_param1", metaData.getUserId());
+                    anVar.cx("obj_param1", metaData.getUserId());
                     TiebaStatic.log(anVar);
                 }
             }
         });
-        com.baidu.tbadk.core.view.userLike.c cVar = aVar.NB;
+        com.baidu.tbadk.core.view.userLike.c cVar = aVar.NC;
         if (cVar != null) {
-            cVar.j(this.dkt);
+            cVar.j(this.dkG);
             cVar.a(metaData);
         }
     }
@@ -115,8 +115,8 @@ public class o extends RecyclerView.Adapter<a> {
             } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
                 str = metaData.getBaijiahaoInfo().name;
             }
-            aVar.cbL.setText(str);
-            aVar.cbL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
+            aVar.cbW.setText(str);
+            aVar.cbW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
@@ -137,7 +137,7 @@ public class o extends RecyclerView.Adapter<a> {
             if (aq.isEmpty(str)) {
                 str = "";
             }
-            aVar.gXY.setText(str);
+            aVar.gZf.setText(str);
         }
     }
 
@@ -147,34 +147,34 @@ public class o extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes9.dex */
     public class a extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c NB;
-        public TextView cbL;
-        public TextView gXY;
-        public HeadPendantClickableView gXZ;
-        public DynamicUserLikeButton gYa;
+        public com.baidu.tbadk.core.view.userLike.c NC;
+        public TextView cbW;
+        public TextView gZf;
+        public HeadPendantClickableView gZg;
+        public DynamicUserLikeButton gZh;
         public LinearLayout mContainer;
 
         public a(View view) {
             super(view);
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.gXZ = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.gXZ.getHeadView().setIsRound(true);
-            this.gXZ.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gXZ.getHeadView().setDefaultResource(17170445);
-            this.gXZ.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.gXZ.getHeadView().setPlaceHolder(2);
-            this.gXZ.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
-            this.gXZ.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
-            this.cbL = (TextView) view.findViewById(R.id.concern_user_name);
-            this.gXY = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.gYa = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.NB = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.gYa);
+            this.gZg = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.gZg.getHeadView().setIsRound(true);
+            this.gZg.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gZg.getHeadView().setDefaultResource(17170445);
+            this.gZg.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.gZg.getHeadView().setPlaceHolder(2);
+            this.gZg.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
+            this.gZg.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
+            this.cbW = (TextView) view.findViewById(R.id.concern_user_name);
+            this.gZf = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.gZh = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.NC = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.gZh);
         }
 
         public void onChangeSkinType(int i) {
-            am.setViewTextColor(this.cbL, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.gXY, (int) R.color.cp_cont_d);
-            this.gYa.onChangeSkinType(i);
+            am.setViewTextColor(this.cbW, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.gZf, (int) R.color.cp_cont_d);
+            this.gZh.onChangeSkinType(i);
         }
     }
 
@@ -183,6 +183,6 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dkt = bdUniqueId;
+        this.dkG = bdUniqueId;
     }
 }

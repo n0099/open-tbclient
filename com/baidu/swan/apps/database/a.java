@@ -4,16 +4,16 @@ public class a {
     public String appId;
     public String appKey;
     public String bearInfo;
-    public String bsZ;
-    public String bta;
-    public int btb;
-    public String btc;
-    public String btd;
-    public String bte;
-    public long btf;
-    public int btg;
-    public String bth;
-    public boolean bti;
+    public String btl;
+    public String btm;
+    public int btn;
+    public String bto;
+    public String btp;
+    public String btq;
+    public long btr;
+    public int bts;
+    public String btt;
+    public boolean btu;
     public int category;
     public long createTime;
     public String description;
@@ -33,7 +33,7 @@ public class a {
     public int type;
     public String version;
 
-    public String Ra() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.bsZ + "', minSwanVersion='" + this.bta + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.btb + ", targetSwanVersion='" + this.bte + "', mAppZipSize=" + this.btf + ", mPendingApsErrcode=" + this.btg + ", category=" + this.category + ", versionCode='" + this.bth + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.bti + ", payProtected=" + this.payProtected + '}';
+    public String Rd() {
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.btl + "', minSwanVersion='" + this.btm + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.btn + ", targetSwanVersion='" + this.btq + "', mAppZipSize=" + this.btr + ", mPendingApsErrcode=" + this.bts + ", category=" + this.category + ", versionCode='" + this.btt + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.btu + ", payProtected=" + this.payProtected + '}';
     }
 }

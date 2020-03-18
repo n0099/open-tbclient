@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
 /* loaded from: classes11.dex */
 public interface b {
-    void rS(boolean z);
+    void rY(boolean z);
 }

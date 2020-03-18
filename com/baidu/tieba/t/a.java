@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
     private static a mInstance;
-    private InterfaceC0609a mICrabSdk = getCrabSdk();
+    private InterfaceC0610a mICrabSdk = getCrabSdk();
 
     /* renamed from: com.baidu.tieba.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0609a {
+    public interface InterfaceC0610a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
         void initSdk(Application application);
@@ -21,22 +21,24 @@ public class a {
 
         void onResume(Activity activity);
 
+        void setLastFlutterPage(String str);
+
         void uploadException(Exception exc);
     }
 
     private boolean isCrabSdkSwitchOn() {
-        return com.baidu.tbadk.core.sharedPref.b.aFD().getInt("pref_key_crab_sdk_enable", 1) == 1;
+        return com.baidu.tbadk.core.sharedPref.b.aFH().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0609a getCrabSdk() {
+    private InterfaceC0610a getCrabSdk() {
         CustomResponsedMessage runTask;
-        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0609a.class)) == null) {
+        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0610a.class)) == null) {
             return null;
         }
-        return (InterfaceC0609a) runTask.getData();
+        return (InterfaceC0610a) runTask.getData();
     }
 
     public static a getInstance() {
@@ -77,6 +79,12 @@ public class a {
     public void uploadException(Exception exc) {
         if (this.mICrabSdk != null) {
             this.mICrabSdk.uploadException(exc);
+        }
+    }
+
+    public void setLastFlutterPage(String str) {
+        if (this.mICrabSdk != null) {
+            this.mICrabSdk.setLastFlutterPage(str);
         }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.live.utils.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0087a amH;
-    private HttpMessageListener amI;
+    private InterfaceC0087a amR;
+    private HttpMessageListener amS;
 
     /* renamed from: com.baidu.live.gift.giftList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -29,11 +29,11 @@ public class a extends BdBaseModel {
                 int i2 = i;
                 if (i2 < arrayList2.size()) {
                     com.baidu.live.gift.b bVar = arrayList2.get(i2);
-                    if (bVar != null && bVar.afJ != null) {
+                    if (bVar != null && bVar.afT != null) {
                         c cVar = new c();
-                        cVar.afM = com.baidu.live.gift.b.a.dD(bVar.afJ.zipName);
-                        cVar.upZipDirPath = com.baidu.live.gift.b.a.dF(bVar.afJ.zipName);
-                        cVar.afL = bVar;
+                        cVar.afW = com.baidu.live.gift.b.a.dC(bVar.afT.zipName);
+                        cVar.upZipDirPath = com.baidu.live.gift.b.a.dE(bVar.afT.zipName);
+                        cVar.afV = bVar;
                         arrayList.add(cVar);
                     }
                     i = i2 + 1;
@@ -46,23 +46,23 @@ public class a extends BdBaseModel {
 
     public a(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.amI = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.a.1
+        this.amS = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaDynamicGiftListHttpResponseMessage)) {
-                    ArrayList<com.baidu.live.gift.b> uq = ((AlaDynamicGiftListHttpResponseMessage) httpResponsedMessage).uq();
+                    ArrayList<com.baidu.live.gift.b> uv = ((AlaDynamicGiftListHttpResponseMessage) httpResponsedMessage).uv();
                     ArrayList<c> arrayList = new ArrayList<>();
-                    if (uq != null) {
-                        a.this.d(arrayList, uq);
+                    if (uv != null) {
+                        a.this.d(arrayList, uv);
                     }
-                    if (a.this.amH != null) {
-                        a.this.amH.i(arrayList);
+                    if (a.this.amR != null) {
+                        a.this.amR.i(arrayList);
                     }
                 }
             }
         };
-        registerListener(this.amI);
+        registerListener(this.amS);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -70,7 +70,7 @@ public class a extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(1021089);
         httpMessage.addParam("need_dynamic_gift", "1");
         httpMessage.addParam("need_sticker_gift", "0");
-        httpMessage.addParam("scene_from", q.Bg());
+        httpMessage.addParam("scene_from", q.Bn());
         sendMessage(httpMessage);
         return false;
     }
@@ -81,10 +81,10 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.amI);
+        MessageManager.getInstance().unRegisterListener(this.amS);
     }
 
     public void a(InterfaceC0087a interfaceC0087a) {
-        this.amH = interfaceC0087a;
+        this.amR = interfaceC0087a;
     }
 }

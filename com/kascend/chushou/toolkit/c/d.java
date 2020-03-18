@@ -10,6 +10,6 @@ public class d implements tv.chushou.basis.d.a.a.b {
 
     @Override // tv.chushou.basis.d.a.a.b
     public tv.chushou.common.player.a createPlayer() {
-        return ((ThirdParty) tv.chushou.basis.d.b.dPW().S(ThirdParty.class)).createPlayer();
+        return ((ThirdParty) tv.chushou.basis.d.b.dQw().S(ThirdParty.class)).createPlayer();
     }
 }

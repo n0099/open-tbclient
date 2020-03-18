@@ -11,22 +11,22 @@ import kotlin.reflect.j;
 @SuppressLint({"SwanCommentErr"})
 /* loaded from: classes11.dex */
 public final class a {
-    static final /* synthetic */ j[] cpV = {t.a(new PropertyReference1Impl(t.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
-    private final d cpW = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
-    private int cpX;
+    static final /* synthetic */ j[] cqg = {t.a(new PropertyReference1Impl(t.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
+    private final d cqh = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
+    private int cqi;
 
-    private final String[] aoM() {
-        d dVar = this.cpW;
-        j jVar = cpV[0];
+    private final String[] aoP() {
+        d dVar = this.cqh;
+        j jVar = cqg[0];
         return (String[]) dVar.getValue();
     }
 
-    public final String aoN() {
-        String[] aoM = aoM();
-        if (aoM != null) {
-            if (!(aoM.length == 0)) {
-                String str = aoM[this.cpX % aoM.length];
-                this.cpX++;
+    public final String aoQ() {
+        String[] aoP = aoP();
+        if (aoP != null) {
+            if (!(aoP.length == 0)) {
+                String str = aoP[this.cqi % aoP.length];
+                this.cqi++;
                 return str;
             }
         }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class m extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.m {
-    public static BdUniqueId jie = BdUniqueId.gen();
-    public List<a> jhB = new ArrayList();
+    public static BdUniqueId jjD = BdUniqueId.gen();
+    public List<a> jjb = new ArrayList();
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jie;
+        return jjD;
     }
 }

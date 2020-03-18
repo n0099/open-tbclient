@@ -7,9 +7,9 @@ import com.google.android.exoplayer2.ParserException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class c {
-    private static final byte[] mHm = {0, 0, 0, 1};
-    private static final int[] mHn = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
-    private static final int[] mHo = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
+    private static final byte[] mIW = {0, 0, 0, 1};
+    private static final int[] mIX = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
+    private static final int[] mIY = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
 
     public static Pair<Integer, Integer> az(byte[] bArr) throws ParserException {
         return a(new k(bArr), false);
@@ -69,21 +69,21 @@ public final class c {
                     throw new ParserException("Unsupported audio object type: " + j);
             }
         }
-        int i = mHo[readBits];
+        int i = mIY[readBits];
         a.checkArgument(i != -1);
         return Pair.create(Integer.valueOf(k), Integer.valueOf(i));
     }
 
-    public static byte[] dW(int i, int i2) {
+    public static byte[] dX(int i, int i2) {
         int i3 = -1;
-        for (int i4 = 0; i4 < mHn.length; i4++) {
-            if (i == mHn[i4]) {
+        for (int i4 = 0; i4 < mIX.length; i4++) {
+            if (i == mIX[i4]) {
                 i3 = i4;
             }
         }
         int i5 = -1;
-        for (int i6 = 0; i6 < mHo.length; i6++) {
-            if (i2 == mHo[i6]) {
+        for (int i6 = 0; i6 < mIY.length; i6++) {
+            if (i2 == mIY[i6]) {
                 i5 = i6;
             }
         }
@@ -98,9 +98,9 @@ public final class c {
     }
 
     public static byte[] B(byte[] bArr, int i, int i2) {
-        byte[] bArr2 = new byte[mHm.length + i2];
-        System.arraycopy(mHm, 0, bArr2, 0, mHm.length);
-        System.arraycopy(bArr, i, bArr2, mHm.length, i2);
+        byte[] bArr2 = new byte[mIW.length + i2];
+        System.arraycopy(mIW, 0, bArr2, 0, mIW.length);
+        System.arraycopy(bArr, i, bArr2, mIW.length, i2);
         return bArr2;
     }
 
@@ -112,7 +112,7 @@ public final class c {
         int i = 0;
         do {
             arrayList.add(Integer.valueOf(i));
-            i = D(bArr, i + mHm.length);
+            i = D(bArr, i + mIW.length);
         } while (i != -1);
         byte[][] bArr2 = new byte[arrayList.size()];
         int i2 = 0;
@@ -127,7 +127,7 @@ public final class c {
     }
 
     private static int D(byte[] bArr, int i) {
-        int length = bArr.length - mHm.length;
+        int length = bArr.length - mIW.length;
         for (int i2 = i; i2 <= length; i2++) {
             if (E(bArr, i2)) {
                 return i2;
@@ -137,11 +137,11 @@ public final class c {
     }
 
     private static boolean E(byte[] bArr, int i) {
-        if (bArr.length - i <= mHm.length) {
+        if (bArr.length - i <= mIW.length) {
             return false;
         }
-        for (int i2 = 0; i2 < mHm.length; i2++) {
-            if (bArr[i + i2] != mHm[i2]) {
+        for (int i2 = 0; i2 < mIW.length; i2++) {
+            if (bArr[i + i2] != mIW[i2]) {
                 return false;
             }
         }
@@ -162,29 +162,29 @@ public final class c {
             return kVar.readBits(24);
         }
         a.checkArgument(readBits < 13);
-        return mHn[readBits];
+        return mIX[readBits];
     }
 
     private static void a(k kVar, int i, int i2) {
-        kVar.JU(1);
-        if (kVar.dvo()) {
-            kVar.JU(14);
+        kVar.Ka(1);
+        if (kVar.dvL()) {
+            kVar.Ka(14);
         }
-        boolean dvo = kVar.dvo();
+        boolean dvL = kVar.dvL();
         if (i2 == 0) {
             throw new UnsupportedOperationException();
         }
         if (i == 6 || i == 20) {
-            kVar.JU(3);
+            kVar.Ka(3);
         }
-        if (dvo) {
+        if (dvL) {
             if (i == 22) {
-                kVar.JU(16);
+                kVar.Ka(16);
             }
             if (i == 17 || i == 19 || i == 20 || i == 23) {
-                kVar.JU(3);
+                kVar.Ka(3);
             }
-            kVar.JU(1);
+            kVar.Ka(1);
         }
     }
 }

@@ -4,7 +4,7 @@ public final class m {
     private int bitOffset;
     private int byteOffset;
     private byte[] data;
-    private int mma;
+    private int mnG;
 
     public m(byte[] bArr, int i, int i2) {
         H(bArr, i, i2);
@@ -13,22 +13,22 @@ public final class m {
     public void H(byte[] bArr, int i, int i2) {
         this.data = bArr;
         this.byteOffset = i;
-        this.mma = i2;
+        this.mnG = i2;
         this.bitOffset = 0;
-        dvp();
+        dvM();
     }
 
-    public void dzs() {
+    public void dzP() {
         int i = this.bitOffset + 1;
         this.bitOffset = i;
         if (i == 8) {
             this.bitOffset = 0;
-            this.byteOffset = (LX(this.byteOffset + 1) ? 2 : 1) + this.byteOffset;
+            this.byteOffset = (Md(this.byteOffset + 1) ? 2 : 1) + this.byteOffset;
         }
-        dvp();
+        dvM();
     }
 
-    public void JU(int i) {
+    public void Ka(int i) {
         int i2 = this.byteOffset;
         int i3 = i / 8;
         this.byteOffset += i3;
@@ -40,18 +40,18 @@ public final class m {
         while (true) {
             i2++;
             if (i2 <= this.byteOffset) {
-                if (LX(i2)) {
+                if (Md(i2)) {
                     this.byteOffset++;
                     i2 += 2;
                 }
             } else {
-                dvp();
+                dvM();
                 return;
             }
         }
     }
 
-    public boolean LW(int i) {
+    public boolean Mc(int i) {
         int i2 = this.byteOffset;
         int i3 = i / 8;
         int i4 = this.byteOffset + i3;
@@ -63,19 +63,19 @@ public final class m {
         int i6 = i2 + 1;
         int i7 = i4;
         int i8 = i6;
-        while (i8 <= i7 && i7 < this.mma) {
-            if (LX(i8)) {
+        while (i8 <= i7 && i7 < this.mnG) {
+            if (Md(i8)) {
                 i7++;
                 i8 += 2;
             }
             i8++;
         }
-        return i7 < this.mma || (i7 == this.mma && i5 == 0);
+        return i7 < this.mnG || (i7 == this.mnG && i5 == 0);
     }
 
-    public boolean dvo() {
+    public boolean dvL() {
         boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
-        dzs();
+        dzP();
         return z;
     }
 
@@ -85,52 +85,52 @@ public final class m {
         while (this.bitOffset > 8) {
             this.bitOffset -= 8;
             i2 |= (this.data[this.byteOffset] & 255) << this.bitOffset;
-            this.byteOffset = (LX(this.byteOffset + 1) ? 2 : 1) + this.byteOffset;
+            this.byteOffset = (Md(this.byteOffset + 1) ? 2 : 1) + this.byteOffset;
         }
         int i3 = (i2 | ((this.data[this.byteOffset] & 255) >> (8 - this.bitOffset))) & ((-1) >>> (32 - i));
         if (this.bitOffset == 8) {
             this.bitOffset = 0;
-            this.byteOffset += LX(this.byteOffset + 1) ? 2 : 1;
+            this.byteOffset += Md(this.byteOffset + 1) ? 2 : 1;
         }
-        dvp();
+        dvM();
         return i3;
     }
 
-    public boolean dzK() {
+    public boolean dAh() {
         int i = this.byteOffset;
         int i2 = this.bitOffset;
         int i3 = 0;
-        while (this.byteOffset < this.mma && !dvo()) {
+        while (this.byteOffset < this.mnG && !dvL()) {
             i3++;
         }
-        boolean z = this.byteOffset == this.mma;
+        boolean z = this.byteOffset == this.mnG;
         this.byteOffset = i;
         this.bitOffset = i2;
-        return !z && LW((i3 * 2) + 1);
+        return !z && Mc((i3 * 2) + 1);
     }
 
-    public int dzL() {
-        return dzN();
+    public int dAi() {
+        return dAk();
     }
 
-    public int dzM() {
-        int dzN = dzN();
-        return (dzN % 2 == 0 ? -1 : 1) * ((dzN + 1) / 2);
+    public int dAj() {
+        int dAk = dAk();
+        return (dAk % 2 == 0 ? -1 : 1) * ((dAk + 1) / 2);
     }
 
-    private int dzN() {
+    private int dAk() {
         int i = 0;
-        while (!dvo()) {
+        while (!dvL()) {
             i++;
         }
         return ((1 << i) - 1) + (i > 0 ? readBits(i) : 0);
     }
 
-    private boolean LX(int i) {
-        return 2 <= i && i < this.mma && this.data[i] == 3 && this.data[i + (-2)] == 0 && this.data[i + (-1)] == 0;
+    private boolean Md(int i) {
+        return 2 <= i && i < this.mnG && this.data[i] == 3 && this.data[i + (-2)] == 0 && this.data[i + (-1)] == 0;
     }
 
-    private void dvp() {
-        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mma || (this.byteOffset == this.mma && this.bitOffset == 0)));
+    private void dvM() {
+        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mnG || (this.byteOffset == this.mnG && this.bitOffset == 0)));
     }
 }

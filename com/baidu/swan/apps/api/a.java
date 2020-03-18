@@ -33,13 +33,13 @@ public class a implements b {
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public CallbackHandler JC() {
+    public CallbackHandler JF() {
         return this.mCallbackHandler;
     }
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public com.baidu.swan.apps.core.container.a JD() {
+    public com.baidu.swan.apps.core.container.a JG() {
         return this.mJSContainer;
     }
 
@@ -52,7 +52,7 @@ public class a implements b {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             Map<String, Object> apiModules = new SwanApi$$ModulesProvider(this).getApiModules();
-            Map<String, Object> a = com.baidu.swan.apps.w.a.Ux().a(this);
+            Map<String, Object> a = com.baidu.swan.apps.w.a.UA().a(this);
             if (a != null) {
                 if (apiModules != null) {
                     apiModules.putAll(a);

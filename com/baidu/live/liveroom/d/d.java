@@ -13,9 +13,9 @@ public interface d {
 
     void onDestroy();
 
-    View we();
+    View wj();
 
-    String wf();
+    String wk();
 
-    short wg();
+    short wl();
 }

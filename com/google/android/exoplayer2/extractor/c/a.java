@@ -62,144 +62,144 @@ import java.util.List;
 /* loaded from: classes6.dex */
 abstract class a {
     public final int type;
-    public static final int mhd = v.QF(FileTypeBox.TYPE);
-    public static final int mhe = v.QF(VisualSampleEntry.TYPE3);
-    public static final int mhf = v.QF(VisualSampleEntry.TYPE4);
-    public static final int mhg = v.QF("hvc1");
-    public static final int mhh = v.QF("hev1");
-    public static final int mhi = v.QF(VisualSampleEntry.TYPE2);
-    public static final int mhj = v.QF("d263");
-    public static final int mhk = v.QF(MediaDataBox.TYPE);
-    public static final int mhl = v.QF(AudioSampleEntry.TYPE3);
-    public static final int mhm = v.QF(".mp3");
-    public static final int mhn = v.QF("wave");
-    public static final int mho = v.QF("lpcm");
-    public static final int mhp = v.QF("sowt");
-    public static final int mhq = v.QF(AudioSampleEntry.TYPE8);
-    public static final int mhr = v.QF(AC3SpecificBox.TYPE);
-    public static final int mhs = v.QF(AudioSampleEntry.TYPE9);
-    public static final int mht = v.QF(EC3SpecificBox.TYPE);
-    public static final int mhu = v.QF("dtsc");
-    public static final int mhv = v.QF(AudioSampleEntry.TYPE12);
-    public static final int mhw = v.QF(AudioSampleEntry.TYPE11);
-    public static final int mhx = v.QF(AudioSampleEntry.TYPE13);
-    public static final int mhy = v.QF(DTSSpecificBox.TYPE);
-    public static final int mhz = v.QF(TrackFragmentBaseMediaDecodeTimeBox.TYPE);
-    public static final int mhA = v.QF(TrackFragmentHeaderBox.TYPE);
-    public static final int mhB = v.QF(TrackExtendsBox.TYPE);
-    public static final int mhC = v.QF(TrackRunBox.TYPE);
-    public static final int mhD = v.QF(SegmentIndexBox.TYPE);
-    public static final int mhE = v.QF(MovieBox.TYPE);
-    public static final int mhF = v.QF(MovieHeaderBox.TYPE);
-    public static final int mhG = v.QF(TrackBox.TYPE);
-    public static final int mhH = v.QF(MediaBox.TYPE);
-    public static final int mhI = v.QF(MediaInformationBox.TYPE);
-    public static final int mhJ = v.QF(SampleTableBox.TYPE);
-    public static final int mhK = v.QF(AvcConfigurationBox.TYPE);
-    public static final int mhL = v.QF("hvcC");
-    public static final int mhM = v.QF(ESDescriptorBox.TYPE);
-    public static final int mhN = v.QF(MovieFragmentBox.TYPE);
-    public static final int mhO = v.QF(TrackFragmentBox.TYPE);
-    public static final int mhP = v.QF(MovieExtendsBox.TYPE);
-    public static final int mhQ = v.QF(MovieExtendsHeaderBox.TYPE);
-    public static final int mhR = v.QF(TrackHeaderBox.TYPE);
-    public static final int mhS = v.QF(EditBox.TYPE);
-    public static final int mhT = v.QF(EditListBox.TYPE);
-    public static final int mhU = v.QF(MediaHeaderBox.TYPE);
-    public static final int mhV = v.QF(HandlerBox.TYPE);
-    public static final int mhW = v.QF(SampleDescriptionBox.TYPE);
-    public static final int mhX = v.QF(ProtectionSystemSpecificHeaderBox.TYPE);
-    public static final int mhY = v.QF(ProtectionSchemeInformationBox.TYPE);
-    public static final int mhZ = v.QF(SchemeTypeBox.TYPE);
-    public static final int mia = v.QF(SchemeInformationBox.TYPE);
-    public static final int mib = v.QF(TrackEncryptionBox.TYPE);
-    public static final int mic = v.QF(VisualSampleEntry.TYPE_ENCRYPTED);
-    public static final int mie = v.QF(AudioSampleEntry.TYPE_ENCRYPTED);
-    public static final int mif = v.QF(OriginalFormatBox.TYPE);
-    public static final int mig = v.QF(SampleAuxiliaryInformationSizesBox.TYPE);
-    public static final int mih = v.QF(SampleAuxiliaryInformationOffsetsBox.TYPE);
-    public static final int mii = v.QF(SampleToGroupBox.TYPE);
-    public static final int mij = v.QF(SampleGroupDescriptionBox.TYPE);
-    public static final int mik = v.QF("uuid");
-    public static final int mil = v.QF(SampleEncryptionBox.TYPE);
-    public static final int mim = v.QF(PixelAspectRationAtom.TYPE);
-    public static final int mio = v.QF("TTML");
-    public static final int mip = v.QF(VideoMediaHeaderBox.TYPE);
-    public static final int miq = v.QF(VisualSampleEntry.TYPE1);
-    public static final int mir = v.QF(TimeToSampleBox.TYPE);
-    public static final int mis = v.QF(SyncSampleBox.TYPE);
-    public static final int mit = v.QF(CompositionTimeToSample.TYPE);
-    public static final int miu = v.QF(SampleToChunkBox.TYPE);
-    public static final int miv = v.QF(SampleSizeBox.TYPE);
-    public static final int miw = v.QF("stz2");
-    public static final int mix = v.QF(StaticChunkOffsetBox.TYPE);
-    public static final int miy = v.QF(ChunkOffset64BitBox.TYPE);
-    public static final int miz = v.QF(TextSampleEntry.TYPE1);
-    public static final int miA = v.QF("wvtt");
-    public static final int miB = v.QF(SubtitleSampleEntry.TYPE1);
-    public static final int miC = v.QF("c608");
-    public static final int miD = v.QF(AudioSampleEntry.TYPE1);
-    public static final int miE = v.QF(AudioSampleEntry.TYPE2);
-    public static final int miF = v.QF(UserDataBox.TYPE);
-    public static final int miG = v.QF(MetaBox.TYPE);
-    public static final int miH = v.QF(AppleItemListBox.TYPE);
-    public static final int miI = v.QF("mean");
-    public static final int miJ = v.QF("name");
-    public static final int miK = v.QF("data");
-    public static final int miL = v.QF("emsg");
-    public static final int miM = v.QF("st3d");
-    public static final int miN = v.QF("sv3d");
-    public static final int miO = v.QF("proj");
-    public static final int miP = v.QF("vp08");
-    public static final int miQ = v.QF("vp09");
-    public static final int miR = v.QF("vpcC");
-    public static final int miS = v.QF("camm");
-    public static final int miT = v.QF("alac");
+    public static final int miL = v.QE(FileTypeBox.TYPE);
+    public static final int miM = v.QE(VisualSampleEntry.TYPE3);
+    public static final int miN = v.QE(VisualSampleEntry.TYPE4);
+    public static final int miO = v.QE("hvc1");
+    public static final int miP = v.QE("hev1");
+    public static final int miQ = v.QE(VisualSampleEntry.TYPE2);
+    public static final int miR = v.QE("d263");
+    public static final int miS = v.QE(MediaDataBox.TYPE);
+    public static final int miT = v.QE(AudioSampleEntry.TYPE3);
+    public static final int miU = v.QE(".mp3");
+    public static final int miV = v.QE("wave");
+    public static final int miW = v.QE("lpcm");
+    public static final int miX = v.QE("sowt");
+    public static final int miY = v.QE(AudioSampleEntry.TYPE8);
+    public static final int miZ = v.QE(AC3SpecificBox.TYPE);
+    public static final int mja = v.QE(AudioSampleEntry.TYPE9);
+    public static final int mjb = v.QE(EC3SpecificBox.TYPE);
+    public static final int mjc = v.QE("dtsc");
+    public static final int mjd = v.QE(AudioSampleEntry.TYPE12);
+    public static final int mje = v.QE(AudioSampleEntry.TYPE11);
+    public static final int mjf = v.QE(AudioSampleEntry.TYPE13);
+    public static final int mjg = v.QE(DTSSpecificBox.TYPE);
+    public static final int mjh = v.QE(TrackFragmentBaseMediaDecodeTimeBox.TYPE);
+    public static final int mji = v.QE(TrackFragmentHeaderBox.TYPE);
+    public static final int mjj = v.QE(TrackExtendsBox.TYPE);
+    public static final int mjk = v.QE(TrackRunBox.TYPE);
+    public static final int mjl = v.QE(SegmentIndexBox.TYPE);
+    public static final int mjm = v.QE(MovieBox.TYPE);
+    public static final int mjn = v.QE(MovieHeaderBox.TYPE);
+    public static final int mjo = v.QE(TrackBox.TYPE);
+    public static final int mjp = v.QE(MediaBox.TYPE);
+    public static final int mjq = v.QE(MediaInformationBox.TYPE);
+    public static final int mjr = v.QE(SampleTableBox.TYPE);
+    public static final int mjs = v.QE(AvcConfigurationBox.TYPE);
+    public static final int mjt = v.QE("hvcC");
+    public static final int mju = v.QE(ESDescriptorBox.TYPE);
+    public static final int mjv = v.QE(MovieFragmentBox.TYPE);
+    public static final int mjw = v.QE(TrackFragmentBox.TYPE);
+    public static final int mjx = v.QE(MovieExtendsBox.TYPE);
+    public static final int mjy = v.QE(MovieExtendsHeaderBox.TYPE);
+    public static final int mjz = v.QE(TrackHeaderBox.TYPE);
+    public static final int mjA = v.QE(EditBox.TYPE);
+    public static final int mjB = v.QE(EditListBox.TYPE);
+    public static final int mjC = v.QE(MediaHeaderBox.TYPE);
+    public static final int mjD = v.QE(HandlerBox.TYPE);
+    public static final int mjE = v.QE(SampleDescriptionBox.TYPE);
+    public static final int mjF = v.QE(ProtectionSystemSpecificHeaderBox.TYPE);
+    public static final int mjG = v.QE(ProtectionSchemeInformationBox.TYPE);
+    public static final int mjH = v.QE(SchemeTypeBox.TYPE);
+    public static final int mjI = v.QE(SchemeInformationBox.TYPE);
+    public static final int mjJ = v.QE(TrackEncryptionBox.TYPE);
+    public static final int mjK = v.QE(VisualSampleEntry.TYPE_ENCRYPTED);
+    public static final int mjL = v.QE(AudioSampleEntry.TYPE_ENCRYPTED);
+    public static final int mjM = v.QE(OriginalFormatBox.TYPE);
+    public static final int mjN = v.QE(SampleAuxiliaryInformationSizesBox.TYPE);
+    public static final int mjO = v.QE(SampleAuxiliaryInformationOffsetsBox.TYPE);
+    public static final int mjP = v.QE(SampleToGroupBox.TYPE);
+    public static final int mjQ = v.QE(SampleGroupDescriptionBox.TYPE);
+    public static final int mjR = v.QE("uuid");
+    public static final int mjS = v.QE(SampleEncryptionBox.TYPE);
+    public static final int mjT = v.QE(PixelAspectRationAtom.TYPE);
+    public static final int mjU = v.QE("TTML");
+    public static final int mjV = v.QE(VideoMediaHeaderBox.TYPE);
+    public static final int mjW = v.QE(VisualSampleEntry.TYPE1);
+    public static final int mjX = v.QE(TimeToSampleBox.TYPE);
+    public static final int mjY = v.QE(SyncSampleBox.TYPE);
+    public static final int mjZ = v.QE(CompositionTimeToSample.TYPE);
+    public static final int mka = v.QE(SampleToChunkBox.TYPE);
+    public static final int mkb = v.QE(SampleSizeBox.TYPE);
+    public static final int mkc = v.QE("stz2");
+    public static final int mkd = v.QE(StaticChunkOffsetBox.TYPE);
+    public static final int mke = v.QE(ChunkOffset64BitBox.TYPE);
+    public static final int mkf = v.QE(TextSampleEntry.TYPE1);
+    public static final int mkg = v.QE("wvtt");
+    public static final int mkh = v.QE(SubtitleSampleEntry.TYPE1);
+    public static final int mki = v.QE("c608");
+    public static final int mkj = v.QE(AudioSampleEntry.TYPE1);
+    public static final int mkk = v.QE(AudioSampleEntry.TYPE2);
+    public static final int mkl = v.QE(UserDataBox.TYPE);
+    public static final int mkm = v.QE(MetaBox.TYPE);
+    public static final int mkn = v.QE(AppleItemListBox.TYPE);
+    public static final int mko = v.QE("mean");
+    public static final int mkp = v.QE("name");
+    public static final int mkq = v.QE("data");
+    public static final int mkr = v.QE("emsg");
+    public static final int mks = v.QE("st3d");
+    public static final int mkt = v.QE("sv3d");
+    public static final int mku = v.QE("proj");
+    public static final int mkv = v.QE("vp08");
+    public static final int mkw = v.QE("vp09");
+    public static final int mkx = v.QE("vpcC");
+    public static final int mky = v.QE("camm");
+    public static final int mkz = v.QE("alac");
 
     public a(int i) {
         this.type = i;
     }
 
     public String toString() {
-        return JK(this.type);
+        return JQ(this.type);
     }
 
     /* loaded from: classes6.dex */
     static final class b extends a {
-        public final com.google.android.exoplayer2.util.l miW;
+        public final com.google.android.exoplayer2.util.l mkC;
 
         public b(int i, com.google.android.exoplayer2.util.l lVar) {
             super(i);
-            this.miW = lVar;
+            this.mkC = lVar;
         }
     }
 
     /* renamed from: com.google.android.exoplayer2.extractor.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    static final class C0674a extends a {
+    static final class C0675a extends a {
         public final long endPosition;
-        public final List<b> miU;
-        public final List<C0674a> miV;
+        public final List<b> mkA;
+        public final List<C0675a> mkB;
 
-        public C0674a(int i, long j) {
+        public C0675a(int i, long j) {
             super(i);
             this.endPosition = j;
-            this.miU = new ArrayList();
-            this.miV = new ArrayList();
+            this.mkA = new ArrayList();
+            this.mkB = new ArrayList();
         }
 
         public void a(b bVar) {
-            this.miU.add(bVar);
+            this.mkA.add(bVar);
         }
 
-        public void a(C0674a c0674a) {
-            this.miV.add(c0674a);
+        public void a(C0675a c0675a) {
+            this.mkB.add(c0675a);
         }
 
-        public b JL(int i) {
-            int size = this.miU.size();
+        public b JR(int i) {
+            int size = this.mkA.size();
             for (int i2 = 0; i2 < size; i2++) {
-                b bVar = this.miU.get(i2);
+                b bVar = this.mkA.get(i2);
                 if (bVar.type == i) {
                     return bVar;
                 }
@@ -207,12 +207,12 @@ abstract class a {
             return null;
         }
 
-        public C0674a JM(int i) {
-            int size = this.miV.size();
+        public C0675a JS(int i) {
+            int size = this.mkB.size();
             for (int i2 = 0; i2 < size; i2++) {
-                C0674a c0674a = this.miV.get(i2);
-                if (c0674a.type == i) {
-                    return c0674a;
+                C0675a c0675a = this.mkB.get(i2);
+                if (c0675a.type == i) {
+                    return c0675a;
                 }
             }
             return null;
@@ -220,19 +220,19 @@ abstract class a {
 
         @Override // com.google.android.exoplayer2.extractor.c.a
         public String toString() {
-            return JK(this.type) + " leaves: " + Arrays.toString(this.miU.toArray()) + " containers: " + Arrays.toString(this.miV.toArray());
+            return JQ(this.type) + " leaves: " + Arrays.toString(this.mkA.toArray()) + " containers: " + Arrays.toString(this.mkB.toArray());
         }
     }
 
-    public static int JI(int i) {
+    public static int JO(int i) {
         return (i >> 24) & 255;
     }
 
-    public static int JJ(int i) {
+    public static int JP(int i) {
         return 16777215 & i;
     }
 
-    public static String JK(int i) {
+    public static String JQ(int i) {
         return "" + ((char) ((i >> 24) & 255)) + ((char) ((i >> 16) & 255)) + ((char) ((i >> 8) & 255)) + ((char) (i & 255));
     }
 }

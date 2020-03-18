@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.q;
+import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes.dex */
-public class a extends b implements q {
-    private TbPageContextSupport dCZ;
-    private View dDa;
+public class a extends b implements r {
+    private TbPageContextSupport dDm;
+    private View dDn;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -25,13 +25,13 @@ public class a extends b implements q {
     private int padding;
 
     public a(TbPageContextSupport tbPageContextSupport) {
-        this.dCZ = null;
+        this.dDm = null;
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.dCZ = tbPageContextSupport;
-        this.padding = this.dCZ.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.dDm = tbPageContextSupport;
+        this.padding = this.dDm.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
     public a(TbPageContextSupport tbPageContextSupport, ViewGroup viewGroup) {
@@ -42,9 +42,9 @@ public class a extends b implements q {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         if (this.mParentView == null) {
-            this.mRoot = LayoutInflater.from(this.dCZ.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.mRoot = LayoutInflater.from(this.dDm.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.mRoot = LayoutInflater.from(this.dCZ.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
+            this.mRoot = LayoutInflater.from(this.dDm.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
         }
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
@@ -53,37 +53,37 @@ public class a extends b implements q {
             this.mRoot.setLayoutParams(layoutParams);
         }
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.dDa = this.mRoot.findViewById(R.id.pb_more_view);
-        this.dDa.setVisibility(8);
+        this.dDn = this.mRoot.findViewById(R.id.pb_more_view);
+        this.dDn.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        b(this.dCZ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.dDa.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        b(this.dDm.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.dDn.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.q
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.dCZ.getPageContext().getLayoutMode().onModeChanged(this.dDa);
+        this.dDm.getPageContext().getLayoutMode().onModeChanged(this.dDn);
         return true;
     }
 
     public void hide() {
-        this.dDa.setVisibility(8);
+        this.dDn.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void display() {
-        this.dDa.setVisibility(0);
+        this.dDn.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void mI(int i) {
+    public void mK(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.dDa.setVisibility(0);
+        this.dDn.setVisibility(0);
     }
 
-    public void mJ(int i) {
+    public void mL(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

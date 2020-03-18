@@ -24,7 +24,7 @@ public class a {
         if (bdUniqueId != null && eVar != null) {
             an anVar = new an("common_exp");
             a(anVar, eVar, postData, i, i2, false, str);
-            c.cKb().a(bdUniqueId, str2, anVar);
+            c.cKv().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -68,21 +68,21 @@ public class a {
     }
 
     private static an a(an anVar, e eVar, PostData postData, int i, int i2, boolean z, String str) {
-        anVar.cy("page_type", PageStayDurationConstants.PageName.PB).X("obj_floor", i).X("obj_isad", z ? 1 : 0).cy("fid", eVar.getForumId() + "").cy("tid", eVar.getThreadId() + "").cy("obj_id", str + "").X("post_type", i2);
+        anVar.cx("page_type", PageStayDurationConstants.PageName.PB).X("obj_floor", i).X("obj_isad", z ? 1 : 0).cx("fid", eVar.getForumId() + "").cx("tid", eVar.getThreadId() + "").cx("obj_id", str + "").X("post_type", i2);
         if (postData != null) {
-            anVar.cy("pid", postData.getId() + "");
+            anVar.cx("pid", postData.getId() + "");
         }
-        if (eVar.ckv() != null) {
-            anVar.X("thread_type", eVar.ckv().threadType);
-            BaijiahaoData baijiahaoData = eVar.ckv().getBaijiahaoData();
+        if (eVar.ckP() != null) {
+            anVar.X("thread_type", eVar.ckP().threadType);
+            BaijiahaoData baijiahaoData = eVar.ckP().getBaijiahaoData();
             if (baijiahaoData != null) {
-                anVar.cy("ugc_nid", baijiahaoData.oriUgcNid);
-                anVar.cy("ugc_vid", baijiahaoData.oriUgcVid);
+                anVar.cx("ugc_nid", baijiahaoData.oriUgcNid);
+                anVar.cx("ugc_vid", baijiahaoData.oriUgcVid);
                 anVar.X("ori_ugc_type", baijiahaoData.oriUgcType);
             }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cy(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dml);
+            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
         }
         return anVar;
     }

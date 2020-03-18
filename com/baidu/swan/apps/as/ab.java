@@ -33,7 +33,7 @@ public class ab {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.bYG = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.bYR = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
@@ -55,19 +55,19 @@ public class ab {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.bYG = "zipSource isNullIs=" + z;
+                cVar.bYR = "zipSource isNullIs=" + z;
                 return false;
             }
             return false;
         }
         String a = com.baidu.swan.d.d.a(readableByteChannel, false);
         if (cVar != null) {
-            cVar.bYG = a;
+            cVar.bYR = a;
         }
         try {
-            String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), mP("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
+            String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), mO("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.bYH = str2;
+                cVar.bYS = str2;
             }
             return TextUtils.equals(str2, a);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class ab {
                 e.printStackTrace();
             }
             if (cVar != null) {
-                cVar.bYH = e.getLocalizedMessage();
+                cVar.bYS = e.getLocalizedMessage();
                 return false;
             }
             return false;
@@ -89,7 +89,7 @@ public class ab {
         return cipher.doFinal(bArr);
     }
 
-    private static PublicKey mP(String str) {
+    private static PublicKey mO(String str) {
         try {
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException e) {

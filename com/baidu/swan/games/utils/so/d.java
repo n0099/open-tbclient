@@ -8,94 +8,94 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long csU = -1;
+    private static long ctf = -1;
 
-    public static void aqh() {
-        if (!com.baidu.swan.apps.w.a.UI().ID()) {
-            com.baidu.swan.apps.core.j.a.cx(false);
-        } else if (!aql()) {
+    public static void aqk() {
+        if (!com.baidu.swan.apps.w.a.UL().IG()) {
+            com.baidu.swan.apps.core.j.a.cy(false);
+        } else if (!aqo()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         } else {
-            com.baidu.swan.apps.w.a.UM().aa(a.csV);
+            com.baidu.swan.apps.w.a.UP().aa(a.ctg);
         }
     }
 
-    public static void aqi() {
+    public static void aql() {
         SoLoader.load(AppRuntime.getAppContext(), "audioengine");
     }
 
-    public static void aqj() {
+    public static void aqm() {
         SoLoader.load(AppRuntime.getAppContext(), "arcore_sdk_c");
     }
 
-    public static void aqk() {
-        if (!com.baidu.swan.apps.w.a.UI().ID()) {
-            com.baidu.swan.apps.core.j.a.cx(false);
-        } else if (!aql()) {
+    public static void aqn() {
+        if (!com.baidu.swan.apps.w.a.UL().IG()) {
+            com.baidu.swan.apps.core.j.a.cy(false);
+        } else if (!aqo()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext(), false);
         } else {
-            com.baidu.swan.apps.w.a.UM().aa(a.csV);
+            com.baidu.swan.apps.w.a.UP().aa(a.ctg);
         }
     }
 
-    private static boolean aql() {
-        boolean z = a.csV > -1;
+    private static boolean aqo() {
+        boolean z = a.ctg > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
         return z;
     }
 
-    public static void aqm() {
-        com.baidu.swan.apps.w.a.UM().HL();
+    public static void aqp() {
+        com.baidu.swan.apps.w.a.UP().HO();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:5:0x0012  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void aqn() {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.abu().abw().iterator();
+    public static void aqq() {
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.abx().abz().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.abl() || next.abi()) {
+            if (next.abo() || next.abl()) {
                 return;
             }
             while (it.hasNext()) {
             }
         }
-        com.baidu.swan.apps.w.a.UM().HM();
+        com.baidu.swan.apps.w.a.UP().HP();
     }
 
-    public static String aqo() {
-        return com.baidu.swan.apps.w.a.UM().ab(a.csV);
+    public static String aqr() {
+        return com.baidu.swan.apps.w.a.UP().ab(a.ctg);
     }
 
     public static void S(Bundle bundle) {
-        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.w.a.UM().HN());
+        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.w.a.UP().HQ());
     }
 
     public static void P(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            csU = intent.getLongExtra("bundle_key_new_v8_so_switch", csU);
+            ctf = intent.getLongExtra("bundle_key_new_v8_so_switch", ctf);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + csU);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + ctf);
         }
     }
 
-    public static long HN() {
-        return a.csV;
+    public static long HQ() {
+        return a.ctg;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final long csV = d.csU;
+        private static final long ctg = d.ctf;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + csV);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + ctg);
             }
         }
     }

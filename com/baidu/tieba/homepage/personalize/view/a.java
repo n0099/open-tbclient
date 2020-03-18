@@ -1,34 +1,44 @@
 package com.baidu.tieba.homepage.personalize.view;
 
-import android.content.Context;
-import com.baidu.card.g;
+import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 /* loaded from: classes9.dex */
-public class a extends g {
-    private c hfN;
+public class a extends RecyclerView.ItemDecoration {
+    private int gbk;
+    private int gbl;
+    private int mEnd;
 
-    public a(Context context) {
-        super(context);
+    public a(int i, int i2, int i3) {
+        this.gbk = i;
+        this.gbl = i2;
+        this.mEnd = i3;
     }
 
-    @Override // com.baidu.card.g, com.baidu.card.al
-    protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        this.hfN = new c(this.mContext, this.MK);
-        return this.hfN;
-    }
-
-    @Override // com.baidu.card.al
-    public void onPause() {
-        super.onPause();
-        if (this.hfN != null) {
-            this.hfN.onPause();
+    @Override // android.support.v7.widget.RecyclerView.ItemDecoration
+    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+        super.getItemOffsets(rect, view, recyclerView, state);
+        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        if (linearLayoutManager.getOrientation() == 1) {
+            if (recyclerView.getChildAdapterPosition(view) == 0) {
+                rect.top = this.gbk;
+            } else {
+                rect.top = this.gbl;
+            }
+            if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
+                rect.bottom = this.mEnd;
+                return;
+            }
+            return;
         }
-    }
-
-    @Override // com.baidu.card.al
-    public void onResume() {
-        super.onResume();
-        if (this.hfN != null) {
-            this.hfN.onResume();
+        if (recyclerView.getChildAdapterPosition(view) == 0) {
+            rect.left = this.gbk;
+        } else {
+            rect.left = this.gbl;
+        }
+        if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
+            rect.right = this.mEnd;
         }
     }
 }

@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> nh(String str) {
+    public static List<b> ng(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

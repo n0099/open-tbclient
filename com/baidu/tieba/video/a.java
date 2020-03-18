@@ -8,7 +8,7 @@ public class a {
     public float beautyRedLevel;
     public int level;
 
-    public static a Dp(int i) {
+    public static a Dx(int i) {
         switch (i) {
             case 0:
                 return c(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.entelechy.b;
 
 import android.view.View;
-import com.baidu.tieba.frs.l;
+import com.baidu.tieba.frs.m;
 import com.baidu.tieba.frs.vc.h;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
@@ -9,11 +9,11 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 public interface b {
     int a(int i, FrsRequestData frsRequestData);
 
-    void a(h hVar, l lVar, FrsViewData frsViewData);
+    void a(h hVar, m mVar, FrsViewData frsViewData);
 
     void a(h hVar, FrsViewData frsViewData);
 
     void bP(View view);
 
-    boolean tk(int i);
+    boolean to(int i);
 }

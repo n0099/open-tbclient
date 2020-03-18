@@ -20,19 +20,19 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.game.strategy.FrsGameStrategyActivity;
 /* loaded from: classes9.dex */
 public class d extends a<com.baidu.tieba.e.a> {
-    private LinearLayout fHH;
-    private TextView fHI;
-    private RelativeLayout fHJ;
-    private TbImageView fHK;
-    private ImageView fHL;
-    private TextView fHM;
-    private RelativeLayout fHN;
-    private ClickableHeaderImageView fHO;
-    private TextView fHP;
-    private TextView fHQ;
-    private TextView fHR;
-    private View fHS;
-    private com.baidu.tieba.e.a fHT;
+    private View fIA;
+    private com.baidu.tieba.e.a fIB;
+    private LinearLayout fIp;
+    private TextView fIq;
+    private RelativeLayout fIr;
+    private TbImageView fIs;
+    private ImageView fIt;
+    private TextView fIu;
+    private RelativeLayout fIv;
+    private ClickableHeaderImageView fIw;
+    private TextView fIx;
+    private TextView fIy;
+    private TextView fIz;
     private String mForumId;
     private String mForumName;
 
@@ -44,51 +44,51 @@ public class d extends a<com.baidu.tieba.e.a> {
     }
 
     private void init(View view) {
-        this.fHH = (LinearLayout) view.findViewById(R.id.card_frs_game_thread_layout);
-        this.fHI = (TextView) view.findViewById(R.id.card_frs_game_thread_title);
-        this.fHJ = (RelativeLayout) view.findViewById(R.id.card_frs_game_thread_content);
-        this.fHK = (TbImageView) view.findViewById(R.id.card_frs_game_thread_bg);
-        this.fHL = (ImageView) view.findViewById(R.id.img_play);
-        this.fHM = (TextView) view.findViewById(R.id.card_frs_game_thread_video_time);
-        this.fHN = (RelativeLayout) view.findViewById(R.id.card_frs_game_user_content);
-        this.fHO = (ClickableHeaderImageView) view.findViewById(R.id.card_frs_game_user_icon);
-        this.fHP = (TextView) view.findViewById(R.id.card_frs_game_user_name);
-        this.fHQ = (TextView) view.findViewById(R.id.card_frs_game_thread_time);
-        this.fHR = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
-        this.fHS = view.findViewById(R.id.card_frs_game_bottom_divider);
-        this.fHK.setDefaultBgResource(R.drawable.icon_morenpic);
-        this.fHK.setDefaultErrorResource(R.drawable.icon_morenpic);
+        this.fIp = (LinearLayout) view.findViewById(R.id.card_frs_game_thread_layout);
+        this.fIq = (TextView) view.findViewById(R.id.card_frs_game_thread_title);
+        this.fIr = (RelativeLayout) view.findViewById(R.id.card_frs_game_thread_content);
+        this.fIs = (TbImageView) view.findViewById(R.id.card_frs_game_thread_bg);
+        this.fIt = (ImageView) view.findViewById(R.id.img_play);
+        this.fIu = (TextView) view.findViewById(R.id.card_frs_game_thread_video_time);
+        this.fIv = (RelativeLayout) view.findViewById(R.id.card_frs_game_user_content);
+        this.fIw = (ClickableHeaderImageView) view.findViewById(R.id.card_frs_game_user_icon);
+        this.fIx = (TextView) view.findViewById(R.id.card_frs_game_user_name);
+        this.fIy = (TextView) view.findViewById(R.id.card_frs_game_thread_time);
+        this.fIz = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
+        this.fIA = view.findViewById(R.id.card_frs_game_bottom_divider);
+        this.fIs.setDefaultBgResource(R.drawable.icon_morenpic);
+        this.fIs.setDefaultErrorResource(R.drawable.icon_morenpic);
         int dimensionPixelSize = com.baidu.adp.lib.util.l.getScreenDimensions(this.mContext)[0] - (this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fHJ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fIr.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 21;
-        this.fHJ.setLayoutParams(layoutParams);
-        this.fHR.setOnClickListener(this);
-        this.fHO.setDefaultResource(17170445);
-        this.fHO.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.fHO.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fHO.setIsRound(true);
-        this.fHO.setDrawBorder(true);
-        this.fHO.setBorderColor(am.getColor(R.color.common_color_10043));
-        this.fHO.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.fIr.setLayoutParams(layoutParams);
+        this.fIz.setOnClickListener(this);
+        this.fIw.setDefaultResource(17170445);
+        this.fIw.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.fIw.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fIw.setIsRound(true);
+        this.fIw.setDrawBorder(true);
+        this.fIw.setBorderColor(am.getColor(R.color.common_color_10043));
+        this.fIw.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds1));
         getView().setOnClickListener(this);
     }
 
     public void v(int i, int i2, int i3, int i4) {
-        if (this.fHH != null) {
-            this.fHH.setPadding(i, i2, i3, i4);
+        if (this.fIp != null) {
+            this.fIp.setPadding(i, i2, i3, i4);
         }
     }
 
-    public void rm(int i) {
-        if (this.fHN != null) {
-            this.fHN.setVisibility(i);
+    public void ro(int i) {
+        if (this.fIv != null) {
+            this.fIv.setVisibility(i);
         }
     }
 
-    public void rn(int i) {
-        if (this.fHS != null) {
-            this.fHS.setVisibility(i);
+    public void rp(int i) {
+        if (this.fIA != null) {
+            this.fIA.setVisibility(i);
         }
     }
 
@@ -96,17 +96,17 @@ public class d extends a<com.baidu.tieba.e.a> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(getView(), R.color.cp_bg_line_d);
-            am.setBackgroundResource(this.fHS, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.fIA, R.color.cp_bg_line_c);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jp(this.fHT.aAg().getId())) {
-                am.setViewTextColor(this.fHI, R.color.cp_cont_c, 1);
+            if (readThreadHistory != null && readThreadHistory.Jo(this.fIB.aAj().getId())) {
+                am.setViewTextColor(this.fIq, R.color.cp_cont_c, 1);
             } else {
-                am.setViewTextColor(this.fHI, R.color.cp_cont_b, 1);
+                am.setViewTextColor(this.fIq, R.color.cp_cont_b, 1);
             }
-            am.setViewTextColor(this.fHP, R.color.cp_cont_d, 1);
-            am.setViewTextColor(this.fHQ, R.color.cp_cont_d, 1);
-            am.setViewTextColor(this.fHR, R.color.cp_link_tip_c, 1);
-            am.setViewTextColor(this.fHM, R.color.cp_cont_a, 1);
+            am.setViewTextColor(this.fIx, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fIy, R.color.cp_cont_d, 1);
+            am.setViewTextColor(this.fIz, R.color.cp_link_tip_c, 1);
+            am.setViewTextColor(this.fIu, R.color.cp_cont_a, 1);
         }
         this.mSkinType = i;
     }
@@ -119,59 +119,59 @@ public class d extends a<com.baidu.tieba.e.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.a aVar) {
-        if (aVar != null && aVar.aAg() != null) {
-            this.fHT = aVar;
+        if (aVar != null && aVar.aAj() != null) {
+            this.fIB = aVar;
             String str = null;
-            if (aVar.aAg().aBb()) {
-                this.fHL.setVisibility(0);
-                this.fHM.setVisibility(0);
-                if (aVar.aAg().aCF() != null) {
-                    this.fHM.setText(aq.stringForVideoTime(aVar.aAg().aCF().video_duration.intValue() * 1000));
-                    str = aVar.aAg().aCF().thumbnail_url;
+            if (aVar.aAj().aBe()) {
+                this.fIt.setVisibility(0);
+                this.fIu.setVisibility(0);
+                if (aVar.aAj().aCI() != null) {
+                    this.fIu.setText(aq.stringForVideoTime(aVar.aAj().aCI().video_duration.intValue() * 1000));
+                    str = aVar.aAj().aCI().thumbnail_url;
                 }
             } else {
-                this.fHL.setVisibility(8);
-                this.fHM.setVisibility(4);
-                if (aVar.aAg().aCy() != null && aVar.aAg().aCy().size() >= 1) {
-                    str = aVar.aAg().aCy().get(0).origin_pic;
+                this.fIt.setVisibility(8);
+                this.fIu.setVisibility(4);
+                if (aVar.aAj().aCB() != null && aVar.aAj().aCB().size() >= 1) {
+                    str = aVar.aAj().aCB().get(0).origin_pic;
                 }
             }
-            this.fHK.startLoad(str, 10, false);
-            this.fHI.setText(aVar.aAg().getTitle());
+            this.fIs.startLoad(str, 10, false);
+            this.fIq.setText(aVar.aAj().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jp(aVar.aAg().getId())) {
-                am.setViewTextColor(this.fHI, (int) R.color.cp_cont_c);
+            if (readThreadHistory != null && readThreadHistory.Jo(aVar.aAj().getId())) {
+                am.setViewTextColor(this.fIq, (int) R.color.cp_cont_c);
             } else {
-                am.setViewTextColor(this.fHI, (int) R.color.cp_cont_b);
+                am.setViewTextColor(this.fIq, (int) R.color.cp_cont_b);
             }
-            this.fHO.setData(aVar.aAg(), false);
-            h(aVar.aAg());
-            this.fHQ.setText(aq.getFormatTimeShort(aVar.aAg().aBX()));
-            if ("guide".equals(aVar.aAg().aCd())) {
-                this.fHR.setVisibility(0);
+            this.fIw.setData(aVar.aAj(), false);
+            h(aVar.aAj());
+            this.fIy.setText(aq.getFormatTimeShort(aVar.aAj().aCa()));
+            if ("guide".equals(aVar.aAj().aCg())) {
+                this.fIz.setVisibility(0);
             } else {
-                this.fHR.setVisibility(8);
+                this.fIz.setVisibility(8);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fHR) {
-            TiebaStatic.log(new an("c13047").X("obj_locate", 4).cy("fid", this.mForumId));
+        if (view == this.fIz) {
+            TiebaStatic.log(new an("c13047").X("obj_locate", 4).cx("fid", this.mForumId));
             FrsGameStrategyActivity.s(this.mTbPageContext.getPageActivity(), this.mForumId, this.mForumName);
-        } else if (buH() != null) {
-            buH().a(getView(), this.fHT);
+        } else if (buM() != null) {
+            buM().a(getView(), this.fIB);
         }
     }
 
     private void h(bj bjVar) {
-        if (this.fHP != null && bjVar != null && !StringUtils.isNull(bjVar.aCo().getName_show())) {
-            this.fHP.setText(tZ(bjVar.aCo().getName_show()));
+        if (this.fIx != null && bjVar != null && !StringUtils.isNull(bjVar.aCr().getName_show())) {
+            this.fIx.setText(tY(bjVar.aCr().getName_show()));
         }
     }
 
-    protected String tZ(String str) {
+    protected String tY(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 }

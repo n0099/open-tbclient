@@ -7,11 +7,11 @@ import android.support.v4.util.LruCache;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes6.dex */
 public class g {
-    private static final g hG = new g();
-    private final LruCache<String, com.airbnb.lottie.e> hH = new LruCache<>(10485760);
+    private static final g hF = new g();
+    private final LruCache<String, com.airbnb.lottie.e> hG = new LruCache<>(10485760);
 
     public static g cm() {
-        return hG;
+        return hF;
     }
 
     @VisibleForTesting
@@ -23,12 +23,12 @@ public class g {
         if (str == null) {
             return null;
         }
-        return this.hH.get(str);
+        return this.hG.get(str);
     }
 
     public void a(@Nullable String str, com.airbnb.lottie.e eVar) {
         if (str != null) {
-            this.hH.put(str, eVar);
+            this.hG.put(str, eVar);
         }
     }
 }

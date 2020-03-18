@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.d> {
-    public View fKx;
+    public View fLf;
     private boolean isHost;
-    public TextView jrA;
-    public TextView jrt;
-    public TextView jru;
-    public TextView jrv;
-    public TextView jrw;
-    public ClickableHeaderImageView jrx;
-    public ClickableHeaderImageView jry;
-    public ClickableHeaderImageView jrz;
+    public TextView jsS;
+    public TextView jsT;
+    public TextView jsU;
+    public TextView jsV;
+    public ClickableHeaderImageView jsW;
+    public ClickableHeaderImageView jsX;
+    public ClickableHeaderImageView jsY;
+    public TextView jsZ;
     private View.OnClickListener mOnClickListener;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -39,36 +39,36 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mPageContext = tbPageContext;
         View view = getView();
         initListener();
-        this.fKx = view.findViewById(R.id.bottom_divider);
-        this.jru = (TextView) view.findViewById(R.id.month_num);
-        this.jrt = (TextView) view.findViewById(R.id.day_num);
-        this.jrv = (TextView) view.findViewById(R.id.identity);
-        this.jrw = (TextView) view.findViewById(R.id.attention_str);
-        this.jrx = (ClickableHeaderImageView) view.findViewById(R.id.header1);
-        this.jrx.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
-        this.jrx.setAutoChangeStyle(true);
-        this.jrx.setOnClickListener(this.mOnClickListener);
-        this.jry = (ClickableHeaderImageView) view.findViewById(R.id.header2);
-        this.jry.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
-        this.jry.setAutoChangeStyle(true);
-        this.jry.setOnClickListener(this.mOnClickListener);
-        this.jrz = (ClickableHeaderImageView) view.findViewById(R.id.header3);
-        this.jrz.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
-        this.jrz.setAutoChangeStyle(true);
-        this.jrz.setOnClickListener(this.mOnClickListener);
-        this.jrA = (TextView) view.findViewById(R.id.etc_person);
+        this.fLf = view.findViewById(R.id.bottom_divider);
+        this.jsT = (TextView) view.findViewById(R.id.month_num);
+        this.jsS = (TextView) view.findViewById(R.id.day_num);
+        this.jsU = (TextView) view.findViewById(R.id.identity);
+        this.jsV = (TextView) view.findViewById(R.id.attention_str);
+        this.jsW = (ClickableHeaderImageView) view.findViewById(R.id.header1);
+        this.jsW.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
+        this.jsW.setAutoChangeStyle(true);
+        this.jsW.setOnClickListener(this.mOnClickListener);
+        this.jsX = (ClickableHeaderImageView) view.findViewById(R.id.header2);
+        this.jsX.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
+        this.jsX.setAutoChangeStyle(true);
+        this.jsX.setOnClickListener(this.mOnClickListener);
+        this.jsY = (ClickableHeaderImageView) view.findViewById(R.id.header3);
+        this.jsY.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
+        this.jsY.setAutoChangeStyle(true);
+        this.jsY.setOnClickListener(this.mOnClickListener);
+        this.jsZ = (TextView) view.findViewById(R.id.etc_person);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            am.setBackgroundColor(this.fKx, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.jru, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.jrt, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.jrv, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.jrw, (int) R.color.cp_cont_f);
-            am.setViewTextColor(this.jrA, (int) R.color.cp_cont_c);
+            am.setBackgroundColor(this.fLf, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.jsT, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.jsS, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.jsU, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.jsV, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.jsZ, (int) R.color.cp_cont_c);
         }
         this.mSkinType = i;
     }
@@ -92,57 +92,57 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             getView().setVisibility(0);
         }
         this.isHost = dVar.isHost;
-        this.jrt.setText(dVar.fNW);
-        this.jru.setText(dVar.fNV);
-        this.jrt.setVisibility(dVar.fOc ? 0 : 4);
-        this.jru.setVisibility(dVar.fOc ? 0 : 4);
+        this.jsS.setText(dVar.fOE);
+        this.jsT.setText(dVar.fOD);
+        this.jsS.setVisibility(dVar.fOK ? 0 : 4);
+        this.jsT.setVisibility(dVar.fOK ? 0 : 4);
         if (dVar.isHost) {
-            this.jrv.setText(this.mPageContext.getString(R.string.me));
+            this.jsU.setText(this.mPageContext.getString(R.string.me));
         } else {
-            this.jrv.setText(aq.getUserDescByGender(dVar.sex));
+            this.jsU.setText(aq.getUserDescByGender(dVar.sex));
         }
         int count = v.getCount(dVar.users);
         if (count > 3) {
-            this.jrA.setVisibility(0);
-            this.jrA.setText(String.format(this.mPageContext.getString(R.string.attention_etc_person), Integer.valueOf(count)));
+            this.jsZ.setVisibility(0);
+            this.jsZ.setText(String.format(this.mPageContext.getString(R.string.attention_etc_person), Integer.valueOf(count)));
         } else {
-            this.jrA.setVisibility(8);
+            this.jsZ.setVisibility(8);
         }
         if (count >= 3) {
-            this.jrz.setVisibility(0);
-            this.jrz.setTag(dVar.users.get(2));
+            this.jsY.setVisibility(0);
+            this.jsY.setTag(dVar.users.get(2));
             if (dVar.users.get(2).getGodUserData() != null && dVar.users.get(2).getGodUserData().getType() == 2) {
-                this.jrz.setIsGod(true);
+                this.jsY.setIsGod(true);
             } else {
-                this.jrz.setIsGod(false);
+                this.jsY.setIsGod(false);
             }
-            this.jrz.startLoad(dVar.users.get(2).getPortrait(), 12, false);
+            this.jsY.startLoad(dVar.users.get(2).getPortrait(), 12, false);
         } else {
-            this.jrz.setVisibility(8);
+            this.jsY.setVisibility(8);
         }
         if (count >= 2) {
-            this.jry.setVisibility(0);
-            this.jry.setTag(dVar.users.get(1));
+            this.jsX.setVisibility(0);
+            this.jsX.setTag(dVar.users.get(1));
             if (dVar.users.get(1).getGodUserData() != null && dVar.users.get(1).getGodUserData().getType() == 2) {
-                this.jry.setIsGod(true);
+                this.jsX.setIsGod(true);
             } else {
-                this.jry.setIsGod(false);
+                this.jsX.setIsGod(false);
             }
-            this.jry.startLoad(dVar.users.get(1).getPortrait(), 12, false);
+            this.jsX.startLoad(dVar.users.get(1).getPortrait(), 12, false);
         } else {
-            this.jry.setVisibility(8);
+            this.jsX.setVisibility(8);
         }
         if (count >= 1) {
-            this.jrx.setVisibility(0);
-            this.jrx.setTag(dVar.users.get(0));
+            this.jsW.setVisibility(0);
+            this.jsW.setTag(dVar.users.get(0));
             if (dVar.users.get(0).getGodUserData() != null && dVar.users.get(0).getGodUserData().getType() == 2) {
-                this.jrx.setIsGod(true);
+                this.jsW.setIsGod(true);
             } else {
-                this.jrx.setIsGod(false);
+                this.jsW.setIsGod(false);
             }
-            this.jrx.startLoad(dVar.users.get(0).getPortrait(), 12, false);
+            this.jsW.startLoad(dVar.users.get(0).getPortrait(), 12, false);
         } else {
-            this.jrx.setVisibility(8);
+            this.jsW.setVisibility(8);
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

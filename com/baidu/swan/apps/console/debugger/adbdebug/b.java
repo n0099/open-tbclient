@@ -5,28 +5,28 @@ import com.baidu.swan.apps.as.r;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.apps.console.debugger.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bjP = "";
+    private static String bkc = "";
 
-    public static String LD() {
-        return bjP;
+    public static String LG() {
+        return bkc;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String Lv() {
-        return a.LC().getPath();
+    public String Ly() {
+        return a.LF().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void n(Bundle bundle) {
-        bjP = r.e(bundle, "adb_debug_path");
-        com.baidu.swan.apps.console.debugger.b.gA(r.e(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.gB(r.e(bundle, "slavePreload"));
+        bkc = r.e(bundle, "adb_debug_path");
+        com.baidu.swan.apps.console.debugger.b.gz(r.e(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.gA(r.e(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void o(Bundle bundle) {
-        bundle.putString("adb_debug_path", bjP);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.Lx());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.Lw());
+        bundle.putString("adb_debug_path", bkc);
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.LA());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.Lz());
     }
 }

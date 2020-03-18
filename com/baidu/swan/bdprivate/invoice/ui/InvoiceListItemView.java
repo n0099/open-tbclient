@@ -13,12 +13,12 @@ import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.widget.CommonTagView;
 /* loaded from: classes11.dex */
 public class InvoiceListItemView extends FrameLayout {
-    private PartingLineView ceN;
-    private View ceO;
-    private ImageView ceP;
-    private TextView ceQ;
-    private ImageView ceR;
-    private TextView ceS;
+    private PartingLineView ceY;
+    private View ceZ;
+    private ImageView cfa;
+    private TextView cfb;
+    private ImageView cfc;
+    private TextView cfd;
     private View mBottomView;
     private Context mContext;
 
@@ -38,48 +38,48 @@ public class InvoiceListItemView extends FrameLayout {
     private void initView(Context context) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(b.f.invoice_item_view, (ViewGroup) this, true);
-        this.ceN = (PartingLineView) findViewById(b.e.parting_line_view);
-        this.ceN.setBgNormalColor(b.C0318b.invoice_bg_normal_color);
-        this.ceN.setBgPressedColor(b.C0318b.invoice_bg_pressed_color);
-        this.ceN.setBorderColor(b.C0318b.invoice_bg_border_color);
-        this.ceN.setDividerLineColor(b.C0318b.invoice_bg_divider_line_color);
+        this.ceY = (PartingLineView) findViewById(b.e.parting_line_view);
+        this.ceY.setBgNormalColor(b.C0318b.invoice_bg_normal_color);
+        this.ceY.setBgPressedColor(b.C0318b.invoice_bg_pressed_color);
+        this.ceY.setBorderColor(b.C0318b.invoice_bg_border_color);
+        this.ceY.setDividerLineColor(b.C0318b.invoice_bg_divider_line_color);
         this.mBottomView = LayoutInflater.from(context).inflate(b.f.invoice_item_bottom_view, (ViewGroup) null);
-        this.ceP = (ImageView) this.mBottomView.findViewById(b.e.invoice_current_use_img);
-        this.ceQ = (TextView) this.mBottomView.findViewById(b.e.invoice_current_use_txt);
-        this.ceR = (ImageView) this.mBottomView.findViewById(b.e.invoice_edit_img);
-        this.ceS = (TextView) this.mBottomView.findViewById(b.e.invoice_edit);
-        this.ceP.setImageDrawable(getResources().getDrawable(b.d.invoice_default_select));
-        this.ceQ.setTextColor(getResources().getColor(b.C0318b.invoice_bottom_text));
-        this.ceR.setImageDrawable(getResources().getDrawable(b.d.invoice_edit_img));
-        this.ceS.setTextColor(getResources().getColor(b.C0318b.invoice_bottom_text));
-        this.ceP.setVisibility(4);
-        this.ceQ.setVisibility(4);
+        this.cfa = (ImageView) this.mBottomView.findViewById(b.e.invoice_current_use_img);
+        this.cfb = (TextView) this.mBottomView.findViewById(b.e.invoice_current_use_txt);
+        this.cfc = (ImageView) this.mBottomView.findViewById(b.e.invoice_edit_img);
+        this.cfd = (TextView) this.mBottomView.findViewById(b.e.invoice_edit);
+        this.cfa.setImageDrawable(getResources().getDrawable(b.d.invoice_default_select));
+        this.cfb.setTextColor(getResources().getColor(b.C0318b.invoice_bottom_text));
+        this.cfc.setImageDrawable(getResources().getDrawable(b.d.invoice_edit_img));
+        this.cfd.setTextColor(getResources().getColor(b.C0318b.invoice_bottom_text));
+        this.cfa.setVisibility(4);
+        this.cfb.setVisibility(4);
         setClickable(true);
     }
 
-    public void aiR() {
-        this.ceO = LayoutInflater.from(this.mContext).inflate(b.f.invoice_item_top_company_view, (ViewGroup) null);
-        ((TextView) this.ceO.findViewById(b.e.invoice_company_title_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_title_color));
-        ((TextView) this.ceO.findViewById(b.e.tax_number_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tax_number_color));
-        ((CommonTagView) this.ceO.findViewById(b.e.common_tag_company)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tag_color));
-        if (this.ceN != null) {
-            this.ceN.setContentView(this.ceO, this.mBottomView);
+    public void aiU() {
+        this.ceZ = LayoutInflater.from(this.mContext).inflate(b.f.invoice_item_top_company_view, (ViewGroup) null);
+        ((TextView) this.ceZ.findViewById(b.e.invoice_company_title_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_title_color));
+        ((TextView) this.ceZ.findViewById(b.e.tax_number_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tax_number_color));
+        ((CommonTagView) this.ceZ.findViewById(b.e.common_tag_company)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tag_color));
+        if (this.ceY != null) {
+            this.ceY.setContentView(this.ceZ, this.mBottomView);
         }
     }
 
-    public void aiS() {
-        this.ceO = LayoutInflater.from(this.mContext).inflate(b.f.invoice_item_top_personage_view, (ViewGroup) null);
-        ((TextView) this.ceO.findViewById(b.e.invoice_personal_title_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_title_color));
-        ((CommonTagView) this.ceO.findViewById(b.e.invoice_personal_tag)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tag_color));
-        if (this.ceN != null) {
-            this.ceN.setContentView(this.ceO, this.mBottomView);
+    public void aiV() {
+        this.ceZ = LayoutInflater.from(this.mContext).inflate(b.f.invoice_item_top_personage_view, (ViewGroup) null);
+        ((TextView) this.ceZ.findViewById(b.e.invoice_personal_title_txt)).setTextColor(getResources().getColor(b.C0318b.invoice_top_title_color));
+        ((CommonTagView) this.ceZ.findViewById(b.e.invoice_personal_tag)).setTextColor(getResources().getColor(b.C0318b.invoice_top_tag_color));
+        if (this.ceY != null) {
+            this.ceY.setContentView(this.ceZ, this.mBottomView);
         }
     }
 
     public void setCompanyInfo(String str, String str2) {
-        if (this.ceO != null) {
-            TextView textView = (TextView) this.ceO.findViewById(b.e.invoice_company_title_txt);
-            TextView textView2 = (TextView) this.ceO.findViewById(b.e.tax_number_txt);
+        if (this.ceZ != null) {
+            TextView textView = (TextView) this.ceZ.findViewById(b.e.invoice_company_title_txt);
+            TextView textView2 = (TextView) this.ceZ.findViewById(b.e.tax_number_txt);
             if (textView != null) {
                 textView.setText(str);
             }
@@ -91,18 +91,18 @@ public class InvoiceListItemView extends FrameLayout {
 
     public void setPersonageInfo(String str) {
         TextView textView;
-        if (this.ceO != null && (textView = (TextView) this.ceO.findViewById(b.e.invoice_personal_title_txt)) != null) {
+        if (this.ceZ != null && (textView = (TextView) this.ceZ.findViewById(b.e.invoice_personal_title_txt)) != null) {
             textView.setText(str);
         }
     }
 
     public void setEditClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            if (this.ceS != null) {
-                this.ceS.setOnClickListener(onClickListener);
+            if (this.cfd != null) {
+                this.cfd.setOnClickListener(onClickListener);
             }
-            if (this.ceR != null) {
-                this.ceR.setOnClickListener(onClickListener);
+            if (this.cfc != null) {
+                this.cfc.setOnClickListener(onClickListener);
             }
         }
     }
@@ -113,25 +113,25 @@ public class InvoiceListItemView extends FrameLayout {
         }
     }
 
-    public void es(boolean z) {
+    public void et(boolean z) {
         int i = z ? 0 : 4;
-        if (this.ceP != null) {
-            this.ceP.setVisibility(i);
+        if (this.cfa != null) {
+            this.cfa.setVisibility(i);
         }
-        if (this.ceQ != null) {
-            this.ceQ.setVisibility(i);
+        if (this.cfb != null) {
+            this.cfb.setVisibility(i);
         }
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
-        et(z);
+        eu(z);
         super.setPressed(z);
     }
 
-    private void et(boolean z) {
-        if (this.ceN != null) {
-            this.ceN.eu(z);
+    private void eu(boolean z) {
+        if (this.ceY != null) {
+            this.ceY.ev(z);
         }
     }
 }

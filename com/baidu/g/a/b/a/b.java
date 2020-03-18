@@ -7,7 +7,7 @@ public interface b {
 
     void a(String str, String str2, int i, com.baidu.g.a.b.b bVar, boolean z);
 
-    void eu(String str);
+    void et(String str);
 
-    void wl();
+    void wq();
 }

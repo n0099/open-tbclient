@@ -37,7 +37,7 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.acP().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
+        eVar.acS().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -61,22 +61,22 @@ public class b extends ab {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String br = com.baidu.swan.apps.w.a.Ub().br(appContext);
-        String ahh = ai.ahh();
-        String cf = com.baidu.swan.bdprivate.a.a.cf(context);
-        String bq = com.baidu.swan.apps.w.a.Ub().bq(appContext);
-        String cookie = com.baidu.swan.apps.w.a.Uu().Iu().getCookie(".baidu.com");
+        String bq = com.baidu.swan.apps.w.a.Ue().bq(appContext);
+        String ahk = ai.ahk();
+        String ce = com.baidu.swan.bdprivate.a.a.ce(context);
+        String bp = com.baidu.swan.apps.w.a.Ue().bp(appContext);
+        String cookie = com.baidu.swan.apps.w.a.Ux().Ix().getCookie(".baidu.com");
         String cookieValue = ag.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ag.getCookieValue(cookie, "H_WISE_SIDS");
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + br + ", imei = " + ahh + ", zid = " + cf + ", uid = " + bq + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + bq + ", imei = " + ahk + ", zid = " + ce + ", uid = " + bp + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", br);
-            jSONObject.put("imei", ahh);
-            jSONObject.put("zid", cf);
-            jSONObject.put("uid", bq);
+            jSONObject.put("cuid", bq);
+            jSONObject.put("imei", ahk);
+            jSONObject.put("zid", ce);
+            jSONObject.put("uid", bp);
             jSONObject.put("baidu_id", cookieValue);
             jSONObject.put("sid", cookieValue2);
             c.i("GetSysInfo", "fetch commonSysInfo success");

@@ -16,91 +16,91 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
 /* loaded from: classes9.dex */
 public class b {
-    private View.OnClickListener gqD;
-    private PbFragment iEk;
-    private RelativeLayout iQS;
-    private HeadImageView iQT;
-    private TextView iQU;
-    private TextView iQV;
-    private ImageView iQW;
+    private View.OnClickListener grn;
+    private PbFragment iFL;
+    private RelativeLayout iSt;
+    private HeadImageView iSu;
+    private TextView iSv;
+    private TextView iSw;
+    private ImageView iSx;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.gqD = null;
-        this.iEk = pbFragment;
-        this.gqD = onClickListener;
+        this.grn = null;
+        this.iFL = pbFragment;
+        this.grn = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.iQS == null) {
-            this.iQS = (RelativeLayout) LayoutInflater.from(this.iEk.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.iQT = (HeadImageView) this.iQS.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.iQT.setIsRound(true);
-            this.iQT.setPlaceHolder(1);
-            this.iQU = (TextView) this.iQS.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.iQV = (TextView) this.iQS.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.iQW = (ImageView) this.iQS.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.iQS.setOnClickListener(this.gqD);
+        if (this.iSt == null) {
+            this.iSt = (RelativeLayout) LayoutInflater.from(this.iFL.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.iSu = (HeadImageView) this.iSt.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.iSu.setIsRound(true);
+            this.iSu.setPlaceHolder(1);
+            this.iSv = (TextView) this.iSt.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.iSw = (TextView) this.iSt.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.iSx = (ImageView) this.iSt.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.iSt.setOnClickListener(this.grn);
         }
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (eVar != null && bdTypeListView != null) {
-            if (eVar.ckv().aBb() && eVar.ckv().aDa() != null) {
-                SmartApp aDa = eVar.ckv().aDa();
-                this.iQS.setVisibility(0);
+            if (eVar.ckP().aBe() && eVar.ckP().aDd() != null) {
+                SmartApp aDd = eVar.ckP().aDd();
+                this.iSt.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!aq.isEmpty(aDa.avatar)) {
-                    this.iQT.startLoad(aDa.avatar, 10, false, false);
+                if (!aq.isEmpty(aDd.avatar)) {
+                    this.iSu.startLoad(aDd.avatar, 10, false, false);
                 }
-                if (!aq.isEmpty(aDa.name)) {
-                    charSequence = aDa.name + HanziToPinyin.Token.SEPARATOR + ((Object) this.iEk.getText(R.string.smart_app_suffix));
+                if (!aq.isEmpty(aDd.name)) {
+                    charSequence = aDd.name + HanziToPinyin.Token.SEPARATOR + ((Object) this.iFL.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.iEk.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.iFL.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.iQU.setText(charSequence);
-                if (!aq.isEmpty(aDa._abstract)) {
-                    this.iQV.setText(aDa._abstract);
+                this.iSv.setText(charSequence);
+                if (!aq.isEmpty(aDd._abstract)) {
+                    this.iSw.setText(aDd._abstract);
                 } else {
-                    this.iQV.setText(this.iEk.getText(R.string.smart_app_default_abstract));
+                    this.iSw.setText(this.iFL.getText(R.string.smart_app_default_abstract));
                 }
-                this.iQS.setTag(aDa);
+                this.iSt.setTag(aDd);
                 return;
             }
-            this.iQS.setVisibility(8);
+            this.iSt.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.iQS != null) {
-            bdTypeListView.addHeaderView(this.iQS, i);
+        if (bdTypeListView != null && this.iSt != null) {
+            bdTypeListView.addHeaderView(this.iSt, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.iQS != null) {
-            bdTypeListView.removeHeaderView(this.iQS);
+        if (bdTypeListView != null && this.iSt != null) {
+            bdTypeListView.removeHeaderView(this.iSt);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iQS != null) {
-            am.setBackgroundColor(this.iQS, R.color.cp_bg_line_c);
+        if (this.iSt != null) {
+            am.setBackgroundColor(this.iSt, R.color.cp_bg_line_c);
         }
-        if (this.iQT != null) {
-            this.iQT.setIsNight(i == 1);
+        if (this.iSu != null) {
+            this.iSu.setIsNight(i == 1);
         }
-        if (this.iQU != null) {
-            am.setViewTextColor(this.iQU, (int) R.color.cp_cont_b);
+        if (this.iSv != null) {
+            am.setViewTextColor(this.iSv, (int) R.color.cp_cont_b);
         }
-        if (this.iQV != null) {
-            am.setViewTextColor(this.iQV, (int) R.color.cp_cont_j);
+        if (this.iSw != null) {
+            am.setViewTextColor(this.iSw, (int) R.color.cp_cont_j);
         }
-        if (this.iQW != null) {
-            am.setBackgroundResource(this.iQW, R.drawable.icon_common_arrow16_right_n);
+        if (this.iSx != null) {
+            am.setBackgroundResource(this.iSx, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

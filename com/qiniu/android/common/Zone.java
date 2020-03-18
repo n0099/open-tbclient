@@ -6,12 +6,12 @@ public abstract class Zone {
 
     /* loaded from: classes5.dex */
     public interface QueryHandler {
-        void Nn(int i);
+        void Nt(int i);
 
         void onSuccess();
     }
 
-    public abstract void Rl(String str);
+    public abstract void Rk(String str);
 
     public abstract void a(String str, QueryHandler queryHandler);
 
@@ -26,16 +26,16 @@ public abstract class Zone {
         int i = 0;
         synchronized (this) {
             if (str != null) {
-                zoneInfo.Rl(URI.create(str).getHost());
+                zoneInfo.Rk(URI.create(str).getHost());
             }
             while (true) {
                 int i2 = i;
-                if (i2 >= zoneInfo.nnh.size()) {
+                if (i2 >= zoneInfo.noW.size()) {
                     str2 = null;
                     break;
                 }
-                str5 = zoneInfo.nnh.get(i2);
-                long longValue = zoneInfo.nni.get(str5).longValue();
+                str5 = zoneInfo.noW.get(i2);
+                long longValue = zoneInfo.noX.get(str5).longValue();
                 if (longValue == 0 || longValue <= System.currentTimeMillis() / 1000) {
                     break;
                 }
@@ -43,13 +43,13 @@ public abstract class Zone {
             }
             str2 = str5;
             if (str2 != null) {
-                zoneInfo.nni.put(str2, 0L);
+                zoneInfo.noX.put(str2, 0L);
                 str3 = str2;
             } else {
-                for (String str6 : zoneInfo.nnh) {
-                    zoneInfo.nni.put(str6, 0L);
+                for (String str6 : zoneInfo.noW) {
+                    zoneInfo.noX.put(str6, 0L);
                 }
-                str3 = zoneInfo.nnh.size() > 0 ? zoneInfo.nnh.get(0) : str2;
+                str3 = zoneInfo.noW.size() > 0 ? zoneInfo.noW.get(0) : str2;
             }
             if (str3 == null) {
                 str4 = null;

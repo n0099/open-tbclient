@@ -15,7 +15,7 @@ public interface c {
 
     void a(a aVar);
 
-    void cR(String str);
+    void cQ(String str);
 
     long getDuration();
 

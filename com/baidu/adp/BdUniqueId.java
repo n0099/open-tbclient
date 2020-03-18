@@ -1,6 +1,8 @@
 package com.baidu.adp;
+
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class BdUniqueId {
+public class BdUniqueId implements Serializable {
     private static final int MIN_ID = 1000000;
     private static volatile int sBaseId = 0;
     private int mId = 0;

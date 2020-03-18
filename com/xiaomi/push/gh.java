@@ -138,7 +138,7 @@ public class gh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m307a() {
+    public String m305a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"").append(this.a).append("\"");
         if (this.f415a != null) {
@@ -161,7 +161,7 @@ public class gh {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (ga gaVar : m308a()) {
+        for (ga gaVar : m306a()) {
             sb.append(gaVar.d());
         }
         sb.append("</error>");
@@ -169,7 +169,7 @@ public class gh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<ga> m308a() {
+    public synchronized List<ga> m306a() {
         return this.f416a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f416a);
     }
 

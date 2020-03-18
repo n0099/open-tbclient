@@ -15,19 +15,29 @@ import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class g {
-    private static boolean b = false;
-    c Qo;
-    private a.C0056a Qs;
-    private volatile FileLock Qt;
-    private volatile RandomAccessFile Qu;
-    private com.baidu.cesium.b.b Qv;
-    private Context f;
+    c Qp;
+    private a.C0056a Qt;
+    private volatile FileLock Qu;
+    private volatile RandomAccessFile Qv;
+    private com.baidu.cesium.b.b Qw;
+    private Context g;
+    private static boolean c = false;
+    public static Comparator<com.baidu.cesium.b.a> Qx = new Comparator<com.baidu.cesium.b.a>() { // from class: com.baidu.cesium.g.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(com.baidu.cesium.b.a aVar, com.baidu.cesium.b.a aVar2) {
+            long b = aVar.b() - aVar2.b();
+            return b != 0 ? b > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
+        }
+    };
 
     /* loaded from: classes13.dex */
     public static class a {
@@ -106,7 +116,7 @@ public class g {
             return Arrays.hashCode(new Object[]{this.i, this.j, this.k, this.m, Integer.valueOf(this.n)});
         }
 
-        public e nO() {
+        public e nN() {
             e eVar = new e();
             eVar.d = this.i;
             StringBuilder sb = new StringBuilder();
@@ -126,10 +136,10 @@ public class g {
         if (context == null) {
             throw new NullPointerException("context should not be null!!!");
         }
-        this.f = context.getApplicationContext();
-        this.Qs = aVar.nK().cd("bohrium");
-        this.Qs.a();
-        this.Qo = cVar;
+        this.g = context.getApplicationContext();
+        this.Qt = aVar.nJ().cc("bohrium");
+        this.Qt.a();
+        this.Qp = cVar;
         a(aVar);
     }
 
@@ -168,20 +178,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.Qs.a("libbh.so", z);
+        return this.Qt.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
         a.C0053a c0053a = new a.C0053a();
-        c0053a.a = this.f;
-        c0053a.Pu = aVar;
+        c0053a.a = this.g;
+        c0053a.Pv = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
             aVar2.a(c0053a);
             aVar2.a(cVar);
         }
-        this.Qv = bVar;
+        this.Qw = bVar;
     }
 
     private static String c(String str) {
@@ -198,11 +208,11 @@ public class g {
             return null;
         }
         try {
-            String c = c(str);
+            String c2 = c(str);
             long currentTimeMillis = System.currentTimeMillis();
             a aVar = new a();
             aVar.i = str;
-            aVar.k = c;
+            aVar.k = c2;
             aVar.l = currentTimeMillis;
             aVar.n = 1;
             aVar.m = str3;
@@ -214,20 +224,16 @@ public class g {
         }
     }
 
-    public a N(String str, String str2) {
-        com.baidu.cesium.b.a cc = this.Qv.cc(str2);
-        a.f fVar = new a.f();
-        fVar.a = true;
-        a.g a2 = cc.a(str, fVar);
-        if (a2 == null || !a2.a()) {
-            return null;
+    public a a() {
+        if (new File(this.Qt.b(), "libbh.so").exists()) {
+            return a(a(true));
         }
-        return a2.a;
+        return null;
     }
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.Qv.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.Qw.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -239,7 +245,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.Qs.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.Qt.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -250,7 +256,7 @@ public class g {
                 return false;
             }
         }
-        return this.Qs.c("libbh.so", aVar.f(), z);
+        return this.Qt.c("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -290,10 +296,10 @@ public class g {
 
     public a b(String str) {
         String str2;
-        String a2 = a(this.f);
+        String a2 = a(this.g);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (b) {
+            if (c) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + a2 + uuid;
@@ -315,24 +321,24 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b2 = this.Qs.b(".lock");
-            if (!b2.exists()) {
+            File b = this.Qt.b(".lock");
+            if (!b.exists()) {
                 try {
-                    b2.createNewFile();
+                    b.createNewFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             try {
-                randomAccessFile = new RandomAccessFile(b2, "rw");
+                randomAccessFile = new RandomAccessFile(b, "rw");
                 int i = 0;
                 while (true) {
                     if (i >= 100) {
                         break;
                     }
                     try {
-                        this.Qt = randomAccessFile.getChannel().lock();
-                        this.Qu = randomAccessFile;
+                        this.Qu = randomAccessFile.getChannel().lock();
+                        this.Qv = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -342,7 +348,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.Qt == null) {
+                            if (this.Qu == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -358,24 +364,24 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.Qt != null) {
+        if (this.Qu != null) {
             try {
-                this.Qt.release();
+                this.Qu.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.Qt = null;
+            this.Qu = null;
         }
-        com.baidu.cesium.f.c.a(this.Qu);
-        this.Qu = null;
+        com.baidu.cesium.f.c.a(this.Qv);
+        this.Qv = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
         fVar.a = true;
-        List<com.baidu.cesium.b.a> a2 = this.Qv.a();
-        Collections.sort(a2, com.baidu.cesium.b.a.Pt);
-        List<b> ao = this.Qo.ao(this.f);
+        List<com.baidu.cesium.b.a> a2 = this.Qw.a();
+        Collections.sort(a2, com.baidu.cesium.b.a.Pu);
+        List<b> ao = this.Qp.ao(this.g);
         if (ao != null) {
             for (b bVar : ao) {
                 if (!bVar.d && bVar.c) {
@@ -388,13 +394,6 @@ public class g {
                     continue;
                 }
             }
-        }
-        return null;
-    }
-
-    public a nG() {
-        if (new File(this.Qs.b(), "libbh.so").exists()) {
-            return a(a(true));
         }
         return null;
     }

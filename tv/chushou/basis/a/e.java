@@ -22,15 +22,15 @@ import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public final class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e nUX = new e();
-    private static String nUY = "";
-    private ExecutorService nUW = Executors.newCachedThreadPool();
+    private static e nWK = new e();
+    private static String nWL = "";
+    private ExecutorService nWJ = Executors.newCachedThreadPool();
 
     private e() {
     }
 
-    public static e dPJ() {
-        return nUX;
+    public static e dQj() {
+        return nWK;
     }
 
     private String getCpuName() {
@@ -51,7 +51,7 @@ public final class e {
     }
 
     @SuppressLint({"DefaultLocale"})
-    private String SI(String str) {
+    private String SH(String str) {
         if (str.toLowerCase().contains("arm")) {
             return "armeabi";
         }
@@ -65,9 +65,9 @@ public final class e {
     }
 
     public void x(Context context, String str, String str2) {
-        String SI = SI(getCpuName());
-        nUY = str2;
-        tv.chushou.a.a.c.a.dQg().d(TAG, "cpuArchitect: " + SI);
+        String SH = SH(getCpuName());
+        nWL = str2;
+        tv.chushou.a.a.c.a.dQG().d(TAG, "cpuArchitect: " + SH);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             ZipFile zipFile = new ZipFile(str);
@@ -76,12 +76,12 @@ public final class e {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory()) {
                     String name = nextElement.getName();
-                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(SI)) {
+                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(SH)) {
                         long time = nextElement.getTime();
                         if (time == tv.chushou.basis.a.a.bD(context, name)) {
-                            tv.chushou.a.a.c.a.dQg().d(TAG, "skip copying, the so lib is exist and not change: " + name);
+                            tv.chushou.a.a.c.a.dQG().d(TAG, "skip copying, the so lib is exist and not change: " + name);
                         } else {
-                            this.nUW.execute(new a(context, zipFile, nextElement, time));
+                            this.nWJ.execute(new a(context, zipFile, nextElement, time));
                         }
                     }
                 }
@@ -89,32 +89,32 @@ public final class e {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tv.chushou.a.a.c.a.dQg().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        tv.chushou.a.a.c.a.dQG().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
     }
 
     /* loaded from: classes5.dex */
     private class a implements Runnable {
         private Context mContext;
-        private String nUZ;
-        private ZipFile nVa;
-        private ZipEntry nVb;
-        private long nVc;
+        private String nWM;
+        private ZipFile nWN;
+        private ZipEntry nWO;
+        private long nWP;
 
         a(Context context, ZipFile zipFile, ZipEntry zipEntry, long j) {
-            this.nVa = zipFile;
+            this.nWN = zipFile;
             this.mContext = context;
-            this.nVb = zipEntry;
-            this.nUZ = SJ(zipEntry.getName());
-            this.nVc = j;
+            this.nWO = zipEntry;
+            this.nWM = SI(zipEntry.getName());
+            this.nWP = j;
         }
 
-        private final String SJ(String str) {
+        private final String SI(String str) {
             return str.substring(str.lastIndexOf("/") + 1);
         }
 
-        private void dPK() throws IOException {
-            copy(this.nVa.getInputStream(this.nVb), new FileOutputStream(new File(e.nUY, this.nUZ)));
-            this.nVa.close();
+        private void dQk() throws IOException {
+            copy(this.nWN.getInputStream(this.nWO), new FileOutputStream(new File(e.nWL, this.nWM)));
+            this.nWN.close();
         }
 
         public void copy(InputStream inputStream, OutputStream outputStream) throws IOException {
@@ -151,11 +151,11 @@ public final class e {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                dPK();
-                tv.chushou.basis.a.a.e(this.mContext, this.nVb.getName(), this.nVc);
-                tv.chushou.a.a.c.a.dQg().d(e.TAG, "copy so lib success: " + this.nVb.getName());
+                dQk();
+                tv.chushou.basis.a.a.d(this.mContext, this.nWO.getName(), this.nWP);
+                tv.chushou.a.a.c.a.dQG().d(e.TAG, "copy so lib success: " + this.nWO.getName());
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.dQg().e(e.TAG, "copy so lib failed: " + e.toString());
+                tv.chushou.a.a.c.a.dQG().e(e.TAG, "copy so lib failed: " + e.toString());
                 e.printStackTrace();
             }
         }

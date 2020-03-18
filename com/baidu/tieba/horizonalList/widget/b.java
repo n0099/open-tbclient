@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    public final ArrayList<e> dKY = new ArrayList<>();
+    public final ArrayList<e> dLo = new ArrayList<>();
     private List<c> dataList;
-    private e hka;
+    private e hlA;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.hka = eVar;
+        this.hlA = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,10 +59,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e bD = this.hka.bD(view);
+            e bD = this.hlA.bD(view);
             bD.setOnClickListener(this.mOnClickListener);
             view.setTag(bD);
-            this.dKY.add(bD);
+            this.dLo.add(bD);
         }
         e eVar = (e) view.getTag();
         if (v.getItem(this.dataList, i) != null) {
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void onSkinTypeChanged(int i) {
-        if (v.getCount(this.dKY) > 0) {
-            Iterator<e> it = this.dKY.iterator();
+        if (v.getCount(this.dLo) > 0) {
+            Iterator<e> it = this.dLo.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

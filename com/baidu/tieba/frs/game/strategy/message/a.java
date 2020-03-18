@@ -49,10 +49,10 @@ public class a {
             bj bjVar = new bj();
             bVar.setThreadData(bjVar);
             bjVar.a(list.get(i2));
-            bjVar.aDj();
-            if (!TextUtils.isEmpty(bjVar.aDu())) {
+            bjVar.aDm();
+            if (!TextUtils.isEmpty(bjVar.aDy())) {
                 ae aeVar = new ae();
-                aeVar.sx(bjVar.aDu());
+                aeVar.sw(bjVar.aDy());
                 linkedList.add(aeVar);
             } else {
                 linkedList.add(bVar);

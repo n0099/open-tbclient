@@ -5,58 +5,58 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d crM = null;
-    private GameRecorderController coB;
-    private boolean crN;
+    private static volatile d crX = null;
+    private GameRecorderController coM;
+    private boolean crY;
 
     private d() {
     }
 
-    public static d app() {
-        if (crM == null) {
+    public static d aps() {
+        if (crX == null) {
             synchronized (d.class) {
-                if (crM == null) {
-                    crM = new d();
+                if (crX == null) {
+                    crX = new d();
                 }
             }
         }
-        return crM;
+        return crX;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.coB != null && this.coB != gameRecorderController) {
-            this.coB.release();
+        if (this.coM != null && this.coM != gameRecorderController) {
+            this.coM.release();
         }
-        this.coB = gameRecorderController;
+        this.coM = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController apq() {
+    public GameRecorderController apt() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.coB);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.coM);
         }
-        return this.coB == null ? GameRecorderController.apo() : this.coB;
+        return this.coM == null ? GameRecorderController.apr() : this.coM;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.coB != null && this.coB == gameRecorderController) {
-            this.coB.release();
-            this.coB = null;
+        if (this.coM != null && this.coM == gameRecorderController) {
+            this.coM.release();
+            this.coM = null;
         }
     }
 
-    public boolean apr() {
+    public boolean apu() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.crN);
+            Log.i("GameRecorderManager", "isGamePause:" + this.crY);
         }
-        return this.crN;
+        return this.crY;
     }
 
-    public void aps() {
-        this.crN = true;
+    public void apv() {
+        this.crY = true;
     }
 
-    public void apt() {
-        this.crN = false;
+    public void apw() {
+        this.crY = false;
     }
 }

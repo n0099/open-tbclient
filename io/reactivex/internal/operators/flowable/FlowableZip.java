@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableZip<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> nwF;
+    final Iterable<? extends org.a.b<? extends T>> nys;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -27,7 +27,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
         if (bVarArr3 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.nwF) {
+            for (org.a.b<? extends T> bVar : this.nys) {
                 if (i == bVarArr4.length) {
                     bVarArr2 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);

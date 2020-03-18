@@ -18,11 +18,11 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }
         long longValue = ((Long) customMessage.getData()).longValue();
-        l<byte[]> sP = com.baidu.tbadk.core.c.a.aEB().sP("tb.im_recommend_detail");
-        if (sP == null) {
+        l<byte[]> sO = com.baidu.tbadk.core.c.a.aEF().sO("tb.im_recommend_detail");
+        if (sO == null) {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }
-        byte[] bArr = sP.get(longValue + "");
+        byte[] bArr = sO.get(longValue + "");
         if (bArr == null) {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }

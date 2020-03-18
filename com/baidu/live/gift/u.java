@@ -11,11 +11,11 @@ public interface u {
 
     void onDestroy();
 
-    View sk();
+    View sp();
 
-    View sl();
+    View sq();
 
-    void sm();
+    void sr();
 
-    void sn();
+    void ss();
 }

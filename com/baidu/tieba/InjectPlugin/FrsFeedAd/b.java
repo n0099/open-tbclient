@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> dTg = new SparseArray<>();
-    private Object dTh;
-    private int dTi;
+    private static SparseArray<BdUniqueId> dTw = new SparseArray<>();
+    private Object dTx;
+    private int dTy;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return dTg.get(this.dTi);
+        return dTw.get(this.dTy);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aVx() {
-        return this.dTh;
+    public Object aVB() {
+        return this.dTx;
     }
 
     public void an(Object obj) {
-        this.dTh = obj;
+        this.dTx = obj;
     }
 
-    public int aVy() {
-        return this.dTi;
+    public int aVC() {
+        return this.dTy;
     }
 
-    public void nR(int i) {
-        this.dTi = i;
+    public void nT(int i) {
+        this.dTy = i;
     }
 
     public static void aP(List<Integer> list) {
-        if (dTg.size() <= 0 && list != null) {
+        if (dTw.size() <= 0 && list != null) {
             for (Integer num : list) {
-                dTg.put(num.intValue(), BdUniqueId.gen());
+                dTw.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aVz() {
+    public static List<BdUniqueId> aVD() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < dTg.size(); i++) {
-            arrayList.add(dTg.valueAt(i));
+        for (int i = 0; i < dTw.size(); i++) {
+            arrayList.add(dTw.valueAt(i));
         }
         return arrayList;
     }
 
     public static int l(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (dTg.size() == 0 || (indexOfValue = dTg.indexOfValue(bdUniqueId)) == -1 || dTg.size() <= indexOfValue) {
+        if (dTw.size() == 0 || (indexOfValue = dTw.indexOfValue(bdUniqueId)) == -1 || dTw.size() <= indexOfValue) {
             return -1;
         }
-        return dTg.keyAt(indexOfValue);
+        return dTw.keyAt(indexOfValue);
     }
 }

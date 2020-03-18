@@ -21,17 +21,17 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: av */
+    /* renamed from: aw */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a(new c(this.mPageContext));
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.bvL() == null) {
+        if (aVar == null || aVar.bvQ() == null) {
             return null;
         }
-        aVar.bvL().a(bVar);
+        aVar.bvQ().a(bVar);
         return aVar.getView();
     }
 }

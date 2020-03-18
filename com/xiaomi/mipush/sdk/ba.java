@@ -30,7 +30,7 @@ public class ba extends ContentObserver {
             context2.getContentResolver().unregisterContentObserver(this);
             context3 = this.a.f46a;
             if (com.xiaomi.push.as.b(context3)) {
-                this.a.m80c();
+                this.a.m78c();
             }
         }
     }

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> cVS = new ArrayList<>();
-    private View.OnClickListener exf;
-    private View.OnClickListener exg;
-    private View.OnClickListener exh;
+    private ArrayList<ALaCharmData> cWf = new ArrayList<>();
+    private View.OnClickListener exC;
+    private View.OnClickListener exD;
+    private View.OnClickListener exE;
     private int mFromType;
     private TbPageContext mPageContext;
     private int mSkinType;
@@ -27,48 +27,48 @@ public class a extends BaseAdapter {
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.exf = onClickListener;
+        this.exC = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.exh = onClickListener;
+        this.exE = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.exg = onClickListener;
+        this.exD = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.cVS.clear();
-            this.cVS.addAll(arrayList);
+            this.cWf.clear();
+            this.cWf.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void T(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.cVS.addAll(arrayList);
+            this.cWf.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVS == null) {
+        if (this.cWf == null) {
             return 0;
         }
-        return this.cVS.size();
+        return this.cWf.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oZ */
+    /* renamed from: pb */
     public ALaCharmData getItem(int i) {
-        if (this.cVS == null) {
+        if (this.cWf == null) {
             return null;
         }
-        return this.cVS.get(i);
+        return this.cWf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -89,9 +89,9 @@ public class a extends BaseAdapter {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
             d dVar2 = new d(inflate, this.mFromType);
-            dVar2.p(this.exh);
-            dVar2.m(this.exf);
-            dVar2.q(this.exg);
+            dVar2.p(this.exE);
+            dVar2.m(this.exC);
+            dVar2.q(this.exD);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void X(String str, boolean z) {
-        if (this.cVS != null && str != null) {
-            Iterator<ALaCharmData> it = this.cVS.iterator();
+        if (this.cWf != null && str != null) {
+            Iterator<ALaCharmData> it = this.cWf.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

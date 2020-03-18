@@ -20,7 +20,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Js */
+        /* renamed from: Jy */
         public DrmInitData[] newArray(int i) {
             return new DrmInitData[i];
         }
@@ -61,11 +61,11 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         this.schemeDataCount = this.schemeDatas.length;
     }
 
-    public SchemeData Jr(int i) {
+    public SchemeData Jx(int i) {
         return this.schemeDatas[i];
     }
 
-    public DrmInitData Pr(@Nullable String str) {
+    public DrmInitData Pq(@Nullable String str) {
         return v.h(this.schemeType, str) ? this : new DrmInitData(str, false, this.schemeDatas);
     }
 
@@ -92,8 +92,8 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(SchemeData schemeData, SchemeData schemeData2) {
-        if (com.google.android.exoplayer2.b.lYq.equals(schemeData.uuid)) {
-            return com.google.android.exoplayer2.b.lYq.equals(schemeData2.uuid) ? 0 : 1;
+        if (com.google.android.exoplayer2.b.lZW.equals(schemeData.uuid)) {
+            return com.google.android.exoplayer2.b.lZW.equals(schemeData2.uuid) ? 0 : 1;
         }
         return schemeData.uuid.compareTo(schemeData2.uuid);
     }
@@ -121,7 +121,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Jt */
+            /* renamed from: Jz */
             public SchemeData[] newArray(int i) {
                 return new SchemeData[i];
             }
@@ -151,7 +151,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         }
 
         public boolean a(UUID uuid) {
-            return com.google.android.exoplayer2.b.lYq.equals(this.uuid) || uuid.equals(this.uuid);
+            return com.google.android.exoplayer2.b.lZW.equals(this.uuid) || uuid.equals(this.uuid);
         }
 
         public boolean a(SchemeData schemeData) {

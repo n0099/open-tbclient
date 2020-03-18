@@ -14,8 +14,8 @@ public final class c extends com.baidu.swan.apps.component.a.c.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            if (this.bhV != null) {
-                this.lineSpace = af.S((float) this.bhV.optDouble("lineHeight", 0.0d));
+            if (this.bik != null) {
+                this.lineSpace = af.S((float) this.bik.optDouble("lineHeight", 0.0d));
             }
         }
     }

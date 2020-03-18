@@ -5,10 +5,6 @@ import java.util.Map;
 public abstract class d<K, V> {
     private Map<K, V> map = com.baidu.poly.util.d.p();
 
-    public Map<K, V> Ez() {
-        return this.map;
-    }
-
     public void f(K k, V v) {
         this.map.put(k, v);
     }
@@ -18,6 +14,10 @@ public abstract class d<K, V> {
     }
 
     public Map<K, V> getMap() {
+        return this.map;
+    }
+
+    public Map<K, V> nZ() {
         return this.map;
     }
 }

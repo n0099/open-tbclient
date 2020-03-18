@@ -10,21 +10,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.qrcode.lib.core.c;
 /* loaded from: classes10.dex */
 public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, c.a {
-    protected CameraPreview jDo;
-    protected ScanBoxView jDp;
-    protected a jDq;
-    protected boolean jDr;
-    protected c jDs;
-    private Runnable jDt;
+    protected CameraPreview jEN;
+    protected ScanBoxView jEO;
+    protected a jEP;
+    protected boolean jEQ;
+    protected c jER;
+    private Runnable jES;
     protected Camera mCamera;
     protected Handler mHandler;
     private int mOrientation;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void Hw(String str);
+        void Hv(String str);
 
-        void cBA();
+        void cBU();
     }
 
     public QRCodeView(Context context, AttributeSet attributeSet) {
@@ -33,11 +33,11 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
 
     public QRCodeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jDr = false;
-        this.jDt = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.2
+        this.jEQ = false;
+        this.jES = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (QRCodeView.this.mCamera != null && QRCodeView.this.jDr) {
+                if (QRCodeView.this.mCamera != null && QRCodeView.this.jEQ) {
                     try {
                         QRCodeView.this.mCamera.setOneShotPreviewCallback(QRCodeView.this);
                     } catch (Exception e) {
@@ -51,72 +51,72 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     private void initView(Context context, AttributeSet attributeSet) {
-        this.jDo = new CameraPreview(getContext());
-        this.jDp = new ScanBoxView(getContext());
-        this.jDp.j(context, attributeSet);
-        this.jDo.setId(R.id.bgaqrcode_camera_preview);
-        addView(this.jDo);
+        this.jEN = new CameraPreview(getContext());
+        this.jEO = new ScanBoxView(getContext());
+        this.jEO.j(context, attributeSet);
+        this.jEN.setId(R.id.bgaqrcode_camera_preview);
+        addView(this.jEN);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
-        layoutParams.addRule(6, this.jDo.getId());
-        layoutParams.addRule(8, this.jDo.getId());
-        addView(this.jDp, layoutParams);
-        this.mOrientation = com.baidu.tieba.qrcode.lib.core.a.fl(context);
+        layoutParams.addRule(6, this.jEN.getId());
+        layoutParams.addRule(8, this.jEN.getId());
+        addView(this.jEO, layoutParams);
+        this.mOrientation = com.baidu.tieba.qrcode.lib.core.a.fk(context);
     }
 
     public void setDelegate(a aVar) {
-        this.jDq = aVar;
+        this.jEP = aVar;
     }
 
     public ScanBoxView getScanBoxView() {
-        return this.jDp;
+        return this.jEO;
     }
 
-    public void cBI() {
-        if (this.jDp != null) {
-            this.jDp.setVisibility(0);
+    public void cCc() {
+        if (this.jEO != null) {
+            this.jEO.setVisibility(0);
         }
     }
 
-    public void cBJ() {
-        if (this.jDp != null) {
-            this.jDp.setVisibility(8);
+    public void cCd() {
+        if (this.jEO != null) {
+            this.jEO.setVisibility(8);
         }
     }
 
-    public void cBK() {
-        AJ(0);
+    public void cCe() {
+        AR(0);
     }
 
-    public void AJ(int i) {
+    public void AR(int i) {
         if (this.mCamera == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
                 Camera.getCameraInfo(i2, cameraInfo);
                 if (cameraInfo.facing == i) {
-                    AK(i2);
+                    AS(i2);
                     return;
                 }
             }
         }
     }
 
-    private void AK(int i) {
+    private void AS(int i) {
         try {
             this.mCamera = Camera.open(i);
-            this.jDo.setCamera(this.mCamera);
+            this.jEN.setCamera(this.mCamera);
         } catch (Exception e) {
-            if (this.jDq != null) {
-                this.jDq.cBA();
+            if (this.jEP != null) {
+                this.jEP.cBU();
             }
         }
     }
 
     public void stopCamera() {
         try {
-            cBN();
+            cCh();
             if (this.mCamera != null) {
-                this.jDo.cBG();
-                this.jDo.setCamera(null);
+                this.jEN.cCa();
+                this.jEN.setCamera(null);
                 this.mCamera.release();
                 this.mCamera = null;
             }
@@ -124,19 +124,19 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         }
     }
 
-    public void cBL() {
-        AL(1000);
+    public void cCf() {
+        AT(1000);
     }
 
-    public void AL(int i) {
-        this.jDr = true;
-        this.mHandler.removeCallbacks(this.jDt);
-        this.mHandler.postDelayed(this.jDt, i);
+    public void AT(int i) {
+        this.jEQ = true;
+        this.mHandler.removeCallbacks(this.jES);
+        this.mHandler.postDelayed(this.jES, i);
     }
 
-    public void cBM() {
-        cBO();
-        this.jDr = false;
+    public void cCg() {
+        cCi();
+        this.jEQ = false;
         if (this.mCamera != null) {
             try {
                 this.mCamera.setOneShotPreviewCallback(null);
@@ -144,46 +144,46 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             }
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.jDt);
+            this.mHandler.removeCallbacks(this.jES);
         }
     }
 
-    public void cBN() {
-        cBM();
-        cBJ();
+    public void cCh() {
+        cCg();
+        cCd();
     }
 
     public void onDestroy() {
         stopCamera();
         this.mHandler = null;
-        this.jDq = null;
-        this.jDt = null;
+        this.jEP = null;
+        this.jES = null;
     }
 
-    protected void cBO() {
-        if (this.jDs != null) {
-            this.jDs.cancelTask();
-            this.jDs = null;
+    protected void cCi() {
+        if (this.jER != null) {
+            this.jER.cancelTask();
+            this.jER = null;
         }
     }
 
     public boolean getIsScanBarcodeStyle() {
-        return this.jDp.getIsBarcode();
+        return this.jEO.getIsBarcode();
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, final Camera camera) {
-        if (this.jDr) {
-            cBO();
-            this.jDs = new c(camera, bArr, this, this.mOrientation) { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.1
+        if (this.jEQ) {
+            cCi();
+            this.jER = new c(camera, bArr, this, this.mOrientation) { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // android.os.AsyncTask
                 public void onPostExecute(String str) {
-                    if (QRCodeView.this.jDr) {
-                        if (QRCodeView.this.jDq != null && !TextUtils.isEmpty(str)) {
+                    if (QRCodeView.this.jEQ) {
+                        if (QRCodeView.this.jEP != null && !TextUtils.isEmpty(str)) {
                             try {
-                                QRCodeView.this.jDq.Hw(str);
+                                QRCodeView.this.jEP.Hv(str);
                                 return;
                             } catch (Exception e) {
                                 return;
@@ -195,7 +195,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                         }
                     }
                 }
-            }.cBH();
+            }.cCb();
         }
     }
 }

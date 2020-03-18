@@ -40,12 +40,12 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     private String getChannelByShare() {
-        return b.aFD().getString(SharedPrefConfig.CHANNEL_ID, null);
+        return b.aFH().getString(SharedPrefConfig.CHANNEL_ID, null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            b.aFD().putString(SharedPrefConfig.CHANNEL_ID, str);
+            b.aFH().putString(SharedPrefConfig.CHANNEL_ID, str);
         }
     }
 
@@ -115,7 +115,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && b.aFD().getInt(SharedPrefConfig.ACTIVE_STATE, 2) != 1) {
+        if (isActived() && b.aFH().getInt(SharedPrefConfig.ACTIVE_STATE, 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -144,10 +144,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x jQM;
+        x jSo;
 
         private a() {
-            this.jQM = null;
+            this.jSo = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -156,19 +156,19 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             String postNetData;
             try {
-                this.jQM = new x(Config.CHANNEL_ADDRESS);
-                this.jQM.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.jQM.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.jQM.addPostData("model", Build.MODEL);
-                this.jQM.addPostData("edition", TbConfig.getVersion());
-                this.jQM.addPostData("system", Build.VERSION.SDK);
-                this.jQM.aGg().aGH().aGK().mIsBaiduServer = false;
-                postNetData = this.jQM.postNetData();
+                this.jSo = new x(Config.CHANNEL_ADDRESS);
+                this.jSo.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.jSo.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.jSo.addPostData("model", Build.MODEL);
+                this.jSo.addPostData("edition", TbConfig.getVersion());
+                this.jSo.addPostData("system", Build.VERSION.SDK);
+                this.jSo.aGk().aGL().aGO().mIsBaiduServer = false;
+                postNetData = this.jSo.postNetData();
             } catch (Exception e) {
-                b.aFD().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
+                b.aFH().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.jQM.isNetSuccess()) {
+            if (this.jSo.isNetSuccess()) {
                 return postNetData;
             }
             return null;
@@ -177,8 +177,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.jQM != null) {
-                this.jQM.cancelNetConnect();
+            if (this.jSo != null) {
+                this.jSo.cancelNetConnect();
             }
             super.cancel(true);
         }
@@ -195,11 +195,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, 60000L);
                 } else {
-                    b.aFD().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
+                    b.aFH().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            b.aFD().putInt(SharedPrefConfig.ACTIVE_STATE, 2);
+            b.aFH().putInt(SharedPrefConfig.ACTIVE_STATE, 2);
             TiebaActiveService.this.stopSelf();
         }
     }

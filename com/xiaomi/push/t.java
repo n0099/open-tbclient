@@ -24,12 +24,12 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m561a() {
+    public static Context m559a() {
         return a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m562a() {
+    public static synchronized String m560a() {
         String str;
         synchronized (t.class) {
             if (f944a != null) {
@@ -57,7 +57,7 @@ public class t {
     }
 
     public static String a(Context context) {
-        if (l.m484b()) {
+        if (l.m482b()) {
             return "";
         }
         String str = (String) at.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -65,17 +65,17 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m563a(Context context) {
+    public static void m561a(Context context) {
         a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m564a() {
+    public static boolean m562a() {
         return TextUtils.equals((String) at.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m565a(Context context) {
+    public static boolean m563a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class t {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m566b() {
+    public static boolean m564b() {
         try {
             return Class.forName("miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(false);
         } catch (ClassNotFoundException e) {

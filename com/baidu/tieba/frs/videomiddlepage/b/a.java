@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.expandable.SpannableClickTextView;
 /* loaded from: classes9.dex */
 public class a {
-    private static final int gPb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int gQi = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
@@ -53,7 +53,7 @@ public class a {
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         an anVar = new an("c13313");
-                        anVar.cy("tid", str3);
+                        anVar.cx("tid", str3);
                         TiebaStatic.log(anVar);
                         com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -61,7 +61,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(gPb, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(gQi, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -71,7 +71,7 @@ public class a {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
             an anVar = new an("c13312");
-            anVar.cy("tid", str3);
+            anVar.cx("tid", str3);
             TiebaStatic.log(anVar);
         }
     }
@@ -87,12 +87,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public static class b extends ReplacementSpan {
-        private int gPe;
-        private int gPf;
+        private int gQl;
+        private int gQm;
 
         public b(int i, int i2) {
-            this.gPe = i;
-            this.gPf = i2;
+            this.gQl = i;
+            this.gQm = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -110,8 +110,8 @@ public class a {
 
         private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.gPe);
-            textPaint.setColor(this.gPf);
+            textPaint.setTextSize(this.gQl);
+            textPaint.setColor(this.gQm);
             return textPaint;
         }
     }

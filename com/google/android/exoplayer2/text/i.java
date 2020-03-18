@@ -4,43 +4,43 @@ import com.google.android.exoplayer2.Format;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class i extends com.google.android.exoplayer2.a.f implements e {
-    private e myW;
+    private e mAD;
     private long subsampleOffsetUs;
 
     public abstract void release();
 
     public void a(long j, e eVar, long j2) {
-        this.mdO = j;
-        this.myW = eVar;
+        this.mfu = j;
+        this.mAD = eVar;
         if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
-            j2 = this.mdO;
+            j2 = this.mfu;
         }
         this.subsampleOffsetUs = j2;
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dxL() {
-        return this.myW.dxL();
+    public int dyi() {
+        return this.mAD.dyi();
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public long Lk(int i) {
-        return this.myW.Lk(i) + this.subsampleOffsetUs;
+    public long Lq(int i) {
+        return this.mAD.Lq(i) + this.subsampleOffsetUs;
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int gw(long j) {
-        return this.myW.gw(j - this.subsampleOffsetUs);
+    public int gx(long j) {
+        return this.mAD.gx(j - this.subsampleOffsetUs);
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public List<b> gx(long j) {
-        return this.myW.gx(j - this.subsampleOffsetUs);
+    public List<b> gy(long j) {
+        return this.mAD.gy(j - this.subsampleOffsetUs);
     }
 
     @Override // com.google.android.exoplayer2.a.a
     public void clear() {
         super.clear();
-        this.myW = null;
+        this.mAD = null;
     }
 }

@@ -116,7 +116,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String aBb = null;
+        String aBp = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -155,16 +155,16 @@ public class TiebaPrepareImageService extends BdBaseService {
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(ImageResult, i);
                     if (resizeBitmap == null || m.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.aBb = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                        this.aBp = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     }
                 } else {
-                    this.aBb = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.aBp = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.aBb = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+            this.aBp = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -183,8 +183,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.aBb != null) {
-                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.aBb);
+            if (this.aBp != null) {
+                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.aBp);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

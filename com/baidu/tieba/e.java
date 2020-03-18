@@ -19,19 +19,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static com.baidu.tieba.publisher.service.a dWr;
+    private static com.baidu.tieba.publisher.service.a dWH;
     private static PermissionJudgePolicy mPermissionJudgement;
     private static IPublisherManagerInterface mPublisherInterfaceManager;
 
-    public static com.baidu.tieba.publisher.service.a aWR() {
-        if (dWr == null) {
-            dWr = new com.baidu.tieba.publisher.service.a();
+    public static com.baidu.tieba.publisher.service.a aWV() {
+        if (dWH == null) {
+            dWH = new com.baidu.tieba.publisher.service.a();
         }
-        return dWr;
+        return dWH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean eo(Context context) {
+    public static boolean en(Context context) {
         return bc.checkUpIsLogin(context);
     }
 
@@ -44,7 +44,7 @@ public class e {
         mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.1
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
-                if (e.eo(activity)) {
+                if (e.en(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
                     ugcSchemeModel.publishType = "0";
                     if (!StringUtils.isNull(hVar.placeholder)) {
@@ -73,8 +73,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvC != null) {
-                                hVar.dvC.onSuccess();
+                            if (hVar.dvP != null) {
+                                hVar.dvP.onSuccess();
                             }
                         }
 
@@ -102,7 +102,7 @@ public class e {
         mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.2
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
-                if (e.eo(activity)) {
+                if (e.en(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
                     ugcSchemeModel.publishType = "4";
                     if (!StringUtils.isNull(hVar.placeholder)) {
@@ -131,8 +131,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvC != null) {
-                                hVar.dvC.onSuccess();
+                            if (hVar.dvP != null) {
+                                hVar.dvP.onSuccess();
                             }
                         }
 
@@ -160,7 +160,7 @@ public class e {
         mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.3
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
             public void onPermissionsGranted() {
-                if (e.eo(activity)) {
+                if (e.en(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
                     ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
                     ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
@@ -177,34 +177,34 @@ public class e {
                         ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
                     }
                     ugcSchemeModel.sourceFrom = "tieba";
-                    if (!StringUtils.isNull(hVar.dvD)) {
-                        ugcSchemeModel.forwardContent = hVar.dvD;
+                    if (!StringUtils.isNull(hVar.dvQ)) {
+                        ugcSchemeModel.forwardContent = hVar.dvQ;
                     }
-                    if (hVar.dvE != null) {
+                    if (hVar.dvR != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("title", hVar.dvE.title);
-                            jSONObject.put("ref_type", hVar.dvE.ref_type);
-                            jSONObject.put("thumbpic", hVar.dvE.thumbpic);
-                            jSONObject.put("channel", hVar.dvE.channel);
-                            jSONObject.put("url", hVar.dvE.url);
-                            jSONObject.put("account_type", hVar.dvE.dvN);
-                            jSONObject.put("id", hVar.dvE.id);
-                            jSONObject.put("nid", hVar.dvE.nid);
-                            jSONObject.put("video_duration", hVar.dvE.video_duration);
-                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvE.avatar);
-                            jSONObject.put("tid", hVar.dvE.tid);
+                            jSONObject.put("title", hVar.dvR.title);
+                            jSONObject.put("ref_type", hVar.dvR.ref_type);
+                            jSONObject.put("thumbpic", hVar.dvR.thumbpic);
+                            jSONObject.put("channel", hVar.dvR.channel);
+                            jSONObject.put("url", hVar.dvR.url);
+                            jSONObject.put("account_type", hVar.dvR.dwa);
+                            jSONObject.put("id", hVar.dvR.id);
+                            jSONObject.put("nid", hVar.dvR.nid);
+                            jSONObject.put("video_duration", hVar.dvR.video_duration);
+                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvR.avatar);
+                            jSONObject.put("tid", hVar.dvR.tid);
                             ugcSchemeModel.referenceDt = jSONObject.toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    if (hVar.dvF != null) {
+                    if (hVar.dvS != null) {
                         try {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("share_type", hVar.dvF.dvK);
-                            jSONObject2.put("forward_rel_id", hVar.dvF.dvL);
-                            jSONObject2.put("forward_is_comment", hVar.dvF.dvM);
+                            jSONObject2.put("share_type", hVar.dvS.dvX);
+                            jSONObject2.put("forward_rel_id", hVar.dvS.dvY);
+                            jSONObject2.put("forward_is_comment", hVar.dvS.dvZ);
                             ugcSchemeModel.ext = jSONObject2.toString();
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -214,8 +214,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvC != null) {
-                                hVar.dvC.onSuccess();
+                            if (hVar.dvP != null) {
+                                hVar.dvP.onSuccess();
                             }
                         }
 

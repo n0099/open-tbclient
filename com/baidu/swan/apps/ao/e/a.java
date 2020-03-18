@@ -8,18 +8,18 @@ import android.hardware.SensorManager;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a bWH;
-    private SensorManager aBk;
-    private SensorEventListener bWI;
-    private Sensor bWJ;
-    private InterfaceC0207a bWM;
-    private SensorEventListener bWr;
-    private Sensor bWs;
+    private static volatile a bWS;
+    private SensorManager aBy;
+    private SensorEventListener bWC;
+    private Sensor bWD;
+    private SensorEventListener bWT;
+    private Sensor bWU;
+    private InterfaceC0207a bWX;
     private Context mContext;
-    private float[] bWK = new float[3];
-    private float[] bWL = new float[3];
-    private boolean bWv = false;
-    private long bWw = 0;
+    private float[] bWV = new float[3];
+    private float[] bWW = new float[3];
+    private boolean bWG = false;
+    private long bWH = 0;
 
     /* renamed from: com.baidu.swan.apps.ao.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -30,15 +30,15 @@ public class a {
     private a() {
     }
 
-    public static a afO() {
-        if (bWH == null) {
+    public static a afR() {
+        if (bWS == null) {
             synchronized (a.class) {
-                if (bWH == null) {
-                    bWH = new a();
+                if (bWS == null) {
+                    bWS = new a();
                 }
             }
         }
-        return bWH;
+        return bWS;
     }
 
     public void init(Context context) {
@@ -46,22 +46,22 @@ public class a {
     }
 
     public void a(InterfaceC0207a interfaceC0207a) {
-        this.bWM = interfaceC0207a;
+        this.bWX = interfaceC0207a;
     }
 
-    public void afP() {
+    public void afS() {
         if (this.mContext == null) {
             c.e("compass", "start error, none context");
-        } else if (this.bWv) {
+        } else if (this.bWG) {
             c.w("compass", "has already start");
         } else {
-            this.aBk = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aBk != null) {
-                this.bWs = this.aBk.getDefaultSensor(1);
-                this.bWJ = this.aBk.getDefaultSensor(2);
-                this.aBk.registerListener(afK(), this.bWs, 1);
-                this.aBk.registerListener(afR(), this.bWJ, 1);
-                this.bWv = true;
+            this.aBy = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aBy != null) {
+                this.bWD = this.aBy.getDefaultSensor(1);
+                this.bWU = this.aBy.getDefaultSensor(2);
+                this.aBy.registerListener(afN(), this.bWD, 1);
+                this.aBy.registerListener(afU(), this.bWU, 1);
+                this.bWG = true;
                 c.i("compass", "start listen");
                 return;
             }
@@ -69,59 +69,59 @@ public class a {
         }
     }
 
-    public void afQ() {
-        if (!this.bWv) {
+    public void afT() {
+        if (!this.bWG) {
             c.w("compass", "has already stop");
             return;
         }
         c.i("compass", "stop listen");
-        if (this.bWr != null && this.aBk != null) {
-            this.aBk.unregisterListener(this.bWr);
-            this.bWr = null;
+        if (this.bWC != null && this.aBy != null) {
+            this.aBy.unregisterListener(this.bWC);
+            this.bWC = null;
         }
-        if (this.bWI != null && this.aBk != null) {
-            this.aBk.unregisterListener(this.bWI);
-            this.bWI = null;
+        if (this.bWT != null && this.aBy != null) {
+            this.aBy.unregisterListener(this.bWT);
+            this.bWT = null;
         }
-        this.aBk = null;
-        this.bWJ = null;
-        this.bWs = null;
-        this.bWv = false;
+        this.aBy = null;
+        this.bWU = null;
+        this.bWD = null;
+        this.bWG = false;
     }
 
     public static void release() {
-        if (bWH != null) {
-            bWH.PR();
+        if (bWS != null) {
+            bWS.PU();
         }
     }
 
-    private void PR() {
+    private void PU() {
         c.i("compass", "release");
-        if (this.bWv) {
-            afQ();
+        if (this.bWG) {
+            afT();
         }
-        this.aBk = null;
-        this.bWJ = null;
-        this.bWs = null;
-        this.bWr = null;
-        this.bWI = null;
-        this.bWM = null;
+        this.aBy = null;
+        this.bWU = null;
+        this.bWD = null;
+        this.bWC = null;
+        this.bWT = null;
+        this.bWX = null;
         this.mContext = null;
-        bWH = null;
+        bWS = null;
     }
 
-    private SensorEventListener afK() {
+    private SensorEventListener afN() {
         c.i("compass", "get Accelerometer listener");
-        if (this.bWr != null) {
-            return this.bWr;
+        if (this.bWC != null) {
+            return this.bWC;
         }
-        this.bWr = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.1
+        this.bWC = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.bWK = sensorEvent.values;
+                    a.this.bWV = sensorEvent.values;
                     c.i("compass", "accelerometer changed");
-                    a.this.afT();
+                    a.this.afW();
                     return;
                 }
                 c.w("compass", "illegal accelerometer event");
@@ -131,21 +131,21 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.bWr;
+        return this.bWC;
     }
 
-    private SensorEventListener afR() {
+    private SensorEventListener afU() {
         c.i("compass", "get MagneticFiled listener");
-        if (this.bWI != null) {
-            return this.bWI;
+        if (this.bWT != null) {
+            return this.bWT;
         }
-        this.bWI = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.2
+        this.bWT = new SensorEventListener() { // from class: com.baidu.swan.apps.ao.e.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.bWL = sensorEvent.values;
+                    a.this.bWW = sensorEvent.values;
                     c.i("compass", "magneticFiled changed");
-                    a.this.afT();
+                    a.this.afW();
                     return;
                 }
                 c.w("compass", "illegal magnetic filed event");
@@ -155,24 +155,24 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.bWI;
+        return this.bWT;
     }
 
-    private float afS() {
+    private float afV() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.bWK, this.bWL);
+        SensorManager.getRotationMatrix(fArr2, null, this.bWV, this.bWW);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afT() {
-        if (this.bWM != null && System.currentTimeMillis() - this.bWw > 200) {
-            float afS = afS();
-            c.i("compass", "orientation changed, orientation : " + afS);
-            this.bWM.R(afS);
-            this.bWw = System.currentTimeMillis();
+    public void afW() {
+        if (this.bWX != null && System.currentTimeMillis() - this.bWH > 200) {
+            float afV = afV();
+            c.i("compass", "orientation changed, orientation : " + afV);
+            this.bWX.R(afV);
+            this.bWH = System.currentTimeMillis();
         }
     }
 }

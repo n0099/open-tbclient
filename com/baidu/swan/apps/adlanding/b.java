@@ -19,21 +19,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a bbH;
-    private JSONObject bbI;
+    private com.baidu.swan.apps.media.c.a bbU;
+    private JSONObject bbV;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
         this.mContext = context;
-        this.bbI = jSONObject;
-        this.bbH = aVar;
+        this.bbV = jSONObject;
+        this.bbU = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bbH != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bbH.getDuration() / 1000));
+        if (this.bbU != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bbU.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -54,7 +54,7 @@ public class b {
         return str;
     }
 
-    public void fc(String str) {
+    public void fb(String str) {
         d(str, new HashMap<>());
     }
 
@@ -67,7 +67,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bbI != null ? this.bbI.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bbV != null ? this.bbV.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -76,9 +76,9 @@ public class b {
                     HttpUrl parse = HttpUrl.parse(c);
                     if (parse != null) {
                         Request build = new Request.Builder().url(parse.newBuilder().build()).build();
-                        e acG = e.acG();
-                        if (acG != null) {
-                            acG.acR().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
+                        e acJ = e.acJ();
+                        if (acJ != null) {
+                            acJ.acU().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
                                 @Override // okhttp3.Callback
                                 public void onFailure(Call call, IOException iOException) {
                                     if (b.DEBUG) {

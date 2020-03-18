@@ -69,12 +69,12 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
         int a10;
         int a11;
         if (getClass().equals(ibVar.getClass())) {
-            int compareTo = Boolean.valueOf(m398a()).compareTo(Boolean.valueOf(ibVar.m398a()));
+            int compareTo = Boolean.valueOf(m396a()).compareTo(Boolean.valueOf(ibVar.m396a()));
             if (compareTo == 0) {
-                if (!m398a() || (a11 = is.a(this.f599a, ibVar.f599a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m400b()).compareTo(Boolean.valueOf(ibVar.m400b()));
+                if (!m396a() || (a11 = is.a(this.f599a, ibVar.f599a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m398b()).compareTo(Boolean.valueOf(ibVar.m398b()));
                     if (compareTo2 == 0) {
-                        if (!m400b() || (a10 = is.a(this.f600a, ibVar.f600a)) == 0) {
+                        if (!m398b() || (a10 = is.a(this.f600a, ibVar.f600a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(ibVar.c()));
                             if (compareTo3 == 0) {
                                 if (!c() || (a9 = is.a(this.f604b, ibVar.f604b)) == 0) {
@@ -149,12 +149,12 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public List<String> m396a() {
+    public List<String> m394a() {
         return this.f602a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m397a() {
+    public void m395a() {
         if (this.f600a == null) {
             throw new jd("Required field 'id' was not present! Struct: " + toString());
         }
@@ -168,109 +168,109 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 if (!e()) {
                     throw new jd("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
                 }
-                m397a();
+                m395a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 2:
-                    if (m468a.a == 12) {
+                    if (m466a.a == 12) {
                         this.f599a = new hv();
                         this.f599a.a(jcVar);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 3:
-                    if (m468a.a == 11) {
-                        this.f600a = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f600a = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 4:
-                    if (m468a.a == 11) {
-                        this.f604b = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f604b = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 5:
-                    if (m468a.a == 11) {
-                        this.f605c = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f605c = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 6:
                 case 11:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 7:
-                    if (m468a.a == 10) {
-                        this.f598a = jcVar.m467a();
+                    if (m466a.a == 10) {
+                        this.f598a = jcVar.m465a();
                         a(true);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 8:
-                    if (m468a.a == 11) {
-                        this.f606d = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f606d = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 9:
-                    if (m468a.a == 11) {
-                        this.f607e = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f607e = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 10:
-                    if (m468a.a == 15) {
-                        ja m469a = jcVar.m469a();
-                        this.f602a = new ArrayList(m469a.f791a);
-                        for (int i2 = 0; i2 < m469a.f791a; i2++) {
-                            this.f602a.add(jcVar.m473a());
+                    if (m466a.a == 15) {
+                        ja m467a = jcVar.m467a();
+                        this.f602a = new ArrayList(m467a.f791a);
+                        for (int i2 = 0; i2 < m467a.f791a; i2++) {
+                            this.f602a.add(jcVar.m471a());
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 12:
-                    if (m468a.a == 11) {
-                        this.f608f = jcVar.m473a();
+                    if (m466a.a == 11) {
+                        this.f608f = jcVar.m471a();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 case 13:
-                    if (m468a.a == 2) {
-                        this.f603a = jcVar.m477a();
+                    if (m466a.a == 2) {
+                        this.f603a = jcVar.m475a();
                         b(true);
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
             }
@@ -283,23 +283,23 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m398a() {
+    public boolean m396a() {
         return this.f599a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m399a(ib ibVar) {
+    public boolean m397a(ib ibVar) {
         if (ibVar == null) {
             return false;
         }
-        boolean m398a = m398a();
-        boolean m398a2 = ibVar.m398a();
-        if ((m398a || m398a2) && !(m398a && m398a2 && this.f599a.m378a(ibVar.f599a))) {
+        boolean m396a = m396a();
+        boolean m396a2 = ibVar.m396a();
+        if ((m396a || m396a2) && !(m396a && m396a2 && this.f599a.m376a(ibVar.f599a))) {
             return false;
         }
-        boolean m400b = m400b();
-        boolean m400b2 = ibVar.m400b();
-        if ((m400b || m400b2) && !(m400b && m400b2 && this.f600a.equals(ibVar.f600a))) {
+        boolean m398b = m398b();
+        boolean m398b2 = ibVar.m398b();
+        if ((m398b || m398b2) && !(m398b && m398b2 && this.f600a.equals(ibVar.f600a))) {
             return false;
         }
         boolean c2 = c();
@@ -343,9 +343,9 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m397a();
+        m395a();
         jcVar.a(f597a);
-        if (this.f599a != null && m398a()) {
+        if (this.f599a != null && m396a()) {
             jcVar.a(a);
             this.f599a.b(jcVar);
             jcVar.b();
@@ -398,7 +398,7 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -406,7 +406,7 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m400b() {
+    public boolean m398b() {
         return this.f600a != null;
     }
 
@@ -424,7 +424,7 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ib)) {
-            return m399a((ib) obj);
+            return m397a((ib) obj);
         }
         return false;
     }
@@ -456,7 +456,7 @@ public class ib implements ir<ib, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCommandResult(");
         boolean z = true;
-        if (m398a()) {
+        if (m396a()) {
             sb.append("target:");
             if (this.f599a == null) {
                 sb.append("null");

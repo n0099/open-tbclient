@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class t {
-    public static com.airbnb.lottie.e d(JsonReader jsonReader) throws IOException, AssertionError {
+    public static com.airbnb.lottie.e d(JsonReader jsonReader) throws IOException {
         float dL = com.airbnb.lottie.d.f.dL();
         float f = 0.0f;
         float f2 = 0.0f;

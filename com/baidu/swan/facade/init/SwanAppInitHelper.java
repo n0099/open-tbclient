@@ -48,26 +48,26 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ER()) {
-            q.avP();
-            m.avF().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.EW()) {
+            q.avS();
+            m.avI().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dlC()) {
+        if (!c.dlZ()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.dp(application).ajq();
+            a.m27do(application).ajt();
             asyncUpdateSwanConfig();
             com.baidu.swan.apps.ar.a.af(0, 1);
         }
     }
 
     private static void asyncUpdateSwanConfig() {
-        d.aiX();
+        d.aja();
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -87,16 +87,16 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UI().ID(), false);
-        if (com.baidu.swan.apps.w.a.UI().IE()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UL().IG(), false);
+        if (com.baidu.swan.apps.w.a.UL().IH()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
-        b.bY(context).cy(ProcessUtils.isMainProcess());
+        b.bX(context).cz(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.RD().p(null);
+            com.baidu.swan.apps.env.e.RG().p(null);
         }
     }
 
@@ -105,6 +105,6 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        b.bY(AppRuntime.getAppContext()).onTerminate();
+        b.bX(AppRuntime.getAppContext()).onTerminate();
     }
 }

@@ -26,10 +26,10 @@ import com.baidu.tieba.personPolymeric.view.m;
 public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> implements com.baidu.tieba.a.f {
     private z<l> JZ;
     private String LC;
-    public BdUniqueId dBx;
-    private int fsd;
-    private int jne;
-    private int jnf;
+    public BdUniqueId dBK;
+    private int fsC;
+    private int joD;
+    private int joE;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -41,15 +41,15 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jne = 0;
-        this.jnf = 0;
-        this.fsd = 0;
+        this.joD = 0;
+        this.joE = 0;
+        this.fsC = 0;
         this.JZ = new z<l>() { // from class: com.baidu.tieba.personPolymeric.a.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, l lVar) {
-                if (view != null && lVar != null && lVar.aAg() != null) {
+                if (view != null && lVar != null && lVar.aAj() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root || id == R.id.video_seg_title) {
                         com.baidu.tieba.personPolymeric.a.a(view, lVar, 2);
@@ -62,21 +62,21 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
             }
         };
         this.mPageContext = tbPageContext;
-        bOX();
+        bPl();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aS */
     public com.baidu.card.a<l> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBx);
+        eVar.setPageUniqueId(this.dBK);
         eVar.aL(1024);
         eVar.aL(32768);
-        if (this.jne > 0) {
-            eVar.aK(this.jne);
+        if (this.joD > 0) {
+            eVar.aK(this.joD);
         }
         eVar.ab(false);
         eVar.ac(false);
@@ -93,17 +93,17 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         });
         aVar.a(eVar);
         m mVar = new m(this.mPageContext.getPageActivity());
-        mVar.setPageUniqueId(this.dBx);
+        mVar.setPageUniqueId(this.dBK);
         mVar.setFrom(ConstantData.VideoLocationType.PERSON_PROFILE);
         aVar.c(mVar);
         aVar.ni().aR(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds25));
-        if (this.fsd == 2) {
+        if (this.fsC == 2) {
             aVar.a((com.baidu.card.h) new com.baidu.card.i(this.mPageContext.getPageActivity()));
         }
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNC = 3;
-        dVar.cNI = 3;
+        dVar.cNP = 3;
+        dVar.cNV = 3;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(8);
         agVar.setStType("personalize_page");
@@ -113,10 +113,10 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         aVar.ni().setBackgroundResource(R.drawable.addresslist_item_bg);
         ad nj = aVar.nj();
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(nj);
-        aVar2.setPageId(this.dBx);
+        aVar2.setPageId(this.dBK);
         nj.a(this.JZ);
         nj.aQ(4);
-        aVar2.aY(this.jnf);
+        aVar2.aY(this.joE);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.i.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -143,7 +143,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         if (aVar == null) {
             return null;
         }
-        lVar.rt(lVar.position + 1);
+        lVar.rv(lVar.position + 1);
         if (aVar.nk() != null) {
             aVar.nk().setPage(this.LC);
         }
@@ -172,23 +172,23 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         this.LC = str;
     }
 
-    public void zX(int i) {
-        this.jne = i;
+    public void Af(int i) {
+        this.joD = i;
     }
 
-    private void bOX() {
-        k.fNh = "c13542";
+    private void bPl() {
+        k.fNP = "c13542";
     }
 
     public void setTabType(int i) {
-        this.fsd = i;
+        this.fsC = i;
     }
 
     public void setIsHost(boolean z) {
         this.mIsHost = z;
     }
 
-    public void zW(int i) {
-        this.jnf = i;
+    public void Ae(int i) {
+        this.joE = i;
     }
 }

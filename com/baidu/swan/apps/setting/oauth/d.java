@@ -4,10 +4,10 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private b bTl;
+    private b bTw;
     private Exception vJ;
 
-    protected abstract boolean ael() throws Exception;
+    protected abstract boolean aeo() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.bTl = bVar;
+        this.bTw = bVar;
         return this;
     }
 
@@ -26,13 +26,13 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aem() {
+    public d aep() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.ael()) {
-                        d.this.aen();
+                    if (d.this.aeo()) {
+                        d.this.aeq();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,7 +43,7 @@ public abstract class d {
         return this;
     }
 
-    public void aen() {
+    public void aeq() {
         l(null);
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.bTl.b(d.this);
+                d.this.bTw.b(d.this);
             }
         });
     }

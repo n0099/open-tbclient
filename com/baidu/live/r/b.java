@@ -5,7 +5,7 @@ import android.app.Activity;
 public interface b {
     boolean d(Activity activity, int i);
 
-    void dX(String str);
+    void dW(String str);
 
-    boolean zk();
+    boolean zr();
 }

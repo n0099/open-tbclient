@@ -5,11 +5,11 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes10.dex */
 class v implements IOAdEventListener {
-    final /* synthetic */ VideoAdView aPo;
+    final /* synthetic */ VideoAdView aPC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(VideoAdView videoAdView) {
-        this.aPo = videoAdView;
+        this.aPC = videoAdView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

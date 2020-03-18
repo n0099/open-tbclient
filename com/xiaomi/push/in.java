@@ -62,9 +62,9 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
         int a9;
         int a10;
         if (getClass().equals(inVar.getClass())) {
-            int compareTo = Boolean.valueOf(m454a()).compareTo(Boolean.valueOf(inVar.m454a()));
+            int compareTo = Boolean.valueOf(m452a()).compareTo(Boolean.valueOf(inVar.m452a()));
             if (compareTo == 0) {
-                if (!m454a() || (a10 = is.a(this.f750a, inVar.f750a)) == 0) {
+                if (!m452a() || (a10 = is.a(this.f750a, inVar.f750a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(inVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a9 = is.a(this.f749a, inVar.f749a)) == 0) {
@@ -135,7 +135,7 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m453a() {
+    public void m451a() {
         if (this.f753b == null) {
             throw new jd("Required field 'id' was not present! Struct: " + toString());
         }
@@ -146,29 +146,29 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 if (!e()) {
                     throw new jd("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
                 }
-                m453a();
+                m451a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f750a = jcVar.m473a();
+                        this.f750a = jcVar.m471a();
                         break;
                     }
                 case 2:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f749a = new hv();
@@ -176,65 +176,65 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 3:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f753b = jcVar.m473a();
+                        this.f753b = jcVar.m471a();
                         break;
                     }
                 case 4:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f755c = jcVar.m473a();
+                        this.f755c = jcVar.m471a();
                         break;
                     }
                 case 5:
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
                 case 6:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f748a = jcVar.m467a();
+                        this.f748a = jcVar.m465a();
                         a(true);
                         break;
                     }
                 case 7:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f756d = jcVar.m473a();
+                        this.f756d = jcVar.m471a();
                         break;
                     }
                 case 8:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f757e = jcVar.m473a();
+                        this.f757e = jcVar.m471a();
                         break;
                     }
                 case 9:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f752b = jcVar.m467a();
+                        this.f752b = jcVar.m465a();
                         b(true);
                         break;
                     }
                 case 10:
-                    if (m468a.a != 10) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 10) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f754c = jcVar.m467a();
+                        this.f754c = jcVar.m465a();
                         c(true);
                         break;
                     }
@@ -248,23 +248,23 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m454a() {
+    public boolean m452a() {
         return this.f750a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m455a(in inVar) {
+    public boolean m453a(in inVar) {
         if (inVar == null) {
             return false;
         }
-        boolean m454a = m454a();
-        boolean m454a2 = inVar.m454a();
-        if ((m454a || m454a2) && !(m454a && m454a2 && this.f750a.equals(inVar.f750a))) {
+        boolean m452a = m452a();
+        boolean m452a2 = inVar.m452a();
+        if ((m452a || m452a2) && !(m452a && m452a2 && this.f750a.equals(inVar.f750a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = inVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f749a.m378a(inVar.f749a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f749a.m376a(inVar.f749a))) {
             return false;
         }
         boolean c2 = c();
@@ -299,9 +299,9 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m453a();
+        m451a();
         jcVar.a(f747a);
-        if (this.f750a != null && m454a()) {
+        if (this.f750a != null && m452a()) {
             jcVar.a(a);
             jcVar.a(this.f750a);
             jcVar.b();
@@ -345,7 +345,7 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -374,7 +374,7 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof in)) {
-            return m455a((in) obj);
+            return m453a((in) obj);
         }
         return false;
     }
@@ -403,7 +403,7 @@ public class in implements ir<in, Object>, Serializable, Cloneable {
         boolean z = false;
         StringBuilder sb = new StringBuilder("XmPushActionUnRegistrationResult(");
         boolean z2 = true;
-        if (m454a()) {
+        if (m452a()) {
             sb.append("debug:");
             if (this.f750a == null) {
                 sb.append("null");

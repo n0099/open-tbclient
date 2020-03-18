@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes11.dex */
 public class a implements Cloneable {
-    protected boolean bFo = false;
-    protected boolean bFp = false;
-    private boolean bFq = false;
-    private boolean bFr;
+    private boolean bFC;
     protected int height;
     protected int left;
 
     /* renamed from: top  reason: collision with root package name */
     protected int f1006top;
     protected int width;
+    protected boolean bFz = false;
+    protected boolean bFA = false;
+    private boolean bFB = false;
 
     public a() {
     }
@@ -22,10 +22,10 @@ public class a implements Cloneable {
         this.height = i4;
     }
 
-    public static a Yw() {
+    public static a Yz() {
         a aVar = new a();
-        aVar.db(true);
         aVar.dc(true);
+        aVar.dd(true);
         aVar.setWidth(-1);
         aVar.setHeight(-1);
         return aVar;
@@ -35,20 +35,20 @@ public class a implements Cloneable {
         return super.clone();
     }
 
-    public void db(boolean z) {
-        this.bFo = z;
-    }
-
     public void dc(boolean z) {
-        this.bFp = z;
-    }
-
-    public boolean isFixed() {
-        return this.bFr;
+        this.bFz = z;
     }
 
     public void dd(boolean z) {
-        this.bFr = z;
+        this.bFA = z;
+    }
+
+    public boolean isFixed() {
+        return this.bFC;
+    }
+
+    public void de(boolean z) {
+        this.bFC = z;
     }
 
     public int getLeft() {
@@ -85,8 +85,8 @@ public class a implements Cloneable {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.bFo || this.width >= 0;
-        if (this.bFp || this.height >= 0) {
+        boolean z2 = this.bFz || this.width >= 0;
+        if (this.bFA || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -98,16 +98,16 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.left == aVar.left && this.f1006top == aVar.f1006top && this.height == aVar.height && this.width == aVar.width && this.bFr == aVar.bFr;
+            return this.left == aVar.left && this.f1006top == aVar.f1006top && this.height == aVar.height && this.width == aVar.width && this.bFC == aVar.bFC;
         }
         return false;
     }
 
     public boolean a(a aVar) {
-        return !equals(aVar) || this.bFq;
+        return !equals(aVar) || this.bFB;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.f1006top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFo + ", HAuto=" + this.bFp + ", fixed=" + this.bFr + '}';
+        return "Position{l=" + this.left + ", t=" + this.f1006top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.bFz + ", HAuto=" + this.bFA + ", fixed=" + this.bFC + '}';
     }
 }

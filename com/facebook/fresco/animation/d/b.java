@@ -3,5 +3,5 @@ package com.facebook.fresco.animation.d;
 public interface b {
     int K(long j, long j2);
 
-    long fh(long j);
+    long fi(long j);
 }

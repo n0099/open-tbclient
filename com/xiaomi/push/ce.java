@@ -47,7 +47,7 @@ public class ce {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m192a() {
+    public String m190a() {
         return this.f178a;
     }
 

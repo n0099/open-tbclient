@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes13.dex */
 public class i extends g {
-    final Matrix lMt;
-    private int lMu;
-    private int lMv;
+    final Matrix lNZ;
+    private int lOa;
+    private int lOb;
     private final Matrix mTempMatrix;
     private final RectF mTempRectF;
 
@@ -25,61 +25,61 @@ public class i extends g {
         this.mTempRectF = new RectF();
         com.facebook.common.internal.g.checkArgument(i % 90 == 0);
         com.facebook.common.internal.g.checkArgument((i2 < 0 || i2 > 8) ? false : z);
-        this.lMt = new Matrix();
-        this.lMu = i;
-        this.lMv = i2;
+        this.lNZ = new Matrix();
+        this.lOa = i;
+        this.lOb = i2;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.lMu <= 0 && (this.lMv == 0 || this.lMv == 1)) {
+        if (this.lOa <= 0 && (this.lOb == 0 || this.lOb == 1)) {
             super.draw(canvas);
             return;
         }
         int save = canvas.save();
-        canvas.concat(this.lMt);
+        canvas.concat(this.lNZ);
         super.draw(canvas);
         canvas.restoreToCount(save);
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return (this.lMv == 5 || this.lMv == 7 || this.lMu % 180 != 0) ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
+        return (this.lOb == 5 || this.lOb == 7 || this.lOa % 180 != 0) ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return (this.lMv == 5 || this.lMv == 7 || this.lMu % 180 != 0) ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
+        return (this.lOb == 5 || this.lOb == 7 || this.lOa % 180 != 0) ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         Drawable current = getCurrent();
-        if (this.lMu > 0 || (this.lMv != 0 && this.lMv != 1)) {
-            switch (this.lMv) {
+        if (this.lOa > 0 || (this.lOb != 0 && this.lOb != 1)) {
+            switch (this.lOb) {
                 case 2:
-                    this.lMt.setScale(-1.0f, 1.0f);
+                    this.lNZ.setScale(-1.0f, 1.0f);
                     break;
                 case 3:
                 case 6:
                 default:
-                    this.lMt.setRotate(this.lMu, rect.centerX(), rect.centerY());
+                    this.lNZ.setRotate(this.lOa, rect.centerX(), rect.centerY());
                     break;
                 case 4:
-                    this.lMt.setScale(1.0f, -1.0f);
+                    this.lNZ.setScale(1.0f, -1.0f);
                     break;
                 case 5:
-                    this.lMt.setRotate(270.0f, rect.centerX(), rect.centerY());
-                    this.lMt.postScale(1.0f, -1.0f);
+                    this.lNZ.setRotate(270.0f, rect.centerX(), rect.centerY());
+                    this.lNZ.postScale(1.0f, -1.0f);
                     break;
                 case 7:
-                    this.lMt.setRotate(270.0f, rect.centerX(), rect.centerY());
-                    this.lMt.postScale(-1.0f, 1.0f);
+                    this.lNZ.setRotate(270.0f, rect.centerX(), rect.centerY());
+                    this.lNZ.postScale(-1.0f, 1.0f);
                     break;
             }
             this.mTempMatrix.reset();
-            this.lMt.invert(this.mTempMatrix);
+            this.lNZ.invert(this.mTempMatrix);
             this.mTempRectF.set(rect);
             this.mTempMatrix.mapRect(this.mTempRectF);
             current.setBounds((int) this.mTempRectF.left, (int) this.mTempRectF.top, (int) this.mTempRectF.right, (int) this.mTempRectF.bottom);
@@ -91,8 +91,8 @@ public class i extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
     public void getTransform(Matrix matrix) {
         getParentTransform(matrix);
-        if (!this.lMt.isIdentity()) {
-            matrix.preConcat(this.lMt);
+        if (!this.lNZ.isIdentity()) {
+            matrix.preConcat(this.lNZ);
         }
     }
 }

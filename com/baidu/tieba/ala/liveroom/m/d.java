@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a fig;
-    private HttpMessageListener fih;
+    private a fiH;
+    private HttpMessageListener fiI;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class d extends BdBaseModel {
 
     public d(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.fih = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
+        this.fiI = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (d.this.fig != null) {
+                    if (d.this.fiH != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            d.this.fig.av(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            d.this.fiH.av(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            d.this.fig.a(alaDiversionInfoResponseMessage.bpe());
+                            d.this.fiH.a(alaDiversionInfoResponseMessage.bpj());
                         }
                     }
                 }
             }
         };
-        this.fig = aVar;
+        this.fiH = aVar;
         initTasks();
-        registerListener(this.fih);
+        registerListener(this.fiI);
     }
 
     private void initTasks() {

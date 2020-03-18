@@ -19,7 +19,7 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bv */
+    /* renamed from: bw */
     public e.a<a> b(ViewGroup viewGroup) {
         a aVar = new a(this.mPageContext, viewGroup, this.mOnClickListener);
         return new e.a<>(aVar.getView(), aVar);
@@ -30,10 +30,10 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        a bSn = aVar.bSn();
-        bSn.onChangeSkinType();
-        if (bSn != null) {
-            bSn.setData(chatMessage);
+        a bSF = aVar.bSF();
+        bSF.onChangeSkinType();
+        if (bSF != null) {
+            bSF.setData(chatMessage);
         }
         return view;
     }

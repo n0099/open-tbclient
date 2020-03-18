@@ -19,11 +19,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class a {
-    private static final Pattern bYA;
-    private static HashMap<String, Integer> bYw = new HashMap<>();
-    private static HashMap<String, Integer> bYx = new HashMap<>();
-    private static HashMap<String, String> bYy = new HashMap<>();
-    private static HashMap<String, String> bYz = new HashMap<>();
+    private static HashMap<String, Integer> bYH = new HashMap<>();
+    private static HashMap<String, Integer> bYI = new HashMap<>();
+    private static HashMap<String, String> bYJ = new HashMap<>();
+    private static HashMap<String, String> bYK = new HashMap<>();
+    private static final Pattern bYL;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -344,26 +344,26 @@ public final class a {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        bYA = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bYL = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        bYw.put(str2, Integer.valueOf(i));
-        bYx.put(str, Integer.valueOf(i));
-        bYy.put(str2, str);
-        if (!bYz.containsKey(str)) {
-            bYz.put(str, str2);
+        bYH.put(str2, Integer.valueOf(i));
+        bYI.put(str, Integer.valueOf(i));
+        bYJ.put(str2, str);
+        if (!bYK.containsKey(str)) {
+            bYK.put(str, str2);
         }
     }
 
-    public static int cN(String str, String str2) {
+    public static int cM(String str, String str2) {
         return w(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
     }
 
     public static int w(String str, String str2, boolean z) {
-        Integer num = bYx.get(str2);
+        Integer num = bYI.get(str2);
         if (num == null) {
-            num = bYw.get(str);
+            num = bYH.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -375,7 +375,7 @@ public final class a {
         return num.intValue();
     }
 
-    public static String mI(String str) {
+    public static String mH(String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -383,18 +383,18 @@ public final class a {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String mJ(String str) {
+    public static String mI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYy.get(str);
+        return bYJ.get(str);
     }
 
     public static String xg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYz.get(str);
+        return bYK.get(str);
     }
 
     public static String aa(String str, String str2, String str3) {
@@ -458,9 +458,9 @@ public final class a {
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
                 String lowerCase2 = !TextUtils.isEmpty(xg) ? xg.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
-                String mJ = mJ(lowerCase);
+                String mI = mI(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
-                String lowerCase4 = !TextUtils.isEmpty(mJ) ? mJ.toLowerCase() : "";
+                String lowerCase4 = !TextUtils.isEmpty(mI) ? mI.toLowerCase() : "";
                 String lowerCase5 = !TextUtils.isEmpty(mimeTypeFromExtension) ? mimeTypeFromExtension.toLowerCase() : "";
                 if (TextUtils.equals(lowerCase4, lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
@@ -506,7 +506,7 @@ public final class a {
 
     static String xh(String str) {
         try {
-            Matcher matcher = bYA.matcher(str);
+            Matcher matcher = bYL.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

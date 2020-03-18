@@ -7,8 +7,8 @@ import java.util.List;
 public class d {
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration qo = new Configuration();
-    private a qr;
+    private Configuration qn = new Configuration();
+    private a qq;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class d {
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.qo.mAlpha = i;
+        this.qn.mAlpha = i;
         return this;
     }
 
@@ -35,7 +35,7 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.qo.mTargetView = view;
+        this.qn.mTargetView = view;
         return this;
     }
 
@@ -46,7 +46,7 @@ public class d {
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.qo.mTargetViewId = i;
+        this.qn.mTargetViewId = i;
         return this;
     }
 
@@ -54,7 +54,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qo.mAutoDismiss = z;
+        this.qn.mAutoDismiss = z;
         return this;
     }
 
@@ -62,7 +62,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qo.mOverlayTarget = z;
+        this.qn.mOverlayTarget = z;
         return this;
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.qr = aVar;
+        this.qq = aVar;
         return this;
     }
 
     public d G(boolean z) {
-        this.qo.mOutsideTouchable = z;
+        this.qn.mOutsideTouchable = z;
         return this;
     }
 
     public c fI() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.qo);
-        cVar.a(this.qr);
+        cVar.a(this.qn);
+        cVar.a(this.qq);
         this.mComponents = null;
-        this.qo = null;
-        this.qr = null;
+        this.qn = null;
+        this.qq = null;
         this.mBuilt = true;
         return cVar;
     }

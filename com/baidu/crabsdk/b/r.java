@@ -1,54 +1,31 @@
 package com.baidu.crabsdk.b;
 
-import java.util.Map;
+import android.os.Environment;
+import android.os.StatFs;
 /* loaded from: classes8.dex */
 public final class r {
-    public static String L() {
-        StringBuilder sb = new StringBuilder();
-        Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
-        if (allStackTraces != null && allStackTraces.size() > 0) {
-            for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
-                sb.append(a(entry.getKey())).append("\n");
-            }
+    public static String O() {
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
+            StatFs statFs2 = new StatFs(Environment.getDataDirectory().getPath());
+            long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
+            return "Total: " + com.baidu.crabsdk.c.c.s(blockCount) + " Used: " + com.baidu.crabsdk.c.c.s(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.s(availableBlocks);
+        } catch (Exception e) {
+            com.baidu.crabsdk.c.a.f("getInternalStorageInfo error!", e);
+            return "N/A";
         }
-        return sb.toString();
     }
 
-    public static String a(Thread thread) {
-        String name;
-        StringBuilder sb = new StringBuilder();
-        if (thread != null) {
-            try {
-                sb.append("threadId： ").append(thread.getId()).append("\n");
-                if (thread.getName() != null) {
-                    sb.append("name: ").append(thread.getName()).append("\n");
-                }
-                sb.append("priority: ").append(thread.getPriority()).append("\n");
-                ThreadGroup threadGroup = thread.getThreadGroup();
-                if (threadGroup != null && (name = threadGroup.getName()) != null) {
-                    sb.append("groupName: ").append(name).append("\n");
-                }
-                sb.append("state: ").append(thread.getState()).append("\n");
-                sb.append("stacktrace: \n");
-                StackTraceElement[] stackTrace = thread.getStackTrace();
-                if (stackTrace != null && stackTrace.length > 0) {
-                    for (StackTraceElement stackTraceElement : stackTrace) {
-                        String methodName = stackTraceElement.getMethodName();
-                        if (methodName == null) {
-                            methodName = "unknown";
-                        }
-                        sb.append("\tat ").append(methodName).append("(");
-                        String fileName = stackTraceElement.getFileName();
-                        if (fileName == null) {
-                            fileName = "unknown";
-                        }
-                        sb.append(fileName).append(":").append(stackTraceElement.getLineNumber()).append(")\n");
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
-            }
+    public static String P() {
+        try {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
+            StatFs statFs2 = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
+            return "Total: " + com.baidu.crabsdk.c.c.s(blockCount) + " Used: " + com.baidu.crabsdk.c.c.s(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.s(availableBlocks);
+        } catch (Exception e) {
+            return "N/A";
         }
-        return sb.toString();
     }
 }

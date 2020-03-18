@@ -8,7 +8,7 @@ import com.baidu.mobads.CpuInfoManager;
 /* loaded from: classes10.dex */
 public final class j implements Runnable {
     final /* synthetic */ Context a;
-    final /* synthetic */ CpuInfoManager.UrlListener aPg;
+    final /* synthetic */ CpuInfoManager.UrlListener aPu;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
 
@@ -17,13 +17,13 @@ public final class j implements Runnable {
         this.a = context;
         this.b = i;
         this.c = str;
-        this.aPg = urlListener;
+        this.aPu = urlListener;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String a = new com.baidu.mobads.production.b.c(this.a.getApplicationContext(), this.b, this.c).a();
-        if (this.aPg != null) {
+        if (this.aPu != null) {
             new Handler(Looper.getMainLooper()).post(new k(this, a));
         }
     }

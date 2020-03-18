@@ -1,42 +1,28 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public interface af {
-    void a(com.baidu.adp.widget.ListView.s sVar);
+public class af extends v.a {
+    public TextView ehl;
+    public ImageView gyG;
+    public TextView gyH;
+    public ImageView gyI;
+    public View gyJ;
+    public View gyK;
 
-    void a(com.baidu.tieba.frs.d dVar);
-
-    void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
-
-    HashMap<Integer, bj> bHb();
-
-    int bHc();
-
-    void bHd();
-
-    int bHe();
-
-    int bHf();
-
-    void bHg();
-
-    List<com.baidu.adp.widget.ListView.m> getDatas();
-
-    void lO(boolean z);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    boolean p(BdUniqueId bdUniqueId);
-
-    void setForumName(String str);
-
-    void setFromCDN(boolean z);
+    public af(View view) {
+        super(view);
+        if (view != null) {
+            this.ehl = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.gyG = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.gyH = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.gyI = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.gyJ = view.findViewById(R.id.top_divider_line);
+            this.gyK = view.findViewById(R.id.bottom_divider_line);
+        }
+    }
 }

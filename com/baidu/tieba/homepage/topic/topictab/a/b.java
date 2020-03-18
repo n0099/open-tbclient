@@ -8,39 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> asF;
-    private r fWQ;
-    private c hgj;
-    private a hhH;
+    private List<com.baidu.adp.widget.ListView.a> asP;
+    private r fXy;
+    private c hhJ;
+    private a hji;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.fWQ = rVar;
-        wM();
-        this.fWQ.addAdapters(this.asF);
+        this.fXy = rVar;
+        wR();
+        this.fXy.addAdapters(this.asP);
     }
 
-    private void wM() {
-        this.asF = new ArrayList();
-        this.hhH = new a(this.mPageContext);
-        this.hgj = new c(this.mPageContext);
-        this.asF.add(this.hhH);
-        this.asF.add(this.hgj);
+    private void wR() {
+        this.asP = new ArrayList();
+        this.hji = new a(this.mPageContext);
+        this.hhJ = new c(this.mPageContext);
+        this.asP.add(this.hji);
+        this.asP.add(this.hhJ);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fWQ != null) {
-            this.fWQ.getListAdapter().notifyDataSetChanged();
+        if (this.fXy != null) {
+            this.fXy.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.fWQ.setData(list);
+        this.fXy.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.asF) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
             aVar.setPageId(bdUniqueId);
         }
     }

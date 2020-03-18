@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0489a interfaceC0489a);
 
-    void bwg();
+    void bwl();
 }

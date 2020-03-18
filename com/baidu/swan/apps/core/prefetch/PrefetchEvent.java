@@ -91,30 +91,30 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private PrefetchEvent bqQ = new PrefetchEvent();
+        private PrefetchEvent brc = new PrefetchEvent();
+
+        public a hk(@NonNull String str) {
+            this.brc.appId = str;
+            return this;
+        }
 
         public a hl(@NonNull String str) {
-            this.bqQ.appId = str;
+            this.brc.schema = str;
             return this;
         }
 
-        public a hm(@NonNull String str) {
-            this.bqQ.schema = str;
+        public a hm(String str) {
+            this.brc.state = str;
             return this;
         }
 
-        public a hn(String str) {
-            this.bqQ.state = str;
+        public a hn(@NonNull String str) {
+            this.brc.scene = str;
             return this;
         }
 
-        public a ho(@NonNull String str) {
-            this.bqQ.scene = str;
-            return this;
-        }
-
-        public PrefetchEvent PM() {
-            return this.bqQ;
+        public PrefetchEvent PP() {
+            return this.brc;
         }
     }
 

@@ -21,9 +21,9 @@ public interface a {
     public interface b {
         void a(g gVar);
 
-        a bav();
+        SurfaceTexture baA();
 
-        SurfaceTexture baw();
+        a baz();
     }
 
     void a(InterfaceC0417a interfaceC0417a);

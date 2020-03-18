@@ -271,17 +271,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             n nVar = new n();
-            nVar.uU(getPortraitH());
-            nVar.uV(getPortrait());
-            nVar.gu(true);
+            nVar.uT(getPortraitH());
+            nVar.uU(getPortrait());
+            nVar.gv(true);
             this.mPhotoAlbum.add(nVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         n nVar2 = new n();
-                        nVar2.uU(userPics.big);
-                        nVar2.uV(userPics.small);
-                        nVar2.gu(false);
+                        nVar2.uT(userPics.big);
+                        nVar2.uU(userPics.small);
+                        nVar2.gv(false);
                         this.mPhotoAlbum.add(nVar2);
                     }
                 }
@@ -482,9 +482,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 n nVar = new n();
-                nVar.uU(getPortraitH());
-                nVar.uV(getPortrait());
-                nVar.gu(true);
+                nVar.uT(getPortraitH());
+                nVar.uU(getPortrait());
+                nVar.gv(true);
                 this.mPhotoAlbum.add(nVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -493,9 +493,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             n nVar2 = new n();
-                            nVar2.uU(jSONObject2.optString("big"));
-                            nVar2.uV(jSONObject2.optString("small"));
-                            nVar2.gu(false);
+                            nVar2.uT(jSONObject2.optString("big"));
+                            nVar2.uU(jSONObject2.optString("small"));
+                            nVar2.gv(false);
                             this.mPhotoAlbum.add(nVar2);
                         }
                     }

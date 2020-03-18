@@ -8,16 +8,16 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 final class l implements Printer {
-    private final Context QU;
-    private i Ri;
-    private long Rg = 0;
-    private long Rh = 0;
-    private boolean Rj = false;
+    private final Context QX;
+    private i Rl;
+    private long Rj = 0;
+    private long Rk = 0;
+    private boolean Rm = false;
 
     public l(i iVar, Context context) {
-        this.Ri = null;
-        this.Ri = iVar;
-        this.QU = context;
+        this.Rl = null;
+        this.Rl = iVar;
+        this.QX = context;
     }
 
     @Override // android.util.Printer
@@ -25,24 +25,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.Rj) {
-            this.Rg = System.currentTimeMillis();
-            this.Rh = SystemClock.currentThreadTimeMillis();
-            this.Rj = true;
-            if (c.as(this.QU).QS != null) {
-                c.as(this.QU).QS.start();
+        if (!this.Rm) {
+            this.Rj = System.currentTimeMillis();
+            this.Rk = SystemClock.currentThreadTimeMillis();
+            this.Rm = true;
+            if (c.as(this.QX).QV != null) {
+                c.as(this.QX).QV.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.Rj = false;
-        if (currentTimeMillis - this.Rg >= ((long) a.U)) {
-            com.baidu.crabsdk.c.a.cj("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Rg + ETAG.EQUAL + (currentTimeMillis - this.Rg) + " >= " + a.U);
-            j.oe().post(new m(this, this.Rg, currentTimeMillis, this.Rh, SystemClock.currentThreadTimeMillis()));
+        this.Rm = false;
+        if (currentTimeMillis - this.Rj >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.cj("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Rj + ETAG.EQUAL + (currentTimeMillis - this.Rj) + " >= " + a.W);
+            j.oe().post(new m(this, this.Rj, currentTimeMillis, this.Rk, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.as(this.QU).QS != null) {
-            c.as(this.QU).QS.stop();
+        if (c.as(this.QX).QV != null) {
+            c.as(this.QX).QV.stop();
         }
     }
 }

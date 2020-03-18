@@ -3,7 +3,7 @@ package kotlin.collections;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class ai extends ah {
-    public static final int NE(int i) {
+    public static final int NK(int i) {
         if (i < 3) {
             return i + 1;
         }

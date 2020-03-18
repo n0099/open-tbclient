@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b JS() {
+    public com.baidu.swan.apps.api.b.b JV() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if (TextUtils.isEmpty(networkClass)) {
             networkClass = "unknown";
@@ -38,16 +38,16 @@ public class a extends com.baidu.swan.apps.api.a.c {
         }
     }
 
-    public com.baidu.swan.apps.api.b.b fE(String str) {
-        final e acF = e.acF();
-        if (acF == null) {
+    public com.baidu.swan.apps.api.b.b fD(String str) {
+        final e acI = e.acI();
+        if (acI == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
             }
             return new com.baidu.swan.apps.api.b.b(202, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ar = com.baidu.swan.apps.api.c.b.ar("Api-Network", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ar.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-Network", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) aq.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "parse fail");
@@ -55,7 +55,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) ar.second).optString("cb");
+        final String optString = ((JSONObject) aq.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "callback is null");
@@ -65,7 +65,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
-                acF.acR().c(a.this.JE().JC(), optString);
+                acI.acU().c(a.this.JH().JF(), optString);
             }
         });
         return new com.baidu.swan.apps.api.b.b(0);

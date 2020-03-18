@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class AlaLiveChallengeExtraInitialize {
     static {
-        bkc();
+        bkh();
     }
 
-    private static void bkc() {
+    private static void bkh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913114, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaLiveChallengeExtraInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<g> run(CustomMessage<TbPageContext> customMessage) {
@@ -28,7 +28,7 @@ public class AlaLiveChallengeExtraInitialize {
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.challenge.c> run(CustomMessage<com.baidu.live.challenge.c> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.bkZ().a(customMessage.getData());
+                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.ble().a(customMessage.getData());
                 }
                 return null;
             }

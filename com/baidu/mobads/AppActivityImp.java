@@ -35,7 +35,7 @@ public class AppActivityImp {
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     private static Class<?> d;
     private Activity a;
-    private Method[] aOF = null;
+    private Method[] aOT = null;
     private Object c;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
@@ -59,12 +59,12 @@ public class AppActivityImp {
         return f.get();
     }
 
-    private Method eI(String str) {
+    private Method eH(String str) {
         Method[] methodArr;
-        if (this.aOF == null) {
+        if (this.aOT == null) {
             return null;
         }
-        for (Method method : this.aOF) {
+        for (Method method : this.aOT) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -81,12 +81,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eI = eI(str);
-            if (eI != null) {
+            Method eH = eH(str);
+            if (eH != null) {
                 if (objArr == null || objArr.length == 0) {
-                    eI.invoke(null, new Object[0]);
+                    eH.invoke(null, new Object[0]);
                 } else {
-                    eI.invoke(null, objArr);
+                    eH.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -102,12 +102,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eI = eI(str);
-            if (eI != null) {
+            Method eH = eH(str);
+            if (eH != null) {
                 if (objArr == null || objArr.length == 0) {
-                    eI.invoke(this.c, new Object[0]);
+                    eH.invoke(this.c, new Object[0]);
                 } else {
-                    eI.invoke(this.c, objArr);
+                    eH.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -123,12 +123,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eI = eI(str);
-            if (eI != null) {
+            Method eH = eH(str);
+            if (eH != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) eI.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) eH.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) eI.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) eH.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -144,12 +144,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eI = eI(str);
-            if (eI != null) {
+            Method eH = eH(str);
+            if (eH != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return eI.invoke(this.c, new Object[0]);
+                    return eH.invoke(this.c, new Object[0]);
                 }
-                return eI.invoke(this.c, objArr);
+                return eH.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -218,7 +218,7 @@ public class AppActivityImp {
             } else {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.aOF = d.getDeclaredMethods();
+            this.aOT = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
             invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);

@@ -216,7 +216,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public boolean checkTipResFile(Sticker sticker) {
-        return sticker.isSupport(a.getVersion()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && a.eE(sticker.getPath());
+        return sticker.isSupport(a.getVersion()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && a.eD(sticker.getPath());
     }
 
     public void setFilterSelected(Filter filter) {
@@ -225,10 +225,10 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             if (filter == null && !this.isShowDefFilterValue) {
                 this.mEffect.updateFilter((FilterType) null, 0);
             } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-                if (b.DQ() != null) {
+                if (b.DX() != null) {
                     a aVar = this.mEffect;
                     FilterType filterType = BeautyType.lutFile.type;
-                    b.DQ();
+                    b.DX();
                     aVar.updateFilter(filterType, c.getFilterYuanTuPath());
                     setInitValue(true, DEF_FILTER_VALUE);
                 }
@@ -432,7 +432,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             return;
         }
         d("onResume new");
-        this.mEffect = a.aQ(this.mContext);
+        this.mEffect = a.aP(this.mContext);
         this.mEffect.enableProfileLog(false);
         this.mEffect.setFaceListener(new FaceListener() { // from class: com.baidu.ala.dumixar.ARProcessor.2
             public void onFaceResult(Object obj) {
@@ -549,7 +549,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     private DuMixCallback generateDuMixCallback() {
         return new DuMixCallback() { // from class: com.baidu.ala.dumixar.ARProcessor.5
             public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-                if (!z || ARProcessor.this.mEffect == null || b.DQ() != null) {
+                if (!z || ARProcessor.this.mEffect == null || b.DX() != null) {
                 }
                 if (ARProcessor.this.mCallback != null) {
                     ARProcessor.this.mCallback.onSetup(z, duMixInput, duMixOutput);

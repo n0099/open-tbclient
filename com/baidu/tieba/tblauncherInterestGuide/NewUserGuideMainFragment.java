@@ -22,78 +22,78 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes9.dex */
 public class NewUserGuideMainFragment extends BaseFragment {
-    private View ghK;
-    private NewUserGuideActivity knR;
-    private TbImageView knY;
-    private TbImageView knZ;
-    private NewUserGuideModel knz;
-    private TbImageView koa;
-    private TbImageView kob;
-    private TbImageView koc;
-    private TbImageView kod;
-    private TbImageView koe;
-    private TbImageView kof;
-    private TbImageView kog;
-    private TbImageView koh;
-    private Button koi;
+    private View git;
+    private TbImageView kpC;
+    private TbImageView kpD;
+    private TbImageView kpE;
+    private TbImageView kpF;
+    private TbImageView kpG;
+    private TbImageView kpH;
+    private TbImageView kpI;
+    private TbImageView kpJ;
+    private TbImageView kpK;
+    private TbImageView kpL;
+    private Button kpM;
+    private NewUserGuideModel kpd;
+    private NewUserGuideActivity kpv;
     private ViewGroup mRoot;
-    private final Hashtable<Integer, TbImageView> knX = new Hashtable<>();
+    private final Hashtable<Integer, TbImageView> kpB = new Hashtable<>();
     private boolean mIsNewUser = false;
-    private boolean koj = false;
-    private boolean kok = true;
-    private final View.OnClickListener drw = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1
+    private boolean kpN = false;
+    private boolean kpO = true;
+    private final View.OnClickListener drJ = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-                if (view == NewUserGuideMainFragment.this.koi) {
-                    if (NewUserGuideMainFragment.this.knR.cNr()) {
+                if (view == NewUserGuideMainFragment.this.kpM) {
+                    if (NewUserGuideMainFragment.this.kpv.cNL()) {
                         TbadkApplication.getInst().setLikeBarChanged(true);
                     }
-                    NewUserGuideMainFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(NewUserGuideMainFragment.this.knR.getPageContext().getPageActivity()).createNewUserCfg(1, NewUserGuideMainFragment.this.mIsNewUser)));
-                    NewUserGuideMainFragment.this.knR.finish();
+                    NewUserGuideMainFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(NewUserGuideMainFragment.this.kpv.getPageContext().getPageActivity()).createNewUserCfg(1, NewUserGuideMainFragment.this.mIsNewUser)));
+                    NewUserGuideMainFragment.this.kpv.finish();
                 }
-            } else if (NewUserGuideMainFragment.this.kok) {
-                NewUserGuideMainFragment.this.kok = false;
+            } else if (NewUserGuideMainFragment.this.kpO) {
+                NewUserGuideMainFragment.this.kpO = false;
                 TiebaStatic.log("newUserInterestSelect");
-                f fVar = new f(NewUserGuideMainFragment.this.knR, (InterestFrsData.Tag) view.getTag(), new a() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1.1
+                f fVar = new f(NewUserGuideMainFragment.this.kpv, (InterestFrsData.Tag) view.getTag(), new a() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1.1
                     @Override // com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.a
-                    public void cNy() {
-                        NewUserGuideMainFragment.this.ghK.setVisibility(8);
+                    public void cNS() {
+                        NewUserGuideMainFragment.this.git.setVisibility(8);
                     }
                 });
-                NewUserGuideMainFragment.this.ghK.setVisibility(0);
+                NewUserGuideMainFragment.this.git.setVisibility(0);
                 fVar.show();
-                NewUserGuideMainFragment.this.kok = true;
+                NewUserGuideMainFragment.this.kpO = true;
             }
         }
     };
 
     /* loaded from: classes9.dex */
     public interface a {
-        void cNy();
+        void cNS();
     }
 
     public void c(InterestFrsData interestFrsData) {
         d(interestFrsData);
-        this.koj = true;
+        this.kpN = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.knR = (NewUserGuideActivity) getBaseFragmentActivity();
-        this.knz = this.knR.cNt();
+        this.kpv = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.kpd = this.kpv.cNN();
         initData(bundle);
     }
 
     private void initData(Bundle bundle) {
-        if (this.knz != null && !this.koj) {
+        if (this.kpd != null && !this.kpN) {
             if (bundle != null) {
                 this.mIsNewUser = bundle.getBoolean("is_new_user");
             } else {
-                this.mIsNewUser = this.knR.getIntent().getBooleanExtra("is_new_user", false);
+                this.mIsNewUser = this.kpv.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.knz.cNA());
+            d(this.kpd.cNU());
         }
     }
 
@@ -103,7 +103,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
         if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
             for (int i = 0; i < tag_list.size(); i++) {
                 InterestFrsData.Tag tag = tag_list.get(i);
-                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.knX.get(Integer.valueOf(tag.getBid()))) != null) {
+                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.kpB.get(Integer.valueOf(tag.getBid()))) != null) {
                     tbImageView.setTag(tag);
                     tbImageView.startLoad(tag.getBicon(), 21, false);
                 }
@@ -115,47 +115,47 @@ public class NewUserGuideMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
             this.mRoot = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(R.layout.guide_main, (ViewGroup) null);
-            this.ghK = this.mRoot.findViewById(R.id.root_main_view_cover);
-            this.knY = (TbImageView) this.mRoot.findViewById(R.id.icon_1);
-            this.knZ = (TbImageView) this.mRoot.findViewById(R.id.icon_2);
-            this.koa = (TbImageView) this.mRoot.findViewById(R.id.icon_3);
-            this.kob = (TbImageView) this.mRoot.findViewById(R.id.icon_4);
-            this.koc = (TbImageView) this.mRoot.findViewById(R.id.icon_5);
-            this.kod = (TbImageView) this.mRoot.findViewById(R.id.icon_6);
-            this.koe = (TbImageView) this.mRoot.findViewById(R.id.icon_7);
-            this.kof = (TbImageView) this.mRoot.findViewById(R.id.icon_8);
-            this.kog = (TbImageView) this.mRoot.findViewById(R.id.icon_9);
-            this.koh = (TbImageView) this.mRoot.findViewById(R.id.icon_10);
-            this.koi = (Button) this.mRoot.findViewById(R.id.btn_next);
-            this.knX.put(1, this.knY);
-            this.knX.put(2, this.knZ);
-            this.knX.put(3, this.koa);
-            this.knX.put(4, this.kob);
-            this.knX.put(5, this.koc);
-            this.knX.put(6, this.kod);
-            this.knX.put(7, this.koe);
-            this.knX.put(8, this.kof);
-            this.knX.put(9, this.kog);
-            this.knX.put(10, this.koh);
-            this.koi.setOnClickListener(this.drw);
-            this.knY.setOnClickListener(this.drw);
-            this.knZ.setOnClickListener(this.drw);
-            this.koa.setOnClickListener(this.drw);
-            this.kob.setOnClickListener(this.drw);
-            this.koc.setOnClickListener(this.drw);
-            this.kod.setOnClickListener(this.drw);
-            this.koe.setOnClickListener(this.drw);
-            this.kof.setOnClickListener(this.drw);
-            this.kog.setOnClickListener(this.drw);
-            this.kog.setOnClickListener(this.drw);
-            this.koh.setOnClickListener(this.drw);
+            this.git = this.mRoot.findViewById(R.id.root_main_view_cover);
+            this.kpC = (TbImageView) this.mRoot.findViewById(R.id.icon_1);
+            this.kpD = (TbImageView) this.mRoot.findViewById(R.id.icon_2);
+            this.kpE = (TbImageView) this.mRoot.findViewById(R.id.icon_3);
+            this.kpF = (TbImageView) this.mRoot.findViewById(R.id.icon_4);
+            this.kpG = (TbImageView) this.mRoot.findViewById(R.id.icon_5);
+            this.kpH = (TbImageView) this.mRoot.findViewById(R.id.icon_6);
+            this.kpI = (TbImageView) this.mRoot.findViewById(R.id.icon_7);
+            this.kpJ = (TbImageView) this.mRoot.findViewById(R.id.icon_8);
+            this.kpK = (TbImageView) this.mRoot.findViewById(R.id.icon_9);
+            this.kpL = (TbImageView) this.mRoot.findViewById(R.id.icon_10);
+            this.kpM = (Button) this.mRoot.findViewById(R.id.btn_next);
+            this.kpB.put(1, this.kpC);
+            this.kpB.put(2, this.kpD);
+            this.kpB.put(3, this.kpE);
+            this.kpB.put(4, this.kpF);
+            this.kpB.put(5, this.kpG);
+            this.kpB.put(6, this.kpH);
+            this.kpB.put(7, this.kpI);
+            this.kpB.put(8, this.kpJ);
+            this.kpB.put(9, this.kpK);
+            this.kpB.put(10, this.kpL);
+            this.kpM.setOnClickListener(this.drJ);
+            this.kpC.setOnClickListener(this.drJ);
+            this.kpD.setOnClickListener(this.drJ);
+            this.kpE.setOnClickListener(this.drJ);
+            this.kpF.setOnClickListener(this.drJ);
+            this.kpG.setOnClickListener(this.drJ);
+            this.kpH.setOnClickListener(this.drJ);
+            this.kpI.setOnClickListener(this.drJ);
+            this.kpJ.setOnClickListener(this.drJ);
+            this.kpK.setOnClickListener(this.drJ);
+            this.kpK.setOnClickListener(this.drJ);
+            this.kpL.setOnClickListener(this.drJ);
             return this.mRoot;
         } catch (InflateException e) {
             if (TbadkApplication.getInst().isDebugMode()) {
                 throw e;
             }
             BdLog.e(e);
-            this.knR.cNv();
+            this.kpv.cNP();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

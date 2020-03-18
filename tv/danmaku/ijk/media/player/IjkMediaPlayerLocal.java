@@ -803,7 +803,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.cy(message.arg1, message.arg2);
+                    e.cz(message.arg1, message.arg2);
                     ijkMediaPlayerLocal.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

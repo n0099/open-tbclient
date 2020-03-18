@@ -12,18 +12,18 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
-    private BdUniqueId MO;
-    private a cZU;
-    private HttpMessageListener cZV = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.ai.1
+    private BdUniqueId MP;
+    private a dah;
+    private HttpMessageListener dai = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.ai.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Message<?> orginalMessage;
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.MO;
-                if (ai.this.cZU != null) {
-                    ai.this.cZU.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.MP;
+                if (ai.this.dah != null) {
+                    ai.this.dah.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -37,13 +37,13 @@ public class ai {
 
     public ai(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.MO = bdUniqueId;
-        this.cZV.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.cZV);
-        aGr();
+        this.MP = bdUniqueId;
+        this.dai.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.dai);
+        aGv();
     }
 
-    private static void aGr() {
+    private static void aGv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003396, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -55,12 +55,12 @@ public class ai {
     public void bz(long j) {
         HttpMessage httpMessage = new HttpMessage(1003396);
         httpMessage.addParam("fans_uid", j);
-        httpMessage.setTag(this.MO);
+        httpMessage.setTag(this.MP);
         httpMessage.setExtra(Long.valueOf(j));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.cZU = aVar;
+        this.dah = aVar;
     }
 }

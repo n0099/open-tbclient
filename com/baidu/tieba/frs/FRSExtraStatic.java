@@ -46,18 +46,18 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        bj.cRO.set(true);
-        c.gny.set(new ap());
+        bj.cSb.set(true);
+        c.goi.set(new aq());
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new s(null, ba.cQy, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.fNJ, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, com.baidu.tieba.tbadkCore.x.kfN, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.h.b.gRK, null));
+                    absDelegateAdapterList.add(new t(null, ba.cQL, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.fOr, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, com.baidu.tieba.tbadkCore.y.khp, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.h.b.gSR, null));
                 }
             }
         });
@@ -67,7 +67,7 @@ public class FRSExtraStatic {
                 return null;
             }
         }));
-        com.baidu.tbadk.core.util.ba.aGG().a(new ba.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
+        com.baidu.tbadk.core.util.ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Map<String, String> paramPair;
@@ -122,14 +122,14 @@ public class FRSExtraStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ac) {
-                        ac acVar = (ac) data;
-                        acVar.b(new com.baidu.tieba.frs.gamerecommend.a(acVar.getForumId(), acVar.getForumName()));
-                        for (FrsTabInfo frsTabInfo : acVar.bDv()) {
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
+                        adVar.b(new com.baidu.tieba.frs.gamerecommend.a(adVar.getForumId(), adVar.getForumName()));
+                        for (FrsTabInfo frsTabInfo : adVar.bDD()) {
                             if (frsTabInfo.tab_id.intValue() > 100) {
                                 com.baidu.tieba.frs.gametabs.c cVar = new com.baidu.tieba.frs.gametabs.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
-                                acVar.b(cVar);
-                                if (acVar.getContext() == null) {
+                                adVar.b(cVar);
+                                if (adVar.getContext() == null) {
                                     continue;
                                 } else {
                                     com.baidu.tbadk.mainTab.c fragmentTabStructure = cVar.getFragmentTabStructure();
@@ -146,26 +146,26 @@ public class FRSExtraStatic {
             }
         });
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        bDg();
-        bdE();
+        bDo();
+        bdJ();
         if (Build.VERSION.SDK_INT < 24) {
-            com.baidu.tieba.nativecrash.a.chX();
+            com.baidu.tieba.nativecrash.a.cir();
         }
     }
 
-    private static void bDg() {
+    private static void bDo() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.k.keU, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.l.kgw, true));
                 }
             }
         });
     }
 
-    private static void bdE() {
+    private static void bdJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.frs.FRSExtraStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

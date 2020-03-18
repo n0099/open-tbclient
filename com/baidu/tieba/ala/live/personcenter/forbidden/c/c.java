@@ -16,97 +16,97 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private CommonEmptyView aCY;
-    private BdTypeListView asH;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.d.a eMA;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.a.a eMz;
-    private TbListViewPullView ewM;
-    private LoadingView ewR;
-    private PbListView ewh;
+    private CommonEmptyView aDm;
+    private BdTypeListView asR;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.a.a eMV;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.d.a eMW;
+    private PbListView ewD;
+    private TbListViewPullView exi;
+    private LoadingView exn;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public c(TbPageContext tbPageContext, View view) {
-        this.asH = null;
-        this.eMz = null;
-        this.eMA = null;
+        this.asR = null;
+        this.eMV = null;
+        this.eMW = null;
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.eMz = new com.baidu.tieba.ala.live.personcenter.forbidden.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getUniqueId());
-        this.asH = (BdTypeListView) view.findViewById(a.g.ala_person_forbiddenlist_listview);
+        this.eMV = new com.baidu.tieba.ala.live.personcenter.forbidden.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getUniqueId());
+        this.asR = (BdTypeListView) view.findViewById(a.g.ala_person_forbiddenlist_listview);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.eMz);
-        this.asH.addAdapters(arrayList);
-        this.eMA = new com.baidu.tieba.ala.live.personcenter.forbidden.d.a(tbPageContext);
-        this.asH.addHeaderView(this.eMA.aqs());
-        this.ewR = new LoadingView(tbPageContext.getPageActivity());
-        this.ewM = new TbListViewPullView(this.mPageContext);
-        this.ewM.setTag(this.mPageContext.getUniqueId());
-        this.asH.setPullRefresh(this.ewM);
-        this.ewh = new PbListView(this.mPageContext.getPageActivity());
-        this.ewh.createView();
+        arrayList.add(this.eMV);
+        this.asR.addAdapters(arrayList);
+        this.eMW = new com.baidu.tieba.ala.live.personcenter.forbidden.d.a(tbPageContext);
+        this.asR.addHeaderView(this.eMW.aqv());
+        this.exn = new LoadingView(tbPageContext.getPageActivity());
+        this.exi = new TbListViewPullView(this.mPageContext);
+        this.exi.setTag(this.mPageContext.getUniqueId());
+        this.asR.setPullRefresh(this.exi);
+        this.ewD = new PbListView(this.mPageContext.getPageActivity());
+        this.ewD.createView();
     }
 
     public void e(List<IAdapterData> list, int i) {
-        com.baidu.tieba.ala.live.personcenter.forbidden.d.a aVar = this.eMA;
+        com.baidu.tieba.ala.live.personcenter.forbidden.d.a aVar = this.eMW;
         if (i <= list.size()) {
             i = list.size();
         }
-        aVar.pw(i);
-        this.asH.setData(list);
+        aVar.py(i);
+        this.asR.setData(list);
     }
 
     public void onChangeSkinType(int i) {
-        this.mPageContext.getLayoutMode().onModeChanged(this.asH);
-        this.asH.setDivider(null);
-        if (this.eMA != null) {
-            this.eMA.onChangeSkinType(i);
+        this.mPageContext.getLayoutMode().onModeChanged(this.asR);
+        this.asR.setDivider(null);
+        if (this.eMW != null) {
+            this.eMW.onChangeSkinType(i);
         }
     }
 
     public void completePullRefresh() {
-        if (this.asH != null) {
-            this.asH.completePullRefresh();
+        if (this.asR != null) {
+            this.asR.completePullRefresh();
         }
     }
 
-    public void beR() {
-        if (this.ewh != null) {
-            if (this.ewh.getView().getParent() == null) {
-                this.asH.setNextPage(this.ewh);
+    public void beW() {
+        if (this.ewD != null) {
+            if (this.ewD.getView().getParent() == null) {
+                this.asR.setNextPage(this.ewD);
             }
-            this.ewh.setText(this.mPageContext.getResources().getString(a.i.sdk_load_more));
-            this.ewh.endLoadData();
+            this.ewD.setText(this.mPageContext.getResources().getString(a.i.sdk_load_more));
+            this.ewD.endLoadData();
         }
     }
 
-    public void bcu() {
-        if (this.ewh != null) {
-            if (this.ewh.getView().getParent() == null) {
-                this.asH.setNextPage(this.ewh);
+    public void bcy() {
+        if (this.ewD != null) {
+            if (this.ewD.getView().getParent() == null) {
+                this.asR.setNextPage(this.ewD);
             }
-            this.ewh.setText(this.mPageContext.getResources().getString(a.i.sdk_list_no_more));
-            this.ewh.endLoadData();
+            this.ewD.setText(this.mPageContext.getResources().getString(a.i.sdk_list_no_more));
+            this.ewD.endLoadData();
         }
     }
 
-    public void bcv() {
-        if (this.ewh != null) {
-            if (this.ewh.getView().getParent() == null) {
-                this.asH.setNextPage(this.ewh);
+    public void bcz() {
+        if (this.ewD != null) {
+            if (this.ewD.getView().getParent() == null) {
+                this.asR.setNextPage(this.ewD);
             }
-            this.ewh.showLoadingViewWithoutEmptyView();
-            this.ewh.startLoadData();
+            this.ewD.showLoadingViewWithoutEmptyView();
+            this.ewD.startLoadData();
         }
     }
 
-    public void bfm() {
-        this.asH.setNextPage(null);
+    public void bfr() {
+        this.asR.setNextPage(null);
     }
 
     public void setOnSrollToBottomListener(final BdListView.OnScrollToBottomListener onScrollToBottomListener) {
-        this.asH.setOnSrollToBottomListener(onScrollToBottomListener);
-        this.ewh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.c.1
+        this.asR.setOnSrollToBottomListener(onScrollToBottomListener);
+        this.ewD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (onScrollToBottomListener != null) {
@@ -117,57 +117,57 @@ public class c {
     }
 
     public void setListPullRefreshListener(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        this.ewM.setListPullRefreshListener(listPullRefreshListener);
+        this.exi.setListPullRefreshListener(listPullRefreshListener);
     }
 
     public void a(int i, View.OnClickListener onClickListener) {
         if (this.mPageContext != null && this.mPageContext.getContext() != null && (this.mRootView instanceof RelativeLayout)) {
-            if (this.aCY == null) {
-                this.aCY = new CommonEmptyView(this.mPageContext.getPageActivity());
-                this.aCY.addToParent((RelativeLayout) this.mRootView);
+            if (this.aDm == null) {
+                this.aDm = new CommonEmptyView(this.mPageContext.getPageActivity());
+                this.aDm.addToParent((RelativeLayout) this.mRootView);
             }
-            this.aCY.reset();
-            this.aCY.setTitle(i);
-            this.aCY.setRefreshButton(a.i.sdk_click_refresh_net_text, onClickListener);
-            this.aCY.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
-            this.aCY.setVisibility(0);
+            this.aDm.reset();
+            this.aDm.setTitle(i);
+            this.aDm.setRefreshButton(a.i.sdk_click_refresh_net_text, onClickListener);
+            this.aDm.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+            this.aDm.setVisibility(0);
         }
     }
 
-    public void bcy() {
-        if (this.aCY != null) {
-            this.aCY.setVisibility(8);
+    public void bcC() {
+        if (this.aDm != null) {
+            this.aDm.setVisibility(8);
         }
     }
 
-    public void bgz() {
-        if (this.asH != null) {
-            this.asH.setVisibility(0);
+    public void bgE() {
+        if (this.asR != null) {
+            this.asR.setVisibility(0);
         }
     }
 
-    public void bgA() {
-        if (this.asH != null) {
-            this.asH.setVisibility(4);
+    public void bgF() {
+        if (this.asR != null) {
+            this.asR.setVisibility(4);
         }
     }
 
     public void showNoDataView() {
         if (this.mRootView instanceof RelativeLayout) {
-            if (this.aCY == null) {
-                this.aCY = new CommonEmptyView(this.mPageContext.getPageActivity());
-                this.aCY.addToParent((RelativeLayout) this.mRootView);
+            if (this.aDm == null) {
+                this.aDm = new CommonEmptyView(this.mPageContext.getPageActivity());
+                this.aDm.addToParent((RelativeLayout) this.mRootView);
             }
-            this.aCY.reset();
-            this.aCY.setTitle(a.i.sdk_prc_person_adminlist_empty);
-            this.aCY.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
-            this.aCY.setVisibility(0);
+            this.aDm.reset();
+            this.aDm.setTitle(a.i.sdk_prc_person_adminlist_empty);
+            this.aDm.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
+            this.aDm.setVisibility(0);
         }
     }
 
     public void hideNoDataView() {
-        if (this.aCY != null) {
-            this.aCY.setVisibility(8);
+        if (this.aDm != null) {
+            this.aDm.setVisibility(8);
         }
     }
 }

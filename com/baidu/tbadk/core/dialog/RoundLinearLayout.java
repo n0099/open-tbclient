@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundLinearLayout extends LinearLayout {
-    private Shape cVW;
-    private int cVX;
+    private Shape cWj;
+    private int cWk;
     private Paint mPaint;
     private float mRadius;
 
@@ -30,7 +30,7 @@ public class RoundLinearLayout extends LinearLayout {
     public RoundLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRadius = 0.0f;
-        this.cVX = 4;
+        this.cWk = 4;
         setLayerType(1, null);
         this.mRadius = getResources().getDimension(R.dimen.tbds32);
         this.mPaint = new Paint();
@@ -45,23 +45,23 @@ public class RoundLinearLayout extends LinearLayout {
     }
 
     public void setRoundCount(int i) {
-        this.cVX = i;
+        this.cWk = i;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.cVW == null) {
+            if (this.cWj == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                Arrays.fill(fArr2, 0, this.cVX, this.mRadius);
-                this.cVW = new RoundRectShape(fArr, rectF, fArr2);
+                Arrays.fill(fArr2, 0, this.cWk, this.mRadius);
+                this.cWj = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.cVW.resize(getWidth(), getHeight());
+            this.cWj.resize(getWidth(), getHeight());
         }
     }
 
@@ -70,8 +70,8 @@ public class RoundLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.cVW != null) {
-            this.cVW.draw(canvas, this.mPaint);
+        if (this.cWj != null) {
+            this.cWj.draw(canvas, this.mPaint);
         }
         canvas.restoreToCount(saveCount);
     }

@@ -15,12 +15,12 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowablePublish<T> extends io.reactivex.b.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final io.reactivex.g<T> nwE;
-    final org.a.b<T> nxg;
+    final org.a.b<T> nyT;
+    final io.reactivex.g<T> nyr;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nxg.subscribe(cVar);
+        this.nyT.subscribe(cVar);
     }
 
     @Override // io.reactivex.b.a
@@ -41,7 +41,7 @@ public final class FlowablePublish<T> extends io.reactivex.b.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.nwE.a((j) publishSubscriber);
+                this.nyr.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
             io.reactivex.exceptions.a.H(th);

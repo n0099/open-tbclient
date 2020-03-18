@@ -57,9 +57,9 @@ public class a extends ab {
                 return false;
             }
             c.i("compass", "init");
-            com.baidu.swan.apps.ao.e.a afO = com.baidu.swan.apps.ao.e.a.afO();
-            afO.init(context);
-            afO.a(new a.InterfaceC0207a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
+            com.baidu.swan.apps.ao.e.a afR = com.baidu.swan.apps.ao.e.a.afR();
+            afR.init(context);
+            afR.a(new a.InterfaceC0207a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
                 @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0207a
                 public void R(float f) {
                     c.i("compass", "handle compass change, angle:" + f);
@@ -70,7 +70,7 @@ public class a extends ab {
                 }
             });
             c.i("compass", "start listen compass");
-            afO.afP();
+            afR.afS();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

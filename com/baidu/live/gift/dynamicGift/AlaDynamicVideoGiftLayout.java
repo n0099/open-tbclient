@@ -16,18 +16,18 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes3.dex */
 public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.baidu.live.gift.biggift.c {
-    private com.baidu.live.gift.c amA;
-    private com.baidu.live.gift.a.c amB;
-    private int amC;
-    private com.baidu.live.gift.biggift.b amn;
-    private AlaBigGiftExtraInfoRevisionView amo;
-    private com.baidu.live.alphavideo.c amz;
+    private com.baidu.live.alphavideo.c amJ;
+    private com.baidu.live.gift.c amK;
+    private com.baidu.live.gift.a.c amL;
+    private int amM;
+    private com.baidu.live.gift.biggift.b amx;
+    private AlaBigGiftExtraInfoRevisionView amy;
     private Handler mHandler;
     private boolean mStopped;
 
     static /* synthetic */ int d(AlaDynamicVideoGiftLayout alaDynamicVideoGiftLayout) {
-        int i = alaDynamicVideoGiftLayout.amC + 1;
-        alaDynamicVideoGiftLayout.amC = i;
+        int i = alaDynamicVideoGiftLayout.amM + 1;
+        alaDynamicVideoGiftLayout.amM = i;
         return i;
     }
 
@@ -36,17 +36,17 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     public void setData(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (cVar != null && cVar.afL != null && cVar.afL.afK != null) {
-            this.amA = cVar;
-            this.amB = cVar2;
-            uh();
+        if (cVar != null && cVar.afV != null && cVar.afV.afU != null) {
+            this.amK = cVar;
+            this.amL = cVar2;
+            um();
         }
     }
 
-    public void ta() {
+    public void tf() {
         stopAnim();
-        if (this.amn != null) {
-            this.amn.onEnd();
+        if (this.amx != null) {
+            this.amx.onEnd();
         }
     }
 
@@ -57,28 +57,28 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     public void setBigGiftCallBack(com.baidu.live.gift.biggift.b bVar) {
-        this.amn = bVar;
+        this.amx = bVar;
     }
 
     public void startAnim() {
         this.mStopped = false;
-        this.amC = 0;
-        if (this.amz != null && !this.amz.isDestroyed()) {
-            this.amz.cR(this.amA.ri());
+        this.amM = 0;
+        if (this.amJ != null && !this.amJ.isDestroyed()) {
+            this.amJ.cQ(this.amK.rn());
         }
-        if (this.amn != null) {
-            this.amn.onStart();
+        if (this.amx != null) {
+            this.amx.onStart();
         }
     }
 
     public void stopAnim() {
         this.mStopped = true;
-        if (this.amz != null) {
-            this.amz.stop();
-            this.amz.release();
+        if (this.amJ != null) {
+            this.amJ.stop();
+            this.amJ.release();
         }
-        if (this.amo != null) {
-            this.amo.end();
+        if (this.amy != null) {
+            this.amy.end();
         }
     }
 
@@ -87,129 +87,129 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.amz != null) {
-            this.amz.stop();
-            this.amz.release();
+        if (this.amJ != null) {
+            this.amJ.stop();
+            this.amJ.release();
         }
-        if (this.amo != null) {
-            this.amo.onDestroy();
+        if (this.amy != null) {
+            this.amy.onDestroy();
         }
         removeAllViews();
     }
 
-    private void uh() {
-        ui();
-        if (this.amB.tT()) {
-            uj();
+    private void um() {
+        un();
+        if (this.amL.tY()) {
+            uo();
         }
     }
 
-    private void ui() {
+    private void un() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
         if (runTask != null && runTask.getData() != null) {
-            this.amz = (com.baidu.live.alphavideo.c) runTask.getData();
-            this.amz.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
+            this.amJ = (com.baidu.live.alphavideo.c) runTask.getData();
+            this.amJ.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onStart() {
-                    if (AlaDynamicVideoGiftLayout.this.amo != null) {
-                        AlaDynamicVideoGiftLayout.this.uk();
+                    if (AlaDynamicVideoGiftLayout.this.amy != null) {
+                        AlaDynamicVideoGiftLayout.this.up();
                     }
                 }
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
                     if (!AlaDynamicVideoGiftLayout.this.mStopped) {
-                        if (AlaDynamicVideoGiftLayout.d(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.amA.afL.afK.repeatCount || AlaDynamicVideoGiftLayout.this.amz == null || AlaDynamicVideoGiftLayout.this.amz.isDestroyed()) {
-                            AlaDynamicVideoGiftLayout.this.un();
+                        if (AlaDynamicVideoGiftLayout.d(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.amK.afV.afU.repeatCount || AlaDynamicVideoGiftLayout.this.amJ == null || AlaDynamicVideoGiftLayout.this.amJ.isDestroyed()) {
+                            AlaDynamicVideoGiftLayout.this.us();
                         } else {
-                            AlaDynamicVideoGiftLayout.this.amz.cR(AlaDynamicVideoGiftLayout.this.amA.ri());
+                            AlaDynamicVideoGiftLayout.this.amJ.cQ(AlaDynamicVideoGiftLayout.this.amK.rn());
                         }
                     }
                 }
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onError(int i, String str) {
-                    AlaDynamicVideoGiftLayout.this.un();
+                    AlaDynamicVideoGiftLayout.this.us();
                 }
             });
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext());
             int i = screenDimensions[0];
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, screenDimensions[1] > i ? (i * FormCard.HEIGHT_DEFAULT_SIZE) / FormCard.WIDTH_DEFAULT_SIZE : (i * FormCard.WIDTH_DEFAULT_SIZE) / FormCard.HEIGHT_DEFAULT_SIZE);
-            if (this.amA.afL != null && this.amA.afL.afK != null && this.amA.afL.afK.isBottomMargin()) {
+            if (this.amK.afV != null && this.amK.afV.afU != null && this.amK.afV.afU.isBottomMargin()) {
                 layoutParams.addRule(12);
             }
-            addView(this.amz.getView(), layoutParams);
+            addView(this.amJ.getView(), layoutParams);
         }
     }
 
-    private void uj() {
-        this.amo = new AlaBigGiftExtraInfoRevisionView(getContext());
-        this.amo.setData(this.amB);
-        this.amo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
+    private void uo() {
+        this.amy = new AlaBigGiftExtraInfoRevisionView(getContext());
+        this.amy.setData(this.amL);
+        this.amy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDynamicVideoGiftLayout.this.uo();
+                AlaDynamicVideoGiftLayout.this.ut();
             }
         });
-        this.amo.setVisibility(8);
+        this.amy.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(a.e.sdk_ds180);
         layoutParams.addRule(14);
-        addView(this.amo, layoutParams);
+        addView(this.amy, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uk() {
-        if (this.amz != null) {
-            long duration = this.amz.getDuration();
+    public void up() {
+        if (this.amJ != null) {
+            long duration = this.amJ.getDuration();
             if (duration > 0) {
                 this.mHandler = new Handler();
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.ul();
+                        AlaDynamicVideoGiftLayout.this.uq();
                     }
                 }, ((float) duration) * 0.07f);
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.um();
+                        AlaDynamicVideoGiftLayout.this.ur();
                     }
                 }, ((float) duration) * 0.87f);
                 return;
             }
-            ul();
+            uq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ul() {
-        if (this.amo != null) {
-            this.amo.sP();
+    public void uq() {
+        if (this.amy != null) {
+            this.amy.sU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void um() {
-        if (this.amo != null) {
-            this.amo.sQ();
+    public void ur() {
+        if (this.amy != null) {
+            this.amy.sV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void un() {
-        if (this.amo != null) {
-            this.amo.end();
+    public void us() {
+        if (this.amy != null) {
+            this.amy.end();
         }
-        if (this.amn != null) {
-            this.amn.onEnd();
+        if (this.amx != null) {
+            this.amx.onEnd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uo() {
-        if (this.amB != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.amB.userId), this.amB.userName, this.amB.portrait, this.amB.sex, this.amB.alz, this.amB.location, this.amB.description, 0L, this.amB.fansCount, this.amB.alA, this.amB.userStatus, this.amB.liveId, this.amB.groupId, this.amB.alD, this.amB.alE, this.amB.appId, this.amB.userName, "")));
+    public void ut() {
+        if (this.amL != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.amL.userId), this.amL.userName, this.amL.portrait, this.amL.sex, this.amL.alJ, this.amL.location, this.amL.description, 0L, this.amL.fansCount, this.amL.alK, this.amL.userStatus, this.amL.liveId, this.amL.groupId, this.amL.alN, this.amL.alO, this.amL.appId, this.amL.userName, "")));
         }
     }
 }

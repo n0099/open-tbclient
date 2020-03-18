@@ -119,7 +119,7 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m118a(int i) {
+    public synchronized void m116a(int i) {
         if (i == 2) {
             this.f92a.edit().putInt("notifycount", this.f92a.getInt("notifycount", 0) + 1).commit();
         } else if (i == 1) {
@@ -145,7 +145,7 @@ public class k extends MiPushClient.MiPushClientCallback implements c {
         } else if (i == 0) {
             if (ceVar.c > 0) {
                 this.f90a++;
-                a().m118a(ceVar.a);
+                a().m116a(ceVar.a);
             }
             a("广告下载成功: id: " + ceVar.f177a + " 类型: " + ceVar.a + " 成功次数: " + a().a(ceVar.a));
         } else {

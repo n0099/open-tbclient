@@ -10,22 +10,22 @@ import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 public class e {
     public static void init() {
         TbConfig.setLiveEnterFrom(AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
-        com.baidu.g.b.a.aP(TbadkCoreApplication.getInst()).a(new com.baidu.g.b.b.b());
-        com.baidu.g.b.a.aP(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
-        pt();
-        pu();
+        com.baidu.g.b.a.aO(TbadkCoreApplication.getInst()).a(new com.baidu.g.b.b.b());
+        com.baidu.g.b.a.aO(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
+        py();
+        pz();
     }
 
-    public static void pt() {
+    public static void py() {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.e.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
-                l.wG().aU(z);
+                l.wL().aU(z);
             }
         });
     }
 
-    public static void pu() {
+    public static void pz() {
         com.baidu.live.a.a.d(TbadkCoreApplication.getInst().getApp());
     }
 }

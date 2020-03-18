@@ -15,64 +15,64 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    private static e lCJ;
-    private volatile com.baidu.n.a.a.c lCG;
-    private AtomicBoolean lCK = new AtomicBoolean(false);
-    private AtomicBoolean lCL = new AtomicBoolean(false);
+    private static e lEn;
+    private volatile com.baidu.n.a.a.c lEk;
+    private AtomicBoolean lEo = new AtomicBoolean(false);
+    private AtomicBoolean lEp = new AtomicBoolean(false);
     private static String TAG = "UnionIDHelper";
-    private static boolean DEBUG = com.baidu.n.a.a.dhU();
-    private static final String lCH = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-    private static final String lCI = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+    private static boolean DEBUG = com.baidu.n.a.a.dir();
+    private static final String lEl = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+    private static final String lEm = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     private static final Object sLock = new Object();
 
     private e() {
     }
 
-    public static e dhX() {
-        if (lCJ == null) {
+    public static e diu() {
+        if (lEn == null) {
             synchronized (e.class) {
-                if (lCJ == null) {
-                    lCJ = new e();
+                if (lEn == null) {
+                    lEn = new e();
                 }
             }
         }
-        return lCJ;
+        return lEn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dhY() {
-        this.lCG = this.lCG.dib();
+    public void div() {
+        this.lEk = this.lEk.diy();
         if (DEBUG) {
-            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.lCG.dic());
+            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.lEk.diz());
         }
     }
 
-    public synchronized com.baidu.n.a.a.c gg(Context context) {
+    public synchronized com.baidu.n.a.a.c gf(Context context) {
         com.baidu.n.a.a.c cVar = null;
         synchronized (this) {
             if (DEBUG) {
-                Log.d(TAG, "syncRequest, isClosedByCC():" + dhZ());
+                Log.d(TAG, "syncRequest, isClosedByCC():" + diw());
             }
-            if (!dhZ()) {
+            if (!diw()) {
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest,  (mIUnionId == null):" + (this.lCG == null));
+                    Log.d(TAG, "syncRequest,  (mIUnionId == null):" + (this.lEk == null));
                 }
-                if (this.lCG == null) {
-                    this.lCG = new c(context).lCG;
+                if (this.lEk == null) {
+                    this.lEk = new c(context).lEk;
                 }
-                if (!(this.lCG instanceof com.baidu.n.a.b.b) && !this.lCK.get()) {
+                if (!(this.lEk instanceof com.baidu.n.a.b.b) && !this.lEo.get()) {
                     b(context, new Object());
                 }
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest, (mIUnionId instanceof UnSupportedUnionID):" + (this.lCG instanceof com.baidu.n.a.b.b));
+                    Log.d(TAG, "syncRequest, (mIUnionId instanceof UnSupportedUnionID):" + (this.lEk instanceof com.baidu.n.a.b.b));
                 }
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest, mIUnionId.getOAID：" + this.lCG.dic());
-                    Log.d(TAG, "syncRequest, mIUnionId.isTrackLimited：" + this.lCG.dhR());
-                    Log.d(TAG, "syncRequest, mIUnionId.getStatusCode：" + this.lCG.getStatusCode());
+                    Log.d(TAG, "syncRequest, mIUnionId.getOAID：" + this.lEk.diz());
+                    Log.d(TAG, "syncRequest, mIUnionId.isTrackLimited：" + this.lEk.dio());
+                    Log.d(TAG, "syncRequest, mIUnionId.getStatusCode：" + this.lEk.getStatusCode());
                 }
-                if (this.lCG.getStatusCode() != -200) {
-                    cVar = this.lCG;
+                if (this.lEk.getStatusCode() != -200) {
+                    cVar = this.lEk;
                 }
             }
         }
@@ -84,18 +84,18 @@ public class e {
             throw new NullPointerException("param looper not null");
         }
         final a aVar = new a(looper, bVar);
-        if (dhZ()) {
+        if (diw()) {
             aVar.obtainMessage(100, null).sendToTarget();
-        } else if (this.lCG != null && this.lCL.get()) {
+        } else if (this.lEk != null && this.lEp.get()) {
             if (DEBUG) {
-                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.lCG.dic());
-                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.lCG.dhR());
-                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.lCG.getStatusCode());
+                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.lEk.diz());
+                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.lEk.dio());
+                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.lEk.getStatusCode());
             }
-            aVar.obtainMessage(100, this.lCG).sendToTarget();
+            aVar.obtainMessage(100, this.lEk).sendToTarget();
         } else {
-            if (!this.lCL.get()) {
-                this.lCG = new c(context).lCG;
+            if (!this.lEp.get()) {
+                this.lEk = new c(context).lEk;
             }
             new Thread(new Runnable() { // from class: com.baidu.n.a.e.1
                 @Override // java.lang.Runnable
@@ -103,19 +103,19 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "asyncRequest, Thread runn！");
                     }
-                    com.baidu.n.a.a.a gi = e.this.gi(context);
+                    com.baidu.n.a.a.a gh = e.this.gh(context);
                     if (e.DEBUG) {
-                        Log.d(e.TAG, "asyncRequest, cachedBean == null ？" + (gi == null));
+                        Log.d(e.TAG, "asyncRequest, cachedBean == null ？" + (gh == null));
                     }
-                    if (gi == null || e.this.a(gi)) {
+                    if (gh == null || e.this.a(gh)) {
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, requestFromManufacturer");
                         }
-                        e.this.dhY();
+                        e.this.div();
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles！");
                         }
-                        e.this.lCL.set(e.this.gh(context));
+                        e.this.lEp.set(e.this.gg(context));
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles done");
                         }
@@ -123,7 +123,7 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "asyncRequest, send  innerHandler message");
                     }
-                    aVar.obtainMessage(100, e.this.lCG).sendToTarget();
+                    aVar.obtainMessage(100, e.this.lEk).sendToTarget();
                 }
             }).start();
         }
@@ -136,7 +136,7 @@ public class e {
                 if (e.DEBUG) {
                     Log.d(e.TAG, "syncReadFromCache, thread runn:");
                 }
-                e.this.lCK.set(e.this.gi(context) != null);
+                e.this.lEo.set(e.this.gh(context) != null);
                 if (e.DEBUG) {
                     Log.d(e.TAG, "syncReadFromCache, cachJsonObject done:");
                 }
@@ -149,7 +149,7 @@ public class e {
             }
         }).start();
         synchronized (obj) {
-            if (!this.lCK.get()) {
+            if (!this.lEo.get()) {
                 try {
                     if (DEBUG) {
                         Log.d(TAG, "syncReadFromCache, waiter:");
@@ -196,16 +196,16 @@ public class e {
                 String optString = optJSONObject.optString(str5);
                 String optString2 = optJSONObject.optString(str6);
                 String optString3 = optJSONObject.optString(str7);
-                this.lCG.uW(optBoolean);
-                this.lCG.uX(optBoolean2);
-                this.lCG.He(optInt);
-                this.lCG.NJ(optString);
-                this.lCG.NK(optString2);
-                this.lCG.NL(optString3);
-                aVar.lCQ = this.lCG;
+                this.lEk.vd(optBoolean);
+                this.lEk.ve(optBoolean2);
+                this.lEk.Hk(optInt);
+                this.lEk.NI(optString);
+                this.lEk.NJ(optString2);
+                this.lEk.NK(optString3);
+                aVar.lEu = this.lEk;
                 return true;
             }
-            aVar.lCQ = null;
+            aVar.lEu = null;
             if (DEBUG) {
                 Log.d(TAG, "tryParseCacheJsonObject return cause null：");
                 return false;
@@ -222,7 +222,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull com.baidu.n.a.a.a aVar) {
-        if (Math.abs(System.currentTimeMillis() - aVar.time) > dia()) {
+        if (Math.abs(System.currentTimeMillis() - aVar.time) > dix()) {
             if (DEBUG) {
                 Log.d(TAG, "isExpireTime ：超过缓存有效期");
             }
@@ -235,9 +235,9 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean gh(Context context) {
+    public boolean gg(Context context) {
         try {
-            if (this.lCG == null || TextUtils.isEmpty(this.lCG.dic())) {
+            if (this.lEk == null || TextUtils.isEmpty(this.lEk.diz())) {
                 return false;
             }
             File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
@@ -259,14 +259,14 @@ public class e {
             String str6 = new String(com.baidu.n.a.c.c.decode("b2FpZA==".getBytes()));
             String str7 = new String(com.baidu.n.a.c.c.decode("YWFpZA==".getBytes()));
             String str8 = new String(com.baidu.n.a.c.c.decode("dmFpZA==".getBytes()));
-            optJSONObject.put(str3, this.lCG.dhR());
-            optJSONObject.put(str4, this.lCG.isSupport());
-            optJSONObject.put(str5, this.lCG.getStatusCode());
-            optJSONObject.put(str6, this.lCG.dic());
-            optJSONObject.put(str7, this.lCG.did());
-            optJSONObject.put(str8, this.lCG.die());
+            optJSONObject.put(str3, this.lEk.dio());
+            optJSONObject.put(str4, this.lEk.isSupport());
+            optJSONObject.put(str5, this.lEk.getStatusCode());
+            optJSONObject.put(str6, this.lEk.diz());
+            optJSONObject.put(str7, this.lEk.diA());
+            optJSONObject.put(str8, this.lEk.diB());
             jSONObject.put(str2, optJSONObject);
-            com.baidu.n.a.c.e.a(NH(jSONObject.toString()), file2, false, sLock);
+            com.baidu.n.a.c.e.a(NG(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
                 Log.d(TAG, "trySaveFiles, app: " + jSONObject.toString());
             }
@@ -281,7 +281,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.n.a.a.a gi(Context context) {
+    public com.baidu.n.a.a.a gh(Context context) {
         File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
         if (!file.exists()) {
             if (DEBUG) {
@@ -305,12 +305,12 @@ public class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String NI = NI(a2);
+        String NH = NH(a2);
         if (DEBUG) {
-            Log.d(TAG, "getCacheObject ，json：" + NI);
+            Log.d(TAG, "getCacheObject ，json：" + NH);
         }
         try {
-            JSONObject jSONObject = new JSONObject(NI);
+            JSONObject jSONObject = new JSONObject(NH);
             com.baidu.n.a.a.a aVar = new com.baidu.n.a.a.a();
             a(aVar, jSONObject);
             return aVar;
@@ -331,23 +331,23 @@ public class e {
         return sb.toString();
     }
 
-    static String NH(String str) {
+    static String NG(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return com.baidu.n.a.c.c.encode(com.baidu.n.a.c.a.encrypt(lCH, lCI, str.getBytes()), "utf-8");
+            return com.baidu.n.a.c.c.encode(com.baidu.n.a.c.a.encrypt(lEl, lEm, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException | Exception e) {
             return "";
         }
     }
 
-    static String NI(String str) {
+    static String NH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return new String(com.baidu.n.a.c.a.decrypt(lCH, lCI, com.baidu.n.a.c.c.decode(str.getBytes())));
+            return new String(com.baidu.n.a.c.a.decrypt(lEl, lEm, com.baidu.n.a.c.c.decode(str.getBytes())));
         } catch (Exception e) {
             if (DEBUG) {
                 Log.d(TAG, "getCacheObject ，decryptUnionID：" + e.getMessage());
@@ -358,14 +358,14 @@ public class e {
 
     /* loaded from: classes6.dex */
     private static class a extends Handler {
-        private com.baidu.n.a.a.b lCP;
+        private com.baidu.n.a.a.b lEt;
 
         public a() {
         }
 
         public a(Looper looper, com.baidu.n.a.a.b bVar) {
             super(looper);
-            this.lCP = bVar;
+            this.lEt = bVar;
         }
 
         @Override // android.os.Handler
@@ -375,10 +375,10 @@ public class e {
                 case 100:
                     com.baidu.n.a.a.c cVar = (com.baidu.n.a.a.c) message.obj;
                     if (e.DEBUG) {
-                        Log.d(e.TAG, "handleMessage ，what：" + (cVar == null ? "" : cVar.dic()));
+                        Log.d(e.TAG, "handleMessage ，what：" + (cVar == null ? "" : cVar.diz()));
                     }
-                    if (this.lCP != null) {
-                        this.lCP.a(cVar);
+                    if (this.lEt != null) {
+                        this.lEt.a(cVar);
                         return;
                     }
                     return;
@@ -388,11 +388,11 @@ public class e {
         }
     }
 
-    private boolean dhZ() {
-        return com.baidu.n.a.a.Hc(b.dhV());
+    private boolean diw() {
+        return com.baidu.n.a.a.Hi(b.dis());
     }
 
-    private long dia() {
-        return com.baidu.n.a.a.Hd(b.dhV()) * 60 * 1000;
+    private long dix() {
+        return com.baidu.n.a.a.Hj(b.dis()) * 60 * 1000;
     }
 }

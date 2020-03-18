@@ -20,7 +20,7 @@ public class m extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        boolean isLogin = eVar.acQ().isLogin(context);
+        boolean isLogin = eVar.acT().isLogin(context);
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("isLogin", isLogin);

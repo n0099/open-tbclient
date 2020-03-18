@@ -4,16 +4,16 @@ final class i {
     private int bitOffset;
     private int byteOffset;
     private final byte[] data;
-    private final int mma;
+    private final int mnG;
 
     public i(byte[] bArr) {
         this.data = bArr;
-        this.mma = bArr.length;
+        this.mnG = bArr.length;
     }
 
-    public boolean dvo() {
+    public boolean dvL() {
         boolean z = (((this.data[this.byteOffset] & 255) >> this.bitOffset) & 1) == 1;
-        JU(1);
+        Ka(1);
         return z;
     }
 
@@ -28,11 +28,11 @@ final class i {
             i3++;
         }
         int i5 = i4 & ((-1) >>> (32 - i));
-        JU(i);
+        Ka(i);
         return i5;
     }
 
-    public void JU(int i) {
+    public void Ka(int i) {
         int i2 = i / 8;
         this.byteOffset += i2;
         this.bitOffset = (i - (i2 * 8)) + this.bitOffset;
@@ -40,14 +40,14 @@ final class i {
             this.byteOffset++;
             this.bitOffset -= 8;
         }
-        dvp();
+        dvM();
     }
 
     public int getPosition() {
         return (this.byteOffset * 8) + this.bitOffset;
     }
 
-    private void dvp() {
-        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mma || (this.byteOffset == this.mma && this.bitOffset == 0)));
+    private void dvM() {
+        com.google.android.exoplayer2.util.a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mnG || (this.byteOffset == this.mnG && this.bitOffset == 0)));
     }
 }

@@ -14,7 +14,7 @@ public final class g {
         this.values = new long[i];
     }
 
-    public void gG(long j) {
+    public void gH(long j) {
         if (this.size == this.values.length) {
             this.values = Arrays.copyOf(this.values, this.size * 2);
         }
@@ -24,7 +24,7 @@ public final class g {
         jArr[i] = j;
     }
 
-    public long LT(int i) {
+    public long LZ(int i) {
         if (i < 0 || i >= this.size) {
             throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + this.size);
         }
@@ -35,7 +35,7 @@ public final class g {
         return this.size;
     }
 
-    public long[] dzp() {
+    public long[] dzM() {
         return Arrays.copyOf(this.values, this.size);
     }
 }

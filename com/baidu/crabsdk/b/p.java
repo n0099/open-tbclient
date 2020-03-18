@@ -1,46 +1,50 @@
 package com.baidu.crabsdk.b;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public final class p {
-    public static int J() {
-        if (new File("/system/bin/su").exists() && b("/system/bin/su")) {
-            return 1;
-        }
-        return (new File("/system/xbin/su").exists() && b("/system/xbin/su")) ? 1 : 0;
+    private static PackageManager Sb;
+    private static PackageInfo Sc;
+    private static String Se;
+    private static Context mContext;
+
+    public static String L() {
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? Sc == null ? "N/A" : Sc.versionName : com.baidu.crabsdk.a.o;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private static boolean b(String str) {
-        Process process = null;
-        try {
+    public static void e(Context context) {
+        if (mContext == null) {
+            mContext = context;
+            Sb = context.getPackageManager();
             try {
-                process = Runtime.getRuntime().exec("ls -l " + str);
-                String readLine = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
-                com.baidu.crabsdk.c.a.cj("isExecutable" + readLine);
-                if (readLine != null && readLine.length() >= 4) {
-                    char charAt = readLine.charAt(3);
-                    if (charAt == 's' || charAt == 'x') {
-                        return true;
-                    }
-                }
-                if (process != null) {
-                    process.destroy();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                if (process != null) {
-                    process.destroy();
-                }
-            }
-            return false;
-        } finally {
-            if (process != null) {
-                process.destroy();
+                Sc = Sb.getPackageInfo(mContext.getPackageName(), 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }
         }
+    }
+
+    public static String oi() {
+        return mContext.getPackageName();
+    }
+
+    public static String oj() {
+        if (Se == null) {
+            if (Sc == null) {
+                return "N/A";
+            }
+            Se = Sc.applicationInfo.loadLabel(Sb).toString();
+        }
+        return Se;
+    }
+
+    public static int ok() {
+        if (Sc == null) {
+            return 0;
+        }
+        return Sc.versionCode;
     }
 }

@@ -11,18 +11,18 @@ import java.util.ListIterator;
 /* loaded from: classes6.dex */
 public class k implements i, l {
     private final String name;
-    private final MergePaths nqc;
+    private final MergePaths nrP;
+    private final Path gj = new Path();
     private final Path gk = new Path();
-    private final Path gl = new Path();
     private final Path path = new Path();
-    private final List<l> fU = new ArrayList();
+    private final List<l> fT = new ArrayList();
 
     public k(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.nqc = mergePaths;
+        this.nrP = mergePaths;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.i
@@ -32,7 +32,7 @@ public class k implements i, l {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.fU.add((l) previous);
+                this.fT.add((l) previous);
                 listIterator.remove();
             }
         }
@@ -43,8 +43,8 @@ public class k implements i, l {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.fU.size()) {
-                this.fU.get(i2).b(list, list2);
+            if (i2 < this.fT.size()) {
+                this.fT.get(i2).b(list, list2);
                 i = i2 + 1;
             } else {
                 return;
@@ -55,7 +55,7 @@ public class k implements i, l {
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path bG() {
         this.path.reset();
-        switch (this.nqc.dHl()) {
+        switch (this.nrP.dHL()) {
             case Merge:
                 bK();
                 break;
@@ -84,8 +84,8 @@ public class k implements i, l {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.fU.size()) {
-                this.path.addPath(this.fU.get(i2).bG());
+            if (i2 < this.fT.size()) {
+                this.path.addPath(this.fT.get(i2).bG());
                 i = i2 + 1;
             } else {
                 return;
@@ -95,38 +95,38 @@ public class k implements i, l {
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.gl.reset();
         this.gk.reset();
-        int size = this.fU.size() - 1;
+        this.gj.reset();
+        int size = this.fT.size() - 1;
         while (true) {
             int i = size;
             if (i < 1) {
                 break;
             }
-            l lVar = this.fU.get(i);
+            l lVar = this.fT.get(i);
             if (lVar instanceof c) {
                 List<l> bE = ((c) lVar).bE();
                 for (int size2 = bE.size() - 1; size2 >= 0; size2--) {
                     Path bG = bE.get(size2).bG();
                     bG.transform(((c) lVar).bF());
-                    this.gl.addPath(bG);
+                    this.gk.addPath(bG);
                 }
             } else {
-                this.gl.addPath(lVar.bG());
+                this.gk.addPath(lVar.bG());
             }
             size = i - 1;
         }
-        l lVar2 = this.fU.get(0);
+        l lVar2 = this.fT.get(0);
         if (lVar2 instanceof c) {
             List<l> bE2 = ((c) lVar2).bE();
             for (int i2 = 0; i2 < bE2.size(); i2++) {
                 Path bG2 = bE2.get(i2).bG();
                 bG2.transform(((c) lVar2).bF());
-                this.gk.addPath(bG2);
+                this.gj.addPath(bG2);
             }
         } else {
-            this.gk.set(lVar2.bG());
+            this.gj.set(lVar2.bG());
         }
-        this.path.op(this.gk, this.gl, op);
+        this.path.op(this.gj, this.gk, op);
     }
 }

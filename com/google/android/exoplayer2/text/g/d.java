@@ -7,21 +7,21 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class d {
-    private float SW;
+    private float Th;
     private int backgroundColor;
     private int bold;
-    private int gPf;
-    private String hD;
+    private int gQm;
+    private String hC;
     private int italic;
-    private boolean mBI;
-    private boolean mBJ;
-    private int mBK;
-    private int mBL;
-    private Layout.Alignment mBN;
-    private String mCj;
-    private String mCk;
-    private List<String> mCl;
-    private String mCm;
+    private String mDT;
+    private String mDU;
+    private List<String> mDV;
+    private String mDW;
+    private boolean mDq;
+    private boolean mDr;
+    private int mDs;
+    private int mDt;
+    private Layout.Alignment mDv;
     private int underline;
 
     public d() {
@@ -29,46 +29,46 @@ final class d {
     }
 
     public void reset() {
-        this.mCj = "";
-        this.mCk = "";
-        this.mCl = Collections.emptyList();
-        this.mCm = "";
-        this.hD = null;
-        this.mBI = false;
-        this.mBJ = false;
-        this.mBK = -1;
+        this.mDT = "";
+        this.mDU = "";
+        this.mDV = Collections.emptyList();
+        this.mDW = "";
+        this.hC = null;
+        this.mDq = false;
+        this.mDr = false;
+        this.mDs = -1;
         this.underline = -1;
         this.bold = -1;
         this.italic = -1;
-        this.mBL = -1;
-        this.mBN = null;
+        this.mDt = -1;
+        this.mDv = null;
+    }
+
+    public void Qc(String str) {
+        this.mDT = str;
     }
 
     public void Qd(String str) {
-        this.mCj = str;
-    }
-
-    public void Qe(String str) {
-        this.mCk = str;
+        this.mDU = str;
     }
 
     public void T(String[] strArr) {
-        this.mCl = Arrays.asList(strArr);
+        this.mDV = Arrays.asList(strArr);
     }
 
-    public void Qf(String str) {
-        this.mCm = str;
+    public void Qe(String str) {
+        this.mDW = str;
     }
 
     public int a(String str, String str2, String[] strArr, String str3) {
-        if (this.mCj.isEmpty() && this.mCk.isEmpty() && this.mCl.isEmpty() && this.mCm.isEmpty()) {
+        if (this.mDT.isEmpty() && this.mDU.isEmpty() && this.mDV.isEmpty() && this.mDW.isEmpty()) {
             return str2.isEmpty() ? 1 : 0;
         }
-        int b = b(b(b(0, this.mCj, str, 1073741824), this.mCk, str2, 2), this.mCm, str3, 4);
-        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mCl)) {
+        int b = b(b(b(0, this.mDT, str, 1073741824), this.mDU, str2, 2), this.mDW, str3, 4);
+        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mDV)) {
             return 0;
         }
-        return (this.mCl.size() * 4) + b;
+        return (this.mDV.size() * 4) + b;
     }
 
     public int getStyle() {
@@ -78,82 +78,82 @@ final class d {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dym() {
-        return this.mBK == 1;
+    public boolean dyJ() {
+        return this.mDs == 1;
     }
 
-    public boolean dyn() {
+    public boolean dyK() {
         return this.underline == 1;
     }
 
-    public d vP(boolean z) {
+    public d vW(boolean z) {
         this.underline = z ? 1 : 0;
         return this;
     }
 
-    public d vQ(boolean z) {
+    public d vX(boolean z) {
         this.bold = z ? 1 : 0;
         return this;
     }
 
-    public d vR(boolean z) {
+    public d vY(boolean z) {
         this.italic = z ? 1 : 0;
         return this;
     }
 
-    public String dyo() {
-        return this.hD;
+    public String dyL() {
+        return this.hC;
     }
 
-    public d Qg(String str) {
-        this.hD = v.QC(str);
+    public d Qf(String str) {
+        this.hC = v.QB(str);
         return this;
     }
 
     public int getFontColor() {
-        if (!this.mBI) {
+        if (!this.mDq) {
             throw new IllegalStateException("Font color not defined");
         }
-        return this.gPf;
+        return this.gQm;
     }
 
-    public d LB(int i) {
-        this.gPf = i;
-        this.mBI = true;
+    public d LH(int i) {
+        this.gQm = i;
+        this.mDq = true;
         return this;
     }
 
-    public boolean dyp() {
-        return this.mBI;
+    public boolean dyM() {
+        return this.mDq;
     }
 
     public int getBackgroundColor() {
-        if (!this.mBJ) {
+        if (!this.mDr) {
             throw new IllegalStateException("Background color not defined.");
         }
         return this.backgroundColor;
     }
 
-    public d LC(int i) {
+    public d LI(int i) {
         this.backgroundColor = i;
-        this.mBJ = true;
+        this.mDr = true;
         return this;
     }
 
-    public boolean dyq() {
-        return this.mBJ;
+    public boolean dyN() {
+        return this.mDr;
     }
 
-    public Layout.Alignment dyr() {
-        return this.mBN;
+    public Layout.Alignment dyO() {
+        return this.mDv;
     }
 
-    public int dys() {
-        return this.mBL;
+    public int dyP() {
+        return this.mDt;
     }
 
-    public float dyt() {
-        return this.SW;
+    public float dyQ() {
+        return this.Th;
     }
 
     private static int b(int i, String str, String str2, int i2) {

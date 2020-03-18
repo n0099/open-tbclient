@@ -74,7 +74,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo220c() {
+        public void mo218c() {
         }
     }
 

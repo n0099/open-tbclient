@@ -52,7 +52,7 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
         kotlin.jvm.internal.q.j(hVar, "indices");
-        return hVar.isEmpty() ? o.dKe() : f.aG(f.l(bArr, hVar.dKI().intValue(), hVar.dKJ().intValue() + 1));
+        return hVar.isEmpty() ? o.dKE() : f.aG(f.l(bArr, hVar.dLi().intValue(), hVar.dLj().intValue() + 1));
     }
 
     public static final kotlin.b.h aH(byte[] bArr) {
@@ -74,20 +74,20 @@ public class j extends i {
         return c;
     }
 
-    public static final <T> HashSet<T> N(T[] tArr) {
+    public static final <T> HashSet<T> O(T[] tArr) {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.NE(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(af.NK(tArr.length)));
     }
 
-    public static final <T> Set<T> O(T[] tArr) {
+    public static final <T> Set<T> P(T[] tArr) {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dKl();
+                return al.dKL();
             case 1:
                 return al.bT(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.NE(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.NK(tArr.length)));
         }
     }
 }

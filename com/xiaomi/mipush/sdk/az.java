@@ -39,7 +39,7 @@ public class az extends Handler {
                 int i = message.arg1;
                 synchronized (ao.class) {
                     context = this.a.f46a;
-                    if (ao.a(context).m63a(str)) {
+                    if (ao.a(context).m61a(str)) {
                         context2 = this.a.f46a;
                         if (ao.a(context2).a(str) < 10) {
                             if (bd.DISABLE_PUSH.ordinal() == i) {

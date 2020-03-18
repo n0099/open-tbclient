@@ -50,7 +50,7 @@ public class s extends b<com.baidu.tbadk.core.data.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.KR.NZ.onChangeSkinType();
+            this.KR.Oa.onChangeSkinType();
         }
         this.mSkinType = i;
     }
@@ -61,10 +61,10 @@ public class s extends b<com.baidu.tbadk.core.data.a> {
         a(1, new a.b() { // from class: com.baidu.card.s.1
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
-                if (s.this.Kc != null && s.this.Kc.aAg() != null) {
-                    com.baidu.tieba.card.l.zT(s.this.Kc.aAg().getId());
-                    com.baidu.tieba.card.l.a(s.this.KR.mTitle, s.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(s.this.KR.KA, s.this.Kc.aAg().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                if (s.this.Kc != null && s.this.Kc.aAj() != null) {
+                    com.baidu.tieba.card.l.zU(s.this.Kc.aAj().getId());
+                    com.baidu.tieba.card.l.a(s.this.KR.mTitle, s.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(s.this.KR.KA, s.this.Kc.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -89,5 +89,9 @@ public class s extends b<com.baidu.tbadk.core.data.a> {
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
         this.KR.setPreloadSizeReadyCallback(bVar);
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.KR.setNeedFrsTabName(z);
     }
 }

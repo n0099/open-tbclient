@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes9.dex */
 public class z {
-    public boolean iMi;
-    public boolean iMt;
-    public boolean iMf = false;
-    public boolean iMg = false;
-    public boolean iMh = false;
-    public boolean iMj = false;
-    public boolean iMk = false;
-    public boolean iMl = false;
-    public boolean iMm = false;
-    public boolean iMn = false;
-    public boolean iMo = false;
-    public boolean iMp = false;
+    public boolean iNJ;
+    public boolean iNU;
+    public boolean iNG = false;
+    public boolean iNH = false;
+    public boolean iNI = false;
+    public boolean iNK = false;
+    public boolean iNL = false;
+    public boolean iNM = false;
+    public boolean iNN = false;
+    public boolean iNO = false;
+    public boolean iNP = false;
+    public boolean iNQ = false;
     public boolean isHostOnly = false;
-    public boolean iMq = false;
-    public boolean hW = false;
-    public boolean iMr = false;
-    public boolean iMs = false;
+    public boolean iNR = false;
+    public boolean hV = false;
+    public boolean iNS = false;
+    public boolean iNT = false;
 }

@@ -13,7 +13,7 @@ public abstract class aj {
 
     public abstract void setText(CharSequence charSequence);
 
-    public static aj cQ(Context context) {
+    public static aj cP(Context context) {
         sTheApp = context.getApplicationContext();
         return com.baidu.swan.apps.as.a.hasHoneycomb() ? new a() : new b();
     }

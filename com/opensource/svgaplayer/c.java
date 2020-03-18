@@ -12,57 +12,57 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class c {
-    private HashMap<String, Boolean> nkP = new HashMap<>();
-    private HashMap<String, Bitmap> nkQ = new HashMap<>();
-    private HashMap<String, String> nkR = new HashMap<>();
-    private HashMap<String, TextPaint> nkS = new HashMap<>();
-    private HashMap<String, StaticLayout> nkT = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> nkU = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> nkV = new HashMap<>();
-    private boolean nkW;
+    private HashMap<String, Boolean> nmC = new HashMap<>();
+    private HashMap<String, Bitmap> nmD = new HashMap<>();
+    private HashMap<String, String> nmE = new HashMap<>();
+    private HashMap<String, TextPaint> nmF = new HashMap<>();
+    private HashMap<String, StaticLayout> nmG = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> nmH = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> nmI = new HashMap<>();
+    private boolean nmJ;
 
-    public final HashMap<String, Boolean> dEI() {
-        return this.nkP;
+    public final HashMap<String, Boolean> dFi() {
+        return this.nmC;
     }
 
-    public final HashMap<String, Bitmap> dEJ() {
-        return this.nkQ;
+    public final HashMap<String, Bitmap> dFj() {
+        return this.nmD;
     }
 
-    public final HashMap<String, String> dEK() {
-        return this.nkR;
+    public final HashMap<String, String> dFk() {
+        return this.nmE;
     }
 
-    public final HashMap<String, TextPaint> dEL() {
-        return this.nkS;
+    public final HashMap<String, TextPaint> dFl() {
+        return this.nmF;
     }
 
-    public final HashMap<String, StaticLayout> dEM() {
-        return this.nkT;
+    public final HashMap<String, StaticLayout> dFm() {
+        return this.nmG;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> dEN() {
-        return this.nkU;
+    public final HashMap<String, m<Canvas, Integer, Boolean>> dFn() {
+        return this.nmH;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dEO() {
-        return this.nkV;
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dFo() {
+        return this.nmI;
     }
 
-    public final boolean dEP() {
-        return this.nkW;
+    public final boolean dFp() {
+        return this.nmJ;
     }
 
-    public final void wv(boolean z) {
-        this.nkW = z;
+    public final void wD(boolean z) {
+        this.nmJ = z;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
         q.j(str, "text");
         q.j(textPaint, "textPaint");
         q.j(str2, "forKey");
-        this.nkW = true;
-        this.nkR.put(str2, str);
-        this.nkS.put(str2, textPaint);
+        this.nmJ = true;
+        this.nmE.put(str2, str);
+        this.nmF.put(str2, textPaint);
     }
 }

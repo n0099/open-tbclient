@@ -19,7 +19,7 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        ba.aGG().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
+        ba.aGK().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {
@@ -51,21 +51,21 @@ public class c {
     private static void b(Context context, bj bjVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bjVar != null && bjVar.aCo() != null && bjVar.aCH() != null) {
+        } else if (context != null && bjVar != null && bjVar.aCr() != null && bjVar.aCK() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bjVar.aCo().getUserId();
+                String userId = bjVar.aCr().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCH());
+            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCK());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }
 
-    public static int[] eF(Context context) {
+    public static int[] eE(Context context) {
         int dimensionPixelSize = l.getScreenDimensions(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
     }

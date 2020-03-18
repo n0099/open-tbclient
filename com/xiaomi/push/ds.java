@@ -103,7 +103,7 @@ public class ds {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m225a() {
+    public void m223a() {
         ai.a(this.f244a).a(new dt(this), 30);
     }
 }

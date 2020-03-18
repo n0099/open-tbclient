@@ -44,7 +44,7 @@ public class d {
     public static void copyStream(InputStream inputStream, File file) throws IOException {
         FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = c.cH(file.getAbsolutePath());
+            fileOutputStream = c.cG(file.getAbsolutePath());
             copyStream(inputStream, fileOutputStream);
         } finally {
             close(fileOutputStream);

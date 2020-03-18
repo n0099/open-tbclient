@@ -17,7 +17,7 @@ import java.util.List;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean oh(String str) {
+    public static boolean og(String str) {
         return F(str, false);
     }
 
@@ -129,7 +129,7 @@ public class a {
     private static boolean processFileUriIntent(Context context, File file, Intent intent) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
-                Uri uriForFile = FileProvider.getUriForFile(context, du(context), file);
+                Uri uriForFile = FileProvider.getUriForFile(context, dt(context), file);
                 if (uriForFile == null) {
                     return false;
                 }
@@ -153,7 +153,7 @@ public class a {
         return true;
     }
 
-    private static String du(Context context) {
-        return d.aws() ? d.awt() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
+    private static String dt(Context context) {
+        return d.awv() ? d.aww() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
     }
 }

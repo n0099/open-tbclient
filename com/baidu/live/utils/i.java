@@ -47,11 +47,11 @@ public class i {
         return simpleDateFormat.format(date);
     }
 
-    public static String AY() {
+    public static String Bf() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String AZ() {
+    public static String Bg() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);

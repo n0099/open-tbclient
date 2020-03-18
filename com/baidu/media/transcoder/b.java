@@ -13,13 +13,13 @@ import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
 public class b implements a {
     private String a;
-    private c aMf;
-    private a.d aMg;
-    private a.InterfaceC0126a aMh;
-    private a.b aMi;
-    private a.c aMj;
-    private a.e aMk;
-    private ExecutorService aMl;
+    private c aMt;
+    private a.d aMu;
+    private a.InterfaceC0126a aMv;
+    private a.b aMw;
+    private a.c aMx;
+    private a.e aMy;
+    private ExecutorService aMz;
     private int c;
     private HashMap<String, String> d;
     private String j;
@@ -28,45 +28,45 @@ public class b implements a {
 
     public b() {
         this.a = "MediaTranscoderInterface";
-        this.aMf = null;
+        this.aMt = null;
         this.c = 0;
         this.d = new HashMap<>();
-        this.aMg = null;
-        this.aMh = null;
-        this.aMi = null;
-        this.aMj = null;
-        this.aMk = null;
+        this.aMu = null;
+        this.aMv = null;
+        this.aMw = null;
+        this.aMx = null;
+        this.aMy = null;
         this.j = null;
         this.k = null;
         this.l = -1;
         e eVar = new e();
         for (int i = 0; i < 2; i++) {
-            this.aMf = eVar.dj(i);
-            if (this.aMf.probe() > 0) {
-                this.aMl = Executors.newSingleThreadExecutor();
+            this.aMt = eVar.dj(i);
+            if (this.aMt.probe() > 0) {
+                this.aMz = Executors.newSingleThreadExecutor();
                 return;
             }
-            this.aMf.release();
-            this.aMf = null;
+            this.aMt.release();
+            this.aMt = null;
         }
     }
 
     public b(int i) {
         this.a = "MediaTranscoderInterface";
-        this.aMf = null;
+        this.aMt = null;
         this.c = 0;
         this.d = new HashMap<>();
-        this.aMg = null;
-        this.aMh = null;
-        this.aMi = null;
-        this.aMj = null;
-        this.aMk = null;
+        this.aMu = null;
+        this.aMv = null;
+        this.aMw = null;
+        this.aMx = null;
+        this.aMy = null;
         this.j = null;
         this.k = null;
         this.l = -1;
         this.c = i;
-        this.aMf = new e().dj(i);
-        this.aMl = Executors.newSingleThreadExecutor();
+        this.aMt = new e().dj(i);
+        this.aMz = Executors.newSingleThreadExecutor();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -106,18 +106,18 @@ public class b implements a {
                                 }
                                 if (mediaTranscoder != null) {
                                 }
-                                this.aMf.setDataSource(this.j);
-                                this.aMf.setOutputFile(this.k);
+                                this.aMt.setDataSource(this.j);
+                                this.aMt.setOutputFile(this.k);
                                 if (this.l != -1) {
                                 }
-                                this.aMf.setOnCompletionListener(this.aMh);
-                                this.aMf.setOnErrorListener(this.aMi);
-                                this.aMf.setOnPreparedListener(this.aMg);
-                                this.aMf.setOnInfoListener(this.aMj);
-                                this.aMf.setOnTerminalListener(this.aMk);
+                                this.aMt.setOnCompletionListener(this.aMv);
+                                this.aMt.setOnErrorListener(this.aMw);
+                                this.aMt.setOnPreparedListener(this.aMu);
+                                this.aMt.setOnInfoListener(this.aMx);
+                                this.aMt.setOnTerminalListener(this.aMy);
                                 while (r2.hasNext()) {
                                 }
-                                this.aMf.prepareAsync();
+                                this.aMt.prepareAsync();
                             }
                         }
                         if (this.c == 1) {
@@ -163,30 +163,30 @@ public class b implements a {
                 mediaMetadataRetriever = null;
             }
             if (mediaTranscoder != null) {
-                this.aMf.release();
-                this.aMf = mediaTranscoder;
+                this.aMt.release();
+                this.aMt = mediaTranscoder;
             }
-            this.aMf.setDataSource(this.j);
-            this.aMf.setOutputFile(this.k);
+            this.aMt.setDataSource(this.j);
+            this.aMt.setOutputFile(this.k);
             if (this.l != -1) {
-                this.aMf.setNativeLogLevel(this.l);
+                this.aMt.setNativeLogLevel(this.l);
             }
-            this.aMf.setOnCompletionListener(this.aMh);
-            this.aMf.setOnErrorListener(this.aMi);
-            this.aMf.setOnPreparedListener(this.aMg);
-            this.aMf.setOnInfoListener(this.aMj);
-            this.aMf.setOnTerminalListener(this.aMk);
+            this.aMt.setOnCompletionListener(this.aMv);
+            this.aMt.setOnErrorListener(this.aMw);
+            this.aMt.setOnPreparedListener(this.aMu);
+            this.aMt.setOnInfoListener(this.aMx);
+            this.aMt.setOnTerminalListener(this.aMy);
             for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                this.aMf.setOption(entry.getKey(), entry.getValue());
+                this.aMt.setOption(entry.getKey(), entry.getValue());
             }
-            this.aMf.prepareAsync();
+            this.aMt.prepareAsync();
         }
     }
 
     @Override // com.baidu.media.transcoder.a
     public synchronized void prepareAsync() {
-        if (this.aMf != null) {
-            this.aMl.submit(new Runnable() { // from class: com.baidu.media.transcoder.b.1
+        if (this.aMt != null) {
+            this.aMz.submit(new Runnable() { // from class: com.baidu.media.transcoder.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.a();
@@ -197,17 +197,17 @@ public class b implements a {
 
     @Override // com.baidu.media.transcoder.a
     public int probe() {
-        if (this.aMf == null) {
+        if (this.aMt == null) {
             return 0;
         }
-        return this.aMf.probe();
+        return this.aMt.probe();
     }
 
     @Override // com.baidu.media.transcoder.a
     public synchronized void release() {
-        if (this.aMf != null) {
-            this.aMf.release();
-            this.aMf = null;
+        if (this.aMt != null) {
+            this.aMt.release();
+            this.aMt = null;
         }
     }
 
@@ -222,23 +222,23 @@ public class b implements a {
     }
 
     public void setOnCompletionListener(a.InterfaceC0126a interfaceC0126a) {
-        this.aMh = interfaceC0126a;
+        this.aMv = interfaceC0126a;
     }
 
     public void setOnErrorListener(a.b bVar) {
-        this.aMi = bVar;
+        this.aMw = bVar;
     }
 
     public void setOnInfoListener(a.c cVar) {
-        this.aMj = cVar;
+        this.aMx = cVar;
     }
 
     public void setOnPreparedListener(a.d dVar) {
-        this.aMg = dVar;
+        this.aMu = dVar;
     }
 
     public void setOnTerminalListener(a.e eVar) {
-        this.aMk = eVar;
+        this.aMy = eVar;
     }
 
     @Override // com.baidu.media.transcoder.a
@@ -253,15 +253,15 @@ public class b implements a {
 
     @Override // com.baidu.media.transcoder.a
     public synchronized void start() {
-        if (this.aMf != null) {
-            this.aMf.start();
+        if (this.aMt != null) {
+            this.aMt.start();
         }
     }
 
     @Override // com.baidu.media.transcoder.a
     public synchronized void stop() {
-        if (this.aMf != null) {
-            this.aMf.stop();
+        if (this.aMt != null) {
+            this.aMt.stop();
         }
     }
 }

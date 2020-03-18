@@ -11,9 +11,9 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ChooseColorView extends View {
-    private int jeV;
-    private boolean jeW;
-    private Bitmap jeX;
+    private int jgu;
+    private boolean jgv;
+    private Bitmap jgw;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jeV = ViewCompat.MEASURED_STATE_MASK;
+        this.jgu = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.jeV);
+        this.mPaint.setColor(this.jgu);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.jeX = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.jgw = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.jeV = i;
-        this.mPaint.setColor(this.jeV);
+        this.jgu = i;
+        this.mPaint.setColor(this.jgu);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.jeV;
+        return this.jgu;
     }
 
     public void setIsChooseView(boolean z) {
-        this.jeW = z;
+        this.jgv = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.jeW) {
-            canvas.drawBitmap(this.jeX, getWidth() - this.jeX.getWidth(), 0.0f, (Paint) null);
+        if (this.jgv) {
+            canvas.drawBitmap(this.jgw, getWidth() - this.jgw.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

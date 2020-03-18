@@ -6,54 +6,54 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class k implements com.baidu.swan.apps.storage.b.c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mg(String str) {
-        return l.mg(str);
+    public String mf(String str) {
+        return l.mf(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mh(String str) {
-        if (com.baidu.swan.apps.storage.b.ma(str) == PathType.RELATIVE) {
-            return l.mg(str);
+    public String mg(String str) {
+        if (com.baidu.swan.apps.storage.b.lZ(str) == PathType.RELATIVE) {
+            return l.mf(str);
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mi(String str) {
-        String oN = l.oN(str);
-        if (TextUtils.isEmpty(oN)) {
+    public String mh(String str) {
+        String oM = l.oM(str);
+        if (TextUtils.isEmpty(oM)) {
             return null;
         }
-        return oN;
+        return oM;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String mi(String str) {
+        return l.pd(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String mj(String str) {
-        return l.pe(str);
+        return mi(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String mk(String str) {
-        return mj(str);
+        return l.oX("bdfile://tmp" + File.separator + str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String ml(String str) {
-        return l.oY("bdfile://tmp" + File.separator + str);
+    public String afs() {
+        return l.oX("bdfile://tmp");
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afp() {
-        return l.oY("bdfile://tmp");
+    public String lY(String str) {
+        return mg(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lZ(String str) {
-        return mh(str);
-    }
-
-    @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lU(String str) {
+    public boolean lT(String str) {
         return !TextUtils.isEmpty(str) && (a.USER_DATA_PATH.equals(str) || str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()));
     }
 

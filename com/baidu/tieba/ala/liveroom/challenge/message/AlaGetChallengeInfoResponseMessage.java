@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private ad eUF;
-    private ae eUG;
-    private ae eUH;
+    private ad eVd;
+    private ae eVe;
+    private ae eVf;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -22,33 +22,33 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             if (optJSONObject != null && getError() == 0) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
                 if (optJSONObject2 != null) {
-                    this.eUF = new ad();
-                    this.eUF.parseJson(optJSONObject2);
+                    this.eVd = new ad();
+                    this.eVd.parseJson(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
                 if (optJSONObject3 != null) {
-                    this.eUG = new ae();
-                    this.eUG.parseJson(optJSONObject3);
+                    this.eVe = new ae();
+                    this.eVe.parseJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
                 if (optJSONObject4 != null) {
-                    this.eUH = new ae();
-                    this.eUH.parseJson(optJSONObject4);
+                    this.eVf = new ae();
+                    this.eVf.parseJson(optJSONObject4);
                 }
             }
             jSONObject.optString("logid");
         }
     }
 
-    public ad bkr() {
-        return this.eUF;
+    public ad bkw() {
+        return this.eVd;
     }
 
-    public ae bks() {
-        return this.eUG;
+    public ae bkx() {
+        return this.eVe;
     }
 
-    public ae bkt() {
-        return this.eUH;
+    public ae bky() {
+        return this.eVf;
     }
 }

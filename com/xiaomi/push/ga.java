@@ -81,7 +81,7 @@ public class ga implements ge {
         }
         Parcelable[] parcelableArr = new Parcelable[gaVarArr.length];
         for (int i = 0; i < gaVarArr.length; i++) {
-            parcelableArr[i] = gaVarArr[i].m300a();
+            parcelableArr[i] = gaVarArr[i].m298a();
         }
         return parcelableArr;
     }
@@ -105,12 +105,12 @@ public class ga implements ge {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m300a() {
+    public Parcelable m298a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m301a() {
+    public String m299a() {
         return this.a;
     }
 
@@ -129,7 +129,7 @@ public class ga implements ge {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m302a(String str) {
+    public void m300a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {

@@ -13,29 +13,47 @@ public final class DeviceId {
     private static final String a = "DeviceId";
     private static final boolean b = false;
     private static g.a d;
-    private static volatile DeviceId g;
     public static boolean sDataCuidInfoShable = true;
     private final Context c;
     private g e;
     private f f;
-    private c h = new c();
 
     private DeviceId(Context context) {
         this.c = context.getApplicationContext();
-        this.e = new g(this.c, new a(this.c), this.h);
-        this.f = new f(this.c, this.h);
+        c cVar = new c();
+        this.e = new g(this.c, new a(this.c), cVar);
+        this.f = new f(this.c, cVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static DeviceId a(Context context) {
-        DeviceId deviceId;
-        synchronized (e.class) {
-            if (g == null) {
-                g = new DeviceId(context);
+    private g.a a() {
+        this.e.b();
+        try {
+            g.a b2 = b();
+            if (b2 == null) {
+                b2 = a((String) null);
             }
-            deviceId = g;
+            if (b2 == null) {
+                b2 = c((String) null);
+            }
+            a(b2);
+            return b2;
+        } catch (Throwable th) {
+            this.e.c();
+            throw th;
         }
-        return deviceId;
+    }
+
+    private static g.a a(Context context) {
+        if (d == null) {
+            synchronized (e.class) {
+                if (d == null) {
+                    SystemClock.uptimeMillis();
+                    d = new DeviceId(context).a();
+                    SystemClock.uptimeMillis();
+                }
+            }
+        }
+        return d;
     }
 
     private g.a a(String str) {
@@ -48,40 +66,14 @@ public final class DeviceId {
     }
 
     private g.a b() {
-        this.e.b();
-        try {
-            g.a c = c();
-            if (c == null) {
-                c = a((String) null);
-            }
-            if (c == null) {
-                c = c((String) null);
-            }
-            a(c);
-            return c;
-        } catch (Throwable th) {
-            this.e.c();
-            throw th;
-        }
-    }
-
-    private static g.a b(Context context) {
-        if (d == null) {
-            synchronized (e.class) {
-                if (d == null) {
-                    SystemClock.uptimeMillis();
-                    d = a(context).b();
-                    SystemClock.uptimeMillis();
-                }
-            }
-        }
-        return d;
+        g.a c = c();
+        return c == null ? d() : c;
     }
 
     private g.a b(String str) {
-        e cg = this.f.cg(str);
-        if (cg != null) {
-            return this.e.b(cg);
+        e cf = this.f.cf(str);
+        if (cf != null) {
+            return this.e.b(cf);
         }
         return null;
     }
@@ -100,8 +92,7 @@ public final class DeviceId {
     }
 
     private g.a c() {
-        g.a d2 = d();
-        return d2 == null ? e() : d2;
+        return this.e.a();
     }
 
     private g.a c(String str) {
@@ -113,43 +104,30 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e nO = aVar.nO();
+        e nN = aVar.nN();
         this.e.a(aVar, true, false);
-        this.f.a(nO);
+        this.f.a(nN);
         this.e.a(aVar);
     }
 
     private g.a d() {
-        return this.e.nG();
-    }
-
-    private g.a e() {
-        e ce;
+        e cd;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (ce = e.ce(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (cd = e.cd(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(ce);
+        return this.e.b(cd);
     }
 
     public static String getCUID(Context context) {
-        return b(context).g();
+        return a(context).g();
     }
 
     public static String getDeviceID(Context context) {
-        return b(context).b();
-    }
-
-    public static boolean isMySelfTrusted(Context context) {
-        return a(context).h.a(context.getApplicationContext());
+        return a(context).b();
     }
 
     @Deprecated
     public static void setCuidDataShable(Context context, boolean z) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g a() {
-        return this.e;
     }
 }

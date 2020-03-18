@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadFactory;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class b {
-    private static b nuI = null;
+    private static b nwv = null;
     private SQLiteDatabase mDatabase;
     private ExecutorService mExecutor = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: common.network.b.b.1
         @Override // java.util.concurrent.ThreadFactory
@@ -24,27 +24,27 @@ public class b {
     });
 
     public static void init(Context context) {
-        nuI = new b(context);
+        nwv = new b(context);
     }
 
-    public static b dIM() {
-        return nuI;
+    public static b dJm() {
+        return nwv;
     }
 
     /* loaded from: classes.dex */
     private class a implements Runnable {
         private String mIp;
-        private String nuK;
+        private String nwx;
 
         public a(String str, String[] strArr) {
-            this.nuK = str;
+            this.nwx = str;
             this.mIp = new JSONArray((Collection) Arrays.asList(strArr)).toString();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("hostname", this.nuK);
+            contentValues.put("hostname", this.nwx);
             contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP, this.mIp);
             b.this.mDatabase.insertWithOnConflict("dns_disaster_cache", null, contentValues, 5);
         }
@@ -58,7 +58,7 @@ public class b {
         this.mExecutor.submit(new a(str, strArr));
     }
 
-    public String[] RV(String str) {
+    public String[] RU(String str) {
         String[] strArr;
         Cursor query = this.mDatabase.query("dns_disaster_cache", new String[]{TableDefine.UserInfoColumns.COLUMN_IP}, String.format("%s=?", "hostname"), new String[]{str}, null, null, null);
         try {

@@ -10,8 +10,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dtC() {
-        return this.timeline.dtC();
+    public int dtZ() {
+        return this.timeline.dtZ();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -25,13 +25,13 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vD(boolean z) {
-        return this.timeline.vD(z);
+    public int vK(boolean z) {
+        return this.timeline.vK(z);
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vE(boolean z) {
-        return this.timeline.vE(z);
+    public int vL(boolean z) {
+        return this.timeline.vL(z);
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -40,8 +40,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dtD() {
-        return this.timeline.dtD();
+    public int dua() {
+        return this.timeline.dua();
     }
 
     @Override // com.google.android.exoplayer2.x

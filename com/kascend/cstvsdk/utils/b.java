@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes5.dex */
 public final class b {
-    public static final b nkA = new b();
+    public static final b nmn = new b();
 
     private b() {
     }
@@ -43,7 +43,7 @@ public final class b {
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
                 ShareInfo dw = com.kascend.chushou.c.a.dw(optJSONObject2);
-                b bVar = b.nkA;
+                b bVar = b.nmn;
                 Context context = this.a;
                 q.i(dw, "shareInfo");
                 bVar.a(context, dw, this.b);
@@ -60,7 +60,7 @@ public final class b {
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.j(context, "context");
-        c.dBR().c(new a(context, str3), str, str2);
+        c.dCo().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -72,27 +72,27 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dPW().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dQw().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C0726b(shareParam, str));
+            thirdParty.share(context, shareParam, new C0727b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0726b implements ShareListener {
+    public static final class C0727b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam nkB;
+        final /* synthetic */ ShareParam nmo;
 
-        C0726b(ShareParam shareParam, String str) {
-            this.nkB = shareParam;
+        C0727b(ShareParam shareParam, String str) {
+            this.nmo = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.nkA.a(i), this.nkB.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.nmn.a(i), this.nmo.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

@@ -13,7 +13,7 @@ public abstract class ad implements Iterator<Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dKj */
+    /* renamed from: dKJ */
     public final Integer next() {
         return Integer.valueOf(nextInt());
     }

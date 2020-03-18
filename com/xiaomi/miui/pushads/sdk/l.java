@@ -169,7 +169,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m119a(ce ceVar) {
+    private boolean m117a(ce ceVar) {
         int i;
         int i2;
         if (ceVar.c <= 0) {
@@ -200,7 +200,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m120a(String str) {
+    private boolean m118a(String str) {
         boolean z = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -228,7 +228,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
             try {
                 a(this.f109b + "--->get notify");
                 if (this.f104a != null) {
-                    if (this.f104a.m115a(new h(hVar))) {
+                    if (this.f104a.m113a(new h(hVar))) {
                         return;
                     }
                     a(hVar);
@@ -252,7 +252,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m121a(int i) {
+    public synchronized void m119a(int i) {
         if (i == 2) {
             this.f102a.edit().putInt("notifycount", this.f102a.getInt("notifycount", 0) + 1).commit();
         } else if (i == 1) {
@@ -278,7 +278,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         } else if (i == 0) {
             if (ceVar.c > 0) {
                 this.f100a++;
-                a().m121a(ceVar.a);
+                a().m119a(ceVar.a);
             }
             a(this.f109b + "--->download sucess: id: " + ceVar.f177a + " type: " + ceVar.a + " count: " + a().a(ceVar.a));
         } else {
@@ -288,7 +288,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         if (this.f104a == null || i != 0) {
             return;
         }
-        if (m119a(ceVar)) {
+        if (m117a(ceVar)) {
             b(ceVar);
         } else {
             a(this.f109b + "--->reach limit, no return to app");
@@ -354,7 +354,7 @@ public class l extends MiPushClient.MiPushClientCallback implements c {
         } else if (!f.a(str3) && !f.a(this.c) && !TextUtils.equals(this.c, str3)) {
             a(this.f109b + "--->get msg for old topic, unset " + str + "##" + str3);
             MiPushClient.unsubscribe(this.f101a, str3, getCategory());
-        } else if (m120a(str)) {
+        } else if (m118a(str)) {
         } else {
             a(str, this.f109b);
         }

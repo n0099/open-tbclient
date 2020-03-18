@@ -18,8 +18,8 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
     private BdListView AG;
-    private l cVh;
-    private TbPageContext<?> cVi;
+    private l cVu;
+    private TbPageContext<?> cVv;
     private AlertDialog mDialog;
     private ArrayList<m> mItems;
     private View mLineView;
@@ -32,21 +32,21 @@ public class e {
     private boolean mDialogCreated = false;
 
     public e(TbPageContext<?> tbPageContext) {
-        this.cVi = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.cVi.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
+        this.cVv = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.cVv.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
         this.AG = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
-        this.cVh = new l(this.cVi);
+        this.cVu = new l(this.cVv);
     }
 
-    public e sU(String str) {
+    public e sT(String str) {
         this.mTitle = str;
         return this;
     }
 
     public e kd(int i) {
-        return sU(this.cVi.getResources().getString(i));
+        return sT(this.cVv.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -60,7 +60,7 @@ public class e {
         return this;
     }
 
-    public e aEE() {
+    public e aEI() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -71,9 +71,9 @@ public class e {
                 this.mTitleView.setVisibility(8);
                 this.mLineView.setVisibility(8);
             }
-            this.AG.setAdapter((ListAdapter) this.cVh);
-            this.cVh.setData(this.mItems);
-            c(this.cVi);
+            this.AG.setAdapter((ListAdapter) this.cVu);
+            this.cVu.setData(this.mItems);
+            c(this.cVv);
         }
         return this;
     }
@@ -86,19 +86,19 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.cVh.setData(this.mItems);
+        this.cVu.setData(this.mItems);
     }
 
-    public e aEF() {
+    public e aEJ() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.a(this.mDialog, this.cVi);
+            com.baidu.adp.lib.f.g.a(this.mDialog, this.cVv);
         } else {
-            this.mDialog = new AlertDialog.Builder(this.cVi.getPageActivity()).create();
+            this.mDialog = new AlertDialog.Builder(this.cVv.getPageActivity()).create();
             this.mDialog.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.cVi.getPageActivity())) {
+            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.cVv.getPageActivity())) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
                     this.mAnimationStyleId = R.style.dialog_ani_b2t;
@@ -127,15 +127,15 @@ public class e {
     }
 
     public void onChangeSkinType() {
-        c(this.cVi);
-        if (this.cVh != null) {
-            this.cVh.notifyDataSetChanged();
+        c(this.cVv);
+        if (this.cVu != null) {
+            this.cVu.notifyDataSetChanged();
         }
     }
 
     public void dismiss() {
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.cVi.getPageActivity());
+            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.cVv.getPageActivity());
         }
     }
 }

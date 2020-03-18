@@ -43,7 +43,7 @@ class j extends XMPushService.i {
         XMPushService xMPushService;
         a = this.a.a(this.f914a);
         ArrayList<Cif> a2 = be.a(this.f915a, this.f914a, a, 32768);
-        com.xiaomi.channel.commonutils.logger.b.m47a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m45a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
@@ -54,12 +54,12 @@ class j extends XMPushService.i {
             next.a("uploadWay", "longXMPushService");
             ic a3 = w.a(this.f914a, a, next, hg.Notification);
             if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f914a, this.b)) {
-                if (a3.m401a() == null) {
+                if (a3.m399a() == null) {
                     ht htVar = new ht();
                     htVar.a("-1");
                     a3.a(htVar);
                 }
-                a3.m401a().b("ext_traffic_source_pkg", this.b);
+                a3.m399a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a4 = iq.a(a3);
             xMPushService = this.a.a;
@@ -67,7 +67,7 @@ class j extends XMPushService.i {
         }
         Iterator it2 = this.f915a.iterator();
         while (it2.hasNext()) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((hk) it2.next()).d() + "  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m45a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((hk) it2.next()).d() + "  ts:" + System.currentTimeMillis());
         }
     }
 }

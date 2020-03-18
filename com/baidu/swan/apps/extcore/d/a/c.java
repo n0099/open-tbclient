@@ -15,7 +15,7 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends ab {
-    private static final String buN = c.class.getSimpleName();
+    private static final String buZ = c.class.getSimpleName();
 
     public c(j jVar) {
         super(jVar, "/swanAPI/debug/replaceGameCore");
@@ -36,7 +36,7 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
             return false;
         }
-        eVar.acP().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.c.1
+        eVar.acS().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -61,13 +61,13 @@ public class c extends ab {
 
             @Override // com.baidu.swan.apps.t.e.b
             public void onSuccess() {
-                File RV = com.baidu.swan.games.j.a.b.RV();
-                File RT = com.baidu.swan.games.j.a.b.RT();
+                File RY = com.baidu.swan.games.j.a.b.RY();
+                File RW = com.baidu.swan.games.j.a.b.RW();
                 if (c.DEBUG) {
-                    Log.d(c.buN, "gameCoreZipFile: " + RV + " gameCoreDir: " + RT);
+                    Log.d(c.buZ, "gameCoreZipFile: " + RY + " gameCoreDir: " + RW);
                 }
-                if (RV.exists() && com.baidu.swan.d.c.unzipFile(RV.getPath(), RT.getPath())) {
-                    com.baidu.swan.apps.ah.a.a.dn(true);
+                if (RY.exists() && com.baidu.swan.d.c.unzipFile(RY.getPath(), RW.getPath())) {
+                    com.baidu.swan.apps.ah.a.a.m25do(true);
                     com.baidu.swan.apps.res.widget.b.d.q(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

@@ -6,38 +6,38 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.g;
 /* loaded from: classes3.dex */
 public class j {
-    private k eFW;
-    private com.baidu.tieba.ala.guardclub.model.g eFX;
+    private k eGs;
+    private com.baidu.tieba.ala.guardclub.model.g eGt;
 
     public j(BaseActivity baseActivity, long j, long j2, long j3, boolean z, boolean z2, boolean z3, boolean z4, String str, BdUniqueId bdUniqueId, g.a aVar) {
-        this.eFW = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.eFX = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
-        this.eFW.setOtherParams(str);
-        this.eFX.j(this.eFW);
-        this.eFW.a(this.eFX);
+        this.eGs = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.eGt = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
+        this.eGs.setOtherParams(str);
+        this.eGt.j(this.eGs);
+        this.eGs.a(this.eGt);
     }
 
-    public void iC(boolean z) {
-        this.eFW.iC(z);
+    public void iE(boolean z) {
+        this.eGs.iE(z);
     }
 
-    public void ta() {
-        if (this.eFW != null) {
-            this.eFW.ta();
+    public void tf() {
+        if (this.eGs != null) {
+            this.eGs.tf();
         }
     }
 
     public View getView() {
-        return this.eFW.getView();
+        return this.eGs.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aqx() {
-        if (this.eFX != null) {
-            this.eFX.onDestory();
+    public void aqA() {
+        if (this.eGt != null) {
+            this.eGt.onDestory();
         }
-        if (this.eFW != null) {
-            this.eFW.bfk();
+        if (this.eGs != null) {
+            this.eGs.bfp();
         }
     }
 }

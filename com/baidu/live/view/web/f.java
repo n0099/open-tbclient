@@ -6,16 +6,16 @@ import com.baidu.live.view.web.a.i;
 import com.baidu.live.view.web.a.j;
 /* loaded from: classes3.dex */
 public class f {
-    private g aGA;
-    private SchemeCallback aGy;
-    private e aGz;
+    private SchemeCallback aGM;
+    private e aGN;
+    private g aGO;
     private Activity context;
     private boolean isHost = false;
     private long userId;
     private String userName;
 
-    public a[] BC() {
-        r0[0].a(this.aGA);
+    public a[] BJ() {
+        r0[0].a(this.aGO);
         com.baidu.live.view.web.a.d dVar = new com.baidu.live.view.web.a.d();
         dVar.setHost(this.isHost);
         com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.context);
@@ -24,7 +24,7 @@ public class f {
         hVar.z(this.context);
         hVar.setUserId(this.userId);
         hVar.setUserName(this.userName);
-        a[] aVarArr = {new i(this.context, this.aGy), dVar, gVar, new com.baidu.live.view.web.a.f(this.aGy), hVar, new com.baidu.live.view.web.a.e(this.aGy), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.aGz), new com.baidu.live.view.web.a.b(this.aGy), new j(this.aGy)};
+        a[] aVarArr = {new i(this.context, this.aGM), dVar, gVar, new com.baidu.live.view.web.a.f(this.aGM), hVar, new com.baidu.live.view.web.a.e(this.aGM), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.aGN), new com.baidu.live.view.web.a.b(this.aGM), new j(this.aGM)};
         return aVarArr;
     }
 
@@ -34,12 +34,12 @@ public class f {
     }
 
     public f a(SchemeCallback schemeCallback) {
-        this.aGy = schemeCallback;
+        this.aGM = schemeCallback;
         return this;
     }
 
     public f a(e eVar) {
-        this.aGz = eVar;
+        this.aGN = eVar;
         return this;
     }
 
@@ -48,18 +48,18 @@ public class f {
         return this;
     }
 
-    public f ep(String str) {
+    public f eo(String str) {
         this.userName = str;
         return this;
     }
 
-    public f bz(boolean z) {
+    public f bA(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public f b(g gVar) {
-        this.aGA = gVar;
+        this.aGO = gVar;
         return this;
     }
 }

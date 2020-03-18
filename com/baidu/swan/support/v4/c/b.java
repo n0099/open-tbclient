@@ -9,20 +9,20 @@ class b {
 
     /* loaded from: classes11.dex */
     static class a implements LayoutInflater.Factory {
-        final e cDP;
+        final e cEa;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
-            this.cDP = eVar;
+            this.cEa = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.cDP.onCreateView(null, str, context, attributeSet);
+            return this.cEa.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + "{" + this.cDP + "}";
+            return getClass().getName() + "{" + this.cEa + "}";
         }
     }
 

@@ -69,7 +69,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!ai.a(this.f8a).a((ai.a) baVar, i)) {
-                    ai.a(this.f8a).m127a(100886);
+                    ai.a(this.f8a).m125a(100886);
                     ai.a(this.f8a).a((ai.a) baVar, i);
                 }
             }
@@ -86,7 +86,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!ai.a(this.f8a).a((ai.a) bbVar, i)) {
-                    ai.a(this.f8a).m127a(100887);
+                    ai.a(this.f8a).m125a(100887);
                     ai.a(this.f8a).a((ai.a) bbVar, i);
                 }
             }
@@ -101,7 +101,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m51a() {
+    public void m49a() {
         a(this.f8a).d();
         a(this.f8a).e();
     }
@@ -138,13 +138,13 @@ public class a {
             Config build = Config.getBuilder().setAESKey(be.a(this.f8a)).setEventEncrypted(this.f9a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f8a);
             this.f9a = build;
             if (!this.f9a.isEventUploadSwitchOpen()) {
-                ai.a(this.f8a).m127a(100886);
+                ai.a(this.f8a).m125a(100886);
             } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f8a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
                 d();
             }
             if (!this.f9a.isPerfUploadSwitchOpen()) {
-                ai.a(this.f8a).m127a(100887);
+                ai.a(this.f8a).m125a(100887);
             } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f8a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
                 e();

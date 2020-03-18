@@ -7,55 +7,55 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes11.dex */
 public class e {
-    private static final String jYH = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private x cLF = null;
+    private static final String kaj = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private x cLQ = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String cIT() {
-        this.cLF = new x(jYH);
-        this.cLF.addPostData("authsid", this.mAuthSid);
-        this.cLF.aGg().aGH().mNeedBackgroundLogin = true;
-        this.cLF.aGg().aGH().mIsNeedTbs = true;
-        this.cLF.fK(true);
-        return this.cLF.postNetData();
+    public String cJn() {
+        this.cLQ = new x(kaj);
+        this.cLQ.addPostData("authsid", this.mAuthSid);
+        this.cLQ.aGk().aGL().mNeedBackgroundLogin = true;
+        this.cLQ.aGk().aGL().mIsNeedTbs = true;
+        this.cLQ.fL(true);
+        return this.cLQ.postNetData();
     }
 
-    public String II(String str) {
+    public String IH(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.cLF = new x(jYH);
-        this.cLF.addPostData("user_id", str2);
-        this.cLF.addPostData("forum_ids", str);
-        this.cLF.addPostData("authsid", this.mAuthSid);
-        this.cLF.aGg().aGH().mNeedBackgroundLogin = true;
-        this.cLF.aGg().aGH().mIsNeedTbs = true;
-        this.cLF.fK(true);
-        return this.cLF.postNetData();
+        this.cLQ = new x(kaj);
+        this.cLQ.addPostData("user_id", str2);
+        this.cLQ.addPostData("forum_ids", str);
+        this.cLQ.addPostData("authsid", this.mAuthSid);
+        this.cLQ.aGk().aGL().mNeedBackgroundLogin = true;
+        this.cLQ.aGk().aGL().mIsNeedTbs = true;
+        this.cLQ.fL(true);
+        return this.cLQ.postNetData();
     }
 
     public void cancel() {
-        if (this.cLF != null) {
-            this.cLF.cancelNetConnect();
+        if (this.cLQ != null) {
+            this.cLQ.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.cLF != null) {
-            return this.cLF.aGg().aGI().isRequestSuccess();
+        if (this.cLQ != null) {
+            return this.cLQ.aGk().aGM().isRequestSuccess();
         }
         return false;
     }
 
-    public String azM() {
-        if (this.cLF != null) {
-            return this.cLF.getErrorString();
+    public String azP() {
+        if (this.cLQ != null) {
+            return this.cLQ.getErrorString();
         }
         return null;
     }

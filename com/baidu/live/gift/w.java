@@ -13,5 +13,5 @@ public interface w {
 
     void onResume();
 
-    View sM();
+    View sR();
 }

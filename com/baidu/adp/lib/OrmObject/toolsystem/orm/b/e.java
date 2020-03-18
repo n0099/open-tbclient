@@ -8,17 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements c {
-
-    /* renamed from: pl  reason: collision with root package name */
-    private JSONObject f973pl;
+    private JSONObject pj;
 
     public e(JSONObject jSONObject) {
-        this.f973pl = jSONObject;
+        this.pj = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        Iterator<String> keys = this.f973pl.keys();
+        Iterator<String> keys = this.pj.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -33,13 +31,13 @@ public class e implements c {
     }
 
     public Object getObject(String str) {
-        return this.f973pl.opt(str);
+        return this.pj.opt(str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
         try {
-            this.f973pl.putOpt(str, obj);
+            this.pj.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }

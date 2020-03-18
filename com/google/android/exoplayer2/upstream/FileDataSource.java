@@ -8,8 +8,8 @@ import java.io.RandomAccessFile;
 public final class FileDataSource implements e {
     private long bytesRemaining;
     private RandomAccessFile file;
-    private final q<? super FileDataSource> mFU;
-    private boolean mFV;
+    private final q<? super FileDataSource> mHA;
+    private boolean mHB;
     private Uri uri;
 
     /* loaded from: classes6.dex */
@@ -24,7 +24,7 @@ public final class FileDataSource implements e {
     }
 
     public FileDataSource(q<? super FileDataSource> qVar) {
-        this.mFU = qVar;
+        this.mHA = qVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -32,14 +32,14 @@ public final class FileDataSource implements e {
         try {
             this.uri = gVar.uri;
             this.file = new RandomAccessFile(gVar.uri.getPath(), "r");
-            this.file.seek(gVar.fOo);
-            this.bytesRemaining = gVar.length == -1 ? this.file.length() - gVar.fOo : gVar.length;
+            this.file.seek(gVar.fOW);
+            this.bytesRemaining = gVar.length == -1 ? this.file.length() - gVar.fOW : gVar.length;
             if (this.bytesRemaining < 0) {
                 throw new EOFException();
             }
-            this.mFV = true;
-            if (this.mFU != null) {
-                this.mFU.a(this, gVar);
+            this.mHB = true;
+            if (this.mHA != null) {
+                this.mHA.a(this, gVar);
             }
             return this.bytesRemaining;
         } catch (IOException e) {
@@ -59,8 +59,8 @@ public final class FileDataSource implements e {
             int read = this.file.read(bArr, i, (int) Math.min(this.bytesRemaining, i2));
             if (read > 0) {
                 this.bytesRemaining -= read;
-                if (this.mFU != null) {
-                    this.mFU.h(this, read);
+                if (this.mHA != null) {
+                    this.mHA.h(this, read);
                     return read;
                 }
                 return read;
@@ -89,10 +89,10 @@ public final class FileDataSource implements e {
             }
         } finally {
             this.file = null;
-            if (this.mFV) {
-                this.mFV = false;
-                if (this.mFU != null) {
-                    this.mFU.bB(this);
+            if (this.mHB) {
+                this.mHB = false;
+                if (this.mHA != null) {
+                    this.mHA.bB(this);
                 }
             }
         }

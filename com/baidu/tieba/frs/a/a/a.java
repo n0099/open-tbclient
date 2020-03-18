@@ -14,17 +14,17 @@ import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes9.dex */
 public class a extends h<n, C0504a> {
-    private boolean gzk;
+    private boolean gAi;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.gzk = z;
+        this.gAi = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aU */
+    /* renamed from: aV */
     public C0504a b(ViewGroup viewGroup) {
         com.baidu.tieba.card.n nVar = new com.baidu.tieba.card.n(this.mPageContext);
         nVar.setStatKey(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
@@ -38,11 +38,11 @@ public class a extends h<n, C0504a> {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0504a.gzl.rq(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0504a.gzl.showBottomLine(this.gzk);
-            c0504a.gzl.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0504a.gAj.rs(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0504a.gAj.showBottomLine(this.gAi);
+            c0504a.gAj.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0504a.gzl.a(nVar);
+        c0504a.gAj.a(nVar);
         return c0504a.getView();
     }
 
@@ -50,11 +50,11 @@ public class a extends h<n, C0504a> {
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public class C0504a extends v.a {
-        public com.baidu.tieba.card.n gzl;
+        public com.baidu.tieba.card.n gAj;
 
         public C0504a(com.baidu.tieba.card.n nVar) {
             super(nVar.getView());
-            this.gzl = nVar;
+            this.gAj = nVar;
         }
     }
 }

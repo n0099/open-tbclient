@@ -3,9 +3,9 @@ package com.baidu.tieba.personCenter.c;
 import tbclient.SmartApp;
 /* loaded from: classes9.dex */
 public class l implements c {
-    private Long jia;
-    private String jib;
-    private Integer jic;
+    private Long jjA;
+    private String jjB;
+    private Integer jjC;
     private String mAppKey;
     private String mAvatar;
     private String mLink;
@@ -17,18 +17,18 @@ public class l implements c {
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.jia = smartApp.swan_app_id;
+            this.jjA = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
             this.sZ = smartApp._abstract;
             this.mPic = smartApp.pic;
-            this.jib = smartApp.h5_url;
+            this.jjB = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.jic = smartApp.is_game;
+            this.jjC = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long cvn() {
-        return this.jia;
+    public Long cvG() {
+        return this.jjA;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class l implements c {
     }
 
     public String getH5Url() {
-        return this.jib;
+        return this.jjB;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer cvo() {
-        return this.jic;
+    public Integer cvH() {
+        return this.jjC;
     }
 }

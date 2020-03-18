@@ -1,24 +1,24 @@
 package com.baidu.live;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b Vx;
-    private boolean Vy;
+    private static volatile b VH;
+    private boolean VI;
 
     private b() {
     }
 
-    public static b pq() {
-        if (Vx == null) {
+    public static b pv() {
+        if (VH == null) {
             synchronized (c.class) {
-                if (Vx == null) {
-                    Vx = new b();
+                if (VH == null) {
+                    VH = new b();
                 }
             }
         }
-        return Vx;
+        return VH;
     }
 
     public void am(boolean z) {
-        this.Vy = z;
+        this.VI = z;
     }
 }

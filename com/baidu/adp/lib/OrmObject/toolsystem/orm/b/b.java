@@ -8,11 +8,11 @@ import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
     private final Set<String> keySet;
-    private Cursor pi;
+    private Cursor ph;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.pi = cursor;
+        this.ph = cursor;
         this.values = null;
         this.keySet = new TreeSet();
         if (cursor != null) {
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.pi.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.pi.getColumnCount()) {
+        int columnIndex = this.ph.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.ph.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.pi.getShort(columnIndex));
+                valueOf = Short.valueOf(this.ph.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.pi.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.ph.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.pi.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.ph.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.pi.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.ph.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.pi.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.ph.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.pi.getString(columnIndex);
+                    string = this.ph.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.pi.getBlob(columnIndex);
+                        return this.ph.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

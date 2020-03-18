@@ -33,30 +33,30 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.d Oo;
+        com.baidu.swan.apps.core.d.d Or;
         final com.baidu.swan.apps.canvas.b.f d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
             unitedSchemeEntity.result = eb(201);
             return false;
         }
-        String lY = com.baidu.swan.apps.storage.b.lY(eVar.id);
-        if (TextUtils.isEmpty(lY)) {
+        String lX = com.baidu.swan.apps.storage.b.lX(eVar.id);
+        if (TextUtils.isEmpty(lX)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = eb(201);
             return false;
         }
-        String str2 = lY + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (d.Kw()) {
+        String str2 = lX + File.separator + Calendar.getInstance().getTimeInMillis();
+        if (d.Kz()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.bin) && (Oo = com.baidu.swan.apps.y.f.WS().Oo()) != null) {
-            d.bin = Oo.NZ();
+        if (TextUtils.isEmpty(d.biB) && (Or = com.baidu.swan.apps.y.f.WV().Or()) != null) {
+            d.biB = Or.Oc();
         }
-        if (TextUtils.isEmpty(d.bin) || TextUtils.isEmpty(d.bim)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bin + " ; canvas id = " + d.bim);
+        if (TextUtils.isEmpty(d.biB) || TextUtils.isEmpty(d.biA)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.biB + " ; canvas id = " + d.biA);
             unitedSchemeEntity.result = eb(201);
             return false;
         }
@@ -87,7 +87,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.br(str, eVar.id) + "." + d.Kx());
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bq(str, eVar.id) + "." + d.KA());
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

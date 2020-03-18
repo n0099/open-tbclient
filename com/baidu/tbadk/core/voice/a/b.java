@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a ud(String str) {
+    public static a uc(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.lG(aVar.error_code);
+            aVar.error_msg = a.lI(aVar.error_code);
         } else if (!m.CheckTempDir(m.getCacheDir() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.lG(aVar.error_code);
+            aVar.error_msg = a.lI(aVar.error_code);
         } else {
             String md5 = s.toMd5(m.GetStreamFromTmpFile(str));
             if (md5 == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.lG(aVar.error_code);
+                aVar.error_msg = a.lI(aVar.error_code);
             } else {
                 String filePath = m.getFilePath(md5, 1, true);
                 if (m.renameTo(str, filePath)) {
@@ -25,7 +25,7 @@ public class b {
                     aVar.md5 = md5;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.lG(aVar.error_code);
+                    aVar.error_msg = a.lI(aVar.error_code);
                 }
             }
         }
@@ -36,7 +36,7 @@ public class b {
         return m.renameTo(str, m.getFilePath(str2, 1, true));
     }
 
-    public static synchronized void aIK() {
+    public static synchronized void aIO() {
         synchronized (b.class) {
             File file = new File(m.getCacheDir() + "voice");
             if (file.exists() && file.isDirectory()) {

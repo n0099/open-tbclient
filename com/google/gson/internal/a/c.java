@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public final class c extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory mLr = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
+    public static final TypeAdapterFactory mMX = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             if (aVar.getRawType() == Date.class) {
@@ -31,19 +31,19 @@ public final class c extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (com.google.gson.internal.d.dAI()) {
-            this.dateFormats.add(com.google.gson.internal.g.eg(2, 2));
+        if (com.google.gson.internal.d.dBf()) {
+            this.dateFormats.add(com.google.gson.internal.g.eh(2, 2));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dAU() == JsonToken.NULL) {
-            aVar.dAZ();
+        if (aVar.dBr() == JsonToken.NULL) {
+            aVar.dBw();
             return null;
         }
-        return deserializeToDate(aVar.dAY());
+        return deserializeToDate(aVar.dBv());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
@@ -77,9 +77,9 @@ public final class c extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dBj();
+            bVar.dBG();
         } else {
-            bVar.QN(this.dateFormats.get(0).format(date));
+            bVar.QM(this.dateFormats.get(0).format(date));
         }
     }
 }

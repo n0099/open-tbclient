@@ -11,5 +11,5 @@ public interface s {
 
     void onDestroy();
 
-    View sC();
+    View sH();
 }

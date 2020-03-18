@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class i {
-    private long dGA;
-    private long dGB;
-    private long dGC;
-    private long dGD;
-    private long dGE;
-    private a dGF;
+    private long dGQ;
+    private long dGR;
+    private long dGS;
+    private long dGT;
+    private long dGU;
+    private a dGV;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
     private boolean Ao = false;
-    private Runnable dGG = new Runnable() { // from class: com.baidu.tbadk.util.i.1
+    private Runnable dGW = new Runnable() { // from class: com.baidu.tbadk.util.i.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (i.this.dGE > i.this.dGD) {
-                i.this.dGD = currentTimeMillis - i.this.dGC;
-                i.this.dGE = i.this.dGD;
+            if (i.this.dGU > i.this.dGT) {
+                i.this.dGT = currentTimeMillis - i.this.dGS;
+                i.this.dGU = i.this.dGT;
             }
-            long j = currentTimeMillis - i.this.dGD;
-            i.this.dGB += i.this.dGC;
-            if (i.this.dGB < i.this.dGA) {
-                i.this.handler.postDelayed(i.this.dGG, (2 * i.this.dGC) - j);
-                if (i.this.dGF != null) {
-                    i.this.dGF.b(i.this.dGA, i.this.dGA - i.this.dGB);
+            long j = currentTimeMillis - i.this.dGT;
+            i.this.dGR += i.this.dGS;
+            if (i.this.dGR < i.this.dGQ) {
+                i.this.handler.postDelayed(i.this.dGW, (2 * i.this.dGS) - j);
+                if (i.this.dGV != null) {
+                    i.this.dGV.b(i.this.dGQ, i.this.dGQ - i.this.dGR);
                 }
             } else {
-                i.this.dGB = i.this.dGA;
+                i.this.dGR = i.this.dGQ;
                 i.this.finish();
             }
-            i.this.dGD = currentTimeMillis;
+            i.this.dGT = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class i {
     }
 
     public i(long j, long j2) {
-        this.dGA = j;
-        this.dGC = j2;
+        this.dGQ = j;
+        this.dGS = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.dGD = this.startTime;
-        if (this.dGF != null) {
-            this.dGF.b(this.dGA, this.dGA - this.dGB);
+        this.dGT = this.startTime;
+        if (this.dGV != null) {
+            this.dGV.b(this.dGQ, this.dGQ - this.dGR);
         }
-        this.handler.postDelayed(this.dGG, this.dGC);
+        this.handler.postDelayed(this.dGW, this.dGS);
     }
 
     public void pause() {
         if (!this.Ao) {
             this.Ao = true;
-            this.dGE = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.dGG);
+            this.dGU = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.dGW);
         }
     }
 
     public void resume() {
         if (this.Ao) {
             this.Ao = false;
-            this.handler.postDelayed(this.dGG, this.dGC - (this.dGE - this.dGD));
+            this.handler.postDelayed(this.dGW, this.dGS - (this.dGU - this.dGT));
         }
     }
 
     public void stop() {
         this.Ao = false;
-        this.dGD = this.startTime;
-        this.dGE = this.dGD;
-        this.handler.removeCallbacks(this.dGG);
+        this.dGT = this.startTime;
+        this.dGU = this.dGT;
+        this.handler.removeCallbacks(this.dGW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.dGF != null) {
-            this.dGF.r(this.dGA);
+        if (this.dGV != null) {
+            this.dGV.r(this.dGQ);
         }
     }
 
     public void a(a aVar) {
-        this.dGF = aVar;
+        this.dGV = aVar;
     }
 
-    public long aRY() {
-        return this.dGB;
+    public long aSc() {
+        return this.dGR;
     }
 }

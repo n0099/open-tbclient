@@ -30,18 +30,18 @@ public final class bf implements Runnable {
         String c;
         String c2;
         String c3;
-        com.xiaomi.channel.commonutils.logger.b.m47a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m45a("do sync info");
         Cif cif = new Cif(com.xiaomi.push.service.aj.a(), false);
-        d m85a = d.m85a(this.a);
+        d m83a = d.m83a(this.a);
         cif.c(hq.SyncInfo.f489a);
-        cif.b(m85a.m86a());
+        cif.b(m83a.m84a());
         cif.d(this.a.getPackageName());
         cif.f629a = new HashMap();
-        com.xiaomi.push.n.a(cif.f629a, "app_version", com.xiaomi.push.g.m296a(this.a, this.a.getPackageName()));
+        com.xiaomi.push.n.a(cif.f629a, "app_version", com.xiaomi.push.g.m294a(this.a, this.a.getPackageName()));
         com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.a, this.a.getPackageName())));
         com.xiaomi.push.n.a(cif.f629a, "push_sdk_vn", "3_6_19");
         com.xiaomi.push.n.a(cif.f629a, "push_sdk_vc", Integer.toString(30619));
-        com.xiaomi.push.n.a(cif.f629a, "token", m85a.b());
+        com.xiaomi.push.n.a(cif.f629a, "token", m83a.b());
         if (!com.xiaomi.push.l.d()) {
             String a = com.xiaomi.push.ay.a(com.xiaomi.push.i.f(this.a));
             String h = com.xiaomi.push.i.h(this.a);
@@ -52,8 +52,8 @@ public final class bf implements Runnable {
                 com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_IMEI_MD5, a);
             }
         }
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_ID, m85a.m93c());
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_SECRET, m85a.d());
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_ID, m83a.m91c());
+        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_SECRET, m83a.d());
         com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
         if (this.f57a) {
             Map<String, String> map = cif.f629a;

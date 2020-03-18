@@ -6,18 +6,18 @@ public class b {
     private String forumAvatar;
     private long forumId;
     private String forumName;
-    private long ifb;
-    private long ifc;
-    private long ifd;
+    private long igB;
+    private long igC;
+    private long igD;
 
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
             this.forumAvatar = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.ifb = forumInfo.time_out.longValue();
-            this.ifc = forumInfo.member_count.longValue();
-            this.ifd = forumInfo.thread_count.longValue();
+            this.igB = forumInfo.time_out.longValue();
+            this.igC = forumInfo.member_count.longValue();
+            this.igD = forumInfo.thread_count.longValue();
         }
     }
 }

@@ -58,7 +58,7 @@ public class PersonInfoDelegateStatic extends b {
         cVar.type = 8;
         cVar.textResId = R.string.mine;
         cVar.animationResId = R.raw.lottie_tab_my;
-        cVar.showIconType = c.dBA;
+        cVar.showIconType = c.dBN;
         return cVar;
     }
 
@@ -67,11 +67,11 @@ public class PersonInfoDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dBP = this.mIndicator;
+        aVar.dCc = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.aFD().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.aFH().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);
@@ -88,7 +88,7 @@ public class PersonInfoDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).dBt);
+                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).dBG);
                     if (PersonInfoDelegateStatic.this.isNew.booleanValue()) {
                         PersonInfoDelegateStatic.this.tipView.refresh(0);
                         PersonInfoDelegateStatic.this.tipView.setVisibility(0);
@@ -97,7 +97,7 @@ public class PersonInfoDelegateStatic extends b {
                     }
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (!PersonInfoDelegateStatic.this.isNew.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.aFD().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
+                        com.baidu.tbadk.core.sharedPref.b.aFH().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
                     }
                 }
             }

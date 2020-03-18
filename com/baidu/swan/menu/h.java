@@ -11,20 +11,20 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b {
-    private j cyV;
-    private List<i> cyW;
-    private f cyZ;
-    private com.baidu.swan.menu.viewpager.b cza;
-    private View.OnKeyListener czb;
-    private a czc;
-    private b czd;
+    private j czg;
+    private List<i> czh;
+    private f czk;
+    private com.baidu.swan.menu.viewpager.b czl;
+    private View.OnKeyListener czm;
+    private a czn;
+    private b czo;
     private Context mContext;
     private int mStyle;
-    private boolean cyT = false;
-    private int cyU = 0;
-    private List<i> cyX = new ArrayList();
-    private List<List<i>> cyY = new ArrayList();
-    private int cze = -1;
+    private boolean cze = false;
+    private int czf = 0;
+    private List<i> czi = new ArrayList();
+    private List<List<i>> czj = new ArrayList();
+    private int czp = -1;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -32,39 +32,39 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     }
 
     public h(Context context, View view, int i, b bVar, @Nullable com.baidu.swan.menu.a aVar) {
-        this.cyW = new ArrayList();
+        this.czh = new ArrayList();
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.czd = bVar;
-            this.cyW = k.iw(this.mStyle);
-            this.czd.g(this.mStyle, this.cyW);
-            this.czd.h(this.mStyle, this.cyW);
-            this.cyV = new j(this.mContext, view, aVar);
-            this.cyV.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
+            this.czo = bVar;
+            this.czh = k.iw(this.mStyle);
+            this.czo.g(this.mStyle, this.czh);
+            this.czo.h(this.mStyle, this.czh);
+            this.czg = new j(this.mContext, view, aVar);
+            this.czg.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (h.this.czc != null) {
-                        h.this.czc.a(h.this, false);
+                    if (h.this.czn != null) {
+                        h.this.czn.a(h.this, false);
                     }
                 }
             });
         }
     }
 
-    private void asO() {
-        this.cyY.clear();
-        int size = this.cyX.size();
+    private void asR() {
+        this.czj.clear();
+        int size = this.czi.size();
         if (size > 0 && size <= 5) {
-            this.cyY.add(this.cyX);
+            this.czj.add(this.czi);
         } else if (size > 5 && size <= 10) {
-            int i = this.cyT ? 5 : this.cze;
-            this.cyY.add(this.cyX.subList(0, i));
-            this.cyY.add(this.cyX.subList(i, size));
+            int i = this.cze ? 5 : this.czp;
+            this.czj.add(this.czi.subList(0, i));
+            this.czj.add(this.czi.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.cyT ? (int) Math.ceil(size / 2.0f) : this.cze;
-            this.cyY.add(this.cyX.subList(0, ceil));
-            this.cyY.add(this.cyX.subList(ceil, size));
+            int ceil = this.cze ? (int) Math.ceil(size / 2.0f) : this.czp;
+            this.czj.add(this.czi.subList(0, ceil));
+            this.czj.add(this.czi.subList(ceil, size));
         }
     }
 
@@ -78,82 +78,82 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
 
     public void a(boolean z, int i, View view, boolean z2) {
         if (isShowing()) {
-            eU(true);
+            eV(true);
             return;
         }
-        if (this.czd != null) {
-            this.czd.f(this.mStyle, this.cyW);
+        if (this.czo != null) {
+            this.czo.f(this.mStyle, this.czh);
         }
         j(z, i);
-        asO();
-        this.cyV.b(this.cyY, view, z2, this.cyU);
-        if (this.czc != null) {
-            this.czc.a(this, true);
+        asR();
+        this.czg.b(this.czj, view, z2, this.czf);
+        if (this.czn != null) {
+            this.czn.a(this, true);
         }
     }
 
     public void a(f fVar) {
-        this.cyZ = fVar;
+        this.czk = fVar;
     }
 
     public void a(com.baidu.swan.menu.viewpager.b bVar) {
-        this.cza = bVar;
+        this.czl = bVar;
     }
 
     @Override // com.baidu.swan.menu.f
     public boolean a(View view, i iVar) {
         if (iVar.isEnable()) {
             if (e(iVar)) {
-                eU(true);
+                eV(true);
             }
-            if (this.cyZ == null) {
+            if (this.czk == null) {
                 return false;
             }
-            return this.cyZ.a(view, iVar);
+            return this.czk.a(view, iVar);
         }
         return true;
     }
 
     @Override // com.baidu.swan.menu.viewpager.b
     public boolean c(i iVar) {
-        if (e(iVar) && !this.cyT) {
-            eU(true);
+        if (e(iVar) && !this.cze) {
+            eV(true);
         }
-        if (this.cza == null) {
+        if (this.czl == null) {
             return false;
         }
-        return this.cza.c(iVar);
+        return this.czl.c(iVar);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.czb != null) {
-            return this.czb.onKey(view, i, keyEvent);
+        if (this.czm != null) {
+            return this.czm.onKey(view, i, keyEvent);
         }
         return false;
     }
 
-    public void eT(boolean z) {
+    public void eU(boolean z) {
         a(is(5), z);
-        asO();
-        this.cyV.asU();
-        asN();
+        asR();
+        this.czg.asX();
+        asQ();
     }
 
-    public void eU(boolean z) {
-        this.cyV.eW(z);
-        if (this.czc != null) {
-            this.czc.a(this, false);
+    public void eV(boolean z) {
+        this.czg.eX(z);
+        if (this.czn != null) {
+            this.czn.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.cyV != null && this.cyV.isShowing();
+        return this.czg != null && this.czg.isShowing();
     }
 
-    public void asN() {
-        if (this.cyV != null) {
-            this.cyV.asN();
+    public void asQ() {
+        if (this.czg != null) {
+            this.czg.asQ();
         }
     }
 
@@ -161,55 +161,55 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         i ix;
         int i3 = 0;
         boolean z = false;
-        for (i iVar : this.cyW) {
+        for (i iVar : this.czh) {
             z = iVar.getItemId() == i ? true : z;
         }
         if (!z && (ix = k.ix(i)) != null) {
-            int size = this.cyW.size();
+            int size = this.czh.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.cyW.add(i3, ix);
+            this.czh.add(i3, ix);
         }
     }
 
     public void ip(int i) {
-        if (this.cyW != null) {
+        if (this.czh != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.cyW.size(); i3++) {
-                if (this.cyW.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.czh.size(); i3++) {
+                if (this.czh.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.cyW.remove(i2);
+                this.czh.remove(i2);
             }
         }
     }
 
     public void iq(int i) {
-        this.cyV.iq(i);
+        this.czg.iq(i);
     }
 
     private boolean e(i iVar) {
         return true;
     }
 
-    public void eV(boolean z) {
-        this.cyT = z;
+    public void eW(boolean z) {
+        this.cze = z;
     }
 
     public void ir(int i) {
-        this.cyU = i;
+        this.czf = i;
     }
 
     private void j(boolean z, int i) {
-        if (this.cyW != null) {
-            this.cyX.clear();
+        if (this.czh != null) {
+            this.czi.clear();
             it(41);
             i a2 = a(is(38), i);
             if (a2 != null && a2.isVisible()) {
-                this.cyX.add(a2);
+                this.czi.add(a2);
             }
             it(48);
             it(45);
@@ -220,16 +220,16 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             it(42);
             i is = is(35);
             if (is != null && is.isVisible()) {
-                this.cyX.add(is);
-                if (!this.cyT) {
-                    this.cze = this.cyX.size() - 1;
+                this.czi.add(is);
+                if (!this.cze) {
+                    this.czp = this.czi.size() - 1;
                 }
             }
             it(37);
             it(100);
             i a3 = a(is(5), z);
             if (a3 != null && a3.isVisible()) {
-                this.cyX.add(a3);
+                this.czi.add(a3);
             }
             it(40);
             it(46);
@@ -237,7 +237,7 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             i is2 = is(36);
             if (is2 != null && is2.isVisible()) {
                 is2.b(this);
-                this.cyX.add(is2);
+                this.czi.add(is2);
             }
         }
     }
@@ -265,9 +265,9 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         }
         if (i >= 0) {
             Long l = valueOf;
-            for (i iVar : this.cyX) {
+            for (i iVar : this.czi) {
                 if (iVar.getItemId() == i) {
-                    l = Long.valueOf(l.longValue() + iVar.asQ());
+                    l = Long.valueOf(l.longValue() + iVar.asT());
                     iVar.iu(l.longValue() > 0 ? 1 : 0);
                     iVar.bf(l.longValue());
                 }
@@ -304,10 +304,10 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.cyW.size()) {
+            if (i3 >= this.czh.size()) {
                 return null;
             }
-            i iVar = this.cyW.get(i3);
+            i iVar = this.czh.get(i3);
             if (iVar.getItemId() != i) {
                 i2 = i3 + 1;
             } else {
@@ -321,7 +321,7 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     private void it(int i) {
         i is = is(i);
         if (is != null && is.isVisible()) {
-            this.cyX.add(is);
+            this.czi.add(is);
         }
     }
 }

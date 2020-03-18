@@ -12,7 +12,7 @@ public abstract class a<T> implements d<T> {
             onNewResultImpl(bVar);
         } finally {
             if (isFinished) {
-                bVar.OD();
+                bVar.OG();
             }
         }
     }
@@ -22,7 +22,7 @@ public abstract class a<T> implements d<T> {
         try {
             onFailureImpl(bVar);
         } finally {
-            bVar.OD();
+            bVar.OG();
         }
     }
 

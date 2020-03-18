@@ -30,13 +30,13 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bSm = new HashSet();
+    private static final Set<String> bSx = new HashSet();
 
     static {
-        bSm.add("_baiduboxapp");
-        bSm.add(BuyTBeanActivityConfig.CALLBACK);
-        bSm.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-        bSm.add("_naExtParams");
+        bSx.add("_baiduboxapp");
+        bSx.add(BuyTBeanActivityConfig.CALLBACK);
+        bSx.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        bSx.add("_naExtParams");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -65,9 +65,9 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         if (TextUtils.isEmpty(h)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.ap.a mz = new com.baidu.swan.apps.ap.a().aI(1L).aJ(1L).mz("appId is empty");
-            e.ago().f(mz);
-            f.b(new d().lN(f.gs(0)).e(mz).bo(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
+            com.baidu.swan.apps.ap.a my = new com.baidu.swan.apps.ap.a().aI(1L).aJ(1L).my("appId is empty");
+            e.agr().f(my);
+            f.b(new d().lM(f.gs(0)).e(my).bn(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
             return true;
         }
         String b = b(h, uri);
@@ -80,11 +80,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         String uri2 = uri.toString();
         String queryParameter = uri.getQueryParameter("_naExtParams");
-        c.a aVar = (c.a) ((c.a) new c.a().iy(h)).iC(!TextUtils.isEmpty(queryParameter) ? f(uri) : uri2);
+        c.a aVar = (c.a) ((c.a) new c.a().ix(h)).iB(!TextUtils.isEmpty(queryParameter) ? f(uri) : uri2);
         if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(e)) {
-            aVar.iD(b + "?" + e);
+            aVar.iC(b + "?" + e);
         } else if (!TextUtils.isEmpty(b)) {
-            aVar.iD(b);
+            aVar.iC(b);
         }
         String str = null;
         String str2 = null;
@@ -93,18 +93,18 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (!TextUtils.isEmpty(param)) {
             try {
                 JSONObject jSONObject = new JSONObject(param);
-                aVar.iB(jSONObject.optString("from"));
-                aVar.iF(jSONObject.optString("notinhis"));
+                aVar.iA(jSONObject.optString("from"));
+                aVar.iE(jSONObject.optString("notinhis"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ext");
                 str3 = jSONObject.optString("navi");
-                aVar.aR("srcAppId", jSONObject.optString("srcAppId"));
+                aVar.aQ("srcAppId", jSONObject.optString("srcAppId"));
                 if (!jSONObject.isNull("extraData")) {
-                    aVar.aR("extraData", jSONObject.optString("extraData"));
+                    aVar.aQ("extraData", jSONObject.optString("extraData"));
                 }
-                aVar.aR("srcAppPage", jSONObject.optString("srcAppPage"));
-                JSONObject a = com.baidu.swan.d.b.a(aVar.VJ(), jSONObject.optJSONObject("ubc"), "pre_source");
+                aVar.aQ("srcAppPage", jSONObject.optString("srcAppPage"));
+                JSONObject a = com.baidu.swan.d.b.a(aVar.VM(), jSONObject.optJSONObject("ubc"), "pre_source");
                 if (a != null) {
-                    aVar.aR("ubc", a.toString());
+                    aVar.aQ("ubc", a.toString());
                 }
                 if (optJSONObject != null) {
                     String optString2 = optJSONObject.optString(ETAG.KEY_SEARCH_ID);
@@ -115,9 +115,9 @@ public class a extends UnitedSchemeBaseInterceptor {
                         e = e2;
                     }
                     try {
-                        aVar.iE(optJSONObject.optString("clkid"));
-                        aVar.aR("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
-                        aVar.aR(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+                        aVar.iD(optJSONObject.optString("clkid"));
+                        aVar.aQ("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
+                        aVar.aQ(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
                         str2 = optString;
                         str = optString2;
                     } catch (JSONException e3) {
@@ -129,16 +129,16 @@ public class a extends UnitedSchemeBaseInterceptor {
                         }
                         if (TextUtils.isEmpty(str)) {
                         }
-                        aVar.VP().putString("search_id", str);
-                        aVar.VP().putString("search_url", str2);
-                        aVar.VP().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+                        aVar.VS().putString("search_id", str);
+                        aVar.VS().putString("search_url", str2);
+                        aVar.VS().putLong("search_dom_click_timestamp", System.currentTimeMillis());
                         com.baidu.swan.apps.statistic.search.b.e(aVar);
                         Bundle bundle = null;
                         if (!TextUtils.isEmpty(queryParameter)) {
                         }
                         if (DEBUG) {
                         }
-                        SwanLauncher.RG().a(aVar, bundle);
+                        SwanLauncher.RJ().a(aVar, bundle);
                         com.baidu.swan.apps.x.a.a(str3, h, callbackHandler, unitedSchemeEntity);
                         return true;
                     }
@@ -154,10 +154,10 @@ public class a extends UnitedSchemeBaseInterceptor {
                 e = e4;
             }
         }
-        if (TextUtils.isEmpty(str) || TextUtils.equals(PayHelper.STATUS_FAIL, aVar.VJ())) {
-            aVar.VP().putString("search_id", str);
-            aVar.VP().putString("search_url", str2);
-            aVar.VP().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+        if (TextUtils.isEmpty(str) || TextUtils.equals(PayHelper.STATUS_FAIL, aVar.VM())) {
+            aVar.VS().putString("search_id", str);
+            aVar.VS().putString("search_url", str2);
+            aVar.VS().putLong("search_dom_click_timestamp", System.currentTimeMillis());
             com.baidu.swan.apps.statistic.search.b.e(aVar);
         }
         Bundle bundle2 = null;
@@ -168,7 +168,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (DEBUG) {
             Log.d("SwanAppLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
         }
-        SwanLauncher.RG().a(aVar, bundle2);
+        SwanLauncher.RJ().a(aVar, bundle2);
         com.baidu.swan.apps.x.a.a(str3, h, callbackHandler, unitedSchemeEntity);
         return true;
     }
@@ -186,7 +186,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String e(Uri uri) {
-        return ag.deleteQueryParam(uri.getEncodedQuery(), bSm);
+        return ag.deleteQueryParam(uri.getEncodedQuery(), bSx);
     }
 
     private String f(Uri uri) {

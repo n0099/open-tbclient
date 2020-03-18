@@ -3,23 +3,23 @@ package com.baidu.pyramid.runtime.service;
 import java.util.HashMap;
 /* loaded from: classes13.dex */
 public class e {
-    private static final HashMap<d, b<?>> aWb = new HashMap<>();
+    private static final HashMap<d, b<?>> aWo = new HashMap<>();
 
     static {
-        Fi();
+        Fn();
     }
 
-    private static void Fi() {
+    private static void Fn() {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (aWb) {
-            aWb.put(dVar, bVar);
+        synchronized (aWo) {
+            aWo.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = aWb.get(dVar);
+        b<?> bVar = aWo.get(dVar);
         if (bVar != null) {
             return (T) bVar.getService();
         }

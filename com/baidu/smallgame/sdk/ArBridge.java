@@ -289,7 +289,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).aYP == dVar) {
+                        if (((a) it.next()).aZc == dVar) {
                             it.remove();
                         }
                     }
@@ -318,7 +318,7 @@ public class ArBridge {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
                 if (-1 == aVar.mMessageId || bVar.mResMessageID == aVar.mMessageId) {
-                    aVar.aYP.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
+                    aVar.aZc.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
                 }
             }
         }
@@ -343,14 +343,14 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        public d aYP;
+        public d aZc;
         public int mMessageId;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
             this.mMessageId = i2;
-            this.aYP = dVar;
+            this.aZc = dVar;
         }
     }
 

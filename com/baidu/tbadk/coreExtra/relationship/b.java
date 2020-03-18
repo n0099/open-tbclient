@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int aMr() {
+    public int aMv() {
         return this.hide;
     }
 }

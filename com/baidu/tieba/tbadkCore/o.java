@@ -1,23 +1,22 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.GconAccount;
+import com.baidu.adp.BdUniqueId;
+import tbclient.ActBtn;
 /* loaded from: classes.dex */
-public class o {
-    private boolean kfw;
-    private String menu_name;
+public class o implements com.baidu.adp.widget.ListView.m {
+    public static final BdUniqueId kgX = BdUniqueId.gen();
+    public String text;
+    public String url;
 
-    public boolean cKr() {
-        return this.kfw;
-    }
-
-    public String cKs() {
-        return this.menu_name;
-    }
-
-    public void a(GconAccount gconAccount) {
-        if (gconAccount != null) {
-            this.kfw = gconAccount.has_account.intValue() == 1;
-            this.menu_name = gconAccount.menu_name;
+    public void a(ActBtn actBtn) {
+        if (actBtn != null) {
+            this.text = actBtn.text;
+            this.url = actBtn.url;
         }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return kgX;
     }
 }

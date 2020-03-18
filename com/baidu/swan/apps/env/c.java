@@ -22,47 +22,47 @@ import rx.schedulers.Schedulers;
 /* loaded from: classes11.dex */
 public class c implements com.baidu.swan.apps.a.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a btL;
-    private final String btM = ProcessUtils.getCurProcessName();
-    private f btN;
-    private g btO;
-    private AtomicInteger btP;
-    private CopyOnWriteArrayList<String> btQ;
-    private com.baidu.swan.apps.env.a.f btR;
+    private final a btX;
+    private final String btY = ProcessUtils.getCurProcessName();
+    private f btZ;
+    private g bua;
+    private AtomicInteger bub;
+    private CopyOnWriteArrayList<String> buc;
+    private com.baidu.swan.apps.env.a.f bud;
 
     /* loaded from: classes11.dex */
     public interface a extends b {
     }
 
     public c(a aVar) {
-        this.btL = aVar;
-        com.baidu.swan.apps.w.a.Ub().a(this);
-        this.btP = new AtomicInteger(0);
-        this.btQ = new CopyOnWriteArrayList<>();
-        this.btN = new f();
-        this.btO = new g();
-        this.btR = new com.baidu.swan.apps.env.a.f();
+        this.btX = aVar;
+        com.baidu.swan.apps.w.a.Ue().a(this);
+        this.bub = new AtomicInteger(0);
+        this.buc = new CopyOnWriteArrayList<>();
+        this.btZ = new f();
+        this.bua = new g();
+        this.bud = new com.baidu.swan.apps.env.a.f();
         if (DEBUG) {
             Log.i("SwanAppPurger", "create : " + toString());
         }
     }
 
     @Override // com.baidu.swan.apps.a.c
-    public void bS(boolean z) {
-        String bq = com.baidu.swan.apps.w.a.Ub().bq(this.btL.requireContext());
+    public void bT(boolean z) {
+        String bp = com.baidu.swan.apps.w.a.Ue().bp(this.btX.requireContext());
         if (DEBUG) {
             Log.i("SwanAppPurger", "onLoginStatusChanged : " + toString());
-            Log.i("SwanAppPurger", "onLoginStatusChanged : uid(" + bq + ")  -> " + z);
+            Log.i("SwanAppPurger", "onLoginStatusChanged : uid(" + bp + ")  -> " + z);
         }
         if (z) {
-            Rz();
+            RC();
         } else {
-            RB();
+            RE();
         }
     }
 
     public String toString() {
-        return "Process<" + this.btM + "> " + super.toString();
+        return "Process<" + this.btY + "> " + super.toString();
     }
 
     public void u(@Nullable String str, boolean z) {
@@ -113,24 +113,24 @@ public class c implements com.baidu.swan.apps.a.c {
             }
             return;
         }
-        this.btP.incrementAndGet();
+        this.bub.incrementAndGet();
         if (z) {
             if (DEBUG) {
                 Log.d("SwanAppPurger", "删除小程序==>开始重置小程序授权");
             }
-            this.btN.O(list);
+            this.btZ.O(list);
             String[] strArr = new String[list.size()];
             for (int i = 0; i < strArr.length; i++) {
-                strArr[i] = com.baidu.swan.apps.e.a.gi(list.get(i));
+                strArr[i] = com.baidu.swan.apps.e.a.gh(list.get(i));
             }
             com.baidu.swan.apps.database.subscribe.a.r(strArr);
         }
         if (DEBUG) {
             Log.d("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
         }
-        this.btN.P(list);
+        this.btZ.P(list);
         for (String str : list) {
-            if (this.btQ.contains(str)) {
+            if (this.buc.contains(str)) {
                 if (DEBUG) {
                     Log.d("SwanAppPurger", "删除小程序==>删除忽略: " + str);
                 }
@@ -141,29 +141,29 @@ public class c implements com.baidu.swan.apps.a.c {
                 if (DEBUG) {
                     Log.d("SwanAppPurger", "删除小程序==>删除小程序文件: " + str);
                 }
-                this.btN.hI(str);
-                this.btO.hI(str);
+                this.btZ.hH(str);
+                this.bua.hH(str);
                 if (DEBUG) {
                     Log.d("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str);
                 }
-                this.btN.hF(str);
+                this.btZ.hE(str);
                 if (DEBUG) {
                     Log.d("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str);
                 }
-                this.btN.hG(str);
+                this.btZ.hF(str);
             }
         }
-        if (this.btP.decrementAndGet() <= 0) {
-            this.btP.set(0);
-            this.btQ.clear();
+        if (this.bub.decrementAndGet() <= 0) {
+            this.bub.set(0);
+            this.buc.clear();
         }
     }
 
     private void Q(@Nullable List<String> list) {
         if (list != null && !list.isEmpty()) {
-            List<SwanFavorItemData> Sg = SwanFavorDataManager.Sf().Sg();
+            List<SwanFavorItemData> Sj = SwanFavorDataManager.Si().Sj();
             HashMap hashMap = new HashMap();
-            for (SwanFavorItemData swanFavorItemData : Sg) {
+            for (SwanFavorItemData swanFavorItemData : Sj) {
                 hashMap.put(swanFavorItemData.getAppKey(), swanFavorItemData);
             }
             Set<String> a2 = com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver());
@@ -184,27 +184,27 @@ public class c implements com.baidu.swan.apps.a.c {
         }
     }
 
-    public boolean Ry() {
-        return this.btP.get() > 0;
+    public boolean RB() {
+        return this.bub.get() > 0;
     }
 
     public void c(@Nullable Set<String> set) {
-        if (this.btR != null) {
-            this.btR.f(set);
+        if (this.bud != null) {
+            this.bud.f(set);
         }
     }
 
-    public void hH(String str) {
+    public void hG(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.btQ.add(str);
+            this.buc.add(str);
         }
     }
 
-    private void Rz() {
-        d(RA());
+    private void RC() {
+        d(RD());
     }
 
-    private Set<String> RA() {
+    private Set<String> RD() {
         return eL(103);
     }
 
@@ -212,43 +212,43 @@ public class c implements com.baidu.swan.apps.a.c {
         d.a("aiapp_setting_", set, true);
     }
 
-    private void RB() {
-        e(RC());
+    private void RE() {
+        e(RF());
     }
 
-    private Set<String> RC() {
+    private Set<String> RF() {
         return eL(100);
     }
 
     private void e(Set<String> set) {
         d.a("aiapp_", set, true);
-        String afg = com.baidu.swan.apps.storage.b.afg();
-        if (!TextUtils.isEmpty(afg)) {
-            com.baidu.swan.d.c.deleteFile(afg);
+        String afj = com.baidu.swan.apps.storage.b.afj();
+        if (!TextUtils.isEmpty(afj)) {
+            com.baidu.swan.d.c.deleteFile(afj);
         }
-        String afh = com.baidu.swan.apps.storage.b.afh();
-        if (!TextUtils.isEmpty(afh)) {
-            com.baidu.swan.d.c.deleteFile(afh);
+        String afk = com.baidu.swan.apps.storage.b.afk();
+        if (!TextUtils.isEmpty(afk)) {
+            com.baidu.swan.d.c.deleteFile(afk);
         }
-        com.baidu.swan.games.v.b.apM();
-        l.anV();
+        com.baidu.swan.games.v.b.apP();
+        l.anY();
     }
 
     private Set<String> eL(int i) {
         HashSet hashSet = new HashSet();
-        LinkedHashSet<com.baidu.swan.apps.process.messaging.service.c> abw = com.baidu.swan.apps.process.messaging.service.e.abu().abw();
-        if (abw.size() < 1) {
+        LinkedHashSet<com.baidu.swan.apps.process.messaging.service.c> abz = com.baidu.swan.apps.process.messaging.service.e.abx().abz();
+        if (abz.size() < 1) {
             return hashSet;
         }
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = abw.iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = abz.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.abl() && next.abj()) {
+            if (next.abo() && next.abm()) {
                 hashSet.add(next.getAppId());
                 if (DEBUG) {
                     Log.i("SwanAppPurger", "sent msg(" + i + ") to active swan(" + next.getAppId() + ")");
                 }
-                com.baidu.swan.apps.process.messaging.a.aaL().a(new com.baidu.swan.apps.process.messaging.c(i).a(next.bJA));
+                com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(i).a(next.bJL));
             }
         }
         return hashSet;

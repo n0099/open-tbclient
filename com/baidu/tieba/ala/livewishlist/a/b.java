@@ -14,13 +14,13 @@ import com.baidu.tieba.ala.data.c;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ArrayList<AlaLiveWishListData> ejn;
-    private long ejo;
-    private boolean foU;
+    private ArrayList<AlaLiveWishListData> ejD;
+    private long ejE;
+    private boolean fpu;
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<c> bBZ = new ArrayList<>();
-    private SparseArray<CountDownTimer> foT = new SparseArray<>();
+    private ArrayList<c> bCk = new ArrayList<>();
+    private SparseArray<CountDownTimer> fpt = new SparseArray<>();
 
     public b(Context context) {
         this.mContext = context;
@@ -28,35 +28,35 @@ public class b extends BaseAdapter {
     }
 
     public void setData(ArrayList<c> arrayList) {
-        this.bBZ = arrayList;
+        this.bCk = arrayList;
         notifyDataSetChanged();
     }
 
-    public void jS(boolean z) {
-        this.foU = z;
+    public void jU(boolean z) {
+        this.fpu = z;
     }
 
     public void Z(ArrayList<AlaLiveWishListData> arrayList) {
-        this.ejn = arrayList;
+        this.ejD = arrayList;
         notifyDataSetChanged();
     }
 
     public void db(long j) {
-        this.ejo = j;
+        this.ejE = j;
     }
 
     public ArrayList<c> getData() {
-        return this.bBZ;
+        return this.bCk;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bBZ.size();
+        return this.bCk.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bBZ.get(i);
+        return this.bCk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -75,32 +75,32 @@ public class b extends BaseAdapter {
         } else {
             aVar = (com.baidu.tieba.ala.livewishlist.b.a) view.getTag();
         }
-        c cVar = this.bBZ.get(i);
-        if (!ListUtils.isEmpty(this.ejn)) {
+        c cVar = this.bCk.get(i);
+        if (!ListUtils.isEmpty(this.ejD)) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 >= this.ejn.size()) {
+                if (i3 >= this.ejD.size()) {
                     break;
-                } else if (!this.ejn.get(i3).wish_id.equals(cVar.ezH)) {
+                } else if (!this.ejD.get(i3).wish_id.equals(cVar.eAd)) {
                     i2 = i3 + 1;
                 } else {
-                    aVar.a(this.ejn.get(i3));
+                    aVar.a(this.ejD.get(i3));
                     break;
                 }
             }
         }
-        aVar.jS(this.foU);
-        aVar.db(this.ejo);
-        aVar.a(i, this.foT, cVar);
+        aVar.jU(this.fpu);
+        aVar.db(this.ejE);
+        aVar.a(i, this.fpt, cVar);
         return view;
     }
 
-    public void brz() {
-        if (this.foT != null) {
-            int size = this.foT.size();
+    public void brE() {
+        if (this.fpt != null) {
+            int size = this.fpt.size();
             for (int i = 0; i < size; i++) {
-                CountDownTimer countDownTimer = this.foT.get(this.foT.keyAt(i));
+                CountDownTimer countDownTimer = this.fpt.get(this.fpt.keyAt(i));
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }

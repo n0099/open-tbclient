@@ -23,25 +23,25 @@ import com.baidu.tieba.card.z;
 public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.baidu.tieba.a.f {
     private z<k> JZ;
     private String LC;
-    private boolean NJ;
-    public BdUniqueId dBx;
-    private int fsd;
-    private int jne;
-    private int jnf;
+    private boolean NK;
+    public BdUniqueId dBK;
+    private int fsC;
+    private int joD;
+    private int joE;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.NJ = true;
-        this.jne = 0;
-        this.jnf = 0;
-        this.fsd = 0;
+        this.NK = true;
+        this.joD = 0;
+        this.joE = 0;
+        this.fsC = 0;
         this.JZ = new z<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.aAg() != null && view.getId() == R.id.forum_name_text) {
+                if (view != null && kVar != null && kVar.aAj() != null && view.getId() == R.id.forum_name_text) {
                     com.baidu.tieba.personPolymeric.a.a(view, kVar, 7);
                 }
             }
@@ -52,15 +52,15 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aM */
+    /* renamed from: aN */
     public af<k> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBx);
+        eVar.setPageUniqueId(this.dBK);
         eVar.aL(1024);
         eVar.aL(32768);
-        if (this.jne > 0) {
-            eVar.aK(this.jne);
+        if (this.joD > 0) {
+            eVar.aK(this.joD);
         }
         eVar.ab(false);
         eVar.ac(false);
@@ -79,8 +79,8 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         zVar2.a(new b.a() { // from class: com.baidu.tieba.personPolymeric.a.a.b.2
             @Override // com.baidu.card.b.a
             public void a(com.baidu.tbadk.core.data.a aVar2) {
-                if (aVar2 != null && aVar2.aAg() != null && aVar2.aAg().cTR != null) {
-                    au.a(aVar2.aAg().cTR, b.this.mContext, 4);
+                if (aVar2 != null && aVar2.aAj() != null && aVar2.aAj().cUe != null) {
+                    au.a(aVar2.aAj().cUe, b.this.mContext, 4);
                     com.baidu.tieba.personPolymeric.a.a(zVar2.getView(), aVar2, 6);
                 }
             }
@@ -91,22 +91,22 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         ahVar.a(new b.a() { // from class: com.baidu.tieba.personPolymeric.a.a.b.3
             @Override // com.baidu.card.b.a
             public void a(com.baidu.tbadk.core.data.a aVar2) {
-                if (aVar2 != null && aVar2.aAg() != null && aVar2.aAg().cTR != null) {
-                    au.a(aVar2.aAg().cTR, b.this.mContext, 4);
+                if (aVar2 != null && aVar2.aAj() != null && aVar2.aAj().cUe != null) {
+                    au.a(aVar2.aAj().cUe, b.this.mContext, 4);
                     com.baidu.tieba.personPolymeric.a.a(ahVar.getView(), aVar2, 6);
                 }
             }
         });
         aVar.a((com.baidu.card.h) ahVar);
-        if (this.fsd == 2) {
+        if (this.fsC == 2) {
             com.baidu.card.i iVar = new com.baidu.card.i(this.mPageContext.getPageActivity());
             iVar.setTopMargin(l.getDimens(this.mContext, R.dimen.tbds24));
             aVar.a((com.baidu.card.h) iVar);
         }
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cNC = 3;
-        dVar.cNI = 3;
+        dVar.cNP = 3;
+        dVar.cNV = 3;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(8);
         agVar.setShareReportFrom(6);
@@ -116,8 +116,8 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         ad nj = aVar.nj();
         nj.aQ(4);
         af<k> afVar = new af<>(nj);
-        afVar.setPageId(this.dBx);
-        afVar.aY(this.jnf);
+        afVar.setPageId(this.dBK);
+        afVar.aY(this.joE);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.b.4
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -140,10 +140,10 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRg == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRt == null) {
             return null;
         }
-        kVar.rt(kVar.position + 1);
+        kVar.rv(kVar.position + 1);
         afVar.nk().setPage(this.LC);
         if (!this.mIsHost) {
             afVar.nm();
@@ -160,19 +160,19 @@ public class b extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         this.LC = str;
     }
 
-    public void zX(int i) {
-        this.jne = i;
+    public void Af(int i) {
+        this.joD = i;
     }
 
     public void setTabType(int i) {
-        this.fsd = i;
+        this.fsC = i;
     }
 
     public void setIsHost(boolean z) {
         this.mIsHost = z;
     }
 
-    public void zW(int i) {
-        this.jnf = i;
+    public void Ae(int i) {
+        this.joE = i;
     }
 }

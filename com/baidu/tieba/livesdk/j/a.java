@@ -12,7 +12,7 @@ public class a {
             an anVar = new an(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    anVar.cy(str2, map.get(str2));
+                    anVar.cx(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(anVar);

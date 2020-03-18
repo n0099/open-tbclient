@@ -40,21 +40,20 @@ import org.json.JSONObject;
 @TargetApi(23)
 /* loaded from: classes13.dex */
 public class a {
-    public String SX;
-    public final int Sg;
-    public final int Sh;
-    private String TA;
-    private String TB;
-    private double TC;
-    private double TD;
-    private double TF;
-    private double TG;
-    private double TH;
-    private double TI;
-    private double TJ;
-    private double TK;
-    private double TL;
-    private double TM;
+    public final int Si;
+    public final int Sj;
+    public int TA;
+    public int TB;
+    public String TC;
+    public String TD;
+    public double TF;
+    public double TG;
+    private String TH;
+    private String TI;
+    private String TJ;
+    private String TK;
+    private String TL;
+    private String TM;
     private double TO;
     private double TP;
     private double TQ;
@@ -67,50 +66,51 @@ public class a {
     private double TX;
     private double TY;
     private double TZ;
-    protected int Tc;
-    protected int Te;
-    protected int Tf;
-    private CriusNode Tg;
-    public final CriusNode Th;
-    private TextView Ti;
-    private final CriusMeasureFunction Tj;
-    public String Tk;
-    public String Tl;
-    public String Tm;
-    public String Tn;
-    public String To;
-    public int Tp;
-    public int Tq;
-    public int Tr;
-    public String Ts;
-    public String Tt;
-    public double Tu;
-    public double Tv;
-    private String Tw;
-    private String Tx;
-    private String Ty;
-    private String Tz;
-    public final List<a> UB;
+    public String Ti;
+    protected int Tn;
+    protected int To;
+    protected int Tp;
+    private CriusNode Tq;
+    public final CriusNode Tr;
+    private TextView Ts;
+    private final CriusMeasureFunction Tt;
+    public String Tu;
+    public String Tv;
+    public String Tw;
+    public String Tx;
+    public String Ty;
+    public int Tz;
+    public String UB;
+    public String UC;
+    public String UD;
+    public String UE;
+    public double UF;
+    public String UG;
+    public String UH;
+    public String UJ;
+    public String UK;
+    public String UL;
+    public final List<a> UM;
     private double Ua;
-    public String Ub;
-    public double Uc;
-    public double Ue;
-    public double Uf;
-    public double Ug;
-    public double Uh;
-    public String Ui;
-    public String Uj;
-    public Typeface Uk;
-    public String Ul;
+    private double Ub;
+    private double Uc;
+    private double Ue;
+    private double Uf;
+    private double Ug;
+    private double Uh;
+    private double Ui;
+    private double Uj;
+    private double Uk;
+    private double Ul;
     public String Um;
-    public String Un;
-    public String Uo;
-    public String Up;
-    public String Uq;
-    public String Ur;
+    public double Un;
+    public double Uo;
+    public double Up;
+    public double Uq;
+    public double Ur;
     public String Us;
     public String Ut;
-    public double Uu;
+    public Typeface Uu;
     public String Uv;
     public String Uw;
     public String Ux;
@@ -142,7 +142,7 @@ public class a {
     /* renamed from: com.baidu.c.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public interface InterfaceC0050a {
-        String cD(String str);
+        String cC(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,21 +173,21 @@ public class a {
                 textView.setMaxLines(aVar.maxLines);
             }
             textView.setEllipsize(TextUtils.TruncateAt.END);
-            if (Double.compare(aVar.oA(), 0.0d) > 0) {
-                textView.setTextSize(0, (float) (aVar.oA() * textView.getContext().getResources().getDisplayMetrics().density));
+            if (Double.compare(aVar.oF(), 0.0d) > 0) {
+                textView.setTextSize(0, (float) (aVar.oF() * textView.getContext().getResources().getDisplayMetrics().density));
             }
             textView.setIncludeFontPadding(false);
-            textView.setTypeface(aVar.Uk);
+            textView.setTypeface(aVar.Uu);
             textView.setGravity(aVar.gravity);
-            float d = aVar.Tu > 0.0d ? d(aVar.Tu) : 0.0f;
-            float f = aVar.Tv > 0.0d ? (float) aVar.Tv : 1.0f;
+            float d = aVar.TF > 0.0d ? d(aVar.TF) : 0.0f;
+            float f = aVar.TG > 0.0d ? (float) aVar.TG : 1.0f;
             if (d > 0.0f || f > 0.0f) {
                 textView.setLineSpacing(d, f);
             }
         }
     }
 
-    public static boolean cz(String str) {
+    public static boolean cy(String str) {
         return Pattern.compile("[^一-龥]").matcher(str).find();
     }
 
@@ -201,7 +201,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public float H(float f) {
-        if ((Build.VERSION.SDK_INT == 19 || TbadkCoreApplication.getInst().isMIUIRom()) && this.maxLines == 1 && cz(this.text)) {
+        if ((Build.VERSION.SDK_INT == 19 || TbadkCoreApplication.getInst().isMIUIRom()) && this.maxLines == 1 && cy(this.text)) {
             return (1.09859f * f) + 0.5f;
         }
         return f;
@@ -211,156 +211,156 @@ public class a {
         this.id = c.g(jSONObject, "id");
         this.name = c.g(jSONObject, "name");
         this.type = c.g(jSONObject, "type");
-        if (pf()) {
-            this.Th.setMeasureFunction(this.Tj);
+        if (pk()) {
+            this.Tr.setMeasureFunction(this.Tt);
         }
-        this.Tk = c.g(jSONObject, "component");
+        this.Tu = c.g(jSONObject, "component");
         this.src = c.g(jSONObject, UserAccountActionItem.KEY_SRC);
         this.poster = c.g(jSONObject, "poster");
-        this.Tl = c.g(jSONObject, "href");
+        this.Tv = c.g(jSONObject, "href");
         this.text = c.g(jSONObject, "text");
-        if ("time".equalsIgnoreCase(this.Tk) && this.businessConverter != null) {
-            this.text = this.businessConverter.cD(this.text);
+        if ("time".equalsIgnoreCase(this.Tu) && this.businessConverter != null) {
+            this.text = this.businessConverter.cC(this.text);
         }
         this.maxLines = jSONObject.optInt("max-lines", 1);
-        this.Tu = c.h(jSONObject, "line-space");
-        this.Tv = c.h(jSONObject, "line-multi");
+        this.TF = c.h(jSONObject, "line-space");
+        this.TG = c.h(jSONObject, "line-multi");
         this.videoDuration = jSONObject.optInt("data-video-duration");
-        this.Tm = jSONObject.optString("data-als-stat");
-        this.Tn = jSONObject.optString("data-url-stat");
-        this.To = jSONObject.optString("data-href-pop");
-        this.Tp = c.i(jSONObject, "data-share-num");
-        this.Tq = c.i(jSONObject, "data-reply-num");
-        this.Tr = c.i(jSONObject, "data-agree-num");
+        this.Tw = jSONObject.optString("data-als-stat");
+        this.Tx = jSONObject.optString("data-url-stat");
+        this.Ty = jSONObject.optString("data-href-pop");
+        this.Tz = c.i(jSONObject, "data-share-num");
+        this.TA = c.i(jSONObject, "data-reply-num");
+        this.TB = c.i(jSONObject, "data-agree-num");
         this.shareTitle = jSONObject.optString("data-share-title");
         this.shareContent = jSONObject.optString("data-share-content");
-        this.Ts = jSONObject.optString("data-share-image");
-        this.Tt = jSONObject.optString("data-share-link");
+        this.TC = jSONObject.optString("data-share-image");
+        this.TD = jSONObject.optString("data-share-link");
     }
 
     private void e(JSONObject jSONObject) {
-        this.Tw = c.g(jSONObject, LogConfig.KEY_DISPLAY);
-        oX();
-        this.Tx = c.g(jSONObject, "flex-direction");
-        pe();
-        this.Ty = c.g(jSONObject, "justify-content");
-        pd();
-        this.Tz = c.g(jSONObject, "align-items");
+        this.TH = c.g(jSONObject, LogConfig.KEY_DISPLAY);
         pc();
-        this.TA = c.g(jSONObject, "align-self");
+        this.TI = c.g(jSONObject, "flex-direction");
+        pj();
+        this.TJ = c.g(jSONObject, "justify-content");
+        pi();
+        this.TK = c.g(jSONObject, "align-items");
+        ph();
+        this.TL = c.g(jSONObject, "align-self");
+        pg();
+        this.TM = c.g(jSONObject, "align-content");
+        pf();
+        this.TO = c.h(jSONObject, "flex");
         pb();
-        this.TB = c.g(jSONObject, "align-content");
+        this.TP = c.h(jSONObject, "flex-grow");
         pa();
-        this.TC = c.h(jSONObject, "flex");
-        oW();
-        this.TD = c.h(jSONObject, "flex-grow");
-        oV();
-        this.TF = c.h(jSONObject, "flex-shrink");
-        oU();
-        this.TG = c.h(jSONObject, "flex-basis");
-        oT();
-        this.position = c.g(jSONObject, "position");
+        this.TQ = c.h(jSONObject, "flex-shrink");
         oZ();
-        this.TH = c.h(jSONObject, "left");
-        this.TI = c.h(jSONObject, VerticalTranslateLayout.TOP);
-        this.TJ = c.h(jSONObject, HorizontalTranslateLayout.DIRECTION_RIGHT);
-        this.TK = c.h(jSONObject, VerticalTranslateLayout.BOTTOM);
+        this.TR = c.h(jSONObject, "flex-basis");
         oY();
-        this.TL = c.h(jSONObject, "margin");
-        oS();
-        this.TM = c.h(jSONObject, "margin-left");
-        oO();
-        this.TO = c.h(jSONObject, "margin-top");
-        oR();
-        this.TP = c.h(jSONObject, "margin-right");
-        oQ();
-        this.TQ = c.h(jSONObject, "margin-bottom");
-        oP();
-        this.TR = c.h(jSONObject, "padding");
+        this.position = c.g(jSONObject, "position");
+        pe();
+        this.TS = c.h(jSONObject, "left");
+        this.TT = c.h(jSONObject, VerticalTranslateLayout.TOP);
+        this.TU = c.h(jSONObject, HorizontalTranslateLayout.DIRECTION_RIGHT);
+        this.TV = c.h(jSONObject, VerticalTranslateLayout.BOTTOM);
+        pd();
+        this.TW = c.h(jSONObject, "margin");
+        oX();
+        this.TX = c.h(jSONObject, "margin-left");
+        oT();
+        this.TY = c.h(jSONObject, "margin-top");
+        oW();
+        this.TZ = c.h(jSONObject, "margin-right");
+        oV();
+        this.Ua = c.h(jSONObject, "margin-bottom");
+        oU();
+        this.Ub = c.h(jSONObject, "padding");
         initPadding();
-        this.TS = c.h(jSONObject, "padding-left");
-        oK();
-        this.TT = c.h(jSONObject, "padding-top");
-        oN();
-        this.TU = c.h(jSONObject, "padding-right");
-        oM();
-        this.TV = c.h(jSONObject, "padding-bottom");
-        oL();
+        this.Uc = c.h(jSONObject, "padding-left");
+        oP();
+        this.Ue = c.h(jSONObject, "padding-top");
+        oS();
+        this.Uf = c.h(jSONObject, "padding-right");
+        oR();
+        this.Ug = c.h(jSONObject, "padding-bottom");
+        oQ();
         this.width = c.h(jSONObject, "width");
-        oJ();
+        oO();
         this.height = c.h(jSONObject, "height");
+        oN();
+        this.Uh = c.h(jSONObject, "min-width");
+        oM();
+        this.Ui = c.h(jSONObject, "min-height");
+        oL();
+        this.Uj = c.h(jSONObject, "max-width");
         oI();
-        this.TW = c.h(jSONObject, "min-width");
-        oH();
-        this.TX = c.h(jSONObject, "min-height");
-        oG();
-        this.TY = c.h(jSONObject, "max-width");
-        oD();
-        this.TZ = c.h(jSONObject, "max-height");
-        oF();
-        this.Ua = c.h(jSONObject, "aspect-ratio");
-        oE();
+        this.Uk = c.h(jSONObject, "max-height");
+        oK();
+        this.Ul = c.h(jSONObject, "aspect-ratio");
+        oJ();
     }
 
     private void f(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SharedPrefConfig.ACTIVE_STATE)) != null) {
-            this.Uw = c.g(optJSONObject, "background-image");
-            this.Ux = c.g(optJSONObject, "background-color");
-            this.Uy = c.g(optJSONObject, "border-color");
-            this.Uz = c.g(optJSONObject, "color");
+            this.UH = c.g(optJSONObject, "background-image");
+            this.UJ = c.g(optJSONObject, "background-color");
+            this.UK = c.g(optJSONObject, "border-color");
+            this.UL = c.g(optJSONObject, "color");
         }
     }
 
     private void g(JSONObject jSONObject) {
-        this.Ur = c.g(jSONObject, "background-image");
-        this.Us = c.g(jSONObject, "background-color");
-        this.Ut = c.g(jSONObject, "border-color");
-        this.Uu = c.h(jSONObject, "opacity");
-        this.Uv = c.g(jSONObject, "color");
+        this.UC = c.g(jSONObject, "background-image");
+        this.UD = c.g(jSONObject, "background-color");
+        this.UE = c.g(jSONObject, "border-color");
+        this.UF = c.h(jSONObject, "opacity");
+        this.UG = c.g(jSONObject, "color");
     }
 
     private void h(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SharedPrefConfig.ACTIVE_STATE)) != null) {
-            this.Un = c.g(optJSONObject, "background-image");
-            this.Uo = c.g(optJSONObject, "background-color");
-            this.Up = c.g(optJSONObject, "border-color");
-            this.Uq = c.g(optJSONObject, "color");
+            this.Ux = c.g(optJSONObject, "background-image");
+            this.Uy = c.g(optJSONObject, "background-color");
+            this.Uz = c.g(optJSONObject, "border-color");
+            this.UB = c.g(optJSONObject, "color");
         }
     }
 
     private void i(JSONObject jSONObject) {
-        this.Ub = c.g(jSONObject, "background-image");
+        this.Um = c.g(jSONObject, "background-image");
         this.backgroundColor = c.g(jSONObject, "background-color");
         this.borderColor = c.g(jSONObject, "border-color");
         this.opacity = c.h(jSONObject, "opacity");
         this.color = c.g(jSONObject, "color");
-        this.Uc = c.h(jSONObject, "border-width");
+        this.Un = c.h(jSONObject, "border-width");
         this.borderRadius = c.h(jSONObject, "border-radius");
-        this.Ue = c.h(jSONObject, "border-top-left-radius");
-        this.Uf = c.h(jSONObject, "border-bottom-left-radius");
-        this.Ug = c.h(jSONObject, "border-top-right-radius");
-        this.Uh = c.h(jSONObject, "border-bottom-right-radius");
-        this.Ui = c.g(jSONObject, "font-style");
-        this.Uj = c.g(jSONObject, "font-weight");
-        this.Uk = Typeface.create(Typeface.DEFAULT, oB());
+        this.Uo = c.h(jSONObject, "border-top-left-radius");
+        this.Up = c.h(jSONObject, "border-bottom-left-radius");
+        this.Uq = c.h(jSONObject, "border-top-right-radius");
+        this.Ur = c.h(jSONObject, "border-bottom-right-radius");
+        this.Us = c.g(jSONObject, "font-style");
+        this.Ut = c.g(jSONObject, "font-weight");
+        this.Uu = Typeface.create(Typeface.DEFAULT, oG());
         this.fontSize = jSONObject.optDouble("font-size", 12.0d);
-        this.Ul = c.g(jSONObject, "text-align");
-        this.Um = c.g(jSONObject, "vertical-align");
-        this.gravity = oC();
-        this.SX = c.g(jSONObject, "download-style");
+        this.Uv = c.g(jSONObject, "text-align");
+        this.Uw = c.g(jSONObject, "vertical-align");
+        this.gravity = oH();
+        this.Ti = c.g(jSONObject, "download-style");
     }
 
     public a(Context context, JSONObject jSONObject, InterfaceC0050a interfaceC0050a, boolean z) {
-        this.Tc = Build.VERSION.SDK_INT < 23 ? 0 : 1;
+        this.Tn = Build.VERSION.SDK_INT < 23 ? 0 : 1;
         if (Build.VERSION.SDK_INT < 23) {
         }
-        this.Te = 0;
+        this.To = 0;
         if (Build.VERSION.SDK_INT < 26) {
         }
-        this.Tf = 0;
-        this.Tj = new CriusMeasureFunction() { // from class: com.baidu.c.a.c.a.1
+        this.Tp = 0;
+        this.Tt = new CriusMeasureFunction() { // from class: com.baidu.c.a.c.a.1
             @Override // com.baidu.crius.CriusMeasureFunction
             @SuppressLint({"WrongConstant"})
             public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
@@ -369,25 +369,25 @@ public class a {
                 Layout build;
                 Layout build2;
                 SpannableString spannableString = new SpannableString(a.this.text);
-                a.this.a(a.this.Ti, a.this);
-                TextPaint paint = a.this.Ti.getPaint();
+                a.this.a(a.this.Ts, a.this);
+                TextPaint paint = a.this.Ts.getPaint();
                 BoringLayout.Metrics isBoring = BoringLayout.isBoring(spannableString, paint);
                 float desiredWidth = isBoring == null ? Layout.getDesiredWidth(spannableString, paint) : Float.NaN;
-                if (a.this.Tu > 0.0d) {
-                    f3 = a.this.d(a.this.Tu);
+                if (a.this.TF > 0.0d) {
+                    f3 = a.this.d(a.this.TF);
                 } else {
                     f3 = 0.0f;
                 }
-                float f4 = a.this.Tv > 0.0d ? (float) a.this.Tv : 1.0f;
+                float f4 = a.this.TG > 0.0d ? (float) a.this.TG : 1.0f;
                 boolean z3 = criusMeasureMode == CriusMeasureMode.UNDEFINED || f < 0.0f;
                 if (isBoring == null && (z3 || (!CriusConstants.isUndefined(desiredWidth) && desiredWidth <= f))) {
                     int ceil = (int) Math.ceil(desiredWidth);
                     if (Build.VERSION.SDK_INT < 23) {
                         build2 = new StaticLayout(spannableString, paint, ceil, Layout.Alignment.ALIGN_NORMAL, f4, f3, false);
                     } else {
-                        StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.Tc).setHyphenationFrequency(a.this.Te);
+                        StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.Tn).setHyphenationFrequency(a.this.To);
                         if (Build.VERSION.SDK_INT >= 26) {
-                            hyphenationFrequency.setJustificationMode(a.this.Tf);
+                            hyphenationFrequency.setJustificationMode(a.this.Tp);
                         }
                         a.this.a(hyphenationFrequency, true);
                         build2 = hyphenationFrequency.build();
@@ -402,9 +402,9 @@ public class a {
                     z2 = false;
                     build = staticLayout;
                 } else {
-                    StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.Tc).setHyphenationFrequency(a.this.Te);
+                    StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.Tn).setHyphenationFrequency(a.this.To);
                     if (Build.VERSION.SDK_INT >= 26) {
-                        hyphenationFrequency2.setJustificationMode(a.this.Tf);
+                        hyphenationFrequency2.setJustificationMode(a.this.Tp);
                     }
                     a.this.a(hyphenationFrequency2, true);
                     z2 = false;
@@ -438,13 +438,13 @@ public class a {
                 return CriusMeasureOutput.make(f, f2);
             }
         };
-        this.Uu = -10000.0d;
-        this.Th = new CriusNode();
+        this.UF = -10000.0d;
+        this.Tr = new CriusNode();
         this.businessConverter = interfaceC0050a;
         this.density = context.getResources().getDisplayMetrics().density;
-        this.Sg = context.getResources().getDisplayMetrics().widthPixels;
-        this.Sh = context.getResources().getDisplayMetrics().heightPixels;
-        this.Ti = new TextView(context);
+        this.Si = context.getResources().getDisplayMetrics().widthPixels;
+        this.Sj = context.getResources().getDisplayMetrics().heightPixels;
+        this.Ts = new TextView(context);
         d(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("style");
         if (optJSONObject != null) {
@@ -460,333 +460,333 @@ public class a {
         if (jSONObject.has("children")) {
             JSONArray optJSONArray = jSONObject.optJSONArray("children");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.UB = new ArrayList();
+                this.UM = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     a aVar = new a(context, optJSONArray.optJSONObject(i), interfaceC0050a, false);
-                    this.UB.add(aVar);
-                    this.Th.addChildAt(aVar.Th, i);
+                    this.UM.add(aVar);
+                    this.Tr.addChildAt(aVar.Tr, i);
                 }
             } else {
-                this.UB = null;
+                this.UM = null;
             }
         } else {
-            this.UB = null;
+            this.UM = null;
         }
         if (z) {
-            this.Tg = new CriusNode();
-            this.Tg.addChildAt(this.Th, 0);
-            this.Tg.calculateLayout(Float.NaN, Float.NaN);
+            this.Tq = new CriusNode();
+            this.Tq.addChildAt(this.Tr, 0);
+            this.Tq.calculateLayout(Float.NaN, Float.NaN);
         }
     }
 
-    public double oA() {
+    public double oF() {
         return this.fontSize;
     }
 
-    private int oB() {
-        return "italic".equalsIgnoreCase(this.Ui) ? (TextUtils.isEmpty(this.Uj) || "normal".equalsIgnoreCase(this.Uj) || !"bold".equalsIgnoreCase(this.Uj)) ? 2 : 3 : (TextUtils.isEmpty(this.Uj) || "normal".equalsIgnoreCase(this.Uj) || !"bold".equalsIgnoreCase(this.Uj)) ? 0 : 1;
+    private int oG() {
+        return "italic".equalsIgnoreCase(this.Us) ? (TextUtils.isEmpty(this.Ut) || "normal".equalsIgnoreCase(this.Ut) || !"bold".equalsIgnoreCase(this.Ut)) ? 2 : 3 : (TextUtils.isEmpty(this.Ut) || "normal".equalsIgnoreCase(this.Ut) || !"bold".equalsIgnoreCase(this.Ut)) ? 0 : 1;
     }
 
-    private int oC() {
+    private int oH() {
         int i;
-        if ("left".equalsIgnoreCase(this.Ul)) {
+        if ("left".equalsIgnoreCase(this.Uv)) {
             i = 3;
-        } else if (HorizontalTranslateLayout.DIRECTION_RIGHT.equalsIgnoreCase(this.Ul)) {
+        } else if (HorizontalTranslateLayout.DIRECTION_RIGHT.equalsIgnoreCase(this.Uv)) {
             i = 5;
-        } else if ("center".equalsIgnoreCase(this.Ul)) {
+        } else if ("center".equalsIgnoreCase(this.Uv)) {
             i = 1;
         } else {
             i = 0;
         }
-        if (VerticalTranslateLayout.TOP.equalsIgnoreCase(this.Um)) {
+        if (VerticalTranslateLayout.TOP.equalsIgnoreCase(this.Uw)) {
             return i | 48;
         }
-        if (VerticalTranslateLayout.BOTTOM.equalsIgnoreCase(this.Um)) {
+        if (VerticalTranslateLayout.BOTTOM.equalsIgnoreCase(this.Uw)) {
             return i | 80;
         }
-        if ("middle".equalsIgnoreCase(this.Um)) {
+        if ("middle".equalsIgnoreCase(this.Uw)) {
             return i | 16;
         }
         return i | 0;
     }
 
-    private void oD() {
-        if (this.TY >= 0.0d) {
-            this.Th.setMaxWidth(d(this.TY));
-        } else if (this.TY > -10000.0d) {
-            this.Th.setMaxWidth(this.Sg);
-        }
-    }
-
-    private void oE() {
-        if (this.Ua > 0.0d) {
-            this.Th.setAspectRatio((float) this.Ua);
-        }
-    }
-
-    private void oF() {
-        if (this.TZ >= 0.0d) {
-            this.Th.setMaxHeight(d(this.TZ));
-        } else if (this.TZ > -10000.0d) {
-            this.Th.setMaxHeight(this.Sh);
-        }
-    }
-
-    private void oG() {
-        if (this.TX >= 0.0d) {
-            this.Th.setMinHeight(d(this.TX));
-        } else if (this.TX > -10000.0d) {
-            this.Th.setMinHeight(this.Sh);
-        }
-    }
-
-    private void oH() {
-        if (this.TW >= 0.0d) {
-            this.Th.setMinWidth(d(this.TW));
-        } else if (this.TW > -10000.0d) {
-            this.Th.setMinWidth(this.Sg);
-        }
-    }
-
     private void oI() {
-        if (this.height >= 0.0d) {
-            this.Th.setHeight(d(this.height));
-        } else if (this.height > -10000.0d) {
-            this.Th.setHeight(this.Sh);
+        if (this.Uj >= 0.0d) {
+            this.Tr.setMaxWidth(d(this.Uj));
+        } else if (this.Uj > -10000.0d) {
+            this.Tr.setMaxWidth(this.Si);
         }
     }
 
     private void oJ() {
-        if (this.width >= 0.0d) {
-            this.Th.setWidth(d(this.width));
-        } else if (this.width > -10000.0d) {
-            this.Th.setWidth(this.Sg);
+        if (this.Ul > 0.0d) {
+            this.Tr.setAspectRatio((float) this.Ul);
         }
     }
 
     private void oK() {
-        if (this.TS >= -1.0d) {
-            this.Th.setPadding(CriusEdge.LEFT, d(this.TS));
+        if (this.Uk >= 0.0d) {
+            this.Tr.setMaxHeight(d(this.Uk));
+        } else if (this.Uk > -10000.0d) {
+            this.Tr.setMaxHeight(this.Sj);
         }
     }
 
     private void oL() {
-        if (this.TV >= -1.0d) {
-            this.Th.setPadding(CriusEdge.BOTTOM, d(this.TV));
+        if (this.Ui >= 0.0d) {
+            this.Tr.setMinHeight(d(this.Ui));
+        } else if (this.Ui > -10000.0d) {
+            this.Tr.setMinHeight(this.Sj);
         }
     }
 
     private void oM() {
-        if (this.TU >= -1.0d) {
-            this.Th.setPadding(CriusEdge.RIGHT, d(this.TU));
+        if (this.Uh >= 0.0d) {
+            this.Tr.setMinWidth(d(this.Uh));
+        } else if (this.Uh > -10000.0d) {
+            this.Tr.setMinWidth(this.Si);
         }
     }
 
     private void oN() {
-        if (this.TT >= -1.0d) {
-            this.Th.setPadding(CriusEdge.TOP, d(this.TT));
-        }
-    }
-
-    private void initPadding() {
-        if (this.TR >= -1.0d) {
-            this.Th.setPadding(CriusEdge.ALL, d(this.TR));
+        if (this.height >= 0.0d) {
+            this.Tr.setHeight(d(this.height));
+        } else if (this.height > -10000.0d) {
+            this.Tr.setHeight(this.Sj);
         }
     }
 
     private void oO() {
-        if (this.TM >= -1.0d) {
-            this.Th.setMargin(CriusEdge.LEFT, d(this.TM));
+        if (this.width >= 0.0d) {
+            this.Tr.setWidth(d(this.width));
+        } else if (this.width > -10000.0d) {
+            this.Tr.setWidth(this.Si);
         }
     }
 
     private void oP() {
-        if (this.TQ >= -1.0d) {
-            this.Th.setMargin(CriusEdge.BOTTOM, d(this.TQ));
+        if (this.Uc >= -1.0d) {
+            this.Tr.setPadding(CriusEdge.LEFT, d(this.Uc));
         }
     }
 
     private void oQ() {
-        if (this.TP >= -1.0d) {
-            this.Th.setMargin(CriusEdge.RIGHT, d(this.TP));
+        if (this.Ug >= -1.0d) {
+            this.Tr.setPadding(CriusEdge.BOTTOM, d(this.Ug));
         }
     }
 
     private void oR() {
-        if (this.TO >= -1.0d) {
-            this.Th.setMargin(CriusEdge.TOP, d(this.TO));
+        if (this.Uf >= -1.0d) {
+            this.Tr.setPadding(CriusEdge.RIGHT, d(this.Uf));
         }
     }
 
     private void oS() {
-        if (this.TL >= -1.0d) {
-            this.Th.setMargin(CriusEdge.ALL, d(this.TL));
+        if (this.Ue >= -1.0d) {
+            this.Tr.setPadding(CriusEdge.TOP, d(this.Ue));
+        }
+    }
+
+    private void initPadding() {
+        if (this.Ub >= -1.0d) {
+            this.Tr.setPadding(CriusEdge.ALL, d(this.Ub));
         }
     }
 
     private void oT() {
-        if (this.TG >= -1.0d) {
-            this.Th.setFlexBasis(d(this.TG));
+        if (this.TX >= -1.0d) {
+            this.Tr.setMargin(CriusEdge.LEFT, d(this.TX));
         }
     }
 
     private void oU() {
-        if (this.TF >= -1.0d) {
-            this.Th.setFlexShrink((float) this.TF);
+        if (this.Ua >= -1.0d) {
+            this.Tr.setMargin(CriusEdge.BOTTOM, d(this.Ua));
         }
     }
 
     private void oV() {
-        if (this.TD >= -1.0d) {
-            this.Th.setFlexGrow((float) this.TD);
+        if (this.TZ >= -1.0d) {
+            this.Tr.setMargin(CriusEdge.RIGHT, d(this.TZ));
         }
     }
 
     private void oW() {
-        if (this.TC >= -1.0d) {
-            this.Th.setFlex((float) this.TC);
+        if (this.TY >= -1.0d) {
+            this.Tr.setMargin(CriusEdge.TOP, d(this.TY));
         }
     }
 
     private void oX() {
-        if (!TextUtils.isEmpty(this.Tw)) {
-            if ("flex".equalsIgnoreCase(this.Tw)) {
-                this.Th.setDisplay(CriusDisplay.FLEX);
-            } else if ("none".equalsIgnoreCase(this.Tw)) {
-                this.Th.setDisplay(CriusDisplay.NONE);
-            } else {
-                this.Th.setDisplay(CriusDisplay.FLEX);
-            }
+        if (this.TW >= -1.0d) {
+            this.Tr.setMargin(CriusEdge.ALL, d(this.TW));
         }
     }
 
     private void oY() {
-        if (!c.b(this.TH, -10000.0d)) {
-            this.Th.setPosition(CriusEdge.LEFT, d(this.TH));
-        }
-        if (!c.b(this.TI, -10000.0d)) {
-            this.Th.setPosition(CriusEdge.TOP, d(this.TI));
-        }
-        if (!c.b(this.TJ, -10000.0d)) {
-            this.Th.setPosition(CriusEdge.RIGHT, d(this.TJ));
-        }
-        if (!c.b(this.TK, -10000.0d)) {
-            this.Th.setPosition(CriusEdge.BOTTOM, d(this.TK));
+        if (this.TR >= -1.0d) {
+            this.Tr.setFlexBasis(d(this.TR));
         }
     }
 
     private void oZ() {
-        if (!TextUtils.isEmpty(this.position)) {
-            if ("relative".equalsIgnoreCase(this.position)) {
-                this.Th.setPositionType(CriusPositionType.RELATIVE);
-            } else if ("absolute".equalsIgnoreCase(this.position)) {
-                this.Th.setPositionType(CriusPositionType.ABSOLUTE);
-            }
+        if (this.TQ >= -1.0d) {
+            this.Tr.setFlexShrink((float) this.TQ);
         }
     }
 
     private void pa() {
-        if (!TextUtils.isEmpty(this.TB)) {
-            if ("flex-start".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.STRETCH);
-            } else if ("space-between".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.SPACE_BETWEEN);
-            } else if ("space-around".equalsIgnoreCase(this.TB)) {
-                this.Th.setAlignSelf(CriusAlign.SPACE_AROUND);
-            } else {
-                this.Th.setAlignSelf(CriusAlign.FLEX_START);
-            }
+        if (this.TP >= -1.0d) {
+            this.Tr.setFlexGrow((float) this.TP);
         }
     }
 
     private void pb() {
-        if (!TextUtils.isEmpty(this.TA)) {
-            if ("auto".equalsIgnoreCase(this.TA)) {
-                this.Th.setAlignSelf(CriusAlign.AUTO);
-            } else if ("flex-start".equalsIgnoreCase(this.TA)) {
-                this.Th.setAlignSelf(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.TA)) {
-                this.Th.setAlignSelf(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.TA)) {
-                this.Th.setAlignSelf(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.TA)) {
-                this.Th.setAlignSelf(CriusAlign.STRETCH);
-            } else {
-                this.Th.setAlignSelf(CriusAlign.AUTO);
-            }
+        if (this.TO >= -1.0d) {
+            this.Tr.setFlex((float) this.TO);
         }
     }
 
     private void pc() {
-        if (!TextUtils.isEmpty(this.Tz)) {
-            if ("flex-start".equalsIgnoreCase(this.Tz)) {
-                this.Th.setAlignItems(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.Tz)) {
-                this.Th.setAlignItems(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.Tz)) {
-                this.Th.setAlignItems(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.Tz)) {
-                this.Th.setAlignItems(CriusAlign.STRETCH);
+        if (!TextUtils.isEmpty(this.TH)) {
+            if ("flex".equalsIgnoreCase(this.TH)) {
+                this.Tr.setDisplay(CriusDisplay.FLEX);
+            } else if ("none".equalsIgnoreCase(this.TH)) {
+                this.Tr.setDisplay(CriusDisplay.NONE);
             } else {
-                this.Th.setAlignItems(CriusAlign.STRETCH);
+                this.Tr.setDisplay(CriusDisplay.FLEX);
             }
         }
     }
 
     private void pd() {
-        if (!TextUtils.isEmpty(this.Ty)) {
-            if ("flex-start".equalsIgnoreCase(this.Ty)) {
-                this.Th.setJustifyContent(CriusJustify.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.Ty)) {
-                this.Th.setJustifyContent(CriusJustify.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.Ty)) {
-                this.Th.setJustifyContent(CriusJustify.FLEX_END);
-            } else if ("space-between".equalsIgnoreCase(this.Ty)) {
-                this.Th.setJustifyContent(CriusJustify.SPACE_BETWEEN);
-            } else if ("space-around".equalsIgnoreCase(this.Ty)) {
-                this.Th.setJustifyContent(CriusJustify.SPACE_AROUND);
-            } else {
-                this.Th.setJustifyContent(CriusJustify.FLEX_START);
-            }
+        if (!c.b(this.TS, -10000.0d)) {
+            this.Tr.setPosition(CriusEdge.LEFT, d(this.TS));
+        }
+        if (!c.b(this.TT, -10000.0d)) {
+            this.Tr.setPosition(CriusEdge.TOP, d(this.TT));
+        }
+        if (!c.b(this.TU, -10000.0d)) {
+            this.Tr.setPosition(CriusEdge.RIGHT, d(this.TU));
+        }
+        if (!c.b(this.TV, -10000.0d)) {
+            this.Tr.setPosition(CriusEdge.BOTTOM, d(this.TV));
         }
     }
 
     private void pe() {
-        if (!TextUtils.isEmpty(this.Tx)) {
-            if ("column".equalsIgnoreCase(this.Tx)) {
-                this.Th.setFlexDirection(CriusFlexDirection.COLUMN);
-            } else if ("column-reverse".equalsIgnoreCase(this.Tx)) {
-                this.Th.setFlexDirection(CriusFlexDirection.COLUMN_REVERSE);
-            } else if ("row".equalsIgnoreCase(this.Tx)) {
-                this.Th.setFlexDirection(CriusFlexDirection.ROW);
-            } else if ("row-reverse".equalsIgnoreCase(this.Tx)) {
-                this.Th.setFlexDirection(CriusFlexDirection.ROW_REVERSE);
-            } else {
-                this.Th.setFlexDirection(CriusFlexDirection.COLUMN);
+        if (!TextUtils.isEmpty(this.position)) {
+            if ("relative".equalsIgnoreCase(this.position)) {
+                this.Tr.setPositionType(CriusPositionType.RELATIVE);
+            } else if ("absolute".equalsIgnoreCase(this.position)) {
+                this.Tr.setPositionType(CriusPositionType.ABSOLUTE);
             }
         }
     }
 
-    public boolean pf() {
+    private void pf() {
+        if (!TextUtils.isEmpty(this.TM)) {
+            if ("flex-start".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.STRETCH);
+            } else if ("space-between".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.SPACE_BETWEEN);
+            } else if ("space-around".equalsIgnoreCase(this.TM)) {
+                this.Tr.setAlignSelf(CriusAlign.SPACE_AROUND);
+            } else {
+                this.Tr.setAlignSelf(CriusAlign.FLEX_START);
+            }
+        }
+    }
+
+    private void pg() {
+        if (!TextUtils.isEmpty(this.TL)) {
+            if ("auto".equalsIgnoreCase(this.TL)) {
+                this.Tr.setAlignSelf(CriusAlign.AUTO);
+            } else if ("flex-start".equalsIgnoreCase(this.TL)) {
+                this.Tr.setAlignSelf(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.TL)) {
+                this.Tr.setAlignSelf(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.TL)) {
+                this.Tr.setAlignSelf(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.TL)) {
+                this.Tr.setAlignSelf(CriusAlign.STRETCH);
+            } else {
+                this.Tr.setAlignSelf(CriusAlign.AUTO);
+            }
+        }
+    }
+
+    private void ph() {
+        if (!TextUtils.isEmpty(this.TK)) {
+            if ("flex-start".equalsIgnoreCase(this.TK)) {
+                this.Tr.setAlignItems(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.TK)) {
+                this.Tr.setAlignItems(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.TK)) {
+                this.Tr.setAlignItems(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.TK)) {
+                this.Tr.setAlignItems(CriusAlign.STRETCH);
+            } else {
+                this.Tr.setAlignItems(CriusAlign.STRETCH);
+            }
+        }
+    }
+
+    private void pi() {
+        if (!TextUtils.isEmpty(this.TJ)) {
+            if ("flex-start".equalsIgnoreCase(this.TJ)) {
+                this.Tr.setJustifyContent(CriusJustify.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.TJ)) {
+                this.Tr.setJustifyContent(CriusJustify.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.TJ)) {
+                this.Tr.setJustifyContent(CriusJustify.FLEX_END);
+            } else if ("space-between".equalsIgnoreCase(this.TJ)) {
+                this.Tr.setJustifyContent(CriusJustify.SPACE_BETWEEN);
+            } else if ("space-around".equalsIgnoreCase(this.TJ)) {
+                this.Tr.setJustifyContent(CriusJustify.SPACE_AROUND);
+            } else {
+                this.Tr.setJustifyContent(CriusJustify.FLEX_START);
+            }
+        }
+    }
+
+    private void pj() {
+        if (!TextUtils.isEmpty(this.TI)) {
+            if ("column".equalsIgnoreCase(this.TI)) {
+                this.Tr.setFlexDirection(CriusFlexDirection.COLUMN);
+            } else if ("column-reverse".equalsIgnoreCase(this.TI)) {
+                this.Tr.setFlexDirection(CriusFlexDirection.COLUMN_REVERSE);
+            } else if ("row".equalsIgnoreCase(this.TI)) {
+                this.Tr.setFlexDirection(CriusFlexDirection.ROW);
+            } else if ("row-reverse".equalsIgnoreCase(this.TI)) {
+                this.Tr.setFlexDirection(CriusFlexDirection.ROW_REVERSE);
+            } else {
+                this.Tr.setFlexDirection(CriusFlexDirection.COLUMN);
+            }
+        }
+    }
+
+    public boolean pk() {
         return "text".equals(this.type);
     }
 
-    public a cA(String str) {
+    public a cz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (!str.equalsIgnoreCase(this.id)) {
-            if (this.UB != null && this.UB.size() > 0) {
-                for (a aVar : this.UB) {
-                    a cA = aVar.cA(str);
-                    if (cA != null) {
-                        return cA;
+            if (this.UM != null && this.UM.size() > 0) {
+                for (a aVar : this.UM) {
+                    a cz = aVar.cz(str);
+                    if (cz != null) {
+                        return cz;
                     }
                 }
             }
@@ -795,16 +795,16 @@ public class a {
         return this;
     }
 
-    public a cB(String str) {
+    public a cA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (!str.equalsIgnoreCase(this.Tk)) {
-            if (this.UB != null && this.UB.size() > 0) {
-                for (a aVar : this.UB) {
-                    a cB = aVar.cB(str);
-                    if (cB != null) {
-                        return cB;
+        if (!str.equalsIgnoreCase(this.Tu)) {
+            if (this.UM != null && this.UM.size() > 0) {
+                for (a aVar : this.UM) {
+                    a cA = aVar.cA(str);
+                    if (cA != null) {
+                        return cA;
                     }
                 }
             }
@@ -822,23 +822,23 @@ public class a {
         return d < 1.0d ? (float) (10.0d * d) : (float) (f * d);
     }
 
-    public boolean cC(String str) {
-        a cB;
-        if (this.Tg == null || (cB = cB(str)) == null || cB.Th == null) {
+    public boolean cB(String str) {
+        a cA;
+        if (this.Tq == null || (cA = cA(str)) == null || cA.Tr == null) {
             return false;
         }
-        cB.Th.setDisplay(CriusDisplay.NONE);
-        cB.Th.dirty();
-        this.Tg.calculateLayout(Float.NaN, Float.NaN);
+        cA.Tr.setDisplay(CriusDisplay.NONE);
+        cA.Tr.dirty();
+        this.Tq.calculateLayout(Float.NaN, Float.NaN);
         return true;
     }
 
     public void c(String str, float f) {
-        a cA;
-        if (this.Tg != null && (cA = cA(str)) != null && cA.Th != null) {
-            cA.fontSize = f;
-            cA.Th.dirty();
-            this.Tg.calculateLayout(Float.NaN, Float.NaN);
+        a cz;
+        if (this.Tq != null && (cz = cz(str)) != null && cz.Tr != null) {
+            cz.fontSize = f;
+            cz.Tr.dirty();
+            this.Tq.calculateLayout(Float.NaN, Float.NaN);
         }
     }
 }

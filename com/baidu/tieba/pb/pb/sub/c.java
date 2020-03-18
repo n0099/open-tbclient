@@ -11,69 +11,69 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private BdTypeListView eko;
-    private com.baidu.tieba.pb.pb.sub.a.b iVZ;
-    private NewSubPbActivity iVj;
-    private com.baidu.tieba.pb.pb.sub.a.d iWa;
-    private s iWb;
-    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private View.OnClickListener aku = null;
-    private boolean fPF = false;
-    private boolean iWc = true;
+    private BdTypeListView ekE;
+    private NewSubPbActivity iWK;
+    private com.baidu.tieba.pb.pb.sub.a.b iXA;
+    private com.baidu.tieba.pb.pb.sub.a.d iXB;
+    private s iXC;
+    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private View.OnClickListener akE = null;
+    private boolean fQn = false;
+    private boolean iXD = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.iVj = newSubPbActivity;
-        this.eko = bdTypeListView;
+        this.iWK = newSubPbActivity;
+        this.ekE = bdTypeListView;
     }
 
-    public void wM() {
-        this.iVZ = new com.baidu.tieba.pb.pb.sub.a.b(this.iVj, PostData.kgF);
-        this.iVZ.y(this.aku);
-        this.iVZ.a(this.iWb);
-        this.iVZ.setFromCDN(this.iWc);
-        this.asF.add(this.iVZ);
-        this.iWa = new com.baidu.tieba.pb.pb.sub.a.d(this.iVj, com.baidu.tieba.pb.pb.sub.b.b.iWS);
-        this.asF.add(this.iWa);
-        this.asF.add(new com.baidu.tieba.pb.pb.sub.a.c(this.iVj, com.baidu.tieba.pb.pb.sub.b.a.iWR));
-        this.eko.addAdapters(this.asF);
+    public void wR() {
+        this.iXA = new com.baidu.tieba.pb.pb.sub.a.b(this.iWK, PostData.kii);
+        this.iXA.y(this.akE);
+        this.iXA.a(this.iXC);
+        this.iXA.setFromCDN(this.iXD);
+        this.asP.add(this.iXA);
+        this.iXB = new com.baidu.tieba.pb.pb.sub.a.d(this.iWK, com.baidu.tieba.pb.pb.sub.b.b.iYt);
+        this.asP.add(this.iXB);
+        this.asP.add(new com.baidu.tieba.pb.pb.sub.a.c(this.iWK, com.baidu.tieba.pb.pb.sub.b.a.iYs));
+        this.ekE.addAdapters(this.asP);
     }
 
     public void b(bj bjVar, List<m> list) {
-        this.iVZ.setThreadData(bjVar);
-        if (this.iVj.crr().coq()) {
-            this.iVZ.Gv(this.iVj.crr().cny());
+        this.iXA.setThreadData(bjVar);
+        if (this.iWK.crM().coL()) {
+            this.iXA.Gu(this.iWK.crM().cnT());
         }
-        this.eko.setData(list);
-        this.eko.getAdapter().notifyDataSetChanged();
+        this.ekE.setData(list);
+        this.ekE.getAdapter().notifyDataSetChanged();
     }
 
-    public boolean aca() {
-        return this.fPF;
+    public boolean acd() {
+        return this.fQn;
     }
 
     public void setHasMoreData(boolean z) {
-        this.fPF = z;
+        this.fQn = z;
     }
 
     public void y(View.OnClickListener onClickListener) {
-        this.aku = onClickListener;
+        this.akE = onClickListener;
     }
 
     public void setLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.iVZ.setOnLongClickListener(onLongClickListener);
+        this.iXA.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.iVZ.setOnImageClickListener(iVar);
+        this.iXA.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.iWc = z;
+        this.iXD = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.eko.getAdapter() != null) {
-            this.eko.getAdapter().notifyDataSetChanged();
+        if (this.ekE.getAdapter() != null) {
+            this.ekE.getAdapter().notifyDataSetChanged();
         }
     }
 }

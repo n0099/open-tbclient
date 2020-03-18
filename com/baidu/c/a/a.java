@@ -7,19 +7,19 @@ import com.baidu.c.a.b.c;
 import com.baidu.c.a.b.d;
 /* loaded from: classes13.dex */
 public class a {
-    private static boolean SM;
-    private static boolean SO;
+    private static boolean SY;
+    private static boolean SZ;
 
     public static void init(Context context) {
-        SM = h.hH().loadLibrary("criusbase", 2);
-        SO = h.hH().loadLibrary("crius", 2);
+        SY = h.hH().loadLibrary("criusbase", 2);
+        SZ = h.hH().loadLibrary("crius", 2);
     }
 
     public static void a(b bVar) {
-        com.baidu.c.a.b.a.oy().b(bVar);
+        com.baidu.c.a.b.a.oD().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.oz().b(cVar);
+        d.oE().b(cVar);
     }
 }

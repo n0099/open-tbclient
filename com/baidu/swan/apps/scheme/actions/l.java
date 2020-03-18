@@ -10,14 +10,14 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes11.dex */
 public class l extends ab {
-    private com.baidu.swan.apps.adaptation.b.c bRb;
+    private com.baidu.swan.apps.adaptation.b.c bRm;
 
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getSlaveIdSync");
     }
 
     public void f(com.baidu.swan.apps.adaptation.b.c cVar) {
-        this.bRb = cVar;
+        this.bRm = cVar;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -25,13 +25,13 @@ public class l extends ab {
         if (DEBUG) {
             Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (this.bRb == null) {
+        if (this.bRm == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.bRb.IR());
+            jSONObject.put("slaveId", this.bRm.IU());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

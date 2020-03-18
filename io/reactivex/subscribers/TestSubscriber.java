@@ -17,7 +17,7 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        this.nAs = Thread.currentThread();
+        this.nCf = Thread.currentThread();
         if (dVar == null) {
             this.errors.add(new NullPointerException("onSubscribe received a null Subscription"));
         } else if (!this.subscription.compareAndSet(null, dVar)) {
@@ -26,20 +26,20 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
                 this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + dVar));
             }
         } else {
-            if (this.nAu != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
+            if (this.nCh != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
                 this.qs = (io.reactivex.internal.a.d) dVar;
-                int requestFusion = this.qs.requestFusion(this.nAu);
-                this.nAv = requestFusion;
+                int requestFusion = this.qs.requestFusion(this.nCh);
+                this.nCi = requestFusion;
                 if (requestFusion == 1) {
-                    this.nAt = true;
-                    this.nAs = Thread.currentThread();
+                    this.nCg = true;
+                    this.nCf = Thread.currentThread();
                     while (true) {
                         try {
                             T poll = this.qs.poll();
                             if (poll != null) {
                                 this.values.add(poll);
                             } else {
-                                this.nAr++;
+                                this.nCe++;
                                 return;
                             }
                         } catch (Throwable th) {
@@ -63,14 +63,14 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.a.c
     public void onNext(T t) {
-        if (!this.nAt) {
-            this.nAt = true;
+        if (!this.nCg) {
+            this.nCg = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
-        this.nAs = Thread.currentThread();
-        if (this.nAv != 2) {
+        this.nCf = Thread.currentThread();
+        if (this.nCi != 2) {
             this.values.add(t);
             if (t == null) {
                 this.errors.add(new NullPointerException("onNext received a null value"));
@@ -96,38 +96,38 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.a.c
     public void onError(Throwable th) {
-        if (!this.nAt) {
-            this.nAt = true;
+        if (!this.nCg) {
+            this.nCg = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new NullPointerException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.nAs = Thread.currentThread();
+            this.nCf = Thread.currentThread();
             this.errors.add(th);
             if (th == null) {
                 this.errors.add(new IllegalStateException("onError received a null Throwable"));
             }
             this.actual.onError(th);
         } finally {
-            this.nAq.countDown();
+            this.nCd.countDown();
         }
     }
 
     @Override // org.a.c
     public void onComplete() {
-        if (!this.nAt) {
-            this.nAt = true;
+        if (!this.nCg) {
+            this.nCg = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.nAs = Thread.currentThread();
-            this.nAr++;
+            this.nCf = Thread.currentThread();
+            this.nCe++;
             this.actual.onComplete();
         } finally {
-            this.nAq.countDown();
+            this.nCd.countDown();
         }
     }
 

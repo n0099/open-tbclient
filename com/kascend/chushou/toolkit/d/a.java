@@ -26,30 +26,28 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import tv.chushou.basis.rxjava.RxExecutor;
-import tv.chushou.basis.rxjava.thread.EventThread;
 import tv.chushou.zues.utils.d;
 import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static final String a = c.mPj.a();
-    private static final String b = c.mPj.b();
-    private static volatile a neY;
+    private static final String a = c.mQR.a();
+    private static final String b = c.mQR.b();
+    private static volatile a ngJ;
     private final List<UpdateVo> d = new ArrayList();
-    private final Set<String> neZ = new HashSet();
+    private final Set<String> ngK = new HashSet();
     private volatile boolean f = false;
     private volatile boolean g = false;
 
-    public static a dEo() {
-        if (neY == null) {
+    public static a dEO() {
+        if (ngJ == null) {
             synchronized (a.class) {
-                if (neY == null) {
-                    neY = new a();
+                if (ngJ == null) {
+                    ngJ = new a();
                 }
             }
         }
-        return neY;
+        return ngJ;
     }
 
     private a() {
@@ -62,10 +60,16 @@ public class a {
         }
     }
 
+    public void b() {
+        if (!this.f) {
+            c();
+        }
+    }
+
     private void c() {
-        if (tv.chushou.zues.utils.a.dQq() && !this.g) {
+        if (tv.chushou.zues.utils.a.dQQ() && !this.g) {
             this.g = true;
-            com.kascend.chushou.c.c.dBR().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
+            com.kascend.chushou.c.c.dCo().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                 }
@@ -85,7 +89,6 @@ public class a {
                                 a.this.d.clear();
                                 a.this.d.addAll(a2);
                             }
-                            a.this.b();
                         }
                     }
                 }
@@ -131,7 +134,7 @@ public class a {
                         File file2 = listFiles[i2];
                         String name = file2.getName();
                         if (name.contains("apk")) {
-                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dPU(), file2.getAbsolutePath()))) {
+                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dQu(), file2.getAbsolutePath()))) {
                                 e.d("AnimPluginManager", updateVo.apk_name + " no need to update, version=" + a2);
                                 list.remove(i);
                                 break;
@@ -178,44 +181,8 @@ public class a {
         }
     }
 
-    public void b() {
-        if (this.f) {
-            synchronized (this.d) {
-                if (!this.d.isEmpty()) {
-                    RxExecutor.post(null, EventThread.SINGLE, new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.2
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            a.this.d();
-                        }
-                    });
-                }
-            }
-            return;
-        }
-        c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        synchronized (this.d) {
-            if (!h.isEmpty(this.d)) {
-                if (!e()) {
-                    e.d("AnimPluginManager", "checkInternal, no wifi return");
-                    return;
-                }
-                for (UpdateVo updateVo : new ArrayList(this.d)) {
-                    if (!e()) {
-                        e.d("AnimPluginManager", "while, no wifi return");
-                        return;
-                    }
-                    a(updateVo);
-                }
-            }
-        }
-    }
-
-    private boolean e() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dPU().getSystemService("connectivity");
+    private boolean d() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dQu().getSystemService("connectivity");
         if (connectivityManager == null) {
             return false;
         }
@@ -231,8 +198,9 @@ public class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [353=5, 354=4, 355=6, 356=4] */
-    private void a(com.kascend.chushou.bean.UpdateVo r11) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [315=5, 316=4, 317=6, 318=4] */
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.kascend.chushou.bean.UpdateVo r11) {
         /*
             r10 = this;
             r2 = 0
@@ -256,7 +224,7 @@ public class a {
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L18
             throw r0
         L1b:
-            boolean r0 = r10.e()
+            boolean r0 = r10.d()
             if (r0 != 0) goto L45
             java.lang.String r0 = "AnimPluginManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
@@ -271,9 +239,9 @@ public class a {
             tv.chushou.zues.utils.e.d(r0, r1)
             goto L5
         L45:
-            java.util.Set<java.lang.String> r1 = r10.neZ
+            java.util.Set<java.lang.String> r1 = r10.ngK
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r0 = r10.neZ     // Catch: java.lang.Throwable -> L77
+            java.util.Set<java.lang.String> r0 = r10.ngK     // Catch: java.lang.Throwable -> L77
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L77
             boolean r0 = r0.contains(r3)     // Catch: java.lang.Throwable -> L77
             if (r0 == 0) goto L7a
@@ -295,7 +263,7 @@ public class a {
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L77
             throw r0
         L7a:
-            java.util.Set<java.lang.String> r0 = r10.neZ     // Catch: java.lang.Throwable -> L77
+            java.util.Set<java.lang.String> r0 = r10.ngK     // Catch: java.lang.Throwable -> L77
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L77
             r0.add(r3)     // Catch: java.lang.Throwable -> L77
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L77
@@ -307,14 +275,14 @@ public class a {
             if (r0 == 0) goto L96
             r3.delete()
         L96:
-            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dPW()
+            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dQw()
             java.lang.Class<tv.chushou.basis.http.Http> r1 = tv.chushou.basis.http.Http.class
             tv.chushou.basis.d.a r0 = r0.S(r1)
             tv.chushou.basis.http.Http r0 = (tv.chushou.basis.http.Http) r0
             if (r0 != 0) goto Lb4
-            java.util.Set<java.lang.String> r1 = r10.neZ
+            java.util.Set<java.lang.String> r1 = r10.ngK
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r0 = r10.neZ     // Catch: java.lang.Throwable -> Lb1
+            java.util.Set<java.lang.String> r0 = r10.ngK     // Catch: java.lang.Throwable -> Lb1
             java.lang.String r2 = r11.uri     // Catch: java.lang.Throwable -> Lb1
             r0.remove(r2)     // Catch: java.lang.Throwable -> Lb1
             monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb1
@@ -330,9 +298,9 @@ public class a {
             boolean r0 = r0.downloadSync(r2, r1)     // Catch: java.lang.Throwable -> L232
             if (r0 != 0) goto Ldb
             tv.chushou.a.a.d.a.delete(r3)     // Catch: java.lang.Throwable -> L232
-            java.util.Set<java.lang.String> r2 = r10.neZ
+            java.util.Set<java.lang.String> r2 = r10.ngK
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r0 = r10.neZ     // Catch: java.lang.Throwable -> Ld8
+            java.util.Set<java.lang.String> r0 = r10.ngK     // Catch: java.lang.Throwable -> Ld8
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> Ld8
             r0.remove(r3)     // Catch: java.lang.Throwable -> Ld8
             monitor-exit(r2)     // Catch: java.lang.Throwable -> Ld8
@@ -380,9 +348,9 @@ public class a {
             java.lang.String r2 = "apk"
             boolean r0 = r0.contains(r2)     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L1fb
-            android.app.Application r0 = tv.chushou.basis.d.b.dPU()     // Catch: java.lang.Throwable -> L232
-            tv.chushou.basis.a.c r0 = tv.chushou.basis.a.c.ha(r0)     // Catch: java.lang.Throwable -> L232
-            java.lang.String r0 = r0.dPH()     // Catch: java.lang.Throwable -> L232
+            android.app.Application r0 = tv.chushou.basis.d.b.dQu()     // Catch: java.lang.Throwable -> L232
+            tv.chushou.basis.a.c r0 = tv.chushou.basis.a.c.gZ(r0)     // Catch: java.lang.Throwable -> L232
+            java.lang.String r0 = r0.dQh()     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L182
             java.lang.String r2 = r11.apk_name     // Catch: java.lang.Throwable -> L232
             r4 = 0
@@ -427,9 +395,9 @@ public class a {
             java.lang.StringBuilder r2 = r2.append(r4)     // Catch: java.lang.Throwable -> L232
             java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L232
             tv.chushou.zues.utils.e.d(r0, r2)     // Catch: java.lang.Throwable -> L232
-            java.util.Set<java.lang.String> r2 = r10.neZ
+            java.util.Set<java.lang.String> r2 = r10.ngK
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r0 = r10.neZ     // Catch: java.lang.Throwable -> L268
+            java.util.Set<java.lang.String> r0 = r10.ngK     // Catch: java.lang.Throwable -> L268
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L268
             r0.remove(r3)     // Catch: java.lang.Throwable -> L268
             monitor-exit(r2)     // Catch: java.lang.Throwable -> L268
@@ -480,9 +448,9 @@ public class a {
             if (r1 == 0) goto L23d
             r3.delete()     // Catch: java.lang.Throwable -> L274
         L23d:
-            java.util.Set<java.lang.String> r1 = r10.neZ
+            java.util.Set<java.lang.String> r1 = r10.ngK
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r2 = r10.neZ     // Catch: java.lang.Throwable -> L26b
+            java.util.Set<java.lang.String> r2 = r10.ngK     // Catch: java.lang.Throwable -> L26b
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L26b
             r2.remove(r3)     // Catch: java.lang.Throwable -> L26b
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L26b
@@ -497,9 +465,9 @@ public class a {
         L254:
             r0 = move-exception
         L255:
-            java.util.Set<java.lang.String> r2 = r10.neZ
+            java.util.Set<java.lang.String> r2 = r10.ngK
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r3 = r10.neZ     // Catch: java.lang.Throwable -> L26e
+            java.util.Set<java.lang.String> r3 = r10.ngK     // Catch: java.lang.Throwable -> L26e
             java.lang.String r4 = r11.uri     // Catch: java.lang.Throwable -> L26e
             r3.remove(r4)     // Catch: java.lang.Throwable -> L26e
             monitor-exit(r2)     // Catch: java.lang.Throwable -> L26e
@@ -549,23 +517,25 @@ public class a {
         return b + str;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [422=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [385=5] */
     public View a(Context context, String str, View view, Animation.AnimationListener animationListener, Object obj) {
         View view2;
         e.d("AnimPluginManager", "startAnimation()<----");
-        String str2 = a + "animplug" + str + ".apk";
-        File file = new File(str2);
+        String str2 = "animplug" + str + ".apk";
+        String str3 = a + str2;
+        File file = new File(str3);
         if (!file.exists() || file.isDirectory()) {
-            e.e("AnimPluginManager", str2 + " not exist!");
+            e.e("AnimPluginManager", str3 + " not exist!");
+            f(str2);
             return null;
         }
-        tv.chushou.basis.a.c ha = tv.chushou.basis.a.c.ha(context);
-        ha.aV(str2, false);
-        String str3 = "com.kascend.chushouplugin.animplug" + str;
-        tv.chushou.basis.a.d SG = ha.SG(str3);
+        tv.chushou.basis.a.c gZ = tv.chushou.basis.a.c.gZ(context);
+        gZ.aV(str3, false);
+        String str4 = "com.kascend.chushouplugin.animplug" + str;
+        tv.chushou.basis.a.d SF = gZ.SF(str4);
         try {
-            Class loadClass = SG.nUV.loadClass(str3 + ".PluginInterface");
-            view2 = (View) loadClass.getMethod("startAnimation", Context.class, View.class, Resources.class, Animation.AnimationListener.class, Object.class).invoke(loadClass.newInstance(), context, view, SG.resources, animationListener, obj);
+            Class loadClass = SF.nWI.loadClass(str4 + ".PluginInterface");
+            view2 = (View) loadClass.getMethod("startAnimation", Context.class, View.class, Resources.class, Animation.AnimationListener.class, Object.class).invoke(loadClass.newInstance(), context, view, SF.resources, animationListener, obj);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             view2 = null;
@@ -595,14 +565,14 @@ public class a {
         if (!file.exists() || file.isDirectory()) {
             return false;
         }
-        tv.chushou.basis.a.c ha = tv.chushou.basis.a.c.ha(context);
-        ha.aV(str2, false);
+        tv.chushou.basis.a.c gZ = tv.chushou.basis.a.c.gZ(context);
+        gZ.aV(str2, false);
         String str3 = "com.kascend.chushouplugin.animplug" + str;
-        tv.chushou.basis.a.d SG = ha.SG(str3);
+        tv.chushou.basis.a.d SF = gZ.SF(str3);
         Class<?>[] clsArr = {Context.class, View.class, Resources.class, View.class};
         try {
-            Class loadClass = SG.nUV.loadClass(str3 + ".PluginInterface");
-            loadClass.getMethod("stopAnimation", clsArr).invoke(loadClass.newInstance(), context, view, SG.resources, view2);
+            Class loadClass = SF.nWI.loadClass(str3 + ".PluginInterface");
+            loadClass.getMethod("stopAnimation", clsArr).invoke(loadClass.newInstance(), context, view, SF.resources, view2);
             e.d("AnimPluginManager", "stopAnimation()---->");
             return true;
         } catch (ClassNotFoundException e) {
@@ -654,39 +624,73 @@ public class a {
     }
 
     public void a(Context context, String str, final b bVar, final SVGAImageView sVGAImageView, final ChatInfo chatInfo) {
-        String str2 = a + "svga" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + chatInfo.mAnimationType + ".svga";
-        File file = new File(str2);
-        if (!file.exists() || file.isDirectory() || context == null) {
-            e.e("AnimPluginManager", str2 + " not exist!");
-            bVar.a();
+        if (context != null) {
+            String str2 = "svga" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + chatInfo.mAnimationType + ".svga";
+            String str3 = a + "svga" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + chatInfo.mAnimationType + ".svga";
+            File file = new File(str3);
+            if (!file.exists() || file.isDirectory()) {
+                e.e("AnimPluginManager", str3 + " not exist!");
+                f(str2);
+                bVar.a();
+                return;
+            }
+            try {
+                new com.opensource.svgaplayer.d(context).a(new FileInputStream(file), str, new d.c() { // from class: com.kascend.chushou.toolkit.d.a.2
+                    @Override // com.opensource.svgaplayer.d.c
+                    public void a(f fVar) {
+                        com.opensource.svgaplayer.c cVar = new com.opensource.svgaplayer.c();
+                        TextPaint textPaint = new TextPaint();
+                        textPaint.setTextSize(25.0f);
+                        textPaint.setColor(Color.parseColor("#ffff00"));
+                        TextPaint textPaint2 = new TextPaint();
+                        textPaint2.setTextSize(23.0f);
+                        textPaint2.setColor(Color.parseColor("#ffffff"));
+                        cVar.a(chatInfo.mUserNickname, textPaint, "username");
+                        cVar.a(chatInfo.mContent, textPaint2, "content");
+                        sVGAImageView.setVideoItem(fVar, cVar);
+                        sVGAImageView.startAnimation();
+                        sVGAImageView.setVisibility(0);
+                        sVGAImageView.setCallback(bVar);
+                    }
+
+                    @Override // com.opensource.svgaplayer.d.c
+                    public void onError() {
+                        bVar.a();
+                    }
+                }, true);
+            } catch (Throwable th) {
+                bVar.a();
+            }
+        }
+    }
+
+    private void f(String str) {
+        final UpdateVo updateVo;
+        if (!this.f) {
+            c();
             return;
         }
-        try {
-            new com.opensource.svgaplayer.d(context).a(new FileInputStream(file), str, new d.c() { // from class: com.kascend.chushou.toolkit.d.a.3
-                @Override // com.opensource.svgaplayer.d.c
-                public void a(f fVar) {
-                    com.opensource.svgaplayer.c cVar = new com.opensource.svgaplayer.c();
-                    TextPaint textPaint = new TextPaint();
-                    textPaint.setTextSize(25.0f);
-                    textPaint.setColor(Color.parseColor("#ffff00"));
-                    TextPaint textPaint2 = new TextPaint();
-                    textPaint2.setTextSize(23.0f);
-                    textPaint2.setColor(Color.parseColor("#ffffff"));
-                    cVar.a(chatInfo.mUserNickname, textPaint, "username");
-                    cVar.a(chatInfo.mContent, textPaint2, "content");
-                    sVGAImageView.setVideoItem(fVar, cVar);
-                    sVGAImageView.startAnimation();
-                    sVGAImageView.setVisibility(0);
-                    sVGAImageView.setCallback(bVar);
+        synchronized (this.d) {
+            Iterator<UpdateVo> it = this.d.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    updateVo = null;
+                    break;
                 }
-
-                @Override // com.opensource.svgaplayer.d.c
-                public void onError() {
-                    bVar.a();
+                updateVo = it.next();
+                String str2 = updateVo.apk_name;
+                if (!h.isEmpty(str2) && str2.equals(str)) {
+                    break;
                 }
-            }, true);
-        } catch (Throwable th) {
-            bVar.a();
+            }
+        }
+        if (updateVo != null) {
+            tv.chushou.a.a.b.a.dQF().H(new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.this.a(updateVo);
+                }
+            });
         }
     }
 }

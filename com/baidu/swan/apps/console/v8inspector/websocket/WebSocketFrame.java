@@ -15,24 +15,24 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class WebSocketFrame {
     private static final boolean DEBUG = b.DEBUG;
-    private static final Charset blx = Charset.forName("UTF-8");
-    private String blA;
-    private OpCode blv;
-    private byte[] bly;
-    private int blz;
+    private static final Charset blK = Charset.forName("UTF-8");
+    private OpCode blI;
+    private byte[] blL;
+    private int blM;
+    private String blN;
     private byte[] vE;
     private boolean wk;
 
     WebSocketFrame(WebSocketFrame webSocketFrame) {
-        a(webSocketFrame.Mo());
-        cj(webSocketFrame.Mp());
-        u(webSocketFrame.Mq());
-        v(webSocketFrame.Ms());
+        a(webSocketFrame.Mr());
+        ck(webSocketFrame.Ms());
+        u(webSocketFrame.Mt());
+        v(webSocketFrame.Mv());
     }
 
     private WebSocketFrame(OpCode opCode, boolean z) {
         a(opCode);
-        cj(z);
+        ck(z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,7 +41,7 @@ public class WebSocketFrame {
         Iterator<WebSocketFrame> it;
         long j = 0;
         while (list.iterator().hasNext()) {
-            j = it.next().Mq().length + j;
+            j = it.next().Mt().length + j;
         }
         if (j < 0 || j > 2147483647L) {
             if (DEBUG) {
@@ -49,12 +49,12 @@ public class WebSocketFrame {
             }
             return;
         }
-        this.blz = (int) j;
-        byte[] bArr = new byte[this.blz];
+        this.blM = (int) j;
+        byte[] bArr = new byte[this.blM];
         int i = 0;
         for (WebSocketFrame webSocketFrame : list) {
-            System.arraycopy(webSocketFrame.Mq(), 0, bArr, i, webSocketFrame.Mq().length);
-            i = webSocketFrame.Mq().length + i;
+            System.arraycopy(webSocketFrame.Mt(), 0, bArr, i, webSocketFrame.Mt().length);
+            i = webSocketFrame.Mt().length + i;
         }
         u(bArr);
     }
@@ -67,61 +67,61 @@ public class WebSocketFrame {
 
     public WebSocketFrame(OpCode opCode, boolean z, String str) {
         this(opCode, z);
-        gJ(str);
+        gI(str);
     }
 
     private void a(OpCode opCode) {
-        this.blv = opCode;
+        this.blI = opCode;
     }
 
-    public OpCode Mo() {
-        return this.blv;
+    public OpCode Mr() {
+        return this.blI;
     }
 
-    private void cj(boolean z) {
+    private void ck(boolean z) {
         this.wk = z;
     }
 
-    public boolean Mp() {
+    public boolean Ms() {
         return this.wk;
     }
 
     private void u(byte[] bArr) {
         this.vE = bArr;
-        this.blz = bArr.length;
-        this.blA = null;
+        this.blM = bArr.length;
+        this.blN = null;
     }
 
-    public byte[] Mq() {
+    public byte[] Mt() {
         return this.vE;
     }
 
-    private void gJ(String str) {
-        this.vE = gK(str);
-        this.blz = str.length();
-        this.blA = str;
+    private void gI(String str) {
+        this.vE = gJ(str);
+        this.blM = str.length();
+        this.blN = str;
     }
 
-    public String Mr() {
-        if (this.blA == null) {
-            this.blA = w(Mq());
+    public String Mu() {
+        if (this.blN == null) {
+            this.blN = w(Mt());
         }
-        return this.blA;
+        return this.blN;
     }
 
     private void v(byte[] bArr) {
         if (bArr != null && bArr.length != 4 && DEBUG) {
             Log.e("WebSocketFrame", "MaskingKey " + Arrays.toString(bArr) + " hasn't length 4");
         }
-        this.bly = bArr;
+        this.blL = bArr;
     }
 
-    private byte[] Ms() {
-        return this.bly;
+    private byte[] Mv() {
+        return this.blL;
     }
 
     private boolean isMasked() {
-        return this.bly != null && this.bly.length == 4;
+        return this.blL != null && this.blL.length == 4;
     }
 
     /* loaded from: classes11.dex */
@@ -190,7 +190,7 @@ public class WebSocketFrame {
     }
 
     static String k(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, blx);
+        return new String(bArr, i, i2, blK);
     }
 
     private static int eo(int i) throws EOFException {
@@ -216,25 +216,25 @@ public class WebSocketFrame {
         WebSocketFrame webSocketFrame = new WebSocketFrame(find, z);
         webSocketFrame.k(inputStream);
         webSocketFrame.j(inputStream);
-        return webSocketFrame.Mo() == OpCode.Close ? new a() : webSocketFrame;
+        return webSocketFrame.Mr() == OpCode.Close ? new a() : webSocketFrame;
     }
 
-    static byte[] gK(String str) {
-        return str.getBytes(blx);
+    static byte[] gJ(String str) {
+        return str.getBytes(blK);
     }
 
-    private String Mt() {
+    private String Mw() {
         if (this.vE == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         sb.append('[').append(this.vE.length).append("b] ");
-        if (Mo() == OpCode.Text) {
-            String Mr = Mr();
-            if (Mr.length() > 100) {
-                sb.append(Mr.substring(0, 100)).append(StringHelper.STRING_MORE);
+        if (Mr() == OpCode.Text) {
+            String Mu = Mu();
+            if (Mu.length() > 100) {
+                sb.append(Mu.substring(0, 100)).append(StringHelper.STRING_MORE);
             } else {
-                sb.append(Mr);
+                sb.append(Mu);
             }
         } else {
             sb.append("0x");
@@ -249,19 +249,19 @@ public class WebSocketFrame {
     }
 
     private void j(InputStream inputStream) throws IOException {
-        this.vE = new byte[this.blz];
+        this.vE = new byte[this.blM];
         int i = 0;
-        while (i < this.blz) {
-            i += eo(inputStream.read(this.vE, i, this.blz - i));
+        while (i < this.blM) {
+            i += eo(inputStream.read(this.vE, i, this.blM - i));
         }
         if (isMasked()) {
             for (int i2 = 0; i2 < this.vE.length; i2++) {
                 byte[] bArr = this.vE;
-                bArr[i2] = (byte) (bArr[i2] ^ this.bly[i2 % 4]);
+                bArr[i2] = (byte) (bArr[i2] ^ this.blL[i2 % 4]);
             }
         }
-        if (Mo() == OpCode.Text) {
-            this.blA = w(Mq());
+        if (Mr() == OpCode.Text) {
+            this.blN = w(Mt());
         }
     }
 
@@ -269,13 +269,13 @@ public class WebSocketFrame {
         int i = 0;
         byte eo = (byte) eo(inputStream.read());
         boolean z = (eo & 128) != 0;
-        this.blz = (byte) (eo & Byte.MAX_VALUE);
-        if (this.blz == 126) {
-            this.blz = ((eo(inputStream.read()) << 8) | eo(inputStream.read())) & 65535;
-            if (this.blz < 126) {
+        this.blM = (byte) (eo & Byte.MAX_VALUE);
+        if (this.blM == 126) {
+            this.blM = ((eo(inputStream.read()) << 8) | eo(inputStream.read())) & 65535;
+            if (this.blM < 126) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Invalid data frame 2byte length.(not using minimal length encoding)");
             }
-        } else if (this.blz == 127) {
+        } else if (this.blM == 127) {
             long eo2 = (eo(inputStream.read()) << 56) | (eo(inputStream.read()) << 48) | (eo(inputStream.read()) << 40) | (eo(inputStream.read()) << 32) | (eo(inputStream.read()) << 24) | (eo(inputStream.read()) << 16) | (eo(inputStream.read()) << 8) | eo(inputStream.read());
             if (eo2 <= 65536) {
                 throw new IOException("Invalid data frame 4byte length.(not using minimal length encoding)");
@@ -283,73 +283,73 @@ public class WebSocketFrame {
             if (eo2 > 2147483647L) {
                 throw new WebSocketException(CloseCode.MessageTooLong, "Max frame length has been exceeded.");
             }
-            this.blz = (int) eo2;
+            this.blM = (int) eo2;
         }
-        if (this.blv.isControlFrame()) {
-            if (this.blz > 125) {
+        if (this.blI.isControlFrame()) {
+            if (this.blM > 125) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Control frame with mPayload length > 125 bytes.");
             }
-            if (this.blv == OpCode.Close && this.blz == 1) {
+            if (this.blI == OpCode.Close && this.blM == 1) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Received close frame with mPayload len 1.");
             }
         }
         if (z) {
-            this.bly = new byte[4];
-            while (i < this.bly.length) {
-                i += eo(inputStream.read(this.bly, i, this.bly.length - i));
+            this.blL = new byte[4];
+            while (i < this.blL.length) {
+                i += eo(inputStream.read(this.blL, i, this.blL.length - i));
             }
         }
     }
 
     public String toString() {
         Object[] objArr = new Object[4];
-        objArr[0] = Mo();
-        objArr[1] = Mp() ? "fin" : "inter";
+        objArr[0] = Mr();
+        objArr[1] = Ms() ? "fin" : "inter";
         objArr[2] = isMasked() ? "masked" : "unmasked";
-        objArr[3] = Mt();
+        objArr[3] = Mw();
         return String.format("WS[%s, %s, %s, %s]", objArr);
     }
 
     public void write(OutputStream outputStream) throws IOException {
-        outputStream.write((byte) ((this.wk ? (byte) 128 : (byte) 0) | (this.blv.getValue() & 15)));
-        this.blz = Mq().length;
-        if (this.blz <= 125) {
-            outputStream.write(isMasked() ? ((byte) this.blz) | 128 : (byte) this.blz);
-        } else if (this.blz < 65536) {
+        outputStream.write((byte) ((this.wk ? (byte) 128 : (byte) 0) | (this.blI.getValue() & 15)));
+        this.blM = Mt().length;
+        if (this.blM <= 125) {
+            outputStream.write(isMasked() ? ((byte) this.blM) | 128 : (byte) this.blM);
+        } else if (this.blM < 65536) {
             outputStream.write(isMasked() ? 254 : Opcodes.IAND);
-            outputStream.write(this.blz >>> 8);
-            outputStream.write(this.blz);
+            outputStream.write(this.blM >>> 8);
+            outputStream.write(this.blM);
         } else {
             outputStream.write(isMasked() ? 255 : 127);
             outputStream.write(new byte[4]);
-            outputStream.write(this.blz >>> 24);
-            outputStream.write(this.blz >>> 16);
-            outputStream.write(this.blz >>> 8);
-            outputStream.write(this.blz);
+            outputStream.write(this.blM >>> 24);
+            outputStream.write(this.blM >>> 16);
+            outputStream.write(this.blM >>> 8);
+            outputStream.write(this.blM);
         }
         if (isMasked()) {
-            outputStream.write(this.bly);
-            for (int i = 0; i < this.blz; i++) {
-                outputStream.write(Mq()[i] ^ this.bly[i % 4]);
+            outputStream.write(this.blL);
+            for (int i = 0; i < this.blM; i++) {
+                outputStream.write(Mt()[i] ^ this.blL[i % 4]);
             }
         } else {
-            outputStream.write(Mq());
+            outputStream.write(Mt());
         }
         outputStream.flush();
     }
 
     /* loaded from: classes11.dex */
     public static class a extends WebSocketFrame {
-        private CloseCode blB;
-        private String blC;
+        private CloseCode blO;
+        private String blP;
 
         private static byte[] b(CloseCode closeCode, String str) {
             if (closeCode != null) {
-                byte[] gK = gK(str);
-                byte[] bArr = new byte[gK.length + 2];
+                byte[] gJ = gJ(str);
+                byte[] bArr = new byte[gJ.length + 2];
                 bArr[0] = (byte) ((closeCode.getValue() >> 8) & 255);
                 bArr[1] = (byte) (closeCode.getValue() & 255);
-                System.arraycopy(gK, 0, bArr, 2, gK.length);
+                System.arraycopy(gJ, 0, bArr, 2, gJ.length);
                 return bArr;
             }
             return new byte[0];
@@ -362,18 +362,18 @@ public class WebSocketFrame {
 
         private a(WebSocketFrame webSocketFrame) {
             super(webSocketFrame);
-            if (webSocketFrame.Mq().length >= 2) {
-                this.blB = CloseCode.find(((webSocketFrame.Mq()[0] & 255) << 8) | (webSocketFrame.Mq()[1] & 255));
-                this.blC = k(Mq(), 2, Mq().length - 2);
+            if (webSocketFrame.Mt().length >= 2) {
+                this.blO = CloseCode.find(((webSocketFrame.Mt()[0] & 255) << 8) | (webSocketFrame.Mt()[1] & 255));
+                this.blP = k(Mt(), 2, Mt().length - 2);
             }
         }
 
-        public CloseCode Mu() {
-            return this.blB;
+        public CloseCode Mx() {
+            return this.blO;
         }
 
         public String getCloseReason() {
-            return this.blC;
+            return this.blP;
         }
     }
 }

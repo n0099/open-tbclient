@@ -63,7 +63,7 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             JSONObject jSONObject = new JSONObject(str);
             int a = a(jSONObject);
-            k.a("解析参数并检查, 返回结果: " + m117a(a));
+            k.a("解析参数并检查, 返回结果: " + m115a(a));
             if (a != 0) {
                 return a;
             }
@@ -113,7 +113,7 @@ public class j extends AsyncTask<String, Integer, Integer> {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m117a(int i) {
+    private String m115a(int i) {
         switch (i) {
             case -5:
                 return "消息不匹配";

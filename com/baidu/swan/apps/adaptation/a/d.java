@@ -5,23 +5,23 @@ import org.json.JSONObject;
 public interface d {
     boolean HA();
 
-    String He();
+    long HB();
 
-    boolean Hf();
+    boolean HC();
 
-    int Hg();
+    boolean HD();
 
-    boolean Hh();
+    int HE();
 
-    boolean Hi();
+    boolean HF();
 
-    boolean Hj();
+    String Hj();
 
     boolean Hk();
 
-    boolean Hl();
+    int Hl();
 
-    String Hm();
+    boolean Hm();
 
     boolean Hn();
 
@@ -29,25 +29,25 @@ public interface d {
 
     boolean Hp();
 
-    String Hq();
+    boolean Hq();
 
-    boolean Hr();
+    String Hr();
 
     boolean Hs();
 
-    long Ht();
+    boolean Ht();
 
     boolean Hu();
 
-    boolean Hv();
+    String Hv();
 
-    long Hw();
+    boolean Hw();
 
     boolean Hx();
 
-    boolean Hy();
+    long Hy();
 
-    int Hz();
+    boolean Hz();
 
     boolean dT(int i);
 

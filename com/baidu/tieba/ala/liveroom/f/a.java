@@ -15,79 +15,79 @@ import com.baidu.live.view.web.e;
 import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
 public class a implements e, b.a {
-    private CustomMessageListener aoj;
-    private b eZP;
-    private d eZQ;
+    private CustomMessageListener aot;
+    private b fan;
+    private d fao;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        uQ();
+        uV();
     }
 
     public void yS(String str) {
-        this.eZP = new b(this.mPageContext.getPageActivity());
-        this.eZP.a(this);
-        this.eZP.b(this);
-        this.eZP.bdI().setBackgroundColor(xL(str));
-        this.eZP.show(str);
+        this.fan = new b(this.mPageContext.getPageActivity());
+        this.fan.a(this);
+        this.fan.b(this);
+        this.fan.bdN().setBackgroundColor(xL(str));
+        this.fan.show(str);
     }
 
     public void resume() {
-        if (this.eZP != null && this.eZP.isShowing() && this.eZP.bdI() != null) {
-            this.eZP.bdI().onResume();
-            this.eZP.bdI().reload();
+        if (this.fan != null && this.fan.isShowing() && this.fan.bdN() != null) {
+            this.fan.bdN().onResume();
+            this.fan.bdN().reload();
         }
     }
 
     public void pause() {
-        if (this.eZP != null && this.eZP.isShowing() && this.eZP.bdI() != null) {
-            this.eZP.bdI().onPause();
+        if (this.fan != null && this.fan.isShowing() && this.fan.bdN() != null) {
+            this.fan.bdN().onPause();
         }
     }
 
     public void release() {
-        blx();
-        MessageManager.getInstance().unRegisterListener(this.aoj);
+        blC();
+        MessageManager.getInstance().unRegisterListener(this.aot);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.eZQ = new d(this.mPageContext.getPageActivity());
-        this.eZQ.setCancelable(false);
-        this.eZQ.setCanceledOnTouchOutside(false);
-        this.eZQ.by(false);
-        this.eZQ.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.eZQ.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.fao = new d(this.mPageContext.getPageActivity());
+        this.fao.setCancelable(false);
+        this.fao.setCanceledOnTouchOutside(false);
+        this.fao.bz(false);
+        this.fao.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.fao.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
-            public void Bn() {
+            public void Bu() {
                 if (jsResult != null) {
                     jsResult.confirm();
                 }
             }
 
             @Override // com.baidu.live.view.d.a
-            public void Bo() {
+            public void Bv() {
                 if (jsResult != null) {
                     jsResult.cancel();
                 }
             }
         });
-        this.eZQ.show();
+        this.fao.show();
         return true;
     }
 
-    private void uQ() {
-        this.aoj = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
+    private void uV() {
+        this.aot = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.blx();
+                    a.this.blC();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aoj);
+        MessageManager.getInstance().registerListener(this.aot);
     }
 
     private int xL(String str) {
@@ -108,17 +108,17 @@ public class a implements e, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blx() {
-        if (this.eZP != null) {
-            this.eZP.dismiss();
+    public void blC() {
+        if (this.fan != null) {
+            this.fan.dismiss();
         }
-        if (this.eZQ != null) {
-            this.eZQ.release();
+        if (this.fao != null) {
+            this.fao.release();
         }
     }
 
     @Override // com.baidu.live.view.web.e
     public void cY(int i) {
-        blx();
+        blC();
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -210,5 +211,9 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setContent(String str) {
         getIntent().putExtra("write_content", str);
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 }

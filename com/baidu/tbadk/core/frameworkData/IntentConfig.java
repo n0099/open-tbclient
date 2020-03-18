@@ -61,6 +61,7 @@ public class IntentConfig extends OrmObject {
     public static final String KEY_ALBUM_THREAD = "album_thread";
     public static final String KEY_FROM_TYPE = "from_type";
     public static final String KEY_FROM_WRITEACTIVITY = "from_write";
+    public static final String KEY_TAB_LIST = "tab_list";
     private static final long LAUNCH_ACTIVITY_INTERVAL_TIME = 500;
     public static final String LIST = "list";
     public static final String LIST_TYPE = "list_type";
@@ -175,25 +176,25 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) aa).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.aQV());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.aQZ());
             }
         }
     }
 
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.l.b ea = com.baidu.tbadk.l.c.ea(this.mContext);
-            ArrayList<String> aQS = ea == null ? null : ea.aQS();
-            if (!v.isEmpty(aQS)) {
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", aQS);
+            com.baidu.tbadk.l.b dZ = com.baidu.tbadk.l.c.dZ(this.mContext);
+            ArrayList<String> aQW = dZ == null ? null : dZ.aQW();
+            if (!v.isEmpty(aQW)) {
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", aQW);
             }
         }
     }
 
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.l.b ea = com.baidu.tbadk.l.c.ea(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.l.c.d(ea == null ? null : ea.aQR(), str);
+            com.baidu.tbadk.l.b dZ = com.baidu.tbadk.l.c.dZ(this.mContext);
+            ArrayList<String> d = com.baidu.tbadk.l.c.d(dZ == null ? null : dZ.aQV(), str);
             if (!v.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }
@@ -394,9 +395,13 @@ public class IntentConfig extends OrmObject {
         return this.mRequestCode;
     }
 
+    public void preJump() {
+    }
+
     public boolean startActivity(Class<?> cls) {
         Class<?> loadClass;
         boolean z = false;
+        preJump();
         setComponentClass(cls);
         if (this.mComponentClass == null || this.mContext == null || !checkStartActivityInterval(this.mComponentClass)) {
             return false;

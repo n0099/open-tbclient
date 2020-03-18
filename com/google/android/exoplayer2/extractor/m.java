@@ -15,16 +15,16 @@ public interface m {
 
     /* loaded from: classes6.dex */
     public static final class a {
-        public final int mdA;
-        public final int mdz;
-        public final int meC;
-        public final byte[] meD;
+        public final int mff;
+        public final int mfg;
+        public final int mgi;
+        public final byte[] mgj;
 
         public a(int i, byte[] bArr, int i2, int i3) {
-            this.meC = i;
-            this.meD = bArr;
-            this.mdz = i2;
-            this.mdA = i3;
+            this.mgi = i;
+            this.mgj = bArr;
+            this.mff = i2;
+            this.mfg = i3;
         }
 
         public boolean equals(Object obj) {
@@ -35,11 +35,11 @@ public interface m {
                 return false;
             }
             a aVar = (a) obj;
-            return this.meC == aVar.meC && this.mdz == aVar.mdz && this.mdA == aVar.mdA && Arrays.equals(this.meD, aVar.meD);
+            return this.mgi == aVar.mgi && this.mff == aVar.mff && this.mfg == aVar.mfg && Arrays.equals(this.mgj, aVar.mgj);
         }
 
         public int hashCode() {
-            return (((((this.meC * 31) + Arrays.hashCode(this.meD)) * 31) + this.mdz) * 31) + this.mdA;
+            return (((((this.mgi * 31) + Arrays.hashCode(this.mgj)) * 31) + this.mff) * 31) + this.mfg;
         }
     }
 }

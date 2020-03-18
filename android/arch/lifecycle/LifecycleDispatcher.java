@@ -14,11 +14,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class LifecycleDispatcher {
-    private static AtomicBoolean bY = new AtomicBoolean(false);
+    private static AtomicBoolean bV = new AtomicBoolean(false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        if (!bY.getAndSet(true)) {
+        if (!bV.getAndSet(true)) {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new a());
         }
     }
@@ -26,7 +26,7 @@ public class LifecycleDispatcher {
     @VisibleForTesting
     /* loaded from: classes6.dex */
     static class a extends d {
-        private final b bZ = new b();
+        private final b bW = new b();
 
         a() {
         }
@@ -34,7 +34,7 @@ public class LifecycleDispatcher {
         @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             if (activity instanceof FragmentActivity) {
-                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.bZ, true);
+                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.bW, true);
             }
             ReportFragment.j(activity);
         }

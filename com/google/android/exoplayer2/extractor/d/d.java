@@ -6,77 +6,77 @@ import java.io.IOException;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
 final class d {
-    private int mlE;
-    private boolean mlF;
-    private final e mll = new e();
-    private final l mlC = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
-    private int mlD = -1;
+    private final e mmR = new e();
+    private final l mni = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
+    private int mnj = -1;
+    private int mnk;
+    private boolean mnl;
 
     public void reset() {
-        this.mll.reset();
-        this.mlC.reset();
-        this.mlD = -1;
-        this.mlF = false;
+        this.mmR.reset();
+        this.mni.reset();
+        this.mnj = -1;
+        this.mnl = false;
     }
 
     public boolean y(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         int i;
         com.google.android.exoplayer2.util.a.checkState(fVar != null);
-        if (this.mlF) {
-            this.mlF = false;
-            this.mlC.reset();
+        if (this.mnl) {
+            this.mnl = false;
+            this.mni.reset();
         }
-        while (!this.mlF) {
-            if (this.mlD < 0) {
-                if (!this.mll.c(fVar, true)) {
+        while (!this.mnl) {
+            if (this.mnj < 0) {
+                if (!this.mmR.c(fVar, true)) {
                     return false;
                 }
-                int i2 = this.mll.mhc;
-                if ((this.mll.type & 1) == 1 && this.mlC.dzv() == 0) {
-                    i2 += JT(0);
-                    i = this.mlE + 0;
+                int i2 = this.mmR.miK;
+                if ((this.mmR.type & 1) == 1 && this.mni.dzS() == 0) {
+                    i2 += JZ(0);
+                    i = this.mnk + 0;
                 } else {
                     i = 0;
                 }
-                fVar.Jv(i2);
-                this.mlD = i;
+                fVar.JB(i2);
+                this.mnj = i;
             }
-            int JT = JT(this.mlD);
-            int i3 = this.mlD + this.mlE;
-            if (JT > 0) {
-                if (this.mlC.capacity() < this.mlC.dzv() + JT) {
-                    this.mlC.data = Arrays.copyOf(this.mlC.data, this.mlC.dzv() + JT);
+            int JZ = JZ(this.mnj);
+            int i3 = this.mnj + this.mnk;
+            if (JZ > 0) {
+                if (this.mni.capacity() < this.mni.dzS() + JZ) {
+                    this.mni.data = Arrays.copyOf(this.mni.data, this.mni.dzS() + JZ);
                 }
-                fVar.readFully(this.mlC.data, this.mlC.dzv(), JT);
-                this.mlC.setLimit(JT + this.mlC.dzv());
-                this.mlF = this.mll.mlO[i3 + (-1)] != 255;
+                fVar.readFully(this.mni.data, this.mni.dzS(), JZ);
+                this.mni.setLimit(JZ + this.mni.dzS());
+                this.mnl = this.mmR.mnu[i3 + (-1)] != 255;
             }
-            this.mlD = i3 == this.mll.mlM ? -1 : i3;
+            this.mnj = i3 == this.mmR.mns ? -1 : i3;
         }
         return true;
     }
 
-    public e dvl() {
-        return this.mll;
+    public e dvI() {
+        return this.mmR;
     }
 
-    public l dvm() {
-        return this.mlC;
+    public l dvJ() {
+        return this.mni;
     }
 
-    public void dvn() {
-        if (this.mlC.data.length != 65025) {
-            this.mlC.data = Arrays.copyOf(this.mlC.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mlC.dzv()));
+    public void dvK() {
+        if (this.mni.data.length != 65025) {
+            this.mni.data = Arrays.copyOf(this.mni.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mni.dzS()));
         }
     }
 
-    private int JT(int i) {
+    private int JZ(int i) {
         int i2 = 0;
-        this.mlE = 0;
-        while (this.mlE + i < this.mll.mlM) {
-            int[] iArr = this.mll.mlO;
-            int i3 = this.mlE;
-            this.mlE = i3 + 1;
+        this.mnk = 0;
+        while (this.mnk + i < this.mmR.mns) {
+            int[] iArr = this.mmR.mnu;
+            int i3 = this.mnk;
+            this.mnk = i3 + 1;
             int i4 = iArr[i3 + i];
             i2 += i4;
             if (i4 != 255) {

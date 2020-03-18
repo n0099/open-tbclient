@@ -110,6 +110,6 @@ public final class BoundedSubscriber<T> extends AtomicReference<d> implements io
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nwn;
+        return this.onError != Functions.nya;
     }
 }

@@ -1,16 +1,15 @@
 package com.baidu.crabsdk.b;
 
 import android.content.Context;
-import android.net.wifi.WifiManager;
 import android.provider.Settings;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
 public final class h {
-    private static String RP = null;
+    public static String RR = null;
+    private static Context mContext = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -47,19 +46,22 @@ public final class h {
         return str;
     }
 
-    public static String g(Context context) {
-        if (com.baidu.crabsdk.a.K) {
-            if (RP != null) {
-                return RP;
-            }
-            try {
-                RP = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
-            } catch (Exception e) {
-                com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                RP = "N/A";
-            }
-            return RP;
+    public static void e(Context context) {
+        if (mContext == null) {
+            mContext = context;
         }
-        return "N/A";
+    }
+
+    public static String z() {
+        if (RR != null) {
+            return RR;
+        }
+        try {
+            RR = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
+        } catch (Exception e) {
+            com.baidu.crabsdk.c.a.f("getCUID failed!", e);
+            RR = "N/A";
+        }
+        return RR;
     }
 }

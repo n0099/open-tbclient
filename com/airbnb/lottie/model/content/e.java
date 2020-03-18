@@ -5,35 +5,33 @@ import com.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e implements b {
-    private final com.airbnb.lottie.model.a.d hS;
-    private final GradientType hY;
-    private final com.airbnb.lottie.model.a.c ib;
+    private final com.airbnb.lottie.model.a.d hR;
+    private final GradientType hX;
+    private final com.airbnb.lottie.model.a.c hZ;
+    private final com.airbnb.lottie.model.a.f ib;
     private final com.airbnb.lottie.model.a.f ic;
-    private final com.airbnb.lottie.model.a.f ie;
-    private final com.airbnb.lottie.model.a.b ii;
-    private final ShapeStroke.LineCapType ij;
-    private final ShapeStroke.LineJoinType ik;
-    private final float il;
-    private final List<com.airbnb.lottie.model.a.b> im;
+    private final com.airbnb.lottie.model.a.b ig;
+    private final ShapeStroke.LineCapType ii;
+    private final ShapeStroke.LineJoinType ij;
+    private final float ik;
+    private final List<com.airbnb.lottie.model.a.b> il;
     @Nullable
-
-    /* renamed from: io  reason: collision with root package name */
-    private final com.airbnb.lottie.model.a.b f970io;
+    private final com.airbnb.lottie.model.a.b im;
     private final String name;
 
     public e(String str, GradientType gradientType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.airbnb.lottie.model.a.b> list, @Nullable com.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.hY = gradientType;
-        this.ib = cVar;
-        this.hS = dVar;
-        this.ic = fVar;
-        this.ie = fVar2;
-        this.ii = bVar;
-        this.ij = lineCapType;
-        this.ik = lineJoinType;
-        this.il = f;
-        this.im = list;
-        this.f970io = bVar2;
+        this.hX = gradientType;
+        this.hZ = cVar;
+        this.hR = dVar;
+        this.ib = fVar;
+        this.ic = fVar2;
+        this.ig = bVar;
+        this.ii = lineCapType;
+        this.ij = lineJoinType;
+        this.ik = f;
+        this.il = list;
+        this.im = bVar2;
     }
 
     public String getName() {
@@ -41,48 +39,48 @@ public class e implements b {
     }
 
     public GradientType cz() {
-        return this.hY;
+        return this.hX;
     }
 
     public com.airbnb.lottie.model.a.c cB() {
-        return this.ib;
+        return this.hZ;
     }
 
     public com.airbnb.lottie.model.a.d ct() {
-        return this.hS;
+        return this.hR;
     }
 
     public com.airbnb.lottie.model.a.f cC() {
-        return this.ic;
+        return this.ib;
     }
 
     public com.airbnb.lottie.model.a.f cD() {
-        return this.ie;
+        return this.ic;
     }
 
     public com.airbnb.lottie.model.a.b cE() {
-        return this.ii;
+        return this.ig;
     }
 
     public ShapeStroke.LineCapType cF() {
-        return this.ij;
+        return this.ii;
     }
 
     public ShapeStroke.LineJoinType cG() {
-        return this.ik;
+        return this.ij;
     }
 
     public List<com.airbnb.lottie.model.a.b> cH() {
-        return this.im;
+        return this.il;
     }
 
     @Nullable
     public com.airbnb.lottie.model.a.b cI() {
-        return this.f970io;
+        return this.im;
     }
 
     public float cJ() {
-        return this.il;
+        return this.ik;
     }
 
     @Override // com.airbnb.lottie.model.content.b

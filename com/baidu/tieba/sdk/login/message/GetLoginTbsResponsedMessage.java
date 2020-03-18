@@ -20,23 +20,23 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            a cEA = com.baidu.tieba.sdk.login.a.cEx().cEA();
-            a.C0601a c0601a = new a.C0601a();
-            if (cEA != null) {
-                c0601a.It(cEA.bduss);
-                c0601a.Ir(cEA.userName);
-                c0601a.Is(cEA.nickName);
-                c0601a.Iq(cEA.userId);
-                c0601a.Iv(cEA.portrait);
-                c0601a.Bq(cEA.sex);
+            a cEU = com.baidu.tieba.sdk.login.a.cER().cEU();
+            a.C0602a c0602a = new a.C0602a();
+            if (cEU != null) {
+                c0602a.Is(cEU.bduss);
+                c0602a.Iq(cEU.userName);
+                c0602a.Ir(cEU.nickName);
+                c0602a.Ip(cEU.userId);
+                c0602a.Iu(cEU.portrait);
+                c0602a.By(cEU.sex);
             }
-            c0601a.Br(1);
+            c0602a.Bz(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0601a.Iu(optJSONObject.optString("tbs"));
+                c0602a.It(optJSONObject.optString("tbs"));
             }
-            AccountData cEF = c0601a.cEF();
-            TbadkCoreApplication.setCurrentAccount(cEF, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            c.pr().putString("ala_account_user_tbs", cEF.getTbs());
+            AccountData cEZ = c0602a.cEZ();
+            TbadkCoreApplication.setCurrentAccount(cEZ, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            c.pw().putString("ala_account_user_tbs", cEZ.getTbs());
         }
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class c {
-    private McnVideoAdView aLs;
-    private McnVideoAdView.a aLt = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
+    private McnVideoAdView aLG;
+    private McnVideoAdView.a aLH = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void a(a aVar) {
             if (aVar != null) {
                 an anVar = new an("c13404");
-                anVar.cy("tid", aVar.tid);
-                anVar.cy("fid", aVar.fid);
+                anVar.cx("tid", aVar.tid);
+                anVar.cx("fid", aVar.fid);
                 anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.X("obj_locate", aVar.aLo);
+                anVar.X("obj_locate", aVar.aLC);
                 TiebaStatic.log(anVar);
             }
         }
@@ -27,18 +27,18 @@ public class c {
         public void b(a aVar) {
             if (aVar != null) {
                 an anVar = new an("c13405");
-                anVar.cy("tid", aVar.tid);
-                anVar.cy("fid", aVar.fid);
+                anVar.cx("tid", aVar.tid);
+                anVar.cx("fid", aVar.fid);
                 anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.X("obj_locate", aVar.aLo);
+                anVar.X("obj_locate", aVar.aLC);
                 TiebaStatic.log(anVar);
             }
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void c(a aVar) {
-            if (aVar != null && !StringUtils.isNull(aVar.aLn)) {
-                b.DG().eA(aVar.aLn);
+            if (aVar != null && !StringUtils.isNull(aVar.aLB)) {
+                b.DN().ez(aVar.aLB);
             }
         }
     };
@@ -46,43 +46,43 @@ public class c {
 
     public c(Context context) {
         this.mContext = context;
-        this.aLs = new McnVideoAdView(context);
-        this.aLs.setIMcnStatListener(this.aLt);
+        this.aLG = new McnVideoAdView(context);
+        this.aLG.setIMcnStatListener(this.aLH);
     }
 
     public void a(a aVar, ViewGroup viewGroup) {
-        if (this.aLs != null) {
-            this.aLs.a(aVar, viewGroup);
+        if (this.aLG != null) {
+            this.aLG.a(aVar, viewGroup);
         }
     }
 
     public void dismiss() {
-        if (this.aLs != null) {
-            this.aLs.dismiss();
+        if (this.aLG != null) {
+            this.aLG.dismiss();
         }
     }
 
     public void reset() {
-        if (this.aLs != null) {
-            this.aLs.reset();
+        if (this.aLG != null) {
+            this.aLG.reset();
         }
     }
 
     public void b(a aVar, ViewGroup viewGroup) {
-        if (this.aLs != null) {
-            this.aLs.b(aVar, viewGroup);
+        if (this.aLG != null) {
+            this.aLG.b(aVar, viewGroup);
         }
     }
 
-    public void DH() {
-        if (this.aLs != null) {
-            this.aLs.DH();
+    public void DO() {
+        if (this.aLG != null) {
+            this.aLG.DO();
         }
     }
 
     public boolean isShowing() {
-        if (this.aLs != null) {
-            return this.aLs.isShowing();
+        if (this.aLG != null) {
+            return this.aLG.isShowing();
         }
         return false;
     }

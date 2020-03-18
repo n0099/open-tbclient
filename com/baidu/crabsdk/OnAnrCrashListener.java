@@ -7,5 +7,5 @@ public interface OnAnrCrashListener {
 
     void onCrashStarted(Thread thread, Throwable th);
 
-    void onNativeCrashStarted(Error error, String str, int i);
+    void onNativeCrashStarted(String str);
 }

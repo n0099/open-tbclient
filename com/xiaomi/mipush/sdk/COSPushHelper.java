@@ -29,7 +29,7 @@ public class COSPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return j.m105a(context);
+        return j.m103a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -41,7 +41,7 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2 = g.a(context).a(f.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }

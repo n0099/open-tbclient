@@ -13,11 +13,11 @@ public class d {
                     aVar2.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "request对象为空"));
                 } else {
                     HashMap<String, String> a = b.a(aVar);
-                    if (aVar2.ats() != null) {
-                        a.putAll(aVar2.ats());
+                    if (aVar2.atv() != null) {
+                        a.putAll(aVar2.atv());
                     }
-                    aVar2.Nb();
-                    com.baidu.swan.pms.c.a.a(c.ajk(), a, aVar2.att(), new com.baidu.swan.a.a.b(aVar, aVar2));
+                    aVar2.Ne();
+                    com.baidu.swan.pms.c.a.a(c.ajn(), a, aVar2.atw(), new com.baidu.swan.a.a.b(aVar, aVar2));
                 }
             }
         }
@@ -26,7 +26,7 @@ public class d {
     public static <T extends com.baidu.swan.pms.model.e> void a(T t, a aVar) {
         f b = b(t, aVar);
         i iVar = new i(aVar);
-        iVar.a(com.baidu.swan.pms.c.a.d.d.atV().i(b));
+        iVar.a(com.baidu.swan.pms.c.a.d.d.atY().i(b));
         iVar.startDownload();
     }
 
@@ -34,6 +34,6 @@ public class d {
         if (t == null || aVar == null) {
             return null;
         }
-        return new f(new com.baidu.swan.pms.c.a.d.e(t), t, new com.baidu.swan.pms.c.a.d.c(aVar.ajj()));
+        return new f(new com.baidu.swan.pms.c.a.d.e(t), t, new com.baidu.swan.pms.c.a.d.c(aVar.ajm()));
     }
 }

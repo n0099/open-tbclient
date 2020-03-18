@@ -40,29 +40,29 @@ import tbclient.ActionControl;
 import tbclient.AdCloseInfo;
 /* loaded from: classes13.dex */
 public class AdCloseView extends FrameLayout {
-    private long aiH;
-    protected int dUB;
-    protected PopupWindow dUE;
-    private PopupWindow.OnDismissListener dUN;
-    protected View.OnClickListener dUu;
-    protected int dUz;
-    private int eMg;
-    protected RelativeLayout fHv;
-    protected TextView gBx;
-    protected LinearLayout jMA;
-    protected TextView jMB;
-    protected ImageView jMC;
-    protected ImageView jMD;
-    private List<CheckBox> jME;
-    private AdvertAppInfo jMF;
-    private ActionControl jMG;
-    private List<String> jMH;
-    private String jMI;
-    private boolean jMJ;
-    private View.OnClickListener jMK;
-    private View.OnClickListener jML;
-    private final CustomMessageListener jMM;
-    private View.OnClickListener jMN;
+    private long aiR;
+    protected View.OnClickListener dUK;
+    protected int dUP;
+    protected int dUR;
+    protected PopupWindow dUU;
+    private PopupWindow.OnDismissListener dVd;
+    private int eMC;
+    protected RelativeLayout fId;
+    protected TextView gCv;
+    protected LinearLayout jOc;
+    protected TextView jOd;
+    protected ImageView jOe;
+    protected ImageView jOf;
+    private List<CheckBox> jOg;
+    private AdvertAppInfo jOh;
+    private ActionControl jOi;
+    private List<String> jOj;
+    private String jOk;
+    private boolean jOl;
+    private View.OnClickListener jOm;
+    private View.OnClickListener jOn;
+    private final CustomMessageListener jOo;
+    private View.OnClickListener jOp;
     private View mContentView;
     protected Context mContext;
     protected PopupWindow mPopupWindow;
@@ -76,34 +76,34 @@ public class AdCloseView extends FrameLayout {
         super(context);
         this.mContext = null;
         this.mPopupWindow = null;
-        this.dUE = null;
-        this.jME = null;
-        this.jMF = null;
-        this.jMH = new ArrayList();
-        this.aiH = 0L;
-        this.jMJ = false;
-        this.dUu = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
+        this.dUU = null;
+        this.jOg = null;
+        this.jOh = null;
+        this.jOj = new ArrayList();
+        this.aiR = 0L;
+        this.jOl = false;
+        this.dUK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - AdCloseView.this.aiH > 500) {
-                    AdCloseView.this.bQG();
-                    AdCloseView.this.aiH = currentTimeMillis;
+                if (currentTimeMillis - AdCloseView.this.aiR > 500) {
+                    AdCloseView.this.bQY();
+                    AdCloseView.this.aiR = currentTimeMillis;
                 }
             }
         };
-        this.jMK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
+        this.jOm = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cDC = AdCloseView.this.cDC();
-                if (cDC > 0) {
-                    AdCloseView.this.gBx.setText(R.string.confirm);
+                int cDW = AdCloseView.this.cDW();
+                if (cDW > 0) {
+                    AdCloseView.this.gCv.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cDC));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cDW));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -111,23 +111,23 @@ public class AdCloseView extends FrameLayout {
                     AdCloseView.this.mTitleTextView.setText(spannableStringBuilder);
                     return;
                 }
-                AdCloseView.this.gBx.setText(R.string.ad_no_interest);
+                AdCloseView.this.gCv.setText(R.string.ad_no_interest);
                 AdCloseView.this.mTitleTextView.setText(AdCloseView.this.mTitle);
             }
         };
-        this.jML = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
+        this.jOn = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdCloseView.this.jMF != null && AdCloseView.this.mPopupWindow != null) {
+                if (AdCloseView.this.jOh != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jMF.cMX));
-                    AdCloseView.this.aWo();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jOh.cNk));
+                    AdCloseView.this.aWs();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
                     tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                     HttpMessage httpMessage = new HttpMessage(1003322);
-                    switch (AdCloseView.this.eMg) {
+                    switch (AdCloseView.this.eMC) {
                         case 1:
                             httpMessage.addParam("pi", "0005");
                             break;
@@ -140,32 +140,32 @@ public class AdCloseView extends FrameLayout {
                             break;
                     }
                     httpMessage.addParam("cr", selectedResultJsonObj);
-                    httpMessage.addParam("ext", AdCloseView.this.jMF.extensionInfo);
+                    httpMessage.addParam("ext", AdCloseView.this.jOh.extensionInfo);
                     httpMessage.addParam(BdStatsConstant.StatsKey.CRASH_INFO, TbadkCoreApplication.getInst().getCuid());
                     MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
                 }
             }
         };
-        this.dUN = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
+        this.dVd = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (AdCloseView.this.dUE != null) {
-                    AdCloseView.this.dUE.dismiss();
-                    AdCloseView.this.dUE = null;
+                if (AdCloseView.this.dUU != null) {
+                    AdCloseView.this.dUU.dismiss();
+                    AdCloseView.this.dUU = null;
                 }
             }
         };
-        this.jMM = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
+        this.jOo = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.aWo();
+                AdCloseView.this.aWs();
             }
         };
-        this.jMN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
+        this.jOp = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cDA();
+                AdCloseView.this.cDU();
             }
         };
         this.mContext = context;
@@ -176,34 +176,34 @@ public class AdCloseView extends FrameLayout {
         super(context, attributeSet);
         this.mContext = null;
         this.mPopupWindow = null;
-        this.dUE = null;
-        this.jME = null;
-        this.jMF = null;
-        this.jMH = new ArrayList();
-        this.aiH = 0L;
-        this.jMJ = false;
-        this.dUu = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
+        this.dUU = null;
+        this.jOg = null;
+        this.jOh = null;
+        this.jOj = new ArrayList();
+        this.aiR = 0L;
+        this.jOl = false;
+        this.dUK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - AdCloseView.this.aiH > 500) {
-                    AdCloseView.this.bQG();
-                    AdCloseView.this.aiH = currentTimeMillis;
+                if (currentTimeMillis - AdCloseView.this.aiR > 500) {
+                    AdCloseView.this.bQY();
+                    AdCloseView.this.aiR = currentTimeMillis;
                 }
             }
         };
-        this.jMK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
+        this.jOm = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cDC = AdCloseView.this.cDC();
-                if (cDC > 0) {
-                    AdCloseView.this.gBx.setText(R.string.confirm);
+                int cDW = AdCloseView.this.cDW();
+                if (cDW > 0) {
+                    AdCloseView.this.gCv.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cDC));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cDW));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -211,23 +211,23 @@ public class AdCloseView extends FrameLayout {
                     AdCloseView.this.mTitleTextView.setText(spannableStringBuilder);
                     return;
                 }
-                AdCloseView.this.gBx.setText(R.string.ad_no_interest);
+                AdCloseView.this.gCv.setText(R.string.ad_no_interest);
                 AdCloseView.this.mTitleTextView.setText(AdCloseView.this.mTitle);
             }
         };
-        this.jML = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
+        this.jOn = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdCloseView.this.jMF != null && AdCloseView.this.mPopupWindow != null) {
+                if (AdCloseView.this.jOh != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jMF.cMX));
-                    AdCloseView.this.aWo();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jOh.cNk));
+                    AdCloseView.this.aWs();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
                     tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                     HttpMessage httpMessage = new HttpMessage(1003322);
-                    switch (AdCloseView.this.eMg) {
+                    switch (AdCloseView.this.eMC) {
                         case 1:
                             httpMessage.addParam("pi", "0005");
                             break;
@@ -240,32 +240,32 @@ public class AdCloseView extends FrameLayout {
                             break;
                     }
                     httpMessage.addParam("cr", selectedResultJsonObj);
-                    httpMessage.addParam("ext", AdCloseView.this.jMF.extensionInfo);
+                    httpMessage.addParam("ext", AdCloseView.this.jOh.extensionInfo);
                     httpMessage.addParam(BdStatsConstant.StatsKey.CRASH_INFO, TbadkCoreApplication.getInst().getCuid());
                     MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
                 }
             }
         };
-        this.dUN = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
+        this.dVd = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (AdCloseView.this.dUE != null) {
-                    AdCloseView.this.dUE.dismiss();
-                    AdCloseView.this.dUE = null;
+                if (AdCloseView.this.dUU != null) {
+                    AdCloseView.this.dUU.dismiss();
+                    AdCloseView.this.dUU = null;
                 }
             }
         };
-        this.jMM = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
+        this.jOo = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.aWo();
+                AdCloseView.this.aWs();
             }
         };
-        this.jMN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
+        this.jOp = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cDA();
+                AdCloseView.this.cDU();
             }
         };
         this.mContext = context;
@@ -276,34 +276,34 @@ public class AdCloseView extends FrameLayout {
         super(context, attributeSet, i);
         this.mContext = null;
         this.mPopupWindow = null;
-        this.dUE = null;
-        this.jME = null;
-        this.jMF = null;
-        this.jMH = new ArrayList();
-        this.aiH = 0L;
-        this.jMJ = false;
-        this.dUu = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
+        this.dUU = null;
+        this.jOg = null;
+        this.jOh = null;
+        this.jOj = new ArrayList();
+        this.aiR = 0L;
+        this.jOl = false;
+        this.dUK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - AdCloseView.this.aiH > 500) {
-                    AdCloseView.this.bQG();
-                    AdCloseView.this.aiH = currentTimeMillis;
+                if (currentTimeMillis - AdCloseView.this.aiR > 500) {
+                    AdCloseView.this.bQY();
+                    AdCloseView.this.aiR = currentTimeMillis;
                 }
             }
         };
-        this.jMK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
+        this.jOm = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cDC = AdCloseView.this.cDC();
-                if (cDC > 0) {
-                    AdCloseView.this.gBx.setText(R.string.confirm);
+                int cDW = AdCloseView.this.cDW();
+                if (cDW > 0) {
+                    AdCloseView.this.gCv.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cDC));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cDW));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -311,23 +311,23 @@ public class AdCloseView extends FrameLayout {
                     AdCloseView.this.mTitleTextView.setText(spannableStringBuilder);
                     return;
                 }
-                AdCloseView.this.gBx.setText(R.string.ad_no_interest);
+                AdCloseView.this.gCv.setText(R.string.ad_no_interest);
                 AdCloseView.this.mTitleTextView.setText(AdCloseView.this.mTitle);
             }
         };
-        this.jML = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
+        this.jOn = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdCloseView.this.jMF != null && AdCloseView.this.mPopupWindow != null) {
+                if (AdCloseView.this.jOh != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jMF.cMX));
-                    AdCloseView.this.aWo();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.jOh.cNk));
+                    AdCloseView.this.aWs();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
                     tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                     HttpMessage httpMessage = new HttpMessage(1003322);
-                    switch (AdCloseView.this.eMg) {
+                    switch (AdCloseView.this.eMC) {
                         case 1:
                             httpMessage.addParam("pi", "0005");
                             break;
@@ -340,32 +340,32 @@ public class AdCloseView extends FrameLayout {
                             break;
                     }
                     httpMessage.addParam("cr", selectedResultJsonObj);
-                    httpMessage.addParam("ext", AdCloseView.this.jMF.extensionInfo);
+                    httpMessage.addParam("ext", AdCloseView.this.jOh.extensionInfo);
                     httpMessage.addParam(BdStatsConstant.StatsKey.CRASH_INFO, TbadkCoreApplication.getInst().getCuid());
                     MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
                 }
             }
         };
-        this.dUN = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
+        this.dVd = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.4
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (AdCloseView.this.dUE != null) {
-                    AdCloseView.this.dUE.dismiss();
-                    AdCloseView.this.dUE = null;
+                if (AdCloseView.this.dUU != null) {
+                    AdCloseView.this.dUU.dismiss();
+                    AdCloseView.this.dUU = null;
                 }
             }
         };
-        this.jMM = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
+        this.jOo = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.aWo();
+                AdCloseView.this.aWs();
             }
         };
-        this.jMN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
+        this.jOp = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cDA();
+                AdCloseView.this.cDU();
             }
         };
         this.mContext = context;
@@ -373,18 +373,18 @@ public class AdCloseView extends FrameLayout {
     }
 
     protected void init() {
-        this.jMD = new ImageView(getContext());
+        this.jOf = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds72), getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
         layoutParams.setMargins(0, 0, (int) getContext().getResources().getDimension(R.dimen.tbds8), 0);
         layoutParams.gravity = 21;
-        addView(this.jMD, layoutParams);
+        addView(this.jOf, layoutParams);
         this.mXOffset = l.getDimens(this.mContext, R.dimen.ds32);
         this.mYOffset = l.getDimens(this.mContext, R.dimen.ds10);
         this.mWindowHeight = l.getDimens(this.mContext, R.dimen.ds278);
-        this.dUz = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
-        this.dUB = l.getDimens(this.mContext, R.dimen.ds120);
-        setOnClickListener(this.dUu);
-        SvgManager.aGC().a(this.jMD, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.dUP = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
+        this.dUR = l.getDimens(this.mContext, R.dimen.ds120);
+        setOnClickListener(this.dUK);
+        SvgManager.aGG().a(this.jOf, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private View getContentView() {
@@ -393,73 +393,73 @@ public class AdCloseView extends FrameLayout {
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.ad_close_popupwindow, (ViewGroup) null);
         this.mTitleTextView = (TextView) inflate.findViewById(R.id.head_text);
-        this.fHv = (RelativeLayout) inflate.findViewById(R.id.top_area);
+        this.fId = (RelativeLayout) inflate.findViewById(R.id.top_area);
         View findViewById = inflate.findViewById(R.id.ad_show_reason_wrapper);
-        this.jMB = (TextView) inflate.findViewById(R.id.ad_show_reason);
-        this.jMC = (ImageView) inflate.findViewById(R.id.arrow_right);
+        this.jOd = (TextView) inflate.findViewById(R.id.ad_show_reason);
+        this.jOe = (ImageView) inflate.findViewById(R.id.arrow_right);
         if (!TextUtils.isEmpty(this.mTitle)) {
             this.mTitleTextView.setText(this.mTitle);
         }
-        this.gBx = (TextView) inflate.findViewById(R.id.forbid_thread_btn);
-        if (!TextUtils.isEmpty(this.jMI)) {
-            this.gBx.setText(this.jMI);
+        this.gCv = (TextView) inflate.findViewById(R.id.forbid_thread_btn);
+        if (!TextUtils.isEmpty(this.jOk)) {
+            this.gCv.setText(this.jOk);
         }
-        this.gBx.setOnClickListener(this.jML);
-        if (cDB()) {
-            this.jMB.setText(this.jMG.name);
+        this.gCv.setOnClickListener(this.jOn);
+        if (cDV()) {
+            this.jOd.setText(this.jOi.name);
             findViewById.setVisibility(0);
-            findViewById.setOnClickListener(this.jMN);
+            findViewById.setOnClickListener(this.jOp);
         }
         am.setViewTextColor(this.mTitleTextView, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.gBx, R.color.cp_cont_a, 1);
-        am.setViewTextColor(this.jMB, R.color.cp_other_i, 1);
-        am.setBackgroundResource(this.gBx, R.drawable.bg_blue_rec_n);
-        this.jMC.setImageDrawable(am.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-        this.jMA = (LinearLayout) inflate.findViewById(R.id.reason_root_container);
-        this.jME = new ArrayList();
+        am.setViewTextColor(this.gCv, R.color.cp_cont_a, 1);
+        am.setViewTextColor(this.jOd, R.color.cp_cont_j, 1);
+        am.setBackgroundResource(this.gCv, R.drawable.bg_blue_rec_n);
+        this.jOe.setImageDrawable(am.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
+        this.jOc = (LinearLayout) inflate.findViewById(R.id.reason_root_container);
+        this.jOg = new ArrayList();
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQG() {
+    public void bQY() {
         if (this.mContext != null) {
-            aWo();
+            aWs();
             View contentView = getContentView();
-            cDz();
+            cDT();
             this.mContentView = contentView;
             this.mWindowHeight = getWindowMeasuredHeight();
-            this.mPopupWindow = new PopupWindow(contentView, this.dUz, this.mWindowHeight);
+            this.mPopupWindow = new PopupWindow(contentView, this.dUP, this.mWindowHeight);
             this.mPopupWindow.setFocusable(true);
             this.mPopupWindow.setTouchable(true);
-            this.mPopupWindow.setOnDismissListener(this.dUN);
+            this.mPopupWindow.setOnDismissListener(this.dVd);
             if (Build.VERSION.SDK_INT >= 22) {
                 this.mPopupWindow.setAttachedInDecor(false);
             }
-            if (!this.jMJ) {
-                MessageManager.getInstance().registerListener(this.jMM);
-                this.jMJ = true;
+            if (!this.jOl) {
+                MessageManager.getInstance().registerListener(this.jOo);
+                this.jOl = true;
             }
-            this.dUE = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
-            this.dUE.setFocusable(false);
-            this.dUE.setTouchable(false);
+            this.dUU = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.dUU.setFocusable(false);
+            this.dUU.setTouchable(false);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.dUE.setAttachedInDecor(false);
+                this.dUU.setAttachedInDecor(false);
             }
-            this.dUE.showAtLocation(this, 0, 0, 0);
+            this.dUU.showAtLocation(this, 0, 0, 0);
             int[] iArr = new int[2];
-            boolean a = a(this.mContext, this, this.mWindowHeight, this.dUz, this.dUB, this.mYOffset, iArr);
+            boolean a = a(this.mContext, this, this.mWindowHeight, this.dUP, this.dUR, this.mYOffset, iArr);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a) {
                     this.mPopupWindow.setAnimationStyle(R.style.scale_rb2lt_anim);
                     am.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_tost_feedback_down);
-                    if (this.fHv != null && this.fHv.getLayoutParams() != null) {
-                        ((ViewGroup.MarginLayoutParams) this.fHv.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds44);
+                    if (this.fId != null && this.fId.getLayoutParams() != null) {
+                        ((ViewGroup.MarginLayoutParams) this.fId.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds44);
                     }
                 } else {
                     this.mPopupWindow.setAnimationStyle(R.style.scale_rt2lb_anim);
                     am.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_tost_feedback_up);
-                    if (this.fHv != null && this.fHv.getLayoutParams() != null) {
-                        ((ViewGroup.MarginLayoutParams) this.fHv.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds84);
+                    if (this.fId != null && this.fId.getLayoutParams() != null) {
+                        ((ViewGroup.MarginLayoutParams) this.fId.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds84);
                     }
                 }
                 this.mPopupWindow.showAtLocation(getRootView(), 0, iArr[0] - this.mXOffset, iArr[1]);
@@ -479,10 +479,10 @@ public class AdCloseView extends FrameLayout {
         }
     }
 
-    private void cDz() {
-        if (this.jMH != null && this.jMH.size() > 0) {
-            int size = this.jMH.size();
-            this.jMA.setVisibility(0);
+    private void cDT() {
+        if (this.jOj != null && this.jOj.size() > 0) {
+            int size = this.jOj.size();
+            this.jOc.setVisibility(0);
             int i = 0;
             for (int i2 = 0; i2 < Math.ceil(size / 2.0d); i2++) {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.ad_close_row_view, (ViewGroup) null);
@@ -493,7 +493,7 @@ public class AdCloseView extends FrameLayout {
                     layoutParams.topMargin = l.getDimens(this.mContext, R.dimen.tbds20);
                 }
                 linearLayout.setLayoutParams(layoutParams);
-                this.jMA.addView(linearLayout);
+                this.jOc.addView(linearLayout);
                 int i3 = 0;
                 while (true) {
                     if (i3 >= linearLayout.getChildCount()) {
@@ -505,42 +505,42 @@ public class AdCloseView extends FrameLayout {
                         break;
                     }
                     CheckBox checkBox = (CheckBox) linearLayout.getChildAt(i3);
-                    checkBox.setOnClickListener(this.jMK);
+                    checkBox.setOnClickListener(this.jOm);
                     checkBox.setVisibility(0);
-                    this.jME.add(checkBox);
+                    this.jOg.add(checkBox);
                     i3++;
                     i = i4;
                 }
             }
-            for (int i5 = 0; i5 < this.jMH.size(); i5++) {
-                this.jME.get(i5).setText(this.jMH.get(i5));
+            for (int i5 = 0; i5 < this.jOj.size(); i5++) {
+                this.jOg.get(i5).setText(this.jOj.get(i5));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWo() {
+    public void aWs() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
         }
-        if (this.dUE != null) {
-            this.dUE.dismiss();
-            this.dUE = null;
+        if (this.dUU != null) {
+            this.dUU.dismiss();
+            this.dUU = null;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.jMJ) {
-            MessageManager.getInstance().unRegisterListener(this.jMM);
-            this.jMJ = false;
+        if (this.jOl) {
+            MessageManager.getInstance().unRegisterListener(this.jOo);
+            this.jOl = false;
         }
-        if (this.dUE != null) {
+        if (this.dUU != null) {
             if (this.mPopupWindow == null || !this.mPopupWindow.isShowing()) {
-                this.dUE.dismiss();
-                this.dUE = null;
+                this.dUU.dismiss();
+                this.dUU = null;
             }
         }
     }
@@ -566,36 +566,36 @@ public class AdCloseView extends FrameLayout {
 
     public void setData(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
-            this.jMF = advertAppInfo;
-            this.jMH.clear();
-            if (this.jMF.cNg != null && this.jMF.cNg.adCloseInfo != null) {
-                AdCloseInfo adCloseInfo = this.jMF.cNg.adCloseInfo;
-                this.jMG = adCloseInfo.action_control;
+            this.jOh = advertAppInfo;
+            this.jOj.clear();
+            if (this.jOh.cNt != null && this.jOh.cNt.adCloseInfo != null) {
+                AdCloseInfo adCloseInfo = this.jOh.cNt.adCloseInfo;
+                this.jOi = adCloseInfo.action_control;
                 for (String str : adCloseInfo.reasons) {
-                    this.jMH.add(str);
+                    this.jOj.add(str);
                 }
                 this.mTitle = adCloseInfo.title;
                 if (TextUtils.isEmpty(adCloseInfo.title)) {
                     this.mTitle = this.mContext.getString(R.string.tell_us_reason);
                 }
-                this.jMI = adCloseInfo.confirm_title;
+                this.jOk = adCloseInfo.confirm_title;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDA() {
-        if (cDB()) {
-            a.aYa().c(getContext(), new String[]{this.jMG.url});
+    public void cDU() {
+        if (cDV()) {
+            a.aYe().c(getContext(), new String[]{this.jOi.url});
         }
     }
 
-    private boolean cDB() {
-        return (this.jMG == null || TextUtils.isEmpty(this.jMG.url) || TextUtils.isEmpty(this.jMG.name)) ? false : true;
+    private boolean cDV() {
+        return (this.jOi == null || TextUtils.isEmpty(this.jOi.url) || TextUtils.isEmpty(this.jOi.name)) ? false : true;
     }
 
     public void setPage(int i) {
-        this.eMg = i;
+        this.eMC = i;
     }
 
     public int getCloseViewWidth() {
@@ -611,28 +611,28 @@ public class AdCloseView extends FrameLayout {
     }
 
     public void onChangeSkinType() {
-        SvgManager.aGC().a(this.jMD, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aGG().a(this.jOf, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getSelectedResultJsonObj() {
-        if (this.jMF == null) {
+        if (this.jOh == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        if (!v.isEmpty(this.jME)) {
+        if (!v.isEmpty(this.jOg)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.jME.size()) {
+                if (i2 >= this.jOg.size()) {
                     break;
                 }
-                CheckBox checkBox = this.jME.get(i2);
-                if (checkBox != null && checkBox.isChecked() && this.jMH != null && this.jMH.size() > i2) {
+                CheckBox checkBox = this.jOg.get(i2);
+                if (checkBox != null && checkBox.isChecked() && this.jOj != null && this.jOj.size() > i2) {
                     if (sb.length() != 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
-                    sb.append(this.jMH.get(i2));
+                    sb.append(this.jOj.get(i2));
                 }
                 i = i2 + 1;
             }
@@ -641,13 +641,13 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cDC() {
-        if (v.isEmpty(this.jME)) {
+    public int cDW() {
+        if (v.isEmpty(this.jOg)) {
             return 0;
         }
         int i = 0;
-        for (int i2 = 0; i2 < this.jME.size(); i2++) {
-            CheckBox checkBox = this.jME.get(i2);
+        for (int i2 = 0; i2 < this.jOg.size(); i2++) {
+            CheckBox checkBox = this.jOg.get(i2);
             if (checkBox != null && checkBox.isChecked()) {
                 i++;
             }

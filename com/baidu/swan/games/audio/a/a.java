@@ -3,5 +3,5 @@ package com.baidu.swan.games.audio.a;
 public interface a {
     void G(int i, String str);
 
-    void bA(String str, String str2);
+    void bz(String str, String str2);
 }

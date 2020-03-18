@@ -47,7 +47,7 @@ public final class g {
         return t;
     }
 
-    public static int dt(int i, int i2) {
+    public static int du(int i, int i2) {
         return o(i, i2, "index");
     }
 

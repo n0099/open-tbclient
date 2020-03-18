@@ -16,7 +16,7 @@ public class j extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", q.sI());
+        addParam("scene_from", q.sN());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

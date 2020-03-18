@@ -15,43 +15,43 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes12.dex */
 public class a implements f {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final long edS = TimeUnit.MINUTES.toMillis(3);
-    private static final C0414a edT = new C0414a();
-    private LocationClient cvl;
-    private LocationClientOption edR;
+    private static final long eei = TimeUnit.MINUTES.toMillis(3);
+    private static final C0414a eej = new C0414a();
+    private LocationClient cvw;
+    private LocationClientOption eeh;
 
     @Override // com.baidu.swan.apps.w.b.f
     public void a(String str, boolean z, boolean z2, f.a aVar) {
-        BDLocation cy = edT.cy(aZS());
+        BDLocation cy = eej.cy(aZW());
         boolean z3 = cy != null;
         if (z3) {
             aVar.a(a(cy, str));
         }
-        if (this.cvl == null) {
-            this.cvl = new LocationClient(AppRuntime.getAppContext());
+        if (this.cvw == null) {
+            this.cvw = new LocationClient(AppRuntime.getAppContext());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setCoorType("gcj02");
             locationClientOption.setScanSpan(0);
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
-            this.cvl.setLocOption(locationClientOption);
-            this.edR = locationClientOption;
-            this.cvl.start();
+            this.cvw.setLocOption(locationClientOption);
+            this.eeh = locationClientOption;
+            this.cvw.start();
         }
-        this.cvl.registerLocationListener(new b(this.cvl, aVar, str, z3));
-        this.edR.setIsNeedAltitude(z2);
-        this.cvl.setLocOption(this.edR);
+        this.cvw.registerLocationListener(new b(this.cvw, aVar, str, z3));
+        this.eeh.setIsNeedAltitude(z2);
+        this.cvw.setLocOption(this.eeh);
         ai.l(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.f.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.cvl.requestLocation();
+                a.this.cvw.requestLocation();
             }
         });
     }
 
     @Override // com.baidu.swan.apps.w.b.f
-    public com.baidu.swan.apps.scheme.actions.f.b Vh() {
-        BDLocation bDLocation = edT.edW;
+    public com.baidu.swan.apps.scheme.actions.f.b Vk() {
+        BDLocation bDLocation = eej.eem;
         if (bDLocation == null) {
             return null;
         }
@@ -59,9 +59,9 @@ public class a implements f {
     }
 
     @Override // com.baidu.swan.apps.w.b.f
-    public void Vi() {
-        long aZS = aZS();
-        if (edT.edW == null || (aZS > 0 && !edT.cx(aZS))) {
+    public void Vl() {
+        long aZW = aZW();
+        if (eej.eem == null || (aZW > 0 && !eej.cx(aZW))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -108,45 +108,45 @@ public class a implements f {
         return dArr;
     }
 
-    private long aZS() {
-        return edS;
+    private long aZW() {
+        return eei;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public static class b extends BDAbstractLocationListener {
         String coorType;
-        LocationClient edX;
-        f.a edY;
-        boolean edZ;
+        LocationClient een;
+        f.a eeo;
+        boolean eep;
 
         public b(LocationClient locationClient, f.a aVar, String str, boolean z) {
-            this.edX = locationClient;
-            this.edY = aVar;
+            this.een = locationClient;
+            this.eeo = aVar;
             this.coorType = str;
-            this.edZ = z;
+            this.eep = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.edX.unRegisterLocationListener(this);
+            this.een.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
-            if (!a.oo(locType)) {
-                if (!this.edZ) {
-                    this.edY.onFailed(locType);
+            if (!a.oq(locType)) {
+                if (!this.eep) {
+                    this.eeo.onFailed(locType);
                     return;
                 }
                 return;
             }
-            a.edT.e(bDLocation);
-            if (!this.edZ) {
-                this.edY.a(a.a(bDLocation, this.coorType));
+            a.eej.e(bDLocation);
+            if (!this.eep) {
+                this.eeo.a(a.a(bDLocation, this.coorType));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean oo(int i) {
+    public static boolean oq(int i) {
         return i == 65 || i == 61 || i == 161 || i == 66 || i == 68;
     }
 
@@ -185,24 +185,24 @@ public class a implements f {
     /* renamed from: com.baidu.tieba.aiapps.apps.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     public static class C0414a {
-        private long edV;
-        private BDLocation edW;
+        private long eel;
+        private BDLocation eem;
 
         private C0414a() {
-            this.edV = 0L;
+            this.eel = 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public synchronized void e(BDLocation bDLocation) {
-            this.edW = bDLocation;
-            this.edV = System.currentTimeMillis();
+            this.eem = bDLocation;
+            this.eel = System.currentTimeMillis();
         }
 
         synchronized boolean cx(long j) {
             boolean z = true;
             synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis() - this.edV;
-                boolean z2 = this.edW != null;
+                long currentTimeMillis = System.currentTimeMillis() - this.eel;
+                boolean z2 = this.eem != null;
                 boolean z3 = currentTimeMillis < j;
                 if (!z2 || !z3) {
                     z = false;
@@ -215,7 +215,7 @@ public class a implements f {
         }
 
         synchronized BDLocation cy(long j) {
-            return cx(j) ? this.edW : null;
+            return cx(j) ? this.eem : null;
         }
     }
 }

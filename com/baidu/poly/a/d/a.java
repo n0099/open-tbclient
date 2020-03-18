@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.poly.a.e.a aQC;
+    private com.baidu.poly.a.e.a aQP;
 
     public a(Context context) {
         File aa = aa(context, "bitmap");
@@ -19,23 +19,23 @@ public class a {
             aa.mkdirs();
         }
         try {
-            this.aQC = com.baidu.poly.a.e.a.a(aa, 1, 1, 10485760L);
+            this.aQP = com.baidu.poly.a.e.a.a(aa, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void e(String str) {
-        if (this.aQC != null) {
+        if (this.aQP != null) {
             try {
-                a.c eP = this.aQC.eP(com.baidu.poly.a.f.b.h(str));
-                if (eP != null) {
-                    if (d.a(str, eP.du(0))) {
-                        eP.commit();
+                a.c eO = this.aQP.eO(com.baidu.poly.a.f.b.h(str));
+                if (eO != null) {
+                    if (d.a(str, eO.du(0))) {
+                        eO.commit();
                     } else {
-                        eP.abort();
+                        eO.abort();
                     }
-                    this.aQC.flush();
+                    this.aQP.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class a {
     }
 
     public Bitmap k(String str, int i, int i2) {
-        if (this.aQC == null) {
+        if (this.aQP == null) {
             return null;
         }
-        a.e eO = this.aQC.eO(com.baidu.poly.a.f.b.h(str));
-        if (eO != null) {
-            FileInputStream fileInputStream = (FileInputStream) eO.dx(0);
+        a.e eN = this.aQP.eN(com.baidu.poly.a.f.b.h(str));
+        if (eN != null) {
+            FileInputStream fileInputStream = (FileInputStream) eN.dx(0);
             if (i > 0 && i2 > 0) {
                 return com.baidu.poly.a.f.a.a(fileInputStream.getFD(), i, i2);
             }

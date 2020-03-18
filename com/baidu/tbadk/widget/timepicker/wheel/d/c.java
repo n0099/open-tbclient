@@ -4,13 +4,13 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
 /* loaded from: classes8.dex */
 public final class c extends TimerTask {
-    private final WheelView dSl;
+    private final WheelView dSC;
     private int offset;
     private int realTotalOffset = Integer.MAX_VALUE;
     private int realOffset = 0;
 
     public c(WheelView wheelView, int i) {
-        this.dSl = wheelView;
+        this.dSC = wheelView;
         this.offset = i;
     }
 
@@ -28,23 +28,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.dSl.cancelFuture();
-            this.dSl.getHandler().sendEmptyMessage(3000);
+            this.dSC.cancelFuture();
+            this.dSC.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.dSl.setTotalScrollY(this.dSl.getTotalScrollY() + this.realOffset);
-        if (!this.dSl.isLoop()) {
-            float itemHeight = this.dSl.getItemHeight();
-            float f = (-this.dSl.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.dSl.getItemsCount() - 1) - this.dSl.getInitPosition());
-            if (this.dSl.getTotalScrollY() <= f || this.dSl.getTotalScrollY() >= itemsCount) {
-                this.dSl.setTotalScrollY(this.dSl.getTotalScrollY() - this.realOffset);
-                this.dSl.cancelFuture();
-                this.dSl.getHandler().sendEmptyMessage(3000);
+        this.dSC.setTotalScrollY(this.dSC.getTotalScrollY() + this.realOffset);
+        if (!this.dSC.isLoop()) {
+            float itemHeight = this.dSC.getItemHeight();
+            float f = (-this.dSC.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.dSC.getItemsCount() - 1) - this.dSC.getInitPosition());
+            if (this.dSC.getTotalScrollY() <= f || this.dSC.getTotalScrollY() >= itemsCount) {
+                this.dSC.setTotalScrollY(this.dSC.getTotalScrollY() - this.realOffset);
+                this.dSC.cancelFuture();
+                this.dSC.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.dSl.getHandler().sendEmptyMessage(1000);
+        this.dSC.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

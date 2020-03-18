@@ -47,6 +47,7 @@ public class z extends h {
                 }
             }
         });
+        this.Li.setFrom(this.mFrom);
     }
 
     public void e(int i, int i2, int i3, int i4) {
@@ -59,11 +60,11 @@ public class z extends h {
         a(1, new a.b() { // from class: com.baidu.card.z.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0052a c0052a) {
-                if (z.this.Kc != null && z.this.Kc.aAg() != null && !z.this.mU().booleanValue()) {
-                    bj aAg = z.this.Kc.aAg();
-                    com.baidu.tieba.card.l.zT(aAg.getId());
-                    com.baidu.tieba.card.l.a(z.this.Li.mTitle, aAg.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(z.this.Li.KA, aAg.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                if (z.this.Kc != null && z.this.Kc.aAj() != null && !z.this.mU().booleanValue()) {
+                    bj aAj = z.this.Kc.aAj();
+                    com.baidu.tieba.card.l.zU(aAj.getId());
+                    com.baidu.tieba.card.l.a(z.this.Li.mTitle, aAj.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(z.this.Li.KA, aAj.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -80,5 +81,9 @@ public class z extends h {
 
     public void a(b.a aVar) {
         this.Ka = aVar;
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.Li.setNeedFrsTabName(z);
     }
 }

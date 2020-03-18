@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a cWJ = null;
+    private a cWW = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g cWW = new g();
+        private static final g cXj = new g();
     }
 
-    public static g aFg() {
-        return c.cWW;
+    public static g aFk() {
+        return c.cXj;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.cWJ = new a(i, jVar);
-                this.cWJ.aFh();
+                this.cWW = new a(i, jVar);
+                this.cWW.aFl();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a cWJ;
-        private final List<Long> cWU = new ArrayList(240);
-        private final List<Integer> cWV = new ArrayList(15);
+        protected a cWW;
+        private final List<Long> cXh = new ArrayList(240);
+        private final List<Integer> cXi = new ArrayList(15);
 
         public b(a aVar) {
-            this.cWJ = aVar;
+            this.cWW = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,57 +63,57 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.cWU.add(Long.valueOf(j));
-            this.cWJ.aFh();
+            this.cXh.add(Long.valueOf(j));
+            this.cWW.aFl();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.cWJ = null;
-            this.cWU.clear();
-            this.cWV.clear();
+            this.cWW = null;
+            this.cXh.clear();
+            this.cXi.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final Class<?> cWK;
-        private final Object cWL;
-        private final Class<?> cWM;
-        private final Method cWN;
-        private final Object cWO;
-        private final Method cWP;
-        private final b cWQ;
-        private final int cWR;
-        private final j cWS;
+        private final Class<?> cWX;
+        private final Object cWY;
+        private final Class<?> cWZ;
+        private final Method cXa;
+        private final Object cXb;
+        private final Method cXc;
+        private final b cXd;
+        private final int cXe;
+        private final j cXf;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.cWM = Class.forName("android.view.Choreographer");
-            this.cWK = Class.forName("android.view.Choreographer$FrameCallback");
-            this.cWQ = new b(this);
-            this.cWL = Proxy.newProxyInstance(this.cWK.getClassLoader(), new Class[]{this.cWK}, this.cWQ);
-            this.cWN = this.cWM.getMethod("getInstance", new Class[0]);
-            this.cWO = this.cWN.invoke(null, new Object[0]);
-            this.cWP = this.cWM.getMethod("postFrameCallback", this.cWK);
-            this.cWR = i <= 0 ? 16 : i;
-            this.cWS = jVar;
+            this.cWZ = Class.forName("android.view.Choreographer");
+            this.cWX = Class.forName("android.view.Choreographer$FrameCallback");
+            this.cXd = new b(this);
+            this.cWY = Proxy.newProxyInstance(this.cWX.getClassLoader(), new Class[]{this.cWX}, this.cXd);
+            this.cXa = this.cWZ.getMethod("getInstance", new Class[0]);
+            this.cXb = this.cXa.invoke(null, new Object[0]);
+            this.cXc = this.cWZ.getMethod("postFrameCallback", this.cWX);
+            this.cXe = i <= 0 ? 16 : i;
+            this.cXf = jVar;
         }
 
         private void dI() throws InvocationTargetException, IllegalAccessException {
-            this.cWP.invoke(this.cWO, this.cWL);
+            this.cXc.invoke(this.cXb, this.cWY);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void aFh() {
-            if (this.index >= this.cWR) {
+        public void aFl() {
+            if (this.index >= this.cXe) {
                 com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cWS.aA(a.this.aFj());
-                        a.this.cWQ.destroy();
+                        a.this.cXf.aA(a.this.aFn());
+                        a.this.cXd.destroy();
                         a.this.destroy();
                     }
                 });
@@ -127,25 +127,25 @@ public class g {
             }
         }
 
-        private List<Long> aFi() {
-            return this.cWQ.cWU;
+        private List<Long> aFm() {
+            return this.cXd.cXh;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.cWQ.destroy();
+            this.cXd.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> aFj() {
+        public List<Long> aFn() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> aFi = aFi();
-            int size = aFi.size();
+            List<Long> aFm = aFm();
+            int size = aFm.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(aFi.get(i2 + 1).longValue() - aFi.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(aFm.get(i2 + 1).longValue() - aFm.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

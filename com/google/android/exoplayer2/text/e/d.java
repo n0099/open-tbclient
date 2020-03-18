@@ -44,33 +44,33 @@ final class d {
         if (eVar.getStyle() != -1) {
             spannableStringBuilder.setSpan(new StyleSpan(eVar.getStyle()), i, i2, 33);
         }
-        if (eVar.dym()) {
+        if (eVar.dyJ()) {
             spannableStringBuilder.setSpan(new StrikethroughSpan(), i, i2, 33);
         }
-        if (eVar.dyn()) {
+        if (eVar.dyK()) {
             spannableStringBuilder.setSpan(new UnderlineSpan(), i, i2, 33);
         }
-        if (eVar.dyp()) {
+        if (eVar.dyM()) {
             spannableStringBuilder.setSpan(new ForegroundColorSpan(eVar.getFontColor()), i, i2, 33);
         }
-        if (eVar.dyq()) {
+        if (eVar.dyN()) {
             spannableStringBuilder.setSpan(new BackgroundColorSpan(eVar.getBackgroundColor()), i, i2, 33);
         }
-        if (eVar.dyo() != null) {
-            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dyo()), i, i2, 33);
+        if (eVar.dyL() != null) {
+            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dyL()), i, i2, 33);
         }
-        if (eVar.dyr() != null) {
-            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dyr()), i, i2, 33);
+        if (eVar.dyO() != null) {
+            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dyO()), i, i2, 33);
         }
-        switch (eVar.dys()) {
+        switch (eVar.dyP()) {
             case 1:
-                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dyt(), true), i, i2, 33);
+                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dyQ(), true), i, i2, 33);
                 return;
             case 2:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyt()), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyQ()), i, i2, 33);
                 return;
             case 3:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyt() / 100.0f), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dyQ() / 100.0f), i, i2, 33);
                 return;
             default:
                 return;
@@ -89,7 +89,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String Qa(String str) {
+    public static String PZ(String str) {
         return str.replaceAll("\r\n", "\n").replaceAll(" *\n *", "\n").replaceAll("\n", HanziToPinyin.Token.SEPARATOR).replaceAll("[ \t\\x0B\f\r]+", HanziToPinyin.Token.SEPARATOR);
     }
 }

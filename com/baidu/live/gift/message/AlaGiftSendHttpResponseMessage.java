@@ -5,42 +5,42 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long anX;
-    private long anY;
-    private long anZ;
-    private a aoa;
+    private long aoh;
+    private long aoi;
+    private long aoj;
+    private a aok;
 
     public AlaGiftSendHttpResponseMessage() {
         super(1021015);
-        this.anX = 0L;
+        this.aoh = 0L;
     }
 
-    public long uJ() {
-        return this.anX;
+    public long uO() {
+        return this.aoh;
     }
 
-    public long uK() {
-        return this.anY;
+    public long uP() {
+        return this.aoi;
     }
 
-    public long uL() {
-        return this.anZ;
+    public long uQ() {
+        return this.aoj;
     }
 
-    public a uM() {
-        return this.aoa;
+    public a uR() {
+        return this.aok;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1021015) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.anX = jSONObject.optLong("left_scores");
-            this.anY = jSONObject.optLong("tdou_num");
-            this.anZ = jSONObject.optLong("logid");
+            this.aoh = jSONObject.optLong("left_scores");
+            this.aoi = jSONObject.optLong("tdou_num");
+            this.aoj = jSONObject.optLong("logid");
             JSONObject optJSONObject = jSONObject.optJSONObject("system_luck_window");
             if (optJSONObject != null) {
-                this.aoa = a.q(optJSONObject);
+                this.aok = a.q(optJSONObject);
             }
         }
     }

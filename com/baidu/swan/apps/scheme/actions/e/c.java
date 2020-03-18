@@ -36,7 +36,7 @@ public class c extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.JF()) {
+        if (eVar != null && eVar.JI()) {
             if (DEBUG) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
@@ -83,7 +83,7 @@ public class c extends ab {
         }
         if (!TextUtils.isEmpty(optString)) {
             if (optString.length() == 4 && optString.charAt(0) == '#') {
-                optString = SwanAppConfigData.kY(optString);
+                optString = SwanAppConfigData.kX(optString);
             }
             i = Color.parseColor(optString);
             if (!arrayList.isEmpty()) {
@@ -91,7 +91,7 @@ public class c extends ab {
                 return false;
             }
             final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-            g.a b = new f(context).dB(true).dI(true).dG(true).dH(false).dD(true).a(new com.baidu.swan.apps.view.c.a()).fS(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gb(a.e.aiapps_action_sheet_bg).fZ(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
+            g.a b = new f(context).dC(true).dJ(true).dH(true).dI(false).dE(true).a(new com.baidu.swan.apps.view.c.a()).fS(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).gb(a.e.aiapps_action_sheet_bg).fZ(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i3) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -133,18 +133,18 @@ public class c extends ab {
                 }
             });
             b.an(inflate);
-            b.acn();
+            b.acq();
             b.fT(r(context, arrayList.size()));
-            final g Pc = b.Pc();
-            Window window = Pc.getWindow();
+            final g Pf = b.Pf();
+            Window window = Pf.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
-                window.setLayout(af.cK(context), -2);
+                window.setLayout(af.cJ(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            Pc.setEnableImmersion(false);
-            Pc.setCanceledOnTouchOutside(true);
+            Pf.setEnableImmersion(false);
+            Pf.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -152,7 +152,7 @@ public class c extends ab {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        Pc.dismiss();
+                        Pf.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -161,7 +161,7 @@ public class c extends ab {
                     }
                 }
             });
-            Pc.show();
+            Pf.show();
             return true;
         }
         i = -1;
@@ -170,9 +170,9 @@ public class c extends ab {
     }
 
     private int r(Context context, int i) {
-        int cK;
+        int cJ;
         Resources resources = context.getResources();
         int dimensionPixelSize = ((resources.getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider) + ((i + 1) * resources.getDimensionPixelSize(a.d.aiapps_action_sheet_list_item))) + i) - 1;
-        return (!af.isScreenLand() || dimensionPixelSize <= (cK = af.cK(context) - af.getStatusBarHeight())) ? dimensionPixelSize : cK;
+        return (!af.isScreenLand() || dimensionPixelSize <= (cJ = af.cJ(context) - af.getStatusBarHeight())) ? dimensionPixelSize : cJ;
     }
 }

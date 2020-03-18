@@ -4,77 +4,11 @@ import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.constants.PannelItem;
 import com.kascend.chushou.constants.ParserRet;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class d {
     public static ParserRet dv(JSONObject jSONObject) {
-        String str;
-        Exception e;
-        int i = -1;
-        tv.chushou.zues.utils.e.k("Parser_Home", "%s%s", "parseCommonAdConfig:", jSONObject);
-        ArrayList arrayList = null;
-        try {
-            i = jSONObject.optInt("code", -1);
-            str = jSONObject.optString("message");
-            try {
-                tv.chushou.zues.utils.e.i("Parser_Home", "rc = " + i + " msg=" + str);
-                if (i == 0 && jSONObject.has("data")) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                    JSONArray optJSONArray = jSONObject2.optJSONArray("positionList");
-                    if (optJSONArray != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            try {
-                                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                                if (optJSONObject != null) {
-                                    String optString = optJSONObject.optString("code");
-                                    if (!h.isEmpty(optString)) {
-                                        arrayList2.add(optString);
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                arrayList = arrayList2;
-                                e = e2;
-                                tv.chushou.zues.utils.e.e("Parser_Home", "error " + e.toString());
-                                ParserRet parserRet = new ParserRet();
-                                parserRet.mData = arrayList;
-                                parserRet.mRc = i;
-                                parserRet.mMessage = str;
-                                return parserRet;
-                            }
-                        }
-                        arrayList = arrayList2;
-                    }
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray("schemeList");
-                    if (optJSONArray2 != null) {
-                        ArrayList arrayList3 = new ArrayList();
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            arrayList3.add(optJSONArray2.optString(i3));
-                        }
-                        if (!h.isEmpty(arrayList3)) {
-                            com.kascend.chushou.d.h.dBV().a((List<String>) arrayList3);
-                        }
-                    }
-                    tv.chushou.zues.utils.e.i("Parser_Home", "parser sucess");
-                }
-            } catch (Exception e3) {
-                e = e3;
-            }
-        } catch (Exception e4) {
-            str = "";
-            e = e4;
-        }
-        ParserRet parserRet2 = new ParserRet();
-        parserRet2.mData = arrayList;
-        parserRet2.mRc = i;
-        parserRet2.mMessage = str;
-        return parserRet2;
-    }
-
-    public static ParserRet dz(JSONObject jSONObject) {
         String str;
         Exception e;
         int i = -1;
@@ -117,7 +51,7 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet dA(JSONObject jSONObject) {
+    public static ParserRet dz(JSONObject jSONObject) {
         String str;
         Exception e;
         JSONObject jSONObject2;
@@ -152,7 +86,7 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet dB(JSONObject jSONObject) {
+    public static ParserRet dA(JSONObject jSONObject) {
         ArrayList<PannelItem> Y;
         int optInt = jSONObject.optInt("code", -1);
         String optString = jSONObject.optString("message", "");

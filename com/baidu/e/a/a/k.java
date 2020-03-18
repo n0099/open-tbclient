@@ -17,7 +17,7 @@ public class k {
         }
     }
 
-    public static String cM(String str) {
+    public static String cL(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -28,7 +28,7 @@ public class k {
         }
     }
 
-    public static String cN(String str) {
+    public static String cM(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (Exception e) {

@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap cvM;
-    private List<OverlayOptions> cyd;
-    List<Overlay> cye;
+    BaiduMap cvX;
+    private List<OverlayOptions> cyo;
+    List<Overlay> cyp;
 
-    public abstract List<OverlayOptions> asy();
+    public abstract List<OverlayOptions> asB();
 
     public c(BaiduMap baiduMap) {
-        this.cvM = null;
-        this.cyd = null;
-        this.cye = null;
-        this.cvM = baiduMap;
-        if (this.cyd == null) {
-            this.cyd = new ArrayList();
+        this.cvX = null;
+        this.cyo = null;
+        this.cyp = null;
+        this.cvX = baiduMap;
+        if (this.cyo == null) {
+            this.cyo = new ArrayList();
         }
-        if (this.cye == null) {
-            this.cye = new ArrayList();
-        }
-    }
-
-    public final void asA() {
-        if (this.cvM != null) {
-            asB();
-            if (asy() != null) {
-                this.cyd.addAll(asy());
-            }
-            for (OverlayOptions overlayOptions : this.cyd) {
-                this.cye.add(this.cvM.addOverlay(overlayOptions));
-            }
+        if (this.cyp == null) {
+            this.cyp = new ArrayList();
         }
     }
 
-    public final void asB() {
-        if (this.cvM != null) {
-            for (Overlay overlay : this.cye) {
+    public final void asD() {
+        if (this.cvX != null) {
+            asE();
+            if (asB() != null) {
+                this.cyo.addAll(asB());
+            }
+            for (OverlayOptions overlayOptions : this.cyo) {
+                this.cyp.add(this.cvX.addOverlay(overlayOptions));
+            }
+        }
+    }
+
+    public final void asE() {
+        if (this.cvX != null) {
+            for (Overlay overlay : this.cyp) {
                 overlay.remove();
             }
-            this.cyd.clear();
-            this.cye.clear();
+            this.cyo.clear();
+            this.cyp.clear();
         }
     }
 
-    public void asC() {
-        if (this.cvM != null && this.cye.size() > 0) {
+    public void asF() {
+        if (this.cvX != null && this.cyp.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.cye) {
+            for (Overlay overlay : this.cyp) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.cvM.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.cvX.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

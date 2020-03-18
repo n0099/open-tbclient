@@ -15,7 +15,7 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends ab {
-    private static final String buN = d.class.getSimpleName();
+    private static final String buZ = d.class.getSimpleName();
 
     public d(j jVar) {
         super(jVar, "/swanAPI/debug/replaceSwanCore");
@@ -36,7 +36,7 @@ public class d extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan core url or cb is null");
             return false;
         }
-        eVar.acP().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.d.1
+        eVar.acS().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -61,13 +61,13 @@ public class d extends ab {
 
             @Override // com.baidu.swan.apps.t.e.b
             public void onSuccess() {
-                File RV = com.baidu.swan.apps.swancore.c.a.RV();
-                File RT = com.baidu.swan.apps.swancore.c.a.RT();
+                File RY = com.baidu.swan.apps.swancore.c.a.RY();
+                File RW = com.baidu.swan.apps.swancore.c.a.RW();
                 if (d.DEBUG) {
-                    Log.d(d.buN, "swanCoreZipFile: " + RV + " swanCoreDir: " + RT);
+                    Log.d(d.buZ, "swanCoreZipFile: " + RY + " swanCoreDir: " + RW);
                 }
-                if (RV.exists() && com.baidu.swan.d.c.unzipFile(RV.getPath(), RT.getPath())) {
-                    com.baidu.swan.apps.ah.a.a.dm(true);
+                if (RY.exists() && com.baidu.swan.d.c.unzipFile(RY.getPath(), RW.getPath())) {
+                    com.baidu.swan.apps.ah.a.a.dn(true);
                     com.baidu.swan.apps.res.widget.b.d.q(context, a.h.aiapps_debug_swan_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

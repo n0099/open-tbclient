@@ -6,9 +6,9 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes9.dex */
 public class k {
-    private static k dXv;
-    private g dXw;
-    private b dXx;
+    private static k dXL;
+    private g dXM;
+    private b dXN;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.dXw.setVideoUrl((String) message.obj);
-                    k.this.dXw.run();
+                    k.this.dXM.setVideoUrl((String) message.obj);
+                    k.this.dXM.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.dXx != null) {
-                    k.this.dXx.aXb();
+                if (k.this.dXN != null) {
+                    k.this.dXN.aXf();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.dXx.wq((String) message.obj);
+                    k.this.dXN.wq((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.dXx != null) {
-                k.this.dXx.clearCache();
+            } else if (message.what == 5 && k.this.dXN != null) {
+                k.this.dXN.clearCache();
             }
             return true;
         }
@@ -45,19 +45,19 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.dXw = new g();
-        this.dXx = new b();
+        this.dXM = new g();
+        this.dXN = new b();
     }
 
-    public static k aXo() {
-        if (dXv == null) {
+    public static k aXs() {
+        if (dXL == null) {
             synchronized (k.class) {
-                if (dXv == null) {
-                    dXv = new k();
+                if (dXL == null) {
+                    dXL = new k();
                 }
             }
         }
-        return dXv;
+        return dXL;
     }
 
     public void l(InputStream inputStream) {
@@ -73,7 +73,7 @@ public class k {
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void aXb() {
+    public void aXf() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 

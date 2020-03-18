@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes10.dex */
 class b {
-    private float kAW;
-    private int kAX;
-    private i kAY;
+    private float kCD;
+    private int kCE;
+    private i kCF;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.kAY = iVar;
+        this.kCF = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.kAY == null || !this.kAY.isRecording()) {
+        if (this.kCF == null || !this.kCF.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.kAW) / 10.0f);
+                        int i = (int) ((spacing - this.kCD) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.kAX;
+                            int i2 = i + this.kCE;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.kAW = spacing;
+                            this.kCD = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.kAW = spacing(motionEvent);
+                    this.kCD = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.kAX = i;
+                this.kCE = i;
             }
         }
     }

@@ -8,7 +8,7 @@ public class SocketMessageTask extends MessageTask {
     private boolean mNeedAck;
     private boolean mNeedCompress;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private DupLicateMode ow;
+    private DupLicateMode ov;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -23,7 +23,7 @@ public class SocketMessageTask extends MessageTask {
         this.mNeedAck = false;
         this.mNeedCompress = false;
         this.mCanRetry = true;
-        this.ow = DupLicateMode.NONE;
+        this.ov = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -64,10 +64,10 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public DupLicateMode fg() {
-        return this.ow;
+        return this.ov;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.ow = dupLicateMode;
+        this.ov = dupLicateMode;
     }
 }

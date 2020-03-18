@@ -3,32 +3,32 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes8.dex */
 public final class a {
-    private static final String kWM = Environment.getExternalStorageDirectory().getPath();
-    static final String kWN = kWM + "/baidu/ab/crash/";
-    static final String kWO = kWM + "/baidu/ab/sdklog/";
-    public static final String kWP = kWM + "/baidu/ab/sdkupdata/" + cXP() + "/";
-    private static int aU = EnumC0644a.aV;
+    private static final String kYp = Environment.getExternalStorageDirectory().getPath();
+    static final String kYq = kYp + "/baidu/ab/crash/";
+    static final String kYr = kYp + "/baidu/ab/sdklog/";
+    public static final String kYs = kYp + "/baidu/ab/sdkupdata/" + cYm() + "/";
+    private static int aU = EnumC0645a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class EnumC0644a {
+    public static final class EnumC0645a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] aX = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cXO() {
-        return aU == EnumC0644a.aV;
+    public static boolean cYl() {
+        return aU == EnumC0645a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int cXP() {
+    private static int cYm() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

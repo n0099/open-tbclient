@@ -7,20 +7,20 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private int aQA;
-    private int aQB;
-    private ImageView aQy;
-    private Handler aQz;
+    private ImageView aQL;
+    private Handler aQM;
+    private int aQN;
+    private int aQO;
     private Context context;
     private String url;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aQz = handler;
+        this.aQM = handler;
         this.url = str;
-        this.aQy = imageView;
-        this.aQA = i;
-        this.aQB = i2;
+        this.aQL = imageView;
+        this.aQN = i;
+        this.aQO = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
@@ -31,7 +31,7 @@ public class g implements Runnable {
         Bitmap bitmap;
         Bitmap bitmap2 = null;
         try {
-            bitmap2 = a.aX(this.context).k(str, i, i2);
+            bitmap2 = a.aW(this.context).k(str, i, i2);
             try {
             } catch (IOException e) {
                 e = e;
@@ -45,22 +45,22 @@ public class g implements Runnable {
             e = e2;
         }
         if (bitmap2 != null) {
-            a.EC().e(str, bitmap2);
+            a.EI().e(str, bitmap2);
             return bitmap2;
         }
-        a.aX(this.context).e(str);
-        bitmap = a.aX(this.context).k(str, i, i2);
+        a.aW(this.context).e(str);
+        bitmap = a.aW(this.context).k(str, i, i2);
         if (bitmap == null) {
-            bitmap = d.eL(str);
+            bitmap = d.eK(str);
         }
         return bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap j = j(this.url, this.aQA, this.aQB);
-        if (this.aQz != null) {
-            this.aQz.obtainMessage(1, new f(this.aQy, this.url, j)).sendToTarget();
+        Bitmap j = j(this.url, this.aQN, this.aQO);
+        if (this.aQM != null) {
+            this.aQM.obtainMessage(1, new f(this.aQL, this.url, j)).sendToTarget();
         }
     }
 }

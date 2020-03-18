@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b eUK;
-    private List<d> eUL;
+    private b eVi;
+    private List<d> eVj;
 
     public AlaGetTargetListResponseMessage() {
         super(1021105);
@@ -23,26 +23,26 @@ public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.eUK = new b();
-                this.eUK.parseJson(optJSONObject2);
+                this.eVi = new b();
+                this.eVi.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eUL = new ArrayList();
+                this.eVj = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    this.eUL.add(dVar);
+                    this.eVj.add(dVar);
                 }
             }
         }
     }
 
-    public b bkw() {
-        return this.eUK;
+    public b bkB() {
+        return this.eVi;
     }
 
-    public List<d> bkx() {
-        return this.eUL;
+    public List<d> bkC() {
+        return this.eVj;
     }
 }

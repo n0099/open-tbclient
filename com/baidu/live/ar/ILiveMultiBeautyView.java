@@ -6,9 +6,9 @@ import android.widget.LinearLayout;
 import com.baidu.live.adp.base.BdPageContext;
 /* loaded from: classes3.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
-    public abstract void pB();
+    public abstract void pG();
 
-    public abstract void pC();
+    public abstract void pH();
 
     public abstract void setArModel(c cVar);
 

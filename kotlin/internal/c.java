@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public final class c {
-    private static final int er(int i, int i2) {
+    private static final int es(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
@@ -15,7 +15,7 @@ public final class c {
     }
 
     private static final int at(int i, int i2, int i3) {
-        return er(er(i, i3) - er(i2, i3), i3);
+        return es(es(i, i3) - es(i2, i3), i3);
     }
 
     private static final long k(long j, long j2, long j3) {

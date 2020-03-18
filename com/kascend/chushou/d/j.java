@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class j {
-    private static j mPq = null;
-    private final LruCache<String, VideoPlayInfo> mPp = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j mQW = null;
+    private final LruCache<String, VideoPlayInfo> mQV = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -30,39 +30,39 @@ public class j {
         }
     };
 
-    public static j dCa() {
-        if (mPq == null) {
+    public static j dCx() {
+        if (mQW == null) {
             synchronized (j.class) {
-                if (mPq == null) {
-                    mPq = new j();
+                if (mQW == null) {
+                    mQW = new j();
                 }
             }
         }
-        return mPq;
+        return mQW;
     }
 
     private j() {
     }
 
     public VideoPlayInfo N(String str, long j) {
-        return a(this.mPp, str, j);
+        return a(this.mQV, str, j);
     }
 
     public void a(String str) {
-        this.mPp.remove(str);
+        this.mQV.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.mPp, str, list);
+        a(this.mQV, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (O(str, KeepJobService.JOB_CHECK_PERIODIC) == null) {
-            com.kascend.chushou.player.c.a.dCL().a(str, str2, new a.InterfaceC0695a() { // from class: com.kascend.chushou.d.j.3
-                @Override // com.kascend.chushou.player.c.a.InterfaceC0695a
+            com.kascend.chushou.player.c.a.dDj().a(str, str2, new a.InterfaceC0696a() { // from class: com.kascend.chushou.d.j.3
+                @Override // com.kascend.chushou.player.c.a.InterfaceC0696a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dCa().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dCx().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

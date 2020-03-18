@@ -13,14 +13,14 @@ public class a {
     /* renamed from: com.baidu.swan.apps.ao.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0206a {
-        public static final a bWG = new a();
+        public static final a bWR = new a();
     }
 
     private a() {
     }
 
-    public static a afN() {
-        return C0206a.bWG;
+    public static a afQ() {
+        return C0206a.bWR;
     }
 
     public void b(Activity activity, float f) {
@@ -35,14 +35,14 @@ public class a {
         if (activity != null) {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             if (attributes.screenBrightness < 0.0f) {
-                return cz(activity);
+                return cy(activity);
             }
             return attributes.screenBrightness;
         }
         return -1.0f;
     }
 
-    private static float cz(Context context) {
+    private static float cy(Context context) {
         int i = 0;
         try {
             i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");

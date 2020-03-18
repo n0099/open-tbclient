@@ -15,21 +15,21 @@ public interface c {
 
     void a(Context context, String str, RequestOptions requestOptions, ImageView imageView);
 
-    String cSA();
+    String cSU();
 
-    String cSE();
+    String cSY();
 
-    void cSF();
+    void cSZ();
 
-    String cSG();
+    String cTa();
 
-    void cSH();
+    void cTb();
 
     void e(Context context, int i, String str);
 
     void e(String str, Context context);
 
-    void fD(Context context);
+    void fC(Context context);
 
     String getUserId();
 

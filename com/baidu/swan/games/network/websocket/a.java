@@ -4,22 +4,22 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.swan.games.e.b ckb;
-    private b cqD;
+    private com.baidu.swan.games.e.b ckm;
+    private b cqO;
 
     public a(com.baidu.swan.games.e.b bVar) {
-        this.ckb = bVar;
+        this.ckm = bVar;
     }
 
     public c connectSocket(JsObject jsObject) {
-        return new c(aoX(), this.ckb).h(jsObject);
+        return new c(apa(), this.ckm).h(jsObject);
     }
 
     @NonNull
-    private b aoX() {
-        if (this.cqD == null) {
-            this.cqD = new b();
+    private b apa() {
+        if (this.cqO == null) {
+            this.cqO = new b();
         }
-        return this.cqD;
+        return this.cqO;
     }
 }

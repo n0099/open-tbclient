@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public abstract class e {
-    private static final int eVH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected k eVI;
+    private static final int eWf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
+    protected k eWg;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class e {
 
     public e(Context context, k kVar) {
         this.mContext = context;
-        this.eVI = kVar;
+        this.eWg = kVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bkG() {
-        return eVH;
+    public int bkL() {
+        return eWf;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,7 +47,7 @@ public abstract class e {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bkG());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bkL());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
@@ -62,7 +62,7 @@ public abstract class e {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        e.this.xm();
+                        e.this.xr();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class e {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != bkG()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, bkG());
+            } else if (i != bkL()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bkL());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class e {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        e.this.xm();
+                        e.this.xr();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class e {
                 });
                 ofInt.start();
             } else {
-                xm();
+                xr();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void xm() {
+    public void xr() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bkS() {
+    public void bkX() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

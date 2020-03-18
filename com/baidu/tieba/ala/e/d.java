@@ -16,58 +16,58 @@ import com.baidu.tieba.ala.message.AlaGetRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetUserRankInfoResponseMessage;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private j eBC;
-    private HttpMessageListener fpE = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.e.d.1
+    private j eBY;
+    private HttpMessageListener fqd = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.e.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == d.this.unique_id) {
-                d.this.eBC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                d.this.eBY.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener fpF = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.e.d.2
+    private HttpMessageListener fqe = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.e.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserRankInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == d.this.unique_id) {
-                d.this.eBC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                d.this.eBY.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener fpG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.e.d.3
+    private HttpMessageListener fqf = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.e.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && d.this.eBC != null) {
-                d.this.eBC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && d.this.eBY != null) {
+                d.this.eBY.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
 
     public d(BdUniqueId bdUniqueId, j jVar) {
         this.unique_id = bdUniqueId;
-        this.eBC = jVar;
-        te();
-        registerListener(this.fpE);
-        registerListener(this.fpF);
-        registerListener(this.fpG);
+        this.eBY = jVar;
+        tj();
+        registerListener(this.fqd);
+        registerListener(this.fqe);
+        registerListener(this.fqf);
     }
 
-    private void te() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.a.Vt);
+    private void tj() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.a.VD);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRankListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.a.Vu);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.a.VE);
         tbHttpMessageTask2.setIsNeedLogin(false);
         tbHttpMessageTask2.setIsNeedTbs(true);
         tbHttpMessageTask2.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask2.setResponsedClass(AlaGetUserRankInfoResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.a.Vw);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.a.VG);
         tbHttpMessageTask3.setIsNeedLogin(false);
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setIsUseCurrentBDUSS(true);

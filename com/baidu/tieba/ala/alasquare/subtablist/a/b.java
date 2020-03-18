@@ -12,16 +12,16 @@ import com.baidu.tieba.ala.alasquare.subtablist.c.f;
 import com.baidu.tieba.ala.alasquare.subtablist.c.i;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, f> {
-    private i erx;
-    private e etA;
-    private boolean ety;
+    private i erT;
+    private boolean etU;
+    private e etW;
     private int from;
     private int isSmallFollow;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.etC);
-        this.ety = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.etY);
+        this.etU = false;
         this.mPageContext = tbPageContext;
     }
 
@@ -30,8 +30,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: P */
     public f b(ViewGroup viewGroup) {
-        this.etA = new e(this.mPageContext, this.ety);
-        return new f(this.etA);
+        this.etW = new e(this.mPageContext, this.etU);
+        return new f(this.etW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,32 +39,32 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, f fVar) {
         b(bVar);
-        fVar.etA.a(bVar);
-        fVar.etA.d(this.erx);
+        fVar.etW.a(bVar);
+        fVar.etW.d(this.erT);
         return fVar.getView();
     }
 
     public void b(i iVar) {
-        this.erx = iVar;
+        this.erT = iVar;
     }
 
     private void b(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
             if (this.from == 1) {
-                if (bVar.emi != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.bcY().d(com.baidu.tieba.ala.alasquare.c.a.bcY().a(this.isSmallFollow, "c12117", bVar.emi.tabId, bVar.emi.entryName, bVar.emi.aAg()));
+                if (bVar.emz != null) {
+                    com.baidu.tieba.ala.alasquare.c.a.bdd().e(com.baidu.tieba.ala.alasquare.c.a.bdd().a(this.isSmallFollow, "c12117", bVar.emz.tabId, bVar.emz.entryName, bVar.emz.aAj()));
                 }
-                if (bVar.emj != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.bcY().d(com.baidu.tieba.ala.alasquare.c.a.bcY().a(this.isSmallFollow, "c12117", bVar.emj.tabId, bVar.emj.entryName, bVar.emj.aAg()));
+                if (bVar.emA != null) {
+                    com.baidu.tieba.ala.alasquare.c.a.bdd().e(com.baidu.tieba.ala.alasquare.c.a.bdd().a(this.isSmallFollow, "c12117", bVar.emA.tabId, bVar.emA.entryName, bVar.emA.aAj()));
                 }
             } else if (this.from == 2) {
-                if (bVar.emi != null && bVar.emi.aAg() != null && bVar.emi.aAg().aCH() != null) {
-                    bj aAg = bVar.emi.aAg();
-                    TiebaStatic.log(new an("c12115").s("obj_id", aAg.aCH().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, aAg.aCH().appId).cy("locate_type", bVar.emi.entryName));
+                if (bVar.emz != null && bVar.emz.aAj() != null && bVar.emz.aAj().aCK() != null) {
+                    bj aAj = bVar.emz.aAj();
+                    TiebaStatic.log(new an("c12115").s("obj_id", aAj.aCK().live_id).cx(TiebaInitialize.Params.OBJ_PARAM3, aAj.aCK().appId).cx("locate_type", bVar.emz.entryName));
                 }
-                if (bVar.emj != null && bVar.emj.aAg() != null && bVar.emj.aAg().aCH() != null) {
-                    bj aAg2 = bVar.emj.aAg();
-                    TiebaStatic.log(new an("c12115").s("obj_id", aAg2.aCH().live_id).cy(TiebaInitialize.Params.OBJ_PARAM3, aAg2.aCH().appId).cy("locate_type", bVar.emj.entryName));
+                if (bVar.emA != null && bVar.emA.aAj() != null && bVar.emA.aAj().aCK() != null) {
+                    bj aAj2 = bVar.emA.aAj();
+                    TiebaStatic.log(new an("c12115").s("obj_id", aAj2.aCK().live_id).cx(TiebaInitialize.Params.OBJ_PARAM3, aAj2.aCK().appId).cx("locate_type", bVar.emA.entryName));
                 }
             }
         }
@@ -74,12 +74,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         this.from = i;
     }
 
-    public void oB(int i) {
+    public void oD(int i) {
         this.isSmallFollow = i;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public void m32if(boolean z) {
-        this.ety = z;
+    public void ih(boolean z) {
+        this.etU = z;
     }
 }

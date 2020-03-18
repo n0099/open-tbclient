@@ -21,7 +21,7 @@ public class Flow implements Parcelable {
     public static final Parcelable.Creator<Flow> CREATOR = new Parcelable.Creator<Flow>() { // from class: com.baidu.ubc.Flow.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ey */
+        /* renamed from: EF */
         public Flow[] newArray(int i) {
             return new Flow[i];
         }

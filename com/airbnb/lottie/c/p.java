@@ -42,19 +42,19 @@ class p {
     /* renamed from: com.airbnb.lottie.c.p$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] jX = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] jW = new int[JsonToken.values().length];
 
         static {
             try {
-                jX[JsonToken.NUMBER.ordinal()] = 1;
+                jW[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                jX[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                jW[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                jX[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                jW[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -62,7 +62,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PointF g(JsonReader jsonReader, float f) throws IOException {
-        switch (AnonymousClass1.jX[jsonReader.peek().ordinal()]) {
+        switch (AnonymousClass1.jW[jsonReader.peek().ordinal()]) {
             case 1:
                 return h(jsonReader, f);
             case 2:
@@ -134,7 +134,7 @@ class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static float c(JsonReader jsonReader) throws IOException {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.jX[peek.ordinal()]) {
+        switch (AnonymousClass1.jW[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:

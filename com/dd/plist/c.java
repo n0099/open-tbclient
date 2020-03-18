@@ -7,10 +7,10 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class c {
     private byte[] bytes;
-    private int lGJ;
-    private int lGK;
-    private int lGL;
-    private int[] lGM;
+    private int lIp;
+    private int lIq;
+    private int lIr;
+    private int[] lIs;
 
     protected c() {
     }
@@ -25,27 +25,27 @@ public class c {
         if (!str.startsWith("bplist")) {
             throw new IllegalArgumentException("The given data is no binary property list. Wrong magic bytes: " + str);
         }
-        this.lGJ = str.charAt(6) - '0';
-        this.lGK = str.charAt(7) - '0';
-        if (this.lGJ > 0) {
-            throw new IllegalArgumentException("Unsupported binary property list format: v" + this.lGJ + "." + this.lGK + ". Version 1.0 and later are not yet supported.");
+        this.lIp = str.charAt(6) - '0';
+        this.lIq = str.charAt(7) - '0';
+        if (this.lIp > 0) {
+            throw new IllegalArgumentException("Unsupported binary property list format: v" + this.lIp + "." + this.lIq + ". Version 1.0 and later are not yet supported.");
         }
         byte[] l = l(this.bytes, this.bytes.length - 32, this.bytes.length);
         int p = (int) p(l, 6, 7);
-        this.lGL = (int) p(l, 7, 8);
+        this.lIr = (int) p(l, 7, 8);
         int p2 = (int) p(l, 8, 16);
         int p3 = (int) p(l, 16, 24);
         int p4 = (int) p(l, 24, 32);
-        this.lGM = new int[p2];
+        this.lIs = new int[p2];
         for (int i = 0; i < p2; i++) {
-            this.lGM[i] = (int) af(l(this.bytes, (i * p) + p4, ((i + 1) * p) + p4));
+            this.lIs[i] = (int) af(l(this.bytes, (i * p) + p4, ((i + 1) * p) + p4));
         }
-        return Hl(p3);
+        return Hr(p3);
     }
 
-    private i Hl(int i) throws PropertyListFormatException, UnsupportedEncodingException {
+    private i Hr(int i) throws PropertyListFormatException, UnsupportedEncodingException {
         int i2 = 0;
-        int i3 = this.lGM[i];
+        int i3 = this.lIs[i];
         byte b = this.bytes[i3];
         int i4 = (b & 240) >> 4;
         int i5 = b & 15;
@@ -83,24 +83,24 @@ public class c {
                 }
                 return new f(l(this.bytes, i3 + 1, i3 + 9));
             case 4:
-                int[] ds = ds(i5, i3);
-                int i6 = ds[0];
-                int i7 = ds[1];
+                int[] dt = dt(i5, i3);
+                int i6 = dt[0];
+                int i7 = dt[1];
                 return new e(l(this.bytes, i3 + i7, i6 + i3 + i7));
             case 5:
-                int[] ds2 = ds(i5, i3);
-                int i8 = ds2[0];
-                int i9 = ds2[1];
+                int[] dt2 = dt(i5, i3);
+                int i8 = dt2[0];
+                int i9 = dt2[1];
                 return new k(l(this.bytes, i3 + i9, i8 + i3 + i9), HTTP.ASCII);
             case 6:
-                int[] ds3 = ds(i5, i3);
-                int i10 = ds3[0];
-                int i11 = ds3[1];
+                int[] dt3 = dt(i5, i3);
+                int i10 = dt3[0];
+                int i11 = dt3[1];
                 return new k(l(this.bytes, i3 + i11, (i10 * 2) + i3 + i11), CharEncoding.UTF_16BE);
             case 7:
-                int[] ds4 = ds(i5, i3);
-                int i12 = ds4[1];
-                return new k(l(this.bytes, i3 + i12, o(this.bytes, i3 + i12, ds4[0]) + i3 + i12), "UTF-8");
+                int[] dt4 = dt(i5, i3);
+                int i12 = dt4[1];
+                return new k(l(this.bytes, i3 + i12, o(this.bytes, i3 + i12, dt4[0]) + i3 + i12), "UTF-8");
             case 8:
                 return new m(String.valueOf(i), l(this.bytes, i3 + 1, i5 + 1 + i3 + 1));
             case 9:
@@ -108,50 +108,50 @@ public class c {
                 System.err.println("WARNING: The given binary property list contains an object of unknown type (" + i4 + ")");
                 return null;
             case 10:
-                int[] ds5 = ds(i5, i3);
-                int i13 = ds5[0];
-                int i14 = ds5[1];
+                int[] dt5 = dt(i5, i3);
+                int i13 = dt5[0];
+                int i14 = dt5[1];
                 d dVar = new d(i13);
                 while (i2 < i13) {
-                    dVar.j(i2, Hl((int) af(l(this.bytes, i3 + i14 + (this.lGL * i2), i3 + i14 + ((i2 + 1) * this.lGL)))));
+                    dVar.j(i2, Hr((int) af(l(this.bytes, i3 + i14 + (this.lIr * i2), i3 + i14 + ((i2 + 1) * this.lIr)))));
                     i2++;
                 }
                 return dVar;
             case 11:
-                int[] ds6 = ds(i5, i3);
-                int i15 = ds6[0];
-                int i16 = ds6[1];
+                int[] dt6 = dt(i5, i3);
+                int i15 = dt6[0];
+                int i16 = dt6[1];
                 j jVar = new j(true);
                 while (i2 < i15) {
-                    jVar.a(Hl((int) af(l(this.bytes, i3 + i16 + (this.lGL * i2), i3 + i16 + ((i2 + 1) * this.lGL)))));
+                    jVar.a(Hr((int) af(l(this.bytes, i3 + i16 + (this.lIr * i2), i3 + i16 + ((i2 + 1) * this.lIr)))));
                     i2++;
                 }
                 return jVar;
             case 12:
-                int[] ds7 = ds(i5, i3);
-                int i17 = ds7[0];
-                int i18 = ds7[1];
+                int[] dt7 = dt(i5, i3);
+                int i17 = dt7[0];
+                int i18 = dt7[1];
                 j jVar2 = new j();
                 while (i2 < i17) {
-                    jVar2.a(Hl((int) af(l(this.bytes, i3 + i18 + (this.lGL * i2), i3 + i18 + ((i2 + 1) * this.lGL)))));
+                    jVar2.a(Hr((int) af(l(this.bytes, i3 + i18 + (this.lIr * i2), i3 + i18 + ((i2 + 1) * this.lIr)))));
                     i2++;
                 }
                 return jVar2;
             case 13:
-                int[] ds8 = ds(i5, i3);
-                int i19 = ds8[0];
-                int i20 = ds8[1];
+                int[] dt8 = dt(i5, i3);
+                int i19 = dt8[0];
+                int i20 = dt8[1];
                 g gVar = new g();
                 while (i2 < i19) {
-                    i Hl = Hl((int) af(l(this.bytes, i3 + i20 + (this.lGL * i2), i3 + i20 + ((i2 + 1) * this.lGL))));
-                    gVar.put(Hl.toString(), Hl((int) af(l(this.bytes, i3 + i20 + (this.lGL * i19) + (this.lGL * i2), i3 + i20 + (this.lGL * i19) + ((i2 + 1) * this.lGL)))));
+                    i Hr = Hr((int) af(l(this.bytes, i3 + i20 + (this.lIr * i2), i3 + i20 + ((i2 + 1) * this.lIr))));
+                    gVar.put(Hr.toString(), Hr((int) af(l(this.bytes, i3 + i20 + (this.lIr * i19) + (this.lIr * i2), i3 + i20 + (this.lIr * i19) + ((i2 + 1) * this.lIr)))));
                     i2++;
                 }
                 return gVar;
         }
     }
 
-    private int[] ds(int i, int i2) {
+    private int[] dt(int i, int i2) {
         int i3;
         byte b;
         if (i == 15) {

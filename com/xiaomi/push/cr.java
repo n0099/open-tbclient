@@ -25,7 +25,7 @@ public class cr {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cu.a().m210a(r0.a());
+        com.xiaomi.push.cu.a().m208a(r0.a());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -39,7 +39,7 @@ public class cr {
                 break;
             }
             cqVar = this.f199a.get(size);
-            if (cqVar.m200a()) {
+            if (cqVar.m198a()) {
                 break;
             }
             size--;
@@ -57,24 +57,24 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m201a() {
+    public String m199a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cq> m202a() {
+    public ArrayList<cq> m200a() {
         return this.f199a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m203a() {
+    public synchronized JSONObject m201a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put(Contract.SCHEME_KEY_HOST, this.a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cq> it = this.f199a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m198a());
+            jSONArray.put(it.next().m196a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;

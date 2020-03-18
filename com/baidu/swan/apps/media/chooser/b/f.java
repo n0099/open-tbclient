@@ -6,9 +6,9 @@ import org.json.JSONObject;
 public class f {
     public String callback;
     public int sourceType = 3;
-    public boolean bCZ = true;
-    public String bDa = "back";
-    public int bDb = 60;
+    public boolean bDk = true;
+    public String bDl = "back";
+    public int bDm = 60;
 
     public static f an(JSONObject jSONObject) {
         f fVar = new f();
@@ -45,13 +45,13 @@ public class f {
                 }
                 fVar.sourceType = i;
             }
-            fVar.bCZ = jSONObject.optBoolean("compressed", true);
+            fVar.bDk = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
             if (optInt > 60) {
                 optInt = 60;
             }
-            fVar.bDb = optInt;
-            fVar.bDa = jSONObject.optString("camera");
+            fVar.bDm = optInt;
+            fVar.bDl = jSONObject.optString("camera");
             fVar.callback = jSONObject.optString("cb");
         }
         return fVar;

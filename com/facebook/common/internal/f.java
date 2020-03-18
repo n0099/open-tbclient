@@ -10,7 +10,7 @@ public final class f {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static int J(@Nullable Object... objArr) {
+    public static int K(@Nullable Object... objArr) {
         return Arrays.hashCode(objArr);
     }
 
@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes13.dex */
     public static final class a {
         private final String className;
-        private C0653a lIx;
-        private C0653a lIy;
-        private boolean lIz;
+        private C0654a lKd;
+        private C0654a lKe;
+        private boolean lKf;
 
         private a(String str) {
-            this.lIx = new C0653a();
-            this.lIy = this.lIx;
-            this.lIz = false;
+            this.lKd = new C0654a();
+            this.lKe = this.lKd;
+            this.lKf = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,47 +54,47 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.lIz;
+            boolean z = this.lKf;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0653a c0653a = this.lIx.lIA; c0653a != null; c0653a = c0653a.lIA) {
-                if (!z || c0653a.value != null) {
+            for (C0654a c0654a = this.lKd.lKg; c0654a != null; c0654a = c0654a.lKg) {
+                if (!z || c0654a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0653a.name != null) {
-                        append.append(c0653a.name).append('=');
+                    if (c0654a.name != null) {
+                        append.append(c0654a.name).append('=');
                     }
-                    append.append(c0653a.value);
+                    append.append(c0654a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0653a dkH() {
-            C0653a c0653a = new C0653a();
-            this.lIy.lIA = c0653a;
-            this.lIy = c0653a;
-            return c0653a;
+        private C0654a dle() {
+            C0654a c0654a = new C0654a();
+            this.lKe.lKg = c0654a;
+            this.lKe = c0654a;
+            return c0654a;
         }
 
         private a y(String str, @Nullable Object obj) {
-            C0653a dkH = dkH();
-            dkH.value = obj;
-            dkH.name = (String) g.checkNotNull(str);
+            C0654a dle = dle();
+            dle.value = obj;
+            dle.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static final class C0653a {
-            C0653a lIA;
+        public static final class C0654a {
+            C0654a lKg;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0653a() {
+            private C0654a() {
             }
         }
     }

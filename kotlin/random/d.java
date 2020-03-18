@@ -6,28 +6,28 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b nCI = new b(null);
-    private static final d nCG = kotlin.internal.b.nCp.dKs();
-    public static final a nCH = a.nCJ;
+    public static final b nEv = new b(null);
+    private static final d nEt = kotlin.internal.b.nEc.dKS();
+    public static final a nEu = a.nEw;
 
-    public abstract int NG(int i);
+    public abstract int NM(int i);
 
     public int nextInt() {
-        return NG(32);
+        return NM(32);
     }
 
     public int nextInt(int i) {
-        return et(0, i);
+        return eu(0, i);
     }
 
-    public int et(int i, int i2) {
+    public int eu(int i, int i2) {
         int nextInt;
         int i3;
-        e.ev(i, i2);
+        e.ew(i, i2);
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = NG(c.NH(i4));
+                i3 = NM(c.NN(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return NG(1) != 0;
+        return NM(1) != 0;
     }
 
     public double nextDouble() {
-        return c.es(NG(26), NG(27));
+        return c.et(NM(26), NM(27));
     }
 
     public float nextFloat() {
-        return NG(24) / 16777216;
+        return NM(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int NG = NG(i5 * 8);
+                    int NM = NM(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (NG >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (NM >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int NG(int i) {
-            return d.nCG.NG(i);
+        public int NM(int i) {
+            return d.nEt.NM(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nCG.nextInt();
+            return d.nEt.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nCG.nextInt(i);
+            return d.nEt.nextInt(i);
         }
 
         @Override // kotlin.random.d
-        public int et(int i, int i2) {
-            return d.nCG.et(i, i2);
+        public int eu(int i, int i2) {
+            return d.nEt.eu(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nCG.nextLong();
+            return d.nEt.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nCG.nextBoolean();
+            return d.nEt.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nCG.nextDouble();
+            return d.nEt.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nCG.nextFloat();
+            return d.nEt.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] aK(byte[] bArr) {
             q.j(bArr, "array");
-            return d.nCG.aK(bArr);
+            return d.nEt.aK(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] J(byte[] bArr, int i, int i2) {
             q.j(bArr, "array");
-            return d.nCG.J(bArr, i, i2);
+            return d.nEt.J(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a nCJ = new a();
+        public static final a nEw = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int NG(int i) {
-            return d.nCI.NG(i);
+        public int NM(int i) {
+            return d.nEv.NM(i);
         }
     }
 }

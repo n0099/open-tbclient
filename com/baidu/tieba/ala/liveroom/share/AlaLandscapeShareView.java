@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity fkp;
-    private a fkq;
+    private ShareEntity fkO;
+    private a fkP;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
 
@@ -25,8 +25,8 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     public AlaLandscapeShareView(TbPageContext tbPageContext, ShareEntity shareEntity, a aVar) {
         super(tbPageContext.getPageActivity());
         this.mContext = tbPageContext;
-        this.fkp = shareEntity;
-        this.fkq = aVar;
+        this.fkO = shareEntity;
+        this.fkP = aVar;
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         initView();
     }
@@ -51,20 +51,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.g.ala_sdk_weixin_container) {
-            this.fkp.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.fkp, null);
+            this.fkO.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.fkO, null);
         } else if (id == a.g.ala_sdk_timeline_container) {
-            this.fkp.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.fkp, null);
+            this.fkO.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.fkO, null);
         } else if (id == a.g.ala_sdk_qq_container) {
-            this.fkp.shareType = 4;
-            this.mShareChannel.shareToQQ(this.fkp, null);
+            this.fkO.shareType = 4;
+            this.mShareChannel.shareToQQ(this.fkO, null);
         } else if (id == a.g.ala_sdk_sina_container) {
-            this.fkp.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.fkp, null);
+            this.fkO.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.fkO, null);
         }
-        if (this.fkq != null) {
-            this.fkq.onClick(view);
+        if (this.fkP != null) {
+            this.fkP.onClick(view);
         }
     }
 }

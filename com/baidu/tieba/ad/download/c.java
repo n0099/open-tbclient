@@ -6,13 +6,13 @@ import android.text.TextUtils;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 /* loaded from: classes8.dex */
 public class c {
-    private final String dZK;
+    private final String eaa;
     private final String mExtra;
     private final String mPage;
 
     public c(@NonNull String str, @NonNull String str2, String str3) {
         this.mPage = str;
-        this.dZK = str2;
+        this.eaa = str2;
         this.mExtra = str3;
     }
 
@@ -22,20 +22,20 @@ public class c {
 
     public void n(String str, int i, @Nullable String str2) {
         com.baidu.tieba.recapp.report.b bVar = new com.baidu.tieba.recapp.report.b();
-        bVar.AY(i);
+        bVar.Bg(i);
         if (TextUtils.isEmpty(str)) {
             str = this.mPage;
         }
-        bVar.Ij(str);
-        bVar.Ik(this.dZK);
+        bVar.Ii(str);
+        bVar.Ij(this.eaa);
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
             bVar.setDownloadStaticsData(downloadStaticsData);
         }
         if (!TextUtils.isEmpty(this.mExtra)) {
-            bVar.Ib(this.mExtra);
+            bVar.Ia(this.mExtra);
         }
-        com.baidu.tieba.recapp.report.c.cDq().a(bVar);
+        com.baidu.tieba.recapp.report.c.cDK().a(bVar);
     }
 }

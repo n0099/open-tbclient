@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0430a eBr;
-    private HttpMessageListener fpx;
+    private InterfaceC0430a eBN;
+    private HttpMessageListener fpW;
 
     /* renamed from: com.baidu.tieba.ala.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -23,21 +23,21 @@ public class a extends BdBaseModel {
 
     public a(TbPageContext tbPageContext, InterfaceC0430a interfaceC0430a) {
         super(tbPageContext);
-        this.fpx = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.e.a.1
+        this.fpW = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.e.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.eBr.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    a.this.eBN.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.eBr = interfaceC0430a;
-        te();
-        registerListener(this.fpx);
+        this.eBN = interfaceC0430a;
+        tj();
+        registerListener(this.fpW);
     }
 
-    private void te() {
+    private void tj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021118, TbConfig.SERVER_ADDRESS + "ala/web/pk/getPkHistory");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);

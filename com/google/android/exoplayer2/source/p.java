@@ -5,9 +5,9 @@ import java.io.IOException;
 public interface p {
     int b(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z);
 
-    void dwm() throws IOException;
+    void dwJ() throws IOException;
 
-    int ge(long j);
+    int gf(long j);
 
     boolean isReady();
 }

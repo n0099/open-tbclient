@@ -30,7 +30,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.tieba.ala.live.a.b
         public void doFinish() {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgv());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgA());
                 AlaSdkWalletActivity.this.finish();
             }
         }
@@ -47,7 +47,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view") && AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgv());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgA());
                 AlaSdkWalletActivity.this.finish();
             }
         }

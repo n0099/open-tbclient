@@ -8,38 +8,38 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private final List<String> hE;
+    private final List<String> hD;
     @Nullable
-    private f nqM;
+    private f nsz;
 
     public e(String... strArr) {
-        this.hE = Arrays.asList(strArr);
+        this.hD = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.hE = new ArrayList(eVar.hE);
-        this.nqM = eVar.nqM;
+        this.hD = new ArrayList(eVar.hD);
+        this.nsz = eVar.nsz;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Ry(String str) {
+    public e Rx(String str) {
         e eVar = new e(this);
-        eVar.hE.add(str);
+        eVar.hD.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.nqM = fVar;
+        eVar.nsz = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dGO() {
-        return this.nqM;
+    public f dHo() {
+        return this.nsz;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -47,10 +47,10 @@ public class e {
         if (P(str)) {
             return true;
         }
-        if (i >= this.hE.size()) {
+        if (i >= this.hD.size()) {
             return false;
         }
-        return this.hE.get(i).equals(str) || this.hE.get(i).equals("**") || this.hE.get(i).equals("*");
+        return this.hD.get(i).equals(str) || this.hD.get(i).equals("**") || this.hD.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -58,29 +58,29 @@ public class e {
         if (P(str)) {
             return 0;
         }
-        if (this.hE.get(i).equals("**")) {
-            return (i != this.hE.size() + (-1) && this.hE.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.hD.get(i).equals("**")) {
+            return (i != this.hD.size() + (-1) && this.hD.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean e(String str, int i) {
-        if (i >= this.hE.size()) {
+        if (i >= this.hD.size()) {
             return false;
         }
-        boolean z = i == this.hE.size() + (-1);
-        String str2 = this.hE.get(i);
+        boolean z = i == this.hD.size() + (-1);
+        String str2 = this.hD.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.hE.size() + (-2) && cl())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.hD.size() + (-2) && cl())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.hE.get(i + 1).equals(str)) {
-            return i == this.hE.size() + (-2) || (i == this.hE.size() + (-3) && cl());
+        if (!z && this.hD.get(i + 1).equals(str)) {
+            return i == this.hD.size() + (-2) || (i == this.hD.size() + (-3) && cl());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.hE.size() - 1) {
-                return this.hE.get(i + 1).equals(str);
+            if (i + 1 >= this.hD.size() - 1) {
+                return this.hD.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,7 +91,7 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.hE.size() + (-1) || this.hE.get(i).equals("**");
+        return i < this.hD.size() + (-1) || this.hD.get(i).equals("**");
     }
 
     private boolean P(String str) {
@@ -99,10 +99,10 @@ public class e {
     }
 
     private boolean cl() {
-        return this.hE.get(this.hE.size() - 1).equals("**");
+        return this.hD.get(this.hD.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.hE + ",resolved=" + (this.nqM != null) + '}';
+        return "KeyPath{keys=" + this.hD + ",resolved=" + (this.nsz != null) + '}';
     }
 }

@@ -12,70 +12,70 @@ import java.util.Set;
 import okhttp3.Dns;
 /* loaded from: classes.dex */
 public class d implements Dns {
-    private c nuN;
-    private Dns nuO;
-    private static d nuM = null;
-    private static boolean lKZ = false;
-    private static Set<String> nuP = new HashSet();
+    private c nwA;
+    private Dns nwB;
+    private static d nwz = null;
+    private static boolean lMF = false;
+    private static Set<String> nwC = new HashSet();
 
     static {
-        nuP.add("quanmin.baidu.com");
+        nwC.add("quanmin.baidu.com");
     }
 
     public static void a(Context context, c cVar, Dns dns) {
-        nuM = new d(cVar, dns);
+        nwz = new d(cVar, dns);
         b.init(context);
     }
 
-    public static d dIN() {
-        return nuM;
+    public static d dJn() {
+        return nwz;
     }
 
     private d(c cVar, Dns dns) {
-        this.nuN = cVar;
-        this.nuO = dns;
+        this.nwA = cVar;
+        this.nwB = dns;
     }
 
     @Override // okhttp3.Dns
     public List<InetAddress> lookup(String str) throws UnknownHostException {
-        List<InetAddress> RW;
+        List<InetAddress> RV;
         if (InetAddressValidator.getInstance().isValid(str)) {
             return Collections.singletonList(InetAddress.getByName(str));
         }
         try {
             if (!isInWhiteList(str)) {
-                RW = RW(str);
+                RV = RV(str);
             } else {
                 try {
-                    RW = RY(str);
+                    RV = RX(str);
                 } catch (UnknownHostException e) {
-                    RW = RW(str);
+                    RV = RV(str);
                 }
             }
-            return RW;
+            return RV;
         } catch (UnknownHostException e2) {
-            return RX(str);
+            return RW(str);
         }
+    }
+
+    private List<InetAddress> RV(String str) throws UnknownHostException {
+        return this.nwB.lookup(str);
     }
 
     private List<InetAddress> RW(String str) throws UnknownHostException {
-        return this.nuO.lookup(str);
-    }
-
-    private List<InetAddress> RX(String str) throws UnknownHostException {
-        String[] RV = b.dIM().RV(str);
-        if (RV.length <= 0) {
+        String[] RU = b.dJm().RU(str);
+        if (RU.length <= 0) {
             throw new UnknownHostException("disaster recovery failed");
         }
-        ArrayList arrayList = new ArrayList(RV.length);
-        for (String str2 : RV) {
+        ArrayList arrayList = new ArrayList(RU.length);
+        for (String str2 : RU) {
             arrayList.add(InetAddress.getByName(str2));
         }
         return arrayList;
     }
 
-    private List<InetAddress> RY(String str) throws UnknownHostException {
-        List<InetAddress> lookup = this.nuN.lookup(str);
+    private List<InetAddress> RX(String str) throws UnknownHostException {
+        List<InetAddress> lookup = this.nwA.lookup(str);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (InetAddress inetAddress : lookup) {
@@ -87,13 +87,13 @@ public class d implements Dns {
         if (arrayList.size() <= 0) {
             throw new UnknownHostException(String.format("%s has no valid ip", str));
         }
-        b.dIM().h(str, (String[]) arrayList2.toArray(new String[0]));
+        b.dJm().h(str, (String[]) arrayList2.toArray(new String[0]));
         return arrayList;
     }
 
     public static boolean isInWhiteList(String str) {
-        if (lKZ) {
-            return nuP.contains(str);
+        if (lMF) {
+            return nwC.contains(str);
         }
         return false;
     }

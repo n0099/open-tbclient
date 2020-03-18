@@ -7,88 +7,88 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.f;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private boolean eHx;
-    private b ePh;
-    private long ePi;
-    private String ePj;
-    private CustomMessageListener evg;
+    private boolean eHT;
+    private b ePF;
+    private long ePG;
+    private String ePH;
+    private CustomMessageListener evC;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        bdH();
+        bdM();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.eHx = z;
+        this.eHT = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void e(long j, String str) {
-        this.ePi = j;
-        this.ePj = str;
-        if (this.ePj == null) {
-            this.ePj = "";
+        this.ePG = j;
+        this.ePH = str;
+        if (this.ePH == null) {
+            this.ePH = "";
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void ap(String str, int i) {
-        this.ePh = new b(this.mActivity);
+        this.ePF = new b(this.mActivity);
         f fVar = new f();
-        fVar.y(this.mActivity).a(this.ePh).a(this.ePh.bdI().getSchemeCallback()).R(this.ePi).ep(this.ePj).bz(this.eHx);
-        com.baidu.live.view.web.a[] BC = fVar.BC();
-        for (com.baidu.live.view.web.a aVar : BC) {
-            this.ePh.bdI().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mActivity).a(this.ePF).a(this.ePF.bdN().getSchemeCallback()).R(this.ePG).eo(this.ePH).bA(this.eHT);
+        com.baidu.live.view.web.a[] BJ = fVar.BJ();
+        for (com.baidu.live.view.web.a aVar : BJ) {
+            this.ePF.bdN().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.ePh.aq(str, i);
+        this.ePF.aq(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.ePh != null && this.ePh.isShowing() && this.ePh.bdI() != null) {
-            this.ePh.bdI().onResume();
+        if (this.ePF != null && this.ePF.isShowing() && this.ePF.bdN() != null) {
+            this.ePF.bdN().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.ePh != null && this.ePh.isShowing() && this.ePh.bdI() != null) {
-            this.ePh.bdI().onPause();
+        if (this.ePF != null && this.ePF.isShowing() && this.ePF.bdN() != null) {
+            this.ePF.bdN().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void bW(int i) {
-        if (this.ePh != null && this.ePh.isShowing()) {
-            this.ePh.bW(i);
+        if (this.ePF != null && this.ePF.isShowing()) {
+            this.ePF.bW(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.ePi = 0L;
-        this.ePj = "";
-        MessageManager.getInstance().unRegisterListener(this.evg);
-        if (this.ePh != null) {
-            this.ePh.bdJ();
-            if (this.ePh.bdI() != null) {
-                this.ePh.bdI().release();
+        this.ePG = 0L;
+        this.ePH = "";
+        MessageManager.getInstance().unRegisterListener(this.evC);
+        if (this.ePF != null) {
+            this.ePF.bdO();
+            if (this.ePF.bdN() != null) {
+                this.ePF.bdN().release();
             }
         }
     }
 
-    private void bdH() {
-        this.evg = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void bdM() {
+        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.ePh != null && a.this.ePh.isShowing()) {
-                    a.this.ePh.dismiss();
+                if (a.this.ePF != null && a.this.ePF.isShowing()) {
+                    a.this.ePF.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evg);
+        MessageManager.getInstance().registerListener(this.evC);
     }
 }

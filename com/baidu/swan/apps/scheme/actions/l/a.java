@@ -54,14 +54,14 @@ public class a extends ab {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap agW = af.agW();
-                if (agW == null) {
+                final Bitmap agZ = af.agZ();
+                if (agZ == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(agW, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(agZ, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -92,9 +92,9 @@ public class a extends ab {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String lY = b.lY(eVar.id);
-        if (lY != null) {
-            String str = lY + File.separator + "screenshot";
+        String lX = b.lX(eVar.id);
+        if (lX != null) {
+            String str = lX + File.separator + "screenshot";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -112,7 +112,7 @@ public class a extends ab {
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         c.d("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.br(sb, eVar.id), "success"), 0));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bq(sb, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {

@@ -19,28 +19,28 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.Iy(parcel.readString());
-            shareEntity.BK(parcel.readInt());
+            shareEntity.Ix(parcel.readString());
+            shareEntity.BS(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.Y(parcel.readBundle());
-            shareEntity.BM(parcel.readInt());
+            shareEntity.BU(parcel.readInt());
             shareEntity.setTid(parcel.readString());
-            shareEntity.BL(parcel.readInt());
-            shareEntity.Iz(parcel.readString());
+            shareEntity.BT(parcel.readInt());
+            shareEntity.Iy(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
-            shareEntity.eC(parcel.readLong());
-            shareEntity.sv(parcel.readByte() == 1);
+            shareEntity.eD(parcel.readLong());
+            shareEntity.sB(parcel.readByte() == 1);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BN */
+        /* renamed from: BV */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -69,7 +69,7 @@ public class ShareEntity implements Parcelable {
         this.stats = bundle;
     }
 
-    public Bundle aMs() {
+    public Bundle aMw() {
         return this.stats;
     }
 
@@ -97,19 +97,19 @@ public class ShareEntity implements Parcelable {
         this.content = str;
     }
 
-    public void eC(long j) {
+    public void eD(long j) {
         this.readCount = j;
     }
 
-    public long cHs() {
+    public long cHM() {
         return this.readCount;
     }
 
-    public void sv(boolean z) {
+    public void sB(boolean z) {
         this.isVideoThread = z;
     }
 
-    public boolean cHt() {
+    public boolean cHN() {
         return this.isVideoThread;
     }
 
@@ -121,15 +121,15 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void Iy(String str) {
+    public void Ix(String str) {
         this.localFile = str;
     }
 
-    public String cHu() {
+    public String cHO() {
         return this.localFile;
     }
 
-    public String aAG() {
+    public String aAJ() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -145,15 +145,15 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int cHv() {
+    public int cHP() {
         return this.shareTo;
     }
 
-    public void BK(int i) {
+    public void BS(int i) {
         this.shareTo = i;
     }
 
-    public int cHw() {
+    public int cHQ() {
         return this.shareType;
     }
 
@@ -165,27 +165,27 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public void Iz(String str) {
+    public void Iy(String str) {
         this.fName = str;
     }
 
-    public String cHx() {
+    public String cHR() {
         return this.fName;
     }
 
-    public void BL(int i) {
+    public void BT(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int cHy() {
+    public int cHS() {
         return this.typeShareToSmallApp;
     }
 
-    public void BM(int i) {
+    public void BU(int i) {
         this.shareType = i;
     }
 
-    public boolean cHz() {
+    public boolean cHT() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

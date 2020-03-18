@@ -31,19 +31,19 @@ public class a extends ab {
                 if (TextUtils.isEmpty(optString)) {
                     showToast(a.h.aiapps_debug_swan_core_url_empty);
                 } else {
-                    b.RU();
+                    b.RX();
                     e.c cVar = new e.c();
                     cVar.mDownloadUrl = av(context, optString);
-                    new com.baidu.swan.apps.l.a().a(cVar, b.RV().getPath(), new e.b() { // from class: com.baidu.swan.games.d.a.1
+                    new com.baidu.swan.apps.l.a().a(cVar, b.RY().getPath(), new e.b() { // from class: com.baidu.swan.games.d.a.1
                         @Override // com.baidu.swan.apps.t.e.b
                         public void cX(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.t.e.b
                         public void onSuccess() {
-                            File RV = b.RV();
-                            File RT = b.RT();
-                            if (!RV.exists() || !c.unzipFile(RV.getPath(), RT.getPath())) {
+                            File RY = b.RY();
+                            File RW = b.RW();
+                            if (!RY.exists() || !c.unzipFile(RY.getPath(), RW.getPath())) {
                                 a.this.showToast(a.h.swangame_dashboard_download_failed);
                             } else {
                                 a.this.showToast(a.h.swangame_dashboard_download_success);
@@ -62,11 +62,11 @@ public class a extends ab {
     }
 
     private String av(Context context, String str) {
-        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.l.a.aoK().h("BASE64", (com.baidu.swan.apps.w.a.Ub().br(context) + "\u0000\u0000").getBytes()));
+        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.l.a.aoN().h("BASE64", (com.baidu.swan.apps.w.a.Ue().bq(context) + "\u0000\u0000").getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showToast(int i) {
-        Toast.makeText(com.baidu.swan.apps.w.a.TW(), i, 1).show();
+        Toast.makeText(com.baidu.swan.apps.w.a.TZ(), i, 1).show();
     }
 }

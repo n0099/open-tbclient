@@ -9,12 +9,12 @@ public interface a {
     public interface InterfaceC0327a {
         void b(AdElementInfo adElementInfo);
 
-        void nI(String str);
+        void nH(String str);
     }
 
     /* loaded from: classes11.dex */
     public interface b {
-        void akr();
+        void aku();
     }
 
     /* loaded from: classes11.dex */

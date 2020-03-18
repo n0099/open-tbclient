@@ -9,27 +9,27 @@ import com.baidu.live.tbadk.coreextra.view.CircleProgressView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d {
-    private CircleProgressView fbL;
-    private TextView fbM;
+    private CircleProgressView fcj;
+    private TextView fck;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(a.h.ala_apk_downloading_view_layout, (ViewGroup) null);
-        this.fbL = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
-        this.fbM = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
+        this.fcj = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
+        this.fck = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
         this.mRootView.setBackgroundResource(a.f.sdk_black_oval_shape_alpha50);
-        this.fbL.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
-        this.fbL.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
-        this.fbL.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
+        this.fcj.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
+        this.fcj.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
+        this.fcj.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void jp(boolean z) {
+    public void jr(boolean z) {
         if (z) {
             this.mRootView.setAlpha(0.5f);
         } else {
@@ -43,7 +43,7 @@ public class d {
         } else if (i > 100) {
             i = 100;
         }
-        this.fbL.setProgress(i);
-        this.fbM.setText(i + "%");
+        this.fcj.setProgress(i);
+        this.fck.setText(i + "%");
     }
 }

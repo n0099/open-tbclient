@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private long cBm;
+    private long cBx;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -33,10 +33,10 @@ public class c {
     }
 
     public void bi(long j) {
-        this.cBm = j;
+        this.cBx = j;
     }
 
-    public static c qs(String str) {
+    public static c qr(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

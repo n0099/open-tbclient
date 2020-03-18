@@ -11,6 +11,7 @@ public class ForumWriteData implements Serializable {
     public String firstDir;
     public final String forumId;
     public final String forumName;
+    public FrsTabInfoData frsTabInfo;
     public String mFrom;
     public int mem_type;
     public final PostPrefixData prefixData;

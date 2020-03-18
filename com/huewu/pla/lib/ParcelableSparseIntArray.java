@@ -16,7 +16,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: MH */
+        /* renamed from: MN */
         public ParcelableSparseIntArray[] newArray(int i) {
             return new ParcelableSparseIntArray[i];
         }
@@ -36,10 +36,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeSparseArray(dBN());
+        parcel.writeSparseArray(dCk());
     }
 
-    private SparseArray<Object> dBN() {
+    private SparseArray<Object> dCk() {
         SparseArray<Object> sparseArray = new SparseArray<>();
         int size = size();
         for (int i = 0; i < size; i++) {

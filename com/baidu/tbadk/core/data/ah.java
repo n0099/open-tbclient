@@ -7,19 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private ArrayList<String> cPw;
-    private int cPx = 0;
-    private UserData cPv = new UserData();
+    private ArrayList<String> cPJ;
+    private int cPK = 0;
+    private UserData cPI = new UserData();
     private AntiData anti = new AntiData();
 
     public ah() {
-        this.cPw = null;
-        this.cPw = new ArrayList<>();
+        this.cPJ = null;
+        this.cPJ = new ArrayList<>();
         jx(0);
     }
 
     public UserData getUser() {
-        return this.cPv;
+        return this.cPI;
     }
 
     public AntiData getAnti() {
@@ -36,12 +36,12 @@ public class ah {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.cPv.parserJson(jSONObject.optJSONObject("user"));
+            this.cPI.parserJson(jSONObject.optJSONObject("user"));
             this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.cPw.add(optJSONArray.optString(i, null));
+                    this.cPJ.add(optJSONArray.optString(i, null));
                 }
             }
             jx(jSONObject.optInt("retrytime"));
@@ -51,6 +51,6 @@ public class ah {
     }
 
     public void jx(int i) {
-        this.cPx = i;
+        this.cPK = i;
     }
 }

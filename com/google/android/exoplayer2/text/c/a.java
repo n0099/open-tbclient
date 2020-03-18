@@ -14,12 +14,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public final class a extends c {
-    private static final Pattern mBk = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
-    private final boolean mBl;
-    private int mBm;
-    private int mBn;
-    private int mBo;
-    private int mBp;
+    private static final Pattern mCR = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
+    private final boolean mCS;
+    private int mCT;
+    private int mCU;
+    private int mCV;
+    private int mCW;
 
     public a() {
         this(null);
@@ -28,14 +28,14 @@ public final class a extends c {
     public a(List<byte[]> list) {
         super("SsaDecoder");
         if (list != null && !list.isEmpty()) {
-            this.mBl = true;
+            this.mCS = true;
             String str = new String(list.get(0));
             com.google.android.exoplayer2.util.a.checkArgument(str.startsWith("Format: "));
-            PV(str);
+            PU(str);
             U(new l(list.get(1)));
             return;
         }
-        this.mBl = false;
+        this.mCS = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,13 +46,13 @@ public final class a extends c {
         ArrayList arrayList = new ArrayList();
         g gVar = new g();
         l lVar = new l(bArr, i);
-        if (!this.mBl) {
+        if (!this.mCS) {
             U(lVar);
         }
         a(lVar, arrayList, gVar);
         com.google.android.exoplayer2.text.b[] bVarArr = new com.google.android.exoplayer2.text.b[arrayList.size()];
         arrayList.toArray(bVarArr);
-        return new b(bVarArr, gVar.dzp());
+        return new b(bVarArr, gVar.dzM());
     }
 
     private void U(l lVar) {
@@ -69,8 +69,8 @@ public final class a extends c {
         while (true) {
             String readLine = lVar.readLine();
             if (readLine != null) {
-                if (!this.mBl && readLine.startsWith("Format: ")) {
-                    PV(readLine);
+                if (!this.mCS && readLine.startsWith("Format: ")) {
+                    PU(readLine);
                 } else if (readLine.startsWith("Dialogue: ")) {
                     a(readLine, list, gVar);
                 }
@@ -81,32 +81,32 @@ public final class a extends c {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void PV(String str) {
+    private void PU(String str) {
         char c;
         String[] split = TextUtils.split(str.substring("Format: ".length()), Constants.ACCEPT_TIME_SEPARATOR_SP);
-        this.mBm = split.length;
-        this.mBn = -1;
-        this.mBo = -1;
-        this.mBp = -1;
-        for (int i = 0; i < this.mBm; i++) {
-            String QC = v.QC(split[i].trim());
-            switch (QC.hashCode()) {
+        this.mCT = split.length;
+        this.mCU = -1;
+        this.mCV = -1;
+        this.mCW = -1;
+        for (int i = 0; i < this.mCT; i++) {
+            String QB = v.QB(split[i].trim());
+            switch (QB.hashCode()) {
                 case 100571:
-                    if (QC.equals("end")) {
+                    if (QB.equals("end")) {
                         c = 1;
                         break;
                     }
                     c = 65535;
                     break;
                 case 3556653:
-                    if (QC.equals("text")) {
+                    if (QB.equals("text")) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case 109757538:
-                    if (QC.equals("start")) {
+                    if (QB.equals("start")) {
                         c = 0;
                         break;
                     }
@@ -118,13 +118,13 @@ public final class a extends c {
             }
             switch (c) {
                 case 0:
-                    this.mBn = i;
+                    this.mCU = i;
                     break;
                 case 1:
-                    this.mBo = i;
+                    this.mCV = i;
                     break;
                 case 2:
-                    this.mBp = i;
+                    this.mCW = i;
                     break;
             }
         }
@@ -132,36 +132,36 @@ public final class a extends c {
 
     private void a(String str, List<com.google.android.exoplayer2.text.b> list, g gVar) {
         long j;
-        if (this.mBm == 0) {
+        if (this.mCT == 0) {
             Log.w("SsaDecoder", "Skipping dialogue line before format: " + str);
             return;
         }
-        String[] split = str.substring("Dialogue: ".length()).split(Constants.ACCEPT_TIME_SEPARATOR_SP, this.mBm);
-        long PW = PW(split[this.mBn]);
-        if (PW == -9223372036854775807L) {
+        String[] split = str.substring("Dialogue: ".length()).split(Constants.ACCEPT_TIME_SEPARATOR_SP, this.mCT);
+        long PV = PV(split[this.mCU]);
+        if (PV == -9223372036854775807L) {
             Log.w("SsaDecoder", "Skipping invalid timing: " + str);
             return;
         }
-        String str2 = split[this.mBo];
+        String str2 = split[this.mCV];
         if (str2.trim().isEmpty()) {
             j = -9223372036854775807L;
         } else {
-            j = PW(str2);
+            j = PV(str2);
             if (j == -9223372036854775807L) {
                 Log.w("SsaDecoder", "Skipping invalid timing: " + str);
                 return;
             }
         }
-        list.add(new com.google.android.exoplayer2.text.b(split[this.mBp].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
-        gVar.gG(PW);
+        list.add(new com.google.android.exoplayer2.text.b(split[this.mCW].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
+        gVar.gH(PV);
         if (j != -9223372036854775807L) {
             list.add(null);
-            gVar.gG(j);
+            gVar.gH(j);
         }
     }
 
-    public static long PW(String str) {
-        Matcher matcher = mBk.matcher(str);
+    public static long PV(String str) {
+        Matcher matcher = mCR.matcher(str);
         if (!matcher.matches()) {
             return -9223372036854775807L;
         }

@@ -8,15 +8,15 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaFilterAndBeautyData extends BaseData {
-    public static HashMap<BeautyAdjustKey, b> VL = new HashMap<>();
-    public a VI;
-    public List<Object> VJ = new ArrayList();
-    public HashMap<String, Object> VK = new HashMap<>();
-    public BdUniqueId VM;
+    public static HashMap<BeautyAdjustKey, b> VV = new HashMap<>();
+    public a VS;
+    public List<Object> VT = new ArrayList();
+    public HashMap<String, Object> VU = new HashMap<>();
+    public BdUniqueId VW;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int VN;
+        public int VX;
         public String mText;
     }
 
@@ -26,10 +26,10 @@ public class AlaFilterAndBeautyData extends BaseData {
 
     /* loaded from: classes3.dex */
     public static class b {
-        HashMap<String, Object> VO;
+        HashMap<String, Object> VY;
 
-        public HashMap<String, Object> py() {
-            return this.VO;
+        public HashMap<String, Object> pD() {
+            return this.VY;
         }
     }
 

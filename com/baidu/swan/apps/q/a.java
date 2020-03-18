@@ -10,33 +10,33 @@ import com.baidu.swan.apps.statistic.f;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bvP;
+    private static volatile a bwb;
     private String mContent;
 
     private a() {
     }
 
-    public static a Td() {
-        if (bvP == null) {
+    public static a Tg() {
+        if (bwb == null) {
             synchronized (a.class) {
-                if (bvP == null) {
-                    bvP = new a();
+                if (bwb == null) {
+                    bwb = new a();
                 }
             }
         }
-        return bvP;
+        return bwb;
     }
 
     public static void release() {
-        if (bvP != null) {
-            if (bvP.mContent != null) {
-                bvP.mContent = null;
+        if (bwb != null) {
+            if (bwb.mContent != null) {
+                bwb.mContent = null;
             }
-            bvP = null;
+            bwb = null;
         }
     }
 
-    public void hW(String str) {
+    public void hV(String str) {
         this.mContent = str;
     }
 
@@ -44,33 +44,33 @@ public class a {
         return this.mContent;
     }
 
-    public boolean Te() {
+    public boolean Th() {
         return !TextUtils.isEmpty(this.mContent);
     }
 
     public void a(Activity activity, final com.baidu.swan.apps.core.f.b<Boolean> bVar) {
         g.a aVar = new g.a(activity);
-        aVar.eD(a.h.aiapps_confirm_close_title).kJ(Td().getContent()).a(new com.baidu.swan.apps.view.c.a()).dD(true);
+        aVar.eD(a.h.aiapps_confirm_close_title).kI(Tg().getContent()).a(new com.baidu.swan.apps.view.c.a()).dE(true);
         aVar.fW(a.c.aiapps_modal_confirm_color);
         aVar.c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.q.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                f.lJ("confirm");
+                f.lI("confirm");
                 bVar.F(true);
             }
         });
         aVar.d(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.q.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                f.lJ(UgcUBCUtils.UGC_TIME_CANCEL);
+                f.lI(UgcUBCUtils.UGC_TIME_CANCEL);
             }
         });
         aVar.a(new DialogInterface.OnShowListener() { // from class: com.baidu.swan.apps.q.a.3
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                f.lJ("show");
+                f.lI("show");
             }
         });
-        aVar.acp();
+        aVar.acs();
     }
 }

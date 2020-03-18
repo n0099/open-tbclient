@@ -51,9 +51,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     if (androidNameFromIos.endsWith("_svg")) {
                         String svgColor = ResNameTransform.getSvgColor(androidNameFromIos);
                         if (svgColor != null) {
-                            a = SvgManager.aGC().a(identifier, getResIdBySkin(str2, resources.getIdentifier(svgColor, "color", BdBaseApplication.getInst().getPackageName())), SvgManager.SvgResourceStateType.NORMAL, false);
+                            a = SvgManager.aGG().a(identifier, getResIdBySkin(str2, resources.getIdentifier(svgColor, "color", BdBaseApplication.getInst().getPackageName())), SvgManager.SvgResourceStateType.NORMAL, false);
                         } else {
-                            a = SvgManager.aGC().a(identifier, null);
+                            a = SvgManager.aGG().a(identifier, null);
                         }
                         if (a != null) {
                             Bitmap createBitmap = Bitmap.createBitmap(a.getIntrinsicWidth(), a.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);

@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class at extends PostData {
-    public static final BdUniqueId cPV = BdUniqueId.gen();
-    public int cOc;
-    public String cOo;
-    public String cOp;
-    public String cOq;
-    public String cPW;
-    public String cPX;
-    public String cPY;
-    public List<String> cPZ;
-    public String cQa;
-    public String cQb;
+    public static final BdUniqueId cQi = BdUniqueId.gen();
+    public String cOB;
+    public String cOC;
+    public String cOD;
+    public int cOp;
+    public String cQj;
+    public String cQk;
+    public String cQl;
+    public List<String> cQm;
+    public String cQn;
+    public String cQo;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.cPW = recommendBook.recommend_text;
-            this.cPX = recommendBook.suggest_text;
-            this.cPY = recommendBook.suggest_url;
-            this.cOo = recommendBook.book_id;
-            this.cOc = recommendBook.book_type.intValue();
-            this.cOq = recommendBook.book_cover;
-            this.cOp = recommendBook.book_title;
-            this.cPZ = recommendBook.book_tips;
-            this.cQa = recommendBook.botton_text;
-            this.cQb = recommendBook.subscript_icon;
+            this.cQj = recommendBook.recommend_text;
+            this.cQk = recommendBook.suggest_text;
+            this.cQl = recommendBook.suggest_url;
+            this.cOB = recommendBook.book_id;
+            this.cOp = recommendBook.book_type.intValue();
+            this.cOD = recommendBook.book_cover;
+            this.cOC = recommendBook.book_title;
+            this.cQm = recommendBook.book_tips;
+            this.cQn = recommendBook.botton_text;
+            this.cQo = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.cOo)) ? false : true;
+        return (this == null || StringUtils.isNull(this.cOB)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cPV;
+        return cQi;
     }
 }

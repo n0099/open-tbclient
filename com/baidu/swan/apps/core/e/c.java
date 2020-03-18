@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView bpq;
-    private SelectorTextView bpr;
-    private a bps;
+    private TextView bpC;
+    private SelectorTextView bpD;
+    private a bpE;
     private View mView;
 
     protected c(Context context) {
@@ -24,62 +24,62 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.bps = aVar;
+        this.bpE = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.bpq = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.bpq.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.bpr = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.bpr.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        Pb();
+        this.bpC = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.bpC.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.bpD = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.bpD.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        Pe();
         return this.mView;
     }
 
-    private void Pb() {
-        if (this.bps == null) {
+    private void Pe() {
+        if (this.bpE == null) {
             return;
         }
-        this.bpq.setText(this.mContext.getText(this.bps.mMessageId));
-        this.bpq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.bpC.setText(this.mContext.getText(this.bpE.mMessageId));
+        this.bpC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.bps.bpx != null) {
-                    c.this.bps.bpx.onItemClick(view);
+                if (c.this.bpE.bpJ != null) {
+                    c.this.bpE.bpJ.onItemClick(view);
                 }
             }
         });
-        if (this.bps.bpu > 0) {
-            this.bpr.setVisibility(0);
-            this.bpr.setText(this.mContext.getText(this.bps.bpu));
-            this.bpr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.bpE.bpG > 0) {
+            this.bpD.setVisibility(0);
+            this.bpD.setText(this.mContext.getText(this.bpE.bpG));
+            this.bpD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.bps.bpw != null) {
-                        c.this.bps.bpw.onItemClick(view);
+                    if (c.this.bpE.bpI != null) {
+                        c.this.bpE.bpI.onItemClick(view);
                     }
                 }
             });
         } else {
-            this.bpr.setVisibility(8);
+            this.bpD.setVisibility(8);
         }
-        if (this.bps.bpv <= 0) {
+        if (this.bpE.bpH <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.bps.bpv);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.bpE.bpH);
         w.decorateSrcATopMode(getContext(), drawable);
         drawable.setBounds(0, 0, af.dip2px(this.mContext, 12.0f), af.dip2px(this.mContext, 12.0f));
-        this.bpr.setCompoundDrawables(drawable, null, null, null);
+        this.bpD.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes11.dex */
     public static class a extends b.C0282b {
-        private int bpu;
-        private int bpv;
-        public b.c bpw;
-        public b.c bpx;
+        private int bpG;
+        private int bpH;
+        public b.c bpI;
+        public b.c bpJ;
         private int mMessageId;
 
         public a(Context context) {
@@ -87,7 +87,7 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0282b, com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g bX(Context context) {
+        protected g bW(Context context) {
             return new c(context);
         }
 
@@ -109,13 +109,13 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
 
         public a a(int i, b.c cVar) {
             this.mMessageId = i;
-            this.bpx = cVar;
+            this.bpJ = cVar;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0282b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Pc() {
-            c cVar = (c) super.Pc();
+        public g Pf() {
+            c cVar = (c) super.Pf();
             cVar.a(this);
             return cVar;
         }

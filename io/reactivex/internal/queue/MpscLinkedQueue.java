@@ -4,8 +4,8 @@ import io.reactivex.internal.a.f;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class MpscLinkedQueue<T> implements f<T> {
-    private final AtomicReference<LinkedQueueNode<T>> nyU = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<T>> nyV = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> nAH = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> nAI = new AtomicReference<>();
 
     public MpscLinkedQueue() {
         LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
@@ -26,15 +26,15 @@ public final class MpscLinkedQueue<T> implements f<T> {
     @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
     public T poll() {
         LinkedQueueNode<T> lvNext;
-        LinkedQueueNode<T> dJv = dJv();
-        LinkedQueueNode<T> lvNext2 = dJv.lvNext();
+        LinkedQueueNode<T> dJV = dJV();
+        LinkedQueueNode<T> lvNext2 = dJV.lvNext();
         if (lvNext2 != null) {
             T andNullValue = lvNext2.getAndNullValue();
             b(lvNext2);
             return andNullValue;
-        } else if (dJv != dJt()) {
+        } else if (dJV != dJT()) {
             do {
-                lvNext = dJv.lvNext();
+                lvNext = dJV.lvNext();
             } while (lvNext == null);
             T andNullValue2 = lvNext.getAndNullValue();
             b(lvNext);
@@ -50,29 +50,29 @@ public final class MpscLinkedQueue<T> implements f<T> {
         }
     }
 
-    LinkedQueueNode<T> dJt() {
-        return this.nyU.get();
+    LinkedQueueNode<T> dJT() {
+        return this.nAH.get();
     }
 
     LinkedQueueNode<T> a(LinkedQueueNode<T> linkedQueueNode) {
-        return this.nyU.getAndSet(linkedQueueNode);
+        return this.nAH.getAndSet(linkedQueueNode);
     }
 
-    LinkedQueueNode<T> dJu() {
-        return this.nyV.get();
+    LinkedQueueNode<T> dJU() {
+        return this.nAI.get();
     }
 
-    LinkedQueueNode<T> dJv() {
-        return this.nyV.get();
+    LinkedQueueNode<T> dJV() {
+        return this.nAI.get();
     }
 
     void b(LinkedQueueNode<T> linkedQueueNode) {
-        this.nyV.lazySet(linkedQueueNode);
+        this.nAI.lazySet(linkedQueueNode);
     }
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return dJu() == dJt();
+        return dJU() == dJT();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

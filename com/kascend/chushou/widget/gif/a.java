@@ -21,11 +21,11 @@ import kotlin.jvm.internal.v;
 @h
 /* loaded from: classes5.dex */
 public final class a extends com.facebook.imagepipeline.request.a {
-    public static final C0723a niM = new C0723a(null);
+    public static final C0724a nkz = new C0724a(null);
     private final int c;
     private final int d;
     private final String e;
-    private com.facebook.cache.common.b niL;
+    private com.facebook.cache.common.b nky;
 
     public a(int i, int i2, String str) {
         this.c = i;
@@ -36,11 +36,11 @@ public final class a extends com.facebook.imagepipeline.request.a {
     @h
     /* renamed from: com.kascend.chushou.widget.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0723a {
-        private C0723a() {
+    public static final class C0724a {
+        private C0724a() {
         }
 
-        public /* synthetic */ C0723a(o oVar) {
+        public /* synthetic */ C0724a(o oVar) {
             this();
         }
     }
@@ -51,25 +51,25 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b drx() {
-        String SS;
-        if (this.niL == null) {
-            v vVar = v.nCE;
+    public com.facebook.cache.common.b drU() {
+        String SR;
+        if (this.nky == null) {
+            v vVar = v.nEr;
             Locale locale = Locale.CHINA;
             q.i(locale, "Locale.CHINA");
             Object[] objArr = new Object[1];
             String str = this.e;
             if (str == null || str.length() == 0) {
-                SS = SchemeCollecter.CLASSIFY_EMPTY;
+                SR = SchemeCollecter.CLASSIFY_EMPTY;
             } else {
-                SS = tv.chushou.zues.toolkit.b.a.nWP.SS(this.e);
+                SR = tv.chushou.zues.toolkit.b.a.nYC.SR(this.e);
             }
-            objArr[0] = SS;
+            objArr[0] = SR;
             String format = String.format(locale, "%s", Arrays.copyOf(objArr, objArr.length));
             q.i(format, "java.lang.String.format(locale, format, *args)");
-            this.niL = new g(format);
+            this.nky = new g(format);
         }
-        return this.niL;
+        return this.nky;
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
@@ -81,7 +81,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
         int i = this.c;
         int i2 = this.c;
         if (config == null) {
-            config = com.facebook.imagepipeline.request.a.lXp;
+            config = com.facebook.imagepipeline.request.a.lYV;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(i, i2, config);
         if (c == null) {
@@ -119,13 +119,13 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     private final Bitmap a(String str, int i) {
-        File ad = tv.chushou.zues.widget.fresco.a.ad(i.QV(str));
+        File ad = tv.chushou.zues.widget.fresco.a.ad(i.QU(str));
         if (ad != null) {
             return tv.chushou.zues.utils.c.G(ad.getAbsolutePath(), i, i);
         }
-        File c = com.kascend.chushou.d.c.mPj.c();
+        File c = com.kascend.chushou.d.c.mQR.c();
         tv.chushou.a.a.d.a.aq(c);
-        File file = new File(c, tv.chushou.zues.toolkit.b.a.nWP.SS(str));
+        File file = new File(c, tv.chushou.zues.toolkit.b.a.nYC.SR(str));
         if (file.isFile() && file.exists()) {
             return tv.chushou.zues.utils.c.G(file.getAbsolutePath(), i, i);
         }

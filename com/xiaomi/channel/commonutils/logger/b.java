@@ -72,7 +72,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m47a(String str) {
+    public static void m45a(String str) {
         a(2, "[Thread:" + Thread.currentThread().getId() + "] " + str);
     }
 

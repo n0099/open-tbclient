@@ -11,6 +11,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -24,6 +25,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String KEY_ORIGINAL_THREAD = "key_original_thread";
+    public static final String KEY_TAB_LIST = "tab_list";
     public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
     public static final String KEY_WRITE_LEVEL = "key_write_level";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
@@ -110,6 +112,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public void setTransmitThreadAuthorNameShow(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
+        }
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        if (getIntent() != null) {
+            getIntent().putExtra("tab_list", frsTabInfoData);
         }
     }
 }

@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class o {
-    private static final Pattern bYA;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern bYv = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> bYw = new HashMap<>();
-    private static HashMap<String, Integer> bYx = new HashMap<>();
-    private static HashMap<String, String> bYy = new HashMap<>();
-    public static HashMap<String, String> bYz = new HashMap<>();
+    private static final Pattern bYG = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> bYH = new HashMap<>();
+    private static HashMap<String, Integer> bYI = new HashMap<>();
+    private static HashMap<String, String> bYJ = new HashMap<>();
+    public static HashMap<String, String> bYK = new HashMap<>();
+    private static final Pattern bYL;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -341,19 +341,19 @@ public final class o {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        bYA = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bYL = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        bYw.put(str2, Integer.valueOf(i));
-        bYx.put(str, Integer.valueOf(i));
-        bYy.put(str2, str);
-        if (!bYz.containsKey(str)) {
-            bYz.put(str, str2);
+        bYH.put(str2, Integer.valueOf(i));
+        bYI.put(str, Integer.valueOf(i));
+        bYJ.put(str2, str);
+        if (!bYK.containsKey(str)) {
+            bYK.put(str, str2);
         }
     }
 
-    public static String mI(String str) {
+    public static String mH(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -361,16 +361,16 @@ public final class o {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String mJ(String str) {
+    public static String mI(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYy.get(str);
+        return bYJ.get(str);
     }
 
-    public static String mK(String str) {
+    public static String mJ(String str) {
         try {
-            Matcher matcher = bYv.matcher(str);
+            Matcher matcher = bYG.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

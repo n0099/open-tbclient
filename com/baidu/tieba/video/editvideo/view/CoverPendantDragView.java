@@ -34,44 +34,44 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class CoverPendantDragView extends FrameLayout {
     private float BF;
-    private float aBN;
-    float gsl;
-    float gsm;
-    private float jKH;
-    private FrameLayout kxM;
-    private RotateFrameLayout kxN;
-    private TextView kxO;
-    private EditText kxP;
-    private ImageView kxQ;
-    private ImageView kxR;
-    private int kxS;
-    private boolean kxT;
-    private float kxU;
-    private float kxV;
-    private int kxW;
-    private int kxX;
-    private float kxY;
-    private float kxZ;
-    private float kya;
-    private float kyb;
-    private b kyc;
-    private float kyd;
-    private float kye;
-    private float kyf;
-    private float kyg;
-    private boolean kyh;
-    private int kyi;
-    private int kyj;
-    private int kyk;
-    private int kyl;
-    private int kym;
-    private float kyn;
-    private float kyo;
-    private int kyp;
-    private float kyq;
-    private int kyr;
-    private Map<String, Bitmap> kys;
-    private Bitmap kyt;
+    private float aCb;
+    private float jMj;
+    float kAa;
+    private float kzA;
+    private int kzB;
+    private int kzC;
+    private float kzD;
+    private float kzE;
+    private float kzF;
+    private float kzG;
+    private b kzH;
+    private float kzI;
+    private float kzJ;
+    private float kzK;
+    private float kzL;
+    private boolean kzM;
+    private int kzN;
+    private int kzO;
+    private int kzP;
+    private int kzQ;
+    private int kzR;
+    private float kzS;
+    private float kzT;
+    private int kzU;
+    private float kzV;
+    private int kzW;
+    private Map<String, Bitmap> kzX;
+    private Bitmap kzY;
+    float kzZ;
+    private FrameLayout kzr;
+    private RotateFrameLayout kzs;
+    private TextView kzt;
+    private EditText kzu;
+    private ImageView kzv;
+    private ImageView kzw;
+    private int kzx;
+    private boolean kzy;
+    private float kzz;
     private FrameLayout mContentView;
     private float mDownX;
     private float mDownY;
@@ -92,22 +92,22 @@ public class CoverPendantDragView extends FrameLayout {
 
     public CoverPendantDragView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kxS = 0;
-        this.kyb = 1.0f;
-        this.jKH = 1.0f;
-        this.kyh = true;
-        this.kys = new HashMap();
+        this.kzx = 0;
+        this.kzG = 1.0f;
+        this.jMj = 1.0f;
+        this.kzM = true;
+        this.kzX = new HashMap();
         this.startTime = 0L;
-        this.gsl = 0.0f;
-        this.gsm = 0.0f;
+        this.kzZ = 0.0f;
+        this.kAa = 0.0f;
         this.mScreenWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-        this.aBN = l.getDimens(getContext(), R.dimen.fontsize40);
-        this.kyp = l.getDimens(getContext(), R.dimen.ds2);
+        this.aCb = l.getDimens(getContext(), R.dimen.fontsize40);
+        this.kzU = l.getDimens(getContext(), R.dimen.ds2);
         this.mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.kxM = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.layout_cover_pendant_view, (ViewGroup) null);
+        this.kzr = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.layout_cover_pendant_view, (ViewGroup) null);
         init();
-        addView(this.kxM);
-        this.kxM.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.1
+        addView(this.kzr);
+        this.kzr.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.1
             long startTime = 0;
 
             @Override // android.view.View.OnTouchListener
@@ -116,8 +116,8 @@ public class CoverPendantDragView extends FrameLayout {
                     case 0:
                         this.startTime = System.currentTimeMillis();
                         CoverPendantDragView.this.d(view, motionEvent);
-                        if (CoverPendantDragView.this.kxS == 4) {
-                            CoverPendantDragView.this.cQi();
+                        if (CoverPendantDragView.this.kzx == 4) {
+                            CoverPendantDragView.this.cQC();
                             return true;
                         }
                         return true;
@@ -126,12 +126,12 @@ public class CoverPendantDragView extends FrameLayout {
                         float rawY = motionEvent.getRawY();
                         float abs = Math.abs(rawX - CoverPendantDragView.this.mDownX);
                         float abs2 = Math.abs(rawY - CoverPendantDragView.this.mDownY);
-                        if (!CoverPendantDragView.this.kxT && abs < CoverPendantDragView.this.mTouchSlop && abs2 < CoverPendantDragView.this.mTouchSlop && System.currentTimeMillis() - this.startTime < 300) {
-                            CoverPendantDragView.this.xR();
+                        if (!CoverPendantDragView.this.kzy && abs < CoverPendantDragView.this.mTouchSlop && abs2 < CoverPendantDragView.this.mTouchSlop && System.currentTimeMillis() - this.startTime < 300) {
+                            CoverPendantDragView.this.xW();
                         }
-                        CoverPendantDragView.this.kxU = 0.0f;
-                        CoverPendantDragView.this.kxV = 0.0f;
-                        CoverPendantDragView.this.kxT = false;
+                        CoverPendantDragView.this.kzz = 0.0f;
+                        CoverPendantDragView.this.kzA = 0.0f;
+                        CoverPendantDragView.this.kzy = false;
                         return true;
                     case 2:
                         if (!CoverPendantDragView.this.isTouchSlop(motionEvent)) {
@@ -145,20 +145,20 @@ public class CoverPendantDragView extends FrameLayout {
                     default:
                         return true;
                     case 6:
-                        CoverPendantDragView.this.kxU = 0.0f;
-                        CoverPendantDragView.this.kxV = 0.0f;
+                        CoverPendantDragView.this.kzz = 0.0f;
+                        CoverPendantDragView.this.kzA = 0.0f;
                         return true;
                 }
             }
         });
-        this.kxQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.2
+        this.kzv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CoverPendantDragView.this.kxP.setText("");
+                CoverPendantDragView.this.kzu.setText("");
                 CoverPendantDragView.this.hideSoftKeyPad();
             }
         });
-        this.kxR.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.3
+        this.kzw.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
@@ -166,7 +166,7 @@ public class CoverPendantDragView extends FrameLayout {
                         CoverPendantDragView.this.d(view, motionEvent);
                         return true;
                     case 1:
-                        CoverPendantDragView.this.kxV = 0.0f;
+                        CoverPendantDragView.this.kzA = 0.0f;
                         return true;
                     case 2:
                         if (!CoverPendantDragView.this.isTouchSlop(motionEvent)) {
@@ -180,7 +180,7 @@ public class CoverPendantDragView extends FrameLayout {
                 }
             }
         });
-        this.kxP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.4
+        this.kzu.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.4
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
@@ -192,34 +192,34 @@ public class CoverPendantDragView extends FrameLayout {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
-                if (CoverPendantDragView.this.kxS != 4) {
-                    String a2 = CoverPendantDragView.this.a(CoverPendantDragView.this.kxO.getPaint(), obj);
+                if (CoverPendantDragView.this.kzx != 4) {
+                    String a2 = CoverPendantDragView.this.a(CoverPendantDragView.this.kzt.getPaint(), obj);
                     if (!a2.equals(obj)) {
                         editable.delete(a2.length(), obj.length());
                         l.showToast(CoverPendantDragView.this.getContext(), (int) R.string.cover_text_length_max_tips);
                     }
                 } else if (ad.getTextLengthAllOne(obj) < 20) {
-                    if (obj.length() > CoverPendantDragView.this.kxO.getText().length()) {
-                        CoverPendantDragView.this.Ke(obj);
-                    } else {
+                    if (obj.length() > CoverPendantDragView.this.kzt.getText().length()) {
                         CoverPendantDragView.this.Kd(obj);
+                    } else {
+                        CoverPendantDragView.this.Kc(obj);
                     }
                 } else {
                     String subStringWithAllOne = ad.subStringWithAllOne(obj, 20);
                     editable.delete(subStringWithAllOne.length(), obj.length());
-                    CoverPendantDragView.this.Ke(subStringWithAllOne);
+                    CoverPendantDragView.this.Kd(subStringWithAllOne);
                     l.showToast(CoverPendantDragView.this.getContext(), (int) R.string.cover_pendant_length_max_tips);
                 }
-                CoverPendantDragView.this.kxO.setText(editable.toString());
+                CoverPendantDragView.this.kzt.setText(editable.toString());
             }
         });
-        this.kxP.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.5
+        this.kzu.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverPendantDragView.5
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
                 return keyEvent.getKeyCode() == 66;
             }
         });
-        this.kxM.setVisibility(8);
+        this.kzr.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -228,43 +228,43 @@ public class CoverPendantDragView extends FrameLayout {
         this.mDownY = motionEvent.getRawY();
         this.mLastX = this.mDownX;
         this.BF = this.mDownY;
-        this.kxY = (this.kxM.getWidth() / 2) + this.kxM.getX();
-        this.kxZ = (this.kxM.getHeight() / 2) + this.kxM.getY();
-        this.kxO.setText(this.kxP.getText());
-        this.kxO.setVisibility(0);
-        this.kxP.setVisibility(8);
+        this.kzD = (this.kzr.getWidth() / 2) + this.kzr.getX();
+        this.kzE = (this.kzr.getHeight() / 2) + this.kzr.getY();
+        this.kzt.setText(this.kzu.getText());
+        this.kzt.setVisibility(0);
+        this.kzu.setVisibility(8);
         setEditTextEnable(false);
-        this.kyc.HidenSoftKeyPad(this.kxP);
+        this.kzH.HidenSoftKeyPad(this.kzu);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Kc(String str) {
+        TextPaint paint = this.kzu.getPaint();
+        float measureText = paint.measureText(str);
+        while (this.kzu.getLineCount() == 1 && this.kzu.getTextSize() < this.aCb * this.jMj && measureText < this.kzT * this.jMj) {
+            setTextSize(0, this.kzu.getTextSize() + 1.0f);
+            measureText = paint.measureText(str);
+        }
+        if (ad.getTextLengthAllOne(str) <= ad.getTextLengthAllOne(getResources().getString(R.string.cover_hint)) && this.kzu.getTextSize() != this.aCb * this.jMj) {
+            setTextSize(0, this.aCb * this.jMj);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Kd(String str) {
-        TextPaint paint = this.kxP.getPaint();
+        TextPaint paint = this.kzu.getPaint();
         float measureText = paint.measureText(str);
-        while (this.kxP.getLineCount() == 1 && this.kxP.getTextSize() < this.aBN * this.jKH && measureText < this.kyo * this.jKH) {
-            setTextSize(0, this.kxP.getTextSize() + 1.0f);
-            measureText = paint.measureText(str);
-        }
-        if (ad.getTextLengthAllOne(str) <= ad.getTextLengthAllOne(getResources().getString(R.string.cover_hint)) && this.kxP.getTextSize() != this.aBN * this.jKH) {
-            setTextSize(0, this.aBN * this.jKH);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ke(String str) {
-        TextPaint paint = this.kxP.getPaint();
-        float measureText = paint.measureText(str);
-        while (this.kxP.getTextSize() > ((this.kyn * this.jKH) / 2.0f) - (this.kyq * this.jKH) && measureText > this.kyo * this.jKH) {
-            setTextSize(0, this.kxP.getTextSize() - 1.0f);
+        while (this.kzu.getTextSize() > ((this.kzS * this.jMj) / 2.0f) - (this.kzV * this.jMj) && measureText > this.kzT * this.jMj) {
+            setTextSize(0, this.kzu.getTextSize() - 1.0f);
             measureText = paint.measureText(str);
         }
     }
 
     private void f(String str, float f) {
-        TextPaint paint = this.kxP.getPaint();
+        TextPaint paint = this.kzu.getPaint();
         float measureText = paint.measureText(str);
         while (measureText > f) {
-            setTextSize(0, this.kxP.getTextSize() - 1.0f);
+            setTextSize(0, this.kzu.getTextSize() - 1.0f);
             measureText = paint.measureText(str);
         }
     }
@@ -280,39 +280,39 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     public void setParentViewController(b bVar) {
-        this.kyc = bVar;
+        this.kzH = bVar;
     }
 
     public void setVideoLocation(float f, float f2, float f3, float f4) {
-        this.kyd = f;
-        this.kye = f2;
-        this.kyf = f3;
-        this.kyg = f4;
-        if (this.kyd > 0.0f) {
+        this.kzI = f;
+        this.kzJ = f2;
+        this.kzK = f3;
+        this.kzL = f4;
+        if (this.kzI > 0.0f) {
             View view = new View(getContext());
             view.setBackgroundColor(am.getColor(R.color.cp_bg_line_d));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.kyd, -1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.kzI, -1);
             layoutParams.gravity = 3;
             addView(view, layoutParams);
         }
-        if (this.kye > 0.0f) {
+        if (this.kzJ > 0.0f) {
             View view2 = new View(getContext());
             view2.setBackgroundColor(am.getColor(R.color.cp_bg_line_d));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, (int) this.kye);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, (int) this.kzJ);
             layoutParams2.gravity = 48;
             addView(view2, layoutParams2);
         }
-        if (this.kyf > 0.0f) {
+        if (this.kzK > 0.0f) {
             View view3 = new View(getContext());
             view3.setBackgroundColor(am.getColor(R.color.cp_bg_line_d));
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(((int) this.kyf) - this.mVideoWidth, -1);
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(((int) this.kzK) - this.mVideoWidth, -1);
             layoutParams3.gravity = 5;
             addView(view3, layoutParams3);
         }
-        if (this.kyg > 0.0f) {
+        if (this.kzL > 0.0f) {
             View view4 = new View(getContext());
             view4.setBackgroundColor(am.getColor(R.color.cp_bg_line_d));
-            FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, ((int) this.kyg) - this.mVideoHeight);
+            FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, ((int) this.kzL) - this.mVideoHeight);
             layoutParams4.gravity = 80;
             addView(view4, layoutParams4);
         }
@@ -326,85 +326,85 @@ public class CoverPendantDragView extends FrameLayout {
         float abs = Math.abs(this.mLastX - rawX);
         float abs2 = Math.abs(this.BF - rawY);
         int sqrt = (int) Math.sqrt((abs * abs) + (abs2 * abs2));
-        float abs3 = Math.abs(this.kxY - rawX);
-        float abs4 = Math.abs(this.kxZ - rawY);
+        float abs3 = Math.abs(this.kzD - rawX);
+        float abs4 = Math.abs(this.kzE - rawY);
         int sqrt2 = (int) Math.sqrt((abs3 * abs3) + (abs4 * abs4));
-        float abs5 = Math.abs(this.kxY - this.mLastX);
-        float abs6 = Math.abs(this.kxZ - this.BF);
+        float abs5 = Math.abs(this.kzD - this.mLastX);
+        float abs6 = Math.abs(this.kzE - this.BF);
         if (sqrt2 > ((int) Math.sqrt((abs5 * abs5) + (abs6 * abs6)))) {
             sqrt = -sqrt;
         }
-        cP(sqrt, (int) (sqrt / this.kya));
-        if (this.kxV != 0.0f) {
-            this.kxM.setRotation(this.kxM.getRotation() - (this.kxV - I));
+        cQ(sqrt, (int) (sqrt / this.kzF));
+        if (this.kzA != 0.0f) {
+            this.kzr.setRotation(this.kzr.getRotation() - (this.kzA - I));
         }
-        this.kxV = I;
+        this.kzA = I;
         this.mLastX = rawX;
         this.BF = rawY;
     }
 
-    private void cP(int i, int i2) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kxM.getLayoutParams();
-        int width = this.kxM.getWidth() - i;
-        int i3 = (int) (width / this.kya);
-        if (width < this.kxW) {
-            width = this.kxW;
-            i3 = (int) (width / this.kya);
+    private void cQ(int i, int i2) {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kzr.getLayoutParams();
+        int width = this.kzr.getWidth() - i;
+        int i3 = (int) (width / this.kzF);
+        if (width < this.kzB) {
+            width = this.kzB;
+            i3 = (int) (width / this.kzF);
         }
-        this.jKH = ((width * 1.0f) - (this.kym * 2)) / (this.kyr - (this.kym * 2));
-        this.mContentView.setPadding((int) (this.kyi * this.jKH), (int) (this.kyj * this.jKH), (int) (this.kyk * this.jKH), (int) (this.kyl * this.jKH));
-        setTextSize(0, (this.kxP.getTextSize() * i3) / this.kxM.getHeight());
+        this.jMj = ((width * 1.0f) - (this.kzR * 2)) / (this.kzW - (this.kzR * 2));
+        this.mContentView.setPadding((int) (this.kzN * this.jMj), (int) (this.kzO * this.jMj), (int) (this.kzP * this.jMj), (int) (this.kzQ * this.jMj));
+        setTextSize(0, (this.kzu.getTextSize() * i3) / this.kzr.getHeight());
         layoutParams.width = width;
         layoutParams.height = i3;
-        this.kxM.setLayoutParams(layoutParams);
-        float f = this.kxY - (layoutParams.width / 2);
-        float f2 = this.kxZ - (layoutParams.height / 2);
-        this.kxM.setX(f);
-        this.kxM.setY(f2);
+        this.kzr.setLayoutParams(layoutParams);
+        float f = this.kzD - (layoutParams.width / 2);
+        float f2 = this.kzE - (layoutParams.height / 2);
+        this.kzr.setX(f);
+        this.kzr.setY(f2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G(MotionEvent motionEvent) {
         float rawX = motionEvent.getRawX();
         float rawY = motionEvent.getRawY();
-        if (this.kxS != 4) {
-            float y = (this.kxM.getY() + rawY) - this.BF;
-            if (y < this.kye) {
-                y = this.kye;
-            } else if (y > (this.kye + this.mVideoHeight) - this.kxM.getHeight()) {
-                y = (this.kye + this.mVideoHeight) - this.kxM.getHeight();
+        if (this.kzx != 4) {
+            float y = (this.kzr.getY() + rawY) - this.BF;
+            if (y < this.kzJ) {
+                y = this.kzJ;
+            } else if (y > (this.kzJ + this.mVideoHeight) - this.kzr.getHeight()) {
+                y = (this.kzJ + this.mVideoHeight) - this.kzr.getHeight();
             }
-            this.kxM.setY(y);
+            this.kzr.setY(y);
         } else {
             int pointerCount = motionEvent.getPointerCount();
             if (pointerCount >= 2) {
-                this.kxT = true;
+                this.kzy = true;
                 float J = J(motionEvent);
                 float H = H(motionEvent);
-                if (this.kxU != 0.0f) {
-                    int i = (int) (this.kxU - J);
-                    cP(i, (int) (i / this.kya));
+                if (this.kzz != 0.0f) {
+                    int i = (int) (this.kzz - J);
+                    cQ(i, (int) (i / this.kzF));
                 }
-                if (this.kxV != 0.0f) {
-                    this.kxM.setRotation(this.kxM.getRotation() - (this.kxV - H));
+                if (this.kzA != 0.0f) {
+                    this.kzr.setRotation(this.kzr.getRotation() - (this.kzA - H));
                 }
-                this.kxV = H;
-                this.kxU = J;
-            } else if (!this.kxT && pointerCount == 1) {
-                float y2 = (this.kxM.getY() + rawY) - this.BF;
-                if (y2 < this.kye - (this.kxM.getHeight() / 2)) {
-                    y2 = this.kye - (this.kxM.getHeight() / 2);
-                } else if (y2 > ((this.kye + this.mVideoHeight) - this.kxM.getHeight()) + (this.kxM.getHeight() / 2)) {
-                    y2 = ((this.kye + this.mVideoHeight) - this.kxM.getHeight()) + (this.kxM.getHeight() / 2);
+                this.kzA = H;
+                this.kzz = J;
+            } else if (!this.kzy && pointerCount == 1) {
+                float y2 = (this.kzr.getY() + rawY) - this.BF;
+                if (y2 < this.kzJ - (this.kzr.getHeight() / 2)) {
+                    y2 = this.kzJ - (this.kzr.getHeight() / 2);
+                } else if (y2 > ((this.kzJ + this.mVideoHeight) - this.kzr.getHeight()) + (this.kzr.getHeight() / 2)) {
+                    y2 = ((this.kzJ + this.mVideoHeight) - this.kzr.getHeight()) + (this.kzr.getHeight() / 2);
                 }
-                float x = (this.kxM.getX() + rawX) - this.mLastX;
-                if (x < this.kyd - (this.kxM.getWidth() / 2)) {
-                    x = this.kyd - (this.kxM.getWidth() / 2);
-                } else if (x > ((this.kyd + this.mVideoWidth) - this.kxM.getWidth()) + (this.kxM.getWidth() / 2)) {
-                    x = ((this.kyd + this.mVideoWidth) - this.kxM.getWidth()) + (this.kxM.getWidth() / 2);
+                float x = (this.kzr.getX() + rawX) - this.mLastX;
+                if (x < this.kzI - (this.kzr.getWidth() / 2)) {
+                    x = this.kzI - (this.kzr.getWidth() / 2);
+                } else if (x > ((this.kzI + this.mVideoWidth) - this.kzr.getWidth()) + (this.kzr.getWidth() / 2)) {
+                    x = ((this.kzI + this.mVideoWidth) - this.kzr.getWidth()) + (this.kzr.getWidth() / 2);
                 }
-                this.kxM.setX(x);
-                this.kxM.setY(y2);
+                this.kzr.setX(x);
+                this.kzr.setY(y2);
             }
         }
         this.mLastX = rawX;
@@ -412,11 +412,11 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     public void setTextSize(int i, float f) {
-        if (this.kxP.getTextSize() != f) {
-            this.kxP.setTextSize(i, f);
+        if (this.kzu.getTextSize() != f) {
+            this.kzu.setTextSize(i, f);
         }
-        if (this.kxO.getTextSize() != f) {
-            this.kxO.setTextSize(i, f);
+        if (this.kzt.getTextSize() != f) {
+            this.kzt.setTextSize(i, f);
         }
     }
 
@@ -431,14 +431,14 @@ public class CoverPendantDragView extends FrameLayout {
 
     private float[] d(MotionEvent motionEvent, int i) {
         Matrix matrix = new Matrix();
-        matrix.postRotate(this.kxM.getRotation());
+        matrix.postRotate(this.kzr.getRotation());
         float[] fArr = {motionEvent.getX(i), motionEvent.getY(i)};
         matrix.mapPoints(fArr);
         return fArr;
     }
 
     private float I(MotionEvent motionEvent) {
-        return (float) Math.toDegrees(Math.atan2(this.kxZ - motionEvent.getRawY(), this.kxY - motionEvent.getRawX()));
+        return (float) Math.toDegrees(Math.atan2(this.kzE - motionEvent.getRawY(), this.kzD - motionEvent.getRawX()));
     }
 
     private float J(MotionEvent motionEvent) {
@@ -453,79 +453,79 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     private void init() {
-        this.kxN = (RotateFrameLayout) this.kxM.findViewById(R.id.content_container);
-        this.kxO = (TextView) this.kxM.findViewById(R.id.cover_text);
-        this.mContentView = (FrameLayout) this.kxM.findViewById(R.id.content_view);
-        this.kxP = (EditText) this.kxM.findViewById(R.id.cover_edit);
-        this.kxQ = (ImageView) this.kxM.findViewById(R.id.cover_delete);
-        this.kxR = (ImageView) this.kxM.findViewById(R.id.cover_scale);
+        this.kzs = (RotateFrameLayout) this.kzr.findViewById(R.id.content_container);
+        this.kzt = (TextView) this.kzr.findViewById(R.id.cover_text);
+        this.mContentView = (FrameLayout) this.kzr.findViewById(R.id.content_view);
+        this.kzu = (EditText) this.kzr.findViewById(R.id.cover_edit);
+        this.kzv = (ImageView) this.kzr.findViewById(R.id.cover_delete);
+        this.kzw = (ImageView) this.kzr.findViewById(R.id.cover_scale);
     }
 
     public void hideSoftKeyPad() {
-        this.kxO.setText(this.kxP.getText());
-        this.kxO.setVisibility(0);
-        this.kxP.setVisibility(8);
+        this.kzt.setText(this.kzu.getText());
+        this.kzt.setVisibility(0);
+        this.kzu.setVisibility(8);
         setEditTextEnable(false);
-        if (TextUtils.isEmpty(this.kxO.getText())) {
-            this.kxS = 0;
-            this.kxM.setVisibility(8);
+        if (TextUtils.isEmpty(this.kzt.getText())) {
+            this.kzx = 0;
+            this.kzr.setVisibility(8);
         }
-        if (this.kxS == 4) {
-            cQh();
+        if (this.kzx == 4) {
+            cQB();
         }
-        this.kyc.HidenSoftKeyPad(this.kxP);
+        this.kzH.HidenSoftKeyPad(this.kzu);
     }
 
     public void setEditTextEnable(boolean z) {
         if (z) {
-            this.kxP.setFocusable(true);
-            this.kxP.setFocusableInTouchMode(true);
-            this.kxP.requestFocus();
+            this.kzu.setFocusable(true);
+            this.kzu.setFocusableInTouchMode(true);
+            this.kzu.requestFocus();
             return;
         }
-        this.kxP.setFocusable(false);
-        this.kxP.setFocusableInTouchMode(false);
+        this.kzu.setFocusable(false);
+        this.kzu.setFocusableInTouchMode(false);
     }
 
     public void a(View view, PendantData pendantData) {
         if (pendantData != null) {
             switch (pendantData.pendantType) {
                 case 0:
-                    this.kxP.setText("");
+                    this.kzu.setText("");
                     hideSoftKeyPad();
                     break;
                 case 1:
                     a(pendantData);
                     this.mContentView.setBackgroundResource(R.drawable.bg_cover_edit_blue);
-                    xR();
+                    xW();
                     break;
                 case 2:
                     a(pendantData);
                     this.mContentView.setBackgroundResource(R.drawable.bg_cover_edit_black);
-                    xR();
+                    xW();
                     break;
                 case 3:
                     a(pendantData);
                     this.mContentView.setBackgroundDrawable(null);
-                    xR();
+                    xW();
                     break;
                 default:
                     hideSoftKeyPad();
-                    String Kc = com.baidu.tieba.video.editvideo.model.b.cQc().Kc(pendantData.resource);
-                    if (TextUtils.isEmpty(Kc)) {
+                    String Kb = com.baidu.tieba.video.editvideo.model.b.cQw().Kb(pendantData.resource);
+                    if (TextUtils.isEmpty(Kb)) {
                         if (view != null && (view.getTag() instanceof a.b)) {
                             a.b bVar = (a.b) view.getTag();
-                            bVar.kwN.setVisibility(0);
-                            com.baidu.tieba.video.editvideo.model.b.cQc().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
+                            bVar.kys.setVisibility(0);
+                            com.baidu.tieba.video.editvideo.model.b.cQw().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
                             break;
                         }
                     } else {
-                        a(Kc, pendantData);
+                        a(Kb, pendantData);
                         break;
                     }
                     break;
             }
-            this.kxS = pendantData.pendantType;
+            this.kzx = pendantData.pendantType;
         }
     }
 
@@ -539,17 +539,17 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     private void a(PendantData pendantData) {
-        cQh();
+        cQB();
         a(this.mVideoWidth, l.getDimens(getContext(), R.dimen.ds100), this.mScreenWidth, pendantData);
-        if (this.kxS == 4 || this.kxS == 0) {
-            this.kxM.setX(this.kyd);
-            this.kxM.setY(((this.mVideoHeight - l.getDimens(getContext(), R.dimen.ds100)) / 2) + this.kye);
-            String obj = this.kxP.getText().toString();
+        if (this.kzx == 4 || this.kzx == 0) {
+            this.kzr.setX(this.kzI);
+            this.kzr.setY(((this.mVideoHeight - l.getDimens(getContext(), R.dimen.ds100)) / 2) + this.kzJ);
+            String obj = this.kzu.getText().toString();
             if (!TextUtils.isEmpty(obj)) {
-                String a2 = a(this.kxP.getPaint(), obj);
+                String a2 = a(this.kzu.getPaint(), obj);
                 if (!a2.equals(obj)) {
-                    this.kxO.setText(a2);
-                    this.kxP.setText(a2);
+                    this.kzt.setText(a2);
+                    this.kzu.setText(a2);
                 }
             }
         }
@@ -560,55 +560,55 @@ public class CoverPendantDragView extends FrameLayout {
         this.mVideoHeight = i2;
     }
 
-    private void cQh() {
-        if (this.kyh) {
-            this.kyh = false;
-            this.kxQ.setVisibility(8);
-            this.kxR.setVisibility(8);
-            this.kxN.setBackgroundColor(getResources().getColor(R.color.transparent));
+    private void cQB() {
+        if (this.kzM) {
+            this.kzM = false;
+            this.kzv.setVisibility(8);
+            this.kzw.setVisibility(8);
+            this.kzs.setBackgroundColor(getResources().getColor(R.color.transparent));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQi() {
-        if (!this.kyh) {
-            this.kyh = true;
-            this.kxQ.setVisibility(0);
-            this.kxR.setVisibility(0);
-            this.kxN.setBackgroundResource(R.drawable.bg_cover_pendant_container);
+    public void cQC() {
+        if (!this.kzM) {
+            this.kzM = true;
+            this.kzv.setVisibility(0);
+            this.kzw.setVisibility(0);
+            this.kzs.setBackgroundResource(R.drawable.bg_cover_pendant_container);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, PendantData pendantData) {
-        if (!TextUtils.isEmpty(str) && pendantData != null && this.kys != null) {
-            Bitmap bitmap = this.kys.get(str);
+        if (!TextUtils.isEmpty(str) && pendantData != null && this.kzX != null) {
+            Bitmap bitmap = this.kzX.get(str);
             if ((bitmap == null || bitmap.isRecycled()) && (bitmap = BitmapHelper.loadBitmap(str)) != null) {
-                this.kys.put(str, bitmap);
+                this.kzX.put(str, bitmap);
             }
             Bitmap bitmap2 = bitmap;
             if (bitmap2 != null && !bitmap2.isRecycled() && bitmap2.getWidth() != 0 && bitmap2.getHeight() != 0) {
-                cQh();
+                cQB();
                 int width = bitmap2.getWidth();
                 int height = bitmap2.getHeight();
-                this.kyb = 1.0f;
-                this.jKH = 1.0f;
+                this.kzG = 1.0f;
+                this.jMj = 1.0f;
                 int dip2px = l.dip2px(getContext(), width / 2);
                 int i = (int) ((dip2px * height) / width);
                 int i2 = (this.mVideoWidth * 2) / 3;
                 if (dip2px > i2) {
-                    this.kyb = (i2 * 1.0f) / dip2px;
+                    this.kzG = (i2 * 1.0f) / dip2px;
                     i = (int) ((i2 * height) / width);
                 } else {
                     i2 = dip2px;
                 }
                 this.mContentView.setBackgroundDrawable(new BitmapDrawable(bitmap2));
                 a(i2, i, this.mScreenWidth, pendantData);
-                this.kxW = (this.kym * 2) + width;
-                this.kxX = (this.kym * 2) + height;
-                this.kya = (this.kxW * 1.0f) / this.kxX;
-                this.kxM.setX((((this.mVideoWidth - i2) - (this.kym * 2)) / 2) + this.kyd);
-                this.kxM.setY((((this.mVideoHeight - i) - (this.kym * 2)) / 2) + this.kye);
+                this.kzB = (this.kzR * 2) + width;
+                this.kzC = (this.kzR * 2) + height;
+                this.kzF = (this.kzB * 1.0f) / this.kzC;
+                this.kzr.setX((((this.mVideoWidth - i2) - (this.kzR * 2)) / 2) + this.kzI);
+                this.kzr.setY((((this.mVideoHeight - i) - (this.kzR * 2)) / 2) + this.kzJ);
             }
         }
     }
@@ -618,14 +618,14 @@ public class CoverPendantDragView extends FrameLayout {
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                this.gsl = motionEvent.getRawX();
-                this.gsm = motionEvent.getRawY();
+                this.kzZ = motionEvent.getRawX();
+                this.kAa = motionEvent.getRawY();
                 break;
             case 1:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                float abs = Math.abs(rawX - this.gsl);
-                float abs2 = Math.abs(rawY - this.gsm);
+                float abs = Math.abs(rawX - this.kzZ);
+                float abs2 = Math.abs(rawY - this.kAa);
                 if (motionEvent.getPointerCount() <= 1 && abs < this.mTouchSlop && abs2 < this.mTouchSlop && System.currentTimeMillis() - this.startTime < 300) {
                     hideSoftKeyPad();
                     break;
@@ -636,176 +636,176 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     public String getText() {
-        if (this.kxO == null || this.kxO.getText() == null) {
+        if (this.kzt == null || this.kzt.getText() == null) {
             return null;
         }
-        return this.kxO.getText().toString();
+        return this.kzt.getText().toString();
     }
 
-    public void xR() {
-        this.kxO.setText(this.kxP.getText());
-        this.kxO.setVisibility(8);
-        this.kxP.setVisibility(0);
+    public void xW() {
+        this.kzt.setText(this.kzu.getText());
+        this.kzt.setVisibility(8);
+        this.kzu.setVisibility(0);
         setEditTextEnable(true);
-        this.kyc.ShowSoftKeyPad(this.kxP);
+        this.kzH.ShowSoftKeyPad(this.kzu);
     }
 
     public void a(int i, int i2, int i3, PendantData pendantData) {
         if (pendantData.pendantType != 4) {
-            this.kxP.setTextAppearance(getContext(), R.style.cover_text_style);
-            this.kxO.setTextAppearance(getContext(), R.style.cover_text_style);
+            this.kzu.setTextAppearance(getContext(), R.style.cover_text_style);
+            this.kzt.setTextAppearance(getContext(), R.style.cover_text_style);
             i2 = (int) ((l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds100) * i) / i3);
             setTextSize(0, (l.getDimens(getContext(), R.dimen.fontsize40) * i) / i3);
-            this.kym = 0;
-            this.kxP.setMaxLines(1);
-            this.kxO.setMaxLines(1);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kxO.getLayoutParams();
+            this.kzR = 0;
+            this.kzu.setMaxLines(1);
+            this.kzt.setMaxLines(1);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.kzt.getLayoutParams();
             layoutParams.height = -1;
             layoutParams.width = -2;
             layoutParams.gravity = 17;
-            this.kxP.setLayoutParams(layoutParams);
+            this.kzu.setLayoutParams(layoutParams);
             this.mContentView.setPadding(l.getDimens(getContext(), R.dimen.ds60), 0, l.getDimens(getContext(), R.dimen.ds60), 0);
         } else {
-            this.kxP.setTextAppearance(getContext(), R.style.cover_pendant_style);
-            this.kxO.setTextAppearance(getContext(), R.style.cover_pendant_style);
-            this.kym = l.getDimens(getContext(), R.dimen.ds40);
-            this.kxP.setMaxLines(2);
-            this.kxO.setMaxLines(2);
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.kxO.getLayoutParams();
+            this.kzu.setTextAppearance(getContext(), R.style.cover_pendant_style);
+            this.kzt.setTextAppearance(getContext(), R.style.cover_pendant_style);
+            this.kzR = l.getDimens(getContext(), R.dimen.ds40);
+            this.kzu.setMaxLines(2);
+            this.kzt.setMaxLines(2);
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.kzt.getLayoutParams();
             layoutParams2.height = -2;
             layoutParams2.width = -2;
             layoutParams2.gravity = 17;
-            this.kxP.setLayoutParams(layoutParams2);
-            this.kyi = (int) (l.dip2px(getContext(), pendantData.left) * this.kyb);
-            this.kyj = (int) (l.dip2px(getContext(), pendantData.f1027top) * this.kyb);
-            this.kyk = (int) (l.dip2px(getContext(), pendantData.right) * this.kyb);
-            this.kyl = (int) (l.dip2px(getContext(), pendantData.bottom) * this.kyb);
-            this.mContentView.setPadding(this.kyi, this.kyj, this.kyk, this.kyl);
-            this.aBN = l.getDimens(getContext(), R.dimen.fontsize40) * this.kyb;
+            this.kzu.setLayoutParams(layoutParams2);
+            this.kzN = (int) (l.dip2px(getContext(), pendantData.left) * this.kzG);
+            this.kzO = (int) (l.dip2px(getContext(), pendantData.f1027top) * this.kzG);
+            this.kzP = (int) (l.dip2px(getContext(), pendantData.right) * this.kzG);
+            this.kzQ = (int) (l.dip2px(getContext(), pendantData.bottom) * this.kzG);
+            this.mContentView.setPadding(this.kzN, this.kzO, this.kzP, this.kzQ);
+            this.aCb = l.getDimens(getContext(), R.dimen.fontsize40) * this.kzG;
             String text = getText();
-            this.kyn = (i2 - this.kyj) - this.kyl;
-            this.kyo = (i - this.kyi) - this.kyk;
-            this.kyq = this.kyp + l.getDimens(getContext(), R.dimen.ds6);
-            setTextSize(0, this.aBN);
+            this.kzS = (i2 - this.kzO) - this.kzQ;
+            this.kzT = (i - this.kzN) - this.kzP;
+            this.kzV = this.kzU + l.getDimens(getContext(), R.dimen.ds6);
+            setTextSize(0, this.aCb);
             if (TextUtils.isEmpty(text)) {
-                f(getContext().getString(R.string.cover_hint), this.kyo);
-                this.aBN = this.kxP.getTextSize();
-                cQi();
-                xR();
+                f(getContext().getString(R.string.cover_hint), this.kzT);
+                this.aCb = this.kzu.getTextSize();
+                cQC();
+                xW();
             } else {
                 if (ad.getTextLengthAllOne(text) > 20) {
                     text = ad.subStringWithAllOne(text, 20);
-                    this.kxP.setText(text);
-                    this.kxO.setText(text);
+                    this.kzu.setText(text);
+                    this.kzt.setText(text);
                 }
-                Ke(text);
+                Kd(text);
             }
         }
-        this.kxO.setIncludeFontPadding(false);
-        this.kxP.setIncludeFontPadding(false);
-        this.kxO.setLineSpacing(this.kyp, 1.0f);
-        this.kxP.setLineSpacing(this.kyp, 1.0f);
-        this.kxM.setRotation(0.0f);
-        FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.kxM.getLayoutParams();
-        layoutParams3.height = (this.kym * 2) + i2;
-        layoutParams3.width = (this.kym * 2) + i;
-        this.kxM.setLayoutParams(layoutParams3);
-        this.kyr = (this.kym * 2) + i;
-        ((FrameLayout.LayoutParams) this.kxN.getLayoutParams()).setMargins(this.kym, this.kym, this.kym, this.kym);
-        this.kxM.setVisibility(0);
+        this.kzt.setIncludeFontPadding(false);
+        this.kzu.setIncludeFontPadding(false);
+        this.kzt.setLineSpacing(this.kzU, 1.0f);
+        this.kzu.setLineSpacing(this.kzU, 1.0f);
+        this.kzr.setRotation(0.0f);
+        FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.kzr.getLayoutParams();
+        layoutParams3.height = (this.kzR * 2) + i2;
+        layoutParams3.width = (this.kzR * 2) + i;
+        this.kzr.setLayoutParams(layoutParams3);
+        this.kzW = (this.kzR * 2) + i;
+        ((FrameLayout.LayoutParams) this.kzs.getLayoutParams()).setMargins(this.kzR, this.kzR, this.kzR, this.kzR);
+        this.kzr.setVisibility(0);
     }
 
     public Bitmap getTempBitmap() {
-        if (this.kyt == null) {
-            cQj();
+        if (this.kzY == null) {
+            cQD();
         }
-        return this.kyt;
+        return this.kzY;
     }
 
-    private void cQj() {
+    private void cQD() {
         buildDrawingCache();
         Bitmap drawingCache = getDrawingCache();
         if (drawingCache != null) {
-            this.kyt = Bitmap.createBitmap(drawingCache);
+            this.kzY = Bitmap.createBitmap(drawingCache);
         }
         destroyDrawingCache();
     }
 
-    public void cQk() {
-        if (this.kyt != null && !this.kyt.isRecycled()) {
-            this.kyt.recycle();
-            this.kyt = null;
+    public void cQE() {
+        if (this.kzY != null && !this.kzY.isRecycled()) {
+            this.kzY.recycle();
+            this.kzY = null;
         }
     }
 
-    public void to(boolean z) {
-        if (this.kxS != 0) {
+    public void tu(boolean z) {
+        if (this.kzx != 0) {
             if (z) {
-                cQk();
-                this.kxM.setVisibility(0);
+                cQE();
+                this.kzr.setVisibility(0);
                 return;
             }
             hideSoftKeyPad();
             getTempBitmap();
-            this.kxM.setVisibility(8);
+            this.kzr.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        for (Map.Entry<String, Bitmap> entry : this.kys.entrySet()) {
+        for (Map.Entry<String, Bitmap> entry : this.kzX.entrySet()) {
             Bitmap value = entry.getValue();
             if (value != null && !value.isRecycled()) {
                 value.recycle();
             }
         }
-        this.kys.clear();
-        this.kys = null;
-        cQk();
+        this.kzX.clear();
+        this.kzX = null;
+        cQE();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a implements b.a {
-        WeakReference<a.b> kyv;
-        WeakReference<CoverPendantDragView> kyw;
-        WeakReference<PendantData> kyx;
+        WeakReference<a.b> kAc;
+        WeakReference<CoverPendantDragView> kAd;
+        WeakReference<PendantData> kAe;
 
         public a(a.b bVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             if (bVar != null) {
-                this.kyv = new WeakReference<>(bVar);
+                this.kAc = new WeakReference<>(bVar);
             }
             if (coverPendantDragView != null) {
-                this.kyw = new WeakReference<>(coverPendantDragView);
+                this.kAd = new WeakReference<>(coverPendantDragView);
             }
             if (pendantData != null) {
-                this.kyx = new WeakReference<>(pendantData);
+                this.kAe = new WeakReference<>(pendantData);
             }
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void eJ(String str, String str2) {
-            if (this.kyv != null && this.kyv.get() != null) {
-                this.kyv.get().kwN.setVisibility(8);
+        public void eH(String str, String str2) {
+            if (this.kAc != null && this.kAc.get() != null) {
+                this.kAc.get().kys.setVisibility(8);
             }
-            if (this.kyw != null && this.kyw.get() != null && this.kyx != null && this.kyx.get() != null) {
-                this.kyw.get().a(str2, this.kyx.get());
-            }
-        }
-
-        @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void JU(String str) {
-            if (this.kyv != null && this.kyv.get() != null) {
-                this.kyv.get().kwN.setVisibility(8);
-            }
-            if (this.kyw != null && this.kyw.get() != null) {
-                l.showToast(this.kyw.get().getContext(), str);
+            if (this.kAd != null && this.kAd.get() != null && this.kAe != null && this.kAe.get() != null) {
+                this.kAd.get().a(str2, this.kAe.get());
             }
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void cPr() {
-            if (this.kyv != null && this.kyv.get() != null) {
-                this.kyv.get().kwN.setVisibility(8);
+        public void JT(String str) {
+            if (this.kAc != null && this.kAc.get() != null) {
+                this.kAc.get().kys.setVisibility(8);
+            }
+            if (this.kAd != null && this.kAd.get() != null) {
+                l.showToast(this.kAd.get().getContext(), str);
+            }
+        }
+
+        @Override // com.baidu.tieba.video.editvideo.model.b.a
+        public void cPL() {
+            if (this.kAc != null && this.kAc.get() != null) {
+                this.kAc.get().kys.setVisibility(8);
             }
         }
     }

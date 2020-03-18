@@ -15,9 +15,9 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nwE.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.nyr.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.nwE.a((j) new b(cVar, this.mapper));
+            this.nyr.a((j) new b(cVar, this.mapper));
         }
     }
 
@@ -48,7 +48,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Nv(i);
+            return NB(i);
         }
 
         @Override // io.reactivex.internal.a.g
@@ -100,7 +100,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Nv(i);
+            return NB(i);
         }
 
         @Override // io.reactivex.internal.a.g

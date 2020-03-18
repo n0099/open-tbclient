@@ -12,31 +12,31 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class d extends BaseAdapter {
-    private ArrayList<String> cVS;
-    private final String gor;
-    private boolean ieT = true;
+    private ArrayList<String> cWf;
+    private final String gpb;
+    private boolean igt = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.cVS = arrayList;
-        this.gor = this.mContext.getText(R.string.forum).toString();
+        this.cWf = arrayList;
+        this.gpb = this.mContext.getText(R.string.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.cVS = arrayList;
+        this.cWf = arrayList;
     }
 
-    public void oC(boolean z) {
-        this.ieT = z;
+    public void oI(boolean z) {
+        this.igt = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVS == null) {
+        if (this.cWf == null) {
             return 0;
         }
-        return this.cVS.size();
+        return this.cWf.size();
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.cVS.get(i);
+        return this.cWf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.diq = (TextView) view.findViewById(R.id.home_lv_search_forum);
+            aVar.diF = (TextView) view.findViewById(R.id.home_lv_search_forum);
             aVar.dividerLine = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
@@ -69,12 +69,12 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.ieT) {
-                aVar.diq.setText(str.concat(this.gor));
+            if (this.igt) {
+                aVar.diF.setText(str.concat(this.gpb));
             } else {
-                aVar.diq.setText(str);
+                aVar.diF.setText(str);
             }
-            am.setViewTextColor(aVar.diq, R.color.cp_cont_b, 1);
+            am.setViewTextColor(aVar.diF, R.color.cp_cont_b, 1);
             am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         }
@@ -83,7 +83,7 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     private class a {
-        TextView diq;
+        TextView diF;
         View dividerLine;
 
         private a() {

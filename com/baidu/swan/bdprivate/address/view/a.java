@@ -19,17 +19,17 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private h bdY;
-    private e.a ccJ;
-    private BdMultiPicker.a ccK;
-    private InterfaceC0317a ccL;
-    private JSONArray bKo = new JSONArray();
-    private JSONArray bKp = new JSONArray();
-    private List<d> ccg = new ArrayList();
-    private List<d> ccH = new ArrayList();
-    private List<d> ccI = new ArrayList();
-    private Map<d, List<d>> cch = new HashMap();
-    private Map<d, List<d>> cci = new HashMap();
+    private h bem;
+    private e.a ccU;
+    private BdMultiPicker.a ccV;
+    private InterfaceC0317a ccW;
+    private JSONArray bKz = new JSONArray();
+    private JSONArray bKA = new JSONArray();
+    private List<d> ccr = new ArrayList();
+    private List<d> ccS = new ArrayList();
+    private List<d> ccT = new ArrayList();
+    private Map<d, List<d>> cct = new HashMap();
+    private Map<d, List<d>> ccu = new HashMap();
 
     /* renamed from: com.baidu.swan.bdprivate.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
@@ -42,19 +42,19 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.ccg = c.aik().aim();
-        this.cch = c.aik().ain();
-        this.cci = c.aik().aio();
-        aiv();
-        aiw();
-        this.ccJ = new e.a(context);
-        this.ccK = new BdMultiPicker.a() { // from class: com.baidu.swan.bdprivate.address.view.a.1
+        this.ccr = c.ain().aip();
+        this.cct = c.ain().aiq();
+        this.ccu = c.ain().air();
+        aiy();
+        aiz();
+        this.ccU = new e.a(context);
+        this.ccV = new BdMultiPicker.a() { // from class: com.baidu.swan.bdprivate.address.view.a.1
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.a
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 if (jSONObject != null) {
                     int optInt = jSONObject.optInt("column");
                     int optInt2 = jSONObject.optInt("current");
-                    if (optInt != a.this.bKo.length() - 1) {
+                    if (optInt != a.this.bKz.length() - 1) {
                         a.this.ai(optInt, optInt2);
                     }
                 }
@@ -62,24 +62,24 @@ public class a {
         };
     }
 
-    private void aiv() {
-        this.bKp.put(0);
-        this.bKp.put(0);
-        this.bKp.put(0);
+    private void aiy() {
+        this.bKA.put(0);
+        this.bKA.put(0);
+        this.bKA.put(0);
     }
 
-    private void aiw() {
-        if (this.ccg.size() > 0) {
-            this.bKo.put(ah(this.ccg));
+    private void aiz() {
+        if (this.ccr.size() > 0) {
+            this.bKz.put(ah(this.ccr));
         }
-        ah(0, this.bKp.optInt(0));
-        ah(1, this.bKp.optInt(1));
+        ah(0, this.bKA.optInt(0));
+        ah(1, this.bKA.optInt(1));
     }
 
     private void ag(int i, int i2) {
         JSONArray optJSONArray;
-        if (this.bdY != null && (optJSONArray = this.bKo.optJSONArray(i)) != null) {
-            ((e) this.bdY).a(i, optJSONArray, i2);
+        if (this.bem != null && (optJSONArray = this.bKz.optJSONArray(i)) != null) {
+            ((e) this.bem).a(i, optJSONArray, i2);
         }
     }
 
@@ -87,22 +87,22 @@ public class a {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         if (i == 0) {
-            this.ccH = this.cch.get(this.ccg.get(i2));
-            if (this.ccH.size() <= 0) {
+            this.ccS = this.cct.get(this.ccr.get(i2));
+            if (this.ccS.size() <= 0) {
                 jSONArray = null;
             } else {
-                jSONArray = ah(this.ccH);
+                jSONArray = ah(this.ccS);
             }
             jSONArray2 = jSONArray;
         } else if (i == 1) {
-            this.ccI = this.cci.get(this.ccH.get(i2));
-            if (this.ccI.size() > 0) {
-                jSONArray2 = ah(this.ccI);
+            this.ccT = this.ccu.get(this.ccS.get(i2));
+            if (this.ccT.size() > 0) {
+                jSONArray2 = ah(this.ccT);
             }
         }
         if (jSONArray2 != null) {
             try {
-                this.bKo.put(i + 1, jSONArray2);
+                this.bKz.put(i + 1, jSONArray2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -122,15 +122,15 @@ public class a {
         return jSONArray;
     }
 
-    public void aix() {
-        if (this.bdY == null) {
-            this.bdY = this.ccJ.z(this.bKo).A(this.bKp).a(this.ccK).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.view.a.3
+    public void aiA() {
+        if (this.bem == null) {
+            this.bem = this.ccU.z(this.bKz).A(this.bKA).a(this.ccV).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                     List<d> D = a.this.D(((e) dialogInterface).getCurrentIndex());
-                    if (a.this.ccL != null) {
-                        a.this.ccL.ad(D);
+                    if (a.this.ccW != null) {
+                        a.this.ccW.ad(D);
                     }
                 }
             }).g(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.view.a.2
@@ -138,29 +138,29 @@ public class a {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                 }
-            }).acr();
+            }).acu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<d> D(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList(3);
-        arrayList.add(this.ccg.get(jSONArray.optInt(0)));
-        arrayList.add(this.ccH.get(jSONArray.optInt(1)));
-        arrayList.add(this.ccI.get(jSONArray.optInt(2)));
+        arrayList.add(this.ccr.get(jSONArray.optInt(0)));
+        arrayList.add(this.ccS.get(jSONArray.optInt(1)));
+        arrayList.add(this.ccT.get(jSONArray.optInt(2)));
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DialogInterface dialogInterface) {
         dialogInterface.dismiss();
-        this.bdY = null;
+        this.bem = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ai(int i, int i2) {
         int i3 = i;
-        while (i3 < this.bKo.length() - 1) {
+        while (i3 < this.bKz.length() - 1) {
             ah(i3, i3 == i ? i2 : 0);
             ag(i3 + 1, 0);
             i3++;
@@ -168,6 +168,6 @@ public class a {
     }
 
     public void a(InterfaceC0317a interfaceC0317a) {
-        this.ccL = interfaceC0317a;
+        this.ccW = interfaceC0317a;
     }
 }

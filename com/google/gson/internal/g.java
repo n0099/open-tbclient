@@ -6,15 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public class g {
-    public static DateFormat Mz(int i) {
-        return new SimpleDateFormat(MA(i), Locale.US);
+    public static DateFormat MF(int i) {
+        return new SimpleDateFormat(MG(i), Locale.US);
     }
 
-    public static DateFormat eg(int i, int i2) {
-        return new SimpleDateFormat(MB(i) + HanziToPinyin.Token.SEPARATOR + MC(i2), Locale.US);
+    public static DateFormat eh(int i, int i2) {
+        return new SimpleDateFormat(MH(i) + HanziToPinyin.Token.SEPARATOR + MI(i2), Locale.US);
     }
 
-    private static String MA(int i) {
+    private static String MG(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, y";
@@ -29,7 +29,7 @@ public class g {
         }
     }
 
-    private static String MB(int i) {
+    private static String MH(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, yyyy";
@@ -44,7 +44,7 @@ public class g {
         }
     }
 
-    private static String MC(int i) {
+    private static String MI(int i) {
         switch (i) {
             case 0:
             case 1:

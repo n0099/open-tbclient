@@ -33,10 +33,10 @@ public class j extends ab {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.ma(optString) == PathType.BD_FILE) {
-            jSONObject = bi(com.baidu.swan.apps.storage.b.bp(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.ma(optString) == PathType.RELATIVE) {
-            jSONObject = bi(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.lZ(optString) == PathType.BD_FILE) {
+            jSONObject = bh(com.baidu.swan.apps.storage.b.bo(optString, eVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.lZ(optString) == PathType.RELATIVE) {
+            jSONObject = bh(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
@@ -47,7 +47,7 @@ public class j extends ab {
         return false;
     }
 
-    private JSONObject bi(String str, String str2) {
+    private JSONObject bh(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -65,11 +65,11 @@ public class j extends ab {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface fA = fA(str);
-            if (fA == null) {
+            ExifInterface fz = fz(str);
+            if (fz == null) {
                 return null;
             }
-            i = fA.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = fz.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -112,7 +112,7 @@ public class j extends ab {
         }
     }
 
-    private ExifInterface fA(String str) {
+    private ExifInterface fz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

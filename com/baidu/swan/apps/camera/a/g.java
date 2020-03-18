@@ -24,7 +24,7 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "handle action, but context is not Activity");
             return false;
         }
-        eVar.acP().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
+        eVar.acS().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -51,7 +51,7 @@ public class g extends a {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
         com.baidu.swan.apps.af.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.camera.a.g.2
             @Override // com.baidu.swan.apps.af.b
-            public void fD(String str) {
+            public void fC(String str) {
                 g.this.a(unitedSchemeEntity, callbackHandler, g.this.a(aVar));
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", str + "");
             }
@@ -71,8 +71,8 @@ public class g extends a {
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Model is null");
         } else {
-            String str = aVar.bga;
-            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.bir;
+            String str = aVar.bgn;
+            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.biE;
             if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (aVar2 == null));
             } else {

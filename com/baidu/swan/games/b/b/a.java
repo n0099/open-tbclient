@@ -5,7 +5,7 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public abstract class a {
     @NonNull
-    public abstract File Np();
+    public abstract File Ns();
 
-    public abstract void gS(@NonNull String str);
+    public abstract void gR(@NonNull String str);
 }

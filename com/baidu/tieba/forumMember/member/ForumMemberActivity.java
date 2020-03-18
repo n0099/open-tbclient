@@ -5,51 +5,51 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.g;
-import com.baidu.tieba.frs.aj;
-import com.baidu.tieba.frs.an;
-import com.baidu.tieba.frs.aq;
+import com.baidu.tieba.frs.ak;
+import com.baidu.tieba.frs.ao;
+import com.baidu.tieba.frs.ar;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements g.c {
-    private an gkO;
-    private com.baidu.tieba.forumMember.member.a.b gkQ;
-    private e gkR;
+    private ao glw;
+    private com.baidu.tieba.forumMember.member.a.b gly;
+    private e glz;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.m> gkP = null;
-    private aj gkS = new aj() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
-        @Override // com.baidu.tieba.frs.aj
-        public void a(int i, int i2, aq aqVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-            ForumMemberActivity.this.gkQ.hideLoadingView();
-            ForumMemberActivity.this.gkQ.completePullRefresh();
+    private List<com.baidu.adp.widget.ListView.m> glx = null;
+    private ak glA = new ak() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+        @Override // com.baidu.tieba.frs.ak
+        public void a(int i, int i2, ar arVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
+            ForumMemberActivity.this.gly.hideLoadingView();
+            ForumMemberActivity.this.gly.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.m> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    if (it.next() instanceof com.baidu.tieba.frs.j) {
+                    if (it.next() instanceof com.baidu.tieba.frs.k) {
                         it.remove();
                     }
                 }
             }
             if (!v.isEmpty(arrayList)) {
-                ForumMemberActivity.this.gkQ.bcy();
-                ForumMemberActivity.this.gkP = arrayList;
-                ForumMemberActivity.this.gkQ.ca(ForumMemberActivity.this.gkP);
-            } else if (v.isEmpty(ForumMemberActivity.this.gkP) && aqVar != null) {
-                ForumMemberActivity.this.gkQ.AZ(aqVar.errMsg);
+                ForumMemberActivity.this.gly.bcC();
+                ForumMemberActivity.this.glx = arrayList;
+                ForumMemberActivity.this.gly.ca(ForumMemberActivity.this.glx);
+            } else if (v.isEmpty(ForumMemberActivity.this.glx) && arVar != null) {
+                ForumMemberActivity.this.gly.Ba(arVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a fYY = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a fZG = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.gkQ.kY(z);
+            ForumMemberActivity.this.gly.ld(z);
             if (z) {
-                if (v.isEmpty(ForumMemberActivity.this.gkP)) {
-                    ForumMemberActivity.this.bCw();
+                if (v.isEmpty(ForumMemberActivity.this.glx)) {
+                    ForumMemberActivity.this.bCC();
                 } else {
-                    ForumMemberActivity.this.gkQ.startPullRefresh();
+                    ForumMemberActivity.this.gly.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.gkQ = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.gkQ.f(this.fYY);
-        this.gkR = new e();
-        this.gkR.setTag(getUniqueId());
-        this.gkR.init();
-        this.gkR.a(this.gkS);
-        bCw();
+        this.gly = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.gly.f(this.fZG);
+        this.glz = new e();
+        this.glz.setTag(getUniqueId());
+        this.glz.init();
+        this.glz.a(this.glA);
+        bCC();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.gkO = new an();
-        this.gkO.forumId = this.mForumId;
-        this.gkO.forumName = this.mForumName;
+        this.glw = new ao();
+        this.glw.forumId = this.mForumId;
+        this.glw.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gkQ.onChangeSkinType(i);
+        this.gly.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gkR.bgX();
-        if (this.gkQ != null) {
-            this.gkQ.onDestroy();
+        this.glz.bhc();
+        if (this.gly != null) {
+            this.gly.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        e eVar = this.gkR;
-        e eVar2 = this.gkR;
-        eVar.a(3, 0, this.gkO);
+        e eVar = this.glz;
+        e eVar2 = this.glz;
+        eVar.a(3, 0, this.glw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            bCw();
+            bCC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCw() {
-        this.gkQ.showLoadingView();
-        e eVar = this.gkR;
-        e eVar2 = this.gkR;
-        eVar.a(3, 0, this.gkO);
+    public void bCC() {
+        this.gly.showLoadingView();
+        e eVar = this.glz;
+        e eVar2 = this.glz;
+        eVar.a(3, 0, this.glw);
     }
 }

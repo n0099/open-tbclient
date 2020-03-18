@@ -3,5 +3,5 @@ package com.baidu.live.liveroom.c;
 public interface b {
     void a(String str, int i, int i2, a aVar);
 
-    boolean yp();
+    boolean yu();
 }

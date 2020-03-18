@@ -26,9 +26,9 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (getClass().equals(hyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(hyVar.m385a()));
+            int compareTo = Boolean.valueOf(m383a()).compareTo(Boolean.valueOf(hyVar.m383a()));
             if (compareTo == 0) {
-                if (!m385a() || (a3 = is.a(this.f579a, hyVar.f579a)) == 0) {
+                if (!m383a() || (a3 = is.a(this.f579a, hyVar.f579a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hyVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a2 = is.a(this.f581b, hyVar.f581b)) == 0) {
@@ -56,12 +56,12 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
-                if (!m385a()) {
+                if (!m383a()) {
                     throw new jd("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
                 }
                 if (!b()) {
@@ -70,27 +70,27 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 8) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 8) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f579a = jcVar.m466a();
+                        this.f579a = jcVar.m464a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m468a.a != 8) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 8) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f581b = jcVar.m466a();
+                        this.f581b = jcVar.m464a();
                         b(true);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -102,12 +102,12 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m385a() {
+    public boolean m383a() {
         return this.f580a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m386a(hy hyVar) {
+    public boolean m384a(hy hyVar) {
         return hyVar != null && this.f579a == hyVar.f579a && this.f581b == hyVar.f581b;
     }
 
@@ -128,7 +128,7 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
         jcVar.a(this.f581b);
         jcVar.b();
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public void b(boolean z) {
@@ -141,7 +141,7 @@ public class hy implements ir<hy, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hy)) {
-            return m386a((hy) obj);
+            return m384a((hy) obj);
         }
         return false;
     }

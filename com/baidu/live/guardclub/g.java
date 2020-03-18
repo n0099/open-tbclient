@@ -5,43 +5,43 @@ import android.util.SparseArray;
 import com.baidu.live.data.ah;
 /* loaded from: classes3.dex */
 public class g {
-    private static volatile g aqr;
-    private ah acR;
-    private SparseArray<String> aqs = new SparseArray<>();
-    private SparseArray<String> aqt = new SparseArray<>();
-    private SparseArray<String> aqu = new SparseArray<>();
-    private SparseArray<String> aqv = new SparseArray<>();
+    private static volatile g aqB;
+    private ah adb;
+    private SparseArray<String> aqC = new SparseArray<>();
+    private SparseArray<String> aqD = new SparseArray<>();
+    private SparseArray<String> aqE = new SparseArray<>();
+    private SparseArray<String> aqF = new SparseArray<>();
 
     private g() {
     }
 
-    public static g vH() {
-        if (aqr == null) {
+    public static g vM() {
+        if (aqB == null) {
             synchronized (g.class) {
-                if (aqr == null) {
-                    aqr = new g();
+                if (aqB == null) {
+                    aqB = new g();
                 }
             }
         }
-        return aqr;
+        return aqB;
     }
 
-    public String vI() {
-        if (vK() || this.acR.acb == null) {
+    public String vN() {
+        if (vP() || this.adb.acn == null) {
             return null;
         }
-        return this.acR.acb;
+        return this.adb.acn;
     }
 
     public String bR(int i) {
-        String str = this.aqs.get(i);
+        String str = this.aqC.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (vK() || this.acR.acf == null) {
+            if (vP() || this.adb.acr == null) {
                 return null;
             }
-            String optString = this.acR.acf.optString(String.valueOf(i));
+            String optString = this.adb.acr.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aqs.put(i, optString);
+                this.aqC.put(i, optString);
                 return optString;
             }
             return optString;
@@ -50,14 +50,14 @@ public class g {
     }
 
     public String bS(int i) {
-        String str = this.aqt.get(i);
+        String str = this.aqD.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (vK() || this.acR.acd == null) {
+            if (vP() || this.adb.acp == null) {
                 return null;
             }
-            String optString = this.acR.acd.optString(String.valueOf(i));
+            String optString = this.adb.acp.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aqt.put(i, optString);
+                this.aqD.put(i, optString);
                 return optString;
             }
             return optString;
@@ -66,14 +66,14 @@ public class g {
     }
 
     public String bT(int i) {
-        String str = this.aqu.get(i);
+        String str = this.aqE.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (vK() || this.acR.ace == null) {
+            if (vP() || this.adb.acq == null) {
                 return null;
             }
-            String optString = this.acR.ace.optString(String.valueOf(i));
+            String optString = this.adb.acq.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aqu.put(i, optString);
+                this.aqE.put(i, optString);
                 return optString;
             }
             return optString;
@@ -82,14 +82,14 @@ public class g {
     }
 
     public String bU(int i) {
-        String str = this.aqv.get(i);
+        String str = this.aqF.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (vK() || this.acR.acg == null) {
+            if (vP() || this.adb.acs == null) {
                 return null;
             }
-            String optString = this.acR.acg.optString(String.valueOf(i));
+            String optString = this.adb.acs.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.aqv.put(i, optString);
+                this.aqF.put(i, optString);
                 return optString;
             }
             return optString;
@@ -97,17 +97,17 @@ public class g {
         return str;
     }
 
-    public ah vJ() {
-        if (vK()) {
+    public ah vO() {
+        if (vP()) {
             return null;
         }
-        return this.acR;
+        return this.adb;
     }
 
-    private boolean vK() {
-        if (this.acR == null) {
-            this.acR = com.baidu.live.v.a.zl().axD.acR;
-            if (this.acR == null) {
+    private boolean vP() {
+        if (this.adb == null) {
+            this.adb = com.baidu.live.v.a.zs().axR.adb;
+            if (this.adb == null) {
                 return true;
             }
         }

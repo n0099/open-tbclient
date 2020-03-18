@@ -4,47 +4,47 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.x.b.c;
 /* loaded from: classes11.dex */
 public class b {
-    public boolean bWm;
-    public boolean bWn;
+    public String bWA;
+    public boolean bWx;
+    public boolean bWy;
     @Nullable
-    public c bWo;
-    public String bWp;
+    public c bWz;
 
     private b() {
-        this.bWm = false;
-        this.bWn = false;
-        this.bWo = null;
-        this.bWp = "";
+        this.bWx = false;
+        this.bWy = false;
+        this.bWz = null;
+        this.bWA = "";
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private boolean bWm = false;
-        private boolean bWn = false;
+        private boolean bWx = false;
+        private boolean bWy = false;
         @Nullable
-        private c bWo = null;
-        private String bWp = "";
+        private c bWz = null;
+        private String bWA = "";
 
-        public static a afF() {
+        public static a afI() {
             return new a();
         }
 
-        public a dX(boolean z) {
-            this.bWm = z;
+        public a dY(boolean z) {
+            this.bWx = z;
             return this;
         }
 
-        public a mr(String str) {
-            this.bWp = str;
+        public a mq(String str) {
+            this.bWA = str;
             return this;
         }
 
-        public b afG() {
+        public b afJ() {
             b bVar = new b();
-            bVar.bWm = this.bWm;
-            bVar.bWn = this.bWn;
-            bVar.bWo = this.bWo;
-            bVar.bWp = this.bWp;
+            bVar.bWx = this.bWx;
+            bVar.bWy = this.bWy;
+            bVar.bWz = this.bWz;
+            bVar.bWA = this.bWA;
             return bVar;
         }
     }

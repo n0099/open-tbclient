@@ -7,13 +7,13 @@ import com.baidu.swan.apps.adaptation.b.d;
 public interface e<T extends d> extends TypedCallbackHandler {
     void H(Activity activity);
 
-    T IP();
+    T IS();
 
-    String IQ();
+    String IT();
 
-    String IR();
+    String IU();
 
-    void IS();
+    void IV();
 
     void a(com.baidu.swan.apps.core.b bVar);
 

@@ -58,23 +58,23 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
         this.mCommandFrom = i;
         a aVar = new a(reader);
-        aVar.dAT();
+        aVar.dBq();
         while (aVar.hasNext()) {
-            String dAX = aVar.dAX();
-            if (dAX.equals("data")) {
+            String dBu = aVar.dBu();
+            if (dBu.equals("data")) {
                 readData(aVar, jSONObject);
-            } else if (dAX.equals("errno")) {
-                this.mErrorCode = aVar.dAY();
+            } else if (dBu.equals("errno")) {
+                this.mErrorCode = aVar.dBv();
                 if (!this.mErrorCode.equals("0")) {
                     throw new IOException("error no is not 0");
                 }
-            } else if (dAX.equals("timestamp")) {
-                this.mTimeStamp = aVar.dAY();
+            } else if (dBu.equals("timestamp")) {
+                this.mTimeStamp = aVar.dBv();
                 if (i == 0) {
                     DateTimeUtil.setDeltaTime(this.mTimeStamp);
                 }
             } else {
-                aVar.dBa();
+                aVar.dBx();
             }
         }
         aVar.endObject();
@@ -90,18 +90,18 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     private void readData(a aVar, JSONObject jSONObject) throws IOException {
         boolean z;
-        aVar.dAT();
+        aVar.dBq();
         Gson gson = new Gson();
         while (aVar.hasNext()) {
-            String dAX = aVar.dAX();
-            aVar.dAT();
+            String dBu = aVar.dBu();
+            aVar.dBq();
             while (aVar.hasNext()) {
-                String dAX2 = aVar.dAX();
+                String dBu2 = aVar.dBu();
                 this.mTotalCount++;
                 if (DEBUG) {
-                    Log.d(TAG, "read action " + dAX + HanziToPinyin.Token.SEPARATOR + dAX2);
+                    Log.d(TAG, "read action " + dBu + HanziToPinyin.Token.SEPARATOR + dBu2);
                 }
-                AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(dAX, dAX2);
+                AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(dBu, dBu2);
                 if (commandListener == null) {
                     commandListener = new NoneCommandListener();
                     z = false;
@@ -114,27 +114,27 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                         typeAdapter = gson.getAdapter(com.google.gson.b.a.get(commandListener.getDataType()));
                     } catch (Exception e) {
                         e.printStackTrace();
-                        collectInfo(dAX + "/" + dAX2, (ActionData) null, false);
+                        collectInfo(dBu + "/" + dBu2, (ActionData) null, false);
                     }
                 }
                 ActionData createDataObject = commandListener.createDataObject();
                 boolean readAction = readAction(aVar, createDataObject, typeAdapter);
                 if (readAction) {
                     synchronized (GsonTool.class) {
-                        if (!dispatchCheck(AppRuntime.getAppContext(), dAX, dAX2, commandListener, createDataObject, jSONObject)) {
+                        if (!dispatchCheck(AppRuntime.getAppContext(), dBu, dBu2, commandListener, createDataObject, jSONObject)) {
                             if (DEBUG) {
                                 Log.d(TAG, "data from imsdk is not newest");
                             }
-                            collectInfo(dAX + "/" + dAX2, createDataObject, false);
+                            collectInfo(dBu + "/" + dBu2, createDataObject, false);
                             this.mVersionFilterCount++;
                         } else {
-                            commandListener.executeCommand(AppRuntime.getAppContext(), dAX, dAX2, createDataObject);
+                            commandListener.executeCommand(AppRuntime.getAppContext(), dBu, dBu2, createDataObject);
                         }
                     }
                 } else if (DEBUG) {
-                    Log.d(TAG, "read action " + dAX + HanziToPinyin.Token.SEPARATOR + dAX2 + " fail");
+                    Log.d(TAG, "read action " + dBu + HanziToPinyin.Token.SEPARATOR + dBu2 + " fail");
                 }
-                collectInfo(dAX + "/" + dAX2, createDataObject, z && readAction);
+                collectInfo(dBu + "/" + dBu2, createDataObject, z && readAction);
             }
             aVar.endObject();
         }
@@ -145,15 +145,15 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean readAction(a aVar, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
         String path = aVar.getPath();
         try {
-            aVar.dAT();
+            aVar.dBq();
             while (aVar.hasNext()) {
-                String dAX = aVar.dAX();
-                if (dAX.equals("data")) {
+                String dBu = aVar.dBu();
+                if (dBu.equals("data")) {
                     actionData.data = typeAdapter.read(aVar);
-                } else if (dAX.equals("version")) {
-                    actionData.version = aVar.dAY();
+                } else if (dBu.equals("version")) {
+                    actionData.version = aVar.dBv();
                 } else {
-                    aVar.dBa();
+                    aVar.dBx();
                 }
             }
             aVar.endObject();
@@ -166,12 +166,12 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     private void skipErrorAction(a aVar, String str) throws IOException {
         if (aVar.getPath().equals(str)) {
-            aVar.dBa();
+            aVar.dBx();
             return;
         }
-        aVar.dBa();
+        aVar.dBx();
         do {
-            switch (aVar.dAU()) {
+            switch (aVar.dBr()) {
                 case END_OBJECT:
                     aVar.endObject();
                     break;
@@ -179,8 +179,8 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     aVar.endArray();
                     break;
                 default:
-                    aVar.dBa();
-                    aVar.dBa();
+                    aVar.dBx();
+                    aVar.dBx();
                     break;
             }
         } while (!aVar.getPath().equals(str));

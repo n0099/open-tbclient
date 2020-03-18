@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public interface al {
-    void dnQ();
+    void don();
 
-    void drF();
+    void dsc();
 
-    void drG();
+    void dsd();
 
-    void drH();
+    void dse();
 }

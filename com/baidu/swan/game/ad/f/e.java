@@ -13,29 +13,29 @@ import com.baidu.swan.game.ad.c.b;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes11.dex */
 public class e implements a.InterfaceC0327a {
-    public String cgB;
-    private a.InterfaceC0326a cgD;
-    private String chG;
-    private h ciD;
-    public f ciE;
-    private AdElementInfo ciG;
-    private com.baidu.swan.game.ad.a ciH;
-    private boolean ciI;
+    public String cgM;
+    private a.InterfaceC0326a cgO;
+    private String chR;
+    private h ciO;
+    public f ciP;
+    private AdElementInfo ciR;
+    private com.baidu.swan.game.ad.a ciS;
+    private boolean ciT;
     private Context mContext = AppRuntime.getAppContext();
-    private b ciF = new b(this.mContext);
+    private b ciQ = new b(this.mContext);
 
     public e(String str, String str2, f fVar, a.InterfaceC0326a interfaceC0326a) {
-        this.ciE = null;
-        this.chG = str;
-        this.cgB = str2;
-        this.ciE = fVar;
-        this.cgD = interfaceC0326a;
-        akJ();
+        this.ciP = null;
+        this.chR = str;
+        this.cgM = str2;
+        this.ciP = fVar;
+        this.cgO = interfaceC0326a;
+        akM();
         loadAd();
     }
 
     public void a(h hVar) {
-        this.ciD = hVar;
+        this.ciO = hVar;
     }
 
     public void a(JsObject jsObject) {
@@ -43,65 +43,65 @@ public class e implements a.InterfaceC0327a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.1
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.ciH != null && com.baidu.swan.games.view.a.c.ay(e.this.ciH.getConvertView())) {
-                    e.this.ciH.show();
+                if (e.this.ciS != null && com.baidu.swan.games.view.a.c.ay(e.this.ciS.getConvertView())) {
+                    e.this.ciS.show();
                     if (e != null) {
-                        e.akR();
+                        e.akU();
                     }
-                    if (!e.this.ciI) {
-                        e.this.ciI = true;
-                        com.baidu.swan.game.ad.d.a.a(e.this.ciG, e.this.ciF);
+                    if (!e.this.ciT) {
+                        e.this.ciT = true;
+                        com.baidu.swan.game.ad.d.a.a(e.this.ciR, e.this.ciQ);
                         return;
                     }
                     return;
                 }
                 if (e != null) {
-                    e.nW("3010010");
+                    e.nV("3010010");
                 }
-                if (e.this.ciD != null) {
-                    e.this.ciD.onError("3010010");
+                if (e.this.ciO != null) {
+                    e.this.ciO.onError("3010010");
                 }
             }
         });
     }
 
-    public void akF() {
+    public void akI() {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.2
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.ciH != null) {
-                    e.this.ciH.hide();
+                if (e.this.ciS != null) {
+                    e.this.ciS.hide();
                 }
             }
         });
     }
 
-    public void akG() {
+    public void akJ() {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.3
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.ciH != null) {
-                    com.baidu.swan.games.view.a.c.au(e.this.ciH.getConvertView());
+                if (e.this.ciS != null) {
+                    com.baidu.swan.games.view.a.c.au(e.this.ciS.getConvertView());
                 }
-                e.this.ciH = null;
-                e.this.ciD = null;
-                e.this.ciG = null;
+                e.this.ciS = null;
+                e.this.ciO = null;
+                e.this.ciR = null;
             }
         });
     }
 
-    public void nU(final String str) {
+    public void nT(final String str) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.4
             @Override // java.lang.Runnable
             public void run() {
-                boolean z = e.this.ciE.width != e.this.ciE.realWidth;
-                e.this.akJ();
-                if (e.this.ciH != null) {
-                    e.this.ciH.hB(e.this.ciE.width);
-                    com.baidu.swan.games.view.a.c.b(e.this.ciH.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(e.this.ciE.left), af.S(e.this.ciE.f1011top), af.S(e.this.ciE.realWidth), af.S(e.this.ciE.realHeight)));
+                boolean z = e.this.ciP.width != e.this.ciP.realWidth;
+                e.this.akM();
+                if (e.this.ciS != null) {
+                    e.this.ciS.hB(e.this.ciP.width);
+                    com.baidu.swan.games.view.a.c.b(e.this.ciS.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(e.this.ciP.left), af.S(e.this.ciP.f1011top), af.S(e.this.ciP.realWidth), af.S(e.this.ciP.realHeight)));
                 }
-                if (str.equals("width") && z && e.this.ciD != null) {
-                    e.this.ciD.a(e.this.ciE);
+                if (str.equals("width") && z && e.this.ciO != null) {
+                    e.this.ciO.a(e.this.ciP);
                 }
             }
         });
@@ -109,116 +109,116 @@ public class e implements a.InterfaceC0327a {
 
     @Override // com.baidu.swan.game.ad.a.a.InterfaceC0327a
     public void b(AdElementInfo adElementInfo) {
-        this.ciG = adElementInfo;
-        akI();
-        com.baidu.swan.games.view.a.b.bX("banner", "success");
+        this.ciR = adElementInfo;
+        akL();
+        com.baidu.swan.games.view.a.b.bW("banner", "success");
     }
 
     @Override // com.baidu.swan.game.ad.a.a.InterfaceC0327a
-    public void nI(String str) {
-        if (this.ciD != null) {
-            this.ciD.onError(str);
+    public void nH(String str) {
+        if (this.ciO != null) {
+            this.ciO.onError(str);
         }
-        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
         String str2 = "";
-        if (acF != null) {
-            str2 = acF.id;
+        if (acI != null) {
+            str2 = acI.id;
         }
         if (str2.lastIndexOf("_dev") >= 0 && str2.lastIndexOf("_dev") < str2.length() && str.equals("201000")) {
-            akH();
+            akK();
         }
         com.baidu.swan.games.view.a.b.N("banner", LivenessStat.TYPE_FACE_MATCH_FAIL, str);
     }
 
-    private void akH() {
-        this.ciH = new com.baidu.swan.game.ad.a(this.mContext);
-        this.ciH.hB(this.ciE.width);
-        if (com.baidu.swan.games.view.a.c.ay(this.ciH.getConvertView())) {
-            com.baidu.swan.games.view.a.c.au(this.ciH.getConvertView());
+    private void akK() {
+        this.ciS = new com.baidu.swan.game.ad.a(this.mContext);
+        this.ciS.hB(this.ciP.width);
+        if (com.baidu.swan.games.view.a.c.ay(this.ciS.getConvertView())) {
+            com.baidu.swan.games.view.a.c.au(this.ciS.getConvertView());
         }
-        com.baidu.swan.games.view.a.c.c(this.ciH.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(this.ciE.left), af.S(this.ciE.f1011top), af.S(this.ciE.realWidth), af.S(this.ciE.realHeight)));
-        this.ciH.getConvertView().postDelayed(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.5
+        com.baidu.swan.games.view.a.c.c(this.ciS.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(this.ciP.left), af.S(this.ciP.f1011top), af.S(this.ciP.realWidth), af.S(this.ciP.realHeight)));
+        this.ciS.getConvertView().postDelayed(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.5
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.ciH != null && com.baidu.swan.games.view.a.c.ay(e.this.ciH.getConvertView())) {
-                    com.baidu.swan.games.view.a.c.au(e.this.ciH.getConvertView());
+                if (e.this.ciS != null && com.baidu.swan.games.view.a.c.ay(e.this.ciS.getConvertView())) {
+                    com.baidu.swan.games.view.a.c.au(e.this.ciS.getConvertView());
                 }
             }
         }, 20000L);
     }
 
-    private void akI() {
-        this.ciH = new com.baidu.swan.game.ad.a(this.mContext, this.ciG, this.cgB);
-        this.ciH.a(this.cgD);
-        this.ciH.a(new a.c() { // from class: com.baidu.swan.game.ad.f.e.6
+    private void akL() {
+        this.ciS = new com.baidu.swan.game.ad.a(this.mContext, this.ciR, this.cgM);
+        this.ciS.a(this.cgO);
+        this.ciS.a(new a.c() { // from class: com.baidu.swan.game.ad.f.e.6
             @Override // com.baidu.swan.game.ad.a.a.c
             public void lg() {
-                com.baidu.swan.apps.core.d.e GC = com.baidu.swan.apps.y.f.WS().GC();
-                if (GC == null) {
+                com.baidu.swan.apps.core.d.e GH = com.baidu.swan.apps.y.f.WV().GH();
+                if (GH == null) {
                     if (e.this.mContext != null) {
                         com.baidu.swan.apps.res.widget.b.d.q(e.this.mContext, a.h.aiapps_open_fragment_failed_toast).showToast();
                     }
-                } else if (e.this.ciG != null) {
-                    String akl = e.this.ciG.akl();
-                    GC.hb("adLanding").Y(com.baidu.swan.apps.core.d.e.bog, com.baidu.swan.apps.core.d.e.boi).a("adLanding", com.baidu.swan.apps.model.b.aX(akl, akl)).Oz();
-                    com.baidu.swan.game.ad.d.a.b(e.this.ciG, e.this.ciF);
+                } else if (e.this.ciR != null) {
+                    String ako = e.this.ciR.ako();
+                    GH.ha("adLanding").Y(com.baidu.swan.apps.core.d.e.bos, com.baidu.swan.apps.core.d.e.bou).a("adLanding", com.baidu.swan.apps.model.b.aW(ako, ako)).OC();
+                    com.baidu.swan.game.ad.d.a.b(e.this.ciR, e.this.ciQ);
                 }
             }
         });
-        this.ciH.hB(this.ciE.width);
-        if (com.baidu.swan.games.view.a.c.ay(this.ciH.getConvertView())) {
-            com.baidu.swan.games.view.a.c.au(this.ciH.getConvertView());
+        this.ciS.hB(this.ciP.width);
+        if (com.baidu.swan.games.view.a.c.ay(this.ciS.getConvertView())) {
+            com.baidu.swan.games.view.a.c.au(this.ciS.getConvertView());
         }
-        if (com.baidu.swan.games.view.a.c.c(this.ciH.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(this.ciE.left), af.S(this.ciE.f1011top), af.S(this.ciE.realWidth), af.S(this.ciE.realHeight)))) {
-            if (this.ciD != null) {
-                this.ciD.onLoad();
+        if (com.baidu.swan.games.view.a.c.c(this.ciS.getConvertView(), new com.baidu.swan.apps.model.a.a.a(af.S(this.ciP.left), af.S(this.ciP.f1011top), af.S(this.ciP.realWidth), af.S(this.ciP.realHeight)))) {
+            if (this.ciO != null) {
+                this.ciO.onLoad();
             }
-        } else if (this.ciD != null) {
-            this.ciD.onError("3010000");
+        } else if (this.ciO != null) {
+            this.ciO.onError("3010000");
         }
     }
 
     private void loadAd() {
-        com.baidu.swan.apps.runtime.e acF = com.baidu.swan.apps.runtime.e.acF();
+        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
         String str = "";
-        if (acF != null) {
-            str = acF.getAppKey();
+        if (acI != null) {
+            str = acI.getAppKey();
         }
-        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.mContext, new b.a().nO(this.chG).nP(this.cgB).nQ(str).hE(this.ciE.width).hF(this.ciE.height).akz());
+        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.mContext, new b.a().nN(this.chR).nO(this.cgM).nP(str).hE(this.ciP.width).hF(this.ciP.height).akC());
         com.baidu.swan.game.ad.c.a aVar = new com.baidu.swan.game.ad.c.a(this.mContext);
         aVar.a(this);
-        com.baidu.swan.games.view.a.b.bX("banner", null);
-        aVar.a(cVar, this.ciF);
+        com.baidu.swan.games.view.a.b.bW("banner", null);
+        aVar.a(cVar, this.ciQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akJ() {
-        if (this.ciE != null) {
-            if (af.S(this.ciE.width) < 300) {
-                this.ciE.width = af.U(300.0f);
+    public void akM() {
+        if (this.ciP != null) {
+            if (af.S(this.ciP.width) < 300) {
+                this.ciP.width = af.U(300.0f);
             }
-            int aqz = com.baidu.swan.games.view.a.c.aqz();
-            int aqA = com.baidu.swan.games.view.a.c.aqA();
-            if (af.S(this.ciE.width) > aqz) {
-                this.ciE.width = af.U(aqz);
+            int aqC = com.baidu.swan.games.view.a.c.aqC();
+            int aqD = com.baidu.swan.games.view.a.c.aqD();
+            if (af.S(this.ciP.width) > aqC) {
+                this.ciP.width = af.U(aqC);
             }
-            this.ciE.height = (int) (this.ciE.width / com.baidu.swan.game.ad.e.d.cih);
-            if (this.ciE.left < 0) {
-                this.ciE.left = 0;
+            this.ciP.height = (int) (this.ciP.width / com.baidu.swan.game.ad.e.d.cis);
+            if (this.ciP.left < 0) {
+                this.ciP.left = 0;
             }
-            int U = af.U(aqz) - this.ciE.width;
-            if (this.ciE.left > U) {
-                this.ciE.left = U;
+            int U = af.U(aqC) - this.ciP.width;
+            if (this.ciP.left > U) {
+                this.ciP.left = U;
             }
-            if (this.ciE.f1011top < 0) {
-                this.ciE.f1011top = 0;
+            if (this.ciP.f1011top < 0) {
+                this.ciP.f1011top = 0;
             }
-            int U2 = af.U(aqA) - this.ciE.height;
-            if (this.ciE.f1011top > U2) {
-                this.ciE.f1011top = U2;
+            int U2 = af.U(aqD) - this.ciP.height;
+            if (this.ciP.f1011top > U2) {
+                this.ciP.f1011top = U2;
             }
-            this.ciE.realWidth = this.ciE.width;
-            this.ciE.realHeight = this.ciE.height;
+            this.ciP.realWidth = this.ciP.width;
+            this.ciP.realHeight = this.ciP.height;
         }
     }
 }

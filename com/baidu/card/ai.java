@@ -18,21 +18,23 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     private TextView KA;
     private com.baidu.tbadk.core.data.a Kc;
     private OriginalThreadCardView Mv;
-    private OriginalThreadCardView.a Mw;
+    private boolean Mw;
+    private OriginalThreadCardView.a Mx;
     private View mRootView;
     private TextView mTitle;
 
     public ai(Context context) {
         super(context);
-        this.Mw = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
+        this.Mw = false;
+        this.Mx = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ai.this.Kc != null && ai.this.Kc.aAg() != null) {
+                if (ai.this.Kc != null && ai.this.Kc.aAj() != null) {
                     if (ai.this.mT() != null) {
                         ai.this.mT().a(ai.this.Mv, ai.this.Kc);
                     }
-                    String id = ai.this.Kc.aAg().getId();
-                    com.baidu.tieba.card.l.zT(id);
+                    String id = ai.this.Kc.aAj().getId();
+                    com.baidu.tieba.card.l.zU(id);
                     ai.this.cb(id);
                     ai.this.JX.b(new a.C0052a(1));
                 }
@@ -42,7 +44,7 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
         this.KA = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
         this.Mv = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
-        this.Mv.setSubClickListener(this.Mw);
+        this.Mv.setSubClickListener(this.Mx);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,23 +57,23 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aAg() != null) {
+        if (aVar != null && aVar.aAj() != null) {
             this.Kc = aVar;
-            au.a(this.mTitle, aVar.aAg());
-            au.a(this.KA, this.mTitle, aVar.aAg(), Ky);
-            this.Mv.b(aVar.aAg().cTR);
+            au.a(this.mTitle, aVar.aAj(), this.Mw);
+            au.a(this.KA, this.mTitle, aVar.aAj(), Ky, this.Mw);
+            this.Mv.b(aVar.aAj().cUe);
         }
     }
 
     public void ba(int i) {
-        this.Mv.fLY = i;
+        this.Mv.fMG = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cb(String str) {
         com.baidu.tieba.card.l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.l.a(this.KA, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.Mv.setReadState(com.baidu.tieba.card.l.zU(str));
+        this.Mv.setReadState(com.baidu.tieba.card.l.zV(str));
     }
 
     @Override // com.baidu.card.n
@@ -82,5 +84,9 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
         super.setOnCardSubClickListener(zVar);
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.Mw = z;
     }
 }

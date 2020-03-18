@@ -8,22 +8,22 @@ import com.baidu.swan.apps.canvas.view.CanvasView;
 import java.util.Stack;
 /* loaded from: classes11.dex */
 public class b implements Cloneable {
-    CanvasView bgx;
-    ak bgy;
-    private Stack<b> bgu = new Stack<>();
+    CanvasView bgK;
+    ak bgL;
+    private Stack<b> bgH = new Stack<>();
     Paint mFillPaint = new Paint();
     Paint mStrokePaint = new Paint();
     Paint mBitmapPaint = new Paint();
-    TextPaint bgv = new TextPaint();
+    TextPaint bgI = new TextPaint();
     Path mPath = new Path();
-    boolean bgw = false;
-    int bgz = -1;
-    int bgA = 0;
-    int bgB = 0;
+    boolean bgJ = false;
+    int bgM = -1;
+    int bgN = 0;
+    int bgO = 0;
     int mStrokeColor = ViewCompat.MEASURED_STATE_MASK;
 
     public b(CanvasView canvasView) {
-        this.bgx = canvasView;
+        this.bgK = canvasView;
         init();
     }
 
@@ -32,28 +32,28 @@ public class b implements Cloneable {
         bVar.mFillPaint = new Paint(this.mFillPaint);
         bVar.mStrokePaint = new Paint(this.mStrokePaint);
         bVar.mBitmapPaint = new Paint(this.mBitmapPaint);
-        bVar.bgv = new TextPaint(this.bgv);
+        bVar.bgI = new TextPaint(this.bgI);
         bVar.mPath = new Path(this.mPath);
-        bVar.bgA = this.bgA;
-        bVar.bgB = this.bgB;
+        bVar.bgN = this.bgN;
+        bVar.bgO = this.bgO;
         bVar.mStrokeColor = this.mStrokeColor;
-        this.bgu.push(bVar);
+        this.bgH.push(bVar);
     }
 
-    public void Kp() {
-        if (!this.bgu.empty()) {
-            b pop = this.bgu.pop();
+    public void Ks() {
+        if (!this.bgH.empty()) {
+            b pop = this.bgH.pop();
             this.mFillPaint = pop.mFillPaint;
             this.mStrokePaint = pop.mStrokePaint;
             this.mBitmapPaint = pop.mBitmapPaint;
-            this.bgv = pop.bgv;
+            this.bgI = pop.bgI;
             this.mPath = pop.mPath;
-            this.bgw = pop.bgw;
-            this.bgu = pop.bgu;
-            this.bgy = pop.bgy;
-            this.bgz = pop.bgz;
-            this.bgA = pop.bgA;
-            this.bgB = pop.bgB;
+            this.bgJ = pop.bgJ;
+            this.bgH = pop.bgH;
+            this.bgL = pop.bgL;
+            this.bgM = pop.bgM;
+            this.bgN = pop.bgN;
+            this.bgO = pop.bgO;
             this.mStrokeColor = pop.mStrokeColor;
         }
     }
@@ -61,21 +61,21 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Paint paint) {
         if (paint != null) {
-            if (this.bgx != null && this.bgy != null && this.bgy.bha != null && !this.bgy.bha.Kr()) {
-                paint.setShadowLayer(this.bgy.bhn, this.bgy.mOffsetX, this.bgy.mOffsetY, this.bgy.bha.getColor());
+            if (this.bgK != null && this.bgL != null && this.bgL.bhn != null && !this.bgL.bhn.Ku()) {
+                paint.setShadowLayer(this.bgL.bhA, this.bgL.mOffsetX, this.bgL.mOffsetY, this.bgL.bhn.getColor());
             }
-            if (this.bgz >= 0 && this.bgz <= 255) {
-                paint.setAlpha(Math.min((paint.getAlpha() * this.bgz) >> 8, 255));
+            if (this.bgM >= 0 && this.bgM <= 255) {
+                paint.setAlpha(Math.min((paint.getAlpha() * this.bgM) >> 8, 255));
             }
         }
     }
 
     public void ec(int i) {
-        this.bgB = i;
+        this.bgO = i;
     }
 
-    public int Kq() {
-        return this.bgB;
+    public int Kt() {
+        return this.bgO;
     }
 
     public void init() {
@@ -84,10 +84,10 @@ public class b implements Cloneable {
         this.mFillPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.bgv.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.bgI.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.as.af.S(1.0f));
         this.mStrokePaint.setAntiAlias(true);
-        this.bgv.setAntiAlias(true);
+        this.bgI.setAntiAlias(true);
         this.mBitmapPaint.setAntiAlias(true);
         this.mPath.reset();
     }

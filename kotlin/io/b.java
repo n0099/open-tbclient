@@ -6,6 +6,6 @@ import kotlin.reflect.j;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b {
-    static final /* synthetic */ j[] cpV = {t.a(new PropertyReference0Impl(t.j(b.class, "kotlin-stdlib"), "decoder", "getDecoder()Ljava/nio/charset/CharsetDecoder;"))};
-    private static final kotlin.d nCq = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
+    static final /* synthetic */ j[] cqg = {t.a(new PropertyReference0Impl(t.j(b.class, "kotlin-stdlib"), "decoder", "getDecoder()Ljava/nio/charset/CharsetDecoder;"))};
+    private static final kotlin.d nEd = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
 }

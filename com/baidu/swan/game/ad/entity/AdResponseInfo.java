@@ -73,7 +73,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo akq() {
+    public AdElementInfo akt() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

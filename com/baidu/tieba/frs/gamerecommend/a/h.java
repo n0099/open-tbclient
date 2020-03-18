@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> {
-    private com.baidu.tieba.card.h gBZ;
+    private com.baidu.tieba.card.h gCX;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.fQD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.fRm);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -24,29 +24,29 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: av */
+    /* renamed from: aw */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> b(ViewGroup viewGroup) {
-        this.gBZ = new com.baidu.tieba.card.h(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.gBZ);
+        this.gCX = new com.baidu.tieba.card.h(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.gCX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> aVar) {
-        if (aVar.bvL() == null) {
+        if (aVar.bvQ() == null) {
             return null;
         }
-        aVar.bvL().a(gVar);
-        aVar.bvL().c(new z<com.baidu.tieba.e.g>() { // from class: com.baidu.tieba.frs.gamerecommend.a.h.1
+        aVar.bvQ().a(gVar);
+        aVar.bvQ().c(new z<com.baidu.tieba.e.g>() { // from class: com.baidu.tieba.frs.gamerecommend.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view2, com.baidu.tieba.e.g gVar2) {
-                TiebaStatic.log(new an("c13047").X("obj_locate", 1).cy("fid", h.this.mForumId));
-                ba.aGG().a((TbPageContext) com.baidu.adp.base.i.ab(view2.getContext()), new String[]{gVar2.bwG().score_url}, true);
+                TiebaStatic.log(new an("c13047").X("obj_locate", 1).cx("fid", h.this.mForumId));
+                ba.aGK().a((TbPageContext) com.baidu.adp.base.i.ab(view2.getContext()), new String[]{gVar2.bwL().score_url}, true);
             }
         });
-        aVar.bvL().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.bvL().getView();
+        aVar.bvQ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.bvQ().getView();
     }
 }

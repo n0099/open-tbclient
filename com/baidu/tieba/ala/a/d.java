@@ -17,13 +17,13 @@ import com.baidu.tieba.ala.AlaChooseGiftActivity;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class d {
-    protected AlaLiveInputEditView egY;
-    protected ArrayList<String> ehc;
-    protected AlaChooseGiftActivity eyi;
-    protected View.OnClickListener eyj;
-    protected String eyk;
-    protected int eyl;
-    protected int eyn;
+    protected AlaLiveInputEditView eho;
+    protected ArrayList<String> ehs;
+    protected AlaChooseGiftActivity eyF;
+    protected View.OnClickListener eyG;
+    protected String eyH;
+    protected int eyI;
+    protected int eyJ;
     protected Context mContext;
     protected View mRootView;
 
@@ -40,19 +40,19 @@ public abstract class d {
     protected abstract void initView();
 
     public d(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
-        this.eyi = alaChooseGiftActivity;
+        this.eyF = alaChooseGiftActivity;
         this.mContext = alaChooseGiftActivity.getPageContext().getPageActivity();
-        this.eyk = str;
-        this.ehc = arrayList;
-        this.eyl = i;
-        this.eyn = i2;
+        this.eyH = str;
+        this.ehs = arrayList;
+        this.eyI = i;
+        this.eyJ = i2;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(getLayoutResId(), (ViewGroup) null);
         frameLayout.removeAllViews();
         frameLayout.addView(this.mRootView);
         initView();
     }
 
-    public void pd(int i) {
+    public void pf(int i) {
     }
 
     public void a(CharSequence charSequence, int i, int i2, int i3) {
@@ -62,18 +62,18 @@ public abstract class d {
     }
 
     public void bt(View view) {
-        if (this.eyj != null) {
-            this.eyj.onClick(view);
+        if (this.eyG != null) {
+            this.eyG.onClick(view);
         }
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.eyj = onClickListener;
+        this.eyG = onClickListener;
     }
 
     public void e(AlaLiveInputEditView alaLiveInputEditView) {
-        this.egY = alaLiveInputEditView;
-        this.egY.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.a.d.1
+        this.eho = alaLiveInputEditView;
+        this.eho.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.a.d.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -81,7 +81,7 @@ public abstract class d {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (charSequence == null || TextUtils.isEmpty(charSequence.toString().trim())) {
-                    d.this.egY.setSendEnabled(false);
+                    d.this.eho.setSendEnabled(false);
                 } else {
                     d.this.a(charSequence, i, i2, i3);
                 }
@@ -91,36 +91,36 @@ public abstract class d {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.egY.setEditViewConfirmCallBack(new b.a() { // from class: com.baidu.tieba.ala.a.d.2
+        this.eho.setEditViewConfirmCallBack(new b.a() { // from class: com.baidu.tieba.ala.a.d.2
             @Override // com.baidu.live.view.input.b.a
-            public void dx(String str) {
+            public void dw(String str) {
                 if (str != null && !TextUtils.isEmpty(str.trim())) {
-                    d.this.pd(Integer.parseInt(str));
+                    d.this.pf(Integer.parseInt(str));
                 }
             }
         });
     }
 
-    public void bbz() {
-        this.egY.xS();
-        this.egY.getEditView().setFocusable(true);
-        this.egY.getEditView().setFocusableInTouchMode(true);
-        this.egY.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.a.d.3
+    public void bbD() {
+        this.eho.xX();
+        this.eho.getEditView().setFocusable(true);
+        this.eho.getEditView().setFocusableInTouchMode(true);
+        this.eho.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.a.d.3
             @Override // java.lang.Runnable
             public void run() {
-                d.this.egY.getEditView().requestFocus();
-                d.this.egY.getEditView().requestFocusFromTouch();
-                BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.egY.getEditView());
+                d.this.eho.getEditView().requestFocus();
+                d.this.eho.getEditView().requestFocusFromTouch();
+                BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.eho.getEditView());
             }
         }, 100L);
     }
 
-    public void bbA() {
-        this.egY.setVisibility(8);
-        this.egY.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.a.d.4
+    public void bbE() {
+        this.eho.setVisibility(8);
+        this.eho.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.a.d.4
             @Override // java.lang.Runnable
             public void run() {
-                BdUtilHelper.hideSoftKeyPad(d.this.mContext, d.this.egY.getEditView());
+                BdUtilHelper.hideSoftKeyPad(d.this.mContext, d.this.eho.getEditView());
             }
         });
     }

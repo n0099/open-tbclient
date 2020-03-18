@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void Aw(int i) {
+    public static void AE(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -21,7 +21,7 @@ public class e {
         TiebaStatic.log(new an("c12493").X("obj_type", i2));
     }
 
-    public static void Ax(int i) {
+    public static void AF(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -43,11 +43,11 @@ public class e {
         TiebaStatic.log(new an("c12029").X("obj_type", i2).X("obj_param1", j.isWifiNet() ? 0 : 1).X(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void Hi(String str) {
-        TiebaStatic.log(new an("c12026").cy("tid", str));
+    public static void Hh(String str) {
+        TiebaStatic.log(new an("c12026").cx("tid", str));
     }
 
-    public static void Ay(int i) {
+    public static void AG(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -58,7 +58,7 @@ public class e {
     }
 
     public static void d(Uri uri, String str) {
-        TiebaStatic.log(new an("c12199").cy("obj_param1", uri == null ? "null" : uri.toString()).cy(TiebaInitialize.Params.OBJ_PARAM2, str).cy(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tbadk.core.util.d.getIp()));
+        TiebaStatic.log(new an("c12199").cx("obj_param1", uri == null ? "null" : uri.toString()).cx(TiebaInitialize.Params.OBJ_PARAM2, str).cx(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tbadk.core.util.d.getIp()));
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         Object[] objArr = new Object[6];
         objArr[0] = "url";
@@ -170,7 +170,7 @@ public class e {
         }
     }
 
-    public static void cy(int i, int i2) {
+    public static void cz(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new an("c12511").X("obj_locate", 6));

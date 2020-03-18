@@ -17,6 +17,6 @@ public final class aj extends ag.a {
 
     @Override // com.xiaomi.push.service.ag.a
     protected void a() {
-        eu.m261a(this.a);
+        eu.m259a(this.a);
     }
 }

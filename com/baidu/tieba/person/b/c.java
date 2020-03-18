@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class c extends v.a {
     public TbImageView EB;
-    public View gfw;
-    private m jgB;
-    public TextView jgC;
+    public View gge;
+    private m jia;
+    public TextView jib;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
@@ -25,25 +25,25 @@ public class c extends v.a {
         this.mSkinType = 3;
         this.EB = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.EB.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gfw = view.findViewById(R.id.normal_pic_click_bg);
-        this.jgC = (TextView) view.findViewById(R.id.tip_default_view);
+        this.gge = view.findViewById(R.id.normal_pic_click_bg);
+        this.jib = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void h(m mVar) {
         if (mVar instanceof n) {
-            this.jgB = mVar;
+            this.jia = mVar;
             n nVar = (n) mVar;
-            if (nVar.aOb()) {
-                String tn = o.tn(nVar.getSmallUrl());
-                this.jgC.setVisibility(0);
-                if (StringUtils.isNull(tn)) {
+            if (nVar.aOf()) {
+                String tm = o.tm(nVar.getSmallUrl());
+                this.jib.setVisibility(0);
+                if (StringUtils.isNull(tm)) {
                     this.EB.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.EB.startLoad(tn, 25, false);
+                    this.EB.startLoad(tm, 25, false);
                 }
             } else {
                 this.EB.setDefaultResource(R.drawable.img_default_100);
-                this.jgC.setVisibility(8);
+                this.jib.setVisibility(8);
                 this.EB.startLoad(nVar.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
@@ -53,14 +53,14 @@ public class c extends v.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.setViewTextColor(this.jgC, R.color.cp_cont_g, 1);
-            am.setBackgroundColor(this.jgC, R.color.black_alpha50);
+            am.setViewTextColor(this.jib, R.color.cp_cont_g, 1);
+            am.setBackgroundColor(this.jib, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }
 
-    public m aIy() {
-        return this.jgB;
+    public m aIC() {
+        return this.jia;
     }
 
     public void D(View.OnClickListener onClickListener) {

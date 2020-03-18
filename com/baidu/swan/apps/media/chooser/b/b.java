@@ -21,26 +21,26 @@ public class b {
         if (resultDispatcher != null) {
             Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
             if (intent.resolveActivity(activity.getPackageManager()) != null) {
-                final File jg = jg(str);
-                if (jg == null || !jg.exists()) {
+                final File jf = jf(str);
+                if (jf == null || !jf.exists()) {
                     if (bVar != null) {
-                        bVar.je("error create file");
+                        bVar.jd("error create file");
                         return;
                     }
                     return;
                 }
                 if (com.baidu.swan.apps.as.a.hasNougat()) {
-                    fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", jg);
+                    fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", jf);
                     intent.setFlags(3);
                 } else {
-                    fromFile = Uri.fromFile(jg);
+                    fromFile = Uri.fromFile(jf);
                 }
                 intent.putExtra("output", fromFile);
                 resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.media.chooser.b.b.1
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                     public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                         if (i == -1 && com.baidu.swan.apps.media.chooser.c.b.this != null) {
-                            com.baidu.swan.apps.media.chooser.c.b.this.s(jg);
+                            com.baidu.swan.apps.media.chooser.c.b.this.s(jf);
                             return true;
                         }
                         return true;
@@ -56,17 +56,17 @@ public class b {
         ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher();
         if (resultDispatcher != null) {
             Intent intent = new Intent("android.media.action.VIDEO_CAPTURE");
-            final File jh = jh(str);
+            final File jg = jg(str);
             if (com.baidu.swan.apps.as.a.hasNougat()) {
-                fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", jh);
+                fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", jg);
                 intent.setFlags(3);
             } else {
-                fromFile = Uri.fromFile(jh);
+                fromFile = Uri.fromFile(jg);
             }
             intent.putExtra("output", fromFile);
             intent.putExtra("android.intent.extra.durationLimit", i);
             intent.putExtra("android.intent.extra.videoQuality", 1);
-            if (z && XH()) {
+            if (z && XK()) {
                 if (com.baidu.swan.apps.as.a.hasLollipopMR1()) {
                     intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
                     intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
@@ -79,7 +79,7 @@ public class b {
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                 public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i2, Intent intent2) {
                     if (i2 == -1 && com.baidu.swan.apps.media.chooser.c.b.this != null) {
-                        com.baidu.swan.apps.media.chooser.c.b.this.s(jh);
+                        com.baidu.swan.apps.media.chooser.c.b.this.s(jg);
                         return true;
                     }
                     return true;
@@ -143,7 +143,7 @@ public class b {
         return videoModel;
     }
 
-    private static boolean XH() {
+    private static boolean XK() {
         int numberOfCameras = Camera.getNumberOfCameras();
         for (int i = 0; i < numberOfCameras; i++) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -155,14 +155,14 @@ public class b {
         return false;
     }
 
-    private static File jg(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.storage.b.lY(str) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
+    private static File jf(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.storage.b.lX(str) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
         com.baidu.swan.d.c.createNewFileSafely(file);
         return file;
     }
 
-    private static File jh(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.storage.b.lY(str) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
+    private static File jg(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.storage.b.lX(str) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
         com.baidu.swan.d.c.createNewFileSafely(file);
         return file;
     }

@@ -15,7 +15,7 @@ public class s implements dk {
 
     @Override // com.xiaomi.push.dk
     public String a() {
-        return d.m85a(this.a).d();
+        return d.m83a(this.a).d();
     }
 
     @Override // com.xiaomi.push.dk

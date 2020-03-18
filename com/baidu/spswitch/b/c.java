@@ -19,7 +19,7 @@ public class c {
             view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.spswitch.b.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view4) {
-                    if (com.baidu.spswitch.emotion.b.bc(view2.getContext()).a(EmotionType.EMOTION_CLASSIC_TYPE)) {
+                    if (com.baidu.spswitch.emotion.b.bb(view2.getContext()).a(EmotionType.EMOTION_CLASSIC_TYPE)) {
                         boolean c = c.c(view, view3);
                         if (aVar != null) {
                             aVar.onClickSwitch(view4, c);
@@ -28,7 +28,7 @@ public class c {
                 }
             });
         }
-        if (bg(view.getContext())) {
+        if (bf(view.getContext())) {
             view3.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.spswitch.b.c.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view4, MotionEvent motionEvent) {
@@ -54,7 +54,7 @@ public class c {
 
     public static void d(View view, View view2) {
         e.Z(view2);
-        if (bg(view.getContext())) {
+        if (bf(view.getContext())) {
             view.setVisibility(4);
         }
     }
@@ -74,13 +74,13 @@ public class c {
         view.setVisibility(8);
     }
 
-    public static boolean bQ(boolean z) {
+    public static boolean bR(boolean z) {
         return z;
     }
 
-    public static boolean bg(Context context) {
+    public static boolean bf(Context context) {
         if (context instanceof Activity) {
-            return bQ(g.isFullScreen((Activity) context));
+            return bR(g.isFullScreen((Activity) context));
         }
         return false;
     }

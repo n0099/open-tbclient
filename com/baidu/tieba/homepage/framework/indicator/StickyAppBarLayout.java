@@ -15,29 +15,29 @@ import com.baidu.tbadk.switchs.MissionEntranceSwitch;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
 /* loaded from: classes9.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    CustomMessageListener dhn;
-    private StickyAppBarLayoutBehavior hav;
-    private a haw;
+    CustomMessageListener dhA;
+    private StickyAppBarLayoutBehavior hbD;
+    private a hbE;
     private int mSkinType;
 
     /* loaded from: classes9.dex */
     public interface a {
-        void mC(boolean z);
+        void mI(boolean z);
     }
 
     public StickyAppBarLayout(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.dhn = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
+        this.dhA = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.bNR();
+                        StickyAppBarLayout.this.bOf();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.bNS();
+                        StickyAppBarLayout.this.bOg();
                     }
                 }
             }
@@ -48,16 +48,16 @@ public class StickyAppBarLayout extends AppBarLayout {
     public StickyAppBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.dhn = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
+        this.dhA = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.bNR();
+                        StickyAppBarLayout.this.bOf();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.bNS();
+                        StickyAppBarLayout.this.bOg();
                     }
                 }
             }
@@ -67,62 +67,62 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     private void init() {
         if (MissionEntranceSwitch.isOn()) {
-            bNT();
+            bOh();
         }
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        bNQ();
+        bOe();
     }
 
-    private void bNQ() {
+    private void bOe() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.hav = (StickyAppBarLayoutBehavior) behavior;
+                this.hbD = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean bNR() {
-        if (this.hav == null) {
-            bNQ();
+    public boolean bOf() {
+        if (this.hbD == null) {
+            bOe();
         }
-        if (this.hav != null) {
-            if (isSticky() && MissionEntranceSwitch.isOn() && this.hav.bNW() != null && this.hav.bNW().getVisibility() == 0) {
-                bNT();
+        if (this.hbD != null) {
+            if (isSticky() && MissionEntranceSwitch.isOn() && this.hbD.bOk() != null && this.hbD.bOk().getVisibility() == 0) {
+                bOh();
             }
-            this.hav.bNU();
+            this.hbD.bOi();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bNS() {
-        if (this.hav == null) {
-            bNQ();
+    public boolean bOg() {
+        if (this.hbD == null) {
+            bOe();
         }
-        if (this.hav != null) {
-            this.hav.bNV();
+        if (this.hbD != null) {
+            this.hbD.bOj();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.hav == null) {
-            bNQ();
+        if (this.hbD == null) {
+            bOe();
         }
-        if (this.hav != null) {
-            return this.hav.isSticky();
+        if (this.hbD != null) {
+            return this.hbD.isSticky();
         }
         return false;
     }
 
-    private void bNT() {
+    private void bOh() {
         an anVar = new an("c13422");
         anVar.X("obj_type", 1);
         anVar.X("obj_locate", 1);
@@ -131,22 +131,22 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.haw = aVar;
+        this.hbE = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.haw;
+        return this.hbE;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.dhn);
+        MessageManager.getInstance().registerListener(this.dhA);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.dhn);
+        MessageManager.getInstance().unRegisterListener(this.dhA);
     }
 }

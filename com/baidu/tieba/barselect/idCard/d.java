@@ -20,22 +20,22 @@ public interface d {
 
     void a(e eVar);
 
-    void bul();
+    void buA();
+
+    void buq();
 
     @ICameraControl.FlashMode
-    int bum();
+    int bur();
 
-    View bun();
+    View bus();
 
-    Rect buu();
-
-    void buv();
+    Rect buz();
 
     void pause();
 
     void resume();
 
-    void rh(@ICameraControl.FlashMode int i);
+    void rj(@ICameraControl.FlashMode int i);
 
     void setDisplayOrientation(int i);
 

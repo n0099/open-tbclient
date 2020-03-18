@@ -12,79 +12,79 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class PullRefreshFrameLayout extends FrameLayout {
-    private static final int jtn = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
-    private static final int jto = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
-    public static final int jtp = jto + jtn;
-    private static final int jtq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
-    private static final float jtr = (float) ((jtq * 1.0d) / jto);
-    private double bGc;
-    private int czp;
-    private int czq;
+    private static final int juM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
+    private static final int juN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
+    public static final int juO = juN + juM;
+    private static final int juP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
+    private static final float juQ = (float) ((juP * 1.0d) / juN);
+    private double bGn;
+    private int czA;
+    private int czB;
     private boolean isLoading;
-    private ValueAnimator jsV;
-    boolean jts;
-    boolean jtt;
-    boolean jtu;
-    private int jtv;
-    private ContinuousAnimationView jtw;
-    private FrameLayout.LayoutParams jtx;
-    private b jty;
-    private a jtz;
+    boolean juR;
+    boolean juS;
+    boolean juT;
+    private int juU;
+    private ContinuousAnimationView juV;
+    private FrameLayout.LayoutParams juW;
+    private b juX;
+    private a juY;
+    private ValueAnimator juu;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cxU();
+        void cyn();
     }
 
     /* loaded from: classes11.dex */
     public interface b {
         void c(int i, double d);
 
-        void cxT();
+        void cym();
 
         void l(double d);
     }
 
     public PullRefreshFrameLayout(Context context) {
         super(context);
-        this.jts = false;
-        this.jtt = false;
-        this.jtu = false;
+        this.juR = false;
+        this.juS = false;
+        this.juT = false;
         this.isLoading = false;
         init();
     }
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jts = false;
-        this.jtt = false;
-        this.jtu = false;
+        this.juR = false;
+        this.juS = false;
+        this.juT = false;
         this.isLoading = false;
         init();
     }
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jts = false;
-        this.jtt = false;
-        this.jtu = false;
+        this.juR = false;
+        this.juS = false;
+        this.juT = false;
         this.isLoading = false;
         init();
     }
 
     private void init() {
-        this.jtw = new ContinuousAnimationView(getContext());
-        this.jtx = new FrameLayout.LayoutParams(jtn, jtn);
-        this.jtx.gravity = 49;
-        this.jtx.topMargin = -jtn;
-        this.jtw.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.jtw, this.jtx);
-        this.jtw.bringToFront();
-        this.jtw.setAnimation(R.raw.ad_refresh_load);
+        this.juV = new ContinuousAnimationView(getContext());
+        this.juW = new FrameLayout.LayoutParams(juM, juM);
+        this.juW.gravity = 49;
+        this.juW.topMargin = -juM;
+        this.juV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.juV, this.juW);
+        this.juV.bringToFront();
+        this.juV.setAnimation(R.raw.ad_refresh_load);
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.jtu = z;
+        this.juT = z;
     }
 
     @Override // android.view.ViewGroup
@@ -95,34 +95,34 @@ public class PullRefreshFrameLayout extends FrameLayout {
             int y = (int) motionEvent.getY();
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.jts = false;
-                    this.jtt = false;
-                    this.czq = y;
-                    this.czp = x;
+                    this.juR = false;
+                    this.juS = false;
+                    this.czB = y;
+                    this.czA = x;
                     break;
                 case 1:
                 case 3:
                     reset();
                     break;
                 case 2:
-                    int i = y - this.czq;
-                    int i2 = x - this.czp;
-                    if (!this.jts) {
-                        if (!this.jtt) {
-                            if (this.jtu) {
+                    int i = y - this.czB;
+                    int i2 = x - this.czA;
+                    if (!this.juR) {
+                        if (!this.juS) {
+                            if (this.juT) {
                                 if (i > 0 && Math.abs(i) > Math.abs(i2)) {
-                                    this.jtt = false;
-                                    this.jts = true;
+                                    this.juS = false;
+                                    this.juR = true;
                                     z = true;
                                     break;
                                 } else if (i < 0) {
-                                    this.jtt = true;
-                                    this.jts = false;
+                                    this.juS = true;
+                                    this.juR = false;
                                     break;
                                 }
                             } else {
-                                this.jtt = true;
-                                this.jts = false;
+                                this.juS = true;
+                                this.juR = false;
                                 break;
                             }
                         }
@@ -132,8 +132,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     }
                     break;
             }
-            this.czq = y;
-            this.czp = x;
+            this.czB = y;
+            this.czA = x;
         }
         return z;
     }
@@ -151,69 +151,69 @@ public class PullRefreshFrameLayout extends FrameLayout {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.czq = y;
-                this.czp = x;
+                this.czB = y;
+                this.czA = x;
                 return true;
             case 1:
             case 3:
-                cxV();
+                cyo();
                 reset();
                 return true;
             case 2:
-                int i = x - this.czp;
-                Aj(y - this.czq);
-                this.czq = y;
-                this.czp = x;
+                int i = x - this.czA;
+                Ar(y - this.czB);
+                this.czB = y;
+                this.czA = x;
                 return true;
             default:
                 return true;
         }
     }
 
-    private void Aj(int i) {
-        int i2 = this.jtx.topMargin + i;
-        if (i2 > jtp - jtn) {
-            i2 = jtp - jtn;
-        } else if (i2 < (-jtn)) {
-            i2 = -jtn;
+    private void Ar(int i) {
+        int i2 = this.juW.topMargin + i;
+        if (i2 > juO - juM) {
+            i2 = juO - juM;
+        } else if (i2 < (-juM)) {
+            i2 = -juM;
         }
-        this.jtx.topMargin = i2;
-        this.jtw.setLayoutParams(this.jtx);
-        this.jtv += i;
-        if (this.jtv > jtp) {
-            this.jtv = jtp;
-        } else if (this.jtv < 0) {
-            this.jtv = 0;
+        this.juW.topMargin = i2;
+        this.juV.setLayoutParams(this.juW);
+        this.juU += i;
+        if (this.juU > juO) {
+            this.juU = juO;
+        } else if (this.juU < 0) {
+            this.juU = 0;
         }
-        this.bGc = (this.jtv * 1.0d) / jtp;
-        if (this.jty != null) {
-            this.jty.l(this.bGc);
+        this.bGn = (this.juU * 1.0d) / juO;
+        if (this.juX != null) {
+            this.juX.l(this.bGn);
         }
     }
 
-    private void cxV() {
-        if (this.bGc >= jtr) {
+    private void cyo() {
+        if (this.bGn >= juQ) {
             this.isLoading = true;
-            this.jsV = ValueAnimator.ofFloat(this.jtx.topMargin, jtq);
-            this.jsV.setDuration(150L);
-            this.jsV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.1
+            this.juu = ValueAnimator.ofFloat(this.juW.topMargin, juP);
+            this.juu.setDuration(150L);
+            this.juu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    PullRefreshFrameLayout.this.jtx.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    PullRefreshFrameLayout.this.jtw.setLayoutParams(PullRefreshFrameLayout.this.jtx);
+                    PullRefreshFrameLayout.this.juW.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    PullRefreshFrameLayout.this.juV.setLayoutParams(PullRefreshFrameLayout.this.juW);
                 }
             });
-            this.jsV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.2
+            this.juu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (PullRefreshFrameLayout.this.jtz != null) {
-                        PullRefreshFrameLayout.this.jtz.cxU();
+                    if (PullRefreshFrameLayout.this.juY != null) {
+                        PullRefreshFrameLayout.this.juY.cyn();
                     }
-                    PullRefreshFrameLayout.this.jtw.playAnimation();
+                    PullRefreshFrameLayout.this.juV.playAnimation();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -224,21 +224,21 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.jsV.start();
-            this.jty.c(this.jtx.topMargin - jtq, (jtq * 1.0d) / this.jtx.topMargin);
+            this.juu.start();
+            this.juX.c(this.juW.topMargin - juP, (juP * 1.0d) / this.juW.topMargin);
             return;
         }
-        cxW();
+        cyp();
     }
 
-    public void cxW() {
+    public void cyp() {
         hideLoading();
-        if (this.jty != null) {
-            this.jty.cxT();
+        if (this.juX != null) {
+            this.juX.cym();
         }
     }
 
-    public void ahW() {
+    public void ahZ() {
         if (this.isLoading) {
             hideLoading();
         }
@@ -246,33 +246,33 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     private void hideLoading() {
         this.isLoading = false;
-        if (this.jtx.topMargin > (-jtn)) {
-            this.jsV = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.jsV.setDuration(300L);
-            final int i = this.jtx.topMargin;
-            this.jsV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.3
+        if (this.juW.topMargin > (-juM)) {
+            this.juu = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.juu.setDuration(300L);
+            final int i = this.juW.topMargin;
+            this.juu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     if (((float) (floatValue * 0.3d)) <= 0.0f) {
                     }
-                    PullRefreshFrameLayout.this.jtw.setAlpha(floatValue);
-                    PullRefreshFrameLayout.this.jtx.topMargin = (int) (floatValue * i);
-                    PullRefreshFrameLayout.this.jtw.setLayoutParams(PullRefreshFrameLayout.this.jtx);
+                    PullRefreshFrameLayout.this.juV.setAlpha(floatValue);
+                    PullRefreshFrameLayout.this.juW.topMargin = (int) (floatValue * i);
+                    PullRefreshFrameLayout.this.juV.setLayoutParams(PullRefreshFrameLayout.this.juW);
                 }
             });
-            this.jsV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.4
+            this.juu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.personPolymeric.view.PullRefreshFrameLayout.4
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    PullRefreshFrameLayout.this.jtx.topMargin = -PullRefreshFrameLayout.jtn;
-                    PullRefreshFrameLayout.this.jtw.setLayoutParams(PullRefreshFrameLayout.this.jtx);
-                    PullRefreshFrameLayout.this.jtw.cancelAnimation();
-                    PullRefreshFrameLayout.this.jtw.setFrame(0);
-                    PullRefreshFrameLayout.this.jtw.setAlpha(1.0f);
+                    PullRefreshFrameLayout.this.juW.topMargin = -PullRefreshFrameLayout.juM;
+                    PullRefreshFrameLayout.this.juV.setLayoutParams(PullRefreshFrameLayout.this.juW);
+                    PullRefreshFrameLayout.this.juV.cancelAnimation();
+                    PullRefreshFrameLayout.this.juV.setFrame(0);
+                    PullRefreshFrameLayout.this.juV.setAlpha(1.0f);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -283,38 +283,38 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.jsV.start();
+            this.juu.start();
         }
     }
 
     private void reset() {
-        this.bGc = 0.0d;
-        this.czq = 0;
-        this.czp = 0;
-        this.jtv = 0;
-        this.jts = false;
-        this.jtt = false;
+        this.bGn = 0.0d;
+        this.czB = 0;
+        this.czA = 0;
+        this.juU = 0;
+        this.juR = false;
+        this.juS = false;
     }
 
     public void setOnTouchCallback(b bVar) {
-        this.jty = bVar;
+        this.juX = bVar;
     }
 
     public void setOnPullRefreshListener(a aVar) {
-        this.jtz = aVar;
+        this.juY = aVar;
     }
 
     public void onDestroy() {
-        if (this.jtw != null) {
-            this.jtw.clearAnimation();
+        if (this.juV != null) {
+            this.juV.clearAnimation();
         }
-        if (this.jsV != null) {
-            this.jsV.cancel();
-            this.jsV.removeAllListeners();
-            this.jsV.removeAllUpdateListeners();
-            this.jsV = null;
+        if (this.juu != null) {
+            this.juu.cancel();
+            this.juu.removeAllListeners();
+            this.juu.removeAllUpdateListeners();
+            this.juu = null;
         }
-        this.jty = null;
-        this.jtz = null;
+        this.juX = null;
+        this.juY = null;
     }
 }

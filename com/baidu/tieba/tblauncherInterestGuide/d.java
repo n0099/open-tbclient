@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes9.dex */
 public class d extends Dialog implements a {
-    private View cug;
-    private View knE;
-    private LinearLayout knH;
-    private InterestFrsData.Tag knN;
-    private c knO;
-    private GridView knP;
+    private View cus;
+    private View kpi;
+    private LinearLayout kpl;
+    private InterestFrsData.Tag kpr;
+    private c kps;
+    private GridView kpt;
     private Context mContext;
     private TextView mSubTitle;
     private TextView mTitle;
@@ -30,49 +30,49 @@ public class d extends Dialog implements a {
     }
 
     private void init() {
-        this.cug = View.inflate(this.mContext, R.layout.new_user_img_box, null);
-        this.knO = new c(this.mContext);
+        this.cus = View.inflate(this.mContext, R.layout.new_user_img_box, null);
+        this.kps = new c(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.knH = (LinearLayout) this.cug.findViewById(R.id.box_close_layout);
-        this.knP = (GridView) this.cug.findViewById(R.id.layout_content);
-        this.knP.setAdapter((ListAdapter) this.knO);
-        this.knP.setSelector(R.color.common_color_10022);
-        setContentView(this.cug);
-        this.mTitle = (TextView) this.cug.findViewById(R.id.prompt_title);
-        this.mSubTitle = (TextView) this.cug.findViewById(R.id.prompt_sub_title);
-        this.knE = this.cug.findViewById(R.id.view_layout);
-        this.knE.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+        this.kpl = (LinearLayout) this.cus.findViewById(R.id.box_close_layout);
+        this.kpt = (GridView) this.cus.findViewById(R.id.layout_content);
+        this.kpt.setAdapter((ListAdapter) this.kps);
+        this.kpt.setSelector(R.color.common_color_10022);
+        setContentView(this.cus);
+        this.mTitle = (TextView) this.cus.findViewById(R.id.prompt_title);
+        this.mSubTitle = (TextView) this.cus.findViewById(R.id.prompt_sub_title);
+        this.kpi = this.cus.findViewById(R.id.view_layout);
+        this.kpi.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void a(InterestFrsData.Tag tag) {
-        this.knN = tag;
-        if (this.knN != null) {
+        this.kpr = tag;
+        if (this.kpr != null) {
             this.mTitle.setText(tag.getBname());
             this.mSubTitle.setText(tag.getBdesc());
-            this.knO.setData(tag.getCard_list());
+            this.kps.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void CP(int i) {
-        this.knO.notifyDataSetChanged();
+    public void CX(int i) {
+        this.kps.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void CQ(int i) {
-        this.knO.notifyDataSetChanged();
+    public void CY(int i) {
+        this.kps.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.knH.setOnClickListener(onClickListener);
-        this.knO.setOnClickListener(onClickListener);
+        this.kpl.setOnClickListener(onClickListener);
+        this.kps.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public View getRootView() {
-        return this.cug;
+        return this.cus;
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.tblauncherInterestGuide.a

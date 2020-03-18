@@ -38,7 +38,7 @@ public class i extends h {
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        this.Ko.q(aVar.aAg());
+        this.Ko.q(aVar.aAj());
     }
 
     @Override // com.baidu.card.n

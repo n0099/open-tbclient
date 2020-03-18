@@ -27,25 +27,25 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.core.d.e GC = ((SwanAppActivity) context).GC();
-        if (GC == null) {
+        com.baidu.swan.apps.core.d.e GH = ((SwanAppActivity) context).GH();
+        if (GH == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "none fragmentManger");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
             return false;
         }
-        com.baidu.swan.apps.core.d.b On = GC.On();
-        if (!(On instanceof a.InterfaceC0283a)) {
+        com.baidu.swan.apps.core.d.b Oq = GH.Oq();
+        if (!(Oq instanceof a.InterfaceC0283a)) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
-        } else if (On.getContext() == null) {
+        } else if (Oq.getContext() == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment has detached");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a Gx = ((a.InterfaceC0283a) On).Gx();
-            if (Gx != null && (Gx.getView() instanceof LoadingView)) {
-                Gx.reset();
+            com.baidu.swan.apps.res.widget.floatlayer.a GC = ((a.InterfaceC0283a) Oq).GC();
+            if (GC != null && (GC.getView() instanceof LoadingView)) {
+                GC.reset();
             }
             com.baidu.swan.apps.console.c.i("hideLoading", "hide loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

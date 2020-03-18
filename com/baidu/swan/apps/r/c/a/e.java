@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Ts() {
+    public String Tv() {
         return "showConfirmBar";
     }
 

@@ -10,19 +10,19 @@ import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 /* loaded from: classes.dex */
 public class MutiProcessStatic {
     static {
-        aQh();
+        aQl();
     }
 
-    private static void aQh() {
+    private static void aQl() {
         try {
-            g aQg = g.aQg();
-            aQg.a(AgreeEvent.class, new com.baidu.tbadk.mutiprocess.agree.a());
-            aQg.a(MissionEvent.class, new com.baidu.tbadk.mutiprocess.mission.a());
-            aQg.a(CompeteTaskEvent.class, new com.baidu.tbadk.mutiprocess.competetask.a());
-            aQg.a(ShareEvent.class, new com.baidu.tbadk.mutiprocess.share.a());
-            aQg.a(HistoryEvent.class, new com.baidu.tbadk.mutiprocess.history.a());
-            aQg.a(BackBaiduBoxViewEvent.class, new com.baidu.tbadk.mutiprocess.backbaidubox.a());
-            aQg.a(SyncDataEvent.class, new com.baidu.tbadk.mutiprocess.sync.a());
+            g aQk = g.aQk();
+            aQk.a(AgreeEvent.class, new com.baidu.tbadk.mutiprocess.agree.a());
+            aQk.a(MissionEvent.class, new com.baidu.tbadk.mutiprocess.mission.a());
+            aQk.a(CompeteTaskEvent.class, new com.baidu.tbadk.mutiprocess.competetask.a());
+            aQk.a(ShareEvent.class, new com.baidu.tbadk.mutiprocess.share.a());
+            aQk.a(HistoryEvent.class, new com.baidu.tbadk.mutiprocess.history.a());
+            aQk.a(BackBaiduBoxViewEvent.class, new com.baidu.tbadk.mutiprocess.backbaidubox.a());
+            aQk.a(SyncDataEvent.class, new com.baidu.tbadk.mutiprocess.sync.a());
         } catch (Exception e) {
             e.printStackTrace();
         }

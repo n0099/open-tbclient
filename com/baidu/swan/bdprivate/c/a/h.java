@@ -20,13 +20,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private final int ccZ;
-    private final String cda;
+    private final int cdk;
+    private final String cdm;
 
     public h(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.ccZ = 10008;
-        this.cda = "app not installed";
+        this.cdk = 10008;
+        this.cdm = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -46,11 +46,11 @@ public class h extends ab {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int nj = nj(optString2);
+        int ni = ni(optString2);
         final b.a aVar = new b.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", nj);
-        eVar.acP().b(context, "mapp_i_login", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.h.1
+        bundle.putInt("key_login_mode", ni);
+        eVar.acS().b(context, "mapp_i_login", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -73,7 +73,7 @@ public class h extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.runtime.e eVar, Activity activity, final b.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        eVar.acP().a(activity, aVar, bundle, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<e.c>>() { // from class: com.baidu.swan.bdprivate.c.a.h.2
+        eVar.acS().a(activity, aVar, bundle, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<e.c>>() { // from class: com.baidu.swan.bdprivate.c.a.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -104,7 +104,7 @@ public class h extends ab {
         });
     }
 
-    private int nj(String str) {
+    private int ni(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

@@ -12,16 +12,16 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
     private Context context;
-    private com.baidu.tieba.ala.anchortask.b.a evB;
-    private Space evC;
-    private TextView evD;
-    private FrameLayout evE;
-    private ProgressBar evF;
-    private View evG;
-    private FrameLayout evH;
-    private TextView evI;
-    private TextView evJ;
-    private TextView evK;
+    private com.baidu.tieba.ala.anchortask.b.a evX;
+    private Space evY;
+    private TextView evZ;
+    private FrameLayout ewa;
+    private ProgressBar ewb;
+    private View ewc;
+    private FrameLayout ewd;
+    private TextView ewe;
+    private TextView ewf;
+    private TextView ewg;
     private View mView;
 
     public a(Context context) {
@@ -33,19 +33,19 @@ public class a {
         this.mView = LayoutInflater.from(this.context).inflate(a.h.layout_anchor_view, (ViewGroup) null);
         this.mView.setId(a.g.id_anchorTask_view);
         this.mView.setVisibility(8);
-        bdP();
+        bdU();
     }
 
-    private void bdP() {
-        this.evC = (Space) this.mView.findViewById(a.g.space);
-        this.evD = (TextView) this.mView.findViewById(a.g.currRatio_textView);
-        this.evE = (FrameLayout) this.mView.findViewById(a.g.process_layout);
-        this.evF = (ProgressBar) this.mView.findViewById(a.g.proportion_progressBar);
-        this.evG = this.mView.findViewById(a.g.endPoint_view);
-        this.evH = (FrameLayout) this.mView.findViewById(a.g.desc_layout);
-        this.evI = (TextView) this.mView.findViewById(a.g.currProgess_textView);
-        this.evJ = (TextView) this.mView.findViewById(a.g.desc_textView);
-        this.evK = (TextView) this.mView.findViewById(a.g.nextRatio_textView);
+    private void bdU() {
+        this.evY = (Space) this.mView.findViewById(a.g.space);
+        this.evZ = (TextView) this.mView.findViewById(a.g.currRatio_textView);
+        this.ewa = (FrameLayout) this.mView.findViewById(a.g.process_layout);
+        this.ewb = (ProgressBar) this.mView.findViewById(a.g.proportion_progressBar);
+        this.ewc = this.mView.findViewById(a.g.endPoint_view);
+        this.ewd = (FrameLayout) this.mView.findViewById(a.g.desc_layout);
+        this.ewe = (TextView) this.mView.findViewById(a.g.currProgess_textView);
+        this.ewf = (TextView) this.mView.findViewById(a.g.desc_textView);
+        this.ewg = (TextView) this.mView.findViewById(a.g.nextRatio_textView);
     }
 
     public View getView() {
@@ -53,72 +53,72 @@ public class a {
     }
 
     public void a(com.baidu.tieba.ala.anchortask.b.a aVar) {
-        this.evB = aVar;
-        if (aVar.evp == 2) {
+        this.evX = aVar;
+        if (aVar.evL == 2) {
             this.mView.setVisibility(8);
             return;
         }
-        this.evD.setText(aVar.evr + "%");
-        int i = aVar.evz;
+        this.evZ.setText(aVar.evN + "%");
+        int i = aVar.evV;
         if (i < 0) {
             i = 0;
         }
         if (i > 100) {
             i = 100;
         }
-        this.evF.setProgress(i);
+        this.ewb.setProgress(i);
         if (i < 100) {
-            this.evG.setBackgroundResource(a.f.bg_circlepoint_393939);
+            this.ewc.setBackgroundResource(a.f.bg_circlepoint_393939);
         } else {
-            this.evG.setBackgroundResource(a.f.bg_circlepoint_faca21);
+            this.ewc.setBackgroundResource(a.f.bg_circlepoint_faca21);
         }
-        if (aVar.evy == 1) {
-            this.evC.setVisibility(0);
-            this.evE.setVisibility(0);
-            this.evH.setVisibility(0);
+        if (aVar.evU == 1) {
+            this.evY.setVisibility(0);
+            this.ewa.setVisibility(0);
+            this.ewd.setVisibility(0);
             this.mView.setBackgroundResource(a.f.bg_anchor_view);
-            if (aVar.evA == 1) {
-                this.evI.setVisibility(0);
-                this.evI.setText(aVar.evr + "%");
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_next_reach));
-                this.evK.setVisibility(0);
-                this.evK.setText(aVar.evs + "%");
-            } else if (aVar.evA == 2) {
-                this.evI.setVisibility(8);
-                this.evK.setVisibility(8);
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_done));
-            } else if (aVar.evA == 3) {
-                this.evI.setVisibility(8);
-                this.evK.setVisibility(8);
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_not_finished));
+            if (aVar.evW == 1) {
+                this.ewe.setVisibility(0);
+                this.ewe.setText(aVar.evN + "%");
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_next_reach));
+                this.ewg.setVisibility(0);
+                this.ewg.setText(aVar.evO + "%");
+            } else if (aVar.evW == 2) {
+                this.ewe.setVisibility(8);
+                this.ewg.setVisibility(8);
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_done));
+            } else if (aVar.evW == 3) {
+                this.ewe.setVisibility(8);
+                this.ewg.setVisibility(8);
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_not_finished));
             }
-        } else if (aVar.evy == 2) {
-            this.evC.setVisibility(0);
-            this.evE.setVisibility(8);
-            this.evH.setVisibility(0);
-            this.evI.setVisibility(8);
-            this.evK.setVisibility(8);
+        } else if (aVar.evU == 2) {
+            this.evY.setVisibility(0);
+            this.ewa.setVisibility(8);
+            this.ewd.setVisibility(0);
+            this.ewe.setVisibility(8);
+            this.ewg.setVisibility(8);
             this.mView.setBackgroundResource(a.f.bg_anchor_view);
-            if (aVar.evA == 1) {
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_risk_reduction));
-            } else if (aVar.evA == 2) {
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_done));
-            } else if (aVar.evA == 3) {
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_not_finished));
+            if (aVar.evW == 1) {
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_risk_reduction));
+            } else if (aVar.evW == 2) {
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_done));
+            } else if (aVar.evW == 3) {
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_not_finished));
             }
-        } else if (aVar.evy == 3) {
-            this.evE.setVisibility(8);
-            if (aVar.evr < aVar.evs) {
-                this.evC.setVisibility(0);
-                this.evH.setVisibility(0);
-                this.evK.setVisibility(0);
-                this.evI.setVisibility(8);
-                this.evJ.setText(this.context.getText(a.i.txt_anchor_next_reach));
-                this.evK.setText(aVar.evs + "%");
+        } else if (aVar.evU == 3) {
+            this.ewa.setVisibility(8);
+            if (aVar.evN < aVar.evO) {
+                this.evY.setVisibility(0);
+                this.ewd.setVisibility(0);
+                this.ewg.setVisibility(0);
+                this.ewe.setVisibility(8);
+                this.ewf.setText(this.context.getText(a.i.txt_anchor_next_reach));
+                this.ewg.setText(aVar.evO + "%");
                 this.mView.setBackgroundResource(a.f.bg_anchor_view);
             } else {
-                this.evC.setVisibility(8);
-                this.evH.setVisibility(8);
+                this.evY.setVisibility(8);
+                this.ewd.setVisibility(8);
                 this.mView.setBackgroundResource(a.f.bg_anchor_view_halfround);
             }
         }

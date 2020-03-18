@@ -7,11 +7,11 @@ public class h extends e {
     public long maxAge;
     public String token;
 
-    public long atJ() {
+    public long atM() {
         return System.currentTimeMillis() / 1000;
     }
 
-    public boolean atK() {
-        return atJ() - this.updateTime > this.maxAge;
+    public boolean atN() {
+        return atM() - this.updateTime > this.maxAge;
     }
 }

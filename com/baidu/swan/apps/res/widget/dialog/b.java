@@ -39,12 +39,12 @@ public class b extends g {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        ack().an(this.mView);
+        acn().an(this.mView);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.mView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, ack().getCustomContentParent(), false);
+        this.mView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, acn().getCustomContentParent(), false);
         this.mContent = (FrameLayout) this.mView.findViewById(a.f.hv_content);
         this.mDivider = this.mView.findViewById(a.f.hv_divider);
         this.mBtnContainer = (FrameLayout) this.mView.findViewById(a.f.hv_btn_content);
@@ -116,7 +116,7 @@ public class b extends g {
 
     /* loaded from: classes11.dex */
     public class d {
-        b bNI;
+        b bNT;
         LinearLayout button;
         TextView subText;
         TextView text;
@@ -126,7 +126,7 @@ public class b extends g {
                 this.text = (TextView) view.findViewById(a.f.hv_btn_text);
                 this.subText = (TextView) view.findViewById(a.f.hv_btn_subtext);
                 this.button = (LinearLayout) view;
-                this.bNI = bVar;
+                this.bNT = bVar;
             }
         }
 
@@ -148,9 +148,9 @@ public class b extends g {
                 this.button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.bNI.dismiss();
-                        if (aVar.bNH != null) {
-                            aVar.bNH.onItemClick(view);
+                        d.this.bNT.dismiss();
+                        if (aVar.bNS != null) {
+                            aVar.bNS.onItemClick(view);
                         }
                     }
                 });
@@ -166,12 +166,12 @@ public class b extends g {
         public C0282b(Context context) {
             super(context);
             this.list = new ArrayList();
-            dG(false);
-            dC(false);
+            dH(false);
+            dD(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g bX(Context context) {
+        protected g bW(Context context) {
             return new b(context);
         }
 
@@ -183,8 +183,8 @@ public class b extends g {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Pc() {
-            b bVar = (b) super.Pc();
+        public g Pf() {
+            b bVar = (b) super.Pf();
             bVar.setBtnItemList(this.list);
             return bVar;
         }
@@ -192,7 +192,7 @@ public class b extends g {
 
     /* loaded from: classes11.dex */
     public static class a {
-        public c bNH;
+        public c bNS;
         public CharSequence mSubText;
         public int mSubTextColorId = -1;
         public CharSequence mText;
@@ -202,7 +202,7 @@ public class b extends g {
             this.mTextColorId = -1;
             this.mText = charSequence;
             this.mTextColorId = i;
-            this.bNH = cVar;
+            this.bNS = cVar;
         }
     }
 }

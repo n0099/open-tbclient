@@ -9,8 +9,8 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes12.dex */
 public class f {
-    private String QJ;
-    private String QK;
+    private String QL;
+    private String QM;
     private String mVersionName;
 
     public f() {
@@ -20,8 +20,8 @@ public class f {
     private void init() {
         Context appContext = AppRuntime.getAppContext();
         this.mVersionName = getVersionName(appContext);
-        this.QJ = getUA(appContext);
-        this.QK = new String(Base64Encoder.B64Encode(this.QJ.getBytes()));
+        this.QL = getUA(appContext);
+        this.QM = new String(Base64Encoder.B64Encode(this.QL.getBytes()));
     }
 
     private String getUA(Context context) {
@@ -41,8 +41,8 @@ public class f {
         return stringBuffer.toString();
     }
 
-    public String nY() {
-        return this.QJ;
+    public String nX() {
+        return this.QL;
     }
 
     private String getVersionName(Context context) {

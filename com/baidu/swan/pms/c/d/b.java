@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes11.dex */
 public class b extends f {
-    private List<a> cBZ;
+    private List<a> cCk;
 
     public b(Collection<String> collection) {
         super(-1);
@@ -21,17 +21,17 @@ public class b extends f {
                 collection.clear();
                 collection.addAll(linkedHashSet);
             }
-            Map<String, PMSAppInfo> atx = com.baidu.swan.pms.database.a.atv().atx();
-            Map<String, com.baidu.swan.pms.model.f> atw = com.baidu.swan.pms.database.a.atv().atw();
+            Map<String, PMSAppInfo> atA = com.baidu.swan.pms.database.a.aty().atA();
+            Map<String, com.baidu.swan.pms.model.f> atz = com.baidu.swan.pms.database.a.aty().atz();
             ArrayList arrayList = new ArrayList();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar = new a(str);
-                    a(atx, atw, aVar);
+                    a(atA, atz, aVar);
                     arrayList.add(aVar);
                 }
             }
-            this.cBZ = arrayList;
+            this.cCk = arrayList;
         }
     }
 
@@ -50,43 +50,43 @@ public class b extends f {
         }
     }
 
-    public List<a> auj() {
-        return this.cBZ;
+    public List<a> aum() {
+        return this.cCk;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String cCa;
+        private String cCl;
         private int mCategory = -1;
-        private int cCb = 0;
-        private long cCc = 0;
+        private int cCm = 0;
+        private long cCn = 0;
 
         public a(String str) {
-            this.cCa = str;
+            this.cCl = str;
         }
 
         public String getBundleId() {
-            return this.cCa;
+            return this.cCl;
         }
 
-        public int auk() {
-            return this.cCb;
+        public int aun() {
+            return this.cCm;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aul() {
-            return this.cCc;
+        public long auo() {
+            return this.cCn;
         }
 
         void iI(int i) {
-            this.cCb = i;
+            this.cCm = i;
         }
 
         void bk(long j) {
-            this.cCc = j;
+            this.cCn = j;
         }
 
         void setCategory(int i) {
@@ -94,7 +94,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.cCa, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.cCl, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -103,7 +103,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.cCa) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.cCl) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

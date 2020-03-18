@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.flow.a {
     @Override // com.baidu.tbadk.core.flow.a
-    public c aET() {
+    public c aEX() {
         c cVar = new c();
         cVar.kk(R.drawable.icon_banner_n);
         cVar.kl(R.drawable.icon_banner_s);
@@ -21,7 +21,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public TbImageView dJ(Context context) {
+    public TbImageView dI(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
@@ -29,7 +29,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public e aEU() {
+    public e aEY() {
         e eVar = new e();
         Resources resources = TbadkCoreApplication.getInst().getResources();
         if (resources != null) {
@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public View aEV() {
+    public View aEZ() {
         return null;
     }
 }

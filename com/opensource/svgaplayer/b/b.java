@@ -7,7 +7,7 @@ public final class b {
     private final int length;
     private final int location;
 
-    public final int bTb() {
+    public final int bTt() {
         return this.length;
     }
 

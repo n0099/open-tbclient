@@ -1,44 +1,44 @@
 package com.google.android.exoplayer2.source.dash;
 /* loaded from: classes6.dex */
 public final class e implements d {
-    private final com.google.android.exoplayer2.extractor.a muH;
+    private final com.google.android.exoplayer2.extractor.a mwn;
 
     public e(com.google.android.exoplayer2.extractor.a aVar) {
-        this.muH = aVar;
+        this.mwn = aVar;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int dwY() {
+    public int dxv() {
         return 0;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int gq(long j) {
-        return this.muH.length;
+    public int gr(long j) {
+        return this.mwn.length;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public long KV(int i) {
-        return this.muH.mef[i];
+    public long Lb(int i) {
+        return this.mwn.mfL[i];
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
     public long F(int i, long j) {
-        return this.muH.mee[i];
+        return this.mwn.mfK[i];
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public com.google.android.exoplayer2.source.dash.manifest.f KW(int i) {
-        return new com.google.android.exoplayer2.source.dash.manifest.f(null, this.muH.med[i], this.muH.mec[i]);
+    public com.google.android.exoplayer2.source.dash.manifest.f Lc(int i) {
+        return new com.google.android.exoplayer2.source.dash.manifest.f(null, this.mwn.mfJ[i], this.mwn.mfI[i]);
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
     public int T(long j, long j2) {
-        return this.muH.fK(j);
+        return this.mwn.fL(j);
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public boolean dwZ() {
+    public boolean dxw() {
         return true;
     }
 }

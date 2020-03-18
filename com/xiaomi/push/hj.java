@@ -26,9 +26,9 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     public int compareTo(hj hjVar) {
         int a2;
         if (getClass().equals(hjVar.getClass())) {
-            int compareTo = Boolean.valueOf(m333a()).compareTo(Boolean.valueOf(hjVar.m333a()));
+            int compareTo = Boolean.valueOf(m331a()).compareTo(Boolean.valueOf(hjVar.m331a()));
             if (compareTo == 0) {
-                if (!m333a() || (a2 = is.a(this.f458a, hjVar.f458a)) == 0) {
+                if (!m331a() || (a2 = is.a(this.f458a, hjVar.f458a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -39,7 +39,7 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m332a() {
+    public void m330a() {
         if (this.f458a == null) {
             throw new jd("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
@@ -54,20 +54,20 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
-                m332a();
+                m330a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a == 15) {
-                        ja m469a = jcVar.m469a();
-                        this.f458a = new ArrayList(m469a.f791a);
-                        for (int i = 0; i < m469a.f791a; i++) {
+                    if (m466a.a == 15) {
+                        ja m467a = jcVar.m467a();
+                        this.f458a = new ArrayList(m467a.f791a);
+                        for (int i = 0; i < m467a.f791a; i++) {
                             hk hkVar = new hk();
                             hkVar.a(jcVar);
                             this.f458a.add(hkVar);
@@ -75,11 +75,11 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m468a.a);
+                        jf.a(jcVar, m466a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -87,23 +87,23 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m333a() {
+    public boolean m331a() {
         return this.f458a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m334a(hj hjVar) {
+    public boolean m332a(hj hjVar) {
         if (hjVar == null) {
             return false;
         }
-        boolean m333a = m333a();
-        boolean m333a2 = hjVar.m333a();
-        return !(m333a || m333a2) || (m333a && m333a2 && this.f458a.equals(hjVar.f458a));
+        boolean m331a = m331a();
+        boolean m331a2 = hjVar.m331a();
+        return !(m331a || m331a2) || (m331a && m331a2 && this.f458a.equals(hjVar.f458a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m332a();
+        m330a();
         jcVar.a(f457a);
         if (this.f458a != null) {
             jcVar.a(a);
@@ -115,12 +115,12 @@ public class hj implements ir<hj, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hj)) {
-            return m334a((hj) obj);
+            return m332a((hj) obj);
         }
         return false;
     }

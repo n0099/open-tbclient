@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class az extends bj {
-    public static final BdUniqueId cQw = BdUniqueId.gen();
-    private ArrayList<RecommendForumData> cQx = new ArrayList<>();
+    public static final BdUniqueId cQJ = BdUniqueId.gen();
+    private ArrayList<RecommendForumData> cQK = new ArrayList<>();
 
-    public ArrayList<RecommendForumData> aBx() {
-        return this.cQx;
+    public ArrayList<RecommendForumData> aBA() {
+        return this.cQK;
     }
 
     @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cQw;
+        return cQJ;
     }
 }

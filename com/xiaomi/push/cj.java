@@ -88,7 +88,7 @@ public class cj implements co {
             return;
         }
         this.b++;
-        cm.m194a("send: " + this.b);
+        cm.m192a("send: " + this.b);
         ck ckVar = new ck(this, this.f189b, this.f190c, chVar);
         this.f188a.put(chVar.b, chVar);
         ckVar.execute(new String[0]);
@@ -98,7 +98,7 @@ public class cj implements co {
         try {
             String a2 = a(arrayList, str);
             String a3 = cm.a(a2);
-            if (m193a(new ch(i, a2, a3))) {
+            if (m191a(new ch(i, a2, a3))) {
                 a(new ch(i, a2, a3));
             }
         } catch (JSONException e) {
@@ -106,7 +106,7 @@ public class cj implements co {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m193a(ch chVar) {
+    private boolean m191a(ch chVar) {
         if (cl.a(this.f185a)) {
             return true;
         }
@@ -116,7 +116,7 @@ public class cj implements co {
 
     private void b(ch chVar) {
         this.d++;
-        cm.m194a("cacheCount: " + this.d);
+        cm.m192a("cacheCount: " + this.d);
         this.f186a.a(chVar);
         this.f186a.a();
     }
@@ -135,11 +135,11 @@ public class cj implements co {
         if (this.f188a.containsKey(chVar.b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cm.m194a("faild: " + this.c + HanziToPinyin.Token.SEPARATOR + chVar.b + "  " + this.f188a.size());
+                cm.m192a("faild: " + this.c + HanziToPinyin.Token.SEPARATOR + chVar.b + "  " + this.f188a.size());
                 b(chVar);
             } else {
                 this.f184a++;
-                cm.m194a("success: " + this.f184a);
+                cm.m192a("success: " + this.f184a);
             }
             this.f188a.remove(chVar.b);
         }

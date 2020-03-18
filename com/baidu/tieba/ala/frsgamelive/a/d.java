@@ -7,38 +7,38 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private com.baidu.adp.base.e cVE;
-    private BdTypeMultiColumnListView eBJ;
-    private e eBK;
-    private h eBL;
+    private final List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private com.baidu.adp.base.e cVR;
+    private BdTypeMultiColumnListView eCf;
+    private e eCg;
+    private h eCh;
 
     public d(com.baidu.adp.base.e eVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.cVE = eVar;
-        this.eBJ = bdTypeMultiColumnListView;
-        wM();
+        this.cVR = eVar;
+        this.eCf = bdTypeMultiColumnListView;
+        wR();
     }
 
-    private void wM() {
-        this.eBK = new e((TbPageContext) this.cVE, com.baidu.tieba.ala.frsgamelive.b.c.eBT);
-        this.eBL = new h((TbPageContext) this.cVE, com.baidu.tieba.ala.frsgamelive.b.c.eBU);
-        this.asF.add(this.eBK);
-        this.asF.add(this.eBL);
-        this.eBJ.addAdapters(this.asF);
+    private void wR() {
+        this.eCg = new e((TbPageContext) this.cVR, com.baidu.tieba.ala.frsgamelive.b.c.eCp);
+        this.eCh = new h((TbPageContext) this.cVR, com.baidu.tieba.ala.frsgamelive.b.c.eCq);
+        this.asP.add(this.eCg);
+        this.asP.add(this.eCh);
+        this.eCf.addAdapters(this.asP);
     }
 
     public void setDatas(List<m> list) {
-        if (this.eBJ != null) {
-            this.eBJ.setData(list);
+        if (this.eCf != null) {
+            this.eCf.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.eBK != null) {
-            this.eBK.a(dVar);
+        if (this.eCg != null) {
+            this.eCg.a(dVar);
         }
-        if (this.eBL != null) {
-            this.eBL.a(dVar);
+        if (this.eCh != null) {
+            this.eCh.a(dVar);
         }
     }
 }

@@ -10,30 +10,30 @@ import java.io.File;
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder nnN;
-    public final KeyGenerator nnO;
-    public final ProxyConfiguration nnP;
-    public final int nnQ;
-    public final int nnR;
-    public UrlConverter nnS;
-    public Dns nnT;
-    public Zone nnU;
+    public final Recorder npC;
+    public final KeyGenerator npD;
+    public final ProxyConfiguration npE;
+    public final int npF;
+    public final int npG;
+    public UrlConverter npH;
+    public Dns npI;
+    public Zone npJ;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.nnQ = builder.nnQ;
+        this.npF = builder.npF;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.nnN = builder.nnN;
-        this.nnO = a(builder.nnO);
-        this.nnR = builder.nnR;
-        this.nnP = builder.nnP;
-        this.nnS = builder.nnS;
-        this.nnU = builder.nnU == null ? AutoZone.nmS : builder.nnU;
-        this.nnT = builder.nnT;
+        this.npC = builder.npC;
+        this.npD = a(builder.npD);
+        this.npG = builder.npG;
+        this.npE = builder.npE;
+        this.npH = builder.npH;
+        this.npJ = builder.npJ == null ? AutoZone.noH : builder.npJ;
+        this.npI = builder.npI;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
@@ -50,20 +50,20 @@ public final class Configuration {
 
     /* loaded from: classes5.dex */
     public static class Builder {
-        private Zone nnU = null;
-        private Recorder nnN = null;
-        private KeyGenerator nnO = null;
-        private ProxyConfiguration nnP = null;
+        private Zone npJ = null;
+        private Recorder npC = null;
+        private KeyGenerator npD = null;
+        private ProxyConfiguration npE = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int nnQ = 4194304;
+        private int npF = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int nnR = 3;
-        private UrlConverter nnS = null;
-        private Dns nnT = null;
+        private int npG = 3;
+        private UrlConverter npH = null;
+        private Dns npI = null;
 
-        public Configuration dGa() {
+        public Configuration dGA() {
             return new Configuration(this);
         }
     }

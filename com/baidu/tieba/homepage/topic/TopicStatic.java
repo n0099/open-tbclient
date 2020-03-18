@@ -27,35 +27,35 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class TopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, TopicDetailActivity.class);
-        bPn();
-        bPo();
-        bPp();
-        bPq();
-        bPr();
+        bPF();
+        bPG();
+        bPH();
+        bPI();
+        bPJ();
     }
 
-    private static void bPn() {
+    private static void bPF() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void bPo() {
+    private static void bPG() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void bPp() {
+    private static void bPH() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void bPq() {
+    private static void bPI() {
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void bPr() {
-        ba.aGG().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
+    private static void bPJ() {
+        ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {

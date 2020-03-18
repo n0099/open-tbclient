@@ -52,14 +52,14 @@ public final class b {
         return new b(i);
     }
 
-    public static b jm(String str) {
+    public static b jl(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return jn("file:///android_asset/" + str);
+        return jm("file:///android_asset/" + str);
     }
 
-    public static b jn(String str) {
+    public static b jm(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -79,15 +79,15 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b XP() {
-        return cW(true);
+    public b XS() {
+        return cX(true);
     }
 
-    public b XQ() {
-        return cW(false);
+    public b XT() {
+        return cX(false);
     }
 
-    public b cW(boolean z) {
+    public b cX(boolean z) {
         this.tile = z;
         return this;
     }

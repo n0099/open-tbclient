@@ -1,12 +1,10 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* loaded from: classes9.dex */
-public class q extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId grC = BdUniqueId.gen();
-
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return grC;
-    }
+public class q extends v.a {
+    public FrsCommonImageLayout gsf;
+    public HeadImageView gsg;
 }

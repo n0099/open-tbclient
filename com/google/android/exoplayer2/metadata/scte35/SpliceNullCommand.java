@@ -14,7 +14,7 @@ public final class SpliceNullCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kv */
+        /* renamed from: KB */
         public SpliceNullCommand[] newArray(int i) {
             return new SpliceNullCommand[i];
         }

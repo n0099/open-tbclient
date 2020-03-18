@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cmM;
-    private HashMap<String, c> ckg = new HashMap<>();
+    private static volatile b cmX;
+    private HashMap<String, c> ckr = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b cki = com.baidu.swan.games.network.b.aoR();
-    private String ckh = f.alv();
+    private com.baidu.swan.games.network.b ckt = com.baidu.swan.games.network.b.aoU();
+    private String cks = f.aly();
 
-    public static b anH() {
-        if (cmM == null) {
+    public static b anK() {
+        if (cmX == null) {
             synchronized (b.class) {
-                if (cmM == null) {
-                    cmM = new b();
+                if (cmX == null) {
+                    cmX = new b();
                 }
             }
         }
-        return cmM;
+        return cmX;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String os = os(str);
-            File file = new File(os(str));
+            String or = or(str);
+            File file = new File(or(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(os);
+                    valueCallback.onReceiveValue(or);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!oq(str)) {
-                    or(str);
+                if (!op(str)) {
+                    oq(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean oq(String str) {
-        return this.ckg.containsKey(str);
+    private boolean op(String str) {
+        return this.ckr.containsKey(str);
     }
 
-    private void or(String str) {
+    private void oq(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.cki, this.ckh, str, this);
-        this.ckg.put(str, cVar);
+        c cVar = new c(this.ckt, this.cks, str, this);
+        this.ckr.put(str, cVar);
         cVar.load();
     }
 
@@ -81,10 +81,10 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void bA(String str, String str2) {
+    public void bz(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (oq(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (op(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,7 +92,7 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.ckg.remove(str);
+                this.ckr.remove(str);
             }
         }
     }
@@ -101,17 +101,17 @@ public class b implements a {
     public void G(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (oq(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (op(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.ckg.remove(str);
+                this.ckr.remove(str);
             }
         }
     }
 
-    private String os(String str) throws MalformedURLException {
-        return this.ckh + f.om(str);
+    private String or(String str) throws MalformedURLException {
+        return this.cks + f.ol(str);
     }
 }

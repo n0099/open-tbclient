@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.adaptation.b.a;
 /* loaded from: classes11.dex */
 public class d {
-    public long bbB;
-    public long bbC;
-    public long bbD;
-    public String bbE = "1";
+    public long bbO;
+    public long bbP;
+    public long bbQ;
+    public String bbR = "1";
 }

@@ -30,10 +30,10 @@ public class o extends al {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
         this.KA = (TextView) this.mRootView.findViewById(R.id.video_seg_abstract);
-        this.MK = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
+        this.MN = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.Kz = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
-        this.MN = mZ();
-        this.MN.cys().setBackgroundResource(R.color.transparent);
+        this.MO = mZ();
+        this.MO.cyL().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,7 +49,7 @@ public class o extends al {
 
     @Override // com.baidu.card.al
     protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.MK);
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.MN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,21 +57,21 @@ public class o extends al {
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        if (this.Kc != null && this.Kc.aAg() != null) {
-            bj aAg = aVar.aAg();
-            if (aAg.aCF() != null) {
+        if (this.Kc != null && this.Kc.aAj() != null) {
+            bj aAj = aVar.aAj();
+            if (aAj.aCI() != null) {
                 this.Kz.setVisibility(8);
-                this.MK.setVisibility(0);
+                this.MN.setVisibility(0);
                 this.KA.setVisibility(8);
                 super.A(aVar);
                 return;
             }
-            this.MK.setVisibility(8);
+            this.MN.setVisibility(8);
             this.Kz.setVisibility(0);
             this.KA.setVisibility(0);
             this.Kz.A(aVar);
-            au.a(this.mTitle, aAg);
-            au.a(this.KA, this.mTitle, aAg, Ky);
+            au.a(this.mTitle, aAj);
+            au.a(this.KA, this.mTitle, aAj, Ky);
         }
     }
 

@@ -18,7 +18,7 @@ public class a {
         return hashMap;
     }
 
-    public static Map<String, String> aF(String str, String str2) {
+    public static Map<String, String> aE(String str, String str2) {
         if (str == null || str2 == null) {
             return new HashMap();
         }

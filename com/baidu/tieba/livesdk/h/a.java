@@ -12,18 +12,18 @@ import com.baidu.tieba.wallet.ITiebaPayCallback;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a implements IPayChannelBuilder {
-    private ITiebaPay idT = null;
+    private ITiebaPay ift = null;
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder
     public IPayChannel build() {
-        cdG();
+        cdZ();
         return new IPayChannel() { // from class: com.baidu.tieba.livesdk.h.a.1
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel
             public void pay(HashMap<String, String> hashMap, final IPayCallback iPayCallback) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    a.this.cdG();
-                    if (a.this.idT != null) {
-                        a.this.idT.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
+                    a.this.cdZ();
+                    if (a.this.ift != null) {
+                        a.this.ift.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
                             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
                             public void onPayResult(int i, String str) {
                                 if (iPayCallback != null) {
@@ -53,10 +53,10 @@ public class a implements IPayChannelBuilder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdG() {
+    public void cdZ() {
         CustomResponsedMessage runTask;
-        if (this.idT == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.idT = (ITiebaPay) runTask.getData();
+        if (this.ift == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.ift = (ITiebaPay) runTask.getData();
         }
     }
 }

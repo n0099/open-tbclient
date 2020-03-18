@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.q;
+import com.baidu.tieba.frs.r;
 /* loaded from: classes9.dex */
 public class e extends v.a {
     public Context mContext;
@@ -20,14 +20,14 @@ public class e extends v.a {
         this.mContext = context;
     }
 
-    public void a(q qVar) {
-        if (qVar != null) {
+    public void a(r rVar) {
+        if (rVar != null) {
             this.mTipView.setText(R.string.read_here);
-            aHO();
+            aHS();
         }
     }
 
-    public void aHO() {
+    public void aHS() {
         am.setViewTextColor(this.mTipView, (int) R.color.cp_link_tip_a);
         am.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
     }

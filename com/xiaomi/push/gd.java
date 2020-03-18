@@ -158,7 +158,7 @@ public abstract class gd {
     public ga a(String str, String str2) {
         for (ga gaVar : this.f409a) {
             if (str2 == null || str2.equals(gaVar.b())) {
-                if (str.equals(gaVar.m301a())) {
+                if (str.equals(gaVar.m299a())) {
                     return gaVar;
                 }
             }
@@ -167,20 +167,20 @@ public abstract class gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gh m303a() {
+    public gh m301a() {
         return this.f408a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m304a(String str) {
+    public synchronized Object m302a(String str) {
         return this.f410a == null ? null : this.f410a.get(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m305a();
+    public abstract String m303a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<ga> m306a() {
+    public synchronized Collection<ga> m304a() {
         return this.f409a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f409a));
     }
 
@@ -315,29 +315,29 @@ public abstract class gd {
         ObjectOutputStream objectOutputStream2;
         ByteArrayOutputStream byteArrayOutputStream2;
         sb = new StringBuilder();
-        for (ga gaVar : m306a()) {
+        for (ga gaVar : m304a()) {
             sb.append(gaVar.d());
         }
         if (this.f410a != null && !this.f410a.isEmpty()) {
             sb.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
             for (String str : b()) {
-                Object m304a = m304a(str);
+                Object m302a = m302a(str);
                 sb.append("<property>");
                 sb.append("<name>").append(go.a(str)).append("</name>");
                 sb.append("<value type=\"");
-                if (m304a instanceof Integer) {
-                    sb.append("integer\">").append(m304a).append("</value>");
-                } else if (m304a instanceof Long) {
-                    sb.append("long\">").append(m304a).append("</value>");
-                } else if (m304a instanceof Float) {
-                    sb.append("float\">").append(m304a).append("</value>");
-                } else if (m304a instanceof Double) {
-                    sb.append("double\">").append(m304a).append("</value>");
-                } else if (m304a instanceof Boolean) {
-                    sb.append("boolean\">").append(m304a).append("</value>");
-                } else if (m304a instanceof String) {
+                if (m302a instanceof Integer) {
+                    sb.append("integer\">").append(m302a).append("</value>");
+                } else if (m302a instanceof Long) {
+                    sb.append("long\">").append(m302a).append("</value>");
+                } else if (m302a instanceof Float) {
+                    sb.append("float\">").append(m302a).append("</value>");
+                } else if (m302a instanceof Double) {
+                    sb.append("double\">").append(m302a).append("</value>");
+                } else if (m302a instanceof Boolean) {
+                    sb.append("boolean\">").append(m302a).append("</value>");
+                } else if (m302a instanceof String) {
                     sb.append("string\">");
-                    sb.append(go.a((String) m304a));
+                    sb.append(go.a((String) m302a));
                     sb.append("</value>");
                 } else {
                     try {
@@ -362,7 +362,7 @@ public abstract class gd {
                         byteArrayOutputStream = null;
                     }
                     try {
-                        objectOutputStream.writeObject(m304a);
+                        objectOutputStream.writeObject(m302a);
                         sb.append("java-object\">");
                         sb.append(go.a(byteArrayOutputStream.toByteArray())).append("</value>");
                         if (objectOutputStream != null) {

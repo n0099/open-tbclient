@@ -18,7 +18,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
     final AtomicInteger wip;
 
     public QueuedValueProducer(j<? super T> jVar) {
-        this(jVar, ae.dOQ() ? new x() : new e());
+        this(jVar, ae.dPq() ? new x() : new e());
     }
 
     public QueuedValueProducer(j<? super T> jVar, Queue<Object> queue) {

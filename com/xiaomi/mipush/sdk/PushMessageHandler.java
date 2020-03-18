@@ -52,7 +52,7 @@ public class PushMessageHandler extends BaseService {
         try {
             context.startService(intent);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m47a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m45a(e.getMessage());
         }
     }
 
@@ -222,7 +222,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    protected boolean mo61a() {
+    protected boolean mo59a() {
         return (f31a == null || f31a.getQueue() == null || f31a.getQueue().size() <= 0) ? false : true;
     }
 

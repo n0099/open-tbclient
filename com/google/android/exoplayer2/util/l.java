@@ -40,11 +40,11 @@ public final class l {
         this.limit = 0;
     }
 
-    public int dzu() {
+    public int dzR() {
         return this.limit - this.position;
     }
 
-    public int dzv() {
+    public int dzS() {
         return this.limit;
     }
 
@@ -83,7 +83,7 @@ public final class l {
         this.position += i2;
     }
 
-    public char dzw() {
+    public char dzT() {
         return (char) (((this.data[this.position] & 255) << 8) | (this.data[this.position + 1] & 255));
     }
 
@@ -104,7 +104,7 @@ public final class l {
         return ((bArr[i] & 255) << 8) | (bArr2[i2] & 255);
     }
 
-    public int dzx() {
+    public int dzU() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -124,7 +124,7 @@ public final class l {
         return (short) (((bArr[i] & 255) << 8) | (bArr2[i2] & 255));
     }
 
-    public int dzy() {
+    public int dzV() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -138,7 +138,7 @@ public final class l {
         return i3 | (bArr3[i4] & 255);
     }
 
-    public int dzz() {
+    public int dzW() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -170,7 +170,7 @@ public final class l {
         return j2 | (bArr4[i4] & 255);
     }
 
-    public long dzA() {
+    public long dzX() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -206,7 +206,7 @@ public final class l {
         return i5 | (bArr4[i6] & 255);
     }
 
-    public int dzB() {
+    public int dzY() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -258,7 +258,7 @@ public final class l {
         return j6 | (bArr8[i8] & 255);
     }
 
-    public long dzC() {
+    public long dzZ() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -292,7 +292,7 @@ public final class l {
         return j6 | ((bArr8[i8] & 255) << 56);
     }
 
-    public int dzD() {
+    public int dAa() {
         byte[] bArr = this.data;
         int i = this.position;
         this.position = i + 1;
@@ -304,11 +304,11 @@ public final class l {
         return i3;
     }
 
-    public int dzE() {
+    public int dAb() {
         return (readUnsignedByte() << 21) | (readUnsignedByte() << 14) | (readUnsignedByte() << 7) | readUnsignedByte();
     }
 
-    public int dzF() {
+    public int dAc() {
         int readInt = readInt();
         if (readInt < 0) {
             throw new IllegalStateException("Top bit not zero: " + readInt);
@@ -316,15 +316,15 @@ public final class l {
         return readInt;
     }
 
-    public int dzG() {
-        int dzB = dzB();
-        if (dzB < 0) {
-            throw new IllegalStateException("Top bit not zero: " + dzB);
+    public int dAd() {
+        int dzY = dzY();
+        if (dzY < 0) {
+            throw new IllegalStateException("Top bit not zero: " + dzY);
         }
-        return dzB;
+        return dzY;
     }
 
-    public long dzH() {
+    public long dAe() {
         long readLong = readLong();
         if (readLong < 0) {
             throw new IllegalStateException("Top bit not zero: " + readLong);
@@ -336,7 +336,7 @@ public final class l {
         return Double.longBitsToDouble(readLong());
     }
 
-    public String LU(int i) {
+    public String Ma(int i) {
         return a(i, Charset.forName("UTF-8"));
     }
 
@@ -346,7 +346,7 @@ public final class l {
         return str;
     }
 
-    public String LV(int i) {
+    public String Mb(int i) {
         if (i == 0) {
             return "";
         }
@@ -356,8 +356,8 @@ public final class l {
         return str;
     }
 
-    public String dzI() {
-        if (dzu() == 0) {
+    public String dAf() {
+        if (dzR() == 0) {
             return null;
         }
         int i = this.position;
@@ -373,11 +373,11 @@ public final class l {
     }
 
     public String readLine() {
-        if (dzu() == 0) {
+        if (dzR() == 0) {
             return null;
         }
         int i = this.position;
-        while (i < this.limit && !v.LY(this.data[i])) {
+        while (i < this.limit && !v.Me(this.data[i])) {
             i++;
         }
         if (i - this.position >= 3 && this.data[this.position] == -17 && this.data[this.position + 1] == -69 && this.data[this.position + 2] == -65) {
@@ -400,7 +400,7 @@ public final class l {
         return str;
     }
 
-    public long dzJ() {
+    public long dAg() {
         byte b;
         int i = 0;
         long j = this.data[this.position];

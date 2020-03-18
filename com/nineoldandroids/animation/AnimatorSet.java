@@ -338,7 +338,7 @@ public final class AnimatorSet extends Animator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.nineoldandroids.animation.Animator
     public AnimatorSet clone() {
-        AnimatorSet animatorSet = (AnimatorSet) super.m42clone();
+        AnimatorSet animatorSet = (AnimatorSet) super.m40clone();
         animatorSet.mNeedsSort = true;
         animatorSet.mTerminated = false;
         animatorSet.mStarted = false;
@@ -350,15 +350,15 @@ public final class AnimatorSet extends Animator {
         Iterator<Node> it = this.mNodes.iterator();
         while (it.hasNext()) {
             Node next = it.next();
-            Node m43clone = next.m43clone();
-            hashMap.put(next, m43clone);
-            animatorSet.mNodes.add(m43clone);
-            animatorSet.mNodeMap.put(m43clone.animation, m43clone);
-            m43clone.dependencies = null;
-            m43clone.tmpDependencies = null;
-            m43clone.nodeDependents = null;
-            m43clone.nodeDependencies = null;
-            ArrayList<Animator.AnimatorListener> listeners = m43clone.animation.getListeners();
+            Node m41clone = next.m41clone();
+            hashMap.put(next, m41clone);
+            animatorSet.mNodes.add(m41clone);
+            animatorSet.mNodeMap.put(m41clone.animation, m41clone);
+            m41clone.dependencies = null;
+            m41clone.tmpDependencies = null;
+            m41clone.nodeDependents = null;
+            m41clone.nodeDependencies = null;
+            ArrayList<Animator.AnimatorListener> listeners = m41clone.animation.getListeners();
             if (listeners != null) {
                 Iterator<Animator.AnimatorListener> it2 = listeners.iterator();
                 ArrayList arrayList = null;
@@ -620,10 +620,10 @@ public final class AnimatorSet extends Animator {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public Node m43clone() {
+        public Node m41clone() {
             try {
                 Node node = (Node) super.clone();
-                node.animation = this.animation.m42clone();
+                node.animation = this.animation.m40clone();
                 return node;
             } catch (CloneNotSupportedException e) {
                 throw new AssertionError();

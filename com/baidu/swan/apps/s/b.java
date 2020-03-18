@@ -6,38 +6,38 @@ import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bxl;
-    private SwanEditText bxm;
+    private static volatile b bxw;
+    private SwanEditText bxx;
     private TextWatcher mTextWatcher;
 
     private b() {
     }
 
-    public static b TJ() {
-        if (bxl == null) {
+    public static b TM() {
+        if (bxw == null) {
             synchronized (b.class) {
-                if (bxl == null) {
-                    bxl = new b();
+                if (bxw == null) {
+                    bxw = new b();
                 }
             }
         }
-        return bxl;
+        return bxw;
     }
 
-    public SwanEditText ce(Context context) {
-        this.bxm = new SwanEditText(context);
-        return this.bxm;
+    public SwanEditText cd(Context context) {
+        this.bxx = new SwanEditText(context);
+        return this.bxx;
     }
 
-    public SwanEditText TK() {
-        return this.bxm;
+    public SwanEditText TN() {
+        return this.bxx;
     }
 
-    public void TL() {
-        this.bxm = null;
+    public void TO() {
+        this.bxx = null;
     }
 
-    public TextWatcher TM() {
+    public TextWatcher TP() {
         return this.mTextWatcher;
     }
 

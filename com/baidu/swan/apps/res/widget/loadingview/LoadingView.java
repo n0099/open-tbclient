@@ -11,7 +11,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 /* loaded from: classes11.dex */
 public class LoadingView extends FrameLayout implements b<LoadingView> {
-    private SmoothProgressBar bOv;
+    private SmoothProgressBar bOG;
     private TextView mMsg;
     private View mRootView;
 
@@ -33,7 +33,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     protected void init() {
         LayoutInflater.from(getContext()).inflate(a.g.aiapps_loading_layout, (ViewGroup) this, true);
         this.mRootView = findViewById(a.f.root_container);
-        this.bOv = (SmoothProgressBar) findViewById(a.f.loading_bar);
+        this.bOG = (SmoothProgressBar) findViewById(a.f.loading_bar);
         this.mMsg = (TextView) findViewById(a.f.message);
         setPageResources();
     }
@@ -56,8 +56,8 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         if (this.mRootView != null) {
             this.mRootView.setBackground(this.mRootView.getResources().getDrawable(a.e.aiapps_loading_bg));
         }
-        if (this.bOv != null) {
-            this.bOv.setIndeterminateDrawable(this.bOv.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
+        if (this.bOG != null) {
+            this.bOG.setIndeterminateDrawable(this.bOG.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
         }
         if (this.mMsg != null) {
             this.mMsg.setTextColor(this.mMsg.getResources().getColor(a.c.aiapps_loading_text_color));
@@ -67,13 +67,13 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.w.a.Us().a(this, new com.baidu.swan.apps.am.a() { // from class: com.baidu.swan.apps.res.widget.loadingview.LoadingView.1
+        com.baidu.swan.apps.w.a.Uv().a(this, new com.baidu.swan.apps.am.a() { // from class: com.baidu.swan.apps.res.widget.loadingview.LoadingView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.w.a.Us().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.w.a.Uv().unsubscribeNightModeChangedEvent(this);
     }
 }

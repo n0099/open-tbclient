@@ -22,7 +22,7 @@ import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class b {
     private final Context appContext;
-    private final a jQ;
+    private final a jP;
     private final String url;
 
     public static m<e> H(Context context, String str) {
@@ -32,7 +32,7 @@ public class b {
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.jQ = new a(this.appContext, str);
+        this.jP = new a(this.appContext, str);
     }
 
     private m<e> dw() {
@@ -60,7 +60,7 @@ public class b {
     @Nullable
     private e dy() {
         l<e> c;
-        Pair<FileExtension, InputStream> dv = this.jQ.dv();
+        Pair<FileExtension, InputStream> dv = this.jP.dv();
         if (dv == null) {
             return null;
         }
@@ -126,16 +126,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a = f.a(new ZipInputStream(new FileInputStream(this.jQ.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    a = f.a(new ZipInputStream(new FileInputStream(this.jP.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a = f.c(new FileInputStream(new File(this.jQ.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    a = f.c(new FileInputStream(new File(this.jP.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (a.getValue() != null) {
-                this.jQ.a(fileExtension);
+                this.jP.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (a.getValue() != null));
             return a;

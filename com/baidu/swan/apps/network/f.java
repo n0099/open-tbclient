@@ -6,7 +6,7 @@ public interface f {
 
     /* loaded from: classes11.dex */
     public interface a {
-        public static final MediaType bGi = MediaType.parse("application/json");
-        public static final MediaType bGj = MediaType.parse("application/x-www-form-urlencoded");
+        public static final MediaType bGt = MediaType.parse("application/json");
+        public static final MediaType bGu = MediaType.parse("application/x-www-form-urlencoded");
     }
 }

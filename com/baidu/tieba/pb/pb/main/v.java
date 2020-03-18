@@ -18,33 +18,33 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class v {
-    public int Yv;
+    public int YF;
 
     public v(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void BO(String str) {
+    private void BN(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
-            this.Yv = 5;
+            this.YF = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
-            anVar.cy("obj_locate", paramPair.get("obj_locate"));
+            anVar.cx("obj_locate", paramPair.get("obj_locate"));
             anVar.X("obj_type", 1);
-            anVar.cy("tid", paramPair.get("tid"));
-            anVar.cy("obj_source", paramPair.get("obj_source"));
-            anVar.cy(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            anVar.cx("tid", paramPair.get("tid"));
+            anVar.cx("obj_source", paramPair.get("obj_source"));
+            anVar.cx(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
             anVar.X(TiebaInitialize.Params.OBJ_TO, 3);
-            anVar.cy("obj_id", paramPair.get("bdid"));
+            anVar.cx("obj_id", paramPair.get("bdid"));
             if (!com.baidu.tbadk.core.util.aq.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        anVar.cy(next, jSONObject.getString(next));
+                        anVar.cx(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -61,22 +61,22 @@ public class v {
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    BO(decode);
-                    HashMap<String, Object> Ga = Ga(decode);
-                    String str = (String) Ga.get("tid");
-                    if ("mpush".equals((String) Ga.get("fr")) && !StringUtils.isNull(str)) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cy("tid", str));
+                    BN(decode);
+                    HashMap<String, Object> FZ = FZ(decode);
+                    String str = (String) FZ.get("tid");
+                    if ("mpush".equals((String) FZ.get("fr")) && !StringUtils.isNull(str)) {
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cx("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.n(Ga);
+                    aVar.n(FZ);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> Ga(String str) {
+    public HashMap<String, Object> FZ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

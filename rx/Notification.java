@@ -1,8 +1,8 @@
 package rx;
 /* loaded from: classes6.dex */
 public final class Notification<T> {
-    private static final Notification<Void> nNv = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind nNu;
+    private static final Notification<Void> nPi = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind nPh;
     private final Throwable throwable;
     private final T value;
 
@@ -21,14 +21,14 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> dNO() {
-        return (Notification<T>) nNv;
+    public static <T> Notification<T> dOo() {
+        return (Notification<T>) nPi;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
         this.throwable = th;
-        this.nNu = kind;
+        this.nPh = kind;
     }
 
     public Throwable getThrowable() {
@@ -40,35 +40,35 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return dNS() && this.value != null;
+        return dOs() && this.value != null;
     }
 
-    public boolean dNP() {
-        return dJf() && this.throwable != null;
+    public boolean dOp() {
+        return dJF() && this.throwable != null;
     }
 
-    public Kind dNQ() {
-        return this.nNu;
+    public Kind dOq() {
+        return this.nPh;
     }
 
-    public boolean dJf() {
-        return dNQ() == Kind.OnError;
+    public boolean dJF() {
+        return dOq() == Kind.OnError;
     }
 
-    public boolean dNR() {
-        return dNQ() == Kind.OnCompleted;
+    public boolean dOr() {
+        return dOq() == Kind.OnCompleted;
     }
 
-    public boolean dNS() {
-        return dNQ() == Kind.OnNext;
+    public boolean dOs() {
+        return dOq() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dNQ());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dOq());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (dNP()) {
+        if (dOp()) {
             append.append(' ').append(getThrowable().getMessage());
         }
         append.append(']');
@@ -76,11 +76,11 @@ public final class Notification<T> {
     }
 
     public int hashCode() {
-        int hashCode = dNQ().hashCode();
+        int hashCode = dOq().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (dNP()) {
+        if (dOp()) {
             return (hashCode * 31) + getThrowable().hashCode();
         }
         return hashCode;
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.dNQ() != dNQ() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.throwable != notification.throwable && (this.throwable == null || !this.throwable.equals(notification.throwable))))) {
+            if (notification.dOq() != dOq() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.throwable != notification.throwable && (this.throwable == null || !this.throwable.equals(notification.throwable))))) {
                 z = false;
             }
             return z;

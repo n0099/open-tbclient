@@ -15,8 +15,8 @@ import com.baidu.swan.apps.as.r;
 /* loaded from: classes11.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d baY;
-    private boolean baZ = true;
+    private d bbl;
+    private boolean bbm = true;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
     private String mUrl;
@@ -67,19 +67,19 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
     private void initWebView() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            f bB = new com.baidu.swan.apps.adaptation.b.a.b().bB(this);
-            bB.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
+            f bA = new com.baidu.swan.apps.adaptation.b.a.b().bA(this);
+            bA.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-                public void en(String str) {
-                    super.en(str);
-                    if (SwanAppScopeDetailActivity.this.baZ) {
+                public void em(String str) {
+                    super.em(str);
+                    if (SwanAppScopeDetailActivity.this.bbm) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.baY = bB.IP();
-            bB.loadUrl(this.mUrl);
-            bB.a((FrameLayout) findViewById(a.f.webview_container), this.baY.covertToView());
+            this.bbl = bA.IS();
+            bA.loadUrl(this.mUrl);
+            bA.a((FrameLayout) findViewById(a.f.webview_container), this.bbl.covertToView());
         }
     }
 
@@ -106,9 +106,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.baY != null) {
-            this.baY.destroy();
-            this.baY = null;
+        if (this.bbl != null) {
+            this.bbl.destroy();
+            this.bbl = null;
         }
         this.mUrl = null;
     }

@@ -5,21 +5,21 @@ import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
 public final class f {
     private static final boolean IS_ANDROID;
-    private static final int nSF = dOG();
+    private static final int nUs = dPg();
 
     static {
-        IS_ANDROID = nSF != 0;
+        IS_ANDROID = nUs != 0;
     }
 
     public static boolean isAndroid() {
         return IS_ANDROID;
     }
 
-    public static int dOF() {
-        return nSF;
+    public static int dPf() {
+        return nUs;
     }
 
-    private static int dOG() {
+    private static int dPg() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {

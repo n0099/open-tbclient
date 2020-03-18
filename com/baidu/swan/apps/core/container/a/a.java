@@ -11,43 +11,43 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a implements i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private volatile boolean bnb;
-    private volatile boolean bnc;
-    private InterfaceC0245a bnd;
-    private WebKitFactory.IForceInitZeusListener bne;
+    private volatile boolean bno;
+    private volatile boolean bnp;
+    private InterfaceC0245a bnq;
+    private WebKitFactory.IForceInitZeusListener bnr;
     private ArrayList<com.baidu.swan.apps.core.container.a.b> mListeners;
     private final Lock mLock;
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0245a {
-        void Hd();
+        void Hi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b {
-        public static final a bng = new a();
+        public static final a bnt = new a();
     }
 
     private a() {
         this.mListeners = new ArrayList<>();
         this.mLock = new ReentrantLock();
-        this.bnb = false;
-        this.bnc = false;
-        this.bnd = new InterfaceC0245a() { // from class: com.baidu.swan.apps.core.container.a.a.1
+        this.bno = false;
+        this.bnp = false;
+        this.bnq = new InterfaceC0245a() { // from class: com.baidu.swan.apps.core.container.a.a.1
             @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0245a
-            public void Hd() {
+            public void Hi() {
                 try {
                     a.this.mLock.lock();
-                    a.this.bnc = true;
-                    a.this.Ns();
+                    a.this.bnp = true;
+                    a.this.Nv();
                 } finally {
                     a.this.mLock.unlock();
                 }
             }
         };
-        this.bne = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
+        this.bnr = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
             @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
             public void onForceInitZeusStart() {
                 if (a.DEBUG) {
@@ -59,26 +59,26 @@ public class a implements i {
             public void onForceInitZeusFinish(boolean z) {
                 try {
                     a.this.mLock.lock();
-                    a.this.bnb = true;
-                    a.this.Ns();
+                    a.this.bno = true;
+                    a.this.Nv();
                     a.this.mLock.unlock();
-                    BdSailor.getInstance().removeForceInitListener(a.this.bne);
+                    BdSailor.getInstance().removeForceInitListener(a.this.bnr);
                 } catch (Throwable th) {
                     a.this.mLock.unlock();
                     throw th;
                 }
             }
         };
-        BdSailor.addForceInitListener(this.bne);
-        com.baidu.swan.apps.w.a.Ut().a(this.bnd);
+        BdSailor.addForceInitListener(this.bnr);
+        com.baidu.swan.apps.w.a.Uw().a(this.bnq);
     }
 
-    public static a Nq() {
-        return b.bng;
+    public static a Nt() {
+        return b.bnt;
     }
 
-    public void Nr() {
-        com.baidu.swan.apps.w.a.Ut().Hb();
+    public void Nu() {
+        com.baidu.swan.apps.w.a.Uw().Hg();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.i
@@ -90,7 +90,7 @@ public class a implements i {
                     this.mListeners.add(bVar);
                 }
                 if (isLoaded()) {
-                    Ns();
+                    Nv();
                 }
             }
         } finally {
@@ -111,7 +111,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ns() {
+    public void Nv() {
         try {
             this.mLock.lock();
             if (isLoaded()) {
@@ -119,7 +119,7 @@ public class a implements i {
                 while (it.hasNext()) {
                     com.baidu.swan.apps.core.container.a.b next = it.next();
                     if (next != null) {
-                        next.Hd();
+                        next.Hi();
                     }
                 }
                 this.mListeners.clear();
@@ -140,11 +140,11 @@ public class a implements i {
         try {
             this.mLock.lock();
             if (DEBUG) {
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.bnc);
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.bnb + " ,isZeusForceInited: " + isZeusForceInited());
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.bnp);
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.bno + " ,isZeusForceInited: " + isZeusForceInited());
             }
-            if (this.bnc) {
-                if (!this.bnb) {
+            if (this.bnp) {
+                if (!this.bno) {
                 }
                 z = true;
                 return z;

@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
     final io.reactivex.c.c<R, ? super T, R> accumulator;
-    final Callable<R> nxr;
+    final Callable<R> nze;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         try {
-            this.nwE.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.nxr.call(), "The seed supplied is null"), dJd()));
+            this.nyr.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.nze.call(), "The seed supplied is null"), dJD()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.H(th);
             EmptySubscription.error(th, cVar);

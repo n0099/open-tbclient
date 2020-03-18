@@ -3,12 +3,12 @@ package com.google.android.exoplayer2;
 import com.google.android.exoplayer2.source.l;
 /* loaded from: classes6.dex */
 final class p {
-    public final Object lZF;
-    public final long lZL;
-    public final long lZN;
-    public final l.b lZR;
-    public volatile long lZS;
-    public volatile long lZT;
+    public final l.b mbA;
+    public volatile long mbB;
+    public volatile long mbC;
+    public final Object mbo;
+    public final long mbu;
+    public final long mbw;
     public final x timeline;
 
     public p(x xVar, Object obj, int i, long j) {
@@ -17,12 +17,12 @@ final class p {
 
     public p(x xVar, Object obj, l.b bVar, long j, long j2) {
         this.timeline = xVar;
-        this.lZF = obj;
-        this.lZR = bVar;
-        this.lZL = j;
-        this.lZN = j2;
-        this.lZS = j;
-        this.lZT = j;
+        this.mbo = obj;
+        this.mbA = bVar;
+        this.mbu = j;
+        this.mbw = j2;
+        this.mbB = j;
+        this.mbC = j;
     }
 
     public p g(int i, long j, long j2) {
@@ -30,23 +30,23 @@ final class p {
     }
 
     public p b(l.b bVar, long j, long j2) {
-        return new p(this.timeline, this.lZF, bVar, j, j2);
+        return new p(this.timeline, this.mbo, bVar, j, j2);
     }
 
-    public p IY(int i) {
-        p pVar = new p(this.timeline, this.lZF, this.lZR.KF(i), this.lZL, this.lZN);
+    public p Je(int i) {
+        p pVar = new p(this.timeline, this.mbo, this.mbA.KL(i), this.mbu, this.mbw);
         a(this, pVar);
         return pVar;
     }
 
     public p b(x xVar, Object obj) {
-        p pVar = new p(xVar, obj, this.lZR, this.lZL, this.lZN);
+        p pVar = new p(xVar, obj, this.mbA, this.mbu, this.mbw);
         a(this, pVar);
         return pVar;
     }
 
     private static void a(p pVar, p pVar2) {
-        pVar2.lZS = pVar.lZS;
-        pVar2.lZT = pVar.lZT;
+        pVar2.mbB = pVar.mbB;
+        pVar2.mbC = pVar.mbC;
     }
 }

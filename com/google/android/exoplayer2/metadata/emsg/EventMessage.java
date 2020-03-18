@@ -17,7 +17,7 @@ public final class EventMessage implements Metadata.Entry {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kh */
+        /* renamed from: Kn */
         public EventMessage[] newArray(int i) {
             return new EventMessage[i];
         }

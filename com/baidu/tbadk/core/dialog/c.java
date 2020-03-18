@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView cVe;
-    private CircleView cVf;
-    private FrameLayout cvf;
+    private TextView cVr;
+    private CircleView cVs;
+    private FrameLayout cvq;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,16 +26,16 @@ public class c extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(R.layout.post_video_progress_dialog);
-            this.cvf = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cvf.getLayoutParams();
+            this.cvq = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cvq.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.cvf.setLayoutParams(layoutParams);
+            this.cvq.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.cVe = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.cVe.setText(this.mMessage);
+                this.cVr = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.cVr.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.cVf = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.cVs = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.cVf != null) {
-            this.cVf.setProgress(i);
+        if (this.cVs != null) {
+            this.cVs.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.cVe != null) {
-            this.cVe.setText(this.mMessage);
+        if (this.cVr != null) {
+            this.cVr.setText(this.mMessage);
         }
     }
 }

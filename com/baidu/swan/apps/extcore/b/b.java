@@ -10,47 +10,47 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.e.b, R extends com.baidu.swan.apps.extcore.f.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P buF;
+    private P buR;
     @NonNull
-    private R buG;
+    private R buS;
 
     @Nullable
-    public abstract ExtensionCore QR();
+    public abstract ExtensionCore QU();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.buF = p;
-        this.buG = r;
+        this.buR = p;
+        this.buS = r;
     }
 
     public void a(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        this.buF.b(aVar);
+        this.buR.b(aVar);
     }
 
-    public void RO() {
-        this.buF.RO();
+    public void RR() {
+        this.buR.RR();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> boolean a(T t) {
-        return t != null && this.buG.b(t);
+        return t != null && this.buS.b(t);
     }
 
     @NonNull
-    public R RP() {
-        return this.buG;
+    public R RS() {
+        return this.buS;
     }
 
     @NonNull
-    public ExtensionCore RQ() {
+    public ExtensionCore RT() {
         String path;
-        int Sa = this.buF.buE.Sa();
-        if (com.baidu.swan.apps.extcore.g.a.eV(Sa)) {
+        int Sd = this.buR.buQ.Sd();
+        if (com.baidu.swan.apps.extcore.g.a.eV(Sd)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
             extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.g.a.ah(0L);
-            if (Sa == 1) {
-                path = com.baidu.swan.games.g.a.b.RT().getPath();
+            if (Sd == 1) {
+                path = com.baidu.swan.games.g.a.b.RW().getPath();
             } else {
-                path = com.baidu.swan.apps.extcore.d.b.RT().getPath();
+                path = com.baidu.swan.apps.extcore.d.b.RW().getPath();
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
@@ -59,18 +59,18 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.e.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore Sc = this.buF.Sc();
-        ExtensionCore Sc2 = this.buG.Sc();
-        if (Sc.extensionCoreVersionCode >= Sc2.extensionCoreVersionCode) {
+        ExtensionCore Sf = this.buR.Sf();
+        ExtensionCore Sf2 = this.buS.Sf();
+        if (Sf.extensionCoreVersionCode >= Sf2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Sc.toString());
-                return Sc;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Sf.toString());
+                return Sf;
             }
-            return Sc;
+            return Sf;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Sc2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Sf2.toString());
         }
-        return Sc2;
+        return Sf2;
     }
 }

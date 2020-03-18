@@ -15,73 +15,73 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class e {
-    private CustomMessageListener evg;
-    private d.a flk;
-    private d flm;
+    private CustomMessageListener evC;
+    private d.a flJ;
+    private d flL;
     private Activity mContext;
 
     public e(Activity activity) {
         this.mContext = activity;
-        bdH();
+        bdM();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.flm = new d(this.mContext);
-        this.flm.a(this.flk);
-        this.flm.bdI().setBackgroundColor(xL(str));
+        this.flL = new d(this.mContext);
+        this.flL.a(this.flJ);
+        this.flL.bdN().setBackgroundColor(xL(str));
         f fVar = new f();
-        fVar.y(this.mContext).a(this.flm).a(this.flm.bdI().getSchemeCallback());
-        com.baidu.live.view.web.a[] BC = fVar.BC();
-        for (com.baidu.live.view.web.a aVar : BC) {
-            this.flm.bdI().addJavascriptInterface(aVar, aVar.getName());
+        fVar.y(this.mContext).a(this.flL).a(this.flL.bdN().getSchemeCallback());
+        com.baidu.live.view.web.a[] BJ = fVar.BJ();
+        for (com.baidu.live.view.web.a aVar : BJ) {
+            this.flL.bdN().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.flm.show(b(str, j, j2, j3));
+        this.flL.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.flm != null && this.flm.isShowing() && this.flm.bdI() != null) {
-            this.flm.bdI().onResume();
+        if (this.flL != null && this.flL.isShowing() && this.flL.bdN() != null) {
+            this.flL.bdN().onResume();
         }
     }
 
     public void pause() {
-        if (this.flm != null && this.flm.isShowing() && this.flm.bdI() != null) {
-            this.flm.bdI().onPause();
+        if (this.flL != null && this.flL.isShowing() && this.flL.bdN() != null) {
+            this.flL.bdN().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.flm != null) {
-            this.flm.bdJ();
+        if (this.flL != null) {
+            this.flL.bdO();
         }
     }
 
     public void bW(int i) {
-        if (this.flm != null && this.flm.isShowing()) {
-            this.flm.bW(i);
+        if (this.flL != null && this.flL.isShowing()) {
+            this.flL.bW(i);
         }
     }
 
-    public void sL() {
+    public void sQ() {
         dismiss();
     }
 
     public void release() {
-        sL();
-        MessageManager.getInstance().unRegisterListener(this.evg);
+        sQ();
+        MessageManager.getInstance().unRegisterListener(this.evC);
     }
 
-    private void bdH() {
-        this.evg = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void bdM() {
+        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.flm != null && e.this.flm.isShowing()) {
-                    e.this.flm.dismiss();
+                if (e.this.flL != null && e.this.flL.isShowing()) {
+                    e.this.flL.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evg);
+        MessageManager.getInstance().registerListener(this.evC);
     }
 
     private int xL(String str) {
@@ -121,15 +121,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(q.Bg());
+        sb.append(q.Bn());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.flk = aVar;
+        this.flJ = aVar;
     }
 
-    public d.a bqD() {
-        return this.flk;
+    public d.a bqI() {
+        return this.flJ;
     }
 }

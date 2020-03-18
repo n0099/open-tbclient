@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public interface a {
     public static final d SERVICE_REFERENCE = new d("ubc", "UBC");
 
-    Flow Hs(String str);
+    Flow Hr(String str);
 
     void a(Flow flow);
 

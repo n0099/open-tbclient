@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public class c {
-    private static c QT;
-    private static Context QU;
-    private static ExecutorService QV;
-    private static boolean al = false;
-    public l QR;
-    public p QS;
+    private static c QW;
+    private static Context QX;
+    private static ExecutorService QY;
+    private static boolean an = false;
+    public l QU;
+    public p QV;
 
     private c(Context context) {
-        QU = context;
-        this.QS = new p(Looper.getMainLooper().getThread(), a.U);
-        this.QR = new l(new d(this), context);
-        if (QV == null) {
-            QV = Executors.newSingleThreadExecutor();
+        QX = context;
+        this.QV = new p(Looper.getMainLooper().getThread(), a.W);
+        this.QU = new l(new d(this), context);
+        if (QY == null) {
+            QY = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c as(Context context) {
-        if (QT == null) {
+        if (QW == null) {
             synchronized (c.class) {
-                if (QT == null) {
-                    QT = new c(context);
+                if (QW == null) {
+                    QW = new c(context);
                 }
             }
         }
-        return QT;
+        return QW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a nZ = a.nZ();
-        nZ.QM = c;
-        nZ.a(j, j2, j3, j4);
+        a nY = a.nY();
+        nY.QP = c;
+        nY.a(j, j2, j3, j4);
     }
 
     public static void start() {
-        al = true;
+        an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.QX.start();
+            e.Ra.start();
             com.baidu.crabsdk.c.a.cj("start FrameMonitor...");
         }
     }
 
     public static void stop() {
-        al = false;
+        an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.QX.stop();
+            e.Ra.stop();
         }
     }
 }

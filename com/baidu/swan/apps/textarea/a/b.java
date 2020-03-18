@@ -39,32 +39,32 @@ public class b extends ab {
             e.printStackTrace();
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "model parse exception:", e);
         }
-        SwanAppActivity WD = f.WS().WD();
-        if (WD == null) {
+        SwanAppActivity WG = f.WV().WG();
+        if (WG == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "activity is null when add textarea");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
             return false;
         }
-        com.baidu.swan.apps.core.d.e GC = f.WS().GC();
-        if (GC == null) {
+        com.baidu.swan.apps.core.d.e GH = f.WV().GH();
+        if (GH == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
             return false;
         }
-        d Oo = GC.Oo();
-        if (Oo == null) {
+        d Or = GH.Or();
+        if (Or == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragment is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
             return false;
         }
-        com.baidu.swan.apps.component.b.c KF = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, WD, Oo, new a.InterfaceC0233a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+        com.baidu.swan.apps.component.b.c KI = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, WG, Or, new a.InterfaceC0233a() { // from class: com.baidu.swan.apps.textarea.a.b.1
             @Override // com.baidu.swan.apps.component.components.textarea.a.InterfaceC0233a
             public void b(String str, String str2, JSONObject jSONObject) {
                 b.this.a(str, str2, callbackHandler, 0, jSONObject);
             }
-        }).KF();
-        if (!KF.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KF.msg);
+        }).KI();
+        if (!KI.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KI.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -78,7 +78,7 @@ public class b extends ab {
         }
         com.baidu.swan.apps.console.c.d("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
         if (TextUtils.isEmpty(str2)) {
-            com.baidu.swan.apps.component.e.a.au("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
+            com.baidu.swan.apps.component.e.a.at("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
         } else {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         }

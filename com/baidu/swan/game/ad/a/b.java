@@ -6,5 +6,5 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 public interface b {
     void a(String str, ResponseCallback<AdResponseInfo> responseCallback);
 
-    void nJ(String str);
+    void nI(String str);
 }

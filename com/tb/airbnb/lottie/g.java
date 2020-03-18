@@ -7,7 +7,7 @@ import android.support.annotation.RestrictTo;
 public class g {
     @Nullable
     private Bitmap bitmap;
-    private final String eM;
+    private final String eL;
     private final String fileName;
     private final int height;
     private final String id;
@@ -19,7 +19,7 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.eM = str3;
+        this.eL = str3;
     }
 
     public String getId() {
@@ -31,7 +31,7 @@ public class g {
     }
 
     public String bx() {
-        return this.eM;
+        return this.eL;
     }
 
     @Nullable

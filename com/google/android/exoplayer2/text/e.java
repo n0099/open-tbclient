@@ -3,11 +3,11 @@ package com.google.android.exoplayer2.text;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface e {
-    long Lk(int i);
+    long Lq(int i);
 
-    int dxL();
+    int dyi();
 
-    int gw(long j);
+    int gx(long j);
 
-    List<b> gx(long j);
+    List<b> gy(long j);
 }

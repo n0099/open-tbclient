@@ -4,12 +4,12 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public static JSONObject nT(String str) {
+    public static JSONObject nS(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", LivenessStat.TYPE_FACE_MATCH_FAIL);
-            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.nR(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.e.b.nQ(str));
         } catch (Exception e) {
             e.printStackTrace();
         }

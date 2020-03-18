@@ -68,7 +68,7 @@ public class bk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m166a() {
+    public String m164a() {
         return this.e;
     }
 

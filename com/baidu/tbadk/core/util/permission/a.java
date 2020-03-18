@@ -11,11 +11,11 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.dialog.a {
-    private TextView dbG;
-    private TextView dbH;
-    private TextView dbI;
-    private String dbJ;
-    private InterfaceC0378a dbK;
+    private TextView dbT;
+    private TextView dbU;
+    private TextView dbV;
+    private String dbW;
+    private InterfaceC0378a dbX;
     private ViewGroup mRootView;
     private TextView mTitleView;
 
@@ -31,29 +31,29 @@ public class a extends com.baidu.tbadk.core.dialog.a {
         super(activity);
         initView();
         jZ(3);
-        fG(false);
         fH(false);
+        fI(false);
         setAutoNight(false);
     }
 
     private void initView() {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_permission_request, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_title);
-        this.dbG = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
-        this.dbH = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
-        this.dbH.setText(R.string.close);
-        this.dbI = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
-        this.dbI.setText(R.string.go_on);
+        this.dbT = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
+        this.dbU = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
+        this.dbU.setText(R.string.close);
+        this.dbV = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
+        this.dbV.setText(R.string.go_on);
         onChangeSkinType();
         aO(this.mRootView);
     }
 
-    public void tG(String str) {
-        this.dbJ = str;
+    public void tF(String str) {
+        this.dbW = str;
     }
 
     public void a(InterfaceC0378a interfaceC0378a) {
-        this.dbK = interfaceC0378a;
+        this.dbX = interfaceC0378a;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
@@ -61,7 +61,7 @@ public class a extends com.baidu.tbadk.core.dialog.a {
         String string;
         String str = null;
         super.b(eVar);
-        String str2 = this.dbJ;
+        String str2 = this.dbW;
         char c = 65535;
         switch (str2.hashCode()) {
             case -63024214:
@@ -101,20 +101,20 @@ public class a extends com.baidu.tbadk.core.dialog.a {
                 break;
         }
         this.mTitleView.setText(string);
-        this.dbG.setText(str);
-        this.dbH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
+        this.dbT.setText(str);
+        this.dbU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dbK != null) {
-                    a.this.dbK.e(a.this.mActivity, a.this.dbJ);
+                if (a.this.dbX != null) {
+                    a.this.dbX.e(a.this.mActivity, a.this.dbW);
                 }
             }
         });
-        this.dbI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
+        this.dbV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.permission.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dbK != null) {
-                    a.this.dbK.f(a.this.mActivity, a.this.dbJ);
+                if (a.this.dbX != null) {
+                    a.this.dbX.f(a.this.mActivity, a.this.dbW);
                 }
             }
         });
@@ -124,8 +124,8 @@ public class a extends com.baidu.tbadk.core.dialog.a {
     public void onChangeSkinType() {
         am.setBackgroundResource(this.mRootView, R.drawable.bg_permission_request_dialog);
         am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dbG, (int) R.color.cp_cont_j);
-        am.b(this.dbH, R.color.cp_cont_b, R.color.cp_cont_b_alpha50);
-        am.b(this.dbI, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
+        am.setViewTextColor(this.dbT, (int) R.color.cp_cont_j);
+        am.b(this.dbU, R.color.cp_cont_b, R.color.cp_cont_b_alpha50);
+        am.b(this.dbV, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
     }
 }

@@ -14,8 +14,8 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SparseArray<a> bIb = new SparseArray<>();
-    private Set<String> bIc = new HashSet();
+    private SparseArray<a> bIm = new SparseArray<>();
+    private Set<String> bIn = new HashSet();
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -26,7 +26,7 @@ public final class c {
     public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         if (aVar != null) {
             if (!t(strArr)) {
-                this.bIb.put(i, aVar);
+                this.bIm.put(i, aVar);
                 activity.requestPermissions(strArr, i);
                 if (DEBUG) {
                     Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -43,7 +43,7 @@ public final class c {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.bIc.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.bIn.contains(str)) {
                 return true;
             }
         }
@@ -54,12 +54,12 @@ public final class c {
         if (Build.VERSION.SDK_INT >= 23) {
             a(activity, strArr, iArr);
         }
-        a aVar = this.bIb.get(i);
+        a aVar = this.bIm.get(i);
         if (aVar != null) {
             if (strArr.length > 0 && iArr.length > 0) {
                 aVar.onRequestPermissionsResult(i, strArr, iArr);
             }
-            this.bIb.remove(i);
+            this.bIm.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -75,7 +75,7 @@ public final class c {
                 int i2 = iArr[i];
                 String str = strArr[i];
                 if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.bIc.add(str);
+                    this.bIn.add(str);
                 }
             }
         }

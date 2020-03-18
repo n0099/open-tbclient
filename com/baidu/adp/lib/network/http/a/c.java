@@ -9,7 +9,7 @@ public class c {
     private long rI;
     private boolean rE = false;
     private boolean rF = false;
-    private int qL = 0;
+    private int qK = 0;
 
     public void J(boolean z) {
         this.rE = z;
@@ -28,7 +28,7 @@ public class c {
     }
 
     public void R(int i) {
-        this.qL = i;
+        this.qK = i;
     }
 
     public void gk() {
@@ -52,7 +52,7 @@ public class c {
     }
 
     public String toString() {
-        return "isFromNet_" + this.rE + "-statType_" + this.rH + "-dnsErr_" + this.exception + "-hasRetry_" + this.qL + "-cost_" + this.rI + "-ipIndex_" + this.qV + "-ipResult_" + this.rD;
+        return "isFromNet_" + this.rE + "-statType_" + this.rH + "-dnsErr_" + this.exception + "-hasRetry_" + this.qK + "-cost_" + this.rI + "-ipIndex_" + this.qV + "-ipResult_" + this.rD;
     }
 
     public String gm() {

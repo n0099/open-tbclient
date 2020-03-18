@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private static long cLt = 604800000;
-    private List<m> enD = new ArrayList();
-    private List<m> enE = new ArrayList();
-    private List<m> enF = new ArrayList();
-    private List<m> enG = new ArrayList();
+    private static long cLE = 604800000;
+    private List<m> enU = new ArrayList();
+    private List<m> enV = new ArrayList();
+    private List<m> enW = new ArrayList();
+    private List<m> enX = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -37,20 +37,20 @@ public class b {
         if (!v.isEmpty(b2)) {
             arrayList.addAll(b2);
         }
-        List<m> bcH = bcH();
-        if (!v.isEmpty(bcH)) {
-            arrayList.addAll(bcH);
+        List<m> bcL = bcL();
+        if (!v.isEmpty(bcL)) {
+            arrayList.addAll(bcL);
         }
         return arrayList;
     }
 
-    private List<m> bcH() {
+    private List<m> bcL() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.enG)) {
+        if (!v.isEmpty(this.enX)) {
             g gVar = new g();
-            gVar.erI = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
+            gVar.ese = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
             arrayList.add(gVar);
-            arrayList.addAll(bh(this.enG));
+            arrayList.addAll(bh(this.enX));
         }
         return arrayList;
     }
@@ -60,11 +60,11 @@ public class b {
         if (alaLiveTabMyConcernResponse != null) {
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 g gVar = new g();
-                gVar.erI = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                gVar.ese = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(gVar);
             }
-            if (!v.isEmpty(this.enE)) {
-                arrayList.addAll(bcI());
+            if (!v.isEmpty(this.enV)) {
+                arrayList.addAll(bcM());
             } else if (z) {
                 e eVar = new e();
                 eVar.followStatus = alaLiveTabMyConcernResponse.followStatus;
@@ -78,7 +78,7 @@ public class b {
         if (alaLiveTabMyConcernResponse == null) {
             return false;
         }
-        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.j(this.mTbPageContext) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > cLt ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == cLt ? 0 : -1)) > 0)) ? false : true;
+        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.j(this.mTbPageContext) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > cLE ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == cLE ? 0 : -1)) > 0)) ? false : true;
     }
 
     private List<m> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
@@ -87,16 +87,16 @@ public class b {
             return arrayList;
         }
         if (alaLiveTabMyConcernResponse.followStatus != 1) {
-            if (!v.isEmpty(this.enF) && a(alaLiveTabMyConcernResponse)) {
+            if (!v.isEmpty(this.enW) && a(alaLiveTabMyConcernResponse)) {
                 arrayList.add(new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a());
             }
-            if (!v.isEmpty(this.enF)) {
+            if (!v.isEmpty(this.enW)) {
                 g gVar = new g();
-                gVar.erI = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                gVar.ese = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                 arrayList.add(gVar);
             }
-            if (!v.isEmpty(this.enF)) {
-                for (m mVar : this.enF) {
+            if (!v.isEmpty(this.enW)) {
+                for (m mVar : this.enW) {
                     arrayList.add(mVar);
                 }
             }
@@ -104,27 +104,27 @@ public class b {
         return arrayList;
     }
 
-    private List<m> bcI() {
+    private List<m> bcM() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.enE)) {
-            int size = this.enE.size();
+        if (!v.isEmpty(this.enV)) {
+            int size = this.enV.size();
             for (int i = 0; i < size; i += 2) {
                 k kVar = new k();
                 c cVar = new c();
-                cVar.ejW = (bj) this.enE.get(i);
+                cVar.ekm = (bj) this.enV.get(i);
                 cVar.isLeft = true;
-                kVar.emi = cVar;
+                kVar.emz = cVar;
                 if (i + 1 < size) {
                     c cVar2 = new c();
-                    cVar2.ejW = (bj) this.enE.get(i + 1);
-                    kVar.emj = cVar2;
+                    cVar2.ekm = (bj) this.enV.get(i + 1);
+                    kVar.emA = cVar2;
                     cVar2.isRight = true;
                 } else {
                     cVar.isLeft = false;
-                    cVar.ejU = true;
+                    cVar.ekk = true;
                 }
                 if ((size % 2 == 0 && i == size - 2) || (size % 2 != 0 && i == size - 1)) {
-                    kVar.emk = true;
+                    kVar.emB = true;
                 }
                 arrayList.add(kVar);
             }
@@ -139,20 +139,20 @@ public class b {
             for (int i = 0; i < size; i += 3) {
                 com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c();
                 c cVar2 = new c();
-                cVar2.ejW = (bj) list.get(i);
-                cVar2.ejY = false;
-                cVar.emi = cVar2;
+                cVar2.ekm = (bj) list.get(i);
+                cVar2.eko = false;
+                cVar.emz = cVar2;
                 if (i + 1 < size) {
                     c cVar3 = new c();
-                    cVar3.ejW = (bj) list.get(i + 1);
-                    cVar3.ejY = false;
-                    cVar.eny = cVar3;
+                    cVar3.ekm = (bj) list.get(i + 1);
+                    cVar3.eko = false;
+                    cVar.enP = cVar3;
                 }
                 if (i + 2 < size) {
                     c cVar4 = new c();
-                    cVar4.ejW = (bj) list.get(i + 2);
-                    cVar4.ejY = false;
-                    cVar.emj = cVar4;
+                    cVar4.ekm = (bj) list.get(i + 2);
+                    cVar4.eko = false;
+                    cVar.emA = cVar4;
                 }
                 arrayList.add(cVar);
             }
@@ -161,11 +161,11 @@ public class b {
     }
 
     public void w(Class<? extends com.baidu.tieba.card.data.b> cls) {
-        if (!v.isEmpty(this.enD)) {
-            for (int size = this.enD.size() - 1; size >= 0; size--) {
-                m mVar = (m) v.getItem(this.enD, size);
+        if (!v.isEmpty(this.enU)) {
+            for (int size = this.enU.size() - 1; size >= 0; size--) {
+                m mVar = (m) v.getItem(this.enU, size);
                 if (mVar != null && mVar.getClass().equals(cls)) {
-                    this.enD.remove(size);
+                    this.enU.remove(size);
                 }
             }
         }
@@ -174,37 +174,37 @@ public class b {
     public void c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
         if (alaLiveTabMyConcernResponse != null) {
             if (z) {
-                this.enD.clear();
+                this.enU.clear();
             }
             if (!v.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-                this.enE.addAll(alaLiveTabMyConcernResponse.followList);
+                this.enV.addAll(alaLiveTabMyConcernResponse.followList);
             }
             if (!v.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-                this.enF.addAll(alaLiveTabMyConcernResponse.followCloseList);
+                this.enW.addAll(alaLiveTabMyConcernResponse.followCloseList);
             }
             if (!v.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-                this.enG.addAll(alaLiveTabMyConcernResponse.recommendList);
+                this.enX.addAll(alaLiveTabMyConcernResponse.recommendList);
             }
-            this.enD = a(alaLiveTabMyConcernResponse, z);
+            this.enU = a(alaLiveTabMyConcernResponse, z);
         }
     }
 
-    public List<m> bcJ() {
-        return this.enD;
+    public List<m> bcN() {
+        return this.enU;
     }
 
     public void clearData() {
-        if (this.enE != null) {
-            this.enE.clear();
+        if (this.enV != null) {
+            this.enV.clear();
         }
-        if (this.enF != null) {
-            this.enF.clear();
+        if (this.enW != null) {
+            this.enW.clear();
         }
-        if (this.enG != null) {
-            this.enG.clear();
+        if (this.enX != null) {
+            this.enX.clear();
         }
-        if (this.enD != null) {
-            this.enD.clear();
+        if (this.enU != null) {
+            this.enU.clear();
         }
     }
 }

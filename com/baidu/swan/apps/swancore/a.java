@@ -27,11 +27,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0298a {
-        private static final a bVZ = new a();
+        private static final a bWk = new a();
     }
 
-    public static a afs() {
-        return C0298a.bVZ;
+    public static a afv() {
+        return C0298a.bWk;
     }
 
     public static String gt(int i) {
@@ -64,7 +64,7 @@ public class a {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.afr().putStringSet(gw(i), hashSet);
+            h.afu().putStringSet(gw(i), hashSet);
         }
     }
 
@@ -80,14 +80,14 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.bWa).compareTo(String.valueOf(bVar2.bWa));
+                return String.valueOf(bVar.bWl).compareTo(String.valueOf(bVar2.bWl));
             }
         });
     }
 
     public String gu(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.afr().getString(gt(i), "");
+        String string = h.afu().getString(gt(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
@@ -110,11 +110,11 @@ public class a {
         if (!z) {
             sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.d.a.gG(i)).toString());
         } else {
-            SwanCoreVersion Wv = f.WS().Wv();
+            SwanCoreVersion Wy = f.WV().Wy();
             b bVar2 = gv.get(size - 1);
-            if (bVar2 != null && Wv != null && Wv.swanCoreVersion > bVar2.swanCoreVersion) {
+            if (bVar2 != null && Wy != null && Wy.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), Wv.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), Wy.swanCoreVersion).toString());
             }
         }
         return sb.toString();
@@ -122,21 +122,21 @@ public class a {
 
     private List<b> gv(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.afr().getStringSet(gw(i), null);
+        Set<String> stringSet = h.afu().getStringSet(gw(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
         for (String str : stringSet) {
-            b mo = mo(str);
-            if (mo != null) {
-                arrayList.add(mo);
+            b mn = mn(str);
+            if (mn != null) {
+                arrayList.add(mn);
             }
         }
         aa(arrayList);
         return arrayList;
     }
 
-    private b mo(String str) {
+    private b mn(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,11 +155,11 @@ public class a {
 
     /* loaded from: classes11.dex */
     public class b {
-        long bWa;
+        long bWl;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.bWa = j;
+            this.bWl = j;
             this.swanCoreVersion = j2;
         }
 
@@ -168,7 +168,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bWa));
+                str = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.getDefault()).format(new Date(this.bWl));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
@@ -188,7 +188,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.bWa);
+                jSONObject.put("time", this.bWl);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {

@@ -11,9 +11,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private h exb;
-    private a exc;
-    private NetMessageListener exd;
+    private NetMessageListener exA;
+    private h exy;
+    private a exz;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -24,28 +24,28 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.exd = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.exA = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && (responsedMessage instanceof OnlineListHttpResponseMessage)) {
                     int error = responsedMessage.getError();
                     h hVar = null;
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
-                        hVar = ((OnlineListHttpResponseMessage) responsedMessage).bdZ();
+                        hVar = ((OnlineListHttpResponseMessage) responsedMessage).bee();
                     }
                     if (error == 0) {
-                        b.this.exb = hVar;
-                        if (b.this.exc != null) {
-                            b.this.exc.c(b.this.exb);
+                        b.this.exy = hVar;
+                        if (b.this.exz != null) {
+                            b.this.exz.c(b.this.exy);
                         }
-                    } else if (b.this.exc != null) {
-                        b.this.exc.ad(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.exz != null) {
+                        b.this.exz.ad(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.exc = aVar;
-        MessageManager.getInstance().registerListener(this.exd);
+        this.exz = aVar;
+        MessageManager.getInstance().registerListener(this.exA);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
@@ -66,7 +66,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.exd);
+        MessageManager.getInstance().unRegisterListener(this.exA);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

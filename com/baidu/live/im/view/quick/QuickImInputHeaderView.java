@@ -17,15 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickImInputHeaderView extends RelativeLayout {
-    private AlphaGradientHListView avB;
-    private b avC;
-    private a avD;
+    private AlphaGradientHListView avL;
+    private b avM;
+    private a avN;
 
     /* loaded from: classes3.dex */
     public interface a {
         void r(String str, int i);
 
-        void xW();
+        void yb();
     }
 
     public QuickImInputHeaderView(Context context, AttributeSet attributeSet) {
@@ -34,42 +34,42 @@ public class QuickImInputHeaderView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.avD = aVar;
+        this.avN = aVar;
     }
 
     public void setData(List<String> list) {
-        if (this.avC == null) {
-            this.avC = new b();
-            this.avC.setData(list);
-            this.avB.setAdapter((ListAdapter) this.avC);
+        if (this.avM == null) {
+            this.avM = new b();
+            this.avM.setData(list);
+            this.avL.setAdapter((ListAdapter) this.avM);
         } else {
-            this.avC.setData(list);
-            this.avC.notifyDataSetChanged();
+            this.avM.setData(list);
+            this.avM.notifyDataSetChanged();
         }
-        this.avB.setSelection(0);
+        this.avL.setSelection(0);
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_quick_im_input_header, (ViewGroup) this, true);
-        this.avB = (AlphaGradientHListView) findViewById(a.g.lv);
-        this.avB.setShadowWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds56));
-        this.avB.setNeedAlphaShade(true);
-        this.avB.setColor(getResources().getColor(a.d.sdk_white_alpha100), getResources().getColor(a.d.sdk_white_alpha0));
-        this.avB.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
-        this.avB.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.im.view.quick.QuickImInputHeaderView.1
+        this.avL = (AlphaGradientHListView) findViewById(a.g.lv);
+        this.avL.setShadowWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds56));
+        this.avL.setNeedAlphaShade(true);
+        this.avL.setColor(getResources().getColor(a.d.sdk_white_alpha100), getResources().getColor(a.d.sdk_white_alpha0));
+        this.avL.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
+        this.avL.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.im.view.quick.QuickImInputHeaderView.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (QuickImInputHeaderView.this.avD != null) {
-                    QuickImInputHeaderView.this.avD.r(QuickImInputHeaderView.this.avC.getItem(i), i);
+                if (QuickImInputHeaderView.this.avN != null) {
+                    QuickImInputHeaderView.this.avN.r(QuickImInputHeaderView.this.avM.getItem(i), i);
                 }
             }
         });
         findViewById(a.g.iv_more).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.quick.QuickImInputHeaderView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (QuickImInputHeaderView.this.avD != null) {
-                    QuickImInputHeaderView.this.avD.xW();
+                if (QuickImInputHeaderView.this.avN != null) {
+                    QuickImInputHeaderView.this.avN.yb();
                 }
             }
         });
@@ -77,25 +77,25 @@ public class QuickImInputHeaderView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     private static class b extends BaseAdapter {
-        private List<String> avF;
+        private List<String> avP;
 
         private b() {
         }
 
         public void setData(List<String> list) {
-            if (this.avF == null) {
-                this.avF = new ArrayList();
+            if (this.avP == null) {
+                this.avP = new ArrayList();
             }
-            this.avF.clear();
+            this.avP.clear();
             if (list != null) {
-                this.avF.addAll(list);
+                this.avP.addAll(list);
             }
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.avF != null) {
-                return this.avF.size();
+            if (this.avP != null) {
+                return this.avP.size();
             }
             return 0;
         }
@@ -103,7 +103,7 @@ public class QuickImInputHeaderView extends RelativeLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         public String getItem(int i) {
-            return (this.avF == null || getCount() <= i) ? "" : this.avF.get(i);
+            return (this.avP == null || getCount() <= i) ? "" : this.avP.get(i);
         }
 
         @Override // android.widget.Adapter

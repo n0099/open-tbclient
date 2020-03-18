@@ -26,15 +26,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String dFM = "#";
-    public static String dFN = "＃";
-    private static final Pattern cHQ = Pattern.compile("#([^#(]+)#", 2);
+    public static String dGc = "#";
+    public static String dGd = "＃";
+    private static final Pattern cIb = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean vI(String str) {
-        return dFM.equals(str);
+        return dGc.equals(str);
     }
 
-    public static boolean gX(boolean z) {
+    public static boolean gY(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.js().ba("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -47,7 +47,7 @@ public class b {
         return false;
     }
 
-    public static boolean aRE() {
+    public static boolean aRI() {
         return PluginPackageManager.js().bg("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -59,7 +59,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (!gX(z2)) {
+        } else if (!gY(z2)) {
             String string2 = tbPageContext.getResources().getString(R.string.plugin_hottopic_install_tips);
             String string3 = tbPageContext.getResources().getString(R.string.plugin_go_install);
             if (z) {
@@ -67,7 +67,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (aRE()) {
+        } else if (aRI()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
@@ -88,7 +88,7 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.sS(str);
+            aVar.sR(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -111,7 +111,7 @@ public class b {
                     }
                 });
             }
-            aVar.b(tbPageContext).aEC();
+            aVar.b(tbPageContext).aEG();
         }
     }
 
@@ -119,7 +119,7 @@ public class b {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = cHQ.matcher(str);
+        Matcher matcher = cIb.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
@@ -136,7 +136,7 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = cHQ.matcher(obj);
+                Matcher matcher = cIb.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
@@ -154,7 +154,7 @@ public class b {
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(dFM).append(str).append(dFM);
+            sb.append(dGc).append(str).append(dGc);
             return sb.toString();
         }
         return str;
@@ -162,7 +162,7 @@ public class b {
 
     public static boolean vL(String str) {
         String substring;
-        return str != null && str.startsWith(dFM) && str.endsWith(dFM) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(dGc) && str.endsWith(dGc) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(l lVar) {
@@ -184,7 +184,7 @@ public class b {
                 str = "1";
                 break;
         }
-        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cy("obj_locate", str));
+        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cx("obj_locate", str));
     }
 
     public static String vM(String str) {

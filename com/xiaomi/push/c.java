@@ -181,7 +181,7 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m171a() {
+    public void m169a() {
         if (this.f174a != null) {
             c();
         }
@@ -198,86 +198,86 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m172a(int i) {
+    public void m170a(int i) {
         if (i >= 0) {
-            m191d(i);
+            m189d(i);
         } else {
-            m190c(i);
+            m188c(i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m173a(int i, int i2) {
+    public void m171a(int i, int i2) {
         c(i, 0);
-        m172a(i2);
+        m170a(i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m174a(int i, long j) {
+    public void m172a(int i, long j) {
         c(i, 0);
-        m179a(j);
+        m177a(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m175a(int i, com.xiaomi.push.a aVar) {
+    public void m173a(int i, com.xiaomi.push.a aVar) {
         c(i, 2);
-        m180a(aVar);
+        m178a(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m176a(int i, e eVar) {
+    public void m174a(int i, e eVar) {
         c(i, 2);
-        m181a(eVar);
+        m179a(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m177a(int i, String str) {
+    public void m175a(int i, String str) {
         c(i, 2);
-        m182a(str);
+        m180a(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m178a(int i, boolean z) {
+    public void m176a(int i, boolean z) {
         c(i, 0);
-        m183a(z);
+        m181a(z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m179a(long j) {
-        m190c(j);
+    public void m177a(long j) {
+        m188c(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m180a(com.xiaomi.push.a aVar) {
-        byte[] m122a = aVar.m122a();
-        m191d(m122a.length);
-        a(m122a);
+    public void m178a(com.xiaomi.push.a aVar) {
+        byte[] m120a = aVar.m120a();
+        m189d(m120a.length);
+        a(m120a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m181a(e eVar) {
-        m191d(eVar.a());
+    public void m179a(e eVar) {
+        m189d(eVar.a());
         eVar.a(this);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m182a(String str) {
+    public void m180a(String str) {
         byte[] bytes = str.getBytes("UTF-8");
-        m191d(bytes.length);
+        m189d(bytes.length);
         a(bytes);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m183a(boolean z) {
-        m189c(z ? 1 : 0);
+    public void m181a(boolean z) {
+        m187c(z ? 1 : 0);
     }
 
     public void a(byte[] bArr) {
-        m184a(bArr, 0, bArr.length);
+        m182a(bArr, 0, bArr.length);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m184a(byte[] bArr, int i, int i2) {
+    public void m182a(byte[] bArr, int i, int i2) {
         if (this.a - this.b >= i2) {
             System.arraycopy(bArr, i, this.f175a, this.b, i2);
             this.b += i2;
@@ -304,51 +304,51 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m185b(int i) {
-        m191d(i);
+    public void m183b(int i) {
+        m189d(i);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m186b(int i, int i2) {
+    public void m184b(int i, int i2) {
         c(i, 0);
-        m185b(i2);
+        m183b(i2);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m187b(int i, long j) {
+    public void m185b(int i, long j) {
         c(i, 0);
-        m188b(j);
+        m186b(j);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m188b(long j) {
-        m190c(j);
+    public void m186b(long j) {
+        m188c(j);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m189c(int i) {
+    public void m187c(int i) {
         a((byte) i);
     }
 
     public void c(int i, int i2) {
-        m191d(f.a(i, i2));
+        m189d(f.a(i, i2));
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m190c(long j) {
+    public void m188c(long j) {
         while (((-128) & j) != 0) {
-            m189c((((int) j) & 127) | 128);
+            m187c((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        m189c((int) j);
+        m187c((int) j);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m191d(int i) {
+    public void m189d(int i) {
         while ((i & (-128)) != 0) {
-            m189c((i & 127) | 128);
+            m187c((i & 127) | 128);
             i >>>= 7;
         }
-        m189c(i);
+        m187c(i);
     }
 }

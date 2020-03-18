@@ -59,7 +59,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onAttachedToWindow();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.m38do(this);
+            this.mDraweeStringBuilder.m36do(this);
         }
         startAni();
     }
@@ -69,7 +69,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onFinishTemporaryDetach();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.m38do(this);
+            this.mDraweeStringBuilder.m36do(this);
         }
     }
 
@@ -105,7 +105,7 @@ public class SimpleDraweeSpanTextView extends TextView {
             }
         }
         if (this.mDraweeStringBuilder != null && this.mIsAttached) {
-            this.mDraweeStringBuilder.m38do(this);
+            this.mDraweeStringBuilder.m36do(this);
         }
     }
 

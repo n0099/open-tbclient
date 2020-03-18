@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class r implements b, a.InterfaceC0010a {
-    private final ShapeTrimPath.Type gC;
+    private final ShapeTrimPath.Type gB;
+    private final com.airbnb.lottie.a.b.a<?, Float> gC;
     private final com.airbnb.lottie.a.b.a<?, Float> gD;
     private final com.airbnb.lottie.a.b.a<?, Float> gE;
-    private final com.airbnb.lottie.a.b.a<?, Float> gF;
     private final List<a.InterfaceC0010a> listeners = new ArrayList();
     private final String name;
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.gC = shapeTrimPath.bN();
-        this.gD = shapeTrimPath.dc().cn();
-        this.gE = shapeTrimPath.db().cn();
-        this.gF = shapeTrimPath.cV().cn();
+        this.gB = shapeTrimPath.bN();
+        this.gC = shapeTrimPath.dc().cn();
+        this.gD = shapeTrimPath.db().cn();
+        this.gE = shapeTrimPath.cV().cn();
+        aVar.a(this.gC);
         aVar.a(this.gD);
         aVar.a(this.gE);
-        aVar.a(this.gF);
+        this.gC.b(this);
         this.gD.b(this);
         this.gE.b(this);
-        this.gF.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
@@ -57,18 +57,18 @@ public class r implements b, a.InterfaceC0010a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShapeTrimPath.Type bN() {
-        return this.gC;
+        return this.gB;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bO() {
-        return this.gD;
+        return this.gC;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bP() {
-        return this.gE;
+        return this.gD;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bQ() {
-        return this.gF;
+        return this.gE;
     }
 }

@@ -13,47 +13,47 @@ import tv.chushou.zues.b;
 public class SuccessTickView extends View {
     private float mDensity;
     private Paint mPaint;
-    private final float oaG;
-    private final float oaH;
-    private final float oaI;
-    private final float oaJ;
-    private final float oaK;
-    private final float oaL;
-    private float oaM;
-    private float oaN;
-    private float oaO;
-    private boolean oaP;
+    private final float ocA;
+    private float ocB;
+    private float ocC;
+    private float ocD;
+    private boolean ocE;
+    private final float ocv;
+    private final float ocw;
+    private final float ocx;
+    private final float ocy;
+    private final float ocz;
 
     public SuccessTickView(Context context) {
         super(context);
         this.mDensity = -1.0f;
-        this.oaG = bL(1.2f);
-        this.oaH = bL(3.0f);
-        this.oaI = bL(15.0f);
-        this.oaJ = bL(25.0f);
-        this.oaK = bL(3.3f);
-        this.oaL = this.oaJ + bL(6.7f);
+        this.ocv = bL(1.2f);
+        this.ocw = bL(3.0f);
+        this.ocx = bL(15.0f);
+        this.ocy = bL(25.0f);
+        this.ocz = bL(3.3f);
+        this.ocA = this.ocy + bL(6.7f);
         init();
     }
 
     public SuccessTickView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDensity = -1.0f;
-        this.oaG = bL(1.2f);
-        this.oaH = bL(3.0f);
-        this.oaI = bL(15.0f);
-        this.oaJ = bL(25.0f);
-        this.oaK = bL(3.3f);
-        this.oaL = this.oaJ + bL(6.7f);
+        this.ocv = bL(1.2f);
+        this.ocw = bL(3.0f);
+        this.ocx = bL(15.0f);
+        this.ocy = bL(25.0f);
+        this.ocz = bL(3.3f);
+        this.ocA = this.ocy + bL(6.7f);
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.mPaint.setColor(getResources().getColor(b.C0807b.success_stroke_color));
-        this.oaN = this.oaI;
-        this.oaO = this.oaJ;
-        this.oaP = false;
+        this.mPaint.setColor(getResources().getColor(b.C0808b.success_stroke_color));
+        this.ocC = this.ocx;
+        this.ocD = this.ocy;
+        this.ocE = false;
     }
 
     @Override // android.view.View
@@ -64,26 +64,26 @@ public class SuccessTickView extends View {
         canvas.rotate(45.0f, width / 2, height / 2);
         int i = (int) (width / 1.2d);
         int i2 = (int) (height / 1.4d);
-        this.oaM = (((i + this.oaI) / 2.0f) + this.oaH) - 1.0f;
+        this.ocB = (((i + this.ocx) / 2.0f) + this.ocw) - 1.0f;
         RectF rectF = new RectF();
-        if (this.oaP) {
+        if (this.ocE) {
             rectF.left = 0.0f;
-            rectF.right = rectF.left + this.oaN;
-            rectF.top = (i2 + this.oaJ) / 2.0f;
-            rectF.bottom = rectF.top + this.oaH;
+            rectF.right = rectF.left + this.ocC;
+            rectF.top = (i2 + this.ocy) / 2.0f;
+            rectF.bottom = rectF.top + this.ocw;
         } else {
-            rectF.right = (((i + this.oaI) / 2.0f) + this.oaH) - 1.0f;
-            rectF.left = rectF.right - this.oaN;
-            rectF.top = (i2 + this.oaJ) / 2.0f;
-            rectF.bottom = rectF.top + this.oaH;
+            rectF.right = (((i + this.ocx) / 2.0f) + this.ocw) - 1.0f;
+            rectF.left = rectF.right - this.ocC;
+            rectF.top = (i2 + this.ocy) / 2.0f;
+            rectF.bottom = rectF.top + this.ocw;
         }
-        canvas.drawRoundRect(rectF, this.oaG, this.oaG, this.mPaint);
+        canvas.drawRoundRect(rectF, this.ocv, this.ocv, this.mPaint);
         RectF rectF2 = new RectF();
-        rectF2.bottom = (((i2 + this.oaJ) / 2.0f) + this.oaH) - 1.0f;
-        rectF2.left = (i + this.oaI) / 2.0f;
-        rectF2.right = rectF2.left + this.oaH;
-        rectF2.top = rectF2.bottom - this.oaO;
-        canvas.drawRoundRect(rectF2, this.oaG, this.oaG, this.mPaint);
+        rectF2.bottom = (((i2 + this.ocy) / 2.0f) + this.ocw) - 1.0f;
+        rectF2.left = (i + this.ocx) / 2.0f;
+        rectF2.right = rectF2.left + this.ocw;
+        rectF2.top = rectF2.bottom - this.ocD;
+        canvas.drawRoundRect(rectF2, this.ocv, this.ocv, this.mPaint);
     }
 
     public float bL(float f) {
@@ -93,31 +93,31 @@ public class SuccessTickView extends View {
         return (this.mDensity * f) + 0.5f;
     }
 
-    public void dQU() {
-        this.oaN = 0.0f;
-        this.oaO = 0.0f;
+    public void dRu() {
+        this.ocC = 0.0f;
+        this.ocD = 0.0f;
         invalidate();
         Animation animation = new Animation() { // from class: tv.chushou.zues.widget.sweetalert.SuccessTickView.1
             @Override // android.view.animation.Animation
             protected void applyTransformation(float f, Transformation transformation) {
                 super.applyTransformation(f, transformation);
                 if (0.54d < f && 0.7d >= f) {
-                    SuccessTickView.this.oaP = true;
-                    SuccessTickView.this.oaN = SuccessTickView.this.oaM * ((f - 0.54f) / 0.16f);
+                    SuccessTickView.this.ocE = true;
+                    SuccessTickView.this.ocC = SuccessTickView.this.ocB * ((f - 0.54f) / 0.16f);
                     if (0.65d < f) {
-                        SuccessTickView.this.oaO = SuccessTickView.this.oaL * ((f - 0.65f) / 0.19f);
+                        SuccessTickView.this.ocD = SuccessTickView.this.ocA * ((f - 0.65f) / 0.19f);
                     }
                     SuccessTickView.this.invalidate();
                 } else if (0.7d < f && 0.84d >= f) {
-                    SuccessTickView.this.oaP = false;
-                    SuccessTickView.this.oaN = SuccessTickView.this.oaM * (1.0f - ((f - 0.7f) / 0.14f));
-                    SuccessTickView.this.oaN = SuccessTickView.this.oaN < SuccessTickView.this.oaK ? SuccessTickView.this.oaK : SuccessTickView.this.oaN;
-                    SuccessTickView.this.oaO = SuccessTickView.this.oaL * ((f - 0.65f) / 0.19f);
+                    SuccessTickView.this.ocE = false;
+                    SuccessTickView.this.ocC = SuccessTickView.this.ocB * (1.0f - ((f - 0.7f) / 0.14f));
+                    SuccessTickView.this.ocC = SuccessTickView.this.ocC < SuccessTickView.this.ocz ? SuccessTickView.this.ocz : SuccessTickView.this.ocC;
+                    SuccessTickView.this.ocD = SuccessTickView.this.ocA * ((f - 0.65f) / 0.19f);
                     SuccessTickView.this.invalidate();
                 } else if (0.84d < f && 1.0f >= f) {
-                    SuccessTickView.this.oaP = false;
-                    SuccessTickView.this.oaN = SuccessTickView.this.oaK + ((SuccessTickView.this.oaI - SuccessTickView.this.oaK) * ((f - 0.84f) / 0.16f));
-                    SuccessTickView.this.oaO = SuccessTickView.this.oaJ + ((SuccessTickView.this.oaL - SuccessTickView.this.oaJ) * (1.0f - ((f - 0.84f) / 0.16f)));
+                    SuccessTickView.this.ocE = false;
+                    SuccessTickView.this.ocC = SuccessTickView.this.ocz + ((SuccessTickView.this.ocx - SuccessTickView.this.ocz) * ((f - 0.84f) / 0.16f));
+                    SuccessTickView.this.ocD = SuccessTickView.this.ocy + ((SuccessTickView.this.ocA - SuccessTickView.this.ocy) * (1.0f - ((f - 0.84f) / 0.16f)));
                     SuccessTickView.this.invalidate();
                 }
             }

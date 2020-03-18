@@ -58,9 +58,9 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (getClass().equals(icVar.getClass())) {
-            int compareTo = Boolean.valueOf(m405a()).compareTo(Boolean.valueOf(icVar.m405a()));
+            int compareTo = Boolean.valueOf(m403a()).compareTo(Boolean.valueOf(icVar.m403a()));
             if (compareTo == 0) {
-                if (!m405a() || (a9 = is.a(this.f610a, icVar.f610a)) == 0) {
+                if (!m403a() || (a9 = is.a(this.f610a, icVar.f610a)) == 0) {
                     int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(icVar.c()));
                     if (compareTo2 == 0) {
                         if (!c() || (a8 = is.a(this.f616a, icVar.f616a)) == 0) {
@@ -124,7 +124,7 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ht m401a() {
+    public ht m399a() {
         return this.f611a;
     }
 
@@ -155,17 +155,17 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
 
     public ic a(boolean z) {
         this.f616a = z;
-        m404a(true);
+        m402a(true);
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m402a() {
+    public String m400a() {
         return this.f613a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m403a() {
+    public void m401a() {
         if (this.f610a == null) {
             throw new jd("Required field 'action' was not present! Struct: " + toString());
         }
@@ -179,10 +179,10 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m472a();
+        jcVar.m470a();
         while (true) {
-            iz m468a = jcVar.m468a();
-            if (m468a.a == 0) {
+            iz m466a = jcVar.m466a();
+            if (m466a.a == 0) {
                 jcVar.f();
                 if (!c()) {
                     throw new jd("Required field 'encryptAction' was not found in serialized data! Struct: " + toString());
@@ -190,63 +190,63 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
                 if (!d()) {
                     throw new jd("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
-                m403a();
+                m401a();
                 return;
             }
-            switch (m468a.f788a) {
+            switch (m466a.f788a) {
                 case 1:
-                    if (m468a.a != 8) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 8) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f610a = hg.a(jcVar.m466a());
+                        this.f610a = hg.a(jcVar.m464a());
                         break;
                     }
                 case 2:
-                    if (m468a.a != 2) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 2) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f616a = jcVar.m477a();
-                        m404a(true);
+                        this.f616a = jcVar.m475a();
+                        m402a(true);
                         break;
                     }
                 case 3:
-                    if (m468a.a != 2) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 2) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f618b = jcVar.m477a();
-                        m408b(true);
+                        this.f618b = jcVar.m475a();
+                        m406b(true);
                         break;
                     }
                 case 4:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f614a = jcVar.m474a();
+                        this.f614a = jcVar.m472a();
                         break;
                     }
                 case 5:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f613a = jcVar.m473a();
+                        this.f613a = jcVar.m471a();
                         break;
                     }
                 case 6:
-                    if (m468a.a != 11) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 11) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
-                        this.f617b = jcVar.m473a();
+                        this.f617b = jcVar.m471a();
                         break;
                     }
                 case 7:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f612a = new hv();
@@ -254,8 +254,8 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 8:
-                    if (m468a.a != 12) {
-                        jf.a(jcVar, m468a.a);
+                    if (m466a.a != 12) {
+                        jf.a(jcVar, m466a.a);
                         break;
                     } else {
                         this.f611a = new ht();
@@ -263,7 +263,7 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
                         break;
                     }
                 default:
-                    jf.a(jcVar, m468a.a);
+                    jf.a(jcVar, m466a.a);
                     break;
             }
             jcVar.g();
@@ -271,23 +271,23 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m404a(boolean z) {
+    public void m402a(boolean z) {
         this.f615a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m405a() {
+    public boolean m403a() {
         return this.f610a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m406a(ic icVar) {
+    public boolean m404a(ic icVar) {
         if (icVar == null) {
             return false;
         }
-        boolean m405a = m405a();
-        boolean m405a2 = icVar.m405a();
-        if (((!m405a && !m405a2) || (m405a && m405a2 && this.f610a.equals(icVar.f610a))) && this.f616a == icVar.f616a && this.f618b == icVar.f618b) {
+        boolean m403a = m403a();
+        boolean m403a2 = icVar.m403a();
+        if (((!m403a && !m403a2) || (m403a && m403a2 && this.f610a.equals(icVar.f610a))) && this.f616a == icVar.f616a && this.f618b == icVar.f618b) {
             boolean e2 = e();
             boolean e3 = icVar.e();
             if ((e2 || e3) && !(e2 && e3 && this.f614a.equals(icVar.f614a))) {
@@ -305,18 +305,18 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
             }
             boolean h2 = h();
             boolean h3 = icVar.h();
-            if ((h2 || h3) && !(h2 && h3 && this.f612a.m378a(icVar.f612a))) {
+            if ((h2 || h3) && !(h2 && h3 && this.f612a.m376a(icVar.f612a))) {
                 return false;
             }
             boolean i = i();
             boolean i2 = icVar.i();
-            return !(i || i2) || (i && i2 && this.f611a.m370a(icVar.f611a));
+            return !(i || i2) || (i && i2 && this.f611a.m368a(icVar.f611a));
         }
         return false;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m407a() {
+    public byte[] m405a() {
         a(is.a(this.f614a));
         return this.f614a.array();
     }
@@ -328,7 +328,7 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
 
     public ic b(boolean z) {
         this.f618b = z;
-        m408b(true);
+        m406b(true);
         return this;
     }
 
@@ -338,7 +338,7 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m403a();
+        m401a();
         jcVar.a(f609a);
         if (this.f610a != null) {
             jcVar.a(a);
@@ -377,16 +377,16 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m476a();
+        jcVar.m474a();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m408b(boolean z) {
+    public void m406b(boolean z) {
         this.f615a.set(1, z);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m409b() {
+    public boolean m407b() {
         return this.f616a;
     }
 
@@ -404,7 +404,7 @@ public class ic implements ir<ic, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ic)) {
-            return m406a((ic) obj);
+            return m404a((ic) obj);
         }
         return false;
     }

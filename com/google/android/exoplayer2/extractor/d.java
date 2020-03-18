@@ -12,14 +12,14 @@ public final class d implements m {
 
     @Override // com.google.android.exoplayer2.extractor.m
     public int a(f fVar, int i, boolean z) throws IOException, InterruptedException {
-        int Ju = fVar.Ju(i);
-        if (Ju == -1) {
+        int JA = fVar.JA(i);
+        if (JA == -1) {
             if (z) {
                 return -1;
             }
             throw new EOFException();
         }
-        return Ju;
+        return JA;
     }
 
     @Override // com.google.android.exoplayer2.extractor.m

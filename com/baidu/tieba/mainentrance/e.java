@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e implements CustomMessageTask.CustomRunnable<Object> {
     /* renamed from: do  reason: not valid java name */
-    public static final List<String> m35do(List<l.b<String>> list) {
+    public static final List<String> m33do(List<l.b<String>> list) {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (l.b<String> bVar : list) {
@@ -34,9 +34,9 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> m35do = m35do(r.b(com.baidu.tbadk.core.c.a.aEB().cr("tb.searchperson_history", currentAccount)));
+        List<String> m33do = m33do(r.b(com.baidu.tbadk.core.c.a.aEF().cq("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(m35do);
+        responseSearchPersonHistoryReadMessage.datas.addAll(m33do);
         return responseSearchPersonHistoryReadMessage;
     }
 }

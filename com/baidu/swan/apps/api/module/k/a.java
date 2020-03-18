@@ -17,7 +17,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fZ(String str) {
+    public com.baidu.swan.apps.api.b.b fY(String str) {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
@@ -25,9 +25,9 @@ public class a extends com.baidu.swan.apps.api.a.c {
             @Override // com.baidu.swan.apps.api.a.c.a
             public com.baidu.swan.apps.api.b.b a(e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
-                com.baidu.swan.apps.ao.a.a afH = com.baidu.swan.apps.ao.a.a.afH();
-                afH.init(a.this.getContext(), C0226a.ga(jSONObject.optString("interval")));
-                afH.a(new a.InterfaceC0204a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                com.baidu.swan.apps.ao.a.a afK = com.baidu.swan.apps.ao.a.a.afK();
+                afK.init(a.this.getContext(), C0226a.fZ(jSONObject.optString("interval")));
+                afK.a(new a.InterfaceC0204a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
                     @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0204a
                     public void a(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
@@ -51,34 +51,34 @@ public class a extends com.baidu.swan.apps.api.a.c {
                         }
                     }
                 });
-                afH.afI();
+                afK.afL();
                 return new com.baidu.swan.apps.api.b.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.b.b JZ() {
+    public com.baidu.swan.apps.api.b.b Kc() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.ao.a.a.afH().afJ();
+        com.baidu.swan.apps.ao.a.a.afK().afM();
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0226a {
-        private static ArrayMap<String, Integer> bfq = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> bfE = new ArrayMap<>(3);
 
         static {
-            bfq.put("ui", 60);
-            bfq.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bfq.put("normal", 200);
+            bfE.put("ui", 60);
+            bfE.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bfE.put("normal", 200);
         }
 
-        public static int ga(String str) {
-            Integer num = bfq.get(str);
+        public static int fZ(String str) {
+            Integer num = bfE.get(str);
             if (num != null) {
                 return num.intValue();
             }

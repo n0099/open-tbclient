@@ -15,7 +15,7 @@ public final class ColorInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Mc */
+        /* renamed from: Mi */
         public ColorInfo[] newArray(int i) {
             return new ColorInfo[0];
         }

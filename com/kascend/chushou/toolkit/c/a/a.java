@@ -11,25 +11,25 @@ import tv.chushou.basis.http.model.RequestTag;
 @h
 /* loaded from: classes5.dex */
 public final class a {
-    private c.a neO;
+    private c.a ngz;
 
     public final void a(String str, String str2, File file, c.a aVar) {
-        this.neO = aVar;
+        this.ngz = aVar;
         if (str == null || file == null) {
-            c.a aVar2 = this.neO;
+            c.a aVar2 = this.ngz;
             if (aVar2 != null) {
                 aVar2.onFailure(-1, "", null);
                 return;
             }
             return;
         }
-        c.a aVar3 = this.neO;
+        c.a aVar3 = this.ngz;
         if (aVar3 != null) {
             aVar3.onStart();
         }
-        Http http = (Http) tv.chushou.basis.d.b.dPW().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
         if (http == null) {
-            c.a aVar4 = this.neO;
+            c.a aVar4 = this.ngz;
             if (aVar4 != null) {
                 aVar4.onFailure(-1, "", null);
                 return;
@@ -38,18 +38,18 @@ public final class a {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("type", str);
-        http.getAsync(tv.chushou.common.a.dPX(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0712a(str, str2, file));
+        http.getAsync(tv.chushou.common.a.dQx(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0713a(str, str2, file));
     }
 
     @h
     /* renamed from: com.kascend.chushou.toolkit.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0712a implements tv.chushou.basis.d.a.c.a<Http.Resp> {
+    public static final class C0713a implements tv.chushou.basis.d.a.c.a<Http.Resp> {
         final /* synthetic */ String b;
         final /* synthetic */ String c;
         final /* synthetic */ File d;
 
-        C0712a(String str, String str2, File file) {
+        C0713a(String str, String str2, File file) {
             this.b = str;
             this.c = str2;
             this.d = file;
@@ -65,7 +65,7 @@ public final class a {
         public void onSuccess(Http.Resp resp) {
             String optString;
             if ((resp != null ? resp.respJson : null) == null) {
-                c.a aVar = a.this.neO;
+                c.a aVar = a.this.ngz;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
@@ -84,7 +84,7 @@ public final class a {
                     return;
                 }
             }
-            c.a aVar2 = a.this.neO;
+            c.a aVar2 = a.this.ngz;
             if (aVar2 != null) {
                 aVar2.onFailure(optInt, str, null);
             }
@@ -92,7 +92,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.neO;
+            c.a aVar = a.this.ngz;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -119,14 +119,14 @@ public final class a {
             }
             String str3 = str2;
             if (str3 == null || str3.length() == 0) {
-                c.a aVar = a.this.neO;
+                c.a aVar = a.this.ngz;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
                 }
                 return;
             }
-            c.a aVar2 = a.this.neO;
+            c.a aVar2 = a.this.ngz;
             if (aVar2 != null) {
                 aVar2.onSuccess(this.b);
             }
@@ -134,7 +134,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.neO;
+            c.a aVar = a.this.ngz;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -142,7 +142,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.a.c.a
         public void onProgress(int i) {
-            c.a aVar = a.this.neO;
+            c.a aVar = a.this.ngz;
             if (aVar != null) {
                 aVar.onProgress(i);
             }
@@ -155,7 +155,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(File file, String str, String str2) {
-        com.kascend.chushou.toolkit.c.a.b.neS.dEl().a(file, str, str2, new b(str));
+        com.kascend.chushou.toolkit.c.a.b.ngD.dEL().a(file, str, str2, new b(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

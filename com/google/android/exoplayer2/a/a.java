@@ -7,16 +7,16 @@ public abstract class a {
         this.flags = 0;
     }
 
-    public final boolean duu() {
-        return Jn(Integer.MIN_VALUE);
+    public final boolean duR() {
+        return Jt(Integer.MIN_VALUE);
     }
 
-    public final boolean duv() {
-        return Jn(4);
+    public final boolean duS() {
+        return Jt(4);
     }
 
-    public final boolean duw() {
-        return Jn(1);
+    public final boolean duT() {
+        return Jt(1);
     }
 
     public final void setFlags(int i) {
@@ -32,7 +32,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean Jn(int i) {
+    public final boolean Jt(int i) {
         return (this.flags & i) == i;
     }
 }

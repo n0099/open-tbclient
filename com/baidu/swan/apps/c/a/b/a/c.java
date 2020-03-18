@@ -12,16 +12,16 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h
-    public f IJ() {
-        return com.baidu.swan.apps.core.k.d.Qw().Qx().bz(getContext());
+    public f IM() {
+        return com.baidu.swan.apps.core.k.d.Qz().QA().by(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d Je() {
+    protected com.baidu.swan.apps.core.f.d Jh() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.b.a.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean eo(String str) {
-                return super.eo(str);
+            public boolean en(String str) {
+                return super.en(str);
             }
         };
     }
@@ -29,20 +29,20 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bnx.setRightZoneVisibility(true);
+        this.bnK.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected void Ji() {
-        FragmentActivity auA = auA();
-        if (auA != null && this.bny == null) {
-            this.bny = new com.baidu.swan.menu.h(auA, this.bnx, Jj(), com.baidu.swan.apps.w.a.Ua(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bny, this).Yk();
+    protected void Jl() {
+        FragmentActivity auD = auD();
+        if (auD != null && this.bnL == null) {
+            this.bnL = new com.baidu.swan.menu.h(auD, this.bnK, Jm(), com.baidu.swan.apps.w.a.Ud(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.aa.a(this.bnL, this).Yn();
         }
     }
 
-    private int Jj() {
-        return NP() ? 18 : 12;
+    private int Jm() {
+        return NS() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -50,28 +50,28 @@ public class c extends h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.boF = IJ();
-        this.boF.a(Je());
-        this.baY = this.boF.IP();
-        this.boF.loadUrl(this.mUrl);
+        this.boR = IM();
+        this.boR.a(Jh());
+        this.bbl = this.boR.IS();
+        this.boR.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.boF.a(frameLayout, this.baY.covertToView());
+        this.boR.a(frameLayout, this.bbl.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected boolean Jf() {
+    protected boolean Ji() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    public boolean IK() {
-        if (this.baY != null && this.baY.canGoBack()) {
-            this.baY.goBack();
+    public boolean IN() {
+        if (this.bbl != null && this.bbl.canGoBack()) {
+            this.bbl.goBack();
             return true;
         }
-        d.Jz().dX(1);
+        d.JC().dX(1);
         return false;
     }
 }

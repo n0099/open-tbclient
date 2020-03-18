@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.a;
 /* loaded from: classes.dex */
 public class a {
-    private b daK = new b();
-    private c daL = new c();
-    private d daM = new d();
+    private b daX = new b();
+    private c daY = new c();
+    private d daZ = new d();
 
-    public b aGH() {
-        return this.daK;
+    public b aGL() {
+        return this.daX;
     }
 
-    public c aGI() {
-        return this.daL;
+    public c aGM() {
+        return this.daY;
     }
 
-    public d aGJ() {
-        return this.daM;
+    public d aGN() {
+        return this.daZ;
     }
 }

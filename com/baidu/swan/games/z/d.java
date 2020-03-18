@@ -8,26 +8,26 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class d {
-    private b csM;
+    private b csX;
 
     public d(JsObject jsObject) {
-        this.csM = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
-        a.apS().a(this);
+        this.csX = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
+        a.apV().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity WD = f.WS().WD();
-        if (WD == null) {
+        final SwanAppActivity WG = f.WV().WG();
+        if (WG == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (WD.isDestroyed() || WD.getIntent() == null) {
+        } else if (WG.isDestroyed() || WG.getIntent() == null) {
             return false;
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.z.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.m(WD);
+                    com.baidu.swan.games.utils.a.m(WG);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.csM != null && JSEvent.isValid(cVar)) {
+        if (this.csX != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.csM.b(cVar);
+                    this.csX.b(cVar);
                     return;
                 case true:
-                    this.csM.apU();
+                    this.csX.apX();
                     return;
                 case true:
-                    this.csM.PE();
+                    this.csX.PH();
                     return;
                 default:
                     return;

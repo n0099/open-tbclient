@@ -11,78 +11,78 @@ import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.im.a.b;
 /* loaded from: classes3.dex */
 public class g extends LinkMovementMethod {
-    private static g asn;
-    private boolean aso;
-    private ClickableSpan asq;
+    private static g asx;
+    private ClickableSpan asA;
+    private boolean asy;
     private int mLastMotionX;
     private int mLastMotionY;
-    private boolean asp = false;
-    private Runnable asr = new Runnable() { // from class: com.baidu.live.im.g.1
+    private boolean asz = false;
+    private Runnable asB = new Runnable() { // from class: com.baidu.live.im.g.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!g.this.aso) {
-                g.this.asp = true;
-                if (g.this.asq != null && (g.this.asq instanceof b.c)) {
-                    ((b.c) g.this.asq).wT();
-                    g.this.asq = null;
+            if (!g.this.asy) {
+                g.this.asz = true;
+                if (g.this.asA != null && (g.this.asA instanceof b.c)) {
+                    ((b.c) g.this.asA).wY();
+                    g.this.asA = null;
                 }
             }
         }
     };
 
-    public static g wo() {
-        if (asn == null) {
-            asn = new g();
+    public static g wt() {
+        if (asx == null) {
+            asx = new g();
         }
-        return asn;
+        return asx;
     }
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        this.asq = a(textView, spannable, motionEvent);
+        this.asA = a(textView, spannable, motionEvent);
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (motionEvent.getAction() == 0) {
             this.mLastMotionX = x;
             this.mLastMotionY = y;
-            this.aso = false;
-            this.asp = false;
-            SafeHandler.getInst().postDelayed(this.asr, 700L);
-            if (this.asq != null) {
-                Selection.setSelection(spannable, spannable.getSpanStart(this.asq), spannable.getSpanEnd(this.asq));
+            this.asy = false;
+            this.asz = false;
+            SafeHandler.getInst().postDelayed(this.asB, 700L);
+            if (this.asA != null) {
+                Selection.setSelection(spannable, spannable.getSpanStart(this.asA), spannable.getSpanEnd(this.asA));
             }
         } else if (motionEvent.getAction() == 2) {
-            if (this.aso) {
-                if (this.asq != null) {
+            if (this.asy) {
+                if (this.asA != null) {
                     Selection.removeSelection(spannable);
                     return true;
                 }
                 return true;
             } else if (Math.abs(this.mLastMotionX - x) > 20 || Math.abs(this.mLastMotionY - y) > 20) {
-                this.aso = true;
-                SafeHandler.getInst().removeCallbacks(this.asr);
+                this.asy = true;
+                SafeHandler.getInst().removeCallbacks(this.asB);
             }
         } else if (motionEvent.getAction() == 1) {
-            if (!this.asp) {
-                SafeHandler.getInst().removeCallbacks(this.asr);
-                if (this.asq != null) {
-                    this.asq.onClick(textView);
+            if (!this.asz) {
+                SafeHandler.getInst().removeCallbacks(this.asB);
+                if (this.asA != null) {
+                    this.asA.onClick(textView);
                     Selection.removeSelection(spannable);
-                    this.asq = null;
+                    this.asA = null;
                     return true;
                 }
                 return true;
             }
-            this.asp = false;
+            this.asz = false;
             return true;
         } else if (motionEvent.getAction() == 3) {
-            if (!this.asp) {
-                SafeHandler.getInst().removeCallbacks(this.asr);
+            if (!this.asz) {
+                SafeHandler.getInst().removeCallbacks(this.asB);
             }
-            if (this.asq != null) {
+            if (this.asA != null) {
                 Selection.removeSelection(spannable);
             }
-            this.asq = null;
+            this.asA = null;
             return true;
         }
         return super.onTouchEvent(textView, spannable, motionEvent);

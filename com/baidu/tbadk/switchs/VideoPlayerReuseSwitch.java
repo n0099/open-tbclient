@@ -22,7 +22,7 @@ public class VideoPlayerReuseSwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return b.aFD().getInt("key_video_player_reuse_switch", 0);
+        return b.aFH().getInt("key_video_player_reuse_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

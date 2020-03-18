@@ -1,7 +1,7 @@
 package com.baidu.g.a.a;
 /* loaded from: classes3.dex */
 public interface a {
-    b BI();
+    b BP();
 
     void a(c cVar);
 

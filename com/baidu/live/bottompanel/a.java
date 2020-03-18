@@ -16,16 +16,16 @@ import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private FrameLayout Wf;
-    private ImageView Wg;
-    private TextView Wh;
-    private AlaAudienceLiveRoomBottomPanelView.a Wi;
-    private e Wj;
+    private FrameLayout Wp;
+    private ImageView Wq;
+    private TextView Wr;
+    private AlaAudienceLiveRoomBottomPanelView.a Ws;
+    private e Wt;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.Wg && a.this.Wi != null) {
-                a.this.Wi.pG();
+            if (view == a.this.Wq && a.this.Ws != null) {
+                a.this.Ws.pL();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
 
     public a(Context context, AlaAudienceLiveRoomBottomPanelView.a aVar) {
         this.mContext = context;
-        this.Wi = aVar;
+        this.Ws = aVar;
         createView();
     }
 
@@ -43,21 +43,21 @@ public class a {
         if (this.mRootView == null) {
             this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.h.sdk_live_room_bottom_panel_shell_layout, (ViewGroup) null);
         }
-        this.Wf = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
-        this.Wg = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
-        this.Wg.setOnClickListener(this.mClickListener);
+        this.Wp = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
+        this.Wq = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
+        this.Wq.setOnClickListener(this.mClickListener);
         this.mTitleView = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_title);
-        this.Wh = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
+        this.Wr = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
-        this.Wh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
+        this.Wr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.Wj != null && !StringUtils.isNull(a.this.Wj.wf())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.Wj.wf()}, true);
+                if (a.this.Wt != null && !StringUtils.isNull(a.this.Wt.wk())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.Wt.wk()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.zl().awC.ZJ}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.zs().awM.ZT}, true);
                 }
             }
         });
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void reset() {
-        if (this.Wj != null && this.Wj.we() != null && this.mRootView.indexOfChild(this.Wj.we()) >= 0) {
-            this.mRootView.removeView(this.Wj.we());
+        if (this.Wt != null && this.Wt.wj() != null && this.mRootView.indexOfChild(this.Wt.wj()) >= 0) {
+            this.mRootView.removeView(this.Wt.wj());
         }
-        this.Wj = null;
+        this.Wt = null;
     }
 }

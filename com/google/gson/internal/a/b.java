@@ -29,26 +29,26 @@ public final class b implements TypeAdapterFactory {
 
     /* loaded from: classes7.dex */
     private static final class a<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> mLt;
-        private final com.google.gson.internal.f<? extends Collection<E>> mLu;
+        private final TypeAdapter<E> mMZ;
+        private final com.google.gson.internal.f<? extends Collection<E>> mNa;
 
         public a(Gson gson, Type type, TypeAdapter<E> typeAdapter, com.google.gson.internal.f<? extends Collection<E>> fVar) {
-            this.mLt = new m(gson, typeAdapter, type);
-            this.mLu = fVar;
+            this.mMZ = new m(gson, typeAdapter, type);
+            this.mNa = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public Collection<E> read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dAU() == JsonToken.NULL) {
-                aVar.dAZ();
+            if (aVar.dBr() == JsonToken.NULL) {
+                aVar.dBw();
                 return null;
             }
-            Collection<E> construct = this.mLu.construct();
-            aVar.dAS();
+            Collection<E> construct = this.mNa.construct();
+            aVar.dBp();
             while (aVar.hasNext()) {
-                construct.add(this.mLt.read(aVar));
+                construct.add(this.mMZ.read(aVar));
             }
             aVar.endArray();
             return construct;
@@ -59,14 +59,14 @@ public final class b implements TypeAdapterFactory {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.dBj();
+                bVar.dBG();
                 return;
             }
-            bVar.dBf();
+            bVar.dBC();
             for (E e : collection) {
-                this.mLt.write(bVar, e);
+                this.mMZ.write(bVar, e);
             }
-            bVar.dBg();
+            bVar.dBD();
         }
     }
 }

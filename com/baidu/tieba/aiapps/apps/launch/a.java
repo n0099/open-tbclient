@@ -11,32 +11,32 @@ import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.tbadk.BdToken.f;
 /* loaded from: classes12.dex */
 public class a {
-    private static void nv(String str) {
+    private static void nu(String str) {
         SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
     }
 
-    public static void nx(String str) {
+    public static void nw(String str) {
         if (!SwanAppInitHelper.entranceOK()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
             d.a(AppRuntime.getAppContext(), "not support for this android version").showToast();
         } else if (TextUtils.isEmpty(str)) {
             d.a(AppRuntime.getAppContext(), "url is empty").showToast();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-            rB(str);
-            nv(str);
+            rA(str);
+            nu(str);
         } else {
             d.a(AppRuntime.getAppContext(), "not support this uri").showToast();
         }
     }
 
-    private static void rB(String str) {
+    private static void rA(String str) {
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String queryParameter = parse.getQueryParameter(f.PARAM_FROM);
             if (!TextUtils.isEmpty(queryParameter) && "shoubai".equals(queryParameter)) {
-                com.baidu.tbadk.util.d.aRS().setShow(true);
+                com.baidu.tbadk.util.d.aRW().setShow(true);
             } else {
-                com.baidu.tbadk.util.d.aRS().setShow(false);
+                com.baidu.tbadk.util.d.aRW().setShow(false);
             }
         }
     }

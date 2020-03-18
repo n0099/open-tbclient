@@ -8,34 +8,34 @@ public final class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        public int bPA;
-        public int bPB;
-        public int bPC;
-        public int bPz;
+        public int bPK;
+        public int bPL;
+        public int bPM;
+        public int bPN;
 
         public static a ay(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return adq();
+                return adt();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
             if (optJSONObject == null) {
-                return adq();
+                return adt();
             }
             a aVar = new a();
-            aVar.bPz = optJSONObject.optInt("request", 60000);
-            aVar.bPA = optJSONObject.optInt("connectSocket", 60000);
-            aVar.bPB = optJSONObject.optInt("uploadFile");
-            aVar.bPC = optJSONObject.optInt("downloadFile");
+            aVar.bPK = optJSONObject.optInt("request", 60000);
+            aVar.bPL = optJSONObject.optInt("connectSocket", 60000);
+            aVar.bPM = optJSONObject.optInt("uploadFile");
+            aVar.bPN = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
-        private static a adq() {
+        private static a adt() {
             if (b.DEBUG) {
                 Log.e("SwanAppCommonConfigData", "NetworkConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             a aVar = new a();
-            aVar.bPz = 60000;
-            aVar.bPA = 60000;
+            aVar.bPK = 60000;
+            aVar.bPL = 60000;
             return aVar;
         }
     }

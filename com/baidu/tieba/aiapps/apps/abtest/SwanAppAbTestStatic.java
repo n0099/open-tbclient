@@ -39,7 +39,7 @@ import java.util.List;
 /* loaded from: classes12.dex */
 public class SwanAppAbTestStatic {
     static {
-        aZF();
+        aZJ();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -48,7 +48,7 @@ public class SwanAppAbTestStatic {
                         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.ai_apps_not_support);
                     } else {
                         an anVar = new an("c13606");
-                        anVar.cy("obj_id", customMessage.getData());
+                        anVar.cx("obj_id", customMessage.getData());
                         TiebaStatic.log(anVar);
                         if (a.eH().currentActivity() != null) {
                             Uri parse = Uri.parse(customMessage.getData());
@@ -85,7 +85,7 @@ public class SwanAppAbTestStatic {
                 }
             }
         });
-        ba.aGG().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
+        ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 String str;
@@ -110,7 +110,7 @@ public class SwanAppAbTestStatic {
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                TiebaStatic.log(new an("c13274").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_id", str).cy("obj_source", "web_search").cy("obj_name", str3));
+                                TiebaStatic.log(new an("c13274").cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("obj_id", str).cx("obj_source", "web_search").cx("obj_name", str3));
                                 return 0;
                             }
                         }
@@ -118,7 +118,7 @@ public class SwanAppAbTestStatic {
                         str = "";
                         e = e3;
                     }
-                    TiebaStatic.log(new an("c13274").cy("uid", TbadkCoreApplication.getCurrentAccount()).cy("obj_id", str).cy("obj_source", "web_search").cy("obj_name", str3));
+                    TiebaStatic.log(new an("c13274").cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("obj_id", str).cx("obj_source", "web_search").cx("obj_name", str3));
                 }
                 return 0;
             }
@@ -135,7 +135,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    com.baidu.tieba.aiapps.apps.a.a.aZG().a((GetUserInfoResult) null);
+                    com.baidu.tieba.aiapps.apps.a.a.aZK().a((GetUserInfoResult) null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -146,12 +146,12 @@ public class SwanAppAbTestStatic {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                        h.afr().putString("bd_box_display_name", getUserInfoResult.displayname);
-                        h.afr().putString("bd_box_uid", getUserInfoResult.uid);
-                        h.afr().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                        h.afr().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                        h.afr().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                        com.baidu.tieba.aiapps.apps.a.a.aZG().a(getUserInfoResult);
+                        h.afu().putString("bd_box_display_name", getUserInfoResult.displayname);
+                        h.afu().putString("bd_box_uid", getUserInfoResult.uid);
+                        h.afu().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                        h.afu().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                        h.afu().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                        com.baidu.tieba.aiapps.apps.a.a.aZK().a(getUserInfoResult);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -171,15 +171,15 @@ public class SwanAppAbTestStatic {
         });
     }
 
-    private static void aZF() {
+    private static void aZJ() {
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.n.a.bbl();
-            if (ProcessUtils.isMainProcess() && !c.dlC()) {
+            com.baidu.tieba.aiapps.apps.n.a.bbp();
+            if (ProcessUtils.isMainProcess() && !c.dlZ()) {
                 c.initialize(AppRuntime.getAppContext());
             }
-            com.baidu.tieba.aiapps.apps.a.a.aZG().init(TbadkCoreApplication.getInst());
-            com.baidu.tieba.aiapps.apps.share.c.bbj().eE(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.a.a.aZK().init(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.share.c.bbn().eD(TbadkCoreApplication.getInst());
         }
     }
 

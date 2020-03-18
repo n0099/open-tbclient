@@ -105,12 +105,12 @@ public class KeyframeSet {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public KeyframeSet m45clone() {
+    public KeyframeSet m43clone() {
         ArrayList<Keyframe> arrayList = this.mKeyframes;
         int size = this.mKeyframes.size();
         Keyframe[] keyframeArr = new Keyframe[size];
         for (int i = 0; i < size; i++) {
-            keyframeArr[i] = arrayList.get(i).m44clone();
+            keyframeArr[i] = arrayList.get(i).m42clone();
         }
         return new KeyframeSet(keyframeArr);
     }

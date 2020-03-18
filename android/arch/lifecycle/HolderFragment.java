@@ -53,8 +53,8 @@ public class HolderFragment extends Fragment implements aa {
     /* loaded from: classes6.dex */
     static class a {
         private Map<Activity, HolderFragment> bP = new HashMap();
-        private Map<Fragment, HolderFragment> bS = new HashMap();
-        private Application.ActivityLifecycleCallbacks bT = new d() { // from class: android.arch.lifecycle.HolderFragment.a.1
+        private Map<Fragment, HolderFragment> bQ = new HashMap();
+        private Application.ActivityLifecycleCallbacks bR = new d() { // from class: android.arch.lifecycle.HolderFragment.a.1
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 if (((HolderFragment) a.this.bP.remove(activity)) != null) {
@@ -62,12 +62,12 @@ public class HolderFragment extends Fragment implements aa {
                 }
             }
         };
-        private boolean bV = false;
-        private FragmentManager.FragmentLifecycleCallbacks bW = new FragmentManager.FragmentLifecycleCallbacks() { // from class: android.arch.lifecycle.HolderFragment.a.2
+        private boolean bS = false;
+        private FragmentManager.FragmentLifecycleCallbacks bT = new FragmentManager.FragmentLifecycleCallbacks() { // from class: android.arch.lifecycle.HolderFragment.a.2
             @Override // android.support.v4.app.FragmentManager.FragmentLifecycleCallbacks
             public void onFragmentDestroyed(FragmentManager fragmentManager, Fragment fragment) {
                 super.onFragmentDestroyed(fragmentManager, fragment);
-                if (((HolderFragment) a.this.bS.remove(fragment)) != null) {
+                if (((HolderFragment) a.this.bQ.remove(fragment)) != null) {
                     Log.e("ViewModelStores", "Failed to save a ViewModel for " + fragment);
                 }
             }
@@ -79,8 +79,8 @@ public class HolderFragment extends Fragment implements aa {
         void a(Fragment fragment) {
             Fragment parentFragment = fragment.getParentFragment();
             if (parentFragment != null) {
-                this.bS.remove(parentFragment);
-                parentFragment.getFragmentManager().unregisterFragmentLifecycleCallbacks(this.bW);
+                this.bQ.remove(parentFragment);
+                parentFragment.getFragmentManager().unregisterFragmentLifecycleCallbacks(this.bT);
                 return;
             }
             this.bP.remove(fragment.getActivity());
@@ -109,9 +109,9 @@ public class HolderFragment extends Fragment implements aa {
             if (a == null) {
                 HolderFragment holderFragment = this.bP.get(fragmentActivity);
                 if (holderFragment == null) {
-                    if (!this.bV) {
-                        this.bV = true;
-                        fragmentActivity.getApplication().registerActivityLifecycleCallbacks(this.bT);
+                    if (!this.bS) {
+                        this.bS = true;
+                        fragmentActivity.getApplication().registerActivityLifecycleCallbacks(this.bR);
                     }
                     HolderFragment b = b(supportFragmentManager);
                     this.bP.put(fragmentActivity, b);

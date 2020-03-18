@@ -16,7 +16,7 @@ public class ba extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a  reason: collision with other method in class */
-    public int mo157a() {
+    public int mo155a() {
         return 100886;
     }
 

@@ -6,25 +6,25 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes12.dex */
 public class c {
     public static final String TAG = c.class.getSimpleName();
-    private static volatile c ego;
-    private IWXAPI egp;
+    private static volatile c egE;
+    private IWXAPI egF;
 
-    public static c bbj() {
-        if (ego == null) {
+    public static c bbn() {
+        if (egE == null) {
             synchronized (c.class) {
-                if (ego == null) {
-                    ego = new c();
+                if (egE == null) {
+                    egE = new c();
                 }
             }
         }
-        return ego;
+        return egE;
     }
 
     private c() {
     }
 
-    public void eE(Context context) {
-        this.egp = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-        this.egp.registerApp("wx7088ea0f777314d2");
+    public void eD(Context context) {
+        this.egF = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
+        this.egF.registerApp("wx7088ea0f777314d2");
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.u;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -17,7 +18,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
     private PriManagerApplyInfo mPrivateMgrApplyInfo;
-    private com.baidu.tieba.tbadkCore.t mUserInfo;
+    private u mUserInfo;
 
     public ForumMemberReadCacheResponseMessage() {
         super(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE);
@@ -34,11 +35,11 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
             }
             if (getError() == 0 && getMemberInfoResIdl.data != null) {
                 if (getMemberInfoResIdl.data.forum_member_info != null) {
-                    this.mUserInfo = new com.baidu.tieba.tbadkCore.t();
+                    this.mUserInfo = new u();
                     this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                     this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                     this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                    this.mUserInfo.Cg(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                    this.mUserInfo.Co(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                     this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                 }
                 this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -51,7 +52,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         }
     }
 
-    public com.baidu.tieba.tbadkCore.t getUserInfo() {
+    public u getUserInfo() {
         return this.mUserInfo;
     }
 

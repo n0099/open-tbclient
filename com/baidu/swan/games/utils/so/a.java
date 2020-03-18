@@ -4,7 +4,7 @@ final class a implements b {
     private a() {
     }
 
-    public static a aqg() {
+    public static a aqj() {
         return new a();
     }
 

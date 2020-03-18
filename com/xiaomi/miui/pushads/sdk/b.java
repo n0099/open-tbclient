@@ -16,7 +16,7 @@ class b {
         Throwable th;
         InputStream inputStream2;
         InputStream inputStream3 = null;
-        String str2 = file.getAbsolutePath() + "/" + m114a(str);
+        String str2 = file.getAbsolutePath() + "/" + m112a(str);
         try {
             try {
                 if (new File(str2).exists()) {
@@ -89,20 +89,20 @@ class b {
                 }
                 try {
                     byte[] bArr = new byte[i.a];
-                    boolean m116a = f.m116a(context);
+                    boolean m114a = f.m114a(context);
                     while (true) {
                         read = inputStream.read(bArr);
-                        if (read == -1 || !m116a) {
+                        if (read == -1 || !m114a) {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
-                        m116a = f.m116a(context);
+                        m114a = f.m114a(context);
                     }
                     fileOutputStream.flush();
                     if (read == -1) {
                         file.renameTo(new File(str));
                         i = 0;
-                    } else if (!m116a) {
+                    } else if (!m114a) {
                     }
                     try {
                         fileOutputStream.close();
@@ -155,7 +155,7 @@ class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m114a(String str) {
+    private static String m112a(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         return str.substring(lastIndexOf < 0 ? 0 : lastIndexOf + 1);
     }

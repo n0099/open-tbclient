@@ -5,15 +5,15 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public class h {
-    public static String rk(String str) {
-        int awg = a.awg();
-        int awh = a.awh();
+    public static String rj(String str) {
+        int awj = a.awj();
+        int awk = a.awk();
         int densityDpi = a.getDensityDpi();
         String os = a.getOS();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(awg);
+        stringBuffer.append(awj);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(awh);
+        stringBuffer.append(awk);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(os);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);

@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nqU;
-    private final m<PointF, PointF> nqV;
-    private final g nqW;
-    private final b nqX;
-    private final d nqY;
+    private final e nsH;
+    private final m<PointF, PointF> nsI;
+    private final g nsJ;
+    private final b nsK;
+    private final d nsL;
     @Nullable
-    private final b nqZ;
+    private final b nsM;
     @Nullable
-    private final b nra;
+    private final b nsN;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nqU = eVar;
-        this.nqV = mVar;
-        this.nqW = gVar;
-        this.nqX = bVar;
-        this.nqY = dVar;
-        this.nqZ = bVar2;
-        this.nra = bVar3;
+        this.nsH = eVar;
+        this.nsI = mVar;
+        this.nsJ = gVar;
+        this.nsK = bVar;
+        this.nsL = dVar;
+        this.nsM = bVar2;
+        this.nsN = bVar3;
     }
 
-    public e dGS() {
-        return this.nqU;
+    public e dHs() {
+        return this.nsH;
     }
 
-    public m<PointF, PointF> dGT() {
-        return this.nqV;
+    public m<PointF, PointF> dHt() {
+        return this.nsI;
     }
 
-    public g dGU() {
-        return this.nqW;
+    public g dHu() {
+        return this.nsJ;
     }
 
-    public b dGV() {
-        return this.nqX;
+    public b dHv() {
+        return this.nsK;
     }
 
-    public d dGW() {
-        return this.nqY;
-    }
-
-    @Nullable
-    public b dGX() {
-        return this.nqZ;
+    public d dHw() {
+        return this.nsL;
     }
 
     @Nullable
-    public b dGY() {
-        return this.nra;
+    public b dHx() {
+        return this.nsM;
     }
 
-    public o dGZ() {
+    @Nullable
+    public b dHy() {
+        return this.nsN;
+    }
+
+    public o dHz() {
         return new o(this);
     }
 

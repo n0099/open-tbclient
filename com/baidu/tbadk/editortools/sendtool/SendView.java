@@ -14,18 +14,18 @@ import com.baidu.tieba.tbadkCore.c;
 public class SendView extends TextView implements m {
     private EditorTools FO;
     private int FP;
-    private int Ni;
-    private int[] dyZ;
+    private int Nj;
+    private int[] dzm;
     private boolean[] flags;
     private int mType;
-    public static int dza = 1;
+    public static int dzn = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
         this.flags = new boolean[]{false, false, false, false, false};
-        this.dyZ = new int[]{0, 0};
-        this.Ni = 0;
+        this.dzm = new int[]{0, 0};
+        this.Nj = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -61,8 +61,8 @@ public class SendView extends TextView implements m {
                     this.flags[2] = false;
                     this.flags[3] = false;
                     this.flags[4] = false;
-                    this.dyZ[0] = 0;
-                    this.dyZ[1] = 0;
+                    this.dzm[0] = 0;
+                    this.dzm[1] = 0;
                     break;
                 case 10:
                     this.flags[2] = true;
@@ -73,14 +73,14 @@ public class SendView extends TextView implements m {
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.dxN != null) {
-                            if (aVar2.dxN.getChosedFiles() != null) {
-                                this.dyZ[0] = aVar2.dxN.getChosedFiles().size();
+                        if (aVar2.dya != null) {
+                            if (aVar2.dya.getChosedFiles() != null) {
+                                this.dzm[0] = aVar2.dya.getChosedFiles().size();
                             } else {
-                                this.dyZ[0] = 0;
+                                this.dzm[0] = 0;
                             }
                         }
-                        if (this.dyZ[0] > 0) {
+                        if (this.dzm[0] > 0) {
                             this.flags[1] = true;
                             break;
                         } else {
@@ -91,9 +91,9 @@ public class SendView extends TextView implements m {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.dyZ;
+                    int[] iArr = this.dzm;
                     iArr[0] = iArr[0] - 1;
-                    if (this.dyZ[0] > 0) {
+                    if (this.dzm[0] > 0) {
                         this.flags[1] = true;
                         break;
                     } else {
@@ -108,7 +108,7 @@ public class SendView extends TextView implements m {
                     this.flags[3] = false;
                     break;
             }
-            mx(this.mType);
+            mz(this.mType);
         }
     }
 
@@ -151,7 +151,7 @@ public class SendView extends TextView implements m {
 
     @Override // com.baidu.tbadk.editortools.m
     public void onChangeSkinType(int i) {
-        this.Ni = i;
+        this.Nj = i;
         int color = am.getColor(R.color.cp_link_tip_a);
         setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.n(color, 0.3f), c.n(color, 0.5f), color}));
     }
@@ -160,14 +160,14 @@ public class SendView extends TextView implements m {
         this.mType = i;
     }
 
-    public void mx(int i) {
+    public void mz(int i) {
         if (i == ALL) {
             if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == dza) {
+        } else if (i == dzn) {
             if (this.flags[1]) {
                 setEnabled(true);
             } else {

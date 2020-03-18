@@ -7,7 +7,7 @@ public interface a {
 
     void g(int i, int i2, String str);
 
-    void hH(boolean z);
+    void hI(boolean z);
 
     void onEnd();
 

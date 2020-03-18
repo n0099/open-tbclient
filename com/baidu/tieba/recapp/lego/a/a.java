@@ -9,17 +9,17 @@ public class a {
     public static boolean as(Activity activity) {
         Resources resources;
         int identifier;
-        if (!cce() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
+        if (!ccx() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean cce() {
-        return ccf() >= 14;
+    public static boolean ccx() {
+        return ccy() >= 14;
     }
 
-    public static int ccf() {
+    public static int ccy() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

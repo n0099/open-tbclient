@@ -15,13 +15,13 @@ public class a {
         personUserData.user_info = new x();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.abj = bVar.metaKey;
+        personUserData.user_info.abu = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.eLO;
+        personUserData.relation_info.follow_status = bVar.eMk;
         return personUserData;
     }
 

@@ -7,54 +7,54 @@ import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class b implements c {
-    private static final Class<?> lHl = b.class;
-    private com.facebook.imagepipeline.animated.base.a lOO;
-    private AnimatedImageCompositor lOP;
-    private final AnimatedImageCompositor.a lOQ = new AnimatedImageCompositor.a() { // from class: com.facebook.fresco.animation.b.c.b.1
+    private static final Class<?> lIR = b.class;
+    private final com.facebook.fresco.animation.b.b lQc;
+    private com.facebook.imagepipeline.animated.base.a lQu;
+    private AnimatedImageCompositor lQv;
+    private final AnimatedImageCompositor.a lQw = new AnimatedImageCompositor.a() { // from class: com.facebook.fresco.animation.b.c.b.1
         @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
         public void c(int i, Bitmap bitmap) {
         }
 
         @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
         @Nullable
-        public com.facebook.common.references.a<Bitmap> HY(int i) {
-            return b.this.lOw.HU(i);
+        public com.facebook.common.references.a<Bitmap> Ie(int i) {
+            return b.this.lQc.Ia(i);
         }
     };
-    private final com.facebook.fresco.animation.b.b lOw;
 
     public b(com.facebook.fresco.animation.b.b bVar, com.facebook.imagepipeline.animated.base.a aVar) {
-        this.lOw = bVar;
-        this.lOO = aVar;
-        this.lOP = new AnimatedImageCompositor(this.lOO, this.lOQ);
+        this.lQc = bVar;
+        this.lQu = aVar;
+        this.lQv = new AnimatedImageCompositor(this.lQu, this.lQw);
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public void setBounds(@Nullable Rect rect) {
-        com.facebook.imagepipeline.animated.base.a k = this.lOO.k(rect);
-        if (k != this.lOO) {
-            this.lOO = k;
-            this.lOP = new AnimatedImageCompositor(this.lOO, this.lOQ);
+        com.facebook.imagepipeline.animated.base.a k = this.lQu.k(rect);
+        if (k != this.lQu) {
+            this.lQu = k;
+            this.lQv = new AnimatedImageCompositor(this.lQu, this.lQw);
         }
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public int getIntrinsicWidth() {
-        return this.lOO.getWidth();
+        return this.lQu.getWidth();
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public int getIntrinsicHeight() {
-        return this.lOO.getHeight();
+        return this.lQu.getHeight();
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public boolean b(int i, Bitmap bitmap) {
         try {
-            this.lOP.d(i, bitmap);
+            this.lQv.d(i, bitmap);
             return true;
         } catch (IllegalStateException e) {
-            com.facebook.common.c.a.b(lHl, e, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
+            com.facebook.common.c.a.b(lIR, e, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
             return false;
         }
     }

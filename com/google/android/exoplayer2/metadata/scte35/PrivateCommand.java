@@ -15,7 +15,7 @@ public final class PrivateCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kt */
+        /* renamed from: Kz */
         public PrivateCommand[] newArray(int i) {
             return new PrivateCommand[i];
         }

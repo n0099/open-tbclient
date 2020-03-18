@@ -8,16 +8,16 @@ public interface AudioSink {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void EU(int i);
+        void Fb(int i);
 
-        void dtX();
+        void duu();
 
         void i(int i, long j, long j2);
     }
 
-    void Jf(int i);
+    void Jl(int i);
 
-    boolean Pn(String str);
+    boolean Pm(String str);
 
     void a(a aVar);
 
@@ -27,19 +27,19 @@ public interface AudioSink {
 
     boolean a(ByteBuffer byteBuffer, long j) throws InitializationException, WriteException;
 
-    boolean avR();
+    boolean avU();
 
     q d(q qVar);
 
-    q dsW();
+    q dtt();
 
-    void dtT();
+    void duq();
 
-    void dtU() throws WriteException;
+    void dur() throws WriteException;
 
-    boolean dtV();
+    boolean dus();
 
-    void dtW();
+    void dut();
 
     void pause();
 
@@ -51,7 +51,7 @@ public interface AudioSink {
 
     void setVolume(float f);
 
-    long vF(boolean z);
+    long vM(boolean z);
 
     /* loaded from: classes6.dex */
     public static final class ConfigurationException extends Exception {

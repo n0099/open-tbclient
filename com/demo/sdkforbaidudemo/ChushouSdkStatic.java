@@ -1,6 +1,5 @@
 package com.demo.sdkforbaidudemo;
 
-import android.content.Intent;
 import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -12,7 +11,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.demo.sdkforbaidudemo.view.CSTVSdkMainActivityNew;
 import com.kascend.cstvsdk.CSTVSdk;
 /* loaded from: classes5.dex */
 public class ChushouSdkStatic {
@@ -39,33 +37,33 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aGG().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+        ba.aGK().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-                if (strArr == null || CSTVSdk.INSTANCE == null || !CSTVSdk.INSTANCE.getInitialized()) {
+                if (strArr == null) {
                     return 3;
                 }
-                if (strArr[0].startsWith("tiebachushou://liveroom")) {
-                    try {
-                        Uri parse = Uri.parse(strArr[0]);
-                        ChushouSdkInit.testStartLiveRoom(tbPageContext.getPageActivity(), parse.getQueryParameter(LogConfig.LOG_ROOMID), parse.getQueryParameter("livetype"));
+                if (strArr[0].startsWith("tiebachushou://liveroom") || strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
+                    if ((b.aFH().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
+                        ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
+                    }
+                    if (strArr[0].startsWith("tiebachushou://liveroom")) {
+                        try {
+                            Uri parse = Uri.parse(strArr[0]);
+                            ChushouSdkInit.testStartLiveRoom(tbPageContext.getPageActivity(), parse.getQueryParameter(LogConfig.LOG_ROOMID), parse.getQueryParameter("livetype"));
+                            return 1;
+                        } catch (Exception e) {
+                            return 3;
+                        }
+                    } else if (strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
+                        CSTVSdk.INSTANCE.startH5(tbPageContext.getPageActivity(), strArr[0]);
                         return 1;
-                    } catch (Exception e) {
+                    } else {
                         return 3;
                     }
-                } else if (strArr[0].startsWith("tiebachushou")) {
-                    tbPageContext.getPageActivity().startActivity(new Intent(tbPageContext.getPageActivity(), CSTVSdkMainActivityNew.class));
-                    return 1;
-                } else if (strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
-                    CSTVSdk.INSTANCE.startH5(tbPageContext.getPageActivity(), strArr[0]);
-                    return 1;
-                } else {
-                    return 3;
                 }
+                return 3;
             }
         });
-        if ((b.aFD().getInt("chushou_game_tab", 1) == 1) && !CSTVSdk.INSTANCE.getInitialized()) {
-            ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
-        }
     }
 }

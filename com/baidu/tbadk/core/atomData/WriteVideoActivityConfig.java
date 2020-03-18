@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
 import java.util.List;
@@ -43,5 +44,9 @@ public class WriteVideoActivityConfig extends IntentConfig {
 
     public void setProZone(int i) {
         getIntent().putExtra("pro_zone", i);
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 }

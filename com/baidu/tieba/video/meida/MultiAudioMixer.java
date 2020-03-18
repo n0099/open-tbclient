@@ -8,25 +8,25 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes10.dex */
 public abstract class MultiAudioMixer {
-    private b kAw;
+    private b kCd;
 
     /* loaded from: classes10.dex */
     public interface b {
-        void DC(int i);
+        void DK(int i);
 
         void X(byte[] bArr) throws IOException;
 
-        void cQU();
+        void cRo();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer cQT() {
+    public static MultiAudioMixer cRn() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.kAw = bVar;
+        this.kCd = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.kAw != null) {
-                        this.kAw.DC(1);
+                    if (this.kCd != null) {
+                        this.kCd.DK(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c = c(bArr);
-            if (c != null && this.kAw != null) {
-                this.kAw.X(c);
+            if (c != null && this.kCd != null) {
+                this.kCd.X(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.kAw != null) {
-            this.kAw.cQU();
+        if (this.kCd != null) {
+            this.kCd.cRo();
         }
     }
 

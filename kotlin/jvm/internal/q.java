@@ -13,16 +13,16 @@ public class q {
         return str + obj;
     }
 
-    public static void dKw() {
+    public static void dKW() {
         throw ((KotlinNullPointerException) O(new KotlinNullPointerException()));
     }
 
-    public static void Sg(String str) {
+    public static void Sf(String str) {
         throw ((UninitializedPropertyAccessException) O(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void Sh(String str) {
-        Sg("lateinit property " + str + " has not been initialized");
+    public static void Sg(String str) {
+        Sf("lateinit property " + str + " has not been initialized");
     }
 
     public static void i(Object obj, String str) {
@@ -33,11 +33,11 @@ public class q {
 
     public static void j(Object obj, String str) {
         if (obj == null) {
-            Si(str);
+            Sh(str);
         }
     }
 
-    private static void Si(String str) {
+    private static void Sh(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) O(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -47,16 +47,16 @@ public class q {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void dKx() {
-        Sj("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void dKX() {
+        Si("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void Sj(String str) {
+    public static void Si(String str) {
         throw new UnsupportedOperationException(str);
     }
 
     public static void bk(int i, String str) {
-        dKx();
+        dKX();
     }
 
     private static <T extends Throwable> T O(T t) {

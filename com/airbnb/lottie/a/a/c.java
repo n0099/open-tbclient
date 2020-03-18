@@ -12,9 +12,9 @@ import java.util.List;
 public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     private final List<b> contents;
     @Nullable
-    private List<l> fU;
+    private List<l> fT;
     @Nullable
-    private com.airbnb.lottie.a.b.o fV;
+    private com.airbnb.lottie.a.b.o fU;
     private final com.airbnb.lottie.g lottieDrawable;
     private final Matrix matrix;
     private final String name;
@@ -69,9 +69,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
         this.lottieDrawable = gVar;
         this.contents = list;
         if (lVar != null) {
-            this.fV = lVar.cw();
-            this.fV.a(aVar);
-            this.fV.a(this);
+            this.fU = lVar.cw();
+            this.fU.a(aVar);
+            this.fU.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -108,8 +108,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<l> bE() {
-        if (this.fU == null) {
-            this.fU = new ArrayList();
+        if (this.fT == null) {
+            this.fT = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -118,18 +118,18 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
                 }
                 b bVar = this.contents.get(i2);
                 if (bVar instanceof l) {
-                    this.fU.add((l) bVar);
+                    this.fT.add((l) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.fU;
+        return this.fT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Matrix bF() {
-        if (this.fV != null) {
-            return this.fV.getMatrix();
+        if (this.fU != null) {
+            return this.fU.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
@@ -138,8 +138,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.l
     public Path bG() {
         this.matrix.reset();
-        if (this.fV != null) {
-            this.matrix.set(this.fV.getMatrix());
+        if (this.fU != null) {
+            this.matrix.set(this.fU.getMatrix());
         }
         this.path.reset();
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -154,9 +154,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.fV != null) {
-            this.matrix.preConcat(this.fV.getMatrix());
-            i = (int) ((((this.fV.cb().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.fU != null) {
+            this.matrix.preConcat(this.fU.getMatrix());
+            i = (int) ((((this.fU.cb().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
@@ -169,8 +169,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.fV != null) {
-            this.matrix.preConcat(this.fV.getMatrix());
+        if (this.fU != null) {
+            this.matrix.preConcat(this.fU.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -216,8 +216,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (this.fV != null) {
-            this.fV.b(t, cVar);
+        if (this.fU != null) {
+            this.fU.b(t, cVar);
         }
     }
 }

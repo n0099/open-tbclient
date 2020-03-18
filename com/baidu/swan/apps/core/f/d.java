@@ -3,11 +3,11 @@ package com.baidu.swan.apps.core.f;
 public interface d {
     void c(int i, String str, String str2);
 
+    void el(String str);
+
     void em(String str);
 
-    void en(String str);
-
-    boolean eo(String str);
+    boolean en(String str);
 
     void goBack();
 }

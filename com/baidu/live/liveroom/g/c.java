@@ -3,5 +3,5 @@ package com.baidu.live.liveroom.g;
 public interface c {
     void bg(boolean z);
 
-    void yM();
+    void yR();
 }

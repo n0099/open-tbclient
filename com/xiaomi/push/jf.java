@@ -14,13 +14,13 @@ public class jf {
         }
         switch (b) {
             case 2:
-                jcVar.m477a();
+                jcVar.m475a();
                 return;
             case 3:
                 jcVar.a();
                 return;
             case 4:
-                jcVar.m465a();
+                jcVar.m463a();
                 return;
             case 5:
             case 7:
@@ -28,50 +28,50 @@ public class jf {
             default:
                 return;
             case 6:
-                jcVar.m475a();
+                jcVar.m473a();
                 return;
             case 8:
-                jcVar.m466a();
+                jcVar.m464a();
                 return;
             case 10:
-                jcVar.m467a();
+                jcVar.m465a();
                 return;
             case 11:
-                jcVar.m474a();
+                jcVar.m472a();
                 return;
             case 12:
-                jcVar.m472a();
+                jcVar.m470a();
                 while (true) {
-                    iz m468a = jcVar.m468a();
-                    if (m468a.a == 0) {
+                    iz m466a = jcVar.m466a();
+                    if (m466a.a == 0) {
                         jcVar.f();
                         return;
                     } else {
-                        a(jcVar, m468a.a, i - 1);
+                        a(jcVar, m466a.a, i - 1);
                         jcVar.g();
                     }
                 }
             case 13:
-                jb m470a = jcVar.m470a();
-                while (i2 < m470a.f792a) {
-                    a(jcVar, m470a.a, i - 1);
-                    a(jcVar, m470a.b, i - 1);
+                jb m468a = jcVar.m468a();
+                while (i2 < m468a.f792a) {
+                    a(jcVar, m468a.a, i - 1);
+                    a(jcVar, m468a.b, i - 1);
                     i2++;
                 }
                 jcVar.h();
                 return;
             case 14:
-                jg m471a = jcVar.m471a();
-                while (i2 < m471a.f793a) {
-                    a(jcVar, m471a.a, i - 1);
+                jg m469a = jcVar.m469a();
+                while (i2 < m469a.f793a) {
+                    a(jcVar, m469a.a, i - 1);
                     i2++;
                 }
                 jcVar.j();
                 return;
             case 15:
-                ja m469a = jcVar.m469a();
-                while (i2 < m469a.f791a) {
-                    a(jcVar, m469a.a, i - 1);
+                ja m467a = jcVar.m467a();
+                while (i2 < m467a.f791a) {
+                    a(jcVar, m467a.a, i - 1);
                     i2++;
                 }
                 jcVar.i();

@@ -9,7 +9,7 @@ import java.util.List;
 public class f {
     private static LinkedList<Integer> xS;
 
-    public static int aRX() {
+    public static int aSb() {
         return aM(null);
     }
 
@@ -21,7 +21,7 @@ public class f {
         return aN != null ? aN.intValue() : R.color.cp_atp_a;
     }
 
-    public static int mS(int i) {
+    public static int mU(int i) {
         Color.colorToHSV(am.getColor(i), r0);
         float[] fArr = {0.0f, 0.83f, 0.75f};
         return Color.HSVToColor(fArr);

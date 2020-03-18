@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a extends BdBaseModel {
-    private InterfaceC0447a eKB;
-    private HashMap<String, String> eKC;
-    private String eKD;
+    private InterfaceC0447a eKX;
+    private HashMap<String, String> eKY;
+    private String eKZ;
     protected TbPageContext mPageContext;
     private PayChannelType mPayChannelType;
 
@@ -23,7 +23,7 @@ public abstract class a extends BdBaseModel {
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void bgs();
+    public abstract void bgx();
 
     public abstract void yG(String str);
 
@@ -31,7 +31,7 @@ public abstract class a extends BdBaseModel {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mPayChannelType = payChannelType;
-        this.eKB = interfaceC0447a;
+        this.eKX = interfaceC0447a;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -46,32 +46,32 @@ public abstract class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, String str2, HashMap<String, String> hashMap, String str3, boolean z) {
-        if (this.eKB != null) {
-            this.eKD = str2;
-            this.eKC = hashMap;
-            this.eKB.a(this.mPayChannelType, i, str, hashMap, str3, z);
+        if (this.eKX != null) {
+            this.eKZ = str2;
+            this.eKY = hashMap;
+            this.eKX.a(this.mPayChannelType, i, str, hashMap, str3, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(int i, String str, int i2) {
-        if (this.eKB != null) {
-            this.eKB.a(this.mPayChannelType, i, str, i2);
+        if (this.eKX != null) {
+            this.eKX.a(this.mPayChannelType, i, str, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cT(String str, String str2) {
-        if (this.eKC != null && str != null) {
-            this.eKC.put(str, str2);
+    public void cS(String str, String str2) {
+        if (this.eKY != null && str != null) {
+            this.eKY.put(str, str2);
         }
     }
 
-    public HashMap<String, String> bgq() {
-        return this.eKC;
+    public HashMap<String, String> bgv() {
+        return this.eKY;
     }
 
-    public String bgt() {
-        return this.eKD;
+    public String bgy() {
+        return this.eKZ;
     }
 }

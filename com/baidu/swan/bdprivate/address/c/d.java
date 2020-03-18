@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public List<d> UB = new ArrayList();
+    public List<d> UM = new ArrayList();
     public String code;
     public String name;
 
@@ -25,7 +25,7 @@ public class d {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d bd = bd(optJSONArray.optJSONObject(i));
                 if (bd != null) {
-                    dVar.UB.add(bd);
+                    dVar.UM.add(bd);
                 }
             }
         }
@@ -47,8 +47,8 @@ public class d {
         }
     }
 
-    public boolean ait() {
-        return this.UB.size() > 0;
+    public boolean aiw() {
+        return this.UM.size() > 0;
     }
 
     public static String af(List<d> list) {

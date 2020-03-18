@@ -14,14 +14,14 @@ import com.baidu.swan.apps.y.f;
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long bWW;
-    private b bWX;
-    private final c.a bWY;
+    private long bXh;
+    private b bXi;
+    private final c.a bXj;
 
     /* renamed from: com.baidu.swan.apps.ao.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0209a {
-        public static final a bXa = new a();
+        public static final a bXl = new a();
     }
 
     static {
@@ -30,12 +30,12 @@ public class a {
     }
 
     private a() {
-        this.bWW = 0L;
-        this.bWY = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
+        this.bXh = 0L;
+        this.bXj = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.bWX != null) {
-                    a.this.bWX.aG(a.this.bWW);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.bXi != null) {
+                    a.this.bXi.aG(a.this.bXh);
                 }
             }
         };
@@ -44,27 +44,27 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.bWX = new b(vibrator);
+            this.bXi = new b(vibrator);
         }
     }
 
-    public static a afY() {
-        return C0209a.bXa;
+    public static a agb() {
+        return C0209a.bXl;
     }
 
     void aG(long j) {
-        this.bWW = j;
-        if (this.bWX == null) {
+        this.bXh = j;
+        if (this.bXi == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (checkVibratePermission()) {
-            this.bWX.aG(this.bWW);
+            this.bXi.aG(this.bXh);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
-            f WS = f.WS();
-            if (WS != null) {
-                WS.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.bWY);
+            f WV = f.WV();
+            if (WV != null) {
+                WV.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.bXj);
             }
         }
     }
@@ -77,11 +77,11 @@ public class a {
         return true;
     }
 
-    public void afZ() {
+    public void agc() {
         aG(15L);
     }
 
-    public void aga() {
+    public void agd() {
         aG(400L);
     }
 

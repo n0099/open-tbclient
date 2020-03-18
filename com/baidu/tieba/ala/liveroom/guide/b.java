@@ -7,18 +7,18 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private a fcp;
-    private HttpMessageListener fcs = new HttpMessageListener(1021153) { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
+    private a fcN;
+    private HttpMessageListener fcQ = new HttpMessageListener(1021153) { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021153 && (httpResponsedMessage instanceof YanZhiSignInHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
-                    if (b.this.fcp != null) {
-                        b.this.fcp.d(0, ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bmA(), ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bmB());
+                    if (b.this.fcN != null) {
+                        b.this.fcN.d(0, ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bmF(), ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bmG());
                     }
-                } else if (b.this.fcp != null) {
-                    b.this.fcp.d(httpResponsedMessage.getError(), true, true);
+                } else if (b.this.fcN != null) {
+                    b.this.fcN.d(httpResponsedMessage.getError(), true, true);
                 }
             }
         }
@@ -31,16 +31,16 @@ public class b extends BdBaseModel {
     }
 
     public b(a aVar) {
-        this.fcp = aVar;
-        bms();
-        MessageManager.getInstance().registerListener(this.fcs);
+        this.fcN = aVar;
+        bmx();
+        MessageManager.getInstance().registerListener(this.fcQ);
     }
 
-    private void bms() {
+    private void bmx() {
         com.baidu.live.tieba.f.a.a.a(1021153, "ala/user/getUserSignInStatus", YanZhiSignInHttpResponseMessage.class, true, true, true, true);
     }
 
-    public void bmt() {
+    public void bmy() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021153));
     }
 
@@ -56,8 +56,8 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021153);
-        if (this.fcs != null) {
-            MessageManager.getInstance().unRegisterListener(this.fcs);
+        if (this.fcQ != null) {
+            MessageManager.getInstance().unRegisterListener(this.fcQ);
         }
     }
 }

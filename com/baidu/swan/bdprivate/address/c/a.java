@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.address.c;
 /* loaded from: classes11.dex */
 public class a {
-    public boolean cck;
+    public boolean ccw;
     public String content;
     public String hint;
     public String label;

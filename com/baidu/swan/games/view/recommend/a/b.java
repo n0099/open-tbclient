@@ -7,7 +7,7 @@ public interface b extends com.baidu.swan.games.view.recommend.a {
 
     void a(com.baidu.swan.games.view.recommend.model.a aVar);
 
-    void cS(boolean z);
+    void cT(boolean z);
 
     void update();
 }

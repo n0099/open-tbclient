@@ -41,11 +41,11 @@ public class gy {
             }
             return null;
         }
-        fc m325a = m325a();
-        m325a.a(fb.CHANNEL_STATS_COUNTER.a());
-        m325a.c(aVar.f130a);
-        m325a.c(aVar.f132a);
-        return m325a;
+        fc m323a = m323a();
+        m323a.a(fb.CHANNEL_STATS_COUNTER.a());
+        m323a.c(aVar.f130a);
+        m323a.c(aVar.f132a);
+        return m323a;
     }
 
     private fd a(int i) {
@@ -60,10 +60,10 @@ public class gy {
             fdVar.b(a2);
         } catch (iw e) {
         }
-        LinkedList<au.a> m139a = this.f442a.m139a();
-        while (m139a.size() > 0) {
+        LinkedList<au.a> m137a = this.f442a.m137a();
+        while (m137a.size() > 0) {
             try {
-                fc a3 = a(m139a.getLast());
+                fc a3 = a(m137a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -73,7 +73,7 @@ public class gy {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m139a.removeLast();
+                m137a.removeLast();
             } catch (iw e2) {
             } catch (NoSuchElementException e3) {
             }
@@ -90,12 +90,12 @@ public class gy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gy m323a() {
+    public static gy m321a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m324a() {
+    private void m322a() {
         if (!this.f445a || System.currentTimeMillis() - this.f441a <= this.a) {
             return;
         }
@@ -105,10 +105,10 @@ public class gy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fc m325a() {
+    public synchronized fc m323a() {
         fc fcVar;
         fcVar = new fc();
-        fcVar.a(as.m132a((Context) this.f443a.f438a));
+        fcVar.a(as.m130a((Context) this.f443a.f438a));
         fcVar.f336a = (byte) 0;
         fcVar.f340b = 1;
         fcVar.d((int) (System.currentTimeMillis() / 1000));
@@ -117,7 +117,7 @@ public class gy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fd m326a() {
+    public synchronized fd m324a() {
         fd fdVar;
         fdVar = null;
         if (b()) {
@@ -131,7 +131,7 @@ public class gy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m327a(int i) {
+    public void m325a(int i) {
         int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
             int i3 = i * 1000;
@@ -160,12 +160,12 @@ public class gy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m328a() {
+    public boolean m326a() {
         return this.f445a;
     }
 
     boolean b() {
-        m324a();
-        return this.f445a && this.f442a.m138a() > 0;
+        m322a();
+        return this.f445a && this.f442a.m136a() > 0;
     }
 }

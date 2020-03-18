@@ -3,7 +3,7 @@ package io.reactivex.internal.functions;
 import io.reactivex.c.d;
 /* loaded from: classes7.dex */
 public final class a {
-    static final d<Object, Object> nwu = new C0761a();
+    static final d<Object, Object> nyh = new C0762a();
 
     public static <T> T h(T t, String str) {
         if (t == null) {
@@ -46,8 +46,8 @@ public final class a {
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    static final class C0761a implements d<Object, Object> {
-        C0761a() {
+    static final class C0762a implements d<Object, Object> {
+        C0762a() {
         }
 
         @Override // io.reactivex.c.d

@@ -14,21 +14,21 @@ import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private AlaRefreshScoreModel fvb;
-    private a fvc;
-    CustomMessageListener fvd = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
+    private AlaRefreshScoreModel fvH;
+    private a fvI;
+    CustomMessageListener fvJ = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b.this.refreshCurUserScores();
         }
     };
-    CustomMessageListener fve = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
+    CustomMessageListener fvK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.fvc != null) {
-                b.this.fvc.jX(true);
+            if (b.this.fvI != null) {
+                b.this.fvI.ka(true);
             }
         }
     };
@@ -36,17 +36,17 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void jX(boolean z);
+        void ka(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.fvd);
-        this.mPageContext.registerListener(this.fve);
+        this.mPageContext.registerListener(this.fvJ);
+        this.mPageContext.registerListener(this.fvK);
     }
 
     public void a(a aVar) {
-        this.fvc = aVar;
+        this.fvI = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,11 +54,11 @@ public class b {
         if (!TbadkCoreApplication.isLogin()) {
             return false;
         }
-        if (this.fvb == null) {
-            this.fvb = new AlaRefreshScoreModel();
-            this.fvb.initListener();
+        if (this.fvH == null) {
+            this.fvH = new AlaRefreshScoreModel();
+            this.fvH.initListener();
         }
-        this.fvb.refreshCurUserScores();
+        this.fvH.refreshCurUserScores();
         return true;
     }
 

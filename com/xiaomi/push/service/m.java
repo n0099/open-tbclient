@@ -61,7 +61,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m547a(String str) {
+    public boolean m545a(String str) {
         boolean contains;
         synchronized (this.f919a) {
             contains = this.f919a.contains(str);
@@ -79,7 +79,7 @@ public class m {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m548b(String str) {
+    public boolean m546b(String str) {
         boolean contains;
         synchronized (this.b) {
             contains = this.b.contains(str);
@@ -97,7 +97,7 @@ public class m {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m549c(String str) {
+    public boolean m547c(String str) {
         boolean contains;
         synchronized (this.c) {
             contains = this.c.contains(str);

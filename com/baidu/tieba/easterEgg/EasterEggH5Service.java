@@ -52,7 +52,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Ai("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.Aj("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -75,7 +75,7 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Ai(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.Aj(gVar.mUrl);
                 } else {
                     str = null;
                 }
@@ -125,14 +125,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new e.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.e.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !aq.isEmpty(aVar.bxk()) && aVar.isOpen()) {
+                if (z && aVar != null && !aq.isEmpty(aVar.bxp()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.bxk());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.bxp());
                     }
-                    HashMap<String, String> bxj = aVar.bxj();
-                    if (bxj != null) {
-                        EasterEggH5Service.this.mHttpRule.q(bxj);
-                        EasterEggH5Service.this.mSocketRule.q(bxj);
+                    HashMap<String, String> bxo = aVar.bxo();
+                    if (bxo != null) {
+                        EasterEggH5Service.this.mHttpRule.q(bxo);
+                        EasterEggH5Service.this.mSocketRule.q(bxo);
                         return;
                     }
                     return;

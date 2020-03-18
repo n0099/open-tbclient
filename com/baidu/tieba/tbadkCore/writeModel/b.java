@@ -13,8 +13,8 @@ public class b {
     final int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
-    private String kkG;
-    private String kkH;
+    private String kmi;
+    private String kmj;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     private bd mReplyPrivacyTip;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean cMo() {
+    public boolean cMI() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean cMp() {
+    public boolean cMJ() {
         return this.errorCode == 1990055;
     }
 
-    public boolean cMq() {
+    public boolean cMK() {
         return this.errorCode == 3250012;
     }
 
-    public boolean cMr() {
+    public boolean cML() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bCZ() {
+    public AntiData bDg() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String cMs() {
-        return this.kkG;
+    public String cMM() {
+        return this.kmi;
+    }
+
+    public void Jt(String str) {
+        this.kmi = str;
+    }
+
+    public String cMN() {
+        return this.kmj;
     }
 
     public void Ju(String str) {
-        this.kkG = str;
-    }
-
-    public String cMt() {
-        return this.kkH;
-    }
-
-    public void Jv(String str) {
-        this.kkH = str;
+        this.kmj = str;
     }
 
     public CustomDialogData getActivityDialog() {

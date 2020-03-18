@@ -165,7 +165,7 @@ public class a implements IEventProcessor {
                 break;
             }
             str = str2 + i2;
-            if (be.m159a(this.a, str)) {
+            if (be.m157a(this.a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -185,17 +185,17 @@ public class a implements IEventProcessor {
         RandomAccessFile randomAccessFile;
         Exception exc;
         be.a(this.a, NotificationCompat.CATEGORY_EVENT, "eventUploading");
-        File[] m160a = be.m160a(this.a, "eventUploading");
-        if (m160a == null || m160a.length <= 0) {
+        File[] m158a = be.m158a(this.a, "eventUploading");
+        if (m158a == null || m158a.length <= 0) {
             return;
         }
-        int length = m160a.length;
+        int length = m158a.length;
         int i = 0;
         FileLock fileLock2 = null;
         RandomAccessFile randomAccessFile2 = null;
         File file2 = null;
         while (i < length) {
-            File file3 = m160a[i];
+            File file3 = m158a[i];
             if (file3 == null) {
                 if (fileLock2 != null && fileLock2.isValid()) {
                     try {
@@ -218,7 +218,7 @@ public class a implements IEventProcessor {
                     String absolutePath = file3.getAbsolutePath();
                     file = new File(absolutePath + ".lock");
                     try {
-                        y.m568a(file);
+                        y.m566a(file);
                         RandomAccessFile randomAccessFile3 = new RandomAccessFile(file, "rw");
                         try {
                             FileLock lock = randomAccessFile3.getChannel().lock();
@@ -332,7 +332,7 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a  reason: collision with other method in class */
-    public void mo52a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo50a(com.xiaomi.clientreport.data.a aVar) {
         if ((aVar instanceof EventClientReport) && this.f16a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) eventClientReport);
@@ -368,7 +368,7 @@ public class a implements IEventProcessor {
             }
             try {
                 File file = new File(b + ".lock");
-                y.m568a(file);
+                y.m566a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -485,13 +485,13 @@ public class a implements IEventProcessor {
         }
         if (com.xiaomi.clientreport.manager.a.a(this.a).a().isEventEncrypted()) {
             String a2 = be.a(this.a);
-            byte[] m141a = ay.m141a(str);
-            if (TextUtils.isEmpty(a2) || m141a == null || m141a.length <= 1 || (a = be.a(a2)) == null) {
+            byte[] m139a = ay.m139a(str);
+            if (TextUtils.isEmpty(a2) || m139a == null || m139a.length <= 1 || (a = be.a(a2)) == null) {
                 return null;
             }
             try {
                 if (a.length > 1) {
-                    return h.b(a, Base64.encode(m141a, 2));
+                    return h.b(a, Base64.encode(m139a, 2));
                 }
                 return null;
             } catch (Exception e) {
@@ -499,6 +499,6 @@ public class a implements IEventProcessor {
                 return null;
             }
         }
-        return ay.m141a(str);
+        return ay.m139a(str);
     }
 }

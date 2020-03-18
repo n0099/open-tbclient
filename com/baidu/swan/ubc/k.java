@@ -6,19 +6,19 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public interface k {
-    int Gu();
+    int Gz();
 
-    ExecutorService HO();
+    ExecutorService HR();
 
-    l IB();
+    l IE();
 
-    String UW();
+    String UZ();
 
-    String Zq();
+    String Zt();
 
-    boolean Zr();
+    boolean Zu();
 
-    boolean Zs();
+    boolean Zv();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -28,7 +28,7 @@ public interface k {
 
     void c(String str, Object obj, int i);
 
-    String cp(Context context);
+    String co(Context context);
 
     void f(String str, int i, String str2);
 
@@ -44,7 +44,7 @@ public interface k {
 
     SQLiteDatabase getWritableDatabase();
 
-    boolean jJ(String str);
+    boolean jI(String str);
 
     void u(String str, int i);
 }

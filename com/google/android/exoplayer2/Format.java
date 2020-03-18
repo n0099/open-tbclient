@@ -28,7 +28,7 @@ public final class Format implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: IW */
+        /* renamed from: Jc */
         public Format[] newArray(int i) {
             return new Format[i];
         }
@@ -197,11 +197,11 @@ public final class Format implements Parcelable {
         this.metadata = (Metadata) parcel.readParcelable(Metadata.class.getClassLoader());
     }
 
-    public Format IV(int i) {
+    public Format Jb(int i) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, i, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, this.metadata);
     }
 
-    public Format fx(long j) {
+    public Format fy(long j) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, j, this.initializationData, this.drmInitData, this.metadata);
     }
 
@@ -216,7 +216,7 @@ public final class Format implements Parcelable {
         return new Format(format.id, this.containerMimeType, this.sampleMimeType, this.codecs == null ? format.codecs : this.codecs, this.bitrate == -1 ? format.bitrate : this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate == -1.0f ? format.frameRate : this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags | format.selectionFlags, this.language == null ? format.language : this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, format.drmInitData != null ? b(format.drmInitData) : this.drmInitData, this.metadata);
     }
 
-    public Format dF(int i, int i2) {
+    public Format dG(int i, int i2) {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, i, i2, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, this.metadata);
     }
 
@@ -228,7 +228,7 @@ public final class Format implements Parcelable {
         return new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, metadata);
     }
 
-    public int dtz() {
+    public int dtW() {
         if (this.width == -1 || this.height == -1) {
             return -1;
         }
@@ -237,7 +237,7 @@ public final class Format implements Parcelable {
 
     @SuppressLint({"InlinedApi"})
     @TargetApi(16)
-    public final MediaFormat dtA() {
+    public final MediaFormat dtX() {
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, this.sampleMimeType);
         a(mediaFormat, IjkMediaMeta.IJKM_KEY_LANGUAGE, this.language);
@@ -402,11 +402,11 @@ public final class Format implements Parcelable {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (int i = 0; i < drmInitData.schemeDataCount; i++) {
-            DrmInitData.SchemeData Jr = drmInitData.Jr(i);
-            if (Jr.hasData()) {
-                arrayList.add(Jr);
+            DrmInitData.SchemeData Jx = drmInitData.Jx(i);
+            if (Jx.hasData()) {
+                arrayList.add(Jx);
             } else {
-                arrayList2.add(Jr);
+                arrayList2.add(Jx);
             }
         }
         if (!arrayList2.isEmpty()) {
@@ -415,14 +415,14 @@ public final class Format implements Parcelable {
             }
             int size = arrayList2.size();
             for (int i2 = 0; i2 < this.drmInitData.schemeDataCount; i2++) {
-                DrmInitData.SchemeData Jr2 = this.drmInitData.Jr(i2);
+                DrmInitData.SchemeData Jx2 = this.drmInitData.Jx(i2);
                 int i3 = 0;
                 while (true) {
                     if (i3 < size) {
-                        if (!Jr2.a((DrmInitData.SchemeData) arrayList2.get(i3))) {
+                        if (!Jx2.a((DrmInitData.SchemeData) arrayList2.get(i3))) {
                             i3++;
                         } else {
-                            arrayList.add(Jr2);
+                            arrayList.add(Jx2);
                             break;
                         }
                     } else {

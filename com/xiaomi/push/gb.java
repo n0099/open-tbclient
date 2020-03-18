@@ -114,7 +114,7 @@ public class gb extends gd {
         sb.append(o());
         gh a2 = a();
         if (a2 != null) {
-            sb.append(a2.m307a());
+            sb.append(a2.m305a());
         }
         sb.append("</iq>");
         return sb.toString();

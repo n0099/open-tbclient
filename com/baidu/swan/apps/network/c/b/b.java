@@ -5,9 +5,9 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b {
     @NonNull
-    public abstract String Zk();
+    public abstract String Zn();
 
-    public abstract void Zl();
+    public abstract void Zo();
 
     public abstract void av(JSONObject jSONObject);
 

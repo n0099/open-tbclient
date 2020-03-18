@@ -17,7 +17,7 @@ public interface a {
 
     void setCanVisible(boolean z);
 
-    void vL();
+    void vQ();
 
-    void vO();
+    void vT();
 }

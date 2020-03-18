@@ -17,7 +17,7 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String azv() {
+    public String azy() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -29,8 +29,8 @@ public class b extends n {
             String optString = jSONObject.optString("curNum");
             i iVar = new i();
             iVar.setActivityId(optInt);
-            iVar.mh(optInt2);
-            iVar.uT(optString);
+            iVar.mj(optInt2);
+            iVar.uS(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, iVar));
         }
     }

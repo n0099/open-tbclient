@@ -10,28 +10,28 @@ import java.util.Locale;
 /* loaded from: classes6.dex */
 public class Layer {
     private final com.airbnb.lottie.e composition;
-    private final float ed;
-    private final List<Mask> gN;
-    private final l iH;
-    private final int jA;
+    private final float ec;
+    private final List<Mask> gM;
+    private final l iG;
     @Nullable
-    private final j jB;
+    private final j jA;
     @Nullable
-    private final k jC;
+    private final k jB;
     @Nullable
-    private final com.airbnb.lottie.model.a.b jD;
-    private final List<com.airbnb.lottie.e.a<Float>> jE;
-    private final MatteType jF;
-    private final String jq;
-    private final long jr;
-    private final LayerType js;
-    private final long jt;
+    private final com.airbnb.lottie.model.a.b jC;
+    private final List<com.airbnb.lottie.e.a<Float>> jD;
+    private final MatteType jE;
+    private final String jp;
+    private final long jq;
+    private final LayerType jr;
+    private final long js;
     @Nullable
-    private final String ju;
+    private final String jt;
+    private final int ju;
     private final int jv;
     private final int jw;
-    private final int jx;
-    private final float jy;
+    private final float jx;
+    private final int jy;
     private final int jz;
     private final List<com.airbnb.lottie.model.content.b> shapes;
 
@@ -57,25 +57,25 @@ public class Layer {
     public Layer(List<com.airbnb.lottie.model.content.b> list, com.airbnb.lottie.e eVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.airbnb.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.airbnb.lottie.model.a.b bVar) {
         this.shapes = list;
         this.composition = eVar;
-        this.jq = str;
-        this.jr = j;
-        this.js = layerType;
-        this.jt = j2;
-        this.ju = str2;
-        this.gN = list2;
-        this.iH = lVar;
-        this.jv = i;
-        this.jw = i2;
-        this.jx = i3;
-        this.jy = f;
-        this.ed = f2;
-        this.jz = i4;
-        this.jA = i5;
-        this.jB = jVar;
-        this.jC = kVar;
-        this.jE = list3;
-        this.jF = matteType;
-        this.jD = bVar;
+        this.jp = str;
+        this.jq = j;
+        this.jr = layerType;
+        this.js = j2;
+        this.jt = str2;
+        this.gM = list2;
+        this.iG = lVar;
+        this.ju = i;
+        this.jv = i2;
+        this.jw = i3;
+        this.jx = f;
+        this.ec = f2;
+        this.jy = i4;
+        this.jz = i5;
+        this.jA = jVar;
+        this.jB = kVar;
+        this.jD = list3;
+        this.jE = matteType;
+        this.jC = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -85,62 +85,62 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float di() {
-        return this.jy;
+        return this.jx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float dj() {
-        return this.ed / this.composition.bo();
+        return this.ec / this.composition.bo();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.airbnb.lottie.e.a<Float>> dk() {
-        return this.jE;
+        return this.jD;
     }
 
     public long getId() {
-        return this.jr;
+        return this.jq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getName() {
-        return this.jq;
+        return this.jp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public String getRefId() {
-        return this.ju;
+        return this.jt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int dl() {
-        return this.jz;
+        return this.jy;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int dm() {
-        return this.jA;
+        return this.jz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<Mask> bX() {
-        return this.gN;
+        return this.gM;
     }
 
     public LayerType dn() {
-        return this.js;
+        return this.jr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: do  reason: not valid java name */
     public MatteType m7do() {
-        return this.jF;
+        return this.jE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long dp() {
-        return this.jt;
+        return this.js;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,40 +150,40 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l cW() {
-        return this.iH;
+        return this.iG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getSolidColor() {
-        return this.jx;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int dq() {
         return this.jw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dr() {
+    public int dq() {
         return this.jv;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int dr() {
+        return this.ju;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public j ds() {
-        return this.jB;
+        return this.jA;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public k dt() {
-        return this.jC;
+        return this.jB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public com.airbnb.lottie.model.a.b du() {
-        return this.jD;
+        return this.jC;
     }
 
     public String toString() {

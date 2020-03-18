@@ -13,35 +13,35 @@ import android.widget.ListView;
 import com.baidu.swan.apps.as.af;
 /* loaded from: classes11.dex */
 public class SwanAppRoundCornerListView extends ListView {
-    private static final float car = af.T(11.0f);
-    private float[] aFu;
-    private final Path cas;
-    private final RectF cat;
-    private PorterDuffXfermode cau;
+    private static final float caC = af.T(11.0f);
+    private float[] aFI;
+    private final Path caD;
+    private final RectF caE;
+    private PorterDuffXfermode caF;
     private final Paint mPaint;
 
     public SwanAppRoundCornerListView(Context context) {
         super(context);
-        this.cas = new Path();
+        this.caD = new Path();
         this.mPaint = new Paint(1);
-        this.cat = new RectF();
-        this.aFu = new float[]{car, car, car, car, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.caE = new RectF();
+        this.aFI = new float[]{caC, caC, caC, caC, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     public SwanAppRoundCornerListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cas = new Path();
+        this.caD = new Path();
         this.mPaint = new Paint(1);
-        this.cat = new RectF();
-        this.aFu = new float[]{car, car, car, car, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.caE = new RectF();
+        this.aFI = new float[]{caC, caC, caC, caC, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     public SwanAppRoundCornerListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cas = new Path();
+        this.caD = new Path();
         this.mPaint = new Paint(1);
-        this.cat = new RectF();
-        this.aFu = new float[]{car, car, car, car, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.caE = new RectF();
+        this.aFI = new float[]{caC, caC, caC, caC, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     public void setListViewRadius(float f, float f2, float f3, float f4) {
@@ -52,19 +52,19 @@ public class SwanAppRoundCornerListView extends ListView {
         if (fArr.length < 8) {
             throw new ArrayIndexOutOfBoundsException("radii[] needs 8 values");
         }
-        this.aFu = new float[8];
+        this.aFI = new float[8];
         for (int i = 0; i < 8; i++) {
-            this.aFu[i] = fArr[i];
+            this.aFI[i] = fArr[i];
         }
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.cat.set(0.0f, 0.0f, i, i2 + 1);
-        this.cas.reset();
-        this.cas.addRoundRect(this.cat, this.aFu, Path.Direction.CW);
-        this.cau = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+        this.caE.set(0.0f, 0.0f, i, i2 + 1);
+        this.caD.reset();
+        this.caD.addRoundRect(this.caE, this.aFI, Path.Direction.CW);
+        this.caF = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -72,8 +72,8 @@ public class SwanAppRoundCornerListView extends ListView {
         super.dispatchDraw(canvas);
         canvas.save();
         this.mPaint.setColor(-1);
-        this.mPaint.setXfermode(this.cau);
-        canvas.drawPath(this.cas, this.mPaint);
+        this.mPaint.setXfermode(this.caF);
+        canvas.drawPath(this.caD, this.mPaint);
         this.mPaint.setXfermode(null);
         canvas.restore();
     }

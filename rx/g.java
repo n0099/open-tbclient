@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes6.dex */
 public abstract class g {
-    static final long nNx = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
+    static final long nPk = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
 
     public abstract a createWorker();
 

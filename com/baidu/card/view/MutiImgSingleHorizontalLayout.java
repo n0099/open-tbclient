@@ -28,17 +28,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com.baidu.tbadk.core.data.a> {
-    private static final int MA = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static final int MC = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static final int ME = MC - MA;
-    private static final int MF = ME / 2;
+    private static final int MC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static final int ME = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private static final int MF = ME - MC;
+    private static final int MG = MF / 2;
     private com.baidu.tbadk.core.data.a Kc;
     private z<com.baidu.tbadk.core.data.a> LD;
-    private boolean NJ;
-    private boolean Oa;
-    private LinkedList<MediaData> Oc;
-    public TbImageView Ow;
-    public ImageView Ox;
+    private boolean NK;
+    private boolean Ob;
+    private LinkedList<MediaData> Oe;
+    public TbImageView Ox;
+    public ImageView Oy;
     public TextView mTitle;
 
     public MutiImgSingleHorizontalLayout(Context context) {
@@ -47,54 +47,54 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.NJ = true;
+        this.NK = true;
         this.Kc = null;
-        this.Oa = false;
+        this.Ob = false;
         initUI();
     }
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
         setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, MF));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, MG));
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.Ow = (TbImageView) findViewById(R.id.thread_card_img_singal);
-        this.Ox = (ImageView) findViewById(R.id.play_btn);
+        this.Ox = (TbImageView) findViewById(R.id.thread_card_img_singal);
+        this.Oy = (ImageView) findViewById(R.id.play_btn);
     }
 
     private void setImageData(bj bjVar) {
-        ArrayList<MediaData> aCy = bjVar.aCy();
-        if (i.azO().isShowImages() && v.getCount(aCy) != 0) {
+        ArrayList<MediaData> aCB = bjVar.aCB();
+        if (i.azR().isShowImages() && v.getCount(aCB) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aCy.size(); i++) {
-                MediaData mediaData = (MediaData) v.getItem(aCy, i);
+            for (int i = 0; i < aCB.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aCB, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.Oc = linkedList;
-            this.Oa = true;
-            this.Ow.setVisibility(8);
+            this.Oe = linkedList;
+            this.Ob = true;
             this.Ox.setVisibility(8);
+            this.Oy.setVisibility(8);
             if (v.getCount(linkedList) > 0) {
-                this.Ow.setVisibility(0);
                 this.Ox.setVisibility(0);
-                this.Ow.setConrers(15);
-                a((MediaData) v.getItem(aCy, 0), this.Ow, true, false, true, 0);
+                this.Oy.setVisibility(0);
+                this.Ox.setConrers(15);
+                a((MediaData) v.getItem(aCB, 0), this.Ox, true, false, true, 0);
                 return;
             }
-            this.Ow.setVisibility(8);
             this.Ox.setVisibility(8);
-            this.Oa = false;
+            this.Oy.setVisibility(8);
+            this.Ob = false;
             return;
         }
-        this.Ow.setVisibility(8);
         this.Ox.setVisibility(8);
-        this.Oa = false;
+        this.Oy.setVisibility(8);
+        this.Ob = false;
     }
 
     public void setFromCDN(boolean z) {
-        this.NJ = z;
+        this.NK = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -105,9 +105,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
         this.Kc = aVar;
-        bj aAg = aVar.aAg();
-        au.a(this.mTitle, aAg);
-        setImageData(aAg);
+        bj aAj = aVar.aAj();
+        au.a(this.mTitle, aAj);
+        setImageData(aAj);
     }
 
     public void setMarginsTop(View view, int i) {
@@ -135,7 +135,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<com
 
     private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
         String a = a(mediaData);
-        int i2 = this.NJ ? 13 : 14;
+        int i2 = this.NK ? 13 : 14;
         if (!aq.equals(a, tbImageView.getUrl())) {
             tbImageView.reset();
         }

@@ -14,8 +14,8 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
 /* loaded from: classes3.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView eKR;
-    private a eKS;
+    private NoNetworkView eLn;
+    private a eLo;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -40,9 +40,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         this.rootView = findViewById(a.g.ala_person_adminlist_rootview);
         this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_adminlist_navigation_bar);
-        this.eKR = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
-        this.eKS = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-        this.eKS.onCreate(bundle);
+        this.eLn = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
+        this.eLo = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+        this.eLo.onCreate(bundle);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_live_admin));
     }
@@ -55,11 +55,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.d.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.d.sdk_cp_bg_line_d);
-        if (this.eKR != null) {
-            this.eKR.onChangeSkinType(getPageContext(), i);
+        if (this.eLn != null) {
+            this.eLn.onChangeSkinType(getPageContext(), i);
         }
-        if (this.eKS != null) {
-            this.eKS.onChangeSkinType(i);
+        if (this.eLo != null) {
+            this.eLo.onChangeSkinType(i);
         }
     }
 }

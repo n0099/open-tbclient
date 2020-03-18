@@ -9,8 +9,8 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.w.b.f;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b bez;
-    private a beA;
+    private static volatile b beM;
+    private a beN;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -24,34 +24,34 @@ public class b {
     private b() {
     }
 
-    public static b JR() {
-        if (bez == null) {
+    public static b JU() {
+        if (beM == null) {
             synchronized (b.class) {
-                if (bez == null) {
-                    bez = new b();
+                if (beM == null) {
+                    beM = new b();
                 }
             }
         }
-        return bez;
+        return beM;
     }
 
     public void a(@NonNull final a.C0218a c0218a, @NonNull a aVar, boolean z) {
-        this.beA = aVar;
-        if (ai.ahe()) {
+        this.beN = aVar;
+        if (ai.ahh()) {
             a(c0218a);
         } else if (z) {
-            this.beA.a(c0218a, "GetLocation does not supported when app is invisible");
+            this.beN.a(c0218a, "GetLocation does not supported when app is invisible");
         } else {
             com.baidu.swan.apps.af.a.a(new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
                 @Override // com.baidu.swan.apps.af.b
-                public void fD(String str) {
+                public void fC(String str) {
                     b.this.a(c0218a);
                 }
 
                 @Override // com.baidu.swan.apps.af.b
                 public void v(int i, String str) {
                     c.e("GetLocationHelper", str);
-                    b.this.beA.a(c0218a, str);
+                    b.this.beN.a(c0218a, str);
                 }
             });
         }
@@ -67,15 +67,15 @@ public class b {
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.w.a.Up().a(str, false, c0218a.bex, new f.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
+        com.baidu.swan.apps.w.a.Us().a(str, false, c0218a.beK, new f.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
             @Override // com.baidu.swan.apps.w.b.f.a
             public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
-                b.this.beA.a(c0218a, bVar);
+                b.this.beN.a(c0218a, bVar);
             }
 
             @Override // com.baidu.swan.apps.w.b.f.a
             public void onFailed(int i) {
-                b.this.beA.a(c0218a, i);
+                b.this.beN.a(c0218a, i);
             }
         });
     }

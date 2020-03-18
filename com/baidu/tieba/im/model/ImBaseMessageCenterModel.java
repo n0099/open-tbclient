@@ -128,7 +128,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterShowItemData != null) {
             final String friendId = imMessageCenterShowItemData.getFriendId();
             if (!TextUtils.isEmpty(friendId) && this.mList != null && this.mList.size() != 0) {
-                com.baidu.tieba.im.db.e.bUo().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
+                com.baidu.tieba.im.db.e.bUG().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
                     private final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
                     private int mLastProgress = 0;
 
@@ -142,7 +142,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     private void clearRemoveCache() {
                         for (Pair<String, Integer> pair : this.mRemoveCache) {
                             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                                com.baidu.tieba.im.db.e.bUo().aP(pair.first, pair.second.intValue());
+                                com.baidu.tieba.im.db.e.bUG().aP(pair.first, pair.second.intValue());
                             }
                         }
                         this.mRemoveCache.clear();
@@ -187,14 +187,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                                 ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                                 return true;
                             }
-                            com.baidu.tieba.im.memorycache.b.bWJ().bWT();
+                            com.baidu.tieba.im.memorycache.b.bXb().bXl();
                             return true;
                         } else if (i == -8) {
                             if (ImBaseMessageCenterModel.this.isEmpty()) {
                                 ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                                 return true;
                             }
-                            com.baidu.tieba.im.memorycache.b.bWJ().bWS();
+                            com.baidu.tieba.im.memorycache.b.bXb().bXk();
                             return true;
                         } else {
                             return false;
@@ -206,7 +206,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, final int i, final b bVar) {
-        com.baidu.tieba.im.db.e.bUo().a(list, i, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
+        com.baidu.tieba.im.db.e.bUG().a(list, i, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
             private final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
             private int mLastProgress = 0;
 
@@ -221,7 +221,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 for (Pair<String, Integer> pair : this.mRemoveCache) {
                     if (pair != null && !TextUtils.isEmpty(pair.first)) {
                         ImBaseMessageCenterModel.this.removeItemInList(pair.first);
-                        com.baidu.tieba.im.db.e.bUo().aP(pair.first, pair.second.intValue());
+                        com.baidu.tieba.im.db.e.bUG().aP(pair.first, pair.second.intValue());
                     }
                 }
                 this.mRemoveCache.clear();
@@ -262,13 +262,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                     } else {
-                        com.baidu.tieba.im.memorycache.b.bWJ().bWT();
+                        com.baidu.tieba.im.memorycache.b.bXb().bXl();
                     }
                 } else if (i2 == 4) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                     } else {
-                        com.baidu.tieba.im.memorycache.b.bWJ().bWS();
+                        com.baidu.tieba.im.memorycache.b.bXb().bXk();
                     }
                 }
             }
@@ -276,7 +276,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
-        com.baidu.tieba.im.db.e.bUo().removeByKeyMemoryChangedWithBroadcast(str, i);
+        com.baidu.tieba.im.db.e.bUG().removeByKeyMemoryChangedWithBroadcast(str, i);
     }
 
     public boolean removeItemInList(String str) {

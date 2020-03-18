@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes9.dex */
 public class am {
-    private static TextView dHf;
-    private static final int[] iNT = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private static TextView dHv;
+    private static final int[] iPu = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
 
     public static Intent aS(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -33,22 +33,22 @@ public class am {
         return intent;
     }
 
-    public static int cpc() {
-        return iNT[new Random().nextInt(iNT.length)];
+    public static int cpx() {
+        return iPu[new Random().nextInt(iPu.length)];
     }
 
-    public static String Gc(String str) {
+    public static String Gb(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
-    public static SpannableString aH(bj bjVar) {
+    public static SpannableString aI(bj bjVar) {
         if (bjVar == null) {
             return null;
         }
         String str = "";
-        if (bjVar.aEj() == 1) {
+        if (bjVar.aEn() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bjVar.aEj() == 2) {
+        } else if (bjVar.aEn() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -64,10 +64,10 @@ public class am {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (dHf == null) {
-                dHf = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (dHv == null) {
+                dHv = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = dHf;
+            TextView textView = dHv;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -83,11 +83,11 @@ public class am {
         }
     }
 
-    public static int cpd() {
+    public static int cpy() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cpe() {
+    public static int cpz() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 }

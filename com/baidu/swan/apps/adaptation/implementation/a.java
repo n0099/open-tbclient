@@ -7,22 +7,22 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.swan.apps.adaptation.a.j {
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int GX() {
+    public int Hc() {
         return 10150;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean GY() {
+    public boolean Hd() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean GZ() {
+    public boolean He() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int Ha() {
+    public int Hf() {
         return 5000;
     }
 
@@ -31,25 +31,25 @@ public class a implements com.baidu.swan.apps.adaptation.a.j {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public void Hb() {
-        com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).Hb();
+    public void Hg() {
+        com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).Hg();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
     public void a(final a.InterfaceC0245a interfaceC0245a) {
-        com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
+        com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
             @Override // com.baidu.swan.apps.core.j.b.a
-            public void Hd() {
+            public void Hi() {
                 if (interfaceC0245a != null) {
-                    interfaceC0245a.Hd();
+                    interfaceC0245a.Hi();
                 }
-                com.baidu.swan.apps.core.j.b.bY(AppRuntime.getAppContext()).b(this);
+                com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).b(this);
             }
         });
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public VideoPlayerFactory Hc() {
+    public VideoPlayerFactory Hh() {
         return null;
     }
 }

@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.FC();
+                    fVar.FH();
                     return;
                 case 5:
                 case 7:
@@ -55,13 +55,13 @@ public class d extends Handler {
                 default:
                     throw new IllegalStateException("Can not handle message what is: " + message.what);
                 case 6:
-                    fVar.Dd();
+                    fVar.Dk();
                     return;
                 case 8:
                     fVar.stopRecording();
                     return;
                 case 9:
-                    fVar.FF();
+                    fVar.FK();
                     fVar.startPreview();
                     return;
                 case 16:
@@ -71,7 +71,7 @@ public class d extends Handler {
                     fVar.t((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.FD();
+                    fVar.FI();
                     return;
             }
         }

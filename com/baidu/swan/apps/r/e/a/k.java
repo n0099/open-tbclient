@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class k extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.e.b.a> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Ts() {
+    public String Tv() {
         return "release";
     }
 

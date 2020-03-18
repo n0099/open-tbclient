@@ -12,12 +12,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com.baidu.live.gift.biggift.c {
-    private com.baidu.live.gift.biggift.b amn;
-    private AlaSmallGiftView amt;
-    private int amu;
-    private int amv;
-    private com.baidu.live.gift.a.c amw;
-    private AlaSmallGiftView.a amx;
+    private AlaSmallGiftView amD;
+    private int amE;
+    private int amF;
+    private com.baidu.live.gift.a.c amG;
+    private AlaSmallGiftView.a amH;
+    private com.baidu.live.gift.biggift.b amx;
     private boolean isShowing;
     private Context mContext;
     private Handler mHandler;
@@ -27,9 +27,9 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
     public AlaDynamicGiftSmallGiftStyleView(Context context) {
         super(context);
         this.isShowing = false;
-        this.amx = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
+        this.amH = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void uf() {
+            public void uk() {
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
@@ -37,20 +37,20 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
                 view.setVisibility(4);
                 view.clearAnimation();
                 AlaDynamicGiftSmallGiftStyleView.this.isShowing = false;
-                if (AlaDynamicGiftSmallGiftStyleView.this.amn != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amn.onEnd();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amx != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amx.onEnd();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void ug() {
+            public void ul() {
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaDynamicGiftSmallGiftStyleView.this.amt != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amt.vo();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amD != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amD.vt();
                 }
             }
         };
@@ -60,9 +60,9 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
     public AlaDynamicGiftSmallGiftStyleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isShowing = false;
-        this.amx = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
+        this.amH = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void uf() {
+            public void uk() {
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
@@ -70,20 +70,20 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
                 view.setVisibility(4);
                 view.clearAnimation();
                 AlaDynamicGiftSmallGiftStyleView.this.isShowing = false;
-                if (AlaDynamicGiftSmallGiftStyleView.this.amn != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amn.onEnd();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amx != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amx.onEnd();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void ug() {
+            public void ul() {
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaDynamicGiftSmallGiftStyleView.this.amt != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amt.vo();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amD != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amD.vt();
                 }
             }
         };
@@ -93,9 +93,9 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
     public AlaDynamicGiftSmallGiftStyleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isShowing = false;
-        this.amx = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
+        this.amH = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.1
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void uf() {
+            public void uk() {
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
@@ -103,20 +103,20 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
                 view.setVisibility(4);
                 view.clearAnimation();
                 AlaDynamicGiftSmallGiftStyleView.this.isShowing = false;
-                if (AlaDynamicGiftSmallGiftStyleView.this.amn != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amn.onEnd();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amx != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amx.onEnd();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-            public void ug() {
+            public void ul() {
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftSmallGiftStyleView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaDynamicGiftSmallGiftStyleView.this.amt != null) {
-                    AlaDynamicGiftSmallGiftStyleView.this.amt.vo();
+                if (AlaDynamicGiftSmallGiftStyleView.this.amD != null) {
+                    AlaDynamicGiftSmallGiftStyleView.this.amD.vt();
                 }
             }
         };
@@ -126,18 +126,18 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
     private void init(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(a.h.ala_dynamic_small_style_layout, this);
-        this.amt = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift);
-        this.amt.setMode(false);
-        this.amt.setSmallAnimCallBack(this.amx);
-        this.amu = (int) this.mContext.getResources().getDimension(a.e.sdk_ds650);
-        this.amv = (int) this.mContext.getResources().getDimension(a.e.sdk_ds356);
+        this.amD = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift);
+        this.amD.setMode(false);
+        this.amD.setSmallAnimCallBack(this.amH);
+        this.amE = (int) this.mContext.getResources().getDimension(a.e.sdk_ds650);
+        this.amF = (int) this.mContext.getResources().getDimension(a.e.sdk_ds356);
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? 2 : 1);
         this.mHandler = new Handler();
     }
 
     private void setRootViewParam(int i) {
         if (i == 2) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.amu, this.amv);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.amE, this.amF);
             layoutParams.bottomMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds240);
             layoutParams.addRule(12);
             this.mRootView.setLayoutParams(layoutParams);
@@ -151,34 +151,34 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
 
     public void setData(com.baidu.live.gift.a.c cVar) {
         if (cVar != null) {
-            this.amw = cVar;
-            this.amw.alC = -1L;
-            this.amt.setTag(this.amw.tR());
-            this.amt.setData(this.amw);
+            this.amG = cVar;
+            this.amG.alM = -1L;
+            this.amD.setTag(this.amG.tW());
+            this.amD.setData(this.amG);
         }
     }
 
     public void startAnim() {
-        if (!this.isShowing && this.amw != null && this.amt != null) {
+        if (!this.isShowing && this.amG != null && this.amD != null) {
             this.isShowing = true;
-            this.amt.setVisibility(0);
-            this.amt.vn();
+            this.amD.setVisibility(0);
+            this.amD.vs();
             this.mHandler.postDelayed(this.mRunnable, 3500L);
-            if (this.amn != null) {
-                this.amn.onStart();
+            if (this.amx != null) {
+                this.amx.onStart();
             }
         }
     }
 
     public void stopAnim() {
-        if (this.isShowing && this.amt != null) {
-            this.amt.vq();
+        if (this.isShowing && this.amD != null) {
+            this.amD.vv();
             this.isShowing = false;
         }
     }
 
     public void setBigGiftCallBack(com.baidu.live.gift.biggift.b bVar) {
-        this.amn = bVar;
+        this.amx = bVar;
     }
 
     public void aO(boolean z) {
@@ -187,8 +187,8 @@ public class AlaDynamicGiftSmallGiftStyleView extends FrameLayout implements com
 
     public void onDestroy() {
         this.isShowing = false;
-        if (this.amt != null) {
-            this.amt.onDestroy();
+        if (this.amD != null) {
+            this.amD.onDestroy();
         }
         this.mHandler.removeCallbacks(this.mRunnable);
     }

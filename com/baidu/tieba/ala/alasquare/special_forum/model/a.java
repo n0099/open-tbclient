@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessa
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0426a erY;
+    private InterfaceC0426a esu;
     private boolean isLoading;
     private TbPageContext mPageContext;
-    private HttpMessageListener erW = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
+    private HttpMessageListener ess = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,11 +25,11 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mCurTag) {
                 SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                 if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                    if (a.this.erY != null) {
-                        a.this.erY.ad(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.esu != null) {
+                        a.this.esu.ad(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (a.this.erY != null) {
-                    a.this.erY.b(specialLiveResponseMessage.getData());
+                } else if (a.this.esu != null) {
+                    a.this.esu.b(specialLiveResponseMessage.getData());
                 }
             }
         }
@@ -46,19 +46,19 @@ public class a {
 
     public a(TbPageContext tbPageContext, InterfaceC0426a interfaceC0426a) {
         this.mPageContext = tbPageContext;
-        this.erY = interfaceC0426a;
-        te();
+        this.esu = interfaceC0426a;
+        tj();
         registerListener();
     }
 
-    private void te() {
+    private void tj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_DATA);
         tbHttpMessageTask.setResponsedClass(SpecialLiveResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.erW);
+        MessageManager.getInstance().registerListener(this.ess);
     }
 
     public void loadData() {
@@ -76,6 +76,6 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        MessageManager.getInstance().unRegisterListener(this.erW);
+        MessageManager.getInstance().unRegisterListener(this.ess);
     }
 }

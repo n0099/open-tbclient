@@ -35,22 +35,22 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes10.dex */
 public class GLVideoPreviewView extends GLSurfaceView implements g {
-    private static int kBe = 720;
-    private static int kBf = TbConfig.HEAD_IMG_SIZE;
-    private static boolean kBj;
-    protected h kBg;
-    private b kBh;
-    private com.faceunity.a.d kBi;
-    private a kBk;
-    private g.a kBl;
-    private boolean kBm;
-    private com.baidu.tieba.k.h khZ;
+    private static int kCL = 720;
+    private static int kCM = TbConfig.HEAD_IMG_SIZE;
+    private static boolean kCQ;
+    protected h kCN;
+    private b kCO;
+    private com.faceunity.a.d kCP;
+    private a kCR;
+    private g.a kCS;
+    private boolean kCT;
+    private com.baidu.tieba.k.h kjC;
     private int mSurfaceViewHeight;
     private int mSurfaceViewWidth;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void tu(boolean z);
+        void tA(boolean z);
     }
 
     public GLVideoPreviewView(Context context, h hVar) {
@@ -58,12 +58,12 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.k.l.class);
         com.baidu.tieba.k.l lVar = runTask != null ? (com.baidu.tieba.k.l) runTask.getData() : null;
         if (lVar != null) {
-            this.khZ = lVar.cgZ();
+            this.kjC = lVar.cht();
         }
-        this.kBg = hVar;
-        this.kBh = new b(context, this, this.khZ);
+        this.kCN = hVar;
+        this.kCO = new b(context, this, this.kjC);
         setEGLContextClientVersion(2);
-        setRenderer(this.kBh);
+        setRenderer(this.kCO);
         setRenderMode(0);
     }
 
@@ -71,14 +71,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     public void e(Camera camera) {
         if (camera != null) {
             try {
-                camera.setPreviewCallback(this.kBh);
-                camera.setPreviewTexture(this.kBh.kBp);
-                this.kBh.kBp.setOnFrameAvailableListener(this.kBh);
+                camera.setPreviewCallback(this.kCO);
+                camera.setPreviewTexture(this.kCO.kCW);
+                this.kCO.kCW.setOnFrameAvailableListener(this.kCO);
                 camera.startPreview();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.khZ != null) {
-                    this.khZ.aP(20, com.baidu.tieba.k.a.q(e));
+                if (this.kjC != null) {
+                    this.kjC.aP(20, com.baidu.tieba.k.a.q(e));
                 }
             }
         }
@@ -87,13 +87,13 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // com.baidu.tieba.video.record.g
     public void f(Camera camera) {
         try {
-            this.kBi = new com.faceunity.a.d();
-            this.kBh.a(this.kBi);
-            kBj = false;
+            this.kCP = new com.faceunity.a.d();
+            this.kCO.a(this.kCP);
+            kCQ = false;
         } catch (Throwable th) {
             BdLog.e(th);
-            if (this.khZ != null) {
-                this.khZ.aP(21, com.baidu.tieba.k.a.q(th));
+            if (this.kjC != null) {
+                this.kjC.aP(21, com.baidu.tieba.k.a.q(th));
             }
         }
     }
@@ -101,32 +101,32 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // com.baidu.tieba.video.record.g
     public void g(Camera camera) {
         try {
-            if (this.kBi != null) {
-                this.kBi.stopRecording();
+            if (this.kCP != null) {
+                this.kCP.stopRecording();
             }
         } catch (Throwable th) {
             BdLog.e(th);
-            if (this.khZ != null) {
-                this.khZ.aP(19, com.baidu.tieba.k.a.q(th));
+            if (this.kjC != null) {
+                this.kjC.aP(19, com.baidu.tieba.k.a.q(th));
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.g
     public void setOnEncoderStatusUpdateListener(d.c cVar) {
-        if (this.kBi != null) {
-            this.kBi.setOnEncoderStatusUpdateListener(cVar);
+        if (this.kCP != null) {
+            this.kCP.setOnEncoderStatusUpdateListener(cVar);
         }
     }
 
     @Override // com.baidu.tieba.video.record.g
     public void h(Camera camera) {
         try {
-            this.kBh.releaseResource();
+            this.kCO.releaseResource();
         } catch (Exception e) {
             e.printStackTrace();
-            if (this.khZ != null) {
-                this.khZ.aP(18, com.baidu.tieba.k.a.q(e));
+            if (this.kjC != null) {
+                this.kjC.aP(18, com.baidu.tieba.k.a.q(e));
             }
         }
     }
@@ -134,100 +134,100 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
     @Override // com.baidu.tieba.video.record.g
     public void setPreviewSize(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.kBh.previewWidth = i;
-            this.kBh.previewHeight = i2;
-            int round = Math.round(((i * 1.0f) / i2) * kBe);
+            this.kCO.previewWidth = i;
+            this.kCO.previewHeight = i2;
+            int round = Math.round(((i * 1.0f) / i2) * kCL);
             if (round % 2 == 1) {
                 round--;
             }
-            kBf = round;
+            kCM = round;
         }
     }
 
     @Override // com.baidu.tieba.video.record.g
     public void a(g.a aVar) {
-        this.kBl = aVar;
-        this.kBm = true;
+        this.kCS = aVar;
+        this.kCT = true;
         requestRender();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.kBg == null) {
+        if (this.kCN == null) {
             return false;
         }
-        return this.kBg.a(motionEvent, getParent());
+        return this.kCN.a(motionEvent, getParent());
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
         super.onResume();
-        if (this.kBh == null) {
+        if (this.kCO == null) {
             return;
         }
-        this.kBh.cRg();
+        this.kCO.cRA();
     }
 
-    public void cRc() {
-        if (this.kBh == null) {
+    public void cRw() {
+        if (this.kCO == null) {
             return;
         }
-        this.kBh.mCameraNV21Byte = null;
+        this.kCO.mCameraNV21Byte = null;
     }
 
     public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
-        if (this.kBh != null) {
-            this.kBh.setBeautyLevel(aVar);
+        if (this.kCO != null) {
+            this.kCO.setBeautyLevel(aVar);
         }
     }
 
     public void setFilter(String str) {
-        if (this.kBh != null) {
-            this.kBh.setFilter(str);
+        if (this.kCO != null) {
+            this.kCO.setFilter(str);
         }
     }
 
     public void setSticker(StickerItem stickerItem) {
-        if (this.kBh != null) {
-            this.kBh.setSticker(stickerItem);
+        if (this.kCO != null) {
+            this.kCO.setSticker(stickerItem);
         }
     }
 
-    public void cRd() {
+    public void cRx() {
         queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (GLVideoPreviewView.this.kBh != null) {
-                    GLVideoPreviewView.this.kBh.cRd();
+                if (GLVideoPreviewView.this.kCO != null) {
+                    GLVideoPreviewView.this.kCO.cRx();
                 }
             }
         });
     }
 
     public void setIsChangingCamera(boolean z) {
-        this.kBh.kBz = z;
+        this.kCO.kDg = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Handler getMainHandler() {
-        return this.kBg.getMainHandler();
+        return this.kCN.getMainHandler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class b implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback, GLSurfaceView.Renderer {
-        private String kBA;
-        private com.faceunity.gles.c kBo;
-        private volatile SurfaceTexture kBp;
-        private GLVideoPreviewView kBq;
-        private int kBr;
-        private Handler kBv;
-        private boolean kBw;
-        com.faceunity.a.d kBx;
-        String kBy;
-        private boolean kBz;
-        private com.baidu.tieba.k.h khZ;
-        private com.faceunity.gles.c kxl;
+        private com.faceunity.gles.c kCV;
+        private volatile SurfaceTexture kCW;
+        private GLVideoPreviewView kCX;
+        private int kCY;
+        private Handler kDc;
+        private boolean kDd;
+        com.faceunity.a.d kDe;
+        String kDf;
+        private boolean kDg;
+        private String kDh;
+        private com.baidu.tieba.k.h kjC;
+        private com.faceunity.gles.c kyQ;
         private byte[] mCameraNV21Byte;
         private float mFacebeautyBlurLevel;
         private float mFacebeautyCheeckThin;
@@ -242,9 +242,9 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         private int mGestureItem = 0;
         private int[] itemsArray = {this.mFacebeautyItem, this.mEffectItem, this.mGestureItem};
         private boolean isNeedEffectItem = true;
-        private long kBs = 0;
-        private int kBt = 0;
-        private long kBu = 0;
+        private long kCZ = 0;
+        private int kDa = 0;
+        private long kDb = 0;
         private String mEffectFileName = "";
         private String mFilterName = "origin";
         private int mFaceShape = 3;
@@ -253,16 +253,16 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         private HandlerThread mCreateItemThread = new HandlerThread("CreateItemThread");
 
         public b(Context context, GLVideoPreviewView gLVideoPreviewView, com.baidu.tieba.k.h hVar) {
-            this.kBq = gLVideoPreviewView;
-            this.khZ = hVar;
+            this.kCX = gLVideoPreviewView;
+            this.kjC = hVar;
             this.mCreateItemThread.start();
-            this.kBv = new a(this.mCreateItemThread.getLooper(), context);
-            setBeautyLevel(com.baidu.tieba.video.a.Dp(2));
+            this.kDc = new a(this.mCreateItemThread.getLooper(), context);
+            setBeautyLevel(com.baidu.tieba.video.a.Dx(2));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void cRg() {
-            this.kBv.sendEmptyMessage(2);
+        public void cRA() {
+            this.kDc.sendEmptyMessage(2);
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -272,31 +272,31 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             this.mCameraNV21Byte = bArr;
-            this.kBq.requestRender();
+            this.kCX.requestRender();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            this.kxl = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            this.kBo = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.kBr = this.kBo.createTextureObject();
-            cRd();
-            boolean unused = GLVideoPreviewView.kBj = false;
+            this.kyQ = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.kCV = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.kCY = this.kCV.createTextureObject();
+            cRx();
+            boolean unused = GLVideoPreviewView.kCQ = false;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            this.kBq.mSurfaceViewWidth = i;
-            this.kBq.mSurfaceViewHeight = i2;
+            this.kCX.mSurfaceViewWidth = i;
+            this.kCX.mSurfaceViewHeight = i2;
         }
 
-        public void cRd() {
-            if (this.kBp != null) {
+        public void cRx() {
+            if (this.kCW != null) {
                 faceunity.fuOnCameraChange();
-                this.kBp.release();
+                this.kCW.release();
             }
-            this.kBp = new SurfaceTexture(this.kBr);
-            cRh();
+            this.kCW = new SurfaceTexture(this.kCY);
+            cRB();
         }
 
         public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
@@ -317,30 +317,30 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onDrawFrame(GL10 gl10) {
-            if (!this.kBz) {
-                int i = this.kBt + 1;
-                this.kBt = i;
+            if (!this.kDg) {
+                int i = this.kDa + 1;
+                this.kDa = i;
                 if (i == 100) {
-                    this.kBt = 0;
-                    this.kBs = System.currentTimeMillis();
-                    this.kBu = 0L;
+                    this.kDa = 0;
+                    this.kCZ = System.currentTimeMillis();
+                    this.kDb = 0L;
                 }
                 float[] fArr = new float[16];
                 try {
-                    this.kBp.updateTexImage();
-                    this.kBp.getTransformMatrix(fArr);
+                    this.kCW.updateTexImage();
+                    this.kCW.getTransformMatrix(fArr);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.khZ != null) {
-                        this.khZ.aP(22, com.baidu.tieba.k.a.q(e));
+                    if (this.kjC != null) {
+                        this.kjC.aP(22, com.baidu.tieba.k.a.q(e));
                     }
                 }
                 if (this.isNeedEffectItem) {
                     this.isNeedEffectItem = false;
-                    this.kBv.sendEmptyMessage(1);
+                    this.kDc.sendEmptyMessage(1);
                 }
-                if (this.kBq.kBk != null) {
-                    this.kBq.kBk.tu(faceunity.fuIsTracking() > 0);
+                if (this.kCX.kCR != null) {
+                    this.kCX.kCR.tA(faceunity.fuIsTracking() > 0);
                 }
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "color_level", this.mFacebeautyColorLevel);
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "blur_level", this.mFacebeautyBlurLevel);
@@ -352,11 +352,11 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "red_level", this.mFacebeautyRedLevel);
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "eye_bright", 0.0d);
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "tooth_whiten", 0.0d);
-                if (this.mCameraNV21Byte == null || this.mCameraNV21Byte.length == 0 || !this.kBw) {
-                    this.kBq.requestRender();
+                if (this.mCameraNV21Byte == null || this.mCameraNV21Byte.length == 0 || !this.kDd) {
+                    this.kCX.requestRender();
                     return;
                 }
-                int i2 = (this.kBq.kBg.mCameraId != 1 ? 32 : 0) | 1;
+                int i2 = (this.kCX.kCN.mCameraId != 1 ? 32 : 0) | 1;
                 if (this.mIsGestureItem) {
                     faceunity.fuItemSetParam(this.mGestureItem, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.mGestureItem, "rotationAngle", getCameraIsBack() ? 270.0d : 90.0d);
@@ -364,38 +364,38 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                     faceunity.fuItemSetParam(this.mEffectItem, "isAndroid", 1.0d);
                     faceunity.fuItemSetParam(this.mEffectItem, "rotationAngle", getCameraIsBack() ? 270.0d : 90.0d);
                 }
-                this.kBq.kBg.getCameraIsBack();
+                this.kCX.kCN.getCameraIsBack();
                 long currentTimeMillis = System.currentTimeMillis();
                 byte[] bArr = this.mCameraNV21Byte;
-                int i3 = this.kBr;
+                int i3 = this.kCY;
                 int i4 = this.previewWidth;
                 int i5 = this.previewHeight;
                 int i6 = this.mFrameId;
                 this.mFrameId = i6 + 1;
                 int fuDualInputToTexture = faceunity.fuDualInputToTexture(bArr, i3, i2, i4, i5, i6, this.itemsArray);
-                this.kBu = (System.currentTimeMillis() - currentTimeMillis) + this.kBu;
+                this.kDb = (System.currentTimeMillis() - currentTimeMillis) + this.kDb;
                 try {
-                    this.kxl.drawFrame(fuDualInputToTexture, fArr);
-                    if (this.kBq.kBm) {
+                    this.kyQ.drawFrame(fuDualInputToTexture, fArr);
+                    if (this.kCX.kCT) {
                         b(gl10);
-                        this.kBq.kBm = false;
+                        this.kCX.kCT = false;
                     }
-                    if (this.kBx != null && this.kBx.checkRecordingStatus(2) && this.kBq.kBg != null) {
-                        this.kBy = this.kBq.kBg.cRj();
-                        this.kBx.a(new d.b(new File(this.kBy), GLVideoPreviewView.kBe, GLVideoPreviewView.kBf, 2097152, null, this.kBp.getTimestamp()));
+                    if (this.kDe != null && this.kDe.checkRecordingStatus(2) && this.kCX.kCN != null) {
+                        this.kDf = this.kCX.kCN.cRD();
+                        this.kDe.a(new d.b(new File(this.kDf), GLVideoPreviewView.kCL, GLVideoPreviewView.kCM, 2097152, null, this.kCW.getTimestamp()));
                     }
-                    if (this.kBx != null && this.kBx.checkRecordingStatus(1)) {
-                        this.kBx.a(this.kxl, fuDualInputToTexture, fArr);
-                        if (GLVideoPreviewView.kBj) {
-                            this.kBx.frameAvailable(this.kBp);
+                    if (this.kDe != null && this.kDe.checkRecordingStatus(1)) {
+                        this.kDe.a(this.kyQ, fuDualInputToTexture, fArr);
+                        if (GLVideoPreviewView.kCQ) {
+                            this.kDe.frameAvailable(this.kCW);
                         }
-                        boolean unused = GLVideoPreviewView.kBj = true;
+                        boolean unused = GLVideoPreviewView.kCQ = true;
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);
-                    this.kBq.g((Camera) null);
-                    if (this.khZ != null) {
-                        this.khZ.aP(23, com.baidu.tieba.k.a.q(th));
+                    this.kCX.g((Camera) null);
+                    if (this.kjC != null) {
+                        this.kjC.aP(23, com.baidu.tieba.k.a.q(th));
                     }
                 }
             }
@@ -403,7 +403,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
         public void a(com.faceunity.a.d dVar) {
             if (dVar != null) {
-                this.kBx = dVar;
+                this.kDe = dVar;
             }
         }
 
@@ -414,8 +414,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             try {
                 System.gc();
                 System.gc();
-                int i = this.kBq.mSurfaceViewWidth;
-                int i2 = this.kBq.mSurfaceViewHeight;
+                int i = this.kCX.mSurfaceViewWidth;
+                int i2 = this.kCX.mSurfaceViewHeight;
                 int[] iArr = new int[i * i2];
                 int[] iArr2 = new int[i * i2];
                 IntBuffer wrap = IntBuffer.wrap(iArr);
@@ -436,7 +436,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 if (0 != 0 && !bitmap2.isRecycled()) {
                     bitmap2.recycle();
                 }
-                if (this.kBq != null && (context = this.kBq.getContext()) != null && (context instanceof Activity)) {
+                if (this.kCX != null && (context = this.kCX.getContext()) != null && (context instanceof Activity)) {
                     ((Activity) context).finish();
                 }
                 System.gc();
@@ -449,10 +449,10 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         }
 
         private void L(final Bitmap bitmap) {
-            this.kBA = null;
+            this.kDh = null;
             if (bitmap == null || bitmap.isRecycled()) {
-                if (this.kBq != null && this.kBq.kBl != null) {
-                    this.kBq.kBl.z(false, this.kBA);
+                if (this.kCX != null && this.kCX.kCS != null) {
+                    this.kCX.kCS.z(false, this.kDh);
                     return;
                 }
                 return;
@@ -463,7 +463,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     try {
-                        b.this.kBA = com.baidu.tbadk.core.util.m.saveFileAsPic(com.baidu.tieba.video.c.kvc, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                        b.this.kDh = com.baidu.tbadk.core.util.m.saveFileAsPic(com.baidu.tieba.video.c.kwG, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
                         return null;
                     } finally {
                         if (bitmap != null && !bitmap.isRecycled()) {
@@ -476,15 +476,15 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Void r4) {
-                    if (b.this.kBq != null && b.this.kBq.kBl != null) {
-                        b.this.kBq.kBl.z(true, b.this.kBA);
+                    if (b.this.kCX != null && b.this.kCX.kCS != null) {
+                        b.this.kCX.kCS.z(true, b.this.kDh);
                     }
                 }
             }.execute(new Void[0]);
         }
 
         public boolean getCameraIsBack() {
-            return this.kBq.kBg.getCameraIsBack();
+            return this.kCX.kCN.getCameraIsBack();
         }
 
         /* loaded from: classes10.dex */
@@ -535,8 +535,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                             return;
                         } catch (IOException e) {
                             e.printStackTrace();
-                            if (b.this.khZ != null) {
-                                b.this.khZ.aP(24, com.baidu.tieba.k.a.q(e));
+                            if (b.this.kjC != null) {
+                                b.this.kjC.aP(24, com.baidu.tieba.k.a.q(e));
                                 return;
                             }
                             return;
@@ -548,11 +548,11 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                             open.read(bArr2);
                             open.close();
                             faceunity.fuSetup(bArr2, null, f.A());
-                            b.this.kBw = true;
+                            b.this.kDd = true;
                         } catch (IOException e2) {
                             e2.printStackTrace();
-                            if (b.this.khZ != null) {
-                                b.this.khZ.aP(25, com.baidu.tieba.k.a.q(e2));
+                            if (b.this.kjC != null) {
+                                b.this.kjC.aP(25, com.baidu.tieba.k.a.q(e2));
                             }
                         }
                         try {
@@ -562,12 +562,12 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
                             open2.close();
                             b.this.mFacebeautyItem = faceunity.fuCreateItemFromPackage(bArr3);
                             b.this.itemsArray[0] = b.this.mFacebeautyItem;
-                            b.this.kBw = true;
+                            b.this.kDd = true;
                             return;
                         } catch (IOException e3) {
                             e3.printStackTrace();
-                            if (b.this.khZ != null) {
-                                b.this.khZ.aP(26, com.baidu.tieba.k.a.q(e3));
+                            if (b.this.kjC != null) {
+                                b.this.kjC.aP(26, com.baidu.tieba.k.a.q(e3));
                                 return;
                             }
                             return;
@@ -579,20 +579,20 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
         }
 
         public void releaseResource() {
-            this.kBq.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.b.2
+            this.kCX.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.kxl != null) {
-                        b.this.kxl.release(false);
-                        b.this.kxl = null;
+                    if (b.this.kyQ != null) {
+                        b.this.kyQ.release(false);
+                        b.this.kyQ = null;
                     }
-                    if (b.this.kBo != null) {
-                        b.this.kBo.release(false);
-                        b.this.kBo = null;
+                    if (b.this.kCV != null) {
+                        b.this.kCV.release(false);
+                        b.this.kCV = null;
                     }
-                    if (b.this.kBp != null) {
-                        b.this.kBp.release();
-                        b.this.kBp = null;
+                    if (b.this.kCW != null) {
+                        b.this.kCW.release();
+                        b.this.kCW = null;
                     }
                     faceunity.fuDestroyItem(b.this.mEffectItem);
                     b.this.itemsArray[1] = b.this.mEffectItem = 0;
@@ -605,9 +605,9 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             });
         }
 
-        private void cRh() {
-            if (this.kBq != null) {
-                Handler mainHandler = this.kBq.getMainHandler();
+        private void cRB() {
+            if (this.kCX != null) {
+                Handler mainHandler = this.kCX.getMainHandler();
                 mainHandler.sendMessage(mainHandler.obtainMessage(1));
                 if (this.mGestureItem != 0) {
                     faceunity.fuItemSetParam(this.mGestureItem, "rotationAngle", getCameraIsBack() ? 270.0d : 90.0d);
@@ -629,13 +629,13 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
             } else {
                 this.mEffectFileName = null;
             }
-            this.kBv.sendEmptyMessage(1);
+            this.kDc.sendEmptyMessage(1);
         }
     }
 
     public void setFaceIdentifyStateListener(a aVar) {
         if (aVar != null) {
-            this.kBk = aVar;
+            this.kCR = aVar;
         }
     }
 }

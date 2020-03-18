@@ -1,12 +1,12 @@
 package rx.c;
 /* loaded from: classes6.dex */
 final class i extends h {
-    private static final i nTO = new i();
+    private static final i nVB = new i();
 
     private i() {
     }
 
-    public static h dPm() {
-        return nTO;
+    public static h dPM() {
+        return nVB;
     }
 }

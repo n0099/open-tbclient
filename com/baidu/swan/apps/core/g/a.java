@@ -5,7 +5,7 @@ import android.app.Activity;
 public interface a {
     void H(Activity activity);
 
-    com.baidu.swan.apps.core.container.a JD();
+    com.baidu.swan.apps.core.container.a JG();
 
     void a(com.baidu.swan.apps.core.b bVar);
 

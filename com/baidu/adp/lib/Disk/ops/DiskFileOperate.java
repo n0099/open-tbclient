@@ -20,9 +20,9 @@ public class DiskFileOperate {
     private boolean mSavedCache;
     private boolean mSdCard;
     private int mTrySuccessWeight;
-    private OperateType oR;
-    protected Action oS;
-    private e.a oT;
+    private OperateType oQ;
+    protected Action oR;
+    private e.a oS;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -45,9 +45,9 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.oR = OperateType.MUST_SUCCESS;
+        this.oQ = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.oS = Action.READ;
+        this.oR = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -61,16 +61,16 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.oT = null;
+        this.oS = null;
         this.mPath = str;
         this.mName = str2;
-        this.oS = action;
+        this.oR = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.oR = OperateType.MUST_SUCCESS;
+        this.oQ = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.oS = Action.READ;
+        this.oR = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -84,12 +84,12 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.oT = null;
+        this.oS = null;
         this.mPath = str;
         this.mName = str2;
         this.mDesPath = str3;
         this.mDesName = str4;
-        this.oS = action;
+        this.oR = action;
     }
 
     public void setLock(Object obj) {
@@ -125,7 +125,7 @@ public class DiskFileOperate {
     }
 
     public Action fl() {
-        return this.oS;
+        return this.oR;
     }
 
     public boolean formatData(byte[] bArr) {
@@ -179,11 +179,11 @@ public class DiskFileOperate {
     }
 
     public OperateType fm() {
-        return this.oR;
+        return this.oQ;
     }
 
     public void a(OperateType operateType) {
-        this.oR = operateType;
+        this.oQ = operateType;
     }
 
     public void callback(boolean z) {
@@ -273,6 +273,6 @@ public class DiskFileOperate {
     }
 
     public e.a fn() {
-        return this.oT;
+        return this.oS;
     }
 }

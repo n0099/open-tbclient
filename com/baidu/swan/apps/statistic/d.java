@@ -31,9 +31,9 @@ public final class d {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().lN(f.gs(i)).e(new com.baidu.swan.apps.ap.a().aI(11L).aJ(2331L).mz("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().lM(f.gs(i)).e(new com.baidu.swan.apps.ap.a().aI(11L).aJ(2331L).my("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            e.a(((com.baidu.swan.apps.core.pms.g) dVar).PA());
+            e.a(((com.baidu.swan.apps.core.pms.g) dVar).PD());
         }
         a(e);
         if (DEBUG) {

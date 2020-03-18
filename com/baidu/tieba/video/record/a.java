@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    public static boolean tr(boolean z) {
+    public static boolean tx(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -33,7 +33,7 @@ public class a {
         return true;
     }
 
-    public static int ts(boolean z) {
+    public static int ty(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -99,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0624a());
+        Collections.sort(supportedPreviewSizes, new C0625a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -137,8 +137,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    private static class C0624a implements Comparator<Camera.Size> {
-        private C0624a() {
+    private static class C0625a implements Comparator<Camera.Size> {
+        private C0625a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

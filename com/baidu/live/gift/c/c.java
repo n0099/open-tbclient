@@ -18,5 +18,5 @@ public interface c {
 
     void release();
 
-    void uN();
+    void uS();
 }

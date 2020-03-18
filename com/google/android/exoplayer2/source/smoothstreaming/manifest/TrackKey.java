@@ -15,7 +15,7 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Lj */
+        /* renamed from: Lp */
         public TrackKey[] newArray(int i) {
             return new TrackKey[i];
         }

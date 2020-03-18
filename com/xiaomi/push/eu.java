@@ -103,7 +103,7 @@ public class eu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hq m259a(String str) {
+    public static hq m257a(String str) {
         hq[] values;
         if (f323a == null) {
             synchronized (hq.class) {
@@ -120,12 +120,12 @@ public class eu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m260a(int i) {
+    public static String m258a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m261a(Context context) {
+    public static void m259a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -134,7 +134,7 @@ public class eu {
     }
 
     private static void a(Context context, hk hkVar) {
-        if (m262a(context.getApplicationContext())) {
+        if (m260a(context.getApplicationContext())) {
             com.xiaomi.push.service.bf.a(context.getApplicationContext(), hkVar);
         } else if (a != null) {
             a.a(context, hkVar);
@@ -165,7 +165,7 @@ public class eu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m262a(Context context) {
+    public static boolean m260a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

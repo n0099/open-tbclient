@@ -11,32 +11,32 @@ import java.net.Socket;
 /* loaded from: classes9.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket dXA;
+    private ServerSocket dXQ;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
             j.z(n.TAG, "run ...");
-            n.this.aXr();
+            n.this.aXv();
             int i = 9000;
-            while (n.this.dXA == null && i < 10000) {
+            while (n.this.dXQ == null && i < 10000) {
                 try {
-                    n.this.dXA = new ServerSocket(i);
+                    n.this.dXQ = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.dXA = null;
+                    n.this.dXQ = null;
                     i++;
                 }
             }
             j.z(n.TAG, "service port " + i);
-            n.this.nY(i);
-            e.aXg();
-            k.aXo();
-            while (!n.this.dXA.isClosed()) {
+            n.this.oa(i);
+            e.aXk();
+            k.aXs();
+            while (!n.this.dXQ.isClosed()) {
                 try {
                     j.z(n.TAG, "accept start");
-                    Socket accept = n.this.dXA.accept();
+                    Socket accept = n.this.dXQ.accept();
                     j.z(n.TAG, "accept end");
                     if (accept != null) {
                         j.z(n.TAG, "连接视频服务的client:" + accept);
@@ -54,18 +54,18 @@ public class n {
                             try {
                                 int indexOf = originUrl.indexOf("?segment_postion=", 0);
                                 b.wz(originUrl.substring(0, indexOf));
-                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.dXu), 0L);
+                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.dXK), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
                             b.cp(j);
                             n.this.b(b, accept);
                         } else {
-                            j.z(n.TAG, "HandleSocketRunnable new request b=" + b.aXl() + " e=" + b.aXm());
+                            j.z(n.TAG, "HandleSocketRunnable new request b=" + b.aXp() + " e=" + b.aXq());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.aXp().n(fVar);
+                            l.aXt().n(fVar);
                         }
                     }
                 } catch (Exception e3) {
@@ -80,16 +80,16 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.aXp().n(this.mRunnable);
+        l.aXt().n(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXr() {
-        File file = new File(i.dXo);
+    public void aXv() {
+        File file = new File(i.dXE);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.dXp);
+        File file2 = new File(i.dXF);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.oC);
+        File file4 = new File(i.oB);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.dXr);
+        File file5 = new File(i.dXH);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -127,8 +127,8 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void nY(int i) {
-        BufferedWriter bufferedWriter = i.dXt;
+    public void oa(int i) {
+        BufferedWriter bufferedWriter = i.dXJ;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.dXA != null) {
-                this.dXA.close();
+            if (this.dXQ != null) {
+                this.dXQ.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.aXg().wv(originUrl);
+        e.aXk().wv(originUrl);
         d(socket);
         j.z(TAG, "handleStopCache out");
     }
@@ -203,7 +203,7 @@ public class n {
         j.z(TAG, "handleNotifyDownLoadNextSegment in");
         String originUrl = hVar.getOriginUrl();
         if (originUrl != null) {
-            e.aXg().v(originUrl, hVar.aXn());
+            e.aXk().v(originUrl, hVar.aXr());
         }
         d(socket);
         j.z(TAG, "handleNotifyDownLoadNextSegment out");
@@ -216,7 +216,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.aXo().wq(originUrl);
+        k.aXs().wq(originUrl);
         d(socket);
         j.z(TAG, "handleFileAccess out");
     }
@@ -224,7 +224,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.z(TAG, "handleDeleteExpiredFiles in");
-        k.aXo().aXb();
+        k.aXs().aXf();
         d(socket);
         j.z(TAG, "handleDeleteExpiredFiles out");
     }
@@ -232,7 +232,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
         j.z(TAG, "handleClearCache in");
-        k.aXo().clearCache();
+        k.aXs().clearCache();
         d(socket);
         j.z(TAG, "handleClearCache out");
     }

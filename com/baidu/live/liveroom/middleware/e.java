@@ -5,5 +5,5 @@ import com.baidu.live.data.m;
 public interface e extends c {
     void j(m mVar);
 
-    void yu();
+    void yz();
 }

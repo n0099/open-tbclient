@@ -18,7 +18,7 @@ public final class FlowableThrottleLatest<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nwE.a((j) new ThrottleLatestSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJi(), this.emitLast));
+        this.nyr.a((j) new ThrottleLatestSubscriber(cVar, this.timeout, this.unit, this.scheduler.dJI(), this.emitLast));
     }
 
     /* loaded from: classes7.dex */

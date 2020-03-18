@@ -11,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 /* loaded from: classes9.dex */
 public class EmotionEditLayout extends FrameLayout {
-    private float jeY;
-    private float jeZ;
-    private long jfa;
+    private float jgx;
+    private float jgy;
+    private long jgz;
     private ViewDragHelper mDragHelper;
     private float mTouchSlop;
 
@@ -36,7 +36,7 @@ public class EmotionEditLayout extends FrameLayout {
             public boolean tryCaptureView(View view, int i) {
                 boolean z = view == emotionEditText;
                 if (view instanceof ImageView) {
-                    emotionEditText.cuM();
+                    emotionEditText.cvf();
                 }
                 return z;
             }
@@ -55,10 +55,10 @@ public class EmotionEditLayout extends FrameLayout {
             public void onViewCaptured(View view, int i) {
                 super.onViewCaptured(view, i);
                 if (view instanceof EmotionEditText) {
-                    EmotionEditLayout.this.jfa = System.currentTimeMillis();
-                    EmotionEditLayout.this.jeY = view.getX();
-                    EmotionEditLayout.this.jeZ = view.getY();
-                    emotionEditText.cuM();
+                    EmotionEditLayout.this.jgz = System.currentTimeMillis();
+                    EmotionEditLayout.this.jgx = view.getX();
+                    EmotionEditLayout.this.jgy = view.getY();
+                    emotionEditText.cvf();
                 }
             }
 
@@ -68,10 +68,10 @@ public class EmotionEditLayout extends FrameLayout {
                 if (view instanceof EmotionEditText) {
                     float x = view.getX();
                     float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.jeY);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.jeZ);
-                    if (abs < EmotionEditLayout.this.mTouchSlop && abs2 < EmotionEditLayout.this.mTouchSlop && System.currentTimeMillis() - EmotionEditLayout.this.jfa < 300) {
-                        emotionEditText.cuN();
+                    float abs = Math.abs(x - EmotionEditLayout.this.jgx);
+                    float abs2 = Math.abs(y - EmotionEditLayout.this.jgy);
+                    if (abs < EmotionEditLayout.this.mTouchSlop && abs2 < EmotionEditLayout.this.mTouchSlop && System.currentTimeMillis() - EmotionEditLayout.this.jgz < 300) {
+                        emotionEditText.cvg();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);

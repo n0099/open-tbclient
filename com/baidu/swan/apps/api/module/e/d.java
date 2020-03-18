@@ -14,7 +14,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fp(String str) {
+    public com.baidu.swan.apps.api.b.b fo(String str) {
         if (DEBUG) {
             Log.d("Api-PageScrollTo", "page scroll to");
         }
@@ -30,14 +30,14 @@ public class d extends com.baidu.swan.apps.api.a.c {
                 ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.d.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        final com.baidu.swan.apps.adaptation.b.d WE = com.baidu.swan.apps.y.f.WS().WE();
-                        if (WE != null) {
-                            ValueAnimator ofInt = ValueAnimator.ofInt(WE.getWebViewScrollY(), d.a(WE, af.dip2px(d.this.getContext(), optInt)));
+                        final com.baidu.swan.apps.adaptation.b.d WH = com.baidu.swan.apps.y.f.WV().WH();
+                        if (WH != null) {
+                            ValueAnimator ofInt = ValueAnimator.ofInt(WH.getWebViewScrollY(), d.a(WH, af.dip2px(d.this.getContext(), optInt)));
                             ofInt.setDuration(optInt2);
                             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.api.module.e.d.1.1.1
                                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                    WE.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                                    WH.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                                 }
                             });
                             ofInt.start();
@@ -50,7 +50,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
     }
 
     public static int a(@NonNull com.baidu.swan.apps.adaptation.b.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.WS().WF().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.y.f.WV().WI().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

@@ -18,24 +18,24 @@ public class b {
                         com.baidu.swan.apps.console.c.w("map", " icon is null ");
                     }
                     if (bitmap != null) {
-                        int width = com.baidu.swan.apps.z.a.a.b.this.bAm.width == -1 ? bitmap.getWidth() : com.baidu.swan.apps.z.a.a.b.this.bAm.width;
-                        int height = com.baidu.swan.apps.z.a.a.b.this.bAm.height == -1 ? bitmap.getHeight() : com.baidu.swan.apps.z.a.a.b.this.bAm.height;
+                        int width = com.baidu.swan.apps.z.a.a.b.this.bAx.width == -1 ? bitmap.getWidth() : com.baidu.swan.apps.z.a.a.b.this.bAx.width;
+                        int height = com.baidu.swan.apps.z.a.a.b.this.bAx.height == -1 ? bitmap.getHeight() : com.baidu.swan.apps.z.a.a.b.this.bAx.height;
                         MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                         builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
                         builder.width(width);
                         builder.height(height);
                         builder.align(1, 8);
-                        builder.point(new Point(com.baidu.swan.apps.z.a.a.b.this.bAm.left, com.baidu.swan.apps.z.a.a.b.this.bAm.f1007top));
+                        builder.point(new Point(com.baidu.swan.apps.z.a.a.b.this.bAx.left, com.baidu.swan.apps.z.a.a.b.this.bAx.f1007top));
                         ImageView imageView = new ImageView(AppRuntime.getAppContext());
                         imageView.setImageBitmap(bitmap);
                         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        imageView.setClickable(com.baidu.swan.apps.z.a.a.b.this.atn);
-                        cVar.cwt.addView(imageView, builder.build());
+                        imageView.setClickable(com.baidu.swan.apps.z.a.a.b.this.atx);
+                        cVar.cwE.addView(imageView, builder.build());
                         imageView.setOnClickListener(bVar2);
                         com.baidu.swan.impl.map.item.a aVar = new com.baidu.swan.impl.map.item.a();
-                        aVar.cwb = com.baidu.swan.apps.z.a.a.b.this;
-                        aVar.cwc = imageView;
-                        cVar.bzR.add(aVar);
+                        aVar.cwm = com.baidu.swan.apps.z.a.a.b.this;
+                        aVar.cwn = imageView;
+                        cVar.bAc.add(aVar);
                     }
                 }
             });

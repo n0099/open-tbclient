@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private HashMap<String, String> eKz;
+    private HashMap<String, String> eKV;
     private String orderId;
 
     public GetNuomiOrderHttpResponsedMessage() {
@@ -18,28 +18,28 @@ public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.eKz = new HashMap<>();
+            this.eKV = new HashMap<>();
             this.orderId = jSONObject.optString("tpOrderId");
-            this.eKz.put("dealId", jSONObject.optString("dealId"));
-            this.eKz.put("appKey", jSONObject.optString("appKey"));
-            this.eKz.put("tpOrderId", jSONObject.optString("tpOrderId"));
-            this.eKz.put("timestamp", jSONObject.optString("timestamp"));
-            this.eKz.put("totalAmount", jSONObject.optString("totalAmount"));
-            this.eKz.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
-            this.eKz.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
-            this.eKz.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
-            this.eKz.put("dealTitle", jSONObject.optString("dealTitle"));
-            this.eKz.put("returnData", jSONObject.optString("returnData"));
-            this.eKz.put("nativeAppId", jSONObject.optString("nativeAppId"));
-            this.eKz.put("channel", jSONObject.optString("channel"));
-            this.eKz.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
-            this.eKz.put("rsaSign", jSONObject.optString("rsaSign"));
-            this.eKz.put("bizInfo", jSONObject.optString("bizInfo"));
+            this.eKV.put("dealId", jSONObject.optString("dealId"));
+            this.eKV.put("appKey", jSONObject.optString("appKey"));
+            this.eKV.put("tpOrderId", jSONObject.optString("tpOrderId"));
+            this.eKV.put("timestamp", jSONObject.optString("timestamp"));
+            this.eKV.put("totalAmount", jSONObject.optString("totalAmount"));
+            this.eKV.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
+            this.eKV.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
+            this.eKV.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
+            this.eKV.put("dealTitle", jSONObject.optString("dealTitle"));
+            this.eKV.put("returnData", jSONObject.optString("returnData"));
+            this.eKV.put("nativeAppId", jSONObject.optString("nativeAppId"));
+            this.eKV.put("channel", jSONObject.optString("channel"));
+            this.eKV.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
+            this.eKV.put("rsaSign", jSONObject.optString("rsaSign"));
+            this.eKV.put("bizInfo", jSONObject.optString("bizInfo"));
         }
     }
 
-    public HashMap<String, String> bgq() {
-        return this.eKz;
+    public HashMap<String, String> bgv() {
+        return this.eKV;
     }
 
     public String getOrderId() {

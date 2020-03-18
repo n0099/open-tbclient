@@ -18,7 +18,7 @@ public class d extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpane
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: as */
+    /* renamed from: at */
     public d.a onCreateViewHolder(ViewGroup viewGroup) {
         return new d.a(new com.baidu.tieba.ala.person.hosttabpanel.d.d(this.mPageContext));
     }
@@ -28,7 +28,7 @@ public class d extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpane
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.person.hosttabpanel.b.c cVar, d.a aVar) {
-        aVar.frJ.onBindDataToView(cVar);
+        aVar.fsi.onBindDataToView(cVar);
         return aVar.getView();
     }
 }

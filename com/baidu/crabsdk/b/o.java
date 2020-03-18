@@ -1,49 +1,59 @@
 package com.baidu.crabsdk.b;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.telephony.TelephonyManager;
+import com.baidu.android.util.devices.NetWorkUtils;
+import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes8.dex */
 public final class o {
-    private static PackageManager RZ;
-    private static PackageInfo Sa;
-    private static String Sb;
+    private static TelephonyManager RZ;
+    private static ConnectivityManager Sa;
     private static Context mContext;
 
-    public static String F() {
-        return mContext.getPackageName();
-    }
-
-    public static String G() {
-        if (Sb == null) {
-            if (Sa == null) {
-                return "N/A";
-            }
-            Sb = Sa.applicationInfo.loadLabel(RZ).toString();
-        }
-        return Sb;
-    }
-
     public static String H() {
-        return Sa == null ? "N/A" : Sa.versionName;
+        NetworkInfo activeNetworkInfo;
+        StringBuilder sb = new StringBuilder();
+        try {
+            if (Sa == null) {
+                Sa = (ConnectivityManager) mContext.getSystemService("connectivity");
+            }
+            activeNetworkInfo = Sa.getActiveNetworkInfo();
+        } catch (RuntimeException e) {
+            com.baidu.crabsdk.c.a.f("getNetworkInfo", e);
+        }
+        if (activeNetworkInfo == null) {
+            return "N/A";
+        }
+        if (activeNetworkInfo.isConnected()) {
+            sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
+            if (activeNetworkInfo.getType() == 0) {
+                sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
+                if (RZ == null) {
+                    RZ = (TelephonyManager) mContext.getSystemService("phone");
+                }
+                sb.append("isRoaming: ").append(RZ.isNetworkRoaming() ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
+            }
+        } else {
+            sb.append("type: none\n");
+        }
+        return sb.toString();
     }
 
-    public static int I() {
-        if (Sa == null) {
-            return 0;
+    public static String I() {
+        try {
+            if (Sa == null) {
+                Sa = (ConnectivityManager) mContext.getSystemService("connectivity");
+            }
+            NetworkInfo activeNetworkInfo = Sa.getActiveNetworkInfo();
+            return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
+        } catch (RuntimeException e) {
+            return RomUtils.UNKNOWN;
         }
-        return Sa.versionCode;
     }
 
     public static void e(Context context) {
-        if (mContext == null) {
-            mContext = context;
-            RZ = context.getPackageManager();
-            try {
-                Sa = RZ.getPackageInfo(mContext.getPackageName(), 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
-            }
-        }
+        mContext = context;
     }
 }

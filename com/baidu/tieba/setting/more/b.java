@@ -12,64 +12,64 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class b extends com.baidu.adp.base.c<AdSettingActivity> {
-    private ImageView gzA;
-    private AdSettingActivity jSs;
-    private MsgSettingItemView jSt;
-    private TextView jSu;
-    private View jSv;
-    private View jSw;
-    private TextView jSx;
-    private TextView jSy;
-    private TextView jSz;
+    private ImageView gAy;
+    private AdSettingActivity jTU;
+    private MsgSettingItemView jTV;
+    private TextView jTW;
+    private View jTX;
+    private View jTY;
+    private TextView jTZ;
+    private TextView jUa;
+    private TextView jUb;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.jSs = adSettingActivity;
-        aMS();
+        this.jTU = adSettingActivity;
+        aMW();
     }
 
-    private void aMS() {
-        this.jSs.setContentView(R.layout.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.jSs.findViewById(R.id.view_navigation_bar);
+    private void aMW() {
+        this.jTU.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.jTU.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.jSs.getPageContext().getString(R.string.ad_control_setting));
-        this.jSt = (MsgSettingItemView) this.jSs.findViewById(R.id.memberAdSetting);
-        this.jSt.setLineVisibility(false);
-        this.jSu = (TextView) this.jSs.findViewById(R.id.memberAdTips);
-        this.jSv = this.jSs.findViewById(R.id.privacyContainer);
-        this.jSw = this.jSs.findViewById(R.id.privacyItem);
-        this.jSz = (TextView) this.jSs.findViewById(R.id.privacyControlText);
-        this.jSx = (TextView) this.jSs.findViewById(R.id.privacyControlTipsSmall);
-        this.jSx = (TextView) this.jSs.findViewById(R.id.privacyControlTipsSmall);
-        this.jSy = (TextView) this.jSs.findViewById(R.id.privacyControlTips);
-        this.gzA = (ImageView) this.jSs.findViewById(R.id.arrow);
-        this.mParent = this.jSs.findViewById(R.id.parent);
-        this.jSw.setOnClickListener(this.jSs);
-        cFq();
+        this.mNavigationBar.setTitleText(this.jTU.getPageContext().getString(R.string.ad_control_setting));
+        this.jTV = (MsgSettingItemView) this.jTU.findViewById(R.id.memberAdSetting);
+        this.jTV.setLineVisibility(false);
+        this.jTW = (TextView) this.jTU.findViewById(R.id.memberAdTips);
+        this.jTX = this.jTU.findViewById(R.id.privacyContainer);
+        this.jTY = this.jTU.findViewById(R.id.privacyItem);
+        this.jUb = (TextView) this.jTU.findViewById(R.id.privacyControlText);
+        this.jTZ = (TextView) this.jTU.findViewById(R.id.privacyControlTipsSmall);
+        this.jTZ = (TextView) this.jTU.findViewById(R.id.privacyControlTipsSmall);
+        this.jUa = (TextView) this.jTU.findViewById(R.id.privacyControlTips);
+        this.gAy = (ImageView) this.jTU.findViewById(R.id.arrow);
+        this.mParent = this.jTU.findViewById(R.id.parent);
+        this.jTY.setOnClickListener(this.jTU);
+        cFK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.jSs.getLayoutMode().setNightMode(i == 1);
-        this.jSs.getLayoutMode().onModeChanged(this.mParent);
+        this.jTU.getLayoutMode().setNightMode(i == 1);
+        this.jTU.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setViewTextColor(this.jSu, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jSy, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jSz, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jSx, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.jSu, R.color.cp_bg_line_d);
-        SvgManager.aGC().a(this.gzA, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setBackgroundColor(this.jSv, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.jSw, R.drawable.setting_item_selector);
+        am.setViewTextColor(this.jTW, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.jUa, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.jUb, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.jTZ, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.jTW, R.color.cp_bg_line_d);
+        SvgManager.aGG().a(this.gAy, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        am.setBackgroundColor(this.jTX, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.jTY, R.drawable.setting_item_selector);
     }
 
-    private void cFq() {
+    private void cFK() {
         int i;
         int i2 = 0;
-        this.jSt.setText(R.string.member_ad_setting_text);
-        this.jSt.setOnSwitchStateChangeListener(this.jSs);
+        this.jTV.setText(R.string.member_ad_setting_text);
+        this.jTV.setOnSwitchStateChangeListener(this.jTU);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -78,27 +78,27 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.jSt.setVisibility(8);
-            this.jSu.setVisibility(8);
+            this.jTV.setVisibility(8);
+            this.jTW.setVisibility(8);
         } else if (i2 == 0) {
-            this.jSt.turnOffNoCallback();
+            this.jTV.turnOffNoCallback();
         } else {
-            this.jSt.turnOnNoCallback();
+            this.jTV.turnOnNoCallback();
         }
-        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.aFD().getString("sync_ad_privacy_url", ""))) {
-            this.jSv.setVisibility(8);
+        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.aFH().getString("sync_ad_privacy_url", ""))) {
+            this.jTX.setVisibility(8);
         }
     }
 
-    public View cFr() {
-        return this.jSw;
+    public View cFL() {
+        return this.jTY;
     }
 
-    public void cFs() {
-        this.jSt.turnOffNoCallback();
+    public void cFM() {
+        this.jTV.turnOffNoCallback();
     }
 
-    public void cFt() {
-        this.jSt.turnOnNoCallback();
+    public void cFN() {
+        this.jTV.turnOnNoCallback();
     }
 }

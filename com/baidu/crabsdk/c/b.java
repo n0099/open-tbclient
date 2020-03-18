@@ -4,15 +4,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public final class b<E> extends LinkedList<E> {
-    private final int bU;
+    private final int cg;
 
     public b(int i) {
-        this.bU = i;
+        this.cg = i;
     }
 
     @Override // java.util.LinkedList, java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
     public final void add(int i, E e) {
-        if (size() == this.bU) {
+        if (size() == this.cg) {
             removeFirst();
         }
         super.add(i, e);
@@ -20,7 +20,7 @@ public final class b<E> extends LinkedList<E> {
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
     public final boolean add(E e) {
-        if (size() == this.bU) {
+        if (size() == this.cg) {
             removeFirst();
         }
         return super.add(e);

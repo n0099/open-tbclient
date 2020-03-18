@@ -12,21 +12,21 @@ public interface f {
 
     boolean H(int i, long j);
 
-    Format KQ(int i);
+    Format KW(int i);
 
-    int LG(int i);
+    int LM(int i);
 
-    t dxg();
+    t dxD();
 
-    int dxk();
+    int dxH();
 
-    int dxl();
+    int dxI();
 
-    Object dxm();
+    Object dxJ();
 
-    Format dyy();
+    Format dyV();
 
-    int dyz();
+    int dyW();
 
     void g(long j, long j2, long j3);
 

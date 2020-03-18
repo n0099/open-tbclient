@@ -17,10 +17,10 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean fQH = false;
+    private static boolean fRq = false;
 
     static {
-        if (!fQH) {
+        if (!fRq) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS));
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -53,7 +53,7 @@ public class DiscoverDelegateStatic extends b {
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dBP = this.mIndicator;
+        aVar.dCc = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 3.0f);
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
         this.mIndicator.a("emotion", aVar);
@@ -62,7 +62,7 @@ public class DiscoverDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        fQH = true;
+        fRq = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

@@ -38,7 +38,7 @@ public final class x extends bc.a {
         cif.c(hq.ClientInfoUpdate.f489a);
         cif.a(aj.a());
         cif.a(new HashMap());
-        cif.m416a().put("gaid", b);
+        cif.m414a().put("gaid", b);
         this.a.a(this.a.getPackageName(), iq.a(w.a(this.a.getPackageName(), this.f936a.d, cif, hg.Notification)), true);
     }
 }

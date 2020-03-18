@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     @NonNull
-    public static c pV(String str) {
+    public static c pU(String str) {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -36,13 +36,13 @@ public class b {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.cuw = bJ(optJSONObject);
+            aVar.cuH = bJ(optJSONObject);
         }
-        aVar.cux = new ArrayList();
+        aVar.cuI = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.cux.add(bJ(optJSONArray.optJSONObject(i)));
+                aVar.cuI.add(bJ(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;

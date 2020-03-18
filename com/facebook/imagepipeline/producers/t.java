@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> lVK;
-    private final ak lVR;
-    private long lVS = 0;
-    private int lVT;
     @Nullable
-    private com.facebook.imagepipeline.common.a lVU;
+    private com.facebook.imagepipeline.common.a lXA;
+    private final k<com.facebook.imagepipeline.g.e> lXq;
+    private final ak lXx;
+    private long lXy = 0;
+    private int lXz;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.lVK = kVar;
-        this.lVR = akVar;
+        this.lXq = kVar;
+        this.lXx = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> drK() {
-        return this.lVK;
+    public k<com.facebook.imagepipeline.g.e> dsh() {
+        return this.lXq;
     }
 
-    public ak drL() {
-        return this.lVR;
+    public ak dsi() {
+        return this.lXx;
     }
 
     public String getId() {
-        return this.lVR.getId();
+        return this.lXx.getId();
     }
 
-    public am drz() {
-        return this.lVR.drz();
+    public am drW() {
+        return this.lXx.drW();
     }
 
     public Uri getUri() {
-        return this.lVR.dry().dsr();
+        return this.lXx.drV().dsO();
     }
 
-    public long drM() {
-        return this.lVS;
+    public long dsj() {
+        return this.lXy;
     }
 
-    public void fj(long j) {
-        this.lVS = j;
+    public void fk(long j) {
+        this.lXy = j;
     }
 
-    public int drN() {
-        return this.lVT;
+    public int dsk() {
+        return this.lXz;
     }
 
-    public void IL(int i) {
-        this.lVT = i;
+    public void IR(int i) {
+        this.lXz = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a drO() {
-        return this.lVU;
+    public com.facebook.imagepipeline.common.a dsl() {
+        return this.lXA;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.lVU = aVar;
+        this.lXA = aVar;
     }
 
-    public Map<String, String> drP() {
-        return this.lVR.dry().drP();
+    public Map<String, String> dsm() {
+        return this.lXx.drV().dsm();
     }
 }

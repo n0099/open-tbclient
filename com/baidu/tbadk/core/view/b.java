@@ -13,26 +13,26 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends ReplacementSpan {
-    private int dej;
-    private int dek;
-    private int del;
-    private int den;
-    private int deo;
-    private int dep;
+    private int deB;
+    private int deC;
+    private int deD;
+    private int dex;
+    private int dey;
+    private int dez;
     private String identify;
     private int mTextColorId;
     private int mTextSize;
-    private RectF dem = new RectF();
+    private RectF deA = new RectF();
     private Paint mTextPaint = new Paint();
 
     public b(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.dej = i;
-        this.dek = i2;
-        this.del = i3;
+        this.dex = i;
+        this.dey = i2;
+        this.dez = i3;
         this.mTextSize = i4;
         this.mTextColorId = i5;
-        this.den = i6;
-        this.dep = i7;
+        this.deB = i6;
+        this.deD = i7;
         this.mTextPaint.setAntiAlias(true);
         this.mTextPaint.setStyle(Paint.Style.STROKE);
         this.mTextPaint.setTextSize(this.mTextSize);
@@ -40,20 +40,20 @@ public class b extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.deo = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.den * 2);
-        return this.deo;
+        this.deC = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.deB * 2);
+        return this.deC;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         int color;
         int color2;
-        this.mTextPaint.setColor(am.getColor(this.del));
-        int i6 = ((i5 - this.dep) / 2) + i3;
-        this.dem.left = f;
-        this.dem.top = i6;
-        this.dem.right = this.deo + f;
-        this.dem.bottom = i6 + this.dep;
+        this.mTextPaint.setColor(am.getColor(this.dez));
+        int i6 = ((i5 - this.deD) / 2) + i3;
+        this.deA.left = f;
+        this.deA.top = i6;
+        this.deA.right = this.deC + f;
+        this.deA.bottom = i6 + this.deD;
         if (this.identify != null) {
             if (" 吧主".equals(this.identify)) {
                 color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.ba_zhu_start);
@@ -68,14 +68,14 @@ public class b extends ReplacementSpan {
                 color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_end);
                 color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.floor_host_end);
             }
-            this.mTextPaint.setShader(new LinearGradient(this.dem.left, this.dem.top, this.dem.right, this.dem.bottom, color, color2, Shader.TileMode.CLAMP));
+            this.mTextPaint.setShader(new LinearGradient(this.deA.left, this.deA.top, this.deA.right, this.deA.bottom, color, color2, Shader.TileMode.CLAMP));
         }
-        canvas.drawRoundRect(this.dem, this.dek, this.dek, this.mTextPaint);
+        canvas.drawRoundRect(this.deA, this.dey, this.dey, this.mTextPaint);
         this.mTextPaint.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if ((skinType == 1 || skinType == 4) && this.identify != null) {
             this.mTextPaint.setColor(com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.mask));
-            canvas.drawRoundRect(this.dem, this.dek, this.dek, this.mTextPaint);
+            canvas.drawRoundRect(this.deA, this.dey, this.dey, this.mTextPaint);
         }
         Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
         if (this.identify != null) {
@@ -83,10 +83,10 @@ public class b extends ReplacementSpan {
         } else {
             this.mTextPaint.setColor(am.getColor(this.mTextColorId));
         }
-        canvas.drawText(charSequence, i, i2, f + this.den, (int) ((this.dem.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.mTextPaint);
+        canvas.drawText(charSequence, i, i2, f + this.deB, (int) ((this.deA.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.mTextPaint);
     }
 
-    public void fO(boolean z) {
+    public void fP(boolean z) {
         if (this.mTextPaint != null) {
             if (z) {
                 this.mTextPaint.setStyle(Paint.Style.FILL);
@@ -97,10 +97,10 @@ public class b extends ReplacementSpan {
     }
 
     public void kV(int i) {
-        this.dek = i;
+        this.dey = i;
     }
 
-    public void tS(String str) {
+    public void tR(String str) {
         this.identify = str;
     }
 }

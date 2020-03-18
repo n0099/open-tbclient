@@ -17,179 +17,179 @@ import com.baidu.tieba.ala.liveroom.data.f;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView;
 /* loaded from: classes3.dex */
 public class b {
-    private f eZZ;
-    private ILiveMultiBeautyView faa;
-    public AlaLiveRecorder fab;
-    private com.baidu.live.ar.e fac = new com.baidu.live.ar.e() { // from class: com.baidu.tieba.ala.liveroom.g.b.1
+    private com.baidu.live.ar.e faA = new com.baidu.live.ar.e() { // from class: com.baidu.tieba.ala.liveroom.g.b.1
         @Override // com.baidu.live.ar.e
-        public void pD() {
+        public void pI() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913147));
         }
 
         @Override // com.baidu.live.ar.e
         public void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey) {
-            if (b.this.fab != null && AlaFilterAndBeautyData.VL != null && AlaFilterAndBeautyData.VL.get(beautyAdjustKey) != null) {
-                b.this.fab.onBeautyParamsChanged(f, AlaFilterAndBeautyData.VL.get(beautyAdjustKey).py());
+            if (b.this.faz != null && AlaFilterAndBeautyData.VV != null && AlaFilterAndBeautyData.VV.get(beautyAdjustKey) != null) {
+                b.this.faz.onBeautyParamsChanged(f, AlaFilterAndBeautyData.VV.get(beautyAdjustKey).pD());
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void onBlurLevelSelected(int i) {
-            if (b.this.fab != null) {
-                b.this.fab.onBlurLevelSelected(i);
+            if (b.this.faz != null) {
+                b.this.faz.onBlurLevelSelected(i);
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void onFilterSelected(String str) {
-            if (b.this.fab != null) {
-                b.this.fab.onFilterSelected(str);
+            if (b.this.faz != null) {
+                b.this.faz.onFilterSelected(str);
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void o(int i, int i2) {
-            if (b.this.fab != null) {
-                b.this.fab.onColorLevelSelected((1.0f * i) / i2);
+            if (b.this.faz != null) {
+                b.this.faz.onColorLevelSelected((1.0f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void p(int i, int i2) {
-            if (b.this.fab != null) {
-                b.this.fab.onCheekThinSelected((1.0f * i) / i2);
+            if (b.this.faz != null) {
+                b.this.faz.onCheekThinSelected((1.0f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void q(int i, int i2) {
-            if (b.this.fab != null) {
-                b.this.fab.onEnlargeEyeSelected((0.8f * i) / i2);
+            if (b.this.faz != null) {
+                b.this.faz.onEnlargeEyeSelected((0.8f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.e
         public void r(int i, int i2) {
-            if (b.this.fab != null) {
-                b.this.fab.onRedLevelSelected((1.0f * i) / i2);
+            if (b.this.faz != null) {
+                b.this.faz.onRedLevelSelected((1.0f * i) / i2);
             }
         }
     };
+    private f fax;
+    private ILiveMultiBeautyView fay;
+    public AlaLiveRecorder faz;
     private Context mContext;
     private ViewGroup mParent;
 
     public b(ViewGroup viewGroup, f fVar, AlaLiveRecorder alaLiveRecorder) {
-        this.eZZ = fVar;
+        this.fax = fVar;
         this.mContext = fVar.pageContext.getPageActivity();
         this.mParent = viewGroup;
-        this.fab = alaLiveRecorder;
-        if (an.b(com.baidu.live.v.a.zl().axD)) {
+        this.faz = alaLiveRecorder;
+        if (an.b(com.baidu.live.v.a.zs().axR)) {
             com.baidu.live.ar.a aVar = new com.baidu.live.ar.a();
-            aVar.VH = fVar.pageContext;
+            aVar.VR = fVar.pageContext;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913176, ILiveMultiBeautyView.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.faa = (ILiveMultiBeautyView) runTask.getData();
-                this.faa.setArModel(fVar.faY);
+                this.fay = (ILiveMultiBeautyView) runTask.getData();
+                this.fay.setArModel(fVar.fbw);
             }
-        } else if (an.a(com.baidu.live.v.a.zl().axD)) {
-            this.faa = new AlaLiveMultiBeautyView(fVar.pageContext.getPageActivity());
+        } else if (an.a(com.baidu.live.v.a.zs().axR)) {
+            this.fay = new AlaLiveMultiBeautyView(fVar.pageContext.getPageActivity());
         }
-        this.faa.setBdPageContext(this.eZZ.pageContext);
-        this.faa.setOnEffectSelectedListener(this.fac);
+        this.fay.setBdPageContext(this.fax.pageContext);
+        this.fay.setOnEffectSelectedListener(this.faA);
     }
 
     public void a(AlaLiveVideoConfig alaLiveVideoConfig, boolean z) {
-        if (this.faa != null) {
+        if (this.fay != null) {
             if (z) {
-                this.faa.pB();
-            } else if (an.b(com.baidu.live.v.a.zl().axD)) {
-                this.faa.setViewData();
-            } else if (an.a(com.baidu.live.v.a.zl().axD)) {
+                this.fay.pG();
+            } else if (an.b(com.baidu.live.v.a.zs().axR)) {
+                this.fay.setViewData();
+            } else if (an.a(com.baidu.live.v.a.zs().axR)) {
                 com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
-                dVar.faG = 40;
-                dVar.faI = 5;
-                dVar.faJ = 50;
-                dVar.faK = 50;
-                dVar.yW(com.baidu.live.c.pr().getString("ala_beauty_5.4_config_str", ""));
-                ((AlaLiveMultiBeautyView) this.faa).setViewData(dVar, alaLiveVideoConfig);
+                dVar.fbe = 40;
+                dVar.fbg = 5;
+                dVar.fbh = 50;
+                dVar.fbi = 50;
+                dVar.yW(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
+                ((AlaLiveMultiBeautyView) this.fay).setViewData(dVar, alaLiveVideoConfig);
             }
         }
     }
 
-    public void blz() {
+    public void blE() {
         AlaFilterAndBeautyData.BeautyAdjustKey[] values;
-        if (this.fab != null) {
-            if (an.b(com.baidu.live.v.a.zl().axD)) {
+        if (this.faz != null) {
+            if (an.b(com.baidu.live.v.a.zs().axR)) {
                 for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                    this.fac.a((com.baidu.live.ar.b.VT.cS(beautyAdjustKey.getJsonKey()) * 1.0f) / 100.0f, beautyAdjustKey);
+                    this.faA.a((com.baidu.live.ar.b.We.cR(beautyAdjustKey.getJsonKey()) * 1.0f) / 100.0f, beautyAdjustKey);
                 }
-                if (!TextUtils.isEmpty(com.baidu.live.ar.b.VT.VP)) {
-                    this.fac.onFilterSelected(com.baidu.live.ar.b.VT.VP);
+                if (!TextUtils.isEmpty(com.baidu.live.ar.b.We.VZ)) {
+                    this.faA.onFilterSelected(com.baidu.live.ar.b.We.VZ);
                 }
-            } else if (an.a(com.baidu.live.v.a.zl().axD)) {
+            } else if (an.a(com.baidu.live.v.a.zs().axR)) {
                 com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
-                dVar.yW(com.baidu.live.c.pr().getString("ala_beauty_5.4_config_str", ""));
-                this.fab.onBlurLevelSelected(dVar.faI);
-                this.fab.onFilterSelected(dVar.mFilterName);
-                this.fab.onColorLevelSelected((dVar.faG * 1.0f) / 100.0f);
-                this.fab.onCheekThinSelected((dVar.faK * 1.0f) / 100.0f);
-                this.fab.onEnlargeEyeSelected((dVar.faJ * 1.0f) / 100.0f);
-                this.fab.onRedLevelSelected((dVar.faH * 1.0f) / 100.0f);
-                this.fab.onChinSelected((dVar.faL * 1.0f) / 100.0f);
-                this.fab.onNoseSelected((dVar.faM * 1.0f) / 100.0f);
+                dVar.yW(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
+                this.faz.onBlurLevelSelected(dVar.fbg);
+                this.faz.onFilterSelected(dVar.mFilterName);
+                this.faz.onColorLevelSelected((dVar.fbe * 1.0f) / 100.0f);
+                this.faz.onCheekThinSelected((dVar.fbi * 1.0f) / 100.0f);
+                this.faz.onEnlargeEyeSelected((dVar.fbh * 1.0f) / 100.0f);
+                this.faz.onRedLevelSelected((dVar.fbf * 1.0f) / 100.0f);
+                this.faz.onChinSelected((dVar.fbj * 1.0f) / 100.0f);
+                this.faz.onNoseSelected((dVar.fbk * 1.0f) / 100.0f);
             }
         }
     }
 
-    public void blA() {
-        if (this.faa != null) {
-            this.faa.pC();
+    public void blF() {
+        if (this.fay != null) {
+            this.fay.pH();
         }
     }
 
     public void setVisible(int i) {
-        if (this.faa != null) {
-            this.faa.setVisibility(i);
+        if (this.fay != null) {
+            this.fay.setVisibility(i);
         }
     }
 
     public void a(AlaLiveVideoConfig alaLiveVideoConfig) {
-        if (this.faa != null) {
-            if (this.faa.getParent() != null) {
-                ((ViewGroup) this.faa.getParent()).removeView(this.faa);
+        if (this.fay != null) {
+            if (this.fay.getParent() != null) {
+                ((ViewGroup) this.fay.getParent()).removeView(this.fay);
             }
             if (TbadkCoreApplication.getInst().isNotMobileBaidu() && (this.mContext instanceof Activity)) {
                 if (((Activity) this.mContext).getApplication().getResources().getConfiguration().orientation == 1) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                     layoutParams.gravity = 80;
-                    this.mParent.addView(this.faa, layoutParams);
+                    this.mParent.addView(this.fay, layoutParams);
                 } else {
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -1);
                     layoutParams2.gravity = 5;
-                    this.mParent.addView(this.faa, layoutParams2);
+                    this.mParent.addView(this.fay, layoutParams2);
                 }
             } else if (this.mContext.getResources().getConfiguration().orientation == 1) {
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams3.gravity = 80;
-                this.mParent.addView(this.faa, layoutParams3);
+                this.mParent.addView(this.fay, layoutParams3);
             } else {
                 FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-2, -1);
                 layoutParams4.gravity = 5;
-                this.mParent.addView(this.faa, layoutParams4);
+                this.mParent.addView(this.fay, layoutParams4);
             }
-            this.faa.setVisibility(0);
+            this.fay.setVisibility(0);
         }
     }
 
-    public void jl(boolean z) {
-        if (this.faa != null) {
+    public void jn(boolean z) {
+        if (this.fay != null) {
             if (z) {
-                this.faa.pC();
+                this.fay.pH();
             }
-            if (this.faa.getParent() != null) {
-                ((ViewGroup) this.faa.getParent()).removeView(this.faa);
+            if (this.fay.getParent() != null) {
+                ((ViewGroup) this.fay.getParent()).removeView(this.fay);
             }
-            com.baidu.live.ar.b.VT.VQ = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
+            com.baidu.live.ar.b.We.Wa = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
         }
     }
 }

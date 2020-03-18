@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
@@ -111,5 +112,9 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public void setProfessionZone(int i) {
         getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 }

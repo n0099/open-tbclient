@@ -17,8 +17,8 @@ public class b implements com.facebook.imagepipeline.f.a {
     public Drawable b(c cVar) {
         if (cVar instanceof d) {
             d dVar = (d) cVar;
-            BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dqs());
-            return (dVar.dqw() == 0 || dVar.dqw() == -1) ? bitmapDrawable : new i(bitmapDrawable, dVar.dqw());
+            BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dqP());
+            return (dVar.dqT() == 0 || dVar.dqT() == -1) ? bitmapDrawable : new i(bitmapDrawable, dVar.dqT());
         }
         return null;
     }

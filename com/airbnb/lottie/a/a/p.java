@@ -8,9 +8,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class p implements l, a.InterfaceC0010a {
     @Nullable
-    private r fT;
-    private boolean fZ;
-    private final com.airbnb.lottie.a.b.a<?, Path> gB;
+    private r fS;
+    private boolean fY;
+    private final com.airbnb.lottie.a.b.a<?, Path> gA;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -18,9 +18,9 @@ public class p implements l, a.InterfaceC0010a {
     public p(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = gVar;
-        this.gB = kVar.da().cn();
-        aVar.a(this.gB);
-        this.gB.b(this);
+        this.gA = kVar.da().cn();
+        aVar.a(this.gA);
+        this.gA.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
@@ -29,7 +29,7 @@ public class p implements l, a.InterfaceC0010a {
     }
 
     private void invalidate() {
-        this.fZ = false;
+        this.fY = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -41,8 +41,8 @@ public class p implements l, a.InterfaceC0010a {
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
                 if ((bVar instanceof r) && ((r) bVar).bN() == ShapeTrimPath.Type.Simultaneously) {
-                    this.fT = (r) bVar;
-                    this.fT.a(this);
+                    this.fS = (r) bVar;
+                    this.fS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -53,14 +53,14 @@ public class p implements l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.a.a.l
     public Path bG() {
-        if (this.fZ) {
+        if (this.fY) {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.gB.getValue());
+        this.path.set(this.gA.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.airbnb.lottie.d.f.a(this.path, this.fT);
-        this.fZ = true;
+        com.airbnb.lottie.d.f.a(this.path, this.fS);
+        this.fY = true;
         return this.path;
     }
 

@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes8.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
-    private AntiData dgO;
-    private View.OnClickListener dgP;
+    private AntiData dhb;
+    private View.OnClickListener dhc;
 
     public PbThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
@@ -38,10 +38,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setNeedAddPraiseIcon(true);
         setNeedAddReplyIcon(true);
         setShareVisible(true);
-        aHK();
+        aHO();
     }
 
-    private void aHK() {
+    private void aHO() {
         View findViewById = findViewById(R.id.thread_comment_layout_root);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = -1;
@@ -76,30 +76,30 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         layoutParams6.topMargin = -com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds15);
         layoutParams6.weight = 0.5f;
         agreeView.setLayoutParams(layoutParams6);
-        agreeView.aHs();
+        agreeView.aHw();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void aS(View view) {
-        if (this.dgP != null) {
-            this.dgP.onClick(view);
+        if (this.dhc != null) {
+            this.dhc.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void aT(View view) {
-        if (this.dgP != null) {
-            this.dgP.onClick(view);
+        if (this.dhc != null) {
+            this.dhc.onClick(view);
         }
     }
 
-    public void tY(String str) {
+    public void tX(String str) {
         if (this.KJ != null && !TextUtils.isEmpty(str) && str.equals(this.KJ.getTid())) {
             com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-            dVar.cNC = 4;
-            dVar.cNE = 2;
-            this.dht.setStatisticData(dVar);
-            this.dht.aHt();
+            dVar.cNP = 4;
+            dVar.cNR = 2;
+            this.dhG.setStatisticData(dVar);
+            this.dhG.aHx();
         }
     }
 
@@ -107,23 +107,17 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     public void setOnClickOutListener(View.OnClickListener onClickListener) {
-        this.dgP = onClickListener;
+        this.dhc = onClickListener;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(bj bjVar) {
         super.setAgreeViewType(bjVar);
-        if (bjVar != null && bjVar.aEi()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dht.getLayoutParams();
+        if (bjVar != null && bjVar.aEm()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dhG.getLayoutParams();
             layoutParams.weight = 0.25f;
-            this.dht.setLayoutParams(layoutParams);
+            this.dhG.setLayoutParams(layoutParams);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void v(bj bjVar) {
-        super.v(bjVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -132,60 +126,66 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         super.w(bjVar);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void x(bj bjVar) {
+        super.x(bjVar);
+    }
+
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void onChangeSkinType() {
         super.onChangeSkinType();
     }
 
     public boolean a(bj bjVar, AntiData antiData) {
-        this.dgO = antiData;
+        this.dhb = antiData;
         return setData(bjVar);
     }
 
-    public boolean aHL() {
-        return (this.KJ == null || !this.KJ.aBb() || this.KJ.aCF() == null) ? false : true;
+    public boolean aHP() {
+        return (this.KJ == null || !this.KJ.aBe() || this.KJ.aCI() == null) ? false : true;
     }
 
-    public boolean aHM() {
-        return (this.KJ == null || this.KJ.aCf() == 0) ? false : true;
+    public boolean aHQ() {
+        return (this.KJ == null || this.KJ.aCi() == 0) ? false : true;
     }
 
-    public boolean aHN() {
-        if (aHL() && aHM()) {
+    public boolean aHR() {
+        if (aHP() && aHQ()) {
             return false;
         }
-        return AntiHelper.aX(this.KJ);
+        return AntiHelper.aY(this.KJ);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateReplyStateUI() {
-        if (aHN()) {
-            if (this.dhL) {
-                SvgManager.aGC().a(this.dhv, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
+        if (aHR()) {
+            if (this.dhY) {
+                SvgManager.aGG().a(this.dhI, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
             }
-            am.setViewTextColor(this.dhu, (int) R.color.cp_cont_e);
+            am.setViewTextColor(this.dhH, (int) R.color.cp_cont_e);
             return;
         }
-        if (this.dhL) {
-            SvgManager.aGC().a(this.dhv, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (this.dhY) {
+            SvgManager.aGG().a(this.dhI, R.drawable.icon_pure_pb_reply26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        am.setViewTextColor(this.dhu, (int) R.drawable.selector_comment_and_prise_item_text_color);
+        am.setViewTextColor(this.dhH, (int) R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateShareStateUI(bj bjVar) {
-        if (AntiHelper.aY(bjVar)) {
+        if (AntiHelper.aZ(bjVar)) {
             setShareClickable(true);
-            SvgManager.aGC().a(this.dhy, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
-            am.setViewTextColor(this.dhx, (int) R.color.cp_cont_e);
-        } else if (bjVar != null && bjVar.cTR != null && this.KJ.cTR.cOL) {
+            SvgManager.aGG().a(this.dhL, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL);
+            am.setViewTextColor(this.dhK, (int) R.color.cp_cont_e);
+        } else if (bjVar != null && bjVar.cUe != null && this.KJ.cUe.cOY) {
             setShareClickable(false);
-            SvgManager.aGC().a(this.dhy, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            am.setViewTextColor(this.dhx, (int) R.color.cp_cont_e);
+            SvgManager.aGG().a(this.dhL, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_e, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            am.setViewTextColor(this.dhK, (int) R.color.cp_cont_e);
         } else {
             setShareClickable(true);
-            SvgManager.aGC().a(this.dhy, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            am.setViewTextColor(this.dhx, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.aGG().a(this.dhL, R.drawable.icon_pure_pb_share26_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            am.setViewTextColor(this.dhK, (int) R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
 }

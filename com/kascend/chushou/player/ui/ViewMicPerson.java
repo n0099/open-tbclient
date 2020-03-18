@@ -26,7 +26,7 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
     private long j;
     private String k;
     private int l;
-    private Fragment mZY;
+    private Fragment nbJ;
 
     public ViewMicPerson(Context context) {
         super(context);
@@ -62,15 +62,15 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
             if (this.h != null) {
                 this.h.setText(String.format(this.f.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
             }
-            if (this.mZY != null && this.mZY.isAdded()) {
-                ((com.kascend.chushou.view.c.a) this.mZY).a(arrayList);
+            if (this.nbJ != null && this.nbJ.isAdded()) {
+                ((com.kascend.chushou.view.c.a) this.nbJ).a(arrayList);
             }
         }
     }
 
     public void a() {
         this.b = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, a.C0690a.commonres_activity_exit_right);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, a.C0691a.commonres_activity_exit_right);
         loadAnimation.setAnimationListener(this);
         if (this.d != null) {
             this.d.startAnimation(loadAnimation);
@@ -108,7 +108,7 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
         this.f = null;
         this.b = false;
         this.a = false;
-        this.mZY = null;
+        this.nbJ = null;
         this.d = null;
         this.c = null;
         this.j = 0L;

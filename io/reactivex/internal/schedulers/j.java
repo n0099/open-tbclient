@@ -12,24 +12,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class j extends v {
-    static final RxThreadFactory nAd;
-    static final ScheduledExecutorService nAe = Executors.newScheduledThreadPool(0);
-    final ThreadFactory aRX;
-    final AtomicReference<ScheduledExecutorService> nAc;
+    static final RxThreadFactory nBQ;
+    static final ScheduledExecutorService nBR = Executors.newScheduledThreadPool(0);
+    final ThreadFactory aSk;
+    final AtomicReference<ScheduledExecutorService> nBP;
 
     static {
-        nAe.shutdown();
-        nAd = new RxThreadFactory("RxSingleScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.single-priority", 5).intValue())), true);
+        nBR.shutdown();
+        nBQ = new RxThreadFactory("RxSingleScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.single-priority", 5).intValue())), true);
     }
 
     public j() {
-        this(nAd);
+        this(nBQ);
     }
 
     public j(ThreadFactory threadFactory) {
-        this.nAc = new AtomicReference<>();
-        this.aRX = threadFactory;
-        this.nAc.lazySet(b(threadFactory));
+        this.nBP = new AtomicReference<>();
+        this.aSk = threadFactory;
+        this.nBP.lazySet(b(threadFactory));
     }
 
     static ScheduledExecutorService b(ThreadFactory threadFactory) {
@@ -41,22 +41,22 @@ public final class j extends v {
         ScheduledExecutorService scheduledExecutorService;
         ScheduledExecutorService scheduledExecutorService2 = null;
         do {
-            scheduledExecutorService = this.nAc.get();
-            if (scheduledExecutorService != nAe) {
+            scheduledExecutorService = this.nBP.get();
+            if (scheduledExecutorService != nBR) {
                 if (scheduledExecutorService2 != null) {
                     scheduledExecutorService2.shutdown();
                     return;
                 }
                 return;
             } else if (scheduledExecutorService2 == null) {
-                scheduledExecutorService2 = b(this.aRX);
+                scheduledExecutorService2 = b(this.aSk);
             }
-        } while (!this.nAc.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
+        } while (!this.nBP.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
     }
 
     @Override // io.reactivex.v
-    public v.c dJi() {
-        return new a(this.nAc.get());
+    public v.c dJI() {
+        return new a(this.nBP.get());
     }
 
     @Override // io.reactivex.v
@@ -65,9 +65,9 @@ public final class j extends v {
         ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.e.a.F(runnable));
         try {
             if (j <= 0) {
-                schedule = this.nAc.get().submit(scheduledDirectTask);
+                schedule = this.nBP.get().submit(scheduledDirectTask);
             } else {
-                schedule = this.nAc.get().schedule(scheduledDirectTask, j, timeUnit);
+                schedule = this.nBP.get().schedule(scheduledDirectTask, j, timeUnit);
             }
             scheduledDirectTask.setFuture(schedule);
             return scheduledDirectTask;
@@ -82,7 +82,7 @@ public final class j extends v {
         Future<?> schedule;
         Runnable F = io.reactivex.e.a.F(runnable);
         if (j2 <= 0) {
-            ScheduledExecutorService scheduledExecutorService = this.nAc.get();
+            ScheduledExecutorService scheduledExecutorService = this.nBP.get();
             c cVar = new c(F, scheduledExecutorService);
             try {
                 if (j <= 0) {
@@ -99,7 +99,7 @@ public final class j extends v {
         }
         ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(F);
         try {
-            scheduledDirectPeriodicTask.setFuture(this.nAc.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
+            scheduledDirectPeriodicTask.setFuture(this.nBP.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
             return scheduledDirectPeriodicTask;
         } catch (RejectedExecutionException e2) {
             io.reactivex.e.a.onError(e2);
@@ -111,7 +111,7 @@ public final class j extends v {
     static final class a extends v.c {
         volatile boolean disposed;
         final ScheduledExecutorService executor;
-        final io.reactivex.disposables.a nzr = new io.reactivex.disposables.a();
+        final io.reactivex.disposables.a nBe = new io.reactivex.disposables.a();
 
         a(ScheduledExecutorService scheduledExecutorService) {
             this.executor = scheduledExecutorService;
@@ -123,8 +123,8 @@ public final class j extends v {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.F(runnable), this.nzr);
-            this.nzr.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.F(runnable), this.nBe);
+            this.nBe.a(scheduledRunnable);
             try {
                 if (j <= 0) {
                     schedule = this.executor.submit((Callable) scheduledRunnable);
@@ -144,7 +144,7 @@ public final class j extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nzr.dispose();
+                this.nBe.dispose();
             }
         }
 

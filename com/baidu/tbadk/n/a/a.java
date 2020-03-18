@@ -5,26 +5,26 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class a {
-    private c dEX;
-    private String dEY;
+    private c dFn;
+    private String dFo;
 
     public a(String str) {
-        this.dEY = str;
+        this.dFo = str;
     }
 
-    public void aRt() {
+    public void aRx() {
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.dEX == null) {
-                this.dEX = new c();
+            if (this.dFn == null) {
+                this.dFn = new c();
             }
-            this.dEX.start();
+            this.dFn.start();
         }
     }
 
-    public void aRu() {
-        if (this.dEX != null && Build.VERSION.SDK_INT >= 16) {
-            this.dEX.stop();
-            af(this.dEY, this.dEX.getFps());
+    public void aRy() {
+        if (this.dFn != null && Build.VERSION.SDK_INT >= 16) {
+            this.dFn.stop();
+            af(this.dFo, this.dFn.getFps());
         }
     }
 

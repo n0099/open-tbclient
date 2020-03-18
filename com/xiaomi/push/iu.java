@@ -15,7 +15,7 @@ public class iu extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m464a() {
+    public byte[] m462a() {
         return this.buf;
     }
 }

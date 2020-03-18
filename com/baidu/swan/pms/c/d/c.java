@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private String cCa;
-    private int cCb;
-    private long cCc;
-    private String cCd;
-    private String cCe;
-    private int cCf;
+    private String cCl;
+    private int cCm;
+    private long cCn;
+    private String cCo;
+    private String cCp;
+    private int cCq;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.cCb = -1;
-        this.cCc = -1L;
-        this.cCf = -1;
-        this.cCa = str;
+        this.cCm = -1;
+        this.cCn = -1L;
+        this.cCq = -1;
+        this.cCl = str;
     }
 
     public c iJ(int i) {
-        this.cCf = i;
+        this.cCq = i;
         return this;
     }
 
-    public int aum() {
-        return this.cCf;
+    public int aup() {
+        return this.cCq;
     }
 
-    public c qw(String str) {
-        this.cCd = str;
+    public c qv(String str) {
+        this.cCo = str;
         return this;
     }
 
     public c iK(int i) {
-        this.cCb = i;
+        this.cCm = i;
         return this;
     }
 
     public c bl(long j) {
-        this.cCc = j;
+        this.cCn = j;
+        return this;
+    }
+
+    public c qw(String str) {
+        this.cCp = str;
         return this;
     }
 
     public c qx(String str) {
-        this.cCe = str;
-        return this;
-    }
-
-    public c qy(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.cCa;
+        return this.cCl;
     }
 
-    public int auk() {
-        return this.cCb;
+    public int aun() {
+        return this.cCm;
     }
 
-    public long aul() {
-        return this.cCc;
+    public long auo() {
+        return this.cCn;
     }
 
-    public String aun() {
-        return this.cCd;
+    public String auq() {
+        return this.cCo;
     }
 
-    public String auo() {
-        return this.cCe;
+    public String aur() {
+        return this.cCp;
     }
 
     public String getPath() {

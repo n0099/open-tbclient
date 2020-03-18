@@ -97,11 +97,11 @@ public class c {
         }
     }
 
-    public static boolean ph() {
+    public static boolean pm() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static boolean c(long j, boolean z) {
+    public static boolean d(long j, boolean z) {
         long blockSize;
         long availableBlocks;
         if (z) {
@@ -116,7 +116,7 @@ public class c {
         return availableBlocks * blockSize > j;
     }
 
-    public static FileOutputStream cH(String str) throws IOException {
+    public static FileOutputStream cG(String str) throws IOException {
         File file = new File(str);
         if (file.exists()) {
             if (file.isDirectory()) {
@@ -143,14 +143,14 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [617=4] */
-    public static boolean Q(String str, String str2) {
+    public static boolean P(String str, String str2) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream = null;
         try {
-            fileInputStream = cI(str);
+            fileInputStream = cH(str);
             try {
                 try {
-                    fileOutputStream = cH(str2);
+                    fileOutputStream = cG(str2);
                     byte[] bArr = new byte[1024];
                     while (true) {
                         int read = fileInputStream.read(bArr);
@@ -187,7 +187,7 @@ public class c {
         }
     }
 
-    public static FileInputStream cI(String str) throws IOException {
+    public static FileInputStream cH(String str) throws IOException {
         File file = new File(str);
         if (file.exists()) {
             if (file.isDirectory()) {
@@ -203,21 +203,21 @@ public class c {
 
     public static boolean b(String str, File file) {
         boolean z = false;
-        InputStream cJ = cJ(str);
+        InputStream cI = cI(str);
         try {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            d.close(cJ);
+            d.close(cI);
         }
-        if (cJ != null) {
-            d.copyStream(cJ, file);
+        if (cI != null) {
+            d.copyStream(cI, file);
             z = true;
         }
         return z;
     }
 
-    public static InputStream cJ(String str) {
+    public static InputStream cI(String str) {
         try {
             return Application.get().getAssets().open(str);
         } catch (IOException e) {
@@ -234,7 +234,7 @@ public class c {
         return true;
     }
 
-    public static long cK(String str) {
+    public static long cJ(String str) {
         try {
             File file = new File(str);
             if (file.exists()) {

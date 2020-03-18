@@ -21,11 +21,11 @@ public class gl {
     private static XmlPullParser a = null;
 
     public static ga a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m310a = gk.a().m310a(SchemeCollecter.CLASSIFY_ALL, "xm:chat");
-        if (m310a == null || !(m310a instanceof com.xiaomi.push.service.e)) {
+        Object m308a = gk.a().m308a(SchemeCollecter.CLASSIFY_ALL, "xm:chat");
+        if (m308a == null || !(m308a instanceof com.xiaomi.push.service.e)) {
             return null;
         }
-        return ((com.xiaomi.push.service.e) m310a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.e) m308a).b(xmlPullParser);
     }
 
     public static gb a(XmlPullParser xmlPullParser, fm fmVar) {
@@ -48,7 +48,7 @@ public class gl {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    ghVar = m314a(xmlPullParser);
+                    ghVar = m312a(xmlPullParser);
                 } else {
                     gbVar = new gb();
                     gbVar.a(a(name, namespace, xmlPullParser));
@@ -119,7 +119,7 @@ public class gl {
                         gcVar.k(attributeValue2);
                         gcVar.f(attributeValue5);
                         ga gaVar = new ga("s", null, null, null);
-                        gaVar.m302a(text);
+                        gaVar.m300a(text);
                         gcVar.a(gaVar);
                         return gcVar;
                     }
@@ -199,21 +199,21 @@ public class gl {
                 if (name.equals("subject")) {
                     if (b(xmlPullParser) == null) {
                     }
-                    gcVar2.g(m315a(xmlPullParser));
+                    gcVar2.g(m313a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                    String m315a = m315a(xmlPullParser);
+                    String m313a = m313a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        gcVar2.h(m315a);
+                        gcVar2.h(m313a);
                     } else {
-                        gcVar2.a(m315a, attributeValue11);
+                        gcVar2.a(m313a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gcVar2.a(m314a(xmlPullParser));
+                    gcVar2.a(m312a(xmlPullParser));
                 } else {
                     gcVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -226,7 +226,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m312a(XmlPullParser xmlPullParser) {
+    public static gf m310a(XmlPullParser xmlPullParser) {
         gf.b bVar = gf.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -268,7 +268,7 @@ public class gl {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gfVar.a(m314a(xmlPullParser));
+                    gfVar.a(m312a(xmlPullParser));
                 } else {
                     gfVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -280,7 +280,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m313a(XmlPullParser xmlPullParser) {
+    public static gg m311a(XmlPullParser xmlPullParser) {
         gg ggVar = null;
         boolean z = false;
         while (!z) {
@@ -295,7 +295,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gh m314a(XmlPullParser xmlPullParser) {
+    public static gh m312a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
@@ -340,7 +340,7 @@ public class gl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m315a(XmlPullParser xmlPullParser) {
+    private static String m313a(XmlPullParser xmlPullParser) {
         String str = "";
         int depth = xmlPullParser.getDepth();
         while (true) {

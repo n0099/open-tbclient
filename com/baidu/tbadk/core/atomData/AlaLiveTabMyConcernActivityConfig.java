@@ -1,8 +1,8 @@
-package com.baidu.ala.atomdata;
+package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaLiveTabMyConcernActivityConfig extends IntentConfig {
     public AlaLiveTabMyConcernActivityConfig(Context context) {
         super(context);

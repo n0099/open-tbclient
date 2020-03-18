@@ -14,47 +14,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asF = new ArrayList();
-    private BdTypeListView eko;
-    private com.baidu.tieba.personCenter.a.c jgS;
-    private d jhg;
-    private com.baidu.tieba.personCenter.a.a jhh;
-    private com.baidu.tieba.personCenter.a.b jhi;
-    private f jhj;
-    private e jhk;
+    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
+    private BdTypeListView ekE;
+    private d jiG;
+    private com.baidu.tieba.personCenter.a.a jiH;
+    private com.baidu.tieba.personCenter.a.b jiI;
+    private f jiJ;
+    private e jiK;
+    private com.baidu.tieba.personCenter.a.c jis;
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.eko = bdTypeListView;
+        this.ekE = bdTypeListView;
         a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.jhg = new d(tbPageContext, h.jhS);
-        this.jhh = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.jhy);
-        this.jhi = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.jhz);
-        this.jhj = new f(tbPageContext, m.jie);
-        this.jgS = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jhR);
-        this.jhk = new e(tbPageContext, j.jhY);
-        this.asF.add(this.jhg);
-        this.asF.add(this.jhh);
-        this.asF.add(this.jhi);
-        this.asF.add(this.jhj);
-        this.asF.add(this.jgS);
-        this.asF.add(this.jhk);
-        bdTypeListView.addAdapters(this.asF);
+        this.jiG = new d(tbPageContext, h.jjs);
+        this.jiH = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.jiY);
+        this.jiI = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.jiZ);
+        this.jiJ = new f(tbPageContext, m.jjD);
+        this.jis = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jjr);
+        this.jiK = new e(tbPageContext, j.jjy);
+        this.asP.add(this.jiG);
+        this.asP.add(this.jiH);
+        this.asP.add(this.jiI);
+        this.asP.add(this.jiJ);
+        this.asP.add(this.jis);
+        this.asP.add(this.jiK);
+        bdTypeListView.addAdapters(this.asP);
     }
 
     public void onChangeSkinType() {
-        if (this.eko != null && (this.eko.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.eko.getAdapter().notifyDataSetChanged();
+        if (this.ekE != null && (this.ekE.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.ekE.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void cve() {
-        this.jhh.cve();
+    public void cvx() {
+        this.jiH.cvx();
     }
 
-    public void cvf() {
-        this.jhh.destroy();
+    public void cvy() {
+        this.jiH.destroy();
     }
 }
